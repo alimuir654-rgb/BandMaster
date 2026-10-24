@@ -11,6 +11,7 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
+const Recording = preload("res://Scripts/recording_career.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -898,7 +899,39 @@ func _actions() -> void:
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
 
+func _recording_studio() -> void:
+ var songs: Array = Recording.catalogue(_state())
+ var recorded = _extra().get("recordings",[])
+ var sessions: Array = recorded if recorded is Array else []
+ var studio := _card("RECORDING STUDIO  /  YOUR FIRST RELEASE","Turn original songs into a local recording, then release it to build a following.")
+ _label(studio,"%d ORIGINALS  /  %d DEMO SESSIONS" % [songs.size(),sessions.size()],14,UI.AMBER)
+ var latest: Dictionary = Recording.can_record(_state())
+ var record_button := UI.button("BOOK TWO DAYS IN THE STUDIO  ·  £%d" % Recording.DEMO_COST,true)
+ record_button.disabled = not bool(latest.get("ok",false))
+ studio.add_child(record_button)
+ record_button.pressed.connect(func() -> void: _finish(Recording.record(_state()),"recording"))
+ if not bool(latest.get("ok",false)):
+  _label(studio,str(latest.get("message","")),13,UI.MUTED)
+ for i in range(sessions.size()-1,-1,-1):
+  if not sessions[i] is Dictionary:
+   continue
+  var session: Dictionary = sessions[i]
+  var box := _card("DEMO %02d  /  %s" % [i+1,"RELEASED" if bool(session.get("released",false)) else "READY TO RELEASE"],"Recorded on day %d" % int(session.get("day",1)))
+  _progress(box,"RECORDING QUALITY",int(session.get("quality",0)))
+  for song in session.get("tracks",[]):
+   if song is Dictionary:
+    _label(box,str(song.get("title","UNTITLED"))+"  /  %d QUALITY" % int(song.get("quality",0)),13,UI.WHITE)
+  if bool(session.get("released",false)):
+   _label(box,"RELEASE DAY %d  /  +%d FANS" % [int(session.get("release_day",0)),int(session.get("fans_gained",0))],13,UI.AMBER)
+  else:
+   var index := i
+   var publish := UI.button("RELEASE LOCALLY  ·  £%d" % Recording.RELEASE_COST,true)
+   publish.disabled = _num("cash") < Recording.RELEASE_COST
+   box.add_child(publish)
+   publish.pressed.connect(func() -> void: _finish(Recording.release(_state(),index),"release"))
+
 func _scene() -> void:
+ _recording_studio()
  var archive: Array = _extra().get("career_journal",[])
  var scrapbook := _card("THE BAND SCRAPBOOK","Explore the people, gigs and turning points in your band's history.")
  var filters := HBoxContainer.new()
