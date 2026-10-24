@@ -37,8 +37,9 @@ func _initialize() -> void:
  no_band["members"] = []
  _check(Life.pending(no_band).is_empty(),"empty band safe")
  var capped := base.duplicate(true)
- while capped["members"].size() < 6:
-  capped["members"].append({"name":"Extra","role":"Guitarist"})
+ var capped_roster: Array = capped["members"]
+ while capped_roster.size() < 6:
+  capped_roster.append({"name":"Extra","role":"Guitarist"})
  _check(not Life.recruit(capped).get("ok",true),"maximum line-up enforced")
  if failed == 0:
   print("MEMBER LIFE TESTS PASSED")
