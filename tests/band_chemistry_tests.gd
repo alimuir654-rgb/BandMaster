@@ -12,7 +12,7 @@ func _initialize() -> void:
   _check(int(state["members"][1]["fatigue"]) == 26,"rehearsals consume energy")
   _check(state.get("career_journal",[]).size() == 1,"first rehearsal remembered")
   var repeated: Dictionary = Actions.resolve(state,"rehearse")
-  _check(repeated.get("career_journal",[]).size() == 0 or repeated["state"]["career_journal"].size() == 1,"rehearsal memory is unique")
+  _check(repeated.get("ok",false) and repeated["state"]["career_journal"].size() == 1,"rehearsal memory is unique")
  var writing: Dictionary = Actions.resolve(base,"songwrite")
  _check(writing.get("ok",false),"songwriting resolves")
  if writing.get("ok",false):
