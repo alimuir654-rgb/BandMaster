@@ -229,6 +229,19 @@ func _hero() -> void:
 
 
 func _home() -> void:
+ var upcoming: Dictionary = Calendar.pending(_state())
+ if not upcoming.is_empty():
+  var remaining := int(upcoming.get("day",1)) - _num("tour_day")
+  var plan := _card("GIG NIGHT  /  DAY %d" % int(upcoming.get("day",1)),str(upcoming.get("venue","Venue"))+"  ·  "+str(upcoming.get("city","HOME")))
+  if remaining > 0:
+   _label(plan,"%d DAYS TO PREPARE YOUR SET" % remaining,16,UI.AMBER)
+   _action(plan,"PREPARE THE BAND",func() -> void: _switch("ACTIONS"),true)
+  elif remaining == 0:
+   _label(plan,"TONIGHT: THE BAND IS EXPECTED ON STAGE",16,UI.AMBER)
+   _action(plan,"GO TO TONIGHT'S GIG",func() -> void: _switch("GIGS"),true)
+  else:
+   _label(plan,"OVERDUE BOOKING — RESOLVE THIS GIG",15,UI.AMBER)
+   _action(plan,"OPEN GIG CALENDAR",func() -> void: _switch("GIGS"),true)
  var chapter: Dictionary = Chapters.progress(_state())
  var chapter_box := _card("YOUR NEXT CHAPTER  /  "+str(chapter.get("title","")) ,str(chapter.get("description","")))
  if not bool(chapter.get("done",false)):
