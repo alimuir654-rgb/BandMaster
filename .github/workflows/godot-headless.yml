@@ -93,6 +93,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|CHEMISTRY FAILURE:|ERROR:' /tmp/chemistry-tests.log; then
             exit 1
           fi
+      - name: Verify first-month chapters and rewards
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/career_chapters_tests.gd 2>&1 | tee /tmp/chapter-tests.log
+          grep -q 'FIRST MONTH CHAPTER TESTS PASSED' /tmp/chapter-tests.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|CHAPTER FAILURE:|ERROR:' /tmp/chapter-tests.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
