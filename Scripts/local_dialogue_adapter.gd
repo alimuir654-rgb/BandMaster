@@ -20,7 +20,10 @@ static func request_payload(state: Dictionary, member_index: int) -> Dictionary:
 static func validated_text(body: String) -> String:
  if body.length() > 16000:
   return ""
- var parsed = JSON.parse_string(body)
+ var outer := JSON.new()
+ if outer.parse(body) != OK:
+  return ""
+ var parsed = outer.data
  if not parsed is Dictionary:
   return ""
  var content := ""
@@ -30,7 +33,10 @@ static func validated_text(body: String) -> String:
   content = str(parsed["response"])
  else:
   return ""
- var decoded = JSON.parse_string(content)
+ var inner := JSON.new()
+ if inner.parse(content) != OK:
+  return ""
+ var decoded = inner.data
  if not decoded is Dictionary or not decoded.has("dialogue") or not decoded["dialogue"] is String:
   return ""
  var line_text := str(decoded["dialogue"]).strip_edges()
