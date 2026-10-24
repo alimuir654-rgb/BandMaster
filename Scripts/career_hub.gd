@@ -820,7 +820,7 @@ func _apply(updated: Dictionary) -> void:
 
 func _finish(result: Dictionary, source: String = "") -> void:
  var before: Dictionary = _state()
- var successful := result.get("ok",false) == true
+ var successful: bool = bool(result.get("ok",false))
  if successful:
   dialogue_serial += 1
   _cancel_dialogue_request()
