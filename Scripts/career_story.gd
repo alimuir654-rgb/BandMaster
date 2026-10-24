@@ -41,6 +41,25 @@ static func observe(previous: Dictionary, current: Dictionary, action_id: String
   next = record(next,"band_fracture")
  if action_id.begins_with("gig:"):
   next = record(next,"first_show")
+  var gigs: Array = next.get("gig_history",[])
+  if not gigs.is_empty() and gigs.back() is Dictionary:
+   var latest_gig: Dictionary = gigs.back()
+   var venue := str(latest_gig.get("venue","The venue"))
+   var city := str(latest_gig.get("city","Hometown"))
+   var played_day := int(latest_gig.get("day",next.get("tour_day",1)))
+   var gig_key := "gig:%d:%d" % [played_day,gigs.size()]
+   var history: Array = next.get("career_journal",[]).duplicate(true)
+   var already_recorded := false
+   for item in history:
+    if item is Dictionary and str(item.get("id","")) == gig_key:
+     already_recorded = true
+   if not already_recorded:
+    var reception := "The room came alive and the audience went home talking." if bool(latest_gig.get("success",false)) else "Not every note landed, but the band saw the set through."
+    var hire_note := " A session drummer helped cover the show." if bool(latest_gig.get("session_drummer",false)) else ""
+    history.append({"id":gig_key,"day":played_day,"title":venue+" / "+city,"text":reception+hire_note,"kind":"gig"})
+    while history.size() > MAX_HISTORY:
+     history.pop_front()
+    next["career_journal"] = history
  return next
 
 static func latest(state: Dictionary, count: int = 5) -> Array:
