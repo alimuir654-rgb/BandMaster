@@ -468,9 +468,18 @@ func _show_scene_banner() -> void:
 	var copy := VBoxContainer.new()
 	copy.alignment = BoxContainer.ALIGNMENT_CENTER
 	banner.add_child(copy)
-	if ResourceLoader.exists("res://Art/uk_street_banner.svg"):
+	var asset_paths := {
+		"HOME":"res://Art/uk_street_banner.svg",
+		"GIGS":"res://Art/uk_gigs_banner.svg",
+		"GEAR":"res://Art/uk_gear_banner.svg",
+		"BAND":"res://Art/uk_band_banner.svg",
+		"ACTIONS":"res://Art/uk_actions_banner.svg",
+		"SCENE":"res://Art/uk_scene_banner.svg"
+	}
+	var image_path: String = str(asset_paths.get(career_tab,asset_paths["HOME"]))
+	if ResourceLoader.exists(image_path):
 		var art := TextureRect.new()
-		art.texture = load("res://Art/uk_street_banner.svg")
+		art.texture = load(image_path)
 		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		art.custom_minimum_size.y = 110
