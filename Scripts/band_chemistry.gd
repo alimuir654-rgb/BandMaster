@@ -30,7 +30,7 @@ static func work(state: Dictionary, action: String) -> Dictionary:
  if participants == 0:
   return next
  next["readiness"] = clampi(int(next.get("readiness",0)) + bonus,0,100)
- next["tension"] = clampi(int(next.get("tension",0)) + strain / maxi(1,participants),0,100)
+ next["tension"] = clampi(int(next.get("tension",0)) + int(strain / maxi(1,participants)),0,100)
  var counters: Dictionary = next.get("band_work_counters",{}).duplicate(true)
  counters[action] = int(counters.get(action,0)) + 1
  next["band_work_counters"] = counters
