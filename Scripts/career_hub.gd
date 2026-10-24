@@ -12,6 +12,7 @@ const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
 const Recording = preload("res://Scripts/recording_career.gd")
+const Campaigns = preload("res://Scripts/release_campaigns.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -923,6 +924,25 @@ func _recording_studio() -> void:
     _label(box,str(song.get("title","UNTITLED"))+"  /  %d QUALITY" % int(song.get("quality",0)),13,UI.WHITE)
   if bool(session.get("released",false)):
    _label(box,"RELEASE DAY %d  /  +%d FANS" % [int(session.get("release_day",0)),int(session.get("fans_gained",0))],13,UI.AMBER)
+   for offer in Campaigns.options(_state(),i):
+    var campaign_id := str(offer["id"])
+    var source_index := i
+    var row := PanelContainer.new()
+    row.add_theme_stylebox_override("panel",UI.style(UI.ALT,10))
+    box.add_child(row)
+    var body := VBoxContainer.new()
+    body.add_theme_constant_override("separation",5)
+    row.add_child(body)
+    _label(body,str(offer["label"]),15,UI.WHITE)
+    _label(body,str(offer["description"]),12,UI.MUTED)
+    var campaign_button := UI.button("DONE" if bool(offer["completed"]) else ("RUN CAMPAIGN · £%d / %d DAY(S)" % [int(offer["cost"]),int(offer["days"])]))
+    campaign_button.custom_minimum_size.y = 50
+    campaign_button.disabled = not bool(offer["enabled"])
+    body.add_child(campaign_button)
+    if not str(offer["reason"]).is_empty():
+     _label(body,str(offer["reason"]),11,UI.AMBER)
+    campaign_button.pressed.connect(func() -> void: _finish(Campaigns.launch(_state(),source_index,campaign_id),"campaign"))
+
   else:
    var index := i
    var publish := UI.button("RELEASE LOCALLY  ·  £%d" % Recording.RELEASE_COST,true)
@@ -955,6 +975,11 @@ func _scene() -> void:
    var clipping: Dictionary = Presentation.clipping(entry)
    _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
    Components.story(scrapbook,entry)
+ var career: Dictionary = Campaigns.next_milestone(_state())
+ var milestone := _card("CAREER MOMENTUM  /  "+str(career["name"]),"Every recording, campaign and gig builds the audience needed for bigger venues.")
+ _progress(milestone,"FANS",int(career["fans"]),maxi(1,int(career["target_fans"])))
+ _progress(milestone,"REPUTATION",int(career["reputation"]),maxi(1,int(career["target_rep"])))
+ _label(milestone,"TARGET  /  %d FANS  +  %d REPUTATION" % [int(career["target_fans"]),int(career["target_rep"])],13,UI.AMBER)
  var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
  _progress(snapshot,"BUZZ",_num("buzz"))
  _progress(snapshot,"PRESS",_num("press"))
