@@ -51,7 +51,7 @@ static func perform(state: Dictionary) -> Dictionary:
  var recent_repeat := false
  var old_gigs: Array = state.get("gig_history",[])
  for previous in old_gigs:
-  if previous is Dictionary and str(previous.get("venue_id",previous.get("venue",""))) == str(show.get("venue_id","")):
+  if previous is Dictionary and (str(previous.get("venue_id","")) == str(show.get("venue_id","")) or str(previous.get("venue","")) == str(show.get("venue",""))):
    if int(state.get("tour_day",1)) - int(previous.get("day",0)) <= 14:
     recent_repeat = true
  var gigs: Array = updated.get("gig_history",[])
@@ -75,7 +75,8 @@ static func perform(state: Dictionary) -> Dictionary:
    updated["fans"] = baseline_fans + int(round(float(gain)*0.5))
   elif recent_repeat:
    updated["fans"] = baseline_fans + int(round(float(gain)*0.75))
-  result["message"] = str(result.get("message","Show completed."))+" Actual fee £%d. %s" % [actual_fee,"The hometown crowd needs new material." if originals < 2 else ("Repeat bookings have smaller crowds." if recent_repeat else "The original set is paying off.")]
+  var settlement: String = str(result.get("message","Show completed.")).replace("Fee £%d" % gross_fee,"Fee £%d" % actual_fee)
+  result["message"] = settlement+" %s" % ("The crowd wants more original material." if originals < 2 else ("Another night here draws fewer new faces." if recent_repeat else "The new songs are paying off."))
  updated["booked_show"] = {}
  result["state"] = updated
  return result
