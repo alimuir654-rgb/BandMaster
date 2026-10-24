@@ -1,5 +1,7 @@
 extends SceneTree
 const Life = preload("res://Scripts/member_life.gd")
+const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const Actions = preload("res://Scripts/career_actions.gd")
 var failed := 0
 func _initialize() -> void:
  var base := {"tour_day":85,"cash":80,"members":[{"name":"Alex","role":"Drummer","loyalty":20,"morale":60,"fatigue":5},{"name":"Sam","role":"Bassist","loyalty":75,"morale":60,"fatigue":85},{"name":"Robin","role":"Guitarist","loyalty":50,"morale":15,"fatigue":10}],"career_journal":[]}
@@ -33,6 +35,28 @@ func _initialize() -> void:
  _check(not Life.resolve(poor,1,"injury","specialist").get("ok",true),"unaffordable option rejected")
  _check(not Life.resolve(base,0,"career","invalid").get("ok",true),"invalid option rejected")
  _check(not Life.resolve(base,1,"career","depart").get("ok",true),"invalid event/member combination rejected")
+ var eligible := base.duplicate(true)
+ eligible["reputation"] = 20
+ eligible["fans"] = 25
+ eligible["readiness"] = 80
+ eligible["morale"] = 70
+ eligible["tension"] = 10
+ eligible["van_health"] = 90
+ _check(Gigs.play(eligible,"local").get("ok",false),"complete lineup can play")
+ var no_drummer := eligible.duplicate(true)
+ no_drummer["members"][0]["life_status"] = "leave"
+ _check(not Gigs.play(no_drummer,"local").get("ok",true),"absent drummer blocks gig")
+ var replacement := Life.recruit(departure["state"]) if departure.get("ok",false) else {"ok":false}
+ if replacement.get("ok",false):
+  var ready := replacement["state"]
+  ready["reputation"] = 20
+  ready["fans"] = 25
+  ready["van_health"] = 90
+  _check(Gigs.play(ready,"local").get("ok",false),"recruited drummer restores gig access")
+ var solo := eligible.duplicate(true)
+ solo["members"] = [eligible["members"][0]]
+ _check(not Actions.resolve(solo,"rehearse").get("ok",true),"one musician cannot rehearse")
+ _check(Actions.resolve(eligible,"rehearse").get("ok",false),"available lineup can rehearse")
  var no_band := base.duplicate(true)
  no_band["members"] = []
  _check(Life.pending(no_band).is_empty(),"empty band safe")
