@@ -1,8 +1,8 @@
 extends RefCounted
 
 const BG := Color("#0D1118")
-const PANEL := Color("#1A2430")
-const ALT := Color("#253444")
+const PANEL := Color("#151D28")
+const ALT := Color("#222E3D")
 const AMBER := Color("#F0B44D")
 const WHITE := Color("#F2F0E9")
 const MUTED := Color("#B0BAC5")
@@ -11,15 +11,17 @@ static func style(fill: Color, radius: int = 14) -> StyleBoxFlat:
  var box := StyleBoxFlat.new()
  box.bg_color = fill
  box.set_corner_radius_all(radius)
- box.set_content_margin_all(16)
- box.border_color = Color("#334357")
+ box.set_content_margin_all(14)
+ box.border_color = Color("#2A3747")
  box.set_border_width_all(1)
+ box.shadow_color = Color(0,0,0,0.18)
+ box.shadow_size = 4
  return box
 
 static func button(label: String, primary: bool = false) -> Button:
  var item := Button.new()
  item.text = label
- item.custom_minimum_size.y = 64
+ item.custom_minimum_size.y = 56
  item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var fill := AMBER if primary else ALT
  var foreground := BG if primary else WHITE
@@ -29,7 +31,7 @@ static func button(label: String, primary: bool = false) -> Button:
  item.add_theme_color_override("font_color",foreground)
  item.add_theme_color_override("font_hover_color",foreground)
  item.add_theme_color_override("font_pressed_color",foreground)
- item.add_theme_font_size_override("font_size",16)
+ item.add_theme_font_size_override("font_size",15)
  item.add_theme_color_override("font_focus_color",foreground)
  item.add_theme_stylebox_override("focus",style(AMBER.darkened(0.52),12))
  item.add_theme_stylebox_override("disabled",style(Color("#1A212A"),12))
@@ -46,3 +48,17 @@ static func progress(bar: ProgressBar) -> void:
  fill.set_content_margin_all(0)
  bar.add_theme_stylebox_override("background",back)
  bar.add_theme_stylebox_override("fill",fill)
+
+static func flat(fill: Color, radius: int = 0) -> StyleBoxFlat:
+ var box := StyleBoxFlat.new()
+ box.bg_color = fill
+ box.set_corner_radius_all(radius)
+ box.set_content_margin_all(0)
+ return box
+
+static func accent_card() -> StyleBoxFlat:
+ var box := style(PANEL,12)
+ box.border_color = Color("#3E4B5A")
+ box.border_width_left = 4
+ box.border_color = AMBER.darkened(0.16)
+ return box
