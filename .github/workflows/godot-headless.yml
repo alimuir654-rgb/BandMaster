@@ -344,3 +344,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V24 CHEMISTRY UI FAILURE:|ERROR:' /tmp/v24-chemistry-ui.log; then
             exit 1
           fi
+
+      - name: Validate integrated band-life experience and consequences
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v25_band_life_experience_tests.gd 2>&1 | tee /tmp/v25-band-life.log
+          grep -q 'V25 BAND LIFE EXPERIENCE TESTS PASSED' /tmp/v25-band-life.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V25 BAND LIFE FAILURE:|ERROR:' /tmp/v25-band-life.log; then
+            exit 1
+          fi
