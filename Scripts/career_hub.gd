@@ -279,8 +279,10 @@ func _gigs() -> void:
     has_drummer = true
  var line_up_ready := available_count >= 2 and has_drummer
  if not line_up_ready:
-  var warning := _card("LINE-UP INCOMPLETE","Gigs require two available musicians and a drummer. Arrange a replacement on the BAND tab.")
-  _action(warning,"MANAGE THE LINE-UP",func() -> void: _switch("BAND"),true)
+  var warning := _card("LINE-UP INCOMPLETE","You need two available musicians and a drummer. Audition a replacement or hire a session drummer.")
+  _action(warning,"GO TO AUDITIONS",func() -> void: _switch("BAND"),true)
+  if available_count >= 1 and _num("cash") >= 25:
+   _label(warning,"SESSION DRUMMER: £25 PER SHOW. PERFORMANCE QUALITY -8.",13,UI.MUTED)
 
  for venue in Gigs.VENUES:
   var key: String = str(venue["id"])
@@ -305,6 +307,12 @@ func _gigs() -> void:
   tight.disabled = not line_up_ready
   wild.disabled = not line_up_ready
   crowd.disabled = not line_up_ready
+  if not line_up_ready and available_count >= 1:
+   var session := UI.button("HIRE SESSION DRUMMER  ·  £25",true)
+   session.disabled = _num("cash") < 25 or (str(venue["id"]) != "local" and _num("cash") < 25 + int(venue["travel"]))
+   session.custom_minimum_size.y = 50
+   box.add_child(session)
+   session.pressed.connect(func() -> void: _book(key,"tight",true))
   tight.pressed.connect(func() -> void: _book(key,"tight"))
   wild.pressed.connect(func() -> void: _book(key,"wild"))
   crowd.pressed.connect(func() -> void: _book(key,"crowd"))
@@ -341,8 +349,18 @@ func _band() -> void:
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
  if members.size() < 6:
-  var recruitment := _card("FIND A MUSICIAN","Hold local auditions and bring someone new into the band.")
-  _action(recruitment,"AUDITION A NEW MEMBER",_recruit,true)
+  var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
+  var shortlist := Life.candidates(_state())
+  for i in range(shortlist.size()):
+   var candidate: Dictionary = shortlist[i]
+   var index := i
+   _label(recruitment,"%s  ·  %s  ·  %s" % [str(candidate["name"]),str(candidate["role"]),str(candidate["trait"])],15,UI.WHITE)
+   _label(recruitment,"SKILL %d  /  LOYALTY %d" % [int(candidate["skill"]),int(candidate["loyalty"])],12,UI.MUTED)
+   var sign := UI.button("SIGN  ·  £%d" % int(candidate["cost"]),i == 0)
+   sign.custom_minimum_size.y = 48
+   sign.disabled = _num("cash") < int(candidate["cost"])
+   recruitment.add_child(sign)
+   sign.pressed.connect(func() -> void: _recruit(index))
  var alumni: Array = _extra().get("former_members",[])
  if not alumni.is_empty():
   var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
@@ -417,8 +435,8 @@ func _life_situations() -> void:
    var chosen := str(choice["id"])
    _action(box,str(choice["label"]),func() -> void: _finish(Life.resolve(_state(),member_index,event_id,chosen)),chosen == str(definition["choices"][0]["id"]))
 
-func _recruit() -> void:
- _finish(Life.recruit(_state()))
+func _recruit(index: int = 0) -> void:
+ _finish(Life.recruit(_state(),index))
 
 func _band_situations() -> void:
  for event_id in Drama.pending(_state()):
@@ -558,8 +576,8 @@ func _finish(result: Dictionary, source: String = "") -> void:
 func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
 
-func _book(id: String,approach: String) -> void:
- _finish(Gigs.play(_state(),id,approach),"gig:"+id)
+func _book(id: String,approach: String, hire_session: bool = false) -> void:
+ _finish(Gigs.play(_state(),id,approach,hire_session),"gig:"+id)
 
 func _buy(id: String) -> void:
  _finish(Gear.buy(_state(),id))
