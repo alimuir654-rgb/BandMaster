@@ -189,6 +189,7 @@ func _hero() -> void:
  content.add_child(panel)
  var frame := VBoxContainer.new()
  frame.add_theme_constant_override("separation",0)
+ frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  panel.add_child(frame)
  var path := "res://Art/Backgrounds/%s.webp" % tab.to_lower()
  if not ResourceLoader.exists(path):
@@ -294,6 +295,8 @@ func _gear() -> void:
  for item in Gear.ITEMS:
   var key: String = str(item["id"])
   var box := _card(str(item["name"]),str(item["description"]))
+  var category := _label(box,str(item["type"]).to_upper()+"   /   +%d READINESS" % int(item["readiness"]),13,UI.AMBER)
+  category.autowrap_mode = TextServer.AUTOWRAP_OFF
   _label(box,"%s  /  +%d READINESS  /  £%d" % [str(item["type"]),int(item["readiness"]),int(item["price"])],14,UI.MUTED)
   if owned.has(key):
    _label(box,"✓  IN YOUR INVENTORY",15,UI.AMBER)
@@ -315,7 +318,27 @@ func _band() -> void:
    continue
   var member: Dictionary = members[i]
   var index := i
-  var box := _card(str(member.get("name","Musician")).to_upper(),str(member.get("role","")).to_upper()+"   /   "+str(member.get("trait","")))
+  var box := _card("", "")
+  var identity := HBoxContainer.new()
+  identity.add_theme_constant_override("separation",14)
+  box.add_child(identity)
+  var avatar_frame := PanelContainer.new()
+  avatar_frame.custom_minimum_size = Vector2(74,74)
+  avatar_frame.add_theme_stylebox_override("panel",UI.style(Color("#334154"),12))
+  identity.add_child(avatar_frame)
+  var initials := _label(avatar_frame,str(member.get("name","?")).left(1).to_upper(),36,UI.AMBER)
+  initials.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  initials.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+  var name_stack := VBoxContainer.new()
+  name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  identity.add_child(name_stack)
+  _label(name_stack,str(member.get("name","Musician")).to_upper(),24,UI.WHITE)
+  _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
+  _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
+  var rule := ColorRect.new()
+  rule.color = Color("#344153")
+  rule.custom_minimum_size.y = 1
+  box.add_child(rule)
   var scores := GridContainer.new()
   scores.columns = 2
   scores.add_theme_constant_override("h_separation",16)
