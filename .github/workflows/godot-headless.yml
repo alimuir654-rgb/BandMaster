@@ -43,7 +43,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          godot --headless --path . --script res://tests/career_regression.gd 2>&1 | tee /tmp/career-tests.log
+          timeout 45s godot --headless --path . --script res://tests/career_regression.gd 2>&1 | tee /tmp/career-tests.log
           grep -q 'CAREER REGRESSION TESTS PASSED' /tmp/career-tests.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|REGRESSION FAILURE:|ERROR:' /tmp/career-tests.log; then
             exit 1
@@ -52,7 +52,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          godot --headless --path . --script res://tests/career_playtest_lab.gd 2>&1 | tee /tmp/playtest-lab.log
+          timeout 45s godot --headless --path . --script res://tests/career_playtest_lab.gd 2>&1 | tee /tmp/playtest-lab.log
           grep -q 'CAREER PLAYTEST LAB PASSED' /tmp/playtest-lab.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|PLAYTEST FAILURE:|ERROR:' /tmp/playtest-lab.log; then
             exit 1
