@@ -138,6 +138,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|SCRAPBOOK FAILURE:|ERROR:' /tmp/scrapbook-filter.log; then
             exit 1
           fi
+      - name: Verify gig scrapbook records
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/gig_scrapbook_tests.gd 2>&1 | tee /tmp/gig-scrapbook.log
+          grep -q 'GIG SCRAPBOOK TESTS PASSED' /tmp/gig-scrapbook.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|GIG SCRAPBOOK FAILURE:|ERROR:' /tmp/gig-scrapbook.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
