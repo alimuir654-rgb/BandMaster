@@ -15,7 +15,7 @@ static func can_record(state: Dictionary) -> Dictionary:
  if int(state.get("cash",0)) < DEMO_COST:
   return {"ok":false,"message":"Recording requires £%d." % DEMO_COST}
  var recordings = state.get("recordings",[])
- if recordings is Array and recordings.size() >= songs.size():
+ if recordings is Array and not recordings.is_empty() and int(recordings.back().get("source_count",0)) >= songs.size():
   return {"ok":false,"message":"Write another original before booking a new demo."}
  return {"ok":true}
 
@@ -37,7 +37,7 @@ static func record(state: Dictionary) -> Dictionary:
  if take.is_empty():
   return {"ok":false,"message":"No recorded originals are available."}
  var quality := int(round(float(total)/float(take.size())))
- var session := {"id":"demo:%d:%d" % [int(next.get("tour_day",1)),songs.size()],"day":int(next.get("tour_day",1))+RECORD_DAYS,"tracks":take,"quality":quality,"released":false}
+ var session := {"id":"demo:%d:%d" % [int(next.get("tour_day",1)),songs.size()],"day":int(next.get("tour_day",1))+RECORD_DAYS,"tracks":take,"quality":quality,"source_count":songs.size(),"released":false}
  var recordings: Array = next.get("recordings",[]).duplicate(true)
  recordings.append(session)
  next["recordings"] = recordings
