@@ -174,6 +174,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V22 PRACTICE FAILURE:|ERROR:' /tmp/v22-practice.log; then
             exit 1
           fi
+      - name: Verify complete booked-gig save and UI lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_save_ui_integration.gd 2>&1 | tee /tmp/v22-save-integration.log
+          grep -q 'V22 SAVE AND UI INTEGRATION PASSED' /tmp/v22-save-integration.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 INTEGRATION FAILURE:|ERROR:' /tmp/v22-save-integration.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
