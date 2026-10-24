@@ -13,6 +13,7 @@ const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
+const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
@@ -700,7 +701,7 @@ func _actions() -> void:
    _label(heading,"SHOW DAY — PREPARATION TIME HAS RUN OUT",15,UI.AMBER)
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
- _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
+ _label(heading,"SONGWRITING  /  THREE SESSIONS PER ORIGINAL",13,UI.AMBER)
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
@@ -735,6 +736,24 @@ func _actions() -> void:
  if action_view == "JAM":
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
+  var studio: Dictionary = SongStudio.view(_state())
+  var studio_title := _label(workshop,str(studio["headline"]),22,UI.WHITE)
+  studio_title.add_theme_font_size_override("font_size",22)
+  _label(workshop,str(studio["detail"]),14,UI.MUTED)
+  var stages := HBoxContainer.new()
+  stages.add_theme_constant_override("separation",6)
+  workshop.add_child(stages)
+  for step in range(3):
+   var step_panel := PanelContainer.new()
+   step_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   step_panel.add_theme_stylebox_override("panel",UI.style(UI.ALT if step <= int(studio["completed"]) else UI.PANEL,8))
+   stages.add_child(step_panel)
+   var marker := _label(step_panel,("%02d" % (step+1)) + ("  ✓" if step < int(studio["completed"]) else ""),13,UI.AMBER if step <= int(studio["completed"]) else UI.MUTED)
+   marker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  _label(workshop,"%d / 3 SESSIONS  •  %s" % [int(studio["completed"]),str(studio["stage"])],13,UI.AMBER)
+  var separator := HSeparator.new()
+  workshop.add_child(separator)
+  _label(workshop,"BUILD THE SONG",15,UI.WHITE)
   var ideas := OptionButton.new()
   var forms := OptionButton.new()
   var titles := OptionButton.new()
@@ -750,8 +769,17 @@ func _actions() -> void:
   for person in catalogue["leads"]:
    leads.add_item(str(person["name"])+"  /  "+str(person["trait"]))
    indices.append(int(person["index"]))
-  for control in [ideas,forms,titles,leads]:
-   control.custom_minimum_size.y = 52
+  var selectors := [
+   {"label":"01  STARTING POINT","control":ideas},
+   {"label":"02  ARRANGEMENT","control":forms},
+   {"label":"03  WORKING TITLE","control":titles},
+   {"label":"04  SESSION LEADER","control":leads}
+  ]
+  for selector in selectors:
+   _label(workshop,str(selector["label"]),12,UI.MUTED)
+   var control: OptionButton = selector["control"]
+   control.custom_minimum_size.y = 56
+   control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    workshop.add_child(control)
   if not draft.is_empty():
    var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
@@ -763,10 +791,9 @@ func _actions() -> void:
     forms.select(form_index)
    if title_index >= 0:
     titles.select(title_index)
-  _label(workshop,"IDEA  /  ARRANGEMENT  /  WORKING TITLE  /  SESSION LEADER",12,UI.MUTED)
   var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
   jam.custom_minimum_size.y = 54
-  jam.disabled = indices.is_empty()
+  jam.disabled = indices.is_empty() or _num("cash") < 0
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
    _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
