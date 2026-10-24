@@ -170,7 +170,9 @@ func _render() -> void:
  appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _header() -> void:
- _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,UI.AMBER)
+ var palette: Dictionary = save_data.get("band",{}).get("palette",{})
+ var colour := Color(str(palette.get("primary","#F0B44D")))
+ _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,colour)
  var row := HBoxContainer.new()
  content.add_child(row)
  var band_data: Dictionary = save_data.get("band",{})
@@ -258,14 +260,32 @@ func _home() -> void:
   var data: Dictionary = spot
   var tile := Button.new()
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 142
+  tile.custom_minimum_size.y = 206
   tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
   tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
   tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
-  tile.text = str(data["name"])+"\n\n"+str(data["caption"])
-  tile.add_theme_color_override("font_color",UI.WHITE)
-  tile.add_theme_font_size_override("font_size",14)
   places.add_child(tile)
+  var tile_content := VBoxContainer.new()
+  tile_content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  tile_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  tile_content.add_theme_constant_override("separation",6)
+  tile.add_child(tile_content)
+  var art := TextureRect.new()
+  art.custom_minimum_size.y = 100
+  art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  var art_path := "res://Art/uk_%s_banner.svg" % str(data["art"])
+  if ResourceLoader.exists(art_path):
+   art.texture = load(art_path)
+  tile_content.add_child(art)
+  var heading := _label(tile_content,str(data["name"]),14,UI.WHITE)
+  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  var tagline := _label(tile_content,str(data["caption"]),11,UI.MUTED)
+  tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
  var guidance: Dictionary = Director.next_move(_state())
