@@ -404,3 +404,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V30 VENUE BROWSER FAILURE:|ERROR:' /tmp/v30-venues.log; then
             exit 1
           fi
+
+      - name: Validate focused member roster
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v31_band_roster_focus_tests.gd 2>&1 | tee /tmp/v31-roster.log
+          grep -q 'V31 BAND ROSTER FOCUS PASSED' /tmp/v31-roster.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V31 ROSTER FAILURE:|ERROR:' /tmp/v31-roster.log; then
+            exit 1
+          fi
