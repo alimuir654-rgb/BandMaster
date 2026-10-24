@@ -364,3 +364,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V26 LIVE NIGHT FAILURE:|ERROR:' /tmp/v26-live-night.log; then
             exit 1
           fi
+
+      - name: Validate recording and release career lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v27_recording_career_tests.gd 2>&1 | tee /tmp/v27-release.log
+          grep -q 'V27 RECORDING CAREER TESTS PASSED' /tmp/v27-release.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V27 RECORDING FAILURE:|ERROR:' /tmp/v27-release.log; then
+            exit 1
+          fi
