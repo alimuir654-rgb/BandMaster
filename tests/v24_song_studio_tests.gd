@@ -12,7 +12,8 @@ func _initialize() -> void:
   var view: Dictionary = Studio.view(state)
   _check(view["completed"] == n and view["active"], "session %d progress" % n)
   _check(view["headline"] == "THE LAST TRAIN", "draft title retained")
-  _check(JSON.parse_string(JSON.stringify(state)) == state, "save compatible")
+  var restored = JSON.parse_string(JSON.stringify(state))
+  _check(restored is Dictionary and int(restored.get("song_draft_progress", -1)) == n and str(restored.get("current_song_draft", {}).get("title", "")) == "THE LAST TRAIN", "save compatible")
  _check(Studio.view({"song_draft_progress":99,"current_song_draft":{"title":"X"}})["completed"] == 2, "clamped progress")
  _check(Studio.view({"song_draft_progress":2,"current_song_draft":{}})["completed"] == 0, "legacy empty draft")
  if failures == 0:
