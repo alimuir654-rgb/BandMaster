@@ -10,6 +10,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
+const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -372,6 +373,33 @@ func _home() -> void:
  practise.pressed.connect(func() -> void: _switch("ACTIONS"))
 
 func _gigs() -> void:
+ var brief: Dictionary = LiveBrief.briefing(_state())
+ var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
+ _label(briefing_card,str(brief["headline"]),23,UI.WHITE)
+ if bool(brief["active"]):
+  _label(briefing_card,str(brief["city"]).to_upper()+"  /  DAY %d  /  %s" % [int(brief["day"]),str(brief["deal"])],12,UI.AMBER)
+  var timeline := HBoxContainer.new()
+  timeline.add_theme_constant_override("separation",5)
+  briefing_card.add_child(timeline)
+  var active_step := LiveBrief.stage_index(str(brief["phase"]))
+  for i in range(3):
+   var marker := PanelContainer.new()
+   marker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   marker.add_theme_stylebox_override("panel",UI.style(UI.ALT if i<=active_step else UI.PANEL,8))
+   timeline.add_child(marker)
+   var step_text := _label(marker,"%02d  %s" % [i+1,str(brief["steps"][i])],11,UI.AMBER if i<=active_step else UI.MUTED)
+   step_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  _progress(briefing_card,"LIVE READINESS",int(brief["readiness"]))
+  _label(briefing_card,"ORIGINALS IN THE SET  /  %d" % int(brief["originals"]),13,UI.WHITE)
+  for tip in brief["tips"]:
+   _label(briefing_card,str(tip),13,UI.MUTED)
+  if int(brief["days_left"])>0:
+   _action(briefing_card,"GO PREPARE THE BAND",func() -> void: _switch("ACTIONS"),true)
+ var recap: Dictionary = LiveBrief.last_show(_state())
+ if not recap.is_empty():
+  var report := _card("LAST NIGHT  /  THE AFTERMATH",str(recap["venue"]))
+  _label(report,"SHOW %s  /  FEE £%d" % ["LANDED" if bool(recap["success"]) else "WAS TOUGH",int(recap["fee"])],18,UI.AMBER)
+  _label(report,"ORIGINALS PLAYED %d  /  DEAL %s" % [int(recap["originals"]),str(recap["terms"]).to_upper()],13,UI.MUTED)
  var booked: Dictionary = Calendar.pending(_state())
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
