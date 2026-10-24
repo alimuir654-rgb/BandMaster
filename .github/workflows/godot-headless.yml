@@ -335,3 +335,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V24 BACKSTAGE FAILURE:|ERROR:' /tmp/v24-backstage.log; then
             exit 1
           fi
+      - name: Validate band chemistry presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_band_chemistry_map_tests.gd 2>&1 | tee /tmp/v24-chemistry-map.log
+          grep -q 'V24 BAND CHEMISTRY MAP TESTS PASSED' /tmp/v24-chemistry-map.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 CHEMISTRY MAP FAILURE:|ERROR:' /tmp/v24-chemistry-map.log; then
+            exit 1
+          fi
