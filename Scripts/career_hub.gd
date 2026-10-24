@@ -7,6 +7,7 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
+const Chapters = preload("res://Scripts/career_chapters.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const SAVE_PATH := "user://tour_save.json"
@@ -228,6 +229,17 @@ func _hero() -> void:
 
 
 func _home() -> void:
+ var chapter: Dictionary = Chapters.progress(_state())
+ var chapter_box := _card("YOUR NEXT CHAPTER  /  "+str(chapter.get("title","")) ,str(chapter.get("description","")))
+ if not bool(chapter.get("done",false)):
+  for objective in chapter.get("requirements",[]):
+   _label(chapter_box,"%s   %d / %d" % [str(objective["label"]).to_upper(),int(objective["current"]),int(objective["target"])],13,UI.MUTED)
+  var claim := UI.button("CLAIM CHAPTER REWARD  ·  £%d" % int(chapter.get("reward_cash",0)),true)
+  claim.disabled = not bool(chapter.get("ready",false))
+  claim.custom_minimum_size.y = 52
+  chapter_box.add_child(claim)
+  var chapter_id := str(chapter.get("id",""))
+  claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id)))
  var fans := _num("fans")
  var rep := _num("reputation")
  var missing: Dictionary = {}
