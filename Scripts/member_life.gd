@@ -28,16 +28,17 @@ static func pending(state: Dictionary) -> Array:
    id = "relocation"
   elif day >= 70 and int(person.get("loyalty",50)) >= 60:
    id = "parenthood"
-  var key := "%d:%s" % [i,id]
+  var key := "%s:%s:%d:%s" % [str(person.get("name","Musician")),str(person.get("role","")),int(person.get("joined_day",1)),id]
   if not id.is_empty() and not settled.has(key):
    events.append({"id":id,"index":i,"key":key,"name":str(person.get("name","Musician"))})
  return events
 
 static func resolve(state: Dictionary, index: int, event_id: String, choice_id: String) -> Dictionary:
- var event_key := "%d:%s" % [index,event_id]
+ var event_key := ""
  var available := false
  for entry in pending(state):
-  if entry["key"] == event_key:
+  if int(entry["index"]) == index and str(entry["id"]) == event_id:
+   event_key = str(entry["key"])
    available = true
  if not available:
   return {"ok":false,"message":"Life event is not available."}
