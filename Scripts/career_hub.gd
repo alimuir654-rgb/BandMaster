@@ -8,6 +8,7 @@ const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const VenueBrowser = preload("res://Scripts/venue_browser.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
@@ -48,6 +49,8 @@ var message := ""
 var content: VBoxContainer
 var scrapbook_filter := "ALL"
 var action_view := "JAM"
+var gig_show_locked := false
+var gig_selected_venue := ""
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -472,31 +475,61 @@ func _gigs() -> void:
   if available_count >= 1 and _num("cash") >= 25:
    _label(warning,"SESSION DRUMMER: £25 PER SHOW. PERFORMANCE QUALITY -8.",13,UI.MUTED)
 
- for venue in Gigs.VENUES:
-  var key: String = str(venue["id"])
-  var needed_fans := maxi(0,int(venue["min_fans"]) - _num("fans"))
-  var needed_rep := maxi(0,int(venue["min_rep"]) - _num("reputation"))
-  if needed_fans > 0 or needed_rep > 0:
-   var locked := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"LOCKED  ·  Need %d fans and %d reputation" % [needed_fans,needed_rep])
-   _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
-   continue
-  var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
-  _label(box,"MEET THE PROMOTER  /  NEGOTIATE THE DEAL",13,UI.AMBER)
-  _label(box,"The band will choose its live approach at soundcheck.",12,UI.MUTED)
-  for offer_id in ["standard","guarantee","guestlist"]:
-   var proposal: String = offer_id
-   var terms: Dictionary = Promoter.OFFERS[proposal]
-   var choice := UI.button(str(terms["label"])+"  ›")
-   choice.custom_minimum_size.y = 54
-   choice.disabled = not booked.is_empty() or not line_up_ready
-   box.add_child(choice)
-   _label(box,str(terms["description"]),12,UI.MUTED)
-   choice.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,proposal)))
-  if not line_up_ready and available_count >= 1 and booked.is_empty():
-   var session := UI.button("BOOK WITH SESSION DRUMMER · £25",true)
-   session.disabled = _num("cash") < 25 or (key != "local" and _num("cash") < 25 + int(venue["travel"]))
-   box.add_child(session)
-   session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,"standard",true)))
+ var venue_picker := _card("FIND YOUR NEXT VENUE","Choose a venue to inspect promoter terms. Locked venues are kept separate.")
+ var filter_row := HBoxContainer.new()
+ filter_row.add_theme_constant_override("separation",6)
+ venue_picker.add_child(filter_row)
+ for filter in [false,true]:
+  var locked_view: bool = filter
+  var filter_button := UI.button("AVAILABLE" if not locked_view else "LOCKED",gig_show_locked==locked_view)
+  filter_button.custom_minimum_size.y = 50
+  filter_row.add_child(filter_button)
+  filter_button.pressed.connect(func() -> void:
+   gig_show_locked = locked_view
+   gig_selected_venue = ""
+   _render()
+  )
+ var listed: Array = VenueBrowser.entries(_state(),gig_show_locked)
+ gig_selected_venue = VenueBrowser.pick(listed,gig_selected_venue)
+ if listed.is_empty():
+  _label(venue_picker,"No venues in this category yet.",14,UI.MUTED)
+ for entry in listed:
+  var venue_id := str(entry["id"])
+  var selected := gig_selected_venue == venue_id
+  var item := UI.button(("●  " if selected else "")+str(entry["title"])+"  /  "+str(entry["city"]),selected)
+  item.custom_minimum_size.y = 52
+  venue_picker.add_child(item)
+  item.pressed.connect(func() -> void:
+   gig_selected_venue = venue_id
+   _render()
+  )
+ if not gig_selected_venue.is_empty():
+  var selected_venue: Dictionary = Gigs.get_venue(gig_selected_venue)
+  if gig_show_locked:
+   for entry in listed:
+    if str(entry["id"])==gig_selected_venue:
+     var gate := _card("UNLOCK  /  "+str(entry["title"]),"Requirements to secure a future booking")
+     _label(gate,"%d MORE FANS  /  %d MORE REPUTATION" % [int(entry["missing_fans"]),int(entry["missing_rep"])],16,UI.AMBER)
+     _action(gate,"BUILD YOUR AUDIENCE  ›",func() -> void: _switch("SCENE"),true)
+     break
+  else:
+   var venue_key := gig_selected_venue
+   var box := _card(str(selected_venue["venue"])+"  /  "+str(selected_venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(selected_venue["fee"]),int(selected_venue["travel"]),int(selected_venue["days"])])
+   _label(box,"CHOOSE THE PROMOTER DEAL",13,UI.AMBER)
+   for offer_id in ["standard","guarantee","guestlist"]:
+    var proposal: String = offer_id
+    var terms: Dictionary = Promoter.OFFERS[proposal]
+    var choice := UI.button(str(terms["label"])+"  ›")
+    choice.custom_minimum_size.y = 54
+    choice.disabled = not booked.is_empty() or not line_up_ready
+    box.add_child(choice)
+    _label(box,str(terms["description"]),12,UI.MUTED)
+    choice.pressed.connect(func() -> void: _finish(Promoter.book(_state(),venue_key,proposal)))
+   if not line_up_ready and available_count >= 1 and booked.is_empty():
+    var session := UI.button("BOOK WITH SESSION DRUMMER · £25",true)
+    session.disabled = _num("cash") < 25 or (venue_key != "local" and _num("cash") < 25+int(selected_venue["travel"]))
+    box.add_child(session)
+    session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),venue_key,"standard",true)))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
 
