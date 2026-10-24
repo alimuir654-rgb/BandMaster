@@ -228,6 +228,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V22 DIRECTOR FAILURE:|ERROR:' /tmp/v22-director.log; then
             exit 1
           fi
+      - name: First-month playable career acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_first_month_acceptance.gd 2>&1 | tee /tmp/v22-first-month.log
+          grep -q 'V22 FIRST MONTH ACCEPTANCE PASSED' /tmp/v22-first-month.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|FIRST MONTH ACCEPTANCE FAILURE:|ERROR:' /tmp/v22-first-month.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
