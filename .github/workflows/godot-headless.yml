@@ -246,6 +246,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V23 FAILURE:|ERROR:' /tmp/v23-social.log; then
             exit 1
           fi
+      - name: Validate animated interaction feedback and committed save state
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v23_motion_feedback_tests.gd 2>&1 | tee /tmp/v23-motion.log
+          grep -q 'V23 MOTION AND DECISION FEEDBACK PASSED' /tmp/v23-motion.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V23 MOTION FAILURE:|ERROR:' /tmp/v23-motion.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
