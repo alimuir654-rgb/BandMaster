@@ -9,6 +9,7 @@ const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -373,8 +374,30 @@ func _gigs() -> void:
   if due > 0:
    _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
   elif due == 0:
-   _label(calendar_box,"TONIGHT IS THE NIGHT. YOUR SHOW IS READY.",15,UI.AMBER)
-   _action(calendar_box,"PLAY THE BOOKED SHOW",func() -> void: _finish(Calendar.perform(_state()),"gig:"+str(booked.get("venue_id",""))),true)
+   var scene: Dictionary = GigNight.stage(_state())
+   _label(calendar_box,str(scene.get("title","SHOW NIGHT")),22,UI.AMBER)
+   _label(calendar_box,str(scene.get("detail","")),15,UI.WHITE)
+   var chapter_art := TextureRect.new()
+   chapter_art.custom_minimum_size.y = 170
+   chapter_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   chapter_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+   chapter_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   var art_path := "res://Art/uk_gigs_banner.svg"
+   if str(scene.get("phase","")) == "soundcheck":
+    art_path = "res://Art/uk_band_banner.svg"
+   if ResourceLoader.exists(art_path):
+    chapter_art.texture = load(art_path)
+   calendar_box.add_child(chapter_art)
+   var progress := HBoxContainer.new()
+   calendar_box.add_child(progress)
+   for label in ["01 ARRIVE","02 SOUNDCHECK","03 STAGE"]:
+    var chip := _label(progress,label,11,UI.MUTED)
+    chip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   if bool(scene.get("can_play",false)):
+    _label(calendar_box,"SET APPROACH  /  "+str(booked.get("approach","tight")).to_upper(),13,UI.MUTED)
+    _action(calendar_box,"TAKE THE STAGE",func() -> void: _perform_gig(),true)
+   else:
+    _action(calendar_box,"CONTINUE THE NIGHT  ›",func() -> void: _advance_gig_night(),true)
   else:
    _label(calendar_box,"THIS BOOKING IS OVERDUE.",14,UI.AMBER)
   _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state())))
@@ -950,6 +973,29 @@ func _practice(focus: String) -> void:
 
 func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
+
+func _advance_gig_night() -> void:
+ var progressed: Dictionary = GigNight.advance(_state())
+ if not bool(progressed.get("ok",false)):
+  message = str(progressed.get("message","Unavailable"))
+  _render()
+  return
+ _apply(progressed["state"])
+ _save()
+ _render()
+
+func _perform_gig() -> void:
+ var view: Dictionary = GigNight.stage(_state())
+ if not bool(view.get("can_play",false)):
+  message = "Complete the arrival and soundcheck before going onstage."
+  _render()
+  return
+ var before := _state()
+ var booked: Dictionary = Calendar.pending(before)
+ var result: Dictionary = Calendar.perform(before)
+ if bool(result.get("ok",false)):
+  result["state"] = GigNight.reset_after_show(result["state"])
+ _finish(result,"gig:"+str(booked.get("venue_id","")))
 
 func _schedule(id: String,approach: String, hire_session: bool = false) -> void:
  _finish(Calendar.book(_state(),id,approach,hire_session))
