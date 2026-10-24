@@ -386,6 +386,18 @@ func _band() -> void:
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
+ var conversation: Dictionary = _extra().get("last_band_conversation",{})
+ if not conversation.is_empty():
+  var dialogue := _card("BACKSTAGE  /  "+str(conversation.get("speaker","Musician")).to_upper(),"A moment with one of your bandmates.")
+  var quote_frame := PanelContainer.new()
+  quote_frame.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+  dialogue.add_child(quote_frame)
+  var quote_stack := VBoxContainer.new()
+  quote_stack.add_theme_constant_override("separation",8)
+  quote_frame.add_child(quote_stack)
+  _label(quote_stack,"\""+str(conversation.get("text",""))+"\"",19,UI.WHITE)
+  var engine := "LOCAL AI" if str(conversation.get("source","offline")) == "local" else "OFFLINE CHARACTER DIALOGUE"
+  _label(quote_stack,engine+"   /   DAY %d" % int(conversation.get("day",_num("tour_day"))),11,UI.AMBER)
  if members.size() < 6:
   var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
   var shortlist := Life.candidates(_state())
@@ -399,10 +411,6 @@ func _band() -> void:
    sign.disabled = _num("cash") < int(candidate["cost"])
    recruitment.add_child(sign)
    sign.pressed.connect(func() -> void: _recruit(index))
- var conversation: Dictionary = _extra().get("last_band_conversation",{})
- if not conversation.is_empty():
-  var dialogue := _card("BACKSTAGE CONVERSATION",str(conversation.get("speaker","Musician")))
-  _label(dialogue,"\""+str(conversation.get("text",""))+"\"",17,UI.WHITE)
  var alumni: Array = _extra().get("former_members",[])
  if not alumni.is_empty():
   var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
@@ -414,7 +422,8 @@ func _band() -> void:
    continue
   var member: Dictionary = members[i]
   var index := i
-  var box := _card("", "")
+  var status := str(member.get("life_status","active"))
+  var box := _card("ON THE ROAD" if status == "active" else "CURRENTLY UNAVAILABLE","")
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
