@@ -39,3 +39,12 @@ jobs:
             echo "Godot reported errors at startup"
             exit 1
           fi
+      - name: Run deterministic career regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/career_regression.gd 2>&1 | tee /tmp/career-tests.log
+          grep -q 'CAREER REGRESSION TESTS PASSED' /tmp/career-tests.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|REGRESSION FAILURE:|ERROR:' /tmp/career-tests.log; then
+            exit 1
+          fi
