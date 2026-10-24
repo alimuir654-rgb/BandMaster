@@ -290,6 +290,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V24 NIGHT FAILURE:|ERROR:' /tmp/v24-gig-night.log; then
             exit 1
           fi
+      - name: Test promoter negotiations and show contract lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_promoter_contract_tests.gd 2>&1 | tee /tmp/v24-promoter.log
+          grep -q 'V24 PROMOTER CONTRACT TESTS PASSED' /tmp/v24-promoter.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 PROMOTER FAILURE:|ERROR:' /tmp/v24-promoter.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
