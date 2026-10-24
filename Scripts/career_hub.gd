@@ -241,6 +241,32 @@ func _hero() -> void:
 
 
 func _home() -> void:
+ var destinations := _card("YOUR WORLD","Pick a place. Everything starts somewhere.")
+ var places := GridContainer.new()
+ places.columns = 2
+ places.add_theme_constant_override("h_separation",10)
+ places.add_theme_constant_override("v_separation",10)
+ destinations.add_child(places)
+ for spot in [
+  {"name":"THE STUDIO","tab":"ACTIONS","caption":"Jam · Rehearse · Hang out","art":"actions"},
+  {"name":"THE VENUES","tab":"GIGS","caption":"Book · Prepare · Perform","art":"gigs"},
+  {"name":"THE BAND","tab":"BAND","caption":"People · Chemistry · Stories","art":"band"},
+  {"name":"THE SCENE","tab":"SCENE","caption":"Promoters · Press · Scrapbook","art":"scene"},
+  {"name":"THE GEAR SHOP","tab":"GEAR","caption":"Buy · Upgrade · Repair","art":"gear"}
+ ]:
+  var data: Dictionary = spot
+  var tile := Button.new()
+  tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  tile.custom_minimum_size.y = 142
+  tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
+  tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
+  tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
+  tile.text = str(data["name"])+"\n\n"+str(data["caption"])
+  tile.add_theme_color_override("font_color",UI.WHITE)
+  tile.add_theme_font_size_override("font_size",14)
+  places.add_child(tile)
+  var target: String = str(data["tab"])
+  tile.pressed.connect(func() -> void: _switch(target))
  var guidance: Dictionary = Director.next_move(_state())
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
