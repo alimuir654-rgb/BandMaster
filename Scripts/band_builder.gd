@@ -2,6 +2,7 @@ extends Control
 # Band Formation 2.0: identity -> recruitment -> reveal.
 const UI = preload("res://Scripts/ui_theme.gd")
 const Catalog = preload("res://Scripts/formation_catalogue.gd")
+const Portrait = preload("res://Scripts/member_portrait.gd")
 const SAVE_PATH := "user://tour_save.json"
 const BAND_PATH := "user://band_profile.json"
 var step := 0
@@ -206,6 +207,11 @@ func _recruitment() -> void:
     selected = true
   var tier := Catalog.affinity(row,genre)
   var block := _card(canvas,str(row["name"]).to_upper()+"  /  "+str(row["role"]),str(row["pitch"]))
+  var illustration := Portrait.new()
+  illustration.set_character(str(row["id"]),str(row["name"]))
+  illustration.custom_minimum_size = Vector2(100,108)
+  block.add_child(illustration)
+
   _label(block,"SKILL %d   •   LOYALTY %d   •   %s" % [int(row["skill"]),int(row["loyalty"]),str(row["trait"])],13,UI.WHITE)
   _label(block,"GOOD GENRE FIT" if tier > 0 else "UNUSUAL GENRE MATCH  /  EXPERIMENTAL POTENTIAL",12,UI.AMBER if tier > 0 else UI.MUTED)
   var button := UI.button("REMOVE FROM BAND" if selected else "RECRUIT  +",not selected and tier > 0)
@@ -236,11 +242,10 @@ func _review() -> void:
  for member in recruited:
   var line := HBoxContainer.new()
   roster.add_child(line)
-  var avatar := PanelContainer.new()
-  avatar.custom_minimum_size = Vector2(52,55)
-  avatar.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+  var avatar := Portrait.new()
+  avatar.custom_minimum_size = Vector2(70,84)
+  avatar.set_character(str(member.get("candidate_id","")),str(member["name"]))
   line.add_child(avatar)
-  _label(avatar,str(member["name"]).left(1),25,UI.AMBER)
   var details := VBoxContainer.new()
   line.add_child(details)
   _label(details,str(member["name"])+"  /  "+str(member["role"]),15,UI.WHITE)
