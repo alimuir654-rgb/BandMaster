@@ -226,7 +226,7 @@ func _hero() -> void:
  var picture := TextureRect.new()
  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- picture.custom_minimum_size.y = 270
+ picture.custom_minimum_size.y = CareerLayout.hero_height(get_viewport_rect().size.x)
  picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
  if ResourceLoader.exists(path):
   picture.texture = load(path)
@@ -254,9 +254,13 @@ func _hero() -> void:
 
 
 func _home() -> void:
- var destinations := _card("YOUR WORLD","Pick a place. Everything starts somewhere.")
+ var guidance: Dictionary = Director.next_move(_state())
+ var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
+ var destination := str(guidance.get("tab","ACTIONS"))
+ _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+ var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
- places.columns = 2
+ places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
  places.add_theme_constant_override("h_separation",10)
  places.add_theme_constant_override("v_separation",10)
  destinations.add_child(places)
@@ -270,7 +274,7 @@ func _home() -> void:
   var data: Dictionary = spot
   var tile := Button.new()
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 206
+  tile.custom_minimum_size.y = 168 if CareerLayout.is_compact(get_viewport_rect().size.x) else 190
   tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
   tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
   tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
@@ -281,7 +285,7 @@ func _home() -> void:
   tile_content.add_theme_constant_override("separation",6)
   tile.add_child(tile_content)
   var art := TextureRect.new()
-  art.custom_minimum_size.y = 100
+  art.custom_minimum_size.y = 82 if CareerLayout.is_compact(get_viewport_rect().size.x) else 100
   art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
@@ -298,10 +302,7 @@ func _home() -> void:
   tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
- var guidance: Dictionary = Director.next_move(_state())
- var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
- var destination := str(guidance.get("tab","ACTIONS"))
- _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+
  var upcoming: Dictionary = Calendar.pending(_state())
  if not upcoming.is_empty():
   var remaining := int(upcoming.get("day",1)) - _num("tour_day")
@@ -359,7 +360,7 @@ func _home() -> void:
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
- var quick := _card("NEXT MOVES","Choose how to spend the day.")
+ var quick := _card("SHORTCUTS","Jump straight into your next session.")
  var row := HBoxContainer.new()
  row.add_theme_constant_override("separation",6)
  quick.add_child(row)
@@ -371,8 +372,14 @@ func _home() -> void:
   action.add_theme_font_size_override("font_size",13)
   row.add_child(action)
  book.pressed.connect(func() -> void: _switch("GIGS"))
- write.pressed.connect(func() -> void: _switch("ACTIONS"))
- practise.pressed.connect(func() -> void: _switch("ACTIONS"))
+ write.pressed.connect(func() -> void:
+  action_view = "JAM"
+  _switch("ACTIONS")
+ )
+ practise.pressed.connect(func() -> void:
+  action_view = "JAM"
+  _switch("ACTIONS")
+ )
 
 func _gigs() -> void:
  var brief: Dictionary = LiveBrief.briefing(_state())
@@ -1021,6 +1028,7 @@ func _bottom_nav() -> void:
   var selected := target == tab
   var button := Button.new()
   button.custom_minimum_size.y = 72 if CareerLayout.is_compact(get_viewport_rect().size.x) else 76
+  button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   button.add_theme_stylebox_override("normal",UI.style(UI.AMBER if selected else UI.ALT,10))
   button.add_theme_stylebox_override("hover",UI.style(UI.AMBER.lightened(0.08) if selected else UI.ALT.lightened(0.1),10))
@@ -1041,7 +1049,8 @@ func _bottom_nav() -> void:
    glyph.modulate = UI.BG if selected else UI.WHITE
    glyph.mouse_filter = Control.MOUSE_FILTER_IGNORE
    box.add_child(glyph)
-  var caption := _label(box,target,11,UI.BG if selected else UI.WHITE)
+  button.tooltip_text = CareerLayout.nav_hint(target)
+  var caption := _label(box,CareerLayout.nav_label(target),11,UI.BG if selected else UI.WHITE)
   caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
   bar.add_child(button)

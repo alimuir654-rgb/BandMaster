@@ -384,3 +384,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V28 CAMPAIGN FAILURE:|ERROR:' /tmp/v28-campaign.log; then
             exit 1
           fi
+
+      - name: Verify v2.9 persona-led UX improvements
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v29_ux_review_tests.gd 2>&1 | tee /tmp/v29-ux.log
+          grep -q 'V29 UX REVIEW REGRESSIONS PASSED' /tmp/v29-ux.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V29 UX FAILURE:|ERROR:' /tmp/v29-ux.log; then
+            exit 1
+          fi
