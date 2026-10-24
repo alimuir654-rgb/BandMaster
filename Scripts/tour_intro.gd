@@ -443,7 +443,7 @@ func _choose_opportunity(event_id: String, choice_id: String) -> void:
 	state["van_health"] = van_health
 	var result: Dictionary = CareerOpportunities.resolve(state, event_id, choice_id)
 	career_feedback = str(result.get("message", "Opportunity unavailable"))
-	if bool(result.get("ok", false)):
+	if result.get("ok", false) == true:
 		var updated: Dictionary = result["state"]
 		cash = int(updated["cash"])
 		tour_day = int(updated["tour_day"])
@@ -470,7 +470,7 @@ func _take_career_action(action_id: String) -> void:
 	state["band_name"] = str(band.get("name", "The band"))
 	var result: Dictionary = CareerActions.resolve(state, action_id)
 	career_feedback = str(result.get("message", "Action unavailable"))
-	if bool(result.get("ok", false)):
+	if result.get("ok", false) == true:
 		var updated: Dictionary = result["state"]
 		cash = int(updated["cash"])
 		tour_day = int(updated["tour_day"])
