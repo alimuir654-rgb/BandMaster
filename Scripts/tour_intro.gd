@@ -1,6 +1,7 @@
 extends Control
 
 const CareerActions = preload("res://Scripts/career_actions.gd")
+const CareerOpportunities = preload("res://Scripts/career_opportunities.gd")
 
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
@@ -24,7 +25,7 @@ var decisions: Dictionary = {}
 var relationships: Dictionary = {}
 var pending_next := ""
 var last_outcome := ""
-var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}}
+var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0}
 var career_feedback := ""
 var page: VBoxContainer
 
@@ -407,6 +408,7 @@ func _show_aftershow() -> void:
 	if not career_feedback.is_empty():
 		_label(page, "LATEST ACTIVITY", 17, AMBER)
 		_label(page, career_feedback, 15, WHITE)
+	_show_opportunities()
 	_label(page, "CHOOSE WHAT TO DO", 17, AMBER)
 	for action_id in CareerActions.labels().keys():
 		var config: Dictionary = CareerActions.labels()[action_id]
@@ -414,6 +416,48 @@ func _show_aftershow() -> void:
 		var action_key: String = str(action_id)
 		_choice(str(config["label"]), "£%d  /  advances one day" % cost, func() -> void: _take_career_action(action_key))
 	_choice("BACK TO MAIN MENU", "Save the career and return to the launch screen.", _menu)
+
+
+func _show_opportunities() -> void:
+	var pending: Array = CareerOpportunities.pending(career_extra)
+	if pending.is_empty():
+		return
+	_label(page, "NEW OPPORTUNITIES // %d" % pending.size(), 19, AMBER)
+	var event_id: String = str(pending[0])
+	var event: Dictionary = CareerOpportunities.get_event(event_id)
+	_label(page, str(event.get("title", "AN OPPORTUNITY")), 18, WHITE)
+	_label(page, str(event.get("intro", "")), 15, WHITE)
+	for choice in event.get("choices", []):
+		var key: String = str(choice.get("id", ""))
+		_choice(str(choice.get("label", "DECIDE")), "Cost £%d" % int(choice.get("cost", 0)), func() -> void: _choose_opportunity(event_id, key))
+
+
+func _choose_opportunity(event_id: String, choice_id: String) -> void:
+	var state := career_extra.duplicate(true)
+	state["cash"] = cash
+	state["tour_day"] = tour_day
+	state["morale"] = morale
+	state["tension"] = tension
+	state["reputation"] = reputation
+	state["readiness"] = readiness
+	state["van_health"] = van_health
+	var result: Dictionary = CareerOpportunities.resolve(state, event_id, choice_id)
+	career_feedback = str(result.get("message", "Opportunity unavailable"))
+	if bool(result.get("ok", false)):
+		var updated: Dictionary = result["state"]
+		cash = int(updated["cash"])
+		tour_day = int(updated["tour_day"])
+		morale = int(updated["morale"])
+		tension = int(updated["tension"])
+		reputation = int(updated["reputation"])
+		readiness = int(updated["readiness"])
+		van_health = int(updated["van_health"])
+		for key in ["cash", "tour_day", "morale", "tension", "reputation", "readiness", "van_health"]:
+			updated.erase(key)
+		career_extra = updated
+		_clamp_all()
+		_save_game()
+	_build_screen()
 
 
 func _take_career_action(action_id: String) -> void:
