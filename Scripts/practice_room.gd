@@ -11,10 +11,26 @@ static func resolve(state: Dictionary, focus: String) -> Dictionary:
     if not FOCUSES.has(focus):
         return {"ok":false,"message":"Unknown rehearsal focus."}
     var rule: Dictionary = FOCUSES[focus]
-    var result: Dictionary = Actions.resolve(state,str(rule["action"]))
+    var draft_before := maxi(0,int(state.get("song_draft_progress",0)))
+    var composing := focus == "create"
+    var finishing := composing and draft_before >= 2
+    # First two writing sessions advance one day and improve a work-in-progress;
+    # the third completes the original through the existing song resolver.
+    var simulated_action := "rest" if composing and not finishing else str(rule["action"])
+    var result: Dictionary = Actions.resolve(state,simulated_action)
     if not bool(result.get("ok",false)):
         return result
     var updated: Dictionary = result["state"]
+    if composing:
+        updated["song_draft_progress"] = 0 if finishing else draft_before + 1
+        var counters: Dictionary = updated.get("action_counters",{}).duplicate(true)
+        if not finishing:
+            counters["rest"] = maxi(0,int(counters.get("rest",0))-1)
+            counters["song_draft"] = int(counters.get("song_draft",0))+1
+            updated["action_counters"] = counters
+            updated["morale"] = clampi(int(state.get("morale",50))+1,0,100)
+            updated["tension"] = clampi(int(state.get("tension",0))+1,0,100)
+            updated["readiness"] = clampi(int(state.get("readiness",0))+2,0,100)
     var members: Array = updated.get("members",[])
     var active_indices: Array = []
     for i in range(members.size()):
@@ -52,7 +68,7 @@ static func resolve(state: Dictionary, focus: String) -> Dictionary:
         updated["tension"] = clampi(int(updated.get("tension",0))-5,0,100)
     var narrative: String = "The live set sounds sharper, but not everyone enjoys another drill."
     if focus == "create":
-        narrative = "New musical ideas give the band something to work towards."
+        narrative = "A new original takes shape in the rehearsal room (%d/3 writing sessions)." % int(3 if finishing else draft_before+1)
     elif focus == "connect":
         narrative = "A proper conversation brings the band closer together."
     var journal: Array = updated.get("career_journal",[]).duplicate(true)
