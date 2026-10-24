@@ -93,15 +93,14 @@ func _build() -> void:
 	summary_label = _label(review_page, "", 17, WHITE)
 	status_label = _label(review_page, "AWAITING BAND REGISTRATION", 14, MUTED)
 
+	# Use a separate CanvasLayer so scrollable content cannot displace or cover navigation.
+	var navigation_layer := CanvasLayer.new()
+	navigation_layer.layer = 10
+	add_child(navigation_layer)
 	var footer := PanelContainer.new()
 	footer.add_theme_stylebox_override("panel", _panel_style())
-	add_child(footer)
-	footer.anchor_left = 0.0
-	footer.anchor_right = 1.0
-	footer.anchor_top = 1.0
-	footer.anchor_bottom = 1.0
-	footer.offset_left = 0.0
-	footer.offset_right = 0.0
+	navigation_layer.add_child(footer)
+	footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
 	footer.offset_top = -110.0
 	footer.offset_bottom = 0.0
 	var footer_margin := MarginContainer.new()
