@@ -454,6 +454,14 @@ func _show_scene_banner() -> void:
 	var copy := VBoxContainer.new()
 	copy.alignment = BoxContainer.ALIGNMENT_CENTER
 	banner.add_child(copy)
+	if ResourceLoader.exists("res://Art/uk_street_banner.svg"):
+		var art := TextureRect.new()
+		art.texture = load("res://Art/uk_street_banner.svg")
+		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		art.custom_minimum_size.y = 154
+		art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		copy.add_child(art)
 	_label(copy, str(theme[0]), 16, WHITE)
 	_label(copy, "LIVIN' THE DREAM  /  BRITISH GRASSROOTS", 12, AMBER)
 
