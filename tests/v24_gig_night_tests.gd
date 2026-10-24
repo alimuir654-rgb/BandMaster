@@ -10,6 +10,13 @@ func _initialize() -> void:
  _check(bool(arrived.get("ok",false)),"arrival advances")
  var at_check: Dictionary = arrived.get("state",{})
  _check(Flow.stage(at_check)["phase"] == "soundcheck","next stage soundcheck")
+ var switched: Dictionary = Flow.choose_set(at_check,"crowd")
+ _check(bool(switched.get("ok",false)),"soundcheck allows strategy change")
+ if bool(switched.get("ok",false)):
+  at_check = switched["state"]
+  _check(at_check["booked_show"]["approach"] == "crowd","chosen strategy persists")
+ _check(not Flow.choose_set(base,"wild").get("ok",true),"strategy cannot be changed before soundcheck")
+ _check(not Flow.choose_set(at_check,"nonsense").get("ok",true),"invalid strategy rejected")
  var ready := Flow.advance(at_check)
  _check(bool(ready.get("ok",false)),"soundcheck advances")
  var onstage: Dictionary = ready.get("state",{})
