@@ -51,6 +51,7 @@ var scrapbook_filter := "ALL"
 var action_view := "JAM"
 var gig_show_locked := false
 var gig_selected_venue := ""
+var selected_band_member := -1
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -641,6 +642,15 @@ func _band() -> void:
   _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
+  var profile := UI.button("CLOSE PROFILE  ▴" if selected_band_member == index else "OPEN PROFILE & ACTIONS  ▾",selected_band_member == index)
+  profile.custom_minimum_size.y = 50
+  box.add_child(profile)
+  profile.pressed.connect(func() -> void:
+   selected_band_member = -1 if selected_band_member == index else index
+   _render()
+  )
+  if selected_band_member != index:
+   continue
   var rule := ColorRect.new()
   rule.color = Color("#344153")
   rule.custom_minimum_size.y = 1
