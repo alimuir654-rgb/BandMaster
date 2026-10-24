@@ -48,7 +48,7 @@ func _initialize() -> void:
  _check(not Gigs.play(no_drummer,"local").get("ok",true),"absent drummer blocks gig")
  var replacement := Life.recruit(departure["state"]) if departure.get("ok",false) else {"ok":false}
  if replacement.get("ok",false):
-  var ready := replacement["state"]
+  var ready: Dictionary = replacement["state"]
   ready["reputation"] = 20
   ready["fans"] = 25
   ready["van_health"] = 90
