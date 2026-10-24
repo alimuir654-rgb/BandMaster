@@ -2,6 +2,7 @@ extends Control
 
 const UI = preload("res://Scripts/ui_theme.gd")
 const Components = preload("res://Scripts/ui_components.gd")
+const Presentation = preload("res://Scripts/career_presentation.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
@@ -255,10 +256,13 @@ func _home() -> void:
   _label(songbook,"%d TOTAL ORIGINALS" % _num("songs"),12,UI.AMBER)
  var memories := Story.latest(_state(),3)
  if not memories.is_empty():
-  var journal := _card("THE STORY SO FAR","Moments that shaped your band.")
+  var journal := _card("THE STORY SO FAR","A living scrapbook of gigs, friendships and turning points.")
   for moment in memories:
    if moment is Dictionary:
+    var clipping: Dictionary = Presentation.clipping(moment)
+    _label(journal,str(clipping["rubric"])+"  /  DAY %d" % int(clipping["day"]),11,UI.AMBER)
     Components.story(journal,moment)
+  _action(journal,"OPEN FULL SCRAPBOOK",func() -> void: _switch("SCENE"))
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
@@ -372,6 +376,10 @@ func _band() -> void:
    sign.disabled = _num("cash") < int(candidate["cost"])
    recruitment.add_child(sign)
    sign.pressed.connect(func() -> void: _recruit(index))
+ var conversation: Dictionary = _extra().get("last_band_conversation",{})
+ if not conversation.is_empty():
+  var dialogue := _card("BACKSTAGE CONVERSATION",str(conversation.get("speaker","Musician")))
+  _label(dialogue,"\""+str(conversation.get("text",""))+"\"",17,UI.WHITE)
  var alumni: Array = _extra().get("former_members",[])
  if not alumni.is_empty():
   var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
@@ -426,9 +434,24 @@ func _band() -> void:
    control.add_theme_font_size_override("font_size",13)
    controls.add_child(control)
   coach.disabled = _num("cash") < 10
+  var listen := UI.button("LISTEN")
+  listen.custom_minimum_size.y = 50
+  box.add_child(listen)
+  listen.pressed.connect(func() -> void: _listen(index))
   talk.pressed.connect(func() -> void: _member(index,"chat"))
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
+
+func _listen(index: int) -> void:
+ var response: Dictionary = Presentation.dialogue_for(_state(),index)
+ if not bool(response.get("ok",false)):
+  message = str(response.get("message","No conversation available."))
+ else:
+  var extra: Dictionary = _extra()
+  extra["last_band_conversation"] = response
+  message = str(response.get("speaker","Musician"))+": "+str(response.get("text",""))
+  _save()
+ _render()
 
 func _life_situations() -> void:
  for situation in Life.pending(_state()):
@@ -476,6 +499,17 @@ func _actions() -> void:
   act.pressed.connect(func() -> void: _do_action(id))
 
 func _scene() -> void:
+ var archive: Array = _extra().get("career_journal",[])
+ var scrapbook := _card("THE BAND SCRAPBOOK","A record of the nights, people and decisions that made your career.")
+ if archive.is_empty():
+  _label(scrapbook,"Your band's history starts with the first rehearsal, song and show.",14,UI.MUTED)
+ else:
+  for i in range(archive.size()-1,maxi(-1,archive.size()-21),-1):
+   if archive[i] is Dictionary:
+    var item: Dictionary = archive[i]
+    var clipping: Dictionary = Presentation.clipping(item)
+    _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
+    Components.story(scrapbook,item)
  var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
  _progress(snapshot,"BUZZ",_num("buzz"))
  _progress(snapshot,"PRESS",_num("press"))
