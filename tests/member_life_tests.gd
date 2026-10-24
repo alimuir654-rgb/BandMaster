@@ -21,9 +21,9 @@ func _initialize() -> void:
  var leave := Life.resolve(base,1,"injury","recover")
  _check(leave.get("ok",false),"injured musician gets leave")
  if leave.get("ok",false):
-  var before := leave["state"]
+  var before: Dictionary = leave["state"]
   _check(before["members"][1]["life_status"] == "leave","member is on leave")
-  var passed := before.duplicate(true)
+  var passed: Dictionary = before.duplicate(true)
   passed["tour_day"] = int(before["members"][1]["available_day"])
   var back := Life.refresh(passed)
   _check(back["members"][1]["life_status"] == "active","member returns after recovery")
