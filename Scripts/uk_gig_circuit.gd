@@ -28,17 +28,18 @@ static func play(state: Dictionary, venue_id: String) -> Dictionary:
   return {"ok":false,"message":"Unknown venue."}
  if not available(int(state.get("reputation",0)),int(state.get("fans",0))).has(venue):
   return {"ok":false,"message":"The promoter wants a bigger local following first."}
- if int(state.get("cash",0)) < int(venue["travel"]):
+ if int(state.get("cash",0)) < int(venue["travel"]) and venue_id != "local":
   return {"ok":false,"message":"Not enough money for travel. Promote locally or play a hometown gig."}
- if int(state.get("van_health",0)) < int(venue["wear"]):
+ if int(state.get("van_health",0)) < int(venue["wear"]) and venue_id != "local":
   return {"ok":false,"message":"Your van needs attention before this journey."}
  var next := state.duplicate(true)
  var quality := int(state.get("readiness",0)) + int(state.get("morale",0)) / 4 - int(state.get("tension",0)) / 4
  var success := quality >= 52
  var earned := int(venue["fee"]) if success else int(venue["fee"]) / 2
- next["cash"] = maxi(0,int(state.get("cash",0)) - int(venue["travel"]) + earned)
+ var actual_travel := mini(int(venue["travel"]),int(state.get("cash",0))) if venue_id == "local" else int(venue["travel"])
+ next["cash"] = maxi(0,int(state.get("cash",0)) - actual_travel + earned)
  next["tour_day"] = int(state.get("tour_day",1)) + int(venue["days"])
- next["van_health"] = clampi(int(state.get("van_health",0)) - int(venue["wear"]),0,100)
+ next["van_health"] = clampi(int(state.get("van_health",0)) - (0 if venue_id == "local" else int(venue["wear"])),0,100)
  next["fans"] = maxi(0,int(state.get("fans",0)) + (12 + 9 * int(venue["tier"]) if success else 3))
  next["reputation"] = clampi(int(state.get("reputation",0)) + (4 + 3 * int(venue["tier"]) if success else 1),0,100)
  next["morale"] = clampi(int(state.get("morale",0)) + (4 if success else -5),0,100)
@@ -49,4 +50,4 @@ static func play(state: Dictionary, venue_id: String) -> Dictionary:
   gigs.pop_front()
  next["gig_history"] = gigs
  var result_text := "A packed little room and a surprisingly good reception." if success else "A difficult soundcheck and a thin crowd, but you finish the set."
- return {"ok":true,"state":next,"message":"%s, %s. %s Fee £%d, travel £%d." % [venue["venue"],venue["city"],result_text,earned,int(venue["travel"])]}
+ return {"ok":true,"state":next,"message":"%s, %s. %s Fee £%d, travel £%d." % [venue["venue"],venue["city"],result_text,earned,actual_travel]}
