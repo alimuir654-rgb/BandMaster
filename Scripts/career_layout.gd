@@ -9,3 +9,26 @@ static func footer_height(width: float) -> float:
  return 174.0 if is_compact(width) else 104.0
 static func content_inset(width: float) -> float:
  return footer_height(width) + 10.0
+
+# UX layout rules: keep action navigation readable and reduce image-first scrolling.
+static func hero_height(width: float) -> float:
+ return 152.0 if is_compact(width) else 210.0
+
+static func destination_columns(width: float) -> int:
+ return 1 if width < 380.0 else 2
+
+static func nav_label(tab: String) -> String:
+ match tab:
+  "ACTIONS": return "STUDIO"
+  "SCENE": return "CAREER"
+  _: return tab
+
+static func nav_hint(tab: String) -> String:
+ match tab:
+  "HOME": return "Overview and next move"
+  "GIGS": return "Book, prepare and play"
+  "GEAR": return "Buy and repair equipment"
+  "BAND": return "People and relationships"
+  "ACTIONS": return "Write, rehearse and connect"
+  "SCENE": return "Releases, publicity and history"
+  _: return tab
