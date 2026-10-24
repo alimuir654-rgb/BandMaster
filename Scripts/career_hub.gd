@@ -14,6 +14,7 @@ const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Chapters = preload("res://Scripts/career_chapters.gd")
+const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const SAVE_PATH := "user://tour_save.json"
@@ -49,7 +50,9 @@ func _load() -> void:
  var parsed = JSON.parse_string(file.get_as_text())
  file.close()
  if parsed is Dictionary:
-  save_data = parsed
+  save_data = OpeningHandoff.migrate(parsed)
+  if save_data != parsed:
+   _save()
  if not save_data.has("career_extra") or not save_data["career_extra"] is Dictionary:
   save_data["career_extra"] = {}
  if not save_data.has("band") or not save_data["band"] is Dictionary:
