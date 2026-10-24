@@ -37,15 +37,12 @@ func _build() -> void:
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
-	var layout := VBoxContainer.new()
-	layout.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	layout.add_theme_constant_override("separation", 0)
-	add_child(layout)
+	# Keep navigation independent of content minimum height; only the form scrolls.
 	form_scroll = ScrollContainer.new()
-	form_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	form_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	add_child(form_scroll)
+	form_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	form_scroll.offset_bottom = -110.0
 	form_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	layout.add_child(form_scroll)
 	var margin := MarginContainer.new()
 	margin.add_theme_constant_override("margin_left", 18)
 	margin.add_theme_constant_override("margin_right", 18)
@@ -98,7 +95,15 @@ func _build() -> void:
 
 	var footer := PanelContainer.new()
 	footer.add_theme_stylebox_override("panel", _panel_style())
-	layout.add_child(footer)
+	add_child(footer)
+	footer.anchor_left = 0.0
+	footer.anchor_right = 1.0
+	footer.anchor_top = 1.0
+	footer.anchor_bottom = 1.0
+	footer.offset_left = 0.0
+	footer.offset_right = 0.0
+	footer.offset_top = -110.0
+	footer.offset_bottom = 0.0
 	var footer_margin := MarginContainer.new()
 	footer_margin.add_theme_constant_override("margin_left", 12)
 	footer_margin.add_theme_constant_override("margin_right", 12)
