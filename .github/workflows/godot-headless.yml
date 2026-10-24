@@ -316,3 +316,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V24 SONG STUDIO FAILURE:|ERROR:' /tmp/v24-song-studio.log; then
             exit 1
           fi
+      - name: Validate Living Band presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_living_band_ui_tests.gd 2>&1 | tee /tmp/v24-living-band.log
+          grep -q 'V24 LIVING BAND UI TESTS PASSED' /tmp/v24-living-band.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 LIVING BAND FAILURE:|ERROR:' /tmp/v24-living-band.log; then
+            exit 1
+          fi
