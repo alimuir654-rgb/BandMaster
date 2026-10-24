@@ -307,3 +307,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Invalid call|Invalid get index|ERROR: Failed loading resource:' /tmp/career-hub.log; then
             exit 1
           fi
+      - name: Validate songwriting studio progress and legacy drafts
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_song_studio_tests.gd 2>&1 | tee /tmp/v24-song-studio.log
+          grep -q 'V24 SONG STUDIO PRESENTATION PASSED' /tmp/v24-song-studio.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 SONG STUDIO FAILURE:|ERROR:' /tmp/v24-song-studio.log; then
+            exit 1
+          fi
