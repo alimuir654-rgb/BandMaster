@@ -165,6 +165,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V22 CAMPAIGN FAILURE:|ERROR:' /tmp/v22-campaign.log; then
             exit 1
           fi
+      - name: Validate differentiated rehearsal-room decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_practice_room_tests.gd 2>&1 | tee /tmp/v22-practice.log
+          grep -q 'V22 PRACTICE ROOM TESTS PASSED' /tmp/v22-practice.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 PRACTICE FAILURE:|ERROR:' /tmp/v22-practice.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
