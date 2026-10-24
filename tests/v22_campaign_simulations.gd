@@ -2,6 +2,7 @@ extends SceneTree
 # Scenario-based end-to-end validation for the playable calendar career.
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Life = preload("res://Scripts/member_life.gd")
 var failures := 0
@@ -46,7 +47,7 @@ func _simulate(horizon: int, persona: String) -> void:
     choice = "songwrite" if actions % 3 != 0 else "rest"
    elif persona == "reckless":
     choice = "rest"
-   outcome = Actions.resolve(state,choice)
+   outcome = Practice.resolve(state,"create") if choice == "songwrite" else (Practice.resolve(state,"tighten") if choice == "rehearse" else Actions.resolve(state,choice))
    label = choice
   _check(bool(outcome.get("ok",false)),"%s day %d: %s" % [persona,int(state.get("tour_day",1)),label])
   if not bool(outcome.get("ok",false)):
@@ -54,6 +55,7 @@ func _simulate(horizon: int, persona: String) -> void:
   state = Calendar.expire(Story.observe(old,outcome["state"],"gig:local" if label == "perform" else label))
   state = Life.refresh(state)
   _check(int(state.get("cash",0)) >= 0,"cash cannot become negative")
+  _check(int(state.get("song_draft_progress",0)) >= 0 and int(state.get("song_draft_progress",0)) <= 2,"draft progress bounded")
   _check(int(state.get("morale",0)) >= 0 and int(state.get("morale",0)) <= 100,"morale bounded")
   _check(int(state.get("reputation",0)) >= 0 and int(state.get("reputation",0)) <= 100,"reputation bounded")
   _check(int(state.get("tour_day",0)) >= int(old.get("tour_day",0)),"time monotonic")
