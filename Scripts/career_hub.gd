@@ -3,6 +3,7 @@ extends Control
 const UI = preload("res://Scripts/ui_theme.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 const Presentation = preload("res://Scripts/career_presentation.gd")
+const Scrapbook = preload("res://Scripts/scrapbook_filter.gd")
 const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
@@ -27,6 +28,7 @@ var save_data: Dictionary = {}
 var tab := "HOME"
 var message := ""
 var content: VBoxContainer
+var scrapbook_filter := "ALL"
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -587,16 +589,28 @@ func _actions() -> void:
 
 func _scene() -> void:
  var archive: Array = _extra().get("career_journal",[])
- var scrapbook := _card("THE BAND SCRAPBOOK","A record of the nights, people and decisions that made your career.")
- if archive.is_empty():
-  _label(scrapbook,"Your band's history starts with the first rehearsal, song and show.",14,UI.MUTED)
+ var scrapbook := _card("THE BAND SCRAPBOOK","Explore the people, gigs and turning points in your band's history.")
+ var filters := HBoxContainer.new()
+ filters.add_theme_constant_override("separation",5)
+ scrapbook.add_child(filters)
+ for category in Scrapbook.FILTERS:
+  var choice := str(category)
+  var btn := UI.button(choice,choice == scrapbook_filter)
+  btn.add_theme_font_size_override("font_size",11)
+  btn.custom_minimum_size.y = 46
+  filters.add_child(btn)
+  btn.pressed.connect(func() -> void:
+   scrapbook_filter = choice
+   _render()
+  )
+ var selected: Array = Scrapbook.select(archive,scrapbook_filter,20)
+ if selected.is_empty():
+  _label(scrapbook,"No memories in this category yet. Keep playing to make history.",14,UI.MUTED)
  else:
-  for i in range(archive.size()-1,maxi(-1,archive.size()-21),-1):
-   if archive[i] is Dictionary:
-    var item: Dictionary = archive[i]
-    var clipping: Dictionary = Presentation.clipping(item)
-    _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
-    Components.story(scrapbook,item)
+  for entry in selected:
+   var clipping: Dictionary = Presentation.clipping(entry)
+   _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
+   Components.story(scrapbook,entry)
  var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
  _progress(snapshot,"BUZZ",_num("buzz"))
  _progress(snapshot,"PRESS",_num("press"))
