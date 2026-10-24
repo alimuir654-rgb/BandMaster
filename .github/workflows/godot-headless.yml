@@ -354,3 +354,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V25 BAND LIFE FAILURE:|ERROR:' /tmp/v25-band-life.log; then
             exit 1
           fi
+
+      - name: Validate full live-night briefing and settlement
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v26_live_night_briefing_tests.gd 2>&1 | tee /tmp/v26-live-night.log
+          grep -q 'V26 LIVE NIGHT BRIEFING PASSED' /tmp/v26-live-night.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V26 LIVE NIGHT FAILURE:|ERROR:' /tmp/v26-live-night.log; then
+            exit 1
+          fi
