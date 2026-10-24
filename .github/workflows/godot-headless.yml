@@ -210,6 +210,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V22 LAYOUT FAILURE:|ERROR:' /tmp/v22-layout.log; then
             exit 1
           fi
+      - name: Test live CareerHub migration and restart lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_handoff_ui_integration.gd 2>&1 | tee /tmp/v22-handoff-ui.log
+          grep -q 'V22 HANDOFF UI INTEGRATION PASSED' /tmp/v22-handoff-ui.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|HANDOFF UI FAILURE:|ERROR:' /tmp/v22-handoff-ui.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
