@@ -1,5 +1,4 @@
 extends RefCounted
-const Chemistry = preload("res://Scripts/band_chemistry.gd")
 # Platform-neutral, deterministic action resolver. UI and future LLM only describe outcomes.
 const ACTIONS := {
     "rehearse": {"label": "BOOK REHEARSAL", "cost": 15, "days": 1, "readiness": 9, "morale": -1, "tension": 2},
@@ -39,7 +38,7 @@ static func resolve(state: Dictionary, action_id: String) -> Dictionary:
     var counters: Dictionary = next.get("action_counters", {}).duplicate(true)
     counters[action_id] = int(counters.get(action_id, 0)) + 1
     next["action_counters"] = counters
-    next = Chemistry.work(next,action_id)
+    next = _apply_band_chemistry(next,action_id)
     var opportunity := _opportunity(next)
     var base_message := _flavour(action_id, int(counters[action_id]), str(next.get("band_name", "The band")))
     if not opportunity.is_empty():
@@ -78,3 +77,42 @@ static func _flavour(action_id: String, times: int, band_name: String) -> String
     }
     var options: Array = variants.get(action_id, ["Another day in the music business."])
     return str(options[(times - 1) % options.size()])
+
+static func _apply_band_chemistry(state: Dictionary, action_id: String) -> Dictionary:
+ if not state.has("members") or not (action_id == "rehearse" or action_id == "songwrite"):
+  return state
+ var participants := 0
+ var extra_readiness := 0
+ var stress := 0
+ var traits := {
+  "reliable":[2,0,-1],"ambitious":[2,1,2],"creative":[0,3,0],
+  "laid-back":[0,1,-2],"perfectionist":[3,2,3],"restless":[-1,2,3]
+ }
+ var roster: Array = state.get("members",[])
+ for entry in roster:
+  if not entry is Dictionary:
+   continue
+  var member: Dictionary = entry
+  if str(member.get("life_status","active")) != "active":
+   continue
+  participants += 1
+  var effect: Array = traits.get(str(member.get("trait","")).to_lower(),[0,0,0])
+  extra_readiness += int(effect[0 if action_id == "rehearse" else 1])
+  stress += int(effect[2])
+  member["fatigue"] = clampi(int(member.get("fatigue",0)) + (6 if action_id == "rehearse" else 3),0,100)
+  member["skill"] = clampi(int(member.get("skill",50)) + (2 if action_id == "rehearse" else 0),0,100)
+  member["morale"] = clampi(int(member.get("morale",50)) + (1 if action_id == "songwrite" else -1),0,100)
+ if participants == 0:
+  return state
+ state["readiness"] = clampi(int(state.get("readiness",0)) + extra_readiness,0,100)
+ state["tension"] = clampi(int(state.get("tension",0)) + int(float(stress)/float(participants)),0,100)
+ var counters: Dictionary = state.get("band_work_counters",{}).duplicate(true)
+ counters[action_id] = int(counters.get(action_id,0))+1
+ state["band_work_counters"] = counters
+ if int(counters[action_id]) == 1:
+  var journal: Array = state.get("career_journal",[]).duplicate(true)
+  journal.append({"id":"work:"+action_id,"day":int(state.get("tour_day",1)),"title":"IN THE REHEARSAL ROOM" if action_id == "rehearse" else "THE FIRST WRITING SESSION","text":"The line-up begins finding its sound together.","kind":"band"})
+  while journal.size() > 80:
+   journal.pop_front()
+  state["career_journal"] = journal
+ return state
