@@ -17,9 +17,13 @@ func _initialize() -> void:
  _check(writing.get("ok",false),"songwriting resolves")
  if writing.get("ok",false):
   _check(int(writing["state"]["songs"]) == 1,"new song created")
+  _check(writing["state"].get("song_catalogue",[]).size() == 1,"original song saved")
+  _check(writing["state"]["song_catalogue"][0]["writers"].size() == 3,"all available writers credited")
+  _check(int(writing["state"]["song_catalogue"][0]["quality"]) > 0,"song quality assigned")
   _check(int(writing["state"]["readiness"]) >= 35,"creative traits help songwriting")
   _check(JSON.parse_string(JSON.stringify(writing["state"])) is Dictionary,"JSON persistence")
  _check(int(base["members"][0]["skill"]) == 35,"input state is immutable")
+ _check(base.get("song_catalogue",[]).is_empty(),"song catalogue is immutable")
  var unavailable := base.duplicate(true)
  unavailable["members"][1]["life_status"] = "leave"
  var result: Dictionary = Actions.resolve(unavailable,"rehearse")
