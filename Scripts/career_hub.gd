@@ -8,6 +8,7 @@ const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
+const Life = preload("res://Scripts/member_life.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -317,11 +318,21 @@ func _gear() -> void:
 
 func _band() -> void:
  _band_situations()
+ _life_situations()
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
 
  if members.is_empty():
-  _card("NO MUSICIANS","Band members will appear here once recruited.")
+  _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
+ if members.size() < 6:
+  var recruitment := _card("FIND A MUSICIAN","Hold local auditions and bring someone new into the band.")
+  _action(recruitment,"AUDITION A NEW MEMBER",_recruit,true)
+ var alumni: Array = _extra().get("former_members",[])
+ if not alumni.is_empty():
+  var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
+  for person in alumni:
+   if person is Dictionary:
+    _label(alumni_box,str(person.get("name","Musician"))+"  /  "+str(person.get("role",""))+"  ·  "+str(person.get("reason","Left the band")),13,UI.MUTED)
  for i in range(members.size()):
   if not members[i] is Dictionary:
    continue
@@ -344,6 +355,8 @@ func _band() -> void:
   _label(name_stack,str(member.get("name","Musician")).to_upper(),24,UI.WHITE)
   _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
+  if str(member.get("life_status","active")) != "active":
+   _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
   var rule := ColorRect.new()
   rule.color = Color("#344153")
   rule.custom_minimum_size.y = 1
@@ -377,6 +390,19 @@ func _band() -> void:
   talk.pressed.connect(func() -> void: _member(index,"chat"))
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
+
+func _life_situations() -> void:
+ for situation in Life.pending(_state()):
+  var member_index := int(situation["index"])
+  var event_id := str(situation["id"])
+  var definition: Dictionary = Life.EVENTS[event_id]
+  var box := _card(str(definition["title"])+"  /  "+str(situation["name"]),str(definition["intro"]))
+  for choice in definition["choices"]:
+   var chosen := str(choice["id"])
+   _action(box,str(choice["label"]),func() -> void: _finish(Life.resolve(_state(),member_index,event_id,chosen)),chosen == str(definition["choices"][0]["id"]))
+
+func _recruit() -> void:
+ _finish(Life.recruit(_state()))
 
 func _band_situations() -> void:
  for event_id in Drama.pending(_state()):
@@ -509,7 +535,7 @@ func _apply(updated: Dictionary) -> void:
 func _finish(result: Dictionary, source: String = "") -> void:
  message = str(result.get("message","Action unavailable"))
  if result.get("ok",false) == true:
-  _apply(Story.observe(_state(),result["state"],source))
+  _apply(Life.refresh(Story.observe(_state(),result["state"],source)))
   _save()
  _render()
 
