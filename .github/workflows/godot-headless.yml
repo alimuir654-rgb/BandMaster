@@ -255,6 +255,32 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V23 MOTION FAILURE:|ERROR:' /tmp/v23-motion.log; then
             exit 1
           fi
+      - name: Validate modern band formation and musician selection
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_formation_tests.gd 2>&1 | tee /tmp/v24-formation.log
+          grep -q 'V24 FORMATION CATALOGUE TESTS PASSED' /tmp/v24-formation.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 FORMATION FAILURE:|ERROR:' /tmp/v24-formation.log; then
+            exit 1
+          fi
+      - name: Verify all band formation UI stages
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_formation_ui_tests.gd 2>&1 | tee /tmp/v24-formation-ui.log
+          grep -q 'V24 FORMATION UI LIFECYCLE PASSED' /tmp/v24-formation-ui.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 FORMATION UI FAILURE:|ERROR:' /tmp/v24-formation-ui.log; then
+            exit 1
+          fi
+      - name: Smoke-test band builder scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 20s godot --headless --path . --scene res://band_builder.tscn --quit-after 8 2>&1 | tee /tmp/v24-formation-scene.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/v24-formation-scene.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |

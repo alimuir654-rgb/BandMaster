@@ -19,6 +19,7 @@ const Chapters = preload("res://Scripts/career_chapters.gd")
 const Director = preload("res://Scripts/first_month_director.gd")
 const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
 const CareerLayout = preload("res://Scripts/career_layout.gd")
+const Portrait = preload("res://Scripts/member_portrait.gd")
 const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
@@ -37,6 +38,7 @@ var tab := "HOME"
 var message := ""
 var content: VBoxContainer
 var scrapbook_filter := "ALL"
+var action_view := "JAM"
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -169,7 +171,9 @@ func _render() -> void:
  appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _header() -> void:
- _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,UI.AMBER)
+ var palette: Dictionary = save_data.get("band",{}).get("palette",{})
+ var colour := Color(str(palette.get("primary","#F0B44D")))
+ _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,colour)
  var row := HBoxContainer.new()
  content.add_child(row)
  var band_data: Dictionary = save_data.get("band",{})
@@ -241,6 +245,50 @@ func _hero() -> void:
 
 
 func _home() -> void:
+ var destinations := _card("YOUR WORLD","Pick a place. Everything starts somewhere.")
+ var places := GridContainer.new()
+ places.columns = 2
+ places.add_theme_constant_override("h_separation",10)
+ places.add_theme_constant_override("v_separation",10)
+ destinations.add_child(places)
+ for spot in [
+  {"name":"THE STUDIO","tab":"ACTIONS","caption":"Jam · Rehearse · Hang out","art":"actions"},
+  {"name":"THE VENUES","tab":"GIGS","caption":"Book · Prepare · Perform","art":"gigs"},
+  {"name":"THE BAND","tab":"BAND","caption":"People · Chemistry · Stories","art":"band"},
+  {"name":"THE SCENE","tab":"SCENE","caption":"Promoters · Press · Scrapbook","art":"scene"},
+  {"name":"THE GEAR SHOP","tab":"GEAR","caption":"Buy · Upgrade · Repair","art":"gear"}
+ ]:
+  var data: Dictionary = spot
+  var tile := Button.new()
+  tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  tile.custom_minimum_size.y = 206
+  tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
+  tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
+  tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
+  places.add_child(tile)
+  var tile_content := VBoxContainer.new()
+  tile_content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  tile_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  tile_content.add_theme_constant_override("separation",6)
+  tile.add_child(tile_content)
+  var art := TextureRect.new()
+  art.custom_minimum_size.y = 100
+  art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  var art_path := "res://Art/uk_%s_banner.svg" % str(data["art"])
+  if ResourceLoader.exists(art_path):
+   art.texture = load(art_path)
+  tile_content.add_child(art)
+  var heading := _label(tile_content,str(data["name"]),14,UI.WHITE)
+  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  var tagline := _label(tile_content,str(data["caption"]),11,UI.MUTED)
+  tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  var target: String = str(data["tab"])
+  tile.pressed.connect(func() -> void: _switch(target))
  var guidance: Dictionary = Director.next_move(_state())
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
@@ -441,7 +489,10 @@ func _band() -> void:
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
-  Components.portrait(identity,member)
+  var portrait := Portrait.new()
+  portrait.custom_minimum_size = Vector2(88,108)
+  portrait.set_character(str(member.get("candidate_id",member.get("id",i))),str(member.get("name","Musician")))
+  identity.add_child(portrait)
   var name_stack := VBoxContainer.new()
   name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   identity.add_child(name_stack)
@@ -623,81 +674,99 @@ func _actions() -> void:
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
  _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
- var draft: Dictionary = _extra().get("current_song_draft",{})
- var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
- var ideas := OptionButton.new()
- var forms := OptionButton.new()
- var titles := OptionButton.new()
- var leads := OptionButton.new()
- var catalogue: Dictionary = Workshop.options(_state())
- for value in catalogue["ideas"]:
-  ideas.add_item(str(value))
- for value in catalogue["forms"]:
-  forms.add_item(str(value))
- for value in catalogue["titles"]:
-  titles.add_item(str(value))
- var indices: Array = []
- for person in catalogue["leads"]:
-  leads.add_item(str(person["name"])+"  /  "+str(person["trait"]))
-  indices.append(int(person["index"]))
- for control in [ideas,forms,titles,leads]:
-  control.custom_minimum_size.y = 52
-  workshop.add_child(control)
- if not draft.is_empty():
-  var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
-  var form_index := Workshop.FORMS.find(str(draft.get("form","")))
-  var title_index := Workshop.TITLES.find(str(draft.get("title","")))
-  if idea_index >= 0:
-   ideas.select(idea_index)
-  if form_index >= 0:
-   forms.select(form_index)
-  if title_index >= 0:
-   titles.select(title_index)
- _label(workshop,"IDEA  /  ARRANGEMENT  /  WORKING TITLE  /  SESSION LEADER",12,UI.MUTED)
- var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
- jam.custom_minimum_size.y = 54
- jam.disabled = indices.is_empty()
- workshop.add_child(jam)
- jam.pressed.connect(func() -> void:
-  _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
- )
- for focus in Practice.FOCUSES:
-  var id := str(focus)
-  var rule: Dictionary = Practice.FOCUSES[id]
-  var base: Dictionary = Actions.ACTIONS[str(rule["action"])]
-  var cost := int(base.get("cost",0))
-  if id == "create":
-   continue
-  var session := _card(str(rule["label"]),str(rule["description"]))
-  _label(session,"1 DAY  /  £%d" % cost,13,UI.MUTED)
-  var start_button := UI.button("START SESSION" if cost == 0 else "BOOK SESSION · £%d" % cost,id == "tighten")
-  start_button.custom_minimum_size.y = 56
-  start_button.disabled = _num("cash") < cost
-  session.add_child(start_button)
-  start_button.pressed.connect(func() -> void: _practice(id))
- var socials := _card("LIFE OUTSIDE THE STUDIO","Bandmates need more than rehearsals. Going out costs money and a day, but builds trust.")
- var available_count := 0
- for person in _state().get("members",[]):
-  if person is Dictionary and str(person.get("life_status","active")) == "active":
-   available_count += 1
- for activity in Social.ACTIVITIES:
-  var outing_id := str(activity)
-  var rule: Dictionary = Social.ACTIVITIES[outing_id]
-  var cost := int(rule["cost_per_member"])*available_count
-  var button := UI.button(str(rule["label"])+"  ·  £%d" % cost)
-  button.custom_minimum_size.y = 52
-  button.disabled = available_count < 2 or _num("cash") < cost
-  socials.add_child(button)
-  button.pressed.connect(func() -> void: _finish(Social.attend(_state(),outing_id)))
- var other := _card("THE BUSINESS SIDE","Music alone won't pay for studio time. Your days also need promotion and practical work.")
- for action_id in ["promo","press","buy_gear"]:
-  var id := str(action_id)
-  var rule: Dictionary = Actions.ACTIONS[id]
-  var cost := int(rule.get("cost",0))
-  var button := UI.button(str(rule["label"])+" · £%d" % cost)
-  button.disabled = _num("cash") < cost
-  other.add_child(button)
-  button.pressed.connect(func() -> void: _do_action(id))
+ var switches := _card("CHOOSE YOUR DAY","Move between creating music, spending time together and handling the business.")
+ var navigation := HBoxContainer.new()
+ navigation.add_theme_constant_override("separation",8)
+ switches.add_child(navigation)
+ for mode in ["JAM","HANG OUT","PROMOTE"]:
+  var destination := str(mode)
+  var selected := action_view == destination
+  var button := UI.button(destination,selected)
+  button.custom_minimum_size.y = 54
+  button.add_theme_font_size_override("font_size",12)
+  navigation.add_child(button)
+  button.pressed.connect(func() -> void:
+   action_view = destination
+   _render()
+  )
+ if action_view == "JAM":
+  var draft: Dictionary = _extra().get("current_song_draft",{})
+  var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
+  var ideas := OptionButton.new()
+  var forms := OptionButton.new()
+  var titles := OptionButton.new()
+  var leads := OptionButton.new()
+  var catalogue: Dictionary = Workshop.options(_state())
+  for value in catalogue["ideas"]:
+   ideas.add_item(str(value))
+  for value in catalogue["forms"]:
+   forms.add_item(str(value))
+  for value in catalogue["titles"]:
+   titles.add_item(str(value))
+  var indices: Array = []
+  for person in catalogue["leads"]:
+   leads.add_item(str(person["name"])+"  /  "+str(person["trait"]))
+   indices.append(int(person["index"]))
+  for control in [ideas,forms,titles,leads]:
+   control.custom_minimum_size.y = 52
+   workshop.add_child(control)
+  if not draft.is_empty():
+   var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
+   var form_index := Workshop.FORMS.find(str(draft.get("form","")))
+   var title_index := Workshop.TITLES.find(str(draft.get("title","")))
+   if idea_index >= 0:
+    ideas.select(idea_index)
+   if form_index >= 0:
+    forms.select(form_index)
+   if title_index >= 0:
+    titles.select(title_index)
+  _label(workshop,"IDEA  /  ARRANGEMENT  /  WORKING TITLE  /  SESSION LEADER",12,UI.MUTED)
+  var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
+  jam.custom_minimum_size.y = 54
+  jam.disabled = indices.is_empty()
+  workshop.add_child(jam)
+  jam.pressed.connect(func() -> void:
+   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
+  )
+  for focus in Practice.FOCUSES:
+   var id := str(focus)
+   var rule: Dictionary = Practice.FOCUSES[id]
+   var base: Dictionary = Actions.ACTIONS[str(rule["action"])]
+   var cost := int(base.get("cost",0))
+   if id == "create":
+    continue
+   var session := _card(str(rule["label"]),str(rule["description"]))
+   _label(session,"1 DAY  /  £%d" % cost,13,UI.MUTED)
+   var start_button := UI.button("START SESSION" if cost == 0 else "BOOK SESSION · £%d" % cost,id == "tighten")
+   start_button.custom_minimum_size.y = 56
+   start_button.disabled = _num("cash") < cost
+   session.add_child(start_button)
+   start_button.pressed.connect(func() -> void: _practice(id))
+ if action_view == "HANG OUT":
+  var socials := _card("LIFE OUTSIDE THE STUDIO","Bandmates need more than rehearsals. Going out costs money and a day, but builds trust.")
+  var available_count := 0
+  for person in _state().get("members",[]):
+   if person is Dictionary and str(person.get("life_status","active")) == "active":
+    available_count += 1
+  for activity in Social.ACTIVITIES:
+   var outing_id := str(activity)
+   var rule: Dictionary = Social.ACTIVITIES[outing_id]
+   var cost := int(rule["cost_per_member"])*available_count
+   var button := UI.button(str(rule["label"])+"  ·  £%d" % cost)
+   button.custom_minimum_size.y = 52
+   button.disabled = available_count < 2 or _num("cash") < cost
+   socials.add_child(button)
+   button.pressed.connect(func() -> void: _finish(Social.attend(_state(),outing_id)))
+ if action_view == "PROMOTE":
+  var other := _card("THE BUSINESS SIDE","Music alone won't pay for studio time. Your days also need promotion and practical work.")
+  for action_id in ["promo","press","buy_gear"]:
+   var id := str(action_id)
+   var rule: Dictionary = Actions.ACTIONS[id]
+   var cost := int(rule.get("cost",0))
+   var button := UI.button(str(rule["label"])+" · £%d" % cost)
+   button.disabled = _num("cash") < cost
+   other.add_child(button)
+   button.pressed.connect(func() -> void: _do_action(id))
 
 func _scene() -> void:
  var archive: Array = _extra().get("career_journal",[])

@@ -40,8 +40,8 @@ func _save_profile() -> bool:
 	file.close()
 	return true
 
-const VERSION_LABEL := "MOBILE ALPHA 0.3"
-const LAUNCH_ART := "res://Art/launch_uk_venue.webp"
+const VERSION_LABEL := "EARLY ACCESS  /  BANDMASTER"
+const LAUNCH_ART := "res://Art/uk_street_banner.svg"
 
 func _build_menu() -> void:
 	_build_screen(false)
@@ -92,7 +92,7 @@ func _build_screen(community: bool) -> void:
 
 	_label(column, "A BRITISH MUSIC INDUSTRY SIM", 14, AMBER)
 	_label(column, DISPLAY_TITLE, 44, WHITE)
-	_label(column, "A band. A van. A plan. How far can you go?", 17, WHITE)
+	_label(column, "Build the lineup. Find your sound. Make a scene.", 17, WHITE)
 	column.add_child(HSeparator.new())
 
 	if community:
