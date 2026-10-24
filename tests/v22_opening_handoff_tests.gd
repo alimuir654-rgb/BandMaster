@@ -11,6 +11,10 @@ func _initialize() -> void:
  _check(extra["career_journal"].size() == 1,"debut remembered")
  _check(int(extra["action_counters"].get("rehearse",0)) == 3,"intro rehearsals transferred")
  _check(int(extra["song_draft_progress"]) == 1,"writing choice credited towards future original")
+ var two_writes := old.duplicate(true)
+ two_writes["decisions"]["rehearsal_2"] = "write"
+ var two_result: Dictionary = Handoff.migrate(two_writes)
+ _check(int(two_result["career_extra"]["song_draft_progress"]) == 2,"two intro writing sessions persist as two draft stages")
  _check(bridged["band"] == old["band"],"roster unchanged")
  _check(JSON.stringify(Handoff.migrate(bridged)) == JSON.stringify(bridged),"migration idempotent")
  _check(old["career_extra"]["gig_history"].is_empty(),"original save immutable")
