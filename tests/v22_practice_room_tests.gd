@@ -10,10 +10,20 @@ func _initialize() -> void:
   _check(int(drill["state"]["cash"]) == 105,"rehearsal fee paid once")
   _check(int(drill["state"]["members"][0]["morale"]) > int(drill["state"]["members"][1]["morale"]),"personalities react differently")
  var writing: Dictionary = Practice.resolve(initial,"create")
- _check(writing.get("ok",false),"creative rehearsal works")
+ _check(writing.get("ok",false),"first songwriting session works")
  if writing.get("ok",false):
-  _check(int(writing["state"]["songs"]) == 1,"rehearsal produces original song")
-  _check(writing["state"]["song_catalogue"].size() == 1,"new song has persistent credits")
+  _check(int(writing["state"]["songs"]) == 0,"one session cannot instantly create a song")
+  _check(int(writing["state"]["song_draft_progress"]) == 1,"draft remembers progress")
+  var second: Dictionary = Practice.resolve(writing["state"],"create")
+  _check(second.get("ok",false),"second session advances draft")
+  if second.get("ok",false):
+   _check(int(second["state"]["song_draft_progress"]) == 2,"second stage tracked")
+   var third: Dictionary = Practice.resolve(second["state"],"create")
+   _check(third.get("ok",false),"third session finishes the original")
+   if third.get("ok",false):
+    _check(int(third["state"]["songs"]) == 1,"completed draft produces an original")
+    _check(third["state"]["song_catalogue"].size() == 1,"finished song retains credits")
+    _check(int(third["state"]["song_draft_progress"]) == 0,"finished song clears draft")
  var bonding: Dictionary = Practice.resolve(initial,"connect")
  _check(bonding.get("ok",false),"bonding works")
  if bonding.get("ok",false):

@@ -2,6 +2,7 @@ extends SceneTree
 # Scenario-based end-to-end validation for the playable calendar career.
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Life = preload("res://Scripts/member_life.gd")
 var failures := 0
@@ -46,7 +47,7 @@ func _simulate(horizon: int, persona: String) -> void:
     choice = "songwrite" if actions % 3 != 0 else "rest"
    elif persona == "reckless":
     choice = "rest"
-   outcome = Actions.resolve(state,choice)
+   outcome = Practice.resolve(state,"create") if choice == "songwrite" else (Practice.resolve(state,"tighten") if choice == "rehearse" else Actions.resolve(state,choice))
    label = choice
   _check(bool(outcome.get("ok",false)),"%s day %d: %s" % [persona,int(state.get("tour_day",1)),label])
   if not bool(outcome.get("ok",false)):
@@ -54,6 +55,7 @@ func _simulate(horizon: int, persona: String) -> void:
   state = Calendar.expire(Story.observe(old,outcome["state"],"gig:local" if label == "perform" else label))
   state = Life.refresh(state)
   _check(int(state.get("cash",0)) >= 0,"cash cannot become negative")
+  _check(int(state.get("song_draft_progress",0)) >= 0 and int(state.get("song_draft_progress",0)) <= 2,"draft progress bounded")
   _check(int(state.get("morale",0)) >= 0 and int(state.get("morale",0)) <= 100,"morale bounded")
   _check(int(state.get("reputation",0)) >= 0 and int(state.get("reputation",0)) <= 100,"reputation bounded")
   _check(int(state.get("tour_day",0)) >= int(old.get("tour_day",0)),"time monotonic")
@@ -67,6 +69,13 @@ func _simulate(horizon: int, persona: String) -> void:
  _check(int(state.get("tour_day",1)) >= horizon,"persona reaches simulation horizon")
  _check(shows + missed >= 1,"persona encounters live schedule consequences")
  _check(int(state.get("gig_history",[]).size()) == shows,"played gigs match history")
+ if horizon == 180:
+  if persona == "reckless":
+   _check(int(state.get("cash",0)) < 400,"reckless no-setlist strategy cannot freely generate wealth")
+   _check(int(state.get("songs",0)) == 0,"reckless persona is not credited with invented songs")
+  else:
+   _check(int(state.get("songs",0)) <= 50,"authentic writing rate keeps catalogue plausible")
+   _check(int(state.get("cash",0)) > 350,"planning and original music remain economically viable")
  print("CAMPAIGN ",persona," horizon=",horizon," days=",state.get("tour_day")," shows=",shows," missed=",missed," songs=",state.get("songs")," cash=",state.get("cash"))
 
 func _check(ok: bool, detail: String) -> void:

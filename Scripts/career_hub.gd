@@ -299,7 +299,7 @@ func _home() -> void:
   action.add_theme_font_size_override("font_size",13)
   row.add_child(action)
  book.pressed.connect(func() -> void: _switch("GIGS"))
- write.pressed.connect(func() -> void: _do_action("songwrite"))
+ write.pressed.connect(func() -> void: _switch("ACTIONS"))
  practise.pressed.connect(func() -> void: _switch("ACTIONS"))
 
 func _gigs() -> void:
@@ -607,6 +607,7 @@ func _actions() -> void:
    _label(heading,"SHOW DAY — PREPARATION TIME HAS RUN OUT",15,UI.AMBER)
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
+ _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
  for focus in Practice.FOCUSES:
   var id := str(focus)
   var rule: Dictionary = Practice.FOCUSES[id]

@@ -52,3 +52,11 @@ All scripted 30/90/180-day scenarios pass mechanical invariants, but **successfu
 **QA verdict: PASS automated mechanics, HOLD visual/device and balance verification.** Test suite now covers scheduled shows, missed and cancelled shows, rehearsals, varied musician traits, relationship changes, 30/90/180-day persona simulation and actual save/reload. Manual phone-size layout and scripted-intro-to-CareerHub journey remain uncovered.
 
 **Player persona verdict:** A first-time player needs fewer competing cards and a guided first month; a management enthusiast needs choices that change outcomes beyond cosmetic description; a mobile player needs readable navigation and touch targets; an offline player must never be gated by AI availability.
+
+
+## Balance re-review after setlist economics (2026-10-24)
+Compared with the previous automated 180-day run, the player-facing three-session writing process reduces the planner from 130 to 43 originals and the songwriter persona from 90 to 30. Gig-setlist and repeat-venue economics reduce the reckless no-originals strategy's final cash from £990 to £238 (versus £1,037 for the planner and £1,109 for the songwriter). The nine simulated careers still reach their horizons, while the planner/writer paths remain financially sustainable.
+
+**BA reviewer:** Meaningful connection now exists among songwriting, rehearsal and show finances. Still needs an in-game tutorial explaining three writing sessions and risk of a weak setlist. **Engineering reviewer:** Save state adds `song_draft_progress`, `originals_played`, `setlist_modifier`, `return_visit`; no destructive migration. **QA reviewer:** Added explicit 180-day exploit thresholds and tests for repeat appearances. **Player personas:** The no-song exploit is reduced, but a player who only writes and never gigs still needs objectives and financial pressure in future scope.
+
+**Release gate remains blocked:** Cross-era new-band onboarding, mobile visual inspection, and an actual first-month experience review are not covered by this balance PR. Numerical results are model-based and do not replace playtesting.
