@@ -26,6 +26,7 @@ const Portrait = preload("res://Scripts/member_portrait.gd")
 const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
+const BandPulse = preload("res://Scripts/band_pulse_presentation.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -486,6 +487,12 @@ func _band() -> void:
  _life_situations()
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
+ var pulse: Dictionary = BandPulse.overview(members)
+ var chemistry := _card("THE BAND RIGHT NOW",str(pulse["mood"])+"  /  "+str(pulse["active"])+" ACTIVE MUSICIANS")
+ _progress(chemistry,"GROUP MORALE",int(pulse["morale"]))
+ _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
+ if int(pulse["exhausted"]) > 0:
+  _label(chemistry,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.AMBER)
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
@@ -527,6 +534,7 @@ func _band() -> void:
   _label(name_stack,str(member.get("name","Musician")).to_upper(),24,UI.WHITE)
   _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
+  _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
   var rule := ColorRect.new()
