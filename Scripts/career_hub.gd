@@ -1,6 +1,7 @@
 extends Control
 
 const UI = preload("res://Scripts/ui_theme.gd")
+const Components = preload("res://Scripts/ui_components.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
@@ -85,16 +86,7 @@ func _label(parent: Node, value: String, size: int = 17, colour: Color = UI.WHIT
  return label
 
 func _card(title: String, description: String = "") -> VBoxContainer:
- var frame := PanelContainer.new()
- frame.add_theme_stylebox_override("panel",UI.style(UI.PANEL))
- content.add_child(frame)
- var body := VBoxContainer.new()
- body.add_theme_constant_override("separation",9)
- frame.add_child(body)
- _label(body,title,18,UI.AMBER)
- if not description.is_empty():
-  _label(body,description,15,UI.WHITE)
- return body
+ return Components.section(content,title,description)
 
 func _action(parent: Node, name: String, callback: Callable, primary: bool = false) -> void:
  var button := UI.button(name,primary)
@@ -233,7 +225,7 @@ func _home() -> void:
  var chapter_box := _card("YOUR NEXT CHAPTER  /  "+str(chapter.get("title","")) ,str(chapter.get("description","")))
  if not bool(chapter.get("done",false)):
   for objective in chapter.get("requirements",[]):
-   _label(chapter_box,"%s   %d / %d" % [str(objective["label"]).to_upper(),int(objective["current"]),int(objective["target"])],13,UI.MUTED)
+   Components.objective(chapter_box,objective)
   var claim := UI.button("CLAIM CHAPTER REWARD  ·  £%d" % int(chapter.get("reward_cash",0)),true)
   claim.disabled = not bool(chapter.get("ready",false))
   claim.custom_minimum_size.y = 52
@@ -265,8 +257,8 @@ func _home() -> void:
  if not memories.is_empty():
   var journal := _card("THE STORY SO FAR","Moments that shaped your band.")
   for moment in memories:
-   _label(journal,"DAY %d  /  %s" % [int(moment.get("day",1)),str(moment.get("title",""))],14,UI.AMBER)
-   _label(journal,str(moment.get("text","")),13,UI.MUTED)
+   if moment is Dictionary:
+    Components.story(journal,moment)
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
@@ -395,13 +387,7 @@ func _band() -> void:
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
-  var avatar_frame := PanelContainer.new()
-  avatar_frame.custom_minimum_size = Vector2(74,74)
-  avatar_frame.add_theme_stylebox_override("panel",UI.style(Color("#334154"),12))
-  identity.add_child(avatar_frame)
-  var initials := _label(avatar_frame,str(member.get("name","?")).left(1).to_upper(),36,UI.AMBER)
-  initials.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  initials.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+  Components.portrait(identity,member)
   var name_stack := VBoxContainer.new()
   name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   identity.add_child(name_stack)
