@@ -337,7 +337,7 @@ func _actions() -> void:
   var cost := int(cfg.get("cost",0))
   var days := int(cfg.get("days",1))
   var box := _card(str(cfg["label"]).to_upper(),"£%d  ·  %d DAY(S)" % [cost,days])
-  var benefits: Array[String] = []
+  var benefits := PackedStringArray()
   for stat in ["readiness","morale","songs","buzz","fans","press"]:
    if cfg.has(stat) and int(cfg[stat]) != 0:
     benefits.append("%s %+d" % [stat.to_upper(),int(cfg[stat])])
