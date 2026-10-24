@@ -11,7 +11,9 @@ static func style(fill: Color, radius: int = 14) -> StyleBoxFlat:
  var box := StyleBoxFlat.new()
  box.bg_color = fill
  box.set_corner_radius_all(radius)
- box.set_content_margin_all(14)
+ box.set_content_margin_all(16)
+ box.border_color = Color("#334357")
+ box.set_border_width_all(1)
  return box
 
 static func button(label: String, primary: bool = false) -> Button:
@@ -28,4 +30,19 @@ static func button(label: String, primary: bool = false) -> Button:
  item.add_theme_color_override("font_hover_color",foreground)
  item.add_theme_color_override("font_pressed_color",foreground)
  item.add_theme_font_size_override("font_size",16)
+ item.add_theme_color_override("font_focus_color",foreground)
+ item.add_theme_stylebox_override("focus",style(AMBER.darkened(0.52),12))
+ item.add_theme_stylebox_override("disabled",style(Color("#1A212A"),12))
+ item.add_theme_color_override("font_disabled_color",Color("#687482"))
+ item.add_theme_color_override("font_hover_pressed_color",foreground)
  return item
+
+static func progress(bar: ProgressBar) -> void:
+ bar.show_percentage = false
+ bar.custom_minimum_size.y = 20
+ var back := style(Color("#101923"),9)
+ back.set_content_margin_all(0)
+ var fill := style(AMBER,9)
+ fill.set_content_margin_all(0)
+ bar.add_theme_stylebox_override("background",back)
+ bar.add_theme_stylebox_override("fill",fill)
