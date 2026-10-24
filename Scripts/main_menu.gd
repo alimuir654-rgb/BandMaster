@@ -40,66 +40,83 @@ func _save_profile() -> bool:
 	file.close()
 	return true
 
+const VERSION_LABEL := "MOBILE ALPHA 0.3"
+const LAUNCH_ART := "res://Art/launch_uk_venue.webp"
+
 func _build_menu() -> void:
+	_build_screen(false)
+
+
+func _build_screen(community: bool) -> void:
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
 
 	var background := ColorRect.new()
 	background.color = BG
+	add_child(background)
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(background)
 
-	# Contrasting bands give this screen an atmospheric poster-like treatment,
-	# without forcing a particular future background image into the game.
-	var top_band := ColorRect.new()
-	top_band.color = Color("#25201C")
-	top_band.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(top_band)
-	top_band.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-	top_band.offset_bottom = 280
+	# Optional British venue artwork. The layout remains usable without an asset.
+	if ResourceLoader.exists(LAUNCH_ART):
+		var backdrop := TextureRect.new()
+		backdrop.texture = load(LAUNCH_ART)
+		backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(backdrop)
+		backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var veil := ColorRect.new()
+	veil.color = Color(0.04, 0.05, 0.07, 0.83)
+	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(veil)
+	veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 	var scroll := ScrollContainer.new()
 	add_child(scroll)
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	margin.add_theme_constant_override("margin_left", 22)
 	margin.add_theme_constant_override("margin_right", 22)
 	margin.add_theme_constant_override("margin_top", 45)
-	margin.add_theme_constant_override("margin_bottom", 42)
+	margin.add_theme_constant_override("margin_bottom", 35)
 	scroll.add_child(margin)
-
 	var column := VBoxContainer.new()
 	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	column.add_theme_constant_override("separation", 12)
+	column.add_theme_constant_override("separation", 16)
 	margin.add_child(column)
 
 	_label(column, "A BRITISH MUSIC INDUSTRY SIM", 14, AMBER)
-	_label(column, DISPLAY_TITLE, 42, WHITE)
-	_label(column, "A band. A van. A plan. How far can you go?", 17, MUTED)
+	_label(column, DISPLAY_TITLE, 44, WHITE)
+	_label(column, "A band. A van. A plan. How far can you go?", 17, WHITE)
 	column.add_child(HSeparator.new())
-	_label(column, "YOUR CAREER", 18, AMBER)
 
-	var continue_button := _button(column, "CONTINUE CAREER", _continue_game, true)
-	continue_button.disabled = not FileAccess.file_exists(SAVE_PATH)
-	_button(column, "START A NEW BAND", _new_game, false)
-	_label(column, "Local career saves stay on this device.", 13, MUTED)
+	if community:
+		_label(column, "YOUR CORNER OF THE SCENE", 19, AMBER)
+		_button(column, "PLAYER PROFILE", _show_profile, true)
+		_button(column, "FRIENDS & CONNECTIONS", func() -> void: _unavailable("Friends and connections"), false)
+		_button(column, "COMPARE SCORES", func() -> void: _unavailable("Online leaderboards"), false)
+		_button(column, "INVITE A SUPPORT BAND", func() -> void: _unavailable("Support-band invitations"), false)
+		_button(column, "JOIN ANOTHER BAND", func() -> void: _unavailable("Collaborative bands"), false)
+		_button(column, "< BACK TO HOME", func() -> void: _build_screen(false), false)
+	else:
+		_label(column, "YOUR NEXT CHAPTER", 19, AMBER)
+		var has_save := FileAccess.file_exists(SAVE_PATH)
+		var primary_label := "CONTINUE CAREER" if has_save else "START A NEW BAND"
+		var primary_action: Callable = _continue_game if has_save else _new_game
+		_button(column, primary_label, primary_action, true)
+		if has_save:
+			_button(column, "START A NEW BAND", _new_game, false)
+		_button(column, "COMMUNITY & PROFILE", func() -> void: _build_screen(true), false)
+		_button(column, "QUIT", _quit_game, false)
 
-	column.add_child(HSeparator.new())
-	_label(column, "YOUR CORNER OF THE SCENE", 18, AMBER)
-	_button(column, "PLAYER PROFILE", _show_profile, false)
-	_button(column, "FRIENDS & CONNECTIONS", func() -> void: _unavailable("Friends and connections"), false)
-	_button(column, "LEADERBOARDS", func() -> void: _unavailable("Online leaderboards"), false)
-	_button(column, "INVITE A SUPPORT BAND", func() -> void: _unavailable("Support-band invitations"), false)
-	_button(column, "JOIN ANOTHER BAND", func() -> void: _unavailable("Collaborative bands"), false)
+	message_label = _label(column, VERSION_LABEL + "  //  UK GRASSROOTS", 13, MUTED)
+	_label(column, "Offline careers stay on this device.", 13, MUTED)
 
-	column.add_child(HSeparator.new())
-	_button(column, "QUIT", _quit_game, false)
-	message_label = _label(column, "Offline prototype // British grassroots career", 13, MUTED)
 
 func _show_profile() -> void:
 	var dialog := AcceptDialog.new()
@@ -205,6 +222,10 @@ func _button(parent: Control, label_text: String, action: Callable, primary: boo
 	hover.bg_color = Color("#FFC766") if primary else Color("#455365")
 	result.add_theme_stylebox_override("normal", normal)
 	result.add_theme_stylebox_override("hover", hover)
+	result.add_theme_stylebox_override("pressed", hover)
+	var disabled_style := normal.duplicate()
+	disabled_style.bg_color = Color("#222529")
+	result.add_theme_stylebox_override("disabled", disabled_style)
 	result.add_theme_color_override("font_color", BG if primary else WHITE)
 	result.add_theme_color_override("font_hover_color", BG if primary else WHITE)
 	result.pressed.connect(action)
