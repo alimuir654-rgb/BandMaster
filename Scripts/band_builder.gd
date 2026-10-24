@@ -1,289 +1,305 @@
 extends Control
-
-const BG := Color("#101216")
-const PANEL := Color("#1A1E24")
-const AMBER := Color("#F0B44D")
-const WHITE := Color("#F2F0E9")
-const MUTED := Color("#9BA5B2")
-const GENRES := ["Post-punk", "Indie rock", "Punk", "Britpop", "Shoegaze", "Synth-pop", "Garage rock", "Goth", "Prog rock", "Experimental"]
-const INFLUENCES := ["Joy Division", "The Velvet Underground", "The Smiths", "The Clash", "Talking Heads", "Sonic Youth", "The Cure", "New Order", "Pixies", "Kraftwerk", "ABBA", "Black Sabbath"]
-const ROLES := ["Singer", "Guitarist", "Bassist", "Drummer", "Keyboardist", "Multi-instrumentalist"]
-const TRAITS := ["Control freak", "Unreliable genius", "Peacemaker", "Chaos agent", "Attention seeker", "Cynic", "Perfectionist", "People pleaser", "Secret softie", "Chronic liar", "Money obsessed"]
-const IDENTITIES := ["Woman", "Man", "Non-binary", "Self-describe", "Prefer not to say"]
-const DEFAULT_NAMES := ["Alex", "Mick", "Sam", "Jo", "Kit", "Fran"]
-const DEFAULT_TRAITS := ["Control freak", "Unreliable genius", "Peacemaker", "Chaos agent", "Perfectionist", "Cynic"]
-
-var name_field: LineEdit
-var genre_field: OptionButton
-var influence_field: OptionButton
-var member_container: VBoxContainer
-var status_label: Label
-var count_label: Label
-var member_rows: Array[Dictionary] = []
-var steps: Array[VBoxContainer] = []
-var summary_label: Label
-var current_step := 0
-var form_scroll: ScrollContainer
-var nav_back: Button
-var nav_next: Button
+# Band Formation 2.0: identity -> recruitment -> reveal.
+const UI = preload("res://Scripts/ui_theme.gd")
+const Catalog = preload("res://Scripts/formation_catalogue.gd")
+const SAVE_PATH := "user://tour_save.json"
+const BAND_PATH := "user://band_profile.json"
+var step := 0
+var band_name := "The Feedback"
+var genre := "Indie rock"
+var influence := "The Smiths"
+var palette_index := 0
+var logo_index := 0
+var recruited: Array = []
+var canvas: VBoxContainer
+var title_entry: LineEdit
+var genre_select: OptionButton
+var influence_select: OptionButton
+var feedback: Label
+var back_button: Button
+var next_button: Button
+var content_scroll: ScrollContainer
 
 func _ready() -> void:
-	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_build()
+ set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ _render()
 
-func _build() -> void:
-	var bg := ColorRect.new()
-	bg.color = BG
-	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(bg)
-	# Keep navigation independent of content minimum height; only the form scrolls.
-	form_scroll = ScrollContainer.new()
-	add_child(form_scroll)
-	form_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	form_scroll.offset_bottom = -110.0
-	form_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 18)
-	margin.add_theme_constant_override("margin_right", 18)
-	margin.add_theme_constant_override("margin_top", 24)
-	margin.add_theme_constant_override("margin_bottom", 32)
-	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	form_scroll.add_child(margin)
-	var page := VBoxContainer.new()
-	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	page.add_theme_constant_override("separation", 14)
-	margin.add_child(page)
-	_label(page, "ROADIE // BAND FORMATION", 14, AMBER)
-	_label(page, "MAKE SOME NOISE", 30, WHITE)
-	_label(page, "Start in the practice room. Fame comes later, if at all.", 15, MUTED)
-	page.add_child(HSeparator.new())
-	var identity_page := _make_step(page)
-	_label(identity_page, "01 / BAND IDENTITY", 20, AMBER)
-	_label(identity_page, "Band name", 16, WHITE)
-	name_field = LineEdit.new()
-	name_field.text = "The Feedback"
-	name_field.custom_minimum_size.y = 54
-	identity_page.add_child(name_field)
-	_label(identity_page, "Genre", 16, WHITE)
-	genre_field = _option(GENRES)
-	identity_page.add_child(genre_field)
-	_label(identity_page, "Primary influence", 16, WHITE)
-	influence_field = _option(INFLUENCES)
-	identity_page.add_child(influence_field)
+func _render() -> void:
+ for child in get_children():
+  remove_child(child)
+  child.queue_free()
+ var bg := ColorRect.new()
+ bg.color = UI.BG
+ add_child(bg)
+ bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ content_scroll = ScrollContainer.new()
+ content_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ content_scroll.offset_bottom = -100
+ content_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ add_child(content_scroll)
+ var margin := MarginContainer.new()
+ margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for side in ["left","right"]:
+  margin.add_theme_constant_override("margin_"+side,18)
+ margin.add_theme_constant_override("margin_top",18)
+ margin.add_theme_constant_override("margin_bottom",24)
+ content_scroll.add_child(margin)
+ canvas = VBoxContainer.new()
+ canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ canvas.add_theme_constant_override("separation",16)
+ margin.add_child(canvas)
+ _label(canvas,"LIVIN' THE DREAM   /   YOUR ORIGIN STORY",12,UI.AMBER)
+ _hero()
+ var progress := HBoxContainer.new()
+ progress.add_theme_constant_override("separation",8)
+ canvas.add_child(progress)
+ for i in range(3):
+  var pill := PanelContainer.new()
+  pill.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  pill.add_theme_stylebox_override("panel",UI.style(UI.AMBER if i == step else UI.ALT,12))
+  progress.add_child(pill)
+  var text := _label(pill,["01  IDENTITY","02  THE LINEUP","03  DEBUT"][i],11,UI.BG if i == step else UI.WHITE)
+  text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ match step:
+  0: _identity()
+  1: _recruitment()
+  2: _review()
+ var footer_layer := CanvasLayer.new()
+ footer_layer.layer = 10
+ add_child(footer_layer)
+ var footer := PanelContainer.new()
+ footer.add_theme_stylebox_override("panel",UI.style(UI.PANEL,0))
+ footer_layer.add_child(footer)
+ footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ footer.offset_top = -94
+ footer.offset_bottom = 0
+ var buttons := HBoxContainer.new()
+ buttons.add_theme_constant_override("separation",12)
+ footer.add_child(buttons)
+ back_button = UI.button("BACK")
+ back_button.custom_minimum_size.x = 100
+ back_button.disabled = step == 0
+ buttons.add_child(back_button)
+ back_button.pressed.connect(func() -> void: _go(step-1))
+ next_button = UI.button(["FIND YOUR BAND  ›","REVIEW THE BAND  ›","START THE STORY  ›"][step],true)
+ buttons.add_child(next_button)
+ next_button.pressed.connect(_advance)
+ feedback = _label(canvas,"",13,UI.AMBER)
+ canvas.modulate.a = 0
+ create_tween().tween_property(canvas,"modulate:a",1.0,0.25)
 
-	var personnel_page := _make_step(page)
-	_label(personnel_page, "02 / PERSONNEL", 20, AMBER)
-	_label(personnel_page, "Choose 2–6 musicians. Roles can overlap; personalities have consequences.", 15, MUTED)
-	count_label = _label(personnel_page, "", 14, AMBER)
-	member_container = VBoxContainer.new()
-	member_container.add_theme_constant_override("separation", 14)
-	personnel_page.add_child(member_container)
-	var member_actions := HBoxContainer.new()
-	member_actions.add_theme_constant_override("separation", 8)
-	personnel_page.add_child(member_actions)
-	_button(member_actions, "+ ADD", _add_member)
-	_button(member_actions, "- REMOVE", _remove_member)
-	for i in range(4):
-		_add_member()
+func _hero() -> void:
+ var box := PanelContainer.new()
+ box.add_theme_stylebox_override("panel",UI.style(UI.PANEL,16))
+ canvas.add_child(box)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",8)
+ box.add_child(stack)
+ var art := TextureRect.new()
+ art.custom_minimum_size.y = 190
+ art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var source := ["res://Art/Backgrounds/band.webp","res://Art/Backgrounds/actions.webp","res://Art/Backgrounds/gigs.webp"][step]
+ if not ResourceLoader.exists(source):
+  source = "res://Art/launch_uk_venue.webp"
+ if ResourceLoader.exists(source):
+  art.texture = load(source)
+ stack.add_child(art)
+ _label(stack,["START SOMETHING REAL","FIND YOUR PEOPLE","THIS IS YOUR BAND"][step],27,UI.WHITE)
+ _label(stack,["Find the sound and identity that will shape your first gigs.","Every new musician brings talent, personality and another share of the earnings.","A band name, a sound, and a room full of people. The rest is up to you."][step],15,UI.MUTED)
 
-	var review_page := _make_step(page)
-	_label(review_page, "03 / READY TO REHEARSE", 20, AMBER)
-	_label(review_page, "Review your line-up before creating a new career.", 15, MUTED)
-	summary_label = _label(review_page, "", 17, WHITE)
-	status_label = _label(review_page, "AWAITING BAND REGISTRATION", 14, MUTED)
+func _card(parent: Node, heading: String, detail: String = "") -> VBoxContainer:
+ var panel := PanelContainer.new()
+ panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,14))
+ parent.add_child(panel)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",10)
+ panel.add_child(column)
+ _label(column,heading,19,UI.AMBER)
+ if not detail.is_empty():
+  _label(column,detail,14,UI.MUTED)
+ return column
 
-	# Use a separate CanvasLayer so scrollable content cannot displace or cover navigation.
-	var navigation_layer := CanvasLayer.new()
-	navigation_layer.layer = 10
-	add_child(navigation_layer)
-	var footer := PanelContainer.new()
-	footer.add_theme_stylebox_override("panel", _panel_style())
-	navigation_layer.add_child(footer)
-	footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
-	footer.offset_top = -110.0
-	footer.offset_bottom = 0.0
-	var footer_margin := MarginContainer.new()
-	footer_margin.add_theme_constant_override("margin_left", 12)
-	footer_margin.add_theme_constant_override("margin_right", 12)
-	footer_margin.add_theme_constant_override("margin_top", 8)
-	footer_margin.add_theme_constant_override("margin_bottom", 12)
-	footer.add_child(footer_margin)
-	var navigation := HBoxContainer.new()
-	navigation.add_theme_constant_override("separation", 8)
-	footer_margin.add_child(navigation)
-	nav_back = Button.new()
-	nav_back.text = "< BACK"
-	nav_back.custom_minimum_size = Vector2(100, 58)
-	nav_back.pressed.connect(func() -> void: _show_step(current_step - 1))
-	navigation.add_child(nav_back)
-	nav_next = Button.new()
-	nav_next.custom_minimum_size.y = 58
-	nav_next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	nav_next.pressed.connect(_advance_step)
-	navigation.add_child(nav_next)
-	_show_step(0)
+func _identity() -> void:
+ var first := _card(canvas,"THE NAME","What will be on the first poster?")
+ title_entry = LineEdit.new()
+ title_entry.text = band_name
+ title_entry.max_length = 36
+ title_entry.custom_minimum_size.y = 56
+ first.add_child(title_entry)
+ var sound := _card(canvas,"THE SOUND","Genre sets the band's starting musical direction. It influences recruitment compatibility, not who you are allowed to hire.")
+ genre_select = OptionButton.new()
+ for key in Catalog.GENRES.keys():
+  genre_select.add_item(str(key))
+ genre_select.select(maxi(0,Catalog.GENRES.keys().find(genre)))
+ genre_select.custom_minimum_size.y = 56
+ sound.add_child(genre_select)
+ var genre_details := _label(sound,"",14,UI.WHITE)
+ var update_genre := func() -> void:
+  var selected := genre_select.get_item_text(genre_select.selected)
+  var config: Dictionary = Catalog.GENRES[selected]
+  genre_details.text = str(config["description"])+"\nSTRENGTH  "+str(config["strength"])+"\nTRADE-OFF  "+str(config["challenge"])+"\nTYPICAL LINEUP  "+", ".join(config["roles"])
+ genre_select.item_selected.connect(func(_index: int) -> void: update_genre.call())
+ update_genre.call()
+ var influence_box := _card(canvas,"YOUR INFLUENCE","A reference point for the band's identity. This is stored with the band; future musical scenes can respond to it.")
+ influence_select = OptionButton.new()
+ for item in Catalog.INFLUENCES:
+  influence_select.add_item(str(item))
+ influence_select.select(maxi(0,Catalog.INFLUENCES.find(influence)))
+ influence_select.custom_minimum_size.y = 56
+ influence_box.add_child(influence_select)
+ var colour_box := _card(canvas,"BAND COLOURS","These define the band's visual identity and can carry into future artwork.")
+ var swatches := HFlowContainer.new()
+ swatches.add_theme_constant_override("h_separation",10)
+ colour_box.add_child(swatches)
+ for i in range(Catalog.PALETTES.size()):
+  var palette: Dictionary = Catalog.PALETTES[i]
+  var choice := UI.button(("✓  " if palette_index == i else "")+str(palette["name"]))
+  choice.add_theme_stylebox_override("normal",UI.style(Color(str(palette["secondary"])),12))
+  choice.add_theme_color_override("font_color",Color(str(palette["primary"])))
+  choice.custom_minimum_size = Vector2(142,54)
+  swatches.add_child(choice)
+  var idx := i
+  choice.pressed.connect(func() -> void:
+   band_name = title_entry.text.strip_edges()
+   genre = genre_select.get_item_text(genre_select.selected)
+   influence = influence_select.get_item_text(influence_select.selected)
+   palette_index = idx
+   _render()
+  )
+ var logo_box := _card(canvas,"LOGO DIRECTION","Choose how the band name should appear on flyers, recordings and posters.")
+ for i in range(Catalog.LOGOS.size()):
+  var option := UI.button(("✓  " if logo_index == i else "")+str(Catalog.LOGOS[i]))
+  logo_box.add_child(option)
+  var idx := i
+  option.pressed.connect(func() -> void:
+   band_name = title_entry.text.strip_edges()
+   genre = genre_select.get_item_text(genre_select.selected)
+   influence = influence_select.get_item_text(influence_select.selected)
+   logo_index = idx
+   _render()
+  )
 
+func _recruitment() -> void:
+ var count := recruited.size()
+ var intro := _card(canvas,"BUILD THE LINEUP","Pick 2–6 musicians. A rhythm player is required. Musicians outside your genre can join, but might be less comfortable with the sound.")
+ _label(intro,"%d / 6 MEMBERS   •   APPROX. %d%% SHARE EACH" % [count,Catalog.split_per_member(count)],15,UI.AMBER)
+ var slots := HFlowContainer.new()
+ intro.add_child(slots)
+ for i in range(6):
+  var slot := PanelContainer.new()
+  slot.custom_minimum_size = Vector2(96,100)
+  slot.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+  slots.add_child(slot)
+  var who := "EMPTY SLOT"
+  if i < recruited.size():
+   who = str(recruited[i]["name"])+"\n"+str(recruited[i]["role"])
+  var label := _label(slot,who,12,UI.WHITE if i < recruited.size() else UI.MUTED)
+  label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ for candidate in Catalog.CANDIDATES:
+  var row: Dictionary = candidate
+  var selected := false
+  for member in recruited:
+   if str(member["candidate_id"]) == str(row["id"]):
+    selected = true
+  var tier := Catalog.affinity(row,genre)
+  var block := _card(canvas,str(row["name"]).to_upper()+"  /  "+str(row["role"]),str(row["pitch"]))
+  _label(block,"SKILL %d   •   LOYALTY %d   •   %s" % [int(row["skill"]),int(row["loyalty"]),str(row["trait"])],13,UI.WHITE)
+  _label(block,"GOOD GENRE FIT" if tier > 0 else "UNUSUAL GENRE MATCH  /  EXPERIMENTAL POTENTIAL",12,UI.AMBER if tier > 0 else UI.MUTED)
+  var button := UI.button("REMOVE FROM BAND" if selected else "RECRUIT  +",not selected and tier > 0)
+  button.disabled = not selected and count >= 6
+  block.add_child(button)
+  var person := row.duplicate(true)
+  button.pressed.connect(func() -> void:
+   if selected:
+    for n in range(recruited.size()):
+     if str(recruited[n]["candidate_id"]) == str(person["id"]):
+      recruited.remove_at(n)
+      break
+   elif Catalog.can_recruit(recruited,person):
+    recruited.append(Catalog.to_member(person,recruited.size()))
+   _render()
+  )
 
-func _make_step(parent: VBoxContainer) -> VBoxContainer:
-	var step := VBoxContainer.new()
-	step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	step.add_theme_constant_override("separation", 12)
-	parent.add_child(step)
-	steps.append(step)
-	return step
+func _review() -> void:
+ var palette: Dictionary = Catalog.PALETTES[palette_index]
+ var cover := _card(canvas,"YOUR BAND  /  "+band_name.to_upper(),"The first rehearsals are next. Nothing is guaranteed.")
+ _label(cover,"GENRE  "+genre+"\nINFLUENCE  "+influence,15,UI.WHITE)
+ var wordmark := PanelContainer.new()
+ wordmark.add_theme_stylebox_override("panel",UI.style(Color(str(palette["secondary"])),14))
+ cover.add_child(wordmark)
+ var mark := _label(wordmark,band_name.to_upper(),30,Color(str(palette["primary"])))
+ mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var roster := _card(canvas,"THE MEMBERS","These are the people who will share the cost, pressure and earnings of this career.")
+ for member in recruited:
+  var line := HBoxContainer.new()
+  roster.add_child(line)
+  var avatar := PanelContainer.new()
+  avatar.custom_minimum_size = Vector2(52,55)
+  avatar.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+  line.add_child(avatar)
+  _label(avatar,str(member["name"]).left(1),25,UI.AMBER)
+  var details := VBoxContainer.new()
+  line.add_child(details)
+  _label(details,str(member["name"])+"  /  "+str(member["role"]),15,UI.WHITE)
+  _label(details,str(member["trait"]),12,UI.MUTED)
+ var economy := _card(canvas,"REAL CONSEQUENCES","Everyone expects their share of the earnings. Extra members can broaden the sound, but increase outing costs and split fees further.")
+ _label(economy,"%d MEMBERS   /   APPROX. %d%% EACH" % [recruited.size(),Catalog.split_per_member(recruited.size())],16,UI.AMBER)
+ if not Catalog.viable(recruited):
+  _label(economy,"LINEUP INCOMPLETE — RECRUIT A RHYTHM PLAYER AND AT LEAST TWO MEMBERS",13,UI.AMBER)
 
+func _go(index: int) -> void:
+ step = clampi(index,0,2)
+ _render()
 
-func _show_step(index: int) -> void:
-	current_step = clampi(index, 0, steps.size() - 1)
-	for i in range(steps.size()):
-		steps[i].visible = i == current_step
-	if current_step == 2:
-		var names: PackedStringArray = []
-		for row in member_rows:
-			names.append(row["name"].text.strip_edges() + " — " + _selected(row["role"]))
-		summary_label.text = "BAND: %s\nGENRE: %s\nINFLUENCE: %s\n\n%d MUSICIANS\n%s" % [
-			name_field.text.strip_edges(), _selected(genre_field),
-			_selected(influence_field), member_rows.size(), "\n".join(names)
-		]
-	nav_back.disabled = current_step == 0
-	match current_step:
-		0: nav_next.text = "NEXT / LINE-UP >"
-		1: nav_next.text = "NEXT / REVIEW >"
-		2: nav_next.text = "CREATE BAND >"
-	form_scroll.scroll_vertical = 0
-
-
-func _advance_step() -> void:
-	if current_step < 2:
-		_show_step(current_step + 1)
-	else:
-		_create_band()
-
-
-func _add_member() -> void:
-	if member_rows.size() >= 6:
-		return
-	var index := member_rows.size()
-	var panel := PanelContainer.new()
-	panel.add_theme_stylebox_override("panel", _panel_style())
-	member_container.add_child(panel)
-	var content := VBoxContainer.new()
-	content.add_theme_constant_override("separation", 6)
-	panel.add_child(content)
-	_label(content, "MUSICIAN %02d" % (index + 1), 13, AMBER)
-	var fields := GridContainer.new()
-	fields.columns = 1
-	fields.add_theme_constant_override("h_separation", 16)
-	fields.add_theme_constant_override("v_separation", 8)
-	content.add_child(fields)
-	var person_name := LineEdit.new()
-	person_name.text = DEFAULT_NAMES[index]
-	person_name.placeholder_text = "Name"
-	person_name.custom_minimum_size.y = 52
-	fields.add_child(person_name)
-	var role := _option(ROLES)
-	role.select(index)
-	fields.add_child(role)
-	var identity := _option(IDENTITIES)
-	identity.select(4)
-	fields.add_child(identity)
-	var trait_field := _option(TRAITS)
-	trait_field.select(TRAITS.find(DEFAULT_TRAITS[index]))
-	fields.add_child(trait_field)
-	var descriptor := LineEdit.new()
-	descriptor.custom_minimum_size.y = 52
-	descriptor.placeholder_text = "Optional identity / pronouns / backstory note"
-	content.add_child(descriptor)
-	member_rows.append({"panel": panel, "name": person_name, "role": role, "identity": identity, "trait": trait_field, "note": descriptor})
-	_update_count()
-
-func _remove_member() -> void:
-	if member_rows.size() <= 2:
-		return
-	var row: Dictionary = member_rows.pop_back()
-	row["panel"].queue_free()
-	_update_count()
-
-func _update_count() -> void:
-	count_label.text = "%d MEMBERS // MIN 2 / MAX 6" % member_rows.size()
+func _advance() -> void:
+ if step == 0:
+  band_name = title_entry.text.strip_edges()
+  genre = genre_select.get_item_text(genre_select.selected)
+  influence = influence_select.get_item_text(influence_select.selected)
+  if band_name.is_empty():
+   feedback.text = "CHOOSE A BAND NAME FIRST."
+   return
+ elif step == 1 and not Catalog.viable(recruited):
+  feedback.text = "RECRUIT AT LEAST TWO MEMBERS, INCLUDING A DRUMMER OR MULTI-INSTRUMENTALIST."
+  return
+ if step < 2:
+  _go(step+1)
+ else:
+  _create_band()
 
 func _create_band() -> void:
-	var band_name := name_field.text.strip_edges()
-	if band_name.is_empty():
-		status_label.text = "ENTER A BAND NAME FIRST"
-		return
-	var members: Array[Dictionary] = []
-	for i in range(member_rows.size()):
-		var row: Dictionary = member_rows[i]
-		var person_name: String = row["name"].text.strip_edges()
-		if person_name.is_empty():
-			status_label.text = "EVERY MUSICIAN NEEDS A NAME"
-			return
-		members.append({
-			"id": i,
-			"name": person_name,
-			"role": _selected(row["role"]),
-			"gender": _selected(row["identity"]),
-			"note": row["note"].text.strip_edges(),
-			"trait": _selected(row["trait"]),
-			"morale": 55,
-			"loyalty": 60,
-			"skill": 45,
-			"fatigue": 5
-		})
-	var new_band := {
-		"name": band_name,
-		"genre": _selected(genre_field),
-		"influence": _selected(influence_field),
-		"members": members
-	}
-	var file := FileAccess.open("user://band_profile.json", FileAccess.WRITE)
-	if file == null:
-		status_label.text = "COULD NOT WRITE BAND PROFILE"
-		return
-	file.store_string(JSON.stringify(new_band, "\t"))
-	file.close()
-	# A newly created band always begins a fresh career.
-	if FileAccess.file_exists("user://tour_save.json"):
-		var error := DirAccess.remove_absolute(ProjectSettings.globalize_path("user://tour_save.json"))
-		if error != OK:
-			status_label.text = "COULD NOT RESET OLD TOUR SAVE"
-			return
-	var change_error := get_tree().change_scene_to_file("res://tour_intro.tscn")
-	if change_error != OK:
-		status_label.text = "TOUR SCENE NOT FOUND"
+ if not Catalog.viable(recruited):
+  feedback.text = "THE LINEUP NEEDS A RHYTHM PLAYER."
+  return
+ var roster: Array = []
+ for i in range(recruited.size()):
+  var member: Dictionary = recruited[i].duplicate(true)
+  member["id"] = i
+  roster.append(member)
+ var palette: Dictionary = Catalog.PALETTES[palette_index]
+ var band := {"name":band_name,"genre":genre,"influence":influence,"members":roster,
+  "palette":palette.duplicate(true),"logo_style":Catalog.LOGOS[logo_index],"formation_version":2}
+ var file := FileAccess.open(BAND_PATH,FileAccess.WRITE)
+ if file == null:
+  feedback.text = "COULD NOT SAVE YOUR BAND."
+  return
+ file.store_string(JSON.stringify(band,"\t"))
+ file.close()
+ if FileAccess.file_exists(SAVE_PATH):
+  var err := DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
+  if err != OK:
+   feedback.text = "COULD NOT CLEAR PREVIOUS CAREER."
+   return
+ get_tree().change_scene_to_file("res://tour_intro.tscn")
 
-func _selected(button: OptionButton) -> String:
-	return button.get_item_text(button.selected)
-
-func _option(items: Array) -> OptionButton:
-	var button := OptionButton.new()
-	for item in items:
-		button.add_item(str(item))
-	button.custom_minimum_size.y = 54
-	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	return button
-
-func _label(parent: Control, value: String, size: int, color: Color) -> Label:
-	var label := Label.new()
-	label.text = value
-	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", size)
-	label.add_theme_color_override("font_color", color)
-	parent.add_child(label)
-	return label
-
-func _button(parent: Control, value: String, action: Callable) -> void:
-	var button := Button.new()
-	button.text = value
-	button.custom_minimum_size.y = 56
-	button.pressed.connect(action)
-	parent.add_child(button)
-
-func _panel_style() -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = PANEL
-	style.set_corner_radius_all(7)
-	style.set_content_margin_all(12)
-	return style
+func _label(parent: Node, value: String, size: int, colour: Color) -> Label:
+ var label := Label.new()
+ label.text = value
+ label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ label.add_theme_font_size_override("font_size",size)
+ label.add_theme_color_override("font_color",colour)
+ parent.add_child(label)
+ return label
