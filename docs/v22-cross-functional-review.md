@@ -31,3 +31,12 @@ Automatic checks: test booking date, action-based preparation, performance gate,
 5. Balance economy so players cannot gain unlimited cash/reputation from low-risk hometown gigs without rehearsal.
 
 **Highest priority product finding:** treat the calendar + rehearsal + choices + story as one connected vertical slice, not a release merely because a CI job is green.
+
+
+## Architecture audit discovery: dual opening career loops
+The repository already has a three-step band builder (`Scripts/band_builder.gd`) and a separate, older `tour_intro.gd` flow with rehearsal/booking/travel/show/aftershow phases. Meanwhile `CareerHub` uses newer action resolvers and now the advance-booking calendar. **This is a real integration risk.** The initial scripted first show and the free-play career must be treated as one coherent onboarding experience, not two independent booking systems. Existing saves and incomplete onboarding remain supported, so a forced migration is inappropriate without tests.
+
+Follow-up release acceptance: QA must run both `new band → scripted intro → CareerHub → schedule next gig` and `old save → CareerHub → scheduled gig`, verify journal continuity, first-song counters, rehearsals, roster and calendar handoff, and check that the player understands the distinction between the introductory show and regular bookings.
+
+## Review verdict
+The calendar subsystem and scenario tests are necessary but insufficient for a v2.2 launch. **Do not label this PR as the full v2.2 playable release.** Continue towards consolidated onboarding, contextual preparation UI, meaningful relationships, and visual device review.
