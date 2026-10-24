@@ -374,3 +374,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V27 RECORDING FAILURE:|ERROR:' /tmp/v27-release.log; then
             exit 1
           fi
+
+      - name: Validate multi-stage release promotion and career momentum
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v28_release_campaign_tests.gd 2>&1 | tee /tmp/v28-campaign.log
+          grep -q 'V28 RELEASE CAMPAIGN TESTS PASSED' /tmp/v28-campaign.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V28 CAMPAIGN FAILURE:|ERROR:' /tmp/v28-campaign.log; then
+            exit 1
+          fi
