@@ -60,3 +60,16 @@ Compared with the previous automated 180-day run, the player-facing three-sessio
 **BA reviewer:** Meaningful connection now exists among songwriting, rehearsal and show finances. Still needs an in-game tutorial explaining three writing sessions and risk of a weak setlist. **Engineering reviewer:** Save state adds `song_draft_progress`, `originals_played`, `setlist_modifier`, `return_visit`; no destructive migration. **QA reviewer:** Added explicit 180-day exploit thresholds and tests for repeat appearances. **Player personas:** The no-song exploit is reduced, but a player who only writes and never gigs still needs objectives and financial pressure in future scope.
 
 **Release gate remains blocked:** Cross-era new-band onboarding, mobile visual inspection, and an actual first-month experience review are not covered by this balance PR. Numerical results are model-based and do not replace playtesting.
+
+
+## Opening-career and small-screen integration review (2026-10-24)
+
+**BA acceptance:** New bands complete the scripted three-rehearsal introduction and the Toadstool show before entering the ongoing CareerHub calendar. Rehearsal history, first-show milestone, first-gig count and partial songwriting progress now carry across via `Scripts/opening_handoff.gd`. The migration is additive and idempotent. Incomplete tutorials remain unchanged so players can finish their saved scene.
+
+**Engineering:** Both the explicit intro → CareerHub transition and loading an old `aftershow` save use the same pure migration. No duplicate first-show payouts are manufactured; `intro:first_gig` is archival with zero additional fee. The six-tab footer becomes 3 columns × 2 rows below 560 viewport pixels, and the scrolling content receives extra bottom clearance.
+
+**QA:** Automated regression tests cover fresh and historical completed saves, uncompleted scenes, pending choices, repeated migration, preservation of existing records and multiple introductory writing choices. Additional geometry tests cover phone, small tablet and desktop widths. Existing campaign scenarios and the real CareerHub booking/save/reload loop remain in CI.
+
+**Personas:** New players retain their original story rather than restarting on transfer; returning players keep old saves; narrow-screen players have larger navigation targets. Mobile live-device visual and orientation inspection is **still outstanding**. Headless geometry tests cannot confirm real touch ergonomics or text clipping.
+
+**Release decision:** Integration accepted at code-test level only. v2.2 still requires visual review, end-to-end player acceptance and check of balanced first-month objectives before labelling it release-ready.

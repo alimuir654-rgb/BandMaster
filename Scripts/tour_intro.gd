@@ -1,6 +1,7 @@
 extends Control
 
 const CareerActions = preload("res://Scripts/career_actions.gd")
+const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
 const CareerOpportunities = preload("res://Scripts/career_opportunities.gd")
 const UKGigs = preload("res://Scripts/uk_gig_circuit.gd")
 const GearShop = preload("res://Scripts/gear_shop.gd")
@@ -430,6 +431,18 @@ func _open_career_hub() -> void:
 	current_event = "aftershow"
 	pending_next = ""
 	_save_game()
+	var stored := FileAccess.open(SAVE_PATH,FileAccess.READ)
+	if stored == null:
+		return
+	var decoded = JSON.parse_string(stored.get_as_text())
+	stored.close()
+	if decoded is Dictionary:
+		var transferred: Dictionary = OpeningHandoff.migrate(decoded)
+		var written := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
+		if written == null:
+			return
+		written.store_string(JSON.stringify(transferred,"\t"))
+		written.close()
 	get_tree().change_scene_to_file("res://Scenes/CareerHub.tscn")
 
 

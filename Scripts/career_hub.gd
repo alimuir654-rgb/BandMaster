@@ -14,6 +14,8 @@ const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Chapters = preload("res://Scripts/career_chapters.gd")
+const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
+const CareerLayout = preload("res://Scripts/career_layout.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const SAVE_PATH := "user://tour_save.json"
@@ -49,7 +51,9 @@ func _load() -> void:
  var parsed = JSON.parse_string(file.get_as_text())
  file.close()
  if parsed is Dictionary:
-  save_data = parsed
+  save_data = OpeningHandoff.migrate(parsed)
+  if save_data != parsed:
+   _save()
  if not save_data.has("career_extra") or not save_data["career_extra"] is Dictionary:
   save_data["career_extra"] = {}
  if not save_data.has("band") or not save_data["band"] is Dictionary:
@@ -127,7 +131,7 @@ func _render() -> void:
  var scroll := ScrollContainer.new()
  add_child(scroll)
  scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- scroll.offset_bottom = -112
+ scroll.offset_bottom = -CareerLayout.content_inset(get_viewport_rect().size.x)
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  var margin := MarginContainer.new()
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -682,11 +686,11 @@ func _opportunities() -> void:
 func _bottom_nav() -> void:
  var panel := PanelContainer.new()
  panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
- panel.offset_top = -104
+ panel.offset_top = -CareerLayout.footer_height(get_viewport_rect().size.x)
  panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,0))
  add_child(panel)
  var bar := GridContainer.new()
- bar.columns = 6
+ bar.columns = CareerLayout.columns(get_viewport_rect().size.x)
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  bar.add_theme_constant_override("h_separation",3)
  panel.add_child(bar)
@@ -694,7 +698,7 @@ func _bottom_nav() -> void:
   var target: String = tab_id
   var selected := target == tab
   var button := Button.new()
-  button.custom_minimum_size.y = 76
+  button.custom_minimum_size.y = 72 if CareerLayout.is_compact(get_viewport_rect().size.x) else 76
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   button.add_theme_stylebox_override("normal",UI.style(UI.AMBER if selected else UI.ALT,10))
   button.add_theme_stylebox_override("hover",UI.style(UI.AMBER.lightened(0.08) if selected else UI.ALT.lightened(0.1),10))

@@ -192,6 +192,33 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|SETLIST FAILURE:|ERROR:' /tmp/v22-setlist-economy.log; then
             exit 1
           fi
+      - name: Validate first-show onboarding migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_opening_handoff_tests.gd 2>&1 | tee /tmp/v22-handoff.log
+          grep -q 'V22 OPENING HANDOFF TESTS PASSED' /tmp/v22-handoff.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|OPENING HANDOFF FAILURE:|ERROR:' /tmp/v22-handoff.log; then
+            exit 1
+          fi
+      - name: Verify mobile responsive layout geometry
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_responsive_layout_tests.gd 2>&1 | tee /tmp/v22-layout.log
+          grep -q 'V22 RESPONSIVE LAYOUT TESTS PASSED' /tmp/v22-layout.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 LAYOUT FAILURE:|ERROR:' /tmp/v22-layout.log; then
+            exit 1
+          fi
+      - name: Test live CareerHub migration and restart lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_handoff_ui_integration.gd 2>&1 | tee /tmp/v22-handoff-ui.log
+          grep -q 'V22 HANDOFF UI INTEGRATION PASSED' /tmp/v22-handoff-ui.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|HANDOFF UI FAILURE:|ERROR:' /tmp/v22-handoff-ui.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
