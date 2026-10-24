@@ -4,6 +4,7 @@ const CareerActions = preload("res://Scripts/career_actions.gd")
 const CareerOpportunities = preload("res://Scripts/career_opportunities.gd")
 const UKGigs = preload("res://Scripts/uk_gig_circuit.gd")
 const GearShop = preload("res://Scripts/gear_shop.gd")
+const MemberManagement = preload("res://Scripts/member_management.gd")
 
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
@@ -30,6 +31,7 @@ var last_outcome := ""
 var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0, "gig_history": [], "owned_equipment": []}
 var career_feedback := ""
 var career_tab := "HOME"
+var selected_venue := ""
 var page: VBoxContainer
 
 func _ready() -> void:
@@ -497,9 +499,30 @@ func _show_band_cards() -> void:
 			_meter("MORALE", int(member.get("morale",55)),100)
 			_meter("LOYALTY", int(member.get("loyalty",60)),100)
 			_meter("FATIGUE", int(member.get("fatigue",5)),100)
+			var member_id: int = int(member.get("id",members.find(member)))
+			_choice("TALK TO %s" % str(member.get("name","MEMBER")), "Free  /  improve loyalty and morale.", func() -> void: _manage_member(member_id,"chat"))
+			_choice("COACH MUSICIAN — £10", "Improve their skill. Adds fatigue.", func() -> void: _manage_member(member_id,"coach"))
+			_choice("GIVE INDIVIDUAL BREAK", "Free  /  reduce fatigue.", func() -> void: _manage_member(member_id,"break"))
 	_label(page, "BAND RELATIONSHIPS  %d / 100" % _average_relationship(), 15, AMBER)
 	_choice("GIVE THE BAND A DAY OFF", "Free  /  one day  /  restore morale.", func() -> void: _take_career_action("rest"))
 	_choice("HAVE A REHEARSAL — £15", "One day  /  tighten the band's playing.", func() -> void: _take_career_action("rehearse"))
+
+
+func _manage_member(member_id: int, option_id: String) -> void:
+	var state := {"members": band.get("members",[]), "relationships": relationships, "cash": cash, "tour_day": tour_day, "readiness": readiness, "tension": tension}
+	var result: Dictionary = MemberManagement.resolve(state,member_id,option_id)
+	career_feedback = str(result.get("message","Action unavailable"))
+	if result.get("ok",false) == true:
+		var updated: Dictionary = result["state"]
+		band["members"] = updated["members"]
+		relationships = updated["relationships"]
+		cash = int(updated["cash"])
+		tour_day = int(updated["tour_day"])
+		readiness = int(updated["readiness"])
+		tension = int(updated["tension"])
+		_clamp_all()
+		_save_game()
+	_build_screen()
 
 
 func _section(heading: String, detail: String) -> void:
@@ -612,10 +635,19 @@ func _show_circuit() -> void:
 		var unlocked := reputation >= int(venue["min_rep"]) and int(career_extra.get("fans",0)) >= int(venue["min_fans"])
 		var description := "%s  /  fee £%d  /  travel £%d  /  %d days" % [str(venue["city"]),int(venue["fee"]),int(venue["travel"]),int(venue["days"])]
 		if unlocked:
-			_choice(str(venue["venue"]), description, func() -> void: _book_regional_gig(venue_id))
+			_choice(str(venue["venue"]), description, func() -> void: _select_venue(venue_id))
 		else:
 			_label(page, "%s — %s LOCKED" % [str(venue["venue"]),str(venue["city"])], 14, AMBER)
 			_label(page, "Requires reputation %d and fans %d" % [int(venue["min_rep"]),int(venue["min_fans"])], 13, MUTED)
+	if not selected_venue.is_empty():
+		var selected: Dictionary = UKGigs.get_venue(selected_venue)
+		if not selected.is_empty():
+			_section("CONFIRM BOOKING: " + str(selected["venue"]), "%s  /  £%d fee before travel costs" % [str(selected["city"]),int(selected["fee"])])
+			for approach_id in UKGigs.APPROACHES:
+				var tactic: String = str(approach_id)
+				var details: Dictionary = UKGigs.APPROACHES[tactic]
+				_choice(str(details["label"]), "Play the show with this approach.", func() -> void: _book_regional_gig(selected_venue,tactic))
+			_choice("CANCEL BOOKING", "Return to available venues.", func() -> void: _select_venue(""))
 	var gigs: Array = career_extra.get("gig_history", [])
 	if not gigs.is_empty():
 		_label(page, "RECENT GIGS", 16, AMBER)
@@ -625,7 +657,12 @@ func _show_circuit() -> void:
 	_choice("FIX THE VAN — £45", "Repair 30 condition points; costs one day.", _repair_van)
 
 
-func _book_regional_gig(venue_id: String) -> void:
+func _select_venue(venue_id: String) -> void:
+	selected_venue = venue_id
+	_build_screen()
+
+
+func _book_regional_gig(venue_id: String, approach: String = "tight") -> void:
 	var state := career_extra.duplicate(true)
 	state["cash"] = cash
 	state["tour_day"] = tour_day
@@ -634,7 +671,7 @@ func _book_regional_gig(venue_id: String) -> void:
 	state["morale"] = morale
 	state["tension"] = tension
 	state["readiness"] = readiness
-	var result: Dictionary = UKGigs.play(state, venue_id)
+	var result: Dictionary = UKGigs.play(state, venue_id, approach)
 	career_feedback = str(result.get("message","Booking unavailable"))
 	if result.get("ok",false) == true:
 		var updated: Dictionary = result["state"]
@@ -647,6 +684,7 @@ func _book_regional_gig(venue_id: String) -> void:
 		for key in ["cash","tour_day","reputation","van_health","morale","tension","readiness"]:
 			updated.erase(key)
 		career_extra = updated
+		selected_venue = ""
 		_clamp_all()
 		_save_game()
 	_build_screen()
