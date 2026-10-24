@@ -242,6 +242,13 @@ func _home() -> void:
  else:
   _card("REGIONAL CIRCUIT UNLOCKED","All current UK venues are available.")
  _opportunities()
+ var songs: Array = _extra().get("song_catalogue",[])
+ if not songs.is_empty():
+  var songbook := _card("ORIGINAL SONGS","Your band is building its first setlist.")
+  for i in range(songs.size()-1,maxi(-1,songs.size()-4),-1):
+   var tune: Dictionary = songs[i]
+   _label(songbook,str(tune.get("title","UNTITLED"))+"  /  QUALITY %d" % int(tune.get("quality",0)),14,UI.WHITE)
+  _label(songbook,"%d TOTAL ORIGINALS" % _num("songs"),12,UI.AMBER)
  var memories := Story.latest(_state(),3)
  if not memories.is_empty():
   var journal := _card("THE STORY SO FAR","Moments that shaped your band.")
