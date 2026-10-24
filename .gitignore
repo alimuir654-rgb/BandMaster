@@ -1,0 +1,6 @@
+.godot/
+builds/
+*.apk
+*.apk.idsig
+*.aab
+*.import
