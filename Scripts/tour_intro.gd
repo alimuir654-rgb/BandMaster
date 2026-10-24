@@ -1,5 +1,7 @@
 extends Control
 
+const CareerActions = preload("res://Scripts/career_actions.gd")
+
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
 const AMBER := Color("#F0B44D")
@@ -22,6 +24,8 @@ var decisions: Dictionary = {}
 var relationships: Dictionary = {}
 var pending_next := ""
 var last_outcome := ""
+var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}}
+var career_feedback := ""
 var page: VBoxContainer
 
 func _ready() -> void:
@@ -69,6 +73,9 @@ func _load_game() -> void:
 	relationships = parsed.get("relationships", {})
 	pending_next = str(parsed.get("pending_next", ""))
 	last_outcome = str(parsed.get("last_outcome", ""))
+	var saved_extra = parsed.get("career_extra", {})
+	if saved_extra is Dictionary:
+		career_extra.merge(saved_extra, true)
 	# Older Update 01 saves are supported; they resume where they stopped.
 	print("GAME LOADED // ", current_event)
 
@@ -104,7 +111,7 @@ func _save_game() -> void:
 		"tour_day": tour_day, "rehearsal_number": rehearsal_number,
 		"current_event": current_event, "decisions": decisions,
 		"relationships": relationships, "pending_next": pending_next,
-		"last_outcome": last_outcome
+		"last_outcome": last_outcome, "career_extra": career_extra
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
@@ -389,12 +396,53 @@ func _gig(action: String) -> void:
 	_commit(story, "aftershow")
 
 func _show_aftershow() -> void:
-	_label(page, "AFTER THE SHOW // CAREER LOG", 22, WHITE)
-	_label(page, "Your first chapter is complete. The band is no longer an idea on a beer mat.", 15, WHITE)
-	_label(page, "REHEARSAL CHOICES: %s / %s / %s" % [str(decisions.get("rehearsal_1", "legacy")), str(decisions.get("rehearsal_2", "legacy")), str(decisions.get("rehearsal_3", "legacy"))], 14, AMBER)
-	_label(page, "BOOKING: %s  |  VAN: %s  |  SOUND CHECK: %s  |  GIG: %s" % [str(decisions.get("booking", "legacy")), str(decisions.get("van_problem", "-")), str(decisions.get("soundcheck", "-")), str(decisions.get("first_gig", "-"))], 13, WHITE)
-	_label(page, "The next update will expand tours, members' relationships and long-term careers. All current progress is saved.", 14, MUTED)
-	_choice("RETURN TO MAIN MENU", "Continue this save when the next chapter is added.", _menu)
+	_label(page, "THE NEXT CHAPTER // BAND MANAGEMENT", 22, WHITE)
+	_label(page, "The first gig is behind you. What happens next is up to the band. Take the next step, then see which opportunities emerge.", 15, WHITE)
+	_label(page, "DAY %d  /  CASH £%d  /  REPUTATION %d" % [tour_day, cash, reputation], 15, AMBER)
+	_label(page, "SONGS %d  /  GEAR %d  /  BUZZ %d  /  PRESS %d  /  FANS %d" % [
+		int(career_extra.get("songs", 0)), int(career_extra.get("gear", 0)),
+		int(career_extra.get("buzz", 0)), int(career_extra.get("press", 0)),
+		int(career_extra.get("fans", 0))
+	], 14, WHITE)
+	if not career_feedback.is_empty():
+		_label(page, "LATEST ACTIVITY", 17, AMBER)
+		_label(page, career_feedback, 15, WHITE)
+	_label(page, "CHOOSE WHAT TO DO", 17, AMBER)
+	for action_id in CareerActions.labels().keys():
+		var config: Dictionary = CareerActions.labels()[action_id]
+		var cost := int(config.get("cost", 0))
+		var action_key: String = str(action_id)
+		_choice(str(config["label"]), "£%d  /  advances one day" % cost, func() -> void: _take_career_action(action_key))
+	_choice("BACK TO MAIN MENU", "Save the career and return to the launch screen.", _menu)
+
+
+func _take_career_action(action_id: String) -> void:
+	var state := career_extra.duplicate(true)
+	state["cash"] = cash
+	state["tour_day"] = tour_day
+	state["morale"] = morale
+	state["readiness"] = readiness
+	state["tension"] = tension
+	state["band_name"] = str(band.get("name", "The band"))
+	var result: Dictionary = CareerActions.resolve(state, action_id)
+	career_feedback = str(result.get("message", "Action unavailable"))
+	if bool(result.get("ok", false)):
+		var updated: Dictionary = result["state"]
+		cash = int(updated["cash"])
+		tour_day = int(updated["tour_day"])
+		morale = int(updated["morale"])
+		readiness = int(updated["readiness"])
+		tension = int(updated["tension"])
+		updated.erase("cash")
+		updated.erase("tour_day")
+		updated.erase("morale")
+		updated.erase("readiness")
+		updated.erase("tension")
+		updated.erase("band_name")
+		career_extra = updated
+		_clamp_all()
+		_save_game()
+	_build_screen()
 
 func _change_members(morale_delta: int, loyalty_delta: int, fatigue_delta: int) -> void:
 	var members: Array = band.get("members", [])
