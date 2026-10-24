@@ -28,7 +28,9 @@ const APPROACHES := {
  "crowd": {"label":"WIN OVER THE ROOM","quality":0,"fan_bonus":7,"tension":-2}
 }
 
-static func play(state: Dictionary, venue_id: String, approach: String = "tight") -> Dictionary:
+static func play(state: Dictionary, venue_id: String, approach: String = "tight", hire_session: bool = false) -> Dictionary:
+ var session_cost := 25 if hire_session else 0
+ var session_needed := false
  if state.has("members"):
   var roster: Array = state.get("members",[])
   var active := 0
@@ -38,10 +40,13 @@ static func play(state: Dictionary, venue_id: String, approach: String = "tight"
     active += 1
     if str(person.get("role","")).to_lower().contains("drum"):
      drummer = true
-  if active < 2:
-   return {"ok":false,"message":"You need at least two available musicians before playing a show."}
-  if not drummer:
+  if active < (1 if hire_session else 2):
+   return {"ok":false,"message":"At least one available band member is needed to perform." if hire_session else "You need at least two available musicians before playing a show."}
+  if not drummer and not hire_session:
    return {"ok":false,"message":"No drummer is available. Recruit a replacement or wait for their return."}
+  session_needed = hire_session
+ if session_needed and int(state.get("cash",0)) < session_cost:
+  return {"ok":false,"message":"You need £25 to hire a session drummer."}
  if not APPROACHES.has(approach):
   return {"ok":false,"message":"Invalid performance approach."}
  var option: Dictionary = APPROACHES[approach]
@@ -50,16 +55,16 @@ static func play(state: Dictionary, venue_id: String, approach: String = "tight"
   return {"ok":false,"message":"Unknown venue."}
  if not available(int(state.get("reputation",0)),int(state.get("fans",0))).has(venue):
   return {"ok":false,"message":"The promoter wants a bigger local following first."}
- if int(state.get("cash",0)) < int(venue["travel"]) and venue_id != "local":
+ if int(state.get("cash",0)) < int(venue["travel"]) + session_cost and venue_id != "local":
   return {"ok":false,"message":"Not enough money for travel. Promote locally or play a hometown gig."}
  if int(state.get("van_health",0)) < int(venue["wear"]) and venue_id != "local":
   return {"ok":false,"message":"Your van needs attention before this journey."}
  var next := state.duplicate(true)
- var quality := int(state.get("readiness",0)) + int(state.get("morale",0)) / 4 - int(state.get("tension",0)) / 4
+ var quality := int(state.get("readiness",0)) + int(state.get("morale",0)) / 4 - int(state.get("tension",0)) / 4 - (8 if session_needed else 0)
  var success := quality + int(option["quality"]) >= 52
  var earned := int(venue["fee"]) if success else int(venue["fee"]) / 2
  var actual_travel := mini(int(venue["travel"]),int(state.get("cash",0))) if venue_id == "local" else int(venue["travel"])
- next["cash"] = maxi(0,int(state.get("cash",0)) - actual_travel + earned)
+ next["cash"] = maxi(0,int(state.get("cash",0)) - actual_travel - session_cost + earned)
  next["tour_day"] = int(state.get("tour_day",1)) + int(venue["days"])
  next["van_health"] = clampi(int(state.get("van_health",0)) - (0 if venue_id == "local" else int(venue["wear"])),0,100)
  next["fans"] = maxi(0,int(state.get("fans",0)) + (12 + 9 * int(venue["tier"]) + int(option["fan_bonus"]) if success else 3))
@@ -67,9 +72,9 @@ static func play(state: Dictionary, venue_id: String, approach: String = "tight"
  next["morale"] = clampi(int(state.get("morale",0)) + (4 if success else -5),0,100)
  next["tension"] = clampi(int(state.get("tension",0)) + (1 if success else 4) + int(option["tension"]),0,100)
  var gigs: Array = next.get("gig_history",[]).duplicate(true)
- gigs.append({"city":venue["city"],"venue":venue["venue"],"day":next["tour_day"],"fee":earned,"success":success,"approach":approach})
+ gigs.append({"city":venue["city"],"venue":venue["venue"],"day":next["tour_day"],"fee":earned,"success":success,"approach":approach,"session_drummer":session_needed,"session_fee":session_cost})
  if gigs.size() > 50:
   gigs.pop_front()
  next["gig_history"] = gigs
  var result_text := "A packed little room and a surprisingly good reception." if success else "A difficult soundcheck and a thin crowd, but you finish the set."
- return {"ok":true,"state":next,"message":"%s, %s. %s Fee £%d, travel £%d." % [venue["venue"],venue["city"],result_text,earned,actual_travel]}
+ return {"ok":true,"state":next,"message":"%s, %s. %s Fee £%d, travel £%d%s." % [venue["venue"],venue["city"],result_text,earned,actual_travel,", session drummer £25" if session_needed else ""]}

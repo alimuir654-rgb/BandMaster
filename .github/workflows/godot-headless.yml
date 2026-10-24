@@ -75,6 +75,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|MEMBER LIFE FAILURE:|ERROR:' /tmp/member-life.log; then
             exit 1
           fi
+      - name: Validate auditions and session player rescue
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/session_audition_tests.gd 2>&1 | tee /tmp/session-auditions.log
+          grep -q 'SESSION AND AUDITION TESTS PASSED' /tmp/session-auditions.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SESSION TEST FAILURE:|ERROR:' /tmp/session-auditions.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
