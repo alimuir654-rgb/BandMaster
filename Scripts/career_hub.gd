@@ -120,7 +120,7 @@ func _render() -> void:
  var scroll := ScrollContainer.new()
  add_child(scroll)
  scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- scroll.offset_bottom = -94
+ scroll.offset_bottom = -112
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  var margin := MarginContainer.new()
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -169,21 +169,26 @@ func _header() -> void:
 
 func _hero() -> void:
  var panel := PanelContainer.new()
- panel.add_theme_stylebox_override("panel",UI.style(UI.ALT))
+ panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,18))
  content.add_child(panel)
- var stack := VBoxContainer.new()
- stack.add_theme_constant_override("separation",8)
- panel.add_child(stack)
- var image_path: String = str(ART.get(tab,""))
- if ResourceLoader.exists(image_path):
-  var picture := TextureRect.new()
-  picture.texture = load(image_path)
-  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  picture.custom_minimum_size.y = 200
-  picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  stack.add_child(picture)
- _label(stack,tab + "  /  THE UK INDEPENDENT SCENE",20,UI.WHITE)
+ var frame := VBoxContainer.new()
+ frame.add_theme_constant_override("separation",10)
+ panel.add_child(frame)
+ var path := "res://Art/Backgrounds/%s.webp" % tab.to_lower()
+ var picture := TextureRect.new()
+ picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ picture.custom_minimum_size.y = 230
+ picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ if ResourceLoader.exists(path):
+  picture.texture = load(path)
+ else:
+  var fallback: String = str(ART.get(tab,""))
+  if ResourceLoader.exists(fallback):
+   picture.texture = load(fallback)
+ frame.add_child(picture)
+ _label(frame,tab + "  /  BRITISH INDEPENDENT MUSIC",21,UI.WHITE)
+
 
 func _home() -> void:
  var fans := _num("fans")
@@ -277,20 +282,45 @@ func _opportunities() -> void:
 func _bottom_nav() -> void:
  var panel := PanelContainer.new()
  panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
- panel.offset_top = -90
+ panel.offset_top = -104
  panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,0))
  add_child(panel)
  var bar := GridContainer.new()
  bar.columns = 6
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ bar.add_theme_constant_override("h_separation",3)
  panel.add_child(bar)
  for tab_id in TABS:
   var target: String = tab_id
-  var button := UI.button(target,target == tab)
-  button.custom_minimum_size.y = 60
-  button.add_theme_font_size_override("font_size",12)
+  var selected := target == tab
+  var button := Button.new()
+  button.custom_minimum_size.y = 76
+  button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  button.add_theme_stylebox_override("normal",UI.style(UI.AMBER if selected else UI.ALT,10))
+  button.add_theme_stylebox_override("hover",UI.style(UI.AMBER.lightened(0.08) if selected else UI.ALT.lightened(0.1),10))
+  button.add_theme_stylebox_override("pressed",UI.style(UI.AMBER.darkened(0.12),10))
+  var box := VBoxContainer.new()
+  box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  box.alignment = BoxContainer.ALIGNMENT_CENTER
+  box.add_theme_constant_override("separation",3)
+  button.add_child(box)
+  box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  var icon_path := "res://Art/Icons/%s.svg" % target.to_lower()
+  if ResourceLoader.exists(icon_path):
+   var glyph := TextureRect.new()
+   glyph.texture = load(icon_path)
+   glyph.custom_minimum_size = Vector2(24,26)
+   glyph.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   glyph.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+   glyph.modulate = UI.BG if selected else UI.WHITE
+   glyph.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   box.add_child(glyph)
+  var caption := _label(box,target,11,UI.BG if selected else UI.WHITE)
+  caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
   bar.add_child(button)
   button.pressed.connect(func() -> void: _switch(target))
+
 
 func _switch(next_tab: String) -> void:
  tab = next_tab
