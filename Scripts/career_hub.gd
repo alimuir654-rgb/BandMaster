@@ -29,6 +29,7 @@ var message := ""
 var content: VBoxContainer
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
+var dialogue_serial := 0
 
 func _ready() -> void:
  _load()
@@ -363,11 +364,17 @@ func _band() -> void:
  var cfg: Dictionary = _extra().get("local_dialogue",{})
  var enabled := bool(cfg.get("enabled",false))
  var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
+ switcher.disabled = OS.has_feature("mobile")
+ if OS.has_feature("mobile"):
+  _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
  settings.add_child(switcher)
  switcher.pressed.connect(func() -> void:
   var extra: Dictionary = _extra()
   var updated: Dictionary = extra.get("local_dialogue",{}).duplicate(true)
   updated["enabled"] = not bool(updated.get("enabled",false))
+  if not bool(updated["enabled"]):
+   dialogue_serial += 1
+   _cancel_dialogue_request()
   extra["local_dialogue"] = updated
   _save()
   _render()
@@ -459,42 +466,62 @@ func _band() -> void:
   rest.pressed.connect(func() -> void: _member(index,"break"))
 
 func _listen(index: int) -> void:
- var fallback: Dictionary = Presentation.dialogue_for(_state(),index)
+ # Every listen replaces the previous request. A late completion cannot rewrite
+ # another musician's dialogue or a more recent player decision.
+ dialogue_serial += 1
+ _cancel_dialogue_request()
+ var snapshot: Dictionary = _state()
+ var fallback: Dictionary = Presentation.dialogue_for(snapshot,index)
  if not bool(fallback.get("ok",false)):
   message = str(fallback.get("message","No conversation available."))
   _render()
   return
+ fallback["source"] = "offline"
  _display_conversation(fallback)
  var cfg: Dictionary = _extra().get("local_dialogue",{})
- if not bool(cfg.get("enabled",false)) or dialogue_busy:
+ if not LocalDialogue.allowed(cfg,OS.has_feature("mobile")):
   return
- var payload: Dictionary = LocalDialogue.request_payload(_state(),index)
+ var payload: Dictionary = LocalDialogue.request_payload(snapshot,index)
  if payload.is_empty():
   return
  payload["model"] = str(cfg.get("model","llama3.2:3b"))
+ var request_id := dialogue_serial
+ var day := int(snapshot.get("tour_day",1))
+ var speaker := str(fallback.get("speaker",""))
  dialogue_busy = true
- dialogue_request = HTTPRequest.new()
- dialogue_request.timeout = 8.0
- add_child(dialogue_request)
- dialogue_request.request_completed.connect(func(result: int, status: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
-  dialogue_busy = false
-  var candidate := ""
-  if result == HTTPRequest.RESULT_SUCCESS and status == 200:
-   candidate = LocalDialogue.validated_text(body.get_string_from_utf8())
-  if not candidate.is_empty():
-   var ai_reply := fallback.duplicate(true)
-   ai_reply["text"] = candidate
-   ai_reply["source"] = "local"
-   _display_conversation(ai_reply)
-  if is_instance_valid(dialogue_request):
-   dialogue_request.queue_free()
+ var request_node := HTTPRequest.new()
+ dialogue_request = request_node
+ request_node.timeout = 8.0
+ add_child(request_node)
+ request_node.request_completed.connect(func(result: int, status: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+  if dialogue_request == request_node:
    dialogue_request = null
+   dialogue_busy = false
+  request_node.queue_free()
+  if not LocalDialogue.is_current(request_id,dialogue_serial,day,_num("tour_day"),speaker,str(_extra().get("last_band_conversation",{}).get("speaker",""))):
+   return
+  if not LocalDialogue.allowed(_extra().get("local_dialogue",{}),OS.has_feature("mobile")):
+   return
+  if result != HTTPRequest.RESULT_SUCCESS or status != 200:
+   return
+  var candidate := LocalDialogue.validated_text(body.get_string_from_utf8())
+  if candidate.is_empty():
+   return
+  var ai_reply := fallback.duplicate(true)
+  ai_reply["text"] = candidate
+  ai_reply["source"] = "local"
+  _display_conversation(ai_reply)
  )
- var error := dialogue_request.request("http://127.0.0.1:11434/api/chat",["Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify(payload))
+ var error := request_node.request("http://127.0.0.1:11434/api/chat",["Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify(payload))
  if error != OK:
-  dialogue_busy = false
+  _cancel_dialogue_request()
+
+func _cancel_dialogue_request() -> void:
+ dialogue_busy = false
+ if is_instance_valid(dialogue_request):
+  dialogue_request.cancel_request()
   dialogue_request.queue_free()
-  dialogue_request = null
+ dialogue_request = null
 
 func _display_conversation(response: Dictionary) -> void:
  var extra: Dictionary = _extra()
@@ -656,6 +683,9 @@ func _apply(updated: Dictionary) -> void:
    extra[key] = updated[key]
 
 func _finish(result: Dictionary, source: String = "") -> void:
+ if result.get("ok",false) == true:
+  dialogue_serial += 1
+  _cancel_dialogue_request()
  message = str(result.get("message","Action unavailable"))
  if result.get("ok",false) == true:
   _apply(Life.refresh(Story.observe(_state(),result["state"],source)))
@@ -690,5 +720,7 @@ func _repair() -> void:
  _render()
 
 func _menu() -> void:
+ dialogue_serial += 1
+ _cancel_dialogue_request()
  _save()
  get_tree().change_scene_to_file("res://main_menu.tscn")
