@@ -3,6 +3,7 @@ extends Control
 const CareerActions = preload("res://Scripts/career_actions.gd")
 const CareerOpportunities = preload("res://Scripts/career_opportunities.gd")
 const UKGigs = preload("res://Scripts/uk_gig_circuit.gd")
+const GearShop = preload("res://Scripts/gear_shop.gd")
 
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
@@ -26,7 +27,7 @@ var decisions: Dictionary = {}
 var relationships: Dictionary = {}
 var pending_next := ""
 var last_outcome := ""
-var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0, "gig_history": []}
+var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0, "gig_history": [], "owned_equipment": []}
 var career_feedback := ""
 var career_tab := "HOME"
 var page: VBoxContainer
@@ -406,6 +407,7 @@ func _gig(action: String) -> void:
 func _show_aftershow() -> void:
 	_label(page, "CAREER HQ  //  " + career_tab, 21, AMBER)
 	_label(page, "DAY %d   CASH £%d   FANS %d   REP %d" % [tour_day,cash,int(career_extra.get("fans",0)),reputation], 15, WHITE)
+	_show_scene_banner()
 	_separator()
 	if not career_feedback.is_empty():
 		_section("LATEST ACTIVITY", career_feedback)
@@ -429,6 +431,29 @@ func _show_aftershow() -> void:
 				var action_key: String = str(action_id)
 				_choice(str(config["label"]), "£%d  /  1 day" % cost, func() -> void: _take_career_action(action_key))
 	_choice("SAVE & MAIN MENU", "Return to the launch screen.", _menu)
+
+
+func _show_scene_banner() -> void:
+	var themes := {
+		"HOME": ["LOCAL SCENE  //  YOUR NEXT MOVE", Color("#2C3136")],
+		"GIGS": ["ON THE ROAD  //  UK LIVE CIRCUIT", Color("#293645")],
+		"GEAR": ["MUSIC SHOP  //  SECOND-HAND FINDS", Color("#433528")],
+		"BAND": ["THE LINE-UP  //  PEOPLE & PERSONALITIES", Color("#334137")],
+		"ACTIONS": ["REHEARSAL LOCK-UP  //  DAY TO DAY", Color("#37313F")],
+		"SCENE": ["LOCAL PRESS  //  GET THE WORD OUT", Color("#293D45")]
+	}
+	var theme: Array = themes.get(career_tab, themes["HOME"])
+	var banner := PanelContainer.new()
+	var box_style := _style(theme[1])
+	box_style.set_content_margin_all(22)
+	banner.add_theme_stylebox_override("panel", box_style)
+	banner.custom_minimum_size.y = 160
+	page.add_child(banner)
+	var copy := VBoxContainer.new()
+	copy.alignment = BoxContainer.ALIGNMENT_CENTER
+	banner.add_child(copy)
+	_label(copy, str(theme[0]), 16, WHITE)
+	_label(copy, "LIVIN' THE DREAM  /  BRITISH GRASSROOTS", 12, AMBER)
 
 
 func _show_home_dashboard() -> void:
@@ -479,7 +504,10 @@ func _show_band_cards() -> void:
 
 func _section(heading: String, detail: String) -> void:
 	var panel := PanelContainer.new()
-	panel.add_theme_stylebox_override("panel", _style(Color("#222B35")))
+	var panel_style := _style(Color("#222B35"))
+	panel_style.border_color = Color("#495666")
+	panel_style.border_width_left = 4
+	panel.add_theme_stylebox_override("panel", panel_style)
 	page.add_child(panel)
 	var content := VBoxContainer.new()
 	content.add_theme_constant_override("separation", 8)
@@ -537,12 +565,43 @@ func _set_career_tab(tab: String) -> void:
 
 
 func _show_gear() -> void:
-	_section("GEAR & BACKLINE", "Second-hand British music shops, battered amplifiers and equipment that needs to earn its keep.")
+	_section("THE SECOND-HAND SHOP", "A British backstreet music shop. Buy actual equipment for your band's growing backline.")
 	_meter("LIVE READINESS", readiness, 100)
-	_label(page, "Upgrades owned: %d" % int(career_extra.get("gear",0)), 16, WHITE)
-	_label(page, "A better backline improves rehearsal readiness. Buying equipment costs money and time.", 15, MUTED)
-	_choice("BROWSE USED EQUIPMENT — £75", "Upgrade the band's kit.", func() -> void: _take_career_action("buy_gear"))
-	_choice("REHEARSE WITH CURRENT KIT — £15", "Improve readiness without spending on equipment.", func() -> void: _take_career_action("rehearse"))
+	var owned: Array = career_extra.get("owned_equipment", [])
+	_label(page, "OWNED EQUIPMENT // %d ITEMS" % owned.size(), 17, AMBER)
+	if owned.is_empty():
+		_label(page, "Nothing purchased yet. Your existing rehearsal gear still works.", 14, MUTED)
+	for item in GearShop.ITEMS:
+		if owned.has(item["id"]):
+			_section(str(item["name"]) + "  //  OWNED", str(item["description"]))
+	_label(page, "FOR SALE", 18, AMBER)
+	for item in GearShop.ITEMS:
+		if owned.has(item["id"]):
+			continue
+		var item_id: String = str(item["id"])
+		_section(str(item["type"]) + "  //  " + str(item["name"]), str(item["description"]))
+		_choice("BUY FOR £%d" % int(item["price"]), "+%d live readiness  /  1 day" % int(item["readiness"]), func() -> void: _purchase_equipment(item_id))
+	_choice("REHEARSE — £15", "Improve readiness with the equipment you already have.", func() -> void: _take_career_action("rehearse"))
+
+
+func _purchase_equipment(item_id: String) -> void:
+	var state := career_extra.duplicate(true)
+	state["cash"] = cash
+	state["tour_day"] = tour_day
+	state["readiness"] = readiness
+	var result: Dictionary = GearShop.buy(state, item_id)
+	career_feedback = str(result.get("message", "Purchase unavailable"))
+	if result.get("ok",false) == true:
+		var updated: Dictionary = result["state"]
+		cash = int(updated["cash"])
+		tour_day = int(updated["tour_day"])
+		readiness = int(updated["readiness"])
+		for key in ["cash","tour_day","readiness"]:
+			updated.erase(key)
+		career_extra = updated
+		_clamp_all()
+		_save_game()
+	_build_screen()
 
 
 func _show_circuit() -> void:
