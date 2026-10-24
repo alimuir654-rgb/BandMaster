@@ -69,6 +69,13 @@ func _simulate(horizon: int, persona: String) -> void:
  _check(int(state.get("tour_day",1)) >= horizon,"persona reaches simulation horizon")
  _check(shows + missed >= 1,"persona encounters live schedule consequences")
  _check(int(state.get("gig_history",[]).size()) == shows,"played gigs match history")
+ if horizon == 180:
+  if persona == "reckless":
+   _check(int(state.get("cash",0)) < 400,"reckless no-setlist strategy cannot freely generate wealth")
+   _check(int(state.get("songs",0)) == 0,"reckless persona is not credited with invented songs")
+  else:
+   _check(int(state.get("songs",0)) <= 50,"authentic writing rate keeps catalogue plausible")
+   _check(int(state.get("cash",0)) > 350,"planning and original music remain economically viable")
  print("CAMPAIGN ",persona," horizon=",horizon," days=",state.get("tour_day")," shows=",shows," missed=",missed," songs=",state.get("songs")," cash=",state.get("cash"))
 
 func _check(ok: bool, detail: String) -> void:
