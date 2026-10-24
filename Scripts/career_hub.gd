@@ -269,6 +269,19 @@ func _home() -> void:
 func _gigs() -> void:
  var summary := _card("BOOK A BRITISH GIG","Every show builds your story. Choose the stage, then the approach.")
  _progress(summary,"VAN",_num("van_health"))
+ var roster: Array = save_data.get("band",{}).get("members",[])
+ var available_count := 0
+ var has_drummer := false
+ for member in roster:
+  if member is Dictionary and str(member.get("life_status","active")) == "active":
+   available_count += 1
+   if str(member.get("role","")).to_lower().contains("drum"):
+    has_drummer = true
+ var line_up_ready := available_count >= 2 and has_drummer
+ if not line_up_ready:
+  var warning := _card("LINE-UP INCOMPLETE","Gigs require two available musicians and a drummer. Arrange a replacement on the BAND tab.")
+  _action(warning,"MANAGE THE LINE-UP",func() -> void: _switch("BAND"),true)
+
  for venue in Gigs.VENUES:
   var key: String = str(venue["id"])
   var needed_fans := maxi(0,int(venue["min_fans"]) - _num("fans"))
@@ -289,6 +302,9 @@ func _gigs() -> void:
    button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    button.add_theme_font_size_override("font_size",13)
    choices.add_child(button)
+  tight.disabled = not line_up_ready
+  wild.disabled = not line_up_ready
+  crowd.disabled = not line_up_ready
   tight.pressed.connect(func() -> void: _book(key,"tight"))
   wild.pressed.connect(func() -> void: _book(key,"wild"))
   crowd.pressed.connect(func() -> void: _book(key,"crowd"))
