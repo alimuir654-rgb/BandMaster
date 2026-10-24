@@ -1,0 +1,41 @@
+name: Godot headless validation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  godot-import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install Godot 4.7.2 stable
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" \
+            --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+          godot --version
+      - name: Import project and parse scripts/scenes
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit --verbose 2>&1 | tee /tmp/godot-import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/godot-import.log; then
+            echo "Godot reported script or resource errors"
+            exit 1
+          fi
+      - name: Smoke-test startup scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --quit-after 5 2>&1 | tee /tmp/godot-startup.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/godot-startup.log; then
+            echo "Godot reported errors at startup"
+            exit 1
+          fi
