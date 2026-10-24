@@ -156,12 +156,20 @@ func _header() -> void:
  var band_data: Dictionary = save_data.get("band",{})
  var title := _label(row,str(band_data.get("name","Unknown Band")),25)
  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- title.size_flags_stretch_ratio = 4
+ title.size_flags_stretch_ratio = 1
+ title.autowrap_mode = TextServer.AUTOWRAP_OFF
+ title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  var day_panel := PanelContainer.new()
+ day_panel.custom_minimum_size = Vector2(92,48)
+ day_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
  day_panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
  row.add_child(day_panel)
  var day := _label(day_panel,"DAY %d" % _num("tour_day"),15,UI.AMBER)
+ day.autowrap_mode = TextServer.AUTOWRAP_OFF
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ day.clip_text = true
  var stats := GridContainer.new()
  stats.columns = 3
  content.add_child(stats)
