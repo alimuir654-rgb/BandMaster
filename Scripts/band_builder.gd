@@ -20,6 +20,10 @@ var member_container: VBoxContainer
 var status_label: Label
 var count_label: Label
 var member_rows: Array[Dictionary] = []
+var steps: Array[VBoxContainer] = []
+var summary_label: Label
+var current_step := 0
+var form_scroll: ScrollContainer
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -29,53 +33,89 @@ func _build() -> void:
 	var bg := ColorRect.new()
 	bg.color = BG
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
-	var scroll := ScrollContainer.new()
-	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	add_child(scroll)
+	form_scroll = ScrollContainer.new()
+	form_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	form_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	add_child(form_scroll)
 	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 28)
-	margin.add_theme_constant_override("margin_right", 28)
+	margin.add_theme_constant_override("margin_left", 18)
+	margin.add_theme_constant_override("margin_right", 18)
 	margin.add_theme_constant_override("margin_top", 24)
 	margin.add_theme_constant_override("margin_bottom", 32)
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	scroll.add_child(margin)
+	form_scroll.add_child(margin)
 	var page := VBoxContainer.new()
-	page.add_theme_constant_override("separation", 12)
+	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	page.add_theme_constant_override("separation", 14)
 	margin.add_child(page)
-	_label(page, "ROADIE // BAND FORMATION", 13, AMBER)
-	_label(page, "MAKE SOME NOISE", 32, WHITE)
-	_label(page, "Start in the practice room. Fame comes later, if at all.", 14, MUTED)
+	_label(page, "ROADIE // BAND FORMATION", 14, AMBER)
+	_label(page, "MAKE SOME NOISE", 30, WHITE)
+	_label(page, "Start in the practice room. Fame comes later, if at all.", 15, MUTED)
 	page.add_child(HSeparator.new())
-	_label(page, "01 / BAND IDENTITY", 18, AMBER)
-	_label(page, "Band name", 14, WHITE)
+	var identity_page := _make_step(page)
+	_label(identity_page, "01 / BAND IDENTITY", 20, AMBER)
+	_label(identity_page, "Band name", 16, WHITE)
 	name_field = LineEdit.new()
 	name_field.text = "The Feedback"
-	page.add_child(name_field)
-	_label(page, "Genre", 14, WHITE)
+	name_field.custom_minimum_size.y = 54
+	identity_page.add_child(name_field)
+	_label(identity_page, "Genre", 16, WHITE)
 	genre_field = _option(GENRES)
-	page.add_child(genre_field)
-	_label(page, "Primary influence", 14, WHITE)
+	identity_page.add_child(genre_field)
+	_label(identity_page, "Primary influence", 16, WHITE)
 	influence_field = _option(INFLUENCES)
-	page.add_child(influence_field)
-	page.add_child(HSeparator.new())
-	_label(page, "02 / PERSONNEL", 18, AMBER)
-	_label(page, "Choose 2–6 musicians. Roles can overlap; personalities have consequences.", 14, MUTED)
-	count_label = _label(page, "", 13, AMBER)
+	identity_page.add_child(influence_field)
+	_button(identity_page, "NEXT / BUILD YOUR LINE-UP  >", func() -> void: _show_step(1))
+
+	var personnel_page := _make_step(page)
+	_label(personnel_page, "02 / PERSONNEL", 20, AMBER)
+	_label(personnel_page, "Choose 2–6 musicians. Roles can overlap; personalities have consequences.", 15, MUTED)
+	count_label = _label(personnel_page, "", 14, AMBER)
 	member_container = VBoxContainer.new()
-	member_container.add_theme_constant_override("separation", 12)
-	page.add_child(member_container)
-	var controls := HBoxContainer.new()
-	page.add_child(controls)
-	_button(controls, "+ ADD MUSICIAN", _add_member)
-	_button(controls, "- REMOVE LAST", _remove_member)
+	member_container.add_theme_constant_override("separation", 14)
+	personnel_page.add_child(member_container)
+	_button(personnel_page, "+ ADD MUSICIAN", _add_member)
+	_button(personnel_page, "- REMOVE LAST", _remove_member)
 	for i in range(4):
 		_add_member()
-	page.add_child(HSeparator.new())
-	_label(page, "03 / TAKE IT FROM THE TOP", 18, AMBER)
-	_label(page, "You will rehearse, book a venue, get there, and try to play a gig.", 14, WHITE)
-	_button(page, "CREATE BAND / START REHEARSALS  >", _create_band)
-	status_label = _label(page, "AWAITING BAND REGISTRATION", 13, MUTED)
+	_button(personnel_page, "<  BACK TO IDENTITY", func() -> void: _show_step(0))
+	_button(personnel_page, "NEXT / REVIEW BAND  >", func() -> void: _show_step(2))
+
+	var review_page := _make_step(page)
+	_label(review_page, "03 / READY TO REHEARSE", 20, AMBER)
+	_label(review_page, "Review your line-up before creating a new career.", 15, MUTED)
+	summary_label = _label(review_page, "", 17, WHITE)
+	_button(review_page, "<  EDIT MUSICIANS", func() -> void: _show_step(1))
+	_button(review_page, "CREATE BAND / START REHEARSALS  >", _create_band)
+	status_label = _label(review_page, "AWAITING BAND REGISTRATION", 14, MUTED)
+	_show_step(0)
+
+
+func _make_step(parent: VBoxContainer) -> VBoxContainer:
+	var step := VBoxContainer.new()
+	step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	step.add_theme_constant_override("separation", 12)
+	parent.add_child(step)
+	steps.append(step)
+	return step
+
+
+func _show_step(index: int) -> void:
+	current_step = clampi(index, 0, steps.size() - 1)
+	for i in range(steps.size()):
+		steps[i].visible = i == current_step
+	if current_step == 2:
+		var names: PackedStringArray = []
+		for row in member_rows:
+			names.append(row["name"].text.strip_edges() + " — " + _selected(row["role"]))
+		summary_label.text = "BAND: %s\nGENRE: %s\nINFLUENCE: %s\n\n%d MUSICIANS\n%s" % [
+			name_field.text.strip_edges(), _selected(genre_field),
+			_selected(influence_field), member_rows.size(), "\n".join(names)
+		]
+	form_scroll.scroll_vertical = 0
+
 
 func _add_member() -> void:
 	if member_rows.size() >= 6:
@@ -89,14 +129,14 @@ func _add_member() -> void:
 	panel.add_child(content)
 	_label(content, "MUSICIAN %02d" % (index + 1), 13, AMBER)
 	var fields := GridContainer.new()
-	fields.columns = 2
+	fields.columns = 1
 	fields.add_theme_constant_override("h_separation", 16)
 	fields.add_theme_constant_override("v_separation", 8)
 	content.add_child(fields)
 	var person_name := LineEdit.new()
 	person_name.text = DEFAULT_NAMES[index]
 	person_name.placeholder_text = "Name"
-	person_name.custom_minimum_size.x = 200
+	person_name.custom_minimum_size.y = 52
 	fields.add_child(person_name)
 	var role := _option(ROLES)
 	role.select(index)
@@ -108,6 +148,7 @@ func _add_member() -> void:
 	trait_field.select(TRAITS.find(DEFAULT_TRAITS[index]))
 	fields.add_child(trait_field)
 	var descriptor := LineEdit.new()
+	descriptor.custom_minimum_size.y = 52
 	descriptor.placeholder_text = "Optional identity / pronouns / backstory note"
 	content.add_child(descriptor)
 	member_rows.append({"panel": panel, "name": person_name, "role": role, "identity": identity, "trait": trait_field, "note": descriptor})
@@ -176,7 +217,7 @@ func _option(items: Array) -> OptionButton:
 	var button := OptionButton.new()
 	for item in items:
 		button.add_item(str(item))
-	button.custom_minimum_size.y = 40
+	button.custom_minimum_size.y = 54
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return button
 
@@ -192,7 +233,7 @@ func _label(parent: Control, value: String, size: int, color: Color) -> Label:
 func _button(parent: Control, value: String, action: Callable) -> void:
 	var button := Button.new()
 	button.text = value
-	button.custom_minimum_size.y = 48
+	button.custom_minimum_size.y = 56
 	button.pressed.connect(action)
 	parent.add_child(button)
 
