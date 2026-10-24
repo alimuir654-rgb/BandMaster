@@ -219,6 +219,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|HANDOFF UI FAILURE:|ERROR:' /tmp/v22-handoff-ui.log; then
             exit 1
           fi
+      - name: Validate first-month career guidance
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_first_month_director_tests.gd 2>&1 | tee /tmp/v22-director.log
+          grep -q 'V22 FIRST MONTH DIRECTOR TESTS PASSED' /tmp/v22-director.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 DIRECTOR FAILURE:|ERROR:' /tmp/v22-director.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
