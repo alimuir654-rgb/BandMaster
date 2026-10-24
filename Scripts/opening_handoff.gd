@@ -35,8 +35,12 @@ static func migrate(save: Dictionary) -> Dictionary:
   gigs.append({"id":"intro:first_gig","venue":"The Toadstool","city":"HOMETOWN","day":day,"fee":0,"success":true,"approach":str(decisions.get("first_gig","safe")),"intro":true})
  extra["gig_history"] = gigs
  # An introductory songwriting choice contributes to a real work-in-progress.
- if str(decisions.get("rehearsal_1","")) == "write" or str(decisions.get("rehearsal_2","")) == "write" or str(decisions.get("rehearsal_3","")) == "write":
-  extra["song_draft_progress"] = maxi(1,int(extra.get("song_draft_progress",0)))
+ var writing_sessions := 0
+ for session in range(1,4):
+  if str(decisions.get("rehearsal_%d" % session,"")) == "write":
+   writing_sessions += 1
+ if writing_sessions > 0:
+  extra["song_draft_progress"] = maxi(int(extra.get("song_draft_progress",0)),mini(2,writing_sessions))
  extra["intro_handoff_complete"] = true
  extra["intro_completion_day"] = day
  next["career_extra"] = extra
