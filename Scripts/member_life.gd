@@ -87,20 +87,51 @@ static func refresh(state: Dictionary) -> Dictionary:
    person.erase("available_day")
  return next
 
-static func recruit(state: Dictionary) -> Dictionary:
+static func candidates(state: Dictionary) -> Array:
+ var roster: Array = state.get("members",[])
+ if roster.size() >= 6:
+  return []
+ var count := int(state.get("recruitment_count",0))
+ var role := _missing_role(roster)
+ var result: Array = []
+ for i in range(3):
+  var seed := count * 3 + i
+  result.append({
+   "name":str(FIRST_NAMES[seed % FIRST_NAMES.size()])+" "+str(seed+1),
+   "role":role,
+   "trait":str(TRAITS[seed % TRAITS.size()]),
+   "skill":35 + i * 12 + count % 4,
+   "loyalty":65 - i * 8,
+   "cost":i * 15
+  })
+ return result
+
+static func recruit(state: Dictionary, candidate_index: int = 0) -> Dictionary:
+ var shortlist := candidates(state)
+ if candidate_index < 0 or candidate_index >= shortlist.size():
+  return {"ok":false,"message":"No audition candidate is available."}
+ var candidate: Dictionary = shortlist[candidate_index]
+ var cost := int(candidate["cost"])
+ if int(state.get("cash",0)) < cost:
+  return {"ok":false,"message":"You need £%d to sign this musician." % cost}
  var next := state.duplicate(true)
  var roster: Array = next.get("members",[])
- if roster.size() >= 6:
-  return {"ok":false,"message":"The line-up is already full."}
  var day := int(next.get("tour_day",1))
- var count := int(next.get("recruitment_count",0))
- var role := _missing_role(roster)
- var name: String = str(FIRST_NAMES[count % FIRST_NAMES.size()])+" "+str(count+1)
- roster.append({"name":name,"role":role,"trait":TRAITS[count % TRAITS.size()],"skill":35+count%15,"morale":60,"loyalty":55,"fatigue":0,"joined_day":day,"life_status":"active"})
+ roster.append({
+  "name":candidate["name"],"role":candidate["role"],"trait":candidate["trait"],
+  "skill":candidate["skill"],"morale":60,"loyalty":candidate["loyalty"],
+  "fatigue":0,"joined_day":day,"life_status":"active"
+ })
  next["members"] = roster
- next["recruitment_count"] = count+1
+ next["cash"] = int(next.get("cash",0)) - cost
+ next["recruitment_count"] = int(next.get("recruitment_count",0))+1
  next["tour_day"] = day+1
- return {"ok":true,"state":next,"message":name+" joins the band as "+role+"."}
+ var history: Array = next.get("career_journal",[]).duplicate(true)
+ history.append({"id":"audition:%d" % day,"day":day+1,"title":"A NEW FACE","text":str(candidate["name"])+" joins on "+str(candidate["role"])+".","kind":"band"})
+ while history.size() > 80:
+  history.pop_front()
+ next["career_journal"] = history
+ return {"ok":true,"state":next,"message":str(candidate["name"])+" joins the band as "+str(candidate["role"])+"."}
 
 static func _missing_role(roster: Array) -> String:
  for role in ["Drummer","Bassist","Guitarist","Vocalist"]:
