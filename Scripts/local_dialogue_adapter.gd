@@ -46,3 +46,10 @@ static func validated_text(body: String) -> String:
   if line_text.to_lower().contains(forbidden.to_lower()):
    return ""
  return line_text
+
+static func allowed(settings: Dictionary, mobile: bool) -> bool:
+ # Loopback on mobile is the player's phone, not the development computer.
+ return not mobile and bool(settings.get("enabled",false))
+
+static func is_current(request_id: int, serial: int, request_day: int, current_day: int, request_speaker: String, current_speaker: String) -> bool:
+ return request_id == serial and request_day == current_day and not request_speaker.is_empty() and request_speaker == current_speaker
