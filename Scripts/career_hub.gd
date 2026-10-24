@@ -701,7 +701,23 @@ func _actions() -> void:
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
  _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
- var switches := _card("CHOOSE YOUR DAY","Move between creating music, spending time together and handling the business.")
+ var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
+ var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
+ var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
+ var scene_art := TextureRect.new()
+ scene_art.custom_minimum_size.y = 184
+ scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var image_path := "res://Art/uk_actions_banner.svg"
+ if action_view == "HANG OUT":
+  image_path = "res://Art/uk_band_banner.svg"
+ elif action_view == "PROMOTE":
+  image_path = "res://Art/uk_scene_banner.svg"
+ if ResourceLoader.exists(image_path):
+  scene_art.texture = load(image_path)
+ scene_card.add_child(scene_art)
+ var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
  var navigation := HBoxContainer.new()
  navigation.add_theme_constant_override("separation",8)
  switches.add_child(navigation)
