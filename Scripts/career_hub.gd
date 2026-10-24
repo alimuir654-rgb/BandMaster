@@ -3,6 +3,7 @@ extends Control
 const UI = preload("res://Scripts/ui_theme.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 const Presentation = preload("res://Scripts/career_presentation.gd")
+const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
@@ -26,6 +27,8 @@ var save_data: Dictionary = {}
 var tab := "HOME"
 var message := ""
 var content: VBoxContainer
+var dialogue_request: HTTPRequest
+var dialogue_busy := false
 
 func _ready() -> void:
  _load()
@@ -356,6 +359,19 @@ func _gear() -> void:
    buy.pressed.connect(func() -> void: _buy(key))
 
 func _band() -> void:
+ var settings := _card("DIALOGUE ENGINE","Offline dialogue always works. Optional local AI requires an Ollama server on this device.")
+ var cfg: Dictionary = _extra().get("local_dialogue",{})
+ var enabled := bool(cfg.get("enabled",false))
+ var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
+ settings.add_child(switcher)
+ switcher.pressed.connect(func() -> void:
+  var extra: Dictionary = _extra()
+  var updated: Dictionary = extra.get("local_dialogue",{}).duplicate(true)
+  updated["enabled"] = not bool(updated.get("enabled",false))
+  extra["local_dialogue"] = updated
+  _save()
+  _render()
+ )
  _band_situations()
  _life_situations()
  var band_data: Dictionary = save_data.get("band",{})
@@ -443,14 +459,48 @@ func _band() -> void:
   rest.pressed.connect(func() -> void: _member(index,"break"))
 
 func _listen(index: int) -> void:
- var response: Dictionary = Presentation.dialogue_for(_state(),index)
- if not bool(response.get("ok",false)):
-  message = str(response.get("message","No conversation available."))
- else:
-  var extra: Dictionary = _extra()
-  extra["last_band_conversation"] = response
-  message = str(response.get("speaker","Musician"))+": "+str(response.get("text",""))
-  _save()
+ var fallback: Dictionary = Presentation.dialogue_for(_state(),index)
+ if not bool(fallback.get("ok",false)):
+  message = str(fallback.get("message","No conversation available."))
+  _render()
+  return
+ _display_conversation(fallback)
+ var cfg: Dictionary = _extra().get("local_dialogue",{})
+ if not bool(cfg.get("enabled",false)) or dialogue_busy:
+  return
+ var payload: Dictionary = LocalDialogue.request_payload(_state(),index)
+ if payload.is_empty():
+  return
+ payload["model"] = str(cfg.get("model","llama3.2:3b"))
+ dialogue_busy = true
+ dialogue_request = HTTPRequest.new()
+ dialogue_request.timeout = 8.0
+ add_child(dialogue_request)
+ dialogue_request.request_completed.connect(func(result: int, status: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+  dialogue_busy = false
+  var candidate := ""
+  if result == HTTPRequest.RESULT_SUCCESS and status == 200:
+   candidate = LocalDialogue.validated_text(body.get_string_from_utf8())
+  if not candidate.is_empty():
+   var ai_reply := fallback.duplicate(true)
+   ai_reply["text"] = candidate
+   ai_reply["source"] = "local"
+   _display_conversation(ai_reply)
+  if is_instance_valid(dialogue_request):
+   dialogue_request.queue_free()
+   dialogue_request = null
+ )
+ var error := dialogue_request.request("http://127.0.0.1:11434/api/chat",["Content-Type: application/json"],HTTPClient.METHOD_POST,JSON.stringify(payload))
+ if error != OK:
+  dialogue_busy = false
+  dialogue_request.queue_free()
+  dialogue_request = null
+
+func _display_conversation(response: Dictionary) -> void:
+ var extra: Dictionary = _extra()
+ extra["last_band_conversation"] = response
+ message = str(response.get("speaker","Musician"))+": "+str(response.get("text",""))
+ _save()
  _render()
 
 func _life_situations() -> void:
