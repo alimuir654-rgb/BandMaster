@@ -15,6 +15,7 @@ const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const Social = preload("res://Scripts/band_social.gd")
+const Experience = preload("res://Scripts/band_life_experience.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -589,24 +590,15 @@ func _band() -> void:
    UI.progress(meter)
    meter.value = clampi(int(member.get(key,50)),0,100)
    metric.add_child(meter)
-  var controls := HBoxContainer.new()
-  controls.add_theme_constant_override("separation",6)
-  box.add_child(controls)
-  var talk := UI.button("TALK",true)
-  var coach := UI.button("COACH £10")
-  var rest := UI.button("REST")
-  for control in [talk,coach,rest]:
-   control.custom_minimum_size.y = 52
-   control.add_theme_font_size_override("font_size",13)
-   controls.add_child(control)
-  coach.disabled = _num("cash") < 10
-  var listen := UI.button("LISTEN")
-  listen.custom_minimum_size.y = 50
+  var member_actions := _label(box,"SPEND TIME WITH "+str(member.get("name","THE BANDMATE")).to_upper(),13,UI.AMBER)
+  member_actions.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+  for choice in Experience.member_options(_state(),index):
+   var choice_id := str(choice["id"])
+   _experience_tile(box,str(choice["title"]),"A personal choice that changes how this musician feels about the band.",str(choice["impact"]),int(choice["cost"]),bool(choice["enabled"]),func() -> void: _member(index,choice_id))
+  var listen := UI.button("HEAR WHAT THEY HAVE TO SAY")
+  listen.custom_minimum_size.y = 52
   box.add_child(listen)
   listen.pressed.connect(func() -> void: _listen(index))
-  talk.pressed.connect(func() -> void: _member(index,"chat"))
-  coach.pressed.connect(func() -> void: _member(index,"coach"))
-  rest.pressed.connect(func() -> void: _member(index,"break"))
 
  if members.size() < 6:
   var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
@@ -728,7 +720,26 @@ func _band_situations() -> void:
    var choice: String = str(option["id"])
    _action(box,str(option["label"]),func() -> void: _finish(Drama.resolve(_state(),id,choice)),choice == str(definition["choices"][0]["id"]))
 
+func _experience_tile(parent: Node, heading: String, story: String, impact: String, cost: int, enabled: bool, callback: Callable) -> void:
+ var panel := PanelContainer.new()
+ panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,14))
+ parent.add_child(panel)
+ var layout := VBoxContainer.new()
+ layout.add_theme_constant_override("separation",8)
+ panel.add_child(layout)
+ _label(layout,heading,18,UI.WHITE)
+ if not story.is_empty():
+  _label(layout,story,14,UI.MUTED)
+ _label(layout,impact,12,UI.AMBER)
+ var start := UI.button("SPEND THE DAY  ›" if cost==0 else "COMMIT £%d  ·  1 DAY  ›" % cost,true)
+ start.disabled = not enabled
+ start.custom_minimum_size.y = 54
+ layout.add_child(start)
+ start.pressed.connect(callback)
+
 func _actions() -> void:
+ var today: Dictionary = Experience.day_context(_state())
+ _card(str(today["title"]),str(today["detail"]))
  var heading := _card("THE REHEARSAL ROOM","Every session shapes your songs, friendships, morale and live performance.")
  _progress(heading,"READINESS",_num("readiness"))
  _progress(heading,"MORALE",_num("morale"))
@@ -839,35 +850,15 @@ func _actions() -> void:
   jam.pressed.connect(func() -> void:
    _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
   )
-  for focus in Practice.FOCUSES:
-   var id := str(focus)
-   var rule: Dictionary = Practice.FOCUSES[id]
-   var base: Dictionary = Actions.ACTIONS[str(rule["action"])]
-   var cost := int(base.get("cost",0))
-   if id == "create":
-    continue
-   var session := _card(str(rule["label"]),str(rule["description"]))
-   _label(session,"1 DAY  /  £%d" % cost,13,UI.MUTED)
-   var start_button := UI.button("START SESSION" if cost == 0 else "BOOK SESSION · £%d" % cost,id == "tighten")
-   start_button.custom_minimum_size.y = 56
-   start_button.disabled = _num("cash") < cost
-   session.add_child(start_button)
-   start_button.pressed.connect(func() -> void: _practice(id))
+  var drills := _card("REHEARSAL SESSIONS","Choose the pressure level. Technical discipline and band chemistry compete for time.")
+  for option in Experience.practice_options(_state()):
+   var focus_id := str(option["id"])
+   _experience_tile(drills,str(option["title"]),str(option["story"]),str(option["impact"]),int(option["cost"]),bool(option["enabled"]),func() -> void: _practice(focus_id))
  if action_view == "HANG OUT":
   var socials := _card("LIFE OUTSIDE THE STUDIO","Bandmates need more than rehearsals. Going out costs money and a day, but builds trust.")
-  var available_count := 0
-  for person in _state().get("members",[]):
-   if person is Dictionary and str(person.get("life_status","active")) == "active":
-    available_count += 1
-  for activity in Social.ACTIVITIES:
-   var outing_id := str(activity)
-   var rule: Dictionary = Social.ACTIVITIES[outing_id]
-   var cost := int(rule["cost_per_member"])*available_count
-   var button := UI.button(str(rule["label"])+"  ·  £%d" % cost)
-   button.custom_minimum_size.y = 52
-   button.disabled = available_count < 2 or _num("cash") < cost
-   socials.add_child(button)
-   button.pressed.connect(func() -> void: _finish(Social.attend(_state(),outing_id)))
+  for outing in Experience.social_options(_state()):
+   var outing_id := str(outing["id"])
+   _experience_tile(socials,str(outing["title"]),str(outing["story"]),str(outing["impact"]),int(outing["cost"]),bool(outing["enabled"]),func() -> void: _finish(Social.attend(_state(),outing_id)))
  if action_view == "PROMOTE":
   var other := _card("THE BUSINESS SIDE","Music alone won't pay for studio time. Your days also need promotion and practical work.")
   for action_id in ["promo","press","buy_gear"]:
