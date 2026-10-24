@@ -48,6 +48,9 @@ var message := ""
 var content: VBoxContainer
 var scrapbook_filter := "ALL"
 var action_view := "JAM"
+var expanded_venue := ""
+var expanded_member := -1
+var show_locked_venues := false
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -472,15 +475,32 @@ func _gigs() -> void:
   if available_count >= 1 and _num("cash") >= 25:
    _label(warning,"SESSION DRUMMER: £25 PER SHOW. PERFORMANCE QUALITY -8.",13,UI.MUTED)
 
+ var venue_list := _card("FIND YOUR NEXT VENUE","Explore available rooms and open one to negotiate. Locked venues are hidden by default.")
+ var locked_toggle := UI.button("HIDE LOCKED VENUES" if show_locked_venues else "SHOW LOCKED VENUES")
+ venue_list.add_child(locked_toggle)
+ locked_toggle.pressed.connect(func() -> void:
+  show_locked_venues = not show_locked_venues
+  _render()
+ )
  for venue in Gigs.VENUES:
   var key: String = str(venue["id"])
   var needed_fans := maxi(0,int(venue["min_fans"]) - _num("fans"))
   var needed_rep := maxi(0,int(venue["min_rep"]) - _num("reputation"))
   if needed_fans > 0 or needed_rep > 0:
+   if not show_locked_venues:
+    continue
    var locked := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"LOCKED  ·  Need %d fans and %d reputation" % [needed_fans,needed_rep])
    _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
    continue
   var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
+  var details := UI.button("HIDE OFFERS" if expanded_venue == key else "VIEW PROMOTER OFFERS  ›")
+  box.add_child(details)
+  details.pressed.connect(func() -> void:
+   expanded_venue = "" if expanded_venue == key else key
+   _render()
+  )
+  if expanded_venue != key:
+   continue
   _label(box,"MEET THE PROMOTER  /  NEGOTIATE THE DEAL",13,UI.AMBER)
   _label(box,"The band will choose its live approach at soundcheck.",12,UI.MUTED)
   for offer_id in ["standard","guarantee","guestlist"]:
@@ -608,6 +628,14 @@ func _band() -> void:
   _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
+  var profile_toggle := UI.button("CLOSE PROFILE" if expanded_member == index else "VIEW MEMBER PROFILE  ›")
+  box.add_child(profile_toggle)
+  profile_toggle.pressed.connect(func() -> void:
+   expanded_member = -1 if expanded_member == index else index
+   _render()
+  )
+  if expanded_member != index:
+   continue
   var rule := ColorRect.new()
   rule.color = Color("#344153")
   rule.custom_minimum_size.y = 1
