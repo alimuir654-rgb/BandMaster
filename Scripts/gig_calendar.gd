@@ -42,7 +42,7 @@ static func perform(state: Dictionary) -> Dictionary:
  if not bool(result.get("ok",false)):
   return result
  var updated: Dictionary = result["state"]
- updated.erase("booked_show")
+ updated["booked_show"] = {}
  result["state"] = updated
  return result
 
@@ -51,7 +51,7 @@ static func cancel(state: Dictionary) -> Dictionary:
  if show.is_empty():
   return {"ok":false,"message":"There is no booking to cancel."}
  var next := state.duplicate(true)
- next.erase("booked_show")
+ next["booked_show"] = {}
  var charge := mini(CANCELLATION_FEE,int(next.get("cash",0)))
  next["cash"] = maxi(0,int(next.get("cash",0))-charge)
  next["reputation"] = maxi(0,int(next.get("reputation",0))-3)
@@ -67,7 +67,7 @@ static func expire(state: Dictionary) -> Dictionary:
  if show.is_empty() or int(state.get("tour_day",1)) <= int(show.get("day",0)):
   return state.duplicate(true)
  var next := state.duplicate(true)
- next.erase("booked_show")
+ next["booked_show"] = {}
  next["reputation"] = maxi(0,int(next.get("reputation",0))-MISSED_REPUTATION)
  next["morale"] = maxi(0,int(next.get("morale",0))-6)
  var journal: Array = next.get("career_journal",[]).duplicate(true)
