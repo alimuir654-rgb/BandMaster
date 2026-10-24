@@ -57,6 +57,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|PLAYTEST FAILURE:|ERROR:' /tmp/playtest-lab.log; then
             exit 1
           fi
+      - name: Run band drama choice tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/band_drama_tests.gd 2>&1 | tee /tmp/band-drama.log
+          grep -q 'BAND DRAMA TESTS PASSED' /tmp/band-drama.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|BAND DRAMA FAILURE:|ERROR:' /tmp/band-drama.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
