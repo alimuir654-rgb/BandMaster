@@ -84,6 +84,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|SESSION TEST FAILURE:|ERROR:' /tmp/session-auditions.log; then
             exit 1
           fi
+      - name: Validate rehearsal and songwriting chemistry
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/band_chemistry_tests.gd 2>&1 | tee /tmp/chemistry-tests.log
+          grep -q 'BAND CHEMISTRY TESTS PASSED' /tmp/chemistry-tests.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|CHEMISTRY FAILURE:|ERROR:' /tmp/chemistry-tests.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
