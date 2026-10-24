@@ -147,6 +147,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|GIG SCRAPBOOK FAILURE:|ERROR:' /tmp/gig-scrapbook.log; then
             exit 1
           fi
+      - name: Test scheduled gig calendar and missed-show outcomes
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/gig_calendar_tests.gd 2>&1 | tee /tmp/gig-calendar-v22.log
+          grep -q 'GIG CALENDAR V22 TESTS PASSED' /tmp/gig-calendar-v22.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|GIG CALENDAR FAILURE:|ERROR:' /tmp/gig-calendar-v22.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
