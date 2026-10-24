@@ -134,6 +134,8 @@ func _build_screen() -> void:
 	add_child(bg)
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if current_event == "aftershow" and pending_next.is_empty():
+		scroll.offset_bottom = -108
 	add_child(scroll)
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -146,7 +148,7 @@ func _build_screen() -> void:
 	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	page.add_theme_constant_override("separation", 14)
 	margin.add_child(page)
-	_label(page, "ROADIE // BAND CONTROL", 13, AMBER)
+	_label(page, "LIVIN\u0027 THE DREAM   //   BRITISH MUSIC SCENE", 13, AMBER)
 	_label(page, str(band.get("name", "Unknown Band")), 30, WHITE)
 	_label(page, "%s / Influence: %s" % [band.get("genre", "Unknown"), band.get("influence", "Unknown")], 13, MUTED)
 	_separator()
@@ -162,9 +164,10 @@ func _build_screen() -> void:
 	_stat(stats, "READINESS %d" % readiness, WHITE)
 	_stat(stats, "TENSION %d" % tension, WHITE)
 	_stat(stats, "REPUTATION %d" % reputation, WHITE)
-	_separator()
-	_show_lineup()
-	_separator()
+	if current_event != "aftershow":
+		_separator()
+		_show_lineup()
+		_separator()
 	if pending_next != "":
 		_label(page, "LATEST CONSEQUENCES", 19, AMBER)
 		_label(page, last_outcome, 15, WHITE)
@@ -177,7 +180,9 @@ func _build_screen() -> void:
 		"van_problem": _show_legacy_van()
 		"soundcheck": _show_soundcheck()
 		"show": _show_gig()
-		"aftershow": _show_aftershow()
+		"aftershow":
+			_show_aftershow()
+			_build_bottom_nav()
 		_: _label(page, "UNKNOWN STAGE: " + current_event, 16, AMBER)
 
 func _show_lineup() -> void:
@@ -401,21 +406,6 @@ func _gig(action: String) -> void:
 func _show_aftershow() -> void:
 	_label(page, "CAREER HQ  //  " + career_tab, 21, AMBER)
 	_label(page, "DAY %d   CASH £%d   FANS %d   REP %d" % [tour_day,cash,int(career_extra.get("fans",0)),reputation], 15, WHITE)
-	var nav := GridContainer.new()
-	nav.columns = 3
-	nav.add_theme_constant_override("h_separation", 6)
-	nav.add_theme_constant_override("v_separation", 6)
-	page.add_child(nav)
-	for destination in ["HOME", "GIGS", "GEAR", "BAND", "ACTIONS", "SCENE"]:
-		var target: String = destination
-		var button := Button.new()
-		button.text = destination
-		button.custom_minimum_size = Vector2(0, 62)
-		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		button.add_theme_stylebox_override("normal", _style(AMBER if destination == career_tab else PANEL))
-		button.add_theme_color_override("font_color", BG if destination == career_tab else WHITE)
-		button.pressed.connect(func() -> void: _set_career_tab(target))
-		nav.add_child(button)
 	_separator()
 	if not career_feedback.is_empty():
 		_label(page, "LATEST ACTIVITY", 16, AMBER)
@@ -446,6 +436,32 @@ func _show_aftershow() -> void:
 				var action_key: String = str(action_id)
 				_choice(str(config["label"]), "Cost £%d  /  one day" % cost, func() -> void: _take_career_action(action_key))
 	_choice("SAVE & MAIN MENU", "Your progress is saved between decisions.", _menu)
+
+
+func _build_bottom_nav() -> void:
+	# Separate from the scroll content: tabs remain reachable on smaller monitors/phones.
+	var bottom := PanelContainer.new()
+	bottom.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+	bottom.offset_top = -108
+	bottom.offset_bottom = 0
+	bottom.add_theme_stylebox_override("panel", _style(Color("#18212A")))
+	add_child(bottom)
+	var grid := GridContainer.new()
+	grid.columns = 6
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid.add_theme_constant_override("h_separation", 3)
+	bottom.add_child(grid)
+	for destination in ["HOME", "GIGS", "GEAR", "BAND", "ACTIONS", "SCENE"]:
+		var target: String = destination
+		var button := Button.new()
+		button.text = destination
+		button.custom_minimum_size = Vector2(0, 72)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.add_theme_font_size_override("font_size", 13)
+		button.add_theme_stylebox_override("normal", _style(AMBER if destination == career_tab else PANEL))
+		button.add_theme_color_override("font_color", BG if destination == career_tab else WHITE)
+		button.pressed.connect(func() -> void: _set_career_tab(target))
+		grid.add_child(button)
 
 
 func _set_career_tab(tab: String) -> void:
@@ -657,12 +673,15 @@ func _stat(parent: GridContainer, value: String, color: Color) -> void:
 func _choice(title: String, description: String, callback: Callable) -> void:
 	var button := Button.new()
 	button.text = title + "\n" + description
-	button.custom_minimum_size.y = 68
+	button.custom_minimum_size.y = 92
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	button.add_theme_color_override("font_color", WHITE)
 	button.add_theme_stylebox_override("normal", _style(PANEL))
 	button.add_theme_stylebox_override("hover", _style(Color("#303640")))
+	button.add_theme_stylebox_override("pressed", _style(AMBER))
+	button.add_theme_color_override("font_pressed_color", BG)
+	button.add_theme_font_size_override("font_size", 16)
 	button.pressed.connect(callback)
 	page.add_child(button)
 
