@@ -120,6 +120,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|PRESENTATION FAILURE:|ERROR:' /tmp/presentation-tests.log; then
             exit 1
           fi
+      - name: Test safe local dialogue adapter
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/local_dialogue_adapter_tests.gd 2>&1 | tee /tmp/local-dialogue-tests.log
+          grep -q 'LOCAL DIALOGUE ADAPTER TESTS PASSED' /tmp/local-dialogue-tests.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|LOCAL DIALOGUE FAILURE:|ERROR:' /tmp/local-dialogue-tests.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
