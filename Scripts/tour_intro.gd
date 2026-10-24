@@ -156,7 +156,25 @@ func _build_screen() -> void:
 		_show_compact_career_header()
 	else:
 		_label(page, "LIVIN' THE DREAM  //  BRITISH MUSIC SCENE", 13, AMBER)
-		_label(page, str(band.get("name","Unknown Band")), 30, WHITE)
+		var top_row := HBoxContainer.new()
+		page.add_child(top_row)
+		var band_heading := _label(top_row, str(band.get("name","Unknown Band")), 29, WHITE)
+		band_heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var today := _label(top_row, "DAY %02d" % tour_day, 17, AMBER)
+		today.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		var phase_art := TextureRect.new()
+		phase_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		phase_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		phase_art.custom_minimum_size.y = 170
+		var art_key := "actions"
+		if current_event in ["booking","soundcheck","show"]:
+			art_key = "gigs"
+		elif current_event in ["travel","van_problem"]:
+			art_key = "home"
+		var art_path := "res://Art/Backgrounds/%s.webp" % art_key
+		if ResourceLoader.exists(art_path):
+			phase_art.texture = load(art_path)
+			page.add_child(phase_art)
 		_label(page, "%s / Influence: %s" % [str(band.get("genre","Unknown")),str(band.get("influence","Unknown"))], 13, MUTED)
 		_separator()
 		_label(page, "BAND DASHBOARD", 15, AMBER)
@@ -874,16 +892,27 @@ func _stat(parent: GridContainer, value: String, color: Color) -> void:
 
 func _choice(title: String, description: String, callback: Callable) -> void:
 	var button := Button.new()
-	button.text = title + "\n" + description
-	button.custom_minimum_size.y = 92
+	button.custom_minimum_size.y = 104
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.add_theme_font_size_override("font_size", 17)
 	button.add_theme_color_override("font_color", WHITE)
-	button.add_theme_stylebox_override("normal", _style(PANEL))
-	button.add_theme_stylebox_override("hover", _style(Color("#303640")))
-	button.add_theme_stylebox_override("pressed", _style(AMBER))
+	button.add_theme_color_override("font_hover_color", WHITE)
 	button.add_theme_color_override("font_pressed_color", BG)
-	button.add_theme_font_size_override("font_size", 16)
+	var normal := _style(Color("#202B3A"))
+	normal.set_corner_radius_all(14)
+	normal.set_content_margin_all(18)
+	normal.border_color = Color("#334657")
+	normal.set_border_width_all(1)
+	var hover := normal.duplicate()
+	hover.bg_color = Color("#314457")
+	hover.border_color = AMBER
+	var pressed := normal.duplicate()
+	pressed.bg_color = AMBER
+	button.add_theme_stylebox_override("normal",normal)
+	button.add_theme_stylebox_override("hover",hover)
+	button.add_theme_stylebox_override("pressed",pressed)
+	button.text = title + "\n" + description
 	button.pressed.connect(callback)
 	page.add_child(button)
 
