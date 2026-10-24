@@ -360,25 +360,6 @@ func _gear() -> void:
    buy.pressed.connect(func() -> void: _buy(key))
 
 func _band() -> void:
- var settings := _card("DIALOGUE ENGINE","Offline dialogue always works. Optional local AI requires an Ollama server on this device.")
- var cfg: Dictionary = _extra().get("local_dialogue",{})
- var enabled := bool(cfg.get("enabled",false))
- var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
- switcher.disabled = OS.has_feature("mobile")
- if OS.has_feature("mobile"):
-  _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
- settings.add_child(switcher)
- switcher.pressed.connect(func() -> void:
-  var extra: Dictionary = _extra()
-  var updated: Dictionary = extra.get("local_dialogue",{}).duplicate(true)
-  updated["enabled"] = not bool(updated.get("enabled",false))
-  if not bool(updated["enabled"]):
-   dialogue_serial += 1
-   _cancel_dialogue_request()
-  extra["local_dialogue"] = updated
-  _save()
-  _render()
- )
  _band_situations()
  _life_situations()
  var band_data: Dictionary = save_data.get("band",{})
@@ -386,23 +367,18 @@ func _band() -> void:
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
- if members.size() < 6:
-  var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
-  var shortlist := Life.candidates(_state())
-  for i in range(shortlist.size()):
-   var candidate: Dictionary = shortlist[i]
-   var index := i
-   _label(recruitment,"%s  ·  %s  ·  %s" % [str(candidate["name"]),str(candidate["role"]),str(candidate["trait"])],15,UI.WHITE)
-   _label(recruitment,"SKILL %d  /  LOYALTY %d" % [int(candidate["skill"]),int(candidate["loyalty"])],12,UI.MUTED)
-   var sign := UI.button("SIGN  ·  £%d" % int(candidate["cost"]),i == 0)
-   sign.custom_minimum_size.y = 48
-   sign.disabled = _num("cash") < int(candidate["cost"])
-   recruitment.add_child(sign)
-   sign.pressed.connect(func() -> void: _recruit(index))
  var conversation: Dictionary = _extra().get("last_band_conversation",{})
  if not conversation.is_empty():
-  var dialogue := _card("BACKSTAGE CONVERSATION",str(conversation.get("speaker","Musician")))
-  _label(dialogue,"\""+str(conversation.get("text",""))+"\"",17,UI.WHITE)
+  var dialogue := _card("BACKSTAGE  /  "+str(conversation.get("speaker","Musician")).to_upper(),"A moment with one of your bandmates.")
+  var quote_frame := PanelContainer.new()
+  quote_frame.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+  dialogue.add_child(quote_frame)
+  var quote_stack := VBoxContainer.new()
+  quote_stack.add_theme_constant_override("separation",8)
+  quote_frame.add_child(quote_stack)
+  _label(quote_stack,"\""+str(conversation.get("text",""))+"\"",19,UI.WHITE)
+  var engine := "LOCAL AI" if str(conversation.get("source","offline")) == "local" else "OFFLINE CHARACTER DIALOGUE"
+  _label(quote_stack,engine+"   /   DAY %d" % int(conversation.get("day",_num("tour_day"))),11,UI.AMBER)
  var alumni: Array = _extra().get("former_members",[])
  if not alumni.is_empty():
   var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
@@ -414,7 +390,8 @@ func _band() -> void:
    continue
   var member: Dictionary = members[i]
   var index := i
-  var box := _card("", "")
+  var status := str(member.get("life_status","active"))
+  var box := _card("ON THE ROAD" if status == "active" else "CURRENTLY UNAVAILABLE","")
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
@@ -464,6 +441,39 @@ func _band() -> void:
   talk.pressed.connect(func() -> void: _member(index,"chat"))
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
+
+ if members.size() < 6:
+  var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
+  var shortlist := Life.candidates(_state())
+  for i in range(shortlist.size()):
+   var candidate: Dictionary = shortlist[i]
+   var index := i
+   _label(recruitment,"%s  ·  %s  ·  %s" % [str(candidate["name"]),str(candidate["role"]),str(candidate["trait"])],15,UI.WHITE)
+   _label(recruitment,"SKILL %d  /  LOYALTY %d" % [int(candidate["skill"]),int(candidate["loyalty"])],12,UI.MUTED)
+   var sign := UI.button("SIGN  ·  £%d" % int(candidate["cost"]),i == 0)
+   sign.custom_minimum_size.y = 48
+   sign.disabled = _num("cash") < int(candidate["cost"])
+   recruitment.add_child(sign)
+   sign.pressed.connect(func() -> void: _recruit(index))
+ var settings := _card("DIALOGUE ENGINE","Offline dialogue always works. Optional local AI requires an Ollama server on this device.")
+ var cfg: Dictionary = _extra().get("local_dialogue",{})
+ var enabled := bool(cfg.get("enabled",false))
+ var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
+ switcher.disabled = OS.has_feature("mobile")
+ if OS.has_feature("mobile"):
+  _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
+ settings.add_child(switcher)
+ switcher.pressed.connect(func() -> void:
+  var config_store: Dictionary = _extra()
+  var updated: Dictionary = config_store.get("local_dialogue",{}).duplicate(true)
+  updated["enabled"] = not bool(updated.get("enabled",false))
+  if not bool(updated["enabled"]):
+   dialogue_serial += 1
+   _cancel_dialogue_request()
+  config_store["local_dialogue"] = updated
+  _save()
+  _render()
+ )
 
 func _listen(index: int) -> void:
  # Every listen replaces the previous request. A late completion cannot rewrite
