@@ -2,6 +2,7 @@ extends Control
 
 const CareerActions = preload("res://Scripts/career_actions.gd")
 const CareerOpportunities = preload("res://Scripts/career_opportunities.gd")
+const UKGigs = preload("res://Scripts/uk_gig_circuit.gd")
 
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
@@ -25,8 +26,9 @@ var decisions: Dictionary = {}
 var relationships: Dictionary = {}
 var pending_next := ""
 var last_outcome := ""
-var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0}
+var career_extra: Dictionary = {"songs": 0, "gear": 0, "buzz": 0, "press": 0, "fans": 0, "action_count": 0, "action_counters": {}, "opportunities_seen": {}, "opportunities_resolved": {}, "demos": 0, "gig_history": []}
 var career_feedback := ""
+var career_tab := "HOME"
 var page: VBoxContainer
 
 func _ready() -> void:
@@ -397,25 +399,125 @@ func _gig(action: String) -> void:
 	_commit(story, "aftershow")
 
 func _show_aftershow() -> void:
-	_label(page, "THE NEXT CHAPTER // BAND MANAGEMENT", 22, WHITE)
-	_label(page, "The first gig is behind you. What happens next is up to the band. Take the next step, then see which opportunities emerge.", 15, WHITE)
-	_label(page, "DAY %d  /  CASH £%d  /  REPUTATION %d" % [tour_day, cash, reputation], 15, AMBER)
-	_label(page, "SONGS %d  /  GEAR %d  /  BUZZ %d  /  PRESS %d  /  FANS %d" % [
-		int(career_extra.get("songs", 0)), int(career_extra.get("gear", 0)),
-		int(career_extra.get("buzz", 0)), int(career_extra.get("press", 0)),
-		int(career_extra.get("fans", 0))
-	], 14, WHITE)
+	_label(page, "CAREER HQ  //  " + career_tab, 21, AMBER)
+	_label(page, "DAY %d   CASH £%d   FANS %d   REP %d" % [tour_day,cash,int(career_extra.get("fans",0)),reputation], 15, WHITE)
+	var nav := GridContainer.new()
+	nav.columns = 3
+	nav.add_theme_constant_override("h_separation", 6)
+	nav.add_theme_constant_override("v_separation", 6)
+	page.add_child(nav)
+	for destination in ["HOME", "GIGS", "GEAR", "BAND", "ACTIONS", "SCENE"]:
+		var target: String = destination
+		var button := Button.new()
+		button.text = destination
+		button.custom_minimum_size = Vector2(0, 62)
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.add_theme_stylebox_override("normal", _style(AMBER if destination == career_tab else PANEL))
+		button.add_theme_color_override("font_color", BG if destination == career_tab else WHITE)
+		button.pressed.connect(func() -> void: _set_career_tab(target))
+		nav.add_child(button)
+	_separator()
 	if not career_feedback.is_empty():
-		_label(page, "LATEST ACTIVITY", 17, AMBER)
+		_label(page, "LATEST ACTIVITY", 16, AMBER)
 		_label(page, career_feedback, 15, WHITE)
-	_show_opportunities()
-	_label(page, "CHOOSE WHAT TO DO", 17, AMBER)
-	for action_id in CareerActions.labels().keys():
-		var config: Dictionary = CareerActions.labels()[action_id]
-		var cost := int(config.get("cost", 0))
-		var action_key: String = str(action_id)
-		_choice(str(config["label"]), "£%d  /  advances one day" % cost, func() -> void: _take_career_action(action_key))
-	_choice("BACK TO MAIN MENU", "Save the career and return to the launch screen.", _menu)
+	match career_tab:
+		"HOME":
+			_label(page, "YOUR BAND AT A GLANCE", 18, AMBER)
+			_label(page, "SONGS %d  /  DEMOS %d  /  GEAR %d" % [int(career_extra.get("songs",0)),int(career_extra.get("demos",0)),int(career_extra.get("gear",0))], 15, WHITE)
+			_label(page, "BUZZ %d  /  PRESS %d  /  VAN %d%%" % [int(career_extra.get("buzz",0)),int(career_extra.get("press",0)),van_health], 15, WHITE)
+			_label(page, "The next step is yours: book another gig, rehearse, upgrade equipment or build local interest.", 15, MUTED)
+			_show_opportunities()
+		"GIGS": _show_circuit()
+		"GEAR": _show_gear()
+		"BAND":
+			_show_lineup()
+			_label(page, "Morale %d  /  Tension %d  /  Relationships %d" % [morale,tension,_average_relationship()], 15, AMBER)
+			_choice("BAND DAY OFF", "Free, one day. Restore morale and lower tension.", func() -> void: _take_career_action("rest"))
+		"SCENE":
+			_label(page, "THE LOCAL SCENE", 18, AMBER)
+			_label(page, "Promotion, demos and radio interest help unlock gigs beyond your hometown.", 15, WHITE)
+			_show_opportunities()
+			_label(page, "Press interest %d  /  Buzz %d" % [int(career_extra.get("press",0)),int(career_extra.get("buzz",0))], 14, MUTED)
+		_:
+			_label(page, "PLAN YOUR NEXT MOVE", 18, AMBER)
+			for action_id in CareerActions.labels().keys():
+				var config: Dictionary = CareerActions.labels()[action_id]
+				var cost := int(config.get("cost",0))
+				var action_key: String = str(action_id)
+				_choice(str(config["label"]), "Cost £%d  /  one day" % cost, func() -> void: _take_career_action(action_key))
+	_choice("SAVE & MAIN MENU", "Your progress is saved between decisions.", _menu)
+
+
+func _set_career_tab(tab: String) -> void:
+	career_tab = tab
+	_build_screen()
+
+
+func _show_gear() -> void:
+	_label(page, "YOUR EQUIPMENT", 18, AMBER)
+	_label(page, "Second-hand upgrades owned: %d" % int(career_extra.get("gear",0)), 16, WHITE)
+	_label(page, "A better backline improves rehearsal readiness. Buying equipment costs money and time.", 15, MUTED)
+	_choice("BROWSE USED EQUIPMENT — £75", "Upgrade the band's kit.", func() -> void: _take_career_action("buy_gear"))
+	_choice("REHEARSE WITH CURRENT KIT — £15", "Improve readiness without spending on equipment.", func() -> void: _take_career_action("rehearse"))
+
+
+func _show_circuit() -> void:
+	_label(page, "BOOK A BRITISH GIG", 18, AMBER)
+	_label(page, "Local first, then regional. Offers depend on fans and reputation; travel costs and van wear are real.", 15, MUTED)
+	for venue in UKGigs.VENUES:
+		var venue_id: String = str(venue["id"])
+		var unlocked := reputation >= int(venue["min_rep"]) and int(career_extra.get("fans",0)) >= int(venue["min_fans"])
+		var description := "%s  /  fee £%d  /  travel £%d" % [str(venue["city"]),int(venue["fee"]),int(venue["travel"])]
+		if unlocked:
+			_choice(str(venue["venue"]), description, func() -> void: _book_regional_gig(venue_id))
+		else:
+			_label(page, "%s — LOCKED (rep %d, fans %d)" % [str(venue["city"]),int(venue["min_rep"]),int(venue["min_fans"])], 14, MUTED)
+	var gigs: Array = career_extra.get("gig_history", [])
+	if not gigs.is_empty():
+		_label(page, "RECENT GIGS", 16, AMBER)
+		for i in range(gigs.size() - 1, maxi(-1,gigs.size() - 4), -1):
+			var gig: Dictionary = gigs[i]
+			_label(page, "%s / %s — £%d" % [str(gig.get("city","")),str(gig.get("venue","")),int(gig.get("fee",0))], 13, MUTED)
+	_choice("FIX THE VAN — £45", "Repair 30 condition points; costs one day.", _repair_van)
+
+
+func _book_regional_gig(venue_id: String) -> void:
+	var state := career_extra.duplicate(true)
+	state["cash"] = cash
+	state["tour_day"] = tour_day
+	state["reputation"] = reputation
+	state["van_health"] = van_health
+	state["morale"] = morale
+	state["tension"] = tension
+	state["readiness"] = readiness
+	var result: Dictionary = UKGigs.play(state, venue_id)
+	career_feedback = str(result.get("message","Booking unavailable"))
+	if result.get("ok",false) == true:
+		var updated: Dictionary = result["state"]
+		cash = int(updated["cash"])
+		tour_day = int(updated["tour_day"])
+		reputation = int(updated["reputation"])
+		van_health = int(updated["van_health"])
+		morale = int(updated["morale"])
+		tension = int(updated["tension"])
+		for key in ["cash","tour_day","reputation","van_health","morale","tension","readiness"]:
+			updated.erase(key)
+		career_extra = updated
+		_clamp_all()
+		_save_game()
+	_build_screen()
+
+
+func _repair_van() -> void:
+	if cash < 45:
+		career_feedback = "You need £45 for the mechanic."
+	else:
+		cash -= 45
+		tour_day += 1
+		van_health = clampi(van_health + 30,0,100)
+		career_feedback = "The local garage gets the van roadworthy again."
+		_save_game()
+	_build_screen()
 
 
 func _show_opportunities() -> void:
