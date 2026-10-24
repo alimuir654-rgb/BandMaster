@@ -21,6 +21,7 @@ static func book(state: Dictionary, venue_id: String, approach: String = "tight"
   return {"ok":false,"message":"The venue has not offered your band a show yet."}
  var stage_day := maxi(1,int(state.get("tour_day",1))) + LEAD_DAYS
  var next := state.duplicate(true)
+ next["gig_night_phase"] = "arrival"
  next["booked_show"] = {"venue_id":venue_id,"venue":str(venue["venue"]),"city":str(venue["city"]),"day":stage_day,"approach":approach,"session_drummer":hire_session}
  var journal: Array = next.get("career_journal",[]).duplicate(true)
  journal.append({"id":"booking:%d:%s" % [stage_day,venue_id],"day":int(state.get("tour_day",1)),"title":"A SHOW ON THE CALENDAR","text":"%s in %s is booked for day %d. Prepare your set." % [str(venue["venue"]),str(venue["city"]),stage_day],"kind":"gig"})
@@ -87,6 +88,7 @@ static func cancel(state: Dictionary) -> Dictionary:
   return {"ok":false,"message":"There is no booking to cancel."}
  var next := state.duplicate(true)
  next["booked_show"] = {}
+ next["gig_night_phase"] = "arrival"
  var charge := mini(CANCELLATION_FEE,int(next.get("cash",0)))
  next["cash"] = maxi(0,int(next.get("cash",0))-charge)
  next["reputation"] = maxi(0,int(next.get("reputation",0))-3)
@@ -103,6 +105,7 @@ static func expire(state: Dictionary) -> Dictionary:
   return state.duplicate(true)
  var next := state.duplicate(true)
  next["booked_show"] = {}
+ next["gig_night_phase"] = "arrival"
  next["reputation"] = maxi(0,int(next.get("reputation",0))-MISSED_REPUTATION)
  next["morale"] = maxi(0,int(next.get("morale",0))-6)
  var journal: Array = next.get("career_journal",[]).duplicate(true)
