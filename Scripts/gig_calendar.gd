@@ -38,10 +38,44 @@ static func perform(state: Dictionary) -> Dictionary:
   return {"ok":false,"message":"The gig is on day %d. Use the time to practise or promote." % int(show["day"])}
  if day > int(show.get("day",0)):
   return {"ok":false,"message":"The show date has passed."}
- var result: Dictionary = Gigs.play(state,str(show.get("venue_id","")),str(show.get("approach","tight")),bool(show.get("session_drummer",false)))
+ # Live quality depends on a rehearsed set, not preparation statistics alone.
+ var originals := maxi(0,int(state.get("songs",0)))
+ var setlist_modifier := -22 if originals == 0 else (-10 if originals == 1 else (-4 if originals == 2 else 2))
+ var performance_state := state.duplicate(true)
+ performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier,0,100)
+ var result: Dictionary = Gigs.play(performance_state,str(show.get("venue_id","")),str(show.get("approach","tight")),bool(show.get("session_drummer",false)))
  if not bool(result.get("ok",false)):
   return result
  var updated: Dictionary = result["state"]
+ updated["readiness"] = int(state.get("readiness",0))
+ var recent_repeat := false
+ var old_gigs: Array = state.get("gig_history",[])
+ for previous in old_gigs:
+  if previous is Dictionary and str(previous.get("venue_id",previous.get("venue",""))) == str(show.get("venue_id","")):
+   if int(state.get("tour_day",1)) - int(previous.get("day",0)) <= 14:
+    recent_repeat = true
+ var gigs: Array = updated.get("gig_history",[])
+ if not gigs.is_empty():
+  var latest: Dictionary = gigs[gigs.size()-1]
+  var gross_fee := int(latest.get("fee",0))
+  var setlist_factor := 0.65 if originals == 0 else (0.85 if originals == 1 else (0.95 if originals == 2 else 1.0))
+  var repeat_factor := 0.8 if recent_repeat else 1.0
+  var actual_fee := maxi(0,int(round(float(gross_fee)*setlist_factor*repeat_factor)))
+  var shortfall := maxi(0,gross_fee-actual_fee)
+  updated["cash"] = maxi(0,int(updated.get("cash",0))-shortfall)
+  latest["fee"] = actual_fee
+  latest["venue_id"] = str(show.get("venue_id",""))
+  latest["originals_played"] = originals
+  latest["return_visit"] = recent_repeat
+  latest["setlist_modifier"] = setlist_modifier
+  var baseline_fans := int(state.get("fans",0))
+  var new_fans := int(updated.get("fans",0))
+  var gain := maxi(0,new_fans-baseline_fans)
+  if originals == 0:
+   updated["fans"] = baseline_fans + int(round(float(gain)*0.5))
+  elif recent_repeat:
+   updated["fans"] = baseline_fans + int(round(float(gain)*0.75))
+  result["message"] = str(result.get("message","Show completed."))+" Actual fee £%d. %s" % [actual_fee,"The hometown crowd needs new material." if originals < 2 else ("Repeat bookings have smaller crowds." if recent_repeat else "The original set is paying off.")]
  updated["booked_show"] = {}
  result["state"] = updated
  return result
