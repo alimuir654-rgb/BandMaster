@@ -393,6 +393,16 @@ func _gigs() -> void:
    for label in ["01 ARRIVE","02 SOUNDCHECK","03 STAGE"]:
     var chip := _label(progress,label,11,UI.MUTED)
     chip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   if str(scene.get("phase","")) == "soundcheck":
+    _label(calendar_box,"YOUR LIVE SET  /  CHOOSE AN APPROACH",13,UI.AMBER)
+    for approach_key in ["tight","wild","crowd"]:
+     var approach: String = str(approach_key)
+     var rule: Dictionary = Gigs.APPROACHES[approach]
+     var chosen := str(booked.get("approach","tight")) == approach
+     var button := UI.button(("✓  " if chosen else "")+str(rule["label"]),chosen)
+     button.custom_minimum_size.y = 54
+     calendar_box.add_child(button)
+     button.pressed.connect(func() -> void: _change_gig_strategy(approach))
    if bool(scene.get("can_play",false)):
     _label(calendar_box,"SET APPROACH  /  "+str(booked.get("approach","tight")).to_upper(),13,UI.MUTED)
     _action(calendar_box,"TAKE THE STAGE",func() -> void: _perform_gig(),true)
@@ -981,6 +991,16 @@ func _advance_gig_night() -> void:
   _render()
   return
  _apply(progressed["state"])
+ _save()
+ _render()
+
+func _change_gig_strategy(approach: String) -> void:
+ var result: Dictionary = GigNight.choose_set(_state(),approach)
+ if not bool(result.get("ok",false)):
+  message = str(result.get("message","Unavailable"))
+  _render()
+  return
+ _apply(result["state"])
  _save()
  _render()
 
