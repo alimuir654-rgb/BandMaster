@@ -28,6 +28,17 @@ static func advance(state: Dictionary) -> Dictionary:
  var next := state.duplicate(true)
  next["gig_night_phase"] = "soundcheck" if phase == "arrival" else "stage"
  return {"ok":true,"state":next}
+static func choose_set(state: Dictionary, approach: String) -> Dictionary:
+ if str(stage(state).get("phase","")) != "soundcheck":
+  return {"ok":false,"message":"Choose the set during soundcheck."}
+ if not ["tight","wild","crowd"].has(approach):
+  return {"ok":false,"message":"Unknown live approach."}
+ var next := state.duplicate(true)
+ var booking: Dictionary = next.get("booked_show",{}).duplicate(true)
+ booking["approach"] = approach
+ next["booked_show"] = booking
+ return {"ok":true,"state":next,"message":"The band agrees on the %s approach." % approach}
+
 static func reset_after_show(state: Dictionary) -> Dictionary:
  var next := state.duplicate(true)
  next["gig_night_phase"] = "arrival"
