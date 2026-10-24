@@ -19,6 +19,7 @@ const Chapters = preload("res://Scripts/career_chapters.gd")
 const Director = preload("res://Scripts/first_month_director.gd")
 const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
 const CareerLayout = preload("res://Scripts/career_layout.gd")
+const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const SAVE_PATH := "user://tour_save.json"
@@ -163,6 +164,9 @@ func _render() -> void:
  content.add_child(menu)
  menu.pressed.connect(_menu)
  _bottom_nav()
+ content.modulate.a = 0.0
+ var appear := create_tween()
+ appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _header() -> void:
  _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,UI.AMBER)
@@ -815,14 +819,62 @@ func _apply(updated: Dictionary) -> void:
    extra[key] = updated[key]
 
 func _finish(result: Dictionary, source: String = "") -> void:
- if result.get("ok",false) == true:
+ var before: Dictionary = _state()
+ var successful: bool = bool(result.get("ok",false))
+ if successful:
   dialogue_serial += 1
   _cancel_dialogue_request()
  message = str(result.get("message","Action unavailable"))
- if result.get("ok",false) == true:
-  _apply(Life.refresh(Calendar.expire(Story.observe(_state(),result["state"],source))))
+ if successful:
+  _apply(Life.refresh(Calendar.expire(Story.observe(before,result["state"],source))))
   _save()
  _render()
+ if successful:
+  _show_decision_result(before,_state(),message,source)
+
+func _show_decision_result(before: Dictionary, after: Dictionary, description: String, source: String) -> void:
+ # The game is committed before animation. A skipped animation never loses a turn.
+ var shade := ColorRect.new()
+ shade.name = "DecisionOverlay"
+ shade.color = Color(0.025,0.04,0.07,0.0)
+ shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ shade.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(shade)
+ var center := CenterContainer.new()
+ center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ shade.add_child(center)
+ var panel := PanelContainer.new()
+ panel.custom_minimum_size = Vector2(minf(get_viewport_rect().size.x-32.0,510.0),0)
+ panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,20))
+ center.add_child(panel)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",14)
+ panel.add_child(stack)
+ var overline := _label(stack,"LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
+ overline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var title := _label(stack,Motion.headline(source,true),24,UI.AMBER)
+ title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var description_label := _label(stack,description,16,UI.WHITE)
+ description_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var changes: Array = Motion.changes(before,after)
+ for change in changes.slice(0,5):
+  var stat := _label(stack,Motion.delta_text(change),16,UI.AMBER if int(change.get("delta",0)) >= 0 else UI.MUTED)
+  stat.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var next_button := UI.button("CONTINUE  ›",true)
+ next_button.name = "DecisionContinue"
+ stack.add_child(next_button)
+ next_button.pressed.connect(func() -> void:
+  next_button.disabled = true
+  var dismiss := create_tween()
+  dismiss.tween_property(shade,"modulate:a",0.0,0.16)
+  dismiss.tween_callback(shade.queue_free)
+ )
+ shade.modulate.a = 0.0
+ var reveal := create_tween()
+ reveal.set_parallel(true)
+ reveal.tween_property(shade,"modulate:a",1.0,0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+ reveal.tween_property(shade,"color:a",0.94,0.25)
+
 
 func _practice(focus: String) -> void:
  _finish(Practice.resolve(_state(),focus))
