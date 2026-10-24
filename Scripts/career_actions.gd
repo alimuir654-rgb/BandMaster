@@ -1,4 +1,5 @@
 extends RefCounted
+const Chemistry = preload("res://Scripts/band_chemistry.gd")
 # Platform-neutral, deterministic action resolver. UI and future LLM only describe outcomes.
 const ACTIONS := {
     "rehearse": {"label": "BOOK REHEARSAL", "cost": 15, "days": 1, "readiness": 9, "morale": -1, "tension": 2},
@@ -38,6 +39,7 @@ static func resolve(state: Dictionary, action_id: String) -> Dictionary:
     var counters: Dictionary = next.get("action_counters", {}).duplicate(true)
     counters[action_id] = int(counters.get(action_id, 0)) + 1
     next["action_counters"] = counters
+    next = Chemistry.work(next,action_id)
     var opportunity := _opportunity(next)
     var base_message := _flavour(action_id, int(counters[action_id]), str(next.get("band_name", "The band")))
     if not opportunity.is_empty():
