@@ -237,6 +237,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|FIRST MONTH ACCEPTANCE FAILURE:|ERROR:' /tmp/v22-first-month.log; then
             exit 1
           fi
+      - name: Validate collaborative songwriting and band social activities
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v23_jams_social_tests.gd 2>&1 | tee /tmp/v23-social.log
+          grep -q 'V23 JAMS AND SOCIAL TESTS PASSED' /tmp/v23-social.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V23 FAILURE:|ERROR:' /tmp/v23-social.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
