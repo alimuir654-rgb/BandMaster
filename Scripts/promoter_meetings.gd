@@ -1,6 +1,7 @@
 extends RefCounted
 # Promoter terms are deterministic, visible, and optional.
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
 const OFFERS := {
  "standard":{"label":"STANDARD OFFER","description":"Accept the normal arrangement. No added risk.","fee_bonus":0,"rep_risk":0,"fan_bonus":0},
  "guarantee":{"label":"ASK FOR A GUARANTEE","description":"Negotiate £15 extra, but spend reputation if the room is empty.","fee_bonus":15,"rep_risk":2,"fan_bonus":0},
@@ -20,6 +21,16 @@ static func negotiate(state: Dictionary, venue_id: String, offer_id: String) -> 
  var result := state.duplicate(true)
  result["promoter_offer"] = {"venue_id":venue_id,"offer_id":offer_id}
  return {"ok":true,"state":result}
+static func book(state: Dictionary, venue_id: String, offer_id: String, hire_session: bool = false) -> Dictionary:
+ var proposal: Dictionary = negotiate(state,venue_id,offer_id)
+ if not bool(proposal.get("ok",false)):
+  return proposal
+ var booked: Dictionary = Calendar.book(proposal["state"],venue_id,"tight",hire_session)
+ if not bool(booked.get("ok",false)):
+  return booked
+ booked["message"] = str(booked.get("message",""))+" Promoter deal: "+str(OFFERS[offer_id]["label"])+"."
+ return booked
+
 static func settle(state: Dictionary, before: Dictionary) -> Dictionary:
  var after := state.duplicate(true)
  var terms: Dictionary = before.get("promoter_offer",{})
