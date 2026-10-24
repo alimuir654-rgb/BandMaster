@@ -325,3 +325,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V24 LIVING BAND FAILURE:|ERROR:' /tmp/v24-living-band.log; then
             exit 1
           fi
+
+      - name: Verify portrait-led backstage conversations and dismissal
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v24_backstage_dialogue_ui_tests.gd 2>&1 | tee /tmp/v24-backstage.log
+          grep -q 'V24 BACKSTAGE DIALOGUE UI PASSED' /tmp/v24-backstage.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V24 BACKSTAGE FAILURE:|ERROR:' /tmp/v24-backstage.log; then
+            exit 1
+          fi
