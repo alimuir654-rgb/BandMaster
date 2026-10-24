@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://irvfm714u7gr"]
+
+[ext_resource type="Script" uid="uid://b7wrjpgd1ai7c" path="res://Scripts/band_builder.gd" id="1_x4ccf"]
+
+[node name="band_builder" type="Control" unique_id=746066544]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x4ccf")
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=725105113]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

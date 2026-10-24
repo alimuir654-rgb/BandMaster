@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ca1l5j4d62owd"]
+
+[ext_resource type="Script" uid="uid://dhp5nouvh1xqj" path="res://Scripts/tour_intro.gd" id="1_o13k8"]
+
+[node name="TourIntro" type="Control" unique_id=17293559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o13k8")
