@@ -39,6 +39,8 @@ static func resolve(state: Dictionary, action_id: String) -> Dictionary:
     counters[action_id] = int(counters.get(action_id, 0)) + 1
     next["action_counters"] = counters
     next = _apply_band_chemistry(next,action_id)
+    if action_id == "songwrite":
+        next = _write_original(next)
     var opportunity := _opportunity(next)
     var base_message := _flavour(action_id, int(counters[action_id]), str(next.get("band_name", "The band")))
     if not opportunity.is_empty():
@@ -115,4 +117,30 @@ static func _apply_band_chemistry(state: Dictionary, action_id: String) -> Dicti
   while journal.size() > 80:
    journal.pop_front()
   state["career_journal"] = journal
+ return state
+
+static func _write_original(state: Dictionary) -> Dictionary:
+ var titles := ["AFTER THE LAST BUS","RAIN ON THE PLATFORM","NEON AT CLOSING TIME","EVERY OTHER FRIDAY","OUTSIDE THE VENUE","ANOTHER SMALL TOWN","THE MILE HOME","NOT QUITE FAMOUS"]
+ var catalogue: Array = state.get("song_catalogue",[]).duplicate(true)
+ var number := maxi(1,int(state.get("songs",1)))
+ var credits := PackedStringArray()
+ var skill_total := 0
+ var active := 0
+ for entry in state.get("members",[]):
+  if entry is Dictionary and str(entry.get("life_status","active")) == "active":
+   credits.append(str(entry.get("name","Musician")))
+   skill_total += int(entry.get("skill",50))
+   active += 1
+ var skill_average := int(float(skill_total)/float(active)) if active > 0 else 45
+ var quality := clampi(25 + int(state.get("readiness",0))/3 + skill_average/3 - int(state.get("tension",0))/5,1,100)
+ catalogue.append({
+  "id":"original:%d" % number,
+  "title":str(titles[(number-1)%titles.size()]) + (" (REPRISE %d)" % int((number-1)/titles.size()+1) if number > titles.size() else ""),
+  "written_day":int(state.get("tour_day",1)),
+  "quality":quality,
+  "writers":Array(credits)
+ })
+ while catalogue.size() > 60:
+  catalogue.pop_front()
+ state["song_catalogue"] = catalogue
  return state
