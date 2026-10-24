@@ -1,11 +1,26 @@
 extends RefCounted
 # Practice-room choices are authoritative simulation rules, independent of AI.
 const Actions = preload("res://Scripts/career_actions.gd")
+const Workshop = preload("res://Scripts/song_workshop.gd")
 const FOCUSES = {
     "tighten": {"label":"DRILL THE LIVE SET","action":"rehearse","description":"Tighten the performance. Disciplined musicians thrive, restless ones tire."},
     "create": {"label":"WRITE TOGETHER","action":"songwrite","description":"Work on an original. Creative bandmates thrive on new ideas."},
     "connect": {"label":"CLEAR THE AIR","action":"rest","description":"Resolve differences and strengthen trust before the next show."}
 }
+
+static func compose(state: Dictionary, idea: String, form: String, title: String, leader_index: int) -> Dictionary:
+    var prepared: Dictionary = Workshop.develop(state,idea,form,title,leader_index)
+    if not bool(prepared.get("ok",false)):
+        return prepared
+    var result: Dictionary = resolve(prepared["state"],"create")
+    if not bool(result.get("ok",false)):
+        return result
+    if int(result["state"].get("song_draft_progress",0)) == 0:
+        result["state"] = Workshop.finish(result["state"])
+        result["message"] = "Finished "+str(title)+" — a "+form.to_lower()+" song led by "+str(state.get("members",[])[leader_index].get("name","a bandmate"))+"."
+    else:
+        result["message"] = str(prepared["message"])+" "+str(result["message"])
+    return result
 
 static func resolve(state: Dictionary, focus: String) -> Dictionary:
     if not FOCUSES.has(focus):
