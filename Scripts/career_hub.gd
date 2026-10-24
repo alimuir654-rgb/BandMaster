@@ -103,7 +103,9 @@ func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> vo
  var label := _label(row,name + "  %d" % value,13,UI.MUTED)
  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var bar := ProgressBar.new()
- bar.custom_minimum_size = Vector2(165,20)
+ bar.custom_minimum_size = Vector2(105,20)
+ bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ UI.progress(bar)
  bar.max_value = maxi(1,maximum)
  bar.value = clampi(value,0,int(bar.max_value))
  bar.show_percentage = false
@@ -152,11 +154,14 @@ func _header() -> void:
  var row := HBoxContainer.new()
  content.add_child(row)
  var band_data: Dictionary = save_data.get("band",{})
- var title := _label(row,str(band_data.get("name","Unknown Band")),27)
+ var title := _label(row,str(band_data.get("name","Unknown Band")),25)
  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  title.size_flags_stretch_ratio = 4
- var day := _label(row,"DAY %d" % _num("tour_day"),15,UI.AMBER)
- day.size_flags_horizontal = Control.SIZE_SHRINK_END
+ var day_panel := PanelContainer.new()
+ day_panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+ row.add_child(day_panel)
+ var day := _label(day_panel,"DAY %d" % _num("tour_day"),15,UI.AMBER)
+ day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var stats := GridContainer.new()
  stats.columns = 3
  content.add_child(stats)
@@ -178,7 +183,7 @@ func _hero() -> void:
  var picture := TextureRect.new()
  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- picture.custom_minimum_size.y = 230
+ picture.custom_minimum_size.y = 300
  picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
  if ResourceLoader.exists(path):
   picture.texture = load(path)
@@ -187,7 +192,15 @@ func _hero() -> void:
   if ResourceLoader.exists(fallback):
    picture.texture = load(fallback)
  frame.add_child(picture)
- _label(frame,tab + "  /  BRITISH INDEPENDENT MUSIC",21,UI.WHITE)
+ var headline := {
+  "HOME":"YOUR BAND. YOUR FUTURE.",
+  "GIGS":"THE BRITISH LIVE CIRCUIT",
+  "GEAR":"SECOND-HAND MUSIC SHOP",
+  "BAND":"THE PEOPLE BEHIND THE MUSIC",
+  "ACTIONS":"ANOTHER DAY ON THE ROAD",
+  "SCENE":"MAKE SOME NOISE"
+ }
+ _label(frame,str(headline.get(tab,tab)),22,UI.WHITE)
 
 
 func _home() -> void:
@@ -214,29 +227,47 @@ func _home() -> void:
  _action(quick,"REHEARSE — £15",func() -> void: _do_action("rehearse"))
 
 func _gigs() -> void:
- var summary := _card("BOOK A BRITISH GIG","Decide on a performance style. Travel costs and van wear still apply.")
+ var summary := _card("BOOK A BRITISH GIG","Every show builds your story. Choose the stage, then the approach.")
  _progress(summary,"VAN",_num("van_health"))
  for venue in Gigs.VENUES:
   var key: String = str(venue["id"])
-  if _num("fans") < int(venue["min_fans"]) or _num("reputation") < int(venue["min_rep"]):
-   _card(str(venue["city"]) + "  /  LOCKED","Need %d fans and %d reputation." % [int(venue["min_fans"]),int(venue["min_rep"])])
+  var needed_fans := maxi(0,int(venue["min_fans"]) - _num("fans"))
+  var needed_rep := maxi(0,int(venue["min_rep"]) - _num("reputation"))
+  if needed_fans > 0 or needed_rep > 0:
+   var locked := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"LOCKED  ·  Need %d fans and %d reputation" % [needed_fans,needed_rep])
+   _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
    continue
-  var box := _card(str(venue["venue"]) + "  /  " + str(venue["city"]),"Fee £%d  ·  Travel £%d" % [int(venue["fee"]),int(venue["travel"])])
-  _action(box,"TIGHT SET",func() -> void: _book(key,"tight"),true)
-  _action(box,"WILD SET",func() -> void: _book(key,"wild"))
-  _action(box,"WIN THE CROWD",func() -> void: _book(key,"crowd"))
- _action(content,"REPAIR VAN — £45",_repair)
+  var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"GUARANTEED FEE £%d  ·  TRAVEL £%d  ·  %d DAYS" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
+  _label(box,"CHOOSE HOW TO PLAY",13,UI.AMBER)
+  var choices := HBoxContainer.new()
+  choices.add_theme_constant_override("separation",6)
+  box.add_child(choices)
+  var tight := UI.button("TIGHT",true)
+  var wild := UI.button("WILD")
+  var crowd := UI.button("CROWD")
+  for button in [tight,wild,crowd]:
+   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   button.add_theme_font_size_override("font_size",13)
+   choices.add_child(button)
+  tight.pressed.connect(func() -> void: _book(key,"tight"))
+  wild.pressed.connect(func() -> void: _book(key,"wild"))
+  crowd.pressed.connect(func() -> void: _book(key,"crowd"))
+ var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
+ _action(repairs,"REPAIR VAN — £45",_repair)
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
- _card("OWNED EQUIPMENT","%d pieces bought." % owned.size())
+ var heading := _card("THE MUSIC SHOP","A real backline, built one second-hand find at a time.")
+ _progress(heading,"READINESS",_num("readiness"))
+ _label(heading,"OWNED  %d ITEMS" % owned.size(),14,UI.AMBER)
  for item in Gear.ITEMS:
   var key: String = str(item["id"])
   var box := _card(str(item["name"]),str(item["description"]))
+  _label(box,"%s  /  +%d READINESS  /  £%d" % [str(item["type"]),int(item["readiness"]),int(item["price"])],14,UI.MUTED)
   if owned.has(key):
-   _label(box,"OWNED",14,UI.AMBER)
+   _label(box,"✓  IN YOUR INVENTORY",15,UI.AMBER)
   else:
-   _action(box,"BUY  £%d" % int(item["price"]),func() -> void: _buy(key),true)
+   _action(box,"BUY EQUIPMENT  ·  £%d" % int(item["price"]),func() -> void: _buy(key),true)
 
 func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
