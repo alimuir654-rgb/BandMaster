@@ -793,7 +793,7 @@ func _actions() -> void:
     titles.select(title_index)
   var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
   jam.custom_minimum_size.y = 54
-  jam.disabled = indices.is_empty() or _num("cash") < 0
+  jam.disabled = indices.is_empty()
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
    _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
