@@ -9,6 +9,7 @@ const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -299,7 +300,7 @@ func _home() -> void:
   row.add_child(action)
  book.pressed.connect(func() -> void: _switch("GIGS"))
  write.pressed.connect(func() -> void: _do_action("songwrite"))
- practise.pressed.connect(func() -> void: _do_action("rehearse"))
+ practise.pressed.connect(func() -> void: _switch("ACTIONS"))
 
 func _gigs() -> void:
  var booked: Dictionary = Calendar.pending(_state())
@@ -593,27 +594,40 @@ func _band_situations() -> void:
    _action(box,str(option["label"]),func() -> void: _finish(Drama.resolve(_state(),id,choice)),choice == str(definition["choices"][0]["id"]))
 
 func _actions() -> void:
- var overview := _card("MAKE TODAY COUNT","Every decision takes time. Choose where to invest.")
- _progress(overview,"READINESS",_num("readiness"))
- _progress(overview,"MORALE",_num("morale"))
- var catalogue: Dictionary = Actions.labels()
- for key in catalogue.keys():
-  var id: String = str(key)
-  var cfg: Dictionary = catalogue[id]
-  var cost := int(cfg.get("cost",0))
-  var days := int(cfg.get("days",1))
-  var box := _card(str(cfg["label"]).to_upper(),"£%d  ·  %d DAY(S)" % [cost,days])
-  var benefits := PackedStringArray()
-  for stat in ["readiness","morale","songs","buzz","fans","press"]:
-   if cfg.has(stat) and int(cfg[stat]) != 0:
-    benefits.append("%s %+d" % [stat.to_upper(),int(cfg[stat])])
-  if not benefits.is_empty():
-   _label(box,"  ·  ".join(benefits),13,UI.MUTED)
-  var act := UI.button("DO THIS" if cost == 0 else "SPEND £%d" % cost,true)
-  act.disabled = _num("cash") < cost
-  act.custom_minimum_size.y = 52
-  box.add_child(act)
-  act.pressed.connect(func() -> void: _do_action(id))
+ var heading := _card("THE REHEARSAL ROOM","Every session shapes your songs, friendships, morale and live performance.")
+ _progress(heading,"READINESS",_num("readiness"))
+ _progress(heading,"MORALE",_num("morale"))
+ _progress(heading,"TENSION",_num("tension"))
+ var upcoming: Dictionary = Calendar.pending(_state())
+ if not upcoming.is_empty():
+  var countdown := int(upcoming.get("day",1)) - _num("tour_day")
+  if countdown > 0:
+   _label(heading,"NEXT SHOW IN %d DAYS — %s" % [countdown,str(upcoming.get("venue",""))],15,UI.AMBER)
+  elif countdown == 0:
+   _label(heading,"SHOW DAY — PREPARATION TIME HAS RUN OUT",15,UI.AMBER)
+   _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
+ _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
+ for focus in Practice.FOCUSES:
+  var id := str(focus)
+  var rule: Dictionary = Practice.FOCUSES[id]
+  var base: Dictionary = Actions.ACTIONS[str(rule["action"])]
+  var cost := int(base.get("cost",0))
+  var session := _card(str(rule["label"]),str(rule["description"]))
+  _label(session,"1 DAY  /  £%d" % cost,13,UI.MUTED)
+  var start_button := UI.button("START SESSION" if cost == 0 else "BOOK SESSION · £%d" % cost,id == "tighten")
+  start_button.custom_minimum_size.y = 56
+  start_button.disabled = _num("cash") < cost
+  session.add_child(start_button)
+  start_button.pressed.connect(func() -> void: _practice(id))
+ var other := _card("THE BUSINESS SIDE","Music alone won't pay for studio time. Your days also need promotion and practical work.")
+ for action_id in ["promo","press","buy_gear"]:
+  var id := str(action_id)
+  var rule: Dictionary = Actions.ACTIONS[id]
+  var cost := int(rule.get("cost",0))
+  var button := UI.button(str(rule["label"])+" · £%d" % cost)
+  button.disabled = _num("cash") < cost
+  other.add_child(button)
+  button.pressed.connect(func() -> void: _do_action(id))
 
 func _scene() -> void:
  var archive: Array = _extra().get("career_journal",[])
@@ -743,6 +757,9 @@ func _finish(result: Dictionary, source: String = "") -> void:
   _apply(Life.refresh(Calendar.expire(Story.observe(_state(),result["state"],source))))
   _save()
  _render()
+
+func _practice(focus: String) -> void:
+ _finish(Practice.resolve(_state(),focus))
 
 func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
