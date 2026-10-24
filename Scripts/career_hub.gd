@@ -499,6 +499,17 @@ func _actions() -> void:
   act.pressed.connect(func() -> void: _do_action(id))
 
 func _scene() -> void:
+ var archive: Array = _extra().get("career_journal",[])
+ var scrapbook := _card("THE BAND SCRAPBOOK","A record of the nights, people and decisions that made your career.")
+ if archive.is_empty():
+  _label(scrapbook,"Your band's history starts with the first rehearsal, song and show.",14,UI.MUTED)
+ else:
+  for i in range(archive.size()-1,maxi(-1,archive.size()-21),-1):
+   if archive[i] is Dictionary:
+    var item: Dictionary = archive[i]
+    var clipping: Dictionary = Presentation.clipping(item)
+    _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
+    Components.story(scrapbook,item)
  var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
  _progress(snapshot,"BUZZ",_num("buzz"))
  _progress(snapshot,"PRESS",_num("press"))
