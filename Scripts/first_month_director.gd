@@ -22,7 +22,7 @@ static func next_move(state: Dictionary) -> Dictionary:
   return {"title":"CHAPTER COMPLETE","detail":"Claim your milestone reward before progressing to the next chapter.","tab":"HOME","action":"CLAIM REWARD"}
  var id := str(chapter.get("id",""))
  var songs := int(state.get("songs",0))
- var gigs := state.get("gig_history",[]).size()
+ var gigs: int = int(state.get("gig_history",[]).size())
  var rehearsal_count := int(state.get("action_counters",{}).get("rehearse",0))
  match id:
   "find_sound":
