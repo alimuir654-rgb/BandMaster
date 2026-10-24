@@ -502,12 +502,37 @@ func _band() -> void:
   var quote_frame := PanelContainer.new()
   quote_frame.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
   dialogue.add_child(quote_frame)
+  var scene := HBoxContainer.new()
+  scene.add_theme_constant_override("separation",12)
+  quote_frame.add_child(scene)
+  var speaker_name := str(conversation.get("speaker","Musician"))
+  var speaker_index := -1
+  for candidate_index in range(members.size()):
+   if members[candidate_index] is Dictionary and str(members[candidate_index].get("name","")) == speaker_name:
+    speaker_index = candidate_index
+    break
+  if speaker_index >= 0:
+   var speaker_data: Dictionary = members[speaker_index]
+   var speaker_portrait := Portrait.new()
+   speaker_portrait.custom_minimum_size = Vector2(92,122)
+   speaker_portrait.set_character(str(speaker_data.get("candidate_id",speaker_data.get("id",speaker_index))),speaker_name)
+   scene.add_child(speaker_portrait)
   var quote_stack := VBoxContainer.new()
+  quote_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   quote_stack.add_theme_constant_override("separation",8)
-  quote_frame.add_child(quote_stack)
-  _label(quote_stack,"\""+str(conversation.get("text",""))+"\"",19,UI.WHITE)
+  scene.add_child(quote_stack)
+  _label(quote_stack,speaker_name.to_upper()+"  /  BACKSTAGE",12,UI.AMBER)
+  _label(quote_stack,"\""+str(conversation.get("text",""))+"\"",18,UI.WHITE)
   var engine := "LOCAL AI" if str(conversation.get("source","offline")) == "local" else "OFFLINE CHARACTER DIALOGUE"
-  _label(quote_stack,engine+"   /   DAY %d" % int(conversation.get("day",_num("tour_day"))),11,UI.AMBER)
+  _label(quote_stack,engine+"   /   DAY %d" % int(conversation.get("day",_num("tour_day"))),11,UI.MUTED)
+  var close_dialogue := UI.button("CLOSE CONVERSATION")
+  close_dialogue.custom_minimum_size.y = 46
+  dialogue.add_child(close_dialogue)
+  close_dialogue.pressed.connect(func() -> void:
+   _extra().erase("last_band_conversation")
+   _save()
+   _render()
+  )
  var alumni: Array = _extra().get("former_members",[])
  if not alumni.is_empty():
   var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
