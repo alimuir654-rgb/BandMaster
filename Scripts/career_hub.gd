@@ -443,7 +443,7 @@ func _band() -> void:
   rest.pressed.connect(func() -> void: _member(index,"break"))
 
 func _listen(index: int) -> void:
- var response: Dictionary = Presentation.line(_state(),index)
+ var response: Dictionary = Presentation.dialogue_for(_state(),index)
  if not bool(response.get("ok",false)):
   message = str(response.get("message","No conversation available."))
  else:
