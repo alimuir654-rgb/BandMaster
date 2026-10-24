@@ -16,6 +16,13 @@ func _initialize() -> void:
  _check(Adapter.validated_text("bad json").is_empty(),"bad json rejected")
  var too_long := JSON.stringify({"message":{"content":JSON.stringify({"dialogue":"a".repeat(400)})}})
  _check(Adapter.validated_text(too_long).is_empty(),"long text rejected")
+ _check(Adapter.allowed({"enabled":true},false),"desktop opt-in enabled")
+ _check(not Adapter.allowed({"enabled":false},false),"desktop defaults offline")
+ _check(not Adapter.allowed({"enabled":true},true),"mobile always offline")
+ _check(Adapter.is_current(2,2,4,4,"Jo","Jo"),"current dialogue accepted")
+ _check(not Adapter.is_current(1,2,4,4,"Jo","Jo"),"older request refused")
+ _check(not Adapter.is_current(2,2,4,5,"Jo","Jo"),"advanced career refuses stale response")
+ _check(not Adapter.is_current(2,2,4,4,"Jo","Alex"),"different speaker refuses stale response")
  _check(state["members"][0]["loyalty"] == 70,"source remains unchanged")
  if failures == 0:
   print("LOCAL DIALOGUE ADAPTER TESTS PASSED")
