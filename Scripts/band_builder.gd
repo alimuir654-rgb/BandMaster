@@ -100,7 +100,7 @@ func _hero() -> void:
  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
- var source: String = ["res://Art/Backgrounds/band.webp","res://Art/Backgrounds/actions.webp","res://Art/Backgrounds/gigs.webp"][step]
+ var source: String = ["res://Art/uk_band_banner.svg","res://Art/uk_actions_banner.svg","res://Art/uk_gigs_banner.svg"][step]
  if not ResourceLoader.exists(source):
   source = "res://Art/launch_uk_venue.webp"
  if ResourceLoader.exists(source):
