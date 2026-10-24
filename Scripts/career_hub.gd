@@ -10,6 +10,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
+const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -439,29 +440,22 @@ func _gigs() -> void:
    _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
    continue
   var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
-  _label(box,"CHOOSE HOW TO PLAY",13,UI.AMBER)
-  var choices := HBoxContainer.new()
-  choices.add_theme_constant_override("separation",6)
-  box.add_child(choices)
-  var tight := UI.button("TIGHT",true)
-  var wild := UI.button("WILD")
-  var crowd := UI.button("CROWD")
-  for button in [tight,wild,crowd]:
-   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   button.add_theme_font_size_override("font_size",13)
-   choices.add_child(button)
-  tight.disabled = not line_up_ready or not booked.is_empty()
-  wild.disabled = not line_up_ready or not booked.is_empty()
-  crowd.disabled = not line_up_ready or not booked.is_empty()
+  _label(box,"MEET THE PROMOTER  /  NEGOTIATE THE DEAL",13,UI.AMBER)
+  _label(box,"The band will choose its live approach at soundcheck.",12,UI.MUTED)
+  for offer_id in ["standard","guarantee","guestlist"]:
+   var proposal: String = offer_id
+   var terms: Dictionary = Promoter.OFFERS[proposal]
+   var choice := UI.button(str(terms["label"])+"  ›")
+   choice.custom_minimum_size.y = 54
+   choice.disabled = not booked.is_empty() or not line_up_ready
+   box.add_child(choice)
+   _label(box,str(terms["description"]),12,UI.MUTED)
+   choice.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,proposal)))
   if not line_up_ready and available_count >= 1 and booked.is_empty():
-   var session := UI.button("HIRE SESSION DRUMMER  ·  £25",true)
-   session.disabled = _num("cash") < 25 or (str(venue["id"]) != "local" and _num("cash") < 25 + int(venue["travel"]))
-   session.custom_minimum_size.y = 50
+   var session := UI.button("BOOK WITH SESSION DRUMMER · £25",true)
+   session.disabled = _num("cash") < 25 or (key != "local" and _num("cash") < 25 + int(venue["travel"]))
    box.add_child(session)
-   session.pressed.connect(func() -> void: _schedule(key,"tight",true))
-  tight.pressed.connect(func() -> void: _schedule(key,"tight"))
-  wild.pressed.connect(func() -> void: _schedule(key,"wild"))
-  crowd.pressed.connect(func() -> void: _schedule(key,"crowd"))
+   session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,"standard",true)))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
 
@@ -707,7 +701,23 @@ func _actions() -> void:
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
  _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
- var switches := _card("CHOOSE YOUR DAY","Move between creating music, spending time together and handling the business.")
+ var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
+ var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
+ var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
+ var scene_art := TextureRect.new()
+ scene_art.custom_minimum_size.y = 184
+ scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var image_path := "res://Art/uk_actions_banner.svg"
+ if action_view == "HANG OUT":
+  image_path = "res://Art/uk_band_banner.svg"
+ elif action_view == "PROMOTE":
+  image_path = "res://Art/uk_scene_banner.svg"
+ if ResourceLoader.exists(image_path):
+  scene_art.texture = load(image_path)
+ scene_card.add_child(scene_art)
+ var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
  var navigation := HBoxContainer.new()
  navigation.add_theme_constant_override("separation",8)
  switches.add_child(navigation)
@@ -1014,7 +1024,12 @@ func _perform_gig() -> void:
  var booked: Dictionary = Calendar.pending(before)
  var result: Dictionary = Calendar.perform(before)
  if bool(result.get("ok",false)):
-  result["state"] = GigNight.reset_after_show(result["state"])
+  result["state"] = GigNight.reset_after_show(Promoter.settle(result["state"],before))
+  var terms: Dictionary = before.get("promoter_offer",{})
+  var final_history: Array = result["state"].get("gig_history",[])
+  if not terms.is_empty() and not final_history.is_empty():
+   var latest: Dictionary = final_history.back()
+   result["message"] = str(result.get("message","Show finished."))+" Promoter settlement: £%d after the %s agreement." % [int(latest.get("fee",0)),str(terms.get("offer_id","standard"))]
  _finish(result,"gig:"+str(booked.get("venue_id","")))
 
 func _schedule(id: String,approach: String, hire_session: bool = false) -> void:

@@ -89,6 +89,7 @@ static func cancel(state: Dictionary) -> Dictionary:
  var next := state.duplicate(true)
  next["booked_show"] = {}
  next["gig_night_phase"] = "arrival"
+ next["promoter_offer"] = {}
  var charge := mini(CANCELLATION_FEE,int(next.get("cash",0)))
  next["cash"] = maxi(0,int(next.get("cash",0))-charge)
  next["reputation"] = maxi(0,int(next.get("reputation",0))-3)
@@ -106,6 +107,7 @@ static func expire(state: Dictionary) -> Dictionary:
  var next := state.duplicate(true)
  next["booked_show"] = {}
  next["gig_night_phase"] = "arrival"
+ next["promoter_offer"] = {}
  next["reputation"] = maxi(0,int(next.get("reputation",0))-MISSED_REPUTATION)
  next["morale"] = maxi(0,int(next.get("morale",0))-6)
  var journal: Array = next.get("career_journal",[]).duplicate(true)
