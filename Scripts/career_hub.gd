@@ -180,6 +180,8 @@ func _hero() -> void:
  frame.add_theme_constant_override("separation",10)
  panel.add_child(frame)
  var path := "res://Art/Backgrounds/%s.webp" % tab.to_lower()
+ if not ResourceLoader.exists(path):
+  path = "res://%s.webp" % tab.to_lower()
  var picture := TextureRect.new()
  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
