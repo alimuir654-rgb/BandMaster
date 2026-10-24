@@ -529,13 +529,13 @@ func _display_conversation(response: Dictionary) -> void:
   _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
  settings.add_child(switcher)
  switcher.pressed.connect(func() -> void:
-  var extra: Dictionary = _extra()
-  var updated: Dictionary = extra.get("local_dialogue",{}).duplicate(true)
+  var config_store: Dictionary = _extra()
+  var updated: Dictionary = config_store.get("local_dialogue",{}).duplicate(true)
   updated["enabled"] = not bool(updated.get("enabled",false))
   if not bool(updated["enabled"]):
    dialogue_serial += 1
    _cancel_dialogue_request()
-  extra["local_dialogue"] = updated
+  config_store["local_dialogue"] = updated
   _save()
   _render()
  )
