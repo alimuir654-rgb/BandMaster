@@ -87,7 +87,7 @@ func _card(title: String, description: String = "") -> VBoxContainer:
  var body := VBoxContainer.new()
  body.add_theme_constant_override("separation",9)
  frame.add_child(body)
- _label(body,title,19,UI.AMBER)
+ _label(body,title,18,UI.AMBER)
  if not description.is_empty():
   _label(body,description,15,UI.WHITE)
  return body
@@ -173,8 +173,8 @@ func _header() -> void:
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  day.clip_text = true
- var stats := GridContainer.new()
- stats.columns = 3
+ var stats := HBoxContainer.new()
+ stats.add_theme_constant_override("separation",5)
  content.add_child(stats)
  for entry in ["CASH £%d" % _num("cash"),"FANS %d" % _num("fans"),"REP %d" % _num("reputation")]:
   var panel := PanelContainer.new()
@@ -185,10 +185,10 @@ func _header() -> void:
 
 func _hero() -> void:
  var panel := PanelContainer.new()
- panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,18))
+ panel.add_theme_stylebox_override("panel",UI.flat(UI.ALT,12))
  content.add_child(panel)
  var frame := VBoxContainer.new()
- frame.add_theme_constant_override("separation",10)
+ frame.add_theme_constant_override("separation",0)
  panel.add_child(frame)
  var path := "res://Art/Backgrounds/%s.webp" % tab.to_lower()
  if not ResourceLoader.exists(path):
@@ -196,7 +196,7 @@ func _hero() -> void:
  var picture := TextureRect.new()
  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- picture.custom_minimum_size.y = 240
+ picture.custom_minimum_size.y = 270
  picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
  if ResourceLoader.exists(path):
   picture.texture = load(path)
@@ -213,7 +213,14 @@ func _hero() -> void:
   "ACTIONS":"ANOTHER DAY ON THE ROAD",
   "SCENE":"MAKE SOME NOISE"
  }
- _label(frame,str(headline.get(tab,tab)),19,UI.AMBER)
+ var caption := PanelContainer.new()
+ caption.add_theme_stylebox_override("panel",UI.style(Color("#141C27"),0))
+ frame.add_child(caption)
+ var text_stack := VBoxContainer.new()
+ text_stack.add_theme_constant_override("separation",3)
+ caption.add_child(text_stack)
+ _label(text_stack,"THE BAND'S STORY  /  "+tab,11,UI.AMBER)
+ _label(text_stack,str(headline.get(tab,tab)),20,UI.WHITE)
 
 
 func _home() -> void:
@@ -300,8 +307,7 @@ func _gear() -> void:
 func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
- var overview := _card("THE LINE-UP","Build skills, keep morale up and manage fatigue before the next show.")
- _progress(overview,"BAND MORALE",_num("morale"))
+
  if members.is_empty():
   _card("NO MUSICIANS","Band members will appear here once recruited.")
  for i in range(members.size()):
@@ -309,9 +315,22 @@ func _band() -> void:
    continue
   var member: Dictionary = members[i]
   var index := i
-  var box := _card(str(member.get("name","Musician")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),str(member.get("trait","")))
+  var box := _card(str(member.get("name","Musician")).to_upper(),str(member.get("role","")).to_upper()+"   /   "+str(member.get("trait","")))
+  var scores := GridContainer.new()
+  scores.columns = 2
+  scores.add_theme_constant_override("h_separation",16)
+  scores.add_theme_constant_override("v_separation",12)
+  box.add_child(scores)
   for key in ["skill","morale","loyalty","fatigue"]:
-   _progress(box,key.to_upper(),int(member.get(key,50)))
+   var metric := VBoxContainer.new()
+   scores.add_child(metric)
+   _label(metric,key.to_upper()+"  %d" % int(member.get(key,50)),12,UI.MUTED)
+   var meter := ProgressBar.new()
+   meter.custom_minimum_size = Vector2(130,10)
+   meter.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   UI.progress(meter)
+   meter.value = clampi(int(member.get(key,50)),0,100)
+   metric.add_child(meter)
   var controls := HBoxContainer.new()
   controls.add_theme_constant_override("separation",6)
   box.add_child(controls)
@@ -322,6 +341,7 @@ func _band() -> void:
    control.custom_minimum_size.y = 52
    control.add_theme_font_size_override("font_size",13)
    controls.add_child(control)
+  coach.disabled = _num("cash") < 10
   talk.pressed.connect(func() -> void: _member(index,"chat"))
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
