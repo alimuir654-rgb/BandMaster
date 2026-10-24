@@ -129,6 +129,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|LOCAL DIALOGUE FAILURE:|ERROR:' /tmp/local-dialogue-tests.log; then
             exit 1
           fi
+      - name: Validate scrapbook filtering
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/scrapbook_filter_tests.gd 2>&1 | tee /tmp/scrapbook-filter.log
+          grep -q 'SCRAPBOOK FILTER TESTS PASSED' /tmp/scrapbook-filter.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SCRAPBOOK FAILURE:|ERROR:' /tmp/scrapbook-filter.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
