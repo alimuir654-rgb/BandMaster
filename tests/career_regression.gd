@@ -2,6 +2,7 @@ extends SceneTree
 
 const Actions = preload("res://Scripts/career_actions.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const GearShop = preload("res://Scripts/gear_shop.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 
 func _initialize() -> void:
@@ -27,6 +28,11 @@ func _initialize() -> void:
  _check(demo.get("ok",false) == true, "demo can be recorded")
  _check(not Opportunities.pending(demo["state"]).has("demo_ready"), "demo cannot repeat")
  _check(Opportunities.resolve(demo["state"],"demo_ready","record").get("ok",true) == false, "duplicate resolution rejected")
+ var purchase: Dictionary = GearShop.buy(state,"amp")
+ _check(purchase.get("ok",false) == true, "buy named amplifier")
+ _check(purchase["state"]["owned_equipment"].has("amp"), "inventory persists in resolved state")
+ _check(GearShop.buy(purchase["state"],"amp").get("ok",true) == false, "prevent repeat purchase")
+ _check(GearShop.buy(poor,"pa").get("ok",true) == false, "prevent unaffordable gear")
  print("CAREER REGRESSION TESTS PASSED")
  quit(0)
 
