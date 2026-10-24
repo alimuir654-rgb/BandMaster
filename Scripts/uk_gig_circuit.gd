@@ -22,7 +22,16 @@ static func get_venue(venue_id: String) -> Dictionary:
    return venue
  return {}
 
-static func play(state: Dictionary, venue_id: String) -> Dictionary:
+const APPROACHES := {
+ "tight": {"label":"PLAY THE TIGHT SET","quality":8,"fan_bonus":0,"tension":1},
+ "wild": {"label":"MAKE IT A BIG NIGHT","quality":-8,"fan_bonus":12,"tension":7},
+ "crowd": {"label":"WIN OVER THE ROOM","quality":0,"fan_bonus":7,"tension":-2}
+}
+
+static func play(state: Dictionary, venue_id: String, approach: String = "tight") -> Dictionary:
+ if not APPROACHES.has(approach):
+  return {"ok":false,"message":"Invalid performance approach."}
+ var option: Dictionary = APPROACHES[approach]
  var venue := get_venue(venue_id)
  if venue.is_empty():
   return {"ok":false,"message":"Unknown venue."}
@@ -34,18 +43,18 @@ static func play(state: Dictionary, venue_id: String) -> Dictionary:
   return {"ok":false,"message":"Your van needs attention before this journey."}
  var next := state.duplicate(true)
  var quality := int(state.get("readiness",0)) + int(state.get("morale",0)) / 4 - int(state.get("tension",0)) / 4
- var success := quality >= 52
+ var success := quality + int(option["quality"]) >= 52
  var earned := int(venue["fee"]) if success else int(venue["fee"]) / 2
  var actual_travel := mini(int(venue["travel"]),int(state.get("cash",0))) if venue_id == "local" else int(venue["travel"])
  next["cash"] = maxi(0,int(state.get("cash",0)) - actual_travel + earned)
  next["tour_day"] = int(state.get("tour_day",1)) + int(venue["days"])
  next["van_health"] = clampi(int(state.get("van_health",0)) - (0 if venue_id == "local" else int(venue["wear"])),0,100)
- next["fans"] = maxi(0,int(state.get("fans",0)) + (12 + 9 * int(venue["tier"]) if success else 3))
+ next["fans"] = maxi(0,int(state.get("fans",0)) + (12 + 9 * int(venue["tier"]) + int(option["fan_bonus"]) if success else 3))
  next["reputation"] = clampi(int(state.get("reputation",0)) + (4 + 3 * int(venue["tier"]) if success else 1),0,100)
  next["morale"] = clampi(int(state.get("morale",0)) + (4 if success else -5),0,100)
- next["tension"] = clampi(int(state.get("tension",0)) + (1 if success else 4),0,100)
+ next["tension"] = clampi(int(state.get("tension",0)) + (1 if success else 4) + int(option["tension"]),0,100)
  var gigs: Array = next.get("gig_history",[]).duplicate(true)
- gigs.append({"city":venue["city"],"venue":venue["venue"],"day":next["tour_day"],"fee":earned,"success":success})
+ gigs.append({"city":venue["city"],"venue":venue["venue"],"day":next["tour_day"],"fee":earned,"success":success,"approach":approach})
  if gigs.size() > 50:
   gigs.pop_front()
  next["gig_history"] = gigs
