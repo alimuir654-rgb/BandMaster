@@ -16,6 +16,13 @@ static func labels() -> Dictionary:
 static func resolve(state: Dictionary, action_id: String) -> Dictionary:
     if not ACTIONS.has(action_id):
         return {"ok": false, "message": "Unknown action"}
+    if action_id == "rehearse" and state.has("members"):
+        var available := 0
+        for person in state.get("members",[]):
+            if person is Dictionary and str(person.get("life_status","active")) == "active":
+                available += 1
+        if available < 2:
+            return {"ok":false,"message":"A rehearsal needs two available band members. Recruit or wait for someone to return."}
     var rule: Dictionary = ACTIONS[action_id]
     var cost := int(rule.get("cost", 0))
     var cash := int(state.get("cash", 0))

@@ -29,6 +29,19 @@ const APPROACHES := {
 }
 
 static func play(state: Dictionary, venue_id: String, approach: String = "tight") -> Dictionary:
+ if state.has("members"):
+  var roster: Array = state.get("members",[])
+  var active := 0
+  var drummer := false
+  for person in roster:
+   if person is Dictionary and str(person.get("life_status","active")) == "active":
+    active += 1
+    if str(person.get("role","")).to_lower().contains("drum"):
+     drummer = true
+  if active < 2:
+   return {"ok":false,"message":"You need at least two available musicians before playing a show."}
+  if not drummer:
+   return {"ok":false,"message":"No drummer is available. Recruit a replacement or wait for their return."}
  if not APPROACHES.has(approach):
   return {"ok":false,"message":"Invalid performance approach."}
  var option: Dictionary = APPROACHES[approach]

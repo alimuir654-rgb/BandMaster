@@ -66,6 +66,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|BAND DRAMA FAILURE:|ERROR:' /tmp/band-drama.log; then
             exit 1
           fi
+      - name: Verify member life events and recruitment
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/member_life_tests.gd 2>&1 | tee /tmp/member-life.log
+          grep -q 'MEMBER LIFE TESTS PASSED' /tmp/member-life.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|MEMBER LIFE FAILURE:|ERROR:' /tmp/member-life.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
