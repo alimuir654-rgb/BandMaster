@@ -27,6 +27,7 @@ const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const BandPulse = preload("res://Scripts/band_pulse_presentation.gd")
+const Chemistry = preload("res://Scripts/band_chemistry_presentation.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -493,6 +494,13 @@ func _band() -> void:
  _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
  if int(pulse["exhausted"]) > 0:
   _label(chemistry,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.AMBER)
+
+ var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
+ if not pairs.is_empty():
+  var connection_card := _card("BAND CHEMISTRY","The relationships behind the performances. Shared experiences change these bonds.")
+  for bond in pairs:
+   var caption := str(bond["first"])+"  +  "+str(bond["second"])+"   /   "+str(bond["mood"])
+   _progress(connection_card,caption,int(bond["value"]))
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
