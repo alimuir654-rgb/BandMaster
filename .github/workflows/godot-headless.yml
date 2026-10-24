@@ -48,3 +48,11 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|REGRESSION FAILURE:|ERROR:' /tmp/career-tests.log; then
             exit 1
           fi
+      - name: Smoke-test dedicated CareerHub scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --scene res://Scenes/CareerHub.tscn --quit-after 6 2>&1 | tee /tmp/career-hub.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Invalid call|Invalid get index|ERROR: Failed loading resource:' /tmp/career-hub.log; then
+            exit 1
+          fi

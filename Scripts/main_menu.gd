@@ -173,7 +173,11 @@ func _unavailable(feature: String) -> void:
 	dialog.popup_centered()
 
 func _continue_game() -> void:
-	_go_to("res://tour_intro.tscn")
+	var saved: Dictionary = _read_json(SAVE_PATH)
+	if str(saved.get("current_event","")) == "aftershow" and str(saved.get("pending_next","")).is_empty():
+		_go_to("res://Scenes/CareerHub.tscn")
+	else:
+		_go_to("res://tour_intro.tscn")
 
 func _new_game() -> void:
 	var dialog := ConfirmationDialog.new()
