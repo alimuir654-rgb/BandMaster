@@ -6,6 +6,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
+const Story = preload("res://Scripts/career_story.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -239,6 +240,12 @@ func _home() -> void:
  else:
   _card("REGIONAL CIRCUIT UNLOCKED","All current UK venues are available.")
  _opportunities()
+ var memories := Story.latest(_state(),3)
+ if not memories.is_empty():
+  var journal := _card("THE STORY SO FAR","Moments that shaped your band.")
+  for moment in memories:
+   _label(journal,"DAY %d  /  %s" % [int(moment.get("day",1)),str(moment.get("title",""))],14,UI.AMBER)
+   _label(journal,str(moment.get("text","")),13,UI.MUTED)
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
@@ -488,10 +495,10 @@ func _apply(updated: Dictionary) -> void:
   if not ["cash","tour_day","morale","reputation","readiness","tension","van_health","members","relationships","band_name"].has(key):
    extra[key] = updated[key]
 
-func _finish(result: Dictionary) -> void:
+func _finish(result: Dictionary, source: String = "") -> void:
  message = str(result.get("message","Action unavailable"))
  if result.get("ok",false) == true:
-  _apply(result["state"])
+  _apply(Story.observe(_state(),result["state"],source))
   _save()
  _render()
 
@@ -499,7 +506,7 @@ func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
 
 func _book(id: String,approach: String) -> void:
- _finish(Gigs.play(_state(),id,approach))
+ _finish(Gigs.play(_state(),id,approach),"gig:"+id)
 
 func _buy(id: String) -> void:
  _finish(Gear.buy(_state(),id))
