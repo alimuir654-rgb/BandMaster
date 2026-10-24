@@ -1025,6 +1025,11 @@ func _perform_gig() -> void:
  var result: Dictionary = Calendar.perform(before)
  if bool(result.get("ok",false)):
   result["state"] = GigNight.reset_after_show(Promoter.settle(result["state"],before))
+  var terms: Dictionary = before.get("promoter_offer",{})
+  var final_history: Array = result["state"].get("gig_history",[])
+  if not terms.is_empty() and not final_history.is_empty():
+   var latest: Dictionary = final_history.back()
+   result["message"] = str(result.get("message","Show finished."))+" Promoter settlement: £%d after the %s agreement." % [int(latest.get("fee",0)),str(terms.get("offer_id","standard"))]
  _finish(result,"gig:"+str(booked.get("venue_id","")))
 
 func _schedule(id: String,approach: String, hire_session: bool = false) -> void:
