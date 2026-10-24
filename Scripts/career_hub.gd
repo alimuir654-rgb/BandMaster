@@ -10,6 +10,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
+const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -439,29 +440,22 @@ func _gigs() -> void:
    _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
    continue
   var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
-  _label(box,"CHOOSE HOW TO PLAY",13,UI.AMBER)
-  var choices := HBoxContainer.new()
-  choices.add_theme_constant_override("separation",6)
-  box.add_child(choices)
-  var tight := UI.button("TIGHT",true)
-  var wild := UI.button("WILD")
-  var crowd := UI.button("CROWD")
-  for button in [tight,wild,crowd]:
-   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   button.add_theme_font_size_override("font_size",13)
-   choices.add_child(button)
-  tight.disabled = not line_up_ready or not booked.is_empty()
-  wild.disabled = not line_up_ready or not booked.is_empty()
-  crowd.disabled = not line_up_ready or not booked.is_empty()
+  _label(box,"MEET THE PROMOTER  /  NEGOTIATE THE DEAL",13,UI.AMBER)
+  _label(box,"The band will choose its live approach at soundcheck.",12,UI.MUTED)
+  for offer_id in ["standard","guarantee","guestlist"]:
+   var proposal: String = offer_id
+   var terms: Dictionary = Promoter.OFFERS[proposal]
+   var choice := UI.button(str(terms["label"])+"  ›")
+   choice.custom_minimum_size.y = 54
+   choice.disabled = not booked.is_empty() or not line_up_ready
+   box.add_child(choice)
+   _label(box,str(terms["description"]),12,UI.MUTED)
+   choice.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,proposal)))
   if not line_up_ready and available_count >= 1 and booked.is_empty():
-   var session := UI.button("HIRE SESSION DRUMMER  ·  £25",true)
-   session.disabled = _num("cash") < 25 or (str(venue["id"]) != "local" and _num("cash") < 25 + int(venue["travel"]))
-   session.custom_minimum_size.y = 50
+   var session := UI.button("BOOK WITH SESSION DRUMMER · £25",true)
+   session.disabled = _num("cash") < 25 or (key != "local" and _num("cash") < 25 + int(venue["travel"]))
    box.add_child(session)
-   session.pressed.connect(func() -> void: _schedule(key,"tight",true))
-  tight.pressed.connect(func() -> void: _schedule(key,"tight"))
-  wild.pressed.connect(func() -> void: _schedule(key,"wild"))
-  crowd.pressed.connect(func() -> void: _schedule(key,"crowd"))
+   session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),key,"standard",true)))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
 
@@ -1014,7 +1008,7 @@ func _perform_gig() -> void:
  var booked: Dictionary = Calendar.pending(before)
  var result: Dictionary = Calendar.perform(before)
  if bool(result.get("ok",false)):
-  result["state"] = GigNight.reset_after_show(result["state"])
+  result["state"] = GigNight.reset_after_show(Promoter.settle(result["state"],before))
  _finish(result,"gig:"+str(booked.get("venue_id","")))
 
 func _schedule(id: String,approach: String, hire_session: bool = false) -> void:
