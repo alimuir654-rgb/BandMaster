@@ -137,7 +137,7 @@ static func _missing_role(roster: Array) -> String:
  for role in ["Drummer","Bassist","Guitarist","Vocalist"]:
   var found := false
   for person in roster:
-   if person is Dictionary and str(person.get("role","")).to_lower() == role.to_lower():
+   if person is Dictionary and str(person.get("role","")).to_lower() == role.to_lower() and str(person.get("life_status","active")) == "active":
     found = true
   if not found:
    return role
