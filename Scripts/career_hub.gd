@@ -7,6 +7,7 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
+const Drama = preload("res://Scripts/band_drama.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -315,6 +316,7 @@ func _gear() -> void:
    buy.pressed.connect(func() -> void: _buy(key))
 
 func _band() -> void:
+ _band_situations()
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
 
@@ -375,6 +377,15 @@ func _band() -> void:
   talk.pressed.connect(func() -> void: _member(index,"chat"))
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
+
+func _band_situations() -> void:
+ for event_id in Drama.pending(_state()):
+  var id: String = str(event_id)
+  var definition: Dictionary = Drama.EVENTS[id]
+  var box := _card(str(definition["title"]),str(definition["intro"]))
+  for option in definition["choices"]:
+   var choice: String = str(option["id"])
+   _action(box,str(option["label"]),func() -> void: _finish(Drama.resolve(_state(),id,choice)),choice == str(definition["choices"][0]["id"]))
 
 func _actions() -> void:
  var overview := _card("MAKE TODAY COUNT","Every decision takes time. Choose where to invest.")
