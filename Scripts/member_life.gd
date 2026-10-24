@@ -95,7 +95,7 @@ static func recruit(state: Dictionary) -> Dictionary:
  var day := int(next.get("tour_day",1))
  var count := int(next.get("recruitment_count",0))
  var role := _missing_role(roster)
- var name := FIRST_NAMES[count % FIRST_NAMES.size()]+" "+str(count+1)
+ var name: String = str(FIRST_NAMES[count % FIRST_NAMES.size()])+" "+str(count+1)
  roster.append({"name":name,"role":role,"trait":TRAITS[count % TRAITS.size()],"skill":35+count%15,"morale":60,"loyalty":55,"fatigue":0,"joined_day":day,"life_status":"active"})
  next["members"] = roster
  next["recruitment_count"] = count+1
