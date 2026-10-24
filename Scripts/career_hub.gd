@@ -8,6 +8,7 @@ const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -288,6 +289,20 @@ func _home() -> void:
  practise.pressed.connect(func() -> void: _do_action("rehearse"))
 
 func _gigs() -> void:
+ var booked: Dictionary = Calendar.pending(_state())
+ if not booked.is_empty():
+  var due := int(booked.get("day",1)) - _num("tour_day")
+  var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
+  if due > 0:
+   _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
+  elif due == 0:
+   _label(calendar_box,"TONIGHT IS THE NIGHT. YOUR SHOW IS READY.",15,UI.AMBER)
+   _action(calendar_box,"PLAY THE BOOKED SHOW",func() -> void: _finish(Calendar.perform(_state()),"gig:"+str(booked.get("venue_id",""))),true)
+  else:
+   _label(calendar_box,"THIS BOOKING IS OVERDUE.",14,UI.AMBER)
+  _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state())))
+ else:
+  _card("BOOK AHEAD","Shows are booked three days in advance. Use those days to prepare, but don't miss the date.")
  var summary := _card("BOOK A BRITISH GIG","Every show builds your story. Choose the stage, then the approach.")
  _progress(summary,"VAN",_num("van_health"))
  var roster: Array = save_data.get("band",{}).get("members",[])
@@ -313,7 +328,7 @@ func _gigs() -> void:
    var locked := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"LOCKED  ·  Need %d fans and %d reputation" % [needed_fans,needed_rep])
    _label(locked,"Build your following with local gigs and promotion.",13,UI.MUTED)
    continue
-  var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"GUARANTEED FEE £%d  ·  TRAVEL £%d  ·  %d DAYS" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
+  var box := _card(str(venue["venue"])+"  /  "+str(venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(venue["fee"]),int(venue["travel"]),int(venue["days"])])
   _label(box,"CHOOSE HOW TO PLAY",13,UI.AMBER)
   var choices := HBoxContainer.new()
   choices.add_theme_constant_override("separation",6)
@@ -325,18 +340,18 @@ func _gigs() -> void:
    button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    button.add_theme_font_size_override("font_size",13)
    choices.add_child(button)
-  tight.disabled = not line_up_ready
-  wild.disabled = not line_up_ready
-  crowd.disabled = not line_up_ready
-  if not line_up_ready and available_count >= 1:
+  tight.disabled = not line_up_ready or not booked.is_empty()
+  wild.disabled = not line_up_ready or not booked.is_empty()
+  crowd.disabled = not line_up_ready or not booked.is_empty()
+  if not line_up_ready and available_count >= 1 and booked.is_empty():
    var session := UI.button("HIRE SESSION DRUMMER  ·  £25",true)
    session.disabled = _num("cash") < 25 or (str(venue["id"]) != "local" and _num("cash") < 25 + int(venue["travel"]))
    session.custom_minimum_size.y = 50
    box.add_child(session)
-   session.pressed.connect(func() -> void: _book(key,"tight",true))
-  tight.pressed.connect(func() -> void: _book(key,"tight"))
-  wild.pressed.connect(func() -> void: _book(key,"wild"))
-  crowd.pressed.connect(func() -> void: _book(key,"crowd"))
+   session.pressed.connect(func() -> void: _schedule(key,"tight",true))
+  tight.pressed.connect(func() -> void: _schedule(key,"tight"))
+  wild.pressed.connect(func() -> void: _schedule(key,"wild"))
+  crowd.pressed.connect(func() -> void: _schedule(key,"crowd"))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
 
@@ -712,12 +727,15 @@ func _finish(result: Dictionary, source: String = "") -> void:
   _cancel_dialogue_request()
  message = str(result.get("message","Action unavailable"))
  if result.get("ok",false) == true:
-  _apply(Life.refresh(Story.observe(_state(),result["state"],source)))
+  _apply(Life.refresh(Calendar.expire(Story.observe(_state(),result["state"],source))))
   _save()
  _render()
 
 func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
+
+func _schedule(id: String,approach: String, hire_session: bool = false) -> void:
+ _finish(Calendar.book(_state(),id,approach,hire_session))
 
 func _book(id: String,approach: String, hire_session: bool = false) -> void:
  _finish(Gigs.play(_state(),id,approach,hire_session),"gig:"+id)
@@ -739,6 +757,7 @@ func _repair() -> void:
  save_data["cash"] = _num("cash") - 45
  save_data["tour_day"] = _num("tour_day") + 1
  save_data["van_health"] = mini(100,_num("van_health") + 30)
+ _apply(Calendar.expire(_state()))
  message = "The garage gets the van back on the road."
  _save()
  _render()
