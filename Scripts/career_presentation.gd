@@ -8,7 +8,7 @@ const LINES := {
  "Perfectionist":["That middle eight still needs work.","We could be brilliant, but we need to practise properly."],
  "Restless":["Can we do something different next time?","I don't want to play the same set forever."]
 }
-static func line(state: Dictionary, member_index: int) -> Dictionary:
+static func dialogue_for(state: Dictionary, member_index: int) -> Dictionary:
  var members: Array = state.get("members",[])
  if member_index < 0 or member_index >= members.size() or not members[member_index] is Dictionary:
   return {"ok":false,"message":"Musician not available."}
