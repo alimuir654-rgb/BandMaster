@@ -37,7 +37,7 @@ static func pending(state: Dictionary) -> Array:
     var completed: Dictionary = state.get("opportunities_resolved", {})
     var available: Array = []
     for key in ORDER:
-        if bool(seen.get(key, false)) and not bool(completed.get(key, false)):
+        if seen.has(key) and not completed.has(key):
             available.append(key)
     return available
 
