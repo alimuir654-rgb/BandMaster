@@ -6,6 +6,9 @@ const SAVE_PATH := "user://tour_save.json"
 var failures := 0
 
 func _initialize() -> void:
+ call_deferred("_run")
+
+func _run() -> void:
  var original_exists := FileAccess.file_exists(SAVE_PATH)
  var original_text := ""
  if original_exists:
