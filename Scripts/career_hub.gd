@@ -300,34 +300,71 @@ func _gear() -> void:
 func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
+ var overview := _card("THE LINE-UP","Build skills, keep morale up and manage fatigue before the next show.")
+ _progress(overview,"BAND MORALE",_num("morale"))
  if members.is_empty():
-  _card("THE BAND","No musicians recorded.")
+  _card("NO MUSICIANS","Band members will appear here once recruited.")
  for i in range(members.size()):
   if not members[i] is Dictionary:
    continue
   var member: Dictionary = members[i]
   var index := i
-  var box := _card(str(member.get("name","Musician")) + "  /  " + str(member.get("role","")) ,str(member.get("trait","")))
+  var box := _card(str(member.get("name","Musician")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),str(member.get("trait","")))
   for key in ["skill","morale","loyalty","fatigue"]:
    _progress(box,key.to_upper(),int(member.get(key,50)))
-  _action(box,"TALK",func() -> void: _member(index,"chat"),true)
-  _action(box,"COACH — £10",func() -> void: _member(index,"coach"))
-  _action(box,"GIVE A BREAK",func() -> void: _member(index,"break"))
+  var controls := HBoxContainer.new()
+  controls.add_theme_constant_override("separation",6)
+  box.add_child(controls)
+  var talk := UI.button("TALK",true)
+  var coach := UI.button("COACH £10")
+  var rest := UI.button("REST")
+  for control in [talk,coach,rest]:
+   control.custom_minimum_size.y = 52
+   control.add_theme_font_size_override("font_size",13)
+   controls.add_child(control)
+  talk.pressed.connect(func() -> void: _member(index,"chat"))
+  coach.pressed.connect(func() -> void: _member(index,"coach"))
+  rest.pressed.connect(func() -> void: _member(index,"break"))
 
 func _actions() -> void:
- for key in Actions.labels().keys():
+ var overview := _card("MAKE TODAY COUNT","Every decision takes time. Choose where to invest.")
+ _progress(overview,"READINESS",_num("readiness"))
+ _progress(overview,"MORALE",_num("morale"))
+ var catalogue: Dictionary = Actions.labels()
+ for key in catalogue.keys():
   var id: String = str(key)
-  var cfg: Dictionary = Actions.labels()[id]
-  var box := _card(str(cfg["label"]),"£%d  /  one day" % int(cfg.get("cost",0)))
-  _action(box,"DO THIS",func() -> void: _do_action(id),true)
+  var cfg: Dictionary = catalogue[id]
+  var cost := int(cfg.get("cost",0))
+  var days := int(cfg.get("days",1))
+  var box := _card(str(cfg["label"]).to_upper(),"£%d  ·  %d DAY(S)" % [cost,days])
+  var benefits: Array[String] = []
+  for stat in ["readiness","morale","songs","buzz","fans","press"]:
+   if cfg.has(stat) and int(cfg[stat]) != 0:
+    benefits.append("%s %+d" % [stat.to_upper(),int(cfg[stat])])
+  if not benefits.is_empty():
+   _label(box,"  ·  ".join(benefits),13,UI.MUTED)
+  var act := UI.button("DO THIS" if cost == 0 else "SPEND £%d" % cost,true)
+  act.disabled = _num("cash") < cost
+  act.custom_minimum_size.y = 52
+  box.add_child(act)
+  act.pressed.connect(func() -> void: _do_action(id))
 
 func _scene() -> void:
+ var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
+ _progress(snapshot,"BUZZ",_num("buzz"))
+ _progress(snapshot,"PRESS",_num("press"))
+ _label(snapshot,"%d FANS   ·   %d REPUTATION" % [_num("fans"),_num("reputation")],14,UI.AMBER)
  _opportunities()
- var box := _card("LOCAL PRESS","Build a following through promotion and publicity.")
- _progress(box,"BUZZ",_num("buzz"))
- _progress(box,"PRESS",_num("press"))
- _action(box,"PRINT POSTERS — £25",func() -> void: _do_action("promo"),true)
- _action(box,"PITCH LOCAL PRESS — £10",func() -> void: _do_action("press"))
+ var box := _card("GET THE WORD OUT","Posters create fans. Press pitches build attention and coverage.")
+ var controls := HBoxContainer.new()
+ controls.add_theme_constant_override("separation",6)
+ box.add_child(controls)
+ var promo := UI.button("POSTERS £25",true)
+ var press := UI.button("PRESS £10")
+ controls.add_child(promo)
+ controls.add_child(press)
+ promo.pressed.connect(func() -> void: _do_action("promo"))
+ press.pressed.connect(func() -> void: _do_action("press"))
 
 func _opportunities() -> void:
  for event_id in Opportunities.pending(_extra()):
