@@ -151,22 +151,25 @@ func _build_screen() -> void:
 	page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	page.add_theme_constant_override("separation", 14)
 	margin.add_child(page)
-	_label(page, "LIVIN\u0027 THE DREAM   //   BRITISH MUSIC SCENE", 13, AMBER)
-	_label(page, str(band.get("name", "Unknown Band")), 30, WHITE)
-	_label(page, "%s / Influence: %s" % [band.get("genre", "Unknown"), band.get("influence", "Unknown")], 13, MUTED)
-	_separator()
-	_label(page, "BAND DASHBOARD", 15, AMBER)
-	var stats := GridContainer.new()
-	stats.columns = 3
-	stats.add_theme_constant_override("h_separation", 18)
-	stats.add_theme_constant_override("v_separation", 10)
-	page.add_child(stats)
-	_stat(stats, "CASH £%d" % cash, AMBER)
-	_stat(stats, "VAN %d%%" % van_health, WHITE)
-	_stat(stats, "MORALE %d" % morale, WHITE)
-	_stat(stats, "READINESS %d" % readiness, WHITE)
-	_stat(stats, "TENSION %d" % tension, WHITE)
-	_stat(stats, "REPUTATION %d" % reputation, WHITE)
+	if current_event == "aftershow" and pending_next.is_empty():
+		_show_compact_career_header()
+	else:
+		_label(page, "LIVIN' THE DREAM  //  BRITISH MUSIC SCENE", 13, AMBER)
+		_label(page, str(band.get("name","Unknown Band")), 30, WHITE)
+		_label(page, "%s / Influence: %s" % [str(band.get("genre","Unknown")),str(band.get("influence","Unknown"))], 13, MUTED)
+		_separator()
+		_label(page, "BAND DASHBOARD", 15, AMBER)
+		var stats := GridContainer.new()
+		stats.columns = 3
+		stats.add_theme_constant_override("h_separation",18)
+		stats.add_theme_constant_override("v_separation",10)
+		page.add_child(stats)
+		_stat(stats, "CASH £%d" % cash, AMBER)
+		_stat(stats, "VAN %d%%" % van_health, WHITE)
+		_stat(stats, "MORALE %d" % morale, WHITE)
+		_stat(stats, "READINESS %d" % readiness, WHITE)
+		_stat(stats, "TENSION %d" % tension, WHITE)
+		_stat(stats, "REPUTATION %d" % reputation, WHITE)
 	if current_event != "aftershow":
 		_separator()
 		_show_lineup()
@@ -187,6 +190,18 @@ func _build_screen() -> void:
 			_show_aftershow()
 			_build_bottom_nav()
 		_: _label(page, "UNKNOWN STAGE: " + current_event, 16, AMBER)
+
+func _show_compact_career_header() -> void:
+	_label(page, "LIVIN' THE DREAM  /  UK GRASSROOTS", 12, AMBER)
+	var top := HBoxContainer.new()
+	top.add_theme_constant_override("separation", 10)
+	page.add_child(top)
+	var band_label := _label(top,str(band.get("name","Unknown Band")),27,WHITE)
+	band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_label(top,"DAY %d" % tour_day,15,AMBER)
+	_label(page, "%s   ·   CASH £%d   ·   FANS %d   ·   REP %d" % [
+		str(band.get("genre","Unknown")),cash,int(career_extra.get("fans",0)),reputation],14,WHITE)
+
 
 func _show_lineup() -> void:
 	var members: Array = band.get("members", [])
@@ -408,7 +423,6 @@ func _gig(action: String) -> void:
 
 func _show_aftershow() -> void:
 	_label(page, "CAREER HQ  //  " + career_tab, 21, AMBER)
-	_label(page, "DAY %d   CASH £%d   FANS %d   REP %d" % [tour_day,cash,int(career_extra.get("fans",0)),reputation], 15, WHITE)
 	_show_scene_banner()
 	_separator()
 	if not career_feedback.is_empty():
@@ -449,7 +463,7 @@ func _show_scene_banner() -> void:
 	var box_style := _style(theme[1])
 	box_style.set_content_margin_all(22)
 	banner.add_theme_stylebox_override("panel", box_style)
-	banner.custom_minimum_size.y = 160
+	banner.custom_minimum_size.y = 132
 	page.add_child(banner)
 	var copy := VBoxContainer.new()
 	copy.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -459,7 +473,7 @@ func _show_scene_banner() -> void:
 		art.texture = load("res://Art/uk_street_banner.svg")
 		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-		art.custom_minimum_size.y = 154
+		art.custom_minimum_size.y = 110
 		art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		copy.add_child(art)
 	_label(copy, str(theme[0]), 16, WHITE)
@@ -467,30 +481,38 @@ func _show_scene_banner() -> void:
 
 
 func _show_home_dashboard() -> void:
-	_section("WHAT'S NEXT?", "A small British band with big ambitions. Choose where to spend your next day.")
 	_show_opportunities()
-	var available := UKGigs.available(reputation, int(career_extra.get("fans",0)))
+	var fans := int(career_extra.get("fans",0))
 	var next_venue: Dictionary = {}
 	for venue in UKGigs.VENUES:
-		if not available.has(venue):
+		if reputation < int(venue["min_rep"]) or fans < int(venue["min_fans"]):
 			next_venue = venue
 			break
 	if next_venue.is_empty():
-		_label(page, "All current regional venues unlocked.", 15, AMBER)
+		_section("NATIONAL CIRCUIT UNLOCKED","You can now book every venue in the current British circuit.")
+		_choice("BROWSE ALL GIGS","Choose the next city.",func() -> void: _set_career_tab("GIGS"))
 	else:
-		_label(page, "NEXT DESTINATION: %s" % str(next_venue["city"]), 17, AMBER)
-		_label(page, "Need %d reputation and %d fans  /  Current %d and %d" % [int(next_venue["min_rep"]),int(next_venue["min_fans"]),reputation,int(career_extra.get("fans",0))], 14, MUTED)
-		_meter("FANS TO UNLOCK", int(career_extra.get("fans",0)), int(next_venue["min_fans"]))
-	_section("BAND PULSE", "Manage your resources before the next booking.")
+		var missing_fans := maxi(0,int(next_venue["min_fans"]) - fans)
+		var missing_rep := maxi(0,int(next_venue["min_rep"]) - reputation)
+		_section("NEXT OBJECTIVE  //  " + str(next_venue["city"]),
+			"Need %d more fans and %d more reputation to unlock %s." % [missing_fans,missing_rep,str(next_venue["venue"])])
+		_meter("FANS", fans, maxi(1,int(next_venue["min_fans"])))
+		_meter("REPUTATION", reputation, maxi(1,int(next_venue["min_rep"])))
+		if missing_fans > 0:
+			_choice("PLAY A HOMETOWN GIG","Earn fans and cash, even with a worn-out van.",func() -> void: _set_career_tab("GIGS"))
+			_choice("PROMOTE THE BAND — £25","Posters attract new fans and create buzz.",func() -> void: _take_career_action("promo"))
+		else:
+			_choice("BUILD YOUR REPUTATION","Book another gig to attract promoters.",func() -> void: _set_career_tab("GIGS"))
+	_section("TODAY'S BAND PULSE","Your resources determine how well the next gig goes.")
 	_meter("READINESS", readiness, 100)
 	_meter("MORALE", morale, 100)
-	_meter("VAN CONDITION", van_health, 100)
-	_label(page, "SONGS %d   DEMOS %d   GEAR %d" % [int(career_extra.get("songs",0)),int(career_extra.get("demos",0)),int(career_extra.get("gear",0))], 15, WHITE)
-	_label(page, "QUICK ACTIONS", 17, AMBER)
-	_choice("BOOK A GIG", "Browse local and regional venues.", func() -> void: _set_career_tab("GIGS"))
-	_choice("WRITE A SONG", "Free  /  one day  /  build your catalogue.", func() -> void: _take_career_action("songwrite"))
-	_choice("REHEARSE — £15", "One day  /  improve live readiness.", func() -> void: _take_career_action("rehearse"))
-	_choice("PROMOTE THE BAND — £25", "One day  /  win local fans.", func() -> void: _take_career_action("promo"))
+	_meter("VAN", van_health, 100)
+	_label(page,"SONGS %d  /  DEMOS %d  /  GEAR %d" % [
+		int(career_extra.get("songs",0)),int(career_extra.get("demos",0)),int(career_extra.get("gear",0))],15,WHITE)
+	_label(page,"QUICK ACTIONS",17,AMBER)
+	_choice("BOOK A GIG","Explore local and regional venues.",func() -> void: _set_career_tab("GIGS"))
+	_choice("WRITE A SONG","Free  /  one day.",func() -> void: _take_career_action("songwrite"))
+	_choice("REHEARSE — £15","One day  /  increase readiness.",func() -> void: _take_career_action("rehearse"))
 
 
 func _show_band_cards() -> void:
