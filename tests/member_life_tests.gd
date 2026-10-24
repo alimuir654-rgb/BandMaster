@@ -5,8 +5,10 @@ const Actions = preload("res://Scripts/career_actions.gd")
 var failed := 0
 func _initialize() -> void:
  var base := {"tour_day":85,"cash":80,"members":[{"name":"Alex","role":"Drummer","loyalty":20,"morale":60,"fatigue":5},{"name":"Sam","role":"Bassist","loyalty":75,"morale":60,"fatigue":85},{"name":"Robin","role":"Guitarist","loyalty":50,"morale":15,"fatigue":10}],"career_journal":[]}
+ print("LIFE TEST: initial events")
  var events := Life.pending(base)
  _check(events.size() == 3,"three life events discovered")
+ print("LIFE TEST: departure")
  var departure := Life.resolve(base,0,"career","depart")
  _check(departure.get("ok",false),"career departure accepted")
  if departure.get("ok",false):
@@ -20,6 +22,7 @@ func _initialize() -> void:
   _check(recruit.get("ok",false),"replacement recruited")
   if recruit.get("ok",false):
    _check(recruit["state"]["members"].size() == 3,"lineup restored")
+ print("LIFE TEST: injury")
  var leave := Life.resolve(base,1,"injury","recover")
  _check(leave.get("ok",false),"injured musician gets leave")
  if leave.get("ok",false):
@@ -35,6 +38,7 @@ func _initialize() -> void:
  _check(not Life.resolve(poor,1,"injury","specialist").get("ok",true),"unaffordable option rejected")
  _check(not Life.resolve(base,0,"career","invalid").get("ok",true),"invalid option rejected")
  _check(not Life.resolve(base,1,"career","depart").get("ok",true),"invalid event/member combination rejected")
+ print("LIFE TEST: gig gates")
  var eligible := base.duplicate(true)
  eligible["reputation"] = 20
  eligible["fans"] = 25
@@ -60,6 +64,7 @@ func _initialize() -> void:
  var no_band := base.duplicate(true)
  no_band["members"] = []
  _check(Life.pending(no_band).is_empty(),"empty band safe")
+ print("LIFE TEST: cap check")
  var capped := base.duplicate(true)
  var capped_roster: Array = capped["members"]
  for i in range(3):
