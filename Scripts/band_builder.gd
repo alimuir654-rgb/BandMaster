@@ -24,6 +24,8 @@ var steps: Array[VBoxContainer] = []
 var summary_label: Label
 var current_step := 0
 var form_scroll: ScrollContainer
+var nav_back: Button
+var nav_next: Button
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -35,10 +37,15 @@ func _build() -> void:
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
+	var layout := VBoxContainer.new()
+	layout.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	layout.add_theme_constant_override("separation", 0)
+	add_child(layout)
 	form_scroll = ScrollContainer.new()
-	form_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	form_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	form_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	form_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	add_child(form_scroll)
+	layout.add_child(form_scroll)
 	var margin := MarginContainer.new()
 	margin.add_theme_constant_override("margin_left", 18)
 	margin.add_theme_constant_override("margin_right", 18)
@@ -67,7 +74,6 @@ func _build() -> void:
 	_label(identity_page, "Primary influence", 16, WHITE)
 	influence_field = _option(INFLUENCES)
 	identity_page.add_child(influence_field)
-	_button(identity_page, "NEXT / BUILD YOUR LINE-UP  >", func() -> void: _show_step(1))
 
 	var personnel_page := _make_step(page)
 	_label(personnel_page, "02 / PERSONNEL", 20, AMBER)
@@ -76,20 +82,42 @@ func _build() -> void:
 	member_container = VBoxContainer.new()
 	member_container.add_theme_constant_override("separation", 14)
 	personnel_page.add_child(member_container)
-	_button(personnel_page, "+ ADD MUSICIAN", _add_member)
-	_button(personnel_page, "- REMOVE LAST", _remove_member)
+	var member_actions := HBoxContainer.new()
+	member_actions.add_theme_constant_override("separation", 8)
+	personnel_page.add_child(member_actions)
+	_button(member_actions, "+ ADD", _add_member)
+	_button(member_actions, "- REMOVE", _remove_member)
 	for i in range(4):
 		_add_member()
-	_button(personnel_page, "<  BACK TO IDENTITY", func() -> void: _show_step(0))
-	_button(personnel_page, "NEXT / REVIEW BAND  >", func() -> void: _show_step(2))
 
 	var review_page := _make_step(page)
 	_label(review_page, "03 / READY TO REHEARSE", 20, AMBER)
 	_label(review_page, "Review your line-up before creating a new career.", 15, MUTED)
 	summary_label = _label(review_page, "", 17, WHITE)
-	_button(review_page, "<  EDIT MUSICIANS", func() -> void: _show_step(1))
-	_button(review_page, "CREATE BAND / START REHEARSALS  >", _create_band)
 	status_label = _label(review_page, "AWAITING BAND REGISTRATION", 14, MUTED)
+
+	var footer := PanelContainer.new()
+	footer.add_theme_stylebox_override("panel", _panel_style())
+	layout.add_child(footer)
+	var footer_margin := MarginContainer.new()
+	footer_margin.add_theme_constant_override("margin_left", 12)
+	footer_margin.add_theme_constant_override("margin_right", 12)
+	footer_margin.add_theme_constant_override("margin_top", 8)
+	footer_margin.add_theme_constant_override("margin_bottom", 12)
+	footer.add_child(footer_margin)
+	var navigation := HBoxContainer.new()
+	navigation.add_theme_constant_override("separation", 8)
+	footer_margin.add_child(navigation)
+	nav_back = Button.new()
+	nav_back.text = "< BACK"
+	nav_back.custom_minimum_size = Vector2(100, 58)
+	nav_back.pressed.connect(func() -> void: _show_step(current_step - 1))
+	navigation.add_child(nav_back)
+	nav_next = Button.new()
+	nav_next.custom_minimum_size.y = 58
+	nav_next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	nav_next.pressed.connect(_advance_step)
+	navigation.add_child(nav_next)
 	_show_step(0)
 
 
@@ -114,7 +142,19 @@ func _show_step(index: int) -> void:
 			name_field.text.strip_edges(), _selected(genre_field),
 			_selected(influence_field), member_rows.size(), "\n".join(names)
 		]
+	nav_back.disabled = current_step == 0
+	match current_step:
+		0: nav_next.text = "NEXT / LINE-UP >"
+		1: nav_next.text = "NEXT / REVIEW >"
+		2: nav_next.text = "CREATE BAND >"
 	form_scroll.scroll_vertical = 0
+
+
+func _advance_step() -> void:
+	if current_step < 2:
+		_show_step(current_step + 1)
+	else:
+		_create_band()
 
 
 func _add_member() -> void:
