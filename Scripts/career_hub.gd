@@ -10,6 +10,8 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
+const Workshop = preload("res://Scripts/song_workshop.gd")
+const Social = preload("res://Scripts/band_social.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Members = preload("res://Scripts/member_management.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -617,11 +619,51 @@ func _actions() -> void:
    _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
  _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
  _label(heading,"CURRENT SONG DRAFT: %d / 3 SESSIONS" % _num("song_draft_progress"),14,UI.AMBER)
+ var draft: Dictionary = _extra().get("current_song_draft",{})
+ var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
+ var ideas := OptionButton.new()
+ var forms := OptionButton.new()
+ var titles := OptionButton.new()
+ var leads := OptionButton.new()
+ var catalogue: Dictionary = Workshop.options(_state())
+ for value in catalogue["ideas"]:
+  ideas.add_item(str(value))
+ for value in catalogue["forms"]:
+  forms.add_item(str(value))
+ for value in catalogue["titles"]:
+  titles.add_item(str(value))
+ var indices: Array = []
+ for person in catalogue["leads"]:
+  leads.add_item(str(person["name"])+"  /  "+str(person["trait"]))
+  indices.append(int(person["index"]))
+ for control in [ideas,forms,titles,leads]:
+  control.custom_minimum_size.y = 52
+  workshop.add_child(control)
+ if not draft.is_empty():
+  var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
+  var form_index := Workshop.FORMS.find(str(draft.get("form","")))
+  var title_index := Workshop.TITLES.find(str(draft.get("title","")))
+  if idea_index >= 0:
+   ideas.select(idea_index)
+  if form_index >= 0:
+   forms.select(form_index)
+  if title_index >= 0:
+   titles.select(title_index)
+ _label(workshop,"IDEA  /  ARRANGEMENT  /  WORKING TITLE  /  SESSION LEADER",12,UI.MUTED)
+ var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
+ jam.custom_minimum_size.y = 54
+ jam.disabled = indices.is_empty()
+ workshop.add_child(jam)
+ jam.pressed.connect(func() -> void:
+  _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
+ )
  for focus in Practice.FOCUSES:
   var id := str(focus)
   var rule: Dictionary = Practice.FOCUSES[id]
   var base: Dictionary = Actions.ACTIONS[str(rule["action"])]
   var cost := int(base.get("cost",0))
+  if id == "create":
+   continue
   var session := _card(str(rule["label"]),str(rule["description"]))
   _label(session,"1 DAY  /  £%d" % cost,13,UI.MUTED)
   var start_button := UI.button("START SESSION" if cost == 0 else "BOOK SESSION · £%d" % cost,id == "tighten")
@@ -629,6 +671,20 @@ func _actions() -> void:
   start_button.disabled = _num("cash") < cost
   session.add_child(start_button)
   start_button.pressed.connect(func() -> void: _practice(id))
+ var socials := _card("LIFE OUTSIDE THE STUDIO","Bandmates need more than rehearsals. Going out costs money and a day, but builds trust.")
+ var available_count := 0
+ for person in _state().get("members",[]):
+  if person is Dictionary and str(person.get("life_status","active")) == "active":
+   available_count += 1
+ for activity in Social.ACTIVITIES:
+  var outing_id := str(activity)
+  var rule: Dictionary = Social.ACTIVITIES[outing_id]
+  var cost := int(rule["cost_per_member"])*available_count
+  var button := UI.button(str(rule["label"])+"  ·  £%d" % cost)
+  button.custom_minimum_size.y = 52
+  button.disabled = available_count < 2 or _num("cash") < cost
+  socials.add_child(button)
+  button.pressed.connect(func() -> void: _finish(Social.attend(_state(),outing_id)))
  var other := _card("THE BUSINESS SIDE","Music alone won't pay for studio time. Your days also need promotion and practical work.")
  for action_id in ["promo","press","buy_gear"]:
   var id := str(action_id)
