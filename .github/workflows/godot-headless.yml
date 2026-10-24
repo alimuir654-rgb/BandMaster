@@ -147,6 +147,42 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|GIG SCRAPBOOK FAILURE:|ERROR:' /tmp/gig-scrapbook.log; then
             exit 1
           fi
+      - name: Test scheduled gig calendar and missed-show outcomes
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/gig_calendar_tests.gd 2>&1 | tee /tmp/gig-calendar-v22.log
+          grep -q 'GIG CALENDAR V22 TESTS PASSED' /tmp/gig-calendar-v22.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|GIG CALENDAR FAILURE:|ERROR:' /tmp/gig-calendar-v22.log; then
+            exit 1
+          fi
+      - name: Simulate 30-, 90- and 180-day booked-gig campaigns
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_campaign_simulations.gd 2>&1 | tee /tmp/v22-campaign.log
+          grep -q 'V22 CAMPAIGN SIMULATIONS PASSED' /tmp/v22-campaign.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 CAMPAIGN FAILURE:|ERROR:' /tmp/v22-campaign.log; then
+            exit 1
+          fi
+      - name: Validate differentiated rehearsal-room decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_practice_room_tests.gd 2>&1 | tee /tmp/v22-practice.log
+          grep -q 'V22 PRACTICE ROOM TESTS PASSED' /tmp/v22-practice.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 PRACTICE FAILURE:|ERROR:' /tmp/v22-practice.log; then
+            exit 1
+          fi
+      - name: Verify complete booked-gig save and UI lifecycle
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v22_save_ui_integration.gd 2>&1 | tee /tmp/v22-save-integration.log
+          grep -q 'V22 SAVE AND UI INTEGRATION PASSED' /tmp/v22-save-integration.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V22 INTEGRATION FAILURE:|ERROR:' /tmp/v22-save-integration.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
