@@ -102,6 +102,15 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|CHAPTER FAILURE:|ERROR:' /tmp/chapter-tests.log; then
             exit 1
           fi
+      - name: Validate reusable narrative UI components
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/ui_component_tests.gd 2>&1 | tee /tmp/ui-components.log
+          grep -q 'UI COMPONENT TESTS PASSED' /tmp/ui-components.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|UI COMPONENT FAILURE:|ERROR:' /tmp/ui-components.log; then
+            exit 1
+          fi
       - name: Smoke-test dedicated CareerHub scene
         shell: bash
         run: |
