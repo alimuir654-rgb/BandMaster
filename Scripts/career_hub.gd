@@ -442,6 +442,39 @@ func _band() -> void:
   coach.pressed.connect(func() -> void: _member(index,"coach"))
   rest.pressed.connect(func() -> void: _member(index,"break"))
 
+ if members.size() < 6:
+  var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
+  var shortlist := Life.candidates(_state())
+  for i in range(shortlist.size()):
+   var candidate: Dictionary = shortlist[i]
+   var index := i
+   _label(recruitment,"%s  ·  %s  ·  %s" % [str(candidate["name"]),str(candidate["role"]),str(candidate["trait"])],15,UI.WHITE)
+   _label(recruitment,"SKILL %d  /  LOYALTY %d" % [int(candidate["skill"]),int(candidate["loyalty"])],12,UI.MUTED)
+   var sign := UI.button("SIGN  ·  £%d" % int(candidate["cost"]),i == 0)
+   sign.custom_minimum_size.y = 48
+   sign.disabled = _num("cash") < int(candidate["cost"])
+   recruitment.add_child(sign)
+   sign.pressed.connect(func() -> void: _recruit(index))
+ var settings := _card("DIALOGUE ENGINE","Offline dialogue always works. Optional local AI requires an Ollama server on this device.")
+ var cfg: Dictionary = _extra().get("local_dialogue",{})
+ var enabled := bool(cfg.get("enabled",false))
+ var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
+ switcher.disabled = OS.has_feature("mobile")
+ if OS.has_feature("mobile"):
+  _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
+ settings.add_child(switcher)
+ switcher.pressed.connect(func() -> void:
+  var config_store: Dictionary = _extra()
+  var updated: Dictionary = config_store.get("local_dialogue",{}).duplicate(true)
+  updated["enabled"] = not bool(updated.get("enabled",false))
+  if not bool(updated["enabled"]):
+   dialogue_serial += 1
+   _cancel_dialogue_request()
+  config_store["local_dialogue"] = updated
+  _save()
+  _render()
+ )
+
 func _listen(index: int) -> void:
  # Every listen replaces the previous request. A late completion cannot rewrite
  # another musician's dialogue or a more recent player decision.
@@ -506,39 +539,6 @@ func _display_conversation(response: Dictionary) -> void:
  message = str(response.get("speaker","Musician"))+": "+str(response.get("text",""))
  _save()
  _render()
-
- if members.size() < 6:
-  var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
-  var shortlist := Life.candidates(_state())
-  for i in range(shortlist.size()):
-   var candidate: Dictionary = shortlist[i]
-   var index := i
-   _label(recruitment,"%s  ·  %s  ·  %s" % [str(candidate["name"]),str(candidate["role"]),str(candidate["trait"])],15,UI.WHITE)
-   _label(recruitment,"SKILL %d  /  LOYALTY %d" % [int(candidate["skill"]),int(candidate["loyalty"])],12,UI.MUTED)
-   var sign := UI.button("SIGN  ·  £%d" % int(candidate["cost"]),i == 0)
-   sign.custom_minimum_size.y = 48
-   sign.disabled = _num("cash") < int(candidate["cost"])
-   recruitment.add_child(sign)
-   sign.pressed.connect(func() -> void: _recruit(index))
- var settings := _card("DIALOGUE ENGINE","Offline dialogue always works. Optional local AI requires an Ollama server on this device.")
- var cfg: Dictionary = _extra().get("local_dialogue",{})
- var enabled := bool(cfg.get("enabled",false))
- var switcher := UI.button("LOCAL AI: ON" if enabled else "LOCAL AI: OFF")
- switcher.disabled = OS.has_feature("mobile")
- if OS.has_feature("mobile"):
-  _label(settings,"PC-local preview only. Mobile uses offline dialogue.",13,UI.MUTED)
- settings.add_child(switcher)
- switcher.pressed.connect(func() -> void:
-  var config_store: Dictionary = _extra()
-  var updated: Dictionary = config_store.get("local_dialogue",{}).duplicate(true)
-  updated["enabled"] = not bool(updated.get("enabled",false))
-  if not bool(updated["enabled"]):
-   dialogue_serial += 1
-   _cancel_dialogue_request()
-  config_store["local_dialogue"] = updated
-  _save()
-  _render()
- )
 
 func _life_situations() -> void:
  for situation in Life.pending(_state()):
