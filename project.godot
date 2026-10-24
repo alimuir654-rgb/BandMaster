@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BandMaster"
-run/main_scene="uid://irvfm714u7gr"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
