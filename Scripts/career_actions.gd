@@ -123,7 +123,7 @@ static func _write_original(state: Dictionary) -> Dictionary:
  var titles := ["AFTER THE LAST BUS","RAIN ON THE PLATFORM","NEON AT CLOSING TIME","EVERY OTHER FRIDAY","OUTSIDE THE VENUE","ANOTHER SMALL TOWN","THE MILE HOME","NOT QUITE FAMOUS"]
  var catalogue: Array = state.get("song_catalogue",[]).duplicate(true)
  var number := maxi(1,int(state.get("songs",1)))
- var credits := PackedStringArray()
+ var credits: Array = []
  var skill_total := 0
  var active := 0
  for entry in state.get("members",[]):
@@ -132,13 +132,13 @@ static func _write_original(state: Dictionary) -> Dictionary:
    skill_total += int(entry.get("skill",50))
    active += 1
  var skill_average := int(float(skill_total)/float(active)) if active > 0 else 45
- var quality := clampi(25 + int(state.get("readiness",0))/3 + skill_average/3 - int(state.get("tension",0))/5,1,100)
+ var quality := clampi(25 + int(float(state.get("readiness",0))/3.0) + int(float(skill_average)/3.0) - int(float(state.get("tension",0))/5.0),1,100)
  catalogue.append({
   "id":"original:%d" % number,
   "title":str(titles[(number-1)%titles.size()]) + (" (REPRISE %d)" % int((number-1)/titles.size()+1) if number > titles.size() else ""),
   "written_day":int(state.get("tour_day",1)),
   "quality":quality,
-  "writers":Array(credits)
+  "writers":credits
  })
  while catalogue.size() > 60:
   catalogue.pop_front()
