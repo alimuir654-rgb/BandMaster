@@ -394,3 +394,13 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V29 UX FAILURE:|ERROR:' /tmp/v29-ux.log; then
             exit 1
           fi
+
+      - name: Validate venue browser UX and booking discovery
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v30_venue_browser_tests.gd 2>&1 | tee /tmp/v30-venues.log
+          grep -q 'V30 VENUE BROWSER TESTS PASSED' /tmp/v30-venues.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V30 VENUE BROWSER FAILURE:|ERROR:' /tmp/v30-venues.log; then
+            exit 1
+          fi
