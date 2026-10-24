@@ -40,3 +40,15 @@ Follow-up release acceptance: QA must run both `new band → scripted intro → 
 
 ## Review verdict
 The calendar subsystem and scenario tests are necessary but insufficient for a v2.2 launch. **Do not label this PR as the full v2.2 playable release.** Continue towards consolidated onboarding, contextual preparation UI, meaningful relationships, and visual device review.
+
+
+## Measured simulated-play findings (current branch, nine scenarios)
+All scripted 30/90/180-day scenarios pass mechanical invariants, but **successful execution is not balance sign-off**. At day 180 the planned player had 44 performed gigs, 130 written songs and £1,365; the songwriter had 44 gigs, 90 songs and £1,440; the reckless player missed 15 gigs yet still played 29 shows, had zero originals and £990. These are direct outputs of the automated scenario runner and reveal an under-constrained gig economy and unrealistic creative throughput.
+
+**BA verdict: BLOCK balance release.** Add realistic setlist readiness, fatigue and opportunity costs to shows; consider fewer available venues or promoter cooldowns; reduce ability to create a complete song every day; test whether players with different strategies experience meaningful tradeoffs. Preserve casual-mode accessibility and avoid punitive dead ends. Require simulation thresholds and subjective player review before release.
+
+**Engineering verdict: PASS deterministic subsystem integration; HOLD cross-era onboarding harmonisation.** New calendar and practice-room components reuse the existing state and save architecture; actual CareerHub save/reload integration and nine extended simulations run in CI. Still review `tour_intro.gd` and stable member identity before migrating relationships or changing roster indices.
+
+**QA verdict: PASS automated mechanics, HOLD visual/device and balance verification.** Test suite now covers scheduled shows, missed and cancelled shows, rehearsals, varied musician traits, relationship changes, 30/90/180-day persona simulation and actual save/reload. Manual phone-size layout and scripted-intro-to-CareerHub journey remain uncovered.
+
+**Player persona verdict:** A first-time player needs fewer competing cards and a guided first month; a management enthusiast needs choices that change outcomes beyond cosmetic description; a mobile player needs readable navigation and touch targets; an offline player must never be gated by AI availability.
