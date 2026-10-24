@@ -126,14 +126,14 @@ func _render() -> void:
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  var margin := MarginContainer.new()
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- margin.add_theme_constant_override("margin_left",18)
- margin.add_theme_constant_override("margin_right",18)
- margin.add_theme_constant_override("margin_top",18)
+ margin.add_theme_constant_override("margin_left",12)
+ margin.add_theme_constant_override("margin_right",12)
+ margin.add_theme_constant_override("margin_top",12)
  margin.add_theme_constant_override("margin_bottom",24)
  scroll.add_child(margin)
  content = VBoxContainer.new()
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- content.add_theme_constant_override("separation",14)
+ content.add_theme_constant_override("separation",10)
  margin.add_child(content)
  _header()
  _hero()
@@ -146,7 +146,10 @@ func _render() -> void:
   "BAND": _band()
   "ACTIONS": _actions()
   "SCENE": _scene()
- _action(content,"SAVE & MAIN MENU",_menu)
+ var menu := UI.button("SAVE & MAIN MENU")
+ menu.custom_minimum_size.y = 48
+ content.add_child(menu)
+ menu.pressed.connect(_menu)
  _bottom_nav()
 
 func _header() -> void:
@@ -193,7 +196,7 @@ func _hero() -> void:
  var picture := TextureRect.new()
  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- picture.custom_minimum_size.y = 300
+ picture.custom_minimum_size.y = 240
  picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
  if ResourceLoader.exists(path):
   picture.texture = load(path)
@@ -210,7 +213,7 @@ func _hero() -> void:
   "ACTIONS":"ANOTHER DAY ON THE ROAD",
   "SCENE":"MAKE SOME NOISE"
  }
- _label(frame,str(headline.get(tab,tab)),22,UI.WHITE)
+ _label(frame,str(headline.get(tab,tab)),19,UI.AMBER)
 
 
 func _home() -> void:
@@ -232,9 +235,19 @@ func _home() -> void:
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
  var quick := _card("NEXT MOVES","Choose how to spend the day.")
- _action(quick,"BOOK A GIG",func() -> void: _switch("GIGS"),true)
- _action(quick,"WRITE A SONG",func() -> void: _do_action("songwrite"))
- _action(quick,"REHEARSE — £15",func() -> void: _do_action("rehearse"))
+ var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",6)
+ quick.add_child(row)
+ var book := UI.button("GIGS",true)
+ var write := UI.button("WRITE")
+ var practise := UI.button("PRACTISE")
+ for action in [book,write,practise]:
+  action.custom_minimum_size.y = 58
+  action.add_theme_font_size_override("font_size",13)
+  row.add_child(action)
+ book.pressed.connect(func() -> void: _switch("GIGS"))
+ write.pressed.connect(func() -> void: _do_action("songwrite"))
+ practise.pressed.connect(func() -> void: _do_action("rehearse"))
 
 func _gigs() -> void:
  var summary := _card("BOOK A BRITISH GIG","Every show builds your story. Choose the stage, then the approach.")
@@ -270,6 +283,7 @@ func _gear() -> void:
  var heading := _card("THE MUSIC SHOP","A real backline, built one second-hand find at a time.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"OWNED  %d ITEMS" % owned.size(),14,UI.AMBER)
+ _label(heading,"CASH AVAILABLE £%d" % _num("cash"),13,UI.MUTED)
  for item in Gear.ITEMS:
   var key: String = str(item["id"])
   var box := _card(str(item["name"]),str(item["description"]))
@@ -277,7 +291,11 @@ func _gear() -> void:
   if owned.has(key):
    _label(box,"✓  IN YOUR INVENTORY",15,UI.AMBER)
   else:
-   _action(box,"BUY EQUIPMENT  ·  £%d" % int(item["price"]),func() -> void: _buy(key),true)
+   var buy := UI.button("BUY  ·  £%d" % int(item["price"]),true)
+   buy.custom_minimum_size.y = 52
+   buy.disabled = _num("cash") < int(item["price"])
+   box.add_child(buy)
+   buy.pressed.connect(func() -> void: _buy(key))
 
 func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
