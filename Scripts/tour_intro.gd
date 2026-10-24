@@ -138,7 +138,7 @@ func _build_screen() -> void:
 	var scroll := ScrollContainer.new()
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if current_event == "aftershow" and pending_next.is_empty():
-		scroll.offset_bottom = -108
+		scroll.offset_bottom = 0
 	add_child(scroll)
 	var margin := MarginContainer.new()
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -186,9 +186,7 @@ func _build_screen() -> void:
 		"van_problem": _show_legacy_van()
 		"soundcheck": _show_soundcheck()
 		"show": _show_gig()
-		"aftershow":
-			_show_aftershow()
-			_build_bottom_nav()
+		"aftershow": _show_aftershow()
 		_: _label(page, "UNKNOWN STAGE: " + current_event, 16, AMBER)
 
 func _show_compact_career_header() -> void:
@@ -422,31 +420,17 @@ func _gig(action: String) -> void:
 	_commit(story, "aftershow")
 
 func _show_aftershow() -> void:
-	_label(page, "CAREER HQ  //  " + career_tab, 21, AMBER)
-	_show_scene_banner()
-	_separator()
-	if not career_feedback.is_empty():
-		_section("LATEST ACTIVITY", career_feedback)
-	match career_tab:
-		"HOME": _show_home_dashboard()
-		"GIGS": _show_circuit()
-		"GEAR": _show_gear()
-		"BAND": _show_band_cards()
-		"SCENE":
-			_section("THE LOCAL SCENE", "The British independent circuit starts with word of mouth. Local press, posters and a decent demo can change your fortunes.")
-			_show_opportunities()
-			_meter("LOCAL BUZZ", int(career_extra.get("buzz",0)), 100)
-			_meter("PRESS INTEREST", int(career_extra.get("press",0)), 100)
-			_choice("PRINT POSTERS — £25", "Build local buzz and earn new fans.", func() -> void: _take_career_action("promo"))
-			_choice("PITCH MUSIC PRESS — £10", "Build press relationships and new opportunities.", func() -> void: _take_career_action("press"))
-		_:
-			_section("PLAN YOUR NEXT MOVE", "Each action moves time forward and changes the state of your career.")
-			for action_id in CareerActions.labels().keys():
-				var config: Dictionary = CareerActions.labels()[action_id]
-				var cost := int(config.get("cost",0))
-				var action_key: String = str(action_id)
-				_choice(str(config["label"]), "£%d  /  1 day" % cost, func() -> void: _take_career_action(action_key))
-	_choice("SAVE & MAIN MENU", "Return to the launch screen.", _menu)
+	_label(page, "CAREER HQ", 22, AMBER)
+	_label(page, "The first gig is complete. Enter the rebuilt career hub to manage your band.", 16, WHITE)
+	_choice("ENTER CAREER HQ", "Gigs, gear, band members and the local scene.", _open_career_hub)
+	_choice("BACK TO MAIN MENU", "Your existing save is preserved.", _menu)
+
+
+func _open_career_hub() -> void:
+	current_event = "aftershow"
+	pending_next = ""
+	_save_game()
+	get_tree().change_scene_to_file("res://Scenes/CareerHub.tscn")
 
 
 func _show_scene_banner() -> void:
