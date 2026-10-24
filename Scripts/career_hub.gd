@@ -27,6 +27,7 @@ const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const BandPulse = preload("res://Scripts/band_pulse_presentation.gd")
+const Chemistry = preload("res://Scripts/band_chemistry_presentation.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
 const ART := {
@@ -493,6 +494,17 @@ func _band() -> void:
  _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
  if int(pulse["exhausted"]) > 0:
   _label(chemistry,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.AMBER)
+
+ var pairs: Array = Chemistry.connections(members,_state().get("relationships",{}))
+ var relationships_card := _card("BETWEEN THE BANDMATES",Chemistry.summary(pairs))
+ for pair in pairs:
+  var bond := VBoxContainer.new()
+  bond.add_theme_constant_override("separation",4)
+  relationships_card.add_child(bond)
+  _label(bond,str(pair["first"])+"  +  "+str(pair["second"])+"   /   "+str(pair["label"]),13,UI.WHITE)
+  _progress(bond,"CONNECTION",int(pair["score"]))
+ if pairs.is_empty():
+  _label(relationships_card,"Chemistry grows through rehearsals, conversations and time together.",12,UI.MUTED)
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
