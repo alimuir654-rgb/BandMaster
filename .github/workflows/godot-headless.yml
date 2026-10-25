@@ -817,3 +817,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v121_stage_reveal_tests.gd
+      - name: Verify navigation transitions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v122_navigation_motion_tests.gd
