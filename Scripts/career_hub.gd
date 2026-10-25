@@ -2181,7 +2181,7 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
    var light := _label(crowd_strip,caption,12,Color("#E9B9D4"))
    light.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    light.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- var overline := _label(stack,"LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
+ var overline := _label(stack,"THE SHOW  /  BACKSTAGE REPORT" if show_result else "LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
  overline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var title := _label(stack,Motion.headline(source,true),24,UI.AMBER)
  title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
