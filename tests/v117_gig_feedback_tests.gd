@@ -21,7 +21,7 @@ func _initialize() -> void:
  _check(source.contains("indicator.autowrap_mode = TextServer.AUTOWRAP_OFF"),"countdown stays horizontal")
  _check(source.contains("BackstageIncident.incident(_state())"),"soundcheck incident present")
  _check(source.contains('source.begins_with("gig:")'),"stage image only for gigs")
- _check(source.contains('tween_property(stage_image,"modulate:a",1.0,0.8)'),"stage image fades in")
+ _check(source.contains('tween_property(stage_image,"modulate:a",1.0,0.85)'),"stage image fades in")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
  if failures==0:
   print("V117 GIG FEEDBACK PASSED")
