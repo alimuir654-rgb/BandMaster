@@ -4,7 +4,7 @@ func _initialize() -> void:
  var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(src.contains('func _open_promoter_meeting('),"promoter meeting is a separate overlay")
  _check(src.contains('overlay.name = "PromoterMeeting"'),"meeting has its own view identity")
- _check(src.contains('Promoter.book(_state(),venue_id,proposal)'),"negotiated offers book normally")
+ _check(src.contains('Promoter.book(_state(),venue_id,proposal,false,selected_tour_plan)'),"negotiated offers preserve selected travel plan")
  _check(src.contains('overlay.queue_free()'),"meeting can be dismissed")
  _check(src.contains('preserve_venue_scroll = true'),"venue selection scroll preserved")
  _check(src.contains('preserve_venue_scroll or preserve_gear_scroll') or src.contains('preserve_gear_scroll or preserve_venue_scroll'),"viewport scroll remembers venue selection")

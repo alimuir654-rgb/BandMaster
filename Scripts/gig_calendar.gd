@@ -2,6 +2,7 @@ extends RefCounted
 # Calendar decisions are pure, deterministic, and additive to existing saves.
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Chemistry = preload("res://Scripts/song_chemistry.gd")
+const Tour = preload("res://Scripts/tour_itinerary.gd")
 const LEAD_DAYS := 3
 const CANCELLATION_FEE := 15
 const MISSED_REPUTATION := 8
@@ -10,7 +11,7 @@ static func pending(state: Dictionary) -> Dictionary:
  var item = state.get("booked_show",{})
  return item.duplicate(true) if item is Dictionary else {}
 
-static func book(state: Dictionary, venue_id: String, approach: String = "tight", hire_session: bool = false) -> Dictionary:
+static func book(state: Dictionary, venue_id: String, approach: String = "tight", hire_session: bool = false, travel_plan: String = Tour.DRIVE) -> Dictionary:
  if not pending(state).is_empty():
   return {"ok":false,"message":"One gig is already booked. Play or cancel it first."}
  if not Gigs.APPROACHES.has(approach):
@@ -20,16 +21,36 @@ static func book(state: Dictionary, venue_id: String, approach: String = "tight"
   return {"ok":false,"message":"Unknown venue."}
  if not Gigs.available(int(state.get("reputation",0)),int(state.get("fans",0))).has(venue):
   return {"ok":false,"message":"The venue has not offered your band a show yet."}
+ var journey: Dictionary = Tour.validate(state,venue_id,travel_plan,hire_session)
+ if not bool(journey.get("ok",false)):
+  return journey
  var stage_day := maxi(1,int(state.get("tour_day",1))) + LEAD_DAYS
  var next := state.duplicate(true)
  next["gig_night_phase"] = "arrival"
- next["booked_show"] = {"venue_id":venue_id,"venue":str(venue["venue"]),"city":str(venue["city"]),"day":stage_day,"approach":approach,"session_drummer":hire_session}
+ next["booked_show"] = {"venue_id":venue_id,"venue":str(venue["venue"]),"city":str(venue["city"]),"day":stage_day,"approach":approach,"session_drummer":hire_session,"travel_plan":travel_plan}
  var journal: Array = next.get("career_journal",[]).duplicate(true)
  journal.append({"id":"booking:%d:%s" % [stage_day,venue_id],"day":int(state.get("tour_day",1)),"title":"A SHOW ON THE CALENDAR","text":"%s in %s is booked for day %d. Prepare your set." % [str(venue["venue"]),str(venue["city"]),stage_day],"kind":"gig"})
  while journal.size() > 80:
   journal.pop_front()
  next["career_journal"] = journal
  return {"ok":true,"state":next,"message":"Booked %s for day %d. You have %d days to prepare." % [str(venue["venue"]),stage_day,LEAD_DAYS]}
+
+static func replan(state: Dictionary, plan_id: String) -> Dictionary:
+ var booking: Dictionary = pending(state)
+ if booking.is_empty():
+  return {"ok":false,"message":"No show is booked."}
+ var day := int(state.get("tour_day",1))
+ var show_day := int(booking.get("day",0))
+ if day > show_day or (day == show_day and str(state.get("gig_night_phase","arrival")) != "arrival"):
+  return {"ok":false,"message":"Travel arrangements are locked after arrival at the venue."}
+ var checked: Dictionary = Tour.validate(state,str(booking.get("venue_id","")),plan_id,bool(booking.get("session_drummer",false)))
+ if not bool(checked.get("ok",false)):
+  return checked
+ var next := state.duplicate(true)
+ var revised: Dictionary = next.get("booked_show",{}).duplicate(true)
+ revised["travel_plan"] = plan_id
+ next["booked_show"] = revised
+ return {"ok":true,"state":next,"message":"Journey changed to %s. No time or money spent yet." % str(checked["plan"]["label"])}
 
 static func perform(state: Dictionary) -> Dictionary:
  var show := pending(state)
@@ -40,13 +61,20 @@ static func perform(state: Dictionary) -> Dictionary:
   return {"ok":false,"message":"The gig is on day %d. Use the time to practise or promote." % int(show["day"])}
  if day > int(show.get("day",0)):
   return {"ok":false,"message":"The show date has passed."}
+ var journey: Dictionary = {}
+ if show.has("travel_plan"):
+  var checked: Dictionary = Tour.validate(state,str(show.get("venue_id","")),str(show["travel_plan"]),bool(show.get("session_drummer",false)))
+  if not bool(checked.get("ok",false)):
+   return checked
+  journey = checked["plan"]
+ # Legacy bookings without a travel plan keep their previous economy.
  # Live quality depends on a rehearsed set, not preparation statistics alone.
  var originals := maxi(0,int(state.get("songs",0)))
  var setlist_modifier := -22 if originals == 0 else (-10 if originals == 1 else (-4 if originals == 2 else 2))
  var performance_state := state.duplicate(true)
  var chemistry: Dictionary = Chemistry.calculate(state)
  var live_bonus: int = int(chemistry.get("bonus",0))
- performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier + live_bonus,0,100)
+ performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier + live_bonus + int(journey.get("quality_bonus",0)),0,100)
  var result: Dictionary = Gigs.play(performance_state,str(show.get("venue_id","")),str(show.get("approach","tight")),bool(show.get("session_drummer",false)))
  if not bool(result.get("ok",false)):
   return result
@@ -82,6 +110,9 @@ static func perform(state: Dictionary) -> Dictionary:
    updated["fans"] = baseline_fans + int(round(float(gain)*0.75))
   var settlement: String = str(result.get("message","Show completed.")).replace("Fee £%d" % gross_fee,"Fee £%d" % actual_fee)
   result["message"] = settlement+" %s" % ("The crowd wants more original material." if originals < 2 else ("Another night here draws fewer new faces." if recent_repeat else "The new songs are paying off."))
+ if not journey.is_empty():
+  updated = Tour.apply_after_show(updated,journey,str(show.get("venue_id","")))
+  result["message"] = str(result.get("message",""))+" Journey: %s; room £%d." % [str(journey["label"]),int(journey["accommodation_cost"])]
  updated["booked_show"] = {}
  result["state"] = updated
  return result

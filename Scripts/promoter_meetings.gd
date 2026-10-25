@@ -21,11 +21,11 @@ static func negotiate(state: Dictionary, venue_id: String, offer_id: String) -> 
  var result := state.duplicate(true)
  result["promoter_offer"] = {"venue_id":venue_id,"offer_id":offer_id}
  return {"ok":true,"state":result}
-static func book(state: Dictionary, venue_id: String, offer_id: String, hire_session: bool = false) -> Dictionary:
+static func book(state: Dictionary, venue_id: String, offer_id: String, hire_session: bool = false, travel_plan: String = "drive_home") -> Dictionary:
  var proposal: Dictionary = negotiate(state,venue_id,offer_id)
  if not bool(proposal.get("ok",false)):
   return proposal
- var booked: Dictionary = Calendar.book(proposal["state"],venue_id,"tight",hire_session)
+ var booked: Dictionary = Calendar.book(proposal["state"],venue_id,"tight",hire_session,travel_plan)
  if not bool(booked.get("ok",false)):
   return booked
  booked["message"] = str(booked.get("message",""))+" Promoter deal: "+str(OFFERS[offer_id]["label"])+"."

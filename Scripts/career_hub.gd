@@ -13,6 +13,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const VenueBrowser = preload("res://Scripts/venue_browser.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Tour = preload("res://Scripts/tour_itinerary.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const BackstageIncident = preload("res://Scripts/gig_backstage_incident.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
@@ -57,6 +58,7 @@ var selected_band_member := -1
 var roster_sort := "LINEUP"
 var preserve_venue_scroll := false
 var selected_gear_item := ""
+var selected_tour_plan := Tour.DRIVE
 var preserve_gear_scroll := false
 var career_scroll: ScrollContainer
 var preserve_roster_scroll := false
@@ -841,6 +843,27 @@ func _gigs() -> void:
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
   var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
+  var journey_id := str(booked.get("travel_plan",""))
+  var booked_plan: Dictionary = Tour.preview(_state(),str(booked.get("venue_id","")),journey_id)
+  if booked_plan.is_empty():
+   _label(calendar_box,"TRAVEL  /  LEGACY BOOKING  ·  STANDARD JOURNEY",12,UI.MUTED)
+  else:
+   _label(calendar_box,"TRAVEL  /  %s  ·  ROOM £%d" % [str(booked_plan["label"]),int(booked_plan["accommodation_cost"])],12,UI.AMBER)
+  var journey_dates: Array = Tour.timeline(_state())
+  var date_strip := HBoxContainer.new()
+  date_strip.add_theme_constant_override("separation",6)
+  calendar_box.add_child(date_strip)
+  for step in journey_dates:
+   var date_panel := PanelContainer.new()
+   date_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   date_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],6))
+   date_strip.add_child(date_panel)
+   var day_stack := VBoxContainer.new()
+   date_panel.add_child(day_stack)
+   _label(day_stack,"DAY %d" % int(step["day"]),11,UI.AMBER if bool(step["show"]) else UI.MUTED)
+   _label(day_stack,str(step["label"]),11,UI.WHITE)
+  if due >= 0 and (due > 0 or str(_state().get("gig_night_phase","arrival")) == "arrival"):
+   _action(calendar_box,"TRAVEL & OVERNIGHT OPTIONS  ›",func() -> void: _open_itinerary_editor())
   if due > 0:
    _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
    _action(calendar_box,"PREPARE FOR THE SHOW  ›",func() -> void: _switch("ACTIONS"),true)
@@ -936,7 +959,7 @@ func _gigs() -> void:
     _action(calendar_box,"CONTINUE THE NIGHT  ›",func() -> void: _advance_gig_night(),true)
   else:
    _label(calendar_box,"THIS BOOKING IS OVERDUE.",14,UI.AMBER)
-  _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state())))
+  _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state()),"booking_cancel"))
  else:
   _card("BOOK AHEAD","Shows are booked three days in advance. Use those days to prepare, but don't miss the date.")
  _environment_dashboard()
@@ -1030,7 +1053,7 @@ func _gigs() -> void:
    _label(itinerary,"VENUE  /  "+str(selected_venue["venue"]),16,UI.WHITE)
    _label(itinerary,"TRAVEL ESTIMATE  £%d   /   POTENTIAL FEE  £%d" % [int(selected_venue["travel"]),int(selected_venue["fee"])],14,UI.AMBER)
    _label(itinerary,"AVAILABLE FUNDS  £%d   /   VAN CONDITION  %d" % [_num("cash"),_num("van_health")],13,UI.MUTED)
-   _label(itinerary,"Accommodation and overnight travel are not yet simulated. Do not treat the fee as guaranteed profit.",12,UI.MUTED)
+   _label(itinerary,"Choose drive-home or overnight travel when meeting the promoter. Accommodation is charged after the show; the fee is not guaranteed profit.",12,UI.MUTED)
    var meeting_venue_id := gig_selected_venue
    var meet := UI.themed_button("MEET THE PROMOTER  ›",_genre_id(),true)
    meet.custom_minimum_size.y = 58
@@ -1166,6 +1189,63 @@ func _open_venue_details(venue_id: String) -> void:
   _open_venue_browser()
  )
 
+func _open_itinerary_editor() -> void:
+ var state: Dictionary = _state()
+ var booking: Dictionary = Calendar.pending(state)
+ if booking.is_empty():
+  return
+ var venue_id := str(booking.get("venue_id",""))
+ var overlay := ColorRect.new()
+ overlay.name = "TourItineraryEditor"
+ overlay.color = Color("#141922")
+ overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(overlay)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var scroll := ScrollContainer.new()
+ overlay.add_child(scroll)
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var margin := MarginContainer.new()
+ margin.add_theme_constant_override("margin_left",18)
+ margin.add_theme_constant_override("margin_right",18)
+ margin.add_theme_constant_override("margin_top",18)
+ margin.add_theme_constant_override("margin_bottom",24)
+ scroll.add_child(margin)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",13)
+ margin.add_child(column)
+ _label(column,"THE TOUR DESK  /  DAY %d" % int(booking.get("day",0)),13,UI.AMBER)
+ _label(column,str(booking.get("venue","THE SHOW")).to_upper(),26,UI.WHITE)
+ _label(column,"FROM HOMETOWN TO "+str(booking.get("city","VENUE"))+"  /  FICTIONAL GAME COSTS, NOT REAL ROUTE DISTANCES",13,UI.MUTED)
+ _label(column,"CASH £%d  /  VAN %d" % [int(state.get("cash",0)),int(state.get("van_health",0))],15,UI.AMBER)
+ var current := str(booking.get("travel_plan",""))
+ for option in Tour.choices(state,venue_id):
+  var id := str(option["id"])
+  var block := PanelContainer.new()
+  block.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],12))
+  column.add_child(block)
+  var details := VBoxContainer.new()
+  details.add_theme_constant_override("separation",7)
+  block.add_child(details)
+  _label(details,str(option["label"])+("  /  SELECTED" if id == current else ""),17,UI.WHITE)
+  _label(details,str(option["description"]),14,UI.MUTED)
+  _label(details,"TRAVEL £%d  +  ROOM £%d  =  £%d" % [int(option["travel_cost"]),int(option["accommodation_cost"]),int(option["total_cost"])],15,UI.AMBER)
+  _label(details,"SET QUALITY %+d  /  MORALE %+d  /  MEMBER FATIGUE %+d  /  VAN WEAR %d" % [int(option["quality_bonus"]),int(option["morale_delta"]),int(option["fatigue_delta"]),int(option["van_wear"])],13,UI.MUTED)
+  var choose := UI.themed_button("CURRENT PLAN" if id == current else "CHOOSE THIS JOURNEY",_genre_id(),id != current)
+  choose.custom_minimum_size.y = 52
+  choose.disabled = id == current or not bool(Tour.validate(state,venue_id,id,bool(booking.get("session_drummer",false))).get("ok",false))
+  details.add_child(choose)
+  choose.pressed.connect(func() -> void:
+   var changed: Dictionary = Calendar.replan(_state(),id)
+   if bool(changed.get("ok",false)):
+    _apply(changed["state"])
+    _save()
+   message = str(changed.get("message","Journey unavailable."))
+   overlay.queue_free()
+   _render()
+  )
+ _label(column,"Room charges settle once after the gig. You can change plans until venue arrival; ensure you can still afford the journey on show day.",13,UI.MUTED)
+ _action(column,"BACK TO GIGS",func() -> void: overlay.queue_free())
+
 func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_count: int) -> void:
  if not Calendar.pending(_state()).is_empty():
   return
@@ -1206,25 +1286,44 @@ func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_cou
   meeting_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   column.add_child(meeting_art)
  _label(column,"THE BOOKER  /  Let's see what deal makes sense for both of us.",17,UI.WHITE)
+ if Tour.preview(_state(),venue_id,selected_tour_plan).is_empty():
+  selected_tour_plan = Tour.DRIVE
+ _label(column,"JOURNEY PLAN  /  CHOOSE BEFORE SIGNING",13,UI.AMBER)
+ for journey_option in Tour.choices(_state(),venue_id):
+  var plan_id := str(journey_option["id"])
+  var selected := selected_tour_plan == plan_id
+  var travel_button := UI.themed_button(("●  " if selected else "")+str(journey_option["label"]),_genre_id(),selected)
+  travel_button.custom_minimum_size.y = 48
+  travel_button.disabled = not bool(journey_option["available"])
+  column.add_child(travel_button)
+  _label(column,"TRAVEL £%d  /  ROOM £%d  /  TOTAL £%d  /  SET %+d  /  FATIGUE %+d" % [int(journey_option["travel_cost"]),int(journey_option["accommodation_cost"]),int(journey_option["total_cost"]),int(journey_option["quality_bonus"]),int(journey_option["fatigue_delta"])],12,UI.MUTED)
+  travel_button.pressed.connect(func() -> void:
+   selected_tour_plan = plan_id
+   overlay.queue_free()
+   _open_promoter_meeting(venue_id,line_up_ready,available_count)
+  )
+ var plan_validation: Dictionary = Tour.validate(_state(),venue_id,selected_tour_plan)
+ if not bool(plan_validation.get("ok",false)):
+  _label(column,str(plan_validation.get("message","Journey unavailable.")),13,UI.AMBER)
  for offer_id in ["standard","guarantee","guestlist"]:
   var proposal: String = offer_id
   var terms: Dictionary = Promoter.OFFERS[proposal]
   var option := UI.themed_button(str(terms["label"]),_genre_id(),proposal=="standard")
   option.custom_minimum_size.y = 56
-  option.disabled = not line_up_ready
+  option.disabled = not line_up_ready or not bool(plan_validation.get("ok",false))
   column.add_child(option)
   _label(column,str(terms["description"]),12,UI.MUTED)
   option.pressed.connect(func() -> void:
    overlay.queue_free()
-   _finish(Promoter.book(_state(),venue_id,proposal))
+   _finish(Promoter.book(_state(),venue_id,proposal,false,selected_tour_plan))
   )
  if not line_up_ready and available_count >= 1:
   var session := UI.themed_button("HIRE A SESSION DRUMMER  /  £25",_genre_id(),true)
-  session.disabled = _num("cash") < 25 or (venue_id != "local" and _num("cash") < 25+int(venue["travel"]))
+  session.disabled = not bool(Tour.validate(_state(),venue_id,selected_tour_plan,true).get("ok",false))
   column.add_child(session)
   session.pressed.connect(func() -> void:
    overlay.queue_free()
-   _finish(Promoter.book(_state(),venue_id,"standard",true))
+   _finish(Promoter.book(_state(),venue_id,"standard",true,selected_tour_plan))
   )
  _action(column,"BACK TO THE TOUR PLANNER",func() -> void: overlay.queue_free())
 
@@ -2512,7 +2611,7 @@ func _apply(updated: Dictionary) -> void:
    extra[key] = updated[key]
 
 func _finish(result: Dictionary, source: String = "") -> void:
- if _is_show_day() and not source.begins_with("gig:") and source != "backstage":
+ if _is_show_day() and not source.begins_with("gig:") and source != "backstage" and source != "booking_cancel":
   message = "Tonight's gig comes first. Finish the show before another activity."
   tab = "GIGS"
   _render()
