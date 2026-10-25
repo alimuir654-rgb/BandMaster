@@ -859,6 +859,21 @@ func _actions() -> void:
    _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
+ var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
+ var navigation := HBoxContainer.new()
+ navigation.add_theme_constant_override("separation",8)
+ switches.add_child(navigation)
+ for mode in ["JAM","HANG OUT","PROMOTE"]:
+  var destination := str(mode)
+  var selected := action_view == destination
+  var button := UI.button(destination,selected)
+  button.custom_minimum_size.y = 54
+  button.add_theme_font_size_override("font_size",12)
+  navigation.add_child(button)
+  button.pressed.connect(func() -> void:
+   action_view = destination
+   _render()
+  )
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
  var image_path := "res://Art/Backgrounds/%s/studio.webp" % _genre_id()
  if action_view == "HANG OUT":
@@ -876,21 +891,6 @@ func _actions() -> void:
   scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
   scene_art.texture = load(image_path)
   scene_card.add_child(scene_art)
- var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
- var navigation := HBoxContainer.new()
- navigation.add_theme_constant_override("separation",8)
- switches.add_child(navigation)
- for mode in ["JAM","HANG OUT","PROMOTE"]:
-  var destination := str(mode)
-  var selected := action_view == destination
-  var button := UI.button(destination,selected)
-  button.custom_minimum_size.y = 54
-  button.add_theme_font_size_override("font_size",12)
-  navigation.add_child(button)
-  button.pressed.connect(func() -> void:
-   action_view = destination
-   _render()
-  )
  if action_view == "JAM":
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")

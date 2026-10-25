@@ -525,3 +525,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v62_art_contract_tests.gd
+      - name: Test early studio mode navigation
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v63_studio_nav_tests.gd
