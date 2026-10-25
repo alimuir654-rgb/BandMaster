@@ -24,6 +24,10 @@ func _initialize() -> void:
  _check(int(using["gear_records"]["amp"]["holder_index"]) == 0,"member-specific holder persisted")
  _check(int(using["tour_day"]) == 6 and int(using["cash"]) == 285,"assignment is free and instant")
  _check(int(owned["gear_records"]["amp"]["holder_index"]) == -1,"assignment leaves old state unchanged")
+ var replacement := using.duplicate(true)
+ replacement["members"][0]["name"] = "New Guitarist"
+ _check(Gear.holder_index(replacement,Gear.record(replacement,"amp")) == -1,"replacement musician cannot inherit previous owner's gear")
+ _check(Gear.readiness_penalty(replacement) == 0,"stale ownership does not affect live readiness")
  var worn := using.duplicate(true)
  worn["gear_records"]["amp"]["condition"] = 33
  _check(Gear.readiness_penalty(worn) == -5,"worn assigned amp reduces live readiness")
