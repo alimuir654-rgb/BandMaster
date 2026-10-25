@@ -968,7 +968,17 @@ func _actions() -> void:
     forms.select(form_index)
    if title_index >= 0:
     titles.select(title_index)
-  var preview := _card("SONG DIRECTION  /  BEFORE YOU COMMIT","Changing these choices shapes the next writing session. Nothing is spent until you jam.")
+  var preview_panel := PanelContainer.new()
+  var preview_style := UI.style(UI.palette(_genre_id())["alt"],10)
+  preview_style.border_color = UI.palette(_genre_id())["accent"]
+  preview_style.border_width_left = 3
+  preview_panel.add_theme_stylebox_override("panel",preview_style)
+  workshop.add_child(preview_panel)
+  var preview := VBoxContainer.new()
+  preview.add_theme_constant_override("separation",6)
+  preview_panel.add_child(preview)
+  _label(preview,"YOUR SONG  /  LIVE PREVIEW",12,UI.palette(_genre_id())["accent"])
+  _label(preview,"Selections update instantly. No day is spent until you commit.",12,UI.MUTED)
   var preview_heading := _label(preview,"",17,UI.WHITE)
   var preview_identity := _label(preview,"",13,UI.AMBER)
   var preview_arrangement := _label(preview,"",13,UI.MUTED)

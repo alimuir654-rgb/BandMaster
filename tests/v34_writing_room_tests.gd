@@ -15,7 +15,7 @@ func _initialize() -> void:
  _check(str(note["arrangement"]).contains("completion bonus"),"arrangement tradeoff")
  _check(JSON.stringify(empty) == before,"preview does not mutate save")
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(source.contains("SONG DIRECTION  /  BEFORE YOU COMMIT"),"visible preview")
+ _check(source.contains("YOUR SONG  /  LIVE PREVIEW"),"visible preview")
  _check(source.contains("item_selected.connect"),"reactive selectors")
  _check(source.contains("WRITING ROOM NOTES"),"past writing sessions visible")
  _check(load("res://Scenes/CareerHub.tscn") != null,"scene imports")

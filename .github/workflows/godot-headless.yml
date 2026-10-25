@@ -585,3 +585,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v75_immediate_roster_tests.gd
+      - name: Validate integrated song preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v76_integrated_preview_tests.gd
