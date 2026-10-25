@@ -1283,11 +1283,15 @@ func _bottom_nav() -> void:
    box.add_child(glyph)
   if landscape:
    button.icon_start = {"HOME":"house","GIGS":"ticket","GEAR":"guitar","BAND":"users","ACTIONS":"music","SCENE":"globe"}.get(target,"circle")
+   button.icon_only = true
+   button.button_size = WoldButton.Size.LG
+   button.text = ""
   button.tooltip_text = CareerLayout.nav_hint(target)
   button.accessibility_name = CareerLayout.nav_label(target)+(" (current)" if selected else "")
-  var caption := _label(box,CareerLayout.nav_label(target),12,colours["accent"] if selected else UI.WHITE)
-  caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  if not landscape:
+   var caption := _label(box,CareerLayout.nav_label(target),12,colours["accent"] if selected else UI.WHITE)
+   caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
   bar.add_child(button)
   button.pressed.connect(func() -> void: _switch(target))
 

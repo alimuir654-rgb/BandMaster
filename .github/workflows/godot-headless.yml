@@ -632,3 +632,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v84_landscape_shell_tests.gd
+      - name: Test uncluttered WoldUI icon rail
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v85_icon_rail_polish_tests.gd
