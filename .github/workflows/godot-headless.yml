@@ -884,3 +884,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v134_song_titles_tests.gd
+      - name: Validate venue journey and new-original memento
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v135_venue_journey_milestone_tests.gd

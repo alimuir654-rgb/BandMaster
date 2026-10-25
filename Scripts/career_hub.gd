@@ -837,7 +837,7 @@ func _gigs() -> void:
  var booked: Dictionary = Calendar.pending(_state())
  if booked.is_empty():
   var book_intro := _card("YOUR NEXT SHOW","No gig booked. Browse local venues and choose a promoter deal.")
-  _action(book_intro,"FIND A VENUE  ›",func() -> void: _scroll_to_venue_picker(),true)
+  _action(book_intro,"FIND A VENUE  ›",func() -> void: _open_venue_browser(),true)
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
   var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
@@ -1039,6 +1039,132 @@ func _gigs() -> void:
    meet.pressed.connect(func() -> void: _open_promoter_meeting(meeting_venue_id,line_up_ready,available_count))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
+
+func _open_venue_browser() -> void:
+ if not Calendar.pending(_state()).is_empty():
+  return
+ var overlay := ColorRect.new()
+ overlay.name = "VenueBrowserScreen"
+ overlay.color = Color("#10131D")
+ overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(overlay)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var scroll := ScrollContainer.new()
+ overlay.add_child(scroll)
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var margin := MarginContainer.new()
+ margin.add_theme_constant_override("margin_left",18)
+ margin.add_theme_constant_override("margin_right",18)
+ margin.add_theme_constant_override("margin_top",18)
+ margin.add_theme_constant_override("margin_bottom",24)
+ scroll.add_child(margin)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",14)
+ margin.add_child(column)
+ _label(column,"THE LIVE CIRCUIT  /  VENUE DIRECTORY",13,UI.AMBER)
+ _label(column,"WHERE TO PLAY NEXT",29,UI.WHITE)
+ _label(column,"Explore venues and inspect their costs before meeting a promoter.",15,UI.MUTED)
+ var close := UI.themed_button("BACK TO TOUR PLANNING",_genre_id(),false)
+ column.add_child(close)
+ close.pressed.connect(func() -> void: overlay.queue_free())
+ for locked in [false,true]:
+  var items: Array = VenueBrowser.entries(_state(),locked)
+  _label(column,"AVAILABLE VENUES" if not locked else "FUTURE AMBITIONS",18,UI.AMBER)
+  var grid := GridContainer.new()
+  grid.columns = 2 if get_viewport_rect().size.x >= 900.0 else 1
+  grid.add_theme_constant_override("h_separation",12)
+  grid.add_theme_constant_override("v_separation",12)
+  column.add_child(grid)
+  for entry in items:
+   var venue_id := str(entry["id"])
+   var panel := PanelContainer.new()
+   panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   panel.add_theme_stylebox_override("panel",UI.style(Color("#242B36"),12))
+   grid.add_child(panel)
+   var contents := VBoxContainer.new()
+   contents.add_theme_constant_override("separation",8)
+   panel.add_child(contents)
+   var art_path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
+   if not ResourceLoader.exists(art_path):
+    art_path = "res://Art/Backgrounds/shared/gigs.webp"
+   if ResourceLoader.exists(art_path):
+    var image := TextureRect.new()
+    image.texture = load(art_path)
+    image.custom_minimum_size.y = 126
+    image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+    image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    contents.add_child(image)
+   _label(contents,str(entry["title"]).to_upper()+"  /  "+str(entry["city"]),17,UI.WHITE)
+   _label(contents,"POTENTIAL FEE  £%d  ·  TRAVEL £%d" % [int(entry["fee"]),int(entry["travel"])],13,UI.AMBER)
+   if locked:
+    _label(contents,"NEED %d MORE FANS  ·  %d MORE REPUTATION" % [int(entry["missing_fans"]),int(entry["missing_rep"])],12,UI.MUTED)
+   var details := UI.themed_button("VIEW VENUE & COSTS  ›" if not locked else "NOT YET AVAILABLE",_genre_id(),not locked)
+   details.custom_minimum_size.y = 52
+   details.disabled = locked
+   contents.add_child(details)
+   details.pressed.connect(func() -> void:
+    overlay.queue_free()
+    _open_venue_details(venue_id)
+   )
+
+func _open_venue_details(venue_id: String) -> void:
+ if not Calendar.pending(_state()).is_empty():
+  return
+ var venue: Dictionary = Gigs.get_venue(venue_id)
+ if venue.is_empty():
+  return
+ var overlay := ColorRect.new()
+ overlay.name = "VenueDetailScreen"
+ overlay.color = Color("#151924")
+ overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(overlay)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var center := CenterContainer.new()
+ center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ overlay.add_child(center)
+ var scroll := ScrollContainer.new()
+ scroll.custom_minimum_size.x = minf(760.0,get_viewport_rect().size.x-24.0)
+ scroll.custom_minimum_size.y = minf(680.0,get_viewport_rect().size.y-24.0)
+ center.add_child(scroll)
+ var panel := VBoxContainer.new()
+ panel.add_theme_constant_override("separation",14)
+ scroll.add_child(panel)
+ _label(panel,"VENUE DOSSIER  /  "+str(venue.get("city","HOME")).to_upper(),13,UI.AMBER)
+ _label(panel,str(venue.get("venue","THE VENUE")).to_upper(),27,UI.WHITE)
+ var art_path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
+ if not ResourceLoader.exists(art_path):
+  art_path = "res://Art/Backgrounds/shared/gigs.webp"
+ if ResourceLoader.exists(art_path):
+  var image := TextureRect.new()
+  image.texture = load(art_path)
+  image.custom_minimum_size.y = 210
+  image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  panel.add_child(image)
+ _label(panel,"POTENTIAL FEE  £%d  /  TRAVEL £%d" % [int(venue.get("fee",0)),int(venue.get("travel",0))],16,UI.AMBER)
+ _label(panel,"CASH £%d  /  VAN CONDITION %d  /  BOOKINGS REQUIRE A PROMOTER DEAL" % [_num("cash"),_num("van_health")],13,UI.MUTED)
+ var meet := UI.themed_button("MEET THE PROMOTER",_genre_id(),true)
+ meet.custom_minimum_size.y = 58
+ panel.add_child(meet)
+ meet.pressed.connect(func() -> void:
+  overlay.queue_free()
+  var roster: Array = save_data.get("band",{}).get("members",[])
+  var active := 0
+  var drummer := false
+  for member in roster:
+   if member is Dictionary and str(member.get("life_status","active")) == "active":
+    active += 1
+    if str(member.get("role","")).to_lower().contains("drum"):
+     drummer = true
+  _open_promoter_meeting(venue_id,active >= 2 and drummer,active)
+ )
+ var back := UI.themed_button("BACK TO VENUES",_genre_id(),false)
+ panel.add_child(back)
+ back.pressed.connect(func() -> void:
+  overlay.queue_free()
+  _open_venue_browser()
+ )
 
 func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_count: int) -> void:
  if not Calendar.pending(_state()).is_empty():
@@ -2372,6 +2498,24 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var stack := VBoxContainer.new()
  stack.add_theme_constant_override("separation",14)
  panel.add_child(stack)
+ var before_songs: Array = before.get("song_catalogue",[])
+ var after_songs: Array = after.get("song_catalogue",[])
+ var song_finished := after_songs.size() > before_songs.size()
+ if song_finished:
+  var song: Dictionary = after_songs.back()
+  var sleeve := PanelContainer.new()
+  var sleeve_style := UI.style(Color("#E9DDC2"),12)
+  sleeve_style.border_color = Color("#B99563")
+  sleeve_style.set_border_width_all(3)
+  sleeve.add_theme_stylebox_override("panel",sleeve_style)
+  stack.add_child(sleeve)
+  var sleeve_copy := VBoxContainer.new()
+  sleeve_copy.add_theme_constant_override("separation",8)
+  sleeve.add_child(sleeve_copy)
+  _label(sleeve_copy,"NEW ORIGINAL  /  SONG FINISHED",13,Color("#8A5F30"))
+  _label(sleeve_copy,str(song.get("title","UNTITLED")).to_upper(),23,Color("#231C15"))
+  _label(sleeve_copy,str(song.get("origin","ORIGINAL"))+"  ·  "+str(song.get("arrangement",""))+"  ·  "+str(song.get("lead_writer","")),13,Color("#665343"))
+  _label(sleeve_copy,"A NEW SONG FOR THE SETLIST  /  DAY %d" % int(after.get("tour_day",1)),12,Color("#8A5F30"))
  var chapter_result := source.begins_with("chapter:")
  if chapter_result:
   var reward_heading := _label(stack,"CHAPTER COMPLETE  /  REWARD CLAIMED",14,UI.palette(_genre_id())["accent"])
