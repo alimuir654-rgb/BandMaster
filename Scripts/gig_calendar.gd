@@ -1,6 +1,7 @@
 extends RefCounted
 # Calendar decisions are pure, deterministic, and additive to existing saves.
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const Chemistry = preload("res://Scripts/song_chemistry.gd")
 const LEAD_DAYS := 3
 const CANCELLATION_FEE := 15
 const MISSED_REPUTATION := 8
@@ -43,7 +44,9 @@ static func perform(state: Dictionary) -> Dictionary:
  var originals := maxi(0,int(state.get("songs",0)))
  var setlist_modifier := -22 if originals == 0 else (-10 if originals == 1 else (-4 if originals == 2 else 2))
  var performance_state := state.duplicate(true)
- performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier,0,100)
+ var chemistry: Dictionary = Chemistry.calculate(state)
+ var live_bonus: int = int(chemistry.get("bonus",0))
+ performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier + live_bonus,0,100)
  var result: Dictionary = Gigs.play(performance_state,str(show.get("venue_id","")),str(show.get("approach","tight")),bool(show.get("session_drummer",false)))
  if not bool(result.get("ok",false)):
   return result
@@ -69,6 +72,7 @@ static func perform(state: Dictionary) -> Dictionary:
   latest["originals_played"] = originals
   latest["return_visit"] = recent_repeat
   latest["setlist_modifier"] = setlist_modifier
+  latest["live_chemistry_bonus"] = live_bonus
   var baseline_fans := int(state.get("fans",0))
   var new_fans := int(updated.get("fans",0))
   var gain := maxi(0,new_fans-baseline_fans)
