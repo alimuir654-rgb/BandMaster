@@ -3,6 +3,7 @@ extends RefCounted
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Chemistry = preload("res://Scripts/song_chemistry.gd")
 const Tour = preload("res://Scripts/tour_itinerary.gd")
+const Gear = preload("res://Scripts/gear_shop.gd")
 const LEAD_DAYS := 3
 const CANCELLATION_FEE := 15
 const MISSED_REPUTATION := 8
@@ -74,7 +75,7 @@ static func perform(state: Dictionary) -> Dictionary:
  var performance_state := state.duplicate(true)
  var chemistry: Dictionary = Chemistry.calculate(state)
  var live_bonus: int = int(chemistry.get("bonus",0))
- performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier + live_bonus + int(journey.get("quality_bonus",0)),0,100)
+ performance_state["readiness"] = clampi(int(state.get("readiness",0)) + setlist_modifier + live_bonus + int(journey.get("quality_bonus",0)) + Gear.readiness_penalty(state),0,100)
  var result: Dictionary = Gigs.play(performance_state,str(show.get("venue_id","")),str(show.get("approach","tight")),bool(show.get("session_drummer",false)))
  if not bool(result.get("ok",false)):
   return result
@@ -113,6 +114,7 @@ static func perform(state: Dictionary) -> Dictionary:
  if not journey.is_empty():
   updated = Tour.apply_after_show(updated,journey,str(show.get("venue_id","")))
   result["message"] = str(result.get("message",""))+" Journey: %s; room £%d." % [str(journey["label"]),int(journey["accommodation_cost"])]
+ updated = Gear.after_show(updated)
  updated["booked_show"] = {}
  result["state"] = updated
  return result
