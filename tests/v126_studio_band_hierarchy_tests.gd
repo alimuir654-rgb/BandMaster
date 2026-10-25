@@ -11,7 +11,7 @@ func _initialize() -> void:
  var band := source.substr(band_start,next_band-band_start)
  _check(studio.find('var switches := _card("CHOOSE YOUR DAY"') < studio.find("_environment_dashboard()"),"activity selection before decorative controls")
  _check(studio.contains("content.move_child(songbook_panel,content.get_child_count()-1)"),"phone songbook follows composition workbench")
- _check(studio.contains("if action_view == \"JAM\" and is_instance_valid(songbook_panel):"),"songbook follows workbench at all sizes")
+ _check(studio.contains("songbook_panel.get_parent() == content"),"songbook only reordered when owned by the active container")
  _check(band.contains("briefing_parent.move_child(briefing_panel,briefing_parent.get_child_count()-1)"),"band stats secondary to roster")
  _check(band.contains("var dialogue := _card("),"conversation remains visible")
  _check(band.contains("var talk := UI.themed_button("),"talk interaction retained")
