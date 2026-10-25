@@ -276,11 +276,11 @@ func _home() -> void:
  var destination := str(guidance.get("tab","ACTIONS"))
  _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
  var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
- for signal in Momentum.signals(_state()):
-  var target_tab := str(signal["tab"])
-  var signal_button := UI.button(str(signal["label"])+"  /  "+str(signal["detail"]))
+ for status_entry in Momentum.signals(_state()):
+  var target_tab := str(status_entry["tab"])
+  var signal_button := UI.button(str(status_entry["label"])+"  /  "+str(status_entry["detail"]))
   signal_button.custom_minimum_size.y = 54
-  signal_button.tooltip_text = str(signal["detail"])
+  signal_button.tooltip_text = str(status_entry["detail"])
   momentum.add_child(signal_button)
   signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
