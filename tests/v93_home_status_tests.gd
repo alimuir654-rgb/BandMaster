@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(a>=0 and b>a,"Home screen exists")
  if a>=0 and b>a:
   var h := source.substr(a,b-a)
-  _check(h.find('var pulse := _card("BAND PULSE"') < h.find('var momentum := _card("CAREER MOMENTUM"'),"status shown before secondary signals")
+  _check(h.find('var pulse := _card("BAND PULSE"') < h.find('var opportunities := _card("WAYS FORWARD"'),"status shown before secondary signals")
   _check(h.contains('if not landscape_dashboard:\n  var quick := _card("SHORTCUTS"'),"mobile shortcuts preserved, desktop duplicate avoided")
   _check(h.contains('content = full_content'),"root content restored")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene compiles")
