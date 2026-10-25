@@ -610,3 +610,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v80_ab_songwriting_tests.gd
+      - name: Validate real Indie musician portraits
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v81_raster_portrait_tests.gd
