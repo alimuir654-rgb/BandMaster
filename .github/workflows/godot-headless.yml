@@ -692,3 +692,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v96_studio_command_tests.gd
+      - name: Verify concise Studio status and show warnings
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v97_studio_context_tests.gd

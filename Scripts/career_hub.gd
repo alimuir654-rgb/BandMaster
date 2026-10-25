@@ -990,7 +990,9 @@ func _actions() -> void:
   scene_art.texture = load(image_path)
   scene_card.add_child(scene_art)
  var upcoming: Dictionary = Calendar.pending(_state())
- var snapshot := _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")])
+ var snapshot: VBoxContainer
+ if not wide_workspace or not upcoming.is_empty():
+  snapshot = _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")] if not wide_workspace else "UPCOMING LIVE COMMITMENT")
  if wide_workspace:
   var dashboard := _card("SESSION CONTROL","A clear briefing before committing a day.")
   for meter_info in [
