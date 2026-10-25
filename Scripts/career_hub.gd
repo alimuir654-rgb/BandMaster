@@ -607,29 +607,33 @@ func _home() -> void:
  var advice := {"readiness":"Rehearse to prepare for tougher gigs.","morale":"Spend time together to rebuild morale.","van_health":"Repair the van before booking longer trips."}
  _label(pulse,str(advice[weakest]),13,UI.MUTED)
  _action(pulse,"IMPROVE THE BAND" if weakest != "van_health" else "OPEN GEAR & REPAIRS",func() -> void: _switch("GEAR" if weakest == "van_health" else "ACTIONS"))
- var roadmap := _card("GROW YOUR CAREER","Ways to earn money, build an audience and unlock bigger shows.")
- _label(roadmap,"FANS  /  Perform gigs and put up posters to reach new listeners.",13,UI.WHITE)
- _label(roadmap,"REPUTATION  /  Build your live record and complete career chapters.",13,UI.WHITE)
- _label(roadmap,"CASH  /  Gig fees and chapter rewards fund recording, travel and gear.",13,UI.WHITE)
- var growth_buttons := HBoxContainer.new()
- growth_buttons.add_theme_constant_override("separation",8)
- roadmap.add_child(growth_buttons)
- var gigs_shortcut := UI.themed_button("FIND A GIG",_genre_id(),true)
- gigs_shortcut.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- growth_buttons.add_child(gigs_shortcut)
- gigs_shortcut.pressed.connect(func() -> void: _switch("GIGS"))
- var promotion_shortcut := UI.themed_button("PROMOTE",_genre_id(),false)
- promotion_shortcut.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- growth_buttons.add_child(promotion_shortcut)
- promotion_shortcut.pressed.connect(func() -> void: _switch("SCENE"))
- var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
- for status_entry in Momentum.signals(_state()):
-  var target_tab := str(status_entry["tab"])
-  var signal_button := UI.button(str(status_entry["label"])+"  /  "+str(status_entry["detail"]))
-  signal_button.custom_minimum_size.y = 54
-  signal_button.tooltip_text = str(status_entry["detail"])
-  momentum.add_child(signal_button)
-  signal_button.pressed.connect(func() -> void: _switch(target_tab))
+ var opportunities := _card("WAYS FORWARD","Pick a practical route to grow the band.")
+ var pathways := [
+  {"title":"BUILD YOUR AUDIENCE","detail":"Perform and promote to attract fans.","tab":"SCENE","action":"PROMOTION"},
+  {"title":"RAISE YOUR PROFILE","detail":"Play shows and complete chapters for reputation.","tab":"GIGS","action":"LIVE CIRCUIT"},
+  {"title":"EARN YOUR KEEP","detail":"Collect gig fees and chapter rewards for cash.","tab":"GIGS","action":"FIND PAID SHOWS"}
+ ]
+ var pathway_grid := GridContainer.new()
+ pathway_grid.columns = 1 if get_viewport_rect().size.x < 720.0 else 3
+ pathway_grid.add_theme_constant_override("h_separation",9)
+ pathway_grid.add_theme_constant_override("v_separation",9)
+ opportunities.add_child(pathway_grid)
+ for pathway in pathways:
+  var path_panel := PanelContainer.new()
+  path_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  path_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],10))
+  pathway_grid.add_child(path_panel)
+  var path_stack := VBoxContainer.new()
+  path_stack.add_theme_constant_override("separation",6)
+  path_panel.add_child(path_stack)
+  _label(path_stack,str(pathway["title"]),12,UI.palette(_genre_id())["accent"])
+  var path_description := _label(path_stack,str(pathway["detail"]),12,UI.WHITE)
+  path_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+  var jump := UI.themed_button(str(pathway["action"]),_genre_id(),false)
+  jump.custom_minimum_size.y = 45
+  path_stack.add_child(jump)
+  var jump_tab: String = str(pathway["tab"])
+  jump.pressed.connect(func() -> void: _switch(jump_tab))
 
  var upcoming: Dictionary = Calendar.pending(_state())
  if upcoming.is_empty():
