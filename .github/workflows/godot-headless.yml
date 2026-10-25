@@ -510,3 +510,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v58_genre_ui_tests.gd
+      - name: Test studio artwork fallback
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v60_studio_art_tests.gd
