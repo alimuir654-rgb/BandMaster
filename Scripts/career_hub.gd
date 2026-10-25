@@ -1241,7 +1241,8 @@ func _bottom_nav() -> void:
  for tab_id in TABS:
   var target: String = tab_id
   var selected := target == tab
-  var button := Button.new()
+  var button := WoldButton.new()
+  button.shape = WoldButton.Shape.SECONDARY
   button.custom_minimum_size.y = 56 if compact else 62
   button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL

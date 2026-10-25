@@ -622,3 +622,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v82_woldui_foundation_tests.gd
+      - name: Test live WoldUI buttons
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v83_woldui_live_controls_tests.gd
