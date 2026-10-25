@@ -697,3 +697,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v97_studio_context_tests.gd
+      - name: Test direct songwriting choice cards
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v98_creative_choice_cards_tests.gd
