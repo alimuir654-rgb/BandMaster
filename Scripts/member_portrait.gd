@@ -63,24 +63,31 @@ func _draw() -> void:
  var bounds := size
  if bounds.x <= 0.0 or bounds.y <= 0.0:
   return
- if portrait_texture != null:
-  var image_size := portrait_texture.get_size()
-  if image_size.x > 0 and image_size.y > 0:
-   var source_width := minf(image_size.x,image_size.y*bounds.x/bounds.y)
-   var source_height := minf(image_size.y,image_size.x*bounds.y/bounds.x)
-   var crop := Rect2((image_size-Vector2(source_width,source_height))*0.5,Vector2(source_width,source_height))
-   draw_texture_rect_region(portrait_texture,Rect2(Vector2.ZERO,bounds),crop)
-   return
  var profile: Dictionary = Genres.PROFILES[genre_id]
  var bg := Color(str(profile["panel"]))
  var surface := Color(str(profile["surface"]))
  var accent := Color(str(profile["accent"]))
  draw_rect(Rect2(Vector2.ZERO,bounds),bg)
- draw_rect(Rect2(Vector2(5,5),bounds-Vector2(10,10)),surface)
- draw_rect(Rect2(Vector2(5,bounds.y-7),Vector2(maxf(1.0,bounds.x-10),3)),accent)
+ var inset := 3.0
+ var image_bounds := Rect2(Vector2(inset,inset),bounds-Vector2(inset*2,inset*2))
+ if portrait_texture != null:
+  var image_size := portrait_texture.get_size()
+  if image_size.x > 0 and image_size.y > 0:
+   var source_width := minf(image_size.x,image_size.y*image_bounds.size.x/image_bounds.size.y)
+   var source_height := minf(image_size.y,image_size.x*image_bounds.size.y/image_bounds.size.x)
+   var crop := Rect2((image_size-Vector2(source_width,source_height))*0.5,Vector2(source_width,source_height))
+   draw_texture_rect_region(portrait_texture,image_bounds,crop)
+   # Unified branded footer, deliberately outside the photograph's main focal point.
+   var footer_height := minf(11.0,maxf(5.0,bounds.y*0.085))
+   draw_rect(Rect2(0,bounds.y-footer_height,bounds.x,footer_height),bg.darkened(0.15))
+   draw_rect(Rect2(0,bounds.y-footer_height, maxf(22.0,bounds.x*0.36),3),accent)
+   return
+ draw_rect(image_bounds,surface)
  var font := ThemeDB.fallback_font
  if font != null:
   var font_size := maxi(16,mini(40,int(bounds.x*0.32)))
   var center := font.get_string_size(initials,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size)
   var position := Vector2((bounds.x-center.x)*0.5,(bounds.y+font.get_ascent(font_size)-font.get_descent(font_size))*0.5)
   draw_string(font,position,initials,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,Color("#F6EEE1"))
+ draw_rect(Rect2(Vector2(0,bounds.y-7),Vector2(bounds.x,7)),bg.darkened(0.15))
+ draw_rect(Rect2(0,bounds.y-7,maxf(22.0,bounds.x*0.36),3),accent)
