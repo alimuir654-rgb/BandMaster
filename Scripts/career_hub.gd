@@ -391,9 +391,9 @@ func _home() -> void:
  if landscape_dashboard:
   content = sidebar
  var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
- var feature_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ var feature_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
  if not ResourceLoader.exists(feature_path):
-  feature_path = "res://Art/Backgrounds/shared/home.webp"
+  feature_path = "res://Art/Backgrounds/shared/band.webp"
  if ResourceLoader.exists(feature_path):
   var feature := TextureRect.new()
   feature.custom_minimum_size.y = 92 if CareerLayout.is_compact(get_viewport_rect().size.x) else 144
@@ -458,9 +458,16 @@ func _home() -> void:
 
  if landscape_dashboard:
   content = sidebar
- var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
+ var pulse := _card("BAND PULSE","Your band at a glance — focus on the weakest area.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
+ var weakest := "readiness"
+ for key in ["morale","van_health"]:
+  if _num(key) < _num(weakest):
+   weakest = key
+ var advice := {"readiness":"Rehearse to prepare for tougher gigs.","morale":"Spend time together to rebuild morale.","van_health":"Repair the van before booking longer trips."}
+ _label(pulse,str(advice[weakest]),13,UI.MUTED)
+ _action(pulse,"IMPROVE THE BAND" if weakest != "van_health" else "OPEN GEAR & REPAIRS",func() -> void: _switch("GEAR" if weakest == "van_health" else "ACTIONS"))
  var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
  for status_entry in Momentum.signals(_state()):
   var target_tab := str(status_entry["tab"])
@@ -933,12 +940,17 @@ func _band() -> void:
   var status := str(member.get("life_status","active"))
   var box := Components.section(roster_grid,"","",_genre_id())
   if landscape_roster:
+   # Keep roster cards top-aligned instead of stretching their content over a tall grid row.
+   box.get_parent().size_flags_vertical = Control.SIZE_SHRINK_BEGIN
    var member_header := HBoxContainer.new()
    member_header.add_theme_constant_override("separation",8)
    box.add_child(member_header)
    var status_label := _label(member_header,"AVAILABLE" if status == "active" else status.to_upper(),11,UI.palette(_genre_id())["accent"] if status == "active" else UI.palette(_genre_id())["secondary"])
    status_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   _label(member_header,"BAND PERSONNEL  /  %02d" % (index+1),11,UI.MUTED)
+   status_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+   var personnel_label := _label(member_header,"MEMBER %02d" % (index+1),11,UI.MUTED)
+   personnel_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+   personnel_label.size_flags_horizontal = Control.SIZE_SHRINK_END
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
