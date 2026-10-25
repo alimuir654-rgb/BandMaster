@@ -1,6 +1,7 @@
 extends Control
 # Band Formation 2.0: identity -> recruitment -> reveal.
 const UI = preload("res://Scripts/ui_theme.gd")
+const Genres = preload("res://Scripts/genre_profiles.gd")
 const Catalog = preload("res://Scripts/formation_catalogue.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const SAVE_PATH := "user://tour_save.json"
@@ -30,7 +31,7 @@ func _render() -> void:
   remove_child(child)
   child.queue_free()
  var bg := ColorRect.new()
- bg.color = UI.BG
+ bg.color = UI.palette(Genres.normalize(genre))["bg"]
  add_child(bg)
  bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  content_scroll = ScrollContainer.new()
@@ -137,9 +138,11 @@ func _identity() -> void:
  genre_select.custom_minimum_size.y = 56
  sound.add_child(genre_select)
  var genre_details := _label(sound,"",14,UI.WHITE)
+ var theme_preview := _label(sound,"",14,UI.AMBER)
  var update_genre := func() -> void:
   var selected := genre_select.get_item_text(genre_select.selected)
   var config: Dictionary = Catalog.GENRES[selected]
+  theme_preview.text = "VISUAL IDENTITY  /  "+str(Genres.PROFILES[Genres.normalize(selected)]["name"]).to_upper()
   genre_details.text = str(config["description"])+"\nSTRENGTH  "+str(config["strength"])+"\nTRADE-OFF  "+str(config["challenge"])+"\nTYPICAL LINEUP  "+", ".join(config["roles"])
  genre_select.item_selected.connect(func(_index: int) -> void: update_genre.call())
  update_genre.call()
@@ -208,7 +211,7 @@ func _recruitment() -> void:
   var tier := Catalog.affinity(row,genre)
   var block := _card(canvas,str(row["name"]).to_upper()+"  /  "+str(row["role"]),str(row["pitch"]))
   var illustration := Portrait.new()
-  illustration.set_character(str(row["id"]),str(row["name"]))
+  illustration.set_character(str(row["id"]),str(row["name"]),Genres.normalize(genre))
   illustration.custom_minimum_size = Vector2(100,108)
   block.add_child(illustration)
 
@@ -244,7 +247,7 @@ func _review() -> void:
   roster.add_child(line)
   var avatar := Portrait.new()
   avatar.custom_minimum_size = Vector2(70,84)
-  avatar.set_character(str(member.get("candidate_id","")),str(member["name"]))
+  avatar.set_character(str(member.get("candidate_id","")),str(member["name"]),Genres.normalize(genre))
   line.add_child(avatar)
   var details := VBoxContainer.new()
   line.add_child(details)

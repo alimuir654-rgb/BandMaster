@@ -490,3 +490,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v54_portrait_identity_tests.gd
+      - name: Test band formation genre bridge
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v55_genre_formation_tests.gd

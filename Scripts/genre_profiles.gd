@@ -8,7 +8,13 @@ const PROFILES := {
  "electronic":{"name":"Electronic / Synth","background":"#0A1020","panel":"#152139","surface":"#213451","accent":"#42D7EF","secondary":"#B26DE5","highlight":"#FFB568","tagline":"Build a new sound."}
 }
 static func normalize(id: String) -> String:
- return id if PROFILES.has(id) else DEFAULT_ID
+ if PROFILES.has(id):
+  return id
+ match id.to_lower().strip_edges():
+  "punk","garage rock": return "punk"
+  "metal","hard rock","prog rock": return "metal"
+  "synth-pop","electronic","electronic / synth": return "electronic"
+  _: return DEFAULT_ID
 static func from_save(save: Dictionary) -> Dictionary:
  var band = save.get("band",{})
  if not band is Dictionary:
