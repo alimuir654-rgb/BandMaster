@@ -787,3 +787,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v115_scrapbook_ticket_tests.gd
+      - name: Verify scene identity system
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v116_scene_identity_tests.gd
