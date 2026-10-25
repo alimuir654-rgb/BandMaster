@@ -8,7 +8,7 @@ func _initialize() -> void:
  if start >= 0 and end > start:
   var studio := source.substr(start,end-start)
   var selector := studio.find("var switches := _card")
-  var art := studio.find("var scene_card := _card")
+  var art := studio.find("scene_card = _card")
   _check(selector >= 0 and art > selector,"mode controls before visual card")
   _check(studio.contains("button.pressed.connect"),"navigation actions preserved")
  _check(load("res://Scenes/CareerHub.tscn") != null,"scene loads")
