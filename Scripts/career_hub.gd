@@ -959,7 +959,7 @@ func _gigs() -> void:
     _action(calendar_box,"CONTINUE THE NIGHT  ›",func() -> void: _advance_gig_night(),true)
   else:
    _label(calendar_box,"THIS BOOKING IS OVERDUE.",14,UI.AMBER)
-  _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state())))
+  _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state()),"booking_cancel"))
  else:
   _card("BOOK AHEAD","Shows are booked three days in advance. Use those days to prepare, but don't miss the date.")
  _environment_dashboard()
@@ -2611,7 +2611,7 @@ func _apply(updated: Dictionary) -> void:
    extra[key] = updated[key]
 
 func _finish(result: Dictionary, source: String = "") -> void:
- if _is_show_day() and not source.begins_with("gig:") and source != "backstage":
+ if _is_show_day() and not source.begins_with("gig:") and source != "backstage" and source != "booking_cancel":
   message = "Tonight's gig comes first. Finish the show before another activity."
   tab = "GIGS"
   _render()
