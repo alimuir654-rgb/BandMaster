@@ -782,3 +782,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v114_songbook_tests.gd
+      - name: Verify scrapbook gig tickets
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v115_scrapbook_ticket_tests.gd
