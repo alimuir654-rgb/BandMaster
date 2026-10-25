@@ -3,9 +3,9 @@ extends SceneTree
 const SAVE_PATH := "user://tour_save.json"
 const VIEWPORTS := [Vector2i(390,844),Vector2i(720,1280),Vector2i(1280,720)]
 const TARGETS := [
- {"tab":"HOME","label":"CONTINUE"},
+ {"tab":"HOME","label":"REHEARSE"},
  {"tab":"ACTIONS","label":"WRITE & REHEARSE"},
- {"tab":"GIGS","label":"EXPLORE VENUES"},
+ {"tab":"GIGS","label":"FIND A VENUE"},
  {"tab":"GEAR","label":"BUY EQUIPMENT"},
  {"tab":"SCENE","label":"PROMOTE"},
 ]
@@ -51,6 +51,8 @@ func _run() -> void:
      # Audit evidence is explicit: no synthetic claim that a control is visible.
      print("FIRST_FOLD %dx%d %s buttons=%s target=%s visible=%s" % [viewport.x,viewport.y,str(target["tab"]),JSON.stringify(visible),wanted,str(found)])
      _check(not visible.is_empty(),str(viewport)+" "+str(target["tab"])+" has no first-fold controls")
+     if str(target["tab"]) in ["HOME","ACTIONS","GIGS","SCENE"]:
+      _check(found,str(viewport)+" "+str(target["tab"])+" primary action below first fold")
      ui.free()
  if existing:
   _write(previous)
