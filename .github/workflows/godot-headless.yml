@@ -432,3 +432,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V33 GEAR BROWSER FAILURE:|ERROR:' /tmp/v33-gear.log; then
             exit 1
           fi
+      - name: Test responsive songwriting studio
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v34_writing_room_tests.gd 2>&1 | tee /tmp/v34-writing.log
+          grep -q 'V34 WRITING ROOM TESTS PASSED' /tmp/v34-writing.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V34 WRITING ROOM FAILURE:|ERROR:' /tmp/v34-writing.log; then
+            exit 1
+          fi
