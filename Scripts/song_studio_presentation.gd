@@ -25,7 +25,7 @@ static func view(state: Dictionary) -> Dictionary:
  var active: bool = not draft.is_empty() and progress > 0
  var sessions := progress if active else 0
  var headline := str(draft.get("title","YOUR NEXT ORIGINAL")) if active else "A BLANK PAGE"
- var detail := STAGE_PROMPTS[sessions]
+ var detail: String = str(STAGE_PROMPTS[sessions])
  var history: Array = draft.get("sessions",[]) if draft.get("sessions",[]) is Array else []
  return {"headline":headline,"detail":detail,"completed":sessions,"total":3,"stage":STEPS[sessions],"active":active,"history":history.duplicate(true)}
 
