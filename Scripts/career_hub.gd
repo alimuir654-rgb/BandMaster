@@ -112,7 +112,8 @@ func _label(parent: Node, value: String, size: int = 17, colour: Color = UI.WHIT
  var label := Label.new()
  label.text = value
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.add_theme_font_size_override("font_size",size)
+ var readable_size := size + 2 if get_viewport_rect().size.x >= 960.0 and size <= 17 else size
+ label.add_theme_font_size_override("font_size",readable_size)
  label.add_theme_color_override("font_color",colour)
  parent.add_child(label)
  return label
@@ -888,7 +889,7 @@ func _actions() -> void:
   var selected := action_view == destination
   var button := UI.button(destination,selected)
   button.custom_minimum_size.y = 54
-  button.add_theme_font_size_override("font_size",12)
+  button.add_theme_font_size_override("font_size",15 if get_viewport_rect().size.x >= 960.0 else 12)
   navigation.add_child(button)
   button.pressed.connect(func() -> void:
    action_view = destination
@@ -1103,7 +1104,7 @@ func _actions() -> void:
    var experiment_control: OptionButton = experiment["control"]
    var experiment_button := UI.themed_button(str(experiment["name"]),_genre_id(),false)
    experiment_button.custom_minimum_size.y = 48
-   experiment_button.add_theme_font_size_override("font_size",12)
+   experiment_button.add_theme_font_size_override("font_size",14 if get_viewport_rect().size.x >= 960.0 else 12)
    experiment_button.disabled = experiment_control.item_count <= 1
    experiment_grid.add_child(experiment_button)
    experiment_button.pressed.connect(func() -> void:
