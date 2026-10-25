@@ -2149,20 +2149,39 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var stack := VBoxContainer.new()
  stack.add_theme_constant_override("separation",14)
  panel.add_child(stack)
- if source.begins_with("gig:"):
+ var show_result := source.begins_with("gig:")
+ if show_result:
+  var show_banner := PanelContainer.new()
+  var show_skin := UI.style(Color("#191320"),12)
+  show_skin.border_color = Color("#AC668E")
+  show_skin.border_width_top = 3
+  show_banner.add_theme_stylebox_override("panel",show_skin)
+  stack.add_child(show_banner)
+  var show_stack := VBoxContainer.new()
+  show_stack.add_theme_constant_override("separation",9)
+  show_banner.add_child(show_stack)
+  var prelude := _label(show_stack,"HOUSE LIGHTS DOWN  /  THE CROWD IS WAITING",12,Color("#E9B9D4"))
+  prelude.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   var stage_art_path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
   if not ResourceLoader.exists(stage_art_path):
    stage_art_path = "res://Art/Backgrounds/shared/gigs.webp"
   if ResourceLoader.exists(stage_art_path):
    var stage_image := TextureRect.new()
    stage_image.texture = load(stage_art_path)
-   stage_image.custom_minimum_size.y = 170
+   stage_image.custom_minimum_size.y = 190
    stage_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
    stage_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
    stage_image.modulate.a = 0.0
-   stack.add_child(stage_image)
-   create_tween().tween_property(stage_image,"modulate:a",1.0,0.8).set_trans(Tween.TRANS_SINE)
- var overline := _label(stack,"LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
+   show_stack.add_child(stage_image)
+   create_tween().tween_property(stage_image,"modulate:a",1.0,0.85).set_trans(Tween.TRANS_SINE)
+  var crowd_strip := HBoxContainer.new()
+  crowd_strip.add_theme_constant_override("separation",8)
+  show_stack.add_child(crowd_strip)
+  for caption in ["◉ PA LEFT","♪ CROWD","◉ PA RIGHT"]:
+   var light := _label(crowd_strip,caption,12,Color("#E9B9D4"))
+   light.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   light.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ var overline := _label(stack,"THE SHOW  /  BACKSTAGE REPORT" if show_result else "LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
  overline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var title := _label(stack,Motion.headline(source,true),24,UI.AMBER)
  title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
