@@ -1272,7 +1272,7 @@ func _bottom_nav() -> void:
   button.add_child(box)
   box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   var icon_path := "res://Art/Icons/%s.svg" % target.to_lower()
-  if ResourceLoader.exists(icon_path):
+  if not landscape and ResourceLoader.exists(icon_path):
    var glyph := TextureRect.new()
    glyph.texture = load(icon_path)
    glyph.custom_minimum_size = Vector2(21,22)
