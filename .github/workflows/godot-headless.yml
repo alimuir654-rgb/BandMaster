@@ -889,3 +889,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v135_venue_journey_milestone_tests.gd
+      - name: Validate member gear and relationship dossiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v136_member_dossiers_tests.gd

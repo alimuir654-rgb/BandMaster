@@ -1239,6 +1239,37 @@ func _scroll_to_venue_picker() -> void:
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
+ var garage := _card("THE BAND'S EQUIPMENT  /  ROAD CASES","See what the band actually owns before visiting the second-hand shop.")
+ var members: Array = save_data.get("band",{}).get("members",[])
+ var cases := GridContainer.new()
+ cases.columns = 2 if get_viewport_rect().size.x >= 960.0 else 1
+ cases.add_theme_constant_override("h_separation",10)
+ cases.add_theme_constant_override("v_separation",10)
+ garage.add_child(cases)
+ for member in members:
+  if not member is Dictionary:
+   continue
+  var role := str(member.get("role","")).to_lower()
+  var person_box := PanelContainer.new()
+  person_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  person_box.add_theme_stylebox_override("panel",UI.style(Color("#2C2926"),10))
+  cases.add_child(person_box)
+  var dossier := VBoxContainer.new()
+  dossier.add_theme_constant_override("separation",6)
+  person_box.add_child(dossier)
+  _label(dossier,str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),15,UI.AMBER)
+  var matched := 0
+  for item in Gear.ITEMS:
+   var category := str(item["type"]).to_lower()
+   var relevant := (role.contains("drum") and category.contains("drum")) or (role.contains("guitar") and (category.contains("guitar") or category.contains("amplif"))) or (role.contains("bass") and category.contains("amplif")) or (role.contains("vocal") and (category.contains("vocal") or category.contains("sound")))
+   if not relevant or not owned.has(str(item["id"])):
+    continue
+   matched += 1
+   _label(dossier,"OWNED  /  "+str(item["name"]),13,UI.WHITE)
+   _label(dossier,str(item["description"]),12,UI.MUTED)
+  if matched == 0:
+   _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
+ _label(garage,"Shared purchases are shown against relevant musicians; the inventory does not yet track ownership, wear or repairs per person.",12,UI.MUTED)
  var heading := _card("THE MUSIC SHOP","Choose an item, review its cost and buy when ready.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
@@ -1562,7 +1593,26 @@ func _band() -> void:
  if not pairs.is_empty():
   var connection_card := _card("BAND CHEMISTRY","Shared experiences shape the connection between musicians.")
   for bond in pairs:
-   _progress(connection_card,str(bond["first"])+" + "+str(bond["second"])+"  /  "+str(bond["mood"]),int(bond["value"]))
+   var relationship := PanelContainer.new()
+   relationship.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],10))
+   connection_card.add_child(relationship)
+   var pair_body := VBoxContainer.new()
+   pair_body.add_theme_constant_override("separation",5)
+   relationship.add_child(pair_body)
+   var bond_value := int(bond["value"])
+   var relationship_status := "CONNECTED" if bond_value >= 70 else ("STRAINED" if bond_value < 40 else "STEADY")
+   var colour := Color("#68BC95") if bond_value >= 70 else (Color("#EA777C") if bond_value < 40 else Color("#F0B44D"))
+   _label(pair_body,str(bond["first"])+" + "+str(bond["second"])+"  /  "+relationship_status,15,colour)
+   if bond_value < 40:
+    _label(pair_body,"The connection needs attention before tension spills into rehearsal.",12,UI.MUTED)
+    _action(pair_body,"SPEND TIME TOGETHER  ›",func() -> void:
+     action_view = "HANG OUT"
+     _switch("ACTIONS")
+    )
+   elif bond_value >= 70:
+    _label(pair_body,"A reliable creative partnership. Keep giving both musicians a voice.",12,UI.MUTED)
+   else:
+    _label(pair_body,"A steady partnership. Shared experiences could bring them closer.",12,UI.MUTED)
 
  if members.size() < 6:
   var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
