@@ -45,7 +45,8 @@ static func style(fill: Color, radius: int = 12) -> StyleBoxFlat:
  return box
 
 static func button(label: String, primary: bool = false) -> Button:
- var item := Button.new()
+ var item := WoldButton.new()
+ item.shape = WoldButton.Shape.PRIMARY if primary else WoldButton.Shape.SECONDARY
  item.text = label
  item.custom_minimum_size.y = 56
  item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
