@@ -767,3 +767,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v111_performance_decisions_tests.gd
+      - name: Validate playtest layout fixes
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v112_playtest_layout_tests.gd
