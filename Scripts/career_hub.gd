@@ -1160,8 +1160,11 @@ func _actions() -> void:
  for mode in ["JAM","HANG OUT","PROMOTE"]:
   var destination := str(mode)
   var selected := action_view == destination
-  var button := UI.button(destination,selected)
-  button.custom_minimum_size.y = 54
+  var button := UI.themed_button({"JAM":"WRITE & REHEARSE","HANG OUT":"BAND LIFE","PROMOTE":"PROMOTION"}.get(destination,destination),_genre_id(),selected)
+  button.icon_start = {"JAM":"music","HANG OUT":"users","PROMOTE":"megaphone"}.get(destination,"arrow-right")
+  button.custom_minimum_size.y = 58
+  button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  button.tooltip_text = str(mode_descriptions.get(destination,""))
   button.add_theme_font_size_override("font_size",15 if get_viewport_rect().size.x >= 960.0 else 12)
   navigation.add_child(button)
   button.pressed.connect(func() -> void:
@@ -1248,6 +1251,26 @@ func _actions() -> void:
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("SONGWRITING  /  "+("START A NEW SONG" if draft.is_empty() else "DEVELOP YOUR SONG"),"Choose the sound, arrangement, title and session leader. Every session takes one day.")
   var studio: Dictionary = SongStudio.view(_state())
+  if wide_workspace:
+   var session_strip := HBoxContainer.new()
+   session_strip.add_theme_constant_override("separation",8)
+   workshop.add_child(session_strip)
+   for session_index in range(3):
+    var session_card := PanelContainer.new()
+    session_card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    var is_done := session_index < int(studio.get("completed",0))
+    var is_current := session_index == int(studio.get("completed",0))
+    var session_style := UI.style(UI.palette(_genre_id())["alt"] if is_done or is_current else UI.palette(_genre_id())["panel"],10)
+    session_style.border_width_top = 3 if is_current else 1
+    session_style.border_color = UI.palette(_genre_id())["accent"] if is_current else UI.palette(_genre_id())["alt"]
+    session_card.add_theme_stylebox_override("panel",session_style)
+    session_strip.add_child(session_card)
+    var session_copy := VBoxContainer.new()
+    session_copy.add_theme_constant_override("separation",3)
+    session_card.add_child(session_copy)
+    _label(session_copy,"SESSION %02d" % (session_index+1),11,UI.MUTED)
+    _label(session_copy,["FIND THE IDEA","SHAPE THE SONG","RECORD A FINISH"][session_index],14,UI.WHITE if is_done or is_current else UI.MUTED)
+    _label(session_copy,"COMPLETED" if is_done else ("IN PROGRESS" if is_current else "UP NEXT"),11,UI.palette(_genre_id())["accent"] if is_done or is_current else UI.MUTED)
   var studio_title := _label(workshop,str(studio["headline"]),22,UI.WHITE)
   studio_title.add_theme_font_size_override("font_size",22)
   _label(workshop,str(studio["detail"]),14,UI.MUTED)
