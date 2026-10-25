@@ -13,8 +13,15 @@ static func options(state: Dictionary) -> Dictionary:
  return {"ideas":IDEAS,"forms":FORMS,"titles":TITLES,"leads":leads}
 
 static func develop(state: Dictionary, idea: String, form: String, title: String, leader_index: int) -> Dictionary:
- if not IDEAS.has(idea) or not FORMS.has(form) or not TITLES.has(title):
-  return {"ok":false,"message":"Choose a valid idea, arrangement and working title."}
+ if not IDEAS.has(idea) or not FORMS.has(form):
+  return {"ok":false,"message":"Choose a valid idea and arrangement."}
+ var clean_title := title.strip_edges().to_upper()
+ if clean_title.length() < 3 or clean_title.length() > 48 or clean_title.contains("\n"):
+  return {"ok":false,"message":"Give the song a title between 3 and 48 characters."}
+ for entry in state.get("song_catalogue",[]):
+  if entry is Dictionary and str(entry.get("title","")).strip_edges().to_upper() == clean_title:
+   return {"ok":false,"message":"You already have a song called "+clean_title+". Give this one its own name before using a day."}
+
  var roster: Array = state.get("members",[])
  if leader_index < 0 or leader_index >= roster.size() or not roster[leader_index] is Dictionary:
   return {"ok":false,"message":"Choose a musician to lead the jam."}
@@ -25,11 +32,11 @@ static func develop(state: Dictionary, idea: String, form: String, title: String
  var progress := clampi(int(next.get("song_draft_progress",0)),0,2)
  var draft: Dictionary = next.get("current_song_draft",{}).duplicate(true)
  if progress == 0 or draft.is_empty():
-  draft = {"idea":idea,"form":form,"title":title,"leader":str(leader.get("name","Musician")),"sessions":[]}
+  draft = {"idea":idea,"form":form,"title":clean_title,"leader":str(leader.get("name","Musician")),"sessions":[]}
  else:
   draft["idea"] = idea
   draft["form"] = form
-  draft["title"] = title
+  draft["title"] = clean_title
   draft["leader"] = str(leader.get("name","Musician"))
  var sessions: Array = draft.get("sessions",[]).duplicate(true)
  sessions.append({"day":int(next.get("tour_day",1)),"idea":idea,"form":form,"leader":str(leader.get("name","Musician"))})

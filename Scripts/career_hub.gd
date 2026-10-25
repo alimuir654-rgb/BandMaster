@@ -2006,12 +2006,23 @@ func _actions() -> void:
    for repaint_card in choice_repaints:
     repaint_card.call()
   )
+  var title_entry := LineEdit.new()
+  title_entry.name = "WorkingTitleInput"
+  title_entry.placeholder_text = "Give your song an original name"
+  title_entry.max_length = 48
+  title_entry.text = str(draft.get("title",titles.get_item_text(titles.selected) if titles.selected >= 0 else ""))
+  title_entry.custom_minimum_size.y = 52
+  workshop.add_child(title_entry)
+  _label(workshop,"YOUR TITLE  /  TYPE OR EDIT IT. THE NAME IS YOURS.",12,Color("#D6BE92"))
+  titles.item_selected.connect(func(index: int) -> void:
+   title_entry.text = titles.get_item_text(index)
+  )
   var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
   jam.custom_minimum_size.y = 54
   jam.disabled = indices.is_empty() or not SongLab.can_commit(ideas,forms,titles,leads)
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
-   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
+   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),title_entry.text,indices[leads.selected]))
   )
   if not draft.is_empty():
    var past: Array = studio.get("history",[])
