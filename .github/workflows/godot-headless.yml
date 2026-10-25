@@ -565,3 +565,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v71_nav_ux_tests.gd
+      - name: Test task-first interface ordering
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v72_ux_hierarchy_tests.gd
