@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Install Godot 4.7.2 stable
         shell: bash
         run: |
@@ -615,3 +617,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v81_raster_portrait_tests.gd
+      - name: Validate WoldUI component showcase
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v82_woldui_foundation_tests.gd

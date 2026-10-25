@@ -9,6 +9,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Install Godot and X virtual framebuffer
         shell: bash
         run: |
