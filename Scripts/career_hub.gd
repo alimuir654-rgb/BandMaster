@@ -309,9 +309,63 @@ func _hero() -> void:
   _label(column,str(profile.get("tagline","Make your next move.")),15,UI.MUTED)
 
 
+func _home_spotlight() -> void:
+ # Landscape command deck: strong photograph, clear next action and contextual band data.
+ var colours := UI.palette(_genre_id())
+ var deck := PanelContainer.new()
+ deck.add_theme_stylebox_override("panel",UI.style(colours["panel"],16))
+ content.add_child(deck)
+ var frame := HBoxContainer.new()
+ frame.add_theme_constant_override("separation",18)
+ deck.add_child(frame)
+ var visual := TextureRect.new()
+ visual.custom_minimum_size = Vector2(290,204)
+ visual.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ visual.size_flags_stretch_ratio = 1.0
+ visual.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ visual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var art_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ if not ResourceLoader.exists(art_path):
+  art_path = "res://Art/Backgrounds/shared/home.webp"
+ if ResourceLoader.exists(art_path):
+  visual.texture = load(art_path)
+ frame.add_child(visual)
+ var details := VBoxContainer.new()
+ details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ details.size_flags_stretch_ratio = 1.35
+ details.add_theme_constant_override("separation",9)
+ frame.add_child(details)
+ _label(details,"BANDMASTER  /  THE CAREER DESK",12,colours["accent"])
+ var band_name := str(save_data.get("band",{}).get("name","YOUR BAND"))
+ var headline := _label(details,band_name,31,UI.WHITE)
+ headline.max_lines_visible = 2
+ headline.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ _label(details,"DAY %d   •   %s" % [_num("tour_day"),str(Genres.from_save(save_data).get("name","Indie")).to_upper()],13,UI.MUTED)
+ var guidance: Dictionary = Director.next_move(_state())
+ _label(details,str(guidance.get("title","MAKE YOUR NEXT MOVE")).to_upper(),19,UI.WHITE)
+ var description := _label(details,str(guidance.get("detail","Build your band, shape its music and find an audience.")),14,UI.MUTED)
+ description.max_lines_visible = 3
+ var commands := HBoxContainer.new()
+ commands.add_theme_constant_override("separation",10)
+ details.add_child(commands)
+ var destination := str(guidance.get("tab","ACTIONS"))
+ var primary := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper(),_genre_id(),true)
+ primary.icon_end = "arrow-right"
+ primary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ commands.add_child(primary)
+ primary.pressed.connect(func() -> void: _switch(destination))
+ var secondary := UI.themed_button("YOUR BAND",_genre_id(),false)
+ secondary.icon_start = "users"
+ secondary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ commands.add_child(secondary)
+ secondary.pressed.connect(func() -> void: _switch("BAND"))
+
 func _home() -> void:
  var full_content := content
  var landscape_dashboard := get_viewport_rect().size.x >= 960.0
+ if landscape_dashboard:
+  _home_spotlight()
  var main_column: VBoxContainer
  var sidebar: VBoxContainer
  if landscape_dashboard:
@@ -384,8 +438,6 @@ func _home() -> void:
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
 
- if landscape_dashboard:
-  content = sidebar
  if landscape_dashboard:
   content = sidebar
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
