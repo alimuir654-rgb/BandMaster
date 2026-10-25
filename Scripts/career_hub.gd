@@ -665,14 +665,34 @@ func _gigs() -> void:
     _label(phase_column,"COMPLETE" if finished_phase else ("NOW" if active_phase else "UP NEXT"),11,UI.palette(_genre_id())["accent"] if active_phase or finished_phase else UI.MUTED)
    if str(scene.get("phase","")) == "soundcheck":
     _label(calendar_box,"YOUR LIVE SET  /  CHOOSE AN APPROACH",13,UI.AMBER)
+    var approach_grid := GridContainer.new()
+    approach_grid.columns = 3 if get_viewport_rect().size.x >= 960.0 else 1
+    approach_grid.add_theme_constant_override("h_separation",10)
+    approach_grid.add_theme_constant_override("v_separation",10)
+    calendar_box.add_child(approach_grid)
     for approach_key in ["tight","wild","crowd"]:
      var approach: String = str(approach_key)
-     var rule: Dictionary = Gigs.APPROACHES[approach]
+     var projection: Dictionary = Gigs.approach_preview(_state(),approach)
      var chosen := str(booked.get("approach","tight")) == approach
-     var button := UI.button(("✓  " if chosen else "")+str(rule["label"]),chosen)
-     button.custom_minimum_size.y = 54
-     calendar_box.add_child(button)
+     var choice_panel := PanelContainer.new()
+     choice_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+     var choice_style := UI.style(UI.palette(_genre_id())["alt"],10)
+     choice_style.border_width_top = 3 if chosen else 1
+     choice_style.border_color = UI.palette(_genre_id())["accent"] if chosen else UI.palette(_genre_id())["panel"]
+     choice_panel.add_theme_stylebox_override("panel",choice_style)
+     approach_grid.add_child(choice_panel)
+     var choice_column := VBoxContainer.new()
+     choice_column.add_theme_constant_override("separation",7)
+     choice_panel.add_child(choice_column)
+     _label(choice_column,{"tight":"CONTROLLED","wild":"HIGH ENERGY","crowd":"CROWD FIRST"}[approach],12,UI.palette(_genre_id())["accent"])
+     var button := UI.themed_button(str(projection["label"]),_genre_id(),chosen)
+     button.icon_start = {"tight":"target","wild":"zap","crowd":"users"}[approach]
+     button.custom_minimum_size.y = 56
+     choice_column.add_child(button)
      button.pressed.connect(func() -> void: _change_gig_strategy(approach))
+     _label(choice_column,"SET QUALITY %+d   /   FAN BONUS %+d" % [int(projection["quality_modifier"]),int(projection["fan_bonus"])],12,UI.WHITE)
+     _label(choice_column,"TENSION %+d   /   %s" % [int(projection["tension_modifier"]),str(projection["outlook"])],12,UI.MUTED)
+    _label(calendar_box,"Outlook uses current readiness, morale and tension. Final outcome also depends on your available lineup.",12,UI.MUTED)
    if bool(scene.get("can_play",false)):
     _label(calendar_box,"SET APPROACH  /  "+str(booked.get("approach","tight")).to_upper(),13,UI.MUTED)
     _action(calendar_box,"TAKE THE STAGE",func() -> void: _perform_gig(),true)
