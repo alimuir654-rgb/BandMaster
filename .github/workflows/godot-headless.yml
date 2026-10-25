@@ -732,3 +732,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v104_portrait_presentation_tests.gd
+      - name: Test individual Indie musician art
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v105_individual_indie_portrait_tests.gd
