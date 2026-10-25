@@ -1188,7 +1188,9 @@ func _actions() -> void:
    creative_grid.columns = 2
    creative_grid.add_theme_constant_override("h_separation",10)
    creative_grid.add_theme_constant_override("v_separation",10)
-   workshop.add_child(creative_grid)
+   lab.add_child(creative_grid)
+   lab.move_child(creative_grid,2)
+   experiment_grid.visible = false
    for choice in [
     {"name":"01  SOUND","control":ideas,"icon":"audio-lines"},
     {"name":"02  STRUCTURE","control":forms,"icon":"list-music"},
