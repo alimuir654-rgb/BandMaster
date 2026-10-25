@@ -421,20 +421,38 @@ func _home() -> void:
   {"name":"THE GEAR SHOP","tab":"GEAR","caption":"Buy · Upgrade · Repair","art":"gear"}
  ]:
   var data: Dictionary = spot
+  var destination_card := PanelContainer.new()
+  destination_card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  destination_card.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],12))
+  places.add_child(destination_card)
+  var destination_column := VBoxContainer.new()
+  destination_column.add_theme_constant_override("separation",5)
+  destination_card.add_child(destination_column)
+  var thumb_path := "res://Art/Backgrounds/%s/%s.webp" % [_genre_id(),str(data["art"])]
+  if not ResourceLoader.exists(thumb_path):
+   thumb_path = "res://Art/Backgrounds/shared/%s.webp" % str(data["art"])
+  if ResourceLoader.exists(thumb_path):
+   var thumbnail := TextureRect.new()
+   thumbnail.texture = load(thumb_path)
+   thumbnail.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   thumbnail.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+   thumbnail.custom_minimum_size.y = 98 if landscape_dashboard else 72
+   thumbnail.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   destination_column.add_child(thumbnail)
   var tile := WoldButton.new()
   tile.shape = WoldButton.Shape.SECONDARY
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 78 if CareerLayout.is_compact(get_viewport_rect().size.x) else 96
+  tile.custom_minimum_size.y = 56 if landscape_dashboard else 62
   tile.icon_start = {"ACTIONS":"music","GIGS":"ticket","BAND":"users","SCENE":"globe","GEAR":"guitar"}.get(str(data["tab"]),"arrow-right")
   tile.icon_end = "chevron-right"
   tile.text = str(data["name"])
   tile.tooltip_text = str(data["caption"])
   tile.accessibility_name = str(data["name"])+" — "+str(data["caption"])
-  tile.add_theme_font_size_override("font_size",16 if CareerLayout.is_compact(get_viewport_rect().size.x) else 18)
-  tile.add_theme_stylebox_override("normal",UI.style(UI.palette(_genre_id())["alt"],12))
-  tile.add_theme_stylebox_override("hover",UI.style(UI.palette(_genre_id())["alt"].lightened(0.14),12))
-  tile.add_theme_stylebox_override("pressed",UI.style(UI.palette(_genre_id())["panel"],12))
-  places.add_child(tile)
+  tile.add_theme_font_size_override("font_size",15 if CareerLayout.is_compact(get_viewport_rect().size.x) else 17)
+  tile.add_theme_stylebox_override("normal",UI.style(UI.palette(_genre_id())["alt"],10))
+  tile.add_theme_stylebox_override("hover",UI.style(UI.palette(_genre_id())["alt"].lightened(0.14),10))
+  tile.add_theme_stylebox_override("pressed",UI.style(UI.palette(_genre_id())["panel"],10))
+  destination_column.add_child(tile)
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
 
