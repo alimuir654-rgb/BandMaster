@@ -1022,6 +1022,43 @@ func _actions() -> void:
   experiment_grid.add_theme_constant_override("h_separation",8)
   experiment_grid.add_theme_constant_override("v_separation",8)
   lab.add_child(experiment_grid)
+  var saved_take: Dictionary = {}
+  var take_panel := PanelContainer.new()
+  take_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
+  lab.add_child(take_panel)
+  var take_stack := VBoxContainer.new()
+  take_stack.add_theme_constant_override("separation",7)
+  take_panel.add_child(take_stack)
+  _label(take_stack,"YOUR IDEAS  /  A-B WORKBENCH",12,UI.palette(_genre_id())["accent"])
+  var take_status := _label(take_stack,"No take saved. Find a sound you like, then save it to compare.",13,UI.MUTED)
+  var take_actions := HBoxContainer.new()
+  take_actions.add_theme_constant_override("separation",8)
+  take_stack.add_child(take_actions)
+  var save_take := UI.themed_button("SAVE TAKE A",_genre_id(),false)
+  save_take.custom_minimum_size.y = 48
+  take_actions.add_child(save_take)
+  var restore_take := UI.themed_button("RESTORE TAKE A",_genre_id(),false)
+  restore_take.custom_minimum_size.y = 48
+  restore_take.disabled = true
+  take_actions.add_child(restore_take)
+  var update_comparison := func() -> void:
+   if saved_take.is_empty():
+    return
+   var changes := SongLab.difference(saved_take,ideas,forms,titles,leads)
+   take_status.text = "TAKE A SAVED  /  %d OF 4 CHOICES DIFFER FROM CURRENT" % changes
+  save_take.pressed.connect(func() -> void:
+   saved_take.clear()
+   saved_take.merge(SongLab.capture(ideas,forms,titles,leads))
+   restore_take.disabled = saved_take.is_empty()
+   update_comparison.call()
+  )
+  restore_take.pressed.connect(func() -> void:
+   if SongLab.restore(saved_take,ideas,forms,titles,leads):
+    refresh_preview.call()
+    update_comparison.call()
+  )
+  for comparison_control in [ideas,forms,titles,leads]:
+   comparison_control.item_selected.connect(func(_index: int) -> void: update_comparison.call())
   for experiment in [
    {"name":"NEW IDEA","control":ideas},
    {"name":"NEW SHAPE","control":forms},
@@ -1037,6 +1074,7 @@ func _actions() -> void:
    experiment_button.pressed.connect(func() -> void:
     if SongLab.advance(experiment_control):
      refresh_preview.call()
+     update_comparison.call()
    )
   var remix := UI.themed_button("REMIX ALL FOUR CHOICES",_genre_id(),false)
   remix.custom_minimum_size.y = 50
@@ -1045,6 +1083,7 @@ func _actions() -> void:
   remix.pressed.connect(func() -> void:
    SongLab.remix(ideas,forms,titles,leads)
    refresh_preview.call()
+   update_comparison.call()
   )
   var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
   jam.custom_minimum_size.y = 54

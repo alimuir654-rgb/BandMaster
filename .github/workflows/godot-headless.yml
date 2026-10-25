@@ -605,3 +605,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v79_writing_stages_tests.gd
+      - name: Test A-B songwriting comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v80_ab_songwriting_tests.gd
