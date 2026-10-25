@@ -879,3 +879,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v133_showday_stage_tests.gd
+      - name: Validate authored songs and duplicate protection
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v134_song_titles_tests.gd
