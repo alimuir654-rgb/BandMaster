@@ -643,10 +643,26 @@ func _gigs() -> void:
     chapter_art.texture = load(art_path)
    calendar_box.add_child(chapter_art)
    var progress := HBoxContainer.new()
+   progress.add_theme_constant_override("separation",8)
    calendar_box.add_child(progress)
-   for label in ["01 ARRIVE","02 SOUNDCHECK","03 STAGE"]:
-    var chip := _label(progress,label,11,UI.MUTED)
-    chip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   var phase_order := ["arrive","soundcheck","stage"]
+   var current_phase := phase_order.find(str(scene.get("phase","arrive")))
+   for phase_index in range(3):
+    var phase_panel := PanelContainer.new()
+    phase_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    var active_phase := phase_index == current_phase
+    var finished_phase := phase_index < current_phase
+    var phase_style := UI.style(UI.palette(_genre_id())["alt"] if active_phase or finished_phase else UI.palette(_genre_id())["panel"],9)
+    phase_style.border_width_top = 3 if active_phase else 1
+    phase_style.border_color = UI.palette(_genre_id())["accent"] if active_phase else UI.palette(_genre_id())["alt"]
+    phase_panel.add_theme_stylebox_override("panel",phase_style)
+    progress.add_child(phase_panel)
+    var phase_column := VBoxContainer.new()
+    phase_column.add_theme_constant_override("separation",4)
+    phase_panel.add_child(phase_column)
+    _label(phase_column,"%02d" % (phase_index+1),11,UI.palette(_genre_id())["accent"] if active_phase else UI.MUTED)
+    _label(phase_column,["ARRIVAL","SOUNDCHECK","ON STAGE"][phase_index],14,UI.WHITE if active_phase else UI.MUTED)
+    _label(phase_column,"COMPLETE" if finished_phase else ("NOW" if active_phase else "UP NEXT"),11,UI.palette(_genre_id())["accent"] if active_phase or finished_phase else UI.MUTED)
    if str(scene.get("phase","")) == "soundcheck":
     _label(calendar_box,"YOUR LIVE SET  /  CHOOSE AN APPROACH",13,UI.AMBER)
     for approach_key in ["tight","wild","crowd"]:
@@ -896,6 +912,13 @@ func _band() -> void:
   var index := i
   var status := str(member.get("life_status","active"))
   var box := Components.section(roster_grid,"","",_genre_id())
+  if landscape_roster:
+   var member_header := HBoxContainer.new()
+   member_header.add_theme_constant_override("separation",8)
+   box.add_child(member_header)
+   var status_label := _label(member_header,"AVAILABLE" if status == "active" else status.to_upper(),11,UI.palette(_genre_id())["accent"] if status == "active" else UI.palette(_genre_id())["secondary"])
+   status_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   _label(member_header,"BAND PERSONNEL  /  %02d" % (index+1),11,UI.MUTED)
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
