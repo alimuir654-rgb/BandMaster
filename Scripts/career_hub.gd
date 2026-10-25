@@ -1372,7 +1372,7 @@ func _gear() -> void:
    _label(dossier,str(entry.get("provenance","History unrecorded")),12,UI.MUTED)
   if matched == 0:
    _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
- var unassigned: Array = []
+ var unassigned := PackedStringArray()
  for item_id in owned:
   if Gear.holder_index(_state(),Gear.record(_state(),str(item_id))) < 0:
    unassigned.append(str(Gear.item_for(str(item_id)).get("name",item_id)))
