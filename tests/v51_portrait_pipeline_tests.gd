@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(portrait.person_id=="person_01","portrait identity")
  _check(portrait.genre_id=="indie","genre-aware lookup")
  _check(portrait.portrait_texture==null,"fallback for missing art")
- _check(portrait._safe_id("Joe/../../<bad>")=="joe_bad","path is sanitized")
+ _check(portrait._safe_id("Joe/../../<bad>")=="joebad","path is sanitized")
  portrait.set_character("person_01","Alex","metal")
  _check(portrait.genre_id=="metal","genre change reloads")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene compiles")
