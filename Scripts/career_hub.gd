@@ -668,7 +668,7 @@ func _band() -> void:
   name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   identity.add_child(name_stack)
   _label(name_stack,str(member.get("name","Musician")).to_upper(),CareerLayout.member_name_font_size(get_viewport_rect().size.x),UI.WHITE)
-  _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
+  _label(name_stack,str(member.get("role","")).to_upper(),13,UI.palette(_genre_id())["accent"])
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
   _label(name_stack,"SKILL %d  /  MORALE %d" % [int(member.get("skill",50)),int(member.get("morale",50))],13,UI.WHITE)
   _label(name_stack,BandPulse.member_note(member),12,UI.palette(_genre_id())["accent"])
@@ -692,7 +692,7 @@ func _band() -> void:
   if selected_band_member != index:
    continue
   var rule := ColorRect.new()
-  rule.color = Color("#344153")
+  rule.color = UI.palette(_genre_id())["alt"]
   rule.custom_minimum_size.y = 1
   box.add_child(rule)
   var scores := GridContainer.new()
@@ -707,7 +707,7 @@ func _band() -> void:
    var meter := ProgressBar.new()
    meter.custom_minimum_size = Vector2(130,10)
    meter.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   UI.progress(meter)
+   UI.themed_progress(meter,_genre_id(),"secondary" if key == "fatigue" else "accent")
    meter.value = clampi(int(member.get(key,50)),0,100)
    metric.add_child(meter)
   var member_actions := _label(box,"SPEND TIME WITH "+str(member.get("name","THE BANDMATE")).to_upper(),13,UI.AMBER)
@@ -715,10 +715,6 @@ func _band() -> void:
   for choice in Experience.member_options(_state(),index):
    var choice_id := str(choice["id"])
    _experience_tile(box,str(choice["title"]),"A personal choice that changes how this musician feels about the band.",str(choice["impact"]),int(choice["cost"]),bool(choice["enabled"]),func() -> void: _member(index,choice_id))
-  var listen := UI.button("HEAR WHAT THEY HAVE TO SAY")
-  listen.custom_minimum_size.y = 52
-  box.add_child(listen)
-  listen.pressed.connect(func() -> void: _listen(index))
 
  var chemistry := _card("BAND PULSE","How the band is coping between shows.")
  _progress(chemistry,"GROUP MORALE",int(pulse["morale"]))
