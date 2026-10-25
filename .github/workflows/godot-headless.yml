@@ -762,3 +762,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v110_gig_roster_ui_tests.gd
+      - name: Test gig strategy previews and decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v111_performance_decisions_tests.gd
