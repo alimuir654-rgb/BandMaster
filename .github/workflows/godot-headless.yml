@@ -662,3 +662,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v90_portrait_emphasis_tests.gd
+      - name: Test Home landscape management dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v91_home_dashboard_tests.gd
