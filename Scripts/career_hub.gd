@@ -52,6 +52,8 @@ var action_view := "JAM"
 var gig_show_locked := false
 var gig_selected_venue := ""
 var selected_band_member := -1
+var career_scroll: ScrollContainer
+var preserve_roster_scroll := false
 var dialogue_request: HTTPRequest
 var dialogue_busy := false
 var dialogue_serial := 0
@@ -140,6 +142,10 @@ func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> vo
  row.add_child(bar)
 
 func _render() -> void:
+ var previous_scroll := 0
+ if preserve_roster_scroll and is_instance_valid(career_scroll):
+  previous_scroll = career_scroll.scroll_vertical
+ preserve_roster_scroll = false
  for child in get_children():
   remove_child(child)
   child.queue_free()
@@ -148,6 +154,7 @@ func _render() -> void:
  add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
+ career_scroll = scroll
  add_child(scroll)
  scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  scroll.offset_bottom = -CareerLayout.content_inset(get_viewport_rect().size.x)
@@ -179,6 +186,8 @@ func _render() -> void:
  content.add_child(menu)
  menu.pressed.connect(_menu)
  _bottom_nav()
+ if previous_scroll > 0:
+  scroll.set_deferred("scroll_vertical",previous_scroll)
  content.modulate.a = 0.0
  var appear := create_tween()
  appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -647,6 +656,7 @@ func _band() -> void:
   box.add_child(profile)
   profile.pressed.connect(func() -> void:
    selected_band_member = -1 if selected_band_member == index else index
+   preserve_roster_scroll = true
    _render()
   )
   if selected_band_member != index:
