@@ -11,6 +11,10 @@ func _initialize() -> void:
  _check(script.contains('metric_panel.tooltip_text = str(entry["detail"])'),"semantic metric help")
  _check(script.contains('value_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS'),"large numbers cannot overflow")
  _check(script.contains('var metric_icon := _label('),"icon-led desktop presentation")
+ _check(script.contains("func _home_spotlight() -> void:"),"landscape editorial spotlight exists")
+ _check(script.contains("visual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED"),"photographic cover crop")
+ _check(script.contains("primary.pressed.connect(func() -> void: _switch(destination))"),"live primary spotlight action")
+ _check(script.contains("secondary.pressed.connect(func() -> void: _switch(\"BAND\"))"),"live band spotlight action")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career hub scene loads")
  if failures == 0:
   print("V106 CAREER METRIC HEADER PASSED")
