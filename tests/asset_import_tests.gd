@@ -3,11 +3,11 @@ var failures := 0
 func _initialize() -> void:
  var icons := ["ticket","calendar-days","map-pin","route","truck","bed-double","wrench","wallet","notebook-pen","users","message-circle","heart-handshake","guitar","mic","award","circle-alert","arrow-left","arrow-right","check","x","sliders-horizontal"]
  for name in icons:
-  var path := "res://Art/UI/Icons/"+name+".svg"
+  var path: String = "res://Art/UI/Icons/"+name+".svg"
   _check(FileAccess.file_exists(path),"missing Lucide icon "+name)
   _check(load(path)!=null,"unimportable Lucide icon "+name)
  for name in ["paper-note","corkboard","gig-ticket"]:
-  var path := "res://Art/UI/Textures/"+name+".svg"
+  var path: String = "res://Art/UI/Textures/"+name+".svg"
   _check(FileAccess.file_exists(path),"missing texture "+name)
   _check(load(path)!=null,"unimportable texture "+name)
  _check(FileAccess.file_exists("res://Art/UI/Icons/LUCIDE_LICENSE.txt"),"icon license included")
