@@ -580,3 +580,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v74_priority_cards_tests.gd
+      - name: Validate immediately playable band roster
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v75_immediate_roster_tests.gd
