@@ -702,3 +702,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v98_creative_choice_cards_tests.gd
+      - name: Verify creative choice state synchronization
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v99_choice_sync_tests.gd
