@@ -441,3 +441,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V34 WRITING ROOM FAILURE:|ERROR:' /tmp/v34-writing.log; then
             exit 1
           fi
+      - name: Test mobile-responsive career layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v35_mobile_layout_tests.gd 2>&1 | tee /tmp/v35-mobile.log
+          grep -q 'V35 MOBILE LAYOUT TESTS PASSED' /tmp/v35-mobile.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V35 MOBILE LAYOUT FAILURE:|ERROR:' /tmp/v35-mobile.log; then
+            exit 1
+          fi
