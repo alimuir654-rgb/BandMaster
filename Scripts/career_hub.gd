@@ -1,6 +1,7 @@
 extends Control
 
 const UI = preload("res://Scripts/ui_theme.gd")
+const Genres = preload("res://Scripts/genre_profiles.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 const Presentation = preload("res://Scripts/career_presentation.gd")
 const Scrapbook = preload("res://Scripts/scrapbook_filter.gd")
@@ -122,11 +123,15 @@ func _label(parent: Node, value: String, size: int = 17, colour: Color = UI.WHIT
  parent.add_child(label)
  return label
 
+func _genre_id() -> String:
+ var band_data = save_data.get("band",{})
+ return Genres.normalize(str(band_data.get("genre","indie"))) if band_data is Dictionary else "indie"
+
 func _card(title: String, description: String = "") -> VBoxContainer:
  return Components.section(content,title,description)
 
 func _action(parent: Node, name: String, callback: Callable, primary: bool = false) -> void:
- var button := UI.button(name,primary)
+ var button := UI.themed_button(name,_genre_id(),primary)
  parent.add_child(button)
  button.pressed.connect(callback)
 
@@ -138,7 +143,7 @@ func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> vo
  var bar := ProgressBar.new()
  bar.custom_minimum_size = Vector2(105,20)
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- UI.progress(bar)
+ UI.themed_progress(bar,_genre_id())
  bar.max_value = maxi(1,maximum)
  bar.value = clampi(value,0,int(bar.max_value))
  bar.show_percentage = false
@@ -154,7 +159,7 @@ func _render() -> void:
   remove_child(child)
   child.queue_free()
  var background := ColorRect.new()
- background.color = UI.BG
+ background.color = UI.palette(_genre_id())["bg"]
  add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
