@@ -652,3 +652,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v88_desktop_readability_tests.gd
+      - name: Verify landscape musician roster grid
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v89_band_roster_grid_tests.gd
