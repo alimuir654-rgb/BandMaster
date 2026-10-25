@@ -67,6 +67,16 @@ func _initialize() -> void:
  broke["cash"] = 35
  _check(not bool(Calendar.perform(broke).get("ok",true)),"can't run overnight without room money")
  _check(int(broke["cash"])==35,"failed show leaves input untouched")
+ var stranded := night.duplicate(true)
+ stranded["cash"] = 0
+ var cancelled: Dictionary = Calendar.cancel(stranded)
+ _check(bool(cancelled.get("ok",false)),"stranded band can cancel a booked show")
+ if bool(cancelled.get("ok",false)):
+  _check(cancelled["state"]["booked_show"].is_empty(),"cancellation clears booking")
+ var ui_source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
+ _check(ui_source.contains('source != "booking_cancel"'),"show-day guard permits emergency cancellation")
+ _check(ui_source.contains('func _open_itinerary_editor() -> void:'),"dedicated travel editor exists")
+ _check(ui_source.contains('overlay.name = "TourItineraryEditor"'),"travel editor has independent overlay")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene compiles")
  if failures == 0:
   print("SPRINT 01 TOURING TESTS PASSED")
