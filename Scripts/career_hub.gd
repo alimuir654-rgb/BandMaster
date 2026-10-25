@@ -732,7 +732,19 @@ func _band() -> void:
   _label(name_stack,str(member.get("name","Musician")).to_upper(),CareerLayout.member_name_font_size(get_viewport_rect().size.x),UI.WHITE)
   _label(name_stack,str(member.get("role","")).to_upper(),13,UI.palette(_genre_id())["accent"])
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
-  _label(name_stack,"SKILL %d  /  MORALE %d" % [int(member.get("skill",50)),int(member.get("morale",50))],13,UI.WHITE)
+  if get_viewport_rect().size.x >= 960.0:
+   var badges := HBoxContainer.new()
+   badges.add_theme_constant_override("separation",8)
+   name_stack.add_child(badges)
+   for entry in [{"label":"SKILL","key":"skill"},{"label":"MORALE","key":"morale"}]:
+    var metric_panel := PanelContainer.new()
+    metric_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],8))
+    metric_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    badges.add_child(metric_panel)
+    var metric_text := _label(metric_panel,"%s  %d" % [str(entry["label"]),int(member.get(str(entry["key"]),50))],13,UI.WHITE)
+    metric_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  else:
+   _label(name_stack,"SKILL %d  /  MORALE %d" % [int(member.get("skill",50)),int(member.get("morale",50))],13,UI.WHITE)
   _label(name_stack,BandPulse.member_note(member),12,UI.palette(_genre_id())["accent"])
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
@@ -740,7 +752,9 @@ func _band() -> void:
   action_row.add_theme_constant_override("separation",8)
   box.add_child(action_row)
   var profile := UI.themed_button("CLOSE PROFILE" if selected_band_member == index else "VIEW DETAILS",_genre_id(),selected_band_member == index)
-  profile.custom_minimum_size.y = 48
+  profile.custom_minimum_size.y = 52
+  if profile is WoldButton:
+   profile.icon_start = "chart-no-axes-column"
   action_row.add_child(profile)
   profile.pressed.connect(func() -> void:
    selected_band_member = -1 if selected_band_member == index else index
@@ -748,7 +762,9 @@ func _band() -> void:
    _render()
   )
   var talk := UI.themed_button("TALK",_genre_id(),false)
-  talk.custom_minimum_size.y = 48
+  talk.custom_minimum_size.y = 52
+  if talk is WoldButton:
+   talk.icon_start = "message-circle"
   action_row.add_child(talk)
   talk.pressed.connect(func() -> void: _listen(index))
   if selected_band_member != index:
