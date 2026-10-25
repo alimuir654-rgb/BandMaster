@@ -450,3 +450,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V35 MOBILE LAYOUT FAILURE:|ERROR:' /tmp/v35-mobile.log; then
             exit 1
           fi
+      - name: Validate career momentum dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v36_career_momentum_tests.gd 2>&1 | tee /tmp/v36-momentum.log
+          grep -q 'V36 CAREER MOMENTUM TESTS PASSED' /tmp/v36-momentum.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V36 MOMENTUM FAILURE:|ERROR:' /tmp/v36-momentum.log; then
+            exit 1
+          fi
