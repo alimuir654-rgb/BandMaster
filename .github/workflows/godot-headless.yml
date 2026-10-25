@@ -575,3 +575,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v73_songwriting_ux_tests.gd
+      - name: Check task-first home priority
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v74_priority_cards_tests.gd

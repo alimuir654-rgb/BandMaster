@@ -261,13 +261,17 @@ func _hero() -> void:
 
 
 func _home() -> void:
- var stage := _card("BAND IDENTITY","Write better songs. Find your people. Earn bigger stages.")
+ var guidance: Dictionary = Director.next_move(_state())
+ var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
+ var destination := str(guidance.get("tab","ACTIONS"))
+ _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+ var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
  var feature_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
  if not ResourceLoader.exists(feature_path):
   feature_path = "res://Art/Backgrounds/shared/home.webp"
  if ResourceLoader.exists(feature_path):
   var feature := TextureRect.new()
-  feature.custom_minimum_size.y = 125 if CareerLayout.is_compact(get_viewport_rect().size.x) else 180
+  feature.custom_minimum_size.y = 92 if CareerLayout.is_compact(get_viewport_rect().size.x) else 144
   feature.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   feature.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   feature.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -276,10 +280,6 @@ func _home() -> void:
  var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
  band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
- var guidance: Dictionary = Director.next_move(_state())
- var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
- var destination := str(guidance.get("tab","ACTIONS"))
- _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
  var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
  places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
@@ -605,7 +605,7 @@ func _band() -> void:
  var overview := _card("THE LINEUP","%d ACTIVE  /  %d TOTAL  /  %s" % [int(pulse["active"]),members.size(),str(pulse["mood"]).to_upper()])
  if int(pulse["exhausted"]) > 0:
   _label(overview,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),14,UI.palette(_genre_id())["secondary"])
- _label(overview,"CHOOSE A MUSICIAN BELOW TO SEE THEIR STORY, SKILLS AND INTERACTIONS.",14,UI.MUTED)
+ _label(overview,"TALK TO BANDMATES OR OPEN THEIR PROFILES.",13,UI.MUTED)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
