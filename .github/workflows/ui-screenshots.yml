@@ -1,0 +1,40 @@
+name: BandMaster visual screenshots
+on:
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot and X virtual framebuffer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import project assets
+        run: godot --headless --path . --editor --import --quit
+      - name: Render real CareerHub screens
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=390 --height=844 --output=screenshots/home-mobile.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=390 --height=844 --output=screenshots/band-mobile.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=1280 --height=800 --output=screenshots/home-desktop.png
+          file screenshots/*.png
+      - name: Upload screenshot artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bandmaster-ui-screenshots
+          path: screenshots/*.png
+          if-no-files-found: warn
+          retention-days: 14
