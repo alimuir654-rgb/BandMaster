@@ -530,3 +530,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v63_studio_nav_tests.gd
+      - name: Verify Indie scene textures
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v64_indie_raster_tests.gd
