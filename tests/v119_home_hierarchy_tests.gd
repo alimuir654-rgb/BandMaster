@@ -8,7 +8,7 @@ func _initialize() -> void:
  _check(src.contains('{"title":"RAISE YOUR PROFILE"'),"reputation route")
  _check(src.contains('{"title":"EARN YOUR KEEP"'),"cash route")
  _check(not src.contains('var momentum := _card("CAREER MOMENTUM"'),"duplicate status card removed")
- _check(src.contains('claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id)))'),"reward action preserved")
+ _check(src.contains('claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id),"chapter:"+chapter_id))'),"reward action preserved")
  _check(load("res://Scenes/CareerHub.tscn") != null,"scene compiles")
  if failures==0:
   print("V119 HOME HIERARCHY PASSED")

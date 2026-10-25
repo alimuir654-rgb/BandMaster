@@ -683,16 +683,27 @@ func _home() -> void:
  if landscape_dashboard:
   content = main_column
  var chapter: Dictionary = Chapters.progress(_state())
- var chapter_box := _card("YOUR NEXT CHAPTER  /  "+str(chapter.get("title","")) ,str(chapter.get("description","")))
- if not bool(chapter.get("done",false)):
-  for objective in chapter.get("requirements",[]):
+ var chapter_box := _card("CAREER CHAPTER  /  "+str(chapter.get("title","")),str(chapter.get("description","")))
+ if bool(chapter.get("done",false)):
+  _label(chapter_box,"ALL OPENING CHAPTERS COMPLETED",14,UI.palette(_genre_id())["accent"])
+ else:
+  var requirements: Array = chapter.get("requirements",[])
+  var complete_count := 0
+  for objective in requirements:
+   if int(objective.get("current",0)) >= int(objective.get("target",1)):
+    complete_count += 1
    Components.objective(chapter_box,objective)
-  var claim := UI.button("CLAIM CHAPTER REWARD  ·  £%d" % int(chapter.get("reward_cash",0)),true)
-  claim.disabled = not bool(chapter.get("ready",false))
+  var ready := bool(chapter.get("ready",false))
+  _label(chapter_box,"READY TO CLAIM" if ready else "%d OF %d OBJECTIVES COMPLETE" % [complete_count,requirements.size()],13,UI.palette(_genre_id())["accent"] if ready else UI.MUTED)
+  _label(chapter_box,"REWARD  /  £%d  +%d REPUTATION" % [int(chapter.get("reward_cash",0)),int(chapter.get("reward_rep",0))],14,UI.WHITE)
+  var claim := UI.themed_button("CLAIM REWARD" if ready else "FINISH OBJECTIVES TO CLAIM",_genre_id(),ready)
+  claim.disabled = not ready
+  claim.tooltip_text = "Finish the listed objectives first." if not ready else "Claim the reward once. Cash and reputation are saved immediately."
   claim.custom_minimum_size.y = 52
   chapter_box.add_child(claim)
   var chapter_id := str(chapter.get("id",""))
-  claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id)))
+  claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id),"chapter:"+chapter_id))
+
  var fans := _num("fans")
  var rep := _num("reputation")
  var missing: Dictionary = {}
@@ -2165,6 +2176,10 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var stack := VBoxContainer.new()
  stack.add_theme_constant_override("separation",14)
  panel.add_child(stack)
+ var chapter_result := source.begins_with("chapter:")
+ if chapter_result:
+  var reward_heading := _label(stack,"CHAPTER COMPLETE  /  REWARD CLAIMED",14,UI.palette(_genre_id())["accent"])
+  reward_heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var show_result := source.begins_with("gig:")
  if show_result:
   var show_banner := PanelContainer.new()
