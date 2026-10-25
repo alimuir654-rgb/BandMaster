@@ -1338,47 +1338,7 @@ func _scroll_to_venue_picker() -> void:
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
- var garage := _card("THE BAND'S EQUIPMENT  /  ROAD CASES","Assign equipment to a musician, track wear and service it before a difficult show.")
  var members: Array = save_data.get("band",{}).get("members",[])
- var cases := GridContainer.new()
- cases.columns = 2 if get_viewport_rect().size.x >= 960.0 else 1
- cases.add_theme_constant_override("h_separation",10)
- cases.add_theme_constant_override("v_separation",10)
- garage.add_child(cases)
- for member_index in range(members.size()):
-  var member = members[member_index]
-  if not member is Dictionary:
-   continue
-  var person_box := PanelContainer.new()
-  person_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  person_box.add_theme_stylebox_override("panel",UI.style(Color("#2C2926"),10))
-  cases.add_child(person_box)
-  var dossier := VBoxContainer.new()
-  dossier.add_theme_constant_override("separation",6)
-  person_box.add_child(dossier)
-  _label(dossier,str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),15,UI.AMBER)
-  var matched := 0
-  for item in Gear.ITEMS:
-   var item_id := str(item["id"])
-   if not owned.has(item_id):
-    continue
-   var entry: Dictionary = Gear.record(_state(),item_id)
-   if Gear.holder_index(_state(),entry) != member_index:
-    continue
-   matched += 1
-   var condition := int(entry.get("condition",-1))
-   _label(dossier,"IN CASE  /  "+str(item["name"]),13,UI.WHITE)
-   _label(dossier,"CONDITION  /  "+("NOT ASSESSED" if condition < 0 else "%d / 100" % condition),12,UI.MUTED)
-   _label(dossier,str(entry.get("provenance","History unrecorded")),12,UI.MUTED)
-  if matched == 0:
-   _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
- var unassigned := PackedStringArray()
- for item_id in owned:
-  if Gear.holder_index(_state(),Gear.record(_state(),str(item_id))) < 0:
-   unassigned.append(str(Gear.item_for(str(item_id)).get("name",item_id)))
- if not unassigned.is_empty():
-  _label(garage,"IN THE SHARED ROAD CASE  /  "+", ".join(unassigned),13,UI.WHITE)
- _label(garage,"Shared purchases are shown against relevant musicians once assigned. Older purchases keep unknown condition until serviced; personal equipment is not invented.",12,UI.MUTED)
  var heading := _card("THE MUSIC SHOP","Choose an item, review its cost and buy when ready.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
@@ -1482,6 +1442,46 @@ func _gear() -> void:
   if details_parent != null:
    details_parent.move_child(detail,mini(inventory.get_index(),details_parent.get_child_count()-1))
  content = full_content
+ var garage := _card("THE BAND'S EQUIPMENT  /  ROAD CASES","Assign equipment to a musician, track wear and service it before a difficult show.")
+ var cases := GridContainer.new()
+ cases.columns = 2 if get_viewport_rect().size.x >= 960.0 else 1
+ cases.add_theme_constant_override("h_separation",10)
+ cases.add_theme_constant_override("v_separation",10)
+ garage.add_child(cases)
+ for member_index in range(members.size()):
+  var member = members[member_index]
+  if not member is Dictionary:
+   continue
+  var person_box := PanelContainer.new()
+  person_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  person_box.add_theme_stylebox_override("panel",UI.style(Color("#2C2926"),10))
+  cases.add_child(person_box)
+  var dossier := VBoxContainer.new()
+  dossier.add_theme_constant_override("separation",6)
+  person_box.add_child(dossier)
+  _label(dossier,str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),15,UI.AMBER)
+  var matched := 0
+  for item in Gear.ITEMS:
+   var item_id := str(item["id"])
+   if not owned.has(item_id):
+    continue
+   var entry: Dictionary = Gear.record(_state(),item_id)
+   if Gear.holder_index(_state(),entry) != member_index:
+    continue
+   matched += 1
+   var condition := int(entry.get("condition",-1))
+   _label(dossier,"IN CASE  /  "+str(item["name"]),13,UI.WHITE)
+   _label(dossier,"CONDITION  /  "+("NOT ASSESSED" if condition < 0 else "%d / 100" % condition),12,UI.MUTED)
+   _label(dossier,str(entry.get("provenance","History unrecorded")),12,UI.MUTED)
+  if matched == 0:
+   _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
+ var unassigned := PackedStringArray()
+ for item_id in owned:
+  if Gear.holder_index(_state(),Gear.record(_state(),str(item_id))) < 0:
+   unassigned.append(str(Gear.item_for(str(item_id)).get("name",item_id)))
+ if not unassigned.is_empty():
+  _label(garage,"IN THE SHARED ROAD CASE  /  "+", ".join(unassigned),13,UI.WHITE)
+ _label(garage,"Shared purchases are shown against relevant musicians once assigned. Older purchases keep unknown condition until serviced; personal equipment is not invented.",12,UI.MUTED)
 
 func _band() -> void:
  _band_situations()
