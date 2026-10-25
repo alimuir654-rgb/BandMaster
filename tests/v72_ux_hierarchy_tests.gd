@@ -13,8 +13,8 @@ func _initialize() -> void:
   _check(home.find("var guidance: Dictionary") < home.find("var destinations :="),"next decision before destinations")
  if a>=0 and e>a:
   var studio := source.substr(a,e-a)
-  _check(studio.find("var switches :=") < studio.find("var snapshot :="),"activity selector before status details")
-  _check(studio.find("var snapshot :=") < studio.find("if action_view == \"JAM\":"),"status prior to interaction")
+  _check(studio.find("var switches :=") < studio.find("var snapshot: VBoxContainer"),"activity selector before status details")
+  _check(studio.find("var snapshot: VBoxContainer") < studio.find("if action_view == \"JAM\":"),"status prior to interaction")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"scene loads")
  if failures==0:
   print("V72 UX HIERARCHY TESTS PASSED")
