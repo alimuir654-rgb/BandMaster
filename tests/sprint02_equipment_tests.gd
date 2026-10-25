@@ -22,6 +22,7 @@ func _initialize() -> void:
  _check(bool(assigned.get("ok",false)),"guitarist can receive amp")
  var using: Dictionary = assigned["state"]
  _check(int(using["gear_records"]["amp"]["holder_index"]) == 0,"member-specific holder persisted")
+ _check(not bool(Gear.assign(using,"amp",0).get("ok",true)),"repeated no-op assignment rejected")
  _check(int(using["tour_day"]) == 6 and int(using["cash"]) == 285,"assignment is free and instant")
  _check(int(owned["gear_records"]["amp"]["holder_index"]) == -1,"assignment leaves old state unchanged")
  var replacement := using.duplicate(true)
