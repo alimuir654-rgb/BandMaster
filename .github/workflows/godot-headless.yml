@@ -560,3 +560,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v70_photo_fallback_tests.gd
+      - name: Validate nav UX accessibility and sizing
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v71_nav_ux_tests.gd
