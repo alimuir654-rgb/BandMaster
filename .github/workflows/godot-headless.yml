@@ -752,3 +752,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v108_editorial_workspaces_tests.gd
+      - name: Verify songwriting session workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v109_songwriting_session_ux_tests.gd
