@@ -38,6 +38,21 @@ static func record(state: Dictionary, item_id: String) -> Dictionary:
   return entry
  return {"condition":UNKNOWN_CONDITION,"holder_index":-1,"provenance":"Acquired before equipment records began","repairs":0}
 
+static func holder_index(state: Dictionary, entry: Dictionary) -> int:
+ var index := int(entry.get("holder_index",-1))
+ var roster: Array = state.get("members",[])
+ if index < 0 or index >= roster.size() or not roster[index] is Dictionary:
+  return -1
+ var member: Dictionary = roster[index]
+ # Prevent stale member-index references from assigning an old amp to a replacement.
+ if entry.has("holder_name") and str(entry["holder_name"]) != str(member.get("name","")):
+  return -1
+ if entry.has("holder_role") and str(entry["holder_role"]) != str(member.get("role","")):
+  return -1
+ if entry.has("holder_id") and str(entry["holder_id"]) != str(member.get("candidate_id",member.get("id",""))):
+  return -1
+ return index
+
 static func buy(state: Dictionary, item_id: String) -> Dictionary:
  var found := item_for(item_id)
  if found.is_empty():
@@ -74,6 +89,9 @@ static func assign(state: Dictionary, item_id: String, member_index: int) -> Dic
  var records: Dictionary = next.get("gear_records",{}).duplicate(true)
  var entry := record(state,item_id)
  entry["holder_index"] = member_index
+ entry["holder_name"] = str(member.get("name",""))
+ entry["holder_role"] = str(member.get("role",""))
+ entry["holder_id"] = str(member.get("candidate_id",member.get("id","")))
  records[item_id] = entry
  next["gear_records"] = records
  return {"ok":true,"state":next,"message":"%s now carries %s. No time or money spent." % [str(member.get("name","Musician")),str(item_for(item_id).get("name",item_id))]}
@@ -102,11 +120,11 @@ static func readiness_penalty(state: Dictionary) -> int:
  var penalty := 0
  for item_id in state.get("owned_equipment",[]):
   var entry := record(state,str(item_id))
-  if int(entry.get("holder_index",-1)) < 0:
+  if holder_index(state,entry) < 0:
    continue
   var roster: Array = state.get("members",[])
-  var index := int(entry["holder_index"])
-  if index >= roster.size() or not roster[index] is Dictionary or str(roster[index].get("life_status","active")) != "active":
+  var index := holder_index(state,entry)
+  if index < 0 or index >= roster.size() or not roster[index] is Dictionary or str(roster[index].get("life_status","active")) != "active":
    continue
   var condition := int(entry.get("condition",UNKNOWN_CONDITION))
   if condition >= 0 and condition < 35:
@@ -119,7 +137,7 @@ static func after_show(state: Dictionary) -> Dictionary:
  var records: Dictionary = next.get("gear_records",{}).duplicate(true)
  for item_id in next.get("owned_equipment",[]):
   var entry := record(state,str(item_id))
-  var index := int(entry.get("holder_index",-1))
+  var index := holder_index(state,entry)
   var roster: Array = state.get("members",[])
   if index < 0 or index >= roster.size() or not roster[index] is Dictionary or str(roster[index].get("life_status","active")) != "active":
    continue
