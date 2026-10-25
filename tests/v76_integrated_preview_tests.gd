@@ -8,7 +8,7 @@ func _initialize() -> void:
  if a>=0 and b>a:
   var studio := source.substr(a,b-a)
   _check(studio.contains("workshop.add_child(preview_panel)"),"preview embedded in controls")
-  _check(studio.contains("YOUR SONG  /  LIVE PREVIEW"),"clear preview label")
+  _check(studio.contains("WORKING SONGSHEET  /  LIVE DRAFT"),"clear preview label")
   _check(studio.contains("item_selected.connect"),"live updates preserved")
   _check(studio.contains("COMMIT TO THIS SONG"),"action remains")
   _check(not studio.contains("_card(\"SONG DIRECTION"),"duplicate section removed")
