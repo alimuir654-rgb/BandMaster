@@ -600,3 +600,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v78_creative_lab_tests.gd
+      - name: Test narrative writing stages
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v79_writing_stages_tests.gd
