@@ -338,9 +338,9 @@ func _scene_instrument_strip() -> void:
  var copy := VBoxContainer.new()
  copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(copy)
- var title := {"HOME":"THE BAND HOUSE","DAY":"TODAY'S PLANS","STUDIO":"REHEARSAL CONSOLE","GIGS":"LIVE CONTROL ROOM"}.get(identity,"BANDMASTER")
+ var title: String = {"HOME":"THE BAND HOUSE","DAY":"TODAY'S PLANS","STUDIO":"REHEARSAL CONSOLE","GIGS":"LIVE CONTROL ROOM"}.get(identity,"BANDMASTER")
  _label(copy,title,14,UI.WHITE)
- var caption := {"HOME":"A place to regroup, plan and connect.","DAY":"Daylight hours: choose where to spend your time.","STUDIO":"Build a song, experiment and check the levels.","GIGS":"The room is waiting. Prepare for the lights."}.get(identity,"")
+ var caption: String = {"HOME":"A place to regroup, plan and connect.","DAY":"Daylight hours: choose where to spend your time.","STUDIO":"Build a song, experiment and check the levels.","GIGS":"The room is waiting. Prepare for the lights."}.get(identity,"")
  _label(copy,caption,12,UI.MUTED)
  var metric := ""
  match identity:
