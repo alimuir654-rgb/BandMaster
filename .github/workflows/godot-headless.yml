@@ -869,3 +869,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v131_scene_foundations_tests.gd
+      - name: Validate creative songwriting workbench
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v132_creative_workbench_tests.gd
