@@ -280,15 +280,6 @@ func _home() -> void:
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
  _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
- var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
- for status_entry in Momentum.signals(_state()):
-  var target_tab := str(status_entry["tab"])
-  var signal_button := UI.button(str(status_entry["label"])+"  /  "+str(status_entry["detail"]))
-  signal_button.custom_minimum_size.y = 54
-  signal_button.tooltip_text = str(status_entry["detail"])
-  momentum.add_child(signal_button)
-  signal_button.pressed.connect(func() -> void: _switch(target_tab))
-
  var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
  places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
@@ -323,6 +314,15 @@ func _home() -> void:
   tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
+
+ var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
+ for status_entry in Momentum.signals(_state()):
+  var target_tab := str(status_entry["tab"])
+  var signal_button := UI.button(str(status_entry["label"])+"  /  "+str(status_entry["detail"]))
+  signal_button.custom_minimum_size.y = 54
+  signal_button.tooltip_text = str(status_entry["detail"])
+  momentum.add_child(signal_button)
+  signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
  var upcoming: Dictionary = Calendar.pending(_state())
  if not upcoming.is_empty():
@@ -864,14 +864,6 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
  start.pressed.connect(callback)
 
 func _actions() -> void:
- var upcoming: Dictionary = Calendar.pending(_state())
- var snapshot := _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")])
- if not upcoming.is_empty():
-  var countdown := int(upcoming.get("day",1)) - _num("tour_day")
-  if countdown > 0:
-   _label(snapshot,"NEXT SHOW IN %d DAYS  /  %s" % [countdown,str(upcoming.get("venue","VENUE"))],13,UI.MUTED)
-  elif countdown == 0:
-   _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
@@ -906,6 +898,14 @@ func _actions() -> void:
   scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
   scene_art.texture = load(image_path)
   scene_card.add_child(scene_art)
+ var upcoming: Dictionary = Calendar.pending(_state())
+ var snapshot := _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")])
+ if not upcoming.is_empty():
+  var countdown := int(upcoming.get("day",1)) - _num("tour_day")
+  if countdown > 0:
+   _label(snapshot,"NEXT SHOW IN %d DAYS  /  %s" % [countdown,str(upcoming.get("venue","VENUE"))],13,UI.MUTED)
+  elif countdown == 0:
+   _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  if action_view == "JAM":
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
