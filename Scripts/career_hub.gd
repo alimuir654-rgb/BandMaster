@@ -138,10 +138,10 @@ func _action(parent: Node, name: String, callback: Callable, primary: bool = fal
 func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> void:
  var row := HBoxContainer.new()
  parent.add_child(row)
- var label := _label(row,name + "  %d" % value,13,UI.MUTED)
+ var label := _label(row,name + "  %d" % value,14,UI.WHITE)
  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var bar := ProgressBar.new()
- bar.custom_minimum_size = Vector2(105,20)
+ bar.custom_minimum_size = Vector2(105,12)
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  UI.themed_progress(bar,_genre_id())
  bar.max_value = maxi(1,maximum)
@@ -180,7 +180,8 @@ func _render() -> void:
  content.add_theme_constant_override("separation",10)
  margin.add_child(content)
  _header()
- _hero()
+ if tab != "HOME" and tab != "ACTIONS" and tab != "BAND":
+  _hero()
  if not message.is_empty():
   _card("LATEST ACTIVITY",message)
  match tab:
@@ -289,6 +290,10 @@ func _home() -> void:
   momentum.add_child(signal_button)
   signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
+ var stage := _card("YOUR BAND. YOUR FUTURE.","Build a following, write better songs and earn bigger stages.")
+ var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
+ band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
  var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
  places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
@@ -305,7 +310,7 @@ func _home() -> void:
   var data: Dictionary = spot
   var tile := Button.new()
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 168 if CareerLayout.is_compact(get_viewport_rect().size.x) else 190
+  tile.custom_minimum_size.y = 112 if CareerLayout.is_compact(get_viewport_rect().size.x) else 148
   tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
   tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
   tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
@@ -316,7 +321,7 @@ func _home() -> void:
   tile_content.add_theme_constant_override("separation",6)
   tile.add_child(tile_content)
   var art := TextureRect.new()
-  art.custom_minimum_size.y = 82 if CareerLayout.is_compact(get_viewport_rect().size.x) else 100
+  art.custom_minimum_size.y = 36 if CareerLayout.is_compact(get_viewport_rect().size.x) else 66
   art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
@@ -890,7 +895,7 @@ func _actions() -> void:
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
  var scene_art := TextureRect.new()
- scene_art.custom_minimum_size.y = CareerLayout.studio_banner_height(get_viewport_rect().size.x)
+ scene_art.custom_minimum_size.y = 88 if CareerLayout.is_compact(get_viewport_rect().size.x) else 128
  scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
  scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
