@@ -737,3 +737,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v105_individual_indie_portrait_tests.gd
+      - name: Test responsive career command metrics
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v106_career_metric_header_tests.gd

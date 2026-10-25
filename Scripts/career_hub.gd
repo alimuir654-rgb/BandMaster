@@ -235,32 +235,47 @@ func _header() -> void:
   row.add_child(command)
   command.pressed.connect(_menu)
  var stats := HBoxContainer.new()
- stats.add_theme_constant_override("separation",5)
+ stats.add_theme_constant_override("separation",10 if get_viewport_rect().size.x >= 960.0 else 5)
  content.add_child(stats)
+ var wide := get_viewport_rect().size.x >= 960.0
  for entry in [
-  {"title":"CASH","value":"£%d" % _num("cash"),"symbol":"£"},
-  {"title":"FANS","value":str(_num("fans")),"symbol":"♪"},
-  {"title":"REP","value":str(_num("reputation")),"symbol":"★"}
+  {"title":"CASH","value":"£%d" % _num("cash"),"symbol":"£","detail":"Available band funds"},
+  {"title":"FANS","value":str(_num("fans")),"symbol":"♫","detail":"Your audience"},
+  {"title":"REPUTATION","value":str(_num("reputation")),"symbol":"★","detail":"Industry standing"}
  ]:
   var metric_panel := PanelContainer.new()
-  metric_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
   metric_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  metric_panel.size_flags_stretch_ratio = 1.0
+  metric_panel.custom_minimum_size.y = 78 if wide else 62
+  var metric_style := UI.style(UI.palette(_genre_id())["panel"],12)
+  metric_style.border_width_top = 2
+  metric_style.border_color = UI.palette(_genre_id())["accent"].darkened(0.20)
+  metric_panel.add_theme_stylebox_override("panel",metric_style)
+  metric_panel.tooltip_text = str(entry["detail"])
   stats.add_child(metric_panel)
+  var inner := MarginContainer.new()
+  inner.add_theme_constant_override("margin_left",12 if wide else 7)
+  inner.add_theme_constant_override("margin_right",10 if wide else 5)
+  inner.add_theme_constant_override("margin_top",8)
+  inner.add_theme_constant_override("margin_bottom",8)
+  metric_panel.add_child(inner)
   var metric_row := HBoxContainer.new()
-  metric_row.add_theme_constant_override("separation",7)
-  metric_panel.add_child(metric_row)
-  if get_viewport_rect().size.x >= 960.0:
-   var metric_icon := _label(metric_row,str(entry["symbol"]),18,UI.palette(_genre_id())["accent"])
+  metric_row.add_theme_constant_override("separation",10)
+  inner.add_child(metric_row)
+  if wide:
+   var metric_icon := _label(metric_row,str(entry["symbol"]),23,UI.palette(_genre_id())["accent"])
+   metric_icon.custom_minimum_size.x = 28
    metric_icon.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
   var metric_copy := VBoxContainer.new()
   metric_copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   metric_copy.add_theme_constant_override("separation",1)
   metric_row.add_child(metric_copy)
-  if get_viewport_rect().size.x >= 960.0:
-   _label(metric_copy,str(entry["title"]),11,UI.MUTED)
-   _label(metric_copy,str(entry["value"]),17,UI.WHITE)
-  else:
-   _label(metric_copy,str(entry["title"])+" "+str(entry["value"]),13,UI.WHITE)
+  var name_label := _label(metric_copy,str(entry["title"]),11 if wide else 10,UI.MUTED)
+  name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+  var value_label := _label(metric_copy,str(entry["value"]),22 if wide else 17,UI.WHITE)
+  value_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  value_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func _hero() -> void:
  var colours := UI.palette(_genre_id())
@@ -294,9 +309,63 @@ func _hero() -> void:
   _label(column,str(profile.get("tagline","Make your next move.")),15,UI.MUTED)
 
 
+func _home_spotlight() -> void:
+ # Landscape command deck: strong photograph, clear next action and contextual band data.
+ var colours := UI.palette(_genre_id())
+ var deck := PanelContainer.new()
+ deck.add_theme_stylebox_override("panel",UI.style(colours["panel"],16))
+ content.add_child(deck)
+ var frame := HBoxContainer.new()
+ frame.add_theme_constant_override("separation",18)
+ deck.add_child(frame)
+ var visual := TextureRect.new()
+ visual.custom_minimum_size = Vector2(290,204)
+ visual.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ visual.size_flags_stretch_ratio = 1.0
+ visual.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ visual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var art_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ if not ResourceLoader.exists(art_path):
+  art_path = "res://Art/Backgrounds/shared/home.webp"
+ if ResourceLoader.exists(art_path):
+  visual.texture = load(art_path)
+ frame.add_child(visual)
+ var details := VBoxContainer.new()
+ details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ details.size_flags_stretch_ratio = 1.35
+ details.add_theme_constant_override("separation",9)
+ frame.add_child(details)
+ _label(details,"BANDMASTER  /  THE CAREER DESK",12,colours["accent"])
+ var band_name := str(save_data.get("band",{}).get("name","YOUR BAND"))
+ var headline := _label(details,band_name,31,UI.WHITE)
+ headline.max_lines_visible = 2
+ headline.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ _label(details,"DAY %d   •   %s" % [_num("tour_day"),str(Genres.from_save(save_data).get("name","Indie")).to_upper()],13,UI.MUTED)
+ var guidance: Dictionary = Director.next_move(_state())
+ _label(details,str(guidance.get("title","MAKE YOUR NEXT MOVE")).to_upper(),19,UI.WHITE)
+ var description := _label(details,str(guidance.get("detail","Build your band, shape its music and find an audience.")),14,UI.MUTED)
+ description.max_lines_visible = 3
+ var commands := HBoxContainer.new()
+ commands.add_theme_constant_override("separation",10)
+ details.add_child(commands)
+ var destination := str(guidance.get("tab","ACTIONS"))
+ var primary := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper(),_genre_id(),true)
+ primary.icon_end = "arrow-right"
+ primary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ commands.add_child(primary)
+ primary.pressed.connect(func() -> void: _switch(destination))
+ var secondary := UI.themed_button("YOUR BAND",_genre_id(),false)
+ secondary.icon_start = "users"
+ secondary.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ commands.add_child(secondary)
+ secondary.pressed.connect(func() -> void: _switch("BAND"))
+
 func _home() -> void:
  var full_content := content
  var landscape_dashboard := get_viewport_rect().size.x >= 960.0
+ if landscape_dashboard:
+  _home_spotlight()
  var main_column: VBoxContainer
  var sidebar: VBoxContainer
  if landscape_dashboard:
@@ -369,8 +438,6 @@ func _home() -> void:
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
 
- if landscape_dashboard:
-  content = sidebar
  if landscape_dashboard:
   content = sidebar
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
