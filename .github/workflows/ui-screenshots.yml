@@ -31,6 +31,8 @@ jobs:
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=390 --height=844 --output=screenshots/band-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=1280 --height=800 --output=screenshots/home-desktop.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=1280 --height=800 --output=screenshots/band-desktop.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=1280 --height=800 --output=screenshots/studio-desktop.png
           for genre in indie punk metal electronic; do
             xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --genre="$genre" --width=390 --height=844 --output="screenshots/band-$genre-mobile.png"
           done
