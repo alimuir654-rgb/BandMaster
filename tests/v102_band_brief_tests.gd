@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(a>=0 and b>a,"band exists")
  if a>=0 and b>a:
   var band := source.substr(a,b-a)
-  _check(band.contains('var brief := _card("BAND MANAGEMENT  /  LIVE BRIEFING"'),"team management panel")
+  _check(band.contains('briefing_panel = _card("BAND MANAGEMENT  /  LIVE BRIEFING"'),"team management panel")
   _check(band.contains('{"label":"NEED REST","value":int(pulse.get("exhausted",0))'),"rest risk")
   _check(band.contains('{"label":"GROUP LOYALTY","value":int(pulse.get("loyalty",0))'),"loyalty")
   _check(band.contains('rehearse.pressed.connect(func() -> void: _switch("ACTIONS"))'),"studio action")
