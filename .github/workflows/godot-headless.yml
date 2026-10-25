@@ -832,3 +832,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v123_chapter_rewards_tests.gd
+      - name: Verify task-first mobile layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v124_mobile_task_first_tests.gd

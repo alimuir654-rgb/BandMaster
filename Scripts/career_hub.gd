@@ -324,7 +324,9 @@ func _hero() -> void:
 
 
 func _environment_dashboard() -> void:
- # Purpose-built instrument surfaces instead of another generic card.
+ # Phone layouts prioritise player actions over a second layer of atmospheric status.
+ if get_viewport_rect().size.x < 720.0:
+  return
  var identity := _scene_identity()
  if not ["HOME","STUDIO","GIGS","DAY"].has(identity):
   return
@@ -454,7 +456,8 @@ func _scene_instrument_strip() -> void:
  var title: String = {"HOME":"THE BAND HOUSE","DAY":"TODAY'S PLANS","STUDIO":"REHEARSAL CONSOLE","GIGS":"LIVE CONTROL ROOM"}.get(identity,"BANDMASTER")
  _label(copy,title,14,UI.WHITE)
  var caption: String = {"HOME":"A place to regroup, plan and connect.","DAY":"Daylight hours: choose where to spend your time.","STUDIO":"Build a song, experiment and check the levels.","GIGS":"The room is waiting. Prepare for the lights."}.get(identity,"")
- _label(copy,caption,12,UI.MUTED)
+ if get_viewport_rect().size.x >= 720.0:
+  _label(copy,caption,12,UI.MUTED)
  var metric := ""
  match identity:
   "HOME":
@@ -470,8 +473,10 @@ func _scene_instrument_strip() -> void:
  indicator.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  indicator.autowrap_mode = TextServer.AUTOWRAP_OFF
  indicator.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
- indicator.custom_minimum_size.x = 150
+ indicator.custom_minimum_size.x = 150 if get_viewport_rect().size.x >= 720.0 else 94
  indicator.size_flags_horizontal = Control.SIZE_SHRINK_END
+ if get_viewport_rect().size.x < 720.0:
+  indicator.add_theme_font_size_override("font_size",11)
  row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  strip.custom_minimum_size.y = 0
 
