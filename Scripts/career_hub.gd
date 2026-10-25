@@ -52,6 +52,8 @@ var action_view := "JAM"
 var gig_show_locked := false
 var gig_selected_venue := ""
 var selected_band_member := -1
+var selected_gear_item := ""
+var preserve_gear_scroll := false
 var career_scroll: ScrollContainer
 var preserve_roster_scroll := false
 var dialogue_request: HTTPRequest
@@ -143,9 +145,10 @@ func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> vo
 
 func _render() -> void:
  var previous_scroll := 0
- if preserve_roster_scroll and is_instance_valid(career_scroll):
+ if (preserve_roster_scroll or preserve_gear_scroll) and is_instance_valid(career_scroll):
   previous_scroll = career_scroll.scroll_vertical
  preserve_roster_scroll = false
+ preserve_gear_scroll = false
  for child in get_children():
   remove_child(child)
   child.queue_free()
@@ -545,24 +548,48 @@ func _gigs() -> void:
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
- var heading := _card("THE MUSIC SHOP","A real backline, built one second-hand find at a time.")
+ var heading := _card("THE MUSIC SHOP","Browse second-hand equipment, then inspect a single item before buying.")
  _progress(heading,"READINESS",_num("readiness"))
- _label(heading,"OWNED  %d ITEMS" % owned.size(),14,UI.AMBER)
- _label(heading,"CASH AVAILABLE £%d" % _num("cash"),13,UI.MUTED)
+ _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
+ var inventory := _card("EQUIPMENT CATALOGUE","Select equipment to view its condition, cost and effect on readiness.")
+ var valid_selection := false
+ for item in Gear.ITEMS:
+  if str(item["id"]) == selected_gear_item:
+   valid_selection = true
+ if not valid_selection:
+  selected_gear_item = str(Gear.ITEMS[0]["id"]) if not Gear.ITEMS.is_empty() else ""
  for item in Gear.ITEMS:
   var key: String = str(item["id"])
-  var box := _card(str(item["name"]),str(item["description"]))
-  var category := _label(box,str(item["type"]).to_upper()+"   /   +%d READINESS" % int(item["readiness"]),13,UI.AMBER)
-  category.autowrap_mode = TextServer.AUTOWRAP_OFF
-  _label(box,"%s  /  +%d READINESS  /  £%d" % [str(item["type"]),int(item["readiness"]),int(item["price"])],14,UI.MUTED)
-  if owned.has(key):
-   _label(box,"✓  IN YOUR INVENTORY",15,UI.AMBER)
+  var selected := selected_gear_item == key
+  var owned_item := owned.has(key)
+  var row_button := UI.button(("●  " if selected else "")+str(item["name"])+("  ·  OWNED" if owned_item else "  ·  £%d" % int(item["price"])),selected)
+  row_button.custom_minimum_size.y = 54
+  row_button.tooltip_text = str(item["type"])+": "+str(item["description"])
+  inventory.add_child(row_button)
+  row_button.pressed.connect(func() -> void:
+   selected_gear_item = key
+   preserve_gear_scroll = true
+   _render()
+  )
+ for item in Gear.ITEMS:
+  if str(item["id"]) != selected_gear_item:
+   continue
+  var detail := _card(str(item["name"]),str(item["description"]))
+  _label(detail,str(item["type"]).to_upper()+"  /  +%d READINESS" % int(item["readiness"]),13,UI.AMBER)
+  _label(detail,"ASKING PRICE  /  £%d" % int(item["price"]),15,UI.WHITE)
+  if owned.has(selected_gear_item):
+   _label(detail,"✓  ALREADY IN YOUR INVENTORY",14,UI.AMBER)
   else:
-   var buy := UI.button("BUY  ·  £%d" % int(item["price"]),true)
-   buy.custom_minimum_size.y = 52
-   buy.disabled = _num("cash") < int(item["price"])
-   box.add_child(buy)
-   buy.pressed.connect(func() -> void: _buy(key))
+   var afford := _num("cash") >= int(item["price"])
+   if not afford:
+    _label(detail,"NEED £%d MORE TO BUY" % (int(item["price"])-_num("cash")),13,UI.MUTED)
+   var buy := UI.button("BUY EQUIPMENT  ·  £%d" % int(item["price"]),true)
+   buy.custom_minimum_size.y = 54
+   buy.disabled = not afford
+   detail.add_child(buy)
+   var purchase_key := selected_gear_item
+   buy.pressed.connect(func() -> void: _buy(purchase_key))
+  break
 
 func _band() -> void:
  _band_situations()
