@@ -10,8 +10,28 @@ download() {
  if [ -s "$target" ]; then echo "Already imported: $target"; return; fi
  local tmp
  tmp="$(mktemp)"
- curl --fail --show-error --silent --location --retry 2 --max-time 90 \
-  "https://unsplash.com/napi/photos/$id/download?force=true&w=1280" -o "$tmp"
+ # Unsplash download API often requires an authenticated session (401).
+ # Resolve the image via the public photo page og:image metadata instead.
+ local html
+ html="$(mktemp)"
+ curl --fail --show-error --silent --location --retry 2 --max-time 90 "$source" -o "$html"
+ local photo_url
+ photo_url="$(python3 - "$html" <<'PY'
+import html, re, sys
+source = open(sys.argv[1], encoding="utf-8").read()
+match = re.search(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)', source)
+if not match:
+    match = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image', source)
+print(html.unescape(match.group(1)) if match else "")
+PY
+)"
+ rm -f "$html"
+ if [[ "$photo_url" != https://images.unsplash.com/* ]]; then
+  echo "Could not obtain verified Unsplash image URL from $source" >&2
+  rm -f "$tmp"
+  exit 1
+ fi
+ curl --fail --show-error --silent --location --retry 2 --max-time 90 "$photo_url&fm=jpg&w=1280&q=78" -o "$tmp"
  local mime
  mime="$(file --brief --mime-type "$tmp")"
  if [ "$mime" != "image/jpeg" ]; then
