@@ -1029,12 +1029,12 @@ func _gigs() -> void:
    _label(itinerary,"TRAVEL ESTIMATE  £%d   /   POTENTIAL FEE  £%d" % [int(selected_venue["travel"]),int(selected_venue["fee"])],14,UI.AMBER)
    _label(itinerary,"AVAILABLE FUNDS  £%d   /   VAN CONDITION  %d" % [_num("cash"),_num("van_health")],13,UI.MUTED)
    _label(itinerary,"Accommodation and overnight travel are not yet simulated. Do not treat the fee as guaranteed profit.",12,UI.MUTED)
-   var venue_key := gig_selected_venue
+   var meeting_venue_id := gig_selected_venue
    var meet := UI.themed_button("MEET THE PROMOTER  ›",_genre_id(),true)
    meet.custom_minimum_size.y = 58
    meet.disabled = not booked.is_empty() or (not line_up_ready and available_count < 1)
    itinerary.add_child(meet)
-   meet.pressed.connect(func() -> void: _open_promoter_meeting(venue_key,line_up_ready,available_count))
+   meet.pressed.connect(func() -> void: _open_promoter_meeting(meeting_venue_id,line_up_ready,available_count))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
 
