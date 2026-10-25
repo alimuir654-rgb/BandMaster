@@ -8,7 +8,10 @@ func _initialize() -> void:
   p.set_character(candidate,candidate.capitalize(),"indie")
   _check(p.initials.length() >= 1,"fallback identity "+candidate)
   if p.portrait_texture != null:
-   _check(p.portrait_texture.get_width()>=128 and p.portrait_texture.get_height()>=128,"minimum portrait size")
+   if p.portrait_texture is AtlasTexture:
+    _check(p.portrait_texture.get_width()>=96 and p.portrait_texture.get_height()>=96,"prototype atlas crop size")
+   else:
+    _check(p.portrait_texture.get_width()>=128 and p.portrait_texture.get_height()>=128,"minimum production portrait size")
   p.free()
  var unknown := Portrait.new()
  unknown.set_character("../bad","Guest","indie")
