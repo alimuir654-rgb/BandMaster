@@ -874,3 +874,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v132_creative_workbench_tests.gd
+      - name: Validate show-day focus and stage entry
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v133_showday_stage_tests.gd
