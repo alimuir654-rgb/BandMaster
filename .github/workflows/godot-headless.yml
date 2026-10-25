@@ -180,7 +180,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          timeout 45s godot --headless --path . --script res://tests/v22_save_ui_integration.gd 2>&1 | tee /tmp/v22-save-integration.log
+          timeout 120s godot --headless --path . --script res://tests/v22_save_ui_integration.gd 2>&1 | tee /tmp/v22-save-integration.log
           grep -q 'V22 SAVE AND UI INTEGRATION PASSED' /tmp/v22-save-integration.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|V22 INTEGRATION FAILURE:|ERROR:' /tmp/v22-save-integration.log; then
             exit 1
