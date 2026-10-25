@@ -914,3 +914,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/sprint02_equipment_tests.gd
+      - name: Audit populated gear screen at three viewport sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/sprint02_gear_viewport_tests.gd
