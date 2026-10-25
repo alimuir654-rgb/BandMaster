@@ -827,3 +827,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v122_quiet_hover_tests.gd
+      - name: Validate chapter rewards and feedback
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v123_chapter_rewards_tests.gd
