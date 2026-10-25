@@ -6,7 +6,7 @@ func _initialize() -> void:
  portrait.set_character("person_01","Alex","indie")
  _check(portrait.person_id=="person_01","portrait identity")
  _check(portrait.genre_id=="indie","genre-aware lookup")
- _check(portrait.portrait_texture is AtlasTexture,"Indie artwork is loaded")
+ _check(portrait.portrait_texture is Texture2D and not portrait.portrait_texture is AtlasTexture,"Indie artwork is loaded")
  var unknown := Portrait.new()
  unknown.set_character("unmatched","Unmatched","indie")
  _check(unknown.portrait_texture==null,"fallback for missing art")
