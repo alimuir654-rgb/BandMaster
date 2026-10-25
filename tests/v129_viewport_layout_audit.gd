@@ -72,7 +72,7 @@ func _first_fold_buttons(root: Control) -> Array[String]:
    var button := node as BaseButton
    var rect := button.get_global_rect()
    if not button.disabled and button.visible and viewport_rect.intersects(rect):
-    var caption := button.text
+    var caption: String = str(button.get("text"))
     if caption.is_empty():
      caption = button.tooltip_text
     result.append(caption)
