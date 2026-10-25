@@ -480,3 +480,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v52_ui_controls_tests.gd
+      - name: Test clean home navigation
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v53_clean_nav_tests.gd
