@@ -19,6 +19,7 @@ const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
+const SongLab = preload("res://Scripts/songwriting_lab.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Experience = preload("res://Scripts/band_life_experience.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
@@ -1004,9 +1005,43 @@ func _actions() -> void:
    selector_control.item_selected.connect(func(_index: int) -> void: refresh_preview.call())
   if ideas.item_count > 0 and forms.item_count > 0 and titles.item_count > 0:
    refresh_preview.call()
+  var lab := VBoxContainer.new()
+  lab.add_theme_constant_override("separation",8)
+  workshop.add_child(lab)
+  _label(lab,"EXPERIMENT  /  NO TIME COST",12,UI.palette(_genre_id())["accent"])
+  _label(lab,"Try a different riff, structure, title or bandmate before committing.",13,UI.MUTED)
+  var experiment_grid := GridContainer.new()
+  experiment_grid.columns = 2 if CareerLayout.is_compact(get_viewport_rect().size.x) else 4
+  experiment_grid.add_theme_constant_override("h_separation",8)
+  experiment_grid.add_theme_constant_override("v_separation",8)
+  lab.add_child(experiment_grid)
+  for experiment in [
+   {"name":"NEW IDEA","control":ideas},
+   {"name":"NEW SHAPE","control":forms},
+   {"name":"NEW TITLE","control":titles},
+   {"name":"SWAP LEAD","control":leads}
+  ]:
+   var experiment_control: OptionButton = experiment["control"]
+   var experiment_button := UI.themed_button(str(experiment["name"]),_genre_id(),false)
+   experiment_button.custom_minimum_size.y = 48
+   experiment_button.add_theme_font_size_override("font_size",12)
+   experiment_button.disabled = experiment_control.item_count <= 1
+   experiment_grid.add_child(experiment_button)
+   experiment_button.pressed.connect(func() -> void:
+    if SongLab.advance(experiment_control):
+     refresh_preview.call()
+   )
+  var remix := UI.themed_button("REMIX ALL FOUR CHOICES",_genre_id(),false)
+  remix.custom_minimum_size.y = 50
+  remix.disabled = ideas.item_count <= 1 and forms.item_count <= 1 and titles.item_count <= 1 and leads.item_count <= 1
+  lab.add_child(remix)
+  remix.pressed.connect(func() -> void:
+   SongLab.remix(ideas,forms,titles,leads)
+   refresh_preview.call()
+  )
   var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
   jam.custom_minimum_size.y = 54
-  jam.disabled = indices.is_empty() or ideas.item_count == 0 or forms.item_count == 0 or titles.item_count == 0
+  jam.disabled = indices.is_empty() or not SongLab.can_commit(ideas,forms,titles,leads)
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
    _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
