@@ -921,14 +921,21 @@ func _actions() -> void:
   var stages := HBoxContainer.new()
   stages.add_theme_constant_override("separation",6)
   workshop.add_child(stages)
+  var phase_names := ["IDEA","SHAPE","FINISH"]
+  var completed_sessions := int(studio["completed"])
   for step in range(3):
    var step_panel := PanelContainer.new()
    step_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   step_panel.add_theme_stylebox_override("panel",UI.style(UI.ALT if step <= int(studio["completed"]) else UI.PANEL,8))
+   var stage_fill: Color = UI.palette(_genre_id())["alt"] if step <= completed_sessions else UI.palette(_genre_id())["panel"]
+   var stage_style := UI.style(stage_fill,8)
+   stage_style.border_color = UI.palette(_genre_id())["accent"] if step == completed_sessions else UI.palette(_genre_id())["alt"]
+   stage_style.border_width_bottom = 3 if step == completed_sessions else 1
+   step_panel.add_theme_stylebox_override("panel",stage_style)
    stages.add_child(step_panel)
-   var marker := _label(step_panel,("%02d" % (step+1)) + ("  ✓" if step < int(studio["completed"]) else ""),13,UI.AMBER if step <= int(studio["completed"]) else UI.MUTED)
+   var stage_name := ("✓  " if step < completed_sessions else "%d  " % (step+1)) + str(phase_names[step])
+   var marker := _label(step_panel,stage_name,12,UI.palette(_genre_id())["accent"] if step <= completed_sessions else UI.MUTED)
    marker.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  _label(workshop,"%d / 3 SESSIONS  •  %s" % [int(studio["completed"]),str(studio["stage"])],13,UI.AMBER)
+  _label(workshop,"%s  /  %d OF 3 SESSIONS COMPLETE" % [str(studio["stage"]),completed_sessions],13,UI.MUTED)
   var separator := HSeparator.new()
   workshop.add_child(separator)
   _label(workshop,"BUILD THE SONG",15,UI.WHITE)
