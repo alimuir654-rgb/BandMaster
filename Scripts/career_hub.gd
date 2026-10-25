@@ -1740,6 +1740,37 @@ func _recording_studio() -> void:
    box.add_child(publish)
    publish.pressed.connect(func() -> void: _finish(Recording.release(_state(),index),"release"))
 
+func _scrapbook_gig_ticket(parent: Node, moment: Dictionary) -> void:
+ # A visual keepsake grounded only in journal facts; no fabricated performance data.
+ var ticket := PanelContainer.new()
+ var paper_style := UI.style(UI.palette(_genre_id())["alt"],12)
+ paper_style.border_width_left = 5
+ paper_style.border_color = UI.palette(_genre_id())["accent"]
+ ticket.add_theme_stylebox_override("panel",paper_style)
+ parent.add_child(ticket)
+ var ticket_row := HBoxContainer.new()
+ ticket_row.add_theme_constant_override("separation",12)
+ ticket.add_child(ticket_row)
+ var image_path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
+ if not ResourceLoader.exists(image_path):
+  image_path = "res://Art/Backgrounds/shared/gigs.webp"
+ if ResourceLoader.exists(image_path):
+  var artwork := TextureRect.new()
+  artwork.texture = load(image_path)
+  artwork.custom_minimum_size = Vector2(116,108)
+  artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  artwork.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  ticket_row.add_child(artwork)
+ var copy := VBoxContainer.new()
+ copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ copy.add_theme_constant_override("separation",5)
+ ticket_row.add_child(copy)
+ _label(copy,"LIVE TICKET  /  DAY %d" % int(moment.get("day",1)),12,UI.palette(_genre_id())["accent"])
+ var heading := _label(copy,str(moment.get("title","A NIGHT TO REMEMBER")),17,UI.WHITE)
+ heading.max_lines_visible = 2
+ _label(copy,str(moment.get("text","")),13,UI.MUTED)
+
 func _scene() -> void:
  _recording_studio()
  var archive: Array = _extra().get("career_journal",[])
@@ -1763,8 +1794,11 @@ func _scene() -> void:
  else:
   for entry in selected:
    var clipping: Dictionary = Presentation.clipping(entry)
-   _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
-   Components.story(scrapbook,entry)
+   if str(clipping["kind"]) == "gig":
+    _scrapbook_gig_ticket(scrapbook,entry)
+   else:
+    _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
+    Components.story(scrapbook,entry)
  var career: Dictionary = Campaigns.next_milestone(_state())
  var milestone := _card("CAREER MOMENTUM  /  "+str(career["name"]),"Every recording, campaign and gig builds the audience needed for bigger venues.")
  _progress(milestone,"FANS",int(career["fans"]),maxi(1,int(career["target_fans"])))
