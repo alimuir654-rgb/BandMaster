@@ -274,7 +274,7 @@ func _home() -> void:
   momentum.add_child(signal_button)
   signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
- var stage := _card("THE STORY SO FAR","Write better songs. Find your people. Earn bigger stages.")
+ var stage := _card("BAND IDENTITY","Write better songs. Find your people. Earn bigger stages.")
  var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
  band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
@@ -360,7 +360,7 @@ func _home() -> void:
   _label(songbook,"%d TOTAL ORIGINALS" % _num("songs"),12,UI.AMBER)
  var memories := Story.latest(_state(),3)
  if not memories.is_empty():
-  var journal := _card("THE STORY SO FAR","A living scrapbook of gigs, friendships and turning points.")
+  var journal := _card("LATEST FROM THE BAND","A living scrapbook of gigs, friendships and turning points.")
   for moment in memories:
    if moment is Dictionary:
     var clipping: Dictionary = Presentation.clipping(moment)
@@ -851,7 +851,7 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
 func _actions() -> void:
  var today: Dictionary = Experience.day_context(_state())
  _card(str(today["title"]),str(today["detail"]))
- var heading := _card("THE REHEARSAL ROOM","Every session shapes your songs, friendships, morale and live performance.")
+ var heading := _card("BEFORE YOU PLAY","Know where the band stands before committing a day.")
  _progress(heading,"READINESS",_num("readiness"))
  _progress(heading,"MORALE",_num("morale"))
  _progress(heading,"TENSION",_num("tension"))
@@ -868,19 +868,22 @@ func _actions() -> void:
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
- var scene_art := TextureRect.new()
- scene_art.custom_minimum_size.y = 88 if CareerLayout.is_compact(get_viewport_rect().size.x) else 128
- scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
- scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
- var image_path := "res://Art/uk_actions_banner.svg"
+ var image_path := "res://Art/Backgrounds/%s/studio.webp" % _genre_id()
  if action_view == "HANG OUT":
-  image_path = "res://Art/uk_band_banner.svg"
+  image_path = "res://Art/Backgrounds/%s/backstage.webp" % _genre_id()
  elif action_view == "PROMOTE":
-  image_path = "res://Art/uk_scene_banner.svg"
+  image_path = "res://Art/Backgrounds/%s/promotion.webp" % _genre_id()
+ if not ResourceLoader.exists(image_path):
+  var shared_name := "studio" if action_view == "JAM" else ("backstage" if action_view == "HANG OUT" else "promotion")
+  image_path = "res://Art/Backgrounds/shared/%s.webp" % shared_name
  if ResourceLoader.exists(image_path):
+  var scene_art := TextureRect.new()
+  scene_art.custom_minimum_size.y = 88 if CareerLayout.is_compact(get_viewport_rect().size.x) else 128
+  scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
   scene_art.texture = load(image_path)
- scene_card.add_child(scene_art)
+  scene_card.add_child(scene_art)
  var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
  var navigation := HBoxContainer.new()
  navigation.add_theme_constant_override("separation",8)
