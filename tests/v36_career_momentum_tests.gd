@@ -14,7 +14,7 @@ func _initialize() -> void:
  _check(str(signals[3]["tab"]) == "SCENE","cash link")
  _check(JSON.stringify(empty) == before,"presentation never mutates save")
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(source.contains("Momentum.signals(_state())"),"home displays priorities")
+ _check(source.contains('var opportunities := _card("WAYS FORWARD"'),"home displays consolidated progression routes")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
  if failures == 0:
   print("V36 CAREER MOMENTUM TESTS PASSED")
