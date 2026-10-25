@@ -747,3 +747,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v107_visual_destination_tests.gd
+      - name: Verify editorial management workspaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v108_editorial_workspaces_tests.gd
