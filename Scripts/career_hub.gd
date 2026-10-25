@@ -235,12 +235,30 @@ func _header() -> void:
  var stats := HBoxContainer.new()
  stats.add_theme_constant_override("separation",5)
  content.add_child(stats)
- for entry in ["CASH £%d" % _num("cash"),"FANS %d" % _num("fans"),"REP %d" % _num("reputation")]:
-  var panel := PanelContainer.new()
-  panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],10))
-  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  stats.add_child(panel)
-  _label(panel,entry,14,UI.WHITE)
+ for entry in [
+  {"title":"CASH","value":"£%d" % _num("cash"),"symbol":"£"},
+  {"title":"FANS","value":str(_num("fans")),"symbol":"♪"},
+  {"title":"REP","value":str(_num("reputation")),"symbol":"★"}
+ ]:
+  var metric_panel := PanelContainer.new()
+  metric_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
+  metric_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  stats.add_child(metric_panel)
+  var metric_row := HBoxContainer.new()
+  metric_row.add_theme_constant_override("separation",7)
+  metric_panel.add_child(metric_row)
+  if get_viewport_rect().size.x >= 960.0:
+   var metric_icon := _label(metric_row,str(entry["symbol"]),18,UI.palette(_genre_id())["accent"])
+   metric_icon.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+  var metric_copy := VBoxContainer.new()
+  metric_copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  metric_copy.add_theme_constant_override("separation",1)
+  metric_row.add_child(metric_copy)
+  if get_viewport_rect().size.x >= 960.0:
+   _label(metric_copy,str(entry["title"]),11,UI.MUTED)
+   _label(metric_copy,str(entry["value"]),17,UI.WHITE)
+  else:
+   _label(metric_copy,str(entry["title"])+" "+str(entry["value"]),13,UI.WHITE)
 
 func _hero() -> void:
  var colours := UI.palette(_genre_id())
