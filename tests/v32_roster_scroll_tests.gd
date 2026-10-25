@@ -4,7 +4,7 @@ var failures := 0
 func _initialize() -> void:
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(source.contains("var preserve_roster_scroll := false"),"scroll restoration defaults off")
- _check(source.contains("if preserve_roster_scroll and is_instance_valid(career_scroll):"),"capture only on roster disclosure")
+ _check(source.contains("if (preserve_roster_scroll or preserve_gear_scroll) and is_instance_valid(career_scroll):"),"capture only on roster disclosure")
  _check(source.contains("previous_scroll = career_scroll.scroll_vertical"),"capture position before rebuilding")
  _check(source.contains("scroll.set_deferred(\"scroll_vertical\",previous_scroll)"),"restore after layout")
  _check(source.contains("preserve_roster_scroll = false"),"restore flag resets")
