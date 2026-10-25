@@ -802,3 +802,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v118_environment_controls_tests.gd
+      - name: Verify home information hierarchy
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v119_home_hierarchy_tests.gd
