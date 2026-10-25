@@ -757,3 +757,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v109_songwriting_session_ux_tests.gd
+      - name: Verify gig-night and roster UX
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v110_gig_roster_ui_tests.gd
