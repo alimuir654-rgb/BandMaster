@@ -674,14 +674,21 @@ func _band() -> void:
   _label(name_stack,BandPulse.member_note(member),12,UI.palette(_genre_id())["accent"])
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
-  var profile := UI.themed_button("HIDE DETAILS  ▴" if selected_band_member == index else "MEET "+str(member.get("name","MUSICIAN")).to_upper()+"  ▾",_genre_id(),selected_band_member == index)
-  profile.custom_minimum_size.y = 50
-  box.add_child(profile)
+  var action_row := HBoxContainer.new()
+  action_row.add_theme_constant_override("separation",8)
+  box.add_child(action_row)
+  var profile := UI.themed_button("CLOSE PROFILE" if selected_band_member == index else "VIEW DETAILS",_genre_id(),selected_band_member == index)
+  profile.custom_minimum_size.y = 48
+  action_row.add_child(profile)
   profile.pressed.connect(func() -> void:
    selected_band_member = -1 if selected_band_member == index else index
    preserve_roster_scroll = true
    _render()
   )
+  var talk := UI.themed_button("TALK",_genre_id(),false)
+  talk.custom_minimum_size.y = 48
+  action_row.add_child(talk)
+  talk.pressed.connect(func() -> void: _listen(index))
   if selected_band_member != index:
    continue
   var rule := ColorRect.new()
