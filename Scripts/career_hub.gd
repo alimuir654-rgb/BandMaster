@@ -55,6 +55,7 @@ var gig_show_locked := false
 var gig_selected_venue := ""
 var selected_band_member := -1
 var roster_sort := "LINEUP"
+var preserve_venue_scroll := false
 var selected_gear_item := ""
 var preserve_gear_scroll := false
 var career_scroll: ScrollContainer
@@ -158,10 +159,11 @@ func _progress(parent: Node, name: String, value: int, maximum: int = 100) -> vo
 
 func _render() -> void:
  var previous_scroll := 0
- if (preserve_roster_scroll or preserve_gear_scroll) and is_instance_valid(career_scroll):
+ if (preserve_roster_scroll or preserve_gear_scroll or preserve_venue_scroll) and is_instance_valid(career_scroll):
   previous_scroll = career_scroll.scroll_vertical
  preserve_roster_scroll = false
  preserve_gear_scroll = false
+ preserve_venue_scroll = false
  for child in get_children():
   remove_child(child)
   child.queue_free()
@@ -642,8 +644,20 @@ func _home() -> void:
  if landscape_dashboard:
   content = sidebar
  var pulse := _card("BAND PULSE","Your band at a glance — focus on the weakest area.")
+ var pulse_row := HBoxContainer.new()
+ pulse_row.add_theme_constant_override("separation",8)
+ pulse.add_child(pulse_row)
  for key in ["readiness","morale","van_health"]:
-  _progress(pulse,key.to_upper().replace("_"," "),_num(key))
+  var amount := _num(key)
+  var state_label := "STRONG" if amount >= 70 else ("WATCH" if amount >= 40 else "CRITICAL")
+  var tint := Color("#67B894") if amount >= 70 else (Color("#F0B44D") if amount >= 40 else Color("#E57479"))
+  var pill := UI.themed_button(key.to_upper().replace("_"," ")+"  ·  "+state_label,_genre_id(),false)
+  pill.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  pill.add_theme_color_override("font_color",tint)
+  pill.tooltip_text = "Current condition: %d / 100" % amount
+  pulse_row.add_child(pill)
+  var destination := "GEAR" if key == "van_health" else "ACTIONS"
+  pill.pressed.connect(func() -> void: _switch(destination))
  var weakest := "readiness"
  for key in ["morale","van_health"]:
   if _num(key) < _num(weakest):
@@ -821,7 +835,7 @@ func _gigs() -> void:
  var booked: Dictionary = Calendar.pending(_state())
  if booked.is_empty():
   var book_intro := _card("YOUR NEXT SHOW","No gig booked. Browse local venues and choose a promoter deal.")
-  _action(book_intro,"FIND A VENUE  ›",func() -> void: career_scroll.ensure_control_visible(venue_picker),true)
+  _action(book_intro,"FIND A VENUE  ›",func() -> void: _scroll_to_venue_picker(),true)
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
   var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
@@ -972,6 +986,7 @@ func _gigs() -> void:
  venue_picker = _card("FIND YOUR NEXT VENUE","Choose a venue to inspect promoter terms. Locked venues are kept separate.")
  var filter_row := HBoxContainer.new()
  filter_row.add_theme_constant_override("separation",6)
+ venue_picker.name = "VenuePickerAnchor"
  venue_picker.add_child(filter_row)
  for filter in [false,true]:
   var locked_view: bool = filter
@@ -995,6 +1010,7 @@ func _gigs() -> void:
   venue_picker.add_child(item)
   item.pressed.connect(func() -> void:
    gig_selected_venue = venue_id
+   preserve_venue_scroll = true
    _render()
   )
  if not gig_selected_venue.is_empty():
@@ -1026,6 +1042,15 @@ func _gigs() -> void:
     session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),venue_key,"standard",true)))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
+
+func _scroll_to_venue_picker() -> void:
+ # Scroll after the rendered content has settled; ensure_control_visible on a
+ # newly created control may run before container layout is final.
+ if not is_instance_valid(career_scroll):
+  return
+ var target: Control = find_child("VenuePickerAnchor",true,false) as Control
+ if target != null:
+  career_scroll.ensure_control_visible(target)
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
@@ -2177,6 +2202,7 @@ func _switch(next_tab: String) -> void:
   return
  preserve_gear_scroll = false
  preserve_roster_scroll = false
+ preserve_venue_scroll = false
  tab = next_tab
  _render()
  _reveal_destination()
