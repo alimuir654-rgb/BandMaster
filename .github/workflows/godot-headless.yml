@@ -717,3 +717,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v101_band_readiness_tests.gd
+      - name: Test band management briefing
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v102_band_brief_tests.gd
