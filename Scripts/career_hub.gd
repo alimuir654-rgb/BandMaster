@@ -656,7 +656,7 @@ func _band() -> void:
   var member: Dictionary = members[i]
   var index := i
   var status := str(member.get("life_status","active"))
-  var box := _card(str(member.get("name","Musician")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),"AVAILABLE FOR THE NEXT SHOW" if status == "active" else "CURRENTLY UNAVAILABLE")
+  var box := _card("","")
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
@@ -670,7 +670,8 @@ func _band() -> void:
   _label(name_stack,str(member.get("name","Musician")).to_upper(),CareerLayout.member_name_font_size(get_viewport_rect().size.x),UI.WHITE)
   _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
-  _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
+  _label(name_stack,"SKILL %d  /  MORALE %d" % [int(member.get("skill",50)),int(member.get("morale",50))],13,UI.WHITE)
+  _label(name_stack,BandPulse.member_note(member),12,UI.palette(_genre_id())["accent"])
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
   var profile := UI.themed_button("HIDE DETAILS  ▴" if selected_band_member == index else "MEET "+str(member.get("name","MUSICIAN")).to_upper()+"  ▾",_genre_id(),selected_band_member == index)
