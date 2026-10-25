@@ -1351,7 +1351,9 @@ func _band() -> void:
   _render()
  )
  if is_instance_valid(briefing_panel):
-  content.move_child(briefing_panel,content.get_child_count()-1)
+  var briefing_parent := briefing_panel.get_parent()
+  if briefing_parent != null:
+   briefing_parent.move_child(briefing_panel,briefing_parent.get_child_count()-1)
 
 func _reply_to_musician(index: int, reply_id: String) -> void:
  dialogue_serial += 1
