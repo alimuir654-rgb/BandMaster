@@ -842,3 +842,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v125_task_first_home_gigs_tests.gd
+      - name: Verify Studio and Band interaction hierarchy
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v126_studio_band_hierarchy_tests.gd

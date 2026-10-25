@@ -1060,18 +1060,19 @@ func _gear() -> void:
   break
 
 func _band() -> void:
- _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  _band_situations()
  _life_situations()
+ _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
+ var briefing_panel: VBoxContainer
  if get_viewport_rect().size.x >= 960.0 and not members.is_empty():
-  var brief := _card("BAND MANAGEMENT  /  LIVE BRIEFING","Keep the band ready, connected and able to perform.")
+  briefing_panel = _card("BAND MANAGEMENT  /  LIVE BRIEFING","Keep the band ready, connected and able to perform.")
   var briefing_row := HBoxContainer.new()
   briefing_row.add_theme_constant_override("separation",10)
-  brief.add_child(briefing_row)
+  briefing_panel.add_child(briefing_row)
   for metric in [
    {"label":"ACTIVE","value":int(pulse.get("active",0)),"icon":"users"},
    {"label":"NEED REST","value":int(pulse.get("exhausted",0)),"icon":"heart-pulse"},
@@ -1088,7 +1089,7 @@ func _band() -> void:
    _label(metric_stack,str(metric["value"]),25,UI.palette(_genre_id())["accent"])
   var brief_actions := HBoxContainer.new()
   brief_actions.add_theme_constant_override("separation",10)
-  brief.add_child(brief_actions)
+  briefing_panel.add_child(brief_actions)
   var rehearse := UI.themed_button("OPEN STUDIO",_genre_id(),true)
   rehearse.icon_start = "music"
   brief_actions.add_child(rehearse)
@@ -1098,7 +1099,7 @@ func _band() -> void:
   brief_actions.add_child(gigs)
   gigs.pressed.connect(func() -> void: _switch("GIGS"))
   if int(pulse.get("exhausted",0)) > 0:
-   _label(brief,"%d BANDMATE(S) NEED RECOVERY BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.palette(_genre_id())["secondary"])
+   _label(briefing_panel,"%d BANDMATE(S) NEED RECOVERY BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.palette(_genre_id())["secondary"])
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
@@ -1349,6 +1350,10 @@ func _band() -> void:
   _save()
   _render()
  )
+ if is_instance_valid(briefing_panel):
+  var briefing_parent := briefing_panel.get_parent()
+  if briefing_parent != null:
+   briefing_parent.move_child(briefing_panel,briefing_parent.get_child_count()-1)
 
 func _reply_to_musician(index: int, reply_id: String) -> void:
  dialogue_serial += 1
@@ -1470,7 +1475,6 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
 
 func _actions() -> void:
  _scene_instrument_strip()
- _environment_dashboard()
  _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
@@ -1494,6 +1498,7 @@ func _actions() -> void:
   )
  # Desktop: a management workspace, not one long stack of cards.
  # Preserve the mobile single-column flow and existing action callbacks.
+ _environment_dashboard()
  var full_content := content
  var wide_workspace := get_viewport_rect().size.x >= 960.0
  var decision_column: VBoxContainer
@@ -1568,9 +1573,10 @@ func _actions() -> void:
    _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  if wide_workspace:
   content = decision_column
+ var songbook_panel: VBoxContainer
  if action_view == "JAM":
   var finished_songs: Array = Songbook.entries(_state())
-  var songbook_panel := _card("YOUR SONGBOOK  /  %d ORIGINALS" % finished_songs.size(),"The set you are building. Song quality reflects how developed each composition is.")
+  songbook_panel = _card("YOUR SONGBOOK  /  %d ORIGINALS" % finished_songs.size(),"The set you are building. Song quality reflects how developed each composition is.")
   if finished_songs.is_empty():
    _label(songbook_panel,"NO COMPLETED SONGS YET  /  START A JAM SESSION BELOW.",14,UI.MUTED)
   else:
@@ -1899,6 +1905,9 @@ func _actions() -> void:
    button.disabled = _num("cash") < cost
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
+ if action_view == "JAM" and not wide_workspace:
+  if is_instance_valid(songbook_panel):
+   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
 
 func _recording_studio() -> void:
