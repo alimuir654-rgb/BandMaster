@@ -894,6 +894,27 @@ func _actions() -> void:
    action_view = destination
    _render()
   )
+ # Desktop: a management workspace, not one long stack of cards.
+ # Preserve the mobile single-column flow and existing action callbacks.
+ var full_content := content
+ var wide_workspace := get_viewport_rect().size.x >= 960.0
+ var decision_column: VBoxContainer
+ if wide_workspace:
+  var split := HBoxContainer.new()
+  split.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  split.add_theme_constant_override("separation",14)
+  full_content.add_child(split)
+  decision_column = VBoxContainer.new()
+  decision_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  decision_column.size_flags_stretch_ratio = 1.8
+  decision_column.add_theme_constant_override("separation",10)
+  split.add_child(decision_column)
+  var context_column := VBoxContainer.new()
+  context_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  context_column.size_flags_stretch_ratio = 1.0
+  context_column.add_theme_constant_override("separation",10)
+  split.add_child(context_column)
+  content = context_column
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
  var image_path := "res://Art/Backgrounds/%s/studio.webp" % _genre_id()
  if action_view == "HANG OUT":
@@ -919,6 +940,8 @@ func _actions() -> void:
    _label(snapshot,"NEXT SHOW IN %d DAYS  /  %s" % [countdown,str(upcoming.get("venue","VENUE"))],13,UI.MUTED)
   elif countdown == 0:
    _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
+ if wide_workspace:
+  content = decision_column
  if action_view == "JAM":
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("SONGWRITING  /  "+("START A NEW SONG" if draft.is_empty() else "DEVELOP YOUR SONG"),"Choose the sound, arrangement, title and session leader. Every session takes one day.")
@@ -1130,6 +1153,7 @@ func _actions() -> void:
    button.disabled = _num("cash") < cost
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
+ content = full_content
 
 func _recording_studio() -> void:
  var songs: Array = Recording.catalogue(_state())

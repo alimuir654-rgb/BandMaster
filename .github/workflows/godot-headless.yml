@@ -642,3 +642,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v86_header_commands_tests.gd
+      - name: Validate responsive Studio management workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v87_studio_split_tests.gd
