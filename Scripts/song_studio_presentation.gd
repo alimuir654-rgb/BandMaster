@@ -1,4 +1,5 @@
 extends RefCounted
+const Chemistry = preload("res://Scripts/song_chemistry.gd")
 # Pure songwriting guidance; preview never mutates the career save.
 const STEPS := ["THE SPARK", "FIND THE SOUND", "FINISH THE TRACK"]
 const STAGE_PROMPTS := [
@@ -27,7 +28,8 @@ static func view(state: Dictionary) -> Dictionary:
  var headline := str(draft.get("title","YOUR NEXT ORIGINAL")) if active else "A BLANK PAGE"
  var detail: String = str(STAGE_PROMPTS[sessions])
  var history: Array = draft.get("sessions",[]) if draft.get("sessions",[]) is Array else []
- return {"headline":headline,"detail":detail,"completed":sessions,"total":3,"stage":STEPS[sessions],"active":active,"history":history.duplicate(true)}
+ var chemistry: Dictionary = Chemistry.calculate(state)
+ return {"headline":headline,"detail":detail,"completed":sessions,"total":3,"stage":STEPS[sessions],"active":active,"history":history.duplicate(true),"chemistry":chemistry}
 
 static func preview(idea: String, form: String, title: String, leader: String) -> Dictionary:
  return {
