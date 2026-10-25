@@ -9,7 +9,7 @@ func _initialize() -> void:
   var header := source.substr(a,b-a)
   _check(header.contains('{"title":"CASH"'),"cash metric")
   _check(header.contains('{"title":"FANS"'),"audience metric")
-  _check(header.contains('{"title":"REP"'),"reputation metric")
+  _check(header.contains('{"title":"REPUTATION"'),"reputation metric")
   _check(header.contains('var metric_icon := _label(metric_row'),"desktop icons")
   _check(header.contains('if get_viewport_rect().size.x >= 960.0'),"responsive display")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene imports")
