@@ -899,3 +899,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/sprint01_touring_tests.gd
+      - name: Validate reusable accessible scene sheets
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/prep_scene_sheet_tests.gd
