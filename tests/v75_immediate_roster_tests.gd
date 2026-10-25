@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(a>=0 and b>a,"band screen")
  if a>=0 and b>a:
   var view := source.substr(a,b-a)
-  var roster := view.find("for i in range(members.size()):")
+  var roster := view.find("for i in RosterView.sorted_indices(members,roster_sort):")
   _check(roster>=0,"member cards")
   _check(view.find("var overview := _card")>roster,"overview after roster")
   _check(view.find("var alumni: Array")>roster,"alumni after roster")
