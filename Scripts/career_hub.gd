@@ -290,7 +290,7 @@ func _home() -> void:
   momentum.add_child(signal_button)
   signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
- var stage := _card("YOUR BAND. YOUR FUTURE.","Build a following, write better songs and earn bigger stages.")
+ var stage := _card("THE STORY SO FAR","Write better songs. Find your people. Earn bigger stages.")
  var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
  band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
@@ -310,7 +310,7 @@ func _home() -> void:
   var data: Dictionary = spot
   var tile := Button.new()
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 112 if CareerLayout.is_compact(get_viewport_rect().size.x) else 148
+  tile.custom_minimum_size.y = 78 if CareerLayout.is_compact(get_viewport_rect().size.x) else 102
   tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
   tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
   tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
@@ -320,20 +320,10 @@ func _home() -> void:
   tile_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   tile_content.add_theme_constant_override("separation",6)
   tile.add_child(tile_content)
-  var art := TextureRect.new()
-  art.custom_minimum_size.y = 36 if CareerLayout.is_compact(get_viewport_rect().size.x) else 66
-  art.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  var art_path := "res://Art/uk_%s_banner.svg" % str(data["art"])
-  if ResourceLoader.exists(art_path):
-   art.texture = load(art_path)
-  tile_content.add_child(art)
-  var heading := _label(tile_content,str(data["name"]),14,UI.WHITE)
+  var heading := _label(tile_content,str(data["name"]),17,UI.WHITE)
   heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  var tagline := _label(tile_content,str(data["caption"]),11,UI.MUTED)
+  var tagline := _label(tile_content,str(data["caption"]),13,UI.MUTED)
   tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
   var target: String = str(data["tab"])
