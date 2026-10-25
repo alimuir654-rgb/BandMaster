@@ -849,22 +849,14 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
  start.pressed.connect(callback)
 
 func _actions() -> void:
- var today: Dictionary = Experience.day_context(_state())
- _card(str(today["title"]),str(today["detail"]))
- var heading := _card("BEFORE YOU PLAY","Know where the band stands before committing a day.")
- _progress(heading,"READINESS",_num("readiness"))
- _progress(heading,"MORALE",_num("morale"))
- _progress(heading,"TENSION",_num("tension"))
  var upcoming: Dictionary = Calendar.pending(_state())
+ var snapshot := _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")])
  if not upcoming.is_empty():
   var countdown := int(upcoming.get("day",1)) - _num("tour_day")
   if countdown > 0:
-   _label(heading,"NEXT SHOW IN %d DAYS — %s" % [countdown,str(upcoming.get("venue",""))],15,UI.AMBER)
+   _label(snapshot,"NEXT SHOW IN %d DAYS  /  %s" % [countdown,str(upcoming.get("venue","VENUE"))],13,UI.MUTED)
   elif countdown == 0:
-   _label(heading,"SHOW DAY — PREPARATION TIME HAS RUN OUT",15,UI.AMBER)
-   _action(heading,"GO TO YOUR BOOKED GIG",func() -> void: _switch("GIGS"),true)
- _label(heading,"ORIGINAL SONGS: %d" % _num("songs"),14,UI.WHITE)
- _label(heading,"SONGWRITING  /  THREE SESSIONS PER ORIGINAL",13,UI.AMBER)
+   _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
