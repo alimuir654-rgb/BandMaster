@@ -797,3 +797,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v117_gig_feedback_tests.gd
+      - name: Verify immersive management surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v118_environment_controls_tests.gd

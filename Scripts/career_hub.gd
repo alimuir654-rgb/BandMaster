@@ -323,6 +323,89 @@ func _hero() -> void:
   _label(column,str(profile.get("tagline","Make your next move.")),15,UI.MUTED)
 
 
+func _environment_dashboard() -> void:
+ # Purpose-built instrument surfaces instead of another generic card.
+ var identity := _scene_identity()
+ if not ["HOME","STUDIO","GIGS","DAY"].has(identity):
+  return
+ var panel := PanelContainer.new()
+ var colors := UI.palette(_genre_id())
+ var skin := UI.style(colors["panel"],14)
+ skin.bg_color = {"HOME":Color("#372921"),"DAY":Color("#514D3E"),"STUDIO":Color("#172930"),"GIGS":Color("#1D172B")}[identity]
+ skin.border_color = {"HOME":Color("#A17A4A"),"DAY":Color("#B5AD89"),"STUDIO":Color("#619B9B"),"GIGS":Color("#995876")}[identity]
+ panel.add_theme_stylebox_override("panel",skin)
+ content.add_child(panel)
+ var header := VBoxContainer.new()
+ header.add_theme_constant_override("separation",10)
+ panel.add_child(header)
+ match identity:
+  "HOME":
+   _label(header,"ON THE NOTICEBOARD  /  THE NEXT FEW DAYS",14,Color("#E7C58C"))
+   var booking: Dictionary = Calendar.pending(_state())
+   var note := "NO SHOW ON THE CALENDAR" if booking.is_empty() else ("%d DAYS UNTIL %s" % [maxi(0,int(booking.get("day",1))-_num("tour_day")),str(booking.get("venue","THE NEXT SHOW")).to_upper()])
+   _label(header,note,22,UI.WHITE)
+   var quick := HBoxContainer.new()
+   quick.add_theme_constant_override("separation",8)
+   header.add_child(quick)
+   for destination in [{"text":"BAND LIFE","tab":"BAND","icon":"users"},{"text":"TODAY'S PLAN","tab":"ACTIONS","icon":"calendar-days"},{"text":"GIG DIARY","tab":"GIGS","icon":"ticket"}]:
+    var target: String = str(destination["tab"])
+    var control := UI.themed_button(str(destination["text"]),_genre_id(),false)
+    control.icon_start = str(destination["icon"])
+    control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    control.custom_minimum_size.y = 48
+    quick.add_child(control)
+    control.pressed.connect(func() -> void: _switch(target))
+  "DAY":
+   _label(header,"DAY PLANNER  /  CHOOSE WHAT MATTERS",14,Color("#EEE0B7"))
+   _label(header,"Every commitment has an opportunity cost. Make the daylight count.",13,UI.WHITE)
+   var calendar_row := HBoxContainer.new()
+   header.add_child(calendar_row)
+   for entry in ["MORNING  /  RESET","AFTERNOON  /  CREATE","EVENING  /  CONNECT"]:
+    var slot := PanelContainer.new()
+    slot.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    slot.add_theme_stylebox_override("panel",UI.style(Color("#615D4B"),9))
+    calendar_row.add_child(slot)
+    var slot_title := _label(slot,entry,12,UI.WHITE)
+    slot_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  "STUDIO":
+   _label(header,"CONTROL DESK  /  SESSION LEVELS",14,Color("#9AD1C9"))
+   var channels := HBoxContainer.new()
+   channels.add_theme_constant_override("separation",8)
+   header.add_child(channels)
+   for channel in [{"name":"READINESS","amount":_num("readiness")},{"name":"MORALE","amount":_num("morale")},{"name":"TENSION","amount":_num("tension")}]:
+    var strip := PanelContainer.new()
+    strip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    strip.add_theme_stylebox_override("panel",UI.style(Color("#233940"),8))
+    channels.add_child(strip)
+    var lane := VBoxContainer.new()
+    lane.add_theme_constant_override("separation",7)
+    strip.add_child(lane)
+    _label(lane,str(channel["name"]),11,UI.MUTED)
+    var meter := ProgressBar.new()
+    meter.custom_minimum_size.y = 14
+    UI.themed_progress(meter,_genre_id(),"secondary" if str(channel["name"]) == "TENSION" else "accent")
+    meter.value = clampi(int(channel["amount"]),0,100)
+    lane.add_child(meter)
+    _label(lane,"%d dB / 100" % int(channel["amount"]),12,UI.WHITE)
+  "GIGS":
+   _label(header,"FRONT OF HOUSE  /  STAGE SYSTEM",14,Color("#E7A9CE"))
+   var stage_row := HBoxContainer.new()
+   stage_row.add_theme_constant_override("separation",8)
+   header.add_child(stage_row)
+   for entry in [{"label":"L  /  PA","icon":"speaker"},{"label":"THE CROWD","icon":"users"},{"label":"R  /  PA","icon":"speaker"}]:
+    var cabinet := PanelContainer.new()
+    cabinet.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    cabinet.add_theme_stylebox_override("panel",UI.style(Color("#2B2438"),10))
+    stage_row.add_child(cabinet)
+    var cabinet_copy := VBoxContainer.new()
+    cabinet_copy.add_theme_constant_override("separation",5)
+    cabinet.add_child(cabinet_copy)
+    var symbol := _label(cabinet_copy,"◉" if str(entry["icon"]) == "speaker" else "♫",23,Color("#D58CB5"))
+    symbol.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    var text_label := _label(cabinet_copy,str(entry["label"]),11,UI.WHITE)
+    text_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   _label(header,"LIVE READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")],13,UI.WHITE)
+
 func _scene_instrument_strip() -> void:
  # Context-specific control language with real simulation information.
  var identity := _scene_identity()
@@ -417,6 +500,7 @@ func _home_spotlight() -> void:
 
 func _home() -> void:
  _scene_instrument_strip()
+ _environment_dashboard()
  var full_content := content
  var landscape_dashboard := get_viewport_rect().size.x >= 960.0
  if landscape_dashboard:
@@ -674,6 +758,7 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
 
 func _gigs() -> void:
  _scene_instrument_strip()
+ _environment_dashboard()
  _editorial_banner("THE LIVE CIRCUIT","Build your reputation one venue at a time. Prepare your musicians, choose a deal and take the stage.","gigs","ACTIONS","PREPARE FOR A SHOW")
  var brief: Dictionary = LiveBrief.briefing(_state())
  var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
@@ -1334,6 +1419,7 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
 
 func _actions() -> void:
  _scene_instrument_strip()
+ _environment_dashboard()
  _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
