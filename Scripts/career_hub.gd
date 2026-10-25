@@ -1022,23 +1022,6 @@ func _actions() -> void:
   experiment_grid.add_theme_constant_override("h_separation",8)
   experiment_grid.add_theme_constant_override("v_separation",8)
   lab.add_child(experiment_grid)
-  for experiment in [
-   {"name":"NEW IDEA","control":ideas},
-   {"name":"NEW SHAPE","control":forms},
-   {"name":"NEW TITLE","control":titles},
-   {"name":"SWAP LEAD","control":leads}
-  ]:
-   var experiment_control: OptionButton = experiment["control"]
-   var experiment_button := UI.themed_button(str(experiment["name"]),_genre_id(),false)
-   experiment_button.custom_minimum_size.y = 48
-   experiment_button.add_theme_font_size_override("font_size",12)
-   experiment_button.disabled = experiment_control.item_count <= 1
-   experiment_grid.add_child(experiment_button)
-   experiment_button.pressed.connect(func() -> void:
-    if SongLab.advance(experiment_control):
-     refresh_preview.call()
-     update_comparison.call()
-   )
   var saved_take: Dictionary = {}
   var take_panel := PanelContainer.new()
   take_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
@@ -1076,6 +1059,23 @@ func _actions() -> void:
   )
   for comparison_control in [ideas,forms,titles,leads]:
    comparison_control.item_selected.connect(func(_index: int) -> void: update_comparison.call())
+  for experiment in [
+   {"name":"NEW IDEA","control":ideas},
+   {"name":"NEW SHAPE","control":forms},
+   {"name":"NEW TITLE","control":titles},
+   {"name":"SWAP LEAD","control":leads}
+  ]:
+   var experiment_control: OptionButton = experiment["control"]
+   var experiment_button := UI.themed_button(str(experiment["name"]),_genre_id(),false)
+   experiment_button.custom_minimum_size.y = 48
+   experiment_button.add_theme_font_size_override("font_size",12)
+   experiment_button.disabled = experiment_control.item_count <= 1
+   experiment_grid.add_child(experiment_button)
+   experiment_button.pressed.connect(func() -> void:
+    if SongLab.advance(experiment_control):
+     refresh_preview.call()
+     update_comparison.call()
+   )
   var remix := UI.themed_button("REMIX ALL FOUR CHOICES",_genre_id(),false)
   remix.custom_minimum_size.y = 50
   remix.disabled = ideas.item_count <= 1 and forms.item_count <= 1 and titles.item_count <= 1 and leads.item_count <= 1
