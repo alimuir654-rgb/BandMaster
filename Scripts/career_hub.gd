@@ -1053,7 +1053,7 @@ func _gigs() -> void:
    _label(itinerary,"VENUE  /  "+str(selected_venue["venue"]),16,UI.WHITE)
    _label(itinerary,"TRAVEL ESTIMATE  £%d   /   POTENTIAL FEE  £%d" % [int(selected_venue["travel"]),int(selected_venue["fee"])],14,UI.AMBER)
    _label(itinerary,"AVAILABLE FUNDS  £%d   /   VAN CONDITION  %d" % [_num("cash"),_num("van_health")],13,UI.MUTED)
-   _label(itinerary,"Accommodation and overnight travel are not yet simulated. Do not treat the fee as guaranteed profit.",12,UI.MUTED)
+   _label(itinerary,"Choose drive-home or overnight travel when meeting the promoter. Accommodation is charged after the show; the fee is not guaranteed profit.",12,UI.MUTED)
    var meeting_venue_id := gig_selected_venue
    var meet := UI.themed_button("MEET THE PROMOTER  ›",_genre_id(),true)
    meet.custom_minimum_size.y = 58
