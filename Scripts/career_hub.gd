@@ -1144,6 +1144,7 @@ func _actions() -> void:
   experiment_grid.add_theme_constant_override("h_separation",8)
   experiment_grid.add_theme_constant_override("v_separation",8)
   lab.add_child(experiment_grid)
+  var choice_repaints: Array[Callable] = []
   var saved_take: Dictionary = {}
   var take_panel := PanelContainer.new()
   take_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
@@ -1178,6 +1179,8 @@ func _actions() -> void:
    if SongLab.restore(saved_take,ideas,forms,titles,leads):
     refresh_preview.call()
     update_comparison.call()
+    for repaint_card in choice_repaints:
+     repaint_card.call()
   )
   for comparison_control in [ideas,forms,titles,leads]:
    comparison_control.item_selected.connect(func(_index: int) -> void: update_comparison.call())
@@ -1225,6 +1228,7 @@ func _actions() -> void:
     var repaint := func() -> void:
      active_choice.text = selector_control.get_item_text(selector_control.selected) if selector_control.selected >= 0 else "NOT SET"
     repaint.call()
+    choice_repaints.append(repaint)
     selector_control.item_selected.connect(func(_index: int) -> void: repaint.call())
     previous.pressed.connect(func() -> void:
      if SongLab.advance(selector_control,-1):
@@ -1263,6 +1267,8 @@ func _actions() -> void:
    SongLab.remix(ideas,forms,titles,leads)
    refresh_preview.call()
    update_comparison.call()
+   for repaint_card in choice_repaints:
+    repaint_card.call()
   )
   var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
   jam.custom_minimum_size.y = 54
