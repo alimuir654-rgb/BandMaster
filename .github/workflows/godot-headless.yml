@@ -667,3 +667,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v91_home_dashboard_tests.gd
+      - name: Test icon-led Home destinations
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v92_home_icon_destinations_tests.gd

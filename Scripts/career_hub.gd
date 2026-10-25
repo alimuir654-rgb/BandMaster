@@ -332,24 +332,20 @@ func _home() -> void:
   {"name":"THE GEAR SHOP","tab":"GEAR","caption":"Buy · Upgrade · Repair","art":"gear"}
  ]:
   var data: Dictionary = spot
-  var tile := Button.new()
+  var tile := WoldButton.new()
+  tile.shape = WoldButton.Shape.SECONDARY
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 78 if CareerLayout.is_compact(get_viewport_rect().size.x) else 102
-  tile.add_theme_stylebox_override("normal",UI.style(UI.ALT,14))
-  tile.add_theme_stylebox_override("hover",UI.style(UI.ALT.lightened(0.12),14))
-  tile.add_theme_stylebox_override("pressed",UI.style(UI.PANEL,14))
+  tile.custom_minimum_size.y = 78 if CareerLayout.is_compact(get_viewport_rect().size.x) else 96
+  tile.icon_start = {"ACTIONS":"music","GIGS":"ticket","BAND":"users","SCENE":"globe","GEAR":"guitar"}.get(str(data["tab"]),"arrow-right")
+  tile.icon_end = "chevron-right"
+  tile.text = str(data["name"])
+  tile.tooltip_text = str(data["caption"])
+  tile.accessibility_name = str(data["name"])+" — "+str(data["caption"])
+  tile.add_theme_font_size_override("font_size",16 if CareerLayout.is_compact(get_viewport_rect().size.x) else 18)
+  tile.add_theme_stylebox_override("normal",UI.style(UI.palette(_genre_id())["alt"],12))
+  tile.add_theme_stylebox_override("hover",UI.style(UI.palette(_genre_id())["alt"].lightened(0.14),12))
+  tile.add_theme_stylebox_override("pressed",UI.style(UI.palette(_genre_id())["panel"],12))
   places.add_child(tile)
-  var tile_content := VBoxContainer.new()
-  tile_content.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  tile_content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-  tile_content.add_theme_constant_override("separation",6)
-  tile.add_child(tile_content)
-  var heading := _label(tile_content,str(data["name"]),17,UI.WHITE)
-  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  heading.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  var tagline := _label(tile_content,str(data["caption"]),13,UI.MUTED)
-  tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  tagline.mouse_filter = Control.MOUSE_FILTER_IGNORE
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
 
