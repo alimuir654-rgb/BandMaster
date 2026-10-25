@@ -1,4 +1,5 @@
 extends RefCounted
+const Chemistry = preload("res://Scripts/song_chemistry.gd")
 # Lightweight, deterministic creative workshop. No AI needed for game rules.
 const IDEAS := ["Riff","Lyric","Groove"]
 const FORMS := ["Verse / Chorus","Slow Build","Loose Jam"]
@@ -52,7 +53,10 @@ static func finish(state: Dictionary) -> Dictionary:
  last["arrangement"] = str(draft.get("form",""))
  last["writing_sessions"] = draft.get("sessions",[]).duplicate(true)
  var bonus := 3 if str(draft.get("form","")) == "Verse / Chorus" else (2 if str(draft.get("form","")) == "Slow Build" else 1)
- last["quality"] = clampi(int(last.get("quality",40))+bonus,1,100)
+ var chemistry: Dictionary = Chemistry.calculate(next)
+ last["chemistry_bonus"] = int(chemistry["bonus"])
+ last["chemistry_score"] = int(chemistry["score"])
+ last["quality"] = clampi(int(last.get("quality",40))+bonus+int(chemistry["bonus"]),1,100)
  next["song_catalogue"] = songs
  next["current_song_draft"] = {}
  return next
