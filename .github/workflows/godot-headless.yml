@@ -459,3 +459,9 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V36 MOMENTUM FAILURE:|ERROR:' /tmp/v36-momentum.log; then
             exit 1
           fi
+      - name: Test songwriting and live chemistry
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v40_song_chemistry_tests.gd
+          godot --headless --path . --script res://tests/v41_live_chemistry_tests.gd
