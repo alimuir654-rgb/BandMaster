@@ -235,32 +235,49 @@ func _header() -> void:
   row.add_child(command)
   command.pressed.connect(_menu)
  var stats := HBoxContainer.new()
- stats.add_theme_constant_override("separation",5)
+ stats.add_theme_constant_override("separation",10 if get_viewport_rect().size.x >= 960.0 else 5)
  content.add_child(stats)
+ var wide := get_viewport_rect().size.x >= 960.0
  for entry in [
-  {"title":"CASH","value":"£%d" % _num("cash"),"symbol":"£"},
-  {"title":"FANS","value":str(_num("fans")),"symbol":"♪"},
-  {"title":"REP","value":str(_num("reputation")),"symbol":"★"}
+  {"title":"CASH","value":"£%d" % _num("cash"),"icon":"wallet","detail":"Available band funds"},
+  {"title":"FANS","value":str(_num("fans")),"icon":"users","detail":"Your audience"},
+  {"title":"REPUTATION","value":str(_num("reputation")),"icon":"star","detail":"Industry standing"}
  ]:
   var metric_panel := PanelContainer.new()
-  metric_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],9))
   metric_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  metric_panel.size_flags_stretch_ratio = 1.0
+  metric_panel.custom_minimum_size.y = 78 if wide else 62
+  var metric_style := UI.style(UI.palette(_genre_id())["panel"],12)
+  metric_style.border_width_top = 2
+  metric_style.border_color = UI.palette(_genre_id())["accent"].darkened(0.20)
+  metric_panel.add_theme_stylebox_override("panel",metric_style)
+  metric_panel.tooltip_text = str(entry["detail"])
   stats.add_child(metric_panel)
+  var inner := MarginContainer.new()
+  inner.add_theme_constant_override("margin_left",12 if wide else 7)
+  inner.add_theme_constant_override("margin_right",10 if wide else 5)
+  inner.add_theme_constant_override("margin_top",8)
+  inner.add_theme_constant_override("margin_bottom",8)
+  metric_panel.add_child(inner)
   var metric_row := HBoxContainer.new()
-  metric_row.add_theme_constant_override("separation",7)
-  metric_panel.add_child(metric_row)
-  if get_viewport_rect().size.x >= 960.0:
-   var metric_icon := _label(metric_row,str(entry["symbol"]),18,UI.palette(_genre_id())["accent"])
-   metric_icon.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+  metric_row.add_theme_constant_override("separation",10)
+  inner.add_child(metric_row)
+  if wide:
+   var metric_icon := WoldIcon.new()
+   metric_icon.icon_name = str(entry["icon"])
+   metric_icon.custom_minimum_size = Vector2(28,28)
+   metric_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+   metric_row.add_child(metric_icon)
   var metric_copy := VBoxContainer.new()
   metric_copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   metric_copy.add_theme_constant_override("separation",1)
   metric_row.add_child(metric_copy)
-  if get_viewport_rect().size.x >= 960.0:
-   _label(metric_copy,str(entry["title"]),11,UI.MUTED)
-   _label(metric_copy,str(entry["value"]),17,UI.WHITE)
-  else:
-   _label(metric_copy,str(entry["title"])+" "+str(entry["value"]),13,UI.WHITE)
+  var name_label := _label(metric_copy,str(entry["title"]),11 if wide else 10,UI.MUTED)
+  name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+  var value_label := _label(metric_copy,str(entry["value"]),22 if wide else 17,UI.WHITE)
+  value_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  value_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func _hero() -> void:
  var colours := UI.palette(_genre_id())
