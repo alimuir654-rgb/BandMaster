@@ -37,14 +37,7 @@ const BandPulse = preload("res://Scripts/band_pulse_presentation.gd")
 const Chemistry = preload("res://Scripts/band_chemistry_presentation.gd")
 const SAVE_PATH := "user://tour_save.json"
 const TABS := ["HOME","GIGS","GEAR","BAND","ACTIONS","SCENE"]
-const ART := {
- "HOME":"res://Art/uk_street_banner.svg",
- "GIGS":"res://Art/uk_gigs_banner.svg",
- "GEAR":"res://Art/uk_gear_banner.svg",
- "BAND":"res://Art/uk_band_banner.svg",
- "ACTIONS":"res://Art/uk_actions_banner.svg",
- "SCENE":"res://Art/uk_scene_banner.svg"
-}
+
 var save_data: Dictionary = {}
 var tab := "HOME"
 var message := ""
@@ -236,44 +229,35 @@ func _header() -> void:
   _label(panel,entry,14,UI.WHITE)
 
 func _hero() -> void:
- var panel := PanelContainer.new()
- panel.add_theme_stylebox_override("panel",UI.flat(UI.ALT,12))
- content.add_child(panel)
- var frame := VBoxContainer.new()
- frame.add_theme_constant_override("separation",0)
- frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- panel.add_child(frame)
- var path := "res://Art/Backgrounds/%s.webp" % tab.to_lower()
- if not ResourceLoader.exists(path):
-  path = "res://%s.webp" % tab.to_lower()
- var picture := TextureRect.new()
- picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
- picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- picture.custom_minimum_size.y = CareerLayout.hero_height(get_viewport_rect().size.x)
- picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
- if ResourceLoader.exists(path):
-  picture.texture = load(path)
- else:
-  var fallback: String = str(ART.get(tab,""))
-  if ResourceLoader.exists(fallback):
-   picture.texture = load(fallback)
- frame.add_child(picture)
- var headline := {
-  "HOME":"YOUR BAND. YOUR FUTURE.",
-  "GIGS":"THE BRITISH LIVE CIRCUIT",
-  "GEAR":"SECOND-HAND MUSIC SHOP",
-  "BAND":"THE PEOPLE BEHIND THE MUSIC",
-  "ACTIONS":"ANOTHER DAY ON THE ROAD",
-  "SCENE":"MAKE SOME NOISE"
+ var colours := UI.palette(_genre_id())
+ var profile: Dictionary = Genres.from_save(save_data)
+ var card := PanelContainer.new()
+ card.add_theme_stylebox_override("panel",UI.style(colours["panel"],12))
+ content.add_child(card)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",10)
+ card.add_child(column)
+ var genre_name := str(profile.get("name","Indie / Alternative")).to_upper()
+ _label(column,genre_name+"  /  "+tab,12,colours["accent"])
+ var titles := {
+  "HOME":"YOUR BAND. YOUR FUTURE.","GIGS":"THE LIVE CIRCUIT",
+  "GEAR":"FIND YOUR SOUND","BAND":"THE PEOPLE BEHIND THE MUSIC",
+  "ACTIONS":"THE WRITING ROOM","SCENE":"YOUR MUSIC SCENE"
  }
- var caption := PanelContainer.new()
- caption.add_theme_stylebox_override("panel",UI.style(Color("#141C27"),0))
- frame.add_child(caption)
- var text_stack := VBoxContainer.new()
- text_stack.add_theme_constant_override("separation",3)
- caption.add_child(text_stack)
- _label(text_stack,"THE BAND'S STORY  /  "+tab,11,UI.AMBER)
- _label(text_stack,str(headline.get(tab,tab)),20,UI.WHITE)
+ _label(column,str(titles.get(tab,"THE NEXT CHAPTER")),23,UI.WHITE)
+ var art_path := "res://Art/Backgrounds/%s/%s.webp" % [_genre_id(),tab.to_lower()]
+ if not ResourceLoader.exists(art_path):
+  art_path = "res://Art/Backgrounds/shared/%s.webp" % tab.to_lower()
+ if ResourceLoader.exists(art_path):
+  var artwork := TextureRect.new()
+  artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  artwork.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  artwork.custom_minimum_size.y = CareerLayout.hero_height(get_viewport_rect().size.x)
+  artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  artwork.texture = load(art_path)
+  column.add_child(artwork)
+ else:
+  _label(column,str(profile.get("tagline","Make your next move.")),15,UI.MUTED)
 
 
 func _home() -> void:

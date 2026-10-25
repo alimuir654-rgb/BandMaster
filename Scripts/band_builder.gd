@@ -97,17 +97,17 @@ func _hero() -> void:
  var stack := VBoxContainer.new()
  stack.add_theme_constant_override("separation",8)
  box.add_child(stack)
- var art := TextureRect.new()
- art.custom_minimum_size.y = 190
- art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
- art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
- art.mouse_filter = Control.MOUSE_FILTER_IGNORE
- var source: String = ["res://Art/uk_band_banner.svg","res://Art/uk_actions_banner.svg","res://Art/uk_gigs_banner.svg"][step]
- if not ResourceLoader.exists(source):
-  source = "res://Art/launch_uk_venue.webp"
- if ResourceLoader.exists(source):
-  art.texture = load(source)
- stack.add_child(art)
+ var artwork_path := "res://Art/Backgrounds/%s/formation.webp" % Genres.normalize(genre)
+ if not ResourceLoader.exists(artwork_path):
+  artwork_path = "res://Art/Backgrounds/shared/formation.webp"
+ if ResourceLoader.exists(artwork_path):
+  var art := TextureRect.new()
+  art.custom_minimum_size.y = 150
+  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  art.texture = load(artwork_path)
+  stack.add_child(art)
  _label(stack,["START SOMETHING REAL","FIND YOUR PEOPLE","THIS IS YOUR BAND"][step],27,UI.WHITE)
  _label(stack,["Find the sound and identity that will shape your first gigs.","Every new musician brings talent, personality and another share of the earnings.","A band name, a sound, and a room full of people. The rest is up to you."][step],15,UI.MUTED)
 
