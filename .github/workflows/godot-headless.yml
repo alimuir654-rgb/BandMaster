@@ -545,3 +545,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v66_roster_cards_tests.gd
+      - name: Test direct musician conversations
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v67_band_actions_tests.gd
