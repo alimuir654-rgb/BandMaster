@@ -1096,6 +1096,8 @@ func _actions() -> void:
    control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    control.tooltip_text = str(selector["label"])
    field.add_child(control)
+  if get_viewport_rect().size.x >= 960.0:
+   selector_grid.visible = false
   if not draft.is_empty():
    var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
    var form_index := Workshop.FORMS.find(str(draft.get("form","")))
@@ -1179,6 +1181,61 @@ func _actions() -> void:
   )
   for comparison_control in [ideas,forms,titles,leads]:
    comparison_control.item_selected.connect(func(_index: int) -> void: update_comparison.call())
+  # Desktop creative controls: large, direct, tactile choice cards.
+  # Underlying OptionButtons remain the authoritative choices and mobile UI.
+  if get_viewport_rect().size.x >= 960.0:
+   var creative_grid := GridContainer.new()
+   creative_grid.columns = 2
+   creative_grid.add_theme_constant_override("h_separation",10)
+   creative_grid.add_theme_constant_override("v_separation",10)
+   workshop.add_child(creative_grid)
+   for choice in [
+    {"name":"01  SOUND","control":ideas,"icon":"audio-lines"},
+    {"name":"02  STRUCTURE","control":forms,"icon":"list-music"},
+    {"name":"03  TITLE","control":titles,"icon":"pen-line"},
+    {"name":"04  SESSION LEAD","control":leads,"icon":"users"}
+   ]:
+    var selector_control: OptionButton = choice["control"]
+    var card := PanelContainer.new()
+    card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    card.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],10))
+    creative_grid.add_child(card)
+    var card_contents := VBoxContainer.new()
+    card_contents.add_theme_constant_override("separation",6)
+    card.add_child(card_contents)
+    _label(card_contents,str(choice["name"]),13,UI.palette(_genre_id())["accent"])
+    var choice_row := HBoxContainer.new()
+    choice_row.add_theme_constant_override("separation",5)
+    card_contents.add_child(choice_row)
+    var previous := UI.themed_button("‹",_genre_id(),false)
+    previous.custom_minimum_size = Vector2(42,48)
+    previous.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+    choice_row.add_child(previous)
+    var active_choice := _label(choice_row,"",15,UI.WHITE)
+    active_choice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    active_choice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    active_choice.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    active_choice.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    var next := UI.themed_button("›",_genre_id(),false)
+    next.custom_minimum_size = Vector2(42,48)
+    next.size_flags_horizontal = Control.SIZE_SHRINK_END
+    choice_row.add_child(next)
+    var repaint := func() -> void:
+     active_choice.text = selector_control.get_item_text(selector_control.selected) if selector_control.selected >= 0 else "NOT SET"
+    repaint.call()
+    selector_control.item_selected.connect(func(_index: int) -> void: repaint.call())
+    previous.pressed.connect(func() -> void:
+     if SongLab.advance(selector_control,-1):
+      refresh_preview.call()
+      update_comparison.call()
+      repaint.call()
+    )
+    next.pressed.connect(func() -> void:
+     if SongLab.advance(selector_control,1):
+      refresh_preview.call()
+      update_comparison.call()
+      repaint.call()
+    )
   for experiment in [
    {"name":"NEW IDEA","control":ideas},
    {"name":"NEW SHAPE","control":forms},
