@@ -164,8 +164,8 @@ func _render() -> void:
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  var margin := MarginContainer.new()
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- margin.add_theme_constant_override("margin_left",12)
- margin.add_theme_constant_override("margin_right",12)
+ margin.add_theme_constant_override("margin_left",CareerLayout.content_gutter(get_viewport_rect().size.x))
+ margin.add_theme_constant_override("margin_right",CareerLayout.content_gutter(get_viewport_rect().size.x))
  margin.add_theme_constant_override("margin_top",12)
  margin.add_theme_constant_override("margin_bottom",24)
  scroll.add_child(margin)
@@ -666,13 +666,13 @@ func _band() -> void:
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
   var portrait := Portrait.new()
-  portrait.custom_minimum_size = Vector2(88,108)
+  portrait.custom_minimum_size = CareerLayout.member_portrait_size(get_viewport_rect().size.x)
   portrait.set_character(str(member.get("candidate_id",member.get("id",i))),str(member.get("name","Musician")))
   identity.add_child(portrait)
   var name_stack := VBoxContainer.new()
   name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   identity.add_child(name_stack)
-  _label(name_stack,str(member.get("name","Musician")).to_upper(),24,UI.WHITE)
+  _label(name_stack,str(member.get("name","Musician")).to_upper(),CareerLayout.member_name_font_size(get_viewport_rect().size.x),UI.WHITE)
   _label(name_stack,str(member.get("role","")).to_upper(),13,UI.AMBER)
   _label(name_stack,str(member.get("trait","")),13,UI.MUTED)
   _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
@@ -875,7 +875,7 @@ func _actions() -> void:
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
  var scene_art := TextureRect.new()
- scene_art.custom_minimum_size.y = 184
+ scene_art.custom_minimum_size.y = CareerLayout.studio_banner_height(get_viewport_rect().size.x)
  scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  scene_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
  scene_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
