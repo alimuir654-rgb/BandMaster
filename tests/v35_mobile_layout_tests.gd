@@ -13,7 +13,7 @@ func _initialize() -> void:
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(source.contains("CareerLayout.content_gutter(get_viewport_rect().size.x)"),"responsive gutters connected")
  _check(source.contains("CareerLayout.member_portrait_size(get_viewport_rect().size.x)"),"responsive portraits connected")
- _check(source.contains("CareerLayout.studio_banner_height(get_viewport_rect().size.x)"),"responsive scene imagery connected")
+ _check(source.contains("scene_art.custom_minimum_size.y = 88 if CareerLayout.is_compact(get_viewport_rect().size.x) else 128"),"compact studio imagery connected")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene loads")
  if failures == 0:
   print("V35 MOBILE LAYOUT TESTS PASSED")
