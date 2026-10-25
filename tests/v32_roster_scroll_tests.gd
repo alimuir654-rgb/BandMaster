@@ -8,7 +8,7 @@ func _initialize() -> void:
  _check(source.contains("previous_scroll = career_scroll.scroll_vertical"),"capture position before rebuilding")
  _check(source.contains("scroll.set_deferred(\"scroll_vertical\",previous_scroll)"),"restore after layout")
  _check(source.contains("preserve_roster_scroll = false"),"restore flag resets")
- var profile_start := source.find("var profile := UI.button(")
+ var profile_start := source.find("var profile := UI.themed_button(")
  var profile_end := source.find("if selected_band_member != index:",profile_start)
  _check(profile_start >= 0 and profile_end > profile_start,"roster disclosure exists")
  if profile_start >= 0 and profile_end > profile_start:

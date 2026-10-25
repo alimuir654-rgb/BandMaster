@@ -495,3 +495,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v55_genre_formation_tests.gd
+      - name: Test roster-first band screen
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v56_roster_first_tests.gd
