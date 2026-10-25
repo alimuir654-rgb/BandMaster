@@ -423,3 +423,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V32 ROSTER SCROLL FAILURE:|ERROR:' /tmp/v32-roster-scroll.log; then
             exit 1
           fi
+      - name: Verify focused gear browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v33_gear_browser_tests.gd 2>&1 | tee /tmp/v33-gear.log
+          grep -q 'V33 GEAR BROWSER TESTS PASSED' /tmp/v33-gear.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V33 GEAR BROWSER FAILURE:|ERROR:' /tmp/v33-gear.log; then
+            exit 1
+          fi
