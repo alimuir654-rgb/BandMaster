@@ -355,6 +355,12 @@ func _scene_instrument_strip() -> void:
    metric = "SHOW IN %d DAYS" % maxi(0,int(booking.get("day",0))-_num("tour_day")) if not booking.is_empty() else "NO SHOW BOOKED"
  var indicator := _label(row,metric,13,UI.palette(_genre_id())["accent"])
  indicator.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ indicator.autowrap_mode = TextServer.AUTOWRAP_OFF
+ indicator.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ indicator.custom_minimum_size.x = 150
+ indicator.size_flags_horizontal = Control.SIZE_SHRINK_END
+ row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ strip.custom_minimum_size.y = 0
 
 func _home_spotlight() -> void:
  # Landscape command deck: strong photograph, clear next action and contextual band data.
