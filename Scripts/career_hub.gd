@@ -14,6 +14,7 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const VenueBrowser = preload("res://Scripts/venue_browser.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
+const BackstageIncident = preload("res://Scripts/gig_backstage_incident.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
 const Recording = preload("res://Scripts/recording_career.gd")
 const Campaigns = preload("res://Scripts/release_campaigns.gd")
@@ -744,6 +745,25 @@ func _gigs() -> void:
     _label(phase_column,["ARRIVAL","SOUNDCHECK","ON STAGE"][phase_index],14,UI.WHITE if active_phase else UI.MUTED)
     _label(phase_column,"COMPLETE" if finished_phase else ("NOW" if active_phase else "UP NEXT"),11,UI.palette(_genre_id())["accent"] if active_phase or finished_phase else UI.MUTED)
    if str(scene.get("phase","")) == "soundcheck":
+    var illness: Dictionary = BackstageIncident.incident(_state())
+    if not illness.is_empty():
+     var illness_panel := PanelContainer.new()
+     var illness_style := UI.style(UI.palette(_genre_id())["alt"],12)
+     illness_style.border_color = UI.palette(_genre_id())["secondary"]
+     illness_style.border_width_left = 4
+     illness_panel.add_theme_stylebox_override("panel",illness_style)
+     calendar_box.add_child(illness_panel)
+     var illness_column := VBoxContainer.new()
+     illness_column.add_theme_constant_override("separation",8)
+     illness_panel.add_child(illness_column)
+     _label(illness_column,"BACKSTAGE INCIDENT  /  "+str(illness["name"]).to_upper(),15,UI.WHITE)
+     _label(illness_column,"Your bassist is throwing up before the show. How do you handle it?",13,UI.MUTED)
+     for option in illness["options"]:
+      var choice_id := str(option["id"])
+      var decision := UI.themed_button(str(option["label"]),_genre_id(),false)
+      decision.custom_minimum_size.y = 48
+      illness_column.add_child(decision)
+      decision.pressed.connect(func() -> void: _resolve_backstage_illness(choice_id))
     _label(calendar_box,"YOUR LIVE SET  /  CHOOSE AN APPROACH",13,UI.AMBER)
     var approach_grid := GridContainer.new()
     approach_grid.columns = 3 if get_viewport_rect().size.x >= 960.0 else 1
@@ -2010,6 +2030,19 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var stack := VBoxContainer.new()
  stack.add_theme_constant_override("separation",14)
  panel.add_child(stack)
+ if source.begins_with("gig:"):
+  var stage_art_path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
+  if not ResourceLoader.exists(stage_art_path):
+   stage_art_path = "res://Art/Backgrounds/shared/gigs.webp"
+  if ResourceLoader.exists(stage_art_path):
+   var stage_image := TextureRect.new()
+   stage_image.texture = load(stage_art_path)
+   stage_image.custom_minimum_size.y = 170
+   stage_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   stage_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+   stage_image.modulate.a = 0.0
+   stack.add_child(stage_image)
+   create_tween().tween_property(stage_image,"modulate:a",1.0,0.8).set_trans(Tween.TRANS_SINE)
  var overline := _label(stack,"LIVIN' THE DREAM  /  CAREER MOMENT",11,UI.MUTED)
  overline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var title := _label(stack,Motion.headline(source,true),24,UI.AMBER)
@@ -2061,6 +2094,10 @@ func _change_gig_strategy(approach: String) -> void:
  _apply(result["state"])
  _save()
  _render()
+
+func _resolve_backstage_illness(choice_id: String) -> void:
+ var outcome: Dictionary = BackstageIncident.resolve(_state(),choice_id)
+ _finish(outcome,"backstage")
 
 func _perform_gig() -> void:
  var view: Dictionary = GigNight.stage(_state())
