@@ -9,7 +9,7 @@ func _initialize() -> void:
  _check(src.contains("box.get_parent().size_flags_vertical = Control.SIZE_SHRINK_BEGIN"),"roster does not stretch vertically")
  _check(src.contains('personnel_label.autowrap_mode = TextServer.AUTOWRAP_OFF'),"personnel header cannot wrap by letters")
  _check(src.contains('"art":"studio"'),"studio destination uses studio image")
- _check(src.contains('"GROW YOUR CAREER"'),"cash fan and reputation guidance")
+ _check(src.contains('"WAYS FORWARD"'),"cash fan and reputation guidance")
  _check(src.contains('"NO GIG BOOKED"'),"empty calendar guidance")
  _check(src.contains('"IMPROVE THE BAND"'),"pulse has actionable advice")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene loads")
