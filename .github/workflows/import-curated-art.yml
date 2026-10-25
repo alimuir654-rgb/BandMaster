@@ -1,5 +1,11 @@
 name: Import curated Unsplash photographs
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/import_curated_unsplash.sh
+      - .github/workflows/import-curated-art.yml
   push:
     branches:
       - assets/curated-icons-photo-import
