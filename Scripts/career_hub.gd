@@ -1338,17 +1338,17 @@ func _scroll_to_venue_picker() -> void:
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
- var garage := _card("THE BAND'S EQUIPMENT  /  ROAD CASES","See what the band actually owns before visiting the second-hand shop.")
+ var garage := _card("THE BAND'S EQUIPMENT  /  ROAD CASES","Assign equipment to a musician, track wear and service it before a difficult show.")
  var members: Array = save_data.get("band",{}).get("members",[])
  var cases := GridContainer.new()
  cases.columns = 2 if get_viewport_rect().size.x >= 960.0 else 1
  cases.add_theme_constant_override("h_separation",10)
  cases.add_theme_constant_override("v_separation",10)
  garage.add_child(cases)
- for member in members:
+ for member_index in range(members.size()):
+  var member = members[member_index]
   if not member is Dictionary:
    continue
-  var role := str(member.get("role","")).to_lower()
   var person_box := PanelContainer.new()
   person_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   person_box.add_theme_stylebox_override("panel",UI.style(Color("#2C2926"),10))
@@ -1359,16 +1359,26 @@ func _gear() -> void:
   _label(dossier,str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),15,UI.AMBER)
   var matched := 0
   for item in Gear.ITEMS:
-   var category := str(item["type"]).to_lower()
-   var relevant := (role.contains("drum") and category.contains("drum")) or (role.contains("guitar") and (category.contains("guitar") or category.contains("amplif"))) or (role.contains("bass") and category.contains("amplif")) or (role.contains("vocal") and (category.contains("vocal") or category.contains("sound")))
-   if not relevant or not owned.has(str(item["id"])):
+   var item_id := str(item["id"])
+   if not owned.has(item_id):
+    continue
+   var entry: Dictionary = Gear.record(_state(),item_id)
+   if int(entry.get("holder_index",-1)) != member_index:
     continue
    matched += 1
-   _label(dossier,"OWNED  /  "+str(item["name"]),13,UI.WHITE)
-   _label(dossier,str(item["description"]),12,UI.MUTED)
+   var condition := int(entry.get("condition",-1))
+   _label(dossier,"IN CASE  /  "+str(item["name"]),13,UI.WHITE)
+   _label(dossier,"CONDITION  /  "+("NOT ASSESSED" if condition < 0 else "%d / 100" % condition),12,UI.MUTED)
+   _label(dossier,str(entry.get("provenance","History unrecorded")),12,UI.MUTED)
   if matched == 0:
    _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
- _label(garage,"Shared purchases are shown against relevant musicians; the inventory does not yet track ownership, wear or repairs per person.",12,UI.MUTED)
+ var unassigned: Array = []
+ for item_id in owned:
+  if int(Gear.record(_state(),str(item_id)).get("holder_index",-1)) < 0:
+   unassigned.append(str(Gear.item_for(str(item_id)).get("name",item_id)))
+ if not unassigned.is_empty():
+  _label(garage,"IN THE SHARED ROAD CASE  /  "+", ".join(unassigned),13,UI.WHITE)
+ _label(garage,"Shared purchases are shown against relevant musicians once assigned. Older purchases keep unknown condition until serviced; personal equipment is not invented.",12,UI.MUTED)
  var heading := _card("THE MUSIC SHOP","Choose an item, review its cost and buy when ready.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
@@ -1414,10 +1424,48 @@ func _gear() -> void:
   if str(item["id"]) != selected_gear_item:
    continue
   detail = _card(str(item["name"]),str(item["description"]))
-  _label(detail,str(item["type"]).to_upper()+"  /  +%d READINESS" % int(item["readiness"]),13,UI.AMBER)
+  var icon_name: String = str({"amp":"guitar","mics":"mic","pedals":"sliders-horizontal","drums":"sliders-horizontal","pa":"mic"}.get(selected_gear_item,"guitar"))
+  var icon_path := "res://Art/UI/Icons/%s.svg" % icon_name
+  if ResourceLoader.exists(icon_path):
+   var gear_icon := TextureRect.new()
+   gear_icon.name = "GearDossierIcon"
+   gear_icon.texture = load(icon_path)
+   gear_icon.custom_minimum_size = Vector2(48,48)
+   gear_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+   gear_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   detail.add_child(gear_icon)
+  _label(detail,str(item["type"]).to_upper()+"  /  +%d READINESS ON PURCHASE" % int(item["readiness"]),13,UI.AMBER)
   _label(detail,"ASKING PRICE  /  £%d" % int(item["price"]),15,UI.WHITE)
   if owned.has(selected_gear_item):
-   _label(detail,"✓  ALREADY IN YOUR INVENTORY",14,UI.AMBER)
+   var gear_entry: Dictionary = Gear.record(_state(),selected_gear_item)
+   var gear_condition := int(gear_entry.get("condition",-1))
+   _label(detail,"CONDITION  /  "+("UNKNOWN — SERVICE TO ASSESS" if gear_condition < 0 else "%d / 100" % gear_condition),14,UI.AMBER)
+   _label(detail,"HISTORY  /  "+str(gear_entry.get("provenance","Unrecorded")),13,UI.MUTED)
+   _label(detail,"REPAIRS  /  %d" % int(gear_entry.get("repairs",0)),12,UI.MUTED)
+   var holder_index := int(gear_entry.get("holder_index",-1))
+   if holder_index >= 0 and holder_index < members.size() and members[holder_index] is Dictionary:
+    _label(detail,"IN USE BY  /  "+str(members[holder_index].get("name","Musician")),13,UI.WHITE)
+   else:
+    _label(detail,"UNASSIGNED — CHOOSE A BANDMATE BELOW",13,UI.MUTED)
+   var service := UI.themed_button("SERVICE & ASSESS  ·  £%d  /  1 DAY" % Gear.SERVICE_COST,_genre_id(),true)
+   service.icon_start = "wrench"
+   service.custom_minimum_size.y = 54
+   service.disabled = _num("cash") < Gear.SERVICE_COST or gear_condition >= 100
+   detail.add_child(service)
+   var service_key := selected_gear_item
+   service.pressed.connect(func() -> void: _service_gear(service_key))
+   for member_index in range(members.size()):
+    var candidate = members[member_index]
+    if not candidate is Dictionary or str(candidate.get("life_status","active")) != "active" or not Gear.compatible(selected_gear_item,candidate):
+     continue
+    if holder_index == member_index:
+     continue
+    var assign := UI.themed_button("ASSIGN TO  "+str(candidate.get("name","MUSICIAN")).to_upper()+"  ·  FREE",_genre_id(),false)
+    assign.custom_minimum_size.y = 50
+    detail.add_child(assign)
+    var assign_key := selected_gear_item
+    var chosen_index := member_index
+    assign.pressed.connect(func() -> void: _assign_gear(assign_key,chosen_index))
   else:
    var afford := _num("cash") >= int(item["price"])
    if not afford:
@@ -2836,6 +2884,12 @@ func _book(id: String,approach: String, hire_session: bool = false) -> void:
 
 func _buy(id: String) -> void:
  _finish(Gear.buy(_state(),id))
+
+func _assign_gear(id: String,member_index: int) -> void:
+ _finish(Gear.assign(_state(),id,member_index),"gear:assign")
+
+func _service_gear(id: String) -> void:
+ _finish(Gear.service(_state(),id),"gear:service")
 
 func _member(index: int, action: String) -> void:
  _finish(Members.resolve(_state(),index,action))
