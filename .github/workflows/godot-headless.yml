@@ -647,3 +647,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v87_studio_split_tests.gd
+      - name: Verify desktop text readability
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v88_desktop_readability_tests.gd
