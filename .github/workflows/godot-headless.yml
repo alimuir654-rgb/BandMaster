@@ -682,3 +682,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v94_woldui_states_tests.gd
+      - name: Validate responsive header metrics
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v95_header_metrics_tests.gd
