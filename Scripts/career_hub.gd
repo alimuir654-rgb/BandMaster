@@ -263,6 +263,8 @@ func _hero() -> void:
 func _home() -> void:
  var stage := _card("BAND IDENTITY","Write better songs. Find your people. Earn bigger stages.")
  var feature_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ if not ResourceLoader.exists(feature_path):
+  feature_path = "res://Art/Backgrounds/shared/home.webp"
  if ResourceLoader.exists(feature_path):
   var feature := TextureRect.new()
   feature.custom_minimum_size.y = 125 if CareerLayout.is_compact(get_viewport_rect().size.x) else 180
