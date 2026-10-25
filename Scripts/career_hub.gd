@@ -368,25 +368,54 @@ func _environment_dashboard() -> void:
     var slot_title := _label(slot,entry,12,UI.WHITE)
     slot_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   "STUDIO":
-   _label(header,"CONTROL DESK  /  SESSION LEVELS",14,Color("#9AD1C9"))
-   var channels := HBoxContainer.new()
-   channels.add_theme_constant_override("separation",8)
+   _label(header,"CONTROL DESK  /  BAND SIGNAL",14,Color("#9AD1C9"))
+   var channels := GridContainer.new()
+   channels.columns = 3 if get_viewport_rect().size.x >= 760.0 else 1
+   channels.add_theme_constant_override("h_separation",8)
+   channels.add_theme_constant_override("v_separation",8)
    header.add_child(channels)
-   for channel in [{"name":"READINESS","amount":_num("readiness")},{"name":"MORALE","amount":_num("morale")},{"name":"TENSION","amount":_num("tension")}]:
-    var strip := PanelContainer.new()
-    strip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-    strip.add_theme_stylebox_override("panel",UI.style(Color("#233940"),8))
-    channels.add_child(strip)
+   var session_channels := [
+    {"name":"READINESS","amount":_num("readiness"),"hint":"Rehearsals prepare the band for bigger stages."},
+    {"name":"MORALE","amount":_num("morale"),"hint":"Good relationships help creativity and performance."},
+    {"name":"TENSION","amount":_num("tension"),"hint":"High tension puts extra pressure on the lineup."}
+   ]
+   for channel in session_channels:
+    var channel_panel := PanelContainer.new()
+    channel_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    channel_panel.add_theme_stylebox_override("panel",UI.style(Color("#233940"),8))
+    channels.add_child(channel_panel)
     var lane := VBoxContainer.new()
     lane.add_theme_constant_override("separation",7)
-    strip.add_child(lane)
+    channel_panel.add_child(lane)
     _label(lane,str(channel["name"]),11,UI.MUTED)
     var meter := ProgressBar.new()
     meter.custom_minimum_size.y = 14
     UI.themed_progress(meter,_genre_id(),"secondary" if str(channel["name"]) == "TENSION" else "accent")
+    meter.max_value = 100
     meter.value = clampi(int(channel["amount"]),0,100)
     lane.add_child(meter)
-    _label(lane,"%d dB / 100" % int(channel["amount"]),12,UI.WHITE)
+    _label(lane,"%d / 100" % int(channel["amount"]),13,UI.WHITE)
+    channel_panel.tooltip_text = str(channel["hint"])
+   var studio_advice := "Write or rehearse to strengthen your band's sound."
+   if _num("tension") >= 65:
+    studio_advice = "Tension is high. Consider spending time with the band before recording."
+   elif _num("morale") < 40:
+    studio_advice = "Morale is low. Band life and downtime may be more valuable than another session."
+   _label(header,studio_advice,13,Color("#A9D2CD"))
+   var console_actions := HBoxContainer.new()
+   console_actions.add_theme_constant_override("separation",8)
+   header.add_child(console_actions)
+   for option in [{"text":"WORK ON A SONG","mode":"JAM","icon":"music"},{"text":"BAND LIFE","mode":"HANG OUT","icon":"users"}]:
+    var select_mode: String = str(option["mode"])
+    var console_button := UI.themed_button(str(option["text"]),_genre_id(),action_view == select_mode)
+    console_button.icon_start = str(option["icon"])
+    console_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    console_button.custom_minimum_size.y = 48
+    console_actions.add_child(console_button)
+    console_button.pressed.connect(func() -> void:
+     action_view = select_mode
+     _render()
+    )
   "GIGS":
    _label(header,"FRONT OF HOUSE  /  STAGE SYSTEM",14,Color("#E7A9CE"))
    var stage_row := HBoxContainer.new()
