@@ -26,20 +26,22 @@ static func themed_progress(bar: ProgressBar, genre_id: String, kind: String = "
  progress(bar)
  var colors := palette(genre_id)
  var fill: Color = colors.get(kind,colors["accent"])
- var foreground := style(fill,9)
+ var foreground := style(fill,5)
+ foreground.shadow_size = 0
+ foreground.set_border_width_all(0)
  foreground.set_content_margin_all(0)
  bar.add_theme_stylebox_override("fill",foreground)
 
 
-static func style(fill: Color, radius: int = 14) -> StyleBoxFlat:
+static func style(fill: Color, radius: int = 12) -> StyleBoxFlat:
  var box := StyleBoxFlat.new()
  box.bg_color = fill
  box.set_corner_radius_all(radius)
- box.set_content_margin_all(14)
- box.border_color = Color("#2A3747")
+ box.set_content_margin_all(13)
+ box.border_color = Color("#384554")
  box.set_border_width_all(1)
- box.shadow_color = Color(0,0,0,0.18)
- box.shadow_size = 4
+ box.shadow_color = Color(0,0,0,0.25)
+ box.shadow_size = 5
  return box
 
 static func button(label: String, primary: bool = false) -> Button:
@@ -47,29 +49,44 @@ static func button(label: String, primary: bool = false) -> Button:
  item.text = label
  item.custom_minimum_size.y = 56
  item.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- var fill := AMBER if primary else ALT
+ item.focus_mode = Control.FOCUS_ALL
+ var fill := AMBER if primary else PANEL
  var foreground := BG if primary else WHITE
- item.add_theme_stylebox_override("normal",style(fill))
- item.add_theme_stylebox_override("hover",style(fill.lightened(0.10)))
- item.add_theme_stylebox_override("pressed",style(fill.darkened(0.08)))
- item.add_theme_color_override("font_color",foreground)
- item.add_theme_color_override("font_hover_color",foreground)
- item.add_theme_color_override("font_pressed_color",foreground)
+ var normal := style(fill,11)
+ if primary:
+  normal.border_color = AMBER.lightened(0.18)
+ else:
+  normal.border_color = Color("#415063")
+ item.add_theme_stylebox_override("normal",normal)
+ var hover := style(fill.lightened(0.13),11)
+ hover.border_color = AMBER if primary else Color("#71849A")
+ item.add_theme_stylebox_override("hover",hover)
+ var pressed := style(fill.darkened(0.12),11)
+ pressed.shadow_size = 1
+ item.add_theme_stylebox_override("pressed",pressed)
+ item.add_theme_stylebox_override("disabled",style(Color("#19222D"),11))
+ var focus := StyleBoxFlat.new()
+ focus.bg_color = Color(0,0,0,0)
+ focus.set_corner_radius_all(13)
+ focus.border_color = AMBER
+ focus.set_border_width_all(2)
+ item.add_theme_stylebox_override("focus",focus)
+ for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
+  item.add_theme_color_override(key,foreground)
+ item.add_theme_color_override("font_disabled_color",Color("#81909D"))
  item.add_theme_font_size_override("font_size",15)
- item.add_theme_color_override("font_focus_color",foreground)
- item.add_theme_stylebox_override("focus",style(AMBER.darkened(0.52),12))
- item.add_theme_stylebox_override("disabled",style(Color("#1A212A"),12))
- item.add_theme_color_override("font_disabled_color",Color("#687482"))
- item.add_theme_color_override("font_hover_pressed_color",foreground)
  return item
 
 static func progress(bar: ProgressBar) -> void:
  bar.show_percentage = false
- bar.custom_minimum_size.y = 20
- var back := style(Color("#101923"),9)
+ bar.custom_minimum_size.y = 10
+ var back := style(Color("#0D1520"),5)
  back.set_content_margin_all(0)
- var fill := style(AMBER,9)
+ back.shadow_size = 0
+ var fill := style(AMBER,5)
  fill.set_content_margin_all(0)
+ fill.shadow_size = 0
+ fill.set_border_width_all(0)
  bar.add_theme_stylebox_override("background",back)
  bar.add_theme_stylebox_override("fill",fill)
 
