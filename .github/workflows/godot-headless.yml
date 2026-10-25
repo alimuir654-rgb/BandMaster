@@ -590,3 +590,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v76_integrated_preview_tests.gd
+      - name: Validate responsive songwriting controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v77_songwriting_layout_tests.gd
