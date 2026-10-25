@@ -36,6 +36,21 @@ func _find_portrait(character_id: String, name: String, genre: String) -> Textur
     var resource = load(path)
     if resource is Texture2D and resource.get_width() >= 128 and resource.get_height() >= 128:
      return resource
+ # Prototype portraits from the real Indie character art sheet.
+ # Production-size individual portraits above always override these crops.
+ if safe_genre == "indie":
+  var atlas_path := "res://Art/Portraits/indie/roster_atlas.webp"
+  if ResourceLoader.exists(atlas_path):
+   var positions := {"jo":Vector2i(0,0),"alex":Vector2i(1,0),"sam":Vector2i(0,1),"dev":Vector2i(1,1)}
+   var chosen := _safe_id(name)
+   if positions.has(chosen):
+    var sheet = load(atlas_path)
+    if sheet is Texture2D and sheet.get_width() >= 192 and sheet.get_height() >= 192:
+     var cell := Vector2i(sheet.get_width()/2,sheet.get_height()/2)
+     var cropped := AtlasTexture.new()
+     cropped.atlas = sheet
+     cropped.region = Rect2(Vector2i(positions[chosen])*cell,cell)
+     return cropped
  return null
 
 func _ready() -> void:
