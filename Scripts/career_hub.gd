@@ -275,10 +275,32 @@ func _hero() -> void:
 
 
 func _home() -> void:
+ var full_content := content
+ var landscape_dashboard := get_viewport_rect().size.x >= 960.0
+ var main_column: VBoxContainer
+ var sidebar: VBoxContainer
+ if landscape_dashboard:
+  var dashboard := HBoxContainer.new()
+  dashboard.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  dashboard.add_theme_constant_override("separation",14)
+  full_content.add_child(dashboard)
+  main_column = VBoxContainer.new()
+  main_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  main_column.size_flags_stretch_ratio = 1.65
+  main_column.add_theme_constant_override("separation",12)
+  dashboard.add_child(main_column)
+  sidebar = VBoxContainer.new()
+  sidebar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  sidebar.size_flags_stretch_ratio = 1.0
+  sidebar.add_theme_constant_override("separation",12)
+  dashboard.add_child(sidebar)
+  content = main_column
  var guidance: Dictionary = Director.next_move(_state())
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
  _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+ if landscape_dashboard:
+  content = sidebar
  var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
  var feature_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
  if not ResourceLoader.exists(feature_path):
@@ -294,6 +316,8 @@ func _home() -> void:
  var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
  band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
+ if landscape_dashboard:
+  content = main_column
  var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
  places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
@@ -329,6 +353,8 @@ func _home() -> void:
   var target: String = str(data["tab"])
   tile.pressed.connect(func() -> void: _switch(target))
 
+ if landscape_dashboard:
+  content = sidebar
  var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
  for status_entry in Momentum.signals(_state()):
   var target_tab := str(status_entry["tab"])
@@ -351,6 +377,8 @@ func _home() -> void:
   else:
    _label(plan,"OVERDUE BOOKING — RESOLVE THIS GIG",15,UI.AMBER)
    _action(plan,"OPEN GIG CALENDAR",func() -> void: _switch("GIGS"),true)
+ if landscape_dashboard:
+  content = main_column
  var chapter: Dictionary = Chapters.progress(_state())
  var chapter_box := _card("YOUR NEXT CHAPTER  /  "+str(chapter.get("title","")) ,str(chapter.get("description","")))
  if not bool(chapter.get("done",false)):
@@ -376,6 +404,8 @@ func _home() -> void:
  else:
   _card("REGIONAL CIRCUIT UNLOCKED","All current UK venues are available.")
  _opportunities()
+ if landscape_dashboard:
+  content = sidebar
  var songs: Array = _extra().get("song_catalogue",[])
  if not songs.is_empty():
   var songbook := _card("ORIGINAL SONGS","Your band is building its first setlist.")
@@ -392,9 +422,13 @@ func _home() -> void:
     _label(journal,str(clipping["rubric"])+"  /  DAY %d" % int(clipping["day"]),11,UI.AMBER)
     Components.story(journal,moment)
   _action(journal,"OPEN FULL SCRAPBOOK",func() -> void: _switch("SCENE"))
+ if landscape_dashboard:
+  content = sidebar
  var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
+ if landscape_dashboard:
+  content = main_column
  var quick := _card("SHORTCUTS","Jump straight into your next session.")
  var row := HBoxContainer.new()
  row.add_theme_constant_override("separation",6)
@@ -415,6 +449,8 @@ func _home() -> void:
   action_view = "JAM"
   _switch("ACTIONS")
  )
+ if landscape_dashboard:
+  content = full_content
 
 func _gigs() -> void:
  var brief: Dictionary = LiveBrief.briefing(_state())
