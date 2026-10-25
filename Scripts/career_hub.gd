@@ -20,6 +20,7 @@ const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
+const Songbook = preload("res://Scripts/songbook_presentation.gd")
 const SongLab = preload("res://Scripts/songwriting_lab.gd")
 const RosterView = preload("res://Scripts/band_roster_view.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -1357,6 +1358,41 @@ func _actions() -> void:
  if wide_workspace:
   content = decision_column
  if action_view == "JAM":
+  var finished_songs: Array = Songbook.entries(_state())
+  var songbook_panel := _card("YOUR SONGBOOK  /  %d ORIGINALS" % finished_songs.size(),"The set you are building. Song quality reflects how developed each composition is.")
+  if finished_songs.is_empty():
+   _label(songbook_panel,"NO COMPLETED SONGS YET  /  START A JAM SESSION BELOW.",14,UI.MUTED)
+  else:
+   var song_list_scroll := ScrollContainer.new()
+   song_list_scroll.custom_minimum_size.y = minf(330.0,84.0*finished_songs.size())
+   song_list_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+   songbook_panel.add_child(song_list_scroll)
+   var song_list := VBoxContainer.new()
+   song_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   song_list.add_theme_constant_override("separation",7)
+   song_list_scroll.add_child(song_list)
+   for track in finished_songs:
+    var track_panel := PanelContainer.new()
+    track_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],9))
+    song_list.add_child(track_panel)
+    var track_row := HBoxContainer.new()
+    track_row.add_theme_constant_override("separation",10)
+    track_panel.add_child(track_row)
+    var track_number := _label(track_row,"%02d" % int(track["number"]),18,UI.palette(_genre_id())["accent"])
+    track_number.custom_minimum_size.x = 34
+    var track_info := VBoxContainer.new()
+    track_info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    track_info.add_theme_constant_override("separation",4)
+    track_row.add_child(track_info)
+    var track_title := _label(track_info,str(track["title"]),16,UI.WHITE)
+    track_title.max_lines_visible = 2
+    _label(track_info,str(track["writer"])+"  /  "+str(track["arrangement"]),12,UI.MUTED)
+    _label(track_info,"LIVE RECEPTION: "+str(track["reception"]),11,UI.MUTED)
+    var quality_stack := VBoxContainer.new()
+    quality_stack.custom_minimum_size.x = 120 if wide_workspace else 80
+    track_row.add_child(quality_stack)
+    _label(quality_stack,"%d / 100" % int(track["quality"]),17,UI.palette(_genre_id())["accent"])
+    _label(quality_stack,str(track["verdict"]),11,UI.MUTED)
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("SONGWRITING  /  "+("START A NEW SONG" if draft.is_empty() else "DEVELOP YOUR SONG"),"Choose the sound, arrangement, title and session leader. Every session takes one day.")
   var studio: Dictionary = SongStudio.view(_state())

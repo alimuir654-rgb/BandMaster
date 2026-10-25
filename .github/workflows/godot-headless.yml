@@ -777,3 +777,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v113_conversation_replies_tests.gd
+      - name: Verify studio songbook
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v114_songbook_tests.gd
