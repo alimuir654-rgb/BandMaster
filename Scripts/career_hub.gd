@@ -656,13 +656,20 @@ func _band() -> void:
    _save()
    _render()
   )
+ var roster_grid := GridContainer.new()
+ var landscape_roster := get_viewport_rect().size.x >= 960.0
+ roster_grid.columns = 2 if landscape_roster else 1
+ roster_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ roster_grid.add_theme_constant_override("h_separation",12)
+ roster_grid.add_theme_constant_override("v_separation",12)
+ content.add_child(roster_grid)
  for i in range(members.size()):
   if not members[i] is Dictionary:
    continue
   var member: Dictionary = members[i]
   var index := i
   var status := str(member.get("life_status","active"))
-  var box := _card("","")
+  var box := Components.section(roster_grid,"","",_genre_id())
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
