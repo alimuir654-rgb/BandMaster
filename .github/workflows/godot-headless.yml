@@ -475,3 +475,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v51_portrait_pipeline_tests.gd
+      - name: Validate premium UI controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v52_ui_controls_tests.gd
