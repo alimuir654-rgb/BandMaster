@@ -682,7 +682,7 @@ func _band() -> void:
   box.add_child(identity)
   var portrait := Portrait.new()
   portrait.custom_minimum_size = CareerLayout.member_portrait_size(get_viewport_rect().size.x)
-  portrait.set_character(str(member.get("candidate_id",member.get("id",i))),str(member.get("name","Musician")))
+  portrait.set_character(str(member.get("candidate_id",member.get("id",i))),str(member.get("name","Musician")),_genre_id())
   identity.add_child(portrait)
   var name_stack := VBoxContainer.new()
   name_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL

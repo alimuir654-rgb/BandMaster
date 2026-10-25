@@ -470,3 +470,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v50_genre_foundation_tests.gd
+      - name: Test portrait artwork pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v51_portrait_pipeline_tests.gd
