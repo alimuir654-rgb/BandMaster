@@ -792,3 +792,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v116_scene_identity_tests.gd
+      - name: Verify stage reveal and backstage decisions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v117_gig_feedback_tests.gd
