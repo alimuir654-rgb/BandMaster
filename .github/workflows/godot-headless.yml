@@ -894,3 +894,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v136_member_dossiers_tests.gd
+      - name: Validate touring itinerary economy and booking
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/sprint01_touring_tests.gd
