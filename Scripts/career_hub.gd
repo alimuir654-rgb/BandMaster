@@ -27,6 +27,7 @@ const Chapters = preload("res://Scripts/career_chapters.gd")
 const Director = preload("res://Scripts/first_month_director.gd")
 const OpeningHandoff = preload("res://Scripts/opening_handoff.gd")
 const CareerLayout = preload("res://Scripts/career_layout.gd")
+const Momentum = preload("res://Scripts/career_momentum_presentation.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
@@ -274,6 +275,15 @@ func _home() -> void:
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
  _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+ var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
+ for signal in Momentum.signals(_state()):
+  var target_tab := str(signal["tab"])
+  var signal_button := UI.button(str(signal["label"])+"  /  "+str(signal["detail"]))
+  signal_button.custom_minimum_size.y = 54
+  signal_button.tooltip_text = str(signal["detail"])
+  momentum.add_child(signal_button)
+  signal_button.pressed.connect(func() -> void: _switch(target_tab))
+
  var destinations := _card("YOUR WORLD","Choose where the band heads next.")
  var places := GridContainer.new()
  places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
