@@ -188,10 +188,11 @@ func _render() -> void:
   "BAND": _band()
   "ACTIONS": _actions()
   "SCENE": _scene()
- var menu := UI.button("SAVE & MAIN MENU")
- menu.custom_minimum_size.y = 48
- content.add_child(menu)
- menu.pressed.connect(_menu)
+ if get_viewport_rect().size.x < 960.0:
+  var menu := UI.button("SAVE & MAIN MENU")
+  menu.custom_minimum_size.y = 48
+  content.add_child(menu)
+  menu.pressed.connect(_menu)
  _bottom_nav()
  if previous_scroll > 0:
   scroll.set_deferred("scroll_vertical",previous_scroll)
@@ -222,6 +223,14 @@ func _header() -> void:
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  day.clip_text = true
+ if get_viewport_rect().size.x >= 960.0:
+  var command := UI.themed_button("SAVE & MENU",_genre_id(),false)
+  command.size_flags_horizontal = Control.SIZE_SHRINK_END
+  command.custom_minimum_size = Vector2(156,48)
+  if command is WoldButton:
+   command.icon_start = "menu"
+  row.add_child(command)
+  command.pressed.connect(_menu)
  var stats := HBoxContainer.new()
  stats.add_theme_constant_override("separation",5)
  content.add_child(stats)

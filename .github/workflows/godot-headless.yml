@@ -637,3 +637,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v85_icon_rail_polish_tests.gd
+      - name: Verify responsive header commands
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v86_header_commands_tests.gd
