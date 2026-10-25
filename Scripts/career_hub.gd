@@ -534,11 +534,8 @@ func _home_spotlight() -> void:
 
 func _home() -> void:
  _scene_instrument_strip()
- _environment_dashboard()
  var full_content := content
  var landscape_dashboard := get_viewport_rect().size.x >= 960.0
- if landscape_dashboard:
-  _home_spotlight()
  var main_column: VBoxContainer
  var sidebar: VBoxContainer
  if landscape_dashboard:
@@ -561,6 +558,11 @@ func _home() -> void:
  var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
  var destination := str(guidance.get("tab","ACTIONS"))
  _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
+ if landscape_dashboard:
+  content = full_content
+  _home_spotlight()
+  content = main_column
+ _environment_dashboard()
  if landscape_dashboard:
   content = sidebar
  var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
@@ -807,35 +809,6 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
 
 func _gigs() -> void:
  _scene_instrument_strip()
- _environment_dashboard()
- _editorial_banner("THE LIVE CIRCUIT","Build your reputation one venue at a time. Prepare your musicians, choose a deal and take the stage.","gigs","ACTIONS","PREPARE FOR A SHOW")
- var brief: Dictionary = LiveBrief.briefing(_state())
- var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
- _label(briefing_card,str(brief["headline"]),23,UI.WHITE)
- if bool(brief["active"]):
-  _label(briefing_card,str(brief["city"]).to_upper()+"  /  DAY %d  /  %s" % [int(brief["day"]),str(brief["deal"])],12,UI.AMBER)
-  var timeline := HBoxContainer.new()
-  timeline.add_theme_constant_override("separation",5)
-  briefing_card.add_child(timeline)
-  var active_step := LiveBrief.stage_index(str(brief["phase"]))
-  for i in range(3):
-   var marker := PanelContainer.new()
-   marker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   marker.add_theme_stylebox_override("panel",UI.style(UI.ALT if i<=active_step else UI.PANEL,8))
-   timeline.add_child(marker)
-   var step_text := _label(marker,"%02d  %s" % [i+1,str(brief["steps"][i])],11,UI.AMBER if i<=active_step else UI.MUTED)
-   step_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  _progress(briefing_card,"LIVE READINESS",int(brief["readiness"]))
-  _label(briefing_card,"ORIGINALS IN THE SET  /  %d" % int(brief["originals"]),13,UI.WHITE)
-  for tip in brief["tips"]:
-   _label(briefing_card,str(tip),13,UI.MUTED)
-  if int(brief["days_left"])>0:
-   _action(briefing_card,"GO PREPARE THE BAND",func() -> void: _switch("ACTIONS"),true)
- var recap: Dictionary = LiveBrief.last_show(_state())
- if not recap.is_empty():
-  var report := _card("LAST NIGHT  /  THE AFTERMATH",str(recap["venue"]))
-  _label(report,"SHOW %s  /  FEE £%d" % ["LANDED" if bool(recap["success"]) else "WAS TOUGH",int(recap["fee"])],18,UI.AMBER)
-  _label(report,"ORIGINALS PLAYED %d  /  DEAL %s" % [int(recap["originals"]),str(recap["terms"]).to_upper()],13,UI.MUTED)
  var booked: Dictionary = Calendar.pending(_state())
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
@@ -937,6 +910,35 @@ func _gigs() -> void:
   _action(calendar_box,"CANCEL BOOKING  ·  UP TO £15",func() -> void: _finish(Calendar.cancel(_state())))
  else:
   _card("BOOK AHEAD","Shows are booked three days in advance. Use those days to prepare, but don't miss the date.")
+ _environment_dashboard()
+ _editorial_banner("THE LIVE CIRCUIT","Build your reputation one venue at a time. Prepare your musicians, choose a deal and take the stage.","gigs","ACTIONS","PREPARE FOR A SHOW")
+ var brief: Dictionary = LiveBrief.briefing(_state())
+ var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
+ _label(briefing_card,str(brief["headline"]),23,UI.WHITE)
+ if bool(brief["active"]):
+  _label(briefing_card,str(brief["city"]).to_upper()+"  /  DAY %d  /  %s" % [int(brief["day"]),str(brief["deal"])],12,UI.AMBER)
+  var timeline := HBoxContainer.new()
+  timeline.add_theme_constant_override("separation",5)
+  briefing_card.add_child(timeline)
+  var active_step := LiveBrief.stage_index(str(brief["phase"]))
+  for i in range(3):
+   var marker := PanelContainer.new()
+   marker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   marker.add_theme_stylebox_override("panel",UI.style(UI.ALT if i<=active_step else UI.PANEL,8))
+   timeline.add_child(marker)
+   var step_text := _label(marker,"%02d  %s" % [i+1,str(brief["steps"][i])],11,UI.AMBER if i<=active_step else UI.MUTED)
+   step_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  _progress(briefing_card,"LIVE READINESS",int(brief["readiness"]))
+  _label(briefing_card,"ORIGINALS IN THE SET  /  %d" % int(brief["originals"]),13,UI.WHITE)
+  for tip in brief["tips"]:
+   _label(briefing_card,str(tip),13,UI.MUTED)
+  if int(brief["days_left"])>0:
+   _action(briefing_card,"GO PREPARE THE BAND",func() -> void: _switch("ACTIONS"),true)
+ var recap: Dictionary = LiveBrief.last_show(_state())
+ if not recap.is_empty():
+  var report := _card("LAST NIGHT  /  THE AFTERMATH",str(recap["venue"]))
+  _label(report,"SHOW %s  /  FEE £%d" % ["LANDED" if bool(recap["success"]) else "WAS TOUGH",int(recap["fee"])],18,UI.AMBER)
+  _label(report,"ORIGINALS PLAYED %d  /  DEAL %s" % [int(recap["originals"]),str(recap["terms"]).to_upper()],13,UI.MUTED)
  var summary := _card("BOOK A BRITISH GIG","Every show builds your story. Choose the stage, then the approach.")
  _progress(summary,"VAN",_num("van_health"))
  var roster: Array = save_data.get("band",{}).get("members",[])
