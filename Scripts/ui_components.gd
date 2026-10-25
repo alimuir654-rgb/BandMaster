@@ -2,9 +2,12 @@ extends RefCounted
 # Reusable visual components for career stories, character cards and goals.
 const UI = preload("res://Scripts/ui_theme.gd")
 
-static func section(parent: Node, heading: String, description: String = "") -> VBoxContainer:
+static func section(parent: Node, heading: String, description: String = "", genre_id: String = "indie") -> VBoxContainer:
  var panel := PanelContainer.new()
- panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,14))
+ var colors := UI.palette(genre_id)
+ var card_style := UI.style(colors["panel"],14)
+ card_style.border_color = colors["alt"].lightened(0.22)
+ panel.add_theme_stylebox_override("panel",card_style)
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  parent.add_child(panel)
  var body := VBoxContainer.new()
@@ -13,8 +16,8 @@ static func section(parent: Node, heading: String, description: String = "") -> 
  if not heading.is_empty():
   var label := Label.new()
   label.text = heading.to_upper()
-  label.add_theme_font_size_override("font_size",18)
-  label.add_theme_color_override("font_color",UI.AMBER)
+  label.add_theme_font_size_override("font_size",19)
+  label.add_theme_color_override("font_color",colors["accent"])
   label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
   body.add_child(label)
  if not description.is_empty():
