@@ -10,7 +10,7 @@ func _initialize() -> void:
   var roster := band_view.find("for i in range(members.size()):")
   var summary := band_view.find("var chemistry := _card(\"BAND PULSE\"")
   _check(roster >= 0 and summary > roster,"musicians displayed before metrics")
-  _check(band_view.contains("MEET "),"member interaction CTA")
+  _check(band_view.contains("VIEW DETAILS"),"member interaction CTA")
   _check(band_view.contains("THE LINEUP"),"concise opening overview")
   _check(band_view.contains("BAND CHEMISTRY"),"relationship data preserved")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
