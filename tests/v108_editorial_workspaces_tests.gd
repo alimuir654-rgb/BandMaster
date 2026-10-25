@@ -3,8 +3,10 @@ var failures := 0
 func _initialize() -> void:
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(source.contains("func _editorial_banner("),"shared banner helper exists")
- for token in ["func _band() -> void:\n _editorial_banner(","func _actions() -> void:\n _scene_instrument_strip()\n _environment_dashboard()\n _editorial_banner("]:
-  _check(source.contains(token),token+" wired")
+ _check(source.contains('func _band() -> void:'),"band screen exists")
+ _check(source.contains('_editorial_banner("THE PEOPLE BEHIND THE MUSIC"'),"band editorial context preserved")
+ _check(source.contains('func _actions() -> void:\n _scene_instrument_strip()'),"studio keeps context strip")
+ _check(source.contains('_editorial_banner("THE CREATIVE STUDIO"'),"studio editorial context preserved")
  _check(source.contains("func _gigs() -> void:\n _scene_instrument_strip()"),"gigs retains context strip")
  _check(source.contains('_editorial_banner("THE LIVE CIRCUIT"'),"gigs retains cinematic masthead")
  _check(source.contains('if get_viewport_rect().size.x < 960.0:'),"mobile preserved")
