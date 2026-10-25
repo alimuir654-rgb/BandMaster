@@ -742,3 +742,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v106_career_metric_header_tests.gd
+      - name: Verify visual career destinations
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v107_visual_destination_tests.gd
