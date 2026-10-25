@@ -465,3 +465,8 @@ jobs:
           set -euo pipefail
           godot --headless --path . --script res://tests/v40_song_chemistry_tests.gd
           godot --headless --path . --script res://tests/v41_live_chemistry_tests.gd
+      - name: Test genre profiles
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v50_genre_foundation_tests.gd
