@@ -960,9 +960,32 @@ func _actions() -> void:
     forms.select(form_index)
    if title_index >= 0:
     titles.select(title_index)
+  var preview := _card("SONG DIRECTION  /  BEFORE YOU COMMIT","Changing these choices shapes the next writing session. Nothing is spent until you jam.")
+  var preview_heading := _label(preview,"",17,UI.WHITE)
+  var preview_identity := _label(preview,"",13,UI.AMBER)
+  var preview_arrangement := _label(preview,"",13,UI.MUTED)
+  var preview_leader := _label(preview,"",12,UI.MUTED)
+  var refresh_preview := func() -> void:
+   var leader_name := leads.get_item_text(leads.selected) if leads.selected >= 0 else ""
+   var details: Dictionary = SongStudio.preview(ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),leader_name)
+   preview_heading.text = str(details["title"])
+   preview_identity.text = str(details["identity"])
+   preview_arrangement.text = str(details["arrangement"])
+   preview_leader.text = str(details["leader"])
+  for selector_control in [ideas,forms,titles,leads]:
+   selector_control.item_selected.connect(func(_index: int) -> void: refresh_preview.call())
+  if ideas.item_count > 0 and forms.item_count > 0 and titles.item_count > 0:
+   refresh_preview.call()
+  if not draft.is_empty():
+   var past: Array = studio.get("history",[])
+   if not past.is_empty():
+    var sessions_card := _card("WRITING ROOM NOTES","Revisit the choices that brought this track here.")
+    for session in past:
+     if session is Dictionary:
+      _label(sessions_card,"DAY %d  ·  %s / %s  ·  %s" % [int(session.get("day",1)),str(session.get("idea","")),str(session.get("form","")),str(session.get("leader",""))],12,UI.MUTED)
   var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
   jam.custom_minimum_size.y = 54
-  jam.disabled = indices.is_empty()
+  jam.disabled = indices.is_empty() or ideas.item_count == 0 or forms.item_count == 0 or titles.item_count == 0
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
    _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
