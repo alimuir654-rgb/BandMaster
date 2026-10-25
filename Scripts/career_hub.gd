@@ -2373,7 +2373,7 @@ func _actions() -> void:
    button.disabled = _num("cash") < cost
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
- if action_view == "JAM" and is_instance_valid(songbook_panel):
+ if action_view == "JAM" and is_instance_valid(songbook_panel) and songbook_panel.get_parent() == content:
   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
 
