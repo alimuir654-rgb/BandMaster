@@ -666,6 +666,39 @@ func _band() -> void:
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
+ if get_viewport_rect().size.x >= 960.0 and not members.is_empty():
+  var brief := _card("BAND MANAGEMENT  /  LIVE BRIEFING","Keep the band ready, connected and able to perform.")
+  var briefing_row := HBoxContainer.new()
+  briefing_row.add_theme_constant_override("separation",10)
+  brief.add_child(briefing_row)
+  for metric in [
+   {"label":"ACTIVE","value":int(pulse.get("active",0)),"icon":"users"},
+   {"label":"NEED REST","value":int(pulse.get("exhausted",0)),"icon":"heart-pulse"},
+   {"label":"GROUP LOYALTY","value":int(pulse.get("loyalty",0)),"icon":"handshake"}
+  ]:
+   var metric_card := PanelContainer.new()
+   metric_card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   metric_card.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],10))
+   briefing_row.add_child(metric_card)
+   var metric_stack := VBoxContainer.new()
+   metric_stack.add_theme_constant_override("separation",3)
+   metric_card.add_child(metric_stack)
+   _label(metric_stack,str(metric["label"]),12,UI.MUTED)
+   _label(metric_stack,str(metric["value"]),25,UI.palette(_genre_id())["accent"])
+  var brief_actions := HBoxContainer.new()
+  brief_actions.add_theme_constant_override("separation",10)
+  brief.add_child(brief_actions)
+  var rehearse := UI.themed_button("OPEN STUDIO",_genre_id(),true)
+  rehearse.icon_start = "music"
+  brief_actions.add_child(rehearse)
+  rehearse.pressed.connect(func() -> void: _switch("ACTIONS"))
+  var gigs := UI.themed_button("GIG SCHEDULE",_genre_id(),false)
+  gigs.icon_start = "calendar-days"
+  brief_actions.add_child(gigs)
+  gigs.pressed.connect(func() -> void: _switch("GIGS"))
+  if int(pulse.get("exhausted",0)) > 0:
+   _label(brief,"%d BANDMATE(S) NEED RECOVERY BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.palette(_genre_id())["secondary"])
+
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
  var conversation: Dictionary = _extra().get("last_band_conversation",{})
