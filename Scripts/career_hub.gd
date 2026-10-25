@@ -121,7 +121,7 @@ func _genre_id() -> String:
  return Genres.normalize(str(band_data.get("genre","indie"))) if band_data is Dictionary else "indie"
 
 func _card(title: String, description: String = "") -> VBoxContainer:
- return Components.section(content,title,description)
+ return Components.section(content,title,description,_genre_id())
 
 func _action(parent: Node, name: String, callback: Callable, primary: bool = false) -> void:
  var button := UI.themed_button(name,_genre_id(),primary)
@@ -197,7 +197,7 @@ func _render() -> void:
 
 func _header() -> void:
  var palette: Dictionary = save_data.get("band",{}).get("palette",{})
- var colour := Color(str(palette.get("primary","#F0B44D")))
+ var colour: Color = UI.palette(_genre_id())["accent"]
  _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,colour)
  var row := HBoxContainer.new()
  content.add_child(row)
@@ -211,7 +211,7 @@ func _header() -> void:
  var day_panel := PanelContainer.new()
  day_panel.custom_minimum_size = Vector2(92,48)
  day_panel.size_flags_horizontal = Control.SIZE_SHRINK_END
- day_panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,12))
+ day_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],12))
  row.add_child(day_panel)
  var day := _label(day_panel,"DAY %d" % _num("tour_day"),15,UI.AMBER)
  day.autowrap_mode = TextServer.AUTOWRAP_OFF
@@ -223,7 +223,7 @@ func _header() -> void:
  content.add_child(stats)
  for entry in ["CASH £%d" % _num("cash"),"FANS %d" % _num("fans"),"REP %d" % _num("reputation")]:
   var panel := PanelContainer.new()
-  panel.add_theme_stylebox_override("panel",UI.style(UI.ALT,10))
+  panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],10))
   panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   stats.add_child(panel)
   _label(panel,entry,14,UI.WHITE)
