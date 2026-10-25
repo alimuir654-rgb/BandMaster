@@ -837,3 +837,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v124_mobile_task_first_tests.gd
+      - name: Verify primary decisions precede supporting UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v125_task_first_home_gigs_tests.gd
