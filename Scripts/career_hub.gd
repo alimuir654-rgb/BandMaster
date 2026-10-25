@@ -607,19 +607,11 @@ func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
- var chemistry := _card("THE BAND RIGHT NOW",str(pulse["mood"])+"  /  "+str(pulse["active"])+" ACTIVE MUSICIANS")
- _progress(chemistry,"GROUP MORALE",int(pulse["morale"]))
- _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
+ var overview := _card("THE LINEUP","%d ACTIVE  /  %d TOTAL  /  %s" % [int(pulse["active"]),members.size(),str(pulse["mood"]).to_upper()])
  if int(pulse["exhausted"]) > 0:
-  _label(chemistry,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.AMBER)
-
+  _label(overview,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),14,UI.palette(_genre_id())["secondary"])
+ _label(overview,"CHOOSE A MUSICIAN BELOW TO SEE THEIR STORY, SKILLS AND INTERACTIONS.",14,UI.MUTED)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
- if not pairs.is_empty():
-  var connection_card := _card("BAND CHEMISTRY","The relationships behind the performances. Shared experiences change these bonds.")
-  for bond in pairs:
-   var caption := str(bond["first"])+"  +  "+str(bond["second"])+"   /   "+str(bond["mood"])
-   _progress(connection_card,caption,int(bond["value"]))
-
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
  var conversation: Dictionary = _extra().get("last_band_conversation",{})
@@ -671,7 +663,7 @@ func _band() -> void:
   var member: Dictionary = members[i]
   var index := i
   var status := str(member.get("life_status","active"))
-  var box := _card("ON THE ROAD" if status == "active" else "CURRENTLY UNAVAILABLE","")
+  var box := _card(str(member.get("name","Musician")).to_upper()+"  /  "+str(member.get("role","")).to_upper(),"AVAILABLE FOR THE NEXT SHOW" if status == "active" else "CURRENTLY UNAVAILABLE")
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)
@@ -688,7 +680,7 @@ func _band() -> void:
   _label(name_stack,BandPulse.member_note(member),12,UI.AMBER)
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
-  var profile := UI.button("CLOSE PROFILE  ▴" if selected_band_member == index else "OPEN PROFILE & ACTIONS  ▾",selected_band_member == index)
+  var profile := UI.themed_button("HIDE DETAILS  ▴" if selected_band_member == index else "MEET "+str(member.get("name","MUSICIAN")).to_upper()+"  ▾",_genre_id(),selected_band_member == index)
   profile.custom_minimum_size.y = 50
   box.add_child(profile)
   profile.pressed.connect(func() -> void:
@@ -726,6 +718,14 @@ func _band() -> void:
   listen.custom_minimum_size.y = 52
   box.add_child(listen)
   listen.pressed.connect(func() -> void: _listen(index))
+
+ var chemistry := _card("BAND PULSE","How the band is coping between shows.")
+ _progress(chemistry,"GROUP MORALE",int(pulse["morale"]))
+ _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
+ if not pairs.is_empty():
+  var connection_card := _card("BAND CHEMISTRY","Shared experiences shape the connection between musicians.")
+  for bond in pairs:
+   _progress(connection_card,str(bond["first"])+" + "+str(bond["second"])+"  /  "+str(bond["mood"]),int(bond["value"]))
 
  if members.size() < 6:
   var recruitment := _card("AUDITIONS","Three local musicians are available. Weigh talent against loyalty and signing fees.")
