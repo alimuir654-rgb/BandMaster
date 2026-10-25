@@ -6,6 +6,7 @@ const Components = preload("res://Scripts/ui_components.gd")
 const Presentation = preload("res://Scripts/career_presentation.gd")
 const Scrapbook = preload("res://Scripts/scrapbook_filter.gd")
 const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
+const BandReplies = preload("res://Scripts/band_conversation_replies.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
@@ -920,6 +921,27 @@ func _band() -> void:
   _label(quote_stack,"\""+str(conversation.get("text",""))+"\"",18,UI.WHITE)
   var engine := "LOCAL AI" if str(conversation.get("source","offline")) == "local" else "OFFLINE CHARACTER DIALOGUE"
   _label(quote_stack,engine+"   /   DAY %d" % int(conversation.get("day",_num("tour_day"))),11,UI.MUTED)
+  if bool(conversation.get("answered",false)):
+   _label(dialogue,"YOU: "+str(conversation.get("player_reply","")),13,UI.palette(_genre_id())["accent"])
+   _label(dialogue,str(conversation.get("response_text","")),15,UI.WHITE)
+  elif speaker_index >= 0:
+   var replies := BandReplies.options(_state(),speaker_index)
+   if replies.is_empty():
+    _label(dialogue,"YOU'VE ALREADY RESPONDED TO THIS MUSICIAN TODAY.",12,UI.MUTED)
+   else:
+    _label(dialogue,"YOUR REPLY  /  FREE CONVERSATION",12,UI.palette(_genre_id())["accent"])
+    var reply_grid := GridContainer.new()
+    reply_grid.columns = 1 if get_viewport_rect().size.x < 720.0 else 3
+    reply_grid.add_theme_constant_override("h_separation",8)
+    reply_grid.add_theme_constant_override("v_separation",8)
+    dialogue.add_child(reply_grid)
+    for reply in replies:
+     var reply_id := str(reply["id"])
+     var reply_button := UI.themed_button(str(reply["label"]),_genre_id(),false)
+     reply_button.custom_minimum_size.y = 52
+     reply_grid.add_child(reply_button)
+     var target_index := speaker_index
+     reply_button.pressed.connect(func() -> void: _reply_to_musician(target_index,reply_id))
   var close_dialogue := UI.button("CLOSE CONVERSATION")
   close_dialogue.custom_minimum_size.y = 46
   dialogue.add_child(close_dialogue)
@@ -1117,6 +1139,20 @@ func _band() -> void:
   _save()
   _render()
  )
+
+func _reply_to_musician(index: int, reply_id: String) -> void:
+ dialogue_serial += 1
+ _cancel_dialogue_request()
+ var result := BandReplies.respond(_state(),index,reply_id)
+ if not bool(result.get("ok",false)):
+  message = str(result.get("message","Reply unavailable"))
+  _render()
+  return
+ _apply(result["state"])
+ message = str(result["message"])
+ _save()
+ preserve_roster_scroll = true
+ _render()
 
 func _listen(index: int) -> void:
  # Every listen replaces the previous request. A late completion cannot rewrite
