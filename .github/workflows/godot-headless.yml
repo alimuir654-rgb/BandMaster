@@ -535,3 +535,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v64_indie_raster_tests.gd
+      - name: Test Indie home identity artwork
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v65_home_art_tests.gd
