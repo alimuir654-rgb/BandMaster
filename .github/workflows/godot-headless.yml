@@ -627,3 +627,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v83_woldui_live_controls_tests.gd
+      - name: Test landscape WoldUI navigation shell
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v84_landscape_shell_tests.gd
