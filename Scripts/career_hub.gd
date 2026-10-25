@@ -1124,49 +1124,60 @@ func _opportunities() -> void:
    _action(box,str(choice.get("label","CHOOSE")),func() -> void: _choose(id,choice_id),true)
 
 func _bottom_nav() -> void:
+ var colours := UI.palette(_genre_id())
+ var compact := CareerLayout.is_compact(get_viewport_rect().size.x)
  var panel := PanelContainer.new()
  panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
  panel.offset_top = -CareerLayout.footer_height(get_viewport_rect().size.x)
- panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,0))
+ panel.add_theme_stylebox_override("panel",UI.style(colours["panel"],0))
  add_child(panel)
  var bar := GridContainer.new()
  bar.columns = CareerLayout.columns(get_viewport_rect().size.x)
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- bar.add_theme_constant_override("h_separation",3)
+ bar.add_theme_constant_override("h_separation",5)
+ bar.add_theme_constant_override("v_separation",5)
  panel.add_child(bar)
  for tab_id in TABS:
   var target: String = tab_id
   var selected := target == tab
   var button := Button.new()
-  button.custom_minimum_size.y = 72 if CareerLayout.is_compact(get_viewport_rect().size.x) else 76
+  button.custom_minimum_size.y = 56 if compact else 62
   button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  button.add_theme_stylebox_override("normal",UI.style(UI.AMBER if selected else UI.ALT,10))
-  button.add_theme_stylebox_override("hover",UI.style(UI.AMBER.lightened(0.08) if selected else UI.ALT.lightened(0.1),10))
-  button.add_theme_stylebox_override("pressed",UI.style(UI.AMBER.darkened(0.12),10))
+  var fill: Color = colours["alt"] if selected else colours["panel"]
+  var normal := UI.style(fill,10)
+  normal.border_color = colours["accent"] if selected else colours["alt"]
+  normal.border_width_bottom = 3 if selected else 1
+  button.add_theme_stylebox_override("normal",normal)
+  button.add_theme_stylebox_override("hover",UI.style(colours["alt"].lightened(0.12),10))
+  button.add_theme_stylebox_override("pressed",UI.style(colours["alt"].darkened(0.1),10))
+  var focus := UI.flat(Color(0,0,0,0),11)
+  focus.border_color = colours["accent"]
+  focus.set_border_width_all(2)
+  button.add_theme_stylebox_override("focus",focus)
   var box := VBoxContainer.new()
   box.mouse_filter = Control.MOUSE_FILTER_IGNORE
   box.alignment = BoxContainer.ALIGNMENT_CENTER
-  box.add_theme_constant_override("separation",3)
+  box.add_theme_constant_override("separation",2)
   button.add_child(box)
   box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   var icon_path := "res://Art/Icons/%s.svg" % target.to_lower()
   if ResourceLoader.exists(icon_path):
    var glyph := TextureRect.new()
    glyph.texture = load(icon_path)
-   glyph.custom_minimum_size = Vector2(24,26)
+   glyph.custom_minimum_size = Vector2(21,22)
    glyph.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
    glyph.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   glyph.modulate = UI.BG if selected else UI.WHITE
+   glyph.modulate = colours["accent"] if selected else UI.MUTED
    glyph.mouse_filter = Control.MOUSE_FILTER_IGNORE
    box.add_child(glyph)
   button.tooltip_text = CareerLayout.nav_hint(target)
-  var caption := _label(box,CareerLayout.nav_label(target),11,UI.BG if selected else UI.WHITE)
+  button.accessibility_name = CareerLayout.nav_label(target)+(" (current)" if selected else "")
+  var caption := _label(box,CareerLayout.nav_label(target),12,colours["accent"] if selected else UI.WHITE)
   caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
   bar.add_child(button)
   button.pressed.connect(func() -> void: _switch(target))
-
 
 func _switch(next_tab: String) -> void:
  tab = next_tab
