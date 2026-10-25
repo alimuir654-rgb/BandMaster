@@ -602,10 +602,6 @@ func _band() -> void:
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
- var overview := _card("THE LINEUP","%d ACTIVE  /  %d TOTAL  /  %s" % [int(pulse["active"]),members.size(),str(pulse["mood"]).to_upper()])
- if int(pulse["exhausted"]) > 0:
-  _label(overview,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),14,UI.palette(_genre_id())["secondary"])
- _label(overview,"TALK TO BANDMATES OR OPEN THEIR PROFILES.",13,UI.MUTED)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
@@ -646,12 +642,6 @@ func _band() -> void:
    _save()
    _render()
   )
- var alumni: Array = _extra().get("former_members",[])
- if not alumni.is_empty():
-  var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
-  for person in alumni:
-   if person is Dictionary:
-    _label(alumni_box,str(person.get("name","Musician"))+"  /  "+str(person.get("role",""))+"  ·  "+str(person.get("reason","Left the band")),13,UI.MUTED)
  for i in range(members.size()):
   if not members[i] is Dictionary:
    continue
@@ -718,6 +708,16 @@ func _band() -> void:
    var choice_id := str(choice["id"])
    _experience_tile(box,str(choice["title"]),"A personal choice that changes how this musician feels about the band.",str(choice["impact"]),int(choice["cost"]),bool(choice["enabled"]),func() -> void: _member(index,choice_id))
 
+ var overview := _card("THE LINEUP","%d ACTIVE  /  %d TOTAL  /  %s" % [int(pulse["active"]),members.size(),str(pulse["mood"]).to_upper()])
+ if int(pulse["exhausted"]) > 0:
+  _label(overview,"%d BANDMATE(S) NEED REST BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),14,UI.palette(_genre_id())["secondary"])
+ _label(overview,"TALK TO BANDMATES OR OPEN THEIR PROFILES.",13,UI.MUTED)
+ var alumni: Array = _extra().get("former_members",[])
+ if not alumni.is_empty():
+  var alumni_box := _card("FORMER MEMBERS","The people who helped shape the band.")
+  for person in alumni:
+   if person is Dictionary:
+    _label(alumni_box,str(person.get("name","Musician"))+"  /  "+str(person.get("role",""))+"  ·  "+str(person.get("reason","Left the band")),13,UI.MUTED)
  var chemistry := _card("BAND PULSE","How the band is coping between shows.")
  _progress(chemistry,"GROUP MORALE",int(pulse["morale"]))
  _progress(chemistry,"GROUP LOYALTY",int(pulse["loyalty"]))
