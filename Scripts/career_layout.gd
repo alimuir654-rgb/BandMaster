@@ -44,7 +44,7 @@ static func studio_banner_height(width: float) -> float:
  return 116.0 if width < 380.0 else (148.0 if is_compact(width) else 184.0)
 
 static func member_portrait_size(width: float) -> Vector2:
- return Vector2(64,82) if width < 380.0 else Vector2(88,108)
+ return Vector2(64,82) if width < 380.0 else (Vector2(112,136) if width >= 960.0 else Vector2(88,108))
 
 static func member_name_font_size(width: float) -> int:
  return 18 if width < 380.0 else 24

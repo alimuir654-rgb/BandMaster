@@ -657,3 +657,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v89_band_roster_grid_tests.gd
+      - name: Check landscape portrait prominence
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v90_portrait_emphasis_tests.gd
