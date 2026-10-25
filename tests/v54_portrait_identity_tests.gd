@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(portrait.initials=="AL","readable fallback identity")
  _check(portrait.genre_id=="indie","genre stored")
  _check(portrait._safe_id("../Alex Doe")=="alexdoe","safe asset key")
- _check(portrait.portrait_texture is AtlasTexture,"Alex now has real Indie artwork")
+ _check(portrait.portrait_texture is Texture2D and not portrait.portrait_texture is AtlasTexture,"Alex now has real Indie artwork")
  var unknown := Portrait.new()
  unknown.set_character("missing","Unmatched","indie")
  _check(unknown.portrait_texture==null,"unknown artwork graceful fallback")
