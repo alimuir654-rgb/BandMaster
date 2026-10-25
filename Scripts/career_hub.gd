@@ -325,9 +325,9 @@ func _home_spotlight() -> void:
  visual.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  visual.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
  visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
- var art_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ var art_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
  if not ResourceLoader.exists(art_path):
-  art_path = "res://Art/Backgrounds/shared/home.webp"
+  art_path = "res://Art/Backgrounds/shared/band.webp"
  if ResourceLoader.exists(art_path):
   visual.texture = load(art_path)
  frame.add_child(visual)
@@ -391,9 +391,9 @@ func _home() -> void:
  if landscape_dashboard:
   content = sidebar
  var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
- var feature_path := "res://Art/Backgrounds/%s/home.webp" % _genre_id()
+ var feature_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
  if not ResourceLoader.exists(feature_path):
-  feature_path = "res://Art/Backgrounds/shared/home.webp"
+  feature_path = "res://Art/Backgrounds/shared/band.webp"
  if ResourceLoader.exists(feature_path):
   var feature := TextureRect.new()
   feature.custom_minimum_size.y = 92 if CareerLayout.is_compact(get_viewport_rect().size.x) else 144
@@ -414,7 +414,7 @@ func _home() -> void:
  places.add_theme_constant_override("v_separation",10)
  destinations.add_child(places)
  for spot in [
-  {"name":"THE STUDIO","tab":"ACTIONS","caption":"Jam · Rehearse · Hang out","art":"actions"},
+  {"name":"THE STUDIO","tab":"ACTIONS","caption":"Jam · Rehearse · Hang out","art":"studio"},
   {"name":"THE VENUES","tab":"GIGS","caption":"Book · Prepare · Perform","art":"gigs"},
   {"name":"THE BAND","tab":"BAND","caption":"People · Chemistry · Stories","art":"band"},
   {"name":"THE SCENE","tab":"SCENE","caption":"Promoters · Press · Scrapbook","art":"scene"},
@@ -458,9 +458,31 @@ func _home() -> void:
 
  if landscape_dashboard:
   content = sidebar
- var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
+ var pulse := _card("BAND PULSE","Your band at a glance — focus on the weakest area.")
  for key in ["readiness","morale","van_health"]:
   _progress(pulse,key.to_upper().replace("_"," "),_num(key))
+ var weakest := "readiness"
+ for key in ["morale","van_health"]:
+  if _num(key) < _num(weakest):
+   weakest = key
+ var advice := {"readiness":"Rehearse to prepare for tougher gigs.","morale":"Spend time together to rebuild morale.","van_health":"Repair the van before booking longer trips."}
+ _label(pulse,str(advice[weakest]),13,UI.MUTED)
+ _action(pulse,"IMPROVE THE BAND" if weakest != "van_health" else "OPEN GEAR & REPAIRS",func() -> void: _switch("GEAR" if weakest == "van_health" else "ACTIONS"))
+ var roadmap := _card("GROW YOUR CAREER","Ways to earn money, build an audience and unlock bigger shows.")
+ _label(roadmap,"FANS  /  Perform gigs and put up posters to reach new listeners.",13,UI.WHITE)
+ _label(roadmap,"REPUTATION  /  Build your live record and complete career chapters.",13,UI.WHITE)
+ _label(roadmap,"CASH  /  Gig fees and chapter rewards fund recording, travel and gear.",13,UI.WHITE)
+ var growth_buttons := HBoxContainer.new()
+ growth_buttons.add_theme_constant_override("separation",8)
+ roadmap.add_child(growth_buttons)
+ var gigs_shortcut := UI.themed_button("FIND A GIG",_genre_id(),true)
+ gigs_shortcut.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ growth_buttons.add_child(gigs_shortcut)
+ gigs_shortcut.pressed.connect(func() -> void: _switch("GIGS"))
+ var promotion_shortcut := UI.themed_button("PROMOTE",_genre_id(),false)
+ promotion_shortcut.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ growth_buttons.add_child(promotion_shortcut)
+ promotion_shortcut.pressed.connect(func() -> void: _switch("SCENE"))
  var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
  for status_entry in Momentum.signals(_state()):
   var target_tab := str(status_entry["tab"])
@@ -471,6 +493,9 @@ func _home() -> void:
   signal_button.pressed.connect(func() -> void: _switch(target_tab))
 
  var upcoming: Dictionary = Calendar.pending(_state())
+ if upcoming.is_empty():
+  var no_booking := _card("NO GIG BOOKED","Your calendar is clear. Book your next show to start building momentum.")
+  _action(no_booking,"EXPLORE VENUES",func() -> void: _switch("GIGS"),true)
  if not upcoming.is_empty():
   var remaining := int(upcoming.get("day",1)) - _num("tour_day")
   var plan := _card("GIG NIGHT  /  DAY %d" % int(upcoming.get("day",1)),str(upcoming.get("venue","Venue"))+"  ·  "+str(upcoming.get("city","HOME")))
@@ -933,12 +958,17 @@ func _band() -> void:
   var status := str(member.get("life_status","active"))
   var box := Components.section(roster_grid,"","",_genre_id())
   if landscape_roster:
+   # Keep roster cards top-aligned instead of stretching their content over a tall grid row.
+   box.get_parent().size_flags_vertical = Control.SIZE_SHRINK_BEGIN
    var member_header := HBoxContainer.new()
    member_header.add_theme_constant_override("separation",8)
    box.add_child(member_header)
    var status_label := _label(member_header,"AVAILABLE" if status == "active" else status.to_upper(),11,UI.palette(_genre_id())["accent"] if status == "active" else UI.palette(_genre_id())["secondary"])
    status_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   _label(member_header,"BAND PERSONNEL  /  %02d" % (index+1),11,UI.MUTED)
+   status_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+   var personnel_label := _label(member_header,"MEMBER %02d" % (index+1),11,UI.MUTED)
+   personnel_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+   personnel_label.size_flags_horizontal = Control.SIZE_SHRINK_END
   var identity := HBoxContainer.new()
   identity.add_theme_constant_override("separation",14)
   box.add_child(identity)

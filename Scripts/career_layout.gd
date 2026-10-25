@@ -15,7 +15,7 @@ static func hero_height(width: float) -> float:
  return 152.0 if is_compact(width) else 210.0
 
 static func destination_columns(width: float) -> int:
- return 1 if width < 380.0 else 2
+ return 1 if width < 720.0 else 2
 
 static func nav_label(tab: String) -> String:
  match tab:
