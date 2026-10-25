@@ -1024,24 +1024,81 @@ func _gigs() -> void:
      break
   else:
    var venue_key := gig_selected_venue
-   var box := _card(str(selected_venue["venue"])+"  /  "+str(selected_venue["city"]),"POTENTIAL FEE £%d  ·  TRAVEL £%d  ·  %d DAYS AWAY" % [int(selected_venue["fee"]),int(selected_venue["travel"]),int(selected_venue["days"])])
-   _label(box,"CHOOSE THE PROMOTER DEAL",13,UI.AMBER)
-   for offer_id in ["standard","guarantee","guestlist"]:
-    var proposal: String = offer_id
-    var terms: Dictionary = Promoter.OFFERS[proposal]
-    var choice := UI.button(str(terms["label"])+"  ›")
-    choice.custom_minimum_size.y = 54
-    choice.disabled = not booked.is_empty() or not line_up_ready
-    box.add_child(choice)
-    _label(box,str(terms["description"]),12,UI.MUTED)
-    choice.pressed.connect(func() -> void: _finish(Promoter.book(_state(),venue_key,proposal)))
-   if not line_up_ready and available_count >= 1 and booked.is_empty():
-    var session := UI.button("BOOK WITH SESSION DRUMMER · £25",true)
-    session.disabled = _num("cash") < 25 or (venue_key != "local" and _num("cash") < 25+int(selected_venue["travel"]))
-    box.add_child(session)
-    session.pressed.connect(func() -> void: _finish(Promoter.book(_state(),venue_key,"standard",true)))
+   var itinerary := _card("TOUR PLANNING  /  "+str(selected_venue["city"]).to_upper(),"Plan the journey before meeting the promoter.")
+   _label(itinerary,"VENUE  /  "+str(selected_venue["venue"]),16,UI.WHITE)
+   _label(itinerary,"TRAVEL ESTIMATE  £%d   /   POTENTIAL FEE  £%d" % [int(selected_venue["travel"]),int(selected_venue["fee"])],14,UI.AMBER)
+   _label(itinerary,"AVAILABLE FUNDS  £%d   /   VAN CONDITION  %d" % [_num("cash"),_num("van_health")],13,UI.MUTED)
+   _label(itinerary,"Accommodation and overnight travel are not yet simulated. Do not treat the fee as guaranteed profit.",12,UI.MUTED)
+   var venue_key := gig_selected_venue
+   var meet := UI.themed_button("MEET THE PROMOTER  ›",_genre_id(),true)
+   meet.custom_minimum_size.y = 58
+   meet.disabled = not booked.is_empty() or (not line_up_ready and available_count < 1)
+   itinerary.add_child(meet)
+   meet.pressed.connect(func() -> void: _open_promoter_meeting(venue_key,line_up_ready,available_count))
  var repairs := _card("KEEP THE VAN MOVING","£45 restores 30 van condition. Hometown gigs are still available when cash is low.")
  _action(repairs,"REPAIR VAN — £45",_repair)
+
+func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_count: int) -> void:
+ if not Calendar.pending(_state()).is_empty():
+  return
+ var venue: Dictionary = Gigs.get_venue(venue_id)
+ if venue.is_empty():
+  return
+ var overlay := ColorRect.new()
+ overlay.name = "PromoterMeeting"
+ overlay.color = Color(0.025,0.035,0.055,0.96)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(overlay)
+ var scroll := ScrollContainer.new()
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ overlay.add_child(scroll)
+ var center := CenterContainer.new()
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ center.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.add_child(center)
+ var desk := PanelContainer.new()
+ desk.custom_minimum_size.x = minf(get_viewport_rect().size.x-32.0,760.0)
+ desk.add_theme_stylebox_override("panel",UI.style(UI.PANEL,16))
+ center.add_child(desk)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",12)
+ desk.add_child(column)
+ _label(column,"PROMOTER'S OFFICE  /  CONTRACT NEGOTIATIONS",13,UI.AMBER)
+ _label(column,str(venue.get("venue","THE VENUE")).to_upper(),25,UI.WHITE)
+ _label(column,str(venue.get("city","HOME"))+"  /  TRAVEL £%d  /  POTENTIAL FEE £%d" % [int(venue.get("travel",0)),int(venue.get("fee",0))],14,UI.MUTED)
+ var portrait_path := "res://Art/Backgrounds/%s/backstage.webp" % _genre_id()
+ if not ResourceLoader.exists(portrait_path):
+  portrait_path = "res://Art/Backgrounds/shared/backstage.webp"
+ if ResourceLoader.exists(portrait_path):
+  var meeting_art := TextureRect.new()
+  meeting_art.texture = load(portrait_path)
+  meeting_art.custom_minimum_size.y = 170
+  meeting_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  meeting_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  column.add_child(meeting_art)
+ _label(column,"THE BOOKER  /  Let's see what deal makes sense for both of us.",17,UI.WHITE)
+ for offer_id in ["standard","guarantee","guestlist"]:
+  var proposal: String = offer_id
+  var terms: Dictionary = Promoter.OFFERS[proposal]
+  var option := UI.themed_button(str(terms["label"]),_genre_id(),proposal=="standard")
+  option.custom_minimum_size.y = 56
+  option.disabled = not line_up_ready
+  column.add_child(option)
+  _label(column,str(terms["description"]),12,UI.MUTED)
+  option.pressed.connect(func() -> void:
+   overlay.queue_free()
+   _finish(Promoter.book(_state(),venue_id,proposal))
+  )
+ if not line_up_ready and available_count >= 1:
+  var session := UI.themed_button("HIRE A SESSION DRUMMER  /  £25",_genre_id(),true)
+  session.disabled = _num("cash") < 25 or (venue_id != "local" and _num("cash") < 25+int(venue["travel"]))
+  column.add_child(session)
+  session.pressed.connect(func() -> void:
+   overlay.queue_free()
+   _finish(Promoter.book(_state(),venue_id,"standard",true))
+  )
+ _action(column,"BACK TO THE TOUR PLANNER",func() -> void: overlay.queue_free())
 
 func _scroll_to_venue_picker() -> void:
  # Scroll after the rendered content has settled; ensure_control_visible on a
@@ -1050,7 +1107,7 @@ func _scroll_to_venue_picker() -> void:
   return
  var target: Control = find_child("VenuePickerAnchor",true,false) as Control
  if target != null:
-  career_scroll.ensure_control_visible(target)
+  career_scroll.call_deferred("ensure_control_visible",target)
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
