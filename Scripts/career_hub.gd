@@ -952,12 +952,22 @@ func _actions() -> void:
    {"label":"03  WORKING TITLE","control":titles},
    {"label":"04  SESSION LEADER","control":leads}
   ]
+  var selector_grid := GridContainer.new()
+  selector_grid.columns = 1 if CareerLayout.is_compact(get_viewport_rect().size.x) else 2
+  selector_grid.add_theme_constant_override("h_separation",12)
+  selector_grid.add_theme_constant_override("v_separation",10)
+  workshop.add_child(selector_grid)
   for selector in selectors:
-   _label(workshop,str(selector["label"]),12,UI.MUTED)
+   var field := VBoxContainer.new()
+   field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   field.add_theme_constant_override("separation",5)
+   selector_grid.add_child(field)
+   _label(field,str(selector["label"]),12,UI.MUTED)
    var control: OptionButton = selector["control"]
-   control.custom_minimum_size.y = 56
+   control.custom_minimum_size.y = 52
    control.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   workshop.add_child(control)
+   control.tooltip_text = str(selector["label"])
+   field.add_child(control)
   if not draft.is_empty():
    var idea_index := Workshop.IDEAS.find(str(draft.get("idea","")))
    var form_index := Workshop.FORMS.find(str(draft.get("form","")))
