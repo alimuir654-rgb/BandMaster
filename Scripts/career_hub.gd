@@ -2040,7 +2040,6 @@ func _scene() -> void:
  if scene_view == "HISTORY":
   _scene_scrapbook()
   return
- _recording_studio()
  var career: Dictionary = Campaigns.next_milestone(_state())
  var milestone := _card("CAREER MOMENTUM  /  "+str(career["name"]),"Every recording, campaign and gig builds the audience needed for bigger venues.")
  _progress(milestone,"FANS",int(career["fans"]),maxi(1,int(career["target_fans"])))
@@ -2061,6 +2060,7 @@ func _scene() -> void:
  controls.add_child(press)
  promo.pressed.connect(func() -> void: _do_action("promo"))
  press.pressed.connect(func() -> void: _do_action("press"))
+ _recording_studio()
 
 func _scene_scrapbook() -> void:
  var archive: Array = _extra().get("career_journal",[])
