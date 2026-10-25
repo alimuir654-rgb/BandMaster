@@ -6,7 +6,7 @@ static func is_compact(width: float) -> bool:
 static func columns(width: float) -> int:
  return 3 if is_compact(width) else 6
 static func footer_height(width: float) -> float:
- return 174.0 if is_compact(width) else 104.0
+ return 154.0 if is_compact(width) else 90.0
 static func content_inset(width: float) -> float:
  return footer_height(width) + 10.0
 
