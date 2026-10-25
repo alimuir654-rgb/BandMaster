@@ -722,3 +722,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v102_band_brief_tests.gd
+      - name: Verify live band roster sorting
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v103_roster_priority_tests.gd
