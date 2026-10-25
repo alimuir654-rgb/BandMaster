@@ -1067,11 +1067,12 @@ func _band() -> void:
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
  var pairs: Array = Chemistry.connections(members,save_data.get("relationships",{}))
+ var briefing_panel: VBoxContainer
  if get_viewport_rect().size.x >= 960.0 and not members.is_empty():
-  var brief := _card("BAND MANAGEMENT  /  LIVE BRIEFING","Keep the band ready, connected and able to perform.")
+  briefing_panel = _card("BAND MANAGEMENT  /  LIVE BRIEFING","Keep the band ready, connected and able to perform.")
   var briefing_row := HBoxContainer.new()
   briefing_row.add_theme_constant_override("separation",10)
-  brief.add_child(briefing_row)
+  briefing_panel.add_child(briefing_row)
   for metric in [
    {"label":"ACTIVE","value":int(pulse.get("active",0)),"icon":"users"},
    {"label":"NEED REST","value":int(pulse.get("exhausted",0)),"icon":"heart-pulse"},
@@ -1088,7 +1089,7 @@ func _band() -> void:
    _label(metric_stack,str(metric["value"]),25,UI.palette(_genre_id())["accent"])
   var brief_actions := HBoxContainer.new()
   brief_actions.add_theme_constant_override("separation",10)
-  brief.add_child(brief_actions)
+  briefing_panel.add_child(brief_actions)
   var rehearse := UI.themed_button("OPEN STUDIO",_genre_id(),true)
   rehearse.icon_start = "music"
   brief_actions.add_child(rehearse)
@@ -1098,7 +1099,7 @@ func _band() -> void:
   brief_actions.add_child(gigs)
   gigs.pressed.connect(func() -> void: _switch("GIGS"))
   if int(pulse.get("exhausted",0)) > 0:
-   _label(brief,"%d BANDMATE(S) NEED RECOVERY BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.palette(_genre_id())["secondary"])
+   _label(briefing_panel,"%d BANDMATE(S) NEED RECOVERY BEFORE THE NEXT SHOW" % int(pulse["exhausted"]),13,UI.palette(_genre_id())["secondary"])
 
  if members.is_empty():
   _card("THE BAND NEEDS MUSICIANS","Start rebuilding the line-up.")
@@ -1349,6 +1350,8 @@ func _band() -> void:
   _save()
   _render()
  )
+ if is_instance_valid(briefing_panel):
+  content.move_child(briefing_panel,content.get_child_count()-1)
 
 func _reply_to_musician(index: int, reply_id: String) -> void:
  dialogue_serial += 1
