@@ -29,6 +29,24 @@ jobs:
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=390 --height=844 --output=screenshots/band-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=1280 --height=800 --output=screenshots/home-desktop.png
+          for genre in indie punk metal electronic; do
+            xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --genre="$genre" --width=390 --height=844 --output="screenshots/band-$genre-mobile.png"
+          done
+          for genre in punk metal electronic; do
+            xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --genre="$genre" --width=1280 --height=800 --output="screenshots/home-$genre-desktop.png"
+          done
+          python3 - <<'PY'
+          import glob, struct
+          paths = glob.glob("screenshots/*.png")
+          assert len(paths) >= 11, f"Only {len(paths)} screenshots captured"
+          for path in paths:
+              with open(path, "rb") as handle:
+                  header = handle.read(24)
+              assert header[:8] == bytes.fromhex("89504e470d0a1a0a"), path
+              width, height = struct.unpack(">II", header[16:24])
+              assert width >= 320 and height >= 600, (path, width, height)
+          print(f"Validated {len(paths)} Godot PNG screenshots")
+          PY
           file screenshots/*.png
       - name: Upload screenshot artifacts
         if: always()
