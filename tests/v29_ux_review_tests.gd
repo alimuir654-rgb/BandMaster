@@ -6,7 +6,7 @@ func _initialize() -> void:
   _check(Layout.hero_height(width)>0.0 and Layout.hero_height(width)<270.0,"smaller hero "+str(width))
   _check(Layout.content_inset(width)>=Layout.footer_height(width),"navigation clearance")
   _check(Layout.destination_columns(width)>=1,"valid tile columns")
- _check(Layout.destination_columns(320.0)==1 and Layout.destination_columns(430.0)==2,"phone grid responsiveness")
+ _check(Layout.destination_columns(320.0)==1 and Layout.destination_columns(430.0)==1 and Layout.destination_columns(768.0)==2,"phone grid responsiveness")
  _check(Layout.nav_label("ACTIONS")=="STUDIO" and Layout.nav_label("SCENE")=="CAREER","player language")
  _check(Layout.nav_label("BAND")=="BAND","stable core tabs")
  _check(not Layout.nav_hint("GIGS").is_empty(),"navigation accessibility hints")
