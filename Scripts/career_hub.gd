@@ -991,6 +991,32 @@ func _actions() -> void:
   scene_card.add_child(scene_art)
  var upcoming: Dictionary = Calendar.pending(_state())
  var snapshot := _card("TODAY IN THE STUDIO","READINESS %d  /  MORALE %d  /  TENSION %d" % [_num("readiness"),_num("morale"),_num("tension")])
+ if wide_workspace:
+  var dashboard := _card("SESSION CONTROL","A clear briefing before committing a day.")
+  for meter_info in [
+   {"label":"READINESS","key":"readiness"},
+   {"label":"MORALE","key":"morale"},
+   {"label":"TENSION","key":"tension"}
+  ]:
+   _progress(dashboard,str(meter_info["label"]),_num(str(meter_info["key"])))
+  if action_view == "JAM":
+   var progress: Dictionary = SongStudio.view(_state())
+   var done := clampi(int(progress.get("completed",0)),0,3)
+   _label(dashboard,"CURRENT SONG  /  %d OF 3 SESSIONS" % done,16,UI.palette(_genre_id())["accent"])
+   var phase_bar := ProgressBar.new()
+   phase_bar.max_value = 3
+   phase_bar.value = done
+   phase_bar.show_percentage = false
+   phase_bar.custom_minimum_size.y = 14
+   UI.themed_progress(phase_bar,_genre_id())
+   dashboard.add_child(phase_bar)
+   _label(dashboard,"NEXT: %s" % str(progress.get("stage","IDEA")),14,UI.WHITE)
+  elif action_view == "HANG OUT":
+   _label(dashboard,"CONNECTIONS & BAND CHEMISTRY",15,UI.palette(_genre_id())["accent"])
+   _action(dashboard,"VIEW BAND RELATIONSHIPS",func() -> void: _switch("BAND"))
+  else:
+   _label(dashboard,"FANS %d  /  REPUTATION %d" % [_num("fans"),_num("reputation")],15,UI.palette(_genre_id())["accent"])
+   _action(dashboard,"VIEW CAREER PROGRESS",func() -> void: _switch("SCENE"))
  if not upcoming.is_empty():
   var countdown := int(upcoming.get("day",1)) - _num("tour_day")
   if countdown > 0:
