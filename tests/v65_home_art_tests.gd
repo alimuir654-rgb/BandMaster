@@ -9,7 +9,7 @@ func _initialize() -> void:
   var home := source.substr(a,b-a)
   var photo := home.find("var feature_path :=")
   var focus := home.find("var guidance: Dictionary")
-  _check(photo>=0 and focus>photo,"band identity artwork precedes decision")
+  _check(photo>=0 and photo>focus,"decision precedes photographic identity")
   _check(home.contains("if ResourceLoader.exists(feature_path)"),"art optional")
   _check(home.contains("CareerLayout.is_compact"),"responsive image")
   _check(home.contains("var destination := str(guidance.get"),"decision preserved")
