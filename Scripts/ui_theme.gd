@@ -16,12 +16,26 @@ static func themed_button(label: String, genre_id: String, primary: bool = false
  var item := button(label,primary)
  var fill: Color = colors["accent"] if primary else colors["alt"]
  var foreground: Color = colors["bg"] if primary else WHITE
- item.add_theme_stylebox_override("normal",style(fill))
- item.add_theme_stylebox_override("hover",style(fill.lightened(0.10)))
- item.add_theme_stylebox_override("pressed",style(fill.darkened(0.12)))
+ var normal := style(fill,11)
+ normal.border_color = colors["accent"] if primary else colors["secondary"]
+ normal.border_width_bottom = 3 if primary else 1
+ item.add_theme_stylebox_override("normal",normal)
+ var hovered := style(fill.lightened(0.12),11)
+ hovered.border_color = colors["accent"]
+ item.add_theme_stylebox_override("hover",hovered)
+ var pressed := style(fill.darkened(0.15),11)
+ pressed.shadow_size = 1
+ item.add_theme_stylebox_override("pressed",pressed)
+ item.add_theme_stylebox_override("disabled",style(colors["panel"].darkened(0.12),11))
+ var focus := flat(Color.TRANSPARENT,12)
+ focus.border_color = colors["accent"]
+ focus.set_border_width_all(2)
+ item.add_theme_stylebox_override("focus",focus)
  for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
   item.add_theme_color_override(key,foreground)
+ item.add_theme_color_override("font_disabled_color",MUTED.darkened(0.28))
  return item
+
 static func themed_progress(bar: ProgressBar, genre_id: String, kind: String = "accent") -> void:
  progress(bar)
  var colors := palette(genre_id)
