@@ -1593,7 +1593,8 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
 
 func _actions() -> void:
  _scene_instrument_strip()
- _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
+ if action_view != "JAM":
+  _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
@@ -1616,7 +1617,8 @@ func _actions() -> void:
   )
  # Desktop: a management workspace, not one long stack of cards.
  # Preserve the mobile single-column flow and existing action callbacks.
- _environment_dashboard()
+ if action_view != "JAM":
+  _environment_dashboard()
  var full_content := content
  var wide_workspace := get_viewport_rect().size.x >= 960.0
  var decision_column: VBoxContainer
@@ -1636,7 +1638,9 @@ func _actions() -> void:
   context_column.add_theme_constant_override("separation",10)
   split.add_child(context_column)
   content = context_column
- var scene_card := _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
+ var scene_card: VBoxContainer
+ if action_view != "JAM":
+  scene_card = _card(str(mode_titles.get(action_view,"THE STUDIO")),str(mode_descriptions.get(action_view,"")))
  var image_path := "res://Art/Backgrounds/%s/studio.webp" % _genre_id()
  if action_view == "HANG OUT":
   image_path = "res://Art/Backgrounds/%s/backstage.webp" % _genre_id()
@@ -1645,7 +1649,7 @@ func _actions() -> void:
  if not ResourceLoader.exists(image_path):
   var shared_name := "studio" if action_view == "JAM" else ("backstage" if action_view == "HANG OUT" else "promotion")
   image_path = "res://Art/Backgrounds/shared/%s.webp" % shared_name
- if ResourceLoader.exists(image_path):
+ if ResourceLoader.exists(image_path) and is_instance_valid(scene_card):
   var scene_art := TextureRect.new()
   scene_art.custom_minimum_size.y = 88 if CareerLayout.is_compact(get_viewport_rect().size.x) else 128
   scene_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -1730,6 +1734,15 @@ func _actions() -> void:
     _label(quality_stack,str(track["verdict"]),11,UI.MUTED)
   var draft: Dictionary = _extra().get("current_song_draft",{})
   var workshop := _card("SONGWRITING  /  "+("START A NEW SONG" if draft.is_empty() else "DEVELOP YOUR SONG"),"Choose the sound, arrangement, title and session leader. Every session takes one day.")
+  var writing_skin := UI.style(Color("#332820"),16)
+  writing_skin.border_color = Color("#B99563")
+  writing_skin.border_width_top = 4
+  writing_skin.border_width_bottom = 2
+  writing_skin.set_content_margin_all(16)
+  var writing_frame := workshop.get_parent() as PanelContainer
+  if writing_frame != null:
+   writing_frame.add_theme_stylebox_override("panel",writing_skin)
+  _label(workshop,"ON THE DESK  /  DRAFT PAPER  ·  SETLIST  ·  STUDIO NOTES",12,Color("#D6BE92"))
   var studio: Dictionary = SongStudio.view(_state())
   if wide_workspace:
    var session_strip := HBoxContainer.new()
@@ -1829,20 +1842,21 @@ func _actions() -> void:
    if title_index >= 0:
     titles.select(title_index)
   var preview_panel := PanelContainer.new()
-  var preview_style := UI.style(UI.palette(_genre_id())["alt"],10)
-  preview_style.border_color = UI.palette(_genre_id())["accent"]
-  preview_style.border_width_left = 3
+  var preview_style := UI.style(Color("#EFE3C9"),8)
+  preview_style.border_color = Color("#B59C73")
+  preview_style.set_content_margin_all(16)
+  preview_style.border_width_left = 4
   preview_panel.add_theme_stylebox_override("panel",preview_style)
   workshop.add_child(preview_panel)
   var preview := VBoxContainer.new()
   preview.add_theme_constant_override("separation",6)
   preview_panel.add_child(preview)
-  _label(preview,"YOUR SONG  /  LIVE PREVIEW",12,UI.palette(_genre_id())["accent"])
-  _label(preview,"Selections update instantly. No day is spent until you commit.",12,UI.MUTED)
-  var preview_heading := _label(preview,"",17,UI.WHITE)
-  var preview_identity := _label(preview,"",13,UI.AMBER)
-  var preview_arrangement := _label(preview,"",13,UI.MUTED)
-  var preview_leader := _label(preview,"",12,UI.MUTED)
+  _label(preview,"WORKING SONGSHEET  /  LIVE DRAFT",12,Color("#83603E"))
+  _label(preview,"Pencil changes are free. Recording a session uses one day.",12,Color("#665F53"))
+  var preview_heading := _label(preview,"",20,Color("#241E18"))
+  var preview_identity := _label(preview,"",13,Color("#8E512F"))
+  var preview_arrangement := _label(preview,"",13,Color("#595044"))
+  var preview_leader := _label(preview,"",12,Color("#595044"))
   var refresh_preview := func() -> void:
    var leader_name := leads.get_item_text(leads.selected) if leads.selected >= 0 else ""
    var details: Dictionary = SongStudio.preview(ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),leader_name)
@@ -2023,9 +2037,8 @@ func _actions() -> void:
    button.disabled = _num("cash") < cost
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
- if action_view == "JAM" and not wide_workspace:
-  if is_instance_valid(songbook_panel):
-   content.move_child(songbook_panel,content.get_child_count()-1)
+ if action_view == "JAM" and is_instance_valid(songbook_panel):
+  content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
 
 func _recording_studio() -> void:
