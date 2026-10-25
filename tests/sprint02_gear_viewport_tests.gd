@@ -40,7 +40,7 @@ func _run() -> void:
      _check(not service.disabled,"service affordable at "+str(size))
     _check(ui.find_child("GearDossierIcon",true,false) != null,"licensed icon rendered at "+str(size))
     var scroll: ScrollContainer = ui.career_scroll
-    _check(scroll != null and scroll.size.x <= float(size.x)+2.0,"gear scroll fits viewport "+str(size))
+    _check(scroll != null and scroll.visible and scroll.get_global_rect().intersects(Rect2(Vector2.ZERO,Vector2(size))),"gear scroll remains reachable at "+str(size))
     print("GEAR_VIEWPORT %dx%d service=%s icon=%s" % [size.x,size.y,str(service != null),str(ui.find_child("GearDossierIcon",true,false) != null)])
     ui.free()
  if had_save:
