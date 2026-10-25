@@ -66,6 +66,8 @@ var dialogue_serial := 0
 
 func _ready() -> void:
  _load()
+ if _is_show_day():
+  tab = "GIGS"
  _render()
 
 func _load() -> void:
@@ -2267,7 +2269,16 @@ func _bottom_nav() -> void:
   bar.add_child(button)
   button.pressed.connect(func() -> void: _switch(target))
 
+func _is_show_day() -> bool:
+ var booked: Dictionary = Calendar.pending(_state())
+ return not booked.is_empty() and int(booked.get("day",-1)) == _num("tour_day")
+
 func _switch(next_tab: String) -> void:
+ if _is_show_day() and next_tab != "GIGS":
+  tab = "GIGS"
+  message = "It's show day. Finish tonight's booking before other activities."
+  _render()
+  return
  if tab == next_tab:
   return
  preserve_gear_scroll = false
@@ -2314,6 +2325,11 @@ func _apply(updated: Dictionary) -> void:
    extra[key] = updated[key]
 
 func _finish(result: Dictionary, source: String = "") -> void:
+ if _is_show_day() and not source.begins_with("gig:") and source != "backstage":
+  message = "Tonight's gig comes first. Finish the show before another activity."
+  tab = "GIGS"
+  _render()
+  return
  var before: Dictionary = _state()
  var successful: bool = bool(result.get("ok",false))
  if successful:
@@ -2524,6 +2540,11 @@ func _choose(event_id: String,choice_id: String) -> void:
  _finish(Opportunities.resolve(_state(),event_id,choice_id))
 
 func _repair() -> void:
+ if _is_show_day():
+  message = "The van can't go to the garage on show day."
+  tab = "GIGS"
+  _render()
+  return
  if _num("cash") < 45:
   message = "You need £45 to repair the van."
   _render()
