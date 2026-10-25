@@ -25,7 +25,7 @@ func _initialize() -> void:
  var changed: Dictionary = Calendar.replan(next,Tour.DRIVE)
  _check(bool(changed.get("ok",false)),"can change plan without spending a day")
  _check(int(changed["state"]["tour_day"])==5,"replanning does not advance clock")
- _check(int(next["booked_show"]["travel_plan"]==Tour.OVERNIGHT),"replan leaves input untouched")
+ _check(str(next["booked_show"]["travel_plan"])==Tour.OVERNIGHT,"replan leaves input untouched")
  var low := state.duplicate(true)
  low["cash"] = 30
  _check(not bool(Calendar.book(low,"bristol","tight",false,Tour.OVERNIGHT).get("ok",true)),"unaffordable room blocked at booking")
