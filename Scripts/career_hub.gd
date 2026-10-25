@@ -552,7 +552,48 @@ func _home() -> void:
  if landscape_dashboard:
   content = full_content
 
+func _editorial_banner(title: String, subtitle: String, artwork: String, destination: String, action_label: String) -> void:
+ # Shared wide-screen feature banner for the three core management workspaces.
+ if get_viewport_rect().size.x < 960.0:
+  return
+ var panel := PanelContainer.new()
+ panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],14))
+ content.add_child(panel)
+ var line := HBoxContainer.new()
+ line.add_theme_constant_override("separation",18)
+ panel.add_child(line)
+ var picture := TextureRect.new()
+ picture.custom_minimum_size = Vector2(300,176)
+ picture.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var path := "res://Art/Backgrounds/%s/%s.webp" % [_genre_id(),artwork]
+ if not ResourceLoader.exists(path):
+  path = "res://Art/Backgrounds/shared/%s.webp" % artwork
+ if ResourceLoader.exists(path):
+  picture.texture = load(path)
+ line.add_child(picture)
+ var copy := VBoxContainer.new()
+ copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ copy.size_flags_stretch_ratio = 1.35
+ copy.add_theme_constant_override("separation",10)
+ line.add_child(copy)
+ _label(copy,"BANDMASTER  /  YOUR CAREER",12,UI.palette(_genre_id())["accent"])
+ var heading := _label(copy,title,28,UI.WHITE)
+ heading.max_lines_visible = 2
+ heading.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ var body := _label(copy,subtitle,15,UI.MUTED)
+ body.max_lines_visible = 3
+ var cta := UI.themed_button(action_label,_genre_id(),true)
+ cta.icon_end = "arrow-right"
+ cta.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+ cta.custom_minimum_size.x = 200
+ copy.add_child(cta)
+ cta.pressed.connect(func() -> void: _switch(destination))
+
 func _gigs() -> void:
+ _editorial_banner("THE LIVE CIRCUIT","Build your reputation one venue at a time. Prepare your musicians, choose a deal and take the stage.","gigs","ACTIONS","PREPARE FOR A SHOW")
  var brief: Dictionary = LiveBrief.briefing(_state())
  var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
  _label(briefing_card,str(brief["headline"]),23,UI.WHITE)
@@ -747,6 +788,7 @@ func _gear() -> void:
   break
 
 func _band() -> void:
+ _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  _band_situations()
  _life_situations()
  var band_data: Dictionary = save_data.get("band",{})
@@ -1108,6 +1150,7 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
  start.pressed.connect(callback)
 
 func _actions() -> void:
+ _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
  var switches := _card("CHOOSE YOUR DAY","Select an activity. Each commitment moves the band's story forward.")
