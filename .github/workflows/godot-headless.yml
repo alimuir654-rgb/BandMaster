@@ -672,3 +672,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v92_home_icon_destinations_tests.gd
+      - name: Validate Home management status priority
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v93_home_status_tests.gd
