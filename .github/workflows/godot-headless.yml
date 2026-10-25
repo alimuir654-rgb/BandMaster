@@ -807,3 +807,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v119_home_hierarchy_tests.gd
+      - name: Verify interactive studio console
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v120_interactive_studio_tests.gd
