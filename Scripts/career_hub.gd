@@ -351,6 +351,11 @@ func _home() -> void:
 
  if landscape_dashboard:
   content = sidebar
+ if landscape_dashboard:
+  content = sidebar
+ var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
+ for key in ["readiness","morale","van_health"]:
+  _progress(pulse,key.to_upper().replace("_"," "),_num(key))
  var momentum := _card("CAREER MOMENTUM","Your band's current priorities at a glance.")
  for status_entry in Momentum.signals(_state()):
   var target_tab := str(status_entry["tab"])
@@ -418,33 +423,27 @@ func _home() -> void:
     _label(journal,str(clipping["rubric"])+"  /  DAY %d" % int(clipping["day"]),11,UI.AMBER)
     Components.story(journal,moment)
   _action(journal,"OPEN FULL SCRAPBOOK",func() -> void: _switch("SCENE"))
- if landscape_dashboard:
-  content = sidebar
- var pulse := _card("BAND PULSE","Your next show depends on preparation and morale.")
- for key in ["readiness","morale","van_health"]:
-  _progress(pulse,key.to_upper().replace("_"," "),_num(key))
- if landscape_dashboard:
-  content = main_column
- var quick := _card("SHORTCUTS","Jump straight into your next session.")
- var row := HBoxContainer.new()
- row.add_theme_constant_override("separation",6)
- quick.add_child(row)
- var book := UI.button("GIGS",true)
- var write := UI.button("WRITE")
- var practise := UI.button("PRACTISE")
- for action in [book,write,practise]:
-  action.custom_minimum_size.y = 58
-  action.add_theme_font_size_override("font_size",13)
-  row.add_child(action)
- book.pressed.connect(func() -> void: _switch("GIGS"))
- write.pressed.connect(func() -> void:
-  action_view = "JAM"
-  _switch("ACTIONS")
- )
- practise.pressed.connect(func() -> void:
-  action_view = "JAM"
-  _switch("ACTIONS")
- )
+ if not landscape_dashboard:
+  var quick := _card("SHORTCUTS","Jump straight into your next session.")
+  var row := HBoxContainer.new()
+  row.add_theme_constant_override("separation",6)
+  quick.add_child(row)
+  var book := UI.button("GIGS",true)
+  var write := UI.button("WRITE")
+  var practise := UI.button("PRACTISE")
+  for action in [book,write,practise]:
+   action.custom_minimum_size.y = 58
+   action.add_theme_font_size_override("font_size",13)
+   row.add_child(action)
+  book.pressed.connect(func() -> void: _switch("GIGS"))
+  write.pressed.connect(func() -> void:
+   action_view = "JAM"
+   _switch("ACTIONS")
+  )
+  practise.pressed.connect(func() -> void:
+   action_view = "JAM"
+   _switch("ACTIONS")
+  )
  if landscape_dashboard:
   content = full_content
 
