@@ -617,3 +617,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v81_raster_portrait_tests.gd
+      - name: Validate WoldUI component showcase
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v82_woldui_foundation_tests.gd
