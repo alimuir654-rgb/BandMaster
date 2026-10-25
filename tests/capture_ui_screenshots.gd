@@ -9,6 +9,7 @@ func _capture() -> void:
  var args := OS.get_cmdline_user_args()
  var output := "screenshots/bandmaster-home.png"
  var tab := "HOME"
+ var genre := "indie"
  var width := 390
  var height := 844
  for arg in args:
@@ -16,11 +17,13 @@ func _capture() -> void:
    output = arg.trim_prefix("--output=")
   elif arg.begins_with("--tab="):
    tab = arg.trim_prefix("--tab=")
+  elif arg.begins_with("--genre="):
+   genre = arg.trim_prefix("--genre=")
   elif arg.begins_with("--width="):
    width = int(arg.trim_prefix("--width="))
   elif arg.begins_with("--height="):
    height = int(arg.trim_prefix("--height="))
- if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab):
+ if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre):
   push_error("SCREENSHOT FAILURE: Invalid capture parameters")
   quit(1)
   return
@@ -39,6 +42,7 @@ func _capture() -> void:
   "career_extra":{"songs":2,"fans":42,"gig_history":[],"career_journal":[],"action_counters":{},
    "song_draft_progress":1,"current_song_draft":{"title":"NEON AT CLOSING TIME","idea":"Riff","form":"Slow Build","leader":"Alex","sessions":[{"day":11,"idea":"Riff","form":"Slow Build","leader":"Alex"}]}}
  }
+ fixture["band"]["genre"] = genre
  var file := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
  if file == null:
   push_error("SCREENSHOT FAILURE: Cannot create isolated fixture")
