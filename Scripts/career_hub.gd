@@ -13,6 +13,7 @@ const Opportunities = preload("res://Scripts/career_opportunities.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const VenueBrowser = preload("res://Scripts/venue_browser.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Tour = preload("res://Scripts/tour_itinerary.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
 const BackstageIncident = preload("res://Scripts/gig_backstage_incident.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
@@ -57,6 +58,7 @@ var selected_band_member := -1
 var roster_sort := "LINEUP"
 var preserve_venue_scroll := false
 var selected_gear_item := ""
+var selected_tour_plan := Tour.DRIVE
 var preserve_gear_scroll := false
 var career_scroll: ScrollContainer
 var preserve_roster_scroll := false
@@ -841,6 +843,27 @@ func _gigs() -> void:
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
   var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
+  var journey_id := str(booked.get("travel_plan",""))
+  var booked_plan: Dictionary = Tour.preview(_state(),str(booked.get("venue_id","")),journey_id)
+  if booked_plan.is_empty():
+   _label(calendar_box,"TRAVEL  /  LEGACY BOOKING  ·  STANDARD JOURNEY",12,UI.MUTED)
+  else:
+   _label(calendar_box,"TRAVEL  /  %s  ·  ROOM £%d" % [str(booked_plan["label"]),int(booked_plan["accommodation_cost"])],12,UI.AMBER)
+  var journey_dates: Array = Tour.timeline(_state())
+  var date_strip := HBoxContainer.new()
+  date_strip.add_theme_constant_override("separation",6)
+  calendar_box.add_child(date_strip)
+  for step in journey_dates:
+   var date_panel := PanelContainer.new()
+   date_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   date_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],6))
+   date_strip.add_child(date_panel)
+   var day_stack := VBoxContainer.new()
+   date_panel.add_child(day_stack)
+   _label(day_stack,"DAY %d" % int(step["day"]),11,UI.AMBER if bool(step["show"]) else UI.MUTED)
+   _label(day_stack,str(step["label"]),11,UI.WHITE)
+  if due >= 0 and (due > 0 or str(_state().get("gig_night_phase","arrival")) == "arrival"):
+   _action(calendar_box,"TRAVEL & OVERNIGHT OPTIONS  ›",func() -> void: _open_itinerary_editor())
   if due > 0:
    _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
    _action(calendar_box,"PREPARE FOR THE SHOW  ›",func() -> void: _switch("ACTIONS"),true)
@@ -1206,25 +1229,44 @@ func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_cou
   meeting_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   column.add_child(meeting_art)
  _label(column,"THE BOOKER  /  Let's see what deal makes sense for both of us.",17,UI.WHITE)
+ if Tour.preview(_state(),venue_id,selected_tour_plan).is_empty():
+  selected_tour_plan = Tour.DRIVE
+ _label(column,"JOURNEY PLAN  /  CHOOSE BEFORE SIGNING",13,UI.AMBER)
+ for journey_option in Tour.choices(_state(),venue_id):
+  var plan_id := str(journey_option["id"])
+  var selected := selected_tour_plan == plan_id
+  var travel_button := UI.themed_button(("●  " if selected else "")+str(journey_option["label"]),_genre_id(),selected)
+  travel_button.custom_minimum_size.y = 48
+  travel_button.disabled = not bool(journey_option["available"])
+  column.add_child(travel_button)
+  _label(column,"TRAVEL £%d  /  ROOM £%d  /  TOTAL £%d  /  SET %+d  /  FATIGUE %+d" % [int(journey_option["travel_cost"]),int(journey_option["accommodation_cost"]),int(journey_option["total_cost"]),int(journey_option["quality_bonus"]),int(journey_option["fatigue_delta"])],12,UI.MUTED)
+  travel_button.pressed.connect(func() -> void:
+   selected_tour_plan = plan_id
+   overlay.queue_free()
+   _open_promoter_meeting(venue_id,line_up_ready,available_count)
+  )
+ var plan_validation: Dictionary = Tour.validate(_state(),venue_id,selected_tour_plan)
+ if not bool(plan_validation.get("ok",false)):
+  _label(column,str(plan_validation.get("message","Journey unavailable.")),13,UI.AMBER)
  for offer_id in ["standard","guarantee","guestlist"]:
   var proposal: String = offer_id
   var terms: Dictionary = Promoter.OFFERS[proposal]
   var option := UI.themed_button(str(terms["label"]),_genre_id(),proposal=="standard")
   option.custom_minimum_size.y = 56
-  option.disabled = not line_up_ready
+  option.disabled = not line_up_ready or not bool(plan_validation.get("ok",false))
   column.add_child(option)
   _label(column,str(terms["description"]),12,UI.MUTED)
   option.pressed.connect(func() -> void:
    overlay.queue_free()
-   _finish(Promoter.book(_state(),venue_id,proposal))
+   _finish(Promoter.book(_state(),venue_id,proposal,false,selected_tour_plan))
   )
  if not line_up_ready and available_count >= 1:
   var session := UI.themed_button("HIRE A SESSION DRUMMER  /  £25",_genre_id(),true)
-  session.disabled = _num("cash") < 25 or (venue_id != "local" and _num("cash") < 25+int(venue["travel"]))
+  session.disabled = not bool(Tour.validate(_state(),venue_id,selected_tour_plan,true).get("ok",false))
   column.add_child(session)
   session.pressed.connect(func() -> void:
    overlay.queue_free()
-   _finish(Promoter.book(_state(),venue_id,"standard",true))
+   _finish(Promoter.book(_state(),venue_id,"standard",true,selected_tour_plan))
   )
  _action(column,"BACK TO THE TOUR PLANNER",func() -> void: overlay.queue_free())
 
