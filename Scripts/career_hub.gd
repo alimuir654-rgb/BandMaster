@@ -919,6 +919,10 @@ func _actions() -> void:
   var studio_title := _label(workshop,str(studio["headline"]),22,UI.WHITE)
   studio_title.add_theme_font_size_override("font_size",22)
   _label(workshop,str(studio["detail"]),14,UI.MUTED)
+  var song_chemistry: Dictionary = studio["chemistry"]
+  _label(workshop,"BAND CHEMISTRY  /  "+str(song_chemistry["label"])+"  ·  SCORE %d" % int(song_chemistry["score"]),13,UI.AMBER)
+  _label(workshop,"CURRENT SONG QUALITY BONUS  /  +%d (BEFORE FINAL CAP)" % int(song_chemistry["bonus"]),12,UI.MUTED)
+
   var stages := HBoxContainer.new()
   stages.add_theme_constant_override("separation",6)
   workshop.add_child(stages)
