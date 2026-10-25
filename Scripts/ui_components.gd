@@ -2,11 +2,28 @@ extends RefCounted
 # Reusable visual components for career stories, character cards and goals.
 const UI = preload("res://Scripts/ui_theme.gd")
 
-static func section(parent: Node, heading: String, description: String = "", genre_id: String = "indie") -> VBoxContainer:
+static func section(parent: Node, heading: String, description: String = "", genre_id: String = "indie", scene_id: String = "") -> VBoxContainer:
  var panel := PanelContainer.new()
  var colors := UI.palette(genre_id)
  var card_style := UI.style(colors["panel"],14)
  card_style.border_color = colors["alt"].lightened(0.22)
+ match scene_id:
+  "HOME":
+   card_style.bg_color = Color("#302925")
+   card_style.border_color = Color("#896E53")
+   card_style.set_corner_radius_all(18)
+  "DAY":
+   card_style.bg_color = Color("#42433C")
+   card_style.border_color = Color("#96917A")
+   card_style.set_corner_radius_all(15)
+  "STUDIO":
+   card_style.bg_color = Color("#1A292E")
+   card_style.border_color = Color("#517E80")
+   card_style.border_width_top = 2
+  "GIGS":
+   card_style.bg_color = Color("#211A2B")
+   card_style.border_color = Color("#79516D")
+   card_style.border_width_bottom = 2
  panel.add_theme_stylebox_override("panel",card_style)
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  parent.add_child(panel)

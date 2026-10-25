@@ -3,6 +3,7 @@ extends Control
 const UI = preload("res://Scripts/ui_theme.gd")
 const Genres = preload("res://Scripts/genre_profiles.gd")
 const Components = preload("res://Scripts/ui_components.gd")
+const SceneEnvironment = preload("res://Scripts/scene_environment.gd")
 const Presentation = preload("res://Scripts/career_presentation.gd")
 const Scrapbook = preload("res://Scripts/scrapbook_filter.gd")
 const LocalDialogue = preload("res://Scripts/local_dialogue_adapter.gd")
@@ -126,8 +127,13 @@ func _genre_id() -> String:
  var band_data = save_data.get("band",{})
  return Genres.normalize(str(band_data.get("genre","indie"))) if band_data is Dictionary else "indie"
 
+func _scene_identity() -> String:
+ if tab == "ACTIONS":
+  return "STUDIO" if action_view == "JAM" else "DAY"
+ return tab if ["HOME","GIGS"].has(tab) else "DEFAULT"
+
 func _card(title: String, description: String = "") -> VBoxContainer:
- return Components.section(content,title,description,_genre_id())
+ return Components.section(content,title,description,_genre_id(),_scene_identity())
 
 func _action(parent: Node, name: String, callback: Callable, primary: bool = false) -> void:
  var button := UI.themed_button(name,_genre_id(),primary)
@@ -161,6 +167,11 @@ func _render() -> void:
  background.color = UI.palette(_genre_id())["bg"]
  add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var environment := SceneEnvironment.new()
+ environment.set_scene(_scene_identity())
+ environment.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ add_child(environment)
+ environment.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
  career_scroll = scroll
  add_child(scroll)
@@ -311,6 +322,40 @@ func _hero() -> void:
   _label(column,str(profile.get("tagline","Make your next move.")),15,UI.MUTED)
 
 
+func _scene_instrument_strip() -> void:
+ # Context-specific control language with real simulation information.
+ var identity := _scene_identity()
+ var strip := PanelContainer.new()
+ var style := UI.style(UI.palette(_genre_id())["panel"],10)
+ style.bg_color = {"HOME":Color("#453329"),"DAY":Color("#5C5848"),"STUDIO":Color("#20343B"),"GIGS":Color("#2E203C")}.get(identity,UI.PANEL)
+ style.border_color = {"HOME":Color("#A17A4A"),"DAY":Color("#BAAF85"),"STUDIO":Color("#68A6A5"),"GIGS":Color("#B45986")}.get(identity,UI.AMBER)
+ style.border_width_left = 4
+ strip.add_theme_stylebox_override("panel",style)
+ content.add_child(strip)
+ var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",12)
+ strip.add_child(row)
+ var copy := VBoxContainer.new()
+ copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ row.add_child(copy)
+ var title: String = {"HOME":"THE BAND HOUSE","DAY":"TODAY'S PLANS","STUDIO":"REHEARSAL CONSOLE","GIGS":"LIVE CONTROL ROOM"}.get(identity,"BANDMASTER")
+ _label(copy,title,14,UI.WHITE)
+ var caption: String = {"HOME":"A place to regroup, plan and connect.","DAY":"Daylight hours: choose where to spend your time.","STUDIO":"Build a song, experiment and check the levels.","GIGS":"The room is waiting. Prepare for the lights."}.get(identity,"")
+ _label(copy,caption,12,UI.MUTED)
+ var metric := ""
+ match identity:
+  "HOME":
+   metric = "DAY %d" % _num("tour_day")
+  "DAY":
+   metric = "MORALE %d" % _num("morale")
+  "STUDIO":
+   metric = "READINESS %d" % _num("readiness")
+  "GIGS":
+   var booking: Dictionary = Calendar.pending(_state())
+   metric = "SHOW IN %d DAYS" % maxi(0,int(booking.get("day",0))-_num("tour_day")) if not booking.is_empty() else "NO SHOW BOOKED"
+ var indicator := _label(row,metric,13,UI.palette(_genre_id())["accent"])
+ indicator.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+
 func _home_spotlight() -> void:
  # Landscape command deck: strong photograph, clear next action and contextual band data.
  var colours := UI.palette(_genre_id())
@@ -364,6 +409,7 @@ func _home_spotlight() -> void:
  secondary.pressed.connect(func() -> void: _switch("BAND"))
 
 func _home() -> void:
+ _scene_instrument_strip()
  var full_content := content
  var landscape_dashboard := get_viewport_rect().size.x >= 960.0
  if landscape_dashboard:
@@ -620,6 +666,7 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
  cta.pressed.connect(func() -> void: _switch(destination))
 
 func _gigs() -> void:
+ _scene_instrument_strip()
  _editorial_banner("THE LIVE CIRCUIT","Build your reputation one venue at a time. Prepare your musicians, choose a deal and take the stage.","gigs","ACTIONS","PREPARE FOR A SHOW")
  var brief: Dictionary = LiveBrief.briefing(_state())
  var briefing_card := _card("LIVE CIRCUIT  /  SHOW CONTROL",str(brief["detail"]))
@@ -1260,6 +1307,7 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
  start.pressed.connect(callback)
 
 func _actions() -> void:
+ _scene_instrument_strip()
  _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}

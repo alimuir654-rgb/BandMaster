@@ -14,7 +14,7 @@ func _initialize() -> void:
   _check(heading.get_theme_color("font_color") == UI.palette(genre)["accent"],"genre heading "+genre)
   host.free()
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(source.contains("Components.section(content,title,description,_genre_id())"),"career uses genre sections")
+ _check(source.contains("Components.section(content,title,description,_genre_id(),_scene_identity())"),"career uses genre sections")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene compiles")
  if failures == 0:
   print("V58 GENRE UI TESTS PASSED")
