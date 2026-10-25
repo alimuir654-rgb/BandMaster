@@ -1029,13 +1029,13 @@ func _gigs() -> void:
 
 func _gear() -> void:
  var owned: Array = _extra().get("owned_equipment",[])
- var heading := _card("THE MUSIC SHOP","Browse second-hand equipment, then inspect a single item before buying.")
+ var heading := _card("THE MUSIC SHOP","Choose an item, review its cost and buy when ready.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
  var full_content := content
  var inventory: VBoxContainer
  var detail_column: VBoxContainer
- var desktop_shop := get_viewport_rect().size.x >= 960.0
+ var desktop_shop := get_viewport_rect().size.x >= 680.0
  if desktop_shop:
   var split := HBoxContainer.new()
   split.add_theme_constant_override("separation",12)
