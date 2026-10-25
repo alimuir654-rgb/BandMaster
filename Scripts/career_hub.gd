@@ -1363,7 +1363,7 @@ func _gear() -> void:
    if not owned.has(item_id):
     continue
    var entry: Dictionary = Gear.record(_state(),item_id)
-   if int(entry.get("holder_index",-1)) != member_index:
+   if Gear.holder_index(_state(),entry) != member_index:
     continue
    matched += 1
    var condition := int(entry.get("condition",-1))
@@ -1374,7 +1374,7 @@ func _gear() -> void:
    _label(dossier,"No relevant purchased gear recorded. Current personal equipment is untracked.",12,UI.MUTED)
  var unassigned: Array = []
  for item_id in owned:
-  if int(Gear.record(_state(),str(item_id)).get("holder_index",-1)) < 0:
+  if Gear.holder_index(_state(),Gear.record(_state(),str(item_id))) < 0:
    unassigned.append(str(Gear.item_for(str(item_id)).get("name",item_id)))
  if not unassigned.is_empty():
   _label(garage,"IN THE SHARED ROAD CASE  /  "+", ".join(unassigned),13,UI.WHITE)
@@ -1442,7 +1442,7 @@ func _gear() -> void:
    _label(detail,"CONDITION  /  "+("UNKNOWN — SERVICE TO ASSESS" if gear_condition < 0 else "%d / 100" % gear_condition),14,UI.AMBER)
    _label(detail,"HISTORY  /  "+str(gear_entry.get("provenance","Unrecorded")),13,UI.MUTED)
    _label(detail,"REPAIRS  /  %d" % int(gear_entry.get("repairs",0)),12,UI.MUTED)
-   var holder_index := int(gear_entry.get("holder_index",-1))
+   var holder_index := Gear.holder_index(_state(),gear_entry)
    if holder_index >= 0 and holder_index < members.size() and members[holder_index] is Dictionary:
     _label(detail,"IN USE BY  /  "+str(members[holder_index].get("name","Musician")),13,UI.WHITE)
    else:
