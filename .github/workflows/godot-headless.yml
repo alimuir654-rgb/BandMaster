@@ -852,3 +852,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v127_gear_scene_hierarchy_tests.gd
+      - name: Verify first-fold action visibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v128_first_fold_tests.gd
