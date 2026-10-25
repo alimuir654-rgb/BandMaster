@@ -555,3 +555,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v69_member_profiles_tests.gd
+      - name: Test all genre photo fallbacks
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v70_photo_fallback_tests.gd
