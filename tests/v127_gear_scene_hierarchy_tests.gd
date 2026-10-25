@@ -2,7 +2,7 @@ extends SceneTree
 var failures := 0
 func _initialize() -> void:
  var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(src.contains("var desktop_shop := get_viewport_rect().size.x >= 960.0"),"desktop shop splits catalogue/detail")
+ _check(src.contains("var desktop_shop := get_viewport_rect().size.x >= 680.0"),"desktop shop splits catalogue/detail")
  _check(src.contains("content = detail_column"),"purchase detail in adjacent column")
  _check(src.contains("details_parent.move_child(detail"),"phone purchase detail above catalogue")
  _check(src.contains('var scene_view := "PROMOTE"'),"scene defaults to actions")
