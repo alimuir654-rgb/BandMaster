@@ -727,3 +727,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v103_roster_priority_tests.gd
+      - name: Verify portrait presentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v104_portrait_presentation_tests.gd
