@@ -197,8 +197,6 @@ func _render() -> void:
  _header()
  if tab != "HOME" and tab != "ACTIONS" and tab != "BAND":
   _hero()
- if not message.is_empty():
-  _card("LATEST ACTIVITY",message)
  match tab:
   "HOME": _home()
   "GIGS": _gigs()
@@ -206,6 +204,15 @@ func _render() -> void:
   "BAND": _band()
   "ACTIONS": _actions()
   "SCENE": _scene()
+ if not message.is_empty():
+  var feedback := PanelContainer.new()
+  var fb_style := UI.style(UI.palette(_genre_id())["alt"],8)
+  fb_style.border_width_left = 3
+  fb_style.border_color = UI.palette(_genre_id())["accent"]
+  feedback.add_theme_stylebox_override("panel",fb_style)
+  content.add_child(feedback)
+  var feedback_label := _label(feedback,"LAST ACTION  /  "+message,12,UI.MUTED)
+  feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  if get_viewport_rect().size.x < 960.0:
   var menu := UI.button("SAVE & MAIN MENU")
   menu.custom_minimum_size.y = 48
