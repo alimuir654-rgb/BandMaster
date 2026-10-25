@@ -677,3 +677,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v93_home_status_tests.gd
+      - name: Test genre-aware WoldUI interaction states
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v94_woldui_states_tests.gd
