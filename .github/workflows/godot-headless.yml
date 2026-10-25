@@ -485,3 +485,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v53_clean_nav_tests.gd
+      - name: Test portrait identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v54_portrait_identity_tests.gd

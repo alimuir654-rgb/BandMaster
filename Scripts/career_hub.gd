@@ -641,7 +641,7 @@ func _band() -> void:
    var speaker_data: Dictionary = members[speaker_index]
    var speaker_portrait := Portrait.new()
    speaker_portrait.custom_minimum_size = Vector2(92,122)
-   speaker_portrait.set_character(str(speaker_data.get("candidate_id",speaker_data.get("id",speaker_index))),speaker_name)
+   speaker_portrait.set_character(str(speaker_data.get("candidate_id",speaker_data.get("id",speaker_index))),speaker_name,_genre_id())
    scene.add_child(speaker_portrait)
   var quote_stack := VBoxContainer.new()
   quote_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
