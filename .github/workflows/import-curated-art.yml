@@ -1,0 +1,19 @@
+name: Import curated Unsplash photographs (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify selected Unsplash downloads (no automatic commit)
+        shell: bash
+        run: bash scripts/import_curated_unsplash.sh
+      - name: Upload candidates for review
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: unsplash-photo-review
+          path: Art/Photography/approved/*.jpg
