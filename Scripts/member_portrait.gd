@@ -34,7 +34,7 @@ func _find_portrait(character_id: String, name: String, genre: String) -> Textur
   for path in ["res://Art/Portraits/%s/%s.webp" % [safe_genre,key],"res://Art/Portraits/shared/%s.webp" % key]:
    if ResourceLoader.exists(path):
     var resource = load(path)
-    if resource is Texture2D:
+    if resource is Texture2D and resource.get_width() >= 128 and resource.get_height() >= 128:
      return resource
  return null
 

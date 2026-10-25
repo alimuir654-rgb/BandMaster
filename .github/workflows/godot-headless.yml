@@ -520,3 +520,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v61_studio_first_tests.gd
+      - name: Validate portrait artwork contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v62_art_contract_tests.gd
