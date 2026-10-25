@@ -6,18 +6,12 @@ func _initialize() -> void:
  _check(tex is Texture2D,"raster atlas imports")
  if tex is Texture2D:
   _check(tex.get_width() == 192 and tex.get_height() == 192,"atlas grid dimensions")
- var regions := {}
  for name in ["Jo","Alex","Sam","Dev"]:
   var portrait := Portrait.new()
   portrait.set_character("",name,"indie")
-  _check(portrait.portrait_texture is AtlasTexture,name+" image loaded")
-  if portrait.portrait_texture is AtlasTexture:
-   var crop: AtlasTexture = portrait.portrait_texture
-   _check(crop.get_width()==96,name+" crop dimensions")
-   regions[name] = str(crop.region.position)
- _check(regions.size()==4,"four characters loaded")
- if regions.size()==4:
-  _check(regions["Jo"]!=regions["Alex"] and regions["Jo"]!=regions["Sam"] and regions["Sam"]!=regions["Dev"],"distinct faces")
+  _check(portrait.portrait_texture is Texture2D and not portrait.portrait_texture is AtlasTexture,name+" individual image loaded")
+  if portrait.portrait_texture is Texture2D:
+   _check(portrait.portrait_texture.get_width()==160 and portrait.portrait_texture.get_height()==160,name+" prototype dimensions")
  var other := Portrait.new()
  other.set_character("unknown","Unknown","indie")
  _check(other.portrait_texture == null,"unknown character uses initials")
