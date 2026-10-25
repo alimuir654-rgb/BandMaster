@@ -414,3 +414,12 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|V31 ROSTER FAILURE:|ERROR:' /tmp/v31-roster.log; then
             exit 1
           fi
+      - name: Verify roster scroll continuity
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/v32_roster_scroll_tests.gd 2>&1 | tee /tmp/v32-roster-scroll.log
+          grep -q 'V32 ROSTER SCROLL TESTS PASSED' /tmp/v32-roster-scroll.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V32 ROSTER SCROLL FAILURE:|ERROR:' /tmp/v32-roster-scroll.log; then
+            exit 1
+          fi
