@@ -712,3 +712,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v100_band_character_cards_tests.gd
+      - name: Test character readiness and fatigue
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v101_band_readiness_tests.gd

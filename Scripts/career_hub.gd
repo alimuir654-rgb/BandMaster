@@ -748,6 +748,29 @@ func _band() -> void:
   _label(name_stack,BandPulse.member_note(member),12,UI.palette(_genre_id())["accent"])
   if str(member.get("life_status","active")) != "active":
    _label(name_stack,str(member.get("life_status","")).to_upper()+" UNTIL DAY %d" % int(member.get("available_day",0)),12,UI.AMBER)
+  if get_viewport_rect().size.x >= 960.0:
+   var readiness_row := GridContainer.new()
+   readiness_row.columns = 2
+   readiness_row.add_theme_constant_override("h_separation",12)
+   box.add_child(readiness_row)
+   for metric_data in [
+    {"label":"LOYALTY","key":"loyalty","kind":"accent"},
+    {"label":"FATIGUE","key":"fatigue","kind":"secondary"}
+   ]:
+    var progress_block := VBoxContainer.new()
+    progress_block.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    progress_block.add_theme_constant_override("separation",4)
+    readiness_row.add_child(progress_block)
+    var amount := clampi(int(member.get(str(metric_data["key"]),50)),0,100)
+    _label(progress_block,"%s  %d" % [str(metric_data["label"]),amount],12,UI.MUTED)
+    var progress_meter := ProgressBar.new()
+    progress_meter.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    progress_meter.custom_minimum_size.y = 8
+    UI.themed_progress(progress_meter,_genre_id(),str(metric_data["kind"]))
+    progress_meter.value = amount
+    progress_block.add_child(progress_meter)
+   if int(member.get("fatigue",0)) >= 75:
+    _label(box,"HIGH FATIGUE  /  CONSIDER A REST DAY",12,UI.palette(_genre_id())["secondary"])
   var action_row := HBoxContainer.new()
   action_row.add_theme_constant_override("separation",8)
   box.add_child(action_row)
