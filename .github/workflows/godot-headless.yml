@@ -550,3 +550,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v67_band_actions_tests.gd
+      - name: Test member profile clarity
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v69_member_profiles_tests.gd
