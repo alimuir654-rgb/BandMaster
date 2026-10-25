@@ -929,7 +929,7 @@ func _gigs() -> void:
     _label(calendar_box,"Outlook uses current readiness, morale and tension. Final outcome also depends on your available lineup.",12,UI.MUTED)
    if bool(scene.get("can_play",false)):
     _label(calendar_box,"SET APPROACH  /  "+str(booked.get("approach","tight")).to_upper(),13,UI.MUTED)
-    _action(calendar_box,"TAKE THE STAGE",func() -> void: _perform_gig(),true)
+    _action(calendar_box,"TAKE THE STAGE",func() -> void: _show_stage_entry(),true)
    else:
     _action(calendar_box,"CONTINUE THE NIGHT  ›",func() -> void: _advance_gig_night(),true)
   else:
@@ -2436,6 +2436,59 @@ func _change_gig_strategy(approach: String) -> void:
 func _resolve_backstage_illness(choice_id: String) -> void:
  var outcome: Dictionary = BackstageIncident.resolve(_state(),choice_id)
  _finish(outcome,"backstage")
+
+func _show_stage_entry() -> void:
+ var state := _state()
+ var view: Dictionary = GigNight.stage(state)
+ if not bool(view.get("can_play",false)):
+  message = "Complete arrival and soundcheck first."
+  _render()
+  return
+ var show: Dictionary = Calendar.pending(state)
+ var shade := ColorRect.new()
+ shade.name = "StageEntry"
+ shade.color = Color(0.025,0.015,0.035,0.97)
+ shade.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(shade)
+ shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var scroller := ScrollContainer.new()
+ shade.add_child(scroller)
+ scroller.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var center := CenterContainer.new()
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ center.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroller.add_child(center)
+ var panel := PanelContainer.new()
+ panel.custom_minimum_size.x = minf(760.0,get_viewport_rect().size.x-32.0)
+ panel.add_theme_stylebox_override("panel",UI.style(Color("#241827"),16))
+ center.add_child(panel)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",14)
+ panel.add_child(stack)
+ _label(stack,"HOUSE LIGHTS DOWN  /  LIVE TONIGHT",13,Color("#ECB6D4"))
+ _label(stack,str(show.get("venue","THE VENUE")).to_upper(),27,UI.WHITE)
+ var path := "res://Art/Backgrounds/%s/gigs.webp" % _genre_id()
+ if not ResourceLoader.exists(path):
+  path = "res://Art/Backgrounds/shared/gigs.webp"
+ if ResourceLoader.exists(path):
+  var photo := TextureRect.new()
+  photo.texture = load(path)
+  photo.custom_minimum_size.y = 220
+  photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  stack.add_child(photo)
+ _label(stack,"The crowd is waiting. Once you start, the show plays out.",16,UI.WHITE)
+ var start := UI.themed_button("LIGHTS UP  /  START THE SHOW",_genre_id(),true)
+ start.custom_minimum_size.y = 62
+ stack.add_child(start)
+ start.pressed.connect(func() -> void:
+  start.disabled = true
+  shade.queue_free()
+  _perform_gig()
+ )
+ _action(stack,"BACK TO SOUNDCHECK",func() -> void: shade.queue_free())
+ shade.modulate.a = 0.0
+ create_tween().tween_property(shade,"modulate:a",1.0,0.35)
 
 func _perform_gig() -> void:
  var view: Dictionary = GigNight.stage(_state())
