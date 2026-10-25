@@ -1060,9 +1060,9 @@ func _gear() -> void:
   break
 
 func _band() -> void:
- _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  _band_situations()
  _life_situations()
+ _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
@@ -1470,7 +1470,6 @@ func _experience_tile(parent: Node, heading: String, story: String, impact: Stri
 
 func _actions() -> void:
  _scene_instrument_strip()
- _environment_dashboard()
  _editorial_banner("THE CREATIVE STUDIO","Find your sound through rehearsal, songwriting and time spent together.","actions","BAND","VIEW YOUR MUSICIANS")
  var mode_titles := {"JAM":"THE WRITING ROOM","HANG OUT":"AFTER HOURS","PROMOTE":"MAKE SOME NOISE"}
  var mode_descriptions := {"JAM":"Build a song from someone's idea.","HANG OUT":"Be people together, not just bandmates.","PROMOTE":"Get your name around town."}
@@ -1494,6 +1493,7 @@ func _actions() -> void:
   )
  # Desktop: a management workspace, not one long stack of cards.
  # Preserve the mobile single-column flow and existing action callbacks.
+ _environment_dashboard()
  var full_content := content
  var wide_workspace := get_viewport_rect().size.x >= 960.0
  var decision_column: VBoxContainer
@@ -1568,9 +1568,10 @@ func _actions() -> void:
    _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  if wide_workspace:
   content = decision_column
+ var songbook_panel: VBoxContainer
  if action_view == "JAM":
   var finished_songs: Array = Songbook.entries(_state())
-  var songbook_panel := _card("YOUR SONGBOOK  /  %d ORIGINALS" % finished_songs.size(),"The set you are building. Song quality reflects how developed each composition is.")
+  songbook_panel = _card("YOUR SONGBOOK  /  %d ORIGINALS" % finished_songs.size(),"The set you are building. Song quality reflects how developed each composition is.")
   if finished_songs.is_empty():
    _label(songbook_panel,"NO COMPLETED SONGS YET  /  START A JAM SESSION BELOW.",14,UI.MUTED)
   else:
@@ -1899,6 +1900,9 @@ func _actions() -> void:
    button.disabled = _num("cash") < cost
    other.add_child(button)
    button.pressed.connect(func() -> void: _do_action(id))
+ if action_view == "JAM" and not wide_workspace:
+  if is_instance_valid(songbook_panel):
+   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
 
 func _recording_studio() -> void:
