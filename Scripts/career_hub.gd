@@ -1189,6 +1189,63 @@ func _open_venue_details(venue_id: String) -> void:
   _open_venue_browser()
  )
 
+func _open_itinerary_editor() -> void:
+ var state: Dictionary = _state()
+ var booking: Dictionary = Calendar.pending(state)
+ if booking.is_empty():
+  return
+ var venue_id := str(booking.get("venue_id",""))
+ var overlay := ColorRect.new()
+ overlay.name = "TourItineraryEditor"
+ overlay.color = Color("#141922")
+ overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+ add_child(overlay)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var scroll := ScrollContainer.new()
+ overlay.add_child(scroll)
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var margin := MarginContainer.new()
+ margin.add_theme_constant_override("margin_left",18)
+ margin.add_theme_constant_override("margin_right",18)
+ margin.add_theme_constant_override("margin_top",18)
+ margin.add_theme_constant_override("margin_bottom",24)
+ scroll.add_child(margin)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",13)
+ margin.add_child(column)
+ _label(column,"THE TOUR DESK  /  DAY %d" % int(booking.get("day",0)),13,UI.AMBER)
+ _label(column,str(booking.get("venue","THE SHOW")).to_upper(),26,UI.WHITE)
+ _label(column,"FROM HOMETOWN TO "+str(booking.get("city","VENUE"))+"  /  FICTIONAL GAME COSTS, NOT REAL ROUTE DISTANCES",13,UI.MUTED)
+ _label(column,"CASH £%d  /  VAN %d" % [int(state.get("cash",0)),int(state.get("van_health",0))],15,UI.AMBER)
+ var current := str(booking.get("travel_plan",""))
+ for option in Tour.choices(state,venue_id):
+  var id := str(option["id"])
+  var block := PanelContainer.new()
+  block.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],12))
+  column.add_child(block)
+  var details := VBoxContainer.new()
+  details.add_theme_constant_override("separation",7)
+  block.add_child(details)
+  _label(details,str(option["label"])+("  /  SELECTED" if id == current else ""),17,UI.WHITE)
+  _label(details,str(option["description"]),14,UI.MUTED)
+  _label(details,"TRAVEL £%d  +  ROOM £%d  =  £%d" % [int(option["travel_cost"]),int(option["accommodation_cost"]),int(option["total_cost"])],15,UI.AMBER)
+  _label(details,"SET QUALITY %+d  /  MORALE %+d  /  MEMBER FATIGUE %+d  /  VAN WEAR %d" % [int(option["quality_bonus"]),int(option["morale_delta"]),int(option["fatigue_delta"]),int(option["van_wear"])],13,UI.MUTED)
+  var choose := UI.themed_button("CURRENT PLAN" if id == current else "CHOOSE THIS JOURNEY",_genre_id(),id != current)
+  choose.custom_minimum_size.y = 52
+  choose.disabled = id == current or not bool(Tour.validate(state,venue_id,id,bool(booking.get("session_drummer",false))).get("ok",false))
+  details.add_child(choose)
+  choose.pressed.connect(func() -> void:
+   var changed: Dictionary = Calendar.replan(_state(),id)
+   if bool(changed.get("ok",false)):
+    _apply(changed["state"])
+    _save()
+   message = str(changed.get("message","Journey unavailable."))
+   overlay.queue_free()
+   _render()
+  )
+ _label(column,"Room charges settle once after the gig. You can change plans until venue arrival; ensure you can still afford the journey on show day.",13,UI.MUTED)
+ _action(column,"BACK TO GIGS",func() -> void: overlay.queue_free())
+
 func _open_promoter_meeting(venue_id: String, line_up_ready: bool, available_count: int) -> void:
  if not Calendar.pending(_state()).is_empty():
   return
