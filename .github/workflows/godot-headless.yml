@@ -687,3 +687,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v95_header_metrics_tests.gd
+      - name: Verify Studio session command center
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v96_studio_command_tests.gd
