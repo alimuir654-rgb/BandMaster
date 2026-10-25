@@ -2091,8 +2091,24 @@ func _bottom_nav() -> void:
   button.pressed.connect(func() -> void: _switch(target))
 
 func _switch(next_tab: String) -> void:
+ if tab == next_tab:
+  return
  tab = next_tab
  _render()
+ _reveal_destination()
+
+func _reveal_destination() -> void:
+ # Presentation only: transitions never consume a turn or delay gameplay state.
+ # The temporary veil ignores pointer input and is disposed of automatically.
+ var veil := ColorRect.new()
+ veil.name = "NavigationReveal"
+ veil.color = UI.palette(_genre_id())["bg"]
+ veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ add_child(veil)
+ veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var tween := create_tween()
+ tween.tween_property(veil,"modulate:a",0.0,0.22).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+ tween.tween_callback(veil.queue_free)
 
 func _state() -> Dictionary:
  var state: Dictionary = _extra().duplicate(true)
