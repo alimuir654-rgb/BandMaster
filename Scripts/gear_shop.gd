@@ -85,6 +85,8 @@ static func assign(state: Dictionary, item_id: String, member_index: int) -> Dic
  var member: Dictionary = roster[member_index]
  if str(member.get("life_status","active")) != "active" or not compatible(item_id,member):
   return {"ok":false,"message":"That instrument is not suitable for this active musician."}
+ if holder_index(state,record(state,item_id)) == member_index:
+  return {"ok":false,"message":"This musician already carries that equipment."}
  var next := state.duplicate(true)
  var records: Dictionary = next.get("gear_records",{}).duplicate(true)
  var entry := record(state,item_id)
