@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(start >= 0 and end > start,"band view exists")
  if start >= 0 and end > start:
   var band_view := source.substr(start,end-start)
-  var roster := band_view.find("for i in range(members.size()):")
+  var roster := band_view.find("for i in RosterView.sorted_indices(members,roster_sort):")
   var summary := band_view.find("var chemistry := _card(\"BAND PULSE\"")
   _check(roster >= 0 and summary > roster,"musicians displayed before metrics")
   _check(band_view.contains("VIEW DETAILS"),"member interaction CTA")
