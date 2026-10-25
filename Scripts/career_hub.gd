@@ -48,6 +48,7 @@ var save_data: Dictionary = {}
 var tab := "HOME"
 var message := ""
 var content: VBoxContainer
+var scene_view := "PROMOTE"
 var scrapbook_filter := "ALL"
 var action_view := "JAM"
 var gig_show_locked := false
@@ -1019,7 +1020,22 @@ func _gear() -> void:
  var heading := _card("THE MUSIC SHOP","Browse second-hand equipment, then inspect a single item before buying.")
  _progress(heading,"READINESS",_num("readiness"))
  _label(heading,"%d OWNED  /  %d AVAILABLE  /  £%d CASH" % [owned.size(),Gear.ITEMS.size()-owned.size(),_num("cash")],13,UI.AMBER)
- var inventory := _card("EQUIPMENT CATALOGUE","Select equipment to view its condition, cost and effect on readiness.")
+ var full_content := content
+ var inventory: VBoxContainer
+ var detail_column: VBoxContainer
+ var desktop_shop := get_viewport_rect().size.x >= 960.0
+ if desktop_shop:
+  var split := HBoxContainer.new()
+  split.add_theme_constant_override("separation",12)
+  full_content.add_child(split)
+  var catalogue_column := VBoxContainer.new()
+  catalogue_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  split.add_child(catalogue_column)
+  detail_column = VBoxContainer.new()
+  detail_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  split.add_child(detail_column)
+  content = catalogue_column
+ inventory = _card("EQUIPMENT CATALOGUE","Select equipment to inspect its benefits and cost.")
  var valid_selection := false
  for item in Gear.ITEMS:
   if str(item["id"]) == selected_gear_item:
@@ -1039,6 +1055,8 @@ func _gear() -> void:
    preserve_gear_scroll = true
    _render()
   )
+ if desktop_shop:
+  content = detail_column
  for item in Gear.ITEMS:
   if str(item["id"]) != selected_gear_item:
    continue
@@ -1058,6 +1076,11 @@ func _gear() -> void:
    var purchase_key := selected_gear_item
    buy.pressed.connect(func() -> void: _buy(purchase_key))
   break
+ if not desktop_shop:
+  var details_parent := detail.get_parent() if is_instance_valid(detail) else null
+  if details_parent != null:
+   details_parent.move_child(detail,inventory.get_index())
+ content = full_content
 
 func _band() -> void:
  _band_situations()
@@ -1992,7 +2015,46 @@ func _scrapbook_gig_ticket(parent: Node, moment: Dictionary) -> void:
  _label(copy,str(moment.get("text","")),13,UI.MUTED)
 
 func _scene() -> void:
+ var scene_modes := _card("YOUR SCENE  /  CHOOSE A FOCUS","Build your following or revisit the band's story.")
+ var scene_nav := HBoxContainer.new()
+ scene_nav.add_theme_constant_override("separation",8)
+ scene_modes.add_child(scene_nav)
+ for section in [{"id":"PROMOTE","label":"PROMOTE"},{"id":"HISTORY","label":"SCRAPBOOK"}]:
+  var id: String = str(section["id"])
+  var button := UI.themed_button(str(section["label"]),_genre_id(),scene_view == id)
+  button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  button.custom_minimum_size.y = 52
+  scene_nav.add_child(button)
+  button.pressed.connect(func() -> void:
+   scene_view = id
+   _render()
+  )
+ if scene_view == "HISTORY":
+  _scene_scrapbook()
+  return
  _recording_studio()
+ var career: Dictionary = Campaigns.next_milestone(_state())
+ var milestone := _card("CAREER MOMENTUM  /  "+str(career["name"]),"Every recording, campaign and gig builds the audience needed for bigger venues.")
+ _progress(milestone,"FANS",int(career["fans"]),maxi(1,int(career["target_fans"])))
+ _progress(milestone,"REPUTATION",int(career["reputation"]),maxi(1,int(career["target_rep"])))
+ _label(milestone,"TARGET  /  %d FANS  +  %d REPUTATION" % [int(career["target_fans"]),int(career["target_rep"])],13,UI.AMBER)
+ var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
+ _progress(snapshot,"BUZZ",_num("buzz"))
+ _progress(snapshot,"PRESS",_num("press"))
+ _label(snapshot,"%d FANS   ·   %d REPUTATION" % [_num("fans"),_num("reputation")],14,UI.AMBER)
+ _opportunities()
+ var box := _card("GET THE WORD OUT","Posters create fans. Press pitches build attention and coverage.")
+ var controls := HBoxContainer.new()
+ controls.add_theme_constant_override("separation",6)
+ box.add_child(controls)
+ var promo := UI.button("POSTERS £25",true)
+ var press := UI.button("PRESS £10")
+ controls.add_child(promo)
+ controls.add_child(press)
+ promo.pressed.connect(func() -> void: _do_action("promo"))
+ press.pressed.connect(func() -> void: _do_action("press"))
+
+func _scene_scrapbook() -> void:
  var archive: Array = _extra().get("career_journal",[])
  var scrapbook := _card("THE BAND SCRAPBOOK","Explore the people, gigs and turning points in your band's history.")
  var filters := HBoxContainer.new()
@@ -2019,26 +2081,6 @@ func _scene() -> void:
    else:
     _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
     Components.story(scrapbook,entry)
- var career: Dictionary = Campaigns.next_milestone(_state())
- var milestone := _card("CAREER MOMENTUM  /  "+str(career["name"]),"Every recording, campaign and gig builds the audience needed for bigger venues.")
- _progress(milestone,"FANS",int(career["fans"]),maxi(1,int(career["target_fans"])))
- _progress(milestone,"REPUTATION",int(career["reputation"]),maxi(1,int(career["target_rep"])))
- _label(milestone,"TARGET  /  %d FANS  +  %d REPUTATION" % [int(career["target_fans"]),int(career["target_rep"])],13,UI.AMBER)
- var snapshot := _card("YOUR LOCAL PROFILE","Press attention, word of mouth and your growing following.")
- _progress(snapshot,"BUZZ",_num("buzz"))
- _progress(snapshot,"PRESS",_num("press"))
- _label(snapshot,"%d FANS   ·   %d REPUTATION" % [_num("fans"),_num("reputation")],14,UI.AMBER)
- _opportunities()
- var box := _card("GET THE WORD OUT","Posters create fans. Press pitches build attention and coverage.")
- var controls := HBoxContainer.new()
- controls.add_theme_constant_override("separation",6)
- box.add_child(controls)
- var promo := UI.button("POSTERS £25",true)
- var press := UI.button("PRESS £10")
- controls.add_child(promo)
- controls.add_child(press)
- promo.pressed.connect(func() -> void: _do_action("promo"))
- press.pressed.connect(func() -> void: _do_action("press"))
 
 func _opportunities() -> void:
  for event_id in Opportunities.pending(_extra()):
@@ -2120,6 +2162,8 @@ func _bottom_nav() -> void:
 func _switch(next_tab: String) -> void:
  if tab == next_tab:
   return
+ preserve_gear_scroll = false
+ preserve_roster_scroll = false
  tab = next_tab
  _render()
  _reveal_destination()
