@@ -160,7 +160,10 @@ func _render() -> void:
  career_scroll = scroll
  add_child(scroll)
  scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- scroll.offset_bottom = -CareerLayout.content_inset(get_viewport_rect().size.x)
+ if get_viewport_rect().size.x >= 960.0:
+  scroll.offset_left = 116
+ else:
+  scroll.offset_bottom = -CareerLayout.content_inset(get_viewport_rect().size.x)
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  var margin := MarginContainer.new()
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1228,12 +1231,17 @@ func _bottom_nav() -> void:
  var colours := UI.palette(_genre_id())
  var compact := CareerLayout.is_compact(get_viewport_rect().size.x)
  var panel := PanelContainer.new()
- panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
- panel.offset_top = -CareerLayout.footer_height(get_viewport_rect().size.x)
+ var landscape := get_viewport_rect().size.x >= 960.0
+ if landscape:
+  panel.set_anchors_and_offsets_preset(Control.PRESET_LEFT_WIDE)
+  panel.offset_right = 108
+ else:
+  panel.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+  panel.offset_top = -CareerLayout.footer_height(get_viewport_rect().size.x)
  panel.add_theme_stylebox_override("panel",UI.style(colours["panel"],0))
  add_child(panel)
  var bar := GridContainer.new()
- bar.columns = CareerLayout.columns(get_viewport_rect().size.x)
+ bar.columns = 1 if landscape else CareerLayout.columns(get_viewport_rect().size.x)
  bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  bar.add_theme_constant_override("h_separation",5)
  bar.add_theme_constant_override("v_separation",5)
@@ -1243,7 +1251,7 @@ func _bottom_nav() -> void:
   var selected := target == tab
   var button := WoldButton.new()
   button.shape = WoldButton.Shape.SECONDARY
-  button.custom_minimum_size.y = 56 if compact else 62
+  button.custom_minimum_size.y = 68 if landscape else (56 if compact else 62)
   button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   var fill: Color = colours["alt"] if selected else colours["panel"]
@@ -1264,7 +1272,7 @@ func _bottom_nav() -> void:
   button.add_child(box)
   box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   var icon_path := "res://Art/Icons/%s.svg" % target.to_lower()
-  if ResourceLoader.exists(icon_path):
+  if not landscape and ResourceLoader.exists(icon_path):
    var glyph := TextureRect.new()
    glyph.texture = load(icon_path)
    glyph.custom_minimum_size = Vector2(21,22)
@@ -1273,6 +1281,8 @@ func _bottom_nav() -> void:
    glyph.modulate = colours["accent"] if selected else UI.MUTED
    glyph.mouse_filter = Control.MOUSE_FILTER_IGNORE
    box.add_child(glyph)
+  if landscape:
+   button.icon_start = {"HOME":"house","GIGS":"ticket","GEAR":"guitar","BAND":"users","ACTIONS":"music","SCENE":"globe"}.get(target,"circle")
   button.tooltip_text = CareerLayout.nav_hint(target)
   button.accessibility_name = CareerLayout.nav_label(target)+(" (current)" if selected else "")
   var caption := _label(box,CareerLayout.nav_label(target),12,colours["accent"] if selected else UI.WHITE)
