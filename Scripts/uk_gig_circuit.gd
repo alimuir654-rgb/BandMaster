@@ -28,6 +28,27 @@ const APPROACHES := {
  "crowd": {"label":"WIN OVER THE ROOM","quality":0,"fan_bonus":7,"tension":-2}
 }
 
+# Read-only decision support: exactly mirrors the approach modifiers used by play().
+static func approach_preview(state: Dictionary, approach: String) -> Dictionary:
+ if not APPROACHES.has(approach):
+  return {}
+ var rules: Dictionary = APPROACHES[approach]
+ var readiness := int(state.get("readiness",0))
+ var morale := int(state.get("morale",0))
+ var tension := int(state.get("tension",0))
+ var base_quality := readiness + morale / 4 - tension / 4
+ var projected_quality := base_quality + int(rules["quality"])
+ var success_threshold := 52
+ return {
+  "label":str(rules["label"]),
+  "quality_modifier":int(rules["quality"]),
+  "fan_bonus":int(rules["fan_bonus"]),
+  "tension_modifier":int(rules["tension"]),
+  "quality_estimate":projected_quality,
+  "threshold":success_threshold,
+  "outlook":"FAVOURABLE" if projected_quality >= success_threshold else "RISKY"
+ }
+
 static func play(state: Dictionary, venue_id: String, approach: String = "tight", hire_session: bool = false) -> Dictionary:
  var session_cost := 25 if hire_session else 0
  var session_needed := false
