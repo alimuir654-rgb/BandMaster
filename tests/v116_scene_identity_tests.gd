@@ -1,11 +1,11 @@
 extends SceneTree
-const Environment = preload("res://Scripts/scene_environment.gd")
+const SceneBackdrop = preload("res://Scripts/scene_environment.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 var failures := 0
 func _initialize() -> void:
  var backgrounds := ["HOME","DAY","STUDIO","GIGS"]
  for scene_id in backgrounds:
-  var env := Environment.new()
+  var env := SceneBackdrop.new()
   env.set_scene(scene_id)
   _check(env.scene_id==scene_id,"scene identity "+scene_id)
   env.free()
