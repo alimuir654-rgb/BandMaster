@@ -857,3 +857,10 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v128_first_fold_tests.gd
+      - name: Audit first-fold buttons at phone, tablet and landscape sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 100s godot --headless --path . --script res://tests/v129_viewport_layout_audit.gd 2>&1 | tee /tmp/v129-viewport.log
+          grep -q 'V129 VIEWPORT LAYOUT AUDIT PASSED' /tmp/v129-viewport.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|V129 VIEWPORT FAILURE:' /tmp/v129-viewport.log; then exit 1; fi

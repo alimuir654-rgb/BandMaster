@@ -817,12 +817,17 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
 
 func _gigs() -> void:
  _scene_instrument_strip()
+ var venue_picker: VBoxContainer
  var booked: Dictionary = Calendar.pending(_state())
+ if booked.is_empty():
+  var book_intro := _card("YOUR NEXT SHOW","No gig booked. Browse local venues and choose a promoter deal.")
+  _action(book_intro,"FIND A VENUE  ›",func() -> void: career_scroll.ensure_control_visible(venue_picker),true)
  if not booked.is_empty():
   var due := int(booked.get("day",1)) - _num("tour_day")
   var calendar_box := _card("NEXT SHOW  /  DAY %d" % int(booked.get("day",1)),str(booked.get("venue","Venue"))+"  ·  "+str(booked.get("city","HOME")))
   if due > 0:
    _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
+   _action(calendar_box,"PREPARE FOR THE SHOW  ›",func() -> void: _switch("ACTIONS"),true)
   elif due == 0:
    var scene: Dictionary = GigNight.stage(_state())
    _label(calendar_box,str(scene.get("title","SHOW NIGHT")),22,UI.AMBER)
@@ -964,7 +969,7 @@ func _gigs() -> void:
   if available_count >= 1 and _num("cash") >= 25:
    _label(warning,"SESSION DRUMMER: £25 PER SHOW. PERFORMANCE QUALITY -8.",13,UI.MUTED)
 
- var venue_picker := _card("FIND YOUR NEXT VENUE","Choose a venue to inspect promoter terms. Locked venues are kept separate.")
+ venue_picker = _card("FIND YOUR NEXT VENUE","Choose a venue to inspect promoter terms. Locked venues are kept separate.")
  var filter_row := HBoxContainer.new()
  filter_row.add_theme_constant_override("separation",6)
  venue_picker.add_child(filter_row)
