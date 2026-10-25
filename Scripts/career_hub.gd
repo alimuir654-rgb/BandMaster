@@ -656,8 +656,8 @@ func _home() -> void:
   pill.add_theme_color_override("font_color",tint)
   pill.tooltip_text = "Current condition: %d / 100" % amount
   pulse_row.add_child(pill)
-  var destination := "GEAR" if key == "van_health" else "ACTIONS"
-  pill.pressed.connect(func() -> void: _switch(destination))
+  var remedy_tab := "GEAR" if key == "van_health" else "ACTIONS"
+  pill.pressed.connect(func() -> void: _switch(remedy_tab))
  var weakest := "readiness"
  for key in ["morale","van_health"]:
   if _num(key) < _num(weakest):
