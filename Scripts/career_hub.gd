@@ -1057,10 +1057,11 @@ func _gear() -> void:
   )
  if desktop_shop:
   content = detail_column
+ var detail: VBoxContainer
  for item in Gear.ITEMS:
   if str(item["id"]) != selected_gear_item:
    continue
-  var detail := _card(str(item["name"]),str(item["description"]))
+  detail = _card(str(item["name"]),str(item["description"]))
   _label(detail,str(item["type"]).to_upper()+"  /  +%d READINESS" % int(item["readiness"]),13,UI.AMBER)
   _label(detail,"ASKING PRICE  /  £%d" % int(item["price"]),15,UI.WHITE)
   if owned.has(selected_gear_item):
@@ -1079,7 +1080,7 @@ func _gear() -> void:
  if not desktop_shop:
   var details_parent := detail.get_parent() if is_instance_valid(detail) else null
   if details_parent != null:
-   details_parent.move_child(detail,inventory.get_index())
+   details_parent.move_child(detail,mini(inventory.get_index(),details_parent.get_child_count()-1))
  content = full_content
 
 func _band() -> void:
