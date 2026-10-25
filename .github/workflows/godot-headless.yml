@@ -847,3 +847,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v126_studio_band_hierarchy_tests.gd
+      - name: Verify Gear and Scene hierarchy
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v127_gear_scene_hierarchy_tests.gd
