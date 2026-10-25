@@ -20,6 +20,7 @@ const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const SongLab = preload("res://Scripts/songwriting_lab.gd")
+const RosterView = preload("res://Scripts/band_roster_view.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Experience = preload("res://Scripts/band_life_experience.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
@@ -48,6 +49,7 @@ var action_view := "JAM"
 var gig_show_locked := false
 var gig_selected_venue := ""
 var selected_band_member := -1
+var roster_sort := "LINEUP"
 var selected_gear_item := ""
 var preserve_gear_scroll := false
 var career_scroll: ScrollContainer
@@ -738,6 +740,21 @@ func _band() -> void:
    _save()
    _render()
   )
+ if get_viewport_rect().size.x >= 960.0 and members.size() > 1:
+  var sorting := HBoxContainer.new()
+  sorting.add_theme_constant_override("separation",8)
+  content.add_child(sorting)
+  for mode in RosterView.MODES:
+   var sort_mode: String = mode
+   var control := UI.themed_button(sort_mode,_genre_id(),roster_sort == sort_mode)
+   control.custom_minimum_size.y = 45
+   control.tooltip_text = "Sort by "+sort_mode.to_lower()
+   sorting.add_child(control)
+   control.pressed.connect(func() -> void:
+    roster_sort = sort_mode
+    preserve_roster_scroll = true
+    _render()
+   )
  var roster_grid := GridContainer.new()
  var landscape_roster := get_viewport_rect().size.x >= 960.0
  roster_grid.columns = 2 if landscape_roster else 1
@@ -745,7 +762,7 @@ func _band() -> void:
  roster_grid.add_theme_constant_override("h_separation",12)
  roster_grid.add_theme_constant_override("v_separation",12)
  content.add_child(roster_grid)
- for i in range(members.size()):
+ for i in RosterView.sorted_indices(members,roster_sort):
   if not members[i] is Dictionary:
    continue
   var member: Dictionary = members[i]
