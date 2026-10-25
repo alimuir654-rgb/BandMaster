@@ -812,3 +812,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v120_interactive_studio_tests.gd
+      - name: Verify performance stage reveal
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v121_stage_reveal_tests.gd
