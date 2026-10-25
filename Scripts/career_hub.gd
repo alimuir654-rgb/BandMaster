@@ -908,7 +908,7 @@ func _actions() -> void:
    _action(snapshot,"SHOW DAY  /  HEAD TO THE GIG",func() -> void: _switch("GIGS"),true)
  if action_view == "JAM":
   var draft: Dictionary = _extra().get("current_song_draft",{})
-  var workshop := _card("JAM & WRITE  /  "+("NEW IDEA" if draft.is_empty() else "WORK IN PROGRESS"),"Try different riffs, words and arrangements. Let a bandmate lead the session.")
+  var workshop := _card("SONGWRITING  /  "+("START A NEW SONG" if draft.is_empty() else "DEVELOP YOUR SONG"),"Choose the sound, arrangement, title and session leader. Every session takes one day.")
   var studio: Dictionary = SongStudio.view(_state())
   var studio_title := _label(workshop,str(studio["headline"]),22,UI.WHITE)
   studio_title.add_theme_font_size_override("font_size",22)
@@ -984,6 +984,13 @@ func _actions() -> void:
    selector_control.item_selected.connect(func(_index: int) -> void: refresh_preview.call())
   if ideas.item_count > 0 and forms.item_count > 0 and titles.item_count > 0:
    refresh_preview.call()
+  var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
+  jam.custom_minimum_size.y = 54
+  jam.disabled = indices.is_empty() or ideas.item_count == 0 or forms.item_count == 0 or titles.item_count == 0
+  workshop.add_child(jam)
+  jam.pressed.connect(func() -> void:
+   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
+  )
   if not draft.is_empty():
    var past: Array = studio.get("history",[])
    if not past.is_empty():
@@ -991,13 +998,6 @@ func _actions() -> void:
     for session in past:
      if session is Dictionary:
       _label(sessions_card,"DAY %d  ·  %s / %s  ·  %s" % [int(session.get("day",1)),str(session.get("idea","")),str(session.get("form","")),str(session.get("leader",""))],12,UI.MUTED)
-  var jam := UI.button("JAM ON THIS SONG  ·  1 DAY",true)
-  jam.custom_minimum_size.y = 54
-  jam.disabled = indices.is_empty() or ideas.item_count == 0 or forms.item_count == 0 or titles.item_count == 0
-  workshop.add_child(jam)
-  jam.pressed.connect(func() -> void:
-   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),titles.get_item_text(titles.selected),indices[leads.selected]))
-  )
   var drills := _card("REHEARSAL SESSIONS","Choose the pressure level. Technical discipline and band chemistry compete for time.")
   for option in Experience.practice_options(_state()):
    var focus_id := str(option["id"])

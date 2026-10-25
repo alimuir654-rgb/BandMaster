@@ -570,3 +570,8 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/v72_ux_hierarchy_tests.gd
+      - name: Validate songwriting decision hierarchy
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/v73_songwriting_ux_tests.gd
