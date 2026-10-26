@@ -68,6 +68,8 @@ func _run() -> void:
      var form := journey.find_child("JourneyFormChoice",true,false) as OptionButton
      if vibe != null:
       vibe.select(2)
+      vibe.item_selected.emit(2)
+      _check(_has_text(journey,"The drummer counts in fast"),"vibe choice changes authored scene response "+str(size))
      if form != null:
       form.select(1)
      journey._go(2)
