@@ -16,17 +16,19 @@ var source_state: Dictionary = {}
 var genre_id := "indie"
 var save_callback: Callable
 var show_callback: Callable
+var close_callback: Callable
 var reduced_motion := false
 var busy := false
 var stage_root: Control
 var fade_layer: ColorRect
 var status_message := ""
 
-func open(state: Dictionary, selected_genre: String, on_save: Callable, on_show: Callable) -> void:
+func open(state: Dictionary, selected_genre: String, on_save: Callable, on_show: Callable, on_close: Callable) -> void:
  source_state = state.duplicate(true)
  genre_id = selected_genre
  save_callback = on_save
  show_callback = on_show
+ close_callback = on_close
  name = "ShowDayJourney"
  mouse_filter = Control.MOUSE_FILTER_STOP
  stage_root = Control.new()
@@ -180,15 +182,10 @@ func _render_stage() -> void:
  layout.add_child(footer)
  _button(footer,"CLOSE",func() -> void:
   if not busy:
-   queue_free()
+   close_callback.call()
  )
  var action := ["HIT THE ROAD  ›","ARRIVE AT VENUE  ›","SURVEY THE STAGE  ›","HEAD BACKSTAGE  ›","LIGHTS UP  /  SHOWTIME"][step]
- var next := _button(footer,action,func() -> void:
-  if step == 4:
-   _begin_show()
-  else:
-   _advance()
- ,true)
+ var next := _button(footer,action,_next_pressed,true)
  next.name = "ShowJourneyNext"
  next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if step == 3 and not Backstage.incident(source_state).is_empty():
@@ -262,3 +259,9 @@ func _begin_show() -> void:
  busy = true
  queue_free()
  show_callback.call()
+
+func _next_pressed() -> void:
+ if Journey.current_step(source_state) == 4:
+  _begin_show()
+ else:
+  _advance()
