@@ -55,7 +55,8 @@ func _run() -> void:
    _check(song != null and planes != null,"song journey renders")
    if planes != null:
     _check((planes is HBoxContainer) == (size.x >= 960),"song layout responds to aspect")
-   _check((ui.find_child("JourneyStoryPanel",true,false) != null) == (size.x >= 960),"landscape song reading surface")
+   _check(ui.find_child("JourneyStoryPanel",true,false) != null,"song decision dock readable at all viewports")
+   _check(ui.find_child("JourneyCinematicHero",true,false) != null,"song photographic hero present at all viewports")
    if song != null:
     song.queue_free()
    await process_frame
