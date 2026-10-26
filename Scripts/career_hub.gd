@@ -641,7 +641,11 @@ func _home() -> void:
  hero.name = "BandHouseHero"
  hero.clip_contents = true
  hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- hero.custom_minimum_size = Vector2(0.0,760.0 if wide else 780.0)
+ # The first action and the three destinations must be visible without a long scroll.
+ # Scale with actual viewport height rather than using a fixed 780px photograph.
+ var viewport_height := get_viewport_rect().size.y
+ var hero_height := clampf(viewport_height * (0.54 if wide else (0.62 if compact else 0.57)),400.0 if compact else 340.0,510.0 if compact else 560.0)
+ hero.custom_minimum_size = Vector2(0.0,hero_height)
  content.add_child(hero)
 
  var photograph := TextureRect.new()
@@ -659,10 +663,19 @@ func _home() -> void:
 
  var scrim := ColorRect.new()
  scrim.name = "BandHouseLegibilityScrim"
- scrim.color = Color(0.025,0.038,0.055,0.76)
+ # Let the photograph establish place; reserve the stronger scrim for the CTA.
+ scrim.color = Color(0.025,0.038,0.055,0.40)
  scrim.mouse_filter = Control.MOUSE_FILTER_IGNORE
  hero.add_child(scrim)
  scrim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+ var bottom_scrim := ColorRect.new()
+ bottom_scrim.name = "BandHouseActionScrim"
+ bottom_scrim.color = Color(0.015,0.024,0.037,0.70)
+ bottom_scrim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.add_child(bottom_scrim)
+ bottom_scrim.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ bottom_scrim.offset_top = -220.0 if compact else -195.0
 
  var border := ColorRect.new()
  border.color = colours["accent"]
@@ -686,6 +699,8 @@ func _home() -> void:
  var nameplate := _label(stack,band_name.to_upper(),38 if compact else 52,UI.WHITE)
  nameplate.max_lines_visible = 2
  nameplate.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ var pulse := _label(stack,"READINESS %d   /   MORALE %d   /   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],12,UI.WHITE)
+ pulse.name = "BandHouseStatusStrip"
  var spacer := Control.new()
  spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
  stack.add_child(spacer)
@@ -693,7 +708,7 @@ func _home() -> void:
  var headline := _label(stack,str(guidance.get("title","MAKE YOUR NEXT MOVE")).to_upper(),23 if compact else 28,UI.WHITE)
  headline.max_lines_visible = 2
  var detail := _label(stack,str(guidance.get("detail","Build the band, make a record, find your audience.")),15 if compact else 17,UI.WHITE)
- detail.max_lines_visible = 3
+ detail.max_lines_visible = 2 if compact else 3
  var target := str(guidance.get("tab","ACTIONS"))
  var call := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper()+"  →",_genre_id(),true)
  call.name = "BandHousePrimaryAction"
@@ -779,7 +794,6 @@ func _home() -> void:
    name.autowrap_mode = TextServer.AUTOWRAP_OFF
    name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
    _label(person,str(member.get("role","BANDMATE")).to_upper(),12,UI.MUTED)
- _label(content,"BAND PULSE  /  READINESS %d   ·   MORALE %d   ·   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],12,UI.MUTED)
 
 func _editorial_banner(title: String, subtitle: String, artwork: String, destination: String, action_label: String) -> void:
  # Shared wide-screen feature banner for the three core management workspaces.
