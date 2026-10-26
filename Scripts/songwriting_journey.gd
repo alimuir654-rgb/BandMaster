@@ -85,7 +85,7 @@ func _selector(parent: Node, heading: String, values: Array, chosen: int, contro
  parent.add_child(select)
  return select
 
-func _input(parent: Node, heading: String, value: String, control_name: String, max_chars: int) -> LineEdit:
+func _text_input(parent: Node, heading: String, value: String, control_name: String, max_chars: int) -> LineEdit:
  _text(parent,heading,14,ACCENTS[stage])
  var field := LineEdit.new()
  field.name = control_name
@@ -134,7 +134,7 @@ func _render_stage() -> void:
  body.custom_minimum_size.x = minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
  body.add_theme_constant_override("separation",13)
  centered.add_child(body)
- var art_path := "res://Art/Journeys/Songwriting/"+ART[stage]
+ var art_path: String = "res://Art/Journeys/Songwriting/"+str(ART[stage])
  if ResourceLoader.exists(art_path):
   var illustration := TextureRect.new()
   illustration.name = "JourneyArtwork"
@@ -150,8 +150,8 @@ func _render_stage() -> void:
   0:
    _text(body,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
    _selector(body,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
-   _input(body,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
-   _input(body,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
+   _text_input(body,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
+   _text_input(body,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
   1:
    _text(body,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
    _selector(body,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
@@ -213,7 +213,7 @@ func _render_stage() -> void:
   else:
    _go(stage-1)
  )
- var next_text := ["FIND THE SOUND  ›","ENTER THE ROOM  ›","REVIEW SONGSHEET  ›","COMMIT SESSION  /  1 DAY"][stage]
+ var next_text: String = ["FIND THE SOUND  ›","ENTER THE ROOM  ›","REVIEW SONGSHEET  ›","COMMIT SESSION  /  1 DAY"][stage]
  var next := UI.themed_button(next_text,genre_id,true)
  next.name = "JourneyNext"
  next.custom_minimum_size.y = 54
