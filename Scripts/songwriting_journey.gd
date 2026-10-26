@@ -187,9 +187,16 @@ func _render_stage() -> void:
  centered.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  scroller.add_child(centered)
  var body := VBoxContainer.new()
- body.custom_minimum_size.x = minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
+ var cinematic_split := get_viewport_rect().size.x >= 960.0
+ body.custom_minimum_size.x = maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0) if cinematic_split else minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
  body.add_theme_constant_override("separation",13)
  centered.add_child(body)
+ # Wide displays use a cinematic two-plane composition: environment on the
+ # left, readable decisions on the right. Phones keep the linear story.
+ var scene_planes: BoxContainer = HBoxContainer.new() if cinematic_split else VBoxContainer.new()
+ scene_planes.name = "JourneyScenePlanes"
+ scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
+ body.add_child(scene_planes)
  if ResourceLoader.exists(art_path):
   var illustration := TextureRect.new()
   illustration.name = "JourneyArtwork"
@@ -198,30 +205,38 @@ func _render_stage() -> void:
   illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  body.add_child(illustration)
+  scene_planes.add_child(illustration)
+  if cinematic_split:
+   illustration.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   illustration.custom_minimum_size.x = 440
  else:
   _text(body,"SCENE ART UNAVAILABLE",14,ACCENTS[stage])
+ var story := VBoxContainer.new()
+ story.name = "JourneyStory"
+ story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ story.add_theme_constant_override("separation",12)
+ scene_planes.add_child(story)
  match stage:
   0:
-   _text(body,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
-   _selector(body,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
-   _text_input(body,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
-   _text_input(body,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
+   _text(story,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
+   _selector(story,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   _text_input(story,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
+   _text_input(story,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
   1:
-   _text(body,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
-   var mood_choice := _selector(body,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
-   var mood_story := _text(body,_vibe_line(vibe),16,Color("#D7E4E7"))
+   _text(story,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
+   var mood_choice := _selector(story,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
+   var mood_story := _text(story,_vibe_line(vibe),16,Color("#D7E4E7"))
    mood_story.name = "JourneyVibeReaction"
    mood_choice.item_selected.connect(func(index: int) -> void:
     mood_story.text = _vibe_line(mood_choice.get_item_text(index))
    )
-   var form_choice := _selector(body,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
-   var form_note := _text(body,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
+   var form_choice := _selector(story,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
+   var form_note := _text(story,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
    form_choice.item_selected.connect(func(index: int) -> void:
     form_note.text = str(Studio.FORM_NOTES.get(form_choice.get_item_text(index),"Choose a structure."))
    )
   2:
-   _text(body,"The band comes into focus. Someone has to lead this session.",18,Color("#FFF5E6"))
+   _text(story,"The band comes into focus. Someone has to lead this session.",18,Color("#FFF5E6"))
    var catalogue: Dictionary = Workshop.options(source_state)
    lead_choices = catalogue["leads"]
    var names: Array = []
@@ -231,12 +246,12 @@ func _render_stage() -> void:
     names.append(str(person["name"])+"  /  "+str(person["trait"]))
     if int(person["index"]) == lead_index:
      selected = index
-   var lead_select := _selector(body,"WHO LEADS THE JAM?",names,selected,"JourneyLeadChoice")
+   var lead_select := _selector(story,"WHO LEADS THE JAM?",names,selected,"JourneyLeadChoice")
    if not lead_choices.is_empty():
     var voice_row := HBoxContainer.new()
     voice_row.name = "JourneyBandmateMoment"
     voice_row.add_theme_constant_override("separation",16)
-    body.add_child(voice_row)
+    story.add_child(voice_row)
     var portrait := Portrait.new()
     portrait.name = "JourneyLeadPortrait"
     portrait.custom_minimum_size = Vector2(104,128)
@@ -251,18 +266,18 @@ func _render_stage() -> void:
     show_lead.call(selected)
     lead_select.item_selected.connect(show_lead)
    var studio: Dictionary = Studio.view(source_state)
-   _text(body,"%d OF 3 WRITING SESSIONS ALREADY RECORDED" % int(studio["completed"]),15,ACCENTS[stage])
+   _text(story,"%d OF 3 WRITING SESSIONS ALREADY RECORDED" % int(studio["completed"]),15,ACCENTS[stage])
    for session in studio["history"]:
     if session is Dictionary:
-     _text(body,"DAY %d  /  %s  /  %s" % [int(session.get("day",0)),str(session.get("leader","")),str(session.get("form",""))],14,Color("#F7D4D7"))
+     _text(story,"DAY %d  /  %s  /  %s" % [int(session.get("day",0)),str(session.get("leader","")),str(session.get("form",""))],14,Color("#F7D4D7"))
   3:
-   _text(body,"One last look before the tape rolls. The next decision spends ONE day.",18,Color("#FFF5E6"))
+   _text(story,"One last look before the tape rolls. The next decision spends ONE day.",18,Color("#FFF5E6"))
    var paper := PanelContainer.new()
    var paper_style := UI.style(Color("#E9DDC2"),10)
    paper_style.border_color = Color("#B99563")
    paper_style.set_border_width_all(3)
    paper.add_theme_stylebox_override("panel",paper_style)
-   body.add_child(paper)
+   story.add_child(paper)
    var summary := VBoxContainer.new()
    summary.add_theme_constant_override("separation",10)
    paper.add_child(summary)
