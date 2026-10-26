@@ -2504,13 +2504,24 @@ func _actions() -> void:
   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
 
+func _save_song_journey_notes(notes: Dictionary) -> void:
+ # UI-only draft edits are free; they must survive a normal save/reload.
+ _extra()["song_journey_notes"] = notes.duplicate(true)
+ _save()
+
 func _open_songwriting_journey() -> void:
  # Four visually distinct steps; only the final Practice.compose commits a day.
  # Keep the legacy inline editor below as a safe fallback during migration.
  var journey := SongwritingJourney.new()
  add_child(journey)
  journey.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- journey.open(_state(),_genre_id(),func(result: Dictionary) -> void: _finish(result))
+ var on_commit := func(result: Dictionary) -> void:
+  if bool(result.get("ok",false)):
+   var updated: Dictionary = result["state"]
+   updated["song_journey_notes"] = {}
+  _finish(result)
+ var on_notes := func(notes: Dictionary) -> void: _save_song_journey_notes(notes)
+ journey.open(_state(),_genre_id(),on_commit,on_notes)
 
 func _open_song_sleeve(song: Dictionary, number: int) -> void:
  # A read-only liner-notes view: no day, cash, credit or save mutation.
