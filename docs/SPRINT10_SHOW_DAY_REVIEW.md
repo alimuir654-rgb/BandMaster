@@ -28,3 +28,16 @@ Any red latest-head check or unreadable/clipped screenshot is a blocker. Correct
 - Complete new band → writing → booking → journey → show → scrapbook → save/reload acceptance.
 - Resolve or characterize resource/RID warning issue #170; record evidence.
 - Upgrade schematic vector artwork if real populated crops fail game-critic/owner expectations.
+
+## Actual screenshot inspection and corrective loop — 26 October 2026
+Inspected **all 15 populated show-day PNGs** from screenshot workflow run 40304062853 (head ffca31c, artifact `bandmaster-ui-screenshots`): https://github.com/alimuir654-rgb/BandMaster/actions/runs/40304062853
+
+- **390×844:** five distinct full-screen palettes and environmental illustrations, fixed primary action and Close/Reduce Motion controls, no observed clipping. Added a five-part progress rail and an authored line spoken by an actual roster member after the initial captures showed a large passive lower region. Gear loading now exposes owned-item holder/condition and explicitly labels unknown venue backline rather than inventing equipment.
+- **720×1280:** improved after correction: story callout occupies the previously empty lower section while preserving the large illustration. Artwork is still schematic and does not yet meet final art-production ambition.
+- **1280×720:** CTA and scene progression remain visible, but the narrow central content column leaves too much unused horizontal space. **UI/UX verdict CHANGES NEEDED** for landscape split composition; tracked in issue #179.
+- **Game critic:** still **CHANGES NEEDED**. Five atmospheres are different and the soundcheck/road scenes have consequential decisions, but loading/arrival lack a memorable interactive environmental beat. Issue #179 blocks full visual release sign-off.
+- **Working musician:** conditional pass: bassist fatigue intervention, route choice and set strategy are real mechanics, not decorative choices; venue backline is deliberately marked unconfirmed.
+- **New player:** conditional pass: clear numbered location, destination CTA and bandmate reaction; first fold and typography remain owner-review items.
+- **Release QA:** initial focused CI found a genuine bug: JSON converted integer booking days into `7.0`, changing the backstage incident identity. Fixed by canonical integer keys plus compatibility for prior `7.0` records. Pure regression now covers both formats; final latest-head checks still required.
+
+**Decision:** Sprint B is a playable, screenshot-inspected vertical slice, **not** a finished premium visual release. Carry issue #179 to Sprint C, prioritize split-screen art composition and scene interactions over more mechanics. No owner visual sign-off claimed.
