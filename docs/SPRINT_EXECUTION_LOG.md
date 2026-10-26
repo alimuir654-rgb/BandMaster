@@ -1,5 +1,31 @@
 # BandMaster autonomous sprint execution log
 
+## Sprint 07 / 08 — 2026-10-26, 04:28 UTC start
+**Scope:** Interactive finished-song sleeve, actual songwriting-session provenance and first-fold desk navigation.
+**PR:** #174 (`sprint07-song-sleeves-provenance`). **CI/merge pending at initial entry**; do not claim completion until latest head passes all required workflows.
+
+### Implementation and evidence
+- `Scripts/song_sleeve.gd`: reusable parchment sleeve, actual shared studio artwork, existing ISC-licensed Lucide notebook icon. All text is native Godot Label, not baked into an AI-generated or stock photo. Uses recorded song title, lead/settled credits, origin, arrangement, quality, finish day and *only recorded* writing sessions; unknown legacy data explicitly labelled.
+- `Scripts/career_hub.gd`: first-fold **OPEN THE WRITING DESK** action scrolls to the existing composition controls without spending a day. Every finished song has **VIEW SLEEVE**, opening a focused read-only SceneSheet with **BACK TO SONGBOOK**. The same reusable sleeve replaces the previous inline completion card after a real third-session commit.
+- `tests/sprint07_song_sleeve_tests.gd`: immutable source, legacy fallback, resolved credits, session dates, actual existing art and icon resource.
+- `tests/sprint07_song_sleeve_viewport_tests.gd`: populated 390×844, 720×1280, 1280×720 writing room; first-fold navigation, 44+ targets, modal cancel without cost, actual third-session commit, real song title and sessions in sleeve, disk-save assertions.
+- Existing `tests/v135_venue_journey_milestone_tests.gd` source assertion now checks the actual shared sleeve component; new headless CI gates are included.
+- Asset inspection on `main`: actual `Art/UI/Icons/notebook-pen.svg`, `Art/UI/Icons/LUCIDE_LICENSE.txt` and `Art/Backgrounds/shared/studio.webp` bytes verified via GitHub. All three proposed `Art/Photography/approved/*.jpg` returned 404, including gear-pedals-hjortshoj, gear-pedals-austin and hq-corkboard-szczepanska. PR #166 is merged; **no photography has been imported or used**.
+- PR #51 remains stale, open and nonmergeable; it was inspected and left untouched rather than duplicated. Prior sprint #173 is merged.
+
+### Simulated adversarial persona review — code and scripted fixtures, not human approval
+1. **First-time player:** concern: the extensive writing controls could bury the next action. Evidence: `WritingDeskJump` at the top of the writing room, with an explicit zero-cost scroll and viewport geometry assertion. Residual: the finished-song list remains below the composition desk by design.
+2. **Management-game veteran:** concern: a decorative sleeve could invent credits or history. Evidence: `describe()` reads `credited_writers`, legacy `writers`, actual `writing_sessions`, `written_day` and quality; unknown data is explicit. Existing one-day songwriting economics remain authoritative in `Practice.compose`.
+3. **UX/accessibility:** concern: small screens and long liner notes. Evidence: 54px desk jump, 48px per-song inspect, 52px focused Back, scrollable `SceneSheet`, live text on high-contrast paper and three viewport interaction fixture. Human screenshot/crop inspection still outstanding.
+4. **Godot engineer:** concern: introducing parallel save state or UI dependencies. Evidence: pure `SongSleeve.describe`, existing `SceneSheet`, WoldUI, native Controls, existing SVG/WebP, no new state keys. Tests exercise real `_finish` mutation path and no-cost inspection.
+5. **Release QA:** concern: false confidence from a passing screenshot job. Evidence: deterministic legacy test plus actual save-to-disk viewport flow; CI checks must be verified before merge. Existing resource/RID warnings #170 and absent Unsplash binaries remain open, not represented as fixed.
+
+### Retrospective and handoff
+- **Worked:** reuse of an existing studio backdrop and licensed icon made a distinctive interactive memento possible without inventing photographic assets or new save data.
+- **Risks:** no owner-approved populated screenshot yet; test screenshots/geometry cannot substitute for visual sign-off. Check new source against existing CI and adjust failures before merging.
+- **Next (Sprint 08):** final stabilization: isolate resource/RID warnings (#170), full new-game → write → book → show → scrapbook → save/reload smoke, accessibility/focus and populated screenshot review. If #174 CI remains pending, resume that PR first.
+
+
 ## Sprint 06 / 08 — 2026-10-26, 03:24 UTC scheduled start
 **Scope:** Mobile-first outcome report with always-visible Continue and one-tap scrapbook follow-through after a real pair intervention.
 **PR:** #173 (branch `sprint06-mobile-outcome-scrapbook`); initial status **pending CI**. Verify actual final head and merge before release claim.
