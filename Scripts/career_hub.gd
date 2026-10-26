@@ -253,8 +253,12 @@ func _render() -> void:
   var feedback_label := _label(feedback,"LAST ACTION  /  "+message,12,UI.MUTED)
   feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  if get_viewport_rect().size.x < 960.0:
-  var menu := UI.button("SAVE & MAIN MENU")
+  var menu := UI.button("SAVE & EXIT" if tab == "HOME" else "SAVE & MAIN MENU")
   menu.custom_minimum_size.y = 48
+  if tab == "HOME":
+   menu.size_flags_horizontal = Control.SIZE_SHRINK_END
+   menu.custom_minimum_size.x = 154
+   menu.add_theme_font_size_override("font_size",13)
   content.add_child(menu)
   menu.pressed.connect(_menu)
  _bottom_nav()
