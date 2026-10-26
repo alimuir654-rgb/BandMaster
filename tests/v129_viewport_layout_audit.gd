@@ -6,7 +6,8 @@ const TARGETS := [
  {"tab":"HOME","label":"REHEARSE"},
  {"tab":"ACTIONS","label":"WRITE & REHEARSE"},
  {"tab":"GIGS","label":"FIND A VENUE"},
- {"tab":"GEAR","label":"BUY EQUIPMENT"},
+ {"tab":"GEAR","label":"EXPLORE THE MUSIC SHOP"},
+ {"tab":"BAND","label":"MEET YOUR BAND"},
  {"tab":"SCENE","label":"PROMOTE"},
 ]
 var failures := 0
@@ -51,7 +52,7 @@ func _run() -> void:
      # Audit evidence is explicit: no synthetic claim that a control is visible.
      print("FIRST_FOLD %dx%d %s buttons=%s target=%s visible=%s" % [viewport.x,viewport.y,str(target["tab"]),JSON.stringify(visible),wanted,str(found)])
      _check(not visible.is_empty(),str(viewport)+" "+str(target["tab"])+" has no first-fold controls")
-     if str(target["tab"]) in ["HOME","ACTIONS","GIGS","SCENE","GEAR"]:
+     if str(target["tab"]) in ["HOME","ACTIONS","GIGS","SCENE","GEAR","BAND"]:
       _check(found,str(viewport)+" "+str(target["tab"])+" primary action below first fold")
      ui.free()
  if existing:
