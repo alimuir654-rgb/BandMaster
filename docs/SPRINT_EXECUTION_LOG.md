@@ -2,7 +2,7 @@
 
 ## Sprint 03 / 08 — 2026-10-26, scheduled start 00:25 UTC
 **Scope:** deterministic pair-specific rehearsal and road conflict interventions with distinct Band decision scene.
-**PR:** #168 (`sprint03-pairwise-band-conflicts`); CI pending at time of drafting.
+**PR:** #168 (`sprint03-pairwise-band-conflicts`), squash-merged as `aae872fb187f2674c5e10cf022acae920fdb48e0` after all required checks passed.
 
 ### Implementation
 - `Scripts/band_drama.gd`: deterministic pair choice from active musicians using real index-pair trust, song progress and fatigue; two authored conflicts, identity-scoped one-time resolution, individual consequences and actual relationship mutation. No parallel drama save schema.
@@ -22,7 +22,7 @@
 - **Worked:** existing SceneSheet + licensed Lucide SVG avoided duplicate component/asset work.
 - **Limitation:** portrait pairs remain generic; existing background art is a fallback, not a bespoke scene illustration.
 - **Next:** portrait-driven interaction and visible relationship-history artifact, populated screenshot review, stable member IDs and original photo ingestion only with verified binaries and licensing.
-- **CI status:** pending; do not merge unless structure, Godot headless and screenshot workflows all succeed on latest head.
+- **CI status (PR #168, head `4d1d166a`):** structure **passed**, Godot headless **passed**, screenshot workflow **passed** on 26 October 2026 at approximately 00:30 UTC; deterministic pair engine and three viewport interaction tests passed. Screenshot workflow is not a manual visual sign-off for populated pair scenes. Existing Godot headless suite emitted resource/RID leak warnings in other test steps despite green status; future QA should isolate and eliminate these warnings.
 
 
 ## Sprint 02 / 08 — 2026-10-25, start 23:28 UTC
