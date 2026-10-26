@@ -8,8 +8,8 @@ const FOCUSES = {
     "connect": {"label":"CLEAR THE AIR","action":"rest","description":"Resolve differences and strengthen trust before the next show."}
 }
 
-static func compose(state: Dictionary, idea: String, form: String, title: String, leader_index: int) -> Dictionary:
-    var prepared: Dictionary = Workshop.develop(state,idea,form,title,leader_index)
+static func compose(state: Dictionary, idea: String, form: String, title: String, leader_index: int, lyrical_concept: String = "", vibe: String = "") -> Dictionary:
+    var prepared: Dictionary = Workshop.develop(state,idea,form,title,leader_index,lyrical_concept,vibe)
     if not bool(prepared.get("ok",false)):
         return prepared
     var result: Dictionary = resolve(prepared["state"],"create")
