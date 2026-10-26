@@ -15,7 +15,7 @@ func _initialize() -> void:
  var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(src.contains("CHAPTER COMPLETE  /  REWARD CLAIMED"),"reward confirmation visible")
  _check(src.contains('"chapter:"+chapter_id'),"claim action identifies chapter")
- _check(src.contains("OF %d OBJECTIVES COMPLETE"),"progress shown")
+ _check(src.contains("%d / %d OBJECTIVES COMPLETE"),"compact home chapter progress shown")
  _check(src.contains("REWARD  /  £%d  +%d REPUTATION"),"reward complete")
  _check(load("res://Scenes/CareerHub.tscn") != null,"scene compiles")
  if failures==0:
