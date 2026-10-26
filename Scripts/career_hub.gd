@@ -205,6 +205,14 @@ func _render() -> void:
   world.mouse_filter = Control.MOUSE_FILTER_IGNORE
   add_child(world)
   world.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ # The Band House already has a cinematic hero: keep the surrounding canvas quiet.
+ if tab == "HOME":
+  var quiet_backdrop := ColorRect.new()
+  quiet_backdrop.name = "BandHouseQuietBackdrop"
+  quiet_backdrop.color = Color("#0C1420")
+  quiet_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  add_child(quiet_backdrop)
+  quiet_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
  career_scroll = scroll
  add_child(scroll)
@@ -283,6 +291,9 @@ func _home_header() -> void:
  identity.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  var day := _label(row,"DAY %d" % _num("tour_day"),13,UI.WHITE)
  day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ day.custom_minimum_size.x = 72
+ day.autowrap_mode = TextServer.AUTOWRAP_OFF
+ day.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  var status := HBoxContainer.new()
  status.add_theme_constant_override("separation",13)
  lines.add_child(status)
@@ -626,7 +637,7 @@ func _home() -> void:
  hero.name = "BandHouseHero"
  hero.clip_contents = true
  hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- hero.custom_minimum_size.y = 400.0 if wide else (440.0 if compact else 420.0)
+ hero.custom_minimum_size = Vector2(0.0,400.0 if wide else (440.0 if compact else 420.0))
  content.add_child(hero)
 
  var photograph := TextureRect.new()
