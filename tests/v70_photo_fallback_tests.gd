@@ -12,7 +12,7 @@ func _initialize() -> void:
     var picture = load(path)
     _check(picture is Texture2D,"invalid texture "+genre+" "+scene_name)
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(source.contains("feature_path = \"res://Art/Backgrounds/shared/band.webp\""),"shared Home fallback wired")
+ _check(source.contains("photo_path = \"res://Art/Backgrounds/shared/studio.webp\""),"shared studio fallback wired for owner photo hero")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene loads")
  if failures==0:
   print("V70 CROSS-GENRE PHOTO TESTS PASSED")
