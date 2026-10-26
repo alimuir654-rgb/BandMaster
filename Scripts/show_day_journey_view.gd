@@ -50,7 +50,7 @@ func _label(parent: Node, words: String, size: int, color: Color) -> Label:
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  # Small copy was unreadable in populated 1280x720 captures; preserve
  # headline hierarchy but enforce a readable floor across all viewports.
- label.add_theme_font_size_override("font_size",maxi(size,15) if get_viewport_rect().size.x >= 960.0 else maxi(size,14))
+ label.add_theme_font_size_override("font_size",maxi(size,16))
  label.add_theme_color_override("font_color",color)
  parent.add_child(label)
  return label
