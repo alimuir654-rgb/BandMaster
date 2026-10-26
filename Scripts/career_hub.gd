@@ -2508,9 +2508,9 @@ func _actions() -> void:
 
 func _open_song_sleeve(song: Dictionary, number: int) -> void:
  # A read-only liner-notes view: no day, cash, credit or save mutation.
- var sheet: Dictionary = SceneSheet.build(self,"THE SONG SLEEVE","The finished original and its recorded writing history.","",_genre_id())
+ var sheet: Dictionary = SceneSheet.build(self,"THE SONG SLEEVE","Read the recorded writing history. No day or cash is spent.","",_genre_id())
  SongSleeve.build(sheet["body"],song,number,_genre_id())
- var back := SceneSheet.add_choice(sheet,"BACK TO SONGBOOK",func() -> void: SceneSheet.dismiss(sheet),true,_genre_id())
+ var back := SceneSheet.add_choice(sheet,"←  BACK TO SONGBOOK",func() -> void: SceneSheet.dismiss(sheet),false,_genre_id())
  back.name = "SongSleeveBack"
  if back.is_inside_tree():
   back.grab_focus()
