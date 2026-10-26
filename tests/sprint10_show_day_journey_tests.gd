@@ -54,6 +54,7 @@ func _run() -> void:
      if step == 3:
       _check(view.find_child("ShowJourneyNext",true,false).disabled,"backstage decision blocks premature showtime "+str(size))
       view._resolve_incident("rest")
+      print("SPRINT B ILLNESS STATE ",JSON.stringify({"phase":ui._state().get("gig_night_phase",""),"resolved":ui._state().get("illness_resolved_booking",""),"status":view.status_message}))
       _check(str(ui._state().get("illness_resolved_booking","")) == "bristol:7","backstage resolution recorded "+str(size))
       view._choose_approach("crowd")
       _check(str(ui._state().get("booked_show",{}).get("approach","")) == "crowd","live set decision saved "+str(size))
