@@ -105,6 +105,17 @@ func _render_stage() -> void:
  margins.add_child(layout)
  _label(layout,"LIVE TONIGHT  /  %02d OF 05  /  DAY %d" % [step+1,int(booking.get("day",0))],13,ACCENTS[step])
  _label(layout,Journey.STEPS[step],29,Color("#FFF7EC"))
+ var rail := HBoxContainer.new()
+ rail.name = "ShowJourneyProgressRail"
+ rail.add_theme_constant_override("separation",7)
+ layout.add_child(rail)
+ for index in range(5):
+  var segment := ColorRect.new()
+  segment.custom_minimum_size.y = 5
+  segment.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  segment.color = ACCENTS[step] if index <= step else BACKDROPS[step].lightened(0.22)
+  segment.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  rail.add_child(segment)
  var scroller := ScrollContainer.new()
  scroller.name = "ShowJourneyScroll"
  scroller.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -134,6 +145,16 @@ func _render_stage() -> void:
    _label(body,"Flight cases scrape the pavement. The band's ready to leave — but what is actually going in the van?",18,Color("#FFF7EC"))
    var equipment: Array = source_state.get("owned_equipment",[])
    _label(body,"EQUIPMENT OWNED  /  %d ITEMS" % equipment.size(),15,ACCENTS[step])
+   if equipment.is_empty():
+    _label(body,"NO OWNED GEAR ON THE LIST  /  VENUE BACKLINE NOT CONFIRMED",14,Color("#F1D6B7"))
+   else:
+    for item_id in equipment.slice(0,4):
+     var record: Dictionary = Gear.record(source_state,str(item_id))
+     var holder := Gear.holder_index(source_state,record)
+     var members: Array = source_state.get("members",[])
+     var carried_by := str(members[holder].get("name","")) if holder >= 0 and holder < members.size() else "UNASSIGNED"
+     var condition := "UNKNOWN" if int(record.get("condition",-1)) < 0 else str(int(record.get("condition",0)))+"%"
+     _label(body,str(Gear.item_for(str(item_id)).get("name",item_id))+"  /  "+carried_by+"  /  "+condition,13,Color("#FFF7EC"))
    _label(body,"VAN CONDITION  /  %d%%" % int(source_state.get("van_health",0)),15,Color("#FFF7EC"))
    var penalty := int(Gear.readiness_penalty(source_state))
    _label(body,"WORN GEAR READINESS EFFECT  /  %+d" % penalty,15,Color("#FFF7EC"))
@@ -174,6 +195,32 @@ func _render_stage() -> void:
    _label(body,"YOUR SET  /  "+str(booking.get("approach","tight")).to_upper(),16,ACCENTS[step])
    _label(body,"ORIGINAL SONGS  /  %d" % int(source_state.get("songs",0)),15,Color("#FFF7EC"))
    _label(body,"The show settles once, through the existing gig engine. This final step does not pay twice.",13,Color("#F0D6DE"))
+ if get_viewport_rect().size.y >= 780:
+  var members: Array = source_state.get("members",[])
+  var speaker := "THE BAND"
+  for member in members:
+   if member is Dictionary and str(member.get("life_status","active")) == "active":
+    speaker = str(member.get("name","THE BAND")).to_upper()
+    break
+  var quotes := [
+   "Are the cables in? Last time we were looking for the drum key at the venue.",
+   "Someone turn the music up. We're actually doing this.",
+   "That's our name on the door. It's smaller than I imagined, but it's ours.",
+   "Listen to that room. We need to play to the space, not just the setlist.",
+   "No more rehearsals. Whatever happens, we go out there together."
+  ]
+  var moment := PanelContainer.new()
+  moment.name = "ShowJourneyCharacterBeat"
+  var moment_style := UI.style(BACKDROPS[step].lightened(0.12),10)
+  moment_style.border_color = ACCENTS[step]
+  moment_style.border_width_left = 4
+  moment.add_theme_stylebox_override("panel",moment_style)
+  layout.add_child(moment)
+  var moment_body := VBoxContainer.new()
+  moment_body.add_theme_constant_override("separation",4)
+  moment.add_child(moment_body)
+  _label(moment_body,speaker+"  /  IN THE MOMENT",12,ACCENTS[step])
+  _label(moment_body,"“"+str(quotes[step])+"”",15,Color("#FFF7EC"))
  if not status_message.is_empty():
   _label(layout,status_message,14,Color("#FFE0D6"))
  var footer := HBoxContainer.new()
