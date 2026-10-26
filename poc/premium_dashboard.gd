@@ -89,30 +89,16 @@ func _panel(parent: Node, fill: Color = SURFACE) -> VBoxContainer:
 
 func _button(parent: Node, title: String, primary: bool, action: Callable) -> Button:
 	var b := Button.new()
+	b.set_script(load("res://poc/hardware_button.gd"))
+	b.hardware_style = "transport" if primary else "pad"
+	b.signal_color = accent()
 	b.text = title
 	b.custom_minimum_size.y = 50
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var base := accent() if primary else Color("#25353D")
-	var ink := BG if primary else WHITE
-	b.text = ("▶  " if primary else "▣  ") + title
-	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
-		var fill := base
-		if state == "hover":
-			fill = base.lightened(0.13)
-		elif state == "pressed":
-			fill = base.darkened(0.14)
-		var style := _box(fill, 5)
-		style.shadow_color = Color(0, 0, 0, 0.55)
-		style.shadow_size = 1 if state == "pressed" else 4
-		style.shadow_offset = Vector2(0, 1 if state == "pressed" else 3)
-		style.border_color = accent() if primary else BORDER
-		if state == "focus":
-			style.border_color = accent()
-			style.set_border_width_all(2)
-		b.add_theme_stylebox_override(state, style)
-	for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
-		b.add_theme_color_override(state, ink)
 	b.add_theme_font_size_override("font_size", 15)
+	b.add_theme_color_override("font_color", WHITE)
+	b.add_theme_color_override("font_hover_color", WHITE)
+	b.add_theme_color_override("font_pressed_color", WHITE)
 	parent.add_child(b)
 	b.pressed.connect(action)
 	return b
@@ -183,16 +169,14 @@ func _fill_nav() -> void:
 	for i in range(items.size()):
 		var item: String = items[i]
 		var b := Button.new()
+		b.set_script(load("res://poc/hardware_button.gd"))
+		b.hardware_style = "channel"
+		b.signal_color = accent()
+		b.active = item == active_section
 		b.text = item.to_upper() if is_wide else item
 		b.position = Vector2(16, 110 + 60 * i) if is_wide else Vector2((size.x / 5.0) * i, 5)
 		b.size = Vector2(203, 49) if is_wide else Vector2(size.x / 5.0, 49)
-		var chosen := item == active_section
-		var ns := _box(tint() if chosen else SURFACE, 4)
-		ns.border_color = accent() if chosen else BORDER
-		ns.border_width_left = 4 if chosen else 1
-		b.add_theme_stylebox_override("normal", ns)
-		b.add_theme_stylebox_override("hover", _box(tint().lightened(0.12), 4))
-		b.add_theme_stylebox_override("pressed", _box(tint().darkened(0.12), 4))
+
 		b.add_theme_font_size_override("font_size", 13 if is_wide else 11)
 		nav.add_child(b)
 		b.pressed.connect(func() -> void: _choose(item))
