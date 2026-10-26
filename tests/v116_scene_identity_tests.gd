@@ -3,14 +3,14 @@ const SceneBackdrop = preload("res://Scripts/scene_environment.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 var failures := 0
 func _initialize() -> void:
- var backgrounds := ["HOME","DAY","STUDIO","GIGS"]
+ var backgrounds := ["HOME","DAY","STUDIO","GIGS","BAND","GEAR","SCENE"]
  for scene_id in backgrounds:
   var env := SceneBackdrop.new()
   env.set_scene(scene_id)
   _check(env.scene_id==scene_id,"scene identity "+scene_id)
   env.free()
  var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(src.contains('return "STUDIO" if action_view == "JAM" else "DAY"'),"day and studio separate")
+ _check(src.contains('"JAM":"STUDIO"') and src.contains('"HANG OUT":"BAND"') and src.contains('"PROMOTE":"SCENE"'),"studio, band life and promotion have distinct scenes")
  _check(src.contains('environment.set_scene(_scene_identity())'),"environment rendered")
  _check(src.contains('Components.section(content,title,description,_genre_id(),_scene_identity())'),"scene panels styled")
  _check(src.contains('func _scene_instrument_strip() -> void:'),"context instruments")
