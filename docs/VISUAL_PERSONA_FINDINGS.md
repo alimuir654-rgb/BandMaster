@@ -24,3 +24,20 @@ Each new sprint must append a dated section with five distinct verdicts: new pla
 - **Godot QA: FAIL at inspected commit (VIS-006).** Latest failing Godot CI found and targeted fix committed. New-head verification required.
 
 **Release gate: HOLD.** The first shared button change is not a visual reinvention. Owner visual approval is outstanding.
+
+## Sprint A implementation review — 26 October 2026, photo-led Band House
+
+**Evidence:** Actual Godot screenshot artifact from workflow run [40364364434](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40364364434), commit `1a779efd`: `world-home-mobile.png` 390×844, `world-home-tablet.png` 720×1280, `world-home-landscape.png` 1280×720. This is a **simulated** six-role design review of rendered pixels, not external user testing. Compared with pre-redesign artifact run `40359538555`. The screenshot run succeeded; headless CI failed on legacy source-string tests at that commit. Subsequent fixes require a fresh visual retest.
+
+| Persona | Verdict on inspected capture | Concrete observation | Severity | Corrective code and next gate |
+| --- | --- | --- | --- | --- |
+| Creative director | **FAIL** | `world-home-mobile.png`: hero is recognisably different but background repeats a busy music collage beneath it, destroying visual focus; oversized empty lower canvas | P1 | `c70d1c8` adds a solid deep-navy home backdrop; recapture and reassess composition. |
+| Principal UI engineer | **FAIL** | `world-home-mobile.png`: DAY 12 wraps vertically at top right; hero shrank to content height because the nested `custom_minimum_size.y` assignment did not enforce 440px | P0 | `c70d1c8` sets full `Vector2` minimum and fixed-width non-wrapping day label; verify at 390/720/1280. |
+| Interaction designer | **CONDITIONAL** | `world-home-landscape.png`: one amber next action and three destination buttons improve hierarchy; secondary Gear/Scene remain button-like and there is still a redundant Save/Menu control | P1 | `9ad2188b` quiets nav; Sprint B should convert low-priority actions to understated links and audit keyboard focus/feedback. |
+| Working British musician | **CONDITIONAL** | `world-home-tablet.png`: headphones/notebook photograph signals music work but not a specifically British rehearsal house or working band | P1 | Evaluate alternate owner-uploaded rehearsal photo and location-specific details; verify rights before release. |
+| New player / game critic | **CONDITIONAL** | `world-home-mobile.png`: primary REHEARSE is now obvious and destinations reduced to three, but crowded below-hero text and busy backdrop remain | P1 | Verify new dark canvas and larger hero in latest screenshots; then reduce below-hero secondary controls further if needed. |
+| Godot QA / release engineer | **FAIL at inspected commit** | Godot run `40364364345` failed old v29 UX assertion; later run `40364855464` failed old v36 dashboard assertion. These assertions required the discarded card-grid layout, not functional simulation | P0 | Tests updated in `fe18e377`, `5a1f09b3`, `c3206ce5`, `d2001f4c`; **latest-head full CI must pass**. Verify save/load and once-only gig rewards in subsequent end-to-end acceptance. |
+
+**Measured change, not quality proof:** first revision vs baseline changed approximately 44% of mobile screenshot pixels by a mean-channel >32 threshold, 43% on tablet and 44% landscape. This is a substantial composition change but **does not imply design acceptance**.
+
+**Release gate: HOLD.** P0 visual wrapping/height and CI corrections are committed but require new rendered evidence. P1 authenticity, secondary-action hierarchy and image clearance carry forward. No human/owner visual approval has been inferred.
