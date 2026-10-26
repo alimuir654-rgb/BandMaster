@@ -149,11 +149,26 @@ func _render_stage() -> void:
    illustration.custom_minimum_size.x = 440
  else:
   _label(body,"ILLUSTRATION NOT INSTALLED",14,ACCENTS[step])
+ # A real reading surface in landscape separates decisions from the environment.
+ # Mobile retains the open, scrollable vertical composition.
+ var story_holder: Node = scene_planes
+ if cinematic_split:
+  var story_panel := PanelContainer.new()
+  story_panel.name = "ShowJourneyStoryPanel"
+  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  story_panel.custom_minimum_size.y = 320
+  var panel_tone := UI.style(BACKDROPS[step].lightened(0.09),12)
+  panel_tone.border_color = ACCENTS[step]
+  panel_tone.border_width_left = 4
+  panel_tone.set_content_margin_all(18)
+  story_panel.add_theme_stylebox_override("panel",panel_tone)
+  scene_planes.add_child(story_panel)
+  story_holder = story_panel
  var story := VBoxContainer.new()
  story.name = "ShowJourneyStory"
  story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  story.add_theme_constant_override("separation",12)
- scene_planes.add_child(story)
+ story_holder.add_child(story)
  _label(story,str(booking.get("venue","THE VENUE")).to_upper()+"  /  "+str(booking.get("city","")),16,ACCENTS[step])
  match step:
   0:
