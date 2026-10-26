@@ -130,6 +130,42 @@ func _selector(parent: Node, heading: String, values: Array, chosen: int, contro
  parent.add_child(select)
  return select
 
+# Tactile creative decisions replace dropdown-first presentation. The hidden
+# OptionButton remains the authoritative selected value for save/test parity.
+func _choice_deck(parent: Node, select: OptionButton, values: Array, prefix: String) -> void:
+ select.hide()
+ var deck := GridContainer.new()
+ deck.name = prefix+"Deck"
+ deck.columns = 2 if get_viewport_rect().size.x < 960.0 else 3
+ deck.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ deck.add_theme_constant_override("h_separation",9)
+ deck.add_theme_constant_override("v_separation",9)
+ parent.add_child(deck)
+ var chips: Array[Button] = []
+ for index in range(values.size()):
+  var chip := UI.themed_button(str(values[index]).to_upper(),genre_id,false)
+  chip.name = prefix+"Choice%02d" % index
+  chip.custom_minimum_size.y = 64
+  chip.toggle_mode = true
+  chip.button_pressed = index == select.selected
+  chip.add_theme_font_size_override("font_size",16)
+  chip.add_theme_stylebox_override("normal",UI._button_surface(Color("#21313C"),false))
+  var active := UI._button_surface(ACCENTS[stage],true)
+  active.border_color = ACCENTS[stage]
+  chip.add_theme_stylebox_override("pressed",active)
+  chip.add_theme_color_override("font_pressed_color",Color("#15212A"))
+  chip.add_theme_color_override("font_hover_pressed_color",Color("#15212A"))
+  deck.add_child(chip)
+  chips.append(chip)
+  var selected_index := index
+  var selected_chip := chip
+  chip.pressed.connect(func() -> void:
+   select.select(selected_index)
+   select.item_selected.emit(selected_index)
+   for other in chips:
+    other.button_pressed = other == selected_chip
+  )
+
 func _text_input(parent: Node, heading: String, value: String, control_name: String, max_chars: int) -> LineEdit:
  _text(parent,heading,14,ACCENTS[stage])
  var field := LineEdit.new()
@@ -222,12 +258,14 @@ func _render_stage() -> void:
  match stage:
   0:
    _text(story,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
-   _selector(story,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   var idea_choice := _selector(story,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   _choice_deck(story,idea_choice,Workshop.IDEAS,"Idea")
    _text_input(story,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
    _text_input(story,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
   1:
    _text(story,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
    var mood_choice := _selector(story,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
+   _choice_deck(story,mood_choice,VIBES,"Vibe")
    var mood_story := _text(story,_vibe_line(vibe),16,Color("#D7E4E7"))
    mood_story.name = "JourneyVibeReaction"
    mood_choice.item_selected.connect(func(index: int) -> void:
