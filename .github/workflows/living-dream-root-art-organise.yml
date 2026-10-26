@@ -1,0 +1,70 @@
+name: Organise root artwork for Living the Dream
+on:
+  workflow_dispatch:
+  push:
+    branches: [living-the-dream-british-photographic-art-gate]
+    paths: ['*.avif','*.jpg','*.jpeg','*.png','*.webp']
+permissions:
+  contents: write
+jobs:
+  organise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: living-the-dream-british-photographic-art-gate
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install AVIF-compatible image processing
+        run: pip install 'Pillow>=11.3,<13' pillow-avif-plugin
+      - name: Inspect and organise uploaded artwork
+        run: |
+          python - <<'PY'
+          import hashlib,json,re,shutil
+          from pathlib import Path
+          from PIL import Image,ImageOps
+          import pillow_avif
+          root=Path('.'); source=root/'Art/Photography/source'; output=root/'Art/Photography/processed'
+          terms=[('show_day/load_van',['load','van','flightcase']),('show_day/on_the_road',['road','motorway','travel']),('show_day/venue_arrival',['venue','arrival','pub']),('show_day/soundcheck',['soundcheck']),('show_day/backstage',['backstage','dressing']),('show_day/showtime',['showtime','concert','live']),('songwriting/spark',['lyric','notebook','spark']),('songwriting/vibe',['vibe','pedal','mixer']),('songwriting/jam',['jam','rehearsal']),('songwriting/songsheet',['songsheet','setlist']),('world/gear',['gear','shop']),('world/band',['bandmate']),('world/promoter',['promoter']),('world/home',['home','bedroom']),('world/scrapbook',['scrapbook'])]
+          assets=[]; errors=[]
+          for p in sorted(root.iterdir()):
+            if not p.is_file() or p.suffix.lower() not in ('.avif','.jpg','.jpeg','.png','.webp'):continue
+            label=re.sub('[^a-z0-9]+','_',p.stem.lower())
+            group=next((g for g,keys in terms if any(k in label for k in keys)),'review_inbox')
+            sha=hashlib.sha256(p.read_bytes()).hexdigest()
+            dest=source/group/p.name;dest.parent.mkdir(parents=True,exist_ok=True)
+            if dest.exists():dest=dest.with_name(p.stem+'_'+sha[:8]+p.suffix)
+            shutil.move(str(p),dest)
+            item={'original':p.name,'source':str(dest),'sha256':sha,'scene_inferred_from_filename':group,'visually_approved':False,'license_reviewed':False}
+            try:
+              with Image.open(dest) as im:
+                im.load(); image=ImageOps.exif_transpose(im).convert('RGB')
+                if image.width<640 or image.height<360:raise ValueError('low-resolution source')
+                item['dimensions']=[image.width,image.height]
+                d=output/group;d.mkdir(parents=True,exist_ok=True)
+                for kind,size in [('landscape',(1600,900)),('portrait',(900,1400))]:
+                  path=d/(re.sub('[^a-z0-9]+','_',dest.stem.lower())+'_'+kind+'.webp')
+                  ImageOps.fit(image,size,method=Image.Resampling.LANCZOS).save(path,'WEBP',quality=86,method=6)
+                  item[kind]=str(path)
+            except Exception as exc:
+              item['error']=str(exc);errors.append(str(dest))
+            assets.append(item)
+          audit=root/'Art/Photography/root_upload_audit.json';audit.parent.mkdir(parents=True,exist_ok=True)
+          audit.write_text(json.dumps({'count':len(assets),'assets':assets,'note':'Filename mapping is inferred; human visual and license review required before final release.'},indent=2)+'\n')
+          print('Processed root uploads:',len(assets),'errors:',len(errors))
+          for item in assets:print(item['original'],'->',item['scene_inferred_from_filename'])
+          if errors:raise SystemExit('Invalid images: '+str(errors))
+          PY
+      - name: Commit originals, Godot-ready variants and audit
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- Art/Photography
+          git add -u -- '*.avif' '*.jpg' '*.jpeg' '*.png' '*.webp'
+          if ! git diff --cached --quiet; then
+            git commit -m "Organise owner-uploaded root photography with responsive crops"
+            git push
+          fi
