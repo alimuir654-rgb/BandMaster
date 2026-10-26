@@ -30,6 +30,9 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --editor --import --quit
+          for test in v29_ux_review_tests v36_career_momentum_tests v53_clean_nav_tests v65_home_art_tests v70_photo_fallback_tests v71_nav_ux_tests v91_home_dashboard_tests v92_home_icon_destinations_tests v93_home_status_tests v107_visual_destination_tests v112_playtest_layout_tests v119_home_hierarchy_tests v125_task_first_home_gigs_tests; do
+            godot --headless --path . --script "res://tests/$test.gd"
+          done
           mkdir -p screenshots/band-house
           for viewport in "390 844 phone" "720 1280 tablet" "1280 720 landscape"; do
             read -r w h name <<< "$viewport"
