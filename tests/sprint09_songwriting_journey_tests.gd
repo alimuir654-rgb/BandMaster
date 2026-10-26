@@ -48,6 +48,8 @@ func _run() -> void:
     if journey != null:
      _check(journey.stage == 0 and _has_text(journey,"THE SPARK"),"spark scene "+str(size))
      _check(_art(journey),"spark art imported "+str(size))
+     var spark_button := journey.find_child("JourneyNext",true,false) as Button
+     var spark_tone := (spark_button.get_theme_stylebox("normal") as StyleBoxFlat).bg_color if spark_button != null else Color.BLACK
      _check(int(ui.save_data.get("tour_day",0)) == 7,"opening journey free "+str(size))
      var concept := journey.find_child("JourneyConceptInput",true,false) as LineEdit
      var title := journey.find_child("JourneyTitleInput",true,false) as LineEdit
@@ -63,6 +65,10 @@ func _run() -> void:
      await create_timer(0.6).timeout
      _check(journey.stage == 1 and _has_text(journey,"FIND THE SOUND"),"vibe scene after fade "+str(size))
      _check(_art(journey),"vibe art imported "+str(size))
+     var sound_button := journey.find_child("JourneyNext",true,false) as Button
+     if sound_button != null:
+      var sound_tone := (sound_button.get_theme_stylebox("normal") as StyleBoxFlat).bg_color
+      _check(spark_tone != sound_tone,"CTA palette changes between rooms "+str(size))
      var draft_disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
      if draft_disk is Dictionary:
       var notes: Dictionary = draft_disk.get("career_extra",{}).get("song_journey_notes",{})
