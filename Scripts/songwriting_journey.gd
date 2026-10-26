@@ -272,6 +272,7 @@ func _render_stage() -> void:
     mood_story.text = _vibe_line(mood_choice.get_item_text(index))
    )
    var form_choice := _selector(story,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
+   _choice_deck(story,form_choice,Workshop.FORMS,"Form")
    var form_note := _text(story,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
    form_choice.item_selected.connect(func(index: int) -> void:
     form_note.text = str(Studio.FORM_NOTES.get(form_choice.get_item_text(index),"Choose a structure."))
