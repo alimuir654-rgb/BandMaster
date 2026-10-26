@@ -58,7 +58,7 @@ func _label(parent: Node, words: String, size: int, color: Color) -> Label:
 
 func _button(parent: Node, caption: String, callback: Callable, primary: bool = false) -> Button:
  var button := UI.themed_button(caption,genre_id,primary)
- button.custom_minimum_size.y = 56
+ button.custom_minimum_size.y = 82
  button.focus_mode = Control.FOCUS_ALL
  button.add_theme_font_size_override("font_size",16)
  parent.add_child(button)
@@ -92,7 +92,7 @@ func _cargo_card(parent: Node, item_id: String, ordinal: int) -> void:
   return
  var crew := OptionButton.new()
  crew.name = "CargoCrewPicker%02d" % ordinal
- crew.custom_minimum_size.y = 52
+ crew.custom_minimum_size.y = 82
  crew.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  crew.focus_mode = Control.FOCUS_ALL
  crew.add_item("ASSIGN A BANDMATE")
@@ -185,7 +185,7 @@ func _render_stage() -> void:
  scene_planes.name = "ShowJourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- var hero_height := 310.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
+ var hero_height := 420.0 if get_viewport_rect().size.x < 600.0 else (700.0 if cinematic_split else 430.0)
  Cinematic.add_hero(scene_planes,art_path,"GIG DAY  /  %02d OF 05" % (step+1),str(Journey.STEPS[step]),ACCENTS[step],hero_height,"ShowJourneyArtwork")
  var story_panel := PanelContainer.new()
  story_panel.name = "ShowJourneyStoryPanel"
@@ -311,7 +311,7 @@ func _render_stage() -> void:
   _render_stage()
  )
  motion.name = "ShowJourneyMotionToggle"
- motion.custom_minimum_size.y = 44
+ motion.custom_minimum_size.y = 70
  motion.add_theme_font_size_override("font_size",11)
 
 func _store(state: Dictionary) -> void:
