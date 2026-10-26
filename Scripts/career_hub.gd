@@ -15,6 +15,7 @@ const VenueBrowser = preload("res://Scripts/venue_browser.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Tour = preload("res://Scripts/tour_itinerary.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
+const ShowJourneyView = preload("res://Scripts/show_day_journey_view.gd")
 const BackstageIncident = preload("res://Scripts/gig_backstage_incident.gd")
 const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
 const Recording = preload("res://Scripts/recording_career.gd")
@@ -871,6 +872,9 @@ func _gigs() -> void:
    _label(calendar_box,"%d DAYS LEFT TO PREPARE  /  REHEARSE, WRITE OR PROMOTE" % due,14,UI.AMBER)
    _action(calendar_box,"PREPARE FOR THE SHOW  ›",func() -> void: _switch("ACTIONS"),true)
   elif due == 0:
+   _action(calendar_box,"ENTER SHOW DAY JOURNEY  ›",func() -> void: _open_show_day_journey(),true)
+   _label(calendar_box,"FIVE DISTINCT SCENES  /  LOAD, ROAD, ARRIVAL, SOUNDCHECK, SHOWTIME",12,UI.AMBER)
+   _label(calendar_box,"Classic controls remain below temporarily for save compatibility and regression testing.",12,UI.MUTED)
    var scene: Dictionary = GigNight.stage(_state())
    _label(calendar_box,str(scene.get("title","SHOW NIGHT")),22,UI.AMBER)
    _label(calendar_box,str(scene.get("detail","")),15,UI.WHITE)
@@ -3030,6 +3034,22 @@ func _practice(focus: String) -> void:
 
 func _do_action(id: String) -> void:
  _finish(Actions.resolve(_state(),id))
+
+func _open_show_day_journey() -> void:
+ if not _is_show_day():
+  message = "The show-day journey opens on the booked date."
+  _render()
+  return
+ var journey := ShowJourneyView.new()
+ add_child(journey)
+ journey.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ journey.open(_state(),_genre_id(),Callable(self,"_save_show_journey_state"),Callable(self,"_show_stage_entry"),Callable(self,"_render"))
+
+func _save_show_journey_state(updated: Dictionary) -> void:
+ # Navigation/decisions are free. Existing Calendar.perform remains the only
+ # show settlement and is still guarded by the booked-show state.
+ _apply(updated)
+ _save()
 
 func _advance_gig_night() -> void:
  var progressed: Dictionary = GigNight.advance(_state())

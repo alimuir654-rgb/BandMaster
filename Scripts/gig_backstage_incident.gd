@@ -13,8 +13,13 @@ static func incident(state: Dictionary) -> Dictionary:
   return {}
  if int(booking.get("day",-1)) != int(state.get("tour_day",0)):
   return {}
- var identifier := str(booking.get("venue_id",booking.get("venue","gig")))+":"+str(booking.get("day",0))
- if str(state.get("illness_resolved_booking","")) == identifier:
+ # JSON numbers may reload as 7.0; use a canonical integer booking day so
+ # the same incident cannot reappear after save/reload or type normalization.
+ var prefix := str(booking.get("venue_id",booking.get("venue","gig")))+":"
+ var identifier := prefix+str(int(booking.get("day",0)))
+ var legacy_identifier := prefix+str(booking.get("day",0))
+ var float_identifier := prefix+str(float(booking.get("day",0)))
+ if str(state.get("illness_resolved_booking","")) in [identifier,legacy_identifier,float_identifier]:
   return {}
  var roster: Array = state.get("members",[])
  for index in range(roster.size()):
