@@ -63,6 +63,11 @@ func _run() -> void:
      await create_timer(0.6).timeout
      _check(journey.stage == 1 and _has_text(journey,"FIND THE SOUND"),"vibe scene after fade "+str(size))
      _check(_art(journey),"vibe art imported "+str(size))
+     var draft_disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
+     if draft_disk is Dictionary:
+      var notes: Dictionary = draft_disk.get("career_extra",{}).get("song_journey_notes",{})
+      _check(int(notes.get("step",-1)) == 1 and str(notes.get("concept","")) == "A last train and an unfinished promise","uncommitted choices survive disk save "+str(size))
+      _check(int(draft_disk.get("tour_day",0)) == 7,"saving journey notes costs no day "+str(size))
      journey.reduced_motion = true
      var vibe := journey.find_child("JourneyVibeChoice",true,false) as OptionButton
      var form := journey.find_child("JourneyFormChoice",true,false) as OptionButton
@@ -97,6 +102,7 @@ func _run() -> void:
      _check(disk is Dictionary and int(disk.get("tour_day",0)) == 8,"committed disk save "+str(size))
      if disk is Dictionary:
       _check(disk.get("career_extra",{}).get("song_catalogue",[]).size() == 2,"song survives disk reload "+str(size))
+      _check(disk.get("career_extra",{}).get("song_journey_notes",{}).is_empty(),"committed journey clears free-form notes "+str(size))
      var next := _button(ui,"CONTINUE")
      if next != null:
       next.pressed.emit()
