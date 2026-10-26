@@ -2845,16 +2845,18 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  for edge in ["margin_left","margin_right","margin_top","margin_bottom"]:
   margins.add_theme_constant_override(edge,12)
  shade.add_child(margins)
- var layout := VBoxContainer.new()
+ # Anchor the reading pane and fixed footer independently. VBoxContainer's
+ # minimum-height propagation can otherwise push both buttons off a short phone.
+ var layout := Control.new()
  layout.name = "DecisionResultLayout"
- layout.add_theme_constant_override("separation",10)
  margins.add_child(layout)
+ var footer_height := 112.0 if source == "band:pair" else 52.0
  var scroll := ScrollContainer.new()
  scroll.name = "DecisionResultScroll"
- scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  layout.add_child(scroll)
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ scroll.offset_bottom = -footer_height-12.0
  var center := CenterContainer.new()
  center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
@@ -2940,6 +2942,9 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var footer := CenterContainer.new()
  footer.name = "DecisionResultFooter"
  layout.add_child(footer)
+ footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ footer.offset_top = -footer_height
+ footer.offset_bottom = 0.0
  var footer_buttons := VBoxContainer.new()
  footer_buttons.custom_minimum_size.x = maxf(0.0,minf(get_viewport_rect().size.x-32.0,510.0))
  footer_buttons.add_theme_constant_override("separation",8)
