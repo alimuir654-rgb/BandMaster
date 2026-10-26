@@ -38,7 +38,7 @@ def resolve_image(page_url):
         raise ValueError("Paid or unclear Unsplash+ license")
     if "unsplash license" not in page.lower():
         raise ValueError("No detectable license text on photo page; manual review required")
-    tags = re.findall(r"<meta\\b[^>]*>", page, flags=re.IGNORECASE)
+    tags = re.findall(r"<meta\b[^>]*>", page, flags=re.IGNORECASE)
     image_url = None
     for tag in tags:
         if not re.search(r"property=[\\\"']og:image[\\\"']", tag, flags=re.IGNORECASE):
