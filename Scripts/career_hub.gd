@@ -440,8 +440,19 @@ func _world_focus_header() -> void:
   label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func _toggle_world_desk() -> void:
- expanded_world_desks[tab] = not bool(expanded_world_desks.get(tab,false))
+ var expanding := not bool(expanded_world_desks.get(tab,false))
+ expanded_world_desks[tab] = expanding
  _render()
+ if expanding:
+  call_deferred("_reveal_world_desk")
+
+func _reveal_world_desk() -> void:
+ var desk := find_child("WorldDetailDesk",true,false) as VBoxContainer
+ if desk == null or not is_instance_valid(career_scroll):
+  return
+ # Reveal the FIRST action, not the bottom of a long legacy catalogue.
+ var target: Control = desk.get_child(0) as Control if desk.get_child_count() > 0 else desk
+ career_scroll.ensure_control_visible(target)
 
 func _world_focus_hero() -> void:
  var colours := UI.palette(_genre_id())
