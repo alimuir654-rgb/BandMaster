@@ -1,3 +1,5 @@
+> **26 October 2026 visual-production supersession:** The three gameplay batches below remain a historical functional plan; they do **not** define the current visual release gate. The approved next programme is [Living the Dream — visual reinvention](LIVING_THE_DREAM_VISUAL_REINVENTION_2026.md): Sprint A flagship Band House redesign → Sprint B premium songwriting/van-loading vertical slice → Sprint C coherent rollout and owner-ready acceptance. All five simulated persona reviews, actual three-viewport screenshots, rights checks and latest-head Godot CI are mandatory. No incremental button-only sprint may be reported as a visual step change. The stacked PR chain #177→#178→#180→#181→#182 remains unmerged until gates pass.
+
 # BandMaster — three-release Gameplay & UX Rebuild
 Approved direction 25 October 2026. Ship three substantive playable batches, with CI and merge after each.
 

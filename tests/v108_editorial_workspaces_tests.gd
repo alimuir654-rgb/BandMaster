@@ -4,7 +4,7 @@ func _initialize() -> void:
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
  _check(source.contains("func _editorial_banner("),"shared banner helper exists")
  _check(source.contains('func _band() -> void:'),"band screen exists")
- _check(source.contains('_editorial_banner("THE PEOPLE BEHIND THE MUSIC"'),"band editorial context preserved")
+ _check(source.contains(' "BAND":{"photo":"world_band"') and source.contains("func _world_focus_hero()"),"band photographic context preserved")
  _check(source.contains('func _actions() -> void:\n _scene_instrument_strip()'),"studio keeps context strip")
  _check(source.contains('_editorial_banner("THE CREATIVE STUDIO"'),"studio editorial context preserved")
  _check(source.contains("func _gigs() -> void:\n _scene_instrument_strip()"),"gigs retains context strip")

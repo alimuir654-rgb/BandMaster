@@ -12,7 +12,7 @@ func _initialize() -> void:
  if start >= 0 and end > start:
   var nav := source.substr(start,end-start)
   _check(nav.contains("UI.palette(_genre_id())"),"active genre palette")
-  _check(nav.contains("border_width_bottom = 3 if selected else 1"),"selected tab indicator")
+  _check(nav.contains("border_width_bottom = 3 if selected else 0"),"selected tab indicator")
   _check(nav.contains("add_theme_stylebox_override(\"focus\",focus)"),"keyboard focus visible")
   _check(nav.contains("button.tooltip_text"),"navigation hints preserved")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene valid")

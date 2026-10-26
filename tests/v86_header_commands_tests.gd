@@ -5,7 +5,7 @@ func _initialize() -> void:
  _check(source.contains('if get_viewport_rect().size.x >= 960.0:\n  var command := UI.themed_button("SAVE & MENU"'),"landscape header action")
  _check(source.contains('command.icon_start = "menu"'),"WoldUI menu icon")
  _check(source.contains("command.pressed.connect(_menu)"),"menu action functional")
- _check(source.contains('if get_viewport_rect().size.x < 960.0:\n  var menu := UI.button("SAVE & MAIN MENU")'),"mobile action retained")
+ _check(source.contains('if get_viewport_rect().size.x < 960.0:\n  var menu := UI.button("SAVE & EXIT" if tab == "HOME" else "SAVE & MAIN MENU")') and source.contains("menu.pressed.connect(_menu)"),"mobile home exit and non-home menu actions retained")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"scene loads")
  if failures==0:
   print("WOLDUI HEADER COMMANDS PASSED")

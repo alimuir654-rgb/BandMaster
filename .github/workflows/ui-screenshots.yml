@@ -36,6 +36,10 @@ jobs:
               return 1
             fi
           }
+          # Real title screen, previously absent from the visual acceptance suite.
+          run_capture --tab=TITLE --width=390 --height=844 --output=screenshots/title-mobile.png
+          run_capture --tab=TITLE --width=720 --height=1280 --output=screenshots/title-tablet.png
+          run_capture --tab=TITLE --width=1280 --height=720 --output=screenshots/title-landscape.png
           run_capture --tab=HOME --width=390 --height=844 --output=screenshots/home-mobile.png
           run_capture --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
           run_capture --tab=ACTIONS --sleeve --width=390 --height=844 --output=screenshots/song-sleeve-mobile.png
@@ -56,6 +60,12 @@ jobs:
             run_capture --tab="$tab" --width=390 --height=844 --output="screenshots/world-${tab,,}-mobile.png"
             run_capture --tab="$tab" --width=720 --height=1280 --output="screenshots/world-${tab,,}-tablet.png"
             run_capture --tab="$tab" --width=1280 --height=720 --output="screenshots/world-${tab,,}-landscape.png"
+          done
+          # Verify that focused worlds still expose every existing management action.
+          for tab in GIGS GEAR BAND; do
+            run_capture --tab="$tab" --expand-world --width=390 --height=844 --output="screenshots/world-${tab,,}-expanded-mobile.png"
+            run_capture --tab="$tab" --expand-world --width=720 --height=1280 --output="screenshots/world-${tab,,}-expanded-tablet.png"
+            run_capture --tab="$tab" --expand-world --width=1280 --height=720 --output="screenshots/world-${tab,,}-expanded-landscape.png"
           done
           for stage in 0 1 2 3; do
             run_capture --tab=ACTIONS --journey-stage="$stage" --width=390 --height=844 --output="screenshots/song-journey-${stage}-mobile.png"

@@ -61,3 +61,14 @@ These three SVGs are newly authored original BandMaster environmental illustrati
 | `Art/Journeys/World/scene-streets.svg` | SCENE / city wall, layered gig posters and street | Midnight blue, violet, neon rose | Original SVG authored for project, 2026-10-26 | Three-size import and populated crop gate; owner approval pending |
 
 HOME uses existing shared studio.webp; STUDIO and GIGS reuse the original Sprint A/B artwork respectively. All six now have separate environmental identities. Source SVGs are editable; these remain illustrative interim assets, not final premium key art.
+
+
+## Living the Dream photo-first integration — 26 October 2026 (PR #182)
+
+**Asset status: NOT YET DELIVERED.** At branch head `fb336296` the Git tree contained no `Art/Photography/approved/*.webp` files. A GitHub-hosted Unsplash download attempt failed with HTTP **401 Unauthorized** (workflow run 40339676333). This is a real acquisition blocker, not a successful import. The automatic fetch job is disabled for routine PR CI until lawful/working acquisition is available.
+
+- `Scripts/journey_photo.gd` maps all four songwriting and five show-day stages to independent `<slot>_wide.webp` / `<slot>_portrait.webp` files, with existing SVGs retained as an offline compatibility fallback.
+- `scripts/prepare_living_dream_upload.py` accepts owner-provided original AVIF/JPEG/PNG/WebP, validates image bytes, and writes 1600×900 + 900×1400 WebP crops with SHA-256 and `human_visual_approval: false`.
+- The 16 upload slots and source register are defined in `docs/LIVING_THE_DREAM_BRITISH_ART_PRODUCTION_GATE.md`. Actual source URL, photographer, individual licence, third-party rights and crop approval remain required before shipping.
+- **Never label the generated WebP output human-approved automatically.** Test crops with populated screenshots at 390×844, 720×1280, 1280×720 and inspect recognisable people/logos/UK location authenticity.
+

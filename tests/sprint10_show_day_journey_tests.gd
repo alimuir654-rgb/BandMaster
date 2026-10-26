@@ -46,19 +46,24 @@ func _run() -> void:
     _check(planes != null,"show journey planes exist "+str(size))
     if planes != null:
      _check((planes is HBoxContainer) == (size.x >= 960),"cinematic show split only in landscape "+str(size))
-    _check((view.find_child("ShowJourneyStoryPanel",true,false) != null) == (size.x >= 960),"landscape show reading surface "+str(size))
+    _check(view.find_child("ShowJourneyStoryPanel",true,false) != null,"readable story dock at every size "+str(size))
+    _check(view.find_child("JourneyCinematicHero",true,false) != null,"cinematic photographic hero at every size "+str(size))
     for step in range(5):
      _check(Journey.current_step(ui._state()) == step,"correct step "+str(step)+" "+str(size))
      _check(_art(view),"real art loaded for step "+str(step)+" "+str(size))
      var next := view.find_child("ShowJourneyNext",true,false) as Button
      _check(next != null and next.custom_minimum_size.y >= 44 and next.focus_mode == Control.FOCUS_ALL,"accessible next "+str(step)+" "+str(size))
      if step == 0:
-      var load_button := _button(view,"LOAD WITH JO")
-      _check(load_button != null and load_button.custom_minimum_size.y >= 44,"real loading crew decision accessible "+str(size))
-      _check(load_button != null and load_button.get_theme_font_size("font_size") >= 15,"loading decision readable at "+str(size))
-      var gear_caption := _text_label(view,"WORN GEAR READINESS EFFECT")
-      _check(gear_caption != null and gear_caption.get_theme_font_size("font_size") >= (15 if size.x >= 960 else 14),"small gear copy meets typography floor "+str(size))
-      view._assign_loading_gear("amp",0)
+      var cargo_bay := view.find_child("ShowJourneyCargoBay",true,false)
+      _check(cargo_bay != null,"spatial cargo manifest visible "+str(size))
+      var crew := view.find_child("CargoCrewPicker01",true,false) as OptionButton
+      _check(crew != null and crew.custom_minimum_size.y >= 44 and crew.focus_mode == Control.FOCUS_ALL,"accessible crew selection "+str(size))
+      _check(crew != null and crew.get_theme_font_size("font_size") >= 16,"crew selection readable "+str(size))
+      var gear_caption := _text_label(view,"GEAR READINESS")
+      _check(gear_caption != null and gear_caption.get_theme_font_size("font_size") >= 16,"cargo condition/readiness text legible "+str(size))
+      if crew != null and crew.item_count > 1:
+       crew.select(1)
+       crew.item_selected.emit(1)
       _check(int(ui._state().get("gear_records",{}).get("amp",{}).get("holder_index",-1)) == 0,"crew equipment assignment persisted in game state "+str(size))
       _check(int(ui._state().get("tour_day",0)) == 7 and int(ui._state().get("cash",0)) == 250,"loading gear costs no day or cash "+str(size))
       var loading_disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))

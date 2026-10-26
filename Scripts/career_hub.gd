@@ -1,6 +1,7 @@
 extends Control
 
 const UI = preload("res://Scripts/ui_theme.gd")
+const Cinematic = preload("res://Scripts/journey_cinematic_stage.gd")
 const Genres = preload("res://Scripts/genre_profiles.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 const SceneEnvironment = preload("res://Scripts/scene_environment.gd")
@@ -61,6 +62,7 @@ var gig_selected_venue := ""
 var selected_band_member := -1
 var roster_sort := "LINEUP"
 var preserve_venue_scroll := false
+var expanded_world_desks := {"GIGS":false,"GEAR":false,"BAND":false}
 var selected_gear_item := ""
 var selected_tour_plan := Tour.DRIVE
 var preserve_gear_scroll := false
@@ -205,6 +207,14 @@ func _render() -> void:
   world.mouse_filter = Control.MOUSE_FILTER_IGNORE
   add_child(world)
   world.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ # The Band House already has a cinematic hero: keep the surrounding canvas quiet.
+ if tab == "HOME":
+  var quiet_backdrop := ColorRect.new()
+  quiet_backdrop.name = "BandHouseQuietBackdrop"
+  quiet_backdrop.color = Color("#0C1420")
+  quiet_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  add_child(quiet_backdrop)
+  quiet_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
  career_scroll = scroll
  add_child(scroll)
@@ -226,8 +236,19 @@ func _render() -> void:
  content.add_theme_constant_override("separation",10)
  margin.add_child(content)
  _header()
- if tab != "HOME" and tab != "ACTIONS" and tab != "BAND":
+ var focus_world := ["GIGS","GEAR","BAND"].has(tab)
+ if focus_world:
+  _world_focus_hero()
+ elif tab != "HOME" and tab != "ACTIONS":
   _hero()
+ var root_content := content
+ if focus_world:
+  var desk := VBoxContainer.new()
+  desk.name = "WorldDetailDesk"
+  desk.visible = bool(expanded_world_desks.get(tab,false))
+  desk.add_theme_constant_override("separation",12)
+  content.add_child(desk)
+  content = desk
  match tab:
   "HOME": _home()
   "GIGS": _gigs()
@@ -235,6 +256,7 @@ func _render() -> void:
   "BAND": _band()
   "ACTIONS": _actions()
   "SCENE": _scene()
+ content = root_content
  if not message.is_empty():
   var feedback := PanelContainer.new()
   var fb_style := UI.style(UI.palette(_genre_id())["alt"],8)
@@ -245,21 +267,74 @@ func _render() -> void:
   var feedback_label := _label(feedback,"LAST ACTION  /  "+message,12,UI.MUTED)
   feedback_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  if get_viewport_rect().size.x < 960.0:
-  var menu := UI.button("SAVE & MAIN MENU")
+  var menu := UI.button("SAVE & EXIT" if tab == "HOME" else "SAVE & MAIN MENU")
   menu.custom_minimum_size.y = 48
+  if tab == "HOME" or focus_world:
+   menu.size_flags_horizontal = Control.SIZE_SHRINK_END
+   menu.custom_minimum_size.x = 154 if tab == "HOME" else 184
+   menu.add_theme_font_size_override("font_size",13)
   content.add_child(menu)
   menu.pressed.connect(_menu)
  _bottom_nav()
  if previous_scroll > 0:
   scroll.set_deferred("scroll_vertical",previous_scroll)
- content.modulate.a = 0.0
- var appear := create_tween()
- appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+ # Reduced-motion users see the scene immediately, without a compulsory fade.
+ if bool(ProjectSettings.get_setting("accessibility/reduced_motion",false)):
+  content.modulate.a = 1.0
+ else:
+  content.modulate.a = 0.0
+  var appear := create_tween()
+  appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+
+func _home_header() -> void:
+ var colours := UI.palette(_genre_id())
+ var masthead := PanelContainer.new()
+ masthead.name = "BandHouseStatusStrip"
+ masthead.add_theme_stylebox_override("panel",UI.flat(Color(0.035,0.055,0.08,0.94),5))
+ content.add_child(masthead)
+ var inset := MarginContainer.new()
+ inset.add_theme_constant_override("margin_left",14)
+ inset.add_theme_constant_override("margin_right",14)
+ inset.add_theme_constant_override("margin_top",9)
+ inset.add_theme_constant_override("margin_bottom",9)
+ masthead.add_child(inset)
+ var lines := VBoxContainer.new()
+ lines.add_theme_constant_override("separation",5)
+ inset.add_child(lines)
+ var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",10)
+ lines.add_child(row)
+ var identity := _label(row,"LIVING THE DREAM  /  BAND HOUSE",12,colours["accent"])
+ identity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ identity.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ var day := _label(row,"DAY %d" % _num("tour_day"),13,UI.WHITE)
+ day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+ day.custom_minimum_size.x = 72
+ day.autowrap_mode = TextServer.AUTOWRAP_OFF
+ day.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+ var status := HBoxContainer.new()
+ status.add_theme_constant_override("separation",13)
+ lines.add_child(status)
+ for item in [
+  {"label":"CASH","value":"£%d" % _num("cash")},
+  {"label":"FANS","value":str(_num("fans"))},
+  {"label":"REP","value":str(_num("reputation"))}
+ ]:
+  var value := _label(status,str(item["label"])+"  "+str(item["value"]),12,UI.MUTED)
+  value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  value.autowrap_mode = TextServer.AUTOWRAP_OFF
+  value.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 func _header() -> void:
+ if tab == "HOME":
+  _home_header()
+  return
+ if ["GIGS","GEAR","BAND"].has(tab):
+  _world_focus_header()
+  return
  var palette: Dictionary = save_data.get("band",{}).get("palette",{})
  var colour: Color = UI.palette(_genre_id())["accent"]
- _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,colour)
+ _label(content,"LIVING THE DREAM   /   BRITISH GRASSROOTS",12,colour)
  var row := HBoxContainer.new()
  content.add_child(row)
  var band_data: Dictionary = save_data.get("band",{})
@@ -329,6 +404,117 @@ func _header() -> void:
   var value_label := _label(metric_copy,str(entry["value"]),22 if wide else 17,UI.WHITE)
   value_label.autowrap_mode = TextServer.AUTOWRAP_OFF
   value_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+# One compact status strip and a single cinematic decision per destination.
+# The full legacy management controls remain reachable under the desk toggle.
+func _world_focus_header() -> void:
+ var colours := UI.palette(_genre_id())
+ var band_data: Dictionary = save_data.get("band",{})
+ var strip := PanelContainer.new()
+ strip.name = "WorldFocusStatusStrip"
+ strip.add_theme_stylebox_override("panel",UI.flat(Color(0.035,0.055,0.08,0.94),5))
+ content.add_child(strip)
+ var margin := MarginContainer.new()
+ margin.add_theme_constant_override("margin_left",14)
+ margin.add_theme_constant_override("margin_right",14)
+ margin.add_theme_constant_override("margin_top",10)
+ margin.add_theme_constant_override("margin_bottom",10)
+ strip.add_child(margin)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",6)
+ margin.add_child(stack)
+ var row := HBoxContainer.new()
+ stack.add_child(row)
+ var name_label := _label(row,str(band_data.get("name","YOUR BAND")).to_upper(),18,UI.WHITE)
+ name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+ name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ _label(row,"DAY %d" % _num("tour_day"),14,colours["accent"])
+ var metrics := HBoxContainer.new()
+ metrics.add_theme_constant_override("separation",10)
+ stack.add_child(metrics)
+ for item in ["£%d CASH" % _num("cash"),"%d FANS" % _num("fans"),"%d REP" % _num("reputation")]:
+  var label := _label(metrics,item,12,UI.MUTED)
+  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+func _toggle_world_desk() -> void:
+ var expanding := not bool(expanded_world_desks.get(tab,false))
+ expanded_world_desks[tab] = expanding
+ _render()
+ if expanding:
+  call_deferred("_reveal_world_desk")
+
+func _reveal_world_desk() -> void:
+ var desk := find_child("WorldDetailDesk",true,false) as VBoxContainer
+ if desk == null or not is_instance_valid(career_scroll):
+  return
+ # Reveal the FIRST action, not the bottom of a long legacy catalogue.
+ var target: Control = desk.get_child(0) as Control if desk.get_child_count() > 0 else desk
+ career_scroll.ensure_control_visible(target)
+
+func _world_focus_hero() -> void:
+ var colours := UI.palette(_genre_id())
+ var specs := {
+  "GIGS":{"photo":"showtime","kicker":"THE LIVE CIRCUIT","title":"MAKE THE ROOM YOURS","detail":"A gig starts long before the lights go down."},
+  "GEAR":{"photo":"world_gear","kicker":"THE MUSIC SHOP","title":"BUILD YOUR SOUND","detail":"The right kit makes the next rehearsal count."},
+  "BAND":{"photo":"world_band","kicker":"THE BAND ROOM","title":"KEEP THE BAND TOGETHER","detail":"The people matter as much as the songs."}
+ }
+ var spec: Dictionary = specs[tab]
+ var width := get_viewport_rect().size.x
+ var crop := "wide" if width >= 960.0 else "portrait"
+ var photo := "res://Art/Photography/approved/%s_%s.webp" % [str(spec["photo"]),crop]
+ var height := clampf(get_viewport_rect().size.y*0.65,390.0,830.0)
+ Cinematic.add_hero(content,photo,str(spec["kicker"]),str(spec["title"]),colours["accent"],height,"WorldFocusPhoto")
+ var info := VBoxContainer.new()
+ info.name = "WorldFocusDecisionDock"
+ info.add_theme_constant_override("separation",11)
+ content.add_child(info)
+ var summary := ""
+ var main_label := ""
+ var main_action := Callable()
+ match tab:
+  "GIGS":
+   var booked: Dictionary = Calendar.pending(_state())
+   if booked.is_empty():
+    summary = "NO GIG BOOKED  /  FIND YOUR FIRST ROOM"
+    main_label = "FIND A VENUE"
+    main_action = func() -> void: _open_venue_browser()
+   else:
+    var days := int(booked.get("day",1))-_num("tour_day")
+    summary = "%s  /  %s  /  %d DAYS" % [str(booked.get("venue","NEXT GIG")).to_upper(),str(booked.get("city","UK")).to_upper(),maxi(0,days)]
+    if days <= 0:
+     main_label = "ENTER SHOW DAY"
+     main_action = func() -> void: _open_show_day_journey()
+    else:
+     main_label = "PREPARE FOR THE SHOW"
+     main_action = func() -> void: _switch("ACTIONS")
+  "GEAR":
+   var owned: Array = _extra().get("owned_equipment",[])
+   summary = "%d PIECES OWNED  /  £%d AVAILABLE" % [owned.size(),_num("cash")]
+   main_label = "EXPLORE THE MUSIC SHOP"
+   main_action = func() -> void: _toggle_world_desk()
+  "BAND":
+   var members: Array = save_data.get("band",{}).get("members",[])
+   summary = "%d MUSICIANS  /  REHEARSAL, LOYALTY & LIFE" % members.size()
+   main_label = "MEET YOUR BAND"
+   main_action = func() -> void: _toggle_world_desk()
+ _label(info,str(spec["detail"]),16,UI.WHITE)
+ _label(info,summary,14,colours["accent"])
+ var primary := UI.themed_button(main_label,_genre_id(),true)
+ primary.name = "WorldFocusPrimaryAction"
+ primary.custom_minimum_size.y = 82
+ primary.icon_end = "arrow-right"
+ info.add_child(primary)
+ primary.pressed.connect(main_action)
+ var details_label := "CLOSE THE FULL DESK" if bool(expanded_world_desks.get(tab,false)) else "OPEN THE FULL %s DESK" % tab
+ var details := UI.themed_button(details_label,_genre_id(),false)
+ details.name = "WorldFocusExpandDesk"
+ details.custom_minimum_size.y = 78
+ details.icon_start = "list"
+ info.add_child(details)
+ details.pressed.connect(_toggle_world_desk)
 
 func _hero() -> void:
  var colours := UI.palette(_genre_id())
@@ -572,251 +758,184 @@ func _home_spotlight() -> void:
  secondary.pressed.connect(func() -> void: _switch("BAND"))
 
 func _home() -> void:
- _scene_instrument_strip()
- var full_content := content
- var landscape_dashboard := get_viewport_rect().size.x >= 960.0
- var main_column: VBoxContainer
- var sidebar: VBoxContainer
- if landscape_dashboard:
-  var dashboard := HBoxContainer.new()
-  dashboard.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  dashboard.add_theme_constant_override("separation",14)
-  full_content.add_child(dashboard)
-  main_column = VBoxContainer.new()
-  main_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  main_column.size_flags_stretch_ratio = 1.65
-  main_column.add_theme_constant_override("separation",12)
-  dashboard.add_child(main_column)
-  sidebar = VBoxContainer.new()
-  sidebar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  sidebar.size_flags_stretch_ratio = 1.0
-  sidebar.add_theme_constant_override("separation",12)
-  dashboard.add_child(sidebar)
-  content = main_column
+ # Premium home vertical slice: an authored scene, one decision and three destinations.
+ # Existing tab handlers retain all the original simulation and save behaviour.
+ var wide := get_viewport_rect().size.x >= 960.0
+ var compact := get_viewport_rect().size.x < 600.0
+ var colours := UI.palette(_genre_id())
  var guidance: Dictionary = Director.next_move(_state())
- var focus := _card("YOUR NEXT MOVE  /  "+str(guidance.get("title","")),str(guidance.get("detail","")))
- var destination := str(guidance.get("tab","ACTIONS"))
- _action(focus,str(guidance.get("action","CONTINUE"))+"  ›",func() -> void: _switch(destination),true)
- if landscape_dashboard:
-  content = full_content
-  _home_spotlight()
-  content = main_column
- _environment_dashboard()
- if landscape_dashboard:
-  content = sidebar
- var stage := _card("YOUR BAND","Your story starts in the rehearsal room.")
- var feature_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
- if not ResourceLoader.exists(feature_path):
-  feature_path = "res://Art/Backgrounds/shared/band.webp"
- if ResourceLoader.exists(feature_path):
-  var feature := TextureRect.new()
-  feature.custom_minimum_size.y = 92 if CareerLayout.is_compact(get_viewport_rect().size.x) else 144
-  feature.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  feature.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  feature.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  feature.texture = load(feature_path)
-  stage.add_child(feature)
- var band_label := _label(stage,str(save_data.get("band",{}).get("name","YOUR BAND")),28,UI.WHITE)
- band_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- _label(stage,"DAY %d   /   %s" % [_num("tour_day"),str(Genres.from_save(save_data)["name"]).to_upper()],13,UI.palette(_genre_id())["accent"])
- if landscape_dashboard:
-  content = main_column
- var destinations := _card("YOUR WORLD","Choose where the band heads next.")
- var places := GridContainer.new()
- places.columns = CareerLayout.destination_columns(get_viewport_rect().size.x)
- places.add_theme_constant_override("h_separation",10)
- places.add_theme_constant_override("v_separation",10)
- destinations.add_child(places)
- for spot in [
-  {"name":"THE STUDIO","tab":"ACTIONS","caption":"Jam · Rehearse · Hang out","art":"studio"},
-  {"name":"THE VENUES","tab":"GIGS","caption":"Book · Prepare · Perform","art":"gigs"},
-  {"name":"THE BAND","tab":"BAND","caption":"People · Chemistry · Stories","art":"band"},
-  {"name":"THE SCENE","tab":"SCENE","caption":"Promoters · Press · Scrapbook","art":"scene"},
-  {"name":"THE GEAR SHOP","tab":"GEAR","caption":"Buy · Upgrade · Repair","art":"gear"}
- ]:
-  var data: Dictionary = spot
-  var destination_card := PanelContainer.new()
-  destination_card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  destination_card.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["panel"],12))
-  places.add_child(destination_card)
-  var destination_column := VBoxContainer.new()
-  destination_column.add_theme_constant_override("separation",5)
-  destination_card.add_child(destination_column)
-  var thumb_path := "res://Art/Backgrounds/%s/%s.webp" % [_genre_id(),str(data["art"])]
-  if not ResourceLoader.exists(thumb_path):
-   thumb_path = "res://Art/Backgrounds/shared/%s.webp" % str(data["art"])
-  if ResourceLoader.exists(thumb_path):
-   var thumbnail := TextureRect.new()
-   thumbnail.texture = load(thumb_path)
-   thumbnail.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-   thumbnail.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-   thumbnail.custom_minimum_size.y = 98 if landscape_dashboard else 72
-   thumbnail.mouse_filter = Control.MOUSE_FILTER_IGNORE
-   destination_column.add_child(thumbnail)
-  var tile := WoldButton.new()
-  tile.shape = WoldButton.Shape.SECONDARY
-  tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  tile.custom_minimum_size.y = 56 if landscape_dashboard else 62
-  tile.icon_start = {"ACTIONS":"music","GIGS":"ticket","BAND":"users","SCENE":"globe","GEAR":"guitar"}.get(str(data["tab"]),"arrow-right")
-  tile.icon_end = "chevron-right"
-  tile.text = str(data["name"])
-  tile.tooltip_text = str(data["caption"])
-  tile.accessibility_name = str(data["name"])+" — "+str(data["caption"])
-  tile.add_theme_font_size_override("font_size",15 if CareerLayout.is_compact(get_viewport_rect().size.x) else 17)
-  tile.add_theme_stylebox_override("normal",UI.style(UI.palette(_genre_id())["alt"],10))
-  tile.add_theme_stylebox_override("hover",UI.style(UI.palette(_genre_id())["alt"].lightened(0.14),10))
-  tile.add_theme_stylebox_override("pressed",UI.style(UI.palette(_genre_id())["panel"],10))
-  destination_column.add_child(tile)
-  var target: String = str(data["tab"])
-  tile.pressed.connect(func() -> void: _switch(target))
+ var band_name := str(save_data.get("band",{}).get("name","YOUR BAND"))
+ var hero := Control.new()
+ hero.name = "BandHouseHero"
+ hero.clip_contents = true
+ hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ # The first action and the three destinations must be visible without a long scroll.
+ # Scale with actual viewport height rather than using a fixed 780px photograph.
+ var viewport_height := get_viewport_rect().size.y
+ var hero_height := clampf(viewport_height * (1.06 if wide else 1.0),740.0,780.0)
+ hero.custom_minimum_size = Vector2(0.0,hero_height)
+ content.add_child(hero)
 
- if landscape_dashboard:
-  content = sidebar
- var pulse := _card("BAND PULSE","Your band at a glance — focus on the weakest area.")
- var pulse_row := HBoxContainer.new()
- pulse_row.add_theme_constant_override("separation",8)
- pulse.add_child(pulse_row)
- for key in ["readiness","morale","van_health"]:
-  var amount := _num(key)
-  var state_label := "STRONG" if amount >= 70 else ("WATCH" if amount >= 40 else "CRITICAL")
-  var tint := Color("#67B894") if amount >= 70 else (Color("#F0B44D") if amount >= 40 else Color("#E57479"))
-  var pill := UI.themed_button(key.to_upper().replace("_"," ")+"  ·  "+state_label,_genre_id(),false)
-  pill.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  pill.add_theme_color_override("font_color",tint)
-  pill.tooltip_text = "Current condition: %d / 100" % amount
-  pulse_row.add_child(pill)
-  var remedy_tab := "GEAR" if key == "van_health" else "ACTIONS"
-  pill.pressed.connect(func() -> void: _switch(remedy_tab))
- var weakest := "readiness"
- for key in ["morale","van_health"]:
-  if _num(key) < _num(weakest):
-   weakest = key
- var advice := {"readiness":"Rehearse to prepare for tougher gigs.","morale":"Spend time together to rebuild morale.","van_health":"Repair the van before booking longer trips."}
- _label(pulse,str(advice[weakest]),13,UI.MUTED)
- _action(pulse,"IMPROVE THE BAND" if weakest != "van_health" else "OPEN GEAR & REPAIRS",func() -> void: _switch("GEAR" if weakest == "van_health" else "ACTIONS"))
- var opportunities := _card("WAYS FORWARD","Pick a practical route to grow the band.")
- var pathways := [
-  {"title":"BUILD YOUR AUDIENCE","detail":"Perform and promote to attract fans.","tab":"SCENE","action":"PROMOTION"},
-  {"title":"RAISE YOUR PROFILE","detail":"Play shows and complete chapters for reputation.","tab":"GIGS","action":"LIVE CIRCUIT"},
-  {"title":"EARN YOUR KEEP","detail":"Collect gig fees and chapter rewards for cash.","tab":"GIGS","action":"FIND PAID SHOWS"}
- ]
- var pathway_grid := GridContainer.new()
- pathway_grid.columns = 1 if get_viewport_rect().size.x < 720.0 else 3
- pathway_grid.add_theme_constant_override("h_separation",9)
- pathway_grid.add_theme_constant_override("v_separation",9)
- opportunities.add_child(pathway_grid)
- for pathway in pathways:
-  var path_panel := PanelContainer.new()
-  path_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  path_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],10))
-  pathway_grid.add_child(path_panel)
-  var path_stack := VBoxContainer.new()
-  path_stack.add_theme_constant_override("separation",6)
-  path_panel.add_child(path_stack)
-  _label(path_stack,str(pathway["title"]),12,UI.palette(_genre_id())["accent"])
-  var path_description := _label(path_stack,str(pathway["detail"]),12,UI.WHITE)
-  path_description.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-  var jump := UI.themed_button(str(pathway["action"]),_genre_id(),false)
-  jump.custom_minimum_size.y = 45
-  path_stack.add_child(jump)
-  var jump_tab: String = str(pathway["tab"])
-  jump.pressed.connect(func() -> void: _switch(jump_tab))
+ var photograph := TextureRect.new()
+ photograph.name = "BandHousePhotograph"
+ var photo_path := "res://Art/Photography/approved/world_home_wide.webp" if wide else "res://Art/Photography/approved/world_home_portrait.webp"
+ if not ResourceLoader.exists(photo_path):
+  photo_path = "res://Art/Backgrounds/shared/studio.webp"
+ if ResourceLoader.exists(photo_path):
+  photograph.texture = load(photo_path)
+ photograph.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ photograph.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ photograph.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.add_child(photograph)
+ photograph.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+ var scrim := ColorRect.new()
+ scrim.name = "BandHouseLegibilityScrim"
+ # Let the photograph establish place; reserve the stronger scrim for the CTA.
+ scrim.color = Color(0.025,0.038,0.055,0.40)
+ scrim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.add_child(scrim)
+ scrim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+ # A transparent-to-ink lower-third gradient keeps the photograph visible
+ # without drawing a hard horizontal bar through the rehearsal-room image.
+ var action_gradient := Gradient.new()
+ action_gradient.set_color(0,Color(0.015,0.024,0.037,0.0))
+ action_gradient.set_color(1,Color(0.015,0.024,0.037,0.86))
+ var action_texture := GradientTexture2D.new()
+ action_texture.gradient = action_gradient
+ action_texture.fill_from = Vector2(0.5,0.0)
+ action_texture.fill_to = Vector2(0.5,1.0)
+ action_texture.width = 16
+ action_texture.height = 256
+ var bottom_scrim := TextureRect.new()
+ bottom_scrim.name = "BandHouseActionScrim"
+ bottom_scrim.texture = action_texture
+ bottom_scrim.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ bottom_scrim.stretch_mode = TextureRect.STRETCH_SCALE
+ bottom_scrim.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.add_child(bottom_scrim)
+ bottom_scrim.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ bottom_scrim.offset_top = -390.0 if compact else -340.0
+
+ var border := ColorRect.new()
+ border.color = colours["accent"]
+ border.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.add_child(border)
+ border.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ border.offset_top = -4
+
+ var insets := MarginContainer.new()
+ insets.name = "BandHouseForeground"
+ hero.add_child(insets)
+ insets.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ for edge in ["left","right"]:
+  insets.add_theme_constant_override("margin_"+edge,22 if compact else 36)
+ insets.add_theme_constant_override("margin_top",26)
+ insets.add_theme_constant_override("margin_bottom",25)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",9)
+ insets.add_child(stack)
+ _label(stack,"YOUR REHEARSAL ROOM  /  %s" % str(Genres.from_save(save_data).get("name","Indie")).to_upper(),12,colours["accent"])
+ var nameplate := _label(stack,band_name.to_upper(),38 if compact else 52,UI.WHITE)
+ nameplate.max_lines_visible = 2
+ nameplate.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ var pulse := _label(stack,"READINESS %d   /   MORALE %d   /   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],15,UI.WHITE)
+ pulse.name = "BandHouseStatusStrip"
+ var spacer := Control.new()
+ spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ stack.add_child(spacer)
+ _label(stack,"YOUR NEXT MOVE",12,colours["accent"])
+ var headline := _label(stack,str(guidance.get("title","MAKE YOUR NEXT MOVE")).to_upper(),23 if compact else 28,UI.WHITE)
+ headline.max_lines_visible = 2
+ var detail := _label(stack,str(guidance.get("detail","Build the band, make a record, find your audience.")),15 if compact else 17,UI.WHITE)
+ detail.max_lines_visible = 2 if compact else 3
+ var target := str(guidance.get("tab","ACTIONS"))
+ var call := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper()+"  →",_genre_id(),true)
+ call.name = "BandHousePrimaryAction"
+ call.custom_minimum_size.y = 82
+ call.add_theme_font_size_override("font_size",20 if compact else 19)
+ call.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+ call.custom_minimum_size.x = 340 if not wide else 290
+ stack.add_child(call)
+ call.pressed.connect(func() -> void: _switch(target))
+
+ var places_label := _label(content,"GO SOMEWHERE",12,colours["accent"])
+ places_label.name = "BandHouseDestinationsHeading"
+ var places := GridContainer.new()
+ places.name = "BandHouseDestinations"
+ places.columns = 3
+ places.add_theme_constant_override("h_separation",8)
+ content.add_child(places)
+ for destination in [
+  {"name":"WRITE & REHEARSE","short":"STUDIO","tab":"ACTIONS","icon":"music"},
+  {"name":"BOOK & PLAY","short":"GIGS","tab":"GIGS","icon":"ticket"},
+  {"name":"YOUR PEOPLE","short":"BAND","tab":"BAND","icon":"users"}
+ ]:
+  var item: Dictionary = destination
+  var button := UI.themed_button(str(item["short"]) if compact else str(item["name"]),_genre_id(),false)
+  button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  button.custom_minimum_size.y = 84
+  button.add_theme_font_size_override("font_size",17 if compact else 18)
+  button.tooltip_text = str(item["name"])
+  button.accessibility_name = str(item["name"])
+  if button is WoldButton and not compact:
+   button.icon_start = str(item["icon"])
+  places.add_child(button)
+  var tab_target := str(item["tab"])
+  button.pressed.connect(func() -> void: _switch(tab_target))
 
  var upcoming: Dictionary = Calendar.pending(_state())
+ var story := VBoxContainer.new()
+ story.add_theme_constant_override("separation",7)
+ content.add_child(story)
  if upcoming.is_empty():
-  var no_booking := _card("NO GIG BOOKED","Your calendar is clear. Book your next show to start building momentum.")
-  _action(no_booking,"EXPLORE VENUES",func() -> void: _switch("GIGS"),true)
- if not upcoming.is_empty():
-  var remaining := int(upcoming.get("day",1)) - _num("tour_day")
-  var plan := _card("GIG NIGHT  /  DAY %d" % int(upcoming.get("day",1)),str(upcoming.get("venue","Venue"))+"  ·  "+str(upcoming.get("city","HOME")))
-  if remaining > 0:
-   _label(plan,"%d DAYS TO PREPARE YOUR SET" % remaining,16,UI.AMBER)
-   _action(plan,"PREPARE THE BAND",func() -> void: _switch("ACTIONS"),true)
-  elif remaining == 0:
-   _label(plan,"TONIGHT: THE BAND IS EXPECTED ON STAGE",16,UI.AMBER)
-   _action(plan,"GO TO TONIGHT'S GIG",func() -> void: _switch("GIGS"),true)
-  else:
-   _label(plan,"OVERDUE BOOKING — RESOLVE THIS GIG",15,UI.AMBER)
-   _action(plan,"OPEN GIG CALENDAR",func() -> void: _switch("GIGS"),true)
- if landscape_dashboard:
-  content = main_column
- var chapter: Dictionary = Chapters.progress(_state())
- var chapter_box := _card("CAREER CHAPTER  /  "+str(chapter.get("title","")),str(chapter.get("description","")))
- if bool(chapter.get("done",false)):
-  _label(chapter_box,"ALL OPENING CHAPTERS COMPLETED",14,UI.palette(_genre_id())["accent"])
+  _label(story,"THE NEXT GIG  /  NOT BOOKED",13,UI.WHITE)
+  _label(story,"No date in the diary yet. The local circuit is waiting.",14,UI.MUTED)
  else:
-  var requirements: Array = chapter.get("requirements",[])
-  var complete_count := 0
-  for objective in requirements:
-   if int(objective.get("current",0)) >= int(objective.get("target",1)):
-    complete_count += 1
-   Components.objective(chapter_box,objective)
-  var ready := bool(chapter.get("ready",false))
-  _label(chapter_box,"READY TO CLAIM" if ready else "%d OF %d OBJECTIVES COMPLETE" % [complete_count,requirements.size()],13,UI.palette(_genre_id())["accent"] if ready else UI.MUTED)
-  _label(chapter_box,"REWARD  /  £%d  +%d REPUTATION" % [int(chapter.get("reward_cash",0)),int(chapter.get("reward_rep",0))],14,UI.WHITE)
-  var claim := UI.themed_button("CLAIM REWARD" if ready else "FINISH OBJECTIVES TO CLAIM",_genre_id(),ready)
-  claim.disabled = not ready
-  claim.tooltip_text = "Finish the listed objectives first." if not ready else "Claim the reward once. Cash and reputation are saved immediately."
-  claim.custom_minimum_size.y = 52
-  chapter_box.add_child(claim)
+  var days := maxi(0,int(upcoming.get("day",0))-_num("tour_day"))
+  _label(story,"THE NEXT GIG  /  %s" % str(upcoming.get("venue","YOUR NEXT VENUE")).to_upper(),13,UI.WHITE)
+  _label(story,"%s  ·  %d DAYS TO GO" % [str(upcoming.get("city","UK")),days],14,colours["accent"])
+ var chapter: Dictionary = Chapters.progress(_state())
+ var requirements: Array = chapter.get("requirements",[])
+ var complete_count := 0
+ for objective in requirements:
+  if int(objective.get("current",0)) >= int(objective.get("target",1)):
+   complete_count += 1
+ var chapter_line := "CHAPTER  /  "+str(chapter.get("title","THE FIRST STEPS")).to_upper()
+ _label(story,chapter_line,13,UI.WHITE)
+ _label(story,"%d / %d OBJECTIVES COMPLETE" % [complete_count,requirements.size()],13,UI.MUTED)
+ if bool(chapter.get("ready",false)) and not bool(chapter.get("done",false)):
+  var claim := UI.themed_button("CLAIM CHAPTER REWARD",_genre_id(),false)
+  claim.custom_minimum_size.y = 48
+  story.add_child(claim)
   var chapter_id := str(chapter.get("id",""))
   claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id),"chapter:"+chapter_id))
 
- var fans := _num("fans")
- var rep := _num("reputation")
- var missing: Dictionary = {}
- for venue in Gigs.VENUES:
-  if fans < int(venue["min_fans"]) or rep < int(venue["min_rep"]):
-   missing = venue
-   break
- if not missing.is_empty():
-  var body := _card("NEXT: " + str(missing["city"]),
-   "Unlock %s: %d more fans, %d more reputation." % [str(missing["venue"]),maxi(0,int(missing["min_fans"])-fans),maxi(0,int(missing["min_rep"])-rep)])
-  _action(body,"BOOK A HOMETOWN GIG",func() -> void: _switch("GIGS"),true)
- else:
-  _card("REGIONAL CIRCUIT UNLOCKED","All current UK venues are available.")
- _opportunities()
- if landscape_dashboard:
-  content = sidebar
- var songs: Array = _extra().get("song_catalogue",[])
- if not songs.is_empty():
-  var songbook := _card("ORIGINAL SONGS","Your band is building its first setlist.")
-  for i in range(songs.size()-1,maxi(-1,songs.size()-4),-1):
-   var tune: Dictionary = songs[i]
-   _label(songbook,str(tune.get("title","UNTITLED"))+"  /  QUALITY %d" % int(tune.get("quality",0)),14,UI.WHITE)
-  _label(songbook,"%d TOTAL ORIGINALS" % _num("songs"),12,UI.AMBER)
- var memories := Story.latest(_state(),3)
- if not memories.is_empty():
-  var journal := _card("LATEST FROM THE BAND","A living scrapbook of gigs, friendships and turning points.")
-  for moment in memories:
-   if moment is Dictionary:
-    var clipping: Dictionary = Presentation.clipping(moment)
-    _label(journal,str(clipping["rubric"])+"  /  DAY %d" % int(clipping["day"]),11,UI.AMBER)
-    Components.story(journal,moment)
-  _action(journal,"OPEN FULL SCRAPBOOK",func() -> void: _switch("SCENE"))
- if not landscape_dashboard:
-  var quick := _card("SHORTCUTS","Jump straight into your next session.")
-  var row := HBoxContainer.new()
-  row.add_theme_constant_override("separation",6)
-  quick.add_child(row)
-  var book := UI.button("GIGS",true)
-  var write := UI.button("WRITE")
-  var practise := UI.button("PRACTISE")
-  for action in [book,write,practise]:
-   action.custom_minimum_size.y = 58
-   action.add_theme_font_size_override("font_size",13)
-   row.add_child(action)
-  book.pressed.connect(func() -> void: _switch("GIGS"))
-  write.pressed.connect(func() -> void:
-   action_view = "JAM"
-   _switch("ACTIONS")
-  )
-  practise.pressed.connect(func() -> void:
-   action_view = "JAM"
-   _switch("ACTIONS")
-  )
- if landscape_dashboard:
-  content = full_content
+ # A quiet, non-clickable glimpse of the people behind the numbers.
+ var members: Array = save_data.get("band",{}).get("members",[])
+ if not members.is_empty():
+  content.add_child(HSeparator.new())
+  _label(content,"IN THE ROOM  /  THE LINEUP",12,colours["accent"])
+  var roster := HBoxContainer.new()
+  roster.add_theme_constant_override("separation",12)
+  content.add_child(roster)
+  for i in range(mini(3,members.size())):
+   var member: Dictionary = members[i]
+   var person := VBoxContainer.new()
+   person.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   person.add_theme_constant_override("separation",2)
+   roster.add_child(person)
+   var portrait := Portrait.new()
+   portrait.name = "BandHouseMemberPortrait"
+   portrait.custom_minimum_size = Vector2(108,154)
+   portrait.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   person.add_child(portrait)
+   portrait.set_character(str(member.get("id",member.get("name",""))),str(member.get("name","Musician")),_genre_id())
+   var name := _label(person,str(member.get("name","MUSICIAN")),17,UI.WHITE)
+   name.autowrap_mode = TextServer.AUTOWRAP_OFF
+   name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+   _label(person,str(member.get("role","BANDMATE")).to_upper(),12,UI.MUTED)
 
 func _editorial_banner(title: String, subtitle: String, artwork: String, destination: String, action_label: String) -> void:
  # Shared wide-screen feature banner for the three core management workspaces.
@@ -845,7 +964,7 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
  copy.size_flags_stretch_ratio = 1.35
  copy.add_theme_constant_override("separation",10)
  line.add_child(copy)
- _label(copy,"BANDMASTER  /  YOUR CAREER",12,UI.palette(_genre_id())["accent"])
+ _label(copy,"LIVING THE DREAM  /  YOUR CAREER",12,UI.palette(_genre_id())["accent"])
  var heading := _label(copy,title,28,UI.WHITE)
  heading.max_lines_visible = 2
  heading.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
@@ -1514,7 +1633,6 @@ func _gear() -> void:
 func _band() -> void:
  _band_situations()
  _life_situations()
- _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
@@ -2788,13 +2906,13 @@ func _bottom_nav() -> void:
   button.custom_minimum_size.y = 68 if landscape else (56 if compact else 62)
   button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  var fill: Color = colours["alt"] if selected else colours["panel"]
-  var normal := UI.style(fill,10)
-  normal.border_color = colours["accent"] if selected else colours["alt"]
-  normal.border_width_bottom = 3 if selected else 1
+  # Navigation is a quiet rail, not six competing card-shaped calls to action.
+  var normal := UI.flat(colours["alt"] if selected else Color.TRANSPARENT,5)
+  normal.border_color = colours["accent"] if selected else Color.TRANSPARENT
+  normal.border_width_bottom = 3 if selected else 0
   button.add_theme_stylebox_override("normal",normal)
-  button.add_theme_stylebox_override("hover",UI.style(colours["alt"].lightened(0.12),10))
-  button.add_theme_stylebox_override("pressed",UI.style(colours["alt"].darkened(0.1),10))
+  button.add_theme_stylebox_override("hover",UI.flat(colours["alt"].lightened(0.08),5))
+  button.add_theme_stylebox_override("pressed",UI.flat(colours["alt"].darkened(0.06),5))
   var focus := UI.flat(Color(0,0,0,0),11)
   focus.border_color = colours["accent"]
   focus.set_border_width_all(2)
@@ -2958,6 +3076,11 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  if chapter_result:
   var reward_heading := _label(stack,"CHAPTER COMPLETE  /  REWARD CLAIMED",14,UI.palette(_genre_id())["accent"])
   reward_heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  # Show the actual committed state delta, never a decorative or duplicate payout.
+  var earned_cash := int(after.get("cash",0))-int(before.get("cash",0))
+  var earned_reputation := int(after.get("reputation",0))-int(before.get("reputation",0))
+  var earned := _label(stack,"REWARD  /  £%d  +%d REPUTATION" % [earned_cash,earned_reputation],16,UI.WHITE)
+  earned.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var show_result := source.begins_with("gig:")
  if show_result:
   var show_banner := PanelContainer.new()

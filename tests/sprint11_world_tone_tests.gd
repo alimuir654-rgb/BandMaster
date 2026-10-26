@@ -48,6 +48,20 @@ func _run() -> void:
     var environment := _environment(ui)
     _check(environment != null and str(environment.scene_id) != "DEFAULT","distinct environment "+str(target))
     _check(int(ui._state().get("tour_day",0)) == 1 and int(ui._state().get("cash",0)) == 250,"tab travel is free")
+    if ["GIGS","GEAR","BAND"].has(str(target)):
+     var focus_photo := ui.find_child("WorldFocusPhoto",true,false) as TextureRect
+     var focus_action := ui.find_child("WorldFocusPrimaryAction",true,false) as Button
+     var focus_desk := ui.find_child("WorldDetailDesk",true,false) as VBoxContainer
+     _check(focus_photo != null and focus_photo.texture != null,"photographic world "+str(target)+" at "+str(size))
+     _check(focus_action != null and focus_action.custom_minimum_size.y >= 82.0,"accessible primary world action "+str(target))
+     _check(focus_desk != null and not focus_desk.visible,"full desk starts progressively disclosed "+str(target))
+     ui._toggle_world_desk()
+     await process_frame
+     focus_desk = ui.find_child("WorldDetailDesk",true,false) as VBoxContainer
+     _check(focus_desk != null and focus_desk.visible,"full legacy desk remains reachable "+str(target))
+     _check(int(ui._state().get("tour_day",0)) == 1 and int(ui._state().get("cash",0)) == 250,"opening world desk costs nothing "+str(target))
+     ui._toggle_world_desk()
+     await process_frame
    ui._open_songwriting_journey()
    await process_frame
    var song := ui.find_child("SongwritingJourney",true,false)
@@ -55,7 +69,8 @@ func _run() -> void:
    _check(song != null and planes != null,"song journey renders")
    if planes != null:
     _check((planes is HBoxContainer) == (size.x >= 960),"song layout responds to aspect")
-   _check((ui.find_child("JourneyStoryPanel",true,false) != null) == (size.x >= 960),"landscape song reading surface")
+   _check(ui.find_child("JourneyStoryPanel",true,false) != null,"song decision dock readable at all viewports")
+   _check(ui.find_child("JourneyCinematicHero",true,false) != null,"song photographic hero present at all viewports")
    if song != null:
     song.queue_free()
    await process_frame

@@ -3,6 +3,8 @@ extends Control
 const UI = preload("res://Scripts/ui_theme.gd")
 const Journey = preload("res://Scripts/show_day_journey.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
+const Photos = preload("res://Scripts/journey_photo.gd")
+const Cinematic = preload("res://Scripts/journey_cinematic_stage.gd")
 const Tour = preload("res://Scripts/tour_itinerary.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
@@ -49,25 +51,69 @@ func _label(parent: Node, words: String, size: int, color: Color) -> Label:
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  # Small copy was unreadable in populated 1280x720 captures; preserve
  # headline hierarchy but enforce a readable floor across all viewports.
- label.add_theme_font_size_override("font_size",maxi(size,15) if get_viewport_rect().size.x >= 960.0 else maxi(size,14))
+ label.add_theme_font_size_override("font_size",maxi(size,16))
  label.add_theme_color_override("font_color",color)
  parent.add_child(label)
  return label
 
 func _button(parent: Node, caption: String, callback: Callable, primary: bool = false) -> Button:
  var button := UI.themed_button(caption,genre_id,primary)
- button.custom_minimum_size.y = 54
+ button.custom_minimum_size.y = 82
  button.focus_mode = Control.FOCUS_ALL
- button.add_theme_font_size_override("font_size",15)
- var step := maxi(0,Journey.current_step(source_state))
- var style := UI.style(ACCENTS[step] if primary else BACKDROPS[step].lightened(0.15),10)
- style.border_color = ACCENTS[step]
- style.set_border_width_all(2)
- button.add_theme_stylebox_override("normal",style)
- button.add_theme_color_override("font_color",Color("#142024") if primary else Color("#FFFFFF"))
+ button.add_theme_font_size_override("font_size",16)
  parent.add_child(button)
  button.pressed.connect(callback)
  return button
+
+# Physical loadout manifest. Each case has a carrier, a condition and an
+# accessible crew selector; assignment uses the existing persistent gear engine.
+func _cargo_card(parent: Node, item_id: String, ordinal: int) -> void:
+ var record: Dictionary = Gear.record(source_state,item_id)
+ var holder := Gear.holder_index(source_state,record)
+ var members: Array = source_state.get("members",[])
+ var gear_name := str(Gear.item_for(item_id).get("name",item_id))
+ var condition := "NOT INSPECTED" if int(record.get("condition",-1)) < 0 else "%d%% CONDITION" % int(record.get("condition",0))
+ var card := PanelContainer.new()
+ card.name = "CargoCase%02d" % ordinal
+ card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ var surface := UI.flat(Color("#17252D"),8)
+ surface.set_content_margin_all(14)
+ surface.border_color = Color("#4A625C")
+ surface.border_width_left = 3
+ card.add_theme_stylebox_override("panel",surface)
+ parent.add_child(card)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",7)
+ card.add_child(stack)
+ _label(stack,"CASE %02d   /   %s" % [ordinal,condition],13,Color("#D3E89A"))
+ _label(stack,gear_name.to_upper(),18,Color("#FFF7EC"))
+ if holder >= 0 and holder < members.size():
+  _label(stack,"LOADED BY  /  "+str(members[holder].get("name","CREW")).to_upper(),14,Color("#C6D8D2"))
+  return
+ var crew := OptionButton.new()
+ crew.name = "CargoCrewPicker%02d" % ordinal
+ crew.custom_minimum_size.y = 82
+ crew.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ crew.focus_mode = Control.FOCUS_ALL
+ crew.add_item("ASSIGN A BANDMATE")
+ var candidate_indices: Array[int] = []
+ for index in range(members.size()):
+  var member: Dictionary = members[index]
+  if str(member.get("life_status","active")) == "active" and Gear.compatible(item_id,member):
+   candidate_indices.append(index)
+   crew.add_item("LOAD WITH "+str(member.get("name","MUSICIAN")).to_upper())
+ if candidate_indices.is_empty():
+  crew.disabled = true
+  crew.set_item_text(0,"NO COMPATIBLE CREW")
+ crew.add_theme_stylebox_override("normal",UI._button_surface(Color("#263C40"),false))
+ crew.add_theme_color_override("font_color",Color("#FFF7EC"))
+ crew.add_theme_font_size_override("font_size",16)
+ stack.add_child(crew)
+ var item_key := item_id
+ crew.item_selected.connect(func(option: int) -> void:
+  if option > 0 and option <= candidate_indices.size():
+   _assign_loading_gear(item_key,candidate_indices[option-1])
+ )
 
 func _render_stage() -> void:
  if not is_instance_valid(stage_root):
@@ -84,14 +130,15 @@ func _render_stage() -> void:
  background.color = BACKDROPS[step]
  stage_root.add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- var art_path: String = "res://Art/Journeys/ShowDay/"+str(ART[step])
- if ResourceLoader.exists(art_path):
+ var art_path: String = Photos.scene_or_fallback("showday",step,1280.0,"res://Art/Journeys/ShowDay/"+str(ART[step]))
+ var ambient_path: String = Photos.scene_or_fallback("showday",step,get_viewport_rect().size.x,art_path)
+ if ResourceLoader.exists(ambient_path):
   var ambient := TextureRect.new()
   ambient.name = "ShowJourneyAmbient"
-  ambient.texture = load(art_path)
+  ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  ambient.modulate.a = 0.21
+  ambient.modulate.a = 0.30
   ambient.mouse_filter = Control.MOUSE_FILTER_IGNORE
   stage_root.add_child(ambient)
   ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -138,35 +185,20 @@ func _render_stage() -> void:
  scene_planes.name = "ShowJourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- if ResourceLoader.exists(art_path):
-  var illustration := TextureRect.new()
-  illustration.name = "ShowJourneyArtwork"
-  illustration.texture = load(art_path)
-  illustration.custom_minimum_size.y = 210 if get_viewport_rect().size.x < 600 else 280
-  illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  scene_planes.add_child(illustration)
-  if cinematic_split:
-   illustration.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   illustration.custom_minimum_size.x = 440
- else:
-  _label(body,"ILLUSTRATION NOT INSTALLED",14,ACCENTS[step])
- # A real reading surface in landscape separates decisions from the environment.
- # Mobile retains the open, scrollable vertical composition.
- var story_holder: Node = scene_planes
+ var hero_height := 420.0 if get_viewport_rect().size.x < 600.0 else (700.0 if cinematic_split else 430.0)
+ Cinematic.add_hero(scene_planes,art_path,"GIG DAY  /  %02d OF 05" % (step+1),str(Journey.STEPS[step]),ACCENTS[step],hero_height,"ShowJourneyArtwork")
+ var story_panel := PanelContainer.new()
+ story_panel.name = "ShowJourneyStoryPanel"
+ story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if cinematic_split:
-  var story_panel := PanelContainer.new()
-  story_panel.name = "ShowJourneyStoryPanel"
-  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  story_panel.custom_minimum_size.y = 320
-  var panel_tone := UI.style(BACKDROPS[step].lightened(0.09),12)
-  panel_tone.border_color = ACCENTS[step]
-  panel_tone.border_width_left = 4
-  panel_tone.set_content_margin_all(18)
-  story_panel.add_theme_stylebox_override("panel",panel_tone)
-  scene_planes.add_child(story_panel)
-  story_holder = story_panel
+  story_panel.custom_minimum_size.y = 650
+ var panel_tone := UI.flat(Color("#101923"),8)
+ panel_tone.set_content_margin_all(18)
+ panel_tone.border_color = Color("#425A59")
+ panel_tone.border_width_top = 2
+ story_panel.add_theme_stylebox_override("panel",panel_tone)
+ scene_planes.add_child(story_panel)
+ var story_holder: Node = story_panel
  var story := VBoxContainer.new()
  story.name = "ShowJourneyStory"
  story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -175,37 +207,26 @@ func _render_stage() -> void:
  _label(story,str(booking.get("venue","THE VENUE")).to_upper()+"  /  "+str(booking.get("city","")),16,ACCENTS[step])
  match step:
   0:
-   _label(story,"Flight cases scrape the pavement. The band's ready to leave — but what is actually going in the van?",18,Color("#FFF7EC"))
+   _label(story,"Every case needs a carrier. Assign the loadout before leaving the kerb.",17,Color("#FFF7EC"))
    var equipment: Array = source_state.get("owned_equipment",[])
-   _label(story,"EQUIPMENT OWNED  /  %d ITEMS" % equipment.size(),15,ACCENTS[step])
+   _label(story,"CARGO BAY  /  %d OWNED CASES" % equipment.size(),15,ACCENTS[step])
    if equipment.is_empty():
-    _label(story,"NO OWNED GEAR ON THE LIST  /  VENUE BACKLINE NOT CONFIRMED",14,Color("#F1D6B7"))
+    _label(story,"NO OWNED GEAR  /  VENUE BACKLINE NOT CONFIRMED",16,Color("#F1D6B7"))
    else:
-    for item_id in equipment.slice(0,4):
-     var record: Dictionary = Gear.record(source_state,str(item_id))
-     var holder := Gear.holder_index(source_state,record)
-     var members: Array = source_state.get("members",[])
-     var carried_by := str(members[holder].get("name","")) if holder >= 0 and holder < members.size() else "UNASSIGNED"
-     var condition := "UNKNOWN" if int(record.get("condition",-1)) < 0 else str(int(record.get("condition",0)))+"%"
-     _label(story,str(Gear.item_for(str(item_id)).get("name",item_id))+"  /  "+carried_by+"  /  "+condition,13,Color("#FFF7EC"))
-     # Loading is a real, free crew decision: choose who takes responsibility
-     # for unassigned owned gear. The authoritative Gear.assign records identity
-     # and survives save/reload; this never adds a second show-day charge.
-     if holder < 0:
-      var compatible_found := false
-      for member_index in range(members.size()):
-       var member: Dictionary = members[member_index]
-       if str(member.get("life_status","active")) == "active" and Gear.compatible(str(item_id),member):
-        compatible_found = true
-        var selected_item := str(item_id)
-        var selected_index := member_index
-        _button(story,"LOAD WITH "+str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(Gear.item_for(selected_item).get("name",selected_item)),func() -> void: _assign_loading_gear(selected_item,selected_index))
-      if not compatible_found:
-       _label(story,"NO ACTIVE COMPATIBLE BANDMATE TO CARRY THIS ITEM",13,Color("#F1D6B7"))
-   _label(story,"VAN CONDITION  /  %d%%" % int(source_state.get("van_health",0)),15,Color("#FFF7EC"))
+    var bay := GridContainer.new()
+    bay.name = "ShowJourneyCargoBay"
+    bay.columns = 2 if get_viewport_rect().size.x >= 960.0 else 1
+    bay.add_theme_constant_override("h_separation",12)
+    bay.add_theme_constant_override("v_separation",12)
+    bay.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    story.add_child(bay)
+    for item_index in range(mini(equipment.size(),4)):
+     _cargo_card(bay,str(equipment[item_index]),item_index+1)
+    if equipment.size() > 4:
+     _label(story,"%d MORE CASES ARE IN YOUR INVENTORY" % (equipment.size()-4),15,Color("#C6D8D2"))
    var penalty := int(Gear.readiness_penalty(source_state))
-   _label(story,"WORN GEAR READINESS EFFECT  /  %+d" % penalty,15,Color("#FFF7EC"))
-   _label(story,"Check the gear before departure. Repairs and shopping require a day off; show-day loading is free.",14,Color("#D6E4DD"))
+   _label(story,"VAN %d%%   /   GEAR READINESS %+d" % [int(source_state.get("van_health",0)),penalty],16,ACCENTS[step])
+   _label(story,"Crew assignment is free today. Repairs and purchases need a day off.",16,Color("#C6D8D2"))
   1:
    _label(story,"Streetlights fall behind. The band watches the motorway unspool while tomorrow's stories start forming.",18,Color("#FFF7EC"))
    var plan_id := str(booking.get("travel_plan",Tour.DRIVE))
@@ -290,7 +311,7 @@ func _render_stage() -> void:
   _render_stage()
  )
  motion.name = "ShowJourneyMotionToggle"
- motion.custom_minimum_size.y = 44
+ motion.custom_minimum_size.y = 70
  motion.add_theme_font_size_override("font_size",11)
 
 func _store(state: Dictionary) -> void:

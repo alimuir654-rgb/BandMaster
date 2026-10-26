@@ -7,9 +7,9 @@ func _initialize() -> void:
  _check(start >= 0 and finish > start,"home screen exists")
  if start >= 0 and finish > start:
   var home := source.substr(start,finish-start)
-  _check(home.contains("YOUR WORLD"),"destinations exist")
+  _check(home.contains("BandHouseDestinations"),"destinations exist")
   _check(not home.contains("var art := TextureRect.new()"),"no placeholder SVG destination art")
-  _check(home.contains("var target: String = str(data[\"tab\"])"),"navigation still wired")
+  _check(home.contains("button.pressed.connect(func() -> void: _switch(tab_target))"),"navigation still wired")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career compiles")
  if failures == 0:
   print("V53 CLEAN NAV TESTS PASSED")

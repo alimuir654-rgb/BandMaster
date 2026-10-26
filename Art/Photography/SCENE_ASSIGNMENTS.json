@@ -1,0 +1,232 @@
+{
+  "game": "Living the Dream",
+  "date": "2026-10-26",
+  "source": "Owner uploads originally placed in main repository root",
+  "note": "The approved directory is a legacy runtime path, NOT proof of visual/legal approval. All images integrated as candidates. Photo IDs/photographer names inferred from filenames; check original Unsplash page and other rights before release.",
+  "scenes": [
+    {
+      "scene": "spark",
+      "original": "Art/Photography/source/review_inbox/adhy-setya-4FN2TwPkbDA-unsplash.jpg",
+      "sha256": "513516593061f8c834ca18173094661547ae9710a28d389bca1bac85acbba98b",
+      "source_url_unverified": "https://unsplash.com/photos/4FN2TwPkbDA",
+      "photographer_from_filename": "Adhy Setya",
+      "description_from_contact_sheet": "A hand writing in a notebook at a table",
+      "visual_review": "Visual match; visible hands, no recognisable face",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/spark_wide.webp",
+        "portrait": "Art/Photography/approved/spark_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "vibe",
+      "original": "Art/Photography/source/review_inbox/coppa-cover-8CFQaFOT0wU-unsplash.jpg",
+      "sha256": "1418b1dbe3ad7b13f76539cf2b6bc60490caa0f335d5c3243a02091df6ccbfb1",
+      "source_url_unverified": "https://unsplash.com/photos/8CFQaFOT0wU",
+      "photographer_from_filename": "Coppa Cover",
+      "description_from_contact_sheet": "Close-up analogue synthesiser keyboard",
+      "visual_review": "Good sound-design texture; not specifically British",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/vibe_wide.webp",
+        "portrait": "Art/Photography/approved/vibe_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "jam",
+      "original": "Art/Photography/source/review_inbox/thomas-litangen-SP9HcRASMPE-unsplash.jpg",
+      "sha256": "7ba07d9cf71f6a78eb772f617063d55bf63e6df37e2e274c580b74b7c60d484d",
+      "source_url_unverified": "https://unsplash.com/photos/SP9HcRASMPE",
+      "photographer_from_filename": "Thomas Litangen",
+      "description_from_contact_sheet": "Empty rehearsal room with amplifiers",
+      "visual_review": "Strong grounded grassroots rehearsal environment",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/jam_wide.webp",
+        "portrait": "Art/Photography/approved/jam_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "songsheet",
+      "original": "Art/Photography/source/review_inbox/samy-methnani-H1uyhgPlbxk-unsplash.jpg",
+      "sha256": "99c522bfb533db4e75a965ca6a7f1b4c38ed9f88fd851d0590d8627b32a989be",
+      "source_url_unverified": "https://unsplash.com/photos/H1uyhgPlbxk",
+      "photographer_from_filename": "Samy Methnani",
+      "description_from_contact_sheet": "Handwritten lyric sheet on a dark floor",
+      "visual_review": "Strong mood; borrowed handwriting must not be presented as player lyrics",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/songsheet_wide.webp",
+        "portrait": "Art/Photography/approved/songsheet_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "load_van",
+      "original": "Art/Photography/source/review_inbox/Backstreet Gig Load-In at Dawn.png",
+      "sha256": "962e9cae39a97ba8aa1479750d85d15845c5469243d1b8209e4736c1cc87086e",
+      "source_url_unverified": "",
+      "photographer_from_filename": "",
+      "description_from_contact_sheet": "Unbranded white panel van and equipment on British-looking terrace street",
+      "visual_review": "Owner-requested AI-generated exception; no identifiable person",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/load_van_wide.webp",
+        "portrait": "Art/Photography/approved/load_van_portrait.webp"
+      },
+      "source_type": "Owner-requested generated image",
+      "release_approved": false
+    },
+    {
+      "scene": "on_road",
+      "original": "Art/Photography/source/review_inbox/lawless-capture-VcYwSDIIjTc-unsplash.jpg",
+      "sha256": "f560be5277c5a9bbafb7a8565e67726d6ae20bdc9870c722ff83a8abda24020e",
+      "source_url_unverified": "https://unsplash.com/photos/VcYwSDIIjTc",
+      "photographer_from_filename": "Lawless Capture",
+      "description_from_contact_sheet": "Urban street with cars and traveller carrying a bag",
+      "visual_review": "PROVISIONAL: street traffic is visible, but this is not a British van/motorway view; replacement required.",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/on_road_wide.webp",
+        "portrait": "Art/Photography/approved/on_road_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "venue_arrival",
+      "original": "Art/Photography/source/review_inbox/francesco-albertazzi-VlSYXeNmOTU-unsplash.jpg",
+      "sha256": "6a510b29724de6d446a8afc43fe5ca1997f85ce0049eec8015aa7e4097a17e3c",
+      "source_url_unverified": "https://unsplash.com/photos/VlSYXeNmOTU",
+      "photographer_from_filename": "Francesco Albertazzi",
+      "description_from_contact_sheet": "Brick corner pub exterior",
+      "visual_review": "Plausible UK pub; venue identity/location not verified",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/venue_arrival_wide.webp",
+        "portrait": "Art/Photography/approved/venue_arrival_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "soundcheck",
+      "original": "Art/Photography/source/review_inbox/vitalii-onyshchuk-7FdoFvG285E-unsplash.jpg",
+      "sha256": "21b385a240f2e5bf3d47e85e96b7f4498e25acfc9a3c5aaab1ea39c3bd6cc391",
+      "source_url_unverified": "https://unsplash.com/photos/7FdoFvG285E",
+      "photographer_from_filename": "Vitalii Onyshchuk",
+      "description_from_contact_sheet": "Flight case on small blue-lit stage",
+      "visual_review": "Good independent-venue soundcheck image",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/soundcheck_wide.webp",
+        "portrait": "Art/Photography/approved/soundcheck_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "backstage",
+      "original": "Art/Photography/source/review_inbox/liz-berry-7bDztUSSIEA-unsplash.jpg",
+      "sha256": "b9c96af1ee52232774a36e51d0828ad449797cf8f9e782173d320fe936732bbf",
+      "source_url_unverified": "https://unsplash.com/photos/7bDztUSSIEA",
+      "photographer_from_filename": "Liz Berry",
+      "description_from_contact_sheet": "Guitar effects pedals and printed setlist",
+      "visual_review": "Credible pre-show detail; text and logos need review",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/backstage_wide.webp",
+        "portrait": "Art/Photography/approved/backstage_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "showtime",
+      "original": "Art/Photography/source/review_inbox/neza-dolmo-bBVvyLJ97jA-unsplash.jpg",
+      "sha256": "ac4fc74f3b59e70d4d48aade18a26df8805f07f8f1c70b5a98e1dc901a9e9f84",
+      "source_url_unverified": "https://unsplash.com/photos/bBVvyLJ97jA",
+      "photographer_from_filename": "Neza Dolmo",
+      "description_from_contact_sheet": "Guitarist playing at a small stage",
+      "visual_review": "Believable small-venue scale, faces/brand clearance pending",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/showtime_wide.webp",
+        "portrait": "Art/Photography/approved/showtime_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "world_home",
+      "original": "Art/Photography/source/review_inbox/francis-bouffard-HADKIO0EFXQ-unsplash.jpg",
+      "sha256": "aba9cf5eea380c9d5ad7584066e8f57292a792832791506baf0119c5595276f2",
+      "source_url_unverified": "https://unsplash.com/photos/HADKIO0EFXQ",
+      "photographer_from_filename": "Francis Bouffard",
+      "description_from_contact_sheet": "Headphones, notebook and laptop",
+      "visual_review": "Music-oriented band HQ surface; no obvious US motifs",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/world_home_wide.webp",
+        "portrait": "Art/Photography/approved/world_home_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "world_gear",
+      "original": "Art/Photography/source/review_inbox/susan-mohr-pMCP8c8_xi4-unsplash.jpg",
+      "sha256": "d30c94faf51ac7abccc3811f0bcddbbc57a7ec5136d4dc1fde1aeca9ba7a6aac",
+      "source_url_unverified": "https://unsplash.com/photos/pMCP8c8_xi4",
+      "photographer_from_filename": "Susan Mohr",
+      "description_from_contact_sheet": "Guitars and pedals in a shop",
+      "visual_review": "Relevant gear retail scene; visible trademarks need review",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/world_gear_wide.webp",
+        "portrait": "Art/Photography/approved/world_gear_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "world_band",
+      "original": "Art/Photography/source/review_inbox/freestocks-Fx5rrxSaUtI-unsplash.jpg",
+      "sha256": "d7393e237cb9c771649b1690fd6224846050ff9098476bfd64f3971177f91336",
+      "source_url_unverified": "https://unsplash.com/photos/Fx5rrxSaUtI",
+      "photographer_from_filename": "Freestocks",
+      "description_from_contact_sheet": "Bass guitar being played",
+      "visual_review": "No visible recognisable face; band identity scene",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/world_band_wide.webp",
+        "portrait": "Art/Photography/approved/world_band_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    },
+    {
+      "scene": "world_scrapbook",
+      "original": "Art/Photography/source/review_inbox/xie-lipton-wSMZEkDDuJo-unsplash.jpg",
+      "sha256": "64859e5f23273324598ae29be138d8ce6a610703b532534ff9211a8b70a97867",
+      "source_url_unverified": "https://unsplash.com/photos/wSMZEkDDuJo",
+      "photographer_from_filename": "Xie Lipton",
+      "description_from_contact_sheet": "Physical event tickets held up",
+      "visual_review": "Ticket details and branding require inspection",
+      "license_clearance": "pending",
+      "runtime": {
+        "wide": "Art/Photography/approved/world_scrapbook_wide.webp",
+        "portrait": "Art/Photography/approved/world_scrapbook_portrait.webp"
+      },
+      "source_type": "Owner-uploaded Unsplash-named photo",
+      "release_approved": false
+    }
+  ]
+}

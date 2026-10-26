@@ -14,3 +14,8 @@ jobs:
           python-version: '3.11'
       - name: Validate Godot project references
         run: python3 tools/validate_project.py
+      - name: Verify real scene-specific photographic binaries when present
+        run: |
+          if [ -f Art/Photography/SCENE_ASSIGNMENTS.json ]; then
+            python3 tests/test_photo_assets.py
+          fi

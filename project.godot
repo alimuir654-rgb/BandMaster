@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="BandMaster"
+config/name="Living the Dream"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"

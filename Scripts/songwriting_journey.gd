@@ -6,6 +6,8 @@ const Workshop = preload("res://Scripts/song_workshop.gd")
 const Studio = preload("res://Scripts/song_studio_presentation.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
+const Photos = preload("res://Scripts/journey_photo.gd")
+const Cinematic = preload("res://Scripts/journey_cinematic_stage.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const PHASES := ["THE SPARK","FIND THE SOUND","IN THE ROOM","THE SONGSHEET"]
 const ART := ["01-spark.svg","02-vibe.svg","03-jam.svg","04-sleeve.svg"]
@@ -77,22 +79,21 @@ func _text(parent: Node, value: String, size: int, colour: Color) -> Label:
  var label := Label.new()
  label.text = value
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.add_theme_font_size_override("font_size",size)
+ label.add_theme_font_size_override("font_size",maxi(size,16))
  label.add_theme_color_override("font_color",colour)
  parent.add_child(label)
  return label
 
 func _tone_button(button: Button, primary: bool) -> void:
  var accent: Color = ACCENTS[stage]
- var base: Color = COLORS[stage].darkened(0.22)
+ var base: Color = Color("#18232D")
  var fill: Color = accent if primary else base
  var foreground: Color = Color("#202128") if primary else Color("#FFF5E6")
- var normal := UI.style(fill,9)
- normal.border_color = accent
- normal.border_width_bottom = 3 if primary else 1
+ var normal := UI._button_surface(fill,primary)
+ normal.border_color = accent if primary else Color("#51606D")
  button.add_theme_stylebox_override("normal",normal)
- button.add_theme_stylebox_override("hover",UI.style(fill.lightened(0.13),9))
- button.add_theme_stylebox_override("pressed",UI.style(fill.darkened(0.12),9))
+ button.add_theme_stylebox_override("hover",UI._button_surface(fill.lightened(0.11),primary))
+ button.add_theme_stylebox_override("pressed",UI._button_surface(fill.darkened(0.12),primary))
  var focus := UI.flat(Color.TRANSPARENT,9)
  focus.border_color = accent
  focus.set_border_width_all(3)
@@ -101,11 +102,11 @@ func _tone_button(button: Button, primary: bool) -> void:
   button.add_theme_color_override(key,foreground)
 
 func _tone_selector(select: OptionButton) -> void:
- var surface := UI.style(COLORS[stage].darkened(0.17),8)
+ var surface := UI._button_surface(Color("#17222C"),false)
  surface.border_color = ACCENTS[stage]
- surface.border_width_bottom = 2
+ surface.border_width_bottom = 1
  select.add_theme_stylebox_override("normal",surface)
- select.add_theme_stylebox_override("hover",UI.style(COLORS[stage].lightened(0.13),8))
+ select.add_theme_stylebox_override("hover",UI._button_surface(Color("#283846"),false))
  select.add_theme_color_override("font_color",Color("#FFF5E6"))
  select.add_theme_color_override("font_hover_color",Color("#FFF5E6"))
  var focus := UI.flat(Color.TRANSPARENT,8)
@@ -129,6 +130,42 @@ func _selector(parent: Node, heading: String, values: Array, chosen: int, contro
  parent.add_child(select)
  return select
 
+# Tactile creative decisions replace dropdown-first presentation. The hidden
+# OptionButton remains the authoritative selected value for save/test parity.
+func _choice_deck(parent: Node, select: OptionButton, values: Array, prefix: String) -> void:
+ select.hide()
+ var deck := GridContainer.new()
+ deck.name = prefix+"Deck"
+ deck.columns = 2 if get_viewport_rect().size.x < 960.0 else 3
+ deck.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ deck.add_theme_constant_override("h_separation",9)
+ deck.add_theme_constant_override("v_separation",9)
+ parent.add_child(deck)
+ var chips: Array[Button] = []
+ for index in range(values.size()):
+  var chip := UI.themed_button(str(values[index]).to_upper(),genre_id,false)
+  chip.name = prefix+"Choice%02d" % index
+  chip.custom_minimum_size.y = 82
+  chip.toggle_mode = true
+  chip.button_pressed = index == select.selected
+  chip.add_theme_font_size_override("font_size",16)
+  chip.add_theme_stylebox_override("normal",UI._button_surface(Color("#21313C"),false))
+  var active := UI._button_surface(ACCENTS[stage],true)
+  active.border_color = ACCENTS[stage]
+  chip.add_theme_stylebox_override("pressed",active)
+  chip.add_theme_color_override("font_pressed_color",Color("#15212A"))
+  chip.add_theme_color_override("font_hover_pressed_color",Color("#15212A"))
+  deck.add_child(chip)
+  chips.append(chip)
+  var selected_index := index
+  var selected_chip := chip
+  chip.pressed.connect(func() -> void:
+   select.select(selected_index)
+   select.item_selected.emit(selected_index)
+   for other in chips:
+    other.button_pressed = other == selected_chip
+  )
+
 func _text_input(parent: Node, heading: String, value: String, control_name: String, max_chars: int) -> LineEdit:
  _text(parent,heading,14,ACCENTS[stage])
  var field := LineEdit.new()
@@ -136,7 +173,7 @@ func _text_input(parent: Node, heading: String, value: String, control_name: Str
  field.text = value
  field.max_length = max_chars
  field.custom_minimum_size.y = 56
- field.add_theme_stylebox_override("normal",UI.style(Color("#F1E7D5"),8))
+ field.add_theme_stylebox_override("normal",UI._button_surface(Color("#E8E6DF"),false))
  field.add_theme_color_override("font_color",Color("#231E1B"))
  field.add_theme_color_override("font_placeholder_color",Color("#62574E"))
  parent.add_child(field)
@@ -153,14 +190,15 @@ func _render_stage() -> void:
  stage_root.add_child(backdrop)
  backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  # The whole room changes tone, not merely a small illustration in a card.
- var art_path: String = "res://Art/Journeys/Songwriting/"+str(ART[stage])
- if ResourceLoader.exists(art_path):
+ var art_path: String = Photos.scene_or_fallback("songwriting",stage,1280.0,"res://Art/Journeys/Songwriting/"+str(ART[stage]))
+ var ambient_path: String = Photos.scene_or_fallback("songwriting",stage,get_viewport_rect().size.x,art_path)
+ if ResourceLoader.exists(ambient_path):
   var ambient := TextureRect.new()
   ambient.name = "JourneyAmbientArt"
-  ambient.texture = load(art_path)
+  ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  ambient.modulate = Color(1,1,1,0.19)
+  ambient.modulate = Color(1,1,1,0.37)
   ambient.mouse_filter = Control.MOUSE_FILTER_IGNORE
   stage_root.add_child(ambient)
   ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -197,35 +235,21 @@ func _render_stage() -> void:
  scene_planes.name = "JourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- if ResourceLoader.exists(art_path):
-  var illustration := TextureRect.new()
-  illustration.name = "JourneyArtwork"
-  illustration.texture = load(art_path)
-  illustration.custom_minimum_size.y = 190 if get_viewport_rect().size.x < 600 else 280
-  illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  scene_planes.add_child(illustration)
-  if cinematic_split:
-   illustration.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   illustration.custom_minimum_size.x = 440
- else:
-  _text(body,"SCENE ART UNAVAILABLE",14,ACCENTS[stage])
- # A real reading surface in landscape separates decisions from the environment.
- # Mobile retains the open, scrollable vertical composition.
- var story_holder: Node = scene_planes
+ var hero_height := 460.0 if get_viewport_rect().size.x < 600.0 else (780.0 if cinematic_split else 430.0)
+ Cinematic.add_hero(scene_planes,art_path,"WRITING SESSION  /  %02d" % (stage+1),PHASES[stage],ACCENTS[stage],hero_height)
+ # Choices are a readable foreground dock; the image carries the atmosphere.
+ var story_panel := PanelContainer.new()
+ story_panel.name = "JourneyStoryPanel"
+ story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if cinematic_split:
-  var story_panel := PanelContainer.new()
-  story_panel.name = "JourneyStoryPanel"
-  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  story_panel.custom_minimum_size.y = 320
-  var panel_tone := UI.style(COLORS[stage].lightened(0.08),12)
-  panel_tone.border_color = ACCENTS[stage]
-  panel_tone.border_width_left = 4
-  panel_tone.set_content_margin_all(18)
-  story_panel.add_theme_stylebox_override("panel",panel_tone)
-  scene_planes.add_child(story_panel)
-  story_holder = story_panel
+  story_panel.custom_minimum_size.y = 650
+ var panel_tone := UI.flat(Color("#101923"),8)
+ panel_tone.set_content_margin_all(18)
+ panel_tone.border_color = Color("#42505D")
+ panel_tone.border_width_top = 2
+ story_panel.add_theme_stylebox_override("panel",panel_tone)
+ scene_planes.add_child(story_panel)
+ var story_holder: Node = story_panel
  var story := VBoxContainer.new()
  story.name = "JourneyStory"
  story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -234,18 +258,21 @@ func _render_stage() -> void:
  match stage:
   0:
    _text(story,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
-   _selector(story,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   var idea_choice := _selector(story,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   _choice_deck(story,idea_choice,Workshop.IDEAS,"Idea")
    _text_input(story,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
    _text_input(story,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
   1:
    _text(story,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
    var mood_choice := _selector(story,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
+   _choice_deck(story,mood_choice,VIBES,"Vibe")
    var mood_story := _text(story,_vibe_line(vibe),16,Color("#D7E4E7"))
    mood_story.name = "JourneyVibeReaction"
    mood_choice.item_selected.connect(func(index: int) -> void:
     mood_story.text = _vibe_line(mood_choice.get_item_text(index))
    )
    var form_choice := _selector(story,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
+   _choice_deck(story,form_choice,Workshop.FORMS,"Form")
    var form_note := _text(story,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
    form_choice.item_selected.connect(func(index: int) -> void:
     form_note.text = str(Studio.FORM_NOTES.get(form_choice.get_item_text(index),"Choose a structure."))
@@ -316,7 +343,7 @@ func _render_stage() -> void:
  var back := UI.themed_button("CLOSE" if stage == 0 else "‹  BACK",genre_id,false)
  back.name = "JourneyBack"
  _tone_button(back,false)
- back.custom_minimum_size.y = 54
+ back.custom_minimum_size.y = 82
  footer.add_child(back)
  back.pressed.connect(func() -> void:
   if stage == 0:
@@ -331,7 +358,7 @@ func _render_stage() -> void:
  var next := UI.themed_button(next_text,genre_id,true)
  next.name = "JourneyNext"
  _tone_button(next,true)
- next.custom_minimum_size.y = 54
+ next.custom_minimum_size.y = 82
  next.disabled = stage == 2 and lead_choices.is_empty()
  footer.add_child(next)
  next.pressed.connect(func() -> void:
@@ -343,7 +370,7 @@ func _render_stage() -> void:
  var motion := UI.themed_button("REDUCE MOTION: "+("ON" if reduced_motion else "OFF"),genre_id,false)
  motion.name = "JourneyMotionToggle"
  _tone_button(motion,false)
- motion.custom_minimum_size.y = 44
+ motion.custom_minimum_size.y = 70
  motion.add_theme_font_size_override("font_size",11)
  layout.add_child(motion)
  motion.pressed.connect(func() -> void:

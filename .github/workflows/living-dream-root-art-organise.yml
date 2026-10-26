@@ -1,0 +1,42 @@
+name: Process Living the Dream owner photographs
+on:
+  workflow_dispatch:
+  push:
+    branches: [living-the-dream-british-photographic-art-gate]
+    paths:
+      - 'Art/Photography/source/**'
+      - 'scripts/organise_owner_photography.py'
+      - '.github/workflows/living-dream-root-art-organise.yml'
+permissions:
+  contents: write
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: living-the-dream-british-photographic-art-gate
+          submodules: recursive
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoders
+        run: pip install 'Pillow>=11.3,<13' pillow-avif-plugin
+      - name: Convert all owner photos and make a labelled review sheet
+        run: python scripts/organise_owner_photography.py
+      - name: Verify real outputs and publish audit
+        run: |
+          set -euo pipefail
+          test -s Art/Photography/owner_upload_audit.json
+          test -s Art/Photography/owner_contact_sheet.jpg
+          count=$(find Art/Photography/processed/review_inbox -name '*_landscape.webp' -size +20k | wc -l)
+          test "$count" -ge 6
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/Photography/processed Art/Photography/owner_upload_audit.json Art/Photography/owner_contact_sheet.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Produce real owner-photo WebP crops and contact sheet"
+            git push
+          fi

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "jam",
+    "photo_page": "https://unsplash.com/photos/a-group-of-people-playing-instruments-in-a-room-QSdmn5-UI1c",
+    "photographer": "Kyle Loftus",
+    "approval": "curated_free_candidate",
+    "scenes": [
+      "songwriting_jam"
+    ]
+  },
+  {
+    "id": "soundcheck",
+    "photo_page": "https://unsplash.com/photos/a-group-of-musical-instruments-sitting-on-top-of-a-stage--CNzKwgiAeI",
+    "photographer": "Check individual Unsplash page before clearance",
+    "approval": "curated_free_candidate",
+    "scenes": [
+      "soundcheck"
+    ]
+  },
+  {
+    "id": "vibe",
+    "photo_page": "https://unsplash.com/photos/a-room-filled-with-lots-of-musical-equipment-6Y2uBqgVKDA",
+    "photographer": "Verify on photo page",
+    "approval": "curated_free_candidate",
+    "scenes": [
+      "songwriting_vibe"
+    ]
+  },
+  {
+    "id": "showtime",
+    "photo_page": "https://unsplash.com/photos/music-stage-with-instruments-chair-and-drums-in-yellow-light-KcnZbFV3YLc",
+    "photographer": "Barney Goodman",
+    "approval": "curated_free_candidate",
+    "scenes": [
+      "showtime"
+    ]
+  }
+]

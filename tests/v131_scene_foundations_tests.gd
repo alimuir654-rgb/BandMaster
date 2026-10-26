@@ -9,7 +9,7 @@ func _initialize() -> void:
  _check(src.contains('preserve_venue_scroll = true'),"venue selection scroll preserved")
  _check(src.contains('preserve_venue_scroll or preserve_gear_scroll') or src.contains('preserve_gear_scroll or preserve_venue_scroll'),"viewport scroll remembers venue selection")
  _check(src.contains('career_scroll.call_deferred("ensure_control_visible",target)'),"venue shortcut scrolls after layout")
- _check(src.contains('var pulse_row := HBoxContainer.new()'),"Band Pulse status uses concise labels")
+ _check(src.contains('pulse.name = "BandHouseStatusStrip"') and src.contains('READINESS %d   /   MORALE %d   /   VAN %d'),"Band House status shows real readiness, morale and van levels")
  _check(src.contains('TRAVEL ESTIMATE'),"tour planner exposes travel estimate")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"Godot scene parses")
  if failures == 0: print("V131 SCENE FOUNDATIONS PASSED")

@@ -6,7 +6,7 @@ func _initialize() -> void:
   _check(source.contains(label),label)
  _check(source.contains("func _actions() -> void:\n _scene_instrument_strip()"),"studio scene identity retained")
  _check(source.contains(" _environment_dashboard()"),"supporting environment remains available")
- _check(source.contains("func _home() -> void:\n _scene_instrument_strip()"),"home context strip preserved")
+ _check(source.contains("func _home() -> void:") and source.contains('pulse.name = "BandHouseStatusStrip"'),"home readiness, morale and van context preserved in photo hero")
  _check(source.contains("func _gigs() -> void:\n _scene_instrument_strip()"),"gig context strip preserved")
  _check(source.contains("Calendar.pending(_state())"),"home diary uses booked gig")
  _check(source.contains('UI.themed_progress(meter,_genre_id()'),"studio channels use real levels")

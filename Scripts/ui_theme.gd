@@ -16,24 +16,24 @@ static func themed_button(label: String, genre_id: String, primary: bool = false
  var item := button(label,primary)
  var fill: Color = colors["accent"] if primary else colors["alt"]
  var foreground: Color = colors["bg"] if primary else WHITE
- var normal := style(fill,11)
+ var normal := _button_surface(fill, primary)
  normal.border_color = colors["accent"] if primary else colors["secondary"]
- normal.border_width_bottom = 3 if primary else 1
  item.add_theme_stylebox_override("normal",normal)
- var hovered := style(fill.lightened(0.12),11)
+ var hovered := _button_surface(fill.lightened(0.09),primary)
  hovered.border_color = colors["accent"]
  item.add_theme_stylebox_override("hover",hovered)
- var pressed := style(fill.darkened(0.15),11)
+ var pressed := _button_surface(fill.darkened(0.13),primary)
  pressed.shadow_size = 1
  item.add_theme_stylebox_override("pressed",pressed)
- item.add_theme_stylebox_override("disabled",style(colors["panel"].darkened(0.12),11))
+ item.add_theme_stylebox_override("disabled",_button_surface(colors["panel"].darkened(0.12),false))
  var focus := flat(Color.TRANSPARENT,12)
  focus.border_color = colors["accent"]
  focus.set_border_width_all(2)
  item.add_theme_stylebox_override("focus",focus)
  for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
   item.add_theme_color_override(key,foreground)
- item.add_theme_color_override("font_disabled_color",MUTED.darkened(0.28))
+ item.add_theme_color_override("font_disabled_color",MUTED.darkened(0.18))
+ item.add_theme_font_size_override("font_size",16)
  return item
 
 static func themed_progress(bar: ProgressBar, genre_id: String, kind: String = "accent") -> void:
@@ -58,6 +58,21 @@ static func style(fill: Color, radius: int = 12) -> StyleBoxFlat:
  box.shadow_size = 5
  return box
 
+# Compact, flat tactile surfaces. Kept central so new and genre-themed actions match.
+static func _button_surface(fill: Color, primary: bool) -> StyleBoxFlat:
+ var surface := StyleBoxFlat.new()
+ surface.bg_color = fill
+ surface.set_corner_radius_all(8)
+ surface.content_margin_left = 18.0
+ surface.content_margin_right = 18.0
+ surface.content_margin_top = 14.0
+ surface.content_margin_bottom = 14.0
+ surface.border_color = fill.lightened(0.22)
+ surface.border_width_bottom = 2 if primary else 1
+ surface.shadow_color = Color(0,0,0,0.18)
+ surface.shadow_size = 2
+ return surface
+
 static func button(label: String, primary: bool = false) -> Button:
  var item := WoldButton.new()
  item.shape = WoldButton.Shape.PRIMARY if primary else WoldButton.Shape.SECONDARY
@@ -67,19 +82,19 @@ static func button(label: String, primary: bool = false) -> Button:
  item.focus_mode = Control.FOCUS_ALL
  var fill := AMBER if primary else PANEL
  var foreground := BG if primary else WHITE
- var normal := style(fill,11)
+ var normal := _button_surface(fill,primary)
  if primary:
   normal.border_color = AMBER.lightened(0.18)
  else:
   normal.border_color = Color("#415063")
  item.add_theme_stylebox_override("normal",normal)
- var hover := style(fill.lightened(0.13),11)
+ var hover := _button_surface(fill.lightened(0.09),primary)
  hover.border_color = AMBER if primary else Color("#71849A")
  item.add_theme_stylebox_override("hover",hover)
- var pressed := style(fill.darkened(0.12),11)
+ var pressed := _button_surface(fill.darkened(0.12),primary)
  pressed.shadow_size = 1
  item.add_theme_stylebox_override("pressed",pressed)
- item.add_theme_stylebox_override("disabled",style(Color("#19222D"),11))
+ item.add_theme_stylebox_override("disabled",_button_surface(Color("#19222D"),false))
  var focus := StyleBoxFlat.new()
  focus.bg_color = Color(0,0,0,0)
  focus.set_corner_radius_all(13)
@@ -89,7 +104,7 @@ static func button(label: String, primary: bool = false) -> Button:
  for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
   item.add_theme_color_override(key,foreground)
  item.add_theme_color_override("font_disabled_color",Color("#81909D"))
- item.add_theme_font_size_override("font_size",15)
+ item.add_theme_font_size_override("font_size",16)
  return item
 
 static func progress(bar: ProgressBar) -> void:

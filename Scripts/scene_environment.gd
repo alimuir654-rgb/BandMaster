@@ -1,6 +1,7 @@
 extends Control
 # Deterministic, non-interactive environmental texture.
 # Drawn beneath the UI; never uses expensive per-frame effects.
+const PHOTO_SCENES := {"HOME":"world_home","GIGS":"showtime","GEAR":"world_gear","BAND":"world_band","SCENE":"world_scrapbook","STUDIO":"jam"}
 var scene_id := "HOME"
 
 func set_scene(value: String) -> void:
@@ -9,6 +10,7 @@ func set_scene(value: String) -> void:
 
 func _ready() -> void:
  mouse_filter = Control.MOUSE_FILTER_IGNORE
+ resized.connect(queue_redraw)
 
 func _draw() -> void:
  var w := size.x
@@ -66,3 +68,31 @@ func _draw() -> void:
     draw_line(Vector2(0,h*0.76+float(i)*18),Vector2(w,h*0.76+float(i)*18),Color("#DAB0CC",0.04),2)
   _:
    draw_rect(Rect2(0,0,w,h),Color("#101720"))
+
+ # Real photographic world backdrop remains behind native controls.
+ _draw_photo(w, h)
+
+func _draw_photo(w: float, h: float) -> void:
+ var key := str(PHOTO_SCENES.get(scene_id, ""))
+ if key.is_empty():
+  return
+ var aspect := "wide" if w >= 960.0 else "portrait"
+ var path := "res://Art/Photography/approved/%s_%s.webp" % [key, aspect]
+ if not ResourceLoader.exists(path):
+  return
+ var texture := load(path) as Texture2D
+ if texture == null:
+  return
+ var dimensions := texture.get_size()
+ var ratio := w / h
+ var source := Rect2(Vector2.ZERO, dimensions)
+ if dimensions.x / dimensions.y > ratio:
+  var crop_width := dimensions.y * ratio
+  source.position.x = (dimensions.x - crop_width) * 0.5
+  source.size.x = crop_width
+ else:
+  var crop_height := dimensions.x / ratio
+  source.position.y = (dimensions.y - crop_height) * 0.5
+  source.size.y = crop_height
+ draw_texture_rect_region(texture, Rect2(0.0, 0.0, w, h), source, Color(1, 1, 1, 0.72))
+ draw_rect(Rect2(0.0, 0.0, w, h), Color(0.05, 0.06, 0.09, 0.35))

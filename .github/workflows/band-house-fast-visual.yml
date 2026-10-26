@@ -1,0 +1,59 @@
+name: Band House fast visual gate
+on:
+  pull_request:
+    paths:
+      - 'Scripts/career_hub.gd'
+      - 'Scripts/ui_theme.gd'
+      - 'Art/Photography/approved/**'
+      - 'tests/v129_viewport_layout_audit.gd'
+      - '.github/workflows/band-house-fast-visual.yml'
+  workflow_dispatch:
+jobs:
+  home-slice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import and capture three populated Band House views
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit
+          for test in v29_ux_review_tests v36_career_momentum_tests v53_clean_nav_tests v65_home_art_tests v70_photo_fallback_tests v71_nav_ux_tests v91_home_dashboard_tests v92_home_icon_destinations_tests v93_home_status_tests v107_visual_destination_tests v112_playtest_layout_tests v119_home_hierarchy_tests v125_task_first_home_gigs_tests; do
+            godot --headless --path . --script "res://tests/$test.gd"
+          done
+          mkdir -p screenshots/band-house
+          for viewport in "390 844 phone" "720 1280 tablet" "1280 720 landscape"; do
+            read -r w h name <<< "$viewport"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width="$w" --height="$h" --output="screenshots/band-house/$name.png" 2>&1 | tee /tmp/home-capture.log
+            grep -q 'BANDMASTER SCREENSHOT SAVED:' /tmp/home-capture.log
+            if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:|SCREENSHOT FAILURE:' /tmp/home-capture.log; then exit 1; fi
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          expected={'phone':(390,844),'tablet':(720,1280),'landscape':(1280,720)}
+          for name,(w,h) in expected.items():
+              data=(Path('screenshots/band-house')/(name+'.png')).read_bytes()
+              assert data[:8]==bytes.fromhex('89504e470d0a1a0a')
+              assert struct.unpack('>II',data[16:24])==(w,h)
+          print('Three real populated Godot screenshots verified')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: band-house-fast-three-viewports
+          path: screenshots/band-house/*.png
+          retention-days: 14
+          if-no-files-found: warn

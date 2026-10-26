@@ -11,6 +11,7 @@ func _capture() -> void:
  var tab := "HOME"
  var genre := "indie"
  var show_sleeve := false
+ var expand_world := false
  var journey_stage := -1
  var show_stage := -1
  var width := 390
@@ -22,6 +23,8 @@ func _capture() -> void:
    tab = arg.trim_prefix("--tab=")
   elif arg == "--sleeve":
    show_sleeve = true
+  elif arg == "--expand-world":
+   expand_world = true
   elif arg.begins_with("--journey-stage="):
    journey_stage = int(arg.trim_prefix("--journey-stage="))
   elif arg.begins_with("--show-stage="):
@@ -32,7 +35,7 @@ func _capture() -> void:
    width = int(arg.trim_prefix("--width="))
   elif arg.begins_with("--height="):
    height = int(arg.trim_prefix("--height="))
- if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS") or journey_stage > 3 or journey_stage < -1 or (journey_stage >= 0 and tab != "ACTIONS") or (journey_stage >= 0 and show_sleeve) or show_stage > 4 or show_stage < -1 or (show_stage >= 0 and tab != "GIGS") or (show_stage >= 0 and (journey_stage >= 0 or show_sleeve)):
+ if width < 320 or height < 600 or not ["TITLE","HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (expand_world and not ["GIGS","GEAR","BAND"].has(tab)) or (show_sleeve and tab != "ACTIONS") or journey_stage > 3 or journey_stage < -1 or (journey_stage >= 0 and tab != "ACTIONS") or (journey_stage >= 0 and show_sleeve) or show_stage > 4 or show_stage < -1 or (show_stage >= 0 and tab != "GIGS") or (show_stage >= 0 and (journey_stage >= 0 or show_sleeve)):
   push_error("SCREENSHOT FAILURE: Invalid capture parameters")
   quit(1)
   return
@@ -76,7 +79,8 @@ func _capture() -> void:
  file.close()
  get_root().size = Vector2i(width,height)
  DisplayServer.window_set_size(Vector2i(width,height))
- var scene: PackedScene = load("res://Scenes/CareerHub.tscn")
+ var scene_path := "res://main_menu.tscn" if tab == "TITLE" else "res://Scenes/CareerHub.tscn"
+ var scene: PackedScene = load(scene_path)
  if scene == null:
   push_error("SCREENSHOT FAILURE: CareerHub missing")
   _restore(original_exists,original)
@@ -84,8 +88,27 @@ func _capture() -> void:
   return
  var ui: Control = scene.instantiate()
  get_root().add_child(ui)
- ui.tab = tab
- ui._render()
+ if tab != "TITLE":
+  ui.tab = tab
+  ui._render()
+  if expand_world:
+   ui._toggle_world_desk()
+   var desk := ui.find_child("WorldDetailDesk",true,false) as VBoxContainer
+   if desk == null or not desk.visible:
+    push_error("SCREENSHOT FAILURE: Expanded world desk missing")
+    ui.queue_free()
+    _restore(original_exists,original)
+    quit(1)
+    return
+ else:
+  var title_photo := ui.find_child("TitleCinematicPhoto",true,false) as TextureRect
+  var title_dock := ui.find_child("TitleActionDock",true,false)
+  if title_photo == null or title_photo.texture == null or title_dock == null:
+   push_error("SCREENSHOT FAILURE: Cinematic title photograph or action dock missing")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
  if show_sleeve:
   ui._open_song_sleeve(fixture["career_extra"]["song_catalogue"][0],1)
  if journey_stage >= 0:
@@ -100,7 +123,7 @@ func _capture() -> void:
   journey.reduced_motion = true
   for step in range(journey_stage):
    journey._go(step+1)
-  if journey.stage != journey_stage or journey.find_child("JourneyArtwork",true,false) == null:
+  if journey.stage != journey_stage or journey.find_child("JourneyCinematicHero",true,false) == null or journey.find_child("JourneyArtwork",true,false) == null:
    push_error("SCREENSHOT FAILURE: Journey scene or illustration missing")
    ui.queue_free()
    _restore(original_exists,original)
@@ -118,7 +141,7 @@ func _capture() -> void:
   show.reduced_motion = true
   for step in range(show_stage):
    show._advance()
-  if show.find_child("ShowJourneyArtwork",true,false) == null:
+  if show.find_child("JourneyCinematicHero",true,false) == null or show.find_child("ShowJourneyArtwork",true,false) == null:
    push_error("SCREENSHOT FAILURE: Show-day illustration missing")
    ui.queue_free()
    _restore(original_exists,original)

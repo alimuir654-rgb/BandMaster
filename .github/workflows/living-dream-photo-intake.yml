@@ -1,0 +1,102 @@
+name: Living the Dream photograph intake
+on:
+  push:
+    branches: [living-the-dream-british-photographic-art-gate]
+    paths:
+      - 'scripts/intake_living_dream_photos.py'
+      - 'Art/Photography/photo_sources.json'
+      - 'scripts/prepare_living_dream_upload.py'
+      - 'scripts/test_prepare_living_dream_upload.py'
+      - 'Scripts/journey_photo.gd'
+      - 'Scripts/songwriting_journey.gd'
+      - 'Scripts/show_day_journey_view.gd'
+      - 'tests/sprint12_photo_asset_tests.gd'
+      - '.github/workflows/living-dream-photo-intake.yml'
+  pull_request:
+    paths:
+      - 'scripts/intake_living_dream_photos.py'
+      - 'Art/Photography/photo_sources.json'
+      - 'scripts/prepare_living_dream_upload.py'
+      - 'scripts/test_prepare_living_dream_upload.py'
+      - 'Scripts/journey_photo.gd'
+      - 'Scripts/songwriting_journey.gd'
+      - 'Scripts/show_day_journey_view.gd'
+      - 'tests/sprint12_photo_asset_tests.gd'
+      - '.github/workflows/living-dream-photo-intake.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photograph-intake:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: living-the-dream-british-photographic-art-gate
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo processing dependency
+        run: pip install 'Pillow>=11,<13'
+      - name: Download real Unsplash photos and produce WebP crops
+        run: python scripts/intake_living_dream_photos.py
+      - name: Publish verified files on same production branch
+        run: |
+          set -euo pipefail
+          test -f Art/Photography/approved/intake_audit.json
+          count=$(find Art/Photography/approved -name '*.webp' -size +20k | wc -l)
+          test "$count" -ge 6
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/Photography/approved
+          if ! git diff --cached --quiet; then
+            git commit -m 'Import verified Unsplash Free scene photography and responsive crops'
+            git push origin HEAD:living-the-dream-british-photographic-art-gate
+          fi
+      - name: Publish intake evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: photo-intake-audit
+          path: Art/Photography/approved/intake_audit.json
+          if-no-files-found: warn
+
+  owner-avif-and-godot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test owner AVIF conversion
+        run: |
+          pip install 'Pillow>=11,<13'
+          python -m unittest discover -s scripts -p 'test_prepare_living_dream_upload.py' -v
+      - name: Install Godot
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Test Godot photo route
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/import.log; then exit 1; fi
+          for script in Scripts/journey_photo.gd Scripts/songwriting_journey.gd Scripts/show_day_journey_view.gd; do
+            godot --headless --path . --check-only --script "res://$script" 2>&1 | tee -a /tmp/parse.log
+          done
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/parse.log; then exit 1; fi
+          timeout 50s godot --headless --path . --script res://tests/sprint12_photo_asset_tests.gd 2>&1 | tee /tmp/photo.log
+          grep -q 'LIVING THE DREAM PHOTO ROUTING PASSED' /tmp/photo.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|PHOTO ROUTING FAILURE:|ERROR:' /tmp/photo.log; then exit 1; fi
