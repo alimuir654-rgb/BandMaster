@@ -186,7 +186,7 @@ func _render_stage() -> void:
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
  var hero_height := 310.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
- Cinematic.add_hero(scene_planes,art_path,"GIG DAY  /  %02d OF 05" % (step+1),str(Journey.STEPS[step]),ACCENTS[step],hero_height)
+ Cinematic.add_hero(scene_planes,art_path,"GIG DAY  /  %02d OF 05" % (step+1),str(Journey.STEPS[step]),ACCENTS[step],hero_height,"ShowJourneyArtwork")
  var story_panel := PanelContainer.new()
  story_panel.name = "ShowJourneyStoryPanel"
  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
