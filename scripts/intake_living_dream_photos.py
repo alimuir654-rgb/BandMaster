@@ -41,9 +41,11 @@ def resolve_image(page_url):
     tags = re.findall(r"<meta\b[^>]*>", page, flags=re.IGNORECASE)
     image_url = None
     for tag in tags:
-        if not re.search(r"property=[\\\"']og:image[\\\"']", tag, flags=re.IGNORECASE):
+        if "og:image" not in tag.lower():
             continue
-        found = re.search(r"content=[\\\"']([^\\\"']+)", tag, flags=re.IGNORECASE)
+        found = re.search(r'content="([^"]+)"', tag, flags=re.IGNORECASE)
+        if not found:
+            found = re.search("content='([^']+)'", tag, flags=re.IGNORECASE)
         if found:
             image_url = html.unescape(found.group(1))
             break
