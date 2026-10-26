@@ -108,6 +108,18 @@ func _render_stage() -> void:
  backdrop.color = COLORS[stage]
  stage_root.add_child(backdrop)
  backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ # The whole room changes tone, not merely a small illustration in a card.
+ var art_path: String = "res://Art/Journeys/Songwriting/"+str(ART[stage])
+ if ResourceLoader.exists(art_path):
+  var ambient := TextureRect.new()
+  ambient.name = "JourneyAmbientArt"
+  ambient.texture = load(art_path)
+  ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  ambient.modulate = Color(1,1,1,0.19)
+  ambient.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  stage_root.add_child(ambient)
+  ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var margins := MarginContainer.new()
  margins.name = "JourneyMargins"
  stage_root.add_child(margins)
@@ -134,7 +146,6 @@ func _render_stage() -> void:
  body.custom_minimum_size.x = minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
  body.add_theme_constant_override("separation",13)
  centered.add_child(body)
- var art_path: String = "res://Art/Journeys/Songwriting/"+str(ART[stage])
  if ResourceLoader.exists(art_path):
   var illustration := TextureRect.new()
   illustration.name = "JourneyArtwork"
