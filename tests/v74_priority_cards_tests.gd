@@ -16,10 +16,10 @@ func _initialize() -> void:
   _check(home.contains('bottom_scrim.name = "BandHouseActionScrim"'),"foreground actions have their own scrim")
   _check(home.contains('pulse.name = "BandHouseStatusStrip"'),"band status is visible in the hero")
   _check(primary>=0 and places>primary,"one next-move CTA precedes secondary destinations")
-  _check(home.contains("var hero_height := clampf(viewport_height"),"hero height responds to viewport")
-  _check(not home.contains("760.0 if wide else 780.0"),"old fixed-height hero removed")
+  _check(home.contains("var hero_height := clampf(viewport_height") and home.contains("740.0,780.0"),"hero preserves cinematic height across viewports")
+  _check(home.contains("call.custom_minimum_size.y = 82"),"primary action is touch-sized")
   _check(home.contains('{"name":"WRITE & REHEARSE"') and home.contains('{"name":"BOOK & PLAY"') and home.contains('{"name":"YOUR PEOPLE"'),"exactly three intentional destinations")
-  _check(home.contains('button.custom_minimum_size.y = 64'),"secondary destinations have accessible touch height")
+  _check(home.contains('button.custom_minimum_size.y = 84'),"secondary destinations have accessible touch height")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene loads")
  if failed==0:
   print("V74 PRIORITY CARDS PASSED")
