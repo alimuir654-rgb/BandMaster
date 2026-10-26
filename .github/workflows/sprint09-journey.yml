@@ -32,6 +32,13 @@ jobs:
           set -euo pipefail
           godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/import.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/import.log; then exit 1; fi
+      - name: Parse journey and host scripts explicitly
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --check-only --script res://Scripts/songwriting_journey.gd 2>&1 | tee /tmp/journey-parse.log
+          godot --headless --path . --check-only --script res://Scripts/career_hub.gd 2>&1 | tee /tmp/host-parse.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/journey-parse.log /tmp/host-parse.log; then exit 1; fi
       - name: Test pure metadata and reduced motion
         shell: bash
         run: |
