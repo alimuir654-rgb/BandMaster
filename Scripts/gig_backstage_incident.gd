@@ -18,7 +18,8 @@ static func incident(state: Dictionary) -> Dictionary:
  var prefix := str(booking.get("venue_id",booking.get("venue","gig")))+":"
  var identifier := prefix+str(int(booking.get("day",0)))
  var legacy_identifier := prefix+str(booking.get("day",0))
- if str(state.get("illness_resolved_booking","")) in [identifier,legacy_identifier]:
+ var float_identifier := prefix+str(float(booking.get("day",0)))
+ if str(state.get("illness_resolved_booking","")) in [identifier,legacy_identifier,float_identifier]:
   return {}
  var roster: Array = state.get("members",[])
  for index in range(roster.size()):
