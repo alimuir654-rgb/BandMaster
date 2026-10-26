@@ -269,9 +269,9 @@ func _render() -> void:
  if get_viewport_rect().size.x < 960.0:
   var menu := UI.button("SAVE & EXIT" if tab == "HOME" else "SAVE & MAIN MENU")
   menu.custom_minimum_size.y = 48
-  if tab == "HOME":
+  if tab == "HOME" or focus_world:
    menu.size_flags_horizontal = Control.SIZE_SHRINK_END
-   menu.custom_minimum_size.x = 154
+   menu.custom_minimum_size.x = 154 if tab == "HOME" else 184
    menu.add_theme_font_size_override("font_size",13)
   content.add_child(menu)
   menu.pressed.connect(_menu)
@@ -334,7 +334,7 @@ func _header() -> void:
   return
  var palette: Dictionary = save_data.get("band",{}).get("palette",{})
  var colour: Color = UI.palette(_genre_id())["accent"]
- _label(content,"LIVIN' THE DREAM   /   BRITISH GRASSROOTS",12,colour)
+ _label(content,"LIVING THE DREAM   /   BRITISH GRASSROOTS",12,colour)
  var row := HBoxContainer.new()
  content.add_child(row)
  var band_data: Dictionary = save_data.get("band",{})
@@ -465,7 +465,7 @@ func _world_focus_hero() -> void:
  var width := get_viewport_rect().size.x
  var crop := "wide" if width >= 960.0 else "portrait"
  var photo := "res://Art/Photography/approved/%s_%s.webp" % [str(spec["photo"]),crop]
- var height := 325.0 if width < 560.0 else (375.0 if width < 960.0 else 390.0)
+ var height := clampf(get_viewport_rect().size.y*0.65,390.0,830.0)
  Cinematic.add_hero(content,photo,str(spec["kicker"]),str(spec["title"]),colours["accent"],height,"WorldFocusPhoto")
  var info := VBoxContainer.new()
  info.name = "WorldFocusDecisionDock"
@@ -964,7 +964,7 @@ func _editorial_banner(title: String, subtitle: String, artwork: String, destina
  copy.size_flags_stretch_ratio = 1.35
  copy.add_theme_constant_override("separation",10)
  line.add_child(copy)
- _label(copy,"BANDMASTER  /  YOUR CAREER",12,UI.palette(_genre_id())["accent"])
+ _label(copy,"LIVING THE DREAM  /  YOUR CAREER",12,UI.palette(_genre_id())["accent"])
  var heading := _label(copy,title,28,UI.WHITE)
  heading.max_lines_visible = 2
  heading.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
