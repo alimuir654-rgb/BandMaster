@@ -17,7 +17,7 @@ static func themed_button(label: String, genre_id: String, primary: bool = false
  var fill: Color = colors["accent"] if primary else colors["alt"]
  var foreground: Color = colors["bg"] if primary else WHITE
  var normal := _button_surface(fill, primary)
- normal.border_color = colors["accent"].lightened(0.18) if primary else colors["secondary"]
+ normal.border_color = colors["accent"] if primary else colors["secondary"]
  item.add_theme_stylebox_override("normal",normal)
  var hovered := _button_surface(fill.lightened(0.09),primary)
  hovered.border_color = colors["accent"]
