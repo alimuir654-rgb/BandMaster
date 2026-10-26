@@ -1,7 +1,7 @@
 extends Control
 
 # Public-facing title is intentionally separate from the internal project name.
-const DISPLAY_TITLE := "LIVIN' THE DREAM"
+const DISPLAY_TITLE := "LIVING THE DREAM"
 const BG := Color("#101216")
 const PANEL := Color("#1A1E24")
 const AMBER := Color("#F0B44D")
@@ -40,7 +40,7 @@ func _save_profile() -> bool:
 	file.close()
 	return true
 
-const VERSION_LABEL := "EARLY ACCESS  /  BANDMASTER"
+const VERSION_LABEL := "EARLY ACCESS  /  UK INDIE SCENE"
 const LAUNCH_ART := "res://Art/uk_street_banner.svg"
 
 func _build_menu() -> void:
