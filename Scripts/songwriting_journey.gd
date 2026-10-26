@@ -7,6 +7,7 @@ const Studio = preload("res://Scripts/song_studio_presentation.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
 const Photos = preload("res://Scripts/journey_photo.gd")
+const Cinematic = preload("res://Scripts/journey_cinematic_stage.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const PHASES := ["THE SPARK","FIND THE SOUND","IN THE ROOM","THE SONGSHEET"]
 const ART := ["01-spark.svg","02-vibe.svg","03-jam.svg","04-sleeve.svg"]
@@ -85,15 +86,14 @@ func _text(parent: Node, value: String, size: int, colour: Color) -> Label:
 
 func _tone_button(button: Button, primary: bool) -> void:
  var accent: Color = ACCENTS[stage]
- var base: Color = COLORS[stage].darkened(0.22)
+ var base: Color = Color("#18232D")
  var fill: Color = accent if primary else base
  var foreground: Color = Color("#202128") if primary else Color("#FFF5E6")
- var normal := UI.style(fill,9)
- normal.border_color = accent
- normal.border_width_bottom = 3 if primary else 1
+ var normal := UI._button_surface(fill,primary)
+ normal.border_color = accent if primary else Color("#51606D")
  button.add_theme_stylebox_override("normal",normal)
- button.add_theme_stylebox_override("hover",UI.style(fill.lightened(0.13),9))
- button.add_theme_stylebox_override("pressed",UI.style(fill.darkened(0.12),9))
+ button.add_theme_stylebox_override("hover",UI._button_surface(fill.lightened(0.11),primary))
+ button.add_theme_stylebox_override("pressed",UI._button_surface(fill.darkened(0.12),primary))
  var focus := UI.flat(Color.TRANSPARENT,9)
  focus.border_color = accent
  focus.set_border_width_all(3)
@@ -102,11 +102,11 @@ func _tone_button(button: Button, primary: bool) -> void:
   button.add_theme_color_override(key,foreground)
 
 func _tone_selector(select: OptionButton) -> void:
- var surface := UI.style(COLORS[stage].darkened(0.17),8)
+ var surface := UI._button_surface(Color("#17222C"),false)
  surface.border_color = ACCENTS[stage]
- surface.border_width_bottom = 2
+ surface.border_width_bottom = 1
  select.add_theme_stylebox_override("normal",surface)
- select.add_theme_stylebox_override("hover",UI.style(COLORS[stage].lightened(0.13),8))
+ select.add_theme_stylebox_override("hover",UI._button_surface(Color("#283846"),false))
  select.add_theme_color_override("font_color",Color("#FFF5E6"))
  select.add_theme_color_override("font_hover_color",Color("#FFF5E6"))
  var focus := UI.flat(Color.TRANSPARENT,8)
@@ -137,7 +137,7 @@ func _text_input(parent: Node, heading: String, value: String, control_name: Str
  field.text = value
  field.max_length = max_chars
  field.custom_minimum_size.y = 56
- field.add_theme_stylebox_override("normal",UI.style(Color("#F1E7D5"),8))
+ field.add_theme_stylebox_override("normal",UI._button_surface(Color("#E8E6DF"),false))
  field.add_theme_color_override("font_color",Color("#231E1B"))
  field.add_theme_color_override("font_placeholder_color",Color("#62574E"))
  parent.add_child(field)
@@ -162,7 +162,7 @@ func _render_stage() -> void:
   ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  ambient.modulate = Color(1,1,1,0.19)
+  ambient.modulate = Color(1,1,1,0.09)
   ambient.mouse_filter = Control.MOUSE_FILTER_IGNORE
   stage_root.add_child(ambient)
   ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -199,35 +199,21 @@ func _render_stage() -> void:
  scene_planes.name = "JourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- if ResourceLoader.exists(art_path):
-  var illustration := TextureRect.new()
-  illustration.name = "JourneyArtwork"
-  illustration.texture = load(art_path)
-  illustration.custom_minimum_size.y = 190 if get_viewport_rect().size.x < 600 else 280
-  illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  scene_planes.add_child(illustration)
-  if cinematic_split:
-   illustration.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   illustration.custom_minimum_size.x = 440
- else:
-  _text(body,"SCENE ART UNAVAILABLE",14,ACCENTS[stage])
- # A real reading surface in landscape separates decisions from the environment.
- # Mobile retains the open, scrollable vertical composition.
- var story_holder: Node = scene_planes
+ var hero_height := 340.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
+ Cinematic.add_hero(scene_planes,art_path,"WRITING SESSION  /  %02d" % (stage+1),PHASES[stage],ACCENTS[stage],hero_height)
+ # Choices are a readable foreground dock; the image carries the atmosphere.
+ var story_panel := PanelContainer.new()
+ story_panel.name = "JourneyStoryPanel"
+ story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if cinematic_split:
-  var story_panel := PanelContainer.new()
-  story_panel.name = "JourneyStoryPanel"
-  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  story_panel.custom_minimum_size.y = 320
-  var panel_tone := UI.style(COLORS[stage].lightened(0.08),12)
-  panel_tone.border_color = ACCENTS[stage]
-  panel_tone.border_width_left = 4
-  panel_tone.set_content_margin_all(18)
-  story_panel.add_theme_stylebox_override("panel",panel_tone)
-  scene_planes.add_child(story_panel)
-  story_holder = story_panel
+  story_panel.custom_minimum_size.y = 340
+ var panel_tone := UI.flat(Color("#101923"),8)
+ panel_tone.set_content_margin_all(18)
+ panel_tone.border_color = Color("#42505D")
+ panel_tone.border_width_top = 2
+ story_panel.add_theme_stylebox_override("panel",panel_tone)
+ scene_planes.add_child(story_panel)
+ var story_holder: Node = story_panel
  var story := VBoxContainer.new()
  story.name = "JourneyStory"
  story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
