@@ -166,9 +166,17 @@ func _render_stage() -> void:
    _text_input(body,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
   1:
    _text(body,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
-   _selector(body,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
-   _selector(body,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
-   _text(body,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
+   var mood_choice := _selector(body,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
+   var mood_story := _text(body,_vibe_line(vibe),16,Color("#D7E4E7"))
+   mood_story.name = "JourneyVibeReaction"
+   mood_choice.item_selected.connect(func(index: int) -> void:
+    mood_story.text = _vibe_line(mood_choice.get_item_text(index))
+   )
+   var form_choice := _selector(body,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
+   var form_note := _text(body,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
+   form_choice.item_selected.connect(func(index: int) -> void:
+    form_note.text = str(Studio.FORM_NOTES.get(form_choice.get_item_text(index),"Choose a structure."))
+   )
   2:
    _text(body,"The band comes into focus. Someone has to lead this session.",18,Color("#FFF5E6"))
    var catalogue: Dictionary = Workshop.options(source_state)
@@ -264,6 +272,18 @@ func _render_stage() -> void:
   reduced_motion = not reduced_motion
   motion.text = "REDUCE MOTION: "+("ON" if reduced_motion else "OFF")
  )
+
+func _vibe_line(selected: String) -> String:
+ match selected:
+  "Restless and raw":
+   return "The amp hums. Nobody wants a polished first take."
+  "Dreamy and spacious":
+   return "Leave space between the notes; let the room do some of the singing."
+  "Urgent and loud":
+   return "The drummer counts in fast. This one wants to be heard."
+  "Warm and intimate":
+   return "Pull the microphones close. Keep the imperfections that feel human."
+ return "The band listens for a sound worth following."
 
 func _lead_line(person: Dictionary) -> String:
  var trait := str(person.get("trait","")).to_lower()
