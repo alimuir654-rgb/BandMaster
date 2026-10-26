@@ -93,7 +93,7 @@ static func build(parent: Node, song: Dictionary, number: int, genre_id: String 
   icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
   icon.modulate = Color("#60462E")
   mark.add_child(icon)
- var overline := _line(mark,"NEW ORIGINAL  /  SONG FINISHED  /  %02d" % int(info["number"]),12,Color("#785B39"))
+ var overline := _line(mark,"NEW ORIGINAL  /  SONG FINISHED  /  %02d" % int(info["number"]),13,Color("#785B39"))
  overline.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var art_path := "res://Art/Backgrounds/%s/studio.webp" % genre_id
  if not ResourceLoader.exists(art_path):
@@ -108,16 +108,16 @@ static func build(parent: Node, song: Dictionary, number: int, genre_id: String 
   art.mouse_filter = Control.MOUSE_FILTER_IGNORE
   body.add_child(art)
  _line(body,str(info["title"]).to_upper(),24,Color("#241C15"))
- _line(body,str(info["credits"]),14,Color("#60462E"))
- _line(body,str(info["origin"])+"  /  "+str(info["arrangement"]),13,Color("#5E5245"))
- _line(body,str(info["quality"])+"  ·  "+str(info["day"]),12,Color("#785B39"))
+ _line(body,str(info["credits"]),15,Color("#60462E"))
+ _line(body,str(info["origin"])+"  /  "+str(info["arrangement"]),14,Color("#5E5245"))
+ _line(body,str(info["quality"])+"  ·  "+str(info["day"]),14,Color("#785B39"))
  var separator := HSeparator.new()
  body.add_child(separator)
  var notes: Array = info["notes"]
  if notes.is_empty():
-  _line(body,"WRITING ROOM  /  SESSION HISTORY NOT RECORDED",12,Color("#785B39"))
+  _line(body,"WRITING ROOM  /  SESSION HISTORY NOT RECORDED",14,Color("#785B39"))
  else:
-  _line(body,"WRITING ROOM  /  RECORDED SESSIONS",12,Color("#785B39"))
+  _line(body,"WRITING ROOM  /  RECORDED SESSIONS",14,Color("#785B39"))
   for note in notes:
-   _line(body,str(note),12,Color("#4C4338"))
+   _line(body,str(note),14,Color("#4C4338"))
  return sleeve
