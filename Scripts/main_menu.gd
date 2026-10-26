@@ -251,7 +251,7 @@ func _label(parent: Control, value: String, font_size: int, colour: Color) -> La
 func _button(parent: Control, label_text: String, action: Callable, primary: bool) -> Button:
 	# Share the same focus, hover, pressed and disabled states as the in-game actions.
 	var result := UI.button(label_text, primary)
-	result.custom_minimum_size.y = 56
+	result.custom_minimum_size.y = 82
 	result.pressed.connect(action)
 	parent.add_child(result)
 	return result
