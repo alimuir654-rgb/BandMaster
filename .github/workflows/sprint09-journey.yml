@@ -1,0 +1,55 @@
+name: Art-led songwriting journey
+on:
+  pull_request:
+    paths:
+      - 'Scripts/songwriting_journey.gd'
+      - 'Scripts/journey_fade.gd'
+      - 'Scripts/song_workshop.gd'
+      - 'Scripts/practice_room.gd'
+      - 'Scripts/song_sleeve.gd'
+      - 'Scripts/career_hub.gd'
+      - 'Art/Journeys/Songwriting/**'
+      - 'tests/sprint09_*'
+      - '.github/workflows/sprint09-journey.yml'
+jobs:
+  songwriting-journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot 4.7.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import SVG art and scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/import.log; then exit 1; fi
+      - name: Parse journey and host scripts explicitly
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --check-only --script res://Scripts/songwriting_journey.gd 2>&1 | tee /tmp/journey-parse.log
+          godot --headless --path . --check-only --script res://Scripts/career_hub.gd 2>&1 | tee /tmp/host-parse.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/journey-parse.log /tmp/host-parse.log; then exit 1; fi
+      - name: Test pure metadata and reduced motion
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 40s godot --headless --path . --script res://tests/sprint09_songwriting_metadata_tests.gd 2>&1 | tee /tmp/metadata.log
+          grep -q 'SPRINT A METADATA AND TRANSITIONS PASSED' /tmp/metadata.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT A METADATA FAILURE:|ERROR:' /tmp/metadata.log; then exit 1; fi
+      - name: Test four playable screens at three viewports
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 90s godot --headless --path . --script res://tests/sprint09_songwriting_journey_tests.gd 2>&1 | tee /tmp/journey.log
+          grep -q 'SPRINT A SONGWRITING JOURNEY PASSED' /tmp/journey.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT A JOURNEY FAILURE:|ERROR:' /tmp/journey.log; then exit 1; fi

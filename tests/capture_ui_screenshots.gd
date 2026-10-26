@@ -11,6 +11,7 @@ func _capture() -> void:
  var tab := "HOME"
  var genre := "indie"
  var show_sleeve := false
+ var journey_stage := -1
  var width := 390
  var height := 844
  for arg in args:
@@ -20,13 +21,15 @@ func _capture() -> void:
    tab = arg.trim_prefix("--tab=")
   elif arg == "--sleeve":
    show_sleeve = true
+  elif arg.begins_with("--journey-stage="):
+   journey_stage = int(arg.trim_prefix("--journey-stage="))
   elif arg.begins_with("--genre="):
    genre = arg.trim_prefix("--genre=")
   elif arg.begins_with("--width="):
    width = int(arg.trim_prefix("--width="))
   elif arg.begins_with("--height="):
    height = int(arg.trim_prefix("--height="))
- if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS"):
+ if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS") or journey_stage > 3 or journey_stage < -1 or (journey_stage >= 0 and tab != "ACTIONS") or (journey_stage >= 0 and show_sleeve):
   push_error("SCREENSHOT FAILURE: Invalid capture parameters")
   quit(1)
   return
@@ -73,6 +76,24 @@ func _capture() -> void:
  ui._render()
  if show_sleeve:
   ui._open_song_sleeve(fixture["career_extra"]["song_catalogue"][0],1)
+ if journey_stage >= 0:
+  ui._open_songwriting_journey()
+  var journey := ui.find_child("SongwritingJourney",true,false)
+  if journey == null:
+   push_error("SCREENSHOT FAILURE: Songwriting journey did not open")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
+  journey.reduced_motion = true
+  for step in range(journey_stage):
+   journey._go(step+1)
+  if journey.stage != journey_stage or journey.find_child("JourneyArtwork",true,false) == null:
+   push_error("SCREENSHOT FAILURE: Journey scene or illustration missing")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
  for frame in range(18):
   await process_frame
  var image := get_root().get_texture().get_image()
