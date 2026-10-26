@@ -1,5 +1,30 @@
 # BandMaster autonomous sprint execution log
 
+## Sprint 03 / 08 — 2026-10-26, scheduled start 00:25 UTC
+**Scope:** deterministic pair-specific rehearsal and road conflict interventions with distinct Band decision scene.
+**PR:** #168 (`sprint03-pairwise-band-conflicts`); CI pending at time of drafting.
+
+### Implementation
+- `Scripts/band_drama.gd`: deterministic pair choice from active musicians using real index-pair trust, song progress and fatigue; two authored conflicts, identity-scoped one-time resolution, individual consequences and actual relationship mutation. No parallel drama save schema.
+- `Scripts/career_hub.gd`: named pair and trust shown in first Band action, one-button entry to existing `SceneSheet`; licensed existing Lucide icon, optional existing genre art, previewed trade-offs, cancel/back and single commit via `_finish`.
+- `tests/sprint03_pair_incidents_tests.gd`: old/new save behavior, one-time choices, invalid decisions, replacement musician, legacy missing keys, inactive pair, deep-copy and JSON reload.
+- `tests/sprint03_pair_viewport_tests.gd`: first fold, tap target, safe cancel, saved commitment at 390×844, 720×1280, 1280×720.
+- No Unsplash JPGs imported or claimed; 3 listed photos still absent; existing `Art/UI/Icons/users.svg` verified.
+
+### Simulated persona findings
+1. **First-time player:** visible names, trust and one action; add better trigger explanation after usability testing.
+2. **Management-game veteran:** one-day cost and opposing relationship/readiness consequences; pair cases limited to one resolution per pair and event type.
+3. **UX/accessibility:** reused scrollable SceneSheet, 52–54px WoldUI buttons and safe Back; automated viewport geometry is not manual visual sign-off.
+4. **Godot engineer:** pure deep-copy transition, existing `relationships` and `band_drama_resolved`; legacy fallback identities may change when names are edited.
+5. **Release QA:** JSON reload, no duplicate settlement, original generic drama path retained; exact CI and visual evidence to be confirmed after run.
+
+### Retro and handoff
+- **Worked:** existing SceneSheet + licensed Lucide SVG avoided duplicate component/asset work.
+- **Limitation:** portrait pairs remain generic; existing background art is a fallback, not a bespoke scene illustration.
+- **Next:** portrait-driven interaction and visible relationship-history artifact, populated screenshot review, stable member IDs and original photo ingestion only with verified binaries and licensing.
+- **CI status:** pending; do not merge unless structure, Godot headless and screenshot workflows all succeed on latest head.
+
+
 ## Sprint 02 / 08 — 2026-10-25, start 23:28 UTC
 **Scope:** per-member second-hand equipment condition, provenance, assignments, repairs and performance consequences.
 **PR:** #167 (`sprint02-member-gear-condition`), merge pending CI at time of drafting.
