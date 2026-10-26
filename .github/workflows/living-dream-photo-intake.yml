@@ -1,0 +1,49 @@
+name: Living the Dream photograph intake
+on:
+  push:
+    branches: [living-the-dream-british-photographic-art-gate]
+    paths:
+      - 'scripts/intake_living_dream_photos.py'
+      - 'Art/Photography/photo_sources.json'
+      - '.github/workflows/living-dream-photo-intake.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photograph-intake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: living-the-dream-british-photographic-art-gate
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo processing dependency
+        run: pip install 'Pillow>=11,<13'
+      - name: Download real Unsplash photos and produce WebP crops
+        run: python scripts/intake_living_dream_photos.py
+      - name: Publish verified files on same production branch
+        run: |
+          set -euo pipefail
+          test -f Art/Photography/approved/intake_audit.json
+          count=$(find Art/Photography/approved -name '*.webp' -size +20k | wc -l)
+          test "$count" -ge 6
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/Photography/approved
+          if ! git diff --cached --quiet; then
+            git commit -m 'Import verified Unsplash Free scene photography and responsive crops'
+            git push origin HEAD:living-the-dream-british-photographic-art-gate
+          fi
+      - name: Publish intake evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: photo-intake-audit
+          path: Art/Photography/approved/intake_audit.json
+          if-no-files-found: warn
