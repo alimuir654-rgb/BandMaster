@@ -39,6 +39,7 @@ const Momentum = preload("res://Scripts/career_momentum_presentation.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const Motion = preload("res://Scripts/career_motion.gd")
 const Drama = preload("res://Scripts/band_drama.gd")
+const SceneSheet = preload("res://Scripts/scene_sheet.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const BandPulse = preload("res://Scripts/band_pulse_presentation.gd")
 const Chemistry = preload("res://Scripts/band_chemistry_presentation.gd")
@@ -1891,6 +1892,19 @@ func _recruit(index: int = 0) -> void:
  _finish(Life.recruit(_state(),index))
 
 func _band_situations() -> void:
+ # Present a real pair's disagreement as one actionable scene rather than
+ # scattering multiple generic choice buttons through the roster.
+ for incident in Drama.pair_pending(_state()):
+  var case_id: String = str(incident["id"])
+  var box := _card("BACKSTAGE  /  "+str(incident["title"]),str(incident["intro"]))
+  _label(box,"%s  +  %s    /    PAIR TRUST %d" % [str(incident["first"]),str(incident["second"]),int(incident["trust"])],13,UI.palette(_genre_id())["accent"])
+  var launcher := UI.themed_button("HEAR BOTH SIDES  /  1 DAY",_genre_id(),true)
+  launcher.name = "PairIncidentOpen"
+  launcher.custom_minimum_size.y = 54
+  if launcher is WoldButton:
+   launcher.icon_start = "users"
+  box.add_child(launcher)
+  launcher.pressed.connect(func() -> void: _open_pair_incident(case_id,launcher))
  for event_id in Drama.pending(_state()):
   var id: String = str(event_id)
   var definition: Dictionary = Drama.EVENTS[id]
@@ -1898,6 +1912,72 @@ func _band_situations() -> void:
   for option in definition["choices"]:
    var choice: String = str(option["id"])
    _action(box,str(option["label"]),func() -> void: _finish(Drama.resolve(_state(),id,choice)),choice == str(definition["choices"][0]["id"]))
+
+func _open_pair_incident(case_id: String, launcher: BaseButton) -> void:
+ var incident: Dictionary = {}
+ for available in Drama.pair_pending(_state()):
+  if str(available.get("id","")) == case_id:
+   incident = available
+   break
+ if incident.is_empty():
+  message = "That conversation is no longer available."
+  _render()
+  return
+ var art_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
+ if not ResourceLoader.exists(art_path):
+  art_path = "res://Art/Backgrounds/shared/band.webp"
+ var sheet: Dictionary = SceneSheet.build(self,str(incident["title"]),str(incident["intro"]),art_path,_genre_id())
+ var body: VBoxContainer = sheet["body"]
+ var pair_row := HBoxContainer.new()
+ pair_row.name = "PairIncidentIdentity"
+ pair_row.add_theme_constant_override("separation",10)
+ body.add_child(pair_row)
+ body.move_child(pair_row,1)
+ var icon_path := "res://Art/UI/Icons/users.svg"
+ if ResourceLoader.exists(icon_path):
+  var icon := TextureRect.new()
+  icon.texture = load(icon_path)
+  icon.custom_minimum_size = Vector2(34,34)
+  icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  pair_row.add_child(icon)
+ var pair_caption := Label.new()
+ pair_caption.text = "%s  +  %s  /  TRUST %d" % [str(incident["first"]),str(incident["second"]),int(incident["trust"])]
+ pair_caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ pair_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ pair_caption.add_theme_color_override("font_color",UI.AMBER)
+ pair_row.add_child(pair_caption)
+ var actions: VBoxContainer = sheet["actions"]
+ var committed := [false]
+ var first_choice: BaseButton
+ for option in incident["choices"]:
+  var choice_id := str(option["id"])
+  var consequence := Label.new()
+  consequence.text = "TRUST %d  ·  TENSION %d  ·  READINESS %d  /  1 DAY" % [int(option.get("trust",0)),int(option.get("tension",0)),int(option.get("readiness",0))]
+  consequence.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+  consequence.add_theme_font_size_override("font_size",12)
+  consequence.add_theme_color_override("font_color",UI.MUTED)
+  actions.add_child(consequence)
+  var button := SceneSheet.add_choice(sheet,str(option["label"]),func() -> void:
+   if committed[0]:
+    return
+   committed[0] = true
+   SceneSheet.dismiss(sheet)
+   _finish(Drama.resolve_pair(_state(),case_id,choice_id),"band:pair")
+  ,first_choice == null,_genre_id())
+  button.name = "PairIncidentChoice"
+  if first_choice == null:
+   first_choice = button
+ var cancel := SceneSheet.add_choice(sheet,"BACK TO THE BAND",func() -> void:
+  if committed[0]:
+   return
+  SceneSheet.dismiss(sheet)
+  if is_instance_valid(launcher):
+   launcher.call_deferred("grab_focus")
+ ,false,_genre_id())
+ cancel.name = "PairIncidentCancel"
+ if is_instance_valid(first_choice):
+  first_choice.call_deferred("grab_focus")
 
 func _experience_tile(parent: Node, heading: String, story: String, impact: String, cost: int, enabled: bool, callback: Callable) -> void:
  var panel := PanelContainer.new()
