@@ -55,14 +55,20 @@ func _build_screen(community: bool) -> void:
 
 	var background := ColorRect.new()
 	background.color = BG
+	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(background)
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	# Optional British venue artwork. The layout remains usable without an asset.
-	if ResourceLoader.exists(LAUNCH_ART):
+	# The title screen now belongs to the same photographic British music world
+	# as the Band House, rather than the old almost-opaque SVG placeholder.
+	var is_wide := get_viewport_rect().size.x >= 960.0
+	var launch_photo := "res://Art/Photography/approved/world_home_wide.webp" if is_wide else "res://Art/Photography/approved/world_home_portrait.webp"
+	if not ResourceLoader.exists(launch_photo):
+		launch_photo = LAUNCH_ART
+	if ResourceLoader.exists(launch_photo):
 		var backdrop := TextureRect.new()
-		backdrop.texture = load(LAUNCH_ART)
+		backdrop.name = "TitleCinematicPhoto"
+		backdrop.texture = load(launch_photo)
 		backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -70,53 +76,81 @@ func _build_screen(community: bool) -> void:
 		backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 	var veil := ColorRect.new()
-	veil.color = Color(0.04, 0.05, 0.07, 0.83)
+	veil.color = Color(0.02,0.035,0.05,0.38)
 	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(veil)
 	veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+	var lower := ColorRect.new()
+	lower.color = Color(0.02,0.035,0.05,0.58)
+	lower.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(lower)
+	lower.anchor_top = 0.63
+	lower.anchor_bottom = 1.0
+	lower.anchor_right = 1.0
 
 	var scroll := ScrollContainer.new()
 	add_child(scroll)
 	scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var margin := MarginContainer.new()
+	margin.custom_minimum_size.y = get_viewport_rect().size.y
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	margin.add_theme_constant_override("margin_left", 22)
-	margin.add_theme_constant_override("margin_right", 22)
-	margin.add_theme_constant_override("margin_top", 45)
-	margin.add_theme_constant_override("margin_bottom", 35)
+	margin.add_theme_constant_override("margin_left",24 if not is_wide else 46)
+	margin.add_theme_constant_override("margin_right",24 if not is_wide else int(get_viewport_rect().size.x*0.43))
+	margin.add_theme_constant_override("margin_top",28)
+	margin.add_theme_constant_override("margin_bottom",28)
 	scroll.add_child(margin)
 	var column := VBoxContainer.new()
 	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	column.add_theme_constant_override("separation", 16)
+	column.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	column.add_theme_constant_override("separation",12)
 	margin.add_child(column)
 
-	_label(column, "A BRITISH MUSIC INDUSTRY SIM", 14, AMBER)
-	_label(column, DISPLAY_TITLE, 44, WHITE)
-	_label(column, "Build the lineup. Find your sound. Make a scene.", 17, WHITE)
-	column.add_child(HSeparator.new())
+	_label(column,"THE UK GRASSROOTS MUSIC GAME",14,AMBER)
+	var title := _label(column,DISPLAY_TITLE,44,WHITE)
+	title.name = "TitleHeroHeading"
+	_label(column,"Build the lineup. Find your sound. Make a scene.",17,WHITE)
+
+	var breathing_room := Control.new()
+	breathing_room.name = "TitlePhotographicBreathingRoom"
+	breathing_room.custom_minimum_size.y = 50 if community else 130
+	breathing_room.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	column.add_child(breathing_room)
+
+	var dock := PanelContainer.new()
+	dock.name = "TitleActionDock"
+	var dock_style := UI.flat(Color(0.035,0.06,0.085,0.90),9)
+	dock_style.set_content_margin_all(17)
+	dock_style.border_color = AMBER
+	dock_style.border_width_top = 2
+	dock.add_theme_stylebox_override("panel",dock_style)
+	column.add_child(dock)
+	var actions := VBoxContainer.new()
+	actions.add_theme_constant_override("separation",10)
+	dock.add_child(actions)
 
 	if community:
-		_label(column, "YOUR CORNER OF THE SCENE", 19, AMBER)
-		_button(column, "PLAYER PROFILE", _show_profile, true)
-		_button(column, "FRIENDS & CONNECTIONS", func() -> void: _unavailable("Friends and connections"), false)
-		_button(column, "COMPARE SCORES", func() -> void: _unavailable("Online leaderboards"), false)
-		_button(column, "INVITE A SUPPORT BAND", func() -> void: _unavailable("Support-band invitations"), false)
-		_button(column, "JOIN ANOTHER BAND", func() -> void: _unavailable("Collaborative bands"), false)
-		_button(column, "< BACK TO HOME", func() -> void: _build_screen(false), false)
+		_label(actions,"YOUR CORNER OF THE SCENE",18,AMBER)
+		_button(actions,"PLAYER PROFILE",_show_profile,true)
+		_button(actions,"FRIENDS & CONNECTIONS",func() -> void: _unavailable("Friends and connections"),false)
+		_button(actions,"COMPARE SCORES",func() -> void: _unavailable("Online leaderboards"),false)
+		_button(actions,"INVITE A SUPPORT BAND",func() -> void: _unavailable("Support-band invitations"),false)
+		_button(actions,"JOIN ANOTHER BAND",func() -> void: _unavailable("Collaborative bands"),false)
+		_button(actions,"‹  BACK TO HOME",func() -> void: _build_screen(false),false)
 	else:
-		_label(column, "YOUR NEXT CHAPTER", 19, AMBER)
+		_label(actions,"YOUR NEXT CHAPTER",18,AMBER)
 		var has_save := FileAccess.file_exists(SAVE_PATH)
-		var primary_label := "CONTINUE CAREER" if has_save else "START A NEW BAND"
+		var primary_label := "CONTINUE CAREER  ›" if has_save else "START A NEW BAND  ›"
 		var primary_action: Callable = _continue_game if has_save else _new_game
-		_button(column, primary_label, primary_action, true)
+		_button(actions,primary_label,primary_action,true)
 		if has_save:
-			_button(column, "START A NEW BAND", _new_game, false)
-		_button(column, "COMMUNITY & PROFILE", func() -> void: _build_screen(true), false)
-		_button(column, "QUIT", _quit_game, false)
+			_button(actions,"START A NEW BAND",_new_game,false)
+		_button(actions,"COMMUNITY & PROFILE",func() -> void: _build_screen(true),false)
+		_button(actions,"QUIT",_quit_game,false)
 
-	message_label = _label(column, VERSION_LABEL + "  //  UK GRASSROOTS", 13, MUTED)
-	_label(column, "Offline careers stay on this device.", 13, MUTED)
+	message_label = _label(actions,VERSION_LABEL+"  /  UK GRASSROOTS",13,MUTED)
+	_label(actions,"Offline careers stay on this device.",13,MUTED)
 
 
 func _show_profile() -> void:
