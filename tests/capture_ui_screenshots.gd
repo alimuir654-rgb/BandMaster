@@ -12,6 +12,7 @@ func _capture() -> void:
  var genre := "indie"
  var show_sleeve := false
  var journey_stage := -1
+ var show_stage := -1
  var width := 390
  var height := 844
  for arg in args:
@@ -23,13 +24,15 @@ func _capture() -> void:
    show_sleeve = true
   elif arg.begins_with("--journey-stage="):
    journey_stage = int(arg.trim_prefix("--journey-stage="))
+  elif arg.begins_with("--show-stage="):
+   show_stage = int(arg.trim_prefix("--show-stage="))
   elif arg.begins_with("--genre="):
    genre = arg.trim_prefix("--genre=")
   elif arg.begins_with("--width="):
    width = int(arg.trim_prefix("--width="))
   elif arg.begins_with("--height="):
    height = int(arg.trim_prefix("--height="))
- if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS") or journey_stage > 3 or journey_stage < -1 or (journey_stage >= 0 and tab != "ACTIONS") or (journey_stage >= 0 and show_sleeve):
+ if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS") or journey_stage > 3 or journey_stage < -1 or (journey_stage >= 0 and tab != "ACTIONS") or (journey_stage >= 0 and show_sleeve) or show_stage > 4 or show_stage < -1 or (show_stage >= 0 and tab != "GIGS") or (show_stage >= 0 and (journey_stage >= 0 or show_sleeve)):
   push_error("SCREENSHOT FAILURE: Invalid capture parameters")
   quit(1)
   return
@@ -55,6 +58,9 @@ func _capture() -> void:
    ]}
  }
  fixture["band"]["genre"] = genre
+ if show_stage >= 0:
+  fixture["career_extra"]["booked_show"] = {"venue_id":"bristol","venue":"The Copper Fox","city":"BRISTOL","day":12,"approach":"tight","session_drummer":false,"travel_plan":"drive_home"}
+  fixture["career_extra"]["gig_night_phase"] = "arrival"
  var file := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
  if file == null:
   push_error("SCREENSHOT FAILURE: Cannot create isolated fixture")
@@ -90,6 +96,24 @@ func _capture() -> void:
    journey._go(step+1)
   if journey.stage != journey_stage or journey.find_child("JourneyArtwork",true,false) == null:
    push_error("SCREENSHOT FAILURE: Journey scene or illustration missing")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
+ if show_stage >= 0:
+  ui._open_show_day_journey()
+  var show := ui.find_child("ShowDayJourney",true,false)
+  if show == null:
+   push_error("SCREENSHOT FAILURE: Show-day journey did not open")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
+  show.reduced_motion = true
+  for step in range(show_stage):
+   show._advance()
+  if show.find_child("ShowJourneyArtwork",true,false) == null:
+   push_error("SCREENSHOT FAILURE: Show-day illustration missing")
    ui.queue_free()
    _restore(original_exists,original)
    quit(1)
