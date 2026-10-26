@@ -2972,7 +2972,10 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
    scrapbook_filter = "BAND"
    _render()
   )
- next_button.call_deferred("grab_focus")
+ # Focus synchronously while the overlay is still in the tree. Deferred focus
+ # can run after a test or scene transition has already freed the button.
+ if next_button.is_inside_tree():
+  next_button.grab_focus()
  shade.modulate.a = 0.0
  var reveal := create_tween()
  reveal.set_parallel(true)
