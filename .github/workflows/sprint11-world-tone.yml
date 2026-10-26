@@ -43,6 +43,13 @@ jobs:
           timeout 100s godot --headless --audio-driver Dummy --path . --script res://tests/sprint11_world_tone_tests.gd 2>&1 | tee /tmp/world-tone.log
           grep -q 'SPRINT C WORLD TONE PASSED' /tmp/world-tone.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT C WORLD FAILURE:|ERROR:' /tmp/world-tone.log; then exit 1; fi
+      - name: Run continuous writing-to-show-to-scrapbook save/reload acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 100s godot --headless --audio-driver Dummy --path . --script res://tests/sprint11_continuous_career_tests.gd 2>&1 | tee /tmp/continuous-career.log
+          grep -q 'SPRINT C CONTINUOUS CAREER JOURNEY PASSED' /tmp/continuous-career.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT C CAREER FAILURE:|ERROR:' /tmp/continuous-career.log; then exit 1; fi
       - name: Recheck songwriting and show journeys with save/reload
         shell: bash
         run: |
