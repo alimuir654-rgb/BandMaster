@@ -1,6 +1,6 @@
 # British launch identity (initial region)
 
-Working public title: **Livin' the Dream**. Internal project remains **BandMaster**. Do not rename save paths or Godot resource identifiers merely for branding.
+Player-facing title: **Living the Dream**. Internal project remains **BandMaster**. Do not rename save paths or Godot resource identifiers merely for branding.
 
 ## World baseline
 - Early career: fictional British hometown; small venues and rehearsal lock-ups.
