@@ -211,11 +211,26 @@ func _render_stage() -> void:
    illustration.custom_minimum_size.x = 440
  else:
   _text(body,"SCENE ART UNAVAILABLE",14,ACCENTS[stage])
+ # A real reading surface in landscape separates decisions from the environment.
+ # Mobile retains the open, scrollable vertical composition.
+ var story_holder: Node = scene_planes
+ if cinematic_split:
+  var story_panel := PanelContainer.new()
+  story_panel.name = "JourneyStoryPanel"
+  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  story_panel.custom_minimum_size.y = 320
+  var panel_tone := UI.style(COLORS[stage].lightened(0.08),12)
+  panel_tone.border_color = ACCENTS[stage]
+  panel_tone.border_width_left = 4
+  panel_tone.set_content_margin_all(18)
+  story_panel.add_theme_stylebox_override("panel",panel_tone)
+  scene_planes.add_child(story_panel)
+  story_holder = story_panel
  var story := VBoxContainer.new()
  story.name = "JourneyStory"
  story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  story.add_theme_constant_override("separation",12)
- scene_planes.add_child(story)
+ story_holder.add_child(story)
  match stage:
   0:
    _text(story,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
