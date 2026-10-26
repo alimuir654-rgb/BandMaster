@@ -50,6 +50,13 @@ jobs:
           for genre in punk metal electronic; do
             run_capture --tab=HOME --genre="$genre" --width=1280 --height=800 --output="screenshots/home-$genre-desktop.png"
           done
+          # Sprint C: capture every career world at every acceptance viewport.
+          # Previously GEAR, SCENE and GIGS had no populated visual evidence.
+          for tab in HOME BAND GEAR SCENE GIGS ACTIONS; do
+            run_capture --tab="$tab" --width=390 --height=844 --output="screenshots/world-${tab,,}-mobile.png"
+            run_capture --tab="$tab" --width=720 --height=1280 --output="screenshots/world-${tab,,}-tablet.png"
+            run_capture --tab="$tab" --width=1280 --height=720 --output="screenshots/world-${tab,,}-landscape.png"
+          done
           for stage in 0 1 2 3; do
             run_capture --tab=ACTIONS --journey-stage="$stage" --width=390 --height=844 --output="screenshots/song-journey-${stage}-mobile.png"
             run_capture --tab=ACTIONS --journey-stage="$stage" --width=720 --height=1280 --output="screenshots/song-journey-${stage}-tablet.png"
@@ -63,7 +70,7 @@ jobs:
           python3 - <<'PY'
           import glob, struct
           paths = glob.glob("screenshots/*.png")
-          assert len(paths) >= 42, f"Only {len(paths)} screenshots captured"
+          assert len(paths) >= 60, f"Only {len(paths)} screenshots captured"
           for path in paths:
               with open(path, "rb") as handle:
                   header = handle.read(24)
