@@ -29,10 +29,12 @@ jobs:
           mkdir -p screenshots
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=390 --height=844 --output=screenshots/home-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --sleeve --width=390 --height=844 --output=screenshots/song-sleeve-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=390 --height=844 --output=screenshots/band-mobile.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=HOME --width=1280 --height=800 --output=screenshots/home-desktop.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --width=1280 --height=800 --output=screenshots/band-desktop.png
           xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --width=1280 --height=800 --output=screenshots/studio-desktop.png
+          xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=ACTIONS --sleeve --width=1280 --height=800 --output=screenshots/song-sleeve-desktop.png
           for genre in indie punk metal electronic; do
             xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_ui_screenshots.gd -- --tab=BAND --genre="$genre" --width=390 --height=844 --output="screenshots/band-$genre-mobile.png"
           done
@@ -42,7 +44,7 @@ jobs:
           python3 - <<'PY'
           import glob, struct
           paths = glob.glob("screenshots/*.png")
-          assert len(paths) >= 11, f"Only {len(paths)} screenshots captured"
+          assert len(paths) >= 15, f"Only {len(paths)} screenshots captured"
           for path in paths:
               with open(path, "rb") as handle:
                   header = handle.read(24)
