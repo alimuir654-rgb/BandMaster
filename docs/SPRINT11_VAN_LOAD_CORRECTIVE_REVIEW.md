@@ -18,3 +18,8 @@
 
 ## Release gate
 Hold. No human owner approval. Remaining: authentic venue arrival decision, stronger environmental art, dense legacy UI, global fade-out/in, uninterrupted band-builder-to-gig test and #170 resource warnings. Parent PRs must merge in dependency order, with CI rechecked. No screenshot is claimed inspected on this corrective head until artifact retrieval/review.
+
+## Actual populated screenshot review and corrective change
+- Inspected real Godot captures from screenshot workflow **40311125442**, artifact **12644697894**, head `4624717`: LOAD THE VAN at **390x844**, **720x1280** and **1280x720**. The unassigned amp visibly offers `LOAD WITH ALEX` and the fixed `HIT THE ROAD` footer is not clipped. Stage 2 arrival screenshots also generated; no claim of premium quality.
+- **UX failure:** phone supporting copy is small; 1280x720 story copy and decision label are visibly undersized even though the artwork and two-plane layout fit. Corrective code now enforces 14px minimum scene copy on phone/tablet, 15px in landscape, and 15px decision buttons. The three-viewport integration test now asserts the font floors.
+- The latest typography-fix SHA requires **fresh** screenshot inspection and all CI gates. Do not reuse the green conclusion from `4624717` as latest-head approval. Game critic still **CHANGES NEEDED** because key art is schematic and arrival remains passive.
