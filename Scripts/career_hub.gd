@@ -252,9 +252,13 @@ func _render() -> void:
  _bottom_nav()
  if previous_scroll > 0:
   scroll.set_deferred("scroll_vertical",previous_scroll)
- content.modulate.a = 0.0
- var appear := create_tween()
- appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+ # Reduced-motion users see the scene immediately, without a compulsory fade.
+ if bool(ProjectSettings.get_setting("accessibility/reduced_motion",false)):
+  content.modulate.a = 1.0
+ else:
+  content.modulate.a = 0.0
+  var appear := create_tween()
+  appear.tween_property(content,"modulate:a",1.0,0.24).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 func _home_header() -> void:
  var colours := UI.palette(_genre_id())
