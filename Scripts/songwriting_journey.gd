@@ -235,7 +235,7 @@ func _render_stage() -> void:
  scene_planes.name = "JourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- var hero_height := 340.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
+ var hero_height := 270.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
  Cinematic.add_hero(scene_planes,art_path,"WRITING SESSION  /  %02d" % (stage+1),PHASES[stage],ACCENTS[stage],hero_height)
  # Choices are a readable foreground dock; the image carries the atmosphere.
  var story_panel := PanelContainer.new()
