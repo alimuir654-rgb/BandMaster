@@ -6,6 +6,7 @@ const Workshop = preload("res://Scripts/song_workshop.gd")
 const Studio = preload("res://Scripts/song_studio_presentation.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
+const Photos = preload("res://Scripts/journey_photo.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const PHASES := ["THE SPARK","FIND THE SOUND","IN THE ROOM","THE SONGSHEET"]
 const ART := ["01-spark.svg","02-vibe.svg","03-jam.svg","04-sleeve.svg"]
@@ -153,7 +154,7 @@ func _render_stage() -> void:
  stage_root.add_child(backdrop)
  backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  # The whole room changes tone, not merely a small illustration in a card.
- var art_path: String = "res://Art/Journeys/Songwriting/"+str(ART[stage])
+ var art_path: String = Photos.scene_or_fallback("songwriting",stage,get_viewport_rect().size.x,"res://Art/Journeys/Songwriting/"+str(ART[stage]))
  if ResourceLoader.exists(art_path):
   var ambient := TextureRect.new()
   ambient.name = "JourneyAmbientArt"
