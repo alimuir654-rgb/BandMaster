@@ -765,6 +765,12 @@ func _home() -> void:
    person.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    person.add_theme_constant_override("separation",2)
    roster.add_child(person)
+   var portrait := Portrait.new()
+   portrait.name = "BandHouseMemberPortrait"
+   portrait.custom_minimum_size = Vector2(108,154)
+   portrait.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   person.add_child(portrait)
+   portrait.set_character(str(member.get("id",member.get("name",""))),str(member.get("name","Musician")),_genre_id())
    var name := _label(person,str(member.get("name","MUSICIAN")),17,UI.WHITE)
    name.autowrap_mode = TextServer.AUTOWRAP_OFF
    name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
