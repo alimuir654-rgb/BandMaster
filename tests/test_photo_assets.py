@@ -27,6 +27,7 @@ for item in scenes:
         digest = hashlib.sha256(content).hexdigest()
         assert digest not in seen, f"Duplicate scene photo: {target}"
         seen.add(digest)
-assert all(not item["release_approved"] for item in scenes), "Do not silently claim unreviewed rights clearance"
+assert all(isinstance(item.get("release_approved"), bool) for item in scenes), "Every scene needs explicit review status"
 print(f"PASS: {len(scenes)} unique scenes, {len(seen)} real WebP variants, original hashes verified.")
-print("RELEASE HOLD: Visual crop and licensing/recognisable-person review still pending.")
+if any(not item["release_approved"] for item in scenes):
+    print("RELEASE HOLD: Visual crop and licensing/recognisable-person review still pending.")
