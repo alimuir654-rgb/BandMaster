@@ -61,6 +61,12 @@ func _capture() -> void:
  if show_stage >= 0:
   fixture["career_extra"]["booked_show"] = {"venue_id":"bristol","venue":"The Copper Fox","city":"BRISTOL","day":12,"approach":"tight","session_drummer":false,"travel_plan":"drive_home"}
   fixture["career_extra"]["gig_night_phase"] = "arrival"
+  fixture["career_extra"]["owned_equipment"] = ["amp","drums","mics"]
+  fixture["career_extra"]["gear_records"] = {
+   "amp":{"condition":44,"holder_index":1,"holder_name":"Alex","holder_role":"Guitarist"},
+   "drums":{"condition":86,"holder_index":0,"holder_name":"Jo","holder_role":"Drummer"},
+   "mics":{"condition":74,"holder_index":2,"holder_name":"Sam","holder_role":"Vocalist"}
+  }
  var file := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
  if file == null:
   push_error("SCREENSHOT FAILURE: Cannot create isolated fixture")
