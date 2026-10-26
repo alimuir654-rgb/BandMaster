@@ -2,14 +2,14 @@ extends Control
 ## Isolated, read-only visual proof of concept. No gameplay state is read or mutated.
 ## Run with: godot --path . --scene res://poc/premium_dashboard.tscn
 
-const BG := Color("#0B0E12")
-const PANEL := Color("#151A20")
+const BG := Color("#0A1115")
+const PANEL := Color("#172228")
 const RAISED := Color("#1E252C")
-const LINE := Color("#303A42")
-const WHITE := Color("#F3F1E9")
-const MUTED := Color("#9CA7AC")
-const ACCENT := Color("#DCAC63")
-const CYAN := Color("#80C4C7")
+const LINE := Color("#34464C")
+const WHITE := Color("#F5F0E5")
+const MUTED := Color("#A0B4B9")
+const ACCENT := Color("#F2B84D")
+const CYAN := Color("#57CCC7")
 const SIDEBAR_WIDTH := 216.0
 
 var stage: VBoxContainer
@@ -18,9 +18,16 @@ var feedback: Label
 var active_tab := "Overview"
 var nav_buttons: Dictionary = {}
 var desktop := false
+var body_font: SystemFont
+var heading_font: SystemFont
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	body_font = SystemFont.new()
+	body_font.font_names = PackedStringArray(["Inter", "Segoe UI", "Arial"])
+	heading_font = SystemFont.new()
+	heading_font.font_names = PackedStringArray(["Inter", "Segoe UI Semibold", "Arial"])
+	heading_font.font_weight = 700
 	get_viewport().size_changed.connect(_on_resize)
 	_render()
 
@@ -46,8 +53,7 @@ func _text(parent: Node, value: String, font_size: int, colour: Color = WHITE, b
 	l.text = value
 	l.add_theme_font_size_override("font_size", font_size)
 	l.add_theme_color_override("font_color", colour)
-	if bold:
-		l.add_theme_font_override("font", ThemeDB.fallback_font)
+	l.add_theme_font_override("font", heading_font if bold else body_font)
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	parent.add_child(l)
 	return l
@@ -112,6 +118,7 @@ func _button(parent: Node, label: String, kind: String, action: Callable, minimu
 	b.add_theme_color_override("font_focus_color", ink)
 	b.add_theme_color_override("font_disabled_color", MUTED)
 	b.add_theme_font_size_override("font_size", 15)
+	b.add_theme_font_override("font", heading_font)
 	b.pressed.connect(action)
 	parent.add_child(b)
 	return b
@@ -146,10 +153,12 @@ func _render() -> void:
 		_build_mobile_nav(column)
 
 	var scroll := ScrollContainer.new()
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	column.add_child(scroll)
 	var inset := MarginContainer.new()
+	inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var pad := 28 if desktop else 16
 	for side in ["left", "right"]:
 		inset.add_theme_constant_override("margin_" + side, pad)
@@ -165,7 +174,7 @@ func _build_sidebar(shell: HBoxContainer) -> void:
 	side.custom_minimum_size.x = SIDEBAR_WIDTH
 	side.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	var inner := _vertical(side, 10)
-	_text(inner, "LIVING THE DREAM", 17, ACCENT)
+	_text(inner, "LIVING THE DREAM", 17, ACCENT, true)
 	_text(inner, "CAREER / DEMO", 11, MUTED)
 	_gap(inner, 24)
 	for name in ["Overview", "Band", "Songs", "Gigs", "Journal"]:
@@ -175,17 +184,11 @@ func _build_sidebar(shell: HBoxContainer) -> void:
 	_text(inner, "Concept data only. No save changes.", 12, MUTED)
 
 func _build_topbar(column: VBoxContainer) -> void:
-	var bar := _panel(column, Color("#10151A"), 0)
-	var line := _horizontal(bar, 10)
-	var titles := _vertical(line, 3)
-	titles.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	if not desktop:
-		_text(titles, "LIVING THE DREAM", 12, ACCENT)
-	header_title = _text(titles, "THE LONG WEEKEND", 20 if desktop else 18)
-	var meta := _vertical(line, 2)
-	meta.size_flags_horizontal = Control.SIZE_SHRINK_END
-	_text(meta, "YEAR 01 · WEEK 06", 11, MUTED)
-	_text(meta, "£1,240 AVAILABLE", 13, WHITE)
+	var bar := _panel(column, Color("#101B20"), 0)
+	var stack := _vertical(bar, 5)
+	_text(stack, "LIVING THE DREAM  /  CAREER", 11, ACCENT, true)
+	header_title = _text(stack, "THE LONG WEEKEND", 22 if desktop else 19, WHITE, true)
+	_text(stack, "YEAR 01  ·  WEEK 06     /     £1,240 CASH", 12, MUTED)
 
 func _build_mobile_nav(column: VBoxContainer) -> void:
 	var bar := _panel(column, Color("#11171C"), 0)
@@ -206,12 +209,12 @@ func _select(name: String) -> void:
 func _render_stage() -> void:
 	_text(stage, "CAREER OVERVIEW  /  DESIGN PROOF", 12, ACCENT)
 	var intro := _vertical(stage, 4)
-	_text(intro, "The next move is yours.", 29 if desktop else 25)
+	_text(intro, "The next move is yours.", 34 if desktop else 27, WHITE, true)
 	_text(intro, "A grounded management interface. Real music-world stakes. No decorative placeholders.", 15, MUTED)
-	var hero := _panel(stage, Color("#1D2529"), 18)
+	var hero := _panel(stage, Color("#24353A"), 18)
 	var hero_in := _vertical(hero, 12)
 	_text(hero_in, "UP NEXT  /  FRIDAY 9:00 PM", 12, CYAN)
-	_text(hero_in, "The Exchange", 32 if desktop else 27)
+	_text(hero_in, "The Exchange", 38 if desktop else 29, WHITE, true)
 	_text(hero_in, "Bristol  ·  First headline slot  ·  120 capacity", 15, MUTED)
 	_gap(hero_in, 8)
 	_text(hero_in, "The band has six days to tighten the set, arrange transport and get people through the door.", 17, WHITE)
@@ -245,7 +248,7 @@ func _stat(parent: Node, title: String, value: String, detail: String, hue: Colo
 	var card := _panel(parent)
 	var body := _vertical(card, 8)
 	_text(body, title, 12, MUTED)
-	_text(body, value, 27, WHITE)
+	_text(body, value, 27, WHITE, true)
 	_text(body, detail, 14, hue)
 
 func _priority(parent: Node, index: String, name: String, detail: String) -> void:
