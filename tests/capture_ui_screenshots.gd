@@ -102,7 +102,7 @@ func _capture() -> void:
   journey.reduced_motion = true
   for step in range(journey_stage):
    journey._go(step+1)
-  if journey.stage != journey_stage or journey.find_child("JourneyCinematicHero",true,false) == null or journey.find_child("JourneyHeroPhoto",true,false) == null:
+  if journey.stage != journey_stage or journey.find_child("JourneyCinematicHero",true,false) == null or journey.find_child("JourneyArtwork",true,false) == null:
    push_error("SCREENSHOT FAILURE: Journey scene or illustration missing")
    ui.queue_free()
    _restore(original_exists,original)
@@ -120,7 +120,7 @@ func _capture() -> void:
   show.reduced_motion = true
   for step in range(show_stage):
    show._advance()
-  if show.find_child("JourneyCinematicHero",true,false) == null or show.find_child("JourneyHeroPhoto",true,false) == null:
+  if show.find_child("JourneyCinematicHero",true,false) == null or show.find_child("ShowJourneyArtwork",true,false) == null:
    push_error("SCREENSHOT FAILURE: Show-day illustration missing")
    ui.queue_free()
    _restore(original_exists,original)
