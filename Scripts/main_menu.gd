@@ -1,4 +1,5 @@
 extends Control
+const UI = preload("res://Scripts/ui_theme.gd")
 
 # Public-facing title is intentionally separate from the internal project name.
 const DISPLAY_TITLE := "LIVING THE DREAM"
@@ -214,24 +215,9 @@ func _label(parent: Control, value: String, font_size: int, colour: Color) -> La
 	return result
 
 func _button(parent: Control, label_text: String, action: Callable, primary: bool) -> Button:
-	var result := Button.new()
-	result.text = label_text
-	result.custom_minimum_size.y = 62
-	result.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var normal := StyleBoxFlat.new()
-	normal.bg_color = AMBER if primary else Color("#303B48")
-	normal.set_corner_radius_all(8)
-	normal.set_content_margin_all(10)
-	var hover := normal.duplicate()
-	hover.bg_color = Color("#FFC766") if primary else Color("#455365")
-	result.add_theme_stylebox_override("normal", normal)
-	result.add_theme_stylebox_override("hover", hover)
-	result.add_theme_stylebox_override("pressed", hover)
-	var disabled_style := normal.duplicate()
-	disabled_style.bg_color = Color("#222529")
-	result.add_theme_stylebox_override("disabled", disabled_style)
-	result.add_theme_color_override("font_color", BG if primary else WHITE)
-	result.add_theme_color_override("font_hover_color", BG if primary else WHITE)
+	# Share the same focus, hover, pressed and disabled states as the in-game actions.
+	var result := UI.button(label_text, primary)
+	result.custom_minimum_size.y = 56
 	result.pressed.connect(action)
 	parent.add_child(result)
 	return result
