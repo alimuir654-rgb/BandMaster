@@ -9,8 +9,8 @@ func _initialize() -> void:
  _check(h>=0 and g>h and a>=0 and e>a,"screen boundaries")
  if h>=0 and g>h:
   var home := source.substr(h,g-h)
-  _check(home.find("var destinations :=") < home.find("var opportunities :="),"destinations before secondary signals")
-  _check(home.find("var guidance: Dictionary") < home.find("var destinations :="),"next decision before destinations")
+  _check(home.find("BandHouseDestinations") >= 0 and home.find("BandHouseDestinations") < home.find("var story := VBoxContainer.new()"),"destinations before secondary signals")
+  _check(home.find("var guidance: Dictionary") < home.find("BandHouseDestinations"),"next decision before destinations")
  if a>=0 and e>a:
   var studio := source.substr(a,e-a)
   _check(studio.find("var switches :=") < studio.find("var snapshot: VBoxContainer"),"activity selector before status details")
