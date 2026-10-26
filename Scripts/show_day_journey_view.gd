@@ -85,11 +85,12 @@ func _render_stage() -> void:
  background.color = BACKDROPS[step]
  stage_root.add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- var art_path: String = Photos.scene_or_fallback("showday",step,get_viewport_rect().size.x,"res://Art/Journeys/ShowDay/"+str(ART[step]))
- if ResourceLoader.exists(art_path):
+ var art_path: String = Photos.scene_or_fallback("showday",step,1280.0,"res://Art/Journeys/ShowDay/"+str(ART[step]))
+ var ambient_path: String = Photos.scene_or_fallback("showday",step,get_viewport_rect().size.x,art_path)
+ if ResourceLoader.exists(ambient_path):
   var ambient := TextureRect.new()
   ambient.name = "ShowJourneyAmbient"
-  ambient.texture = load(art_path)
+  ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   ambient.modulate.a = 0.21
