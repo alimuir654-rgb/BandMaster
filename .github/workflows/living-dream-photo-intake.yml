@@ -6,6 +6,11 @@ on:
       - 'scripts/intake_living_dream_photos.py'
       - 'Art/Photography/photo_sources.json'
       - '.github/workflows/living-dream-photo-intake.yml'
+  pull_request:
+    paths:
+      - 'scripts/intake_living_dream_photos.py'
+      - 'Art/Photography/photo_sources.json'
+      - '.github/workflows/living-dream-photo-intake.yml'
   workflow_dispatch:
 
 permissions:
@@ -13,6 +18,7 @@ permissions:
 
 jobs:
   photograph-intake:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
