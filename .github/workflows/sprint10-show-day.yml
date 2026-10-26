@@ -1,0 +1,42 @@
+name: Art-led show-day journey
+on:
+  pull_request:
+    paths:
+      - 'Scripts/show_day_journey.gd'
+      - 'Scripts/show_day_journey_view.gd'
+      - 'Scripts/career_hub.gd'
+      - 'Art/Journeys/ShowDay/**'
+      - 'tests/sprint10_*'
+      - '.github/workflows/sprint10-show-day.yml'
+jobs:
+  show-day-journey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot 4.7.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import original SVGs and parse all scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/show-import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/show-import.log; then exit 1; fi
+          for script in Scripts/show_day_journey.gd Scripts/show_day_journey_view.gd Scripts/career_hub.gd; do
+            godot --headless --path . --check-only --script "res://$script" 2>&1 | tee -a /tmp/show-parse.log
+          done
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/show-parse.log; then exit 1; fi
+      - name: Test five playable scenes, save and once-only settlement
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 100s godot --headless --path . --script res://tests/sprint10_show_day_journey_tests.gd 2>&1 | tee /tmp/show-journey.log
+          grep -q 'SPRINT B SHOW DAY JOURNEY PASSED' /tmp/show-journey.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT B SHOW DAY FAILURE:|ERROR:' /tmp/show-journey.log; then exit 1; fi
