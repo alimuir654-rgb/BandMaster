@@ -2191,7 +2191,7 @@ func _actions() -> void:
   desk_jump.custom_minimum_size.y = 54
   desk_jump.focus_mode = Control.FOCUS_ALL
   switches.add_child(desk_jump)
-  switches.move_child(desk_jump,0)
+  switches.move_child(desk_jump,2)
   desk_jump.pressed.connect(func() -> void:
    if is_instance_valid(career_scroll) and is_instance_valid(writing_frame):
     career_scroll.ensure_control_visible(writing_frame)
