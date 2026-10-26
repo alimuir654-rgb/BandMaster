@@ -47,7 +47,9 @@ func _label(parent: Node, words: String, size: int, color: Color) -> Label:
  var label := Label.new()
  label.text = words
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.add_theme_font_size_override("font_size",size)
+ # Small copy was unreadable in populated 1280x720 captures; preserve
+ # headline hierarchy but enforce a readable floor across all viewports.
+ label.add_theme_font_size_override("font_size",maxi(size,15) if get_viewport_rect().size.x >= 960.0 else maxi(size,14))
  label.add_theme_color_override("font_color",color)
  parent.add_child(label)
  return label
@@ -56,6 +58,7 @@ func _button(parent: Node, caption: String, callback: Callable, primary: bool = 
  var button := UI.themed_button(caption,genre_id,primary)
  button.custom_minimum_size.y = 54
  button.focus_mode = Control.FOCUS_ALL
+ button.add_theme_font_size_override("font_size",15)
  var step := maxi(0,Journey.current_step(source_state))
  var style := UI.style(ACCENTS[step] if primary else BACKDROPS[step].lightened(0.15),10)
  style.border_color = ACCENTS[step]
