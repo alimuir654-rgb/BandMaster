@@ -36,6 +36,10 @@ jobs:
               return 1
             fi
           }
+          # Real title screen, previously absent from the visual acceptance suite.
+          run_capture --tab=TITLE --width=390 --height=844 --output=screenshots/title-mobile.png
+          run_capture --tab=TITLE --width=720 --height=1280 --output=screenshots/title-tablet.png
+          run_capture --tab=TITLE --width=1280 --height=720 --output=screenshots/title-landscape.png
           run_capture --tab=HOME --width=390 --height=844 --output=screenshots/home-mobile.png
           run_capture --tab=ACTIONS --width=390 --height=844 --output=screenshots/studio-mobile.png
           run_capture --tab=ACTIONS --sleeve --width=390 --height=844 --output=screenshots/song-sleeve-mobile.png
