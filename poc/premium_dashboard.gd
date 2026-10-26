@@ -90,8 +90,8 @@ func _panel(parent: Node, fill: Color = SURFACE) -> VBoxContainer:
 func _button(parent: Node, title: String, primary: bool, action: Callable) -> Button:
 	var b := Button.new()
 	b.set_script(load("res://poc/hardware_button.gd"))
-	b.hardware_style = "transport" if primary else "pad"
-	b.signal_color = accent()
+	b.set("hardware_style", "transport" if primary else "pad")
+	b.set("signal_color", accent())
 	b.text = title
 	b.custom_minimum_size.y = 50
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -170,9 +170,9 @@ func _fill_nav() -> void:
 		var item: String = items[i]
 		var b := Button.new()
 		b.set_script(load("res://poc/hardware_button.gd"))
-		b.hardware_style = "channel"
+		b.set("hardware_style", "channel")
 		b.signal_color = accent()
-		b.active = item == active_section
+		b.set("active", item == active_section)
 		b.text = item.to_upper() if is_wide else item
 		b.position = Vector2(16, 110 + 60 * i) if is_wide else Vector2((size.x / 5.0) * i, 5)
 		b.size = Vector2(203, 49) if is_wide else Vector2(size.x / 5.0, 49)
