@@ -3,6 +3,7 @@ extends Control
 const UI = preload("res://Scripts/ui_theme.gd")
 const Journey = preload("res://Scripts/show_day_journey.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
+const Photos = preload("res://Scripts/journey_photo.gd")
 const Tour = preload("res://Scripts/tour_itinerary.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const GigNight = preload("res://Scripts/gig_night_flow.gd")
@@ -84,7 +85,7 @@ func _render_stage() -> void:
  background.color = BACKDROPS[step]
  stage_root.add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- var art_path: String = "res://Art/Journeys/ShowDay/"+str(ART[step])
+ var art_path: String = Photos.scene_or_fallback("showday",step,get_viewport_rect().size.x,"res://Art/Journeys/ShowDay/"+str(ART[step]))
  if ResourceLoader.exists(art_path):
   var ambient := TextureRect.new()
   ambient.name = "ShowJourneyAmbient"
