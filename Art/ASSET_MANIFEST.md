@@ -50,3 +50,14 @@ Five hand-authored original vector scenes created specifically for BandMaster. C
 | `Art/Journeys/ShowDay/05-backstage.svg` | Velvet curtains and stage silhouettes | Burgundy/backstage | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
 
 All SVGs are 1200×640, original hand-authored geometry, no embedded copy or game data. Required visual checks: 390×844, 720×1280, 1280×720, including populated controls and scene-to-scene colour contrast. The missing Unsplash photographs remain missing; do not claim these vectors resolve the photography pipeline.
+
+## Sprint C original destination environments (26 October 2026)
+These three SVGs are newly authored original BandMaster environmental illustrations, 1600x900, project-owned and royalty-free for this game. No third-party marks, photography or embedded gameplay copy. Rendered as non-interactive background layers behind native controls; they are not a replacement for the missing approved photography or for owner art approval.
+
+| File | Destination / subject | Visual identity | Creator / provenance | Review |
+|---|---|---|---|---|
+| `Art/Journeys/World/band-room.svg` | BAND / rehearsal room with amp, mic, guitar, window | Blue/rose, warm backstage light | Original SVG authored for project, 2026-10-26 | Three-size import and populated crop gate; owner approval pending |
+| `Art/Journeys/World/gear-workshop.svg` | GEAR / worn workbench, guitar, effects case | Sage, tobacco wood, amber task light | Original SVG authored for project, 2026-10-26 | Three-size import and populated crop gate; owner approval pending |
+| `Art/Journeys/World/scene-streets.svg` | SCENE / city wall, layered gig posters and street | Midnight blue, violet, neon rose | Original SVG authored for project, 2026-10-26 | Three-size import and populated crop gate; owner approval pending |
+
+HOME uses existing shared studio.webp; STUDIO and GIGS reuse the original Sprint A/B artwork respectively. All six now have separate environmental identities. Source SVGs are editable; these remain illustrative interim assets, not final premium key art.
