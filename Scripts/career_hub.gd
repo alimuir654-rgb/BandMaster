@@ -637,7 +637,7 @@ func _home() -> void:
  hero.name = "BandHouseHero"
  hero.clip_contents = true
  hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- hero.custom_minimum_size = Vector2(0.0,400.0 if wide else (440.0 if compact else 420.0))
+ hero.custom_minimum_size = Vector2(0.0,760.0 if wide else 780.0)
  content.add_child(hero)
 
  var photograph := TextureRect.new()
@@ -694,9 +694,8 @@ func _home() -> void:
  var call := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper()+"  →",_genre_id(),true)
  call.name = "BandHousePrimaryAction"
  call.custom_minimum_size.y = 58
- call.size_flags_horizontal = Control.SIZE_EXPAND_FILL if compact else Control.SIZE_SHRINK_BEGIN
- if not compact:
-  call.custom_minimum_size.x = 270
+ call.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+ call.custom_minimum_size.x = 340 if not wide else 290
  stack.add_child(call)
  call.pressed.connect(func() -> void: _switch(target))
 
