@@ -1,5 +1,30 @@
 # BandMaster autonomous sprint execution log
 
+## Sprint 05 / 08 — 2026-10-26, 02:29 UTC scheduled start
+**Scope:** real-song songwriting credit dispute with persistent official credits and illustrated backstage record.
+**PR:** #172 (`sprint05-real-song-credit-dispute`). CI/merge pending at time of initial log; verify latest head before claiming completion.
+
+### Implementation and provenance
+- `Scripts/band_drama.gd`: a credit dispute is eligible only when a finished song has a real `lead_writer` and actual `writing_sessions` naming another active bandmate as a session leader. No fabricated co-writers from legacy songs. Lead/contributor ordering is derived from the song, not arbitrary roster position.
+- Two choices: credit both writers (trust/loyalty recovery, slight readiness cost) or keep lead credit (readiness gain, contributor alienation). Both consume exactly one day, settle the specific song once, persist `credited_writers` and `credit_resolution`, and leave the original `lead_writer` unchanged.
+- `Scripts/songbook_presentation.gd` now displays the actual settled credits. Existing `SceneSheet`, paired MemberPortrait UI and scrapbook `PairMemento` show a song-specific decision and saved credit outcome. No new UI library.
+- Pure test `tests/sprint05_song_credit_tests.gd`: lead-first even with reversed roster, co-writing evidence, immutable input, both outcomes, one-day cost, trust/loyalty, old saves, no invented credits, inactive musician, anti-replay, next song and JSON roundtrip.
+- Populated `tests/sprint05_credit_viewport_tests.gd`: 390×844, 720×1280, 1280×720; visible opener, two voices/portraits, 44+ tap target, safe Back, committed songbook credits, scrapbook memento and disk save.
+- Verified actual `Art/UI/Icons/users.svg` and `heart-handshake.svg` bytes exist in GitHub; the three proposed JPG files under `Art/Photography/approved` returned 404. **No photography claimed or imported.** #166 is merged and does not require re-downloading SVGs.
+
+### Simulated adversarial persona review (not human testing)
+1. **First-time player:** the opening text now names the actual song and the two real contributors; the dialogue includes opposing motivations. Concern: if a song has no writing sessions, no credit case appears; this is intentional, avoiding invented provenance.
+2. **Management-game veteran:** official songwriting credit changes as well as trust, loyalty, tension and readiness. Choice explicitly previews both writer-credit outcomes; concern: no royalty/copyright economy exists, so no invented payout.
+3. **UX/accessibility:** existing focusable 52px SceneSheet controls, 54px opener, portrait initials fallback and safe cancellation; new consequence labels state CREDIT: BOTH WRITERS or LEAD ONLY. Need owner visual sign-off; viewport CI is interaction/geometry, not image inspection.
+4. **Godot engineer:** reuses existing pairwise resolution/save schema and `song_catalogue`, checks actual session data, prevents duplicate song resolution and leaves original input untouched. Concern: legacy index/name identity remains imperfect on manual renames; stable member IDs follow-up.
+5. **Release QA:** new tests include missing session provenance, JSON roundtrip, one-time credit settlement, a second independently co-written song and three viewport states. CI completion and screenshot review still must be confirmed; resource/RID leak issue #170 remains open.
+
+### Retrospective / next handoff
+- **Worked:** source-backed writing sessions support a credible drama choice without invented jealousy, and existing portrait/keepsake primitives minimize duplicated UI.
+- **Risk:** `credit_resolution` records game credits, not real-world legal copyright. Old saves without sessions cannot generate this incident. Existing Godot resource-leak warnings remain a separate issue.
+- **Next:** improve mobile memento scrolling and screenshot review, diversify adult relationship incidents without random or coercive assumptions, then tackle resource/RID warnings (#170) and full first-month smoke. Do not merge if any required CI gate fails.
+
+
 ## Sprint 04 / 08 — 2026-10-26, 01:26 UTC start
 **Scope:** portrait-led two-voice relationship interventions and persistent physical backstage mementos.
 **PR:** #171 (`sprint04-pair-dialogue-mementos`). Merge/CI status must be verified before claiming completion.
