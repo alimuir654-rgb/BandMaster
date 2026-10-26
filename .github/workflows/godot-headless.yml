@@ -919,3 +919,13 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/sprint02_gear_viewport_tests.gd
+      - name: Validate pair-specific band conflicts and one-time interventions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/sprint03_pair_incidents_tests.gd
+      - name: Audit pair intervention at three viewport sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --script res://tests/sprint03_pair_viewport_tests.gd
