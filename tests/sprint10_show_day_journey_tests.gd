@@ -20,7 +20,7 @@ func _run() -> void:
   ]},
   "cash":250,"tour_day":7,"morale":75,"reputation":25,"readiness":80,"tension":12,"van_health":90,
   "relationships":{"0_1":55},
-  "career_extra":{"songs":2,"fans":40,"owned_equipment":[],"gig_history":[],"career_journal":[],"action_counters":{},
+  "career_extra":{"songs":2,"fans":40,"owned_equipment":["amp"],"gear_records":{"amp":{"condition":72,"holder_index":-1,"provenance":"Test shop","repairs":0}},"gig_history":[],"career_journal":[],"action_counters":{},
    "booked_show":{"venue_id":"bristol","venue":"The Copper Fox","city":"BRISTOL","day":7,"approach":"tight","session_drummer":false,"travel_plan":"drive_home"},
    "gig_night_phase":"arrival"}
  }
@@ -52,6 +52,19 @@ func _run() -> void:
      _check(_art(view),"real art loaded for step "+str(step)+" "+str(size))
      var next := view.find_child("ShowJourneyNext",true,false) as Button
      _check(next != null and next.custom_minimum_size.y >= 44 and next.focus_mode == Control.FOCUS_ALL,"accessible next "+str(step)+" "+str(size))
+     if step == 0:
+      var load_button := _button(view,"LOAD WITH JO")
+      _check(load_button != null and load_button.custom_minimum_size.y >= 44,"real loading crew decision accessible "+str(size))
+      _check(load_button != null and load_button.get_theme_font_size("font_size") >= 15,"loading decision readable at "+str(size))
+      var gear_caption := _text_label(view,"WORN GEAR READINESS EFFECT")
+      _check(gear_caption != null and gear_caption.get_theme_font_size("font_size") >= (15 if size.x >= 960 else 14),"small gear copy meets typography floor "+str(size))
+      view._assign_loading_gear("amp",0)
+      _check(int(ui._state().get("gear_records",{}).get("amp",{}).get("holder_index",-1)) == 0,"crew equipment assignment persisted in game state "+str(size))
+      _check(int(ui._state().get("tour_day",0)) == 7 and int(ui._state().get("cash",0)) == 250,"loading gear costs no day or cash "+str(size))
+      var loading_disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
+      _check(loading_disk is Dictionary and int(loading_disk.get("career_extra",{}).get("gear_records",{}).get("amp",{}).get("holder_index",-1)) == 0,"gear loading saved to disk "+str(size))
+      view._assign_loading_gear("amp",0)
+      _check(int(ui._state().get("gear_records",{}).get("amp",{}).get("holder_index",-1)) == 0,"repeat loading cannot mutate owner "+str(size))
      if step == 1:
       view._replan(Tour.OVERNIGHT)
       _check(str(ui._state().get("booked_show",{}).get("travel_plan","")) == Tour.OVERNIGHT,"overnight plan persisted "+str(size))
@@ -94,6 +107,26 @@ func _run() -> void:
  if failures == 0:
   print("SPRINT B SHOW DAY JOURNEY PASSED")
  quit(0 if failures == 0 else 1)
+
+func _button(root: Node, needle: String) -> Button:
+ var nodes: Array[Node] = [root]
+ while not nodes.is_empty():
+  var current: Node = nodes.pop_back()
+  if current is Button and str(current.text).contains(needle):
+   return current
+  for child in current.get_children():
+   nodes.append(child)
+ return null
+
+func _text_label(root: Node, needle: String) -> Label:
+ var nodes: Array[Node] = [root]
+ while not nodes.is_empty():
+  var current: Node = nodes.pop_back()
+  if current is Label and str(current.text).contains(needle):
+   return current
+  for child in current.get_children():
+   nodes.append(child)
+ return null
 
 func _art(root: Node) -> bool:
  var art := root.find_child("ShowJourneyArtwork",true,false) as TextureRect

@@ -47,7 +47,9 @@ func _label(parent: Node, words: String, size: int, color: Color) -> Label:
  var label := Label.new()
  label.text = words
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.add_theme_font_size_override("font_size",size)
+ # Small copy was unreadable in populated 1280x720 captures; preserve
+ # headline hierarchy but enforce a readable floor across all viewports.
+ label.add_theme_font_size_override("font_size",maxi(size,15) if get_viewport_rect().size.x >= 960.0 else maxi(size,14))
  label.add_theme_color_override("font_color",color)
  parent.add_child(label)
  return label
@@ -56,6 +58,7 @@ func _button(parent: Node, caption: String, callback: Callable, primary: bool = 
  var button := UI.themed_button(caption,genre_id,primary)
  button.custom_minimum_size.y = 54
  button.focus_mode = Control.FOCUS_ALL
+ button.add_theme_font_size_override("font_size",15)
  var step := maxi(0,Journey.current_step(source_state))
  var style := UI.style(ACCENTS[step] if primary else BACKDROPS[step].lightened(0.15),10)
  style.border_color = ACCENTS[step]
@@ -185,6 +188,20 @@ func _render_stage() -> void:
      var carried_by := str(members[holder].get("name","")) if holder >= 0 and holder < members.size() else "UNASSIGNED"
      var condition := "UNKNOWN" if int(record.get("condition",-1)) < 0 else str(int(record.get("condition",0)))+"%"
      _label(story,str(Gear.item_for(str(item_id)).get("name",item_id))+"  /  "+carried_by+"  /  "+condition,13,Color("#FFF7EC"))
+     # Loading is a real, free crew decision: choose who takes responsibility
+     # for unassigned owned gear. The authoritative Gear.assign records identity
+     # and survives save/reload; this never adds a second show-day charge.
+     if holder < 0:
+      var compatible_found := false
+      for member_index in range(members.size()):
+       var member: Dictionary = members[member_index]
+       if str(member.get("life_status","active")) == "active" and Gear.compatible(str(item_id),member):
+        compatible_found = true
+        var selected_item := str(item_id)
+        var selected_index := member_index
+        _button(story,"LOAD WITH "+str(member.get("name","MUSICIAN")).to_upper()+"  /  "+str(Gear.item_for(selected_item).get("name",selected_item)),func() -> void: _assign_loading_gear(selected_item,selected_index))
+      if not compatible_found:
+       _label(story,"NO ACTIVE COMPATIBLE BANDMATE TO CARRY THIS ITEM",13,Color("#F1D6B7"))
    _label(story,"VAN CONDITION  /  %d%%" % int(source_state.get("van_health",0)),15,Color("#FFF7EC"))
    var penalty := int(Gear.readiness_penalty(source_state))
    _label(story,"WORN GEAR READINESS EFFECT  /  %+d" % penalty,15,Color("#FFF7EC"))
@@ -298,6 +315,15 @@ func _advance() -> void:
   if next != null:
    next.grab_focus()
  ,reduced_motion)
+
+func _assign_loading_gear(item_id: String, member_index: int) -> void:
+ if busy or Journey.current_step(source_state) != 0:
+  return
+ var result: Dictionary = Gear.assign(source_state,item_id,member_index)
+ if bool(result.get("ok",false)):
+  _store(result["state"])
+ status_message = str(result.get("message","Unable to assign equipment."))
+ _render_stage()
 
 func _replan(plan_id: String) -> void:
  if busy:
