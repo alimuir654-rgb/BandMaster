@@ -73,6 +73,7 @@ func _run() -> void:
      journey._go(2)
      _check(journey.stage == 2 and _has_text(journey,"IN THE ROOM"),"jam scene "+str(size))
      _check(_art(journey),"jam art imported "+str(size))
+     _check(journey.find_child("JourneyLeadPortrait",true,false) != null and journey.find_child("JourneyBandmateMoment",true,false) != null,"musician portrait and authored voice "+str(size))
      journey._go(3)
      _check(journey.stage == 3 and _has_text(journey,"THE SONGSHEET"),"review scene "+str(size))
      _check(_art(journey),"sleeve art imported "+str(size))
