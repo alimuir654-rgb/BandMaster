@@ -11,7 +11,7 @@ func _initialize() -> void:
  UI.progress(bar)
  _check(bar.custom_minimum_size.y <= 12,"thin meter")
  var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- _check(source.contains("func _world_focus_hero() -> void:") and source.contains("var focus_world :=") and source.contains("elif tab != \\"HOME\\" and tab != \\"ACTIONS\\":"),"one focused hero per priority world")
+ _check(source.contains("func _world_focus_hero() -> void:") and source.contains("var focus_world :=") and source.contains("WorldFocusDecisionDock"),"one focused hero per priority world")
  _check(source.contains("YOUR BAND"),"home identity card")
  _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene loads")
  if failures==0:
