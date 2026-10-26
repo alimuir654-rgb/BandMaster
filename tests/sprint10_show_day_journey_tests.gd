@@ -46,6 +46,7 @@ func _run() -> void:
     _check(planes != null,"show journey planes exist "+str(size))
     if planes != null:
      _check((planes is HBoxContainer) == (size.x >= 960),"cinematic show split only in landscape "+str(size))
+    _check((view.find_child("ShowJourneyStoryPanel",true,false) != null) == (size.x >= 960),"landscape show reading surface "+str(size))
     for step in range(5):
      _check(Journey.current_step(ui._state()) == step,"correct step "+str(step)+" "+str(size))
      _check(_art(view),"real art loaded for step "+str(step)+" "+str(size))
