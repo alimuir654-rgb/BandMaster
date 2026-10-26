@@ -30,7 +30,7 @@ var commit_locked := false
 var stage_root: Control
 var fade_layer: ColorRect
 
-func open(state: Dictionary, selected_genre: String, on_commit: Callable, on_notes: Callable = Callable()) -> void:
+func open(state: Dictionary, selected_genre: String, on_commit: Callable, on_notes: Callable) -> void:
  source_state = state.duplicate(true)
  genre_id = selected_genre
  commit_callback = on_commit
