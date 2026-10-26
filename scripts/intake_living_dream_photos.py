@@ -38,12 +38,17 @@ def resolve_image(page_url):
         raise ValueError("Paid or unclear Unsplash+ license")
     if "unsplash license" not in page.lower():
         raise ValueError("No detectable license text on photo page; manual review required")
-    match = re.search(r'<meta[^>]+property=["\\']og:image["\\'][^>]+content=["\\']([^"\\']+)', page)
-    if not match:
-        match = re.search(r'<meta[^>]+content=["\\']([^"\\']+)["\\'][^>]+property=["\\']og:image', page)
-    if not match:
+    tags = re.findall(r"<meta\\b[^>]*>", page, flags=re.IGNORECASE)
+    image_url = None
+    for tag in tags:
+        if not re.search(r"property=[\\\"']og:image[\\\"']", tag, flags=re.IGNORECASE):
+            continue
+        found = re.search(r"content=[\\\"']([^\\\"']+)", tag, flags=re.IGNORECASE)
+        if found:
+            image_url = html.unescape(found.group(1))
+            break
+    if not image_url:
         raise ValueError("Photo page lacks og:image; no fallback to unknown asset")
-    image_url = html.unescape(match.group(1))
     if urlparse(image_url).netloc not in ("images.unsplash.com", "plus.unsplash.com"):
         raise ValueError("Unexpected image source host")
     return image_url
