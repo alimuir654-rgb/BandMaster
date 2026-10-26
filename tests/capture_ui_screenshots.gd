@@ -63,7 +63,7 @@ func _capture() -> void:
   fixture["career_extra"]["gig_night_phase"] = "arrival"
   fixture["career_extra"]["owned_equipment"] = ["amp","drums","mics"]
   fixture["career_extra"]["gear_records"] = {
-   "amp":{"condition":44,"holder_index":1,"holder_name":"Alex","holder_role":"Guitarist"},
+   "amp":{"condition":44,"holder_index":-1,"provenance":"Bought second-hand; not yet assigned"},
    "drums":{"condition":86,"holder_index":0,"holder_name":"Jo","holder_role":"Drummer"},
    "mics":{"condition":74,"holder_index":2,"holder_name":"Sam","holder_role":"Vocalist"}
   }
