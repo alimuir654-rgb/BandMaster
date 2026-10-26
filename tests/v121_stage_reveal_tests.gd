@@ -8,7 +8,7 @@ func _initialize() -> void:
  _check(source.contains('tween_property(stage_image,"modulate:a",1.0,0.85)'),"stage image fades")
  _check(source.contains("◉ PA LEFT"),"sound-system visual language")
  _check(source.contains("THE SHOW  /  BACKSTAGE REPORT"),"performance-specific copy")
- _check(source.contains('var next_button := UI.button("CONTINUE  ›",true)'),"animation dismissible")
+ _check(source.contains('next_button.name = "DecisionContinue"') and source.contains('next_button.pressed.connect'),"animation dismissible through fixed accessible Continue")
  _check(load("res://Scenes/CareerHub.tscn") != null,"scene imports")
  if failures==0:
   print("V121 STAGE REVEAL PASSED")

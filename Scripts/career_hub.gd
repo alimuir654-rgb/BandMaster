@@ -2837,11 +2837,31 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  shade.mouse_filter = Control.MOUSE_FILTER_STOP
  add_child(shade)
+ # The outcome may contain a ticket, two-person note and stat changes. Keep
+ # the decision actions visible even when the illustrated story overflows a phone.
+ var margins := MarginContainer.new()
+ margins.name = "DecisionResultMargins"
+ margins.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ for edge in ["margin_left","margin_right","margin_top","margin_bottom"]:
+  margins.add_theme_constant_override(edge,12)
+ shade.add_child(margins)
+ # Anchor the reading pane and fixed footer independently. VBoxContainer's
+ # minimum-height propagation can otherwise push both buttons off a short phone.
+ var layout := Control.new()
+ layout.name = "DecisionResultLayout"
+ margins.add_child(layout)
+ var footer_height := 112.0 if source == "band:pair" else 52.0
+ var scroll := ScrollContainer.new()
+ scroll.name = "DecisionResultScroll"
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ layout.add_child(scroll)
+ scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ scroll.offset_bottom = -footer_height-12.0
  var center := CenterContainer.new()
- center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- shade.add_child(center)
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ scroll.add_child(center)
  var panel := PanelContainer.new()
- panel.custom_minimum_size = Vector2(minf(get_viewport_rect().size.x-32.0,510.0),0)
+ panel.custom_minimum_size = Vector2(maxf(0.0,minf(get_viewport_rect().size.x-32.0,510.0)),0)
  panel.add_theme_stylebox_override("panel",UI.style(UI.PANEL,20))
  center.add_child(panel)
  var stack := VBoxContainer.new()
@@ -2918,15 +2938,49 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  for change in changes.slice(0,5):
   var stat := _label(stack,Motion.delta_text(change),16,UI.AMBER if int(change.get("delta",0)) >= 0 else UI.MUTED)
   stat.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- var next_button := UI.button("CONTINUE  ›",true)
+ # Fixed action rail: primary Continue never disappears below a long story.
+ var footer := CenterContainer.new()
+ footer.name = "DecisionResultFooter"
+ layout.add_child(footer)
+ footer.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
+ footer.offset_top = -footer_height
+ footer.offset_bottom = 0.0
+ var footer_buttons := VBoxContainer.new()
+ footer_buttons.custom_minimum_size.x = maxf(0.0,minf(get_viewport_rect().size.x-32.0,510.0))
+ footer_buttons.add_theme_constant_override("separation",8)
+ footer.add_child(footer_buttons)
+ var next_button := UI.themed_button("CONTINUE  ›",_genre_id(),true)
  next_button.name = "DecisionContinue"
- stack.add_child(next_button)
+ next_button.custom_minimum_size.y = 52
+ next_button.focus_mode = Control.FOCUS_ALL
+ footer_buttons.add_child(next_button)
  next_button.pressed.connect(func() -> void:
+  if next_button.disabled:
+   return
   next_button.disabled = true
   var dismiss := create_tween()
   dismiss.tween_property(shade,"modulate:a",0.0,0.16)
   dismiss.tween_callback(shade.queue_free)
  )
+ if source == "band:pair":
+  var revisit := UI.themed_button("VIEW IN SCRAPBOOK",_genre_id(),false)
+  revisit.name = "DecisionOpenScrapbook"
+  revisit.custom_minimum_size.y = 52
+  revisit.focus_mode = Control.FOCUS_ALL
+  footer_buttons.add_child(revisit)
+  revisit.pressed.connect(func() -> void:
+   if revisit.disabled:
+    return
+   revisit.disabled = true
+   tab = "SCENE"
+   scene_view = "HISTORY"
+   scrapbook_filter = "BAND"
+   _render()
+  )
+ # Focus synchronously while the overlay is still in the tree. Deferred focus
+ # can run after a test or scene transition has already freed the button.
+ if next_button.is_inside_tree():
+  next_button.grab_focus()
  shade.modulate.a = 0.0
  var reveal := create_tween()
  reveal.set_parallel(true)
