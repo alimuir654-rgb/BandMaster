@@ -7,7 +7,7 @@ func _initialize() -> void:
  _check(src.contains("box.get_parent().size_flags_vertical = Control.SIZE_SHRINK_BEGIN"),"roster vertical layout preserved")
  _check(src.contains("personnel_label.autowrap_mode = TextServer.AUTOWRAP_OFF"),"personnel text cannot break letter by letter")
  _check(src.contains("var hero_height := clampf(viewport_height") and src.contains("hero.custom_minimum_size = Vector2(0.0,hero_height)"),"responsive viewport-scaled hero height")
- _check(src.contains("button.custom_minimum_size.y = 64"),"destinations remain touch sized")
+ _check(src.contains("button.custom_minimum_size.y = 84"),"destinations remain touch sized")
  _check(src.contains("THE NEXT GIG"),"gig status on home")
  _check(src.contains("CHAPTER  /  "),"career progression on home")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene loads")
