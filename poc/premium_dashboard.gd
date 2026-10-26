@@ -18,6 +18,7 @@ var feedback: Label
 var active_tab := "Overview"
 var nav_buttons: Dictionary = {}
 var desktop := false
+var viewport_scroll: ScrollContainer
 var body_font: SystemFont
 var heading_font: SystemFont
 
@@ -153,6 +154,7 @@ func _render() -> void:
 		_build_mobile_nav(column)
 
 	var scroll := ScrollContainer.new()
+	viewport_scroll = scroll
 	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -167,6 +169,9 @@ func _render() -> void:
 	inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(inset)
 	stage = _vertical(inset, 18)
+	# A scroll child must never dictate the size of the shell.
+	inset.custom_minimum_size.x = 0
+	stage.custom_minimum_size.x = 0
 	_render_stage()
 
 func _build_sidebar(shell: HBoxContainer) -> void:
@@ -185,10 +190,10 @@ func _build_sidebar(shell: HBoxContainer) -> void:
 
 func _build_topbar(column: VBoxContainer) -> void:
 	var bar := _panel(column, Color("#101B20"), 0)
-	var stack := _vertical(bar, 5)
-	_text(stack, "LIVING THE DREAM  /  CAREER", 11, ACCENT, true)
-	header_title = _text(stack, "THE LONG WEEKEND", 22 if desktop else 19, WHITE, true)
-	_text(stack, "YEAR 01  ·  WEEK 06     /     £1,240 CASH", 12, MUTED)
+	var body := _vertical(bar, 4)
+	_text(body, "LIVING THE DREAM  /  CAREER", 11, ACCENT, true)
+	header_title = _text(body, "THE LONG WEEKEND", 21 if desktop else 19, WHITE, true)
+	_text(body, "YEAR 01  ·  WEEK 06  ·  £1,240 CASH", 12, MUTED)
 
 func _build_mobile_nav(column: VBoxContainer) -> void:
 	var bar := _panel(column, Color("#11171C"), 0)
@@ -207,42 +212,43 @@ func _select(name: String) -> void:
 	_render()
 
 func _render_stage() -> void:
-	_text(stage, "CAREER OVERVIEW  /  DESIGN PROOF", 12, ACCENT)
-	var intro := _vertical(stage, 4)
-	_text(intro, "The next move is yours.", 34 if desktop else 27, WHITE, true)
-	_text(intro, "A grounded management interface. Real music-world stakes. No decorative placeholders.", 15, MUTED)
-	var hero := _panel(stage, Color("#24353A"), 18)
-	var hero_in := _vertical(hero, 12)
-	_text(hero_in, "UP NEXT  /  FRIDAY 9:00 PM", 12, CYAN)
-	_text(hero_in, "The Exchange", 38 if desktop else 29, WHITE, true)
-	_text(hero_in, "Bristol  ·  First headline slot  ·  120 capacity", 15, MUTED)
-	_gap(hero_in, 8)
-	_text(hero_in, "The band has six days to tighten the set, arrange transport and get people through the door.", 17, WHITE)
-	var actions: BoxContainer = _horizontal(hero_in, 10) if desktop else _vertical(hero_in, 10)
-	_button(actions, "PLAN THE SHOW  ›", "primary", func() -> void: _notice("Show planner is illustrative in this PoC."))
-	_button(actions, "VIEW SETLIST", "secondary", func() -> void: _notice("Setlist interaction belongs in the existing career systems."))
-	var title := _text(stage, "AT A GLANCE", 13, MUTED)
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-	var stats: BoxContainer = _horizontal(stage, 12) if desktop else _vertical(stage, 10)
-	_stat(stats, "BAND MORALE", "72 / 100", "Steady", CYAN)
-	_stat(stats, "READINESS", "64 / 100", "Needs rehearsal", ACCENT)
-	_stat(stats, "LOCAL FOLLOWING", "218", "+26 this week", CYAN)
-	var lower: BoxContainer = _horizontal(stage, 14) if desktop else _vertical(stage, 14)
-	var left := _panel(lower)
-	var left_body := _vertical(left, 11)
-	_text(left_body, "THIS WEEK'S PRIORITIES", 13, ACCENT)
-	_priority(left_body, "01", "Finish the second rehearsal", "Improves show readiness")
-	_priority(left_body, "02", "Confirm the van", "Transport not yet locked")
-	_priority(left_body, "03", "Promote the headline show", "Ticket interest is building")
-	var right := _panel(lower, Color("#151B20"))
-	var right_body := _vertical(right, 10)
-	_text(right_body, "THE STORY SO FAR", 13, ACCENT)
-	_text(right_body, "A band with momentum, but nothing guaranteed.", 19)
-	_text(right_body, "Six weeks into the journey. One headline opportunity. Every decision will shape what comes next.", 15, MUTED)
-	_button(right_body, "OPEN JOURNAL  ›", "secondary", func() -> void: _select("Journal"))
-	feedback = _text(stage, "INTERACTIVE DESIGN PROTOTYPE · SAMPLE DATA · NO GAMEPLAY MUTATIONS", 12, MUTED)
+	# The proof must first render at the actual viewport width.
+	# Single-column content avoids nested horizontal minimum-size propagation
+	# that pushed the initial PoC off-screen.
+	_text(stage, "CAREER OVERVIEW  /  DESIGN PROOF", 12, ACCENT, true)
+	_text(stage, "THE NEXT MOVE IS YOURS.", 29 if desktop else 24, WHITE, true)
+	_text(stage, "A working band's next week: rehearsals, transport, a headline gig.", 15, MUTED)
+
+	var hero := _panel(stage, Color("#24353A"), 16)
+	var hero_body := _vertical(hero, 10)
+	_text(hero_body, "FRIDAY  /  9:00 PM  /  BRISTOL", 12, CYAN, true)
+	_text(hero_body, "THE EXCHANGE", 32 if desktop else 27, WHITE, true)
+	_text(hero_body, "First headline slot    •    120 capacity", 15, MUTED)
+	_text(hero_body, "Six days to tighten the set, arrange transport and get people through the door.", 16)
+	_button(hero_body, "PLAN THE SHOW  ›", "primary", func() -> void: _notice("Show planner is not connected in the PoC."), 52)
+	_button(hero_body, "VIEW SETLIST", "secondary", func() -> void: _notice("Setlist is not connected in the PoC."))
+
+	_text(stage, "AT A GLANCE", 13, ACCENT, true)
+	_stat(stage, "BAND MORALE", "72 / 100", "Steady", CYAN)
+	_stat(stage, "SHOW READINESS", "64 / 100", "Needs rehearsal", ACCENT)
+	_stat(stage, "LOCAL FOLLOWING", "218", "+26 this week", CYAN)
+
+	var priorities := _panel(stage)
+	var priorities_body := _vertical(priorities, 12)
+	_text(priorities_body, "THIS WEEK'S PRIORITIES", 13, ACCENT, true)
+	_priority(priorities_body, "01", "Finish the second rehearsal", "Improves show readiness")
+	_priority(priorities_body, "02", "Confirm the van", "Transport not yet locked")
+	_priority(priorities_body, "03", "Promote the headline show", "Ticket interest is building")
+
+	var story := _panel(stage)
+	var story_body := _vertical(story, 10)
+	_text(story_body, "THE STORY SO FAR", 13, ACCENT, true)
+	_text(story_body, "A band with momentum, but nothing guaranteed.", 19, WHITE, true)
+	_text(story_body, "Six weeks into the journey. One headline opportunity.", 15, MUTED)
+	_button(story_body, "OPEN JOURNAL  ›", "secondary", func() -> void: _select("Journal"))
+	feedback = _text(stage, "DESIGN PROTOTYPE  /  SAMPLE DATA  /  SAVES UNCHANGED", 12, MUTED)
 	if active_tab != "Overview":
-		_notice(active_tab + " navigation selected — reference-dashboard content retained.")
+		_notice(active_tab + " selected. Other sections are not part of this PoC.")
 
 func _stat(parent: Node, title: String, value: String, detail: String, hue: Color) -> void:
 	var card := _panel(parent)
