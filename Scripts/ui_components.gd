@@ -24,6 +24,18 @@ static func section(parent: Node, heading: String, description: String = "", gen
    card_style.bg_color = Color("#211A2B")
    card_style.border_color = Color("#79516D")
    card_style.border_width_bottom = 2
+  "GEAR":
+   card_style.bg_color = Color("#24362E")
+   card_style.border_color = Color("#8B986F")
+   card_style.border_width_left = 3
+  "BAND":
+   card_style.bg_color = Color("#302733")
+   card_style.border_color = Color("#AC778F")
+   card_style.border_width_left = 3
+  "SCENE":
+   card_style.bg_color = Color("#262A44")
+   card_style.border_color = Color("#9879B4")
+   card_style.border_width_top = 2
  panel.add_theme_stylebox_override("panel",card_style)
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  parent.add_child(panel)

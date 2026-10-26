@@ -125,9 +125,16 @@ func _render_stage() -> void:
  centered.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  scroller.add_child(centered)
  var body := VBoxContainer.new()
- body.custom_minimum_size.x = minf(780.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
+ var cinematic_split := get_viewport_rect().size.x >= 960.0
+ body.custom_minimum_size.x = maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0) if cinematic_split else minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
  body.add_theme_constant_override("separation",12)
  centered.add_child(body)
+ # Wide displays use a cinematic two-plane composition: environment on the
+ # left, readable decisions on the right. Phones keep the linear story.
+ var scene_planes: BoxContainer = HBoxContainer.new() if cinematic_split else VBoxContainer.new()
+ scene_planes.name = "ShowJourneyScenePlanes"
+ scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
+ body.add_child(scene_planes)
  if ResourceLoader.exists(art_path):
   var illustration := TextureRect.new()
   illustration.name = "ShowJourneyArtwork"
@@ -136,17 +143,40 @@ func _render_stage() -> void:
   illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  body.add_child(illustration)
+  scene_planes.add_child(illustration)
+  if cinematic_split:
+   illustration.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   illustration.custom_minimum_size.x = 440
  else:
   _label(body,"ILLUSTRATION NOT INSTALLED",14,ACCENTS[step])
- _label(body,str(booking.get("venue","THE VENUE")).to_upper()+"  /  "+str(booking.get("city","")),16,ACCENTS[step])
+ # A real reading surface in landscape separates decisions from the environment.
+ # Mobile retains the open, scrollable vertical composition.
+ var story_holder: Node = scene_planes
+ if cinematic_split:
+  var story_panel := PanelContainer.new()
+  story_panel.name = "ShowJourneyStoryPanel"
+  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  story_panel.custom_minimum_size.y = 320
+  var panel_tone := UI.style(BACKDROPS[step].lightened(0.09),12)
+  panel_tone.border_color = ACCENTS[step]
+  panel_tone.border_width_left = 4
+  panel_tone.set_content_margin_all(18)
+  story_panel.add_theme_stylebox_override("panel",panel_tone)
+  scene_planes.add_child(story_panel)
+  story_holder = story_panel
+ var story := VBoxContainer.new()
+ story.name = "ShowJourneyStory"
+ story.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ story.add_theme_constant_override("separation",12)
+ story_holder.add_child(story)
+ _label(story,str(booking.get("venue","THE VENUE")).to_upper()+"  /  "+str(booking.get("city","")),16,ACCENTS[step])
  match step:
   0:
-   _label(body,"Flight cases scrape the pavement. The band's ready to leave — but what is actually going in the van?",18,Color("#FFF7EC"))
+   _label(story,"Flight cases scrape the pavement. The band's ready to leave — but what is actually going in the van?",18,Color("#FFF7EC"))
    var equipment: Array = source_state.get("owned_equipment",[])
-   _label(body,"EQUIPMENT OWNED  /  %d ITEMS" % equipment.size(),15,ACCENTS[step])
+   _label(story,"EQUIPMENT OWNED  /  %d ITEMS" % equipment.size(),15,ACCENTS[step])
    if equipment.is_empty():
-    _label(body,"NO OWNED GEAR ON THE LIST  /  VENUE BACKLINE NOT CONFIRMED",14,Color("#F1D6B7"))
+    _label(story,"NO OWNED GEAR ON THE LIST  /  VENUE BACKLINE NOT CONFIRMED",14,Color("#F1D6B7"))
    else:
     for item_id in equipment.slice(0,4):
      var record: Dictionary = Gear.record(source_state,str(item_id))
@@ -154,47 +184,47 @@ func _render_stage() -> void:
      var members: Array = source_state.get("members",[])
      var carried_by := str(members[holder].get("name","")) if holder >= 0 and holder < members.size() else "UNASSIGNED"
      var condition := "UNKNOWN" if int(record.get("condition",-1)) < 0 else str(int(record.get("condition",0)))+"%"
-     _label(body,str(Gear.item_for(str(item_id)).get("name",item_id))+"  /  "+carried_by+"  /  "+condition,13,Color("#FFF7EC"))
-   _label(body,"VAN CONDITION  /  %d%%" % int(source_state.get("van_health",0)),15,Color("#FFF7EC"))
+     _label(story,str(Gear.item_for(str(item_id)).get("name",item_id))+"  /  "+carried_by+"  /  "+condition,13,Color("#FFF7EC"))
+   _label(story,"VAN CONDITION  /  %d%%" % int(source_state.get("van_health",0)),15,Color("#FFF7EC"))
    var penalty := int(Gear.readiness_penalty(source_state))
-   _label(body,"WORN GEAR READINESS EFFECT  /  %+d" % penalty,15,Color("#FFF7EC"))
-   _label(body,"Check the gear before departure. Repairs and shopping require a day off; show-day loading is free.",14,Color("#D6E4DD"))
+   _label(story,"WORN GEAR READINESS EFFECT  /  %+d" % penalty,15,Color("#FFF7EC"))
+   _label(story,"Check the gear before departure. Repairs and shopping require a day off; show-day loading is free.",14,Color("#D6E4DD"))
   1:
-   _label(body,"Streetlights fall behind. The band watches the motorway unspool while tomorrow's stories start forming.",18,Color("#FFF7EC"))
+   _label(story,"Streetlights fall behind. The band watches the motorway unspool while tomorrow's stories start forming.",18,Color("#FFF7EC"))
    var plan_id := str(booking.get("travel_plan",Tour.DRIVE))
    var plan: Dictionary = Tour.preview(source_state,str(booking.get("venue_id","")),plan_id)
-   _label(body,"CURRENT ROUTE  /  "+str(plan.get("label","LEGACY TRAVEL PLAN")),15,ACCENTS[step])
-   _label(body,"TRAVEL £%d  /  ROOM £%d  /  VAN WEAR %d" % [int(plan.get("travel_cost",0)),int(plan.get("accommodation_cost",0)),int(plan.get("van_wear",0))],14,Color("#FFF7EC"))
+   _label(story,"CURRENT ROUTE  /  "+str(plan.get("label","LEGACY TRAVEL PLAN")),15,ACCENTS[step])
+   _label(story,"TRAVEL £%d  /  ROOM £%d  /  VAN WEAR %d" % [int(plan.get("travel_cost",0)),int(plan.get("accommodation_cost",0)),int(plan.get("van_wear",0))],14,Color("#FFF7EC"))
    for option in Tour.choices(source_state,str(booking.get("venue_id",""))):
     if str(option.get("id","")) != plan_id and bool(option.get("available",false)):
      var alternative := str(option.get("id",""))
-     _button(body,"CHANGE PLAN  /  "+str(option.get("label","")),func() -> void: _replan(alternative))
-   _label(body,"The trip is charged by the existing gig settlement, not by viewing this scene.",13,Color("#B9CEDD"))
+     _button(story,"CHANGE PLAN  /  "+str(option.get("label","")),func() -> void: _replan(alternative))
+   _label(story,"The trip is charged by the existing gig settlement, not by viewing this scene.",13,Color("#B9CEDD"))
   2:
-   _label(body,"The venue sign glows above the loading doors. You can hear a kick drum through the brickwork.",18,Color("#FFF7EC"))
-   _label(body,"PROMOTER BOOKING  /  "+str(booking.get("venue","")),15,ACCENTS[step])
-   _label(body,"SET APPROACH  /  "+str(booking.get("approach","tight")).to_upper(),15,Color("#FFF7EC"))
-   _label(body,"Unload, meet the crew and walk into the room. No money or time changes hands at arrival.",14,Color("#E6D9E9"))
+   _label(story,"The venue sign glows above the loading doors. You can hear a kick drum through the brickwork.",18,Color("#FFF7EC"))
+   _label(story,"PROMOTER BOOKING  /  "+str(booking.get("venue","")),15,ACCENTS[step])
+   _label(story,"SET APPROACH  /  "+str(booking.get("approach","tight")).to_upper(),15,Color("#FFF7EC"))
+   _label(story,"Unload, meet the crew and walk into the room. No money or time changes hands at arrival.",14,Color("#E6D9E9"))
   3:
-   _label(body,"Empty floor, bright work lights, cables everywhere. The room sounds different from rehearsal.",18,Color("#FFF7EC"))
+   _label(story,"Empty floor, bright work lights, cables everywhere. The room sounds different from rehearsal.",18,Color("#FFF7EC"))
    var illness: Dictionary = Backstage.incident(source_state)
    if not illness.is_empty():
-    _label(body,str(illness.get("name","A bandmate")).to_upper()+" IS STRUGGLING BACKSTAGE",17,ACCENTS[step])
+    _label(story,str(illness.get("name","A bandmate")).to_upper()+" IS STRUGGLING BACKSTAGE",17,ACCENTS[step])
     for option in illness.get("options",[]):
      var choice := str(option.get("id",""))
-     _button(body,str(option.get("label","")),func() -> void: _resolve_incident(choice))
-   _label(body,"CHOOSE THE LIVE APPROACH  /  REAL CONSEQUENCES",15,ACCENTS[step])
+     _button(story,str(option.get("label","")),func() -> void: _resolve_incident(choice))
+   _label(story,"CHOOSE THE LIVE APPROACH  /  REAL CONSEQUENCES",15,ACCENTS[step])
    for approach_id in ["tight","wild","crowd"]:
     var id := str(approach_id)
     var preview: Dictionary = Gigs.approach_preview(source_state,id)
     var active := str(booking.get("approach","tight")) == id
-    _button(body,("✓  " if active else "")+str(preview.get("label",id))+"  /  "+str(preview.get("outlook","")),func() -> void: _choose_approach(id),active)
-   _label(body,"Set choice changes performance quality, audience growth and tension at settlement.",13,Color("#D2E3E6"))
+    _button(story,("✓  " if active else "")+str(preview.get("label",id))+"  /  "+str(preview.get("outlook","")),func() -> void: _choose_approach(id),active)
+   _label(story,"Set choice changes performance quality, audience growth and tension at settlement.",13,Color("#D2E3E6"))
   4:
-   _label(body,"The band is lined up behind the curtain. The support act leaves the stage. The room goes dark.",18,Color("#FFF7EC"))
-   _label(body,"YOUR SET  /  "+str(booking.get("approach","tight")).to_upper(),16,ACCENTS[step])
-   _label(body,"ORIGINAL SONGS  /  %d" % int(source_state.get("songs",0)),15,Color("#FFF7EC"))
-   _label(body,"The show settles once, through the existing gig engine. This final step does not pay twice.",13,Color("#F0D6DE"))
+   _label(story,"The band is lined up behind the curtain. The support act leaves the stage. The room goes dark.",18,Color("#FFF7EC"))
+   _label(story,"YOUR SET  /  "+str(booking.get("approach","tight")).to_upper(),16,ACCENTS[step])
+   _label(story,"ORIGINAL SONGS  /  %d" % int(source_state.get("songs",0)),15,Color("#FFF7EC"))
+   _label(story,"The show settles once, through the existing gig engine. This final step does not pay twice.",13,Color("#F0D6DE"))
  if get_viewport_rect().size.y >= 780:
   var members: Array = source_state.get("members",[])
   var speaker := "THE BAND"

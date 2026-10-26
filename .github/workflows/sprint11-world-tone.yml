@@ -1,0 +1,63 @@
+name: Sprint C art-led world tone and acceptance
+on:
+  pull_request:
+    paths:
+      - 'Scripts/career_hub.gd'
+      - 'Scripts/scene_environment.gd'
+      - 'Scripts/ui_components.gd'
+      - 'Scripts/show_day_journey_view.gd'
+      - 'Scripts/songwriting_journey.gd'
+      - 'Art/Journeys/World/**'
+      - 'tests/sprint11_*'
+      - 'tests/sprint10_show_day_journey_tests.gd'
+      - '.github/workflows/sprint11-world-tone.yml'
+jobs:
+  world-tone:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot 4.7.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import original scene art and validate scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/world-import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/world-import.log; then exit 1; fi
+          for script in Scripts/career_hub.gd Scripts/show_day_journey_view.gd Scripts/songwriting_journey.gd Scripts/scene_environment.gd Scripts/ui_components.gd; do
+            godot --headless --audio-driver Dummy --path . --check-only --script "res://$script" 2>&1 | tee -a /tmp/world-parse.log
+          done
+          if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/world-parse.log; then exit 1; fi
+      - name: Validate six differentiated career destinations at three viewports
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 100s godot --headless --audio-driver Dummy --path . --script res://tests/sprint11_world_tone_tests.gd 2>&1 | tee /tmp/world-tone.log
+          grep -q 'SPRINT C WORLD TONE PASSED' /tmp/world-tone.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT C WORLD FAILURE:|ERROR:' /tmp/world-tone.log; then exit 1; fi
+      - name: Run continuous writing-to-show-to-scrapbook save/reload acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 100s godot --headless --audio-driver Dummy --path . --script res://tests/sprint11_continuous_career_tests.gd 2>&1 | tee /tmp/continuous-career.log
+          grep -q 'SPRINT C CONTINUOUS CAREER JOURNEY PASSED' /tmp/continuous-career.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT C CAREER FAILURE:|ERROR:' /tmp/continuous-career.log; then exit 1; fi
+      - name: Recheck songwriting and show journeys with save/reload
+        shell: bash
+        run: |
+          set -euo pipefail
+          for item in "sprint09_songwriting_journey_tests.gd:SPRINT A SONGWRITING JOURNEY PASSED" "sprint10_show_day_journey_tests.gd:SPRINT B SHOW DAY JOURNEY PASSED"; do
+            file="${item%%:*}"
+            marker="${item#*:}"
+            timeout 100s godot --headless --audio-driver Dummy --path . --script "res://tests/$file" 2>&1 | tee "/tmp/$file.log"
+            grep -q "$marker" "/tmp/$file.log"
+            if grep -E 'SCRIPT ERROR:|Parse Error:|FAILURE:|ERROR:' "/tmp/$file.log"; then exit 1; fi
+          done

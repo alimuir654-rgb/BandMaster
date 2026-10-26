@@ -140,8 +140,8 @@ func _genre_id() -> String:
 
 func _scene_identity() -> String:
  if tab == "ACTIONS":
-  return "STUDIO" if action_view == "JAM" else "DAY"
- return tab if ["HOME","GIGS"].has(tab) else "DEFAULT"
+  return {"JAM":"STUDIO","HANG OUT":"BAND","PROMOTE":"SCENE"}.get(action_view,"STUDIO")
+ return tab if ["HOME","GIGS","GEAR","BAND","SCENE"].has(tab) else "HOME"
 
 func _card(title: String, description: String = "") -> VBoxContainer:
  return Components.section(content,title,description,_genre_id(),_scene_identity())
@@ -184,6 +184,27 @@ func _render() -> void:
  environment.mouse_filter = Control.MOUSE_FILTER_IGNORE
  add_child(environment)
  environment.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ # Scene-specific original environmental art; each main destination has a
+ # different location, not just a recoloured generic card background.
+ var world_art := {
+  "HOME":"res://Art/Backgrounds/shared/studio.webp",
+  "STUDIO":"res://Art/Journeys/Songwriting/02-vibe.svg",
+  "GEAR":"res://Art/Journeys/World/gear-workshop.svg",
+  "BAND":"res://Art/Journeys/World/band-room.svg",
+  "SCENE":"res://Art/Journeys/World/scene-streets.svg",
+  "GIGS":"res://Art/Journeys/ShowDay/03-arrival.svg"
+ }
+ var world_path: String = str(world_art.get(_scene_identity(),""))
+ if ResourceLoader.exists(world_path):
+  var world := TextureRect.new()
+  world.name = "CareerWorldArtwork"
+  world.texture = load(world_path)
+  world.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  world.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  world.modulate.a = 0.25
+  world.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  add_child(world)
+  world.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  var scroll := ScrollContainer.new()
  career_scroll = scroll
  add_child(scroll)
