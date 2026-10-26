@@ -1,20 +1,23 @@
 extends SceneTree
+# Acceptance assertions updated for the owner-approved photo-led Band House.
 var failures := 0
 func _initialize() -> void:
- var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- var a := source.find("func _home() -> void:")
- var b := source.find("func _gigs() -> void:",a)
- _check(a>=0 and b>a,"Home screen exists")
+ var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
+ var a := src.find("func _home() -> void:")
+ var b := src.find("func _editorial_banner(",a)
+ _check(a>=0 and b>a,"home scene source available")
  if a>=0 and b>a:
-  var h := source.substr(a,b-a)
-  _check(h.find('var pulse := _card("BAND PULSE"') < h.find('var opportunities := _card("WAYS FORWARD"'),"status shown before secondary signals")
-  _check(h.contains('if not landscape_dashboard:\n  var quick := _card("SHORTCUTS"'),"mobile shortcuts preserved, desktop duplicate avoided")
-  _check(h.contains('content = full_content'),"root content restored")
- _check(load("res://Scenes/CareerHub.tscn")!=null,"career scene compiles")
+  var home := src.substr(a,b-a)
+  _check(src.contains("func _home_header() -> void:"),"compact home status exists")
+  _check(src.contains("\"CASH\"") and src.contains("\"FANS\"") and src.contains("\"REP\""),"core economy metrics visible")
+  _check(src.contains("if tab == \"HOME\":\n  _home_header()"),"home uses compact status")
+  _check(not home.contains("var pulse := _card("),"old status button farm removed")
+  _check(home.contains("Calendar.pending(_state())"),"gig context preserved")
+ _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
  if failures==0:
-  print("V93 HOME STATUS PASSED")
+  print("V93 STATUS PASSED")
  quit(0 if failures==0 else 1)
 func _check(ok: bool,reason: String) -> void:
  if not ok:
   failures+=1
-  push_error("V93 HOME FAILURE: "+reason)
+  push_error("V93 STATUS FAILURE: "+reason)

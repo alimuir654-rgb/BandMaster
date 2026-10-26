@@ -1,25 +1,24 @@
 extends SceneTree
+# Acceptance assertions updated for the owner-approved photo-led Band House.
 var failures := 0
 func _initialize() -> void:
- var source := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
- var start := source.find("func _home() -> void:")
- var finish := source.find("func _gigs() -> void:",start)
- _check(start>=0 and finish>start,"Home view available")
- if start>=0 and finish>start:
-  var home := source.substr(start,finish-start)
-  _check(home.contains("landscape_dashboard := get_viewport_rect().size.x >= 960.0"),"landscape breakpoint")
-  _check(home.contains("main_column.size_flags_stretch_ratio = 1.65"),"primary tasks wider")
-  _check(home.contains("content = sidebar"),"context in sidebar")
-  _check(home.contains("content = main_column"),"tasks in main")
-  _check(home.contains("content = full_content"),"restores content for render")
-  _check(home.contains("Director.next_move(_state())"),"next move retained")
-  _check(home.contains("Chapters.claim(_state()"),"chapter actions retained")
-  _check(home.contains("Calendar.pending(_state())"),"gig status retained")
- _check(load("res://Scenes/CareerHub.tscn")!=null,"CareerHub imports")
- if failures == 0:
-  print("V91 HOME DASHBOARD PASSED")
- quit(0 if failures == 0 else 1)
+ var src := FileAccess.get_file_as_string("res://Scripts/career_hub.gd")
+ var a := src.find("func _home() -> void:")
+ var b := src.find("func _editorial_banner(",a)
+ _check(a>=0 and b>a,"home scene source available")
+ if a>=0 and b>a:
+  var home := src.substr(a,b-a)
+  _check(home.contains("hero.name = \"BandHouseHero\""),"hero is a named scene")
+  _check(home.contains("BandHousePhotograph"),"hero contains a photographic layer")
+  _check(home.contains("BandHouseLegibilityScrim"),"foreground contrast layer present")
+  _check(home.contains("BandHousePrimaryAction"),"single primary decision present")
+  _check(home.count("_genre_id(),true)") == 1,"only one primary CTA in home")
+  _check(not home.contains("landscape_dashboard"),"legacy dual dashboard removed")
+ _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
+ if failures==0:
+  print("V91 BAND HOUSE PASSED")
+ quit(0 if failures==0 else 1)
 func _check(ok: bool,reason: String) -> void:
  if not ok:
   failures+=1
-  push_error("V91 DASHBOARD FAILURE: "+reason)
+  push_error("V91 BAND HOUSE FAILURE: "+reason)
