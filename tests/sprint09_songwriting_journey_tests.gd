@@ -100,6 +100,8 @@ func _run() -> void:
      _check(_art(journey),"sleeve art imported "+str(size))
      _check(int(ui.save_data.get("tour_day",0)) == 7,"all four scenes are navigation only "+str(size))
      journey._commit()
+     # A second activation before the frame is flushed must not charge twice.
+     journey._commit()
      await process_frame
      await process_frame
      var state: Dictionary = ui._state()
