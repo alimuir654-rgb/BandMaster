@@ -14,13 +14,18 @@ func _initialize() -> void:
   _check(str(draft.get("lyrical_concept","")) == "Last train home","concept in draft")
   _check(str(draft.get("vibe","")) == "Dreamy and spacious","vibe in draft")
   _check(draft.get("sessions",[]).size() == 1,"one actual session")
-  var second: Dictionary = Workshop.develop(first["state"],"Riff","Verse / Chorus","A NEW SONG",0)
+  # Practice.compose advances progress after the first session; model that boundary.
+  var after_first: Dictionary = first["state"].duplicate(true)
+  after_first["song_draft_progress"] = 1
+  var second: Dictionary = Workshop.develop(after_first,"Riff","Verse / Chorus","A NEW SONG",0)
   _check(bool(second.get("ok",false)),"old signature remains valid")
   if bool(second.get("ok",false)):
    var revised: Dictionary = second["state"]["current_song_draft"]
    _check(str(revised.get("lyrical_concept","")) == "Last train home","old caller preserves concept")
    _check(str(revised.get("vibe","")) == "Dreamy and spacious","old caller preserves vibe")
-   _check(not revised["sessions"][1].has("lyrical_concept"),"legacy session does not invent concept")
+   _check(revised["sessions"].size() == 2,"legacy call appends second real session")
+   if revised["sessions"].size() == 2:
+    _check(not revised["sessions"][1].has("lyrical_concept"),"legacy session does not invent concept")
    var ready: Dictionary = second["state"].duplicate(true)
    ready["song_catalogue"] = [{"title":"A NEW SONG","quality":65}]
    var finished: Dictionary = Workshop.finish(ready)
