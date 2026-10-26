@@ -242,7 +242,7 @@ func _render_stage() -> void:
  story_panel.name = "JourneyStoryPanel"
  story_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if cinematic_split:
-  story_panel.custom_minimum_size.y = 340
+  story_panel.custom_minimum_size.y = 650
  var panel_tone := UI.flat(Color("#101923"),8)
  panel_tone.set_content_margin_all(18)
  panel_tone.border_color = Color("#42505D")
