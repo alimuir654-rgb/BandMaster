@@ -82,6 +82,37 @@ func _text(parent: Node, value: String, size: int, colour: Color) -> Label:
  parent.add_child(label)
  return label
 
+func _tone_button(button: Button, primary: bool) -> void:
+ var accent: Color = ACCENTS[stage]
+ var base: Color = COLORS[stage].darkened(0.22)
+ var fill: Color = accent if primary else base
+ var foreground: Color = Color("#202128") if primary else Color("#FFF5E6")
+ var normal := UI.style(fill,9)
+ normal.border_color = accent
+ normal.border_width_bottom = 3 if primary else 1
+ button.add_theme_stylebox_override("normal",normal)
+ button.add_theme_stylebox_override("hover",UI.style(fill.lightened(0.13),9))
+ button.add_theme_stylebox_override("pressed",UI.style(fill.darkened(0.12),9))
+ var focus := UI.flat(Color.TRANSPARENT,9)
+ focus.border_color = accent
+ focus.set_border_width_all(3)
+ button.add_theme_stylebox_override("focus",focus)
+ for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
+  button.add_theme_color_override(key,foreground)
+
+func _tone_selector(select: OptionButton) -> void:
+ var surface := UI.style(COLORS[stage].darkened(0.17),8)
+ surface.border_color = ACCENTS[stage]
+ surface.border_width_bottom = 2
+ select.add_theme_stylebox_override("normal",surface)
+ select.add_theme_stylebox_override("hover",UI.style(COLORS[stage].lightened(0.13),8))
+ select.add_theme_color_override("font_color",Color("#FFF5E6"))
+ select.add_theme_color_override("font_hover_color",Color("#FFF5E6"))
+ var focus := UI.flat(Color.TRANSPARENT,8)
+ focus.border_color = ACCENTS[stage]
+ focus.set_border_width_all(2)
+ select.add_theme_stylebox_override("focus",focus)
+
 func _selector(parent: Node, heading: String, values: Array, chosen: int, control_name: String) -> OptionButton:
  _text(parent,heading,14,ACCENTS[stage])
  var select := OptionButton.new()
@@ -94,6 +125,7 @@ func _selector(parent: Node, heading: String, values: Array, chosen: int, contro
   select.select(clampi(chosen,0,values.size()-1))
  else:
   select.disabled = true
+ _tone_selector(select)
  parent.add_child(select)
  return select
 
@@ -253,6 +285,7 @@ func _render_stage() -> void:
  layout.add_child(footer)
  var back := UI.themed_button("CLOSE" if stage == 0 else "‹  BACK",genre_id,false)
  back.name = "JourneyBack"
+ _tone_button(back,false)
  back.custom_minimum_size.y = 54
  footer.add_child(back)
  back.pressed.connect(func() -> void:
@@ -267,6 +300,7 @@ func _render_stage() -> void:
  var next_text: String = ["FIND THE SOUND  ›","ENTER THE ROOM  ›","REVIEW SONGSHEET  ›","COMMIT SESSION  /  1 DAY"][stage]
  var next := UI.themed_button(next_text,genre_id,true)
  next.name = "JourneyNext"
+ _tone_button(next,true)
  next.custom_minimum_size.y = 54
  next.disabled = stage == 2 and lead_choices.is_empty()
  footer.add_child(next)
@@ -278,6 +312,7 @@ func _render_stage() -> void:
  )
  var motion := UI.themed_button("REDUCE MOTION: "+("ON" if reduced_motion else "OFF"),genre_id,false)
  motion.name = "JourneyMotionToggle"
+ _tone_button(motion,false)
  motion.custom_minimum_size.y = 44
  motion.add_theme_font_size_override("font_size",11)
  layout.add_child(motion)
