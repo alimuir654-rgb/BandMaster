@@ -145,7 +145,7 @@ func _choice_deck(parent: Node, select: OptionButton, values: Array, prefix: Str
  for index in range(values.size()):
   var chip := UI.themed_button(str(values[index]).to_upper(),genre_id,false)
   chip.name = prefix+"Choice%02d" % index
-  chip.custom_minimum_size.y = 64
+  chip.custom_minimum_size.y = 82
   chip.toggle_mode = true
   chip.button_pressed = index == select.selected
   chip.add_theme_font_size_override("font_size",16)
@@ -235,7 +235,7 @@ func _render_stage() -> void:
  scene_planes.name = "JourneyScenePlanes"
  scene_planes.add_theme_constant_override("separation",24 if cinematic_split else 12)
  body.add_child(scene_planes)
- var hero_height := 270.0 if get_viewport_rect().size.x < 600.0 else (370.0 if cinematic_split else 350.0)
+ var hero_height := 460.0 if get_viewport_rect().size.x < 600.0 else (780.0 if cinematic_split else 430.0)
  Cinematic.add_hero(scene_planes,art_path,"WRITING SESSION  /  %02d" % (stage+1),PHASES[stage],ACCENTS[stage],hero_height)
  # Choices are a readable foreground dock; the image carries the atmosphere.
  var story_panel := PanelContainer.new()
@@ -342,7 +342,7 @@ func _render_stage() -> void:
  var back := UI.themed_button("CLOSE" if stage == 0 else "‹  BACK",genre_id,false)
  back.name = "JourneyBack"
  _tone_button(back,false)
- back.custom_minimum_size.y = 54
+ back.custom_minimum_size.y = 82
  footer.add_child(back)
  back.pressed.connect(func() -> void:
   if stage == 0:
@@ -357,7 +357,7 @@ func _render_stage() -> void:
  var next := UI.themed_button(next_text,genre_id,true)
  next.name = "JourneyNext"
  _tone_button(next,true)
- next.custom_minimum_size.y = 54
+ next.custom_minimum_size.y = 82
  next.disabled = stage == 2 and lead_choices.is_empty()
  footer.add_child(next)
  next.pressed.connect(func() -> void:
@@ -369,7 +369,7 @@ func _render_stage() -> void:
  var motion := UI.themed_button("REDUCE MOTION: "+("ON" if reduced_motion else "OFF"),genre_id,false)
  motion.name = "JourneyMotionToggle"
  _tone_button(motion,false)
- motion.custom_minimum_size.y = 44
+ motion.custom_minimum_size.y = 70
  motion.add_theme_font_size_override("font_size",11)
  layout.add_child(motion)
  motion.pressed.connect(func() -> void:
