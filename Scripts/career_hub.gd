@@ -644,7 +644,7 @@ func _home() -> void:
  # The first action and the three destinations must be visible without a long scroll.
  # Scale with actual viewport height rather than using a fixed 780px photograph.
  var viewport_height := get_viewport_rect().size.y
- var hero_height := clampf(viewport_height * (0.54 if wide else (0.62 if compact else 0.57)),400.0 if compact else 340.0,510.0 if compact else 560.0)
+ var hero_height := clampf(viewport_height * (1.06 if wide else 1.0),740.0,780.0)
  hero.custom_minimum_size = Vector2(0.0,hero_height)
  content.add_child(hero)
 
@@ -669,13 +669,26 @@ func _home() -> void:
  hero.add_child(scrim)
  scrim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
- var bottom_scrim := ColorRect.new()
+ # A transparent-to-ink lower-third gradient keeps the photograph visible
+ # without drawing a hard horizontal bar through the rehearsal-room image.
+ var action_gradient := Gradient.new()
+ action_gradient.set_color(0,Color(0.015,0.024,0.037,0.0))
+ action_gradient.set_color(1,Color(0.015,0.024,0.037,0.86))
+ var action_texture := GradientTexture2D.new()
+ action_texture.gradient = action_gradient
+ action_texture.fill_from = Vector2(0.5,0.0)
+ action_texture.fill_to = Vector2(0.5,1.0)
+ action_texture.width = 16
+ action_texture.height = 256
+ var bottom_scrim := TextureRect.new()
  bottom_scrim.name = "BandHouseActionScrim"
- bottom_scrim.color = Color(0.015,0.024,0.037,0.70)
+ bottom_scrim.texture = action_texture
+ bottom_scrim.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ bottom_scrim.stretch_mode = TextureRect.STRETCH_SCALE
  bottom_scrim.mouse_filter = Control.MOUSE_FILTER_IGNORE
  hero.add_child(bottom_scrim)
  bottom_scrim.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE)
- bottom_scrim.offset_top = -220.0 if compact else -195.0
+ bottom_scrim.offset_top = -390.0 if compact else -340.0
 
  var border := ColorRect.new()
  border.color = colours["accent"]
@@ -699,7 +712,7 @@ func _home() -> void:
  var nameplate := _label(stack,band_name.to_upper(),38 if compact else 52,UI.WHITE)
  nameplate.max_lines_visible = 2
  nameplate.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
- var pulse := _label(stack,"READINESS %d   /   MORALE %d   /   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],12,UI.WHITE)
+ var pulse := _label(stack,"READINESS %d   /   MORALE %d   /   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],15,UI.WHITE)
  pulse.name = "BandHouseStatusStrip"
  var spacer := Control.new()
  spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -712,7 +725,8 @@ func _home() -> void:
  var target := str(guidance.get("tab","ACTIONS"))
  var call := UI.themed_button(str(guidance.get("action","CONTINUE")).to_upper()+"  →",_genre_id(),true)
  call.name = "BandHousePrimaryAction"
- call.custom_minimum_size.y = 58
+ call.custom_minimum_size.y = 82
+ call.add_theme_font_size_override("font_size",20 if compact else 19)
  call.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
  call.custom_minimum_size.x = 340 if not wide else 290
  stack.add_child(call)
@@ -733,8 +747,8 @@ func _home() -> void:
   var item: Dictionary = destination
   var button := UI.themed_button(str(item["short"]) if compact else str(item["name"]),_genre_id(),false)
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  button.custom_minimum_size.y = 64
-  button.add_theme_font_size_override("font_size",13 if compact else 16)
+  button.custom_minimum_size.y = 84
+  button.add_theme_font_size_override("font_size",17 if compact else 18)
   button.tooltip_text = str(item["name"])
   button.accessibility_name = str(item["name"])
   if button is WoldButton and not compact:
