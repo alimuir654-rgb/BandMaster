@@ -12,6 +12,7 @@ func _initialize() -> void:
   _check(home.contains("BandHousePhotograph"),"hero contains a photographic layer")
   _check(home.contains("BandHouseLegibilityScrim"),"foreground contrast layer present")
   _check(home.contains("BandHousePrimaryAction"),"single primary decision present")
+  _check(home.contains("BandHouseMemberPortrait"),"bandmate portrait identity present")
   _check(home.count("_genre_id(),true)") == 1,"only one primary CTA in home")
   _check(not home.contains("landscape_dashboard"),"legacy dual dashboard removed")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
