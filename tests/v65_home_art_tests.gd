@@ -13,7 +13,7 @@ func _initialize() -> void:
   _check(home.contains("STRETCH_KEEP_ASPECT_COVERED"),"cinematic image crop")
   _check(home.contains("scrim.color = Color("),"foreground text scrim")
   _check(home.contains("hero.clip_contents = true"),"hero crop does not overflow")
-  _check(home.contains("hero.custom_minimum_size.y"),"responsive hero size")
+  _check(home.contains("hero.custom_minimum_size = Vector2("),"responsive hero size")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
  if failures==0:
   print("V65 PHOTO-LED HOME PASSED")
