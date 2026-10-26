@@ -37,3 +37,16 @@ All four scenes are original hand-authored SVG illustrations created for BandMas
 | `Art/Journeys/Songwriting/02-vibe.svg` | Cool cyan mixing console and signal wave | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
 | `Art/Journeys/Songwriting/03-jam.svg` | Magenta rehearsal room, drums, amps, silhouettes | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
 | `Art/Journeys/Songwriting/04-sleeve.svg` | Amber record sleeve and vinyl | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
+
+## Sprint B original show-day illustrations (26 October 2026)
+Five hand-authored original vector scenes created specifically for BandMaster. Copyright BandMaster project owner; no third-party assets or external model/brand likeness. These are stylised environmental illustrations, not photographs or owner-approved final artwork. All important venue names, fees, dates and choices remain live Godot controls.
+
+| File | Visual subject | Palette / tone | Provenance | Review status |
+|---|---|---|---|---|
+| `Art/Journeys/ShowDay/01-load.svg` | Van, flight cases and instruments | Sage/garage tungsten | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
+| `Art/Journeys/ShowDay/02-road.svg` | Night motorway, distant skyline | Blue/moonlight | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
+| `Art/Journeys/ShowDay/03-arrival.svg` | Venue facade, doorway and van | Purple/neon | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
+| `Art/Journeys/ShowDay/04-soundcheck.svg` | Empty stage, amps, microphone and lights | Teal/work lights | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
+| `Art/Journeys/ShowDay/05-backstage.svg` | Velvet curtains and stage silhouettes | Burgundy/backstage | Original project SVG, 2026-10-26 | Godot import, populated crop and owner review pending |
+
+All SVGs are 1200×640, original hand-authored geometry, no embedded copy or game data. Required visual checks: 390×844, 720×1280, 1280×720, including populated controls and scene-to-scene colour contrast. The missing Unsplash photographs remain missing; do not claim these vectors resolve the photography pipeline.
