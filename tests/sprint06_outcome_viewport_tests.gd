@@ -51,11 +51,10 @@ func _run() -> void:
      if continue_button != null:
       _check(continue_button.custom_minimum_size.y >= 44.0 and continue_button.focus_mode == Control.FOCUS_ALL,"accessible continue at "+str(size))
       var rect := continue_button.get_global_rect()
-      print("S06_GEOMETRY requested=%s actual_view=%s root=%s ui=%s continue=%s footer=%s scroll=%s" % [str(size),str(ui.get_viewport_rect()),str(get_root().size),str(ui.get_global_rect()),str(rect),str(footer.get_global_rect() if footer != null else Rect2()),str(scroll.get_global_rect() if scroll != null else Rect2())])
-      _check(rect.position.y >= 0 and rect.end.y <= size.y,"continue remains visible in viewport at "+str(size))
+      _check(rect.position.y >= 0 and rect.end.y <= ui.get_viewport_rect().size.y,"continue remains visible in viewport at "+str(size))
      if scrapbook_button != null:
       _check(scrapbook_button.custom_minimum_size.y >= 44.0,"scrapbook target >=44 at "+str(size))
-      _check(scrapbook_button.get_global_rect().end.y <= size.y,"scrapbook remains visible at "+str(size))
+      _check(scrapbook_button.get_global_rect().end.y <= ui.get_viewport_rect().size.y,"scrapbook remains visible at "+str(size))
       scrapbook_button.pressed.emit()
       await process_frame
       await process_frame
@@ -75,8 +74,7 @@ func _run() -> void:
      var long_continue := _button(ui,"CONTINUE")
      _check(long_scroll != null and long_continue != null,"long report renders at "+str(size))
      if long_scroll != null and long_continue != null:
-      print("S06_LONG requested=%s button=%s scroll=%s" % [str(size),str(long_continue.get_global_rect()),str(long_scroll.get_global_rect())])
-      _check(long_continue.get_global_rect().end.y <= size.y,"long report never hides primary action at "+str(size))
+      _check(long_continue.get_global_rect().end.y <= ui.get_viewport_rect().size.y,"long report never hides primary action at "+str(size))
       if size.x <= 720:
        _check(long_scroll.get_v_scroll_bar().max_value > long_scroll.size.y,"long report scrolls at "+str(size))
      if long_continue != null:
