@@ -751,18 +751,25 @@ func _home() -> void:
   var chapter_id := str(chapter.get("id",""))
   claim.pressed.connect(func() -> void: _finish(Chapters.claim(_state(),chapter_id),"chapter:"+chapter_id))
 
- var other := HBoxContainer.new()
- other.add_theme_constant_override("separation",8)
- content.add_child(other)
- for destination in [{"name":"GEAR & REPAIRS","tab":"GEAR"},{"name":"SCENE & SCRAPBOOK","tab":"SCENE"}]:
-  var item: Dictionary = destination
-  var link := UI.themed_button(str(item["name"]),_genre_id(),false)
-  link.custom_minimum_size.y = 48
-  link.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  link.add_theme_font_size_override("font_size",12 if compact else 15)
-  other.add_child(link)
-  var tab_target := str(item["tab"])
-  link.pressed.connect(func() -> void: _switch(tab_target))
+ # A quiet, non-clickable glimpse of the people behind the numbers.
+ var members: Array = save_data.get("band",{}).get("members",[])
+ if not members.is_empty():
+  content.add_child(HSeparator.new())
+  _label(content,"IN THE ROOM  /  THE LINEUP",12,colours["accent"])
+  var roster := HBoxContainer.new()
+  roster.add_theme_constant_override("separation",12)
+  content.add_child(roster)
+  for i in range(mini(3,members.size())):
+   var member: Dictionary = members[i]
+   var person := VBoxContainer.new()
+   person.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   person.add_theme_constant_override("separation",2)
+   roster.add_child(person)
+   var name := _label(person,str(member.get("name","MUSICIAN")),17,UI.WHITE)
+   name.autowrap_mode = TextServer.AUTOWRAP_OFF
+   name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+   _label(person,str(member.get("role","BANDMATE")).to_upper(),12,UI.MUTED)
+ _label(content,"BAND PULSE  /  READINESS %d   ·   MORALE %d   ·   VAN %d" % [_num("readiness"),_num("morale"),_num("van_health")],12,UI.MUTED)
 
 func _editorial_banner(title: String, subtitle: String, artwork: String, destination: String, action_label: String) -> void:
  # Shared wide-screen feature banner for the three core management workspaces.
