@@ -84,7 +84,7 @@ func _run() -> void:
    _check(Journey.ready_to_perform(ui._state()),"showtime unlocks")
    ui._perform_gig()
    await process_frame
-  var after := ui._state()
+  var after: Dictionary = ui._state()
   _check(after.get("gig_history",[]).size() == 1,"show settles once")
   _check(Calendar.pending(after).is_empty(),"booking cleared")
   var settled_cash := int(after.get("cash",0))
