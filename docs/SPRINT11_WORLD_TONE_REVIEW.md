@@ -32,3 +32,13 @@
 ## Screenshot and CI evidence
 - Sprint B actual 15 populated show PNGs (before Sprint C split): run 40304730434; observed wide landscape had narrow central content and passive art.
 - Sprint C latest screenshot artifact and 5 workflow conclusions must be recorded after runs complete. No claim of human visual approval.
+
+## Actual populated screenshot inspection — 26 October 2026
+Inspected screenshot workflow run **40306552907**, artifact **12642577976**, head `8d5a8ec`: all six career worlds at phone/tablet/landscape plus the five show and four songwriting landscape scenes. The workflow passed and produced 60+ PNGs. This is code-reviewer inspection, **not** owner approval.
+
+- **390x844:** existing photographed shop, studio and live-scene banners are visible; new world backgrounds distinguish band, gear, promotion and gigs through material colours. The main legacy pages remain dense and the small typography is not yet at premium mobile quality.
+- **720x1280:** distinct colours and real existing scene imagery; many content stacks still feel like management panels rather than places. Art-led storytelling needs another pass.
+- **1280x720:** Sprint B's narrow centre column is replaced by a wide art-left/story-right layout for both journeys, directly addressing the layout shape from issue #179. However the first captured split still leaves the narrative text clustered top-right and visually weak against the environment. Corrective commit adds a bordered high-contrast reading surface with a 320px minimum height; **new screenshots must confirm**.
+- **Overall game critic:** remains CHANGES NEEDED. Current scene artwork is predominantly simple geometric vector illustration; the band dream needs richer location key art, more authentic characters and consequential interactions. Do not promote the interim visuals as final.
+
+**Corrective QA loop:** a full Godot regression on head `a497757` caught stale `v116_scene_identity_tests.gd` source expectations after expanding the scene taxonomy. The test was updated to validate all seven scene IDs including DAY and explicit studio/band/promotion mapping; latest full suite must pass before merge. The continuous writing-to-gig-to-scrapbook disk acceptance did pass on that head after fixing a GDScript typed-dictionary parse error.
