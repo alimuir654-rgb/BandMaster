@@ -88,6 +88,15 @@ func _capture() -> void:
  if tab != "TITLE":
   ui.tab = tab
   ui._render()
+ else:
+  var title_photo := ui.find_child("TitleCinematicPhoto",true,false) as TextureRect
+  var title_dock := ui.find_child("TitleActionDock",true,false)
+  if title_photo == null or title_photo.texture == null or title_dock == null:
+   push_error("SCREENSHOT FAILURE: Cinematic title photograph or action dock missing")
+   ui.queue_free()
+   _restore(original_exists,original)
+   quit(1)
+   return
  if show_sleeve:
   ui._open_song_sleeve(fixture["career_extra"]["song_catalogue"][0],1)
  if journey_stage >= 0:
