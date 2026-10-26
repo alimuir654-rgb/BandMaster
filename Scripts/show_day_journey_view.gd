@@ -81,7 +81,7 @@ func _render_stage() -> void:
  background.color = BACKDROPS[step]
  stage_root.add_child(background)
  background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
- var art_path := "res://Art/Journeys/ShowDay/"+ART[step]
+ var art_path: String = "res://Art/Journeys/ShowDay/"+str(ART[step])
  if ResourceLoader.exists(art_path):
   var ambient := TextureRect.new()
   ambient.name = "ShowJourneyAmbient"
@@ -184,7 +184,7 @@ func _render_stage() -> void:
   if not busy:
    close_callback.call()
  )
- var action := ["HIT THE ROAD  ›","ARRIVE AT VENUE  ›","SURVEY THE STAGE  ›","HEAD BACKSTAGE  ›","LIGHTS UP  /  SHOWTIME"][step]
+ var action: String = ["HIT THE ROAD  ›","ARRIVE AT VENUE  ›","SURVEY THE STAGE  ›","HEAD BACKSTAGE  ›","LIGHTS UP  /  SHOWTIME"][step]
  var next := _button(footer,action,_next_pressed,true)
  next.name = "ShowJourneyNext"
  next.size_flags_horizontal = Control.SIZE_EXPAND_FILL
