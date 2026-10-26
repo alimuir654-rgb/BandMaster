@@ -33,6 +33,8 @@ func _run() -> void:
    await process_frame
    var opener := _find_button(ui,"HEAR BOTH SIDES")
    _check(opener != null,"pair decision visible at "+str(size))
+   var had_opener := opener != null
+   var opened_sheet := false
    if opener != null:
     _check(opener.custom_minimum_size.y >= 44.0,"first-fold action tap target at "+str(size))
     var r: Rect2 = opener.get_global_rect()
@@ -40,6 +42,7 @@ func _run() -> void:
     opener.pressed.emit()
     await process_frame
     var sheet := ui.find_child("SceneSheet",true,false)
+    opened_sheet = sheet != null
     _check(sheet != null,"focused scene opens at "+str(size))
     _check(ui.find_child("PairIncidentIdentity",true,false) != null,"named pair strip at "+str(size))
     var choice := _find_button(ui,"LET BOTH BE HEARD")
@@ -64,7 +67,7 @@ func _run() -> void:
       _check(_find_button(ui,"HEAR BOTH SIDES") == null,"same pair case no longer offered at "+str(size))
       var disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
       _check(disk is Dictionary and int(disk.get("tour_day",0)) == 8,"commit persisted on disk at "+str(size))
-    print("PAIR_VIEWPORT %dx%d action=%s sheet=%s" % [size.x,size.y,str(opener != null),str(sheet != null)])
+    print("PAIR_VIEWPORT %dx%d action=%s sheet=%s" % [size.x,size.y,str(had_opener),str(opened_sheet)])
    ui.free()
  if had_save:
   _write(original)
