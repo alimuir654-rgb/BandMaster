@@ -12,7 +12,7 @@ func _initialize() -> void:
   _check(home.contains("GO SOMEWHERE"),"navigation section labelled")
   _check(home.contains("button.accessibility_name"),"meaningful accessibility label")
   _check(home.contains("button.pressed.connect(func() -> void: _switch(tab_target))"),"navigation remains wired")
-  _check(home.contains("GEAR & REPAIRS") and home.contains("SCENE & SCRAPBOOK"),"secondary worlds still reachable")
+  _check(src.contains("const TABS := [\"HOME\",\"GIGS\",\"GEAR\",\"BAND\",\"ACTIONS\",\"SCENE\"]"),"secondary worlds reachable through permanent navigation")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career scene imports")
  if failures==0:
   print("V107 DESTINATION HUB PASSED")
