@@ -2,7 +2,7 @@ extends RefCounted
 # Shared photo-first composition for both authored journeys. Decorative only:
 # all progression, save state and economy remain in their original controllers.
 
-static func add_hero(parent: Node, photo_path: String, scene_name: String, beat: String, accent: Color, height: float) -> Control:
+static func add_hero(parent: Node, photo_path: String, scene_name: String, beat: String, accent: Color, height: float, photo_node_name: String = "JourneyArtwork") -> Control:
  var hero := Control.new()
  hero.name = "JourneyCinematicHero"
  hero.custom_minimum_size = Vector2(0,height)
@@ -11,7 +11,7 @@ static func add_hero(parent: Node, photo_path: String, scene_name: String, beat:
  parent.add_child(hero)
  if ResourceLoader.exists(photo_path):
   var photo := TextureRect.new()
-  photo.name = "JourneyHeroPhoto"
+  photo.name = photo_node_name
   photo.texture = load(photo_path)
   photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
