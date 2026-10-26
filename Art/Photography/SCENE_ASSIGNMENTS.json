@@ -86,12 +86,12 @@
     },
     {
       "scene": "on_road",
-      "original": "Art/Photography/source/review_inbox/claudio-schwarz-72_sgXLhZQc-unsplash.jpg",
-      "sha256": "1d75cd5c3644a43cf9b52df8de2b241d5855f97f60ac8f02cbd25269a5bd0c33",
-      "source_url_unverified": "https://unsplash.com/photos/72_sgXLhZQc",
-      "photographer_from_filename": "Claudio Schwarz",
-      "description_from_contact_sheet": "Rainy reflective urban street",
-      "visual_review": "PROVISIONAL: does not clearly depict a British road or van; replace before visual sign-off",
+      "original": "Art/Photography/source/review_inbox/lawless-capture-VcYwSDIIjTc-unsplash.jpg",
+      "sha256": "f560be5277c5a9bbafb7a8565e67726d6ae20bdc9870c722ff83a8abda24020e",
+      "source_url_unverified": "https://unsplash.com/photos/VcYwSDIIjTc",
+      "photographer_from_filename": "Lawless Capture",
+      "description_from_contact_sheet": "Urban street with cars and traveller carrying a bag",
+      "visual_review": "PROVISIONAL: street traffic is visible, but this is not a British van/motorway view; replacement required.",
       "license_clearance": "pending",
       "runtime": {
         "wide": "Art/Photography/approved/on_road_wide.webp",
