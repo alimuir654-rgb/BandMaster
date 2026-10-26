@@ -5,6 +5,7 @@ extends SceneTree
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Actions = preload("res://Scripts/career_actions.gd")
 const Journey = preload("res://Scripts/show_day_journey.gd")
+const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const SAVE_PATH := "user://tour_save.json"
 var failures := 0
 
@@ -73,9 +74,8 @@ func _run() -> void:
    for step in range(5):
     _check(Journey.current_step(ui._state()) == step,"show journey step "+str(step))
     if step == 3:
-     var incident = road.Backstage.incident(ui._state()) if false else {}
      # Resolve only an actually triggered incident; no fabricated drama.
-     var real_incident = load("res://Scripts/gig_backstage_incident.gd").incident(ui._state())
+     var real_incident = Backstage.incident(ui._state())
      if not real_incident.is_empty():
       road._resolve_incident(str(real_incident.get("options",[])[0].get("id","rest")))
     if step < 4:
