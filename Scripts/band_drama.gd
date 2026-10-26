@@ -72,6 +72,8 @@ const PAIR_EVENTS := {
  "rehearsal_resentment":{
   "title":"TWO VOICES, ONE REHEARSAL",
   "intro":"%s feels %s keeps dismissing their ideas in rehearsal. The others have noticed.",
+  "first_line":"I bring ideas, but they never make it into the set.",
+  "second_line":"I am trying to keep us ready. We cannot rewrite every song.",
   "choices":[
    {"id":"listen","label":"LET BOTH BE HEARD","text":"You make room for both voices and agree how the next rehearsal will work.","trust":12,"tension":-7,"morale":4,"readiness":-2,"first_loyalty":4,"second_loyalty":3},
    {"id":"keep","label":"KEEP THE CURRENT ARRANGEMENT","text":"The set stays on schedule, but the disagreement is unresolved.","trust":-9,"tension":9,"morale":-3,"readiness":4,"first_loyalty":-5,"second_loyalty":2}
@@ -80,6 +82,8 @@ const PAIR_EVENTS := {
  "road_pressure":{
   "title":"A LONG DRIVE HOME",
   "intro":"%s and %s are arguing about loading the van. Everyone is tired, and the next show is looming.",
+  "first_line":"I am always the one left loading the van.",
+  "second_line":"We are all tired. I thought we agreed to share the work.",
   "choices":[
    {"id":"mediate","label":"STOP AND SORT IT OUT","text":"You give the band a day to recover and divide the work fairly.","trust":10,"tension":-6,"morale":3,"readiness":-2,"fatigue":-10,"first_loyalty":3,"second_loyalty":3},
    {"id":"push","label":"STICK TO THE SCHEDULE","text":"You keep momentum, but both musicians feel unheard.","trust":-8,"tension":8,"morale":-4,"readiness":4,"fatigue":8,"first_loyalty":-3,"second_loyalty":-3}
@@ -134,6 +138,7 @@ static func pair_pending(state: Dictionary) -> Array:
      "intro":str(rule["intro"]) % [str(first.get("name","Musician")),str(second.get("name","Musician"))],
      "first":str(first.get("name","Musician")),"second":str(second.get("name","Musician")),
      "first_index":i,"second_index":j,"trust":trust,
+     "first_line":str(rule.get("first_line","")),"second_line":str(rule.get("second_line","")),
      "choices":rule["choices"].duplicate(true),"priority":priority
     }
     if best.is_empty() or priority > int(best.get("priority",-1)) or (priority == int(best.get("priority",-1)) and case_id < str(best.get("id",""))):
@@ -176,7 +181,9 @@ static func resolve_pair(state: Dictionary, case_id: String, choice_id: String) 
  seen[case_id] = choice_id
  next["band_drama_resolved"] = seen
  var journal: Array = next.get("career_journal",[]).duplicate(true)
- journal.append({"id":case_id,"day":int(next["tour_day"]),"title":incident["title"],"text":"%s & %s — %s" % [incident["first"],incident["second"],selected["text"]],"kind":"band","pair":pair_key,"trust_change":int(selected["trust"])})
+ journal.append({"id":case_id,"day":int(next["tour_day"]),"title":incident["title"],"text":"%s & %s — %s" % [incident["first"],incident["second"],selected["text"]],"kind":"band","pair":pair_key,"trust_change":int(selected["trust"]),
+  "pair_names":[incident["first"],incident["second"]],"trust_before":int(incident["trust"]),"trust_after":int(relationships[pair_key]),
+  "choice_id":choice_id,"decision_label":str(selected["label"]),"first_line":str(incident.get("first_line","")),"second_line":str(incident.get("second_line",""))})
  while journal.size() > 80:
   journal.pop_front()
  next["career_journal"] = journal

@@ -1923,10 +1923,9 @@ func _open_pair_incident(case_id: String, launcher: BaseButton) -> void:
   message = "That conversation is no longer available."
   _render()
   return
- var art_path := "res://Art/Backgrounds/%s/band.webp" % _genre_id()
- if not ResourceLoader.exists(art_path):
-  art_path = "res://Art/Backgrounds/shared/band.webp"
- var sheet: Dictionary = SceneSheet.build(self,str(incident["title"]),str(incident["intro"]),art_path,_genre_id())
+ # A pair-specific portrait conversation replaces generic banner art. Existing
+ # MemberPortrait resolves owned art or a typographic fallback.
+ var sheet: Dictionary = SceneSheet.build(self,str(incident["title"]),str(incident["intro"]),"",_genre_id())
  var body: VBoxContainer = sheet["body"]
  var pair_row := HBoxContainer.new()
  pair_row.name = "PairIncidentIdentity"
@@ -1947,6 +1946,31 @@ func _open_pair_incident(case_id: String, launcher: BaseButton) -> void:
  pair_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  pair_caption.add_theme_color_override("font_color",UI.AMBER)
  pair_row.add_child(pair_caption)
+ var people := HBoxContainer.new()
+ people.name = "PairIncidentVoices"
+ people.add_theme_constant_override("separation",10)
+ body.add_child(people)
+ body.move_child(people,2)
+ var roster: Array = save_data.get("band",{}).get("members",[])
+ for voice_index in range(2):
+  var member_index := int(incident["first_index"]) if voice_index == 0 else int(incident["second_index"])
+  var person: Dictionary = roster[member_index] if member_index >= 0 and member_index < roster.size() and roster[member_index] is Dictionary else {}
+  var person_name := str(incident["first"]) if voice_index == 0 else str(incident["second"])
+  var voice := VBoxContainer.new()
+  voice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  voice.size_flags_stretch_ratio = 1.0
+  voice.add_theme_constant_override("separation",6)
+  people.add_child(voice)
+  var portrait := Portrait.new()
+  portrait.name = "PairVoicePortrait"
+  portrait.custom_minimum_size = Vector2(80,106)
+  portrait.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+  portrait.set_character(str(person.get("candidate_id",person.get("id",member_index))),person_name,_genre_id())
+  voice.add_child(portrait)
+  _label(voice,person_name.to_upper(),14,UI.palette(_genre_id())["accent"])
+  var words := str(incident.get("first_line","")) if voice_index == 0 else str(incident.get("second_line",""))
+  var line := _label(voice,"“"+words+"”",13,UI.WHITE)
+  line.name = "PairVoiceQuote"
  var actions: VBoxContainer = sheet["actions"]
  var committed := [false]
  var first_choice: BaseButton
@@ -2538,6 +2562,42 @@ func _scrapbook_gig_ticket(parent: Node, moment: Dictionary) -> void:
  heading.max_lines_visible = 2
  _label(copy,str(moment.get("text","")),13,UI.MUTED)
 
+func _scrapbook_pair_memento(parent: Node, moment: Dictionary) -> void:
+ # Real save data only: never invent dialogue, decisions or trust history.
+ var names: Array = moment.get("pair_names",[])
+ if names.size() != 2:
+  return
+ var panel := PanelContainer.new()
+ panel.name = "PairMemento"
+ var skin := UI.style(Color("#28232C"),12)
+ skin.border_color = UI.palette(_genre_id())["accent"]
+ skin.border_width_left = 5
+ panel.add_theme_stylebox_override("panel",skin)
+ parent.add_child(panel)
+ var column := VBoxContainer.new()
+ column.add_theme_constant_override("separation",7)
+ panel.add_child(column)
+ var row := HBoxContainer.new()
+ row.add_theme_constant_override("separation",9)
+ column.add_child(row)
+ var icon_path := "res://Art/UI/Icons/heart-handshake.svg"
+ if ResourceLoader.exists(icon_path):
+  var icon := TextureRect.new()
+  icon.name = "PairMementoIcon"
+  icon.texture = load(icon_path)
+  icon.custom_minimum_size = Vector2(34,34)
+  icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  row.add_child(icon)
+ var heading := VBoxContainer.new()
+ heading.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ row.add_child(heading)
+ _label(heading,"BACKSTAGE NOTE  /  DAY %d" % int(moment.get("day",1)),12,UI.palette(_genre_id())["accent"])
+ _label(heading,str(names[0])+"  &  "+str(names[1]),18,UI.WHITE)
+ _label(column,str(moment.get("decision_label","THE BAND MADE A CHOICE")),13,UI.WHITE)
+ _label(column,"PAIR TRUST  %d  →  %d" % [int(moment.get("trust_before",0)),int(moment.get("trust_after",0))],14,UI.AMBER)
+ _label(column,str(moment.get("text","")),13,UI.MUTED)
+
 func _scene() -> void:
  var scene_modes := _card("YOUR SCENE  /  CHOOSE A FOCUS","Build your following or revisit the band's story.")
  var scene_nav := HBoxContainer.new()
@@ -2602,6 +2662,8 @@ func _scene_scrapbook() -> void:
    var clipping: Dictionary = Presentation.clipping(entry)
    if str(clipping["kind"]) == "gig":
     _scrapbook_gig_ticket(scrapbook,entry)
+   elif str(entry.get("id","")).begins_with("pair:") and entry.get("pair_names",[]) is Array and entry.get("pair_names",[]).size() == 2:
+    _scrapbook_pair_memento(scrapbook,entry)
    else:
     _label(scrapbook,str(clipping["rubric"])+"  ·  DAY %d" % int(clipping["day"]),12,UI.AMBER)
     Components.story(scrapbook,entry)
@@ -2793,6 +2855,13 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
   _label(sleeve_copy,str(song.get("title","UNTITLED")).to_upper(),23,Color("#231C15"))
   _label(sleeve_copy,str(song.get("origin","ORIGINAL"))+"  ·  "+str(song.get("arrangement",""))+"  ·  "+str(song.get("lead_writer","")),13,Color("#665343"))
   _label(sleeve_copy,"A NEW SONG FOR THE SETLIST  /  DAY %d" % int(after.get("tour_day",1)),12,Color("#8A5F30"))
+ if source == "band:pair":
+  var latest_pair: Dictionary = {}
+  for moment in after.get("career_journal",[]):
+   if moment is Dictionary and str(moment.get("id","")).begins_with("pair:") and moment.has("pair_names"):
+    latest_pair = moment
+  if not latest_pair.is_empty():
+   _scrapbook_pair_memento(stack,latest_pair)
  var chapter_result := source.begins_with("chapter:")
  if chapter_result:
   var reward_heading := _label(stack,"CHAPTER COMPLETE  /  REWARD CLAIMED",14,UI.palette(_genre_id())["accent"])

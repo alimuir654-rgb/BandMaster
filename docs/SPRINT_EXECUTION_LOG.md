@@ -1,5 +1,29 @@
 # BandMaster autonomous sprint execution log
 
+## Sprint 04 / 08 — 2026-10-26, 01:26 UTC start
+**Scope:** portrait-led two-voice relationship interventions and persistent physical backstage mementos.
+**PR:** #171 (`sprint04-pair-dialogue-mementos`). Merge/CI status must be verified before claiming completion.
+
+### Implementation
+- Existing pair incident rules now carry distinct authored lines for each of the two involved musicians; no generated claims of AI character conversations.
+- The existing focused SceneSheet uses actual MemberPortrait rendering (real owned art or initials fallback) for both bandmates. Removed redundant generic banner in this dialogue, preserved visible names/trust, decision previews and safe Back.
+- Each one-time resolution persists the real pair, selected intervention, trust before/after and authored dialogue in existing `career_journal`; no new save field. An illustrated backstage keepsake uses already-imported Lucide heart-handshake icon in the outcome overlay and Scene scrapbook. Legacy journal entries retain their existing generic rendering.
+- Extended deterministic engine tests and the populated 390×844, 720×1280, 1280×720 interaction suite to check both portraits/quotes, memento persistence and scrapbook.
+- Verified existing SVG `Art/UI/Icons/heart-handshake.svg` exists. No JPEG present at `Art/Photography/approved/gear-pedals-hjortshoj.jpg`; no photography imported or claimed. #166 is already merged, not an open conflicting PR.
+
+### Simulated persona checks (code review, not human playtest)
+1. **New player:** two named voices explain why the dispute exists; test checks two quotes and portraits. Risk: long dialogue on 390px may need scroll; existing SceneSheet scroll retained.
+2. **Management-game veteran:** choice still consumes one day, displays trust/tension/readiness deltas and persists actual trust before/after; test checks deterministic outcomes.
+3. **UX/accessibility:** portrait art has initials fallback; no text embedded in photos; 52px choice buttons, safe Back and scroll remain. Needs human visual sign-off on screenshot.
+4. **Godot engineer:** reuses MemberPortrait, SceneSheet, existing journal and Lucide; deterministic engine data only; no new plugins or network calls.
+5. **Release QA:** JSON roundtrip keeps memento; old journals use old story path, no duplicate payout; new viewport assertions exercise scrapbook after commit. Existing resource/RID warnings tracked in #170.
+
+### Retro / handoff
+- **Worked:** portrait renderer and licensed SVG already existed; enriching persisted event metadata avoids parallel state schemas.
+- **Risk:** legacy pair identity fallback uses names/index when candidate IDs are missing; a stable ID migration remains worthwhile. Screen screenshots in CI are not human visual approval.
+- **Next:** expand authored pair incident variety (writing credit/jealousy) using actual song credits; improve mobile outcome overlay scroll if screenshots reveal overflow; isolate #170 leak warnings. Photography still blocked on actual reviewed binaries.
+
+
 ## Sprint 03 / 08 — 2026-10-26, scheduled start 00:25 UTC
 **Scope:** deterministic pair-specific rehearsal and road conflict interventions with distinct Band decision scene.
 **PR:** #168 (`sprint03-pairwise-band-conflicts`), squash-merged as `aae872fb187f2674c5e10cf022acae920fdb48e0` after all required checks passed.

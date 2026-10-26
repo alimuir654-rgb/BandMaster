@@ -45,6 +45,11 @@ func _run() -> void:
     opened_sheet = sheet != null
     _check(sheet != null,"focused scene opens at "+str(size))
     _check(ui.find_child("PairIncidentIdentity",true,false) != null,"named pair strip at "+str(size))
+    var voices := ui.find_child("PairIncidentVoices",true,false)
+    _check(voices != null and voices.get_child_count() == 2,"two musician voice cards at "+str(size))
+    _check(ui.find_children("PairVoicePortrait","Control",true,false).size() == 2,"two member portraits at "+str(size))
+    var quotes := ui.find_children("PairVoiceQuote","Label",true,false)
+    _check(quotes.size() == 2 and str(quotes[0].text).length() > 12 and str(quotes[1].text).length() > 12,"two authored spoken lines at "+str(size))
     var choice := _find_button(ui,"LET BOTH BE HEARD")
     var back := _find_button(ui,"BACK TO THE BAND")
     _check(choice != null and back != null,"choice and safe back at "+str(size))
@@ -65,6 +70,13 @@ func _run() -> void:
       _check(int(ui.save_data["tour_day"]) == 8,"commit costs one day at "+str(size))
       _check(int(ui.save_data["relationships"]["0_1"]) == 50,"pair trust persists at "+str(size))
       _check(_find_button(ui,"HEAR BOTH SIDES") == null,"same pair case no longer offered at "+str(size))
+      _check(ui.find_child("PairMemento",true,false) != null,"committed decision shows a physical outcome memento at "+str(size))
+      ui.tab = "SCENE"
+      ui.scene_view = "HISTORY"
+      ui._render()
+      await process_frame
+      await process_frame
+      _check(ui.find_child("PairMemento",true,false) != null,"relationship keepsake visible in scrapbook at "+str(size))
       var disk = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
       _check(disk is Dictionary and int(disk.get("tour_day",0)) == 8,"commit persisted on disk at "+str(size))
     print("PAIR_VIEWPORT %dx%d action=%s sheet=%s" % [size.x,size.y,str(had_opener),str(opened_sheet)])
