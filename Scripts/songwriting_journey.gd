@@ -15,6 +15,7 @@ const VIBES := ["Restless and raw","Dreamy and spacious","Urgent and loud","Warm
 var source_state: Dictionary = {}
 var genre_id := "indie"
 var commit_callback: Callable
+var notes_callback: Callable
 var stage := 0
 var idea := "Riff"
 var form := "Verse / Chorus"
@@ -29,10 +30,11 @@ var commit_locked := false
 var stage_root: Control
 var fade_layer: ColorRect
 
-func open(state: Dictionary, selected_genre: String, on_commit: Callable) -> void:
+func open(state: Dictionary, selected_genre: String, on_commit: Callable, on_notes: Callable = Callable()) -> void:
  source_state = state.duplicate(true)
  genre_id = selected_genre
  commit_callback = on_commit
+ notes_callback = on_notes
  name = "SongwritingJourney"
  mouse_filter = Control.MOUSE_FILTER_STOP
  var catalogue: Dictionary = Workshop.options(source_state)
@@ -50,6 +52,15 @@ func open(state: Dictionary, selected_genre: String, on_commit: Callable) -> voi
   for person in lead_choices:
    if str(person["name"]) == str(draft.get("leader","")):
     lead_index = int(person["index"])
+ var saved_notes = source_state.get("song_journey_notes",{})
+ if saved_notes is Dictionary and not saved_notes.is_empty() and int(saved_notes.get("session_progress",-1)) == int(source_state.get("song_draft_progress",0)) and str(saved_notes.get("draft_title","")) == str(draft.get("title","")):
+  idea = str(saved_notes.get("idea",idea))
+  form = str(saved_notes.get("form",form))
+  title = str(saved_notes.get("title",title))
+  concept = str(saved_notes.get("concept",concept))
+  vibe = str(saved_notes.get("vibe",vibe))
+  lead_index = int(saved_notes.get("lead_index",lead_index))
+  stage = clampi(int(saved_notes.get("step",0)),0,3)
  stage_root = Control.new()
  stage_root.name = "JourneySceneRoot"
  add_child(stage_root)
@@ -247,6 +258,8 @@ func _render_stage() -> void:
  back.pressed.connect(func() -> void:
   if stage == 0:
    if not transitioning:
+    _capture_stage()
+    _persist_notes(stage)
     queue_free()
   else:
    _go(stage-1)
@@ -315,10 +328,23 @@ func _capture_stage() -> void:
  if choice != null and choice.selected >= 0 and choice.selected < lead_choices.size():
   lead_index = int(lead_choices[choice.selected]["index"])
 
+func _persist_notes(next_step: int) -> void:
+ if not notes_callback.is_valid():
+  return
+ var draft = source_state.get("current_song_draft",{})
+ if not draft is Dictionary:
+  draft = {}
+ notes_callback.call({
+  "step":next_step,"session_progress":int(source_state.get("song_draft_progress",0)),
+  "draft_title":str(draft.get("title","")),"idea":idea,"form":form,
+  "title":title,"concept":concept,"vibe":vibe,"lead_index":lead_index
+ })
+
 func _go(destination: int) -> void:
  if transitioning or commit_locked or destination < 0 or destination >= PHASES.size():
   return
  _capture_stage()
+ _persist_notes(destination)
  transitioning = true
  Fade.play(fade_layer,Callable(self,"_set_stage").bind(destination),Callable(self,"_transition_complete"),reduced_motion)
 
@@ -336,6 +362,7 @@ func _commit() -> void:
  if commit_locked or transitioning:
   return
  _capture_stage()
+ _persist_notes(stage)
  var validation: Dictionary = Workshop.develop(source_state,idea,form,title,lead_index,concept,vibe)
  if not bool(validation.get("ok",false)):
   var status := stage_root.find_child("JourneyStatus",true,false) as Label
