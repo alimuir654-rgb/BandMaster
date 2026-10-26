@@ -1,6 +1,7 @@
 extends Control
 
 const UI = preload("res://Scripts/ui_theme.gd")
+const Cinematic = preload("res://Scripts/journey_cinematic_stage.gd")
 const Genres = preload("res://Scripts/genre_profiles.gd")
 const Components = preload("res://Scripts/ui_components.gd")
 const SceneEnvironment = preload("res://Scripts/scene_environment.gd")
@@ -61,6 +62,7 @@ var gig_selected_venue := ""
 var selected_band_member := -1
 var roster_sort := "LINEUP"
 var preserve_venue_scroll := false
+var expanded_world_desks := {"GIGS":false,"GEAR":false,"BAND":false}
 var selected_gear_item := ""
 var selected_tour_plan := Tour.DRIVE
 var preserve_gear_scroll := false
@@ -234,8 +236,19 @@ func _render() -> void:
  content.add_theme_constant_override("separation",10)
  margin.add_child(content)
  _header()
- if tab != "HOME" and tab != "ACTIONS" and tab != "BAND":
+ var focus_world := ["GIGS","GEAR","BAND"].has(tab)
+ if focus_world:
+  _world_focus_hero()
+ elif tab != "HOME" and tab != "ACTIONS":
   _hero()
+ var root_content := content
+ if focus_world:
+  var desk := VBoxContainer.new()
+  desk.name = "WorldDetailDesk"
+  desk.visible = bool(expanded_world_desks.get(tab,false))
+  desk.add_theme_constant_override("separation",12)
+  content.add_child(desk)
+  content = desk
  match tab:
   "HOME": _home()
   "GIGS": _gigs()
@@ -243,6 +256,7 @@ func _render() -> void:
   "BAND": _band()
   "ACTIONS": _actions()
   "SCENE": _scene()
+ content = root_content
  if not message.is_empty():
   var feedback := PanelContainer.new()
   var fb_style := UI.style(UI.palette(_genre_id())["alt"],8)
@@ -314,6 +328,9 @@ func _home_header() -> void:
 func _header() -> void:
  if tab == "HOME":
   _home_header()
+  return
+ if ["GIGS","GEAR","BAND"].has(tab):
+  _world_focus_header()
   return
  var palette: Dictionary = save_data.get("band",{}).get("palette",{})
  var colour: Color = UI.palette(_genre_id())["accent"]
@@ -387,6 +404,106 @@ func _header() -> void:
   var value_label := _label(metric_copy,str(entry["value"]),22 if wide else 17,UI.WHITE)
   value_label.autowrap_mode = TextServer.AUTOWRAP_OFF
   value_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+# One compact status strip and a single cinematic decision per destination.
+# The full legacy management controls remain reachable under the desk toggle.
+func _world_focus_header() -> void:
+ var colours := UI.palette(_genre_id())
+ var band_data: Dictionary = save_data.get("band",{})
+ var strip := PanelContainer.new()
+ strip.name = "WorldFocusStatusStrip"
+ strip.add_theme_stylebox_override("panel",UI.flat(Color(0.035,0.055,0.08,0.94),5))
+ content.add_child(strip)
+ var margin := MarginContainer.new()
+ margin.add_theme_constant_override("margin_left",14)
+ margin.add_theme_constant_override("margin_right",14)
+ margin.add_theme_constant_override("margin_top",10)
+ margin.add_theme_constant_override("margin_bottom",10)
+ strip.add_child(margin)
+ var stack := VBoxContainer.new()
+ stack.add_theme_constant_override("separation",6)
+ margin.add_child(stack)
+ var row := HBoxContainer.new()
+ stack.add_child(row)
+ var name_label := _label(row,str(band_data.get("name","YOUR BAND")).to_upper(),18,UI.WHITE)
+ name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+ name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+ _label(row,"DAY %d" % _num("tour_day"),14,colours["accent"])
+ var metrics := HBoxContainer.new()
+ metrics.add_theme_constant_override("separation",10)
+ stack.add_child(metrics)
+ for item in ["£%d CASH" % _num("cash"),"%d FANS" % _num("fans"),"%d REP" % _num("reputation")]:
+  var label := _label(metrics,item,12,UI.MUTED)
+  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  label.autowrap_mode = TextServer.AUTOWRAP_OFF
+  label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+
+func _toggle_world_desk() -> void:
+ expanded_world_desks[tab] = not bool(expanded_world_desks.get(tab,false))
+ _render()
+
+func _world_focus_hero() -> void:
+ var colours := UI.palette(_genre_id())
+ var specs := {
+  "GIGS":{"photo":"showtime","kicker":"THE LIVE CIRCUIT","title":"MAKE THE ROOM YOURS","detail":"A gig starts long before the lights go down."},
+  "GEAR":{"photo":"world_gear","kicker":"THE MUSIC SHOP","title":"BUILD YOUR SOUND","detail":"The right kit makes the next rehearsal count."},
+  "BAND":{"photo":"world_band","kicker":"THE BAND ROOM","title":"KEEP THE BAND TOGETHER","detail":"The people matter as much as the songs."}
+ }
+ var spec: Dictionary = specs[tab]
+ var width := get_viewport_rect().size.x
+ var crop := "wide" if width >= 960.0 else "portrait"
+ var photo := "res://Art/Photography/approved/%s_%s.webp" % [str(spec["photo"]),crop]
+ var height := 325.0 if width < 560.0 else (375.0 if width < 960.0 else 390.0)
+ Cinematic.add_hero(content,photo,str(spec["kicker"]),str(spec["title"]),colours["accent"],height,"WorldFocusPhoto")
+ var info := VBoxContainer.new()
+ info.name = "WorldFocusDecisionDock"
+ info.add_theme_constant_override("separation",11)
+ content.add_child(info)
+ var summary := ""
+ var main_label := ""
+ var main_action := Callable()
+ match tab:
+  "GIGS":
+   var booked: Dictionary = Calendar.pending(_state())
+   if booked.is_empty():
+    summary = "NO GIG BOOKED  /  FIND YOUR FIRST ROOM"
+    main_label = "FIND A VENUE"
+    main_action = func() -> void: _open_venue_browser()
+   else:
+    var days := int(booked.get("day",1))-_num("tour_day")
+    summary = "%s  /  %s  /  %d DAYS" % [str(booked.get("venue","NEXT GIG")).to_upper(),str(booked.get("city","UK")).to_upper(),maxi(0,days)]
+    if days <= 0:
+     main_label = "ENTER SHOW DAY"
+     main_action = func() -> void: _open_show_day_journey()
+    else:
+     main_label = "PREPARE FOR THE SHOW"
+     main_action = func() -> void: _switch("ACTIONS")
+  "GEAR":
+   var owned: Array = _extra().get("owned_equipment",[])
+   summary = "%d PIECES OWNED  /  £%d AVAILABLE" % [owned.size(),_num("cash")]
+   main_label = "EXPLORE THE MUSIC SHOP"
+   main_action = func() -> void: _toggle_world_desk()
+  "BAND":
+   var members: Array = save_data.get("band",{}).get("members",[])
+   summary = "%d MUSICIANS  /  REHEARSAL, LOYALTY & LIFE" % members.size()
+   main_label = "MEET YOUR BAND"
+   main_action = func() -> void: _toggle_world_desk()
+ _label(info,str(spec["detail"]),16,UI.WHITE)
+ _label(info,summary,14,colours["accent"])
+ var primary := UI.themed_button(main_label,_genre_id(),true)
+ primary.name = "WorldFocusPrimaryAction"
+ primary.custom_minimum_size.y = 82
+ primary.icon_end = "arrow-right"
+ info.add_child(primary)
+ primary.pressed.connect(main_action)
+ var details_label := "CLOSE THE FULL DESK" if bool(expanded_world_desks.get(tab,false)) else "OPEN THE FULL %s DESK" % tab
+ var details := UI.themed_button(details_label,_genre_id(),false)
+ details.name = "WorldFocusExpandDesk"
+ details.custom_minimum_size.y = 78
+ details.icon_start = "list"
+ info.add_child(details)
+ details.pressed.connect(_toggle_world_desk)
 
 func _hero() -> void:
  var colours := UI.palette(_genre_id())
@@ -1505,7 +1622,6 @@ func _gear() -> void:
 func _band() -> void:
  _band_situations()
  _life_situations()
- _editorial_banner("THE PEOPLE BEHIND THE MUSIC","Manage the line-up, keep relationships healthy and develop the sound of your band.","band","ACTIONS","BOOK REHEARSAL")
  var band_data: Dictionary = save_data.get("band",{})
  var members: Array = band_data.get("members",[])
  var pulse: Dictionary = BandPulse.overview(members)
