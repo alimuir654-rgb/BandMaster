@@ -262,9 +262,22 @@ func _render() -> void:
 
 func _home_header() -> void:
  var colours := UI.palette(_genre_id())
+ var masthead := PanelContainer.new()
+ masthead.name = "BandHouseStatusStrip"
+ masthead.add_theme_stylebox_override("panel",UI.flat(Color(0.035,0.055,0.08,0.94),5))
+ content.add_child(masthead)
+ var inset := MarginContainer.new()
+ inset.add_theme_constant_override("margin_left",14)
+ inset.add_theme_constant_override("margin_right",14)
+ inset.add_theme_constant_override("margin_top",9)
+ inset.add_theme_constant_override("margin_bottom",9)
+ masthead.add_child(inset)
+ var lines := VBoxContainer.new()
+ lines.add_theme_constant_override("separation",5)
+ inset.add_child(lines)
  var row := HBoxContainer.new()
  row.add_theme_constant_override("separation",10)
- content.add_child(row)
+ lines.add_child(row)
  var identity := _label(row,"LIVING THE DREAM  /  BAND HOUSE",12,colours["accent"])
  identity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  identity.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -272,7 +285,7 @@ func _home_header() -> void:
  day.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
  var status := HBoxContainer.new()
  status.add_theme_constant_override("separation",13)
- content.add_child(status)
+ lines.add_child(status)
  for item in [
   {"label":"CASH","value":"£%d" % _num("cash")},
   {"label":"FANS","value":str(_num("fans"))},
