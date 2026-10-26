@@ -154,11 +154,12 @@ func _render_stage() -> void:
  stage_root.add_child(backdrop)
  backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  # The whole room changes tone, not merely a small illustration in a card.
- var art_path: String = Photos.scene_or_fallback("songwriting",stage,get_viewport_rect().size.x,"res://Art/Journeys/Songwriting/"+str(ART[stage]))
- if ResourceLoader.exists(art_path):
+ var art_path: String = Photos.scene_or_fallback("songwriting",stage,1280.0,"res://Art/Journeys/Songwriting/"+str(ART[stage]))
+ var ambient_path: String = Photos.scene_or_fallback("songwriting",stage,get_viewport_rect().size.x,art_path)
+ if ResourceLoader.exists(ambient_path):
   var ambient := TextureRect.new()
   ambient.name = "JourneyAmbientArt"
-  ambient.texture = load(art_path)
+  ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
   ambient.modulate = Color(1,1,1,0.19)
