@@ -68,6 +68,14 @@ func _run() -> void:
       var notes: Dictionary = draft_disk.get("career_extra",{}).get("song_journey_notes",{})
       _check(int(notes.get("step",-1)) == 1 and str(notes.get("concept","")) == "A last train and an unfinished promise","uncommitted choices survive disk save "+str(size))
       _check(int(draft_disk.get("tour_day",0)) == 7,"saving journey notes costs no day "+str(size))
+     if size == SIZES[0]:
+      var reopened_ui: Control = packed.instantiate()
+      get_root().add_child(reopened_ui)
+      reopened_ui._open_songwriting_journey()
+      var resumed := reopened_ui.find_child("SongwritingJourney",true,false)
+      _check(resumed != null and resumed.stage == 1 and str(resumed.concept) == "A last train and an unfinished promise","reopened CareerHub resumes free-form notes")
+      reopened_ui.free()
+      await process_frame
      journey.reduced_motion = true
      var vibe := journey.find_child("JourneyVibeChoice",true,false) as OptionButton
      var form := journey.find_child("JourneyFormChoice",true,false) as OptionButton
