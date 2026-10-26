@@ -138,7 +138,7 @@ func _render_stage() -> void:
   ambient.texture = load(ambient_path)
   ambient.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   ambient.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-  ambient.modulate.a = 0.10
+  ambient.modulate.a = 0.30
   ambient.mouse_filter = Control.MOUSE_FILTER_IGNORE
   stage_root.add_child(ambient)
   ambient.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
