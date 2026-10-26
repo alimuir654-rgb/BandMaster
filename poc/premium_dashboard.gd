@@ -18,6 +18,22 @@ var header: Control
 var toast: Label
 var active_section := "Overview"
 var is_wide := false
+var genre := "Indie / Alternative"
+const GENRES := {
+	"Indie / Alternative": ["#E6B45B", "#74B3AE", "#3A5360"],
+	"Electronic": ["#70E5DB", "#B09CFF", "#1E4C61"],
+	"Punk / Garage": ["#DCE85B", "#FF7169", "#4A413A"],
+	"Metal / Hard Rock": ["#F08B57", "#D55F69", "#4D3843"],
+	"Pop": ["#FF94BA", "#AFB6FF", "#4C3C60"],
+	"Jazz / Soul": ["#D1B475", "#86B79D", "#394E43"]
+}
+func accent() -> Color:
+	return Color(GENRES[genre][0])
+func secondary_accent() -> Color:
+	return Color(GENRES[genre][1])
+func tint() -> Color:
+	return Color(GENRES[genre][2])
+
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -76,17 +92,22 @@ func _button(parent: Node, title: String, primary: bool, action: Callable) -> Bu
 	b.text = title
 	b.custom_minimum_size.y = 50
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var base := GOLD if primary else SURFACE
+	var base := accent() if primary else Color("#25353D")
 	var ink := BG if primary else WHITE
+	b.text = ("▶  " if primary else "▣  ") + title
 	for state in ["normal", "hover", "pressed", "focus", "disabled"]:
 		var fill := base
 		if state == "hover":
 			fill = base.lightened(0.13)
 		elif state == "pressed":
 			fill = base.darkened(0.14)
-		var style := _box(fill, 9)
+		var style := _box(fill, 5)
+		style.shadow_color = Color(0, 0, 0, 0.55)
+		style.shadow_size = 1 if state == "pressed" else 4
+		style.shadow_offset = Vector2(0, 1 if state == "pressed" else 3)
+		style.border_color = accent() if primary else BORDER
 		if state == "focus":
-			style.border_color = GOLD
+			style.border_color = accent()
 			style.set_border_width_all(2)
 		b.add_theme_stylebox_override(state, style)
 	for state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
@@ -140,7 +161,7 @@ func _position_regions() -> void:
 	scroll.size = Vector2(maxf(0, w - side), maxf(0, h - 96 - nav_height))
 
 func _fill_header() -> void:
-	var tag := _label(header, "LIVING THE DREAM  /  CAREER", 12, GOLD)
+	var tag := _label(header, "LIVING THE DREAM  /  CAREER", 12, accent())
 	tag.position = Vector2(22, 13)
 	tag.size = Vector2(600, 18)
 	var title := _label(header, "THE LONG WEEKEND", 22)
@@ -152,7 +173,7 @@ func _fill_header() -> void:
 
 func _fill_nav() -> void:
 	if is_wide:
-		var name := _label(nav, "LIVING THE DREAM", 18, GOLD)
+		var name := _label(nav, "LIVING THE DREAM", 18, accent())
 		name.position = Vector2(16, 19)
 		name.size = Vector2(205, 25)
 		var subtitle := _label(nav, "CAREER / DEMO", 12, MUTED)
@@ -165,9 +186,13 @@ func _fill_nav() -> void:
 		b.text = item.to_upper() if is_wide else item
 		b.position = Vector2(16, 110 + 60 * i) if is_wide else Vector2((size.x / 5.0) * i, 5)
 		b.size = Vector2(203, 49) if is_wide else Vector2(size.x / 5.0, 49)
-		b.add_theme_stylebox_override("normal", _box(ELEVATED if item == active_section else SURFACE, 8))
-		b.add_theme_stylebox_override("hover", _box(ELEVATED.lightened(0.12), 8))
-		b.add_theme_stylebox_override("pressed", _box(ELEVATED.darkened(0.13), 8))
+		var chosen := item == active_section
+		var ns := _box(tint() if chosen else SURFACE, 4)
+		ns.border_color = accent() if chosen else BORDER
+		ns.border_width_left = 4 if chosen else 1
+		b.add_theme_stylebox_override("normal", ns)
+		b.add_theme_stylebox_override("hover", _box(tint().lightened(0.12), 4))
+		b.add_theme_stylebox_override("pressed", _box(tint().darkened(0.12), 4))
 		b.add_theme_font_size_override("font_size", 13 if is_wide else 11)
 		nav.add_child(b)
 		b.pressed.connect(func() -> void: _choose(item))
@@ -179,41 +204,67 @@ func _choose(item: String) -> void:
 		_notice(item + " is a navigation prototype; no career data changed.")
 
 func _fill_content() -> void:
-	_label(content, "CAREER OVERVIEW  /  VISUAL PROOF", 12, GOLD)
+	_label(content, "SOUND PROFILE  /  LIVE THEME PREVIEW", 12, accent())
+	var selector := OptionButton.new()
+	selector.custom_minimum_size.y = 48
+	selector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	for name in GENRES.keys():
+		selector.add_item(str(name))
+		if name == genre:
+			selector.select(selector.item_count - 1)
+	selector.add_theme_stylebox_override("normal", _box(SURFACE, 4))
+	selector.add_theme_font_size_override("font_size", 15)
+	selector.item_selected.connect(func(index: int) -> void: _change_genre(selector.get_item_text(index)))
+	content.add_child(selector)
+	_label(content, "CAREER OVERVIEW  /  VISUAL PROOF", 12, accent())
 	_label(content, "THE NEXT MOVE IS YOURS.", 28)
 	_label(content, "Six weeks into a band's story. One chance to make the next gig count.", 15, MUTED)
 
-	var hero := _panel(content, ELEVATED)
-	_label(hero, "UP NEXT  /  FRIDAY 9:00 PM", 12, MINT)
+	var hero := _panel(content, tint())
+	_label(hero, "UP NEXT  /  FRIDAY 9:00 PM", 12, secondary_accent())
 	_label(hero, "THE EXCHANGE", 32)
 	_label(hero, "BRISTOL   ·   HEADLINE SLOT   ·   120 CAPACITY", 13, MUTED)
 	_label(hero, "The set needs tightening. The van isn't sorted. Ticket sales have started moving.", 16)
 	_button(hero, "PLAN THE SHOW  ›", true, func() -> void: _notice("Show planning is not connected in the PoC."))
 	_button(hero, "VIEW SETLIST", false, func() -> void: _notice("Setlist is not connected in the PoC."))
 
-	_label(content, "AT A GLANCE", 13, GOLD)
-	_metric("BAND MORALE", "72 / 100", "STEADY", MINT)
-	_metric("SHOW READINESS", "64 / 100", "NEEDS REHEARSAL", GOLD)
-	_metric("LOCAL FOLLOWING", "218", "+26 THIS WEEK", MINT)
+	_label(content, "AT A GLANCE / CHANNEL METERS", 13, accent())
+	_metric("BAND MORALE", "72 / 100", "STEADY", secondary_accent(), 72)
+	_metric("SHOW READINESS", "64 / 100", "NEEDS REHEARSAL", accent(), 64)
+	_metric("LOCAL FOLLOWING", "218", "+26 THIS WEEK", secondary_accent(), 83)
 
 	var tasks := _panel(content)
-	_label(tasks, "THIS WEEK'S PRIORITIES", 13, GOLD)
+	_label(tasks, "THIS WEEK'S PRIORITIES", 13, accent())
 	_label(tasks, "01   Finish the second rehearsal", 17)
 	_label(tasks, "02   Confirm the van", 17)
 	_label(tasks, "03   Promote the headline show", 17)
 
 	var story := _panel(content)
-	_label(story, "THE STORY SO FAR", 13, GOLD)
+	_label(story, "THE STORY SO FAR", 13, accent())
 	_label(story, "A band with momentum, but nothing guaranteed.", 20)
 	_label(story, "Every decision shapes the next chapter.", 15, MUTED)
 	_button(story, "OPEN JOURNAL", false, func() -> void: _choose("Journal"))
 	toast = _label(content, "SAMPLE CAREER · VISUAL PROTOTYPE · SAVES UNCHANGED", 12, MUTED)
 
-func _metric(title: String, value: String, hint: String, hue: Color) -> void:
+func _metric(title: String, value: String, hint: String, hue: Color, level: float) -> void:
 	var card := _panel(content)
-	_label(card, title, 12, MUTED)
+	_label(card, "●  " + title, 12, MUTED)
 	_label(card, value, 27)
+	var meter := ProgressBar.new()
+	meter.custom_minimum_size.y = 11
+	meter.max_value = 100
+	meter.value = level
+	meter.show_percentage = false
+	meter.add_theme_stylebox_override("background", _box(Color("#0B1217"), 2))
+	meter.add_theme_stylebox_override("fill", _box(hue, 2))
+	card.add_child(meter)
 	_label(card, hint, 13, hue)
+
+func _change_genre(value: String) -> void:
+	if not GENRES.has(value):
+		return
+	genre = value
+	_build()
 
 func _notice(message: String) -> void:
 	if is_instance_valid(toast):
