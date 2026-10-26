@@ -1,0 +1,293 @@
+extends Control
+# Four-place songwriting journey. Only the final commit spends a day; existing
+# Practice.compose remains the authoritative engine and legacy editor fallback.
+const UI = preload("res://Scripts/ui_theme.gd")
+const Workshop = preload("res://Scripts/song_workshop.gd")
+const Studio = preload("res://Scripts/song_studio_presentation.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
+const Fade = preload("res://Scripts/journey_fade.gd")
+const PHASES := ["THE SPARK","FIND THE SOUND","IN THE ROOM","THE SONGSHEET"]
+const ART := ["01-spark.svg","02-vibe.svg","03-jam.svg","04-sleeve.svg"]
+const COLORS := [Color("#32201D"),Color("#0C293A"),Color("#371D2B"),Color("#463525")]
+const ACCENTS := [Color("#F3C58D"),Color("#86E5D7"),Color("#F4A9B0"),Color("#F0D1A0")]
+const VIBES := ["Restless and raw","Dreamy and spacious","Urgent and loud","Warm and intimate"]
+var source_state: Dictionary = {}
+var genre_id := "indie"
+var commit_callback: Callable
+var stage := 0
+var idea := "Riff"
+var form := "Verse / Chorus"
+var title := ""
+var concept := ""
+var vibe := "Restless and raw"
+var lead_index := -1
+var lead_choices: Array = []
+var reduced_motion := false
+var transitioning := false
+var commit_locked := false
+var stage_root: Control
+var fade_layer: ColorRect
+
+func open(state: Dictionary, selected_genre: String, on_commit: Callable) -> void:
+ source_state = state.duplicate(true)
+ genre_id = selected_genre
+ commit_callback = on_commit
+ name = "SongwritingJourney"
+ mouse_filter = Control.MOUSE_FILTER_STOP
+ var catalogue: Dictionary = Workshop.options(source_state)
+ var draft = source_state.get("current_song_draft",{})
+ if not draft is Dictionary:
+  draft = {}
+ idea = str(draft.get("idea",Workshop.IDEAS[0]))
+ form = str(draft.get("form",Workshop.FORMS[0]))
+ title = str(draft.get("title",catalogue["titles"][0] if not catalogue["titles"].is_empty() else ""))
+ concept = str(draft.get("lyrical_concept",""))
+ vibe = str(draft.get("vibe",VIBES[0]))
+ lead_choices = catalogue["leads"]
+ if not lead_choices.is_empty():
+  lead_index = int(lead_choices[0]["index"])
+  for person in lead_choices:
+   if str(person["name"]) == str(draft.get("leader","")):
+    lead_index = int(person["index"])
+ stage_root = Control.new()
+ stage_root.name = "JourneySceneRoot"
+ add_child(stage_root)
+ stage_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ fade_layer = ColorRect.new()
+ fade_layer.name = "JourneyFade"
+ fade_layer.color = Color(0,0,0,0)
+ fade_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ add_child(fade_layer)
+ fade_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ _render_stage()
+
+func _text(parent: Node, value: String, size: int, colour: Color) -> Label:
+ var label := Label.new()
+ label.text = value
+ label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ label.add_theme_font_size_override("font_size",size)
+ label.add_theme_color_override("font_color",colour)
+ parent.add_child(label)
+ return label
+
+func _selector(parent: Node, heading: String, values: Array, chosen: int, control_name: String) -> OptionButton:
+ _text(parent,heading,14,ACCENTS[stage])
+ var select := OptionButton.new()
+ select.name = control_name
+ select.custom_minimum_size.y = 56
+ select.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for value in values:
+  select.add_item(str(value))
+ if not values.is_empty():
+  select.select(clampi(chosen,0,values.size()-1))
+ else:
+  select.disabled = true
+ parent.add_child(select)
+ return select
+
+func _input(parent: Node, heading: String, value: String, control_name: String, max_chars: int) -> LineEdit:
+ _text(parent,heading,14,ACCENTS[stage])
+ var field := LineEdit.new()
+ field.name = control_name
+ field.text = value
+ field.max_length = max_chars
+ field.custom_minimum_size.y = 56
+ field.add_theme_stylebox_override("normal",UI.style(Color("#F1E7D5"),8))
+ field.add_theme_color_override("font_color",Color("#231E1B"))
+ field.add_theme_color_override("font_placeholder_color",Color("#62574E"))
+ parent.add_child(field)
+ return field
+
+func _render_stage() -> void:
+ if not is_instance_valid(stage_root):
+  return
+ for child in stage_root.get_children():
+  stage_root.remove_child(child)
+  child.queue_free()
+ var backdrop := ColorRect.new()
+ backdrop.color = COLORS[stage]
+ stage_root.add_child(backdrop)
+ backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var margins := MarginContainer.new()
+ margins.name = "JourneyMargins"
+ stage_root.add_child(margins)
+ margins.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var gutter := 14 if get_viewport_rect().size.x < 600 else 32
+ for key in ["margin_left","margin_right"]:
+  margins.add_theme_constant_override(key,gutter)
+ margins.add_theme_constant_override("margin_top",14)
+ margins.add_theme_constant_override("margin_bottom",18)
+ var layout := VBoxContainer.new()
+ layout.add_theme_constant_override("separation",12)
+ margins.add_child(layout)
+ _text(layout,"SONGWRITING  /  %02d OF 04  /  SESSION %d OF 3" % [stage+1,clampi(int(source_state.get("song_draft_progress",0)),0,2)+1],13,ACCENTS[stage])
+ _text(layout,PHASES[stage],30,Color("#FFF5E6"))
+ var scroller := ScrollContainer.new()
+ scroller.name = "JourneyScroll"
+ scroller.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroller.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ layout.add_child(scroller)
+ var centered := CenterContainer.new()
+ centered.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ scroller.add_child(centered)
+ var body := VBoxContainer.new()
+ body.custom_minimum_size.x = minf(760.0,maxf(280.0,get_viewport_rect().size.x-2.0*gutter-14.0))
+ body.add_theme_constant_override("separation",13)
+ centered.add_child(body)
+ var art_path := "res://Art/Journeys/Songwriting/"+ART[stage]
+ if ResourceLoader.exists(art_path):
+  var illustration := TextureRect.new()
+  illustration.name = "JourneyArtwork"
+  illustration.texture = load(art_path)
+  illustration.custom_minimum_size.y = 190 if get_viewport_rect().size.x < 600 else 280
+  illustration.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  illustration.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  illustration.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  body.add_child(illustration)
+ else:
+  _text(body,"SCENE ART UNAVAILABLE",14,ACCENTS[stage])
+ match stage:
+  0:
+   _text(body,"A song begins with a thought you cannot shake. What starts the writing?",18,Color("#FFF5E6"))
+   _selector(body,"WHERE DOES THE IDEA BEGIN?",Workshop.IDEAS,Workshop.IDEAS.find(idea),"JourneyIdeaChoice")
+   _input(body,"LYRICAL CONCEPT  /  THE THING YOU WANT TO SAY",concept,"JourneyConceptInput",90).placeholder_text = "An empty station, a last chance, a promise..."
+   _input(body,"WORKING TITLE",title,"JourneyTitleInput",48).placeholder_text = "Give this original a name"
+  1:
+   _text(body,"Now find its emotional temperature. Let the room change around the sound.",18,Color("#FFF5E6"))
+   _selector(body,"THE GENERAL VIBE",VIBES,VIBES.find(vibe),"JourneyVibeChoice")
+   _selector(body,"THE SONG'S SHAPE  /  AFFECTS THE FINISHED TRACK",Workshop.FORMS,Workshop.FORMS.find(form),"JourneyFormChoice")
+   _text(body,str(Studio.FORM_NOTES.get(form,"Choose a structure.")),14,Color("#D7E4E7"))
+  2:
+   _text(body,"The band comes into focus. Someone has to lead this session.",18,Color("#FFF5E6"))
+   var catalogue: Dictionary = Workshop.options(source_state)
+   lead_choices = catalogue["leads"]
+   var names: Array = []
+   var selected := 0
+   for index in range(lead_choices.size()):
+    var person: Dictionary = lead_choices[index]
+    names.append(str(person["name"])+"  /  "+str(person["trait"]))
+    if int(person["index"]) == lead_index:
+     selected = index
+   _selector(body,"WHO LEADS THE JAM?",names,selected,"JourneyLeadChoice")
+   var studio: Dictionary = Studio.view(source_state)
+   _text(body,"%d OF 3 WRITING SESSIONS ALREADY RECORDED" % int(studio["completed"]),15,ACCENTS[stage])
+   for session in studio["history"]:
+    if session is Dictionary:
+     _text(body,"DAY %d  /  %s  /  %s" % [int(session.get("day",0)),str(session.get("leader","")),str(session.get("form",""))],14,Color("#F7D4D7"))
+  3:
+   _text(body,"One last look before the tape rolls. The next decision spends ONE day.",18,Color("#FFF5E6"))
+   var paper := PanelContainer.new()
+   var paper_style := UI.style(Color("#E9DDC2"),10)
+   paper_style.border_color = Color("#B99563")
+   paper_style.set_border_width_all(3)
+   paper.add_theme_stylebox_override("panel",paper_style)
+   body.add_child(paper)
+   var summary := VBoxContainer.new()
+   summary.add_theme_constant_override("separation",10)
+   paper.add_child(summary)
+   _text(summary,title.strip_edges().to_upper() if not title.strip_edges().is_empty() else "UNTITLED",24,Color("#241C15"))
+   _text(summary,"CONCEPT  /  "+(concept if not concept.is_empty() else "Not specified"),14,Color("#60462E"))
+   _text(summary,"STARTING POINT  /  "+idea,14,Color("#60462E"))
+   _text(summary,"VIBE  /  "+vibe,14,Color("#60462E"))
+   _text(summary,"ARRANGEMENT  /  "+form,14,Color("#60462E"))
+   var leader_name := "NO AVAILABLE MUSICIAN"
+   for person in lead_choices:
+    if int(person["index"]) == lead_index:
+     leader_name = str(person["name"])
+   _text(summary,"SESSION LEAD  /  "+leader_name,14,Color("#60462E"))
+   _text(summary,"This is a session preview, not a finished song. The real sleeve appears after session three.",13,Color("#785B39"))
+ var status := _text(layout,"",14,Color("#FFD9C0"))
+ status.name = "JourneyStatus"
+ var footer := HBoxContainer.new()
+ footer.name = "JourneyFooter"
+ footer.add_theme_constant_override("separation",9)
+ layout.add_child(footer)
+ var back := UI.themed_button("CLOSE" if stage == 0 else "‹  BACK",genre_id,false)
+ back.name = "JourneyBack"
+ back.custom_minimum_size.y = 54
+ footer.add_child(back)
+ back.pressed.connect(func() -> void:
+  if stage == 0:
+   if not transitioning:
+    queue_free()
+  else:
+   _go(stage-1)
+ )
+ var next_text := ["FIND THE SOUND  ›","ENTER THE ROOM  ›","REVIEW SONGSHEET  ›","COMMIT SESSION  /  1 DAY"][stage]
+ var next := UI.themed_button(next_text,genre_id,true)
+ next.name = "JourneyNext"
+ next.custom_minimum_size.y = 54
+ next.disabled = stage == 2 and lead_choices.is_empty()
+ footer.add_child(next)
+ next.pressed.connect(func() -> void:
+  if stage == 3:
+   _commit()
+  else:
+   _go(stage+1)
+ )
+ var motion := UI.themed_button("REDUCE MOTION: "+("ON" if reduced_motion else "OFF"),genre_id,false)
+ motion.name = "JourneyMotionToggle"
+ motion.custom_minimum_size.y = 44
+ motion.add_theme_font_size_override("font_size",11)
+ layout.add_child(motion)
+ motion.pressed.connect(func() -> void:
+  reduced_motion = not reduced_motion
+  motion.text = "REDUCE MOTION: "+("ON" if reduced_motion else "OFF")
+ )
+
+func _capture_stage() -> void:
+ var choice := stage_root.find_child("JourneyIdeaChoice",true,false) as OptionButton
+ if choice != null and choice.selected >= 0:
+  idea = choice.get_item_text(choice.selected)
+ var entry := stage_root.find_child("JourneyConceptInput",true,false) as LineEdit
+ if entry != null:
+  concept = entry.text.strip_edges()
+ entry = stage_root.find_child("JourneyTitleInput",true,false) as LineEdit
+ if entry != null:
+  title = entry.text.strip_edges()
+ choice = stage_root.find_child("JourneyVibeChoice",true,false) as OptionButton
+ if choice != null and choice.selected >= 0:
+  vibe = choice.get_item_text(choice.selected)
+ choice = stage_root.find_child("JourneyFormChoice",true,false) as OptionButton
+ if choice != null and choice.selected >= 0:
+  form = choice.get_item_text(choice.selected)
+ choice = stage_root.find_child("JourneyLeadChoice",true,false) as OptionButton
+ if choice != null and choice.selected >= 0 and choice.selected < lead_choices.size():
+  lead_index = int(lead_choices[choice.selected]["index"])
+
+func _go(destination: int) -> void:
+ if transitioning or commit_locked or destination < 0 or destination >= PHASES.size():
+  return
+ _capture_stage()
+ transitioning = true
+ Fade.play(fade_layer,Callable(self,"_set_stage").bind(destination),Callable(self,"_transition_complete"),reduced_motion)
+
+func _set_stage(destination: int) -> void:
+ stage = destination
+ _render_stage()
+
+func _transition_complete() -> void:
+ transitioning = false
+ var primary := stage_root.find_child("JourneyNext",true,false) as BaseButton
+ if primary != null:
+  primary.grab_focus()
+
+func _commit() -> void:
+ if commit_locked or transitioning:
+  return
+ _capture_stage()
+ var validation: Dictionary = Workshop.develop(source_state,idea,form,title,lead_index,concept,vibe)
+ if not bool(validation.get("ok",false)):
+  var status := stage_root.find_child("JourneyStatus",true,false) as Label
+  if status != null:
+   status.text = str(validation.get("message","Review the choices before committing."))
+  return
+ commit_locked = true
+ var result: Dictionary = Practice.compose(source_state,idea,form,title,lead_index,concept,vibe)
+ if not bool(result.get("ok",false)):
+  commit_locked = false
+  var status := stage_root.find_child("JourneyStatus",true,false) as Label
+  if status != null:
+   status.text = str(result.get("message","Session unavailable."))
+  return
+ commit_callback.call(result)
