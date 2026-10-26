@@ -33,6 +33,13 @@ jobs:
             godot --headless --path . --check-only --script "res://$script" 2>&1 | tee -a /tmp/show-parse.log
           done
           if grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/show-parse.log; then exit 1; fi
+      - name: Validate pure route, old saves and incident identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 30s godot --headless --path . --script res://tests/sprint10_show_day_rules_tests.gd 2>&1 | tee /tmp/show-rules.log
+          grep -q 'SPRINT B SHOW DAY RULES PASSED' /tmp/show-rules.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT B RULES FAILURE:|ERROR:' /tmp/show-rules.log; then exit 1; fi
       - name: Test five playable scenes, save and once-only settlement
         shell: bash
         run: |
