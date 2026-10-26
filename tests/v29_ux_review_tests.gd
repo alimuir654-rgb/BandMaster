@@ -16,7 +16,7 @@ func _initialize() -> void:
  _check(start>=0 and next>start,"home source available")
  if start>=0 and next>start:
   var home := source.substr(start,next-start)
-  _check(home.find("YOUR NEXT MOVE")<home.find("YOUR WORLD"),"primary CTA precedes navigation tiles")
+  _check(home.find("BandHousePrimaryAction") >= 0 and home.find("BandHousePrimaryAction") < home.find("BandHouseDestinations"),"primary action precedes curated navigation")
   _check(home.count("Director.next_move(_state())")==1,"single guidance render")
  _check(source.contains("CareerLayout.nav_label(target)"),"navigation uses accessible labels")
  _check(source.contains("CareerLayout.hero_height(get_viewport_rect().size.x)"),"hero obeys breakpoints")
