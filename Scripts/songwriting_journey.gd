@@ -6,6 +6,7 @@ const Workshop = preload("res://Scripts/song_workshop.gd")
 const Studio = preload("res://Scripts/song_studio_presentation.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Fade = preload("res://Scripts/journey_fade.gd")
+const Portrait = preload("res://Scripts/member_portrait.gd")
 const PHASES := ["THE SPARK","FIND THE SOUND","IN THE ROOM","THE SONGSHEET"]
 const ART := ["01-spark.svg","02-vibe.svg","03-jam.svg","04-sleeve.svg"]
 const COLORS := [Color("#32201D"),Color("#0C293A"),Color("#371D2B"),Color("#463525")]
@@ -179,7 +180,25 @@ func _render_stage() -> void:
     names.append(str(person["name"])+"  /  "+str(person["trait"]))
     if int(person["index"]) == lead_index:
      selected = index
-   _selector(body,"WHO LEADS THE JAM?",names,selected,"JourneyLeadChoice")
+   var lead_select := _selector(body,"WHO LEADS THE JAM?",names,selected,"JourneyLeadChoice")
+   if not lead_choices.is_empty():
+    var voice_row := HBoxContainer.new()
+    voice_row.name = "JourneyBandmateMoment"
+    voice_row.add_theme_constant_override("separation",16)
+    body.add_child(voice_row)
+    var portrait := Portrait.new()
+    portrait.name = "JourneyLeadPortrait"
+    portrait.custom_minimum_size = Vector2(104,128)
+    voice_row.add_child(portrait)
+    var voice := _text(voice_row,"",16,Color("#F7D4D7"))
+    voice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    var show_lead := func(index: int) -> void:
+     if index >= 0 and index < lead_choices.size():
+      var person: Dictionary = lead_choices[index]
+      portrait.set_character(str(person.get("candidate_id",person.get("name",""))),str(person.get("name","Musician")),genre_id)
+      voice.text = str(person.get("name","Musician"))+"  /  "+_lead_line(person)
+    show_lead.call(selected)
+    lead_select.item_selected.connect(show_lead)
    var studio: Dictionary = Studio.view(source_state)
    _text(body,"%d OF 3 WRITING SESSIONS ALREADY RECORDED" % int(studio["completed"]),15,ACCENTS[stage])
    for session in studio["history"]:
@@ -245,6 +264,16 @@ func _render_stage() -> void:
   reduced_motion = not reduced_motion
   motion.text = "REDUCE MOTION: "+("ON" if reduced_motion else "OFF")
  )
+
+func _lead_line(person: Dictionary) -> String:
+ var trait := str(person.get("trait","")).to_lower()
+ if trait.contains("creative") or trait.contains("genius"):
+  return "Give me a little space. I think there's a hook in here."
+ if trait.contains("reliable") or trait.contains("perfection"):
+  return "Let's count it in properly and get a clean take."
+ if trait.contains("ambitious"):
+  return "I want this one to sound like it belongs on a record."
+ return "I'll start us off. Let's see where the band takes it."
 
 func _capture_stage() -> void:
  var choice := stage_root.find_child("JourneyIdeaChoice",true,false) as OptionButton
