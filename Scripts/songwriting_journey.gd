@@ -334,12 +334,12 @@ func _vibe_line(selected: String) -> String:
  return "The band listens for a sound worth following."
 
 func _lead_line(person: Dictionary) -> String:
- var trait := str(person.get("trait","")).to_lower()
- if trait.contains("creative") or trait.contains("genius"):
+ var trait_name := str(person.get("trait","")).to_lower()
+ if trait_name.contains("creative") or trait_name.contains("genius"):
   return "Give me a little space. I think there's a hook in here."
- if trait.contains("reliable") or trait.contains("perfection"):
+ if trait_name.contains("reliable") or trait_name.contains("perfection"):
   return "Let's count it in properly and get a clean take."
- if trait.contains("ambitious"):
+ if trait_name.contains("ambitious"):
   return "I want this one to sound like it belongs on a record."
  return "I'll start us off. Let's see where the band takes it."
 
