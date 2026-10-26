@@ -48,6 +48,17 @@ func _run() -> void:
     if journey != null:
      _check(journey.stage == 0 and _has_text(journey,"THE SPARK"),"spark scene "+str(size))
      _check(_art(journey),"spark art imported "+str(size))
+     _check(journey.find_child("JourneyCinematicHero",true,false) != null,"spark photo-led hero "+str(size))
+     var idea_select := journey.find_child("JourneyIdeaChoice",true,false) as OptionButton
+     var lyric_chip := journey.find_child("IdeaChoice01",true,false) as Button
+     var riff_chip := journey.find_child("IdeaChoice00",true,false) as Button
+     _check(lyric_chip != null and lyric_chip.custom_minimum_size.y >= 44 and lyric_chip.focus_mode == Control.FOCUS_ALL,"tactile idea choice accessible "+str(size))
+     if lyric_chip != null:
+      lyric_chip.pressed.emit()
+     _check(idea_select != null and idea_select.selected == 1,"idea card selects underlying persistent choice "+str(size))
+     if riff_chip != null:
+      riff_chip.pressed.emit()
+
      var spark_button := journey.find_child("JourneyNext",true,false) as Button
      var spark_tone := (spark_button.get_theme_stylebox("normal") as StyleBoxFlat).bg_color if spark_button != null else Color.BLACK
      _check(int(ui.save_data.get("tour_day",0)) == 7,"opening journey free "+str(size))
@@ -83,6 +94,7 @@ func _run() -> void:
       reopened_ui.free()
       await process_frame
      journey.reduced_motion = true
+     _check(journey.find_child("VibeDeck",true,false) != null and journey.find_child("FormDeck",true,false) != null,"song mood and arrangement have tactile decks "+str(size))
      var vibe := journey.find_child("JourneyVibeChoice",true,false) as OptionButton
      var form := journey.find_child("JourneyFormChoice",true,false) as OptionButton
      if vibe != null:
