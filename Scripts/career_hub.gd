@@ -2707,13 +2707,13 @@ func _bottom_nav() -> void:
   button.custom_minimum_size.y = 68 if landscape else (56 if compact else 62)
   button.focus_mode = Control.FOCUS_ALL
   button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  var fill: Color = colours["alt"] if selected else colours["panel"]
-  var normal := UI.style(fill,10)
-  normal.border_color = colours["accent"] if selected else colours["alt"]
-  normal.border_width_bottom = 3 if selected else 1
+  # Navigation is a quiet rail, not six competing card-shaped calls to action.
+  var normal := UI.flat(colours["alt"] if selected else Color.TRANSPARENT,5)
+  normal.border_color = colours["accent"] if selected else Color.TRANSPARENT
+  normal.border_width_bottom = 3 if selected else 0
   button.add_theme_stylebox_override("normal",normal)
-  button.add_theme_stylebox_override("hover",UI.style(colours["alt"].lightened(0.12),10))
-  button.add_theme_stylebox_override("pressed",UI.style(colours["alt"].darkened(0.1),10))
+  button.add_theme_stylebox_override("hover",UI.flat(colours["alt"].lightened(0.08),5))
+  button.add_theme_stylebox_override("pressed",UI.flat(colours["alt"].darkened(0.06),5))
   var focus := UI.flat(Color(0,0,0,0),11)
   focus.border_color = colours["accent"]
   focus.set_border_width_all(2)
