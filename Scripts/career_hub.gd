@@ -24,6 +24,7 @@ const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const Songbook = preload("res://Scripts/songbook_presentation.gd")
+const SongSleeve = preload("res://Scripts/song_sleeve.gd")
 const SongLab = preload("res://Scripts/songwriting_lab.gd")
 const RosterView = preload("res://Scripts/band_roster_view.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -2141,6 +2142,7 @@ func _actions() -> void:
    song_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
    song_list.add_theme_constant_override("separation",7)
    song_list_scroll.add_child(song_list)
+   var catalogue_songs: Array = _state().get("song_catalogue",[])
    for track in finished_songs:
     var track_panel := PanelContainer.new()
     track_panel.add_theme_stylebox_override("panel",UI.style(UI.palette(_genre_id())["alt"],9))
@@ -2158,6 +2160,16 @@ func _actions() -> void:
     track_title.max_lines_visible = 2
     _label(track_info,str(track["writer"])+"  /  "+str(track["arrangement"]),12,UI.MUTED)
     _label(track_info,"LIVE RECEPTION: "+str(track["reception"]),11,UI.MUTED)
+    var song_index := int(track["number"])-1
+    var source_song: Dictionary = catalogue_songs[song_index] if song_index >= 0 and song_index < catalogue_songs.size() and catalogue_songs[song_index] is Dictionary else {}
+    var selected_song := source_song.duplicate(true)
+    var selected_number := int(track["number"])
+    var sleeve_button := UI.themed_button("VIEW SLEEVE  ›",_genre_id(),false)
+    sleeve_button.name = "SongbookSleeveButton"
+    sleeve_button.custom_minimum_size.y = 48
+    sleeve_button.focus_mode = Control.FOCUS_ALL
+    track_info.add_child(sleeve_button)
+    sleeve_button.pressed.connect(func() -> void: _open_song_sleeve(selected_song,selected_number))
     var quality_stack := VBoxContainer.new()
     quality_stack.custom_minimum_size.x = 120 if wide_workspace else 80
     track_row.add_child(quality_stack)
@@ -2173,6 +2185,17 @@ func _actions() -> void:
   var writing_frame := workshop.get_parent() as PanelContainer
   if writing_frame != null:
    writing_frame.add_theme_stylebox_override("panel",writing_skin)
+  # One first-fold route to the tactile writing desk, without spending a day.
+  var desk_jump := UI.themed_button("OPEN THE WRITING DESK  ›",_genre_id(),true)
+  desk_jump.name = "WritingDeskJump"
+  desk_jump.custom_minimum_size.y = 54
+  desk_jump.focus_mode = Control.FOCUS_ALL
+  switches.add_child(desk_jump)
+  switches.move_child(desk_jump,2)
+  desk_jump.pressed.connect(func() -> void:
+   if is_instance_valid(career_scroll) and is_instance_valid(writing_frame):
+    career_scroll.ensure_control_visible(writing_frame)
+  )
   _label(workshop,"ON THE DESK  /  DRAFT PAPER  ·  SETLIST  ·  STUDIO NOTES",12,Color("#D6BE92"))
   var studio: Dictionary = SongStudio.view(_state())
   if wide_workspace:
@@ -2482,6 +2505,15 @@ func _actions() -> void:
  if action_view == "JAM" and is_instance_valid(songbook_panel) and songbook_panel.get_parent() == content:
   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
+
+func _open_song_sleeve(song: Dictionary, number: int) -> void:
+ # A read-only liner-notes view: no day, cash, credit or save mutation.
+ var sheet: Dictionary = SceneSheet.build(self,"THE SONG SLEEVE","Read the recorded writing history. No day or cash is spent.","",_genre_id())
+ SongSleeve.build(sheet["body"],song,number,_genre_id())
+ var back := SceneSheet.add_choice(sheet,"←  BACK TO SONGBOOK",func() -> void: SceneSheet.dismiss(sheet),false,_genre_id())
+ back.name = "SongSleeveBack"
+ if back.is_inside_tree():
+  back.grab_focus()
 
 func _recording_studio() -> void:
  var songs: Array = Recording.catalogue(_state())
@@ -2872,19 +2904,7 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  var song_finished := after_songs.size() > before_songs.size()
  if song_finished:
   var song: Dictionary = after_songs.back()
-  var sleeve := PanelContainer.new()
-  var sleeve_style := UI.style(Color("#E9DDC2"),12)
-  sleeve_style.border_color = Color("#B99563")
-  sleeve_style.set_border_width_all(3)
-  sleeve.add_theme_stylebox_override("panel",sleeve_style)
-  stack.add_child(sleeve)
-  var sleeve_copy := VBoxContainer.new()
-  sleeve_copy.add_theme_constant_override("separation",8)
-  sleeve.add_child(sleeve_copy)
-  _label(sleeve_copy,"NEW ORIGINAL  /  SONG FINISHED",13,Color("#8A5F30"))
-  _label(sleeve_copy,str(song.get("title","UNTITLED")).to_upper(),23,Color("#231C15"))
-  _label(sleeve_copy,str(song.get("origin","ORIGINAL"))+"  ·  "+str(song.get("arrangement",""))+"  ·  "+str(song.get("lead_writer","")),13,Color("#665343"))
-  _label(sleeve_copy,"A NEW SONG FOR THE SETLIST  /  DAY %d" % int(after.get("tour_day",1)),12,Color("#8A5F30"))
+  SongSleeve.build(stack,song,after_songs.size(),_genre_id())
  if source == "band:pair":
   var latest_pair: Dictionary = {}
   for moment in after.get("career_journal",[]):

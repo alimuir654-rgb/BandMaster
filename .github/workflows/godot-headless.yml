@@ -952,3 +952,17 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT 06 OUTCOME FAILURE:|ERROR:' /tmp/sprint06-outcome.log; then
             exit 1
           fi
+      - name: Validate provenance-backed song sleeves and legacy records
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/sprint07_song_sleeve_tests.gd 2>&1 | tee /tmp/sprint07-sleeve.log
+          grep -q 'SPRINT 07 SONG SLEEVE TESTS PASSED' /tmp/sprint07-sleeve.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT 07 SLEEVE FAILURE:|ERROR:' /tmp/sprint07-sleeve.log; then exit 1; fi
+      - name: Validate songwriting desk and finished sleeve at three viewports
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 90s godot --headless --path . --script res://tests/sprint07_song_sleeve_viewport_tests.gd 2>&1 | tee /tmp/sprint07-sleeve-viewports.log
+          grep -q 'SPRINT 07 SONG SLEEVE VIEWPORTS PASSED' /tmp/sprint07-sleeve-viewports.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT 07 SLEEVE VIEWPORT FAILURE:|ERROR:' /tmp/sprint07-sleeve-viewports.log; then exit 1; fi

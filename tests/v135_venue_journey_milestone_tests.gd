@@ -9,7 +9,7 @@ func _initialize() -> void:
  _check(src.contains('_open_promoter_meeting(venue_id,active >= 2 and drummer,active)'),"detail leads to promoter")
  _check(src.contains('_open_venue_browser(),true)'),"first fold launches venue browser")
  _check(src.contains('var song_finished := after_songs.size() > before_songs.size()'),"song event detected")
- _check(src.contains('NEW ORIGINAL  /  SONG FINISHED'),"song has tangible memento")
+ _check(src.contains("SongSleeve.build(stack,song,after_songs.size(),_genre_id())") and ResourceLoader.exists("res://Scripts/song_sleeve.gd"),"song completion renders reusable physical sleeve")
  _check(load("res://Scenes/CareerHub.tscn") != null,"career hub compiles")
  if errors == 0: print("V135 VENUE JOURNEY AND MEMENTO PASSED")
  quit(0 if errors == 0 else 1)

@@ -10,6 +10,7 @@ func _capture() -> void:
  var output := "screenshots/bandmaster-home.png"
  var tab := "HOME"
  var genre := "indie"
+ var show_sleeve := false
  var width := 390
  var height := 844
  for arg in args:
@@ -17,13 +18,15 @@ func _capture() -> void:
    output = arg.trim_prefix("--output=")
   elif arg.begins_with("--tab="):
    tab = arg.trim_prefix("--tab=")
+  elif arg == "--sleeve":
+   show_sleeve = true
   elif arg.begins_with("--genre="):
    genre = arg.trim_prefix("--genre=")
   elif arg.begins_with("--width="):
    width = int(arg.trim_prefix("--width="))
   elif arg.begins_with("--height="):
    height = int(arg.trim_prefix("--height="))
- if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre):
+ if width < 320 or height < 600 or not ["HOME","BAND","ACTIONS","GIGS","GEAR","SCENE"].has(tab) or not ["indie","punk","metal","electronic"].has(genre) or (show_sleeve and tab != "ACTIONS"):
   push_error("SCREENSHOT FAILURE: Invalid capture parameters")
   quit(1)
   return
@@ -40,7 +43,13 @@ func _capture() -> void:
   "cash":285,"tour_day":12,"morale":74,"reputation":24,"readiness":75,"tension":12,"van_health":82,
   "current_event":"aftershow","pending_next":"","relationships":{"0_1":84,"0_2":76,"1_2":80},
   "career_extra":{"songs":2,"fans":42,"gig_history":[],"career_journal":[],"action_counters":{},
-   "song_draft_progress":1,"current_song_draft":{"title":"NEON AT CLOSING TIME","idea":"Riff","form":"Slow Build","leader":"Alex","sessions":[{"day":11,"idea":"Riff","form":"Slow Build","leader":"Alex"}]}}
+   "song_draft_progress":1,"current_song_draft":{"title":"NEON AT CLOSING TIME","idea":"Riff","form":"Slow Build","leader":"Alex","sessions":[{"day":11,"idea":"Riff","form":"Slow Build","leader":"Alex"}]},
+   "song_catalogue":[
+    {"title":"AFTER THE LAST BUS","lead_writer":"Alex","credited_writers":["Alex","Jo"],"origin":"Riff","arrangement":"Slow Build","quality":77,"written_day":8,
+     "writing_sessions":[{"day":5,"leader":"Alex","idea":"Riff","form":"Loose Jam"},{"day":6,"leader":"Jo","idea":"Groove","form":"Slow Build"},{"day":7,"leader":"Alex","idea":"Riff","form":"Slow Build"}]},
+    {"title":"FRIDAY AGAIN","lead_writer":"Sam","origin":"Lyric","arrangement":"Verse / Chorus","quality":66,"written_day":10,
+     "writing_sessions":[{"day":8,"leader":"Sam","idea":"Lyric","form":"Verse / Chorus"}]}
+   ]}
  }
  fixture["band"]["genre"] = genre
  var file := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
@@ -62,6 +71,8 @@ func _capture() -> void:
  get_root().add_child(ui)
  ui.tab = tab
  ui._render()
+ if show_sleeve:
+  ui._open_song_sleeve(fixture["career_extra"]["song_catalogue"][0],1)
  for frame in range(18):
   await process_frame
  var image := get_root().get_texture().get_image()
