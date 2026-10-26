@@ -55,6 +55,9 @@ func _run() -> void:
      if step == 0:
       var load_button := _button(view,"LOAD WITH JO")
       _check(load_button != null and load_button.custom_minimum_size.y >= 44,"real loading crew decision accessible "+str(size))
+      _check(load_button != null and load_button.get_theme_font_size("font_size") >= 15,"loading decision readable at "+str(size))
+      var gear_caption := _text_label(view,"WORN GEAR READINESS EFFECT")
+      _check(gear_caption != null and gear_caption.get_theme_font_size("font_size") >= (15 if size.x >= 960 else 14),"small gear copy meets typography floor "+str(size))
       view._assign_loading_gear("amp",0)
       _check(int(ui._state().get("gear_records",{}).get("amp",{}).get("holder_index",-1)) == 0,"crew equipment assignment persisted in game state "+str(size))
       _check(int(ui._state().get("tour_day",0)) == 7 and int(ui._state().get("cash",0)) == 250,"loading gear costs no day or cash "+str(size))
@@ -110,6 +113,16 @@ func _button(root: Node, needle: String) -> Button:
  while not nodes.is_empty():
   var current: Node = nodes.pop_back()
   if current is Button and str(current.text).contains(needle):
+   return current
+  for child in current.get_children():
+   nodes.append(child)
+ return null
+
+func _text_label(root: Node, needle: String) -> Label:
+ var nodes: Array[Node] = [root]
+ while not nodes.is_empty():
+  var current: Node = nodes.pop_back()
+  if current is Label and str(current.text).contains(needle):
    return current
   for child in current.get_children():
    nodes.append(child)
