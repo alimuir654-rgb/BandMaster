@@ -13,12 +13,19 @@ static func entries(state: Dictionary) -> Array:
   var reception := "NOT RECORDED"
   if song.has("live_reception") and not str(song["live_reception"]).strip_edges().is_empty():
    reception = str(song["live_reception"]).left(80)
+  var writer_label := str(song.get("lead_writer","BAND COLLABORATION"))
+  var credits = song.get("credited_writers",[])
+  if credits is Array and not credits.is_empty():
+   var names := PackedStringArray()
+   for person in credits:
+    names.append(str(person))
+   writer_label = "CREDIT: "+", ".join(names)
   result.append({
    "number":i+1,
    "title":str(song.get("title","UNTITLED")),
    "quality":quality,
    "verdict":verdict,
-   "writer":str(song.get("lead_writer","BAND COLLABORATION")),
+   "writer":writer_label,
    "arrangement":str(song.get("arrangement","IN DEVELOPMENT")),
    "reception":reception
   })

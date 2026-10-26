@@ -929,3 +929,17 @@ jobs:
         run: |
           set -euo pipefail
           godot --headless --path . --script res://tests/sprint03_pair_viewport_tests.gd
+      - name: Validate real-song writing credit disputes
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/sprint05_song_credit_tests.gd 2>&1 | tee /tmp/song-credit.log
+          grep -q 'SPRINT 05 SONG CREDIT TESTS PASSED' /tmp/song-credit.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SONG CREDIT FAILURE:|ERROR:' /tmp/song-credit.log; then exit 1; fi
+      - name: Validate credit decisions at three viewports
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/sprint05_credit_viewport_tests.gd 2>&1 | tee /tmp/credit-viewports.log
+          grep -q 'SPRINT 05 CREDIT VIEWPORTS PASSED' /tmp/credit-viewports.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|CREDIT VIEWPORT FAILURE:|ERROR:' /tmp/credit-viewports.log; then exit 1; fi

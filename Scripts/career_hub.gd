@@ -1978,6 +1978,8 @@ func _open_pair_incident(case_id: String, launcher: BaseButton) -> void:
   var choice_id := str(option["id"])
   var consequence := Label.new()
   consequence.text = "TRUST %d  ·  TENSION %d  ·  READINESS %d  /  1 DAY" % [int(option.get("trust",0)),int(option.get("tension",0)),int(option.get("readiness",0))]
+  if not str(option.get("credit_label","")).is_empty():
+   consequence.text += "  ·  CREDIT: "+str(option["credit_label"])
   consequence.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
   consequence.add_theme_font_size_override("font_size",12)
   consequence.add_theme_color_override("font_color",UI.MUTED)
@@ -2595,6 +2597,14 @@ func _scrapbook_pair_memento(parent: Node, moment: Dictionary) -> void:
  _label(heading,"BACKSTAGE NOTE  /  DAY %d" % int(moment.get("day",1)),12,UI.palette(_genre_id())["accent"])
  _label(heading,str(names[0])+"  &  "+str(names[1]),18,UI.WHITE)
  _label(column,str(moment.get("decision_label","THE BAND MADE A CHOICE")),13,UI.WHITE)
+ if not str(moment.get("song_title","")).is_empty():
+  _label(column,"SONG SLEEVE  /  "+str(moment["song_title"]),14,UI.AMBER)
+  var writers: Array = moment.get("credited_writers",[])
+  if not writers.is_empty():
+   var credit_names := PackedStringArray()
+   for writer in writers:
+    credit_names.append(str(writer))
+   _label(column,"OFFICIAL CREDIT  /  "+", ".join(credit_names),13,UI.WHITE)
  _label(column,"PAIR TRUST  %d  →  %d" % [int(moment.get("trust_before",0)),int(moment.get("trust_after",0))],14,UI.AMBER)
  _label(column,str(moment.get("text","")),13,UI.MUTED)
 
