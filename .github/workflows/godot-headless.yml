@@ -943,3 +943,12 @@ jobs:
           timeout 45s godot --headless --path . --script res://tests/sprint05_credit_viewport_tests.gd 2>&1 | tee /tmp/credit-viewports.log
           grep -q 'SPRINT 05 CREDIT VIEWPORTS PASSED' /tmp/credit-viewports.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|CREDIT VIEWPORT FAILURE:|ERROR:' /tmp/credit-viewports.log; then exit 1; fi
+      - name: Verify Sprint 06 outcome first fold and scrapbook journey
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 90s godot --headless --path . --script res://tests/sprint06_outcome_viewport_tests.gd 2>&1 | tee /tmp/sprint06-outcome.log
+          grep -q 'SPRINT 06 OUTCOME VIEWPORTS PASSED' /tmp/sprint06-outcome.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT 06 OUTCOME FAILURE:|ERROR:' /tmp/sprint06-outcome.log; then
+            exit 1
+          fi
