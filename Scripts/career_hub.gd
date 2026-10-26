@@ -2949,6 +2949,11 @@ func _show_decision_result(before: Dictionary, after: Dictionary, description: S
  if chapter_result:
   var reward_heading := _label(stack,"CHAPTER COMPLETE  /  REWARD CLAIMED",14,UI.palette(_genre_id())["accent"])
   reward_heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  # Show the actual committed state delta, never a decorative or duplicate payout.
+  var earned_cash := int(after.get("cash",0))-int(before.get("cash",0))
+  var earned_reputation := int(after.get("reputation",0))-int(before.get("reputation",0))
+  var earned := _label(stack,"REWARD  /  £%d  +%d REPUTATION" % [earned_cash,earned_reputation],16,UI.WHITE)
+  earned.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  var show_result := source.begins_with("gig:")
  if show_result:
   var show_banner := PanelContainer.new()
