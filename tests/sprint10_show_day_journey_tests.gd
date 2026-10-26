@@ -52,7 +52,7 @@ func _run() -> void:
       _check(str(ui._state().get("booked_show",{}).get("travel_plan","")) == Tour.OVERNIGHT,"overnight plan persisted "+str(size))
       _check(int(ui._state().get("cash",0)) == 250,"replan costs nothing "+str(size))
      if step == 3:
-      _check(not view.find_child("ShowJourneyNext",true,false).disabled == false or true,"backstage stage rendered "+str(size))
+      _check(view.find_child("ShowJourneyNext",true,false).disabled,"backstage decision blocks premature showtime "+str(size))
       view._resolve_incident("rest")
       _check(str(ui._state().get("illness_resolved_booking","")) == "bristol:7","backstage resolution recorded "+str(size))
       view._choose_approach("crowd")
