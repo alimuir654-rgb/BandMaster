@@ -70,6 +70,14 @@ func _capture() -> void:
 	if stats.focus_mode!=Control.FOCUS_NONE:
 		_fail("readonly outcomes focusable")
 		return
+	for i in range(4):
+		var moment_label: Label = view.find_child("GigMoment"+str(i),true,false) as Label
+		if moment_label==null or moment_label.text.is_empty() or not moment_label.is_visible_in_tree():
+			_fail("DAY/DUSK/NIGHT/AFTERSHOW caption missing from stage strip")
+			return
+		if moment_label.get_global_rect().end.y*px>scroll.get_global_rect().position.y*px:
+			_fail("stage phase caption obscured by scrolling content")
+			return
 	var required: Array = ["GigGearLatch","GigSoundLatch","GigApproachTight","GigApproachWild","GigApproachCrowd","GigCue0","GigCue1","GigCue2","GigHold","GigGo"]
 	for key in required:
 		var item: TextureButton = view._keys.get(key)
