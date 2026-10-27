@@ -1,0 +1,58 @@
+name: Livin The Dream — import approved scene reference views
+on:
+  push:
+    branches:
+      - visual-proof-transport-and-scene-quality-gates
+    paths:
+      - LivinTheDream_Approved_TargetViews_Repo_Import.zip
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check-and-import-owner-targets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Validate original image bytes, safe extraction and manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from zipfile import ZipFile
+          from hashlib import sha256
+          import stat
+          name=Path('LivinTheDream_Approved_TargetViews_Repo_Import.zip')
+          assert name.is_file(), 'Owner-approved target ZIP not on feature branch'
+          assert sha256(name.read_bytes()).hexdigest()=='f7049134dad06295bc01e17219c9139d9f0cd0029580c6574875484c223d1c42','Target ZIP SHA mismatch'
+          with ZipFile(name) as z:
+            entries=[f for f in z.infolist() if not f.is_dir()]
+            assert z.testzip() is None and len(entries)==6,'Expected six source+meta entries'
+            seen=set()
+            for info in entries:
+              rel=PurePosixPath(info.filename)
+              assert not rel.is_absolute() and '..' not in rel.parts and not stat.S_ISLNK(info.external_attr >> 16), rel
+              allowed=(rel.parts[:3]==('Art','References','TargetStates') or str(rel)=='tools/validate_target_views.py')
+              assert allowed and str(rel) not in seen and not Path(info.filename).exists(),rel
+              seen.add(str(rel))
+            for info in entries:
+              dest=Path(info.filename)
+              dest.parent.mkdir(parents=True,exist_ok=True)
+              dest.write_bytes(z.read(info))
+          PY
+          python tools/validate_target_views.py
+      - name: Commit only approved reference images and source checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/References/TargetStates tools/validate_target_views.py
+          git diff --cached --check
+          git diff --cached --quiet && exit 0
+          git commit -m 'Store approved Livin The Dream target-view references without gameplay data'
+          git push origin HEAD:visual-proof-transport-and-scene-quality-gates
