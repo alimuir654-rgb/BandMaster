@@ -10,7 +10,7 @@ const WORLD: Dictionary = {
 	"formation": {"heading": "FIND YOUR PEOPLE", "summary": "Build trust, find a shared sound and earn your first rehearsal.", "moment": "BAND  /  FORMATION", "photo": "formation", "primary": "OPEN FORMATION JOURNEY", "next": "S02  /  FORMATION"},
 	"songwriting": {"heading": "FIND THE SOUND", "summary": "An idea begins at a daytime writing table before it meets the studio.", "moment": "SONGS  /  JAM SESSION", "photo": "home", "primary": "OPEN SONGWRITING JOURNEY", "next": "S03  /  THREE WRITING SESSIONS"},
 	"tour": {"heading": "THE NEXT STOP", "summary": "Plot the route, prepare the van and make every mile count.", "moment": "ON THE ROAD  /  PLANNING", "photo": "home", "primary": "OPEN TOUR ITINERARY", "next": "S04  /  REAL BOOKING PREVIEW"},
-	"gig": {"heading": "LIGHTS DOWN", "summary": "From daytime load-in to the last encore: one believable show.", "moment": "GIG  /  LIVE SHOW", "photo": "gigs", "primary": "REVIEW SHOW BRIEF", "next": "S05  /  GIG NIGHT"},
+	"gig": {"heading": "LIGHTS DOWN", "summary": "From daytime load-in to the last encore: one believable show.", "moment": "GIG  /  LIVE SHOW", "photo": "gigs", "primary": "OPEN GIG NIGHT JOURNEY", "next": "S05  /  REAL SHOW SETTLEMENT"},
 	"studio": {"heading": "MAKE IT REAL", "summary": "Real hardware, real decisions. Inputs adjust effort; meters show results.", "moment": "STUDIO  /  REHEARSAL", "photo": "formation", "primary": "OPEN HARDWARE PROOF", "next": "S06  /  STUDIO"}
 }
 const CREAM := Color("#EFEADF")
