@@ -105,7 +105,7 @@ func _rebuild() -> void:
 	case.add_child(case_margin)
 	case_margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for edge in ["left", "right"]:
-		case_margin.add_theme_constant_override("margin_" + edge, roundi(24 * _scale))
+		case_margin.add_theme_constant_override("margin_" + edge, roundi(48 * _scale))
 	for edge in ["top", "bottom"]:
 		case_margin.add_theme_constant_override("margin_" + edge, roundi((20 if compact else 20) * _scale))
 	var case_col := VBoxContainer.new()
