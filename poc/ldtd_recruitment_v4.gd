@@ -116,16 +116,23 @@ func _transport(parent: Node, symbol: String, bounds: Rect2, action: Callable, b
  return b
 
 func _render() -> void:
- _view_w=float(get_viewport_rect().size.x)
- _view_h=float(get_viewport_rect().size.y)
+ # Compose in physical device pixels. Godot's canvas_items stretch can keep a
+ # 720-unit logical viewport when the window is only 390 physical pixels wide.
+ # Correct with one root transform, rather than upscaling every button separately.
+ var window_size: Vector2i=DisplayServer.window_get_size()
+ _view_w=float(window_size.x)
+ _view_h=float(window_size.y)
  if _view_w<80.0 or _view_h<80.0:
   return
+ var logical_size:Vector2=get_viewport_rect().size
  for child in get_children():
   remove_child(child)
   child.queue_free()
  _landscape=_view_w>=900.0 and _view_w>_view_h
  var canvas := Control.new()
- canvas.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ canvas.position=Vector2.ZERO
+ canvas.size=Vector2(_view_w,_view_h)
+ canvas.scale=Vector2(logical_size.x/_view_w,logical_size.y/_view_h)
  add_child(canvas)
  _stage=canvas
  # The roadcase is a single integrated authored material, not twelve floating cards.
