@@ -113,7 +113,7 @@ func _rebuild() -> void:
 
 	var hero := Control.new()
 	hero.name = "PhotographicHero"
-	hero.custom_minimum_size.y = 136 * _scale
+	hero.custom_minimum_size.y = (110 if DisplayServer.window_get_size().x <= 420 else 136) * _scale
 	hero.clip_contents = true
 	hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	column.add_child(hero)
