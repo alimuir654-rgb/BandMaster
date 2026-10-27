@@ -47,13 +47,21 @@ func _verify() -> void:
 	if not ResourceLoader.exists("res://poc/premium_transport_proof.tscn") or not ResourceLoader.exists("res://poc/premium_mixer_module_lab.tscn"):
 		_fail("studio proof links unavailable")
 		return
-	view.set_world("tour")
+	# S03/S04/S05 now have real isolated journeys. A previous S01-only
+	# assertion treated Tour as a placeholder and became obsolete at S04.
+	for path in ["res://poc/ldtd_songwriting_journey.tscn",
+			"res://poc/ldtd_tour_planning.tscn",
+			"res://poc/ldtd_gig_night.tscn"]:
+		if not ResourceLoader.exists(path):
+			_fail("implemented scene link missing: "+path)
+			return
+	view.set_world("career")
 	for frame in range(3):
 		await process_frame
 	view._open_preview()
 	var state: Label = view.find_child("SceneStatus", true, false)
 	if state == null or not state.text.contains("PENDING"):
-		_fail("not-yet-implemented tour journey was misrepresented as ready")
+		_fail("unimplemented career preview misrepresented as playable")
 		return
 	print("LDTD S01 SIX SCENE NAVIGATION AND SAFE STATE TESTS PASSED")
 	view.queue_free()
