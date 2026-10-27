@@ -1,0 +1,65 @@
+name: Livin The Dream S01 — six-scene shell real Godot review
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+  workflow_dispatch:
+jobs:
+  first-pass-shell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gate source-backed sprint preflight and persona log
+        shell: bash
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S01
+      - name: Install Godot 4.7.2 and Xvfb
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Compile scene source and test all six in-game contexts
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/ldtd-import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/ldtd-import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_s01_scene_shell_tests.gd 2>&1 | tee /tmp/ldtd-test.log
+          grep -q 'LDTD S01 SIX SCENE NAVIGATION AND SAFE STATE TESTS PASSED' /tmp/ldtd-test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|LDTD S01 TEST FAILURE:|ERROR:' /tmp/ldtd-test.log
+      - name: Render 48 actual Godot photos across six families, day/night and four device viewports
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day night; do
+              for family in career formation songwriting tour gig studio; do
+                xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s01_scene_shell.gd -- --family="$family" --phase="$phase" --width="$w" --height="$h" --output="screenshots/ldtd-$family-$phase-$dims.png" 2>&1 | tee /tmp/last-capture.log
+                grep -q 'LDTD S01 ACTUAL GODOT SCREENSHOT PASSED' /tmp/last-capture.log
+                ! grep -E 'SCRIPT ERROR:|Parse Error:|LDTD S01 SCREENSHOT FAILURE:|ERROR:' /tmp/last-capture.log
+              done
+            done
+          done
+          python3 - <<'PY'
+          import glob,struct
+          names=glob.glob('screenshots/ldtd-*.png')
+          assert len(names)==48, len(names)
+          for name in names:
+              with open(name,'rb') as fp:header=fp.read(24)
+              assert header[:8]==bytes.fromhex('89504e470d0a1a0a'),name
+              assert struct.unpack('>II',header[16:24]) in {(390,844),(720,1280),(1280,720),(1600,900)},name
+          print("48 ACTUAL GODOT SCENE WORLD IMAGES VERIFIED")
+          PY
+      - name: Upload genuine screenshot review artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-scene-shell-s01-48-godot
+          path: screenshots/ldtd-*.png
+          if-no-files-found: warn
+          retention-days: 21
