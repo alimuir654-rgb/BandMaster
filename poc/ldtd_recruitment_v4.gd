@@ -346,7 +346,7 @@ func _roster_dock(layout: Node,w:float,h:float,wide:bool) -> void:
    _plate(layout,"BACK",Rect2(1120,715,170,55),func() -> void: _back(),false,true,"metal_tab",23)
    _plate(layout,"CONTINUE",Rect2(1300,715,210,55),func() -> void: _next(),false,(step==0 or not band_name.is_empty()),"amber_key",23)
   elif Model.viable(roster):
-   _plate(layout,"NAME BAND",Rect2(1290,725,236,45),func() -> void: _next(),false,true,"amber_key",21)
+   _plate(layout,"NAME BAND ›",Rect2(1285,105,242,61),func() -> void: _next(),false,true,"amber_key",21)
  else:
   _text(layout,str(roster.size())+" / 6 PEOPLE  •  "+str(Model.MAX_TALENT-Model.spent(roster))+" POINTS LEFT",14,y,300,29,17,AMBER,FONT_TITLE)
   var names:=PackedStringArray(roster.map(func(p): return str(p["name"])))
