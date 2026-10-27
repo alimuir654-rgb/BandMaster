@@ -9,6 +9,8 @@
 
 ---
 
+**RESEARCH-LOCK UPDATE (27 Oct 2026, before midnight sprints):** Read [Godot character and UI research + 00/02/04/06 art-first acceptance gates](docs/GODOT_CHARACTER_UI_RESEARCH_AND_OVERNIGHT_GATES_2026-10-27.md) before making any recruitment, character, portrait, design-system or animation change. Owner permits replacing *all* characters. Stronger requirement than component-count: two coherent, recognisable musicians and one compelling complete recruitment screen. Start static with actual authored/rights-clear character art; no animation/plugin/Figma upgrade/Spine spend until artwork qualifies. New UI must use properly sized nine-sliced source-backed textures, reusable Theme variations, accessible keyboard/tap targets, actual Godot native captures and documented human-approval blocker. Never infer a green code test means an art PASS.
+
 # BandMaster — AI development contract
 
 ## Roles
