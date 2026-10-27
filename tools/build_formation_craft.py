@@ -133,11 +133,19 @@ def material_surface(name,width,height):
     img=noise(width,height,name,base,5.5)
     d=ImageDraw.Draw(img,"RGBA")
     if name=="desk":
-        # Repeated laminated plywood grain, not photographic imitation.
-        for _ in range(1600):
-            y=int(r.integers(0,height));x=int(r.integers(0,width))
-            n=int(r.integers(16,340))
-            d.line((x,y,x+n,y+int(r.integers(-3,4))),fill=(69,53,34,int(r.integers(8,30))),width=int(r.integers(1,4)))
+        # Organic tactile cork flecks, not straight vector scratch lines.
+        # Clusters vary in opacity/scale: believable granular board from a distance.
+        for _ in range(16500):
+            x=int(r.integers(0,width));y=int(r.integers(0,height))
+            fw=int(r.integers(2,14));fh=int(r.integers(1,6))
+            palette=((92,67,39),(228,197,145),(153,110,68),(248,224,181))
+            colour=palette[int(r.integers(0,len(palette)))]
+            d.ellipse((x,y,x+fw,y+fh),fill=(*colour,int(r.integers(14,72))))
+        # Faint pinpricks and natural compressed-cork texture.
+        for _ in range(3200):
+            x=int(r.integers(0,width));y=int(r.integers(0,height))
+            d.ellipse((x,y,x+int(r.integers(1,4)),y+int(r.integers(1,4))),
+                      fill=(49,38,26,int(r.integers(10,30))))
         # Light entering window left, with natural sepia sun wash.
         wash=Image.new("RGBA",(width,height))
         a=np.asarray(wash).copy()
@@ -148,17 +156,17 @@ def material_surface(name,width,height):
         wash=Image.fromarray(a,"RGBA")
         img=Image.alpha_composite(img,wash)
         d=ImageDraw.Draw(img,"RGBA")
-        for y in (height//3,2*height//3):
-            d.line((0,y,width,y),fill=(65,43,27,52),width=5)
-            d.line((0,y+4,width,y+4),fill=(255,250,224,43),width=2)
+        # Slightly darkened lip at the edge of a real pin-board frame.
+        d.line((0,5,width,5),fill=(75,51,31,88),width=8)
+        d.line((0,15,width,15),fill=(253,229,183,36),width=3)
     else:
         # Notebook fibers, left stitching, dog-eared top and faded ink rules.
         for y in range(96,height-60,41):
-            d.line((49,y,width-45,y),fill=(85,120,137,37),width=2)
-        d.line((111,20,111,height-25),fill=(165,52,54,68),width=3)
+            d.line((49,y,width-45,y),fill=(85,120,137,18),width=2)
+        d.line((23,25,23,height-25),fill=(165,52,54,37),width=2)
         for y in range(78,height-45,128):
-            d.ellipse((31,y-13,54,y+13),fill=(100,87,70,104))
-            d.arc((30,y-14,52,y+12),120,340,fill=(251,248,225,193),width=3)
+            d.ellipse((4,y-11,20,y+11),fill=(100,87,70,80))
+            d.arc((3,y-12,20,y+11),120,340,fill=(251,248,225,140),width=2)
         d.polygon([(width-125,17),(width-19,17),(width-21,120)],fill=(218,202,170,199))
         d.line((width-125,17,width-21,120),fill=(124,106,80,76),width=3)
         # Washi tape translucent strips at the top of the physical sheet.
