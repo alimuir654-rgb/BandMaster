@@ -91,34 +91,49 @@ func _layout() -> void:
 		return
 	var w: float = size.x
 	var h: float = size.y
+	# BandMaster uses logical-to-physical stretching in the main Godot project.
+	# Scale all review text and selectable phase targets to honest DEVICE pixels.
+	var px: float = float(DisplayServer.window_get_size().x) / maxf(get_viewport_rect().size.x, 1.0)
+	px = maxf(px, 0.35)
+	var heading_px: int = int(ceil(22.0 / px))
+	var copy_px: int = int(16.0 / px) + 1
+	heading.add_theme_font_size_override("font_size", heading_px)
+	for label in [caption, readout_h, readout_v]:
+		label.add_theme_font_size_override("font_size", copy_px)
 	heading.position = Vector2(24, 24)
-	heading.size = Vector2(w - 48.0, 35)
-	caption.position = Vector2(24, 61)
-	caption.size = Vector2(w - 48.0, 27)
+	heading.size = Vector2(w - 48.0, float(heading_px + 13))
+	caption.position = Vector2(24, heading.position.y + heading.size.y + 6.0)
+	caption.size = Vector2(w - 48.0, float(copy_px + 16))
+	var buttons_top: float = caption.position.y + caption.size.y + 12.0
+	var target_height: float = maxf(46.0, 45.0 / px)
 	for i in range(PHASES.size()):
 		var btn: Button = phase_buttons[PHASES[i]]
-		btn.position = Vector2(24 + i * 95, 98)
-		btn.size = Vector2(89, 46)
+		btn.add_theme_font_size_override("font_size", copy_px)
+		btn.position = Vector2(24 + i * 95, buttons_top)
+		btn.size = Vector2(89, target_height)
+	var readout_top: float = buttons_top + target_height + 32.0
+	readout_h.position = Vector2(24, readout_top)
+	readout_h.size = Vector2(w - 48.0, float(copy_px + 16))
 	if w < 900.0:
 		var panel_w: float = minf(w - 36.0, 650.0)
 		horizontal.size = Vector2(panel_w, panel_w * 246.0 / 808.0)
-		horizontal.position = Vector2((w - panel_w) / 2.0, 203)
-		readout_h.position = Vector2(24, 163)
-		readout_h.size = Vector2(w - 48.0, 30)
-		var room: float = h - (horizontal.position.y + horizontal.size.y) - 108.0
+		horizontal.position = Vector2((w - panel_w) / 2.0, readout_h.position.y + readout_h.size.y + 12.0)
+		readout_v.position = Vector2(24, horizontal.position.y + horizontal.size.y + 26.0)
+		readout_v.size = Vector2(w - 48.0, float(copy_px + 16))
+		var vertical_top: float = readout_v.position.y + readout_v.size.y + 12.0
+		var room: float = h - vertical_top - 22.0
 		var vertical_w: float = minf(190.0 if w < 500.0 else 260.0, maxf(110.0, room * 362.0 / 708.0))
 		vertical.size = Vector2(vertical_w, vertical_w * 708.0 / 362.0)
-		vertical.position = Vector2((w - vertical_w) / 2.0, horizontal.position.y + horizontal.size.y + 70.0)
-		readout_v.position = Vector2(24, vertical.position.y - 40.0)
-		readout_v.size = Vector2(w - 48.0, 32)
+		vertical.position = Vector2((w - vertical_w) / 2.0, vertical_top)
 	else:
-		var h_width: float = minf(690.0, (w - 360.0) * 0.83)
+		var h_width: float = minf(820.0, (w - 360.0) * 0.89)
 		horizontal.size = Vector2(h_width, h_width * 246.0 / 808.0)
-		horizontal.position = Vector2(36, 200)
-		readout_h.position = Vector2(38, 161)
-		readout_h.size = Vector2(h_width, 28)
-		var v_width: float = minf(245.0, (h - 280.0) * 362.0 / 708.0)
-		vertical.size = Vector2(v_width, v_width * 708.0 / 362.0)
-		vertical.position = Vector2(minf(w - v_width - 32.0, h_width + 100.0), 186)
-		readout_v.position = Vector2(vertical.position.x, 154)
-		readout_v.size = Vector2(v_width + 25.0, 29)
+		horizontal.position = Vector2(maxf(36.0, (w - h_width - 300.0) * 0.5), readout_h.position.y + readout_h.size.y + 12.0)
+		readout_h.position.x = horizontal.position.x
+		readout_h.size.x = h_width
+		var vertical_top: float = horizontal.position.y
+		var vertical_w: float = minf(245.0, maxf(110.0, (h - vertical_top - 30.0) * 362.0 / 708.0))
+		vertical.size = Vector2(vertical_w, vertical_w * 708.0 / 362.0)
+		vertical.position = Vector2(minf(w - vertical_w - 26.0, horizontal.position.x + h_width + 70.0), vertical_top)
+		readout_v.position = Vector2(vertical.position.x, readout_h.position.y)
+		readout_v.size = Vector2(vertical_w + 25.0, float(copy_px + 16))
