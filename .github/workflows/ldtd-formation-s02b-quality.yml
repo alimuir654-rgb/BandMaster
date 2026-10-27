@@ -3,6 +3,9 @@ on:
   push:
     branches: [first-pass-scene-sweep-2026-10-27]
     paths:
+      - 'Art/Fonts/**'
+      - 'Art/Photography/Formation/**'
+      - 'Art/UI/FormationCraft/**'
       - 'tools/build_formation_craft.py'
       - 'tools/build_formation_photo_materials.py'
       - 'Scripts/formation_craft_skin.gd'
