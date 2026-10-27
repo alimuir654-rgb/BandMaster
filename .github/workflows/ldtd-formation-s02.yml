@@ -4,7 +4,6 @@ on:
     branches: [first-pass-scene-sweep-2026-10-27]
     paths:
       - 'poc/ldtd_formation_rehearsal.*'
-      - 'poc/ldtd_career_scene_shell.gd'
       - 'tests/ldtd_s02_formation_tests.gd'
       - 'tests/capture_ldtd_s02_formation.gd'
       - 'tools/check_scene_sprint_preflight.py'
@@ -13,6 +12,9 @@ on:
       - 'Scripts/band_social.gd'
       - 'Scripts/practice_room.gd'
   workflow_dispatch:
+concurrency:
+  group: ldtd-s02-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   formation-native:
     runs-on: ubuntu-latest
