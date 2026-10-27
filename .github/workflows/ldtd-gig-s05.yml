@@ -1,0 +1,103 @@
+name: Livin The Dream S05 — live gig night first pass
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Scripts/ldtd_gig_night_preview.gd'
+      - 'Scripts/ldtd_gig_key.gd'
+      - 'poc/ldtd_gig_night.*'
+      - 'Art/UI/GigCraft/**'
+      - 'tests/ldtd_s05_gig_tests.gd'
+      - 'tests/capture_ldtd_s05_gig.gd'
+      - '.github/workflows/ldtd-gig-s05.yml'
+      - 'tools/check_scene_sprint_preflight.py'
+  workflow_dispatch:
+concurrency:
+  group: ldtd-s05-gig
+  cancel-in-progress: true
+jobs:
+  gig-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify S05 owner-authorised preflight
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S05
+      - name: Install Godot 4.7.2 and native renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Verify original physical key families and repository photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          for family in ('gear','sound','approach','cue','hold','go','advance','encore'):
+              for state in ('idle','hover','pressed','selected','disabled'):
+                  path=Path(f'Art/UI/GigCraft/{family}_{state}.svg')
+                  assert path.is_file(),path
+                  data=path.read_text()
+                  assert '<svg' in data and 'gradient' in data.lower() and 'viewBox' in data,path
+                  assert not any(s in data for s in ('£','CASH','THE LANTERN ROOM','SONG 1','SONG 2')),path
+          for path in ('Art/UI/GigCraft/showboard.svg','Art/UI/GigCraft/README.md',
+                       'Art/Backgrounds/shared/gear.webp','Art/Backgrounds/shared/backstage.webp',
+                       'Art/Backgrounds/shared/gigs.webp','Art/Fonts/BarlowCondensed-SemiBold.ttf',
+                       'Art/Fonts/IBMPlexMono-Regular.ttf'):
+              assert Path(path).is_file(),path
+          print('S05 40 original five-state hardware SVGs and 3 existing source-backed images verified')
+          PY
+      - name: Godot import and real show settlement tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          for script in tests/sprint01_touring_tests.gd tests/ldtd_s05_gig_tests.gd; do
+            godot --headless --audio-driver Dummy --path . --script "res://$script" 2>&1 | tee /tmp/test.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|S05 FAILURE:|ERROR:' /tmp/test.log
+          done
+          grep -q 'LDTD S05 GIG DAY DUSK NIGHT, THREE CUES AND ONCE-ONLY CALENDAR SETTLEMENT PASSED' /tmp/test.log
+      - name: Actual native Godot four-device DAY and DUSK NIGHT AFTER
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s05_gig.gd -- --moment=day --width="$w" --height="$h" --output="screenshots/s05-gig-day-$dims.png" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD S05 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          done
+          for moment in dusk night after; do
+            for dims in 390x844 1280x720; do
+              w="${dims%x*}"; h="${dims#*x}"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s05_gig.gd -- --moment="$moment" --width="$w" --height="$h" --output="screenshots/s05-gig-$moment-$dims.png" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD S05 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          paths=list(Path('screenshots').glob('s05-gig-*.png'))
+          assert len(paths)==10,paths
+          for path in paths:
+              data=path.read_bytes()[:24]
+              assert data[:8]==bytes.fromhex('89504e470d0a1a0a'),path
+              assert struct.unpack('>II',data[16:24]) in {(390,844),(720,1280),(1280,720),(1600,900)},path
+          print('S05 TEN NATIVE GODOT PNG DIMENSIONS VERIFIED')
+          PY
+      - name: Upload actual Godot gig-night renderer proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-s05-gig-ten-godot
+          path: screenshots/s05-gig-*.png
+          if-no-files-found: warn
+          retention-days: 21
