@@ -107,7 +107,7 @@ func _rebuild() -> void:
  _text(col,"DUSK / ARRIVAL" if stage == "arrival" else "DAY / ROAD DESK",13,p["muted"],"JourneyPhase")
  var case := Control.new()
  case.name = "JourneyRoadCase"
- case.custom_minimum_size.y = (182 if compact else (201 if mobile else 214))*_scale
+ case.custom_minimum_size.y = (194 if compact else (213 if mobile else 226))*_scale
  case.clip_contents = true
  col.add_child(case)
  _texture(case,CASE_ART)
@@ -117,7 +117,7 @@ func _rebuild() -> void:
  for side in ["left","right"]:
   case_margin.add_theme_constant_override("margin_"+side,roundi((43 if mobile else 48)*_scale))
  for side in ["top","bottom"]:
-  case_margin.add_theme_constant_override("margin_"+side,roundi((14 if compact else 17)*_scale))
+  case_margin.add_theme_constant_override("margin_"+side,roundi((10 if compact else 12)*_scale))
  var case_col := VBoxContainer.new()
  case_col.add_theme_constant_override("separation",roundi(5*_scale))
  case_margin.add_child(case_col)
