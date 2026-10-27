@@ -26,6 +26,12 @@ func _run() -> void:
 	_check(lab.van_ready, "latch toggles state")
 	lab.set_context("dusk")
 	_check(lab.phase == "dusk" and lab.stop_id == "cardiff" and lab.van_ready, "phase preserves route and latch")
+	var dusk_button: Button = lab.find_child("PhaseDusk", true, false)
+	_check(dusk_button != null, "dusk control exists")
+	if dusk_button != null:
+		var style: StyleBoxFlat = dusk_button.get_theme_stylebox("normal")
+		var text_ink: Color = dusk_button.get_theme_color("font_color")
+		_check(Worlds.contrast_ratio(text_ink, style.bg_color) >= 4.5, "selected dusk button contrast")
 	lab.set_context("night")
 	_check(lab.phase == "night", "night phase supported")
 	lab.set_context("not-a-phase")
