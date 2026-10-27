@@ -8,6 +8,10 @@ on:
       - 'poc/tour_controls_lab.*'
       - 'tests/tour_control_lab_tests.gd'
       - 'tests/capture_tour_controls.gd'
+      - 'Scripts/tour_planning_poc_model.gd'
+      - 'poc/tour_planning_journey.*'
+      - 'tests/tour_planning_journey_tests.gd'
+      - 'tests/capture_tour_planning_journey.gd'
       - 'poc/scene_worlds_day_night.*'
       - 'tests/scene_world_theme_tests.gd'
       - 'tests/capture_scene_worlds.gd'
@@ -34,6 +38,7 @@ jobs:
           godot --headless --path . --editor --import --quit
           godot --headless --path . --script res://tests/scene_world_theme_tests.gd
           godot --headless --path . --script res://tests/tour_control_lab_tests.gd
+          godot --headless --path . --script res://tests/tour_planning_journey_tests.gd
       - name: Capture day dusk night in three viewports
         shell: bash
         run: |
@@ -53,10 +58,16 @@ jobs:
               xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_tour_controls.gd -- --phase="$phase" --width="$w" --height="$h" --output="screenshots/tour-controls-$phase-$dims.png"
             done
           done
+          for dims in 390x844 720x1280 1280x720; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for moment in day arrival; do
+              xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_tour_planning_journey.gd -- --moment="$moment" --width="$w" --height="$h" --output="screenshots/tour-journey-$moment-$dims.png"
+            done
+          done
           python3 - <<'PY'
           import glob, struct
           paths=glob.glob("screenshots/*.png")
-          assert len(paths)==17, (len(paths),paths)
+          assert len(paths)==23, (len(paths),paths)
           for p in paths:
               with open(p,"rb") as f: header=f.read(24)
               assert header[:8]==bytes.fromhex("89504e470d0a1a0a"), p
