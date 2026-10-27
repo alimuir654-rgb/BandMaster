@@ -23,7 +23,7 @@ static func _person(id: String, name: String, gender: String, age: int, town: St
 
 static func people() -> Array:
  return [
-  _person("erin_walsh","Erin Walsh","Woman",24,"Bristol",["Singer","Guitarist"],[8,7,6,8,8,6],39,3,8,"Driven","Played tiny venues up and down the M4. Strong melodic instinct but insists on rewriting finished choruses.","Distinctive vocal phrasing and rhythm guitar","Can dominate creative decisions","Wants to make a record, not just play covers"),
+  _person("alex","Alex Vale","Non-binary",24,"Bristol",["Singer","Guitarist"],[8,7,6,8,8,6],39,3,8,"Driven","Played tiny venues up and down the M4. Strong melodic instinct but insists on rewriting finished choruses.","Distinctive vocal phrasing and rhythm guitar","Can dominate creative decisions","Wants to make a record, not just play covers"),
   _person("josh_bennett","Josh Bennett","Man",22,"Sheffield",["Singer"],[7,5,8,9,4,4],20,1,4,"Charismatic","Used to front a lively covers band. Excellent at winning a room but has little experience writing his own songs.","Huge live energy","Needs help with lyrics and melody","Wants a band that gets people moving"),
   _person("aisha_khan","Aisha Khan","Woman",27,"Manchester",["Singer","Keyboardist"],[9,8,7,5,9,9],41,2,10,"Thoughtful","Writes at the piano after work and has been the quiet creative centre of two previous bands.","Soulful songs and inventive harmonies","Stage nerves; takes time to trust new people","Wants creative control and proper rehearsal time"),
   _person("tom_hargreaves","Tom Hargreaves","Man",25,"Leeds",["Singer","Drummer"],[5,7,8,7,6,4],23,4,8,"Unpredictable","Sings while playing drums and makes ambitious arrangements sound spontaneous. Often arrives with three new ideas.","Unusual rhythms and a strong point of view","Can be a troublemaker under pressure","Wants to escape routine bar gigs"),
@@ -43,8 +43,8 @@ static func people() -> Array:
   _person("michael_fraser","Michael Fraser","Man",30,"Glasgow",["Bassist"],[],19,5,13,"Dependable","A thoughtful player who has survived plenty of lineup changes.","Musical patience","Not naturally adventurous","Wants stability and worthwhile songs"),
   _person("grace_fisher","Grace Fisher","Woman",21,"Manchester",["Bassist"],[],22,0,3,"Driven","Young player with sharp instincts and few bad habits.","Fast improvement and new ideas","Limited stage experience","Wants her first proper band"),
   _person("ash_paterson","Ash Paterson","Non-binary",28,"Edinburgh",["Bassist"],[],25,3,9,"Independent","Builds sub-heavy parts with a small collection of old effects.","Distinctive tone and atmosphere","Hard to pin down socially","Wants to work with unusual music"),
-  _person("liam_foster","Liam Foster","Man",25,"Nottingham",["Bassist"],[],28,2,7,"Combative","Aggressive bass player whose previous bands liked the sound more than the arguments.","Drive and presence","Short temper in rehearsals","Wants to prove himself"),
-  _person("hannah_cole","Hannah Cole","Woman",29,"Liverpool",["Bassist"],[],34,4,12,"Thoughtful","Rooted in soul and jazz, with a measured way of improving arrangements.","Feel and musical empathy","Prefers well-prepared rehearsals","Wants long-term collaborators"),
+  _person("dev","Dev Shah","Man",25,"Nottingham",["Bassist"],[],28,2,7,"Combative","Aggressive bass player whose previous bands liked the sound more than the arguments.","Drive and presence","Short temper in rehearsals","Wants to prove himself"),
+  _person("sam","Sam Clarke","Woman",29,"Liverpool",["Bassist"],[],34,4,12,"Thoughtful","Rooted in soul and jazz, with a measured way of improving arrangements.","Feel and musical empathy","Prefers well-prepared rehearsals","Wants long-term collaborators"),
   _person("mia_turner","Mia Turner","Woman",24,"Birmingham",["Keyboardist"],[],29,2,7,"Creative","Turns ordinary pop chords into unfamiliar textures.","Arrangement imagination","Always asks for more studio time","Wants to find a fresh sound"),
   _person("jack_doherty","Jack Doherty","Man",32,"Belfast",["Keyboardist"],[],32,5,14,"Dependable","A pub pianist who can accompany almost anybody.","Fluent playing and patience","Less confident writing original material","Wants a band of his own"),
   _person("hollie_cooper","Hollie Cooper","Woman",27,"Leeds",["Keyboardist"],[],35,3,10,"Independent","Plays antique synths with a collection of homemade patches.","Memorable electronic textures","Finicky about equipment","Wants to make a strange but accessible record"),
@@ -52,7 +52,7 @@ static func people() -> Array:
   _person("yasmin_ali","Yasmin Ali","Woman",26,"Manchester",["Keyboardist"],[],43,2,9,"Thoughtful","Combines piano technique with modern studio sounds.","Warm chords and subtle hooks","Quiet in group decisions","Wants a collaborative songwriting home"),
   _person("fred_mason","Fred Mason","Man",30,"Bristol",["Keyboardist"],[],46,4,12,"Perfectionist","Former theatre player who can arrange a song on the spot.","Strong harmonic understanding","Pushes everyone hard at practice","Wants more creative freedom"),
   _person("eve_mclean","Eve McLean","Woman",22,"Edinburgh",["Keyboardist"],[],49,0,4,"Charismatic","Brings stage energy and bold synth melodies.","Live presence and confidence","Little band experience","Wants to tour as soon as possible"),
-  _person("isla_mitchell","Isla Mitchell","Woman",25,"Bristol",["Drummer"],[],33,2,8,"Dependable","Excellent timekeeper who always arrives knowing the set.","Trustworthy groove","Not much tolerance for disorganisation","Wants good songs and reliable friends"),
+  _person("jo","Jo Mercer","Woman",25,"Bristol",["Drummer"],[],33,2,8,"Dependable","Excellent timekeeper who always arrives knowing the set.","Trustworthy groove","Not much tolerance for disorganisation","Wants good songs and reliable friends"),
   _person("harry_wright","Harry Wright","Man",23,"Leeds",["Drummer"],[],36,1,5,"Restless","A fast drummer from short-lived punk bands.","Energy and aggression","Can rush a slower song","Wants a packed small venue"),
   _person("faye_morgan","Faye Morgan","Woman",29,"Sheffield",["Drummer"],[],42,4,12,"Perfectionist","Studied jazz and knows how to anchor strange rhythms.","Technical confidence","Gets impatient with sloppy players","Wants challenging music"),
   _person("jamie_mcbride","Jamie McBride","Man",27,"Belfast",["Drummer"],[],45,3,9,"Steady","A laid-back kit player who makes rehearsals feel easy.","Consistent timing and teamwork","Rarely pushes for new arrangements","Wants a band that stays together"),
@@ -144,8 +144,4 @@ static func missing(roster: Array) -> String:
  return ", ".join(parts)
 
 static func portrait_id(person: Dictionary) -> String:
- # Existing four licensed source assets use these stable historical IDs.
- var matched: Dictionary = {
-  "erin_walsh":"alex", "isla_mitchell":"jo", "hannah_cole":"sam", "liam_foster":"dev"
- }
- return str(matched.get(str(person["id"]),person["id"]))
+ return str(person["id"])
