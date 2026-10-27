@@ -1,0 +1,60 @@
+name: Premium photographic fader quality
+on:
+  push:
+    branches: [premium-hardware-fader-visual-rework]
+  workflow_dispatch:
+
+jobs:
+  godot-fader:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot and screen renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import photo assets and validate real interactions
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          godot --headless --path . --script res://tests/premium_fader_quality_tests.gd 2>&1 | tee /tmp/fader.log
+          grep -q 'PREMIUM FADER ENGINE TESTS PASSED' /tmp/fader.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/fader.log
+      - name: Capture 36 genuine Godot control states
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day dusk night; do
+              for level in 0 50 100; do
+                xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_premium_fader_quality.gd -- --phase="$phase" --level="$level" --width="$w" --height="$h" --output="screenshots/fader-$phase-$level-$dims.png" 2>&1 | tee /tmp/capture.log
+                grep -q 'PREMIUM FADER CAPTURE PASSED' /tmp/capture.log
+                ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/capture.log
+              done
+            done
+          done
+          python3 - <<'PY'
+          import glob,struct
+          files=glob.glob('screenshots/fader-*.png')
+          assert len(files)==36,len(files)
+          for p in files:
+            with open(p,'rb') as f: hdr=f.read(24)
+            assert hdr[:8]==bytes.fromhex('89504e470d0a1a0a'),p
+            assert struct.unpack('>II',hdr[16:24]) in ((390,844),(720,1280),(1280,720),(1600,900)),p
+          print('36 REAL GODOT FADER PNGS VERIFIED')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: premium-photographic-fader-review-36
+          path: screenshots/fader-*.png
+          retention-days: 21
+          if-no-files-found: warn
