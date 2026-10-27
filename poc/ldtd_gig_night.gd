@@ -305,8 +305,12 @@ func _render() -> void:
 	caption.add_theme_color_override("font_outline_color",Color("#17242B"))
 	_rect(caption,12,photo_h-29,photo_w-22,23)
 	if not narrow:
-		var scene_note := _label(page,"StageAtmosphereNote",
-			"LOAD-IN NOTES\n\nCASES / CABLES / BACKLINE\n\nTHE SET IS THE BAND’S CHOICE.",
+		var scene_note_text: String = "LOAD-IN NOTES\n\nCASES / CABLES / BACKLINE\n\nCHECK THE GEAR BEFORE DOORS."
+		if journey_step==1:
+			scene_note_text = "SOUNDCHECK NOTES\n\nTEST THE LIVE SIGNAL\n\nAGREE THE SET BEFORE STAGE."
+		elif journey_step>=2:
+			scene_note_text = "STAGE NOTES\n\nHOLD / GO / ENCORE\n\nTHREE SONGS. ONE SETTLEMENT."
+		var scene_note := _label(page,"StageAtmosphereNote",scene_note_text,
 			17,Color("#F6EAD7") if not day else Color("#293B40"),"display")
 		_rect(scene_note,left+16,379,photo_w-32,128)
 
@@ -328,7 +332,8 @@ func _render() -> void:
 	_rect(board,board_x,board_y,board_w,board_h)
 	var inner: float = board_w-32.0
 	var title := _label(board,"GigBoardTitle","THE CALL SHEET" if journey_step<3 else "THE AFTERSHOW",25 if narrow else 30,INK,"display")
-	_rect(title,28,11,inner-14.0,39)
+	# Keep live title clear of the actual metal screw/rivet at the upper left.
+	_rect(title,28 if narrow else 49,11,inner-(14.0 if narrow else 35.0),39)
 	var booked: Dictionary = demo_state.get("booked_show",{})
 	var last: Dictionary = demo_state.get("gig_history",[]).back() if not demo_state.get("gig_history",[]).is_empty() else {}
 	var stats_text: String = "DAY %d  /  %s  /  CASH £%d" % [int(demo_state.get("tour_day",1)),str(booked.get("venue","THE LANTERN ROOM")).to_upper(),int(demo_state.get("cash",0))]
