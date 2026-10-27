@@ -35,7 +35,7 @@ jobs:
             w="${dims%x*}"; h="${dims#*x}"
             for phase in day dusk night; do
               for level in 0 50 100; do
-                xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_premium_fader_quality.gd -- --phase="$phase" --level="$level" --width="$w" --height="$h" --output="screenshots/fader-$phase-$level-$dims.png" 2>&1 | tee /tmp/capture.log
+                xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_premium_fader_quality.gd -- --phase="$phase" --level="$level" --width="$w" --height="$h" --output="screenshots/fader-$phase-$level-$dims.png" 2>&1 | tee /tmp/capture.log
                 grep -q 'PREMIUM FADER CAPTURE PASSED' /tmp/capture.log
                 ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/capture.log
               done
