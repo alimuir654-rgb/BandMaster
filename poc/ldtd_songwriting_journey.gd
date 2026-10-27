@@ -5,7 +5,7 @@ extends Control
 const Model = preload("res://Scripts/ldtd_songwriting_preview.gd")
 const Pad = preload("res://Scripts/ldtd_songwriting_pad.gd")
 const Transport = preload("res://Scripts/premium_transport_key.gd")
-const Rotary = preload("res://Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/studio_control.gd")
+const Rotary = preload("res://Scripts/ldtd_songwriting_rotary.gd")
 const Craft = preload("res://Scripts/formation_craft_skin.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 const PHASES := ["day", "dusk", "night"]
