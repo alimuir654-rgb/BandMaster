@@ -21,8 +21,8 @@ func _ready() -> void:
 	background.name = "FaderTimeBackdrop"
 	add_child(background)
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	heading = _label("PremiumHeading", "LIVING THE DREAM / FADER WORKBENCH", 28)
-	caption = _label("PremiumCaption", "LAB 08.4  /  PHOTOGRAPHIC METAL · MOVING CAPS", 15)
+	heading = _label("PremiumHeading", "LIVING THE DREAM", 28)
+	caption = _label("PremiumCaption", "FADER LAB 08.4  /  ORIGINAL HARDWARE", 15)
 	readout_h = _label("HorizontalReadout", "", 17)
 	readout_v = _label("VerticalReadout", "", 17)
 	for context in PHASES:
@@ -77,7 +77,18 @@ func set_phase(next: String) -> void:
 		var btn: Button = phase_buttons[context]
 		btn.button_pressed = context == phase
 		btn.disabled = context == phase
-		btn.modulate = Color.WHITE if context == phase else Color(0.8, 0.8, 0.8, 0.8)
+		btn.modulate = Color.WHITE
+		var active: bool = context == phase
+		var surface := StyleBoxFlat.new()
+		surface.bg_color = Color("#E6CA8C") if active and phase == "day" else (Color("#B88C52") if active else Color(0.0, 0.0, 0.0, 0.0))
+		surface.set_corner_radius_all(4)
+		btn.add_theme_stylebox_override("normal", surface)
+		btn.add_theme_stylebox_override("disabled", surface)
+		btn.add_theme_stylebox_override("hover", surface)
+		var tab_ink: Color = Color("#202B2E") if phase == "day" or active else Color("#F1EEE8")
+		btn.add_theme_color_override("font_color", tab_ink)
+		btn.add_theme_color_override("font_hover_color", tab_ink)
+		btn.add_theme_color_override("font_disabled_color", tab_ink)
 	_refresh_readouts()
 
 func _refresh_readouts() -> void:
