@@ -398,9 +398,18 @@ void fragment() {
 	_primary.name = "SongwritingCommitSession"
 	_primary.text = "COMMIT SESSION  /  1 DAY" if stage == "editing" else "ORIGINAL COMPLETE  /  3 SESSIONS"
 	Craft.apply_to(_primary, "commit", true, 53.0)
+	# Original disabled stamp is pale; its text must remain readable when done.
+	_primary.add_theme_color_override("font_disabled_color", Color("#203A42"))
 	_primary.disabled = stage != "editing" or not bool(session_preview().get("ok", false))
 	_primary.pressed.connect(commit_session)
 	dock.add_child(_primary)
 	_rect(_primary, 10, 8, w - 44, 52)
-	_status = _label(dock, "SongwritingStatus", last_message, 13, quiet)
+	var dock_message: String = last_message
+	if narrow:
+		dock_message = "ORIGINAL COMPLETE  /  3 SESSIONS" if stage == "finished" else (
+			"SESSION %d/3  /  DAY %d  /  NO SAVE WRITES" % [
+				mini(3, int(local_state.get("song_draft_progress", 0)) + 1),
+				int(local_state.get("tour_day", 1))])
+	_status = _label(dock, "SongwritingStatus", dock_message, 13, quiet)
+	_status.clip_text = true
 	_rect(_status, 13, 65, w - 50, 24)
