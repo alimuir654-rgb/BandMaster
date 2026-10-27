@@ -228,9 +228,12 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
   var yy: float=y+row_h*float(idx)
   var name_w := 125.0 if _landscape else 103.0
   _text(parent,str(names[idx]),x,yy,name_w,row_h-1,15 if _landscape else 13,WHITE,FONT_BODY)
+  var meter_x:=x+name_w+3.0
+  var meter_w:=maxf(55.0,w-name_w-57.0)
+  _art(parent,ART+"meter_glass_rail.svg",meter_x,yy+2.0,meter_w,row_h-4.0)
   var meter:=Meter.new()
-  meter.position=Vector2(x+name_w+5,yy+4)
-  meter.size=Vector2(maxf(55.0,w-name_w-56.0),row_h-8)
+  meter.position=Vector2(meter_x+5.0,yy+4.0)
+  meter.size=Vector2(maxf(45.0,meter_w-10.0),row_h-8.0)
   meter.value=int(scores[idx])
   meter.mouse_filter=Control.MOUSE_FILTER_IGNORE
   meter.focus_mode=Control.FOCUS_NONE
