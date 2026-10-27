@@ -232,8 +232,9 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
  var scores: Array=Model.stats_for(person,role)
  for idx in range(6):
   var yy: float=y+row_h*float(idx)
-  var name_w := 125.0 if _landscape else 103.0
-  _text(parent,str(names[idx]),x,yy,name_w,row_h-1,15 if _landscape else 13,WHITE,FONT_BODY)
+  var tablet:bool=not _landscape and _view_w>=600.0
+  var name_w := 145.0 if tablet else (125.0 if _landscape else 103.0)
+  _text(parent,str(names[idx]),x,yy,name_w,row_h-1,18 if tablet else (15 if _landscape else 13),WHITE,FONT_BODY)
   var meter_x:=x+name_w+3.0
   var meter_w:=maxf(55.0,w-name_w-57.0)
   _art(parent,ART+"meter_glass_rail.svg",meter_x,yy+2.0,meter_w,row_h-4.0)
@@ -244,7 +245,7 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
   meter.mouse_filter=Control.MOUSE_FILTER_IGNORE
   meter.focus_mode=Control.FOCUS_NONE
   parent.add_child(meter)
-  _text(parent,str(scores[idx])+"/10",x+w-49,yy,48,row_h-1,14,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_RIGHT)
+  _text(parent,str(scores[idx])+"/10",x+w-49,yy,48,row_h-1,18 if tablet else 14,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_RIGHT)
 
 func _dossier(parent: Node,p: Dictionary,b:Rect2,compact:bool=false) -> void:
  _art(parent,ART+"paper_personnel.svg",b.position.x,b.position.y,b.size.x,b.size.y)
@@ -369,7 +370,7 @@ func _portrait_scene(parent: Node) -> void:
   _text(parent,"MAKE IT YOURS",18,165,w-36,48,35,CREAM,FONT_TITLE)
   _name_line(parent,18,235,w-36,58)
   _text(parent,genre+"  /  "+str(roster.size())+" MEMBERS",18,327,w-36,42,17,WHITE,FONT_BODY)
-  _lineup_paper(parent,Rect2(18,390,w-36,292))
+  _lineup_paper(parent,Rect2(18,390,w-36,640 if w>=600.0 else 292))
  else:
   if _bio_open:
    _mobile_file(parent,w,h)
@@ -379,16 +380,17 @@ func _portrait_scene(parent: Node) -> void:
 
 func _mobile_genre(parent: Node,w:float,h:float) -> void:
  _text(parent,"THE MUSIC COMES FIRST",18,99,w-36,43,30,CREAM,FONT_TITLE)
+ var tablet:bool=w>=600.0
  var names:Array=Model.genres()
  for i in range(names.size()):
   var label:String=str(names[i])
   var cols:=2
   var width:float=(w-42.0)/2.0
   var x:float=13.0+float(i%cols)*(width+12.0)
-  var y:float=145.0+float(i/cols)*49.0
-  _plate(parent,label,Rect2(x,y,width,48),func() -> void: _set_genre(label),label==genre,true,"metal_tab",17)
- _text(parent,str(Formation.GENRES[genre]["description"]),18,h-237,w-36,58,16,WHITE,FONT_BODY,true)
- _plate(parent,"MEET THE MUSICIANS",Rect2(18,h-184,w-36,48),func() -> void: _next(),false,true,"amber_key",23)
+  var y:float=145.0+float(i/cols)*(92.0 if tablet else 49.0)
+  _plate(parent,label,Rect2(x,y,width,72 if tablet else 48),func() -> void: _set_genre(label),label==genre,true,"metal_tab",20 if tablet else 17)
+ _text(parent,str(Formation.GENRES[genre]["description"]),18,h-(400 if tablet else 237),w-36,75 if tablet else 58,20 if tablet else 16,WHITE,FONT_BODY,true)
+ _plate(parent,"MEET THE MUSICIANS",Rect2(18,h-(320 if tablet else 184),w-36,60 if tablet else 48),func() -> void: _next(),false,true,"amber_key",24 if tablet else 23)
 
 func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  var can_name:bool=Model.viable(roster)
@@ -415,15 +417,27 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  _text(parent,str(p["name"]).to_upper(),75,178,w-151,34,26,WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
  _text(parent,str(candidate_index+1)+"/6",75,211,w-151,22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
  _transport(parent,"▶",Rect2(w-72,179,56,44),func() -> void: _move(1))
- _portrait_picture(parent,Rect2(74,242,w-148,175),p)
- _text(parent,(" / ".join(PackedStringArray(p["roles"]))+"  •  "+str(p["town"])),18,418,w-36,26,15,CREAM,FONT_BODY,false,HORIZONTAL_ALIGNMENT_CENTER)
- _meters(parent,p,17,450,w-34,27)
- _text(parent,str(p["bands"])+" BANDS  •  "+str(p["years_playing"] if p.has("years_playing") else p["experience_years"])+" YRS  •  "+str(p["personality"]),18,617,w-36,30,13,WHITE,FONT_BODY)
+ # A 720px portrait viewport is a tablet composition, not a 390px phone
+ # stretched sideways. Give the source portrait real height and scale the
+ # passive meter bank before the action and fixed roster dock.
+ var tablet:bool=w>=600.0
+ var photo_w:float=440.0 if tablet else w-148.0
+ var photo_h:float=350.0 if tablet else 175.0
+ var photo_x:float=(w-photo_w)*0.5 if tablet else 74.0
+ var photo_y:float=242.0
+ _portrait_picture(parent,Rect2(photo_x,photo_y,photo_w,photo_h),p)
+ var role_y:float=photo_y+photo_h
+ _text(parent,(" / ".join(PackedStringArray(p["roles"]))+"  •  "+str(p["town"])),18,role_y,w-36,26,18 if tablet else 15,CREAM,FONT_BODY,false,HORIZONTAL_ALIGNMENT_CENTER)
+ var meter_y:float=role_y+32.0
+ var meter_row:float=35.0 if tablet else 27.0
+ _meters(parent,p,17,meter_y,w-34,meter_row)
+ var summary_y:float=meter_y+meter_row*6.0+5.0
+ _text(parent,str(p["bands"])+" BANDS  •  "+str(p["years_playing"] if p.has("years_playing") else p["experience_years"])+" YRS  •  "+str(p["personality"]),18,summary_y,w-36,30,17 if tablet else 13,WHITE,FONT_BODY)
+ var action_y:float=summary_y+38.0
  var already:bool=Model.contains(roster,str(p["id"]))
- _plate(parent,"REMOVE" if already else ("ADD  /  "+str(Model.incremental_cost(roster,p))+" PTS"),Rect2(12,655,(w-36)/2,52),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",23)
- # Full biography is scrollable from a genuine paper dossier, never squeezed into tiny print.
- # A second page is available by pressing the clearly labelled dossier control.
- _plate(parent,"PERSON FILE",Rect2((w-36)/2+24,655,(w-36)/2,52),func() -> void: _show_dossier(),false,true,"metal_tab",17)
+ _plate(parent,"REMOVE" if already else ("ADD  /  "+str(Model.incremental_cost(roster,p))+" PTS"),Rect2(12,action_y,(w-36)/2,52),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",23)
+ # The full paper file remains a separate intentional material view.
+ _plate(parent,"PERSON FILE",Rect2((w-36)/2+24,action_y,(w-36)/2,52),func() -> void: _show_dossier(),false,true,"metal_tab",17)
 
 func _show_dossier() -> void:
  if step!=1:
@@ -473,11 +487,11 @@ func _name_line(parent: Node,x:float,y:float,w:float,h:float) -> void:
  var skin:=StyleBoxTexture.new()
  skin.texture=load(ART+"metal_tab_idle.svg")
  skin.set_texture_margin_all(12.0)
- skin.set_content_margin_all(17.0)
+ skin.set_content_margin_all(35.0)
  var focus_skin:=StyleBoxTexture.new()
  focus_skin.texture=load(ART+"metal_tab_hover.svg")
  focus_skin.set_texture_margin_all(12.0)
- focus_skin.set_content_margin_all(17.0)
+ focus_skin.set_content_margin_all(35.0)
  var edit_theme:=Theme.new()
  edit_theme.set_stylebox("normal","LineEdit",skin)
  edit_theme.set_stylebox("focus","LineEdit",focus_skin)
