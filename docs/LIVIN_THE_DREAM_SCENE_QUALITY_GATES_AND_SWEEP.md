@@ -68,3 +68,8 @@ Owner rejected generic `Button` skins, flat panel rooms, dark photo behind DAY, 
 
 ### Corrective example: S02B formation
 Original source state set in `Art/UI/FormationCraft`: 4 distinct stationery control genres × 5 visual states, real Godot text, native focus, original deterministic 22-PNG + SHA manifest, textured workspace. [S02B Godot proof 40509981048](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40509981048) passes 9 native device renders, 4 material families and once-only mechanics. **Visual hold remains OPEN** due unrealistic cork granules, weak typography and dark room photo in DAY. The next step is genuine texture/daylight sourcing and art-direction refinement, not a return to generic S03.
+
+## Owner first-pass exception and concrete material direction — 27 Oct 2026 ~14:09 UK
+The owner has now **accepted S02 formation/rehearsal as an acceptable first pass**, despite remaining polish, and explicitly authorized the next scene-family sprint queue through 21:00 UK today. The previous owner quality reset / P0 gate still applies to **final production art** and substantive safety/correctness failures; it no longer categorically prevents S03–S07 first-pass experimentation. Do not silently downgrade physical control source, day/night, readability, four native device captures or gameplay correctness tests.
+
+**Specific owner request, deferred for S07:** replace casual masking tape, scratchy or random cork decoration on formation with convincingly placed **metal pins/pushpins** anchoring visible paper, photos and notes to subdued real cork. No fake decor pins floating without paper contact; native live content/controls outside bitmaps. First-pass acceptance is not permission to merge any stacked draft to `main`.
