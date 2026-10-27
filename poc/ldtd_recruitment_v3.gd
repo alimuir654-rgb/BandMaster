@@ -254,7 +254,7 @@ func _recruitment(parent: Node) -> void:
  tabs_scroll.add_child(tabs)
  for r in Model.ROLE_TABS:
   var selected_role := str(r)
-  _button(tabs,str(r).to_upper()+"S",func() -> void: _set_role(selected_role),role==selected_role,false,49).custom_minimum_size.x=110
+  _button(tabs,str(r).to_upper()+"S",func() -> void: _set_role(selected_role),role==selected_role,false,49).custom_minimum_size.x=maxf(110.0,110.0*_touch_factor())
  _current=_selected()
  if _current.is_empty():
   _label(parent,"No candidates for this role in this genre.",16,C_WHITE)
