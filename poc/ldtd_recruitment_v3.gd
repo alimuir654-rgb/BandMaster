@@ -57,12 +57,12 @@ func _style(fill: Color, radius: int=8, stroke: Color=C_LINE) -> StyleBoxFlat:
  s.set_content_margin_all(9)
  return s
 
-func _label(parent: Node, s: String, font_size: int=15, colour: Color=C_WHITE) -> Label:
+func _label(parent: Node, s: String, font_size: int=15, colour: Color=C_WHITE, wrap: bool=false) -> Label:
  var l := Label.new()
  l.text=s
  l.add_theme_color_override("font_color",colour)
  l.add_theme_font_size_override("font_size",maxi(font_size,ceili(float(font_size)*minf(_touch_factor(),1.5))))
- l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+ l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART if wrap else TextServer.AUTOWRAP_OFF
  parent.add_child(l)
  return l
 
@@ -173,8 +173,8 @@ func _header(parent: Node) -> void:
 
 func _choose_genre(parent: Node) -> void:
  var intro := _panel(parent)
- _label(intro,"Choose your genre before meeting the musicians.",18,C_WHITE)
- _label(intro,"Different scenes attract different people. The singer who fits punk may not be the one you meet in synth-pop.",14,C_MUTED)
+ _label(intro,"Choose your genre before meeting the musicians.",18,C_WHITE,true)
+ _label(intro,"Different scenes attract different people. The singer who fits punk may not be the one you meet in synth-pop.",14,C_MUTED,true)
  var wrap := GridContainer.new()
  wrap.columns=3 if _wide else 2
  wrap.add_theme_constant_override("h_separation",10)
@@ -185,7 +185,7 @@ func _choose_genre(parent: Node) -> void:
   var btn := _button(wrap,value,func() -> void: _select_genre(value),value==genre,false,60)
   btn.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var description := _panel(parent)
- _label(description,str(Formation.GENRES[genre]["description"]),17,C_WHITE)
+ _label(description,str(Formation.GENRES[genre]["description"]),17,C_WHITE,true)
  _label(description,"STRENGTH  "+str(Formation.GENRES[genre]["strength"]),13,C_GOLD)
  _label(description,"TRADE-OFF  "+str(Formation.GENRES[genre]["challenge"]),13,C_MUTED)
 
@@ -244,7 +244,7 @@ func _recruitment(parent: Node) -> void:
  var g := _label(top,genre.to_upper()+"  /  "+str(roster.size())+" RECRUITED",14,C_GOLD)
  g.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  if not _wide:
-  _label(top,"200 POINT CAP",12,C_MUTED)
+  pass  # Talent total stays in the always-visible bottom dock.
  var tabs_scroll := ScrollContainer.new()
  tabs_scroll.custom_minimum_size.y=_minimum_hit_height(60.0)+10.0
  tabs_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO
@@ -301,11 +301,14 @@ func _portrait_and_stats(parent: Node) -> void:
  portrait_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  portrait_box.add_theme_stylebox_override("panel",_style(Color("#17191C"),6,Color("#6E6152")))
  center.add_child(portrait_box)
+ var holder := CenterContainer.new()
+ portrait_box.add_child(holder)
  var photo := Portrait.new()
- photo.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- photo.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ photo.custom_minimum_size=Vector2(270,300) if _wide else Vector2(240,300)
+ photo.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
+ photo.size_flags_vertical=Control.SIZE_SHRINK_CENTER
  photo.set_character(Model.portrait_id(_current),str(_current["name"]),"indie")
- portrait_box.add_child(photo)
+ holder.add_child(photo)
  var id := Model.portrait_id(_current)
  if not ResourceLoader.exists("res://Art/Portraits/indie/"+id+".webp"):
   _label(center,"PROFILE ID CARD  •  PHOTO ART PENDING",11,C_MUTED)
@@ -332,16 +335,16 @@ func _character_notes(parent: Node) -> void:
  var notes := _panel(parent,C_PAPER,Vector2(310,0) if _wide else Vector2.ZERO)
  notes.get_parent().size_flags_stretch_ratio=1.15
  _label(notes,"PERSONNEL FILE  /  "+str(_current["name"]).to_upper(),15,C_INK)
- _label(notes,str(_current["story"]),15,C_INK)
+ _label(notes,str(_current["story"]),15,C_INK,true)
  var line := HSeparator.new()
  notes.add_child(line)
- _label(notes,"STRENGTH  +  "+str(_current["strength"]),13,Color("#245A3A"))
- _label(notes,"WATCH OUT  −  "+str(_current["friction"]),13,Color("#A33C2D"))
+ _label(notes,"STRENGTH  +  "+str(_current["strength"]),13,Color("#245A3A"),true)
+ _label(notes,"WATCH OUT  −  "+str(_current["friction"]),13,Color("#A33C2D"),true)
  _label(notes,"TEMPERAMENT  /  "+str(_current["personality"]),13,C_INK)
  _label(notes,"TROUBLE RISK  /  "+str(_current["trouble"]).to_upper(),13,C_INK)
  _label(notes,"BACKGROUND  /  %d PREVIOUS BANDS   •   %d YEARS PLAYING" % [int(_current["bands"]),int(_current["experience_years"])],13,C_INK)
  _label(notes,"AGE %d   /   %s   /   %s" % [int(_current["age"]),str(_current["town"]),str(_current["gender"])],13,C_INK)
- _label(notes,"LOOKING FOR  /  "+str(_current["ambition"]),13,C_INK)
+ _label(notes,"LOOKING FOR  /  "+str(_current["ambition"]),13,C_INK,true)
  _label(notes,"TALENT COST  /  %d POINTS" % Model.cost(_current),16,Color("#725015"))
 
 func _member_action() -> void:
@@ -359,7 +362,7 @@ func _member_action() -> void:
 
 func _name_step(parent: Node) -> void:
  var panel := _panel(parent)
- _label(panel,"The sound is taking shape. What will you call yourselves?",19,C_WHITE)
+ _label(panel,"The sound is taking shape. What will you call yourselves?",19,C_WHITE,true)
  _label(panel,"%d members  •  %s  •  %d points used" % [roster.size(),genre,Model.spent(roster)],14,C_GOLD)
  _name_entry=LineEdit.new()
  _name_entry.placeholder_text="Your band's name"
@@ -373,7 +376,7 @@ func _name_step(parent: Node) -> void:
  if completed:
   var success := _panel(parent,C_PAPER)
   _label(success,"LINEUP CREATED IN THE PROTOTYPE",19,C_INK)
-  _label(success,"This is a safe, local-state preview. Your existing saves and career have not been changed.",14,C_INK)
+  _label(success,"This is a safe, local-state preview. Your existing saves and career have not been changed.",14,C_INK,true)
 
 func _continue() -> void:
  if step==0:
@@ -399,7 +402,8 @@ func _build_footer(parent: Node) -> void:
  var dock := _panel(parent,Color("#171B20"))
  var info := HBoxContainer.new()
  dock.add_child(info)
- var summary := _label(info,("%d / 6 MEMBERS   •   %d / %d TALENT POINTS" % [roster.size(),Model.spent(roster),Model.MAX_TALENT]),14,C_GOLD)
+ var summary_text := ("%d / 6 MEMBERS   •   %d / %d TALENT POINTS" % [roster.size(),Model.spent(roster),Model.MAX_TALENT]) if _wide else ("%d/6  •  %d/200 PTS" % [roster.size(),Model.spent(roster)])
+ var summary := _label(info,summary_text,14,C_GOLD)
  summary.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var available := Model.MAX_TALENT-Model.spent(roster)
  _label(info,"%d LEFT" % available,14,C_WHITE)
@@ -407,7 +411,7 @@ func _build_footer(parent: Node) -> void:
   var slots := _label(dock,"LINEUP: "+("  /  ".join(PackedStringArray(roster.map(func(p): return str(p["name"])))) if not roster.is_empty() else "No members selected yet"),12,C_MUTED)
   slots.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   var missing := Model.missing(roster)
-  _label(dock,("READY TO NAME THE BAND" if Model.viable(roster) else "STILL NEED: "+missing),12,C_MUTED)
+  _label(dock,("READY TO NAME THE BAND" if Model.viable(roster) else "STILL NEED: "+missing),12,C_MUTED,true)
  var actions := HBoxContainer.new()
  actions.add_theme_constant_override("separation",8)
  dock.add_child(actions)
