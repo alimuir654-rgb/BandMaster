@@ -315,7 +315,7 @@ func _render() -> void:
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
 	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(photo_w - 20, 360), 30)
-	var tag: Label = _label(photo_tag, "PhotoSource", "REPO ROOM PHOTO  /  ART HOLD", 13, Color("#F5EEE1"))
+	var tag: Label = _label(photo_tag, "PhotoSource", "DAY ROOM  /  FIRST REHEARSAL", 13, Color("#F5EEE1"))
 	_rect(tag, 8, 4, minf(photo_w - 35, 340), 24)
 
 	# Landscape first-fold audition board: photograph and four meaningful
@@ -405,7 +405,7 @@ func _render() -> void:
 	journal.add_theme_color_override("default_color", Color("#3D4B4D"))
 	paper.add_child(journal)
 	_rect(journal, pleft, y, inner, 94)
-	var gate: Label = _label(paper, "MaterialGate", "REAL ROOM PHOTO  /  SCRAPBOOK MATERIAL: VISUAL HOLD", 14, Color("#745B35"))
+	var gate: Label = _label(paper, "MaterialGate", "PINNED NOTES  /  THE FIRST BAND WEEK", 14, Color("#745B35"))
 	_rect(gate, pleft, y + 156, inner, 52)
 	var paper_height: float = maxf(936.0, y + 226.0)
 	sheet.size.y = paper_height
@@ -428,9 +428,9 @@ func _render() -> void:
 	_primary = _button(dock, "FormationPrimaryAction", action_text, true, commit_stage)
 	_primary.disabled = stage == "summary" or (stage == "social" and outing_id.is_empty()) or (stage == "rehearsal" and room_focus.is_empty())
 	_rect(_primary, 11, 8, w - 46, 52)
-	var status_copy: String = "ISOLATED PREVIEW  /  %d SETTLED ACTIONS  /  NO SAVE WRITES" % settlement_count
+	var status_copy: String = "STORY PREVIEW  /  %d DECISIONS COMPLETED" % settlement_count
 	if narrow:
-		status_copy = "PREVIEW  /  %d ACTIONS  /  NO SAVES" % settlement_count
+		status_copy = "PREVIEW  /  %d DECISIONS COMPLETED" % settlement_count
 	_status = _label(dock, "FormationStatus", status_copy, 14, _subtle())
 	_rect(_status, 13, 65, w - 52, 23)
 
