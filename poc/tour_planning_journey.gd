@@ -138,8 +138,12 @@ func _rebuild() -> void:
  var latch_row := HBoxContainer.new()
  latch_row.add_theme_constant_override("separation",roundi(8*_scale))
  case_col.add_child(latch_row)
- var latch_text := "LOAD SECURED" if van_ready else "LOAD NOT SECURED"
- _text(latch_row,"02 / VAN & GEAR  /  "+latch_text,12,Color("#E8D4B5") if not van_ready else Color("#B5D9C4"),"JourneyVanState")
+ var amp: Dictionary = demo_state.get("gear_records",{}).get("amp",{})
+ var latch_text := "SECURED" if van_ready else "CHECK LOAD"
+ var latch_label: Label = _text(latch_row,"02 / AMP %d  /  %s" % [int(amp.get("condition",-1)),latch_text],
+  12,Color("#E8D4B5") if not van_ready else Color("#B5D9C4"),"JourneyVanState")
+ latch_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+ latch_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var lamp := ColorRect.new()
  lamp.name = "JourneyVanLamp"
  lamp.color = Color("#55D9A0") if van_ready else Color("#E2A14B")
