@@ -247,7 +247,7 @@ func _render() -> void:
 	}[stage], 26 if narrow else 32, INK)
 	_rect(heading, pleft, 15, inner, 44)
 	var step: Label = _label(paper, "StageDescription", {
-		"recruit": "Meet local players. Scroll to compare drummers and bassists before committing.",
+		"recruit": "Alex sings. Choose your drummer and bassist, then scroll for their notes.",
 		"social": "A band is more than a set of instruments. Choose what you do together first.",
 		"rehearsal": "The practice room smells of old carpet and warm amplifiers. What matters today?",
 		"summary": "A line-up, an outing and one consequential rehearsal. No career save was changed."
@@ -291,22 +291,29 @@ func _render() -> void:
 	y += 83
 
 	if stage == "recruit":
-		_label_line(paper, "Singer", "ALEX VALE  /  singer  /  writes lyrics on train tickets", pleft, y, inner)
-		y += 57
+		if not narrow:
+			_label_line(paper, "Singer", "ALEX VALE  /  singer  /  writes lyrics on train tickets", pleft, y, inner)
+			y += 57
 		_label_line(paper, "Drummer", "CHOOSE YOUR DRUMMER", pleft, y, inner)
-		y += 39
+		y += 29 if narrow else 39
 		var half: float = (inner - 9) * 0.5
 		_choice(paper, "Jo", "JO  /  reliable", drummer_id == "jo", func() -> void: choose_drummer("jo"), pleft, y, half)
 		_choice(paper, "Rae", "RAE  /  precise", drummer_id == "rae", func() -> void: choose_drummer("rae"), pleft + half + 9, y, half)
-		y += 60
-		_label_line(paper, "DrummerPitch", str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
-		y += 63
+		y += 55 if narrow else 60
+		if not narrow:
+			_label_line(paper, "DrummerPitch", str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
+			y += 63
 		_label_line(paper, "Bass", "CHOOSE YOUR BASSIST", pleft, y, inner)
-		y += 39
+		y += 29 if narrow else 39
 		_choice(paper, "Sam", "SAM  /  peace", bass_id == "sam", func() -> void: choose_bassist("sam"), pleft, y, half)
 		_choice(paper, "Dev", "DEV  /  scene", bass_id == "dev", func() -> void: choose_bassist("dev"), pleft + half + 9, y, half)
-		y += 60
-		_label_line(paper, "BassPitch", str(_candidate(bass_id)["pitch"]), pleft, y, inner)
+		y += 55 if narrow else 60
+		if narrow:
+			_label_line(paper, "DrummerPitch", "DRUMMER: " + str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
+			y += 66
+			_label_line(paper, "BassPitch", "BASS: " + str(_candidate(bass_id)["pitch"]), pleft, y, inner)
+		else:
+			_label_line(paper, "BassPitch", str(_candidate(bass_id)["pitch"]), pleft, y, inner)
 	elif stage == "social":
 		_label_line(paper, "SocialPrompt", "THREE PEOPLE. ONE EVENING. WHICH FIRST?", pleft, y, inner)
 		y += 49
