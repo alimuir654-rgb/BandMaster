@@ -109,9 +109,9 @@
     },
     {
       "asset": "Art/UI/RecruitmentV4/metal_tab_selected.svg",
-      "git_blob_sha1": "af95a2c92b194760e899896799bdfefca5caeb75",
+      "git_blob_sha1": "55684f243336cfd0016c02afbf98c19bb13e1bdf",
       "bytes": 760,
-      "source": "Original authored SVG texture for BandMaster V4",
+      "source": "Original authored V4 high-contrast selected metal tab gradient, 27 Oct 2026",
       "license": "Original project art; no third-party stock",
       "media_type": "image/svg+xml"
     },
