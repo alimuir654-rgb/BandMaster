@@ -289,7 +289,7 @@ func _recruitment(parent: Node) -> void:
  _character_notes(content)
 
 func _candidate_rail(parent: Node) -> void:
- var rail := _panel(parent,C_PANEL,Vector2(166,0))
+ var rail := _panel(parent,C_PANEL,Vector2(145.0*_touch_factor(),0))
  rail.get_parent().size_flags_horizontal=0
  for i in range(6):
   var p: Dictionary=_pool()[i]
@@ -304,14 +304,14 @@ func _portrait_and_stats(parent: Node) -> void:
  var center := _panel(parent,C_PANEL,Vector2(350,0) if _wide else Vector2.ZERO)
  center.get_parent().size_flags_stretch_ratio=1.5
  var portrait_box := PanelContainer.new()
- portrait_box.custom_minimum_size.y=230.0 if _wide else 150.0*_touch_factor()
+ portrait_box.custom_minimum_size.y=158.0*_touch_factor() if _wide else 150.0*_touch_factor()
  portrait_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  portrait_box.add_theme_stylebox_override("panel",_style(Color("#17191C"),6,Color("#6E6152")))
  center.add_child(portrait_box)
  var holder := CenterContainer.new()
  portrait_box.add_child(holder)
  var photo := Portrait.new()
- photo.custom_minimum_size=Vector2(195,212) if _wide else Vector2(175,142)*_touch_factor()
+ photo.custom_minimum_size=(Vector2(155,148) if _wide else Vector2(175,142))*_touch_factor()
  photo.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
  photo.size_flags_vertical=Control.SIZE_SHRINK_CENTER
  photo.set_character(Model.portrait_id(_current),str(_current["name"]),"indie")
@@ -328,14 +328,14 @@ func _portrait_and_stats(parent: Node) -> void:
   line.add_theme_constant_override("separation",8)
   center.add_child(line)
   var k := _label(line,str(keys[i]),13,C_WHITE)
-  k.custom_minimum_size.x=105
+  k.custom_minimum_size.x=84.0*_touch_factor()
   k.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
   var meter := Meter.new()
   meter.value=int(vals[i])
   meter.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   line.add_child(meter)
   var value := _label(line,"%d / 10" % int(vals[i]),12,C_MUTED)
-  value.custom_minimum_size.x=41
+  value.custom_minimum_size.x=43.0*_touch_factor()
   value.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
 
 func _character_notes(parent: Node) -> void:
@@ -440,6 +440,6 @@ func _build_footer(parent: Node) -> void:
   var person_selected := Model.contains(roster,str(_current.get("id","")))
   var allowed := Model.can_add(roster,_current)
   _button(actions,"REMOVE" if person_selected else "ADD  •  %d PTS" % Model.incremental_cost(roster,_current),func() -> void: _member_action(),not person_selected,not person_selected and not allowed,50).size_flags_horizontal=Control.SIZE_EXPAND_FILL
- var label := "MEET THE MUSICIANS" if step==0 else ("NAME YOUR BAND" if step==1 else ("FINISHED" if completed else "CONFIRM NAME"))
+ var label := "MEET THE MUSICIANS" if step==0 else (("NAME YOUR BAND" if _wide else "NAME BAND") if step==1 else ("FINISHED" if completed else "CONFIRM NAME"))
  var blocked := (step==1 and not Model.viable(roster)) or (step==2 and (band_name.strip_edges().is_empty() or completed))
  _button(actions,label,func() -> void: _continue(),step!=1,blocked,50).size_flags_horizontal=Control.SIZE_EXPAND_FILL
