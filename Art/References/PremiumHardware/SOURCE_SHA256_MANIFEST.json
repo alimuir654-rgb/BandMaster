@@ -1,0 +1,806 @@
+{
+  "collected_on": "2026-10-27",
+  "conditions": {
+    "Lab05": "reference-only flattened art; NOT interactive source",
+    "Lab07": "state PNGs and runnable standalone scene, static validator passed; Godot runtime not tested in this session",
+    "Lab08_4": "partial fix only; 27 focus and 23 buzz overlays, missing focus_ring_off.png and buzz_ring_off.png, plus baseline scenes/assets"
+  },
+  "paths": {
+    "Art/References/PremiumHardware/Lab05/README.txt": {
+      "bytes": 591,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "README.txt",
+      "sha256": "52b8c2ddb2bf31329e3153825e0eae499cc3f03960990028bd218b95e2251760"
+    },
+    "Art/References/PremiumHardware/Lab05/actual_size_review.png": {
+      "bytes": 320963,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "actual_size_review.png",
+      "sha256": "de77fc7b3bead6cf48bec694fd9c6ff7c883a98428472d88db71b69270f08afd"
+    },
+    "Art/References/PremiumHardware/Lab05/band_chemistry_reference.png": {
+      "bytes": 382543,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "band_chemistry_reference.png",
+      "sha256": "781c37a51bd1dbfcfaf99a11270c3367da88c80c4ff50021ae12b12eaf4d2726"
+    },
+    "Art/References/PremiumHardware/Lab05/hardware_direction_full.png": {
+      "bytes": 2090052,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "hardware_direction_full.png",
+      "sha256": "535a85e15ec81e70ea70007c96a0c772026c380c9f686630497845ce9c862b8e"
+    },
+    "Art/References/PremiumHardware/Lab05/horizontal_fader_reference.png": {
+      "bytes": 271330,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "horizontal_fader_reference.png",
+      "sha256": "7870ca6016ebeb219419a8a1c996d24bae02d739120f0922ce4325b83bfdcd89"
+    },
+    "Art/References/PremiumHardware/Lab05/led_meter_reference.png": {
+      "bytes": 322907,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "led_meter_reference.png",
+      "sha256": "6ccabbc9942271c5240f1fbf54b162115d5e1e01a84f4505a06a57a0e4e4bf3b"
+    },
+    "Art/References/PremiumHardware/Lab05/rotary_buzz_reference.png": {
+      "bytes": 230429,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "rotary_buzz_reference.png",
+      "sha256": "fef8fe65ff16b19703202b5b3efcbbb53e89416120d5a50ed5b183ab980d85a2"
+    },
+    "Art/References/PremiumHardware/Lab05/rotary_focus_reference.png": {
+      "bytes": 238092,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "rotary_focus_reference.png",
+      "sha256": "cc611b803d77f029fb42b3e1363399571037bf6f2ee91195e8cfef640508ff96"
+    },
+    "Art/References/PremiumHardware/Lab05/vertical_fader_reference.png": {
+      "bytes": 354763,
+      "origin": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "original_zip_member": "vertical_fader_reference.png",
+      "sha256": "e9c81b35a95c2d7d342afa52ac6d12844416ec9d186188a01013cf9fb5d90604"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/LAB_VERSION.txt": {
+      "bytes": 89,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/LAB_VERSION.txt",
+      "sha256": "843345c8d836f1be7aa1e321ed688134f3cb5986deafdf6bbe67e57e24b5e237"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/README.md": {
+      "bytes": 8408,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/README.md",
+      "sha256": "23df8e63163ff2cb96aa841252903efdc56b032f8aa5850fdc3683a42b955dc8"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_00.png": {
+      "bytes": 2304,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_00.png",
+      "sha256": "a84a1b10d08c6584a976e7cf78850deed2f603d3cf2b076d173a130265c39742"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_01.png": {
+      "bytes": 2238,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_01.png",
+      "sha256": "280d760991e8c27a9e34b44aed14c86ea8f2d3d70311692e3b0fb4ef20f8427f"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_02.png": {
+      "bytes": 2184,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_02.png",
+      "sha256": "b69c1bf98f55552844985f4233c07602c63598a678f85d7f340f2bce9c89623f"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_03.png": {
+      "bytes": 1887,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_03.png",
+      "sha256": "262eecd713b22723d6e489443aa8933293b873feba9bd57069dc357e4c6e692a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_04.png": {
+      "bytes": 2070,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_04.png",
+      "sha256": "63eeddb17b2435f4efe4e2d64bd6a5db96c746aee360bc60fdf6afe04319043b"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_05.png": {
+      "bytes": 2240,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_05.png",
+      "sha256": "7c8cd351fd8112c5b46b6049c99a3f53b99d13c5ecc2ec01815e2de6f840c9ae"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_06.png": {
+      "bytes": 2137,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_06.png",
+      "sha256": "ba82f6d6949573cf9cb504ea940d45c383f24f5570d45a314ed5aed6d3c0b737"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_07.png": {
+      "bytes": 2041,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_07.png",
+      "sha256": "f5cebaafbcbd246fdb593cb71efe03bdaa53f091195c13e1bab9b149fb0b08e9"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_08.png": {
+      "bytes": 2189,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_08.png",
+      "sha256": "166f22354e85eb06b1dc4204e2272468dbdb67bbab444bccb35d50af9a8b9271"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_09.png": {
+      "bytes": 2144,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_09.png",
+      "sha256": "46028b8e80efdf3983176b2b5ec61185ddbd7314913a637109aedcdfcc154ac1"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_10.png": {
+      "bytes": 1963,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_10.png",
+      "sha256": "ccf22cb547f051d18f9a88f797d4f9718197f8c62ccafb6fc24e9e375c331ac0"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_11.png": {
+      "bytes": 1608,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_11.png",
+      "sha256": "7dbc24c0a85ae405fe2e58623acbbf7026be260a0f9f2fdf4f6b66d589e6c626"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_12.png": {
+      "bytes": 1990,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_12.png",
+      "sha256": "f7369c5dea5f63289174feb51e12212100255366384ad5b761fcd6233cbcf1a1"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_13.png": {
+      "bytes": 2125,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_13.png",
+      "sha256": "6717949bdad4545babe8250fd3e9a1d2d760a80fbee319799d89786f3ac9cab9"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_14.png": {
+      "bytes": 2140,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_14.png",
+      "sha256": "65c91c8e6287a4a602aedfbbc8c279273a34cdd168f71326355e7ade9901fd2a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_15.png": {
+      "bytes": 2052,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_15.png",
+      "sha256": "feeb80ce6ca6a2fbf2eb2f04395eec3f68b6f586a03f2bb311ccd8ed2681b187"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_16.png": {
+      "bytes": 2165,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_16.png",
+      "sha256": "a64befbe2bdae628f435b1ccc62a070f4d557b06027c9336c7241d847986a112"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_17.png": {
+      "bytes": 2173,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_17.png",
+      "sha256": "58d86382462483dd2c8f7f3faffee83db55a8a4626eab9be2983e18b9a49d26c"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_18.png": {
+      "bytes": 2019,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_18.png",
+      "sha256": "2d4949d7787fbfa056984688dcb85fe205b4d953d387ecb5e5171a0c24aaa0d3"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_19.png": {
+      "bytes": 1931,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_19.png",
+      "sha256": "d8e852bf1fca0658545243c14fe2462df09104188dc137c3405ed4d7239ceab3"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_20.png": {
+      "bytes": 2222,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_20.png",
+      "sha256": "54606448d817cf92c8431ae6e2b54b2036df4dd6b1d274a01b7fbfcc1eda7da3"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_21.png": {
+      "bytes": 2200,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_21.png",
+      "sha256": "6147c53fd3751eec2891a15c689aaef1682ffb821008267b749ffc2804460c40"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/buzz_led_22.png": {
+      "bytes": 2270,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/buzz_led_22.png",
+      "sha256": "8a4eec27b6af9b15f99cd0b3f9f89f7399b4515f62eeb668165f9d587370d377"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_00.png": {
+      "bytes": 1697,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_00.png",
+      "sha256": "45d2786dd410757bb432d0b8c2b5803e1f41d4a80c5914b9fb67f5a642c3586a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_01.png": {
+      "bytes": 1752,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_01.png",
+      "sha256": "01ce4ab33af2a0b9dc4bb17f492134e5feae53cc77d7957b5f4f39db467984aa"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_02.png": {
+      "bytes": 1701,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_02.png",
+      "sha256": "d79c16f4d3ca92c308ae60b45cf03b6bddc6081a181042d0a76c6bba93b8f286"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_03.png": {
+      "bytes": 1653,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_03.png",
+      "sha256": "b04482898e627b082bfcdc561709899d318085b5210ef0d66f0ba57de366cc18"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_04.png": {
+      "bytes": 1491,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_04.png",
+      "sha256": "49dc223f8eef46a244a2d4dea10d40335efc3eee54b71d3a3b56ea66df81e2be"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_05.png": {
+      "bytes": 1649,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_05.png",
+      "sha256": "cafeb758601e317de3b628b6b37d61f742545a56f3d43bcef8b41b5d1e6e2164"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_06.png": {
+      "bytes": 1711,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_06.png",
+      "sha256": "33d80e066324004c7ca52581a1f4c51ab03ef4539db5de6d3e53207436e28b09"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_07.png": {
+      "bytes": 1783,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_07.png",
+      "sha256": "688efbd2b3a60cd65e55de16d3ff3426c2fd42dc3b1938cb78cf1bf583ef9e0e"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_08.png": {
+      "bytes": 1790,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_08.png",
+      "sha256": "1a45cd563b745dfa1bac08d18a3845bf33b570c716ee7bdd9bae9585138f198f"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_09.png": {
+      "bytes": 1735,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_09.png",
+      "sha256": "f132e75d8e07cd8fec73fec950600328e56111ba78db318bafea8b136dd82070"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_10.png": {
+      "bytes": 1747,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_10.png",
+      "sha256": "3fed34ee833350da28574494cd7412e0bebc8b0f1c44b26edf23b06f4b045448"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_11.png": {
+      "bytes": 1740,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_11.png",
+      "sha256": "2498c30ff72e12a2cc7b069262ddb90f970dad764073c31356203410c7d8564f"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_12.png": {
+      "bytes": 1684,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_12.png",
+      "sha256": "9bbd3e881892c63a8413af69380fb68e5b55e89f1268eff9406e98b9d3724269"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_13.png": {
+      "bytes": 1451,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_13.png",
+      "sha256": "baa4dbee3b0b201588457d2477c47ec9a7587e800f2b874d2b5e061196934b97"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_14.png": {
+      "bytes": 1690,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_14.png",
+      "sha256": "b5cdcc856dc4f763c9d953d72128723ec3bdc5dea0b5b10fe02c9cfae422a36a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_15.png": {
+      "bytes": 1737,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_15.png",
+      "sha256": "64c8d7c3583f6cc7358567a58fd747cb35737ba90162ebbe899c67cacf916d67"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_16.png": {
+      "bytes": 1750,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_16.png",
+      "sha256": "4d808072d2c89fe58a30758785ececc60685eec771a2daafa005dabe061be36a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_17.png": {
+      "bytes": 1725,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_17.png",
+      "sha256": "f7133f9a56367a7ed31cd8b2f54aec59658d218e55799b77ce024ea5537d3ece"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_18.png": {
+      "bytes": 1765,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_18.png",
+      "sha256": "49dbee5532656fab3905d2765b418e922241e840bc9304654730dad4f46fb53c"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_19.png": {
+      "bytes": 1760,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_19.png",
+      "sha256": "208d1efae80e77e650749ffb711464654d9a305f2f43674c38cf8d581949d894"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_20.png": {
+      "bytes": 1689,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_20.png",
+      "sha256": "8ce0458c35d7025c76480e328d0145144f499d9430ea3c659020e270f24502eb"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_21.png": {
+      "bytes": 1640,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_21.png",
+      "sha256": "d3db175f73ab44984b61389489df20fa2dd6b456fbc05e25454b2f8d8f8ca564"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_22.png": {
+      "bytes": 1494,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_22.png",
+      "sha256": "aa3af86ab2f675c5c9b21aebb705ebc9fdd2732db26c69a799b34f00be9af549"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_23.png": {
+      "bytes": 1681,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_23.png",
+      "sha256": "fe3fe2c587e71cb3c09940126f29b0f15d948f6ac4c43bfae9ce40f0016dbe5d"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_24.png": {
+      "bytes": 1749,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_24.png",
+      "sha256": "5558f4dfc05177c30db964b552c30b4268ccb2cfa6d04d544a318f256ecd76e8"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_25.png": {
+      "bytes": 1810,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_25.png",
+      "sha256": "402451de23e323950f83da6b2b3aa7d142b959a567d134be3dc5c6b54c00ce53"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/assets/focus_led_26.png": {
+      "bytes": 1779,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/assets/focus_led_26.png",
+      "sha256": "352afb765c6ea9bde9c996bd5c365e5d8a8473fea029d39c53967bef59b4182a"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/lab084_ring_test_game.png": {
+      "bytes": 143922,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/lab084_ring_test_game.png",
+      "sha256": "f1c88f32192b4fc2e6b50f499b9d01930726f29e57ae0967cafe27f51724d39b"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/lab084_ring_test_native.png": {
+      "bytes": 511000,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/lab084_ring_test_native.png",
+      "sha256": "01f62deb7509d62b5f5dcce32917520d478358dcb90cb491da948b089a5fcc97"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/studio_control.gd": {
+      "bytes": 7901,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/studio_control.gd",
+      "sha256": "0cbb5c314f2fcea7ed1deb5f07bd5c2c3ee22c1562094606d91f96fe4a269e16"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/tests/lab08_smoke.gd": {
+      "bytes": 2316,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/tests/lab08_smoke.gd",
+      "sha256": "89d3a2a43eca380d020e541ceab4ba02fe6fcc2ffb3799c70cc721dc4653b2dc"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/tests/validate_lab082.py": {
+      "bytes": 221,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/tests/validate_lab082.py",
+      "sha256": "b3d5ecdfbcca519050249fd43526d4e114362430c0b26f274d20af421c018f2e"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/tests/validate_lab083.py": {
+      "bytes": 221,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/tests/validate_lab083.py",
+      "sha256": "b3d5ecdfbcca519050249fd43526d4e114362430c0b26f274d20af421c018f2e"
+    },
+    "Art/References/PremiumHardware/Lab08_4_FixOnly/bandmaster_premium_dashboard_poc/tests/validate_lab084.py": {
+      "bytes": 1756,
+      "origin": "BandMaster_Lab08_4_Fix_Only.zip",
+      "original_zip_member": "bandmaster_premium_dashboard_poc/tests/validate_lab084.py",
+      "sha256": "706fea5e7aa0f8e4ace017db6f2e94692fceadb1eda46ee52843c878956a1e2f"
+    },
+    "bandmaster_premium_controls_lab/BandMaster_Lab07_Contact_Sheet.png": {
+      "bytes": 296561,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/BandMaster_Lab07_Contact_Sheet.png",
+      "sha256": "604e60fa69b066cba66d72b04421d8205bfc0395c43669f2bf14725cdc1e187c"
+    },
+    "bandmaster_premium_controls_lab/BandMaster_Lab07_Phone_Scale.png": {
+      "bytes": 162363,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/BandMaster_Lab07_Phone_Scale.png",
+      "sha256": "564ed3182e9d87f931ed7b4ff33298c15e4c82f4e2fb2bb87700497409eda6e3"
+    },
+    "bandmaster_premium_controls_lab/BandMaster_Lab07_State_Comparison.png": {
+      "bytes": 479157,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/BandMaster_Lab07_State_Comparison.png",
+      "sha256": "db9678af0448a8c080e448167f462ef5b47e60fb91290fd77d11aaf90ee225c9"
+    },
+    "bandmaster_premium_controls_lab/README.md": {
+      "bytes": 2698,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/README.md",
+      "sha256": "1ad2cbb0363bbba329cf1b4e168b00290eab777bb1158503da876cdd402b9954"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_electronic_active.png": {
+      "bytes": 419100,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_electronic_active.png",
+      "sha256": "cfbb32982452a57dcfbe0815307510abe7b9b7815cbea73cd483b3ec2eca7e5a"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_electronic_disabled.png": {
+      "bytes": 356953,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_electronic_disabled.png",
+      "sha256": "c28be8fce963935f47615d2855e6fbcc0e598484f6bbf31c79da417b3c946cc2"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_electronic_hover.png": {
+      "bytes": 423071,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_electronic_hover.png",
+      "sha256": "22dba7c555240ed735d2f5715c05e6dab0a9b807b1db89231a57596804b364fd"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_electronic_idle.png": {
+      "bytes": 405751,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_electronic_idle.png",
+      "sha256": "f0f34f501150e9cd6ee126551a3c4c3886af716c9e2e4a9e63eabc5520cb89f2"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_electronic_pressed.png": {
+      "bytes": 395819,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_electronic_pressed.png",
+      "sha256": "166020f1e71871c6a05ce5c5525da5e312d895634d133e7ef76a5fecb676941c"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_punk_active.png": {
+      "bytes": 417499,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_punk_active.png",
+      "sha256": "a8569f386673699d2aa1331e1e3a853e7dc7333675151d0fa9243d6931bbf801"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_punk_disabled.png": {
+      "bytes": 356111,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_punk_disabled.png",
+      "sha256": "239ced555e47320d14e21b3013fe66f98ebfeaf94788b4aa7db9d3e6ccf5658f"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_punk_hover.png": {
+      "bytes": 422060,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_punk_hover.png",
+      "sha256": "69212cb90ea92218759367941ff7a88c321f86d1510aae058173dc2fa4df3ca9"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_punk_idle.png": {
+      "bytes": 403491,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_punk_idle.png",
+      "sha256": "0f1e4fcc8f08582ef57b96c35bf8d065b8725f7cd50c8d2b3e6dbef177df9acd"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_punk_pressed.png": {
+      "bytes": 393545,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_punk_pressed.png",
+      "sha256": "ef69167575f44a6547161371195b787da8871a8149882cd2a1f0beea68ece3c8"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_reference.png": {
+      "bytes": 150025,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_reference.png",
+      "sha256": "a081c8bfa371f34724423c78f39bc9dd6a36822a21011abccc01c26d5a09afb1"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_studio_active.png": {
+      "bytes": 416861,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_studio_active.png",
+      "sha256": "c239cf6e51b9488ddbf7a735c1c22beb8beea543b44a5f8ae5062aabe9b6569e"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png": {
+      "bytes": 355986,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png",
+      "sha256": "5600fe2b5731b198690f44bd4aa050a7b0ab988062202e5dea32fa1a59975fe6"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_studio_hover.png": {
+      "bytes": 421479,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "sha256": "56dc54ebe712a722492a477759f1617687898cb845d3f1ae5a22ce716a821c57"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_studio_idle.png": {
+      "bytes": 403196,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229"
+    },
+    "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png": {
+      "bytes": 393010,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png",
+      "sha256": "fbbf7e73084f80b5db88b1d3b858f33ec66b7532b20e575e0b1d15f9f7e3eaef"
+    },
+    "bandmaster_premium_controls_lab/assets/horizontal_fader_reference_reference.png": {
+      "bytes": 143532,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/horizontal_fader_reference_reference.png",
+      "sha256": "b188ae4a7793a95ae5214c4b2646ca9cf3fb180f63c7cac2e333fdc7bd002bec"
+    },
+    "bandmaster_premium_controls_lab/assets/led_knob_reference_reference.png": {
+      "bytes": 120880,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/led_knob_reference_reference.png",
+      "sha256": "742440e676f98aebfeb3c1064ff8d1db4769f6b0bb75d570105b2c9922081d36"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_electronic_active.png": {
+      "bytes": 303519,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_electronic_active.png",
+      "sha256": "6f70deb980619f7840b61c4a4a12576ee490e66e1468a170fbb1531ff56b0d73"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_electronic_disabled.png": {
+      "bytes": 240138,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_electronic_disabled.png",
+      "sha256": "968e300de147588169b73e36556aca1893a2c14c3105c410b3eb3215c451cc2c"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_electronic_hover.png": {
+      "bytes": 292702,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_electronic_hover.png",
+      "sha256": "90d9e1321060a5fbbdaee5b563148cd8b4e33c2b47bce80154a28783ede6a4fe"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_electronic_idle.png": {
+      "bytes": 254650,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_electronic_idle.png",
+      "sha256": "ff56f001a38c6f3d3d9714674eed17d595b0dcea13b2661a2c55de060ee0bc87"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_electronic_pressed.png": {
+      "bytes": 267192,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_electronic_pressed.png",
+      "sha256": "1aa19ee01c7142d9b17eff86e3448fcdec5351083504e7dff144c7971974b0af"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_punk_active.png": {
+      "bytes": 306421,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_punk_active.png",
+      "sha256": "f338fb74c40586f6848b4579bbcc8bf4700eb65b5fd966a5a7b89b201633e12f"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_punk_disabled.png": {
+      "bytes": 242135,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_punk_disabled.png",
+      "sha256": "ef851c08363a8f2b5e807858a1f7d79f9db060e837d33bc4523e31eba961bc48"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_punk_hover.png": {
+      "bytes": 293430,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_punk_hover.png",
+      "sha256": "42ac6ae030a2622b4d9be6e546ae30c6514ee589d855765fd7df328bdd1b8ec6"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_punk_idle.png": {
+      "bytes": 251775,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_punk_idle.png",
+      "sha256": "81615b1b1953ac29283711a9787ab45cb6cc098a082db42f138557da2543ca64"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_punk_pressed.png": {
+      "bytes": 267650,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_punk_pressed.png",
+      "sha256": "0a75b8534a38fbdb871d2679361ca9b7ebee356fc36c724f262398580dca8917"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_reference.png": {
+      "bytes": 103521,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_reference.png",
+      "sha256": "5e5b15add09503a05a86cce8e741875ce0e0fe13601c3ad4bf7d5941d3191a30"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_studio_active.png": {
+      "bytes": 299827,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_studio_active.png",
+      "sha256": "f998b000ecb84715c08aea44498496d0aadfe4c720cecddce0800c6cd4e0e00e"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_studio_disabled.png": {
+      "bytes": 241167,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_studio_disabled.png",
+      "sha256": "e1b0c635e78196926c846fda03091038a32d443ea73dfccebd82d527a539e22a"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_studio_hover.png": {
+      "bytes": 286757,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_studio_hover.png",
+      "sha256": "5c11b4959d8527b9e3a02c6f1686ecc7fa6f61ca16789562af68a3be3314f3c2"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_studio_idle.png": {
+      "bytes": 244335,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_studio_idle.png",
+      "sha256": "5e1416c19dbb12628ad8f60c6462093188f323c358fde2e4af5d3223c1cb6677"
+    },
+    "bandmaster_premium_controls_lab/assets/pad_studio_pressed.png": {
+      "bytes": 261377,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/pad_studio_pressed.png",
+      "sha256": "e188ebdfacfeb96c9d12e523e50c3549bd4ed93e6c30907ae739bb127c5ad00e"
+    },
+    "bandmaster_premium_controls_lab/assets/rotary_reference_reference.png": {
+      "bytes": 126633,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/rotary_reference_reference.png",
+      "sha256": "cd2537c290762f1f2414ad6f2cb4c44e9f74de77d3e8b7fb8b7b78f6c4544d3e"
+    },
+    "bandmaster_premium_controls_lab/assets/signal_reference_reference.png": {
+      "bytes": 95328,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/signal_reference_reference.png",
+      "sha256": "ebd0b79fa8b4bc9bdd2b69ad93af5976f7324dffa589e72d15e67fd2bed20646"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_electronic_active.png": {
+      "bytes": 399150,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_electronic_active.png",
+      "sha256": "0175e5980a0da6725a119bc02762b890a76368db12e13f22cb097290a3fcbbf6"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_electronic_disabled.png": {
+      "bytes": 335221,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_electronic_disabled.png",
+      "sha256": "76a0e7a821a537e2533d3d9fd9fd2e9a39d2a988b879feb0da342044f9f438d8"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_electronic_hover.png": {
+      "bytes": 398277,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_electronic_hover.png",
+      "sha256": "854ffc79e2c75bdf77f4fa2be667ad4e44f95c6d458e193c5eb0a51846619be2"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_electronic_idle.png": {
+      "bytes": 374935,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_electronic_idle.png",
+      "sha256": "90d00085494066bab5832026093d0b11f2987f4e621d21890e312111aa523764"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_electronic_pressed.png": {
+      "bytes": 371221,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_electronic_pressed.png",
+      "sha256": "c2863d8035f664d699c294036c21c42148418ad6065fbc969806dc25af532a57"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_punk_active.png": {
+      "bytes": 394946,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_punk_active.png",
+      "sha256": "e3edea0680a571c70fdbb2db2346960111be988da43cc688c5c6d96e8091351b"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_punk_disabled.png": {
+      "bytes": 332797,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_punk_disabled.png",
+      "sha256": "9340c7aff637dde35f21c90398ad9ec38a8f19f8417befe95abcc758af8c4f60"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_punk_hover.png": {
+      "bytes": 392813,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_punk_hover.png",
+      "sha256": "259afa809c4553fd5160ee6785b41ad6031d6074ae92ee2138d63fe4d6c37ff5"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_punk_idle.png": {
+      "bytes": 368062,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_punk_idle.png",
+      "sha256": "a9a1dc03a397224b30ec184d291e50786b5718f66e33eb3cad08bbc2c69acb75"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_punk_pressed.png": {
+      "bytes": 365494,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_punk_pressed.png",
+      "sha256": "4b642913d224688de6312d25a643c3fe02a7662d4fe698ca29bfc94f4393b027"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_reference.png": {
+      "bytes": 135938,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_reference.png",
+      "sha256": "e6358f4e3ed737a524c11d40ce5ddb66b82648c8e21c65932545b2db0dc8df07"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_studio_active.png": {
+      "bytes": 393704,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_studio_active.png",
+      "sha256": "629e28d28c453cb712915af843a057e346d425d7a81d9ce027752e487ecd29cd"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_studio_disabled.png": {
+      "bytes": 333039,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_studio_disabled.png",
+      "sha256": "8885721dc37e88bf652eba7bff13c8ebc883e2c7c9885d4b8e8ad4fd6d926e71"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_studio_hover.png": {
+      "bytes": 391338,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_studio_hover.png",
+      "sha256": "3d8d635955946f53d0392884bc83f523757265a691b784f8ffe8cceaeae4a0bc"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_studio_idle.png": {
+      "bytes": 367013,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "sha256": "7c00a854abb486ff509ec57071637c015580305fc0dda12e639ccd4c4557b2f4"
+    },
+    "bandmaster_premium_controls_lab/assets/transport_studio_pressed.png": {
+      "bytes": 364301,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/transport_studio_pressed.png",
+      "sha256": "23cd616d021ac84f927755b1b27b2da7c280c59123bf2f2580ebcfa145a48ad4"
+    },
+    "bandmaster_premium_controls_lab/assets/vertical_fader_reference_reference.png": {
+      "bytes": 105140,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/assets/vertical_fader_reference_reference.png",
+      "sha256": "86dd01bffb37c0861f1f958e31ff8e3b2a890e1fbfea6eb7d588e763cf36bb9b"
+    },
+    "bandmaster_premium_controls_lab/hardware_art_source.png": {
+      "bytes": 2415312,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/hardware_art_source.png",
+      "sha256": "7414179cd207739e2d1adf50fff8253c623e71d277d9b5f8a0fb3f1efd219d58"
+    },
+    "bandmaster_premium_controls_lab/premium_controls_lab.gd": {
+      "bytes": 9341,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/premium_controls_lab.gd",
+      "sha256": "e0cc9ee7b97715ae19543bb8e5d61b5908719e1c41c60d3b85422364da00bf7c"
+    },
+    "bandmaster_premium_controls_lab/premium_controls_lab.tscn": {
+      "bytes": 336,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/premium_controls_lab.tscn",
+      "sha256": "73b6c54b7e278a1ff98c7f27c7e3b72787a6a044f4d21d8cc75453221d1190d8"
+    },
+    "bandmaster_premium_controls_lab/validate_assets.py": {
+      "bytes": 1533,
+      "origin": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "original_zip_member": "bandmaster_premium_controls_lab/validate_assets.py",
+      "sha256": "0ac0afe4c7bac1c632b46ba3485b3f7f1c339b6f137d0447b03fea34259cb6d2"
+    }
+  },
+  "project": "BandMaster",
+  "schema": 1,
+  "source_archives": {
+    "Lab05_art_reference": {
+      "members": 9,
+      "original_filename": "BandMaster_Hardware_Lab_05_Art_Review.zip",
+      "sha256": "7770ceaa63e59ffa52180d90c143d919d85337c55a9d9c7ffec1112c1ca8f391",
+      "size_bytes": 4209812
+    },
+    "Lab07_functional_art_lab": {
+      "members": 61,
+      "original_filename": "BandMaster_Studio_Hardware_Lab_07_Parse_Fix.zip",
+      "sha256": "f477ba9a6e0f080bf90af119fc84fc481fd104219a57debf869f2ce18de26fa2",
+      "size_bytes": 19952534
+    },
+    "Lab08_4_fix_only": {
+      "members": 59,
+      "original_filename": "BandMaster_Lab08_4_Fix_Only.zip",
+      "sha256": "a128063cc4ebec6847c8d513dfaf61d2feb913240a9fbb7de9eec93b849b3f52",
+      "size_bytes": 692621
+    }
+  }
+}
