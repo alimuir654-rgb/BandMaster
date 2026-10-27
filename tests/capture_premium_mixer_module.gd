@@ -64,6 +64,14 @@ func _run() -> void:
 	if v.get_global_rect().intersects(m.get_global_rect()):
 		_fail("input and read-only monitor overlap")
 		return
+	for label_name in ["HorizontalInputValue", "VerticalInputValue", "ReadOnlyStatValue", "HorizontalInputLabel", "VerticalInputLabel", "ReadOnlyStatLabel"]:
+		var label: Label = view.find_child(label_name, true, false)
+		if label == null:
+			_fail("semantic caption missing: " + label_name)
+			return
+		if label.get_combined_minimum_size().x > label.size.x + 3.0:
+			_fail("semantic caption overflows hardware bay: " + label_name)
+			return
 	var image := get_root().get_texture().get_image()
 	var target: Color = Color("#ECE7DA") if phase == "day" else (Color("#283941") if phase == "dusk" else Color("#0B1116"))
 	var actual: Color = image.get_pixel(3, 3)
