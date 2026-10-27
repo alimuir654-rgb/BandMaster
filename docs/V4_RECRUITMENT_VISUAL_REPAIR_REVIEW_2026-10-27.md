@@ -26,3 +26,26 @@
 **ART HOLD**: obtain distinct rights-clear, identity-matched, adequately resolved candidate portraits with per-file SHA/terms; increase photographed material realism and improve 1280 meter/photo hierarchy against the approved concept. Do not substitute another candidate's face, bake dynamic data into a screenshot or call CI a visual sign-off.
 
 Manual Godot 4.7.2: open `res://poc/ldtd_recruitment_v4.tscn`, select Indie rock, enter recruitment, inspect all five tabs, browse six candidates, inspect the paper file, recruit Alex/Sam/Jo, confirm 70 talent remaining, use NAME BAND, type a name, and verify no `user://` save changes. Review native 390 and 1280 first; check 720 and 1600 thereafter. **No main merge or S03–S07 restart.**
+
+---
+
+## 21:00 focused V4 art-quality continuation (27 October 2026)
+
+**Exact last code/art commit:** `1b3f2f94c25f3de3adae1ca093767bbd5f84d054`. Focused **Godot 4.7.2 CI SUCCESS**: [run 40584695348](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40584695348), [18 genuine native PNGs / artifact 12770788504](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40584695348/artifacts/12770788504). Four viewports (390x844, 720x1280, 1280x720, 1600x900) in all three stages, plus two paper dossiers, two viable-lineup screens and two deliberately unsourced Josh Bennett contact screens. The focused job completed import, pure model tests, source-SHA/forbidden-helper checks and all 18 real captures. Latest PR head remains **draft, unmerged**; owner art gate is **OPEN**.
+
+### Concrete native-image fixes, inspected
+1. Original authored metal case now has folded corner guards, side latches, edge seals, wear and extra fasteners; paper has subtle worn folds, grain and edge shading. These remain **SVG vector material proofs**, not photographed metal or paper.
+2. The former 1600x900 case texture was non-uniformly stretched to a 390x844 phone, deforming round rivets into long ovals. Independently authored 390x844 phone and 720x1280 tablet case SVGs now preserve hardware aspect and align the case's roster separator to the native dock. The actual 390/720 Godot screenshots were opened and inspected.
+3. The 720x1280 portrait region now uses 440x450 rather than 440x350, revealing nearly the whole 160x160 source image and filling an otherwise empty gap above the dock. **It does not invent lost photographic resolution.**
+4. Landscape dossier copy and six read-only meter labels/values were enlarged; actual 1280x720 and 1600x900 screenshots show the six bars, paper story, strength, friction, experience and CTA without new collisions.
+5. Selected metal tabs now have a lighter amber centre for dark native labels. The SVG midpoint contrast estimate rises from ~2.2:1 to ~5.2:1 against the existing dark ink; this is a calculated colour check, **not** a full accessibility audit.
+6. An authored empty-film contact frame explicitly says **PORTRAIT / ART PENDING** for unsourced Josh, verified by two native captures. No other candidate's face is aliased to Josh and no fictional photograph is claimed.
+
+### Five simulated adversarial findings — not human approval
+- **Player, P1:** Genre choice is navigable and the 390 first fold includes five roles, photo/ID, six stats, recruit action and remaining points; the genre-to-pool consequence still reads like a short text brief rather than a vivid choice.
+- **Musician, P1:** Alex/Sam/Jo form a valid three-person hybrid lineup without double-counting; the 200-point talent pool and fifth/sixth penalties remain a trial economy, not owner-approved balance. Personality and trouble notes are not yet proven downstream mechanics.
+- **Art director, P0 BLOCKED:** All four existing portrait sources are only 160x160 pixels; 32 of 36 canonical candidate IDs have no source photo. The 1280/1600 portrait is visibly enlarged and tightly cropped. The new film card is honest but **not a replacement for casting photography**. Vector roadcase material still falls short of the photographed owner mockup.
+- **Accessibility, P1:** 390 role tabs and actionable keys satisfy the focused >=44 physical-pixel gate; selected captions are clearer, but condensed labels, 1280 meter numerals, keyboard focus and assistive-technology semantics need owner/device audit.
+- **Engineering, focused PASS / owner gate OPEN:** V4 remains an isolated no-save scene; no legacy flat helpers, no `main` merge, no S03-S07 restart. Automated geometry and screenshot generation cannot establish art fidelity. The approved 1536x1024 reference binary is still absent from GitHub, preventing an exact image side-by-side.
+
+**Source blocker and first portrait pilot:** [V4 portrait source intake brief](V4_PORTRAIT_SOURCE_INTAKE_2026-10-27.md). Next art step is 2-3 individually rights-cleared, identity-matched high-resolution portraits with SHA/source records, then an owner comparison at 390 and 1280. Do not resume broad scene work or production integration. On/after 22:00 Europe/London, stop code changes and provide handover only.
