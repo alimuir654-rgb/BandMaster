@@ -10,7 +10,7 @@ This uses `Scripts/recording_career.gd` on a deep-copied local sample. Actual `R
 
 ## Art and source provenance
 
-`Art/UI/StudioCraft/README.md` documents each original photo-derived Lab05 fader, Lab07 transport, Lab08.4 rotary, Lab08 meter and existing five-state studio navigation control. One new **authored procedural SVG** is the brushed metal housing, not a claimed photograph. The DAY source is the previously licensed, genuinely bright Pexels **music-room** photo, not a recording-studio photo; DUSK/NIGHT use the existing repo studio background with no new external provenance claim. All costs, song titles, meter readings and player-facing captions are native Godot text, not baked into art. The original approved target ZIP remains unverified in Git.
+`Art/UI/StudioCraft/README.md` documents each original photo-derived Lab05 fader, Lab07 transport, Lab08.4 rotary, Lab08 meter and existing five-state studio navigation control. One new **authored procedural SVG** is the brushed metal housing, not a claimed photograph. The DAY source is the previously licensed, genuinely bright Pexels **music-room** photo, not a recording-studio photo; DUSK/NIGHT use the existing repo rehearsal/backstage-room background with no new external provenance claim. All costs, song titles, meter readings and player-facing captions are native Godot text, not baked into art. The original approved target ZIP remains unverified in Git.
 
 ## Test plan and acceptance
 
@@ -21,3 +21,6 @@ This uses `Scripts/recording_career.gd` on a deep-copied local sample. Actual `R
 ## Deferred owner-directed S07 polish
 
 Formation/rehearsal tape and random cork must become **realistic metal pushpins physically anchoring actual paper/photo edges** to subdued photographed cork with credible shadows. S06's chassis is an initial visual housing, not a claim that all premium metal materials are finally approved.
+
+## Native screenshot correction
+Initial S06 Godot run 40546299494 passed all eight captures, but actual opened DAY 390, DAY 1280 and NIGHT 1280 images showed blank phase strips, baked READINESS words on monitor faders, an original HYPE meter mislabelled readiness, and a rainy van photograph wrongly presented as studio NIGHT. The corrective implementation adds foreground phase text, native metal guitar/vocal monitor nameplates, maps the HYPE meter to real buzz, substitutes the verified existing backstage rehearsal-room image for DUSK/NIGHT and raises footer text contrast. Await the corrected run and inspect new native pixels before claiming the visual defects closed.
