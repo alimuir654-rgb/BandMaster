@@ -84,6 +84,11 @@ func _capture() -> void:
 		if button.get_global_rect().size.y * px < 44.0:
 			_fail("small candidate/choice button " + str(key))
 			return
+	if width <= 390 and stage == "recruit":
+		var last_choice: Button = view._choice_buttons.get("Dev")
+		if last_choice == null or last_choice.get_global_rect().end.y * px > dock.get_global_rect().position.y * px - 3.0:
+			_fail("bass recruitment choice hidden behind mobile action dock")
+			return
 	var bitmap: Image = get_root().get_texture().get_image()
 	if bitmap.get_width() < width or bitmap.get_height() < height:
 		_fail("wrong actual renderer dimensions")
