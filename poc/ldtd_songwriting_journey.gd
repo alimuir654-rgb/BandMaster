@@ -197,7 +197,24 @@ func _render() -> void:
 	board.texture = load(CORK)
 	board.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	board.stretch_mode = TextureRect.STRETCH_SCALE
-	board.modulate = Color("#F7F2E8") if phase == "day" else (Color("#A6AAA8") if phase == "dusk" else Color("#657078"))
+	board.modulate = Color.WHITE if phase == "day" else (Color("#A6AAA8") if phase == "dusk" else Color("#657078"))
+	if phase == "day":
+		# Re-grade the actual source photo, not a flat replacement for photographed cork.
+		var daylight_grade := Shader.new()
+		daylight_grade.code = """
+shader_type canvas_item;
+void fragment() {
+	vec4 source = texture(TEXTURE, UV);
+	float light = dot(source.rgb, vec3(0.2126, 0.7152, 0.0722));
+	float daylight = pow(clamp(light, 0.0, 1.0), 0.60);
+	float value = mix(0.75, 0.93, daylight);
+	vec3 warm = vec3(value * 1.03, value * 0.96, value * 0.83);
+	COLOR = vec4(clamp(warm + (source.rgb - vec3(light)) * 0.15, 0.0, 1.0), source.a);
+}
+"""
+		var board_material := ShaderMaterial.new()
+		board_material.shader = daylight_grade
+		board.material = board_material
 	board.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_surface.add_child(board)
 	_rect(board, 0, 0, w, h)
