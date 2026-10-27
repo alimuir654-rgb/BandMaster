@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300">
+<defs>
+ <linearGradient id="edge" x2="0" y2="1"><stop stop-color="#8d9899"/><stop offset=".1" stop-color="#313e40"/><stop offset=".51" stop-color="#0e181c"/><stop offset=".9" stop-color="#354044"/><stop offset="1" stop-color="#9ba6a5"/></linearGradient>
+ <linearGradient id="body" x2=".1" y2="1"><stop stop-color="#3d4a4c"/><stop offset=".15" stop-color="#253033"/><stop offset=".6" stop-color="#192428"/><stop offset="1" stop-color="#313b3e"/></linearGradient>
+ <radialGradient id="bolt"><stop stop-color="#d5d6cf"/><stop offset=".36" stop-color="#9ca4a1"/><stop offset=".7" stop-color="#48585b"/><stop offset="1" stop-color="#1b2527"/></radialGradient>
+ <pattern id="grain" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M0 2h11M0 8h11" stroke="#d4d2bf" stroke-opacity=".028" stroke-width=".7"/><path d="M2 0v11M8 0v11" stroke="#000" stroke-opacity=".04" stroke-width=".5"/></pattern>
+</defs>
+<rect x="1" y="1" width="898" height="298" rx="12" fill="#090e11" stroke="#111b1d" stroke-width="2"/>
+<rect x="7" y="7" width="886" height="286" rx="8" fill="url(#edge)" stroke="#a8b1ac" stroke-width="2"/>
+<rect x="23" y="23" width="854" height="254" rx="5" fill="url(#body)" stroke="#0b1215" stroke-width="5"/>
+<rect x="27" y="27" width="846" height="246" rx="4" fill="url(#grain)"/>
+<path d="M30 31H870M30 269H870" stroke="#a9b3ae" stroke-opacity=".24" stroke-width="1.5"/>
+<path d="M40 68H858M40 234H858" stroke="#f0e9d5" stroke-opacity=".05"/>
+<path d="M55 42l225 0M320 257l345 0M580 47h165M130 249h180" stroke="#e4e0d1" stroke-opacity=".08" stroke-width="1"/>
+<g fill="none" stroke="#879392" stroke-opacity=".2"><path d="M89 93l90 -8M650 209l108 7M410 55l70 -4M275 245l110 -7"/></g>
+<g>
+<circle cx="37" cy="37" r="13" fill="url(#bolt)" stroke="#0d1518" stroke-width="3"/><path d="M31 37h12" stroke="#20292b" stroke-width="2.5"/>
+<circle cx="863" cy="37" r="13" fill="url(#bolt)" stroke="#0d1518" stroke-width="3"/><path d="M857 37h12" stroke="#20292b" stroke-width="2.5"/>
+<circle cx="37" cy="263" r="13" fill="url(#bolt)" stroke="#0d1518" stroke-width="3"/><path d="M31 263h12" stroke="#20292b" stroke-width="2.5"/>
+<circle cx="863" cy="263" r="13" fill="url(#bolt)" stroke="#0d1518" stroke-width="3"/><path d="M857 263h12" stroke="#20292b" stroke-width="2.5"/>
+</g>
+</svg>
