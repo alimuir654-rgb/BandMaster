@@ -12,7 +12,7 @@ static func genres() -> Array:
 static func _person(id: String, name: String, gender: String, age: int, town: String, roles: Array, voice: Array, seed: int, bands: int, years: int, personality: String, story: String, strength: String, friction: String, ambition: String) -> Dictionary:
  var instrumental: Array = []
  for i in range(6):
-  instrumental.append(2 + ((seed * (i + 3) + i * 17 + (seed / 3)) % 9))
+  instrumental.append(2 + ((seed * (i + 3) + i * 17 + (seed / 3) + i * i * 5) % 9))
  return {
   "id":id, "name":name, "gender":gender, "age":age, "town":town,
   "roles":roles, "vocal":voice, "instrument":instrumental,
@@ -89,7 +89,9 @@ static func cost(person: Dictionary) -> int:
   voice_cost += int(v)
  for v in person["instrument"]:
   instrument_cost += int(v)
- return maxi(voice_cost,instrument_cost) + (8 if (person["roles"] as Array).size() > 1 else 0)
+ if (person["roles"] as Array).size()>1:
+  return maxi(voice_cost,instrument_cost)+8
+ return voice_cost if (person["roles"] as Array).has("Singer") else instrument_cost
 
 static func spent(roster: Array) -> int:
  var total := 0
