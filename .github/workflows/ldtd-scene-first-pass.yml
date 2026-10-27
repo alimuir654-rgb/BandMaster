@@ -2,6 +2,12 @@ name: Livin The Dream S01 — six-scene shell real Godot review
 on:
   push:
     branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'poc/ldtd_career_scene_shell.*'
+      - 'tests/ldtd_s01_scene_shell_tests.gd'
+      - 'tests/capture_ldtd_s01_scene_shell.gd'
+      - 'tools/check_scene_sprint_preflight.py'
+      - '.github/workflows/ldtd-scene-first-pass.yml'
   workflow_dispatch:
 jobs:
   first-pass-shell:
