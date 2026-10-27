@@ -34,6 +34,8 @@ func set_finish(next: String) -> void:
 
 func set_locked(locked: bool) -> void:
 	disabled = locked
+	focus_mode = Control.FOCUS_NONE if locked else Control.FOCUS_ALL
+	mouse_default_cursor_shape = Control.CURSOR_ARROW if locked else Control.CURSOR_POINTING_HAND
 	if locked:
 		_pressed_by_pointer = false
 		set_pressed_no_signal(false)
