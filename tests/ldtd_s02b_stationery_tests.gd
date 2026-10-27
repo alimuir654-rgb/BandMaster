@@ -68,7 +68,7 @@ func _run() -> void:
 	if stat == null or stat.focus_mode != Control.FOCUS_NONE or stat.mouse_filter != Control.MOUSE_FILTER_IGNORE:
 		_fail("read-only stats are interactive")
 		return
-	if not stat.text.contains("\\n") or not stat.text.contains("READY 20  /  TRUST 40"):
+	if not stat.text.contains("\n") or not stat.text.contains("READY 20  /  TRUST 40"):
 		_fail("390px stats ledger lacks intentional two-row readable grouping")
 		return
 	# Visual language must reflect game-phase state, not a baked DAY label.
