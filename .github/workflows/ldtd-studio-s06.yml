@@ -49,7 +49,7 @@ jobs:
               assert (Path('bandmaster_premium_controls_lab/assets')/f'transport_studio_{state}.png').is_file(),state
           for name in ('Art/Photography/Formation/daylight_music_room_pexels.webp',
                        'Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json',
-                       'Art/Backgrounds/shared/studio.webp',
+                       'Art/Backgrounds/shared/backstage.webp',
                        'Art/UI/StudioCraft/console_chassis.svg',
                        'Art/UI/StudioCraft/README.md',
                        'Art/Fonts/BarlowCondensed-SemiBold.ttf',
