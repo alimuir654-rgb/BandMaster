@@ -8,13 +8,14 @@ ROOT=Path(__file__).resolve().parents[1]
 SCENE=ROOT/"poc/ldtd_recruitment_v4.gd"
 ASSETS=ROOT/"Art/UI/RecruitmentV4"
 text=SCENE.read_text(encoding="utf-8")
+source_only="\n".join(line for line in text.splitlines() if not line.lstrip().startswith("#"))
 for name,pattern in {
     "legacy helper":r'ui_theme|WoldButton|UI\.button|_button\(',
     "flat StyleBox":r'StyleBoxFlat|ColorRect\.new|\.add_theme_stylebox_override\(',
     "unapproved scene background":r'poc/ldtd_recruitment_v3\.(?:tscn|gd)',
     "unapproved live save":r'FileAccess|user://|DirAccess|tour_save',
 }.items():
-    assert not re.search(pattern,text),f"V4 art contract FAIL: {name}"
+    assert not re.search(pattern,source_only),f"V4 art contract FAIL: {name}"
 for path in ["case_roadcase.svg","paper_personnel.svg"]:
     f=ASSETS/path
     assert f.is_file() and f.stat().st_size>=1000,path
