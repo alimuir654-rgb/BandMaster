@@ -235,7 +235,7 @@ func _render() -> void:
 	scroll.add_child(page)
 	var page_w: float = minf(1110.0, w - 22.0)
 	var left: float = (w - page_w) * 0.5
-	var page_h: float = 860.0 if narrow else 690.0
+	var page_h: float = 1090.0 if narrow else 690.0
 	_rect(page, 0, 0, w, page_h)
 	page.custom_minimum_size = Vector2(w, page_h)
 
@@ -342,7 +342,16 @@ func _render() -> void:
 
 	if narrow:
 		var transport_label := _label(page, "TransportTitle", "REHEARSAL DECK  /  LAB 07", 15, INK, "display")
-		_rect(transport_label, left + 10, 838, page_w - 20, 25)
+		_rect(transport_label, left + 10, 841, page_w - 20, 25)
+		_transport = Transport.new()
+		_transport.name = "PhotographicSongwritingTransport"
+		_transport.finish = "studio"
+		page.add_child(_transport)
+		_rect(_transport, left + 16, 867, page_w - 32, 174)
+		_transport.transport_armed.connect(_on_transport_armed)
+		_transport.set_armed_from_model(transport_armed)
+		if stage == "finished":
+			_transport.set_locked(true)
 	else:
 		var transport_title := _label(page, "TransportTitle", "REHEARSAL TRANSPORT  /  LAB 07", 16, Color("#F7EFE0"), "display")
 		transport_title.add_theme_constant_override("outline_size", 3)
