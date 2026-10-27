@@ -40,7 +40,7 @@ func _capture() -> void:
 	if h == null or v == null or int(h.value) != level or int(v.value) != level:
 		_fail("control state mismatch")
 		return
-	if v.get_global_rect().end.y > float(height) + 2.0 or h.get_global_rect().end.x > float(width) + 2.0:
+	if v.get_global_rect().end.y > view.get_viewport_rect().size.y + 2.0 or h.get_global_rect().end.x > view.get_viewport_rect().size.x + 2.0:
 		_fail("hardware clipped")
 		return
 	if h.get_global_rect().size.y < 80.0 or v.get_global_rect().size.x < 110.0:
