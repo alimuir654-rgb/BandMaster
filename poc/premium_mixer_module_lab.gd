@@ -159,7 +159,7 @@ func _refresh_readouts() -> void:
 	if horizontal == null or vertical == null or meter == null:
 		return
 	horizontal_readout.text = "PREP EFFORT   %03d%%" % int(horizontal.value)
-	vertical_readout.text = "SUPPORT EFFORT  %03d%%" % int(vertical.value)
+	vertical_readout.text = "SUPPORT  %03d%%" % int(vertical.value)
 	meter_readout.text = "HYPE    %03d%%" % int(meter.reading)
 
 func _place(ctrl: Control, x: float, y: float, w: float, h: float) -> void:
