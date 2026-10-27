@@ -60,7 +60,7 @@ func _ready() -> void:
 	output_bay = _panel(rack, "ReadOnlyMeterBay")
 	horizontal_label = _label(rack, "HorizontalInputLabel", "01  /  READINESS  ·  INPUT", 15)
 	vertical_label = _label(rack, "VerticalInputLabel", "ENERGY  /  INPUT", 15)
-	meter_label = _label(rack, "ReadOnlyStatLabel", "HYPE  /  READ ONLY", 15)
+	meter_label = _label(rack, "ReadOnlyStatLabel", "HYPE  /  METER", 15)
 	horizontal_readout = _label(rack, "HorizontalInputValue", "", 16)
 	vertical_readout = _label(rack, "VerticalInputValue", "", 16)
 	meter_readout = _label(rack, "ReadOnlyStatValue", "", 16)
@@ -177,10 +177,12 @@ func _layout() -> void:
 	var body_font: int = int(ceil(15.0 / px))
 	var label_font: int = int(ceil(13.0 / px))
 	heading.add_theme_font_size_override("font_size", title_font)
-	for l in [subhead, rack_title, horizontal_label, vertical_label, meter_label, horizontal_readout, vertical_readout, meter_readout]:
-		l.add_theme_font_size_override("font_size", body_font)
+	subhead.add_theme_font_size_override("font_size", body_font)
+	# Labels are local to the scaled rig, so their dimensions are device pixels.
+	for l in [rack_title, horizontal_label, vertical_label, meter_label, horizontal_readout, vertical_readout, meter_readout]:
+		l.add_theme_font_size_override("font_size", 15)
 	for l in [rack_meta, footer]:
-		l.add_theme_font_size_override("font_size", label_font)
+		l.add_theme_font_size_override("font_size", 12)
 	_place(heading, 22, 20, w - 44, title_font + 13)
 	_place(subhead, 22, heading.position.y + heading.size.y + 4, w - 44, body_font + 9)
 	var button_top: float = subhead.position.y + subhead.size.y + 7
@@ -189,16 +191,23 @@ func _layout() -> void:
 		var btn: Button = phase_buttons[PHASES[i]]
 		btn.add_theme_font_size_override("font_size", body_font)
 		_place(btn, 22 + i * 94.0, button_top, 88.0, button_h)
-	var rack_top: float = button_top + button_h + 18.0
-	var rack_w: float = minf(w - 24.0, 1140.0)
-	var rack_h: float = maxf(450.0, h - rack_top - 20.0)
-	rack_h = minf(rack_h, 560.0 if w >= 900 else 665.0)
-	_place(rack, (w - rack_w) * 0.5, rack_top, rack_w, rack_h)
+	# Layout the mixer in *physical* pixels, then inverse-scale it once into
+	# Godot's logical canvas. This keeps the enclosure full-size on phones and
+	# landscape instead of shrinking the hardware to half the intended size.
+	var physical_w: float = w * px
+	var physical_h: float = h * px
+	var rack_top: float = (button_top + button_h + 18.0) * px
+	var rack_w: float = minf(physical_w - 24.0, 1140.0)
+	var rack_h: float = maxf(450.0, physical_h - rack_top - 20.0)
+	rack_h = minf(rack_h, 560.0 if physical_w >= 900.0 else 665.0)
+	rack.scale = Vector2(1.0 / px, 1.0 / px)
+	_place(rack, (w - rack_w / px) * 0.5, rack_top / px, rack_w, rack_h)
 	var rail: ColorRect = rack.get_node("RackAccentRail")
 	_place(rail, 14, 5, rack_w - 28, 3)
 	_place(rack_title, 22, 18, rack_w - 44, body_font + 13)
 	_place(rack_meta, 22, 45, rack_w - 44, label_font + 8)
-	if w < 900.0:
+	if physical_w < 900.0:
+		footer.text = "FADERS: INPUT  /  METER: READ ONLY"
 		var hbase_width: float = rack_w - 40.0
 		_place(input_bay, 13, 76, rack_w - 26, 155.0)
 		_place(horizontal_label, 23, 84, rack_w - 46, body_font + 7)
@@ -228,6 +237,7 @@ func _layout() -> void:
 		_place(left_panel, 13, second_y, bay_w, module_height)
 		_place(footer, 24, second_y + module_height + 12, rack_w - 44, label_font + 12)
 	else:
+		footer.text = "INPUTS: DRAG OR USE ARROW KEYS       MONITOR: GAME STATE ONLY"
 		var left_w: float = minf(638.0, rack_w - 464.0)
 		var right_x: float = left_w + 63.0
 		var meter_x: float = right_x + 218.0
