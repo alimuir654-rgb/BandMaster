@@ -23,7 +23,7 @@ func _ready() -> void:
     add_child(background)
     background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     title = _make_label("RotaryTitle", "LIVING THE DREAM", 25)
-    caption = _make_label("RotaryCaption", "LAB 08.4  /  ORIGINAL PHOTOGRAPHIC ROTARIES", 15)
+    caption = _make_label("RotaryCaption", "LAB 08.4  /  ORIGINAL PHOTO HARDWARE", 15)
     for context in PHASES:
         var button := Button.new()
         button.name = "RotaryPhase" + context.capitalize()
@@ -45,7 +45,7 @@ func _ready() -> void:
     add_child(buzz_knob)
     focus_label = _make_label("FocusReadout", "", 17)
     buzz_label = _make_label("BuzzReadout", "", 17)
-    instructions = _make_label("RotaryHelp", "DRAG / ARROWS TO ADJUST    HOME = OFF    END = FULL    SPACE = LOCK", 13)
+    instructions = _make_label("RotaryHelp", "DRAG / ARROWS  |  HOME = OFF  |  END = FULL\nSPACE = LOCK  |  WHEEL = FINE", 13)
     focus_knob.value_changed.connect(func(_v: float) -> void: _refresh())
     buzz_knob.value_changed.connect(func(_v: float) -> void: _refresh())
     focus_knob.latch_changed.connect(func(_v: bool) -> void: _refresh())
@@ -108,8 +108,8 @@ func set_review_state(state: String) -> void:
 func _refresh() -> void:
     if focus_knob == null or buzz_knob == null:
         return
-    focus_label.text = "CREATIVE FOCUS  /  %03d%%  %s" % [int(focus_knob.value), "LOCKED" if focus_knob.latched else ""]
-    buzz_label.text = "VENUE BUZZ  /  %03d%%  %s" % [int(buzz_knob.value), "DISABLED" if buzz_knob.disabled else ("LOCKED" if buzz_knob.latched else "")]
+    focus_label.text = "CREATIVE FOCUS\n%03d%%  %s" % [int(focus_knob.value), "LOCKED" if focus_knob.latched else ""]
+    buzz_label.text = "VENUE BUZZ\n%03d%%  %s" % [int(buzz_knob.value), "DISABLED" if buzz_knob.disabled else ("LOCKED" if buzz_knob.latched else "")]
 
 func _layout() -> void:
     if focus_knob == null or background == null:
@@ -150,7 +150,7 @@ func _layout() -> void:
     var labels_y: float = dial_top + dial_size + 16.0 * u
     focus_label.position = Vector2(left, labels_y)
     buzz_label.position = Vector2(left + dial_size + dial_gap, labels_y)
-    focus_label.size = Vector2(dial_size + 5.0 * u, 54.0 * u)
-    buzz_label.size = Vector2(dial_size + 5.0 * u, 54.0 * u)
+    focus_label.size = Vector2(dial_size, 54.0 * u)
+    buzz_label.size = Vector2(dial_size, 54.0 * u)
     instructions.position = Vector2(margin, minf(h - 53.0 * u, labels_y + 80.0 * u))
     instructions.size = Vector2(w - 2.0 * margin, 46.0 * u)
