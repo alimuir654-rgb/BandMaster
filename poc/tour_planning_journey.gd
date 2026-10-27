@@ -142,7 +142,7 @@ func _rebuild() -> void:
  case_col.add_child(latch_row)
  var amp: Dictionary = demo_state.get("gear_records",{}).get("amp",{})
  var latch_text := "SECURED" if van_ready else "CHECK LOAD"
- var latch_label: Label = _text(latch_row,"02 / AMP %d  /  %s" % [int(amp.get("condition",-1)),latch_text],
+ var latch_label: Label = _text(latch_row,"02 / AMP %d/100  /  %s" % [int(amp.get("condition",-1)),latch_text],
   12,Color("#E8D4B5") if not van_ready else Color("#B5D9C4"),"JourneyVanState")
  latch_label.autowrap_mode = TextServer.AUTOWRAP_OFF
  latch_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
