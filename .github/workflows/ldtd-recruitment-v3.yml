@@ -1,0 +1,64 @@
+name: Livin The Dream V3 — genre-first recruitment gameplay and real screenshots
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Scripts/recruitment_catalogue_v3.gd'
+      - 'poc/ldtd_recruitment_v3.gd'
+      - 'poc/ldtd_recruitment_v3.tscn'
+      - 'poc/ldtd_recruitment_meter.gd'
+      - 'tests/ldtd_recruitment_v3_tests.gd'
+      - 'tests/capture_ldtd_recruitment_v3.gd'
+      - '.github/workflows/ldtd-recruitment-v3.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ldtd-recruitment-v3
+  cancel-in-progress: true
+jobs:
+  gameplay-and-actual-captures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot 4.7.2 and Xvfb
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Native import and deterministic recruitment mechanics
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_recruitment_v3_tests.gd 2>&1 | tee /tmp/test.log
+          grep -q 'LDTD RECRUITMENT V3 ALL DETERMINISTIC AND UI CONTRACT TESTS PASSED' /tmp/test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|V3 RECRUITMENT FAILURE:|ERROR:' /tmp/test.log
+      - name: Capture actual Godot 390, 720, 1280 and 1600 recruitment screens
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            width="${dims%x*}"; height="${dims#*x}"
+            for stage in genre recruit name; do
+              output="screenshots/v3-${stage}-${dims}.png"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v3.gd -- --width="$width" --height="$height" --stage="$stage" --output="$output" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD RECRUITMENT V3 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|V3 SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+      - name: Upload reviewer-native PNGs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ldtd-recruitment-v3-native-godot
+          path: screenshots/*.png
+          if-no-files-found: warn
+          retention-days: 14
