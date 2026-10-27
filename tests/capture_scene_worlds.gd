@@ -39,8 +39,15 @@ func _capture() -> void:
 	for frame in range(20):
 		await process_frame
 	var primary: Button = ui.find_child("PrimaryAction", true, false)
-	if primary == null or primary.custom_minimum_size.y < 44:
-		push_error("SCENE WORLD CAPTURE: Primary action missing or undersized")
+	if primary == null:
+		push_error("SCENE WORLD CAPTURE: Primary action missing")
+		quit(1)
+		return
+	var pixel_scale := float(DisplayServer.window_get_size().x) / float(ui.get_viewport_rect().size.x)
+	var actual_touch_px := primary.custom_minimum_size.y * pixel_scale
+	var body: Label = ui.find_child("BodyIntroduction", true, false)
+	if actual_touch_px < 44.0 or body == null or float(body.get_theme_font_size("font_size")) * pixel_scale < 15.0:
+		push_error("SCENE WORLD CAPTURE: Physical touch or body text below accessibility target")
 		quit(1)
 		return
 	var status: Label = ui.find_child("LabStatus", true, false)
