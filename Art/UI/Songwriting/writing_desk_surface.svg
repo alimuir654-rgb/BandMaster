@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440">
+<defs><linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffdf1"/><stop offset=".53" stop-color="#f2ead5"/><stop offset="1" stop-color="#e1d5bd"/></linearGradient><linearGradient id="tape" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d2b68d" stop-opacity=".72"/><stop offset="1" stop-color="#9b7b5a" stop-opacity=".52"/></linearGradient></defs>
+<rect x="8" y="9" width="1183" height="425" rx="8" fill="#50483c" opacity=".28"/>
+<rect x="0" y="0" width="1184" height="422" rx="7" fill="url(#sheet)" stroke="#c6b89c" stroke-width="3"/>
+<path d="M0 0 H1184 V422 H0" fill="none" stroke="#fefcf1" stroke-width="3"/>
+<path d="M95 15 V408" stroke="#c37b6e" stroke-width="2" opacity=".42"/>
+<g stroke="#9fb5b4" stroke-width="1" opacity=".25"><path d="M15 76 H1170 M15 120 H1170 M15 164 H1170 M15 208 H1170 M15 252 H1170 M15 296 H1170 M15 340 H1170 M15 384 H1170"/></g>
+<g fill="#9d998a" opacity=".55"><circle cx="42" cy="54" r="11"/><circle cx="42" cy="210" r="11"/><circle cx="42" cy="365" r="11"/></g>
+<g fill="#f4f0df"><circle cx="42" cy="54" r="6"/><circle cx="42" cy="210" r="6"/><circle cx="42" cy="365" r="6"/></g>
+<path d="M820 0 L945 0 L934 28 L830 26 Z" fill="url(#tape)" opacity=".62"/>
+<g fill="none" stroke="#b39c78" opacity=".15" stroke-width="4"><circle cx="1070" cy="343" r="66"/><circle cx="1070" cy="343" r="59"/><path d="M1038 287 Q1094 267 1136 321"/></g>
+<g stroke="#665d4b" stroke-width="1" opacity=".09"><path d="M126 30 l12 2 M550 380 l25 -3 M790 45 l14 1 M310 406 l11 -1 M1050 58 l12 1"/></g>
+</svg>
