@@ -5,6 +5,7 @@ on:
       - premium-hardware-eight-control-families-2026-10-27
     paths:
       - BandMaster_Hardware_Repo_Import.zip
+      - .github/workflows/premium-hardware-source-intake.yml
   workflow_dispatch:
 
 permissions:
@@ -55,6 +56,7 @@ jobs:
           print('Validated expected owner archive; extracted 132 new source files without overwrites.')
           PY
           python tools/validate_premium_hardware_source.py
+          python -m pip install --disable-pip-version-check Pillow
           python bandmaster_premium_controls_lab/validate_assets.py
       - name: Commit source files only on the dedicated draft branch
         shell: bash
