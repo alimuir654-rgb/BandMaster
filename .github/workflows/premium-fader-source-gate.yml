@@ -1,0 +1,52 @@
+name: Premium hardware Sprint 01 fader source and input gate
+on:
+  pull_request:
+    paths:
+      - 'Scripts/premium_hardware/fader_state.gd'
+      - 'tests/premium_fader_state_tests.gd'
+      - 'Art/UI/PremiumHardware/Faders/**'
+      - 'tools/validate_premium_fader_source.py'
+      - 'tests/test_premium_fader_source.py'
+      - '.github/workflows/premium-fader-source-gate.yml'
+  workflow_dispatch:
+jobs:
+  source-intake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate BLOCKED intake without claiming art approval
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -p 'test_premium_fader_source.py' -v
+          if grep -q '"status": "BLOCKED"' Art/UI/PremiumHardware/Faders/source_manifest.json; then
+            python3 tools/validate_premium_fader_source.py --expect-blocked
+            echo 'P0 SOURCE ART BLOCKED: source checks completed; this is NOT a visual-quality pass' >> "$GITHUB_STEP_SUMMARY"
+          else
+            python3 tools/validate_premium_fader_source.py
+            test -f poc/premium_fader_lab.tscn || { echo 'READY source must include a runnable fader scene'; exit 1; }
+            echo 'Source metadata verified; owner visual approval still OPEN' >> "$GITHUB_STEP_SUMMARY"
+          fi
+  fader-input:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot 4.7.2
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Godot project import and isolated fader input tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --path . --editor --import --quit
+          godot --headless --path . --script res://tests/premium_fader_state_tests.gd 2>&1 | tee /tmp/fader-input.log
+          grep -q 'PREMIUM FADER INPUT TESTS PASSED' /tmp/fader-input.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|PREMIUM FADER INPUT FAILURE:' /tmp/fader-input.log; then exit 1; fi
+          echo 'Input semantics tested. No owner-approved fader art or renderer screenshots yet.' >> "$GITHUB_STEP_SUMMARY"
