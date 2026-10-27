@@ -31,6 +31,7 @@ var _landscape := true
 var _view_w := 1600.0
 var _view_h := 900.0
 var _mobile_scroll := 0
+var _bio_open := false
 var _last_focus: String = ""
 var genre_page := 0
 
@@ -169,10 +170,12 @@ func _set_role(value: String) -> void:
  role=value
  candidate_index=0
  _mobile_scroll=0
+ _bio_open=false
  _render()
 
 func _move(delta: int) -> void:
  candidate_index=posmod(candidate_index+delta,6)
+ _bio_open=false
  _render()
 
 func _add_remove() -> void:
@@ -361,6 +364,9 @@ func _portrait_scene(parent: Node) -> void:
   _name_line(parent,18,235,w-36,58)
   _text(parent,genre+"  /  "+str(roster.size())+" MEMBERS",18,327,w-36,42,17,WHITE,FONT_BODY)
  else:
+  if _bio_open:
+   _mobile_file(parent,w,h)
+   return
   _mobile_recruit(parent,w,h)
  _roster_dock(parent,w,h,false)
 
@@ -407,14 +413,21 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  _plate(parent,"PERSON FILE",Rect2((w-36)/2+24,655,(w-36)/2,52),func() -> void: _show_dossier(),false,true,"metal_tab",17)
 
 func _show_dossier() -> void:
+ if step!=1:
+  return
+ _bio_open=true
+ _render()
+
+func _close_dossier() -> void:
+ _bio_open=false
+ _render()
+
+func _mobile_file(parent: Node,w: float,h: float) -> void:
+ # Character dossier is part of the bespoke material system, never a Godot
+ # default native dialog. Portrait and stage data are independent.
  var p:Dictionary=_current()
- if p.is_empty():return
- var dialog:=AcceptDialog.new()
- dialog.title="PERSONNEL FILE / "+str(p["name"])
- dialog.dialog_text= str(p["story"])+"\n\nSTRENGTH: "+str(p["strength"])+"\nWATCH OUT: "+str(p["friction"])+"\n\n"+str(p["bands"])+" PREVIOUS BANDS · "+str(p["experience_years"])+" YEARS EXPERIENCE\nTROUBLE RISK: "+str(p["trouble"])+"\nLOOKING FOR: "+str(p["ambition"])
- add_child(dialog)
- dialog.confirmed.connect(dialog.queue_free)
- dialog.popup_centered_ratio(0.85)
+ _dossier(parent,p,Rect2(12,112,w-24,h-198),true)
+ _plate(parent,"RETURN TO AUDITIONS",Rect2(15,h-78,w-30,52),func() -> void: _close_dossier(),false,true,"metal_tab",23)
 
 func _name_line(parent: Node,x:float,y:float,w:float,h:float) -> void:
  var field:=LineEdit.new()
