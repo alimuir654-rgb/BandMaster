@@ -227,7 +227,8 @@ func _rebuild() -> void:
 	_tempo_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 	_tempo_label.custom_minimum_size.x = 67 * _scale
 	_tempo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_text(col, "LOCAL DRAFT ONLY / NO BAND TIME, CASH OR SONG DATA CHANGED", 11, p["muted"], "WritingDisclaimer")
+	if not compact:
+		_text(col, "LOCAL DRAFT ONLY / NO BAND TIME, CASH OR SONG DATA CHANGED", 11, p["muted"], "WritingDisclaimer")
 
 	# Fixed dock: the preview action remains visible when the writing desk scrolls.
 	var dock := PanelContainer.new()
