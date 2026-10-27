@@ -7,7 +7,7 @@ The eight scene-world runs (#185–#192) built acceptable *layouts and page stru
 Existing good page structure, warm bright DAY, intermediate DUSK, atmospheric NIGHT, gameplay state, and core game/save must remain intact. No wall-clock theming.
 
 ## P0 asset and source verification
-The original Lab 05/07/08.4 **separated PNG / source bundles** were supplied in prior project chats, but the 26–27 October visual sprint audits explicitly found them **absent from GitHub's Art/UI**. The files available in the current review context are Godot screenshots and demonstrator ZIPs, **not** editable or clean sprite source for those premium hardware controls. A screenshot is NOT production sprite art. Every sprint checks actual binary bytes and SHA-256; where the source cannot be accessed it must **report BLOCKED** instead of drawing a cheap procedural imitation or claiming fidelity. If source remains unavailable, request owner reattach the approved Lab 05/07/08.4 ZIPs and continue only with asset-intake tooling, tests, measurements, or independent genuinely premium reference-backed candidates explicitly marked unapproved. Do not silently replace approval baseline.
+The original Lab 05/07/08.4 **separated PNG / source bundles** were supplied in prior project chats, but the 26–27 October visual sprint audits explicitly found them **absent from GitHub's Art/UI**. The files available in the current review context are Godot screenshots and demonstrator ZIPs, **not** editable or clean sprite source for those premium hardware controls. A screenshot is NOT production sprite art. Every sprint checks actual binary bytes and SHA-256; where the source cannot be accessed it must **report BLOCKED** instead of drawing a cheap procedural imitation or claiming fidelity. **27 October 08:57 update:** The owner HAS supplied all three original ZIPs, audited in `docs/PREMIUM_HARDWARE_RECEIVED_SOURCE_AUDIT_2026_10_27.md`. Do **not** ask for reattachment. The remaining P0 is transfer of the 129-file repo-import ZIP's extracted binaries to GitHub, plus obtaining *genuinely separated fader layers* not present in the flattened Lab05 reference archive. Until then continue only with asset-intake tooling, tests and honest BLOCKED reports; never manufacture a cheap visual substitute. Do not silently replace approval baseline.
 
 Approved assets must be imported with provenance, alpha-state separation, appropriate texture sampling, 9-patch handling where needed, and licence/ownership manifest. Keep live labels/text/icon semantics engine-rendered. Do not cut up flattened screenshot composites.
 
@@ -53,7 +53,7 @@ Gameplay integration after owner visual approval: map proposals against existing
 ## Execution ledger (fill honestly)
 | Sprint | Status | PR | Actual renderer evidence | Owner gate |
 |---|---|---|---|---|
-| 01 Faders | QUEUED / P0 asset intake | — | — | OPEN |
+| 01 Faders | **P0 BLOCKED** — owner source received; separated fader layers absent from GitHub and Lab05 ZIP is flattened reference only | [#194](https://github.com/alimuir654-rgb/BandMaster/pull/194) | **None**; no fake hardware render. Input/source-gate tests pending CI | OPEN / FAIL |
 | 02 Rotary | QUEUED | — | — | OPEN |
 | 03 Transport | QUEUED | — | — | OPEN |
 | 04 Pads | QUEUED | — | — | OPEN |
