@@ -23,7 +23,7 @@ Mandatory rule: BEFORE ANY SCENE CODE each sprint MUST read this ledger, docs/SC
 
 Each sprint is one isolated/draft PR or one ordered commit on a shared draft with a checkpoint; DoD = native runnable code, realistic asset provenance, mobile/tablet/landscape/desktop Godot images, deterministic tests and recorded five-lens review. Mark BLOCKED if actual artwork missing. Nothing automatically merges.
 
-## PRE-FLIGHT S00 / S01 — 27 Oct 2026 ~11:21 Europe/London
+## PRE-FLIGHT S01 (following S00) — 27 Oct 2026 ~11:21 Europe/London
 Read before implementation: previous docs/SPRINT_EXECUTION_LOG.md, control quality review history (PRs #193/#195/#197/#198), current quality gate doc, previous scene programme #192 and inspected Git trees.
 Lessons carried: no loose dark hardware on cream; no faders for non-editable stats; 0 = no residual glow; 44 physical px; UI must have deep physical craft, not cheap flat cards; DAY must look daylight; screenshot/actual render checks over green CI; never mutate saves or duplicate settlement.
 Persona preflight: player needs obvious next step; musician needs credible journey; art director expects real layer materials; accessibility expects readable and full target; engineer demands no missing scene links, proper logical-to-physical layout and regression. PRE-FLIGHT: PASS for S01 isolated shell implementation, target reference-import claim remains UNVERIFIED.
