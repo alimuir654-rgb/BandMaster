@@ -56,7 +56,6 @@ func _run() -> void:
 		return
 	var finish_button: Button = view.find_child("FinishPunk", true, false)
 	var subhead: Label = view.find_child("TransportModuleSubtitle", true, false)
-	var disclaimer: Label = view.find_child("TransportProofDisclaimer", true, false)
 	var explanation: Label = view.find_child("TransportRoleCopy", true, false)
 	if finish_button == null or subhead == null or disclaimer == null or explanation == null:
 		_fail("missing supporting transport text or selector")
