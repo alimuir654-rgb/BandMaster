@@ -89,7 +89,7 @@ func _plate(parent: Node, caption: String, bounds: Rect2, action: Callable, acti
  b.focus_mode=Control.FOCUS_ALL if enabled else Control.FOCUS_NONE
  b.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
  b.texture_normal=load(ART+finish+("_selected.svg" if active else "_idle.svg"))
- b.texture_hover=load(ART+finish+"_hover.svg")
+ b.texture_hover=load(ART+finish+("_selected.svg" if active else "_hover.svg"))
  b.texture_pressed=load(ART+finish+"_pressed.svg")
  b.texture_disabled=load(ART+finish+"_disabled.svg")
  b.disabled=not enabled
@@ -115,6 +115,8 @@ func _transport(parent: Node, symbol: String, bounds: Rect2, action: Callable, b
  b.texture_pressed=load(TRANSPORT+"pressed.png")
  b.texture_disabled=load(TRANSPORT+"disabled.png")
  b.pressed.connect(action)
+ b.focus_entered.connect(func() -> void: b.modulate=Color("#FFE0A7"))
+ b.focus_exited.connect(func() -> void: b.modulate=Color.WHITE)
  parent.add_child(b)
  _text(b,symbol,0,0,bounds.size.x,bounds.size.y,19,WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
  return b
