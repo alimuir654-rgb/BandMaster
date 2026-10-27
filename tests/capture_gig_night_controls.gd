@@ -46,8 +46,10 @@ func _run() -> void:
 	var encore: Button = lab.find_child("GigEncore", true, false)
 	var primary: Button = lab.find_child("GigPrimary", true, false)
 	var footer: Control = lab.find_child("GigActionDock", true, false)
+	var cue: Control = lab.find_child("GigCueControls", true, false)
+	var safety: Control = lab.find_child("GigSafetyControls", true, false)
 	var backdrop: ColorRect = lab.find_child("GigTimeBackdrop", true, false)
-	if hero == null or rack == null or go == null or hold == null or encore == null or primary == null or footer == null or backdrop == null:
+	if hero == null or rack == null or go == null or hold == null or encore == null or primary == null or footer == null or backdrop == null or cue == null or safety == null:
 		push_error("GIG CAPTURE: missing controls")
 		quit(1)
 		return
@@ -62,6 +64,10 @@ func _run() -> void:
 		return
 	if hero.get_global_rect().position.y * pixel_scale > float(height) * 0.52:
 		push_error("GIG CAPTURE: photo hero not visible near first fold")
+		quit(1)
+		return
+	if cue.get_global_rect().end.y * pixel_scale > footer.get_global_rect().position.y * pixel_scale - 2.0:
+		push_error("GIG CAPTURE: GO HOLD ENCORE hidden below first fold")
 		quit(1)
 		return
 	if rack.get_global_rect().size.y * pixel_scale < 170.0:
