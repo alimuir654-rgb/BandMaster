@@ -14,7 +14,7 @@ func _run() -> void:
   if arg.begins_with("--height="):height=int(arg.trim_prefix("--height="))
   if arg.begins_with("--stage="):stage=arg.trim_prefix("--stage=")
   if arg.begins_with("--output="):output=arg.trim_prefix("--output=")
- if not ["genre","recruit","name","bio"].has(stage):
+ if not ["genre","recruit","name","bio","ready"].has(stage):
   _fail("unknown stage")
   return
  get_root().size=Vector2i(width,height)
@@ -25,18 +25,30 @@ func _run() -> void:
  if stage!="genre":
   view._next()
   for i in range(4):await process_frame
- if stage=="name":
+ if stage=="name" or stage=="ready":
   for p in view.Model.people():
    if ["alex","jo","sam"].has(str(p["id"])):
     view.roster.append(p)
-  view._next()
+  if stage=="name":view._next()
   for i in range(4):await process_frame
  if stage=="bio":
   view._show_dossier()
   for i in range(4):await process_frame
- if view.step!=["genre","recruit","name"].find(stage) and not (stage=="bio" and view.step==1 and view._bio_open):
+ var expected_step:int=1 if stage=="bio" or stage=="ready" else ["genre","recruit","name"].find(stage)
+ if view.step!=expected_step or (stage=="bio" and not view._bio_open) or (stage=="ready" and not view.Model.viable(view.roster)):
   _fail("scene step contract")
   return
+ if width<=450 and (stage=="recruit" or stage=="ready"):
+  var captions:Array=[]
+  for label in view.find_children("*","Label",true,false):
+   captions.append(str(label.text))
+  for role_caption in ["SING","GUITAR","BASS","KEYS","DRUMS"]:
+   if not captions.has(role_caption):
+    _fail("phone cannot directly reach "+role_caption)
+    return
+  if stage=="ready" and not captions.has("NAME BAND ›"):
+   _fail("viable phone roster cannot reach name-last stage")
+   return
  var scale_x:=float(width)/maxf(view.get_viewport_rect().size.x,1.0)
  var hit_count:=0
  var touches:=view.find_children("*","TextureButton",true,false)
