@@ -41,12 +41,27 @@ func _capture() -> void:
 	var status: Label = lab.find_child("VanStatus", true, false)
 	var latch: Button = lab.find_child("VanLatch", true, false)
 	var primary: Button = lab.find_child("PrimaryAction", true, false)
+	var road_case: Control = lab.find_child("TourRoadCase", true, false)
 	if selected == null or selected.text != "CARDIFF" or status == null or status.text != "SECURED":
 		push_error("TOUR CONTROL CAPTURE: State/ticket synchronization failed")
 		quit(1)
 		return
-	if latch == null or primary == null or lab.find_child("TourRoadCase", true, false) == null:
+	if latch == null or primary == null or road_case == null:
 		push_error("TOUR CONTROL CAPTURE: Physical controls missing")
+		quit(1)
+		return
+	if latch.get_global_rect().end.y > road_case.get_global_rect().end.y - 4.0:
+		push_error("TOUR CONTROL CAPTURE: Van latch clipped by road case")
+		quit(1)
+		return
+	var selected_phase: Button = lab.find_child("Phase" + phase.capitalize(), true, false)
+	if selected_phase == null:
+		push_error("TOUR CONTROL CAPTURE: Phase selector missing")
+		quit(1)
+		return
+	var selected_style: StyleBoxFlat = selected_phase.get_theme_stylebox("normal")
+	if Worlds.contrast_ratio(selected_phase.get_theme_color("font_color"), selected_style.bg_color) < 4.5:
+		push_error("TOUR CONTROL CAPTURE: Selected phase lacks text contrast")
 		quit(1)
 		return
 	var pixel_scale := float(DisplayServer.window_get_size().x) / float(lab.get_viewport_rect().size.x)
