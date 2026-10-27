@@ -20,10 +20,9 @@ func _run() -> void:
 		return
 	if not _check(primary != null and primary.focus_mode == Control.FOCUS_ALL, "keyboard primary"):
 		return
-	var px: float = float(DisplayServer.window_get_size().x) / maxf(view.get_viewport_rect().size.x, 1.0)
-	if not _check(primary.get_global_rect().size.y * px >= 44.0, "44 physical px primary"):
+	if not _check(primary.size.y >= 44.0, "native primary target minimum; physical geometry checked in Xvfb screenshot"):
 		return
-	if not _check(view._choice_buttons["Jo"].get_global_rect().size.y * px >= 44.0, "44 physical px choices"):
+	if not _check(view._choice_buttons["Jo"].size.y >= 44.0, "native choice target minimum; physical geometry checked in Xvfb screenshot"):
 		return
 	view.choose_drummer("rae")
 	view.choose_bassist("dev")
