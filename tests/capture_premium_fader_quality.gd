@@ -46,6 +46,22 @@ func _capture() -> void:
 	if h.get_global_rect().size.y < 80.0 or v.get_global_rect().size.x < 110.0:
 		_fail("hardware below minimum physical size")
 		return
+	var px_scale: float = float(DisplayServer.window_get_size().x) / maxf(view.get_viewport_rect().size.x, 1.0)
+	var heading: Label = view.find_child("PremiumHeading", true, false)
+	var caption: Label = view.find_child("PremiumCaption", true, false)
+	var phase_control: Button = view.find_child("FaderPhaseDusk", true, false)
+	if heading == null or caption == null or phase_control == null:
+		_fail("visual quality review labels missing")
+		return
+	if float(heading.get_theme_font_size("font_size")) * px_scale < 21.0:
+		_fail("headline too small on physical device")
+		return
+	if float(caption.get_theme_font_size("font_size")) * px_scale < 15.0:
+		_fail("caption too small on physical device")
+		return
+	if phase_control.get_global_rect().size.y * px_scale < 44.0:
+		_fail("phase review target smaller than 44 physical pixels")
+		return
 	var image := get_root().get_texture().get_image()
 	var expected: Color = Color("#ECE7DA") if phase == "day" else (Color("#283941") if phase == "dusk" else Color("#0B1116"))
 	var actual: Color = image.get_pixel(3, 3)
