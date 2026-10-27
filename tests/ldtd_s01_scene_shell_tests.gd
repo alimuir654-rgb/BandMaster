@@ -47,11 +47,12 @@ func _verify() -> void:
 	if not ResourceLoader.exists("res://poc/premium_transport_proof.tscn") or not ResourceLoader.exists("res://poc/premium_mixer_module_lab.tscn"):
 		_fail("studio proof links unavailable")
 		return
-	# S03/S04/S05 now have real isolated journeys. A previous S01-only
+	# S03/S04/S05/S06 now have real isolated journeys. A previous S01-only
 	# assertion treated Tour as a placeholder and became obsolete at S04.
 	for path in ["res://poc/ldtd_songwriting_journey.tscn",
 			"res://poc/ldtd_tour_planning.tscn",
-			"res://poc/ldtd_gig_night.tscn"]:
+			"res://poc/ldtd_gig_night.tscn",
+			"res://poc/ldtd_studio_recording.tscn"]:
 		if not ResourceLoader.exists(path):
 			_fail("implemented scene link missing: "+path)
 			return
