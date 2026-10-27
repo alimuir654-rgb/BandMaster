@@ -134,11 +134,19 @@ jobs:
           done
           xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage=rehearsal --phase=dusk --width=1280 --height=720 --output=screenshots/s02b-rehearsal-dusk-1280x720.png 2>&1 | tee /tmp/capture.log
           grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+          # Both real outing tickets must also fit the first fold on phone
+          # and landscape; these are additional native renders, not mockups.
+          for dims in 390x844 1280x720; do
+            w="${dims%x*}"; h="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage=social --phase=day --width="$w" --height="$h" --output="screenshots/s02b-social-day-$dims.png" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          done
           python3 - <<'PY'
           from pathlib import Path
           from PIL import Image,ImageChops,ImageStat
           files=list(Path('screenshots').glob('s02b-*.png'))
-          assert len(files)==9,len(files)
+          assert len(files)==11,len(files)
           for f in files:
               with Image.open(f) as im:
                   assert im.size in {(390,844),(720,1280),(1280,720),(1600,900)},f
@@ -150,7 +158,7 @@ jobs:
           # photographed DAY cork, not the earlier black/charred backdrop.
           daylight_cork=[day.getpixel(point) for point in [(80,350),(1200,350),(1140,570)]]
           assert min(sum(rgb)/3 for rgb in daylight_cork)>160,('P0: DAY cork remains charred',daylight_cork)
-          print('9 REAL GODOT MATERIAL SCREENSHOTS VERIFIED; DAY cork pixel luminance',daylight_cork)
+          print('11 REAL GODOT MATERIAL SCREENSHOTS VERIFIED; DAY cork pixel luminance',daylight_cork)
           PY
       - name: Assemble real Godot screenshots into an owner-facing comparison sheet
         shell: bash
@@ -186,7 +194,7 @@ jobs:
           canvas=Image.new('RGB',(total,2530),(243,241,236))
           draw=ImageDraw.Draw(canvas)
           draw.text((margin,21),"LIVIN' THE DREAM / FORMATION — OWNER VISUAL REVIEW",font=face(30),fill=(33,42,47))
-          draw.text((margin,68),"Nine ACTUAL Godot renders. Not a concept image or owner-approved production scene.",
+          draw.text((margin,68),"Nine core ACTUAL Godot renders; two extra social checks. Not owner-approved.",
                     font=face(18),fill=(86,94,98))
           for row,(stage,phase) in enumerate([('recruit','day'),('summary','night')]):
               x=margin;y=117+row*row_h
@@ -219,7 +227,7 @@ jobs:
           assert out.stat().st_size>50000,out
           print('PASS: labelled owner sheet assembled from exactly 9 real Godot screenshots')
           PY
-      - name: Publish nine native screenshots and 22 source assets
+      - name: Publish eleven native screenshots and 22 source assets
         if: always()
         uses: actions/upload-artifact@v4
         with:
