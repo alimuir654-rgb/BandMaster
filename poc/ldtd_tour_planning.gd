@@ -7,7 +7,7 @@ const Circuit = preload("res://Scripts/uk_gig_circuit.gd")
 const Ticket = preload("res://Scripts/ldtd_tour_ticket.gd")
 const PHASES := ["day", "dusk", "night"]
 const CORK := "res://Art/Photography/Formation/corkboard_day_pexels.webp"
-const PHOTO := "res://Art/Backgrounds/shared/home.webp"
+const PHOTO := "res://Art/Backgrounds/shared/gear.webp"
 const SHEET := "res://Art/UI/TourCraft/itinerary_sheet.svg"
 const MAP := "res://Art/UI/TourCraft/route_map.svg"
 const FONT_DISPLAY := "res://Art/Fonts/BarlowCondensed-SemiBold.ttf"
@@ -242,7 +242,7 @@ void fragment() {
 	photo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	photo_frame.add_child(photo)
 	_rect(photo,4,4,photo_w-8,photo_h-8)
-	var photo_tag := _label(photo_frame,"TourPhotoCaption","THE BAND'S BASE  /  NEXT STOP",12,Color("#F9F2E4"),"numbers")
+	var photo_tag := _label(photo_frame,"TourPhotoCaption","GEAR CHECK  /  BEFORE THE ROAD",12,Color("#F9F2E4"),"numbers")
 	photo_tag.add_theme_constant_override("outline_size",3)
 	photo_tag.add_theme_color_override("font_outline_color",Color("#16262C"))
 	_rect(photo_tag,12,photo_h-27,photo_w-24,23)
@@ -338,10 +338,12 @@ void fragment() {
 	dock.add_theme_stylebox_override("panel",_panel(CREAM if phase=="day" else Color("#23383F"),Color("#B9A17D")))
 	_surface.add_child(dock)
 	_rect(dock,12,h-dock_h+5,w-24,dock_h-12)
+	var stamp_w: float = minf(w-44.0,650.0)
+	var stamp_x: float = (w-24.0-stamp_w)*0.5
 	_primary = _ticket(dock,"TourConfirmBooking","commit",
 		"CONFIRM THE ROUTE  /  NO PAYMENT" if stage=="planning" else "BOOKING CONFIRMED  /  DAY %d" % int(booked.get("day",0)),
 		stage=="confirmed",stage!="planning" or not bool(preview.get("ok",false)),
-		commit_plan,10,7,w-44,54)
+		commit_plan,stamp_x,7,stamp_w,54)
 	_status = _label(dock,"TourBookingStatus",
 		("BOOKED / £0 SPENT / DAY %d" % int(booked.get("day",0))) if stage=="confirmed" else (
 		"CHECK VAN + ROUTE  /  DAY %d  /  NO SAVE WRITES" % int(local_state.get("tour_day",1)) if narrow else last_message),
