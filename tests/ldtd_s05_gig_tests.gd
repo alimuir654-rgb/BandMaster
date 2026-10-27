@@ -77,7 +77,12 @@ func _run() -> void:
 	_check(JSON.parse_string(finished) is Dictionary,"result JSON-compatible")
 	_check(original.get("gig_history",[]).is_empty(),"sample source unchanged")
 	var source: String = FileAccess.get_file_as_string("res://poc/ldtd_gig_night.gd")
-	_check(not source.contains("FileAccess.open(") and not source.contains("user://") and not source.contains("SaveService"),"no production persistence")
+	var executable: String = ""
+	for line in source.split("\n"):
+		var trimmed: String = line.strip_edges()
+		if not trimmed.begins_with("#"):
+			executable += trimmed + "\n"
+	_check(not executable.contains("FileAccess.open(") and not executable.contains("user://") and not executable.contains("SaveService"),"no production persistence")
 	view.queue_free()
 	if failures>0:
 		push_error("S05 FAILED: %d checks" % failures)
