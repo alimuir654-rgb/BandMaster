@@ -54,6 +54,26 @@ func _run() -> void:
 	if rig.get_global_rect().end.y > view.get_viewport_rect().size.y + 3.0:
 		_fail("rack extends below device")
 		return
+	var finish_button: Button = view.find_child("FinishPunk", true, false)
+	var subhead: Label = view.find_child("TransportModuleSubtitle", true, false)
+	var disclaimer: Label = view.find_child("TransportProofDisclaimer", true, false)
+	var explanation: Label = view.find_child("TransportRoleCopy", true, false)
+	if finish_button == null or subhead == null or disclaimer == null or explanation == null:
+		_fail("missing supporting transport text or selector")
+		return
+	for node in [state_label, subhead, disclaimer, explanation]:
+		if node.get_combined_minimum_size().x > node.size.x + 3.0:
+			_fail("text too wide for enclosure: " + node.name)
+			return
+		if not rig.get_global_rect().grow(2.0).encloses(node.get_global_rect()):
+			_fail("text outside physical enclosure: " + node.name)
+			return
+	if state_label.get_global_rect().intersects(finish_button.get_global_rect()) or disclaimer.get_global_rect().intersects(finish_button.get_global_rect()):
+		_fail("state, finish and disclaimer layers collide")
+		return
+	if explanation.get_global_rect().intersects(finish_button.get_global_rect()):
+		_fail("explanation overlaps interactive selector")
+		return
 	if state == "locked" and (not key.disabled or not state_label.text.contains("LOCKED")):
 		_fail("disabled state failed")
 		return
