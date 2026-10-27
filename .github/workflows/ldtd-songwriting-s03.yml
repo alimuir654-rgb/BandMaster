@@ -5,6 +5,7 @@ on:
     paths:
       - 'Scripts/ldtd_songwriting_preview.gd'
       - 'Scripts/ldtd_songwriting_pad.gd'
+      - 'Scripts/ldtd_songwriting_rotary.gd'
       - 'poc/ldtd_songwriting_journey.*'
       - 'tests/ldtd_s03_songwriting_tests.gd'
       - 'tests/capture_ldtd_s03_songwriting.gd'
