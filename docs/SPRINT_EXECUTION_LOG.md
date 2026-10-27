@@ -175,3 +175,25 @@ Pending final run results. Do not merge until structure, headless and screenshot
 - **Worked:** songwriting receives a distinct notebook/tape/sampler family rather than reusing tour road-case buttons or forcing dark backgrounds on daytime scenes.
 - **Limit:** original SVG surface is intentionally prototype-grade; owner-approved photographic studio control PNGs remain outside GitHub. Typography still uses Godot fallback pending verified font binaries/OFL.
 - **Next:** inspect final-head GitHub Actions tests and download/rendered screenshots; repair first-fold, clipping and import failures. Once verified, Sprint 05 should connect a focused songwriting scene to actual song draft/commit rules, preserving legacy saves and validation-before-time-spend. Owner visual HOLD remains OPEN.
+
+
+## Visual Scene Worlds Sprint 05 / 08 — 2026-10-27 04:00 UTC run
+**Scope:** Local-only playable songwriting journey using actual Practice.compose and Workshop engine, from bright daytime writing table through dusk rehearsal and finished-song sleeve. Draft PR #189 (visual-sprint05-songwriting-journey-poc), stacked on #188; no production game/save changes.
+
+### Implemented and evidence
+- Scripts/songwriting_journey_preview.gd delegates to authoritative Practice.compose on a deep copy. Preview and commit use the same engine; duplicate title, inactive lead and invalid creative choices are rejected before day cost. No CareerHub or FileAccess.
+- poc/songwriting_journey_poc.gd/.tscn: THE SPARK (title/idea), FIND THE SOUND (real form and bandmate lead; local tape/groove/BPM sketches), SONGSHEET (actual day/cash/morale/readiness deltas), then a real song-catalogue sleeve after three committed sessions. Back, day/dusk switch, fixed primary action and next-song preservation. Tape/groove/BPM are explicitly visual-only, not invented audio or economic mechanics.
+- tests/songwriting_journey_poc_tests.gd: title/idea/leader validation, preview immutability, three one-day sessions, catalogue provenance, duplicate-title guard, state/back/phase roundtrip and once-only result. tests/capture_songwriting_journey_poc.gd: actual Godot first-fold, >=44px target, readout and phase background checks at 390x844, 720x1280, 1280x720 for day/dusk/result. .github/workflows/songwriting-journey-poc.yml runs headless tests and captures nine PNGs. **At initial entry CI and actual image inspection PENDING**, not assumed successful.
+- Owner-approved Lab08.4 original ZIP exists in conversation mount: 138 PNG/GDScript/scene entries. SHA256 of buzz_ring_off.png = bf1c7b4e7d10121e5a6a5ea4746e1cc91734700d7f940cf9321765a3f484741b; focus_ring_off.png = eddac46220113c772711dd9d37006b2128c752d960c732cdace9ee4decbd284f. These are NOT GitHub assets. Sprint 05 uses Sprint 04 paper SVG as explicitly provisional; no claim of approved photographic hardware or final typography.
+
+### Five simulated adversarial persona checks (code review only; not human visual sign-off)
+1. First-time songwriter: three named steps and single fixed CTA support orientation; mobile arrangement scroll and actual first-fold visibility still need renderer review.
+2. Touring musician: session lead, starting idea and real form affect model; BPM/tape/groove are labelled sketches, not fabricated DAW/audio functions.
+3. Management-game veteran: real resolver previews one-day cost and deltas; third session finishes a catalogue song. Economy balance requires future playtesting.
+4. UX/accessibility: native text input, keyboard-focusable buttons/slider, safe Back and 47–53 logical-height controls; long text, tab order and visual clipping need screenshot/manual checks.
+5. Godot/release QA: no live save schema mutation, independent deep copies, validation before time charge, duplicate title and inactive musician coverage. Godot CI/parser/runtime and screenshots pending; old RID warnings not claimed fixed.
+
+### Retro / exact next handoff
+Worked: existing three-session engine and SongSleeve.describe, no duplicate gameplay logic, bright-day/dusk presentation contract.
+Risk: prototype SVG paper below approved photo hardware quality; Lab08.4 PNG not transferred to GitHub; typography fallback; owner visual HOLD remains OPEN.
+Next immediate: verify latest-head PR #189 CI, download/inspect all nine actual screenshots and repair parse/overflow/contrast defects. Keep draft. Then Sprint 06 gig-night controls (day load-in, dusk soundcheck, night performance) stacked safely on this branch. Do not touch isolated PR #183.
