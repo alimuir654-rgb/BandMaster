@@ -136,6 +136,10 @@ func _rebuild() -> void:
 	hero_caption.position = Vector2(14, 14) * _scale
 	hero_caption.add_theme_color_override("font_color", Color("#FFFFFF"))
 	hero_caption.add_theme_font_size_override("font_size", roundi(15 * _scale))
+	var caption_plate := StyleBoxFlat.new()
+	caption_plate.bg_color = Color(0.02, 0.04, 0.06, 0.82)
+	caption_plate.set_content_margin_all(roundi(5 * _scale))
+	hero_caption.add_theme_stylebox_override("normal", caption_plate)
 	hero.add_child(hero_caption)
 
 	var card := PanelContainer.new()
@@ -156,8 +160,8 @@ func _rebuild() -> void:
 	card_column.add_child(stats)
 	_stat(stats, str(sample["stat_a"]), str(sample["value_a"]), p)
 	_stat(stats, str(sample["stat_b"]), str(sample["value_b"]), p)
+	_status = _text(card_column, "SAMPLE DATA / NO CAREER SAVE MODIFIED", 13, p["muted"], "LabStatus")
 	_button(card_column, str(sample["action"]), false, true, _show_lab_action, p, "PrimaryAction")
-	_status = _text(card_column, "STYLE STUDY ONLY / NO CAREER DATA CHANGED", 13, p["muted"], "LabStatus")
 
 	var specimen := PanelContainer.new()
 	specimen.name = "TypographySpecimen"
