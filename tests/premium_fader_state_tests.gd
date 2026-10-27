@@ -40,7 +40,7 @@ func _run() -> void:
 	f.keyboard_step(1)
 	_check(is_equal_approx(f.value, 0.92), "small keyboard increment")
 	_check(is_equal_approx(f.cap_ratio_from_value(), 0.08), "cap position follows value")
-	var before := f.value
+	var before: float = f.value
 	f.set_enabled(false)
 	_check(f.visual_state() == "disabled", "disabled overrides all")
 	_check(not f.begin_drag(), "disabled blocks drag")
