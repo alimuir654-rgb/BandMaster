@@ -5,6 +5,7 @@ extends Control
 const Catalogue = preload("res://Scripts/formation_catalogue.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
+const Craft = preload("res://Scripts/formation_craft_skin.gd")
 const PHASES := ["day", "dusk", "night"]
 const ROOM_PHOTO := "res://Art/Backgrounds/shared/formation.webp"
 const PAPER := Color("#F6F0E3")
@@ -144,21 +145,19 @@ func _label(parent: Node, name_value: String, caption: String, font_size: int, c
 	return l
 
 func _button(parent: Node, name_value: String, caption: String, selected: bool, action: Callable) -> Button:
+	# Text and click targets remain native; bespoke ripped-paper/ticket/tab/wax assets
+	# give each semantic scene action a recognizable material family.
+	var kind := "activity"
+	if name_value.begins_with("Choice"):
+		kind = "candidate" if stage == "recruit" else "activity"
+	elif name_value.begins_with("Phase") or name_value == "ReturnToGallery":
+		kind = "tab"
+	elif name_value == "FormationPrimaryAction":
+		kind = "commit"
 	var b := Button.new()
 	b.name = name_value
 	b.text = caption
-	b.focus_mode = Control.FOCUS_ALL
-	b.custom_minimum_size.y = 48
-	b.add_theme_font_size_override("font_size", 15)
-	b.add_theme_stylebox_override("normal", _style(GOLD if selected else Color("#F1E7D5"),
-		Color("#A89170"), 5))
-	b.add_theme_stylebox_override("hover", _style(Color("#F7D393"), GOLD, 5))
-	b.add_theme_stylebox_override("pressed", _style(Color("#D6A051"), GOLD, 5))
-	b.add_theme_stylebox_override("disabled", _style(Color("#D9D5CE"), Color("#B1AAA0"), 5))
-	b.add_theme_stylebox_override("focus", _style(Color.TRANSPARENT, Color("#7B4520"), 5))
-	b.add_theme_color_override("font_color", INK)
-	b.add_theme_color_override("font_hover_color", INK)
-	b.add_theme_color_override("font_disabled_color", Color("#5D625F"))
+	Craft.apply_to(b, kind, selected, 52.0 if kind == "commit" else 48.0)
 	b.pressed.connect(action)
 	parent.add_child(b)
 	return b
@@ -200,6 +199,18 @@ func _render() -> void:
 	add_child(_surface)
 	_rect(_surface, 0, 0, w, h)
 
+	# Physical material carries the entire world: a lit wooden rehearsal desk.
+	# Never use a single dim rehearsal photograph as the DAY background.
+	var desk := TextureRect.new()
+	desk.name = "FormationSunlitDesk"
+	desk.texture = load("res://Art/UI/FormationCraft/rehearsal_desk.png")
+	desk.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	desk.stretch_mode = TextureRect.STRETCH_SCALE
+	desk.modulate = Color.WHITE if phase == "day" else (Color("#C4B4A5") if phase == "dusk" else Color("#696875"))
+	desk.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_surface.add_child(desk)
+	_rect(desk, 0, 0, w, h)
+
 	var head := Panel.new()
 	head.name = "FormationHeader"
 	head.add_theme_stylebox_override("panel", _style(PAPER if phase == "day" else Color("#1B2A31"),
@@ -220,7 +231,7 @@ func _render() -> void:
 			next_phase == phase, func() -> void: set_phase(next_phase))
 		_rect(chip, 14 + i * (chip_w + 7), 101, chip_w, 46)
 
-	var dock_h := 101.0
+	var dock_h := 105.0
 	var scroll := ScrollContainer.new()
 	scroll.name = "FormationScroll"
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -234,9 +245,20 @@ func _render() -> void:
 	_rect(page, 0, 0, w, 970)
 	page.custom_minimum_size = Vector2(w, 970)
 
+	# Independent high-resolution scanned-paper-like notebook sits under native data.
+	# Paper fibres, ruling, dog-ear and folded tape are pixels, not flat UI panels.
+	var sheet := TextureRect.new()
+	sheet.name = "FormationNotebookMaterial"
+	sheet.texture = load("res://Art/UI/FormationCraft/rehearsal_notebook.png")
+	sheet.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	sheet.stretch_mode = TextureRect.STRETCH_SCALE
+	sheet.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	page.add_child(sheet)
+	_rect(sheet, left, 8, page_w, 936)
 	var paper := Panel.new()
 	paper.name = "ScrapbookPaper"
-	paper.add_theme_stylebox_override("panel", _style(PAPER, Color("#C9B99D"), 5, true))
+	paper.add_theme_stylebox_override("panel", _style(Color(0, 0, 0, 0), Color("#C1A985"), 5, true))
+	paper.mouse_filter = Control.MOUSE_FILTER_PASS
 	page.add_child(paper)
 	_rect(paper, left, 8, page_w, 936)
 	var pleft: float = 15
@@ -297,16 +319,16 @@ func _render() -> void:
 		_label_line(paper, "Drummer", "CHOOSE YOUR DRUMMER", pleft, y, inner)
 		y += 29 if narrow else 39
 		var half: float = (inner - 9) * 0.5
-		_choice(paper, "Jo", "JO  /  reliable", drummer_id == "jo", func() -> void: choose_drummer("jo"), pleft, y, half)
-		_choice(paper, "Rae", "RAE  /  precise", drummer_id == "rae", func() -> void: choose_drummer("rae"), pleft + half + 9, y, half)
+		_choice(paper, "Jo", "JO   ·   STEADY", drummer_id == "jo", func() -> void: choose_drummer("jo"), pleft, y, half)
+		_choice(paper, "Rae", "RAE   ·   PRECISE", drummer_id == "rae", func() -> void: choose_drummer("rae"), pleft + half + 9, y, half)
 		y += 55 if narrow else 60
 		if not narrow:
 			_label_line(paper, "DrummerPitch", str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
 			y += 63
 		_label_line(paper, "Bass", "CHOOSE YOUR BASSIST", pleft, y, inner)
 		y += 29 if narrow else 39
-		_choice(paper, "Sam", "SAM  /  peace", bass_id == "sam", func() -> void: choose_bassist("sam"), pleft, y, half)
-		_choice(paper, "Dev", "DEV  /  scene", bass_id == "dev", func() -> void: choose_bassist("dev"), pleft + half + 9, y, half)
+		_choice(paper, "Sam", "SAM   ·   CALM", bass_id == "sam", func() -> void: choose_bassist("sam"), pleft, y, half)
+		_choice(paper, "Dev", "DEV   ·   CONNECTED", bass_id == "dev", func() -> void: choose_bassist("dev"), pleft + half + 9, y, half)
 		y += 55 if narrow else 60
 		if narrow:
 			_label_line(paper, "DrummerPitch", "DRUMMER: " + str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
@@ -317,18 +339,18 @@ func _render() -> void:
 	elif stage == "social":
 		_label_line(paper, "SocialPrompt", "THREE PEOPLE. ONE EVENING. WHICH FIRST?", pleft, y, inner)
 		y += 49
-		_choice(paper, "Dinner", "DINNER  /  £24", outing_id == "dinner",
+		_choice(paper, "Dinner", "DINNER   ·   £24", outing_id == "dinner",
 			func() -> void: choose_outing("dinner"), pleft, y, (inner - 9) * 0.5)
-		_choice(paper, "LocalGig", "LOCAL GIG  /  £15", outing_id == "watch_gig",
+		_choice(paper, "LocalGig", "LOCAL GIG   ·   £15", outing_id == "watch_gig",
 			func() -> void: choose_outing("watch_gig"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
 		y += 64
 		_label_line(paper, "SocialConsequence", "Dinner builds trust. Watching a local act adds buzz and readiness. Both take a day.", pleft, y, inner)
 	elif stage == "rehearsal":
 		_label_line(paper, "RehearsalPrompt", "REHEARSAL FOCUS  /  choose one", pleft, y, inner)
 		y += 49
-		_choice(paper, "Tighten", "DRILL SET  /  £15", room_focus == "tighten",
+		_choice(paper, "Tighten", "DRILL SET   ·   £15", room_focus == "tighten",
 			func() -> void: choose_room_focus("tighten"), pleft, y, (inner - 9) * 0.5)
-		_choice(paper, "Connect", "CLEAR AIR  /  £0", room_focus == "connect",
+		_choice(paper, "Connect", "CLEAR AIR   ·   £0", room_focus == "connect",
 			func() -> void: choose_room_focus("connect"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
 		y += 64
 		_label_line(paper, "RehearsalConsequence", "A set drill builds readiness but costs money. A band conversation restores trust.", pleft, y, inner)
@@ -354,6 +376,7 @@ func _render() -> void:
 	var gate: Label = _label(paper, "MaterialGate", "REAL ROOM PHOTO  /  SCRAPBOOK MATERIAL: VISUAL HOLD", 14, Color("#745B35"))
 	_rect(gate, pleft, y + 156, inner, 52)
 	var paper_height: float = maxf(936.0, y + 226.0)
+	sheet.size.y = paper_height
 	paper.size.y = paper_height
 	page.size.y = paper_height + 26.0
 	page.custom_minimum_size = Vector2(w, paper_height + 26.0)
