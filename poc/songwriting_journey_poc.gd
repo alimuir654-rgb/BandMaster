@@ -211,7 +211,7 @@ func _render() -> void:
 		step_label.add_theme_stylebox_override("normal", _plate(p["action"] if i == stage else p["surface"], p["border"]))
 	var notebook := Control.new()
 	notebook.name = "JourneyNotebook"
-	notebook.custom_minimum_size.y = (380 if compact else (425 if mobile else 438)) * _scale
+	notebook.custom_minimum_size.y = ((590 if compact else 610) if stage == 1 else (370 if compact else (415 if mobile else 425))) * _scale
 	notebook.clip_contents = true
 	col.add_child(notebook)
 	var art := TextureRect.new()
@@ -376,7 +376,7 @@ func _build_review(parent: VBoxContainer, _p: Dictionary) -> void:
 	_paper_text(parent, title.strip_edges().to_upper(), 21, "ReviewTitle")
 	_paper_text(parent, "%s IDEA  /  %s  /  LEAD: %s" % [idea.to_upper(), form.to_upper(), str(local_state.get("members", [])[leader_index].get("name", "MUSICIAN")).to_upper()], 13)
 	_paper_text(parent, "ARRANGEMENT SKETCH  /  %s  /  %d BPM" % [feel, bpm], 12)
-	_paper_text(parent, "TAPE: " + "  →  ".join(sections), 12)
+	_paper_text(parent, "TAPE: " + "  →  ".join(PackedStringArray(sections)), 12)
 	var preview: Dictionary = session_preview()
 	if not bool(preview.get("ok", false)):
 		_paper_text(parent, "CAN'T COMMIT: " + str(preview.get("message", "")), 14, "JourneyError")
