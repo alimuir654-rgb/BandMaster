@@ -65,8 +65,8 @@ func _text(parent: Node, content: String, x: float, y: float, w: float, h: float
  var label := Label.new()
  label.text=content
  label.position=Vector2(x,y)
- label.size=Vector2(w,h)
- label.clip_text=not wrap
+ label.custom_minimum_size=Vector2.ZERO
+ label.clip_text=true
  label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART if wrap else TextServer.AUTOWRAP_OFF
  label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
  label.horizontal_alignment=align
@@ -75,6 +75,7 @@ func _text(parent: Node, content: String, x: float, y: float, w: float, h: float
  label.add_theme_color_override("font_color",ink)
  label.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(label)
+ label.size=Vector2(w,h)
  return label
 
 func _plate(parent: Node, caption: String, bounds: Rect2, action: Callable, active: bool=false, enabled: bool=true, finish: String="metal_tab", text_size: int=17) -> TextureButton:
@@ -289,7 +290,7 @@ func _landscape_recruit(layout: Node) -> void:
  var roles: Array=Model.ROLE_TABS
  for idx in range(roles.size()):
   var v: String=str(roles[idx])
-  _plate(layout,v.to_upper()+"S",Rect2(328+idx*184,111,173,53),func() -> void: _set_role(v),v==role,true,"metal_tab",24)
+  _plate(layout,v.to_upper()+"S",Rect2(328+idx*184,104,173,61),func() -> void: _set_role(v),v==role,true,"metal_tab",24)
  var members: Array=Model.pool(genre,role)
  for idx in range(members.size()):
   var p:Dictionary=members[idx]
@@ -301,14 +302,14 @@ func _landscape_recruit(layout: Node) -> void:
  _text(layout,str(p["name"]).to_upper(),555,185,455,43,31,WHITE,FONT_TITLE)
  _text(layout," / ".join(PackedStringArray(p["roles"]))+"  •  "+str(p["town"]),555,228,455,29,17,AMBER,FONT_BODY)
  _portrait_picture(layout,Rect2(554,263,460,278),p)
- _text(layout,"MUSICAL ATTRIBUTES",552,541,455,37,24,CREAM,FONT_TITLE)
- _meters(layout,p,552,577,468,27.0)
+ _text(layout,"MUSICAL ATTRIBUTES",552,535,455,30,24,CREAM,FONT_TITLE)
+ _meters(layout,p,552,566,468,22.5)
  _dossier(layout,p,Rect2(1040,190,497,528))
- _transport(layout,"◀",Rect2(575,723,86,46),func() -> void: _move(-1),true)
- _transport(layout,"▶",Rect2(676,723,86,46),func() -> void: _move(1))
+ _transport(layout,"◀",Rect2(575,706,86,55),func() -> void: _move(-1),true)
+ _transport(layout,"▶",Rect2(676,706,86,55),func() -> void: _move(1))
  var already:bool=Model.contains(roster,str(p["id"]))
  var cost:int=Model.incremental_cost(roster,p)
- _plate(layout,"REMOVE" if already else ("ADD TO BAND  /  "+str(cost)+" POINTS"),Rect2(789,720,735,53),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",24)
+ _plate(layout,"REMOVE" if already else ("ADD TO BAND  /  "+str(cost)+" POINTS"),Rect2(789,704,735,60),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",24)
 
 func _choose_candidate(idx: int) -> void:
  candidate_index=idx
