@@ -147,6 +147,73 @@ jobs:
           assert sum(difference)/3>20,('Weak DAY/NIGHT material difference',difference)
           print('9 REAL GODOT MATERIAL SCREENSHOTS VERIFIED')
           PY
+      - name: Assemble real Godot screenshots into an owner-facing comparison sheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageDraw,ImageFont,ImageStat
+          root=Path('screenshots')
+          devices=[('390x844',(390,844),400),('720x1280',(720,1280),450),
+                   ('1280x720',(1280,720),840),('1600x900',(1600,900),840)]
+          shot={}
+          for stage,phase in [('recruit','day'),('summary','night')]:
+              for size,dims,_ in devices:
+                  path=root/f's02b-{stage}-{phase}-{size}.png'
+                  assert path.is_file(),path
+                  with Image.open(path) as image:
+                      assert image.format=='PNG' and image.size==dims,path
+                      rgb=image.convert('RGB')
+                  assert ImageStat.Stat(rgb.convert('L')).stddev[0]>3,path
+                  shot[(stage,size)]=rgb
+          with Image.open(root/'s02b-rehearsal-dusk-1280x720.png') as dusk:
+              assert dusk.size==(1280,720)
+              dusk=dusk.convert('RGB')
+          try:
+              face=lambda size:ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',size)
+              face(18)
+          except OSError:
+              face=lambda size:ImageFont.load_default()
+          gap=24; margin=32; row_h=925
+          widths=[w+20 for _,_,w in devices]
+          total=margin*2+sum(widths)+gap*3
+          canvas=Image.new('RGB',(total,2530),(243,241,236))
+          draw=ImageDraw.Draw(canvas)
+          draw.text((margin,21),"LIVIN' THE DREAM / FORMATION — OWNER VISUAL REVIEW",font=face(30),fill=(33,42,47))
+          draw.text((margin,68),"Nine ACTUAL Godot renders. Not a concept image or owner-approved production scene.",
+                    font=face(18),fill=(86,94,98))
+          for row,(stage,phase) in enumerate([('recruit','day'),('summary','night')]):
+              x=margin;y=117+row*row_h
+              for size,_,max_width in devices:
+                  width=max_width+20
+                  draw.rounded_rectangle((x,y,x+width,y+row_h-18),radius=10,
+                                        fill=(255,254,251),outline=(210,208,200),width=2)
+                  draw.text((x+13,y+15),f'{phase.upper()} / {size}',font=face(19),fill=(35,43,47))
+                  thumb=shot[(stage,size)].copy()
+                  thumb.thumbnail((max_width-16,790),Image.Resampling.LANCZOS)
+                  canvas.paste(thumb,(x+(width-thumb.width)//2,y+58))
+                  draw.text((x+13,y+row_h-53),"Full-size original PNG also supplied",
+                            font=face(13),fill=(94,98,99))
+                  x+=width+gap
+          y=117+2*row_h
+          draw.rounded_rectangle((margin,y,total-margin,y+515),radius=10,
+                                fill=(255,254,251),outline=(210,208,200),width=2)
+          draw.text((margin+16,y+15),"DUSK / REHEARSAL / 1280x720",font=face(21),fill=(35,43,47))
+          thumb=dusk.copy();thumb.thumbnail((820,462),Image.Resampling.LANCZOS)
+          canvas.paste(thumb,(margin+16,y+48))
+          checklist=["Owner review: daylight atmosphere, paper/cork texture,",
+                     "physical interaction styling, native typography,",
+                     "first-fold choices, and day/night distinction.",
+                     "P0 owner visual sign-off is still OPEN.",
+                     "Inspect original PNGs for text/edge fidelity."]
+          for idx,line in enumerate(checklist):
+              draw.text((margin+885,y+90+idx*58),line,font=face(20),fill=(39,48,52))
+          out=root/'s02b-owner-review-contact-sheet.png'
+          canvas.save(out,optimize=True)
+          assert out.stat().st_size>50000,out
+          print('PASS: labelled owner sheet assembled from exactly 9 real Godot screenshots')
+          PY
       - name: Publish nine native screenshots and 22 source assets
         if: always()
         uses: actions/upload-artifact@v4
