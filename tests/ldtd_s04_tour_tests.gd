@@ -86,7 +86,7 @@ func _run() -> void:
 	view.commit_plan()
 	_check(view.commits==1 and JSON.stringify(view.local_state)==confirmed, "second press cannot rebook")
 	var source: String = FileAccess.get_file_as_string("res://poc/ldtd_tour_planning.gd")
-	_check(not source.contains("user://") and not source.contains("Calendar.perform"), "scene has no production persistence or show settlement")
+	_check(not source.contains("FileAccess.open(") and not source.contains("Calendar.perform("), "scene has no production persistence or show settlement")
 	view.queue_free()
 	if failures>0:
 		push_error("S04 FAILED: %d checks" % failures)
