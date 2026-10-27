@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="170" viewBox="0 0 600 170">
+<defs><linearGradient id="paper" x2="0" y2="1"><stop stop-color="#fff7e7"/><stop offset=".5" stop-color="#e8ddc5"/><stop offset="1" stop-color="#c9b99a"/></linearGradient>
+<pattern id="fibres" width="27" height="19" patternUnits="userSpaceOnUse"><path d="M2 8l7 -1M16 3l4 2M11 17l5 -1" stroke="#856f4e" stroke-opacity=".11" stroke-width=".6"/></pattern></defs>
+<path d="M7 4H593V166H7L5 156L8 146L5 136L8 126L5 116L8 106L5 96L8 86L5 76L8 66L5 56L8 46L5 36L8 26L5 16Z" fill="#a79577" opacity=".4"/>
+<path d="M6 3H594V164H6L8 155L6 145L8 135L6 125L8 115L6 105L8 95L6 85L8 75L6 65L8 55L6 45L8 35L6 25L8 15Z" fill="url(#paper)" stroke="#ad9977" stroke-width="1.5"/>
+<path d="M8 8H591V158H8" fill="url(#fibres)" stroke="#fff9ec" stroke-opacity=".7"/>
+<path d="M495 12V151" stroke="#897657" stroke-width="1.5" stroke-dasharray="4 5" opacity=".6"/>
+<path d="M27 22H475M27 142H475" stroke="#7e6749" stroke-opacity=".2"/>
+<circle cx="548" cy="85" r="34" fill="none" stroke="#866f51" stroke-width="3" opacity=".15"/>
+<circle cx="548" cy="85" r="25" fill="none" stroke="#866f51" stroke-width="1.5" opacity=".15"/>
+</svg>
