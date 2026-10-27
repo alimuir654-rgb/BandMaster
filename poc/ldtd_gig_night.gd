@@ -200,7 +200,7 @@ func _status_line() -> String:
 		0: return "DAY LOAD-IN / CHECK THE CASES AND CABLES"
 		1: return "DUSK SOUNDCHECK / TEST THE LIVE SIGNAL"
 		2: return "NIGHT SHOW / %d OF 3 SONGS / %s" % [songs_played,"HOLD" if held else "READY"]
-		_: return "SHOW SETTLED ONCE / LOCAL PREVIEW / NO SAVE WRITES"
+		_: return "SHOW SETTLED ONCE / THANK THE CREW"
 
 func _render() -> void:
 	_render_pending = false
@@ -262,10 +262,13 @@ func _render() -> void:
 		_rect(strip,14+i*(step_w+step_gap),101,step_w,43)
 		# Render captions as sibling overlays AFTER the panels. On native 390/1280
 		# Godot captures the child captions were invisible inside these Panels.
-		var cap := _label(_surface,"GigMoment"+str(i),moments[i],12 if narrow else 14,Color("#22333A") if journey_step==i else Color("#F5EBDD"),"display")
+		# Compact phase labels avoid multi-line auto-wrap that overlapped scroll.
+		var phase_text: String = ["DAY","DUSK","NIGHT","AFTER"][i] if narrow else moments[i]
+		var cap := _label(_surface,"GigMoment"+str(i),phase_text,14,Color("#22333A") if journey_step==i else Color("#F5EBDD"),"display")
 		cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		cap.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_rect(cap,14+i*(step_w+step_gap)+4,104,step_w-8,36)
+		cap.clip_text = true
+		_rect(cap,14+i*(step_w+step_gap)+3,107,step_w-6,29)
 
 	var dock_h: float = 104.0
 	var scroll := ScrollContainer.new()
@@ -303,7 +306,7 @@ func _render() -> void:
 	_rect(caption,12,photo_h-29,photo_w-22,23)
 	if not narrow:
 		var scene_note := _label(page,"StageAtmosphereNote",
-			"REAL REPO SCENE IMAGE\n\nA SMALL ROOM. A LONG NIGHT.\n\nTHE SET IS THE BAND’S CHOICE.",
+			"LOAD-IN NOTES\n\nCASES / CABLES / BACKLINE\n\nTHE SET IS THE BAND’S CHOICE.",
 			17,Color("#F6EAD7") if not day else Color("#293B40"),"display")
 		_rect(scene_note,left+16,379,photo_w-32,128)
 
