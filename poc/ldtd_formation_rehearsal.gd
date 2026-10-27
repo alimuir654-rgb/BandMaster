@@ -362,7 +362,7 @@ void fragment() {
 	_rect(strip, pleft, y, inner, 69)
 	# Intentional two-line mobile ledger: the previous unplanned wrap split
 	# READY from its number on 390px native screenshots.
-	var ledger_pattern: String = "DAY %d  /  CASH £%d\\nREADY %d  /  TRUST %d" if narrow else "DAY %d    CASH £%d    READY %d    TRUST %d"
+	var ledger_pattern: String = "DAY %d  /  CASH £%d\nREADY %d  /  TRUST %d" if narrow else "DAY %d    CASH £%d    READY %d    TRUST %d"
 	var stats: Label = _label(strip, "ReadOnlyStats",
 		ledger_pattern % [
 			int(preview_state.get("tour_day", 1)), int(preview_state.get("cash", 120)),
