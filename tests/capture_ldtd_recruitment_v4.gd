@@ -29,7 +29,10 @@ func _run() -> void:
   for p in view.Model.people():
    if ["alex","jo","sam"].has(str(p["id"])):
     view.roster.append(p)
-  if stage=="name":view._next()
+  if stage=="name":
+   view._next()
+  else:
+   view._render()
   for i in range(4):await process_frame
  if stage=="bio":
   view._show_dossier()
