@@ -27,8 +27,12 @@ for name,src,pid,author,url,role in sources:
     assert min(raw.size)>500, "Insufficient photographic source resolution"
     if role=="landscape":
         image=ImageOps.fit(raw,(1600,1200),method=Image.Resampling.LANCZOS,centering=(.5,.5))
-        image=ImageEnhance.Brightness(image).enhance(1.07)
-        image=ImageEnhance.Color(image).enhance(.84)
+        # Quiet photographic substrate: strong black charcoal-looking cork fissures
+        # competed with player content. Restrained contrast and warm paper-toned
+        # light bring actual fibre texture forward without synthetic speckle noise.
+        image=ImageEnhance.Contrast(image).enhance(0.43)
+        image=ImageEnhance.Brightness(image).enhance(1.12)
+        image=ImageEnhance.Color(image).enhance(.72)
     else:
         # Daytime photo shows instruments and an actual window, not a dim orange room
         image=ImageOps.fit(raw,(1400,820),method=Image.Resampling.LANCZOS,centering=(.60,.53))
