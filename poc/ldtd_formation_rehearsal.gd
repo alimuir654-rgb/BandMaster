@@ -315,7 +315,7 @@ func _render() -> void:
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
 	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(photo_w - 20, 360), 30)
-	var tag: Label = _label(photo_tag, "PhotoSource", ({"day": "DAY", "dusk": "DUSK", "night": "NIGHT"}[phase] + "  /  REHEARSAL ROOM"), 13, Color("#F5EEE1"))
+	var tag: Label = _label(photo_tag, "PhotoSource", phase.to_upper() + "  /  REHEARSAL ROOM", 13, Color("#F5EEE1"))
 	_rect(tag, 8, 4, minf(photo_w - 35, 340), 24)
 
 	# Landscape first-fold audition board: photograph and four meaningful
