@@ -1,6 +1,7 @@
 extends Control
 ## Owner-approved composition experiment. All state local, no FileAccess/DirAccess.
 const Model = preload("res://Scripts/recruitment_catalogue_v3.gd")
+const Formation = preload("res://Scripts/formation_catalogue.gd")
 const Portrait = preload("res://Scripts/member_portrait.gd")
 const Meter = preload("res://poc/ldtd_recruitment_meter.gd")
 const C_BG := Color("#0E1014")
@@ -101,6 +102,7 @@ func _transport(parent: Node, caption: String, action: Callable) -> TextureButto
  b.ignore_texture_size=true
  b.stretch_mode=TextureButton.STRETCH_KEEP_ASPECT_CENTERED
  b.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+ b.flip_h=caption=="PREVIOUS"
  b.custom_minimum_size=Vector2(76,53)
  var base := "res://bandmaster_premium_controls_lab/assets/transport_studio_"
  b.texture_normal=load(base+"idle.png")
@@ -174,9 +176,9 @@ func _choose_genre(parent: Node) -> void:
   var btn := _button(wrap,value,func() -> void: _select_genre(value),value==genre,false,60)
   btn.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var description := _panel(parent)
- _label(description,str(Model.Formation.GENRES[genre]["description"]),17,C_WHITE)
- _label(description,"STRENGTH  "+str(Model.Formation.GENRES[genre]["strength"]),13,C_GOLD)
- _label(description,"TRADE-OFF  "+str(Model.Formation.GENRES[genre]["challenge"]),13,C_MUTED)
+ _label(description,str(Formation.GENRES[genre]["description"]),17,C_WHITE)
+ _label(description,"STRENGTH  "+str(Formation.GENRES[genre]["strength"]),13,C_GOLD)
+ _label(description,"TRADE-OFF  "+str(Formation.GENRES[genre]["challenge"]),13,C_MUTED)
 
 func _select_genre(value: String) -> void:
  if value == genre:
@@ -260,9 +262,9 @@ func _recruitment(parent: Node) -> void:
  _label(head,"%d OF 6   •   %s" % [candidate_index+1,role.to_upper()],12,C_MUTED)
  _label(head,str(_current["name"]),23 if _wide else 20,C_WHITE)
  var subroles: Array=_current["roles"]
- _label(head," / ".join(subroles)+"  •  "+str(_current["town"]),12,C_GOLD)
+ _label(head," / ".join(PackedStringArray(subroles))+"  •  "+str(_current["town"]),12,C_GOLD)
  _transport(nav,"NEXT",func() -> void: _move_candidate(1))
- var content := HBoxContainer.new() if _wide else VBoxContainer.new()
+ var content: BoxContainer = HBoxContainer.new() if _wide else VBoxContainer.new()
  content.add_theme_constant_override("separation",12)
  parent.add_child(content)
  if _wide:
@@ -358,7 +360,7 @@ func _name_step(parent: Node) -> void:
  _name_entry.text_changed.connect(func(value: String) -> void: band_name=value)
  panel.add_child(_name_entry)
  for p in roster:
-  _label(panel,str(p["name"])+"   /   "+", ".join(p["roles"]),14,C_WHITE)
+  _label(panel,str(p["name"])+"   /   "+", ".join(PackedStringArray(p["roles"])),14,C_WHITE)
  if completed:
   var success := _panel(parent,C_PAPER)
   _label(success,"LINEUP CREATED IN THE PROTOTYPE",19,C_INK)
@@ -393,7 +395,7 @@ func _build_footer(parent: Node) -> void:
  var available := Model.MAX_TALENT-Model.spent(roster)
  _label(info,"%d LEFT" % available,14,C_WHITE)
  if step==1:
-  var slots := _label(dock,"LINEUP: "+("  /  ".join(roster.map(func(p): return str(p["name"]))) if not roster.is_empty() else "No members selected yet"),12,C_MUTED)
+  var slots := _label(dock,"LINEUP: "+("  /  ".join(PackedStringArray(roster.map(func(p): return str(p["name"])))) if not roster.is_empty() else "No members selected yet"),12,C_MUTED)
   slots.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   var missing := Model.missing(roster)
   _label(dock,("READY TO NAME THE BAND" if Model.viable(roster) else "STILL NEED: "+missing),12,C_MUTED)
