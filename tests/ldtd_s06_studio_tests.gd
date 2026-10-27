@@ -53,7 +53,7 @@ func _run() -> void:
 	_check(JSON.stringify(view.demo_state)==before,"faders and rotary do not edit career state")
 	var meter = view._controls.get("meter")
 	_check(meter!=null and meter.focus_mode==Control.FOCUS_NONE and meter.mouse_filter==Control.MOUSE_FILTER_IGNORE,"outcome meter inert")
-	_check(int(meter.reading)==int(view.demo_state.get("readiness",0)),"meter reads authoritative readiness")
+	_check(int(meter.reading)==int(view.demo_state.get("buzz",0)),"HYPE meter reads authoritative buzz")
 	view.record_demo()
 	_check(view.stage=="ready" and view.record_count==0,"cannot record without transport arm")
 	view.arm_transport(true)
