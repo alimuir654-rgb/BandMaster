@@ -50,6 +50,11 @@ func _capture() -> void:
 		push_error("SCENE WORLD CAPTURE: Physical touch or body text below accessibility target")
 		quit(1)
 		return
+	var first_fold_bottom_px := primary.get_global_rect().end.y * pixel_scale
+	if first_fold_bottom_px > float(height) - 16.0:
+		push_error("SCENE WORLD CAPTURE: Primary action below first fold or too close to bottom edge")
+		quit(1)
+		return
 	var status: Label = ui.find_child("LabStatus", true, false)
 	primary.pressed.emit()
 	if status == null or not status.text.contains("SAVE AND ECONOMY UNTOUCHED"):
