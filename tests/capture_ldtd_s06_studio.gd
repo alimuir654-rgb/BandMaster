@@ -87,6 +87,13 @@ func _capture() -> void:
 		if moment_label==null or moment_label.text.is_empty() or not moment_label.is_visible_in_tree():
 			_fail("native DAY DUSK NIGHT studio phase missing")
 			return
+		var panel: Panel = view.find_child("StudioPhaseIndicator"+str(i),true,false)
+		if panel==null or moment_label.z_index<=panel.z_index:
+			_fail("native phase label hidden behind studio phase panel")
+			return
+		if moment_label.get_global_rect().end.y*px>panel.get_global_rect().end.y*px+3.0:
+			_fail("studio phase caption clipped below physical phase strip")
+			return
 	if moment=="night" and (view.record_count!=1 or view.release_count!=1 or not primary.disabled):
 		_fail("studio release not terminal once-only")
 		return
