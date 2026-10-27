@@ -42,6 +42,11 @@ func _run() -> void:
 		await process_frame
 	_check(view.journey_step == 0 and view.phase == "day", "starts in daylight load-in")
 	_check(not view.can_go(), "no premature stage GO")
+	var approach_button: Button = view.find_child("PhaseNight", true, false) as Button
+	_check(approach_button != null and approach_button.text == "WIN ROOM", "time tabs are actual show approach controls")
+	if approach_button != null:
+		approach_button.pressed.emit()
+	_check(view.phase == "day" and str(view.demo_state.get("booked_show", {}).get("approach", "")) == "crowd", "choosing show approach does not skip daylight")
 	view.advance_journey()
 	_check(view.journey_step == 0, "cannot skip gear checks")
 	view.toggle_equipment()

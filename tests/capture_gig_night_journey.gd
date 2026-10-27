@@ -54,6 +54,11 @@ func _run() -> void:
 		push_error("GIG JOURNEY CAPTURE: missing once-only real settlement")
 		quit(1)
 		return
+	var approach_button: Button = view.find_child("PhaseDay", true, false) as Button
+	if approach_button == null or approach_button.text != "TIGHT SET":
+		push_error("GIG JOURNEY CAPTURE: stale phase tabs instead of actual show approach")
+		quit(1)
+		return
 	var primary: Button = view.find_child("GigPrimary", true, false) as Button
 	var footer: Control = view.find_child("GigActionDock", true, false) as Control
 	var cue: Control = view.find_child("GigCueControls", true, false) as Control
