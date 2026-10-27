@@ -203,7 +203,8 @@ func _render() -> void:
 	# Never use a single dim rehearsal photograph as the DAY background.
 	var desk := TextureRect.new()
 	desk.name = "FormationSunlitDesk"
-	desk.texture = load("res://Art/UI/FormationCraft/rehearsal_desk.png")
+	var cork_source := "res://Art/Photography/Formation/corkboard_day_pexels.webp"
+	desk.texture = load(cork_source if ResourceLoader.exists(cork_source) else "res://Art/UI/FormationCraft/rehearsal_desk.png")
 	desk.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	desk.stretch_mode = TextureRect.STRETCH_SCALE
 	desk.modulate = Color.WHITE if phase == "day" else (Color("#C4B4A5") if phase == "dusk" else Color("#696875"))
@@ -288,7 +289,8 @@ func _render() -> void:
 	_rect(frame, pleft, 132, photo_w, 169 if narrow else 248)
 	var photo := TextureRect.new()
 	photo.name = "RepoBackedFormationPhoto"
-	photo.texture = load(ROOM_PHOTO)
+	var sunlit_room := "res://Art/Photography/Formation/daylight_music_room_pexels.webp"
+	photo.texture = load(sunlit_room if phase == "day" and ResourceLoader.exists(sunlit_room) else ROOM_PHOTO)
 	photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	photo.mouse_filter = Control.MOUSE_FILTER_IGNORE
