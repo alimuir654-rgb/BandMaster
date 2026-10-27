@@ -57,7 +57,7 @@ func _run() -> void:
    for child in key.get_children():
     if child is Label:
      if str(child.text).begins_with("NAME BAND"):name_key=key
-     if str(child.text).begins_with("ADD TO BAND") or str(child.text).begins_with("ADD  /"):recruit_key=key
+     if str(child.text)=="REMOVE" or str(child.text).begins_with("ADD TO BAND") or str(child.text).begins_with("ADD  /"):recruit_key=key
   if name_key==null or recruit_key==null:
    _fail("viable roster needs both recruitment and name-stage actions")
    return
