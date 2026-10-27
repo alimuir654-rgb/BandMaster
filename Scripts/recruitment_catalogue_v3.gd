@@ -103,6 +103,13 @@ static func spent(roster: Array) -> int:
   total += 12
  return total
 
+static func incremental_cost(roster: Array, person: Dictionary) -> int:
+ if contains(roster,str(person.get("id",""))) or roster.size()>=6:
+  return 0
+ var trial := roster.duplicate(true)
+ trial.append(person)
+ return spent(trial)-spent(roster)
+
 static func contains(roster: Array, person_id: String) -> bool:
  for p in roster:
   if str(p.get("id","")) == person_id:
