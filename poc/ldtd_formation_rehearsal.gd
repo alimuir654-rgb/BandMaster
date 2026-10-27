@@ -276,12 +276,16 @@ func _render() -> void:
 	}[stage], 16, Color("#4B5B5D"))
 	_rect(step, pleft, 63, inner, 64)
 
+	var recruit_side: bool = stage == "recruit" and not narrow
+	var photo_w: float = inner * 0.54 if recruit_side else inner
+	var paper_choice_x: float = pleft + photo_w + 17.0
+	var paper_choice_w: float = inner - photo_w - 25.0
 	var frame := Panel.new()
 	frame.name = "FormationPhotoFrame"
 	frame.clip_contents = true
 	frame.add_theme_stylebox_override("panel", _style(Color("#3D4645"), Color("#B59C74"), 4, true))
 	paper.add_child(frame)
-	_rect(frame, pleft, 132, inner, 169 if narrow else 248)
+	_rect(frame, pleft, 132, photo_w, 169 if narrow else 248)
 	var photo := TextureRect.new()
 	photo.name = "RepoBackedFormationPhoto"
 	photo.texture = load(ROOM_PHOTO)
@@ -289,14 +293,29 @@ func _render() -> void:
 	photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	photo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	frame.add_child(photo)
-	_rect(photo, 3, 3, inner - 6, (169 if narrow else 248) - 6)
+	_rect(photo, 3, 3, photo_w - 6, (169 if narrow else 248) - 6)
 	var photo_tag := Panel.new()
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
-	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(inner - 20, 360), 30)
+	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(photo_w - 20, 360), 30)
 	var tag: Label = _label(photo_tag, "PhotoSource", "REPO ROOM PHOTO  /  ART HOLD", 13, Color("#F5EEE1"))
-	_rect(tag, 8, 4, minf(inner - 35, 340), 24)
+	_rect(tag, 8, 4, minf(photo_w - 35, 340), 24)
 
+	# Landscape first-fold audition board: photograph and four meaningful
+	# editable candidates share one canvas, instead of hiding recruitment below
+	# a giant image. This is an intentional physical layout, not another panel.
+	if recruit_side:
+		var hcol: float = (paper_choice_w - 8.0) * 0.5
+		var drum_title := _label(paper, "DrummerSideHeading", "DRUMMER   /   PICK ONE", 15, INK)
+		_rect(drum_title, paper_choice_x, 157, paper_choice_w, 29)
+		_choice(paper, "Jo", "JO · STEADY", drummer_id == "jo", func() -> void: choose_drummer("jo"), paper_choice_x, 187, hcol)
+		_choice(paper, "Rae", "RAE · PRECISE", drummer_id == "rae", func() -> void: choose_drummer("rae"), paper_choice_x + hcol + 8.0, 187, hcol)
+		var bass_title := _label(paper, "BassSideHeading", "BASS   /   PICK ONE", 15, INK)
+		_rect(bass_title, paper_choice_x, 256, paper_choice_w, 29)
+		_choice(paper, "Sam", "SAM · CALM", bass_id == "sam", func() -> void: choose_bassist("sam"), paper_choice_x, 286, hcol)
+		_choice(paper, "Dev", "DEV · SCENE", bass_id == "dev", func() -> void: choose_bassist("dev"), paper_choice_x + hcol + 8.0, 286, hcol)
+		var singer_note := _label(paper, "SingerSideNote", "ALEX / VOCALS\nLINE-UP STARTS HERE", 13, Color("#6D6356"))
+		_rect(singer_note, paper_choice_x, 348, paper_choice_w, 40)
 	var y: float = 323 if narrow else 401
 	var strip := Panel.new()
 	strip.name = "ReadOnlyBandLedger"
@@ -313,29 +332,25 @@ func _render() -> void:
 	y += 83
 
 	if stage == "recruit":
-		if not narrow:
-			_label_line(paper, "Singer", "ALEX VALE  /  singer  /  writes lyrics on train tickets", pleft, y, inner)
-			y += 57
-		_label_line(paper, "Drummer", "CHOOSE YOUR DRUMMER", pleft, y, inner)
-		y += 29 if narrow else 39
-		var half: float = (inner - 9) * 0.5
-		_choice(paper, "Jo", "JO   ·   STEADY", drummer_id == "jo", func() -> void: choose_drummer("jo"), pleft, y, half)
-		_choice(paper, "Rae", "RAE   ·   PRECISE", drummer_id == "rae", func() -> void: choose_drummer("rae"), pleft + half + 9, y, half)
-		y += 55 if narrow else 60
-		if not narrow:
-			_label_line(paper, "DrummerPitch", str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
-			y += 63
-		_label_line(paper, "Bass", "CHOOSE YOUR BASSIST", pleft, y, inner)
-		y += 29 if narrow else 39
-		_choice(paper, "Sam", "SAM   ·   CALM", bass_id == "sam", func() -> void: choose_bassist("sam"), pleft, y, half)
-		_choice(paper, "Dev", "DEV   ·   CONNECTED", bass_id == "dev", func() -> void: choose_bassist("dev"), pleft + half + 9, y, half)
-		y += 55 if narrow else 60
 		if narrow:
-			_label_line(paper, "DrummerPitch", "DRUMMER: " + str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
+			_label_line(paper, "Drummer", "CHOOSE YOUR DRUMMER", pleft, y, inner)
+			y += 29
+			var half: float = (inner - 9) * 0.5
+			_choice(paper, "Jo", "JO · STEADY", drummer_id == "jo", func() -> void: choose_drummer("jo"), pleft, y, half)
+			_choice(paper, "Rae", "RAE · PRECISE", drummer_id == "rae", func() -> void: choose_drummer("rae"), pleft + half + 9, y, half)
+			y += 55
+			_label_line(paper, "Bass", "CHOOSE YOUR BASSIST", pleft, y, inner)
+			y += 29
+			_choice(paper, "Sam", "SAM · CALM", bass_id == "sam", func() -> void: choose_bassist("sam"), pleft, y, half)
+			_choice(paper, "Dev", "DEV · SCENE", bass_id == "dev", func() -> void: choose_bassist("dev"), pleft + half + 9, y, half)
+			y += 55
+			_label_line(paper, "DrummerPitch", "DRUMS: " + str(_candidate(drummer_id)["pitch"]), pleft, y, inner)
 			y += 66
 			_label_line(paper, "BassPitch", "BASS: " + str(_candidate(bass_id)["pitch"]), pleft, y, inner)
 		else:
-			_label_line(paper, "BassPitch", str(_candidate(bass_id)["pitch"]), pleft, y, inner)
+			# Four side-by-side audition controls are already above the stats ledger.
+			# This section carries the journal below the first-fold decisions.
+			y = 495
 	elif stage == "social":
 		_label_line(paper, "SocialPrompt", "THREE PEOPLE. ONE EVENING. WHICH FIRST?", pleft, y, inner)
 		y += 49
