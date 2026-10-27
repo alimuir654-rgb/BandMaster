@@ -29,12 +29,18 @@ static func apply_to(button: Button, kind: String, selected: bool, physical_min:
 	button.focus_mode = Control.FOCUS_ALL
 	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	button.custom_minimum_size.y = maxf(physical_min, 48.0)
-	button.add_theme_font_size_override("font_size", 16 if kind != "tab" else 15)
-	button.add_theme_color_override("font_color", Color("#243339"))
-	button.add_theme_color_override("font_hover_color", Color("#263238"))
-	button.add_theme_color_override("font_pressed_color", Color("#222B2D"))
-	button.add_theme_color_override("font_disabled_color", Color("#5B625F"))
-	button.add_theme_color_override("font_focus_color", Color("#243339"))
+	# Native editable ink is deliberately bolder than the distressed print
+	# underneath: previous 390px Godot pixels made auditions and DAY tabs
+	# read like illegible grey stamps. This is not text baked into sprites.
+	var type_size: int = 18 if kind == "candidate" or kind == "commit" else (17 if kind == "activity" else 17)
+	button.add_theme_font_size_override("font_size", type_size)
+	button.add_theme_constant_override("outline_size", 2)
+	button.add_theme_color_override("font_outline_color", Color("#FFF6E5"))
+	button.add_theme_color_override("font_color", Color("#152B31"))
+	button.add_theme_color_override("font_hover_color", Color("#112A32"))
+	button.add_theme_color_override("font_pressed_color", Color("#0F262C"))
+	button.add_theme_color_override("font_disabled_color", Color("#58605E"))
+	button.add_theme_color_override("font_focus_color", Color("#0F3440"))
 	button.add_theme_stylebox_override("normal", _skin(kind, "chosen" if selected else "idle"))
 	button.add_theme_stylebox_override("hover", _skin(kind, "hover"))
 	button.add_theme_stylebox_override("pressed", _skin(kind, "pressed"))
