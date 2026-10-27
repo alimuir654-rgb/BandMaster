@@ -247,7 +247,7 @@ func _render() -> void:
 	}[stage], 26 if narrow else 32, INK)
 	_rect(heading, pleft, 15, inner, 44)
 	var step: Label = _label(paper, "StageDescription", {
-		"recruit": "Meet local musicians. Choose a rhythm section before you ask anyone to commit.",
+		"recruit": "Meet local players. Scroll to compare drummers and bassists before committing.",
 		"social": "A band is more than a set of instruments. Choose what you do together first.",
 		"rehearsal": "The practice room smells of old carpet and warm amplifiers. What matters today?",
 		"summary": "A line-up, an outing and one consequential rehearsal. No career save was changed."
@@ -259,7 +259,7 @@ func _render() -> void:
 	frame.clip_contents = true
 	frame.add_theme_stylebox_override("panel", _style(Color("#3D4645"), Color("#B59C74"), 4, true))
 	paper.add_child(frame)
-	_rect(frame, pleft, 132, inner, 204 if narrow else 248)
+	_rect(frame, pleft, 132, inner, 169 if narrow else 248)
 	var photo := TextureRect.new()
 	photo.name = "RepoBackedFormationPhoto"
 	photo.texture = load(ROOM_PHOTO)
@@ -267,15 +267,15 @@ func _render() -> void:
 	photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	photo.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	frame.add_child(photo)
-	_rect(photo, 3, 3, inner - 6, (204 if narrow else 248) - 6)
+	_rect(photo, 3, 3, inner - 6, (169 if narrow else 248) - 6)
 	var photo_tag := Panel.new()
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
-	_rect(photo_tag, 10, (204 if narrow else 248) - 39, minf(inner - 20, 360), 30)
+	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(inner - 20, 360), 30)
 	var tag: Label = _label(photo_tag, "PhotoSource", "REPO ROOM PHOTO  /  ART HOLD", 13, Color("#F5EEE1"))
 	_rect(tag, 8, 4, minf(inner - 35, 340), 24)
 
-	var y: float = 358 if narrow else 401
+	var y: float = 323 if narrow else 401
 	var strip := Panel.new()
 	strip.name = "ReadOnlyBandLedger"
 	strip.add_theme_stylebox_override("panel", _style(Color("#E7DDC9"), Color("#BDAA8B"), 3))
