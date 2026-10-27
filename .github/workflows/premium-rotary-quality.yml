@@ -1,0 +1,96 @@
+name: Premium photographic rotary quality
+on:
+  push:
+    branches: [premium-hardware-sprint02-photographic-rotary]
+  workflow_dispatch:
+
+jobs:
+  godot-rotary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot 4.7.2 and renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+          python3 -m pip install --break-system-packages -q pillow numpy
+      - name: Verify original Lab08.4 source and Godot input
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 bandmaster_premium_dashboard_poc/tests/validate_lab084.py
+          godot --headless --path . --editor --import --quit 2>&1 | tee /tmp/rotary-import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/rotary-import.log
+          godot --headless --path . --script res://tests/premium_rotary_quality_tests.gd 2>&1 | tee /tmp/rotary-test.log
+          grep -q 'PREMIUM ROTARY GODOT INPUT TESTS PASSED' /tmp/rotary-test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/rotary-test.log
+      - name: Capture 66 genuine Godot image-backed rotary states
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day dusk night; do
+              for value in 0 25 50 75 100; do
+                xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_premium_rotary_quality.gd -- --phase="$phase" --value="$value" --width="$w" --height="$h" --mode=normal --output="screenshots/rotary-$phase-$value-$dims.png" 2>&1 | tee /tmp/rotary-capture.log
+                grep -q 'PREMIUM ROTARY CAPTURE PASSED' /tmp/rotary-capture.log
+                ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/rotary-capture.log
+              done
+            done
+          done
+          for phase in day dusk night; do
+            for mode in disabled latched; do
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_premium_rotary_quality.gd -- --phase="$phase" --value=50 --width=390 --height=844 --mode="$mode" --output="screenshots/rotary-$phase-$mode-390x844.png" 2>&1 | tee /tmp/rotary-capture.log
+              grep -q 'PREMIUM ROTARY CAPTURE PASSED' /tmp/rotary-capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR:' /tmp/rotary-capture.log
+            done
+          done
+      - name: Source SHA-256 manifest and screenshot pixel QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import glob,hashlib,json,os
+          from PIL import Image,ImageChops
+          base='bandmaster_premium_dashboard_poc/assets'
+          src=[f'{base}/{n}' for n in ('focus_ring_off.png','buzz_ring_off.png')]
+          src+=sorted(glob.glob(f'{base}/focus_led_*.png'))+sorted(glob.glob(f'{base}/buzz_led_*.png'))
+          assert len(src)==52,len(src)
+          os.makedirs('screenshots',exist_ok=True)
+          with open('screenshots/rotary-source-sha256.json','w') as f:
+            json.dump({p:hashlib.sha256(open(p,'rb').read()).hexdigest() for p in src},f,indent=2)
+          files=glob.glob('screenshots/rotary-*.png')
+          assert len(files)==66,len(files)
+          sizes={(390,844),(720,1280),(1280,720),(1600,900)}
+          for p in files:
+            with Image.open(p) as im:
+              assert im.size in sizes,(p,im.size)
+              im.verify()
+          for dims in ('390x844','720x1280','1280x720','1600x900'):
+            for phase in ('day','dusk','night'):
+              images=[Image.open(f'screenshots/rotary-{phase}-{v}-{dims}.png').convert('RGB') for v in (0,25,50,75,100)]
+              assert all(ImageChops.difference(images[i],images[i+1]).getbbox() is not None for i in range(4)),(dims,phase,'LED or pointer states indistinct')
+          def rgb(phase):
+            return Image.open(f'screenshots/rotary-{phase}-0-390x844.png').convert('RGB').getpixel((3,3))
+          assert sum(rgb('day'))>sum(rgb('dusk'))>sum(rgb('night')),(rgb('day'),rgb('dusk'),rgb('night'))
+          rows=[]
+          for phase in ('day','dusk','night'):
+            rows.append([Image.open(f'screenshots/rotary-{phase}-{v}-390x844.png').convert('RGB') for v in (0,25,50,75,100)])
+          sheet=Image.new('RGB',(390*5,844*3))
+          for y,row in enumerate(rows):
+            for x,im in enumerate(row):sheet.paste(im,(x*390,y*844))
+          sheet.save('screenshots/rotary-owner-review-390x844-15-states.png',optimize=True)
+          print('PASS: 52 ORIGINAL LAB08.4 RING PNGs hashed (independent pointer asset still absent); 66 REAL GODOT screenshots verified, 0/25/50/75/100 distinct, day>dusk>night')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: premium-photographic-rotary-66-states
+          path: screenshots/
+          retention-days: 21
+          if-no-files-found: warn
