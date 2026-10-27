@@ -352,10 +352,7 @@ func _render() -> void:
 	var fader_h: float = 91.0 if narrow else 111.0
 	_fader(desk,"PhotographicGuitarFader","guitar",monitor_guitar,fader_x,fader_y,fader_w,fader_h)
 	_fader(desk,"PhotographicVocalFader","vocal",monitor_vocal,fader_x,fader_y+99.0 if narrow else fader_y+130.0,fader_w,fader_h)
-	var fader_title := _label(desk,"FaderRole","MONITOR MIX  /  NO CAREER STAT EDITS",13,Color("#F0DFBF"),"numbers")
-	_rect(fader_title,fader_x,fader_y-22.0,fader_w,21)
-
-	var rotary = Rotary.new()
+		var rotary = Rotary.new()
 	rotary.name = "Lab084StudioFocusRotary"
 	rotary.control_kind = "focus"
 	rotary.read_only = stage!="ready"
@@ -397,7 +394,12 @@ func _render() -> void:
 	var primary_w: float = minf(w-44.0,650.0)
 	_primary = _key(dock,"StudioPrimaryAction","nav",text_value,stage=="released",
 		not (ready or can_release),_primary_action,(w-24.0-primary_w)*0.5,7,primary_w,53)
-	_status = _label(dock,"StudioActionStatus",last_message,14,
+	var footer_text: String = last_message
+	if narrow:
+		footer_text = "ARM DECK  /  RECORD TWO ORIGINALS" if stage=="ready" else (
+			"DEMO READY  /  RELEASE FOR £25" if stage=="recorded" else
+			"DEMO OUT  /  +%d FANS  /  +%d PRESS" % [int(demo_state.get("fans",0))-18,int(demo_state.get("press",0))-3])
+	_status = _label(dock,"StudioActionStatus",footer_text,14,
 		Color("#203B41") if day else LIGHT,"numbers")
 	_status.clip_text = true
 	_rect(_status,12,65,w-48,24)
