@@ -146,7 +146,11 @@ jobs:
           night=Image.open('screenshots/s02b-summary-night-1280x720.png').convert('RGB')
           difference=ImageStat.Stat(ImageChops.difference(day,night)).mean
           assert sum(difference)/3>20,('Weak DAY/NIGHT material difference',difference)
-          print('9 REAL GODOT MATERIAL SCREENSHOTS VERIFIED')
+          # Actual renderer pixels outside the notebook must show pale
+          # photographed DAY cork, not the earlier black/charred backdrop.
+          daylight_cork=[day.getpixel(point) for point in [(80,350),(1200,350),(1140,570)]]
+          assert min(sum(rgb)/3 for rgb in daylight_cork)>160,('P0: DAY cork remains charred',daylight_cork)
+          print('9 REAL GODOT MATERIAL SCREENSHOTS VERIFIED; DAY cork pixel luminance',daylight_cork)
           PY
       - name: Assemble real Godot screenshots into an owner-facing comparison sheet
         shell: bash
