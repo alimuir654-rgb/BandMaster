@@ -43,3 +43,15 @@ The owner's Lab 05/07/08.4 photographic hardware PNGs remain **outside GitHub** 
 | `Art/UI/Songwriting/writing_desk_surface.svg` | Original vector paper surface drawn for BandMaster on 2026-10-27: ruled cream stock, pencil margin, binder perforations, coffee-ring impression, masking tape. No embedded lyrics or labels, no third-party source. | Original project artwork | **PROTOTYPE** tactile surface only. Not photorealistic hardware and not approved as production art. All mutable text is native Godot. |
 
 The approved Lab 05/07/08.4 photographic control assets remain absent from the GitHub branch as of Sprint 04; this material study does not replace them. Confirm final Godot SVG rendering and owner art approval before production migration.
+
+
+## Scene Worlds Sprint 08 — real open-source typeface imports (27 October 2026)
+The exact **binary files** below were fetched from the official Google Fonts repository and committed as Git blobs; the blob SHA matches the upstream GitHub source SHA in each case. This is not a screenshot or local-system-font substitution.
+
+| Destination | Upstream source | Git blob SHA | Licence | Scope |
+| --- | --- | --- | --- | --- |
+| `Art/Fonts/BarlowCondensed-SemiBold.ttf` | `google/fonts/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf` | `9df66576492bee4bd0559066825472808fa98adc` | SIL OFL 1.1, `Art/Fonts/OFL-BarlowCondensed.txt` | Editorial display and module headings |
+| `Art/Fonts/IBMPlexSans-Variable.ttf` | `google/fonts/ofl/ibmplexsans/IBMPlexSans[wdth,wght].ttf` | `30f837e8b02e8ecddce6cbebc425b1f422392515` | SIL OFL 1.1, `Art/Fonts/OFL-IBMPlexSans.txt` | Readable body, actions and captions |
+| `Art/Fonts/IBMPlexMono-Regular.ttf` | `google/fonts/ofl/ibmplexmono/IBMPlexMono-Regular.ttf` | `0c9770d5183ba60dc4350d3e011b782a320761ae` | SIL OFL 1.1, `Art/Fonts/OFL-IBMPlexMono.txt` | Numeric and technical readouts |
+
+Source: https://github.com/google/fonts/tree/main/ofl . Fonts are genuine committed resources but **only exercised by the isolated Sprint 08 gallery**. Do not describe typography as migrated to the production game or approved by the owner until live scene imports, all device captures and accessibility review are completed. Licence notices are shipped alongside binaries. No redistribution of standalone font files outside the game's licensed asset tree is intended.

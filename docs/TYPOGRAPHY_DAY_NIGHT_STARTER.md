@@ -18,3 +18,7 @@ Fallback: Godot standard project font; do not depend on fonts installed locally 
 - Test caps/word spacing at 390px width; avoid long all-caps sentences and small condensed body copy.
 - Each screen requires: chapter heading, location/stage cue, one narrative sentence, state consequence, one dominant action.
 - First sprint: create actual type specimens with day, dusk and night context; verify content overflow and import on Godot 4.7, preserve attribution and asset manifest.
+
+
+## Sprint 08 implementation status — 27 October 2026
+The shortlist is now **actually imported** into the draft Sprint 08 branch (`visual-sprint08-convergence-typography-release-gate`), with the exact OFL licence text and source-matched Git blob SHA recorded in `Art/ASSET_MANIFEST.md`. `Scripts/scene_world_typography.gd` exposes five semantic roles using three font families. The isolated `poc/scene_worlds_convergence.tscn` is the runnable specimen, not the shipping game. The original production PoCs still use their prior typography until explicit integration. Godot font import and screenshots must be checked on the final PR head before claiming runtime PASS.
