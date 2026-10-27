@@ -55,30 +55,30 @@ jobs:
                   assert im.mode=='RGBA' and im.width>=390 and im.height>=140,name
           print('22 original textured PNGs with exact SHA manifest VERIFIED')
           PY
-      - name: Prepare genuine licensed photographic cork and DAY music room layers
+      - name: Verify committed licensed photographic materials and source provenance
         shell: bash
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 'https://images.pexels.com/photos/5988421/pexels-photo-5988421.jpeg?auto=compress&cs=tinysrgb&w=1600' --output /tmp/ldtd-cork.jpg
-          curl --fail --location --retry 3 'https://images.pexels.com/photos/20863659/pexels-photo-20863659.jpeg?auto=compress&cs=tinysrgb&w=1600' --output /tmp/ldtd-dayroom.jpg
-          python3 tools/build_formation_photo_materials.py /tmp/ldtd-cork.jpg /tmp/ldtd-dayroom.jpg
           python3 - <<'PY'
           from pathlib import Path
           import json,hashlib
+          from PIL import Image
           m=json.loads(Path('Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json').read_text())
+          assert m['source_type'].startswith('real photographs'), 'Misidentified photo source'
           assert len(m['records'])==2,m
           for record in m['records']:
               path=Path(record['asset'])
-              assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==record['committed_webp_sha256']
+              assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==record['committed_webp_sha256'],path
               assert record['license'] and record['photographer'] and record['source_page']
-          print('TWO REAL LICENSED PHOTO MATERIALS AND RIGHTS METADATA PASS')
+              assert len(record['downloaded_jpeg_sha256'])==64
+              with Image.open(path) as im:
+                  assert im.width>=1200 and im.height>=800,path
+          print('PASS: committed photographic WebPs, SHA, source rights and metadata')
           PY
-      - name: Reuse original licensed editorial typography from earlier scene proof
+      - name: Verify checked-in OFL editorial typography without rewriting licence notices
         shell: bash
         run: |
           set -euo pipefail
-          git fetch --depth=1 origin visual-sprint08-convergence-typography-release-gate
-          git restore --source FETCH_HEAD -- Art/Fonts
           python3 - <<'PY'
           from pathlib import Path
           expected=[
@@ -89,7 +89,7 @@ jobs:
           for name in expected:
               f=Path('Art/Fonts')/name
               assert f.is_file() and f.stat().st_size>500,name
-          print('VERIFIED 3 EDITORIAL FONTS + OFL LICENSE NOTICES FROM SCENE-WORLDS SOURCE')
+          print('PASS: checked-in editorial fonts and untouched upstream OFL notices')
           PY
       - name: Godot 4.7.2 import + original mechanics + craft interaction tests
         shell: bash
@@ -102,18 +102,17 @@ jobs:
             ! grep -E 'SCRIPT ERROR:|Parse Error:|TEST FAILURE:|S02B FAILURE:|ERROR:' /tmp/test.log
           done
           grep -q 'LDTD S02B PREMIUM STATIONERY CONTROLS AND INPUT/STAT CONTRACT PASSED' /tmp/test.log
-      - name: Commit source-checked generated PNG textures to isolated draft branch
+      - name: Enforce deterministic art generation and read-only CI
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Art/UI/FormationCraft Art/Photography/Formation Art/Fonts
-          git diff --cached --check
-          if ! git diff --cached --quiet; then
-            git commit -m 'Store validated original tactile formation stationery PNGs'
-            git push origin HEAD:first-pass-scene-sweep-2026-10-27
-          fi
+          # Assets must already be reviewed and tracked: CI is a validator, never an art-commit bot.
+          # In particular, do not restore upstream OFL text, whose original trailing spaces
+          # are legally preserved and must not trigger Git's whitespace error.
+          git diff --exit-code -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts
+          git diff --cached --exit-code -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts
+          test -z "$(git ls-files --others --exclude-standard -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts)"
+          echo 'PASS: exact committed art reproduced; CI left source/rights material untouched'
       - name: Render actual tactile Godot screen comparisons at four devices and day-dusk-night
         shell: bash
         run: |
