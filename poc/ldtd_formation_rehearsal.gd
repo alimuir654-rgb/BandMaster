@@ -208,8 +208,8 @@ func _render() -> void:
 	_rect(head, 12, 10, w - 24, 83)
 	var title: Label = _label(head, "PlayerFacingTitle", "LIVIN’ THE DREAM", 22 if narrow else 28, _ink())
 	_rect(title, 14, 8, w - (166 if narrow else 215), 38)
-	var small: Label = _label(head, "ChapterLabel", "CHAPTER 01  /  THE FIRST REHEARSAL", 14, _subtle())
-	_rect(small, 15, 49, w - 42, 25)
+	var small: Label = _label(head, "ChapterLabel", "CH. 01  /  REHEARSAL" if narrow else "CHAPTER 01  /  THE FIRST REHEARSAL", 14, _subtle())
+	_rect(small, 15, 49, w - (173 if narrow else 42), 25)
 	var back: Button = _button(head, "ReturnToGallery", "GALLERY", false, _return_to_gallery)
 	_rect(back, w - (129 if narrow else 165), 12, 107 if narrow else 142, 48)
 
@@ -272,7 +272,7 @@ func _render() -> void:
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
 	_rect(photo_tag, 10, (204 if narrow else 248) - 39, minf(inner - 20, 360), 30)
-	var tag: Label = _label(photo_tag, "PhotoSource", "REAL REPO ROOM PHOTO  /  ART GATE OPEN", 13, Color("#F5EEE1"))
+	var tag: Label = _label(photo_tag, "PhotoSource", "REPO ROOM PHOTO  /  ART HOLD", 13, Color("#F5EEE1"))
 	_rect(tag, 8, 4, minf(inner - 35, 340), 24)
 
 	var y: float = 358 if narrow else 401
@@ -335,8 +335,12 @@ func _render() -> void:
 	var last: String = "Choose a line-up to start the story." if result_history.is_empty() else result_history[-1]
 	var journal: Label = _label(paper, "JournalEntry", last, 16, Color("#3D4B4D"))
 	_rect(journal, pleft, y, inner, 94)
-	var gate: Label = _label(paper, "MaterialGate", "FIRST-PASS PHOTOGRAPHIC SOURCE  /  TACTILE SCRAPBOOK FINISH: OWNER HOLD", 14, Color("#745B35"))
-	_rect(gate, pleft, 883, inner, 46)
+	var gate: Label = _label(paper, "MaterialGate", "REAL ROOM PHOTO  /  SCRAPBOOK MATERIAL: VISUAL HOLD", 14, Color("#745B35"))
+	_rect(gate, pleft, y + 106, inner, 52)
+	var paper_height: float = maxf(936.0, y + 176.0)
+	paper.size.y = paper_height
+	page.size.y = paper_height + 26.0
+	page.custom_minimum_size = Vector2(w, paper_height + 26.0)
 
 	var dock := Panel.new()
 	dock.name = "FormationActionDock"
@@ -353,9 +357,10 @@ func _render() -> void:
 	_primary = _button(dock, "FormationPrimaryAction", action_text, true, commit_stage)
 	_primary.disabled = stage == "summary" or (stage == "social" and outing_id.is_empty()) or (stage == "rehearsal" and room_focus.is_empty())
 	_rect(_primary, 11, 8, w - 46, 52)
-	_status = _label(dock, "FormationStatus",
-		"ISOLATED PREVIEW  /  %d SETTLED ACTIONS  /  NO SAVE WRITES" % settlement_count,
-		14, _subtle())
+	var status_copy: String = "ISOLATED PREVIEW  /  %d SETTLED ACTIONS  /  NO SAVE WRITES" % settlement_count
+	if narrow:
+		status_copy = "PREVIEW  /  %d ACTIONS  /  NO SAVES" % settlement_count
+	_status = _label(dock, "FormationStatus", status_copy, 14, _subtle())
 	_rect(_status, 13, 65, w - 52, 23)
 
 func _label_line(parent: Node, name_value: String, caption: String, x: float, y: float, width: float) -> void:
