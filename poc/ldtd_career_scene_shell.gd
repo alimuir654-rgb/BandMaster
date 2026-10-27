@@ -236,6 +236,8 @@ func _open_preview() -> void:
 		dest = "res://poc/ldtd_songwriting_journey.tscn"
 	elif family == "tour":
 		dest = "res://poc/ldtd_tour_planning.tscn"
+	elif family == "gig":
+		dest = "res://poc/ldtd_gig_night.tscn"
 	elif family == "studio":
 		dest = "res://poc/premium_mixer_module_lab.tscn"
 	if dest.is_empty():
