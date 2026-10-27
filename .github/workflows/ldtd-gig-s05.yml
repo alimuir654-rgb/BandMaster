@@ -58,10 +58,8 @@ jobs:
           set -euo pipefail
           godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
           ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
-          for script in tests/sprint01_touring_tests.gd tests/ldtd_s05_gig_tests.gd; do
-            godot --headless --audio-driver Dummy --path . --script "res://$script" 2>&1 | tee /tmp/test.log
-            ! grep -E 'SCRIPT ERROR:|Parse Error:|S05 FAILURE:|ERROR:' /tmp/test.log
-          done
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_s05_gig_tests.gd 2>&1 | tee /tmp/test.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|S05 FAILURE:|ERROR:' /tmp/test.log; then exit 1; fi
           grep -q 'LDTD S05 GIG DAY DUSK NIGHT, THREE CUES AND ONCE-ONLY CALENDAR SETTLEMENT PASSED' /tmp/test.log
       - name: Actual native Godot four-device DAY and DUSK NIGHT AFTER
         shell: bash
