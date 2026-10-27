@@ -8,7 +8,7 @@ const Transport = preload("res://Scripts/premium_transport_key.gd")
 const Rotary = preload("res://Scripts/ldtd_songwriting_rotary.gd")
 const Key = preload("res://Scripts/ldtd_studio_key.gd")
 const PHOTO_DAY := "res://Art/Photography/Formation/daylight_music_room_pexels.webp"
-const PHOTO_NIGHT := "res://Art/Backgrounds/shared/studio.webp"
+const PHOTO_NIGHT := "res://Art/Backgrounds/shared/backstage.webp"
 const CHASSIS := "res://Art/UI/StudioCraft/console_chassis.svg"
 const FONT_DISPLAY := "res://Art/Fonts/BarlowCondensed-SemiBold.ttf"
 const FONT_BODY := "res://Art/Fonts/IBMPlexSans-Variable.ttf"
@@ -173,6 +173,21 @@ func _fader(parent: Node,n: String,kind: String,value: float,x: float,y: float,w
 	parent.add_child(f)
 	_rect(f,x,y,w,h)
 	f.value_changed.connect(func(next: float) -> void: set_monitor_level(kind,next))
+	# Lab05's photographic source says READINESS above its rail. Cover that
+	# fixed source word with a small native metal role plate; these are MONITOR
+	# faders and must never imply the player can drag a career stat.
+	var plate := ColorRect.new()
+	plate.name = n+"RolePlate"
+	plate.color = Color("#16252D")
+	plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	plate.z_index = 4
+	parent.add_child(plate)
+	_rect(plate,x+24.0,y+5.0,minf(w-45.0,160.0),22.0)
+	var role := _label(parent,n+"NativeRole","GUITAR MONITOR" if kind=="guitar" else "VOCAL MONITOR",
+		12,Color("#F1DFC1"),"display")
+	role.z_index = 5
+	role.clip_text = true
+	_rect(role,x+28.0,y+6.0,minf(w-52.0,154.0),21.0)
 	_controls[n] = f
 
 func _render() -> void:
@@ -237,11 +252,14 @@ func _render() -> void:
 		_surface.add_child(strip)
 		_rect(strip,14+i*(step_w+gap),101,step_w,43)
 		# Native sibling captions remain visible above panel texture.
-		var cap := _label(_surface,"StudioMoment"+str(i),["DAY","DUSK","NIGHT"][i] if narrow else phases[i],
+		var caption_text: String = ["DAY","DUSK","NIGHT"][i] if narrow else phases[i]
+		var cap := _label(_surface,"StudioMoment"+str(i),caption_text,
 			15,Color("#24343A") if selected_phase==i else LIGHT,"display")
+		cap.z_index = 12
 		cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		cap.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_rect(cap,17+i*(step_w+gap),107,step_w-6,29)
+		cap.clip_text = true
+		_rect(cap,17+i*(step_w+gap),105,step_w-6,34)
 
 	var dock_h: float = 104.0
 	var scroll := ScrollContainer.new()
@@ -274,7 +292,7 @@ func _render() -> void:
 	frame.add_child(photo)
 	_rect(photo,4,4,photo_w-8,photo_h-8)
 	var photo_caption := _label(frame,"StudioPhotoCaption",
-		"DAYLIGHT / MUSIC ROOM" if day else ("DUSK / STUDIO" if phase=="dusk" else "NIGHT / STUDIO"),
+		"DAYLIGHT / MUSIC ROOM" if day else ("DUSK / REHEARSAL" if phase=="dusk" else "NIGHT / BACKSTAGE"),
 		12,LIGHT,"numbers")
 	photo_caption.add_theme_constant_override("outline_size",3)
 	photo_caption.add_theme_color_override("font_outline_color",Color("#14242B"))
@@ -334,8 +352,8 @@ func _render() -> void:
 	var fader_h: float = 91.0 if narrow else 111.0
 	_fader(desk,"PhotographicGuitarFader","guitar",monitor_guitar,fader_x,fader_y,fader_w,fader_h)
 	_fader(desk,"PhotographicVocalFader","vocal",monitor_vocal,fader_x,fader_y+99.0 if narrow else fader_y+130.0,fader_w,fader_h)
-	var fader_title := _label(desk,"FaderRole","GUITAR  /  VOCAL  /  MONITOR MIX ONLY",13,Color("#F0DFBF"),"numbers")
-	_rect(fader_title,fader_x,fader_y-17.0,fader_w,24)
+	var fader_title := _label(desk,"FaderRole","MONITOR MIX  /  NO CAREER STAT EDITS",13,Color("#F0DFBF"),"numbers")
+	_rect(fader_title,fader_x,fader_y-22.0,fader_w,21)
 
 	var rotary = Rotary.new()
 	rotary.name = "Lab084StudioFocusRotary"
@@ -348,19 +366,19 @@ func _render() -> void:
 	_controls["rotary"] = rotary
 	var meter = Meter.new()
 	meter.name = "ReadOnlyPhotographicReadinessMeter"
-	meter.reading = float(demo_state.get("readiness",0))
+	meter.reading = float(demo_state.get("buzz",0))
 	desk.add_child(meter)
 	_rect(meter,chassis_w-113.0 if narrow else chassis_w-150.0,415 if narrow else 96,
 		90 if narrow else 114,185 if narrow else 286)
 	_controls["meter"] = meter
-	var meter_label := _label(desk,"MeterRole","READINESS / OUTPUT",12,Color("#E9D6B3"),"numbers")
+	var meter_label := _label(desk,"MeterRole","BUZZ / OUTPUT ONLY",12,Color("#E9D6B3"),"numbers")
 	_rect(meter_label,chassis_w-176.0 if narrow else chassis_w-181.0,601 if narrow else 391,
 		155,26)
 	var monitor := _label(desk,"StudioMonitorReadout",
 		"MONITOR ONLY  /  GTR %d  VOX %d  PHONES %d" % [int(monitor_guitar),int(monitor_vocal),int(headphone_focus)],
 		12,Color("#E7D8B9"),"numbers")
 	_rect(monitor,16,548 if narrow else 433,inner,40)
-	var detail: String = "RECORD / £60 / TWO DAYS" if stage=="ready" else ("DEMO READY / RELEASE £25 / ONE DAY" if stage=="recorded" else "LOCAL RELEASE OUT / NO SECOND CHARGE")
+	var detail: String = "RECORD / £60 / TWO DAYS  /  READINESS %d" % int(demo_state.get("readiness",0)) if stage=="ready" else ("DEMO READY / RELEASE £25 / ONE DAY" if stage=="recorded" else "LOCAL RELEASE OUT / NO SECOND CHARGE")
 	var consequence := _label(desk,"StudioRealConsequence",detail,14,LIGHT,"display")
 	_rect(consequence,16,619 if narrow else 477,inner,46)
 
@@ -379,7 +397,7 @@ func _render() -> void:
 	var primary_w: float = minf(w-44.0,650.0)
 	_primary = _key(dock,"StudioPrimaryAction","nav",text_value,stage=="released",
 		not (ready or can_release),_primary_action,(w-24.0-primary_w)*0.5,7,primary_w,53)
-	_status = _label(dock,"StudioActionStatus",last_message,12,
-		Color("#385054") if day else LIGHT,"numbers")
+	_status = _label(dock,"StudioActionStatus",last_message,14,
+		Color("#203B41") if day else LIGHT,"numbers")
 	_status.clip_text = true
 	_rect(_status,12,65,w-48,24)
