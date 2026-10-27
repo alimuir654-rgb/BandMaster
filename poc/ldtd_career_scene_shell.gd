@@ -6,8 +6,8 @@ extends Control
 const PHASES := ["day", "dusk", "night"]
 const SCENES := ["career", "formation", "songwriting", "tour", "gig", "studio"]
 const WORLD: Dictionary = {
-	"career": {"heading": "THE LONG ROAD", "summary": "Your band's next chapter starts with a choice.", "moment": "CAREER  /  EARLY DAYS", "photo": "home", "primary": "EXPLORE CAREER", "next": "S01  /  CAREER SHELL"},
-	"formation": {"heading": "FIND YOUR PEOPLE", "summary": "Build trust, find a shared sound and earn your first rehearsal.", "moment": "BAND  /  FORMATION", "photo": "formation", "primary": "OPEN THE BAND DESK", "next": "S02  /  FORMATION"},
+	"career": {"heading": "THE LONG ROAD", "summary": "Your band's next chapter starts with a choice.", "moment": "CAREER  /  EARLY DAYS", "photo": "home", "primary": "REVIEW CAREER BRIEF", "next": "S01  /  CAREER SHELL"},
+	"formation": {"heading": "FIND YOUR PEOPLE", "summary": "Build trust, find a shared sound and earn your first rehearsal.", "moment": "BAND  /  FORMATION", "photo": "formation", "primary": "REVIEW BAND BRIEF", "next": "S02  /  FORMATION"},
 	"songwriting": {"heading": "FIND THE SOUND", "summary": "An idea begins at a daytime writing table before it meets the studio.", "moment": "SONGS  /  JAM SESSION", "photo": "home", "primary": "OPEN TRANSPORT PROOF", "next": "S03  /  SONGWRITING"},
 	"tour": {"heading": "THE NEXT STOP", "summary": "Plot the route, prepare the van and make every mile count.", "moment": "ON THE ROAD  /  PLANNING", "photo": "studio", "primary": "REVIEW TOUR BRIEF", "next": "S04  /  TOUR"},
 	"gig": {"heading": "LIGHTS DOWN", "summary": "From daytime load-in to the last encore: one believable show.", "moment": "GIG  /  LIVE SHOW", "photo": "gigs", "primary": "REVIEW SHOW BRIEF", "next": "S05  /  GIG NIGHT"},
