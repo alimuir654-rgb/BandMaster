@@ -35,8 +35,8 @@ var _primary: Button
 var _status: Label
 var _stats: Label
 var _title_input: LineEdit
-var _rotary: Control
-var _transport: TextureButton
+var _rotary
+var _transport
 var _choice_buttons: Dictionary = {}
 var _render_pending: bool = false
 
@@ -153,7 +153,7 @@ func _panel(fill: Color, edge: Color, radius: int = 5) -> StyleBoxFlat:
 
 func _pad(parent: Control, id: String, caption: String, chosen: bool, action: Callable,
 		x: float, y: float, width: float, height: float) -> TextureButton:
-	var pad: TextureButton = Pad.new()
+	var pad = Pad.new()
 	pad.name = id
 	pad.choice_id = id
 	pad.caption = caption
