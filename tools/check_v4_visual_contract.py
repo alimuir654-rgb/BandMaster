@@ -16,7 +16,7 @@ for name,pattern in {
     "unapproved live save":r'FileAccess|user://|DirAccess|tour_save',
 }.items():
     assert not re.search(pattern,source_only),f"V4 art contract FAIL: {name}"
-for path in ["case_roadcase.svg","case_roadcase_phone.svg","case_roadcase_tablet.svg","paper_personnel.svg"]:
+for path in ["case_roadcase.svg","case_roadcase_phone.svg","case_roadcase_tablet.svg","photo_pending_contact.svg","paper_personnel.svg"]:
     f=ASSETS/path
     assert f.is_file() and f.stat().st_size>=1000,path
 for family in ["metal_tab","amber_key"]:
@@ -28,7 +28,7 @@ assert 'ldtd_recruitment_meter.gd' in text, "Six inert red/amber/green meters re
 assert 'BarlowCondensed-SemiBold.ttf' in text and 'IBMPlexSans-Variable.ttf' in text
 assert 'TextureButton' in text and 'texture_normal' in text and 'texture_disabled' in text
 assert 'portrait' in text and 'paper_personnel.svg' in text and 'case_roadcase.svg' in text
-print("LDTD V4 ART CONTRACT LINT PASS: No flat/legacy GUI or writes, 12 source-backed design assets and hardware states.")
+print("LDTD V4 ART CONTRACT LINT PASS: No flat/legacy GUI or writes, 16 source-backed design assets and hardware states.")
 
 
 # Every authored material must have a pinned Git blob SHA and immutable provenance.
@@ -36,7 +36,7 @@ import hashlib
 import json
 manifest=json.loads((ASSETS/"SOURCE_MANIFEST.json").read_text(encoding="utf-8"))
 rows=manifest["material_images"]
-assert len(rows)==15, "V4 art source inventory incomplete"
+assert len(rows)==16, "V4 art source inventory incomplete"
 for item in rows:
     asset=ROOT/item["asset"]
     data=asset.read_bytes()

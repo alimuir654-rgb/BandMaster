@@ -225,7 +225,8 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
   var pic:=_art(parent,path,b.position.x,b.position.y,b.size.x,b.size.y)
   pic.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
  else:
-  _text(parent,"PORTRAIT\nNOT YET SOURCED",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,21,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
+  _art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
+  _text(parent,"PORTRAIT\nART PENDING",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,22,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
  # Do not mislabel ID cards as photographed portraits; source art is placeholder.
 
 func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float) -> void:
@@ -419,11 +420,11 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  _text(parent,str(candidate_index+1)+"/6",75,211,w-151,22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
  _transport(parent,"▶",Rect2(w-72,179,56,44),func() -> void: _move(1))
  # A 720px portrait viewport is a tablet composition, not a 390px phone
- # stretched sideways. Give the source portrait real height and scale the
+ # stretched sideways. Keep its source square framing rather than cropping the face, and scale the
  # passive meter bank before the action and fixed roster dock.
  var tablet:bool=w>=600.0
  var photo_w:float=440.0 if tablet else w-148.0
- var photo_h:float=350.0 if tablet else 175.0
+ var photo_h:float=450.0 if tablet else 175.0
  var photo_x:float=(w-photo_w)*0.5 if tablet else 74.0
  var photo_y:float=242.0
  _portrait_picture(parent,Rect2(photo_x,photo_y,photo_w,photo_h),p)

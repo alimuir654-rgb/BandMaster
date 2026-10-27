@@ -14,7 +14,7 @@ func _run() -> void:
   if arg.begins_with("--height="):height=int(arg.trim_prefix("--height="))
   if arg.begins_with("--stage="):stage=arg.trim_prefix("--stage=")
   if arg.begins_with("--output="):output=arg.trim_prefix("--output=")
- if not ["genre","recruit","name","bio","ready"].has(stage):
+ if not ["genre","recruit","name","bio","ready","missing"].has(stage):
   _fail("unknown stage")
   return
  get_root().size=Vector2i(width,height)
@@ -25,6 +25,12 @@ func _run() -> void:
  if stage!="genre":
   view._next()
   for i in range(4):await process_frame
+ if stage=="missing":
+  view._move(1)
+  for i in range(2):await process_frame
+  if str(view._current()["id"])!="josh_bennett" or ResourceLoader.exists("res://Art/Portraits/indie/josh_bennett.webp"):
+   _fail("unsourced portrait proof must use Josh without an existing photo")
+   return
  if stage=="name" or stage=="ready":
   for p in view.Model.people():
    if ["alex","jo","sam"].has(str(p["id"])):
@@ -37,11 +43,11 @@ func _run() -> void:
  if stage=="bio":
   view._show_dossier()
   for i in range(4):await process_frame
- var expected_step:int=1 if stage=="bio" or stage=="ready" else ["genre","recruit","name"].find(stage)
+ var expected_step:int=1 if ["bio","ready","missing"].has(stage) else ["genre","recruit","name"].find(stage)
  if view.step!=expected_step or (stage=="bio" and not view._bio_open) or (stage=="ready" and not view.Model.viable(view.roster)):
   _fail("scene step contract")
   return
- if width<=450 and (stage=="recruit" or stage=="ready"):
+ if width<=450 and (stage=="recruit" or stage=="ready" or stage=="missing"):
   var captions:Array=[]
   for label in view.find_children("*","Label",true,false):
    captions.append(str(label.text))
@@ -79,7 +85,7 @@ func _run() -> void:
  if hit_count==0:
   _fail("no visible 44 physical pixel source-textured control")
   return
- if stage=="recruit":
+ if stage=="recruit" or stage=="missing":
   var count:=0
   for child in view.find_children("*","Control",true,false):
    if child.get_script()==load("res://poc/ldtd_recruitment_meter.gd"):
