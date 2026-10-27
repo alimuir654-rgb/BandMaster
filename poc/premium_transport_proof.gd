@@ -59,7 +59,7 @@ func _ready() -> void:
 	transport.transport_armed.connect(_on_transport_armed)
 	mode_display = _label(rack, "TransportStateReadout", "", 18)
 	explanation = _label(rack, "TransportRoleCopy", "PLAYER INPUT  /  NO AUDIO OR SAVE CHANGES", 13)
-	notice = _label(rack, "TransportProofDisclaimer", "Review the physical surface. This lab never advances game time.", 12)
+	notice = _label(rack, "TransportProofDisclaimer", "DEMO ONLY  /  No progress or saves changed", 12)
 	for sample in FINISHES:
 		var button := Button.new()
 		button.name = "Finish" + sample.capitalize()
@@ -103,7 +103,7 @@ func set_phase(next: String) -> void:
 	var text_ink := Color("#1A272A") if phase == "day" else Color("#F2F0E9")
 	for label in [title, subtitle]:
 		label.add_theme_color_override("font_color", text_ink)
-	var chrome: Color = Color("#303A40") if phase == "day" else Color("#1A252D")
+	var chrome: Color = Color("#0D1417") if phase == "day" else Color("#10191F")
 	var edging: Color = Color("#A99A85") if phase == "day" else Color("#6A7478")
 	rack.add_theme_stylebox_override("panel", _metal(chrome, edging))
 	rack_rail.color = Color("#CBA263") if phase == "day" else Color("#B88D51")
@@ -183,7 +183,10 @@ func _layout() -> void:
 		_place(btn, (24.0 + index * 94.0) / px, top_physical / px, 88.0 / px, 46.0 / px)
 	var rack_top: float = top_physical + 66.0
 	var rack_w: float = minf(phys_w - 24.0, 1030.0)
-	var rack_h: float = minf(maxf(465.0, phys_h - rack_top - 26.0), 535.0)
+	var key_w: float = minf(rack_w - 42.0, 560.0)
+	var key_h: float = key_w * 430.0 / 790.0
+	# Physical rig height follows the actual hardware, not an empty fixed box.
+	var rack_h: float = minf(maxf(430.0, 90.0 + key_h + 135.0), phys_h - rack_top - 20.0)
 	rack.scale = Vector2(1.0 / px, 1.0 / px)
 	_place(rack, (phys_w - rack_w) / (2.0 * px), rack_top / px, rack_w, rack_h)
 	_place(rack_rail, 16.0, 7.0, rack_w - 32.0, 3.0)
@@ -191,15 +194,15 @@ func _layout() -> void:
 	_place(module_subtitle, 22, 55, rack_w - 44, 24)
 	module_title.add_theme_font_size_override("font_size", 16)
 	module_subtitle.add_theme_font_size_override("font_size", 13)
-	var key_w: float = minf(rack_w - 42.0, 630.0)
-	var key_h: float = key_w * 430.0 / 790.0
 	var key_x: float = (rack_w - key_w) / 2.0
 	_place(transport, key_x, 90, key_w, key_h)
-	_place(mode_display, 25, 90 + key_h + 17, rack_w - 50, 26)
-	mode_display.add_theme_font_size_override("font_size", 17)
-	_place(explanation, 25, 90 + key_h + 49, rack_w - 50, 24)
-	_place(notice, 25, rack_h - 41, rack_w - 50, 24)
-	var controls_y: float = rack_h - 100
+	var readout_y: float = 90.0 + key_h + 8.0
+	_place(mode_display, 25, readout_y, rack_w - 50, 25)
+	mode_display.add_theme_font_size_override("font_size", 16)
+	_place(explanation, 25, readout_y + 29.0, rack_w - 50, 22)
+	# Review selectors are secondary, not part of the physically printed key.
+	var controls_y: float = readout_y + 62.0
+	_place(notice, 25, rack_h - 29.0, rack_w - 50, 20)
 	var button_w: float = minf(114.0, (rack_w - 68.0) / 3.0)
 	for index in range(FINISHES.size()):
 		var btn: Button = finish_buttons[FINISHES[index]]
