@@ -97,7 +97,8 @@ func _plate(parent: Node, caption: String, bounds: Rect2, action: Callable, acti
  b.focus_entered.connect(func() -> void: b.modulate=Color("#FFE0A7"))
  b.focus_exited.connect(func() -> void: b.modulate=Color.WHITE)
  parent.add_child(b)
- _text(b,caption,8,0,bounds.size.x-16,bounds.size.y,text_size,INK if (active or finish=="amber_key") else WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
+ var caption_ink:Color=MUTED if not enabled else (INK if (active or finish=="amber_key") else WHITE)
+ _text(b,caption,8,0,bounds.size.x-16,bounds.size.y,text_size,caption_ink,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
  return b
 
 func _transport(parent: Node, symbol: String, bounds: Rect2, action: Callable, backwards: bool=false) -> TextureButton:
@@ -296,7 +297,8 @@ func _landscape_scene(parent: Node) -> void:
   _text(layout,"CHALLENGE /  "+str(Formation.GENRES[genre]["challenge"]),395,430,920,50,21,WHITE,FONT_BODY)
  elif step==2:
   _text(layout,"A NAME FOR THIS BAND",388,192,950,77,55,WHITE,FONT_TITLE)
-  _name_line(layout,388,323,800,75)
+  _name_line(layout,388,323,600,75)
+  _lineup_paper(layout,Rect2(1040,190,497,528))
   _text(layout,str(roster.size())+" MUSICIANS  /  "+genre.to_upper(),390,410,780,52,23,AMBER,FONT_MONO)
  else:
   _landscape_recruit(layout)
@@ -349,7 +351,7 @@ func _roster_dock(layout: Node,w:float,h:float,wide:bool) -> void:
   _text(layout,str(roster.size())+" / 6 PEOPLE  •  "+str(Model.MAX_TALENT-Model.spent(roster))+" POINTS LEFT",14,y,300,29,17,AMBER,FONT_TITLE)
   var names:=PackedStringArray(roster.map(func(p): return str(p["name"])))
   _text(layout,("  •  ".join(names) if not names.is_empty() else "YOUR BAND IS STILL EMPTY"),14,y+33,w-28,31,14,WHITE,FONT_BODY)
-  if step!=1:
+  if step==2:
    _plate(layout,"BACK",Rect2(12,h-68,(w-36)/2,51),func() -> void: _back(),false,true,"metal_tab",18)
    _plate(layout,"NEXT",Rect2((w-36)/2+22,h-68,(w-36)/2,51),func() -> void: _next(),false,step==0 or not band_name.is_empty(),"amber_key",18)
 
@@ -365,6 +367,7 @@ func _portrait_scene(parent: Node) -> void:
   _text(parent,"MAKE IT YOURS",18,165,w-36,48,35,CREAM,FONT_TITLE)
   _name_line(parent,18,235,w-36,58)
   _text(parent,genre+"  /  "+str(roster.size())+" MEMBERS",18,327,w-36,42,17,WHITE,FONT_BODY)
+  _lineup_paper(parent,Rect2(18,390,w-36,292))
  else:
   if _bio_open:
    _mobile_file(parent,w,h)
@@ -437,13 +440,51 @@ func _mobile_file(parent: Node,w: float,h: float) -> void:
  _dossier(parent,p,Rect2(12,112,w-24,h-198),true)
  _plate(parent,"RETURN TO AUDITIONS",Rect2(15,h-78,w-30,52),func() -> void: _close_dossier(),false,true,"metal_tab",23)
 
+func _lineup_paper(parent: Node,b: Rect2) -> void:
+ # A physical roster slip fills the previously empty name-last stage.
+ # Names, roles and budget are native data; the paper carries no baked copy.
+ _art(parent,ART+"paper_personnel.svg",b.position.x,b.position.y,b.size.x,b.size.y)
+ var x:float=b.position.x+43.0
+ var w:float=b.size.x-65.0
+ var mobile:bool=b.size.y<350.0
+ _text(parent,"FOUNDING LINEUP",x,b.position.y+15,w,31,24,INK,FONT_TITLE)
+ for idx in range(roster.size()):
+  var person:Dictionary=roster[idx]
+  var roles_text:String=" / ".join(PackedStringArray(person["roles"]))
+  if mobile:
+   _text(parent,str(idx+1)+" / "+str(person["name"])+"  ·  "+roles_text,x,b.position.y+51.0+idx*29.0,w,27,15,INK,FONT_BODY)
+  else:
+   var yy:float=b.position.y+76.0+idx*53.0
+   _text(parent,str(idx+1)+" / "+str(person["name"]),x,yy,w,27,22,INK,FONT_TITLE)
+   _text(parent,roles_text,x,yy+25.0,w,24,16,GREEN,FONT_BODY)
+ _text(parent,str(Model.MAX_TALENT-Model.spent(roster))+" TALENT POINTS REMAIN",x,b.position.y+b.size.y-44.0,w,30,19,INK,FONT_TITLE)
+
 func _name_line(parent: Node,x:float,y:float,w:float,h:float) -> void:
  var field:=LineEdit.new()
  field.position=Vector2(x,y)
  field.size=Vector2(w,h)
  field.placeholder_text="Your band's name"
  field.text=band_name
+ field.max_length=50
+ # This is a real editable LineEdit, but its entire visible skin is authored
+ # metal artwork, including the keyboard-focus state. Never stock StyleBoxFlat.
+ var skin:=StyleBoxTexture.new()
+ skin.texture=load(ART+"metal_tab_idle.svg")
+ skin.set_texture_margin_all(12.0)
+ skin.set_content_margin_all(17.0)
+ var focus_skin:=StyleBoxTexture.new()
+ focus_skin.texture=load(ART+"metal_tab_hover.svg")
+ focus_skin.set_texture_margin_all(12.0)
+ focus_skin.set_content_margin_all(17.0)
+ var edit_theme:=Theme.new()
+ edit_theme.set_stylebox("normal","LineEdit",skin)
+ edit_theme.set_stylebox("focus","LineEdit",focus_skin)
+ edit_theme.set_stylebox("read_only","LineEdit",skin)
+ field.theme=edit_theme
  field.add_theme_font_override("font",FONT_BODY)
  field.add_theme_font_size_override("font_size",23)
+ field.add_theme_color_override("font_color",WHITE)
+ field.add_theme_color_override("font_placeholder_color",MUTED)
+ field.add_theme_color_override("caret_color",AMBER)
  field.text_changed.connect(_name_edit)
  parent.add_child(field)
