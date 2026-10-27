@@ -52,7 +52,7 @@ func _capture() -> void:
 	if primary.get_global_rect().size.y * px < 44.0:
 		_fail("primary button under 44 physical pixels")
 		return
-	if float(title.get_theme_font_size("font_size")) * px < 22.0:
+	if float(title.get_theme_font_size("font_size")) * title.get_global_transform().get_scale().y * px < 22.0:
 		_fail("branding unreadable")
 		return
 	if primary.get_global_rect().end.y * px > win.y + 2.0 or dock.get_global_rect().end.x * px > win.x + 2.0:
