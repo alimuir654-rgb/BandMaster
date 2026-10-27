@@ -288,7 +288,7 @@ func _render() -> void:
 		"recruit": "Alex sings. Choose your drummer and bassist, then scroll for their notes.",
 		"social": "A band is more than a set of instruments. Choose what you do together first.",
 		"rehearsal": "The practice room smells of old carpet and warm amplifiers. What matters today?",
-		"summary": "A line-up, an outing and one consequential rehearsal. No career save was changed."
+		"summary": "You have a line-up, shared history and a first rehearsal behind you. What happens next?"
 	}[stage], 16, Color("#4B5B5D"))
 	_rect(step, pleft, 63, inner, 64)
 
@@ -315,7 +315,7 @@ func _render() -> void:
 	photo_tag.add_theme_stylebox_override("panel", _style(Color(0.10, 0.14, 0.16, 0.88), Color("#8D8577"), 3))
 	frame.add_child(photo_tag)
 	_rect(photo_tag, 10, (169 if narrow else 248) - 39, minf(photo_w - 20, 360), 30)
-	var tag: Label = _label(photo_tag, "PhotoSource", "DAY ROOM  /  FIRST REHEARSAL", 13, Color("#F5EEE1"))
+	var tag: Label = _label(photo_tag, "PhotoSource", ({"day": "DAY", "dusk": "DUSK", "night": "NIGHT"}[phase] + "  /  REHEARSAL ROOM"), 13, Color("#F5EEE1"))
 	_rect(tag, 8, 4, minf(photo_w - 35, 340), 24)
 
 	# Landscape first-fold audition board: photograph and four meaningful
@@ -423,14 +423,14 @@ func _render() -> void:
 		"recruit": "FORM THE BAND  /  3 MEMBERS",
 		"social": "CONFIRM OUTING  /  ONE DAY",
 		"rehearsal": "COMMIT REHEARSAL CHOICE",
-		"summary": "CHAPTER COMPLETE  /  NO DOUBLE CHARGE"
+		"summary": "FIRST CHAPTER FINISHED"
 	}[stage]
 	_primary = _button(dock, "FormationPrimaryAction", action_text, true, commit_stage)
 	_primary.disabled = stage == "summary" or (stage == "social" and outing_id.is_empty()) or (stage == "rehearsal" and room_focus.is_empty())
 	_rect(_primary, 11, 8, w - 46, 52)
-	var status_copy: String = "STORY PREVIEW  /  %d DECISIONS COMPLETED" % settlement_count
+	var status_copy: String = "CHAPTER 01  /  %d DECISIONS COMPLETED" % settlement_count
 	if narrow:
-		status_copy = "PREVIEW  /  %d DECISIONS COMPLETED" % settlement_count
+		status_copy = "CHAPTER 01  /  %d DECISIONS" % settlement_count
 	_status = _label(dock, "FormationStatus", status_copy, 14, _subtle())
 	_rect(_status, 13, 65, w - 52, 23)
 
