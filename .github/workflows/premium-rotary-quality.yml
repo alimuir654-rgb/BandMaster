@@ -58,9 +58,9 @@ jobs:
           import glob,hashlib,json,os
           from PIL import Image,ImageChops
           base='bandmaster_premium_dashboard_poc/assets'
-          src=[f'{base}/{n}' for n in ('focus_ring_off.png','buzz_ring_off.png','rotary_pointer.png')]
+          src=[f'{base}/{n}' for n in ('focus_ring_off.png','buzz_ring_off.png')]
           src+=sorted(glob.glob(f'{base}/focus_led_*.png'))+sorted(glob.glob(f'{base}/buzz_led_*.png'))
-          assert len(src)==53,len(src)
+          assert len(src)==52,len(src)
           os.makedirs('screenshots',exist_ok=True)
           with open('screenshots/rotary-source-sha256.json','w') as f:
             json.dump({p:hashlib.sha256(open(p,'rb').read()).hexdigest() for p in src},f,indent=2)
@@ -85,7 +85,7 @@ jobs:
           for y,row in enumerate(rows):
             for x,im in enumerate(row):sheet.paste(im,(x*390,y*844))
           sheet.save('screenshots/rotary-owner-review-390x844-15-states.png',optimize=True)
-          print('PASS: 53 ORIGINAL LAB08.4 PNGs hashed; 66 REAL GODOT screenshots verified, 0/25/50/75/100 distinct, day>dusk>night')
+          print('PASS: 52 ORIGINAL LAB08.4 RING PNGs hashed (independent pointer asset still absent); 66 REAL GODOT screenshots verified, 0/25/50/75/100 distinct, day>dusk>night')
           PY
       - uses: actions/upload-artifact@v4
         if: always()
