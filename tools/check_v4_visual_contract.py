@@ -29,3 +29,18 @@ assert 'BarlowCondensed-SemiBold.ttf' in text and 'IBMPlexSans-Variable.ttf' in 
 assert 'TextureButton' in text and 'texture_normal' in text and 'texture_disabled' in text
 assert 'portrait' in text and 'paper_personnel.svg' in text and 'case_roadcase.svg' in text
 print("LDTD V4 ART CONTRACT LINT PASS: No flat/legacy GUI or writes, 12 source-backed design assets and hardware states.")
+
+
+# Every authored material must have a pinned Git blob SHA and immutable provenance.
+import hashlib
+import json
+manifest=json.loads((ASSETS/"SOURCE_MANIFEST.json").read_text(encoding="utf-8"))
+rows=manifest["material_images"]
+assert len(rows)==13, "V4 art source inventory incomplete"
+for item in rows:
+    asset=ROOT/item["asset"]
+    data=asset.read_bytes()
+    actual=hashlib.sha1(b"blob "+str(len(data)).encode()+b"\0"+data).hexdigest()
+    assert item["git_blob_sha1"]==actual, f"Unreviewed altered material: {asset}"
+    assert item["bytes"]==len(data) and item["license"], f"Material size/rights unresolved: {asset}"
+print("V4 Git SHA-verified original art asset inventory PASS")
