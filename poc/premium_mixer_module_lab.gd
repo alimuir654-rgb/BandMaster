@@ -58,8 +58,8 @@ func _ready() -> void:
 	rack_meta = _label(rack, "RigMeta", "02 INPUTS   /   01 MONITOR", 13)
 	input_bay = _panel(rack, "FaderInputBay")
 	output_bay = _panel(rack, "ReadOnlyMeterBay")
-	horizontal_label = _label(rack, "HorizontalInputLabel", "01  /  READINESS  ·  INPUT", 15)
-	vertical_label = _label(rack, "VerticalInputLabel", "ENERGY  /  INPUT", 15)
+	horizontal_label = _label(rack, "HorizontalInputLabel", "01  /  PREP EFFORT  ·  INPUT", 15)
+	vertical_label = _label(rack, "VerticalInputLabel", "MORALE SUPPORT  /  INPUT", 15)
 	meter_label = _label(rack, "ReadOnlyStatLabel", "HYPE  /  METER", 15)
 	horizontal_readout = _label(rack, "HorizontalInputValue", "", 16)
 	vertical_readout = _label(rack, "VerticalInputValue", "", 16)
@@ -158,8 +158,8 @@ func set_stat_reading(stat: float) -> void:
 func _refresh_readouts() -> void:
 	if horizontal == null or vertical == null or meter == null:
 		return
-	horizontal_readout.text = "READINESS     %03d%%" % int(horizontal.value)
-	vertical_readout.text = "ENERGY    %03d%%" % int(vertical.value)
+	horizontal_readout.text = "PREP EFFORT   %03d%%" % int(horizontal.value)
+	vertical_readout.text = "SUPPORT EFFORT  %03d%%" % int(vertical.value)
 	meter_readout.text = "HYPE    %03d%%" % int(meter.reading)
 
 func _place(ctrl: Control, x: float, y: float, w: float, h: float) -> void:
@@ -207,7 +207,7 @@ func _layout() -> void:
 	_place(rack_title, 22, 18, rack_w - 44, body_font + 13)
 	_place(rack_meta, 22, 45, rack_w - 44, label_font + 8)
 	if physical_w < 900.0:
-		footer.text = "FADERS: INPUT  /  METER: READ ONLY"
+		footer.text = "SET EFFORT  /  HYPE: READ ONLY"
 		var hbase_width: float = rack_w - 40.0
 		_place(input_bay, 13, 76, rack_w - 26, 155.0)
 		_place(horizontal_label, 23, 84, rack_w - 46, body_font + 7)
