@@ -8,10 +8,10 @@ const SCENES := ["career", "formation", "songwriting", "tour", "gig", "studio"]
 const WORLD: Dictionary = {
 	"career": {"heading": "THE LONG ROAD", "summary": "Your band's next chapter starts with a choice.", "moment": "CAREER  /  EARLY DAYS", "photo": "home", "primary": "EXPLORE CAREER", "next": "S01  /  CAREER SHELL"},
 	"formation": {"heading": "FIND YOUR PEOPLE", "summary": "Build trust, find a shared sound and earn your first rehearsal.", "moment": "BAND  /  FORMATION", "photo": "formation", "primary": "OPEN THE BAND DESK", "next": "S02  /  FORMATION"},
-	"songwriting": {"heading": "FIND THE SOUND", "summary": "An idea begins at a daytime writing table before it meets the studio.", "moment": "SONGS  /  JAM SESSION", "photo": "studio", "primary": "OPEN TRANSPORT PROOF", "next": "S03  /  SONGWRITING"},
-	"tour": {"heading": "THE NEXT STOP", "summary": "Plot the route, prepare the van and make every mile count.", "moment": "ON THE ROAD  /  PLANNING", "photo": "gear", "primary": "REVIEW TOUR BRIEF", "next": "S04  /  TOUR"},
+	"songwriting": {"heading": "FIND THE SOUND", "summary": "An idea begins at a daytime writing table before it meets the studio.", "moment": "SONGS  /  JAM SESSION", "photo": "home", "primary": "OPEN TRANSPORT PROOF", "next": "S03  /  SONGWRITING"},
+	"tour": {"heading": "THE NEXT STOP", "summary": "Plot the route, prepare the van and make every mile count.", "moment": "ON THE ROAD  /  PLANNING", "photo": "studio", "primary": "REVIEW TOUR BRIEF", "next": "S04  /  TOUR"},
 	"gig": {"heading": "LIGHTS DOWN", "summary": "From daytime load-in to the last encore: one believable show.", "moment": "GIG  /  LIVE SHOW", "photo": "gigs", "primary": "REVIEW SHOW BRIEF", "next": "S05  /  GIG NIGHT"},
-	"studio": {"heading": "MAKE IT REAL", "summary": "Real hardware, real decisions. Inputs adjust effort; meters show results.", "moment": "STUDIO  /  REHEARSAL", "photo": "studio", "primary": "OPEN HARDWARE PROOF", "next": "S06  /  STUDIO"}
+	"studio": {"heading": "MAKE IT REAL", "summary": "Real hardware, real decisions. Inputs adjust effort; meters show results.", "moment": "STUDIO  /  REHEARSAL", "photo": "formation", "primary": "OPEN HARDWARE PROOF", "next": "S06  /  STUDIO"}
 }
 const CREAM := Color("#EFEADF")
 const DUSK := Color("#283A40")
