@@ -1,0 +1,62 @@
+name: Premium mixer rack and read-only telemetry
+on:
+  push:
+    branches: [premium-hardware-rig-housing-and-readonly-meter]
+  workflow_dispatch:
+jobs:
+  rack-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Godot 4.7.2 and Xvfb
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Godot import and meter semantics
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/premium_mixer_module_tests.gd 2>&1 | tee /tmp/mixer-tests.log
+          grep -q 'PREMIUM MIXER INPUT/METER CONTRACT PASSED' /tmp/mixer-tests.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|PREMIUM MIXER FAILURE:|ERROR:' /tmp/mixer-tests.log
+      - name: Capture 36 actual Godot renderer views
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day dusk night; do
+              for level in 0 50 100; do
+                xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_premium_mixer_module.gd -- --phase="$phase" --level="$level" --width="$w" --height="$h" --output="screenshots/rig-$phase-$level-$dims.png" 2>&1 | tee /tmp/capture.log
+                grep -q 'PREMIUM MIXER SCREENSHOT PASSED' /tmp/capture.log
+                ! grep -E 'SCRIPT ERROR:|Parse Error:|PREMIUM MIXER CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+              done
+            done
+          done
+          python3 - <<'PY'
+          import glob,struct
+          paths=glob.glob('screenshots/rig-*.png')
+          assert len(paths)==36,len(paths)
+          for path in paths:
+            with open(path,'rb') as f: h=f.read(24)
+            assert h[:8]==bytes.fromhex('89504e470d0a1a0a'),path
+            assert struct.unpack('>II',h[16:24]) in [(390,844),(720,1280),(1280,720),(1600,900)],path
+          print('PASS 36 REAL GODOT RACK SCREENS')
+          PY
+      - name: Upload native screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: premium-inputs-vs-readonly-meters-36
+          path: screenshots/rig-*.png
+          if-no-files-found: warn
+          retention-days: 21
