@@ -42,7 +42,9 @@ static func apply_to(button: Button, kind: String, selected: bool, physical_min:
 	button.add_theme_color_override("font_disabled_color", Color("#58605E"))
 	button.add_theme_color_override("font_focus_color", Color("#0F3440"))
 	button.add_theme_stylebox_override("normal", _skin(kind, "chosen" if selected else "idle"))
-	button.add_theme_stylebox_override("hover", _skin(kind, "hover"))
+	# Hover must not erase the latched tick on a chosen audition slip.
+	# An unchosen slip still has its separate hover artwork.
+	button.add_theme_stylebox_override("hover", _skin(kind, "chosen" if selected else "hover"))
 	button.add_theme_stylebox_override("pressed", _skin(kind, "pressed"))
 	button.add_theme_stylebox_override("disabled", _skin(kind, "disabled"))
 	var focus := StyleBoxFlat.new()
