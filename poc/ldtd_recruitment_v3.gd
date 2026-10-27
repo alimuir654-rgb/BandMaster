@@ -344,7 +344,13 @@ func _character_notes(parent: Node) -> void:
  _label(notes,"BACKGROUND  /  %d PREVIOUS BANDS   •   %d YEARS PLAYING" % [int(_current["bands"]),int(_current["experience_years"])],13,C_INK)
  _label(notes,"AGE %d   /   %s   /   %s" % [int(_current["age"]),str(_current["town"]),str(_current["gender"])],13,C_INK)
  _label(notes,"LOOKING FOR  /  "+str(_current["ambition"]),13,C_INK,true)
- _label(notes,"TALENT COST  /  %d POINTS" % Model.cost(_current),16,Color("#725015"))
+ var base_points: int=Model.cost(_current)
+ var recruit_points: int=Model.incremental_cost(roster,_current)
+ var addition := recruit_points-base_points
+ var cost_text := "TALENT COST  /  %d POINTS" % base_points
+ if addition>0:
+  cost_text+="  (+%d LINEUP COMPLEXITY)" % addition
+ _label(notes,cost_text,16,Color("#725015"),true)
 
 func _member_action() -> void:
  if _current.is_empty():
@@ -419,7 +425,7 @@ func _build_footer(parent: Node) -> void:
  if step==1:
   var person_selected := Model.contains(roster,str(_current.get("id","")))
   var allowed := Model.can_add(roster,_current)
-  _button(actions,"REMOVE" if person_selected else "ADD  •  %d PTS" % Model.cost(_current),func() -> void: _member_action(),not person_selected,not person_selected and not allowed,50).size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  _button(actions,"REMOVE" if person_selected else "ADD  •  %d PTS" % Model.incremental_cost(roster,_current),func() -> void: _member_action(),not person_selected,not person_selected and not allowed,50).size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var label := "MEET THE MUSICIANS" if step==0 else ("NAME YOUR BAND" if step==1 else ("FINISHED" if completed else "CONFIRM NAME"))
  var blocked := (step==1 and not Model.viable(roster)) or (step==2 and (band_name.strip_edges().is_empty() or completed))
  _button(actions,label,func() -> void: _continue(),step!=1,blocked,50).size_flags_horizontal=Control.SIZE_EXPAND_FILL
