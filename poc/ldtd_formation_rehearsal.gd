@@ -224,6 +224,27 @@ func _render() -> void:
 	desk.stretch_mode = TextureRect.STRETCH_SCALE
 	desk.modulate = Color.WHITE if phase == "day" else (Color("#C4B4A5") if phase == "dusk" else Color("#696875"))
 	desk.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# The original Eva Bronzini cork photograph has near-black fissures. In
+	# DAY, grade its ACTUAL photographed pixels as a pale sunlit noticeboard;
+	# never substitute a solid rectangle or a flattened owner target image.
+	# The colour mapping lifts dark detail while retaining photographic grain.
+	if phase == "day" and ResourceLoader.exists(cork_source):
+		var cork_grade := Shader.new()
+		cork_grade.code = """
+shader_type canvas_item;
+void fragment() {
+	vec4 photographed = texture(TEXTURE, UV);
+	float luminance = dot(photographed.rgb, vec3(0.2126, 0.7152, 0.0722));
+	float daylight = pow(clamp(luminance, 0.0, 1.0), 0.60);
+	float paper_light = mix(0.74, 0.92, daylight);
+	vec3 warm_cork = vec3(paper_light * 1.03, paper_light * 0.95, paper_light * 0.82);
+	vec3 photographic_detail = (photographed.rgb - vec3(luminance)) * 0.16;
+	COLOR = vec4(clamp(warm_cork + photographic_detail, 0.0, 1.0), photographed.a);
+}
+"""
+		var photographic_grade := ShaderMaterial.new()
+		photographic_grade.shader = cork_grade
+		desk.material = photographic_grade
 	_surface.add_child(desk)
 	_rect(desk, 0, 0, w, h)
 
