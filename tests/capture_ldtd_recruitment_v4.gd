@@ -50,6 +50,23 @@ func _run() -> void:
    _fail("viable phone roster cannot reach name-last stage")
    return
  var scale_x:=float(width)/maxf(view.get_viewport_rect().size.x,1.0)
+ if stage=="ready":
+  var name_key:TextureButton=null
+  var recruit_key:TextureButton=null
+  for key in view.find_children("*","TextureButton",true,false):
+   for child in key.get_children():
+    if child is Label:
+     if str(child.text).begins_with("NAME BAND"):name_key=key
+     if str(child.text).begins_with("ADD TO BAND") or str(child.text).begins_with("ADD  /"):recruit_key=key
+  if name_key==null or recruit_key==null:
+   _fail("viable roster needs both recruitment and name-stage actions")
+   return
+  if name_key.get_global_rect().intersects(recruit_key.get_global_rect()):
+   _fail("name-stage key overlaps recruit key")
+   return
+  if name_key.get_global_rect().size.y*scale_x<44.0:
+   _fail("name-stage key below 44 physical pixels")
+   return
  var hit_count:=0
  var touches:=view.find_children("*","TextureButton",true,false)
  for child in touches:
