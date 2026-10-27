@@ -63,6 +63,7 @@ func _capture() -> void:
   push_error("JOURNEY CAPTURE: primary action below first fold")
   quit(1)
   return
+ print("JOURNEY GEOMETRY: moment=%s viewport=%dx%d latch_bottom=%.1f case_bottom=%.1f primary_bottom=%.1f" % [moment,width,height,latch.get_global_rect().end.y,case.get_global_rect().end.y,primary.get_global_rect().end.y])
  if latch.get_global_rect().end.y > case.get_global_rect().end.y-2.0:
   push_error("JOURNEY CAPTURE: van control clipped")
   quit(1)
