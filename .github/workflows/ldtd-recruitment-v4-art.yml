@@ -56,6 +56,15 @@ jobs:
               ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
             done
           done
+          # Explicit viable-lineup proof: phone and landscape must offer a
+          # non-overlapping, physically tappable name-last transition.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-ready-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=ready --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
           for dims in 390x844 720x1280; do
             width="${dims%x*}"; height="${dims#*x}"
             path="screenshots/v4-bio-${dims}.png"
