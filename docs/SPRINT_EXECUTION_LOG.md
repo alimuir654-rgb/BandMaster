@@ -153,3 +153,25 @@ Pending final run results. Do not merge until structure, headless and screenshot
 - **Trade-off:** assignment remains one item to one member; shared stage gear such as PA is intentionally assigned to a responsible musician rather than claiming separate ownership.
 - **Next highest-value slice:** deterministic pair-specific band conflict/intervention engine with one-time resolution and actual relationship-state changes, presented through `SceneSheet`; integrate with existing `Scripts/band_drama.gd` and `Scripts/band_social.gd` rather than parallel mechanics. Resume any open PR first.
 - **Known blocker:** Unsplash JPEG ingestion not complete; keep photo pipeline separate from licensed SVG icon assets. Existing viewport issue #162 requires separate hardening.
+
+## Visual Scene Worlds Sprint 04 / 08 — 2026-10-27 03:04 UTC scheduled start
+**Scope:** isolated songwriting/arrangement control lab with markedly light daytime paper desk and contrasting tungsten/petrol dusk context. **PR:** Sprint 04 branch `visual-sprint04-songwriting-control-lab`, stacked on draft PR #187, NOT merged into live game.
+
+### Implemented in this attempt
+- `poc/songwriting_controls_lab.tscn` and `.gd`: editable hook/lyric LineEdit, stamped verse/chorus/bridge/outro selection, 2–6 part tape sequence with add/remove, three arrangement-groove pads, 65–165 BPM slider, state-preserving day/dusk switching and a fixed always-visible PREVIEW action. Pure local variables, no autoload/save/cash/day/song mutations.
+- `Art/UI/Songwriting/writing_desk_surface.svg`: original text-free notebook/ruled-paper material study. Provisional asset, not a photographic replacement. Godot-generated text remains editable and accessible.
+- `tests/songwriting_control_lab_tests.gd`: deterministic interaction and state preservation checks; `tests/capture_songwriting_controls.gd`: actual Godot capture + geometry/first-fold/tap target/state/palette checks at 390x844, 720x1280, 1280x720 for day and dusk.
+- `.github/workflows/songwriting-control-lab.yml`: isolated Godot 4.7.2 import/test and six rendered PNG artifacts. **At first commit: CI and screenshot inspection PENDING; do not mark PASS before actual evidence.**
+- The main career gameplay, persistent songs, time and economy are untouched.
+
+### Simulated adversarial review — initial code-based, not human approval
+1. **First-time songwriter:** one hook line, section stamps and visible preview create a clear flow. Risk: whether the section tape labels are legible at 390px; inspect actual renderer.
+2. **Touring musician/songwriter:** sequence and groove feel like writing decisions, rather than generic dashboard stats. Risk: no audio playback or full DAW; avoid claiming either.
+3. **Management-game veteran:** preview is intentionally free/non-mutating. Risk: no day/cash/consequence cost until Sprint 05 integrates real songwriting simulation.
+4. **UX/accessibility:** native editable LineEdit, keyboard focusable pads/slider, fixed preview dock and target-size assertions. Risk: long draft text/contrast on paper and mobile scroll clipping need actual screenshot review.
+5. **Godot/release QA:** isolated scene, original art provenance, no save writes; tests include phase round trip and invalid values. Risk: CI may find parser/layout problems; leave PR draft until resolved.
+
+### Retro and exact next action
+- **Worked:** songwriting receives a distinct notebook/tape/sampler family rather than reusing tour road-case buttons or forcing dark backgrounds on daytime scenes.
+- **Limit:** original SVG surface is intentionally prototype-grade; owner-approved photographic studio control PNGs remain outside GitHub. Typography still uses Godot fallback pending verified font binaries/OFL.
+- **Next:** inspect final-head GitHub Actions tests and download/rendered screenshots; repair first-fold, clipping and import failures. Once verified, Sprint 05 should connect a focused songwriting scene to actual song draft/commit rules, preserving legacy saves and validation-before-time-spend. Owner visual HOLD remains OPEN.

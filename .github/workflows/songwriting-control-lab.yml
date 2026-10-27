@@ -1,0 +1,61 @@
+name: Songwriting control lab Godot render
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'poc/songwriting_controls_lab.*'
+      - 'Art/UI/Songwriting/**'
+      - 'tests/songwriting_control_lab_tests.gd'
+      - 'tests/capture_songwriting_controls.gd'
+      - '.github/workflows/songwriting-control-lab.yml'
+jobs:
+  writing-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Godot 4.7.2 and Xvfb
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 "https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip" --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import and run isolated writing controls tests
+        run: |
+          godot --headless --path . --editor --import --quit
+          godot --headless --path . --script res://tests/songwriting_control_lab_tests.gd
+      - name: Render day and dusk at three sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day dusk; do
+              xvfb-run -a godot --rendering-method gl_compatibility --path . --script res://tests/capture_songwriting_controls.gd -- --phase="$phase" --width="$w" --height="$h" --output="screenshots/writing-$phase-$dims.png"
+            done
+          done
+          python3 - <<'PY'
+          import glob, struct
+          paths = glob.glob('screenshots/writing-*.png')
+          assert len(paths) == 6, paths
+          for path in paths:
+              with open(path, 'rb') as f: header = f.read(24)
+              assert header[:8] == bytes.fromhex('89504e470d0a1a0a'), path
+              w,h = struct.unpack('>II', header[16:24])
+              assert (w,h) in [(390,844),(720,1280),(1280,720)], (path,w,h)
+          print('Validated six real Godot screenshots')
+          PY
+      - name: Upload actual Godot screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: songwriting-control-lab-godot
+          path: screenshots/writing-*.png
+          if-no-files-found: warn
+          retention-days: 14

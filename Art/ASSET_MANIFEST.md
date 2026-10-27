@@ -36,3 +36,10 @@ Every new shipping image, icon, texture, portrait or audio file must be entered 
 | `Art/UI/Tour/ticket_stock.svg` | Original vector drawing authored for BandMaster on 2026-10-27; cream stock, perforation, paper fibres. No embedded UI text. | Original project artwork, not third-party licensed | **Prototype material study**. All venue/date text is native Godot UI. |
 
 The owner's Lab 05/07/08.4 photographic hardware PNGs remain **outside GitHub** in conversation ZIPs as of this sprint. Do not claim those assets are in this PR or that the tour controls have passed owner art approval. These two original SVGs are *new tour materials*, not replacements for the approved studio hardware.
+
+## Scene Worlds Sprint 04 — original writing desk surface (27 October 2026)
+| Destination | Source / creation | Licence | Status |
+| --- | --- | --- | --- |
+| `Art/UI/Songwriting/writing_desk_surface.svg` | Original vector paper surface drawn for BandMaster on 2026-10-27: ruled cream stock, pencil margin, binder perforations, coffee-ring impression, masking tape. No embedded lyrics or labels, no third-party source. | Original project artwork | **PROTOTYPE** tactile surface only. Not photorealistic hardware and not approved as production art. All mutable text is native Godot. |
+
+The approved Lab 05/07/08.4 photographic control assets remain absent from the GitHub branch as of Sprint 04; this material study does not replace them. Confirm final Godot SVG rendering and owner art approval before production migration.
