@@ -133,7 +133,7 @@ func _render() -> void:
 	col.add_child(phases)
 	for item in PHASES:
 		var next_phase: String = item
-		var caption := {"day":"DAY / LOAD-IN", "dusk":"DUSK / CHECK", "night":"NIGHT / SHOW"}[item]
+		var caption: String = str({"day":"DAY / LOAD-IN", "dusk":"DUSK / CHECK", "night":"NIGHT / SHOW"}[item])
 		_button(phases, caption, item == phase, func() -> void: set_phase(next_phase), p, "Phase" + item.capitalize(), "phase")
 
 	var hero := Control.new()
@@ -195,13 +195,13 @@ func _render() -> void:
 		rack_col.add_child(row)
 		var badge := _text(row, "%02d" % (i + 1), 12, Color("#E9B965"))
 		badge.custom_minimum_size.x = 23 * _scale
-		var label := SONGS[i]
+		var label: String = str(SONGS[i])
 		if i < songs_played:
 			label = "✓ " + label
 		var song_button := _button(row, label, i == selected_song and i >= songs_played,
 			func() -> void: select_song(song_index), p, "GigSong%d" % i, "hardware")
 		song_button.disabled = i < songs_played
-		song_button.custom_minimum_size.y = 43 * _scale
+		song_button.custom_minimum_size.y = 46 * _scale
 	_text(rack_col, "DEMO SET / NO CAREER BOOKINGS OR REWARDS", 11, Color("#B5C4C5"), "GigSetlistDisclaimer")
 
 	var meters := PanelContainer.new()
