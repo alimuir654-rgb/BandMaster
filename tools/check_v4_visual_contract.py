@@ -16,7 +16,7 @@ for name,pattern in {
     "unapproved live save":r'FileAccess|user://|DirAccess|tour_save',
 }.items():
     assert not re.search(pattern,source_only),f"V4 art contract FAIL: {name}"
-for path in ["case_roadcase.svg","paper_personnel.svg"]:
+for path in ["case_roadcase.svg","case_roadcase_phone.svg","case_roadcase_tablet.svg","paper_personnel.svg"]:
     f=ASSETS/path
     assert f.is_file() and f.stat().st_size>=1000,path
 for family in ["metal_tab","amber_key"]:
@@ -36,7 +36,7 @@ import hashlib
 import json
 manifest=json.loads((ASSETS/"SOURCE_MANIFEST.json").read_text(encoding="utf-8"))
 rows=manifest["material_images"]
-assert len(rows)==13, "V4 art source inventory incomplete"
+assert len(rows)==15, "V4 art source inventory incomplete"
 for item in rows:
     asset=ROOT/item["asset"]
     data=asset.read_bytes()

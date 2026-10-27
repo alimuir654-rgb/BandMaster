@@ -52,6 +52,22 @@
       "media_type": "image/svg+xml"
     },
     {
+      "asset": "Art/UI/RecruitmentV4/case_roadcase_phone.svg",
+      "git_blob_sha1": "9f0cf5ffc490bb70387556f3de24619dc071fa66",
+      "bytes": 10968,
+      "source": "Original authored portrait-specific V4 roadcase vector, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/case_roadcase_tablet.svg",
+      "git_blob_sha1": "1fa75d442c92070ef389180bf43233828edd371c",
+      "bytes": 10895,
+      "source": "Original authored portrait-specific V4 roadcase vector, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
       "asset": "Art/UI/RecruitmentV4/case_roadcase.svg",
       "git_blob_sha1": "06b78f056b165d159974194eb8e5ef5e944b975a",
       "bytes": 19488,
@@ -129,6 +145,7 @@
   "known_gaps": [
     "The roadcase surface is hand-authored SVG approximation and does NOT yet match photo material richness",
     "Only four existing legacy portrait IDs exist",
-    "No permission to reuse concept full-screen illustration as shippable UI texture"
+    "No permission to reuse concept full-screen illustration as shippable UI texture",
+    "Landscape, 390 phone and 720 tablet now have independently authored case geometries; original SVGs remain non-photographic material proofs"
   ]
 }

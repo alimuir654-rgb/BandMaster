@@ -142,7 +142,8 @@ func _render() -> void:
  add_child(canvas)
  _stage=canvas
  # The roadcase is a single integrated authored material, not twelve floating cards.
- _art(canvas,ART+"case_roadcase.svg",0,0,_view_w,_view_h)
+ var case_source: String=ART+"case_roadcase.svg" if _landscape else (ART+"case_roadcase_phone.svg" if _view_w<600.0 else ART+"case_roadcase_tablet.svg")
+ _art(canvas,case_source,0,0,_view_w,_view_h)
  if _landscape:
   _landscape_scene(canvas)
  else:
