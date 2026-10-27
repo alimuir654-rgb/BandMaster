@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "family": "precision_linear_faders",
+  "status": "BLOCKED",
+  "owner_reference": "Lab05 photographic art review (8 flattened reference images); no separated cap/rail/level sprite source",
+  "provenance": "Owner original ZIP audit: docs/PREMIUM_HARDWARE_RECEIVED_SOURCE_AUDIT_2026_10_27.md on PR #193",
+  "rights": "Owner-supplied reference, rights of production-ready separated layers not yet verified",
+  "expected_native_pixel_geometry": "All layers for a palette must have identical pixel geometry and consistent 8-bit RGBA alpha; no baked mutable text",
+  "required_layers": [
+    "base",
+    "rail",
+    "cap_normal",
+    "cap_pressed",
+    "cap_disabled",
+    "level_on",
+    "glow_off",
+    "glow_on"
+  ],
+  "palettes": [
+    "day",
+    "dusk",
+    "night"
+  ],
+  "source_files": [],
+  "note": "No production PNGs have been committed; this manifest intentionally has no fictitious hashes. Approved original Lab05 ZIP is reference-only. Import only real separated art; never cut screenshots."
+}
