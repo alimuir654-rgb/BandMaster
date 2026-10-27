@@ -340,7 +340,16 @@ func _render() -> void:
 	_label_line(paper, "JournalHeading", "NOTES FROM THE ROOM", pleft, y, inner)
 	y += 44
 	var last: String = "Choose a line-up to start the story." if result_history.is_empty() else result_history[-1]
-	var journal: Label = _label(paper, "JournalEntry", last, 16, Color("#3D4B4D"))
+	var journal := RichTextLabel.new()
+	journal.name = "JournalEntry"
+	journal.bbcode_enabled = false
+	journal.text = last
+	journal.fit_content = false
+	journal.scroll_active = false
+	journal.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	journal.add_theme_font_size_override("normal_font_size", 16)
+	journal.add_theme_color_override("default_color", Color("#3D4B4D"))
+	paper.add_child(journal)
 	_rect(journal, pleft, y, inner, 94)
 	var gate: Label = _label(paper, "MaterialGate", "REAL ROOM PHOTO  /  SCRAPBOOK MATERIAL: VISUAL HOLD", 14, Color("#745B35"))
 	_rect(gate, pleft, y + 156, inner, 52)
