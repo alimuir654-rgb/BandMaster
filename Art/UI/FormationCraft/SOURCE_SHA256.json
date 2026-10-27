@@ -1,0 +1,29 @@
+{
+  "files": {
+    "Art/UI/FormationCraft/activity_chosen.png": "09c6ebb96a5892cb497600ed8f1ba77564a9c2df7277f9e842ad3402b6a35312",
+    "Art/UI/FormationCraft/activity_disabled.png": "e083846e4713003e6f26ac0fcfabd566c8c73f8730167924fe16bcbca46ababc",
+    "Art/UI/FormationCraft/activity_hover.png": "6c69c3d53833c3d105fb3d947e4b1ff1df85cb98d12f39606ac16cf835f59adc",
+    "Art/UI/FormationCraft/activity_idle.png": "996129455eb52b3225c0cfcadcc128604668b7eaef8fd61096fdff90e8fa0835",
+    "Art/UI/FormationCraft/activity_pressed.png": "885f9b572c382830671ed8578af7cc31f59ae580b7f6c2747a0834fed88ec32a",
+    "Art/UI/FormationCraft/candidate_chosen.png": "580b17daa7b78f26257011ce5f038780587a885fa5556ee288368e394878d571",
+    "Art/UI/FormationCraft/candidate_disabled.png": "c725bedd1ca58b69e26cd40577cea8b189ab68eca2a2babf5b4755346e751aa4",
+    "Art/UI/FormationCraft/candidate_hover.png": "fdedcd89a7a2d4654a4c627a1da54113714d3e2290764af363c503928adafd1a",
+    "Art/UI/FormationCraft/candidate_idle.png": "6448c076f3f299e10aa1ac43f1f58e95eef6a2336d33ea9209da6e4ea42d5d85",
+    "Art/UI/FormationCraft/candidate_pressed.png": "877d9d3d6046ac4b404c1f54a3785c1c2d07a695071fb5a5d9d658d3ffcb7361",
+    "Art/UI/FormationCraft/commit_chosen.png": "e429fcd09a42aef5e322ecd6308034198859accdc7ac5c028adb73d05fa6a0f6",
+    "Art/UI/FormationCraft/commit_disabled.png": "f3fef1036f89d643fbec8338cf4bf8ce4585f648011dc94f86fa9278a4c21f89",
+    "Art/UI/FormationCraft/commit_hover.png": "464b6d200ba0ed71470bfb27a07fb19e71bdc4c8969d76853fc5d8550c9a4aa8",
+    "Art/UI/FormationCraft/commit_idle.png": "ed37fd353c40d3451227954ba163e0b2d3b2ac670baa6bc71f3fe32faff54d03",
+    "Art/UI/FormationCraft/commit_pressed.png": "33e9b245c6ffa5a1c825c550a80ba0b0ba535a6c0f2fc6d830c86399fad0fa0c",
+    "Art/UI/FormationCraft/rehearsal_desk.png": "56e13bde8382da58aef7826e85929f06f7cb85c0898f80af4f4f262b673c4cb0",
+    "Art/UI/FormationCraft/rehearsal_notebook.png": "bacf9f2df256b4884c0fa6a4be2c50fb6f1d9b62ef6f7637eaefad132d816828",
+    "Art/UI/FormationCraft/tab_chosen.png": "5fa2143a66ffe02ef4dd68197f6b05e9f4adbb588eced17f45bdd54816840943",
+    "Art/UI/FormationCraft/tab_disabled.png": "28bba2edeb147627771281633e73e1fbb9a58fc11467831ca4a35252c130ff9e",
+    "Art/UI/FormationCraft/tab_hover.png": "d4aa7e0c247d20884f720216fef438708d3bea74af439ccd040eaecb4b63beda",
+    "Art/UI/FormationCraft/tab_idle.png": "928b189e77d2164977b0f409b3bc5352ba2a0d5ec02a995e255a7509e102fb0b",
+    "Art/UI/FormationCraft/tab_pressed.png": "20a08d0e58ae9b119671cb7eb8374fefd9554a76f825f1a1a146c01e720a4028"
+  },
+  "generator": "tools/build_formation_craft.py",
+  "source_type": "authored procedural original, NOT photographs",
+  "state_count": 20
+}
