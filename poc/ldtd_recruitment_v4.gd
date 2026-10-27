@@ -32,6 +32,7 @@ var _view_w := 1600.0
 var _view_h := 900.0
 var _mobile_scroll := 0
 var _last_focus: String = ""
+var genre_page := 0
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -160,6 +161,10 @@ func _set_genre(value: String) -> void:
  candidate_index=0
  _render()
 
+func _switch_genre_page() -> void:
+ genre_page=1-genre_page
+ _render()
+
 func _set_role(value: String) -> void:
  role=value
  candidate_index=0
@@ -267,11 +272,15 @@ func _landscape_scene(parent: Node) -> void:
  _text(layout,genre.to_upper(),1338,42,178,37,17,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_RIGHT)
  _text(layout,"GENRE",78,112,205,37,25,AMBER,FONT_TITLE)
  var genres: Array=Model.genres()
- for idx in range(genres.size()):
-  var value:String=str(genres[idx])
-  var yy:=156.0+idx*39.0
-  if yy>705.0: break
-  _plate(layout,value,Rect2(65,yy,236,36),func() -> void: _set_genre(value),value==genre,roster.is_empty(), "metal_tab",17)
+ # Two pages of seven genres: each physical key remains at least 48px
+ # in the 1280x720 renderer instead of compressing fourteen into tiny pills.
+ for idx in range(7):
+  var source_idx:int=genre_page*7+idx
+  if source_idx>=genres.size():break
+  var value:String=str(genres[source_idx])
+  var yy:float=154.0+float(idx)*71.0
+  _plate(layout,value,Rect2(65,yy,236,63),func() -> void: _set_genre(value),value==genre,roster.is_empty(),"metal_tab",20)
+ _plate(layout,"‹ GENRES" if genre_page==1 else "MORE GENRES ›",Rect2(65,663,236,59),func() -> void: _switch_genre_page(),false,true,"metal_tab",19)
  if step==0:
   _text(layout,"CHOOSE THE MUSIC YOU WANT TO MAKE",382,180,900,70,45,WHITE,FONT_TITLE)
   _text(layout,str(Formation.GENRES[genre]["description"]),395,265,950,58,26,CREAM,FONT_BODY,true)
@@ -361,7 +370,7 @@ func _mobile_genre(parent: Node,w:float,h:float) -> void:
   var width:float=(w-42.0)/2.0
   var x:float=13.0+float(i%cols)*(width+12.0)
   var y:float=145.0+float(i/cols)*49.0
-  _plate(parent,label,Rect2(x,y,width,45),func() -> void: _set_genre(label),label==genre,true,"metal_tab",17)
+  _plate(parent,label,Rect2(x,y,width,48),func() -> void: _set_genre(label),label==genre,true,"metal_tab",17)
  _text(parent,str(Formation.GENRES[genre]["description"]),18,h-237,w-36,58,16,WHITE,FONT_BODY,true)
  _plate(parent,"MEET THE MUSICIANS",Rect2(18,h-184,w-36,48),func() -> void: _next(),false,true,"amber_key",23)
 
