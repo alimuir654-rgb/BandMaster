@@ -53,9 +53,9 @@
     },
     {
       "asset": "Art/UI/RecruitmentV4/case_roadcase.svg",
-      "git_blob_sha1": "97378ba86eade9bfa2f2f968d6dd713e66848643",
-      "bytes": 16508,
-      "source": "Original authored SVG texture for BandMaster V4",
+      "git_blob_sha1": "06b78f056b165d159974194eb8e5ef5e944b975a",
+      "bytes": 19488,
+      "source": "Original authored V4 vector material and finish, 27 Oct 2026",
       "license": "Original project art; no third-party stock",
       "media_type": "image/svg+xml"
     },
@@ -109,9 +109,9 @@
     },
     {
       "asset": "Art/UI/RecruitmentV4/paper_personnel.svg",
-      "git_blob_sha1": "aa31287083ee2908019da4227dd3e6f314c59c24",
-      "bytes": 3458,
-      "source": "Original authored SVG texture for BandMaster V4",
+      "git_blob_sha1": "306340bcb8f355680a8de224803ba36ecd0ff9bc",
+      "bytes": 5342,
+      "source": "Original authored V4 vector material and finish, 27 Oct 2026",
       "license": "Original project art; no third-party stock",
       "media_type": "image/svg+xml"
     }
