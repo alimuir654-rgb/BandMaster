@@ -113,6 +113,17 @@ func _capture() -> void:
 			if not (candidate_btn.get_theme_stylebox("normal") is StyleBoxTexture):
 				_fail("generic default desktop audition button: " + candidate_id)
 				return
+	if stage in ["social", "rehearsal"]:
+		var required: Array = ["Dinner", "LocalGig"] if stage == "social" else ["Tighten", "Connect"]
+		var image_frame: Panel = view.find_child("FormationPhotoFrame", true, false)
+		for choice_id in required:
+			var ticket: Button = view._choice_buttons.get(choice_id)
+			if ticket == null or ticket.get_global_rect().end.y * px > dock.get_global_rect().position.y * px - 3.0:
+				_fail("first-fold " + stage + " ticket hidden: " + choice_id)
+				return
+			if width >= 900 and image_frame != null and ticket.get_global_rect().intersects(image_frame.get_global_rect()):
+				_fail("landscape " + stage + " ticket overlaps photo: " + choice_id)
+				return
 	var bitmap: Image = get_root().get_texture().get_image()
 	if bitmap.get_width() < width or bitmap.get_height() < height:
 		_fail("wrong actual renderer dimensions")
