@@ -122,7 +122,7 @@ func _render() -> void:
 	page.add_theme_constant_override("margin_bottom", roundi(24 * _scale))
 	center.add_child(page)
 	var col := VBoxContainer.new()
-	col.add_theme_constant_override("separation", roundi((6 if compact else 10) * _scale))
+	col.add_theme_constant_override("separation", roundi((4 if compact else 10) * _scale))
 	page.add_child(col)
 	_text(col, "LIVIN' THE DREAM  /  LIVE RIG CONTROL LAB 06", 11, p["muted"], "GigOverline")
 	_text(col, "THE SHOW DESK", 29 if mobile else 36, p["ink"], "GigHeading")
@@ -138,7 +138,7 @@ func _render() -> void:
 
 	var hero := Control.new()
 	hero.name = "GigPhotographicHero"
-	hero.custom_minimum_size.y = (116 if compact else (146 if mobile else 164)) * _scale
+	hero.custom_minimum_size.y = (88 if compact else (146 if mobile else 164)) * _scale
 	hero.clip_contents = true
 	col.add_child(hero)
 	var photo := TextureRect.new()
