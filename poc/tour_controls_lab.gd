@@ -52,6 +52,7 @@ func _rebuild() -> void:
 	var logical_width := get_viewport_rect().size.x
 	_scale = clampf(logical_width / float(maxi(1, DisplayServer.window_get_size().x)), 0.7, 2.3)
 	var mobile := DisplayServer.window_get_size().x < 680
+	var compact := DisplayServer.window_get_size().y <= 800
 	for old in get_children():
 		remove_child(old)
 		old.queue_free()
@@ -75,16 +76,17 @@ func _rebuild() -> void:
 	page.custom_minimum_size.x = minf(920 * _scale, maxf(320 * _scale, logical_width - 28 * _scale))
 	for edge in ["left", "right"]:
 		page.add_theme_constant_override("margin_" + edge, roundi(12 * _scale))
-	page.add_theme_constant_override("margin_top", roundi(13 * _scale))
-	page.add_theme_constant_override("margin_bottom", roundi(25 * _scale))
+	page.add_theme_constant_override("margin_top", roundi((10 if compact else 13) * _scale))
+	page.add_theme_constant_override("margin_bottom", roundi((12 if compact else 25) * _scale))
 	center.add_child(page)
 	var col := VBoxContainer.new()
-	col.add_theme_constant_override("separation", roundi((8 if mobile else 12) * _scale))
+	col.add_theme_constant_override("separation", roundi((6 if compact else (8 if mobile else 12)) * _scale))
 	page.add_child(col)
 
 	_text(col, "LIVIN' THE DREAM   /   TOUR CONTROL LAB 02", 12, p["muted"], "TourOverline")
-	_text(col, "THE ROAD DESK", 30 if mobile else 36, p["ink"], "TourHeading")
-	_text(col, "DAYLIGHT ROUTES / DUSK ARRIVALS / ROAD-WORN HARDWARE", 13, p["muted"], "TourSubhead")
+	_text(col, "THE ROAD DESK", 26 if compact else (30 if mobile else 36), p["ink"], "TourHeading")
+	if not compact:
+		_text(col, "DAYLIGHT ROUTES / DUSK ARRIVALS / ROAD-WORN HARDWARE", 13, p["muted"], "TourSubhead")
 
 	var phases := HBoxContainer.new()
 	phases.add_theme_constant_override("separation", roundi(6 * _scale))
@@ -95,7 +97,7 @@ func _rebuild() -> void:
 
 	var case := Control.new()
 	case.name = "TourRoadCase"
-	case.custom_minimum_size.y = (228 if mobile else 256) * _scale
+	case.custom_minimum_size.y = (182 if compact else (228 if mobile else 256)) * _scale
 	case.clip_contents = true
 	col.add_child(case)
 	_texture(case, CASE_ART)
@@ -105,9 +107,9 @@ func _rebuild() -> void:
 	for edge in ["left", "right"]:
 		case_margin.add_theme_constant_override("margin_" + edge, roundi(24 * _scale))
 	for edge in ["top", "bottom"]:
-		case_margin.add_theme_constant_override("margin_" + edge, roundi(20 * _scale))
+		case_margin.add_theme_constant_override("margin_" + edge, roundi((13 if compact else 20) * _scale))
 	var case_col := VBoxContainer.new()
-	case_col.add_theme_constant_override("separation", roundi(9 * _scale))
+	case_col.add_theme_constant_override("separation", roundi((5 if compact else 8) * _scale))
 	case_margin.add_child(case_col)
 	_text(case_col, "ROUTE SELECTOR  /  FLIGHT CASE", 12, Color("#D9DFDB"), "CaseHeading")
 	var stops := HBoxContainer.new()
@@ -136,14 +138,14 @@ func _rebuild() -> void:
 	lamp.color = Color("#55D9A0") if van_ready else Color("#E2A14B")
 	lamp.custom_minimum_size = Vector2(9, 9) * _scale
 	lamp.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lamp.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	latch_row.add_child(lamp)
 	_button(case_col, "UNLATCH VAN" if van_ready else "SECURE VAN LOAD", false,
 		toggle_van, p, "VanLatch", true)
-	_text(case_col, "ILLUSTRATIVE CONTROL STATES  /  NO ACTUAL BOOKING", 11, Color("#AAB7B4"))
 
 	var ticket := Control.new()
 	ticket.name = "TourPaperTicket"
-	ticket.custom_minimum_size.y = (110 if mobile else 124) * _scale
+	ticket.custom_minimum_size.y = (98 if compact else (110 if mobile else 124)) * _scale
 	ticket.clip_contents = true
 	col.add_child(ticket)
 	_texture(ticket, TICKET_ART)
@@ -152,8 +154,8 @@ func _rebuild() -> void:
 	ticket_margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	ticket_margin.add_theme_constant_override("margin_left", roundi(19 * _scale))
 	ticket_margin.add_theme_constant_override("margin_right", roundi(21 * _scale))
-	ticket_margin.add_theme_constant_override("margin_top", roundi(12 * _scale))
-	ticket_margin.add_theme_constant_override("margin_bottom", roundi(11 * _scale))
+	ticket_margin.add_theme_constant_override("margin_top", roundi((8 if compact else 12) * _scale))
+	ticket_margin.add_theme_constant_override("margin_bottom", roundi((8 if compact else 11) * _scale))
 	var ticket_col := VBoxContainer.new()
 	ticket_col.add_theme_constant_override("separation", roundi(1 * _scale))
 	ticket_margin.add_child(ticket_col)
