@@ -42,6 +42,7 @@ const SCENES := {
 var family := "tour"
 var phase := "day"
 var _status: Label
+var _scale := 1.0
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -54,6 +55,9 @@ func set_context(next_family: String, next_phase: String) -> void:
 		_rebuild()
 
 func _rebuild() -> void:
+	# Godot canvas_items scales logical units against the configured 720x1280 base.
+	# Translate physical target sizes back to logical units at each viewport.
+	_scale = clampf(get_viewport_rect().size.x / float(maxi(1, DisplayServer.window_get_size().x)), 0.7, 2.3)
 	for old in get_children():
 		remove_child(old)
 		old.queue_free()
@@ -75,14 +79,14 @@ func _rebuild() -> void:
 	center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	scroll.add_child(center)
 	var page := MarginContainer.new()
-	page.custom_minimum_size.x = minf(920.0, maxf(320.0, get_viewport_rect().size.x - 28.0))
-	page.add_theme_constant_override("margin_left", 18)
-	page.add_theme_constant_override("margin_right", 18)
-	page.add_theme_constant_override("margin_top", 18)
-	page.add_theme_constant_override("margin_bottom", 32)
+	page.custom_minimum_size.x = minf(920.0 * _scale, maxf(320.0 * _scale, get_viewport_rect().size.x - 28.0 * _scale))
+	page.add_theme_constant_override("margin_left", roundi(18 * _scale))
+	page.add_theme_constant_override("margin_right", roundi(18 * _scale))
+	page.add_theme_constant_override("margin_top", roundi(18 * _scale))
+	page.add_theme_constant_override("margin_bottom", roundi(32 * _scale))
 	center.add_child(page)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 12)
+	column.add_theme_constant_override("separation", roundi(12 * _scale))
 	page.add_child(column)
 
 	_text(column, "LIVIN' THE DREAM   /   VISUAL LAB 01", 13, p["muted"], "BrandOverline")
@@ -91,7 +95,7 @@ func _rebuild() -> void:
 
 	_text(column, "SCENE FAMILY", 13, p["muted"])
 	var families := HBoxContainer.new()
-	families.add_theme_constant_override("separation", 5)
+	families.add_theme_constant_override("separation", roundi(5 * _scale))
 	column.add_child(families)
 	for item in [["tour", "TOUR"], ["songwriting", "WRITE"], ["gig", "GIG"], ["studio", "STUDIO"]]:
 		var selected_family := str(item[0])
@@ -100,7 +104,7 @@ func _rebuild() -> void:
 
 	_text(column, "SIMULATED SCENE PHASE", 13, p["muted"])
 	var phases := HBoxContainer.new()
-	phases.add_theme_constant_override("separation", 6)
+	phases.add_theme_constant_override("separation", roundi(6 * _scale))
 	column.add_child(phases)
 	for next_phase in Worlds.PHASES:
 		var chosen_phase: String = next_phase
@@ -109,7 +113,7 @@ func _rebuild() -> void:
 
 	var hero := Control.new()
 	hero.name = "PhotographicHero"
-	hero.custom_minimum_size.y = 136
+	hero.custom_minimum_size.y = 136 * _scale
 	hero.clip_contents = true
 	hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	column.add_child(hero)
@@ -129,9 +133,9 @@ func _rebuild() -> void:
 	veil.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var hero_caption := Label.new()
 	hero_caption.text = str(sample[phase])
-	hero_caption.position = Vector2(14, 14)
+	hero_caption.position = Vector2(14, 14) * _scale
 	hero_caption.add_theme_color_override("font_color", Color("#FFFFFF"))
-	hero_caption.add_theme_font_size_override("font_size", 15)
+	hero_caption.add_theme_font_size_override("font_size", roundi(15 * _scale))
 	hero.add_child(hero_caption)
 
 	var card := PanelContainer.new()
@@ -140,15 +144,15 @@ func _rebuild() -> void:
 	column.add_child(card)
 	var card_margin := MarginContainer.new()
 	for edge in ["left", "right", "top", "bottom"]:
-		card_margin.add_theme_constant_override("margin_" + edge, 12)
+		card_margin.add_theme_constant_override("margin_" + edge, roundi(12 * _scale))
 	card.add_child(card_margin)
 	var card_column := VBoxContainer.new()
-	card_column.add_theme_constant_override("separation", 9)
+	card_column.add_theme_constant_override("separation", roundi(9 * _scale))
 	card_margin.add_child(card_column)
 	_text(card_column, str(sample["heading"]), 24, p["ink"], "SceneHeading")
 	_text(card_column, str(sample["copy"]), 16, p["ink"], "SceneNarrative")
 	var stats := HBoxContainer.new()
-	stats.add_theme_constant_override("separation", 8)
+	stats.add_theme_constant_override("separation", roundi(8 * _scale))
 	card_column.add_child(stats)
 	_stat(stats, str(sample["stat_a"]), str(sample["value_a"]), p)
 	_stat(stats, str(sample["stat_b"]), str(sample["value_b"]), p)
@@ -160,7 +164,7 @@ func _rebuild() -> void:
 	specimen.add_theme_stylebox_override("panel", _surface(p["panel"], p["border"]))
 	column.add_child(specimen)
 	var specimen_column := VBoxContainer.new()
-	specimen_column.add_theme_constant_override("separation", 7)
+	specimen_column.add_theme_constant_override("separation", roundi(7 * _scale))
 	specimen.add_child(specimen_column)
 	_text(specimen_column, "TYPOGRAPHY STARTER / SYSTEM FALLBACKS ACTIVE", 13, p["muted"])
 	_text(specimen_column, "DISPLAY · BARLOW CONDENSED (PROPOSED)", 21, p["ink"])
@@ -177,7 +181,7 @@ func _stat(parent: HBoxContainer, heading: String, value: String, p: Dictionary)
 	panel.add_theme_stylebox_override("panel", _surface(p["panel"], p["border"]))
 	parent.add_child(panel)
 	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 2)
+	box.add_theme_constant_override("separation", roundi(2 * _scale))
 	panel.add_child(box)
 	_text(box, heading, 12, p["muted"])
 	_text(box, value, 19, p["ink"])
@@ -188,7 +192,7 @@ func _text(parent: Node, value: String, point_size: int, ink: Color, node_name: 
 		label.name = node_name
 	label.text = value
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", point_size)
+	label.add_theme_font_size_override("font_size", roundi(point_size * _scale))
 	label.add_theme_color_override("font_color", ink)
 	parent.add_child(label)
 	return label
@@ -200,7 +204,7 @@ func _surface(fill: Color, edge: Color) -> StyleBoxFlat:
 	style.set_border_width_all(1)
 	style.border_width_bottom = 2
 	style.set_corner_radius_all(3)
-	style.set_content_margin_all(9)
+	style.set_content_margin_all(roundi(9 * _scale))
 	style.shadow_color = Color(0, 0, 0, 0.12)
 	style.shadow_size = 2
 	return style
@@ -210,7 +214,7 @@ func _button(parent: Node, label: String, selected: bool, primary: bool, action:
 	if not node_name.is_empty():
 		button.name = node_name
 	button.text = label
-	button.custom_minimum_size.y = 50
+	button.custom_minimum_size.y = 50 * _scale
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.focus_mode = Control.FOCUS_ALL
 	var base_fill: Color = p["action"] if primary else (p["panel"] if selected else p["surface"])
@@ -230,7 +234,7 @@ func _button(parent: Node, label: String, selected: bool, primary: bool, action:
 	for key in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
 		button.add_theme_color_override(key, text_color)
 	button.add_theme_color_override("font_disabled_color", p["muted"])
-	button.add_theme_font_size_override("font_size", 15 if not primary else 16)
+	button.add_theme_font_size_override("font_size", roundi((16 if primary else 15) * _scale))
 	button.pressed.connect(action)
 	parent.add_child(button)
 	return button
