@@ -49,7 +49,7 @@ static func apply_to(button: Button, kind: String, selected: bool, physical_min:
 static func validate_source() -> bool:
 	for kind in TYPES:
 		for state in STATES:
-			var path := TEXTURES + kind + "_" + state + ".png"
+			var path: String = TEXTURES + kind + "_" + state + ".png"
 			if not ResourceLoader.exists(path):
 				return false
 	for file in ["rehearsal_desk.png", "rehearsal_notebook.png"]:
