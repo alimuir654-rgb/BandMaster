@@ -27,3 +27,12 @@ Every new shipping image, icon, texture, portrait or audio file must be entered 
 - `Art/Photography/approved/hq-corkboard-szczepanska.jpg` — Jo Szczepanska, https://unsplash.com/photos/sticky-notes-on-corkboard-5aiRb5f464A ; Unsplash License, direct photo page verified as free. Band HQ pinboard.
 - These JPEG destinations are **pending ingestion** until verified by repository byte fetch. The shell importer and GitHub workflow are not themselves evidence that image bytes exist.
 - Once downloaded, perform a manual visual and framing review and note any crop/derivative changes here before representing them as production-approved scene art.
+
+## Scene Worlds Sprint 02 — original tour control surface assets (27 October 2026)
+
+| Destination | Source and provenance | Licence | Status / limitations |
+| --- | --- | --- | --- |
+| `Art/UI/Tour/road_case_surface.svg` | Original vector drawing authored for BandMaster's Tour Control Lab on 2026-10-27; brushed metal rails, recessed road-case panel, corner rivets, fine hatching. No outside photographs or logos. | Original project artwork, not third-party licensed | **Prototype material study**. Do not claim photoreal equivalence with owner-approved Lab 08.4 photographic knobs; test actual Godot SVG import and screenshot. |
+| `Art/UI/Tour/ticket_stock.svg` | Original vector drawing authored for BandMaster on 2026-10-27; cream stock, perforation, paper fibres. No embedded UI text. | Original project artwork, not third-party licensed | **Prototype material study**. All venue/date text is native Godot UI. |
+
+The owner's Lab 05/07/08.4 photographic hardware PNGs remain **outside GitHub** in conversation ZIPs as of this sprint. Do not claim those assets are in this PR or that the tour controls have passed owner art approval. These two original SVGs are *new tour materials*, not replacements for the approved studio hardware.
