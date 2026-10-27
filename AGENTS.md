@@ -1,3 +1,14 @@
+# STOP-THE-LINE VISUAL QUALITY DIRECTIVE — 27 OCTOBER 2026
+**READ FIRST**: [docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md](docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md). This owner-directed V4 visual contract supersedes earlier broad scene queues, V3 design, and generic UI-helper defaults. Do **not** resume S03–S07, merge PR #199 or modify live formation/save workflows without further explicit owner approval.
+
+- Never use `Scripts/ui_theme.gd`, `WoldButton`, `StyleBoxFlat`-driven primary `_button()` or `_panel()` from `poc/ldtd_recruitment_v3.gd` in **new** screens. Historical modules remain for running old scenes and old saves; quarantine rather than deleting their transitive dependencies blindly.
+- New recruitment screen must be assembled from purpose-built physical image layers and five-state input texture families, with native real content. Approved reference is the richly photographed roadcase recruitment mockup: genre sidebar, singer/instrument tabs, left candidate rail, dominant musician photo, six inert red-to-green horizontal attribute meters immediately below, paper personality/experience panel, fixed band roster/talent dock, genuine transport arrows.
+- **Composition acceptance before functionality breadth.** An automated code/screenshot test PASS is not a visual PASS; inspect 390x844 AND 1280x720 genuine Godot captures against approved reference. No screenshot-as-interactive-background shortcuts, wrong portraits, fictitious provenance, invented art approval.
+- Enforce as CODE: CI forbidden-helper/design-contract lint, texture source/provenance audit, physical-target/visibility validation, 4-device screenshot artifact, documented human-owner visual gate. Never quietly downgrade to flat controls when a texture fails.
+- User approved V4 recruitment direction only: mixed UK candidates and genre first→musicians→band name last, NOT merging or release. See V4 contract for detailed stop/release matrix.
+
+---
+
 # BandMaster — AI development contract
 
 ## Roles
