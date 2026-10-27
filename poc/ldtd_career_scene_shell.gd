@@ -11,7 +11,7 @@ const WORLD: Dictionary = {
 	"songwriting": {"heading": "FIND THE SOUND", "summary": "An idea begins at a daytime writing table before it meets the studio.", "moment": "SONGS  /  JAM SESSION", "photo": "home", "primary": "OPEN SONGWRITING JOURNEY", "next": "S03  /  THREE WRITING SESSIONS"},
 	"tour": {"heading": "THE NEXT STOP", "summary": "Plot the route, prepare the van and make every mile count.", "moment": "ON THE ROAD  /  PLANNING", "photo": "home", "primary": "OPEN TOUR ITINERARY", "next": "S04  /  REAL BOOKING PREVIEW"},
 	"gig": {"heading": "LIGHTS DOWN", "summary": "From daytime load-in to the last encore: one believable show.", "moment": "GIG  /  LIVE SHOW", "photo": "gigs", "primary": "OPEN GIG NIGHT JOURNEY", "next": "S05  /  REAL SHOW SETTLEMENT"},
-	"studio": {"heading": "MAKE IT REAL", "summary": "Real hardware, real decisions. Inputs adjust effort; meters show results.", "moment": "STUDIO  /  REHEARSAL", "photo": "formation", "primary": "OPEN HARDWARE PROOF", "next": "S06  /  STUDIO"}
+	"studio": {"heading": "MAKE IT REAL", "summary": "Record two originals in two days, then decide whether to release the demo.", "moment": "STUDIO  /  RECORDING", "photo": "studio", "primary": "OPEN RECORDING STUDIO", "next": "S06  /  RECORD AND RELEASE"}
 }
 const CREAM := Color("#EFEADF")
 const DUSK := Color("#283A40")
@@ -239,7 +239,7 @@ func _open_preview() -> void:
 	elif family == "gig":
 		dest = "res://poc/ldtd_gig_night.tscn"
 	elif family == "studio":
-		dest = "res://poc/premium_mixer_module_lab.tscn"
+		dest = "res://poc/ldtd_studio_recording.tscn"
 	if dest.is_empty():
 		_status.text = "DESIGN FIRST PASS  /  " + str(WORLD[family]["next"]) + " PENDING"
 		return
