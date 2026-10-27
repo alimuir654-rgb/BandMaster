@@ -209,7 +209,7 @@ func _render() -> void:
 	var title: Label = _label(head, "PlayerFacingTitle", "LIVIN’ THE DREAM", 22 if narrow else 28, _ink())
 	_rect(title, 14, 8, w - (166 if narrow else 215), 38)
 	var small: Label = _label(head, "ChapterLabel", "CH. 01  /  REHEARSAL" if narrow else "CHAPTER 01  /  THE FIRST REHEARSAL", 14, _subtle())
-	_rect(small, 15, 49, w - (173 if narrow else 42), 25)
+	_rect(small, 15, 49, w - (173 if narrow else 195), 25)
 	var back: Button = _button(head, "ReturnToGallery", "GALLERY", false, _return_to_gallery)
 	_rect(back, w - (129 if narrow else 165), 12, 107 if narrow else 142, 48)
 
