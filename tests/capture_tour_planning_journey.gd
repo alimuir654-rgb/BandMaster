@@ -63,6 +63,11 @@ func _capture() -> void:
   push_error("JOURNEY CAPTURE: primary action below first fold")
   quit(1)
   return
+ DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output.get_base_dir()))
+ get_root().get_texture().get_image().save_png(ProjectSettings.globalize_path(output))
+ var margin: Control = case.get_node_or_null("MarginContainer")
+ var stack: Control = margin.get_child(0) if margin != null and margin.get_child_count()>0 else null
+ print("JOURNEY CONTAINERS: case="+str(case.get_global_rect())+" margin="+str(margin.get_global_rect() if margin != null else "NONE")+" stack="+str(stack.get_global_rect() if stack != null else "NONE")+" latch="+str(latch.get_global_rect()))
  print("JOURNEY GEOMETRY: moment=%s viewport=%dx%d latch_bottom=%.1f case_bottom=%.1f primary_bottom=%.1f" % [moment,width,height,latch.get_global_rect().end.y,case.get_global_rect().end.y,primary.get_global_rect().end.y])
  if latch.get_global_rect().end.y > case.get_global_rect().end.y-2.0:
   push_error("JOURNEY CAPTURE: van control clipped")
