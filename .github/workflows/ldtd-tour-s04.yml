@@ -48,7 +48,7 @@ jobs:
           for path in ('Art/UI/TourCraft/itinerary_sheet.svg','Art/UI/TourCraft/route_map.svg',
                        'Art/Photography/Formation/corkboard_day_pexels.webp',
                        'Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json',
-                       'Art/Backgrounds/shared/home.webp',
+                       'Art/Backgrounds/shared/gear.webp',
                        'Art/Fonts/BarlowCondensed-SemiBold.ttf',
                        'Art/Fonts/IBMPlexSans-Variable.ttf'):
               assert Path(path).is_file(),path
