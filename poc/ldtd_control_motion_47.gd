@@ -43,7 +43,7 @@ static func attach(button: TextureButton) -> void:
  )
 
 static func reset(button: TextureButton) -> void:
- var previous: Variant = button.get_meta("_ldtd_motion_tween", null)
+ var previous: Variant = (button.get_meta("_ldtd_motion_tween") if button.has_meta("_ldtd_motion_tween") else null)
  if previous is Tween and previous.is_valid():
   previous.kill()
  button.offset_transform_position = Vector2.ZERO
@@ -52,7 +52,7 @@ static func reset(button: TextureButton) -> void:
 static func _animate(button: TextureButton, target_scale: Vector2, target_position: Vector2, duration: float) -> void:
  if not is_instance_valid(button) or not button.is_inside_tree():
   return
- var previous: Variant = button.get_meta("_ldtd_motion_tween", null)
+ var previous: Variant = (button.get_meta("_ldtd_motion_tween") if button.has_meta("_ldtd_motion_tween") else null)
  if previous is Tween and previous.is_valid():
   previous.kill()
  var tween := button.create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
