@@ -52,7 +52,7 @@ func _layout_caption() -> void:
 	var inset: float = 16.0 if size.x < 150.0 else 34.0
 	_caption.position = Vector2(inset, 4)
 	_caption.size = Vector2(maxf(1.0, size.x - inset - 14.0), maxf(1.0, size.y - 8.0))
-	_caption.add_theme_font_size_override("font_size", 13 if size.x < 135.0 else (15 if size.x < 340.0 else 17))
+	_caption.add_theme_font_size_override("font_size", 13 if size.x < 135.0 else (16 if size.x < 340.0 else 19))
 
 func set_chosen(value: bool) -> void:
 	chosen = value
