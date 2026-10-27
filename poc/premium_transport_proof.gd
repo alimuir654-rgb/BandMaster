@@ -201,8 +201,8 @@ func _layout() -> void:
 	mode_display.add_theme_font_size_override("font_size", 16)
 	_place(explanation, 25, readout_y + 29.0, rack_w - 50, 22)
 	# Review selectors are secondary, not part of the physically printed key.
-	var controls_y: float = readout_y + 62.0
-	_place(notice, 25, rack_h - 29.0, rack_w - 50, 20)
+	var controls_y: float = readout_y + 57.0
+	_place(notice, 25, rack_h - 25.0, rack_w - 50, 20)
 	var button_w: float = minf(114.0, (rack_w - 68.0) / 3.0)
 	for index in range(FINISHES.size()):
 		var btn: Button = finish_buttons[FINISHES[index]]
