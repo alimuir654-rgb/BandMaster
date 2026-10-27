@@ -6,7 +6,6 @@ signal latch_changed(is_latched: bool)
 const SOURCE := "res://bandmaster_premium_dashboard_poc/assets/"
 const FOCUS_OFF = preload("res://bandmaster_premium_dashboard_poc/assets/focus_ring_off.png")
 const BUZZ_OFF = preload("res://bandmaster_premium_dashboard_poc/assets/buzz_ring_off.png")
-const POINTER = preload("res://bandmaster_premium_dashboard_poc/assets/rotary_pointer.png")
 const FOCUS_COUNT := 27
 const BUZZ_COUNT := 23
 
@@ -16,6 +15,7 @@ const BUZZ_COUNT := 23
 @export var latched: bool = false
 
 var led_layers: Array[Texture2D] = []
+var pointer_texture: Texture2D = null
 var dragging := false
 var drag_origin := Vector2.ZERO
 var origin_value := 0.0
@@ -24,6 +24,11 @@ var pressing := false
 
 func _ready() -> void:
     _load_source_layers()
+    # The original Lab08 assembled import does NOT contain rotary_pointer.png.
+    # Old focus_rotor/buzz_rotor contain ring fragments and must never be rotated.
+    # Do not fabricate a pointer or cut it out of flattened reference artwork.
+    if ResourceLoader.exists(SOURCE + "rotary_pointer.png"):
+        pointer_texture = load(SOURCE + "rotary_pointer.png") as Texture2D
     focus_mode = Control.FOCUS_NONE if disabled else Control.FOCUS_ALL
     mouse_filter = Control.MOUSE_FILTER_STOP
     mouse_default_cursor_shape = Control.CURSOR_ARROW if disabled else Control.CURSOR_POINTING_HAND
@@ -156,11 +161,12 @@ func _draw() -> void:
     var sy: float = size.y / float(base.get_height())
     var native_centre: Vector2 = Vector2(215.0, 221.0) if dial_kind == "focus" else Vector2(220.0, 218.0)
     var centre: Vector2 = Vector2(native_centre.x * sx, native_centre.y * sy)
-    draw_set_transform(centre, deg_to_rad(pointer_degrees()), Vector2(sx, sy))
-    # No emissive pointer at OFF or when disabled: the plate remains neutral.
-    var pointer_tint := Color(0.18, 0.20, 0.21, 0.75) if lit == 0 else Color.WHITE
-    draw_texture(POINTER, -POINTER.get_size() * 0.5, pointer_tint)
-    draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+    if pointer_texture != null:
+        draw_set_transform(centre, deg_to_rad(pointer_degrees()), Vector2(sx, sy))
+        # No emissive pointer at OFF or when disabled: the plate remains neutral.
+        var pointer_tint := Color(0.18, 0.20, 0.21, 0.75) if lit == 0 else Color.WHITE
+        draw_texture(pointer_texture, -pointer_texture.get_size() * 0.5, pointer_tint)
+        draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
     # Focus/selection are thin external accessibility cues, never fake metal art.
     if has_focus() or pressing or latched:
         var colour := Color("#F1C77D") if latched else Color("#C7D9DF")
