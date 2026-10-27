@@ -93,11 +93,11 @@ func _rebuild() -> void:
 	col.add_child(phases)
 	for next_phase in Worlds.PHASES:
 		var choice: String = next_phase
-		_button(phases, choice.to_upper(), choice == phase, func() -> void: set_context(choice), p, "", false)
+		_button(phases, choice.to_upper(), choice == phase, func() -> void: set_context(choice), p, "Phase" + choice.capitalize(), false)
 
 	var case := Control.new()
 	case.name = "TourRoadCase"
-	case.custom_minimum_size.y = (182 if compact else (228 if mobile else 256)) * _scale
+	case.custom_minimum_size.y = (210 if compact else (228 if mobile else 256)) * _scale
 	case.clip_contents = true
 	col.add_child(case)
 	_texture(case, CASE_ART)
@@ -107,7 +107,7 @@ func _rebuild() -> void:
 	for edge in ["left", "right"]:
 		case_margin.add_theme_constant_override("margin_" + edge, roundi(24 * _scale))
 	for edge in ["top", "bottom"]:
-		case_margin.add_theme_constant_override("margin_" + edge, roundi((13 if compact else 20) * _scale))
+		case_margin.add_theme_constant_override("margin_" + edge, roundi((20 if compact else 20) * _scale))
 	var case_col := VBoxContainer.new()
 	case_col.add_theme_constant_override("separation", roundi((5 if compact else 8) * _scale))
 	case_margin.add_child(case_col)
@@ -246,7 +246,7 @@ func _button(parent: Node, title: String, selected: bool, handler: Callable, p: 
 	if selected or primary:
 		fill = Color("#E4B160") if hardware or primary else p["panel"]
 		edge = Color("#8E5D23") if hardware else p["accent"]
-		ink = Color("#17252C")
+		ink = Color("#17252C") if hardware or primary else p["ink"]
 	var normal := StyleBoxFlat.new()
 	normal.bg_color = fill
 	normal.border_color = edge
