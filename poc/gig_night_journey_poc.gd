@@ -149,6 +149,9 @@ func _render() -> void:
 	var primary: Button = find_child("GigPrimary", true, false) as Button
 	if primary == null:
 		return
+	var overline: Label = find_child("GigOverline", true, false) as Label
+	if overline != null:
+		overline.text = "LIVIN' THE DREAM  /  GIG NIGHT JOURNEY 07  /  LOCAL DEMO"
 	var heading: Label = find_child("GigHeading", true, false) as Label
 	var caption: Label = find_child("GigPhotoCaption", true, false) as Label
 	var disclaimer: Label = find_child("GigSetlistDisclaimer", true, false) as Label
@@ -169,7 +172,7 @@ func _render() -> void:
 	var approach: String = str(demo_state.get("booked_show", {}).get("approach", "tight"))
 	for i in range(APPROACHES.size()):
 		var item: String = APPROACHES[i]
-		var phase_name: String = ["GigPhaseDay", "GigPhaseDusk", "GigPhaseNight"][i]
+		var phase_name: String = ["PhaseDay", "PhaseDusk", "PhaseNight"][i]
 		var option: Button = find_child(phase_name, true, false) as Button
 		if option == null:
 			continue
@@ -178,6 +181,14 @@ func _render() -> void:
 		option.disabled = journey_step == 3 or songs_played > 0
 		option.toggle_mode = true
 		option.button_pressed = item == approach
+		var fill: Color = Color("#D7A45D") if item == approach else WorldsJourney.palette("gig", phase)["surface"]
+		var edge: Color = Color("#E9C184") if item == approach else WorldsJourney.palette("gig", phase)["border"]
+		var ink: Color = Color("#17252C") if item == approach else WorldsJourney.palette("gig", phase)["ink"]
+		option.add_theme_stylebox_override("normal", _plate(fill, edge, 2 if item == approach else 1))
+		option.add_theme_stylebox_override("hover", _plate(fill.lightened(0.07), edge, 2))
+		option.add_theme_stylebox_override("pressed", _plate(fill.darkened(0.10), edge, 2))
+		for font_state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
+			option.add_theme_color_override(font_state, ink)
 		option.pressed.connect(func() -> void: choose_approach(item))
 	primary.text = ["GO TO SOUNDCHECK", "OPEN THE STAGE", "SETTLE SHOW", "RESTART SAMPLE SHOW"][journey_step]
 	primary.disabled = (journey_step == 0 and not equipment_ready) or (journey_step == 1 and not soundcheck_ready) or (journey_step == 2 and (songs_played != 3 or held or settled))
