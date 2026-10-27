@@ -415,23 +415,31 @@ void fragment() {
 			# This section carries the journal below the first-fold decisions.
 			y = 495
 	elif stage == "social":
-		_label_line(paper, "SocialPrompt", "THREE PEOPLE. ONE EVENING. WHICH FIRST?", pleft, y, inner)
-		y += 49
-		_choice(paper, "Dinner", "DINNER   ·   £24", outing_id == "dinner",
-			func() -> void: choose_outing("dinner"), pleft, y, (inner - 9) * 0.5)
-		_choice(paper, "LocalGig", "LOCAL GIG   ·   £15", outing_id == "watch_gig",
-			func() -> void: choose_outing("watch_gig"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
-		y += 64
-		_label_line(paper, "SocialConsequence", "Dinner builds trust. Watching a local act adds buzz and readiness. Both take a day.", pleft, y, inner)
+		if decision_side:
+			# Landscape ticket choices already live next to the photo.
+			y = 495
+		else:
+			_label_line(paper, "SocialPrompt", "THREE PEOPLE. ONE EVENING. WHICH FIRST?", pleft, y, inner)
+			y += 49
+			_choice(paper, "Dinner", "DINNER   ·   £24", outing_id == "dinner",
+				func() -> void: choose_outing("dinner"), pleft, y, (inner - 9) * 0.5)
+			_choice(paper, "LocalGig", "LOCAL GIG   ·   £15", outing_id == "watch_gig",
+				func() -> void: choose_outing("watch_gig"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
+			y += 64
+			_label_line(paper, "SocialConsequence", "Dinner builds trust. Watching a local act adds buzz and readiness. Both take a day.", pleft, y, inner)
 	elif stage == "rehearsal":
-		_label_line(paper, "RehearsalPrompt", "REHEARSAL FOCUS  /  choose one", pleft, y, inner)
-		y += 49
-		_choice(paper, "Tighten", "DRILL SET   ·   £15", room_focus == "tighten",
-			func() -> void: choose_room_focus("tighten"), pleft, y, (inner - 9) * 0.5)
-		_choice(paper, "Connect", "CLEAR AIR   ·   £0", room_focus == "connect",
-			func() -> void: choose_room_focus("connect"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
-		y += 64
-		_label_line(paper, "RehearsalConsequence", "A set drill builds readiness but costs money. A band conversation restores trust.", pleft, y, inner)
+		if decision_side:
+			# Keep the real £15 / £0 decision visible before the fixed dock.
+			y = 495
+		else:
+			_label_line(paper, "RehearsalPrompt", "REHEARSAL FOCUS  /  choose one", pleft, y, inner)
+			y += 49
+			_choice(paper, "Tighten", "DRILL SET   ·   £15", room_focus == "tighten",
+				func() -> void: choose_room_focus("tighten"), pleft, y, (inner - 9) * 0.5)
+			_choice(paper, "Connect", "CLEAR AIR   ·   £0", room_focus == "connect",
+				func() -> void: choose_room_focus("connect"), pleft + (inner + 9) * 0.5, y, (inner - 9) * 0.5)
+			y += 64
+			_label_line(paper, "RehearsalConsequence", "A set drill builds readiness but costs money. A band conversation restores trust.", pleft, y, inner)
 	else:
 		_label_line(paper, "SummaryTitle", "FIRST SESSION COMPLETE  /  RESULTS", pleft, y, inner)
 		y += 51
