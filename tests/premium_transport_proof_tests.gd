@@ -40,7 +40,7 @@ func _test() -> void:
 		return
 	view.set_transport_armed(false)
 	view.set_locked(true)
-	if not key.disabled or key.button_pressed or key.focus_mode != Control.FOCUS_ALL or not state.text.contains("LOCKED"):
+	if not key.disabled or key.button_pressed or key.focus_mode != Control.FOCUS_NONE or not state.text.contains("LOCKED"):
 		_fail("locked is not represented")
 		return
 	var count_before: int = events.size()
