@@ -260,10 +260,12 @@ func _render() -> void:
 		strip.add_theme_stylebox_override("panel",_panel(Color("#E9D2A5") if journey_step==i else Color("#1D3038"),Color("#C4A976") if journey_step==i else Color("#4A5B60")))
 		_surface.add_child(strip)
 		_rect(strip,14+i*(step_w+step_gap),101,step_w,43)
-		var cap := _label(strip,"GigMoment"+str(i),moments[i],11 if narrow else 14,Color("#22333A") if journey_step==i else Color("#E5DDCC"),"display")
+		# Render captions as sibling overlays AFTER the panels. On native 390/1280
+		# Godot captures the child captions were invisible inside these Panels.
+		var cap := _label(_surface,"GigMoment"+str(i),moments[i],12 if narrow else 14,Color("#22333A") if journey_step==i else Color("#F5EBDD"),"display")
 		cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		cap.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		_rect(cap,4,3,step_w-8,37)
+		_rect(cap,14+i*(step_w+step_gap)+4,104,step_w-8,36)
 
 	var dock_h: float = 104.0
 	var scroll := ScrollContainer.new()
@@ -322,8 +324,8 @@ func _render() -> void:
 	page.add_child(board)
 	_rect(board,board_x,board_y,board_w,board_h)
 	var inner: float = board_w-32.0
-	var title := _label(board,"GigBoardTitle","THE CALL SHEET" if journey_step<3 else "THE AFTERSHOW",26 if narrow else 30,INK,"display")
-	_rect(title,16,11,inner,39)
+	var title := _label(board,"GigBoardTitle","THE CALL SHEET" if journey_step<3 else "THE AFTERSHOW",25 if narrow else 30,INK,"display")
+	_rect(title,28,11,inner-14.0,39)
 	var booked: Dictionary = demo_state.get("booked_show",{})
 	var last: Dictionary = demo_state.get("gig_history",[]).back() if not demo_state.get("gig_history",[]).is_empty() else {}
 	var stats_text: String = "DAY %d  /  %s  /  CASH £%d" % [int(demo_state.get("tour_day",1)),str(booked.get("venue","THE LANTERN ROOM")).to_upper(),int(demo_state.get("cash",0))]
