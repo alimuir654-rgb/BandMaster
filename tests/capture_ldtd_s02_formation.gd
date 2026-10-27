@@ -69,6 +69,16 @@ func _capture() -> void:
 	if stats.focus_mode != Control.FOCUS_NONE:
 		_fail("read-only stats must not accept focus")
 		return
+	var journal: Label = view.find_child("JournalEntry", true, false)
+	var gate: Label = view.find_child("MaterialGate", true, false)
+	if journal == null or gate == null or journal.get_global_rect().end.y + 3.0 > gate.get_global_rect().position.y:
+		_fail("scrapbook journal and material gate overlap")
+		return
+	var chapter: Label = view.find_child("ChapterLabel", true, false)
+	var gallery: Button = view.find_child("ReturnToGallery", true, false)
+	if chapter == null or gallery == null or chapter.get_global_rect().end.x > gallery.get_global_rect().position.x + 3.0:
+		_fail("mobile chapter label collides with gallery action")
+		return
 	for key in view._choice_buttons.keys():
 		var button: Button = view._choice_buttons[key]
 		if button.get_global_rect().size.y * px < 44.0:
