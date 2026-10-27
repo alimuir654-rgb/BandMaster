@@ -1,0 +1,96 @@
+name: Livin The Dream S03 — real songwriting notebook and hardware
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Scripts/ldtd_songwriting_preview.gd'
+      - 'Scripts/ldtd_songwriting_pad.gd'
+      - 'poc/ldtd_songwriting_journey.*'
+      - 'tests/ldtd_s03_songwriting_tests.gd'
+      - 'tests/capture_ldtd_s03_songwriting.gd'
+      - '.github/workflows/ldtd-songwriting-s03.yml'
+      - 'tools/check_scene_sprint_preflight.py'
+  workflow_dispatch:
+concurrency:
+  group: ldtd-s03-songwriting
+  cancel-in-progress: true
+jobs:
+  songwriting-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce S03 owner authorization and five-lens preflight
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S03
+      - name: Install Godot 4.7.2 and renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Verify original photographic hardware and source assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          base=Path('bandmaster_premium_controls_lab/assets')
+          for family in ('pad_studio','transport_studio'):
+              for state in ('idle','hover','pressed','active','disabled'):
+                  assert (base/f'{family}_{state}.png').is_file(), (family,state)
+          lab=Path('bandmaster_premium_dashboard_poc/assets')
+          assert (lab/'focus_ring_off.png').is_file()
+          assert (lab/'rotary_pointer.png').is_file()
+          for i in range(27):
+              assert (lab/f'focus_led_{i:02}.png').is_file(), i
+          for p in ('Art/Photography/Formation/daylight_music_room_pexels.webp','Art/Photography/Formation/corkboard_day_pexels.webp','Art/UI/FormationCraft/rehearsal_notebook.png'):
+              assert Path(p).is_file(), p
+          print('S03 original Lab07 five-state pads/transport, Lab08.4 27 LEDs and photo-paper VERIFIED')
+          PY
+      - name: Import and test actual three-session resolver and isolated Godot scene
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          for script in tests/v22_practice_room_tests.gd tests/ldtd_s03_songwriting_tests.gd; do
+            godot --headless --audio-driver Dummy --path . --script "res://$script" 2>&1 | tee /tmp/test.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|S03 FAILURE:|ERROR:' /tmp/test.log
+          done
+          grep -q 'LDTD S03 SONGWRITING MODEL AND THREE-SESSION INPUT TESTS PASSED' /tmp/test.log
+      - name: Capture real Godot mobile tablet landscape desktop DAY and NIGHT
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s03_songwriting.gd -- --stage=editing --phase=day --width="$w" --height="$h" --output="screenshots/s03-editing-day-$dims.png" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD S03 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          done
+          xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s03_songwriting.gd -- --stage=finished --phase=night --width=1280 --height=720 --output=screenshots/s03-finished-night-1280x720.png 2>&1 | tee /tmp/capture.log
+          grep -q 'LDTD S03 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          images=list(Path('screenshots').glob('s03-*.png'))
+          assert len(images)==5,images
+          for path in images:
+              data=path.read_bytes()[:24]
+              assert data[:8]==bytes.fromhex('89504e470d0a1a0a'),path
+              assert struct.unpack('>II',data[16:24]) in {(390,844),(720,1280),(1280,720),(1600,900)},path
+          print('S03 FIVE REAL GODOT PNGs VERIFIED')
+          PY
+      - name: Publish actual S03 Godot screenshot evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-s03-songwriting-five-godot
+          path: screenshots/s03-*.png
+          if-no-files-found: warn
+          retention-days: 21
