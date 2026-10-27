@@ -59,7 +59,7 @@ func _ready() -> void:
 	input_bay = _panel(rack, "FaderInputBay")
 	output_bay = _panel(rack, "ReadOnlyMeterBay")
 	horizontal_label = _label(rack, "HorizontalInputLabel", "01  /  PREP EFFORT  ·  INPUT", 15)
-	vertical_label = _label(rack, "VerticalInputLabel", "MORALE SUPPORT  /  INPUT", 15)
+	vertical_label = _label(rack, "VerticalInputLabel", "SUPPORT  /  INPUT", 15)
 	meter_label = _label(rack, "ReadOnlyStatLabel", "HYPE  /  METER", 15)
 	horizontal_readout = _label(rack, "HorizontalInputValue", "", 16)
 	vertical_readout = _label(rack, "VerticalInputValue", "", 16)
