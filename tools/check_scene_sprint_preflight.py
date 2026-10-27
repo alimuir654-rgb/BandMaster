@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--sprint", default="S01")
 args = parser.parse_args()
 sprint = args.sprint.upper()
-allowed = [f"S{i:02d}" for i in range(1, 8)]
+allowed = [f"S{i:02d}" for i in range(1, 8)] + ["S02B"]
 assert sprint in allowed, f"Specify one of {allowed}"
 
 paths = {
@@ -51,7 +51,7 @@ if sprint != "S01":
             f"PRE-FLIGHT {sprint} omitted actionable {persona} concerns")
     assert any(token in section.lower() for token in ("ci", "workflow", "artifact", "test")), (
         f"PRE-FLIGHT {sprint} missing concrete prior test/CI evidence")
-    previous = f"S{int(sprint[1:])-1:02d}"
+    previous = "S02" if sprint == "S02B" else f"S{int(sprint[1:])-1:02d}"
     assert f"POST-RUN {previous}" in ledger, (
         f"Cannot start {sprint} without previous {previous} post-run handoff")
     assert f"POST-RUN {previous}" in review, (
