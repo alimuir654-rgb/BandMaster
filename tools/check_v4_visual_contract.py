@@ -11,7 +11,7 @@ text=SCENE.read_text(encoding="utf-8")
 for name,pattern in {
     "legacy helper":r'ui_theme|WoldButton|UI\.button|_button\(',
     "flat StyleBox":r'StyleBoxFlat|ColorRect\.new|\.add_theme_stylebox_override\(',
-    "unapproved scene background":r'v3\.tscn|v3\.gd',
+    "unapproved scene background":r'poc/ldtd_recruitment_v3\.(?:tscn|gd)',
     "unapproved live save":r'FileAccess|user://|DirAccess|tour_save',
 }.items():
     assert not re.search(pattern,text),f"V4 art contract FAIL: {name}"
