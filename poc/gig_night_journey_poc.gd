@@ -187,7 +187,8 @@ func _render() -> void:
 		option.add_theme_stylebox_override("hover", _plate(fill.lightened(0.07), edge, 2))
 		option.add_theme_stylebox_override("pressed", _plate(fill.darkened(0.10), edge, 2))
 		option.add_theme_stylebox_override("hover_pressed", _plate(fill.lightened(0.05), edge, 2))
-		option.add_theme_stylebox_override("disabled", _plate(fill.darkened(0.30), edge.darkened(0.18), 1))
+		option.add_theme_stylebox_override("disabled", _plate(fill if item == approach else fill.darkened(0.12), edge.darkened(0.12), 1))
+		option.add_theme_color_override("font_disabled_color", Color("#17252C") if item == approach else WorldsJourney.palette("gig", phase)["muted"])
 		for font_state in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
 			option.add_theme_color_override(font_state, ink)
 		option.pressed.connect(func() -> void: choose_approach(item))
