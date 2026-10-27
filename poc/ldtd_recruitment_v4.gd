@@ -18,7 +18,7 @@ const MUTED := Color("#BCB7AD")
 const INK := Color("#292420")
 const GREEN := Color("#34633B")
 const RED := Color("#9B3430")
-var step := 1
+var step := 0
 var genre := "Indie rock"
 var role := "Singer"
 var candidate_index := 0
@@ -381,10 +381,10 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  _meters(parent,p,17,450,w-34,27)
  _text(parent,str(p["bands"])+" BANDS  •  "+str(p["years_playing"] if p.has("years_playing") else p["experience_years"])+" YRS  •  "+str(p["personality"]),18,617,w-36,30,13,WHITE,FONT_BODY)
  var already:bool=Model.contains(roster,str(p["id"]))
- _plate(parent,"REMOVE MEMBER" if already else ("ADD  /  "+str(Model.incremental_cost(roster,p))+" PTS"),Rect2(16,655,w-32,52),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",23)
+ _plate(parent,"REMOVE" if already else ("ADD  /  "+str(Model.incremental_cost(roster,p))+" PTS"),Rect2(12,655,(w-36)/2,52),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",23)
  # Full biography is scrollable from a genuine paper dossier, never squeezed into tiny print.
  # A second page is available by pressing the clearly labelled dossier control.
- _plate(parent,"PERSONALITY + EXPERIENCE  ▼",Rect2(18,711,w-36,46),func() -> void: _show_dossier(),false,true,"metal_tab",17)
+ _plate(parent,"PERSON FILE",Rect2((w-36)/2+24,655,(w-36)/2,52),func() -> void: _show_dossier(),false,true,"metal_tab",17)
 
 func _show_dossier() -> void:
  var p:Dictionary=_current()
