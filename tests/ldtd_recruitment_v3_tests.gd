@@ -63,6 +63,18 @@ func _run() -> void:
  _check(Model.spent(four)==Model.spent(three)+Model.cost(four[3]),"fourth member has no headcount tax")
  _check(not Model.viable([singer,bass]),"two musicians cannot immediately form a complete band")
  _check(Model.spent(four)<Model.MAX_TALENT,"four-piece leaves some headroom")
+ var fifth: Dictionary={}
+ var sixth: Dictionary={}
+ for p in Model.people():
+  if str(p["id"])=="nia_griffiths":
+   fifth=p
+  elif str(p["id"])=="chloe_barker":
+   sixth=p
+ _check(Model.incremental_cost(four,fifth)==Model.cost(fifth)+6,"fifth recruit advertises six-point organisational tax")
+ var five := four.duplicate(true)
+ five.append(fifth)
+ _check(Model.incremental_cost(five,sixth)==Model.cost(sixth)+12,"sixth recruit advertises twelve-point organisational tax")
+ _check(Model.incremental_cost(three,singer)==0,"cannot charge twice for same person")
  var unaffordable := four.duplicate(true)
  for p in Model.people():
   if str(p["id"])=="aisha_khan" or str(p["id"])=="tom_hargreaves":
