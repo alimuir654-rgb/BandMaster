@@ -1,0 +1,2 @@
+08.4
+Precision LED alignment: Creative Focus 27 ticks; Venue Buzz 23 pads; no glow spill
