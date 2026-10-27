@@ -8,6 +8,7 @@ on:
       - 'Art/UI/FormationCraft/**'
       - 'tools/build_formation_craft.py'
       - 'tools/build_formation_photo_materials.py'
+      - 'tools/check_scene_sprint_preflight.py'
       - 'Scripts/formation_craft_skin.gd'
       - 'poc/ldtd_formation_rehearsal.gd'
       - 'tests/ldtd_s02b_stationery_tests.gd'
@@ -29,7 +30,7 @@ jobs:
           persist-credentials: true
           fetch-depth: 1
       - name: Require user-authorized visual reset preflight and five personas
-        run: python3 tools/check_scene_sprint_preflight.py --sprint S02B
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S02B-C
       - name: Install original raster-material build tools, Godot 4.7.2 and renderer
         shell: bash
         run: |
