@@ -50,6 +50,15 @@ func _run() -> void:
 				_fail("missing original tactile texture for "+b.name+" state "+state)
 				return
 	var candidate_style: StyleBoxTexture = jo.get_theme_stylebox("normal") as StyleBoxTexture
+	var chosen_hover: StyleBoxTexture = jo.get_theme_stylebox("hover") as StyleBoxTexture
+	if chosen_hover.texture.resource_path != candidate_style.texture.resource_path:
+		_fail("hover loses latched selected audition tick")
+		return
+	var unchosen_hover: StyleBoxTexture = rae.get_theme_stylebox("hover") as StyleBoxTexture
+	var unchosen_normal: StyleBoxTexture = rae.get_theme_stylebox("normal") as StyleBoxTexture
+	if unchosen_hover.texture.resource_path == unchosen_normal.texture.resource_path:
+		_fail("unchosen audition lacks distinct hover texture")
+		return
 	var primary_style: StyleBoxTexture = primary.get_theme_stylebox("normal") as StyleBoxTexture
 	var tab_style: StyleBoxTexture = gallery.get_theme_stylebox("normal") as StyleBoxTexture
 	if candidate_style.texture.resource_path == primary_style.texture.resource_path or tab_style.texture.resource_path == primary_style.texture.resource_path:
