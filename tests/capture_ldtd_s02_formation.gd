@@ -92,6 +92,27 @@ func _capture() -> void:
 		if last_choice == null or last_choice.get_global_rect().end.y * px > dock.get_global_rect().position.y * px - 3.0:
 			_fail("bass recruitment choice hidden behind mobile action dock")
 			return
+	if width >= 900 and stage == "recruit":
+		# S02B owner P0: both role choices must be present in landscape FIRST FOLD,
+		# not buried under the historic 248px full-width photograph.
+		var image_frame: Panel = view.find_child("FormationPhotoFrame", true, false)
+		if image_frame == null:
+			_fail("missing realistic room photograph frame")
+			return
+		for candidate_id in ["Jo", "Rae", "Sam", "Dev"]:
+			var candidate_btn: Button = view._choice_buttons.get(candidate_id)
+			if candidate_btn == null:
+				_fail("missing visible audition choice: " + candidate_id)
+				return
+			if candidate_btn.get_global_rect().end.y * px > dock.get_global_rect().position.y * px - 3.0:
+				_fail("desktop choice obscured by dock: " + candidate_id)
+				return
+			if candidate_btn.get_global_rect().intersects(image_frame.get_global_rect()):
+				_fail("audition card overlaps rehearsal photo: " + candidate_id)
+				return
+			if not (candidate_btn.get_theme_stylebox("normal") is StyleBoxTexture):
+				_fail("generic default desktop audition button: " + candidate_id)
+				return
 	var bitmap: Image = get_root().get_texture().get_image()
 	if bitmap.get_width() < width or bitmap.get_height() < height:
 		_fail("wrong actual renderer dimensions")
