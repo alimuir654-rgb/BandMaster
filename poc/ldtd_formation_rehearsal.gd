@@ -343,8 +343,8 @@ func _render() -> void:
 	var journal: Label = _label(paper, "JournalEntry", last, 16, Color("#3D4B4D"))
 	_rect(journal, pleft, y, inner, 94)
 	var gate: Label = _label(paper, "MaterialGate", "REAL ROOM PHOTO  /  SCRAPBOOK MATERIAL: VISUAL HOLD", 14, Color("#745B35"))
-	_rect(gate, pleft, y + 106, inner, 52)
-	var paper_height: float = maxf(936.0, y + 176.0)
+	_rect(gate, pleft, y + 156, inner, 52)
+	var paper_height: float = maxf(936.0, y + 226.0)
 	paper.size.y = paper_height
 	page.size.y = paper_height + 26.0
 	page.custom_minimum_size = Vector2(w, paper_height + 26.0)
