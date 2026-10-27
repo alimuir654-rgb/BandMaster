@@ -85,7 +85,8 @@ func _button(parent: Node, s: String, action: Callable, selected: bool=false, di
  for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:
   b.add_theme_color_override(key,fg)
  b.add_theme_color_override("font_disabled_color",Color("#777E84"))
- b.add_theme_font_size_override("font_size",14)
+ b.add_theme_font_size_override("font_size",maxi(14,ceili(14.0*minf(_touch_factor(),1.65))))
+ b.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
  b.pressed.connect(action)
  parent.add_child(b)
  return b
@@ -243,9 +244,7 @@ func _recruitment(parent: Node) -> void:
  parent.add_child(top)
  var g := _label(top,genre.to_upper()+"  /  "+str(roster.size())+" RECRUITED",14,C_GOLD)
  g.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- if not _wide:
-  pass  # Talent total stays in the always-visible bottom dock.
- var tabs_scroll := ScrollContainer.new()
+  var tabs_scroll := ScrollContainer.new()
  tabs_scroll.custom_minimum_size.y=_minimum_hit_height(60.0)+10.0
  tabs_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO
  tabs_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
