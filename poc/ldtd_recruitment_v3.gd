@@ -63,6 +63,7 @@ func _label(parent: Node, s: String, font_size: int=15, colour: Color=C_WHITE, w
  l.add_theme_color_override("font_color",colour)
  l.add_theme_font_size_override("font_size",maxi(font_size,ceili(float(font_size)*minf(_touch_factor(),1.5))))
  l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART if wrap else TextServer.AUTOWRAP_OFF
+ l.clip_text=not wrap
  parent.add_child(l)
  return l
 
@@ -160,6 +161,7 @@ func _render() -> void:
 
 func _header(parent: Node) -> void:
  var top := HBoxContainer.new()
+ top.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
  top.add_theme_constant_override("separation",12)
  parent.add_child(top)
  var words := VBoxContainer.new()
@@ -169,6 +171,8 @@ func _header(parent: Node) -> void:
  _label(words,["01  FIND YOUR SOUND","02  RECRUIT YOUR MUSICIANS","03  GIVE THE BAND A NAME"][step],23 if _wide else 19,C_WHITE)
  var step_text := _label(top,"%d / 3" % (step+1),13,C_MUTED)
  step_text.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+ step_text.custom_minimum_size.x=ceilf(50.0*_touch_factor())
+ step_text.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
  var line := HSeparator.new()
  parent.add_child(line)
 
@@ -243,9 +247,11 @@ func _recruitment(parent: Node) -> void:
  var top := HBoxContainer.new()
  parent.add_child(top)
  var g := _label(top,genre.to_upper()+"  /  "+str(roster.size())+" RECRUITED",14,C_GOLD)
+ g.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
  g.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-  var tabs_scroll := ScrollContainer.new()
- tabs_scroll.custom_minimum_size.y=_minimum_hit_height(60.0)+10.0
+ var tabs_scroll := ScrollContainer.new()
+ tabs_scroll.custom_minimum_size.y=_minimum_hit_height(49.0)+4.0
+ tabs_scroll.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
  tabs_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO
  tabs_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
  parent.add_child(tabs_scroll)
@@ -260,7 +266,8 @@ func _recruitment(parent: Node) -> void:
   _label(parent,"No candidates for this role in this genre.",16,C_WHITE)
   return
  var nav := HBoxContainer.new()
- nav.add_theme_constant_override("separation",10)
+ nav.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
+ nav.add_theme_constant_override("separation",8)
  parent.add_child(nav)
  _transport(nav,"PREVIOUS",func() -> void: _move_candidate(-1))
  var head := VBoxContainer.new()
@@ -273,6 +280,7 @@ func _recruitment(parent: Node) -> void:
  _label(head," / ".join(PackedStringArray(subroles))+"  •  "+str(_current["town"]),12,C_GOLD)
  _transport(nav,"NEXT",func() -> void: _move_candidate(1))
  var content: BoxContainer = HBoxContainer.new() if _wide else VBoxContainer.new()
+ content.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
  content.add_theme_constant_override("separation",12)
  parent.add_child(content)
  if _wide:
@@ -286,7 +294,7 @@ func _candidate_rail(parent: Node) -> void:
  for i in range(6):
   var p: Dictionary=_pool()[i]
   var chosen := candidate_index==i
-  _button(rail,("● " if Model.contains(roster,str(p["id"])) else "")+str(p["name"]),func() -> void: _choose_index(i),chosen,false,60)
+  _button(rail,("● " if Model.contains(roster,str(p["id"])) else "")+str(p["name"]),func() -> void: _choose_index(i),chosen,false,47)
 
 func _choose_index(index: int) -> void:
  candidate_index=index
@@ -296,14 +304,14 @@ func _portrait_and_stats(parent: Node) -> void:
  var center := _panel(parent,C_PANEL,Vector2(350,0) if _wide else Vector2.ZERO)
  center.get_parent().size_flags_stretch_ratio=1.5
  var portrait_box := PanelContainer.new()
- portrait_box.custom_minimum_size.y=310.0 if _wide else maxf(175.0,185.0*_touch_factor())
+ portrait_box.custom_minimum_size.y=230.0 if _wide else 150.0*_touch_factor()
  portrait_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  portrait_box.add_theme_stylebox_override("panel",_style(Color("#17191C"),6,Color("#6E6152")))
  center.add_child(portrait_box)
  var holder := CenterContainer.new()
  portrait_box.add_child(holder)
  var photo := Portrait.new()
- photo.custom_minimum_size=Vector2(270,300) if _wide else Vector2(240,300)
+ photo.custom_minimum_size=Vector2(195,212) if _wide else Vector2(175,142)*_touch_factor()
  photo.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
  photo.size_flags_vertical=Control.SIZE_SHRINK_CENTER
  photo.set_character(Model.portrait_id(_current),str(_current["name"]),"indie")
@@ -405,19 +413,25 @@ func _back() -> void:
 
 func _build_footer(parent: Node) -> void:
  var dock := _panel(parent,Color("#171B20"))
+ dock.get_parent().size_flags_vertical=Control.SIZE_SHRINK_END
  var info := HBoxContainer.new()
+ info.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
  dock.add_child(info)
  var summary_text := ("%d / 6 MEMBERS   •   %d / %d TALENT POINTS" % [roster.size(),Model.spent(roster),Model.MAX_TALENT]) if _wide else ("%d/6  •  %d/200 PTS" % [roster.size(),Model.spent(roster)])
  var summary := _label(info,summary_text,14,C_GOLD)
  summary.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ summary.clip_text=true
  var available := Model.MAX_TALENT-Model.spent(roster)
- _label(info,"%d LEFT" % available,14,C_WHITE)
+ var remainder := _label(info,"%d LEFT" % available,14,C_WHITE)
+ remainder.custom_minimum_size.x=ceilf(70.0*_touch_factor())
+ remainder.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
  if step==1:
   var slots := _label(dock,"LINEUP: "+("  /  ".join(PackedStringArray(roster.map(func(p): return str(p["name"])))) if not roster.is_empty() else "No members selected yet"),12,C_MUTED)
   slots.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   var missing := Model.missing(roster)
   _label(dock,("READY TO NAME THE BAND" if Model.viable(roster) else "STILL NEED: "+missing),12,C_MUTED,true)
  var actions := HBoxContainer.new()
+ actions.size_flags_vertical=Control.SIZE_SHRINK_BEGIN
  actions.add_theme_constant_override("separation",8)
  dock.add_child(actions)
  if step>0:
