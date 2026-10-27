@@ -131,6 +131,8 @@ func _rebuild() -> void:
   var route_button: Button = _button(routes,str(route["city"]),route_id==venue_id,
    func() -> void: choose_venue(route_id),p,"Venue"+route_id.capitalize(),true)
   route_button.disabled = stage != "plan"
+  if route_button.disabled:
+   route_button.add_theme_color_override("font_disabled_color",Color("#E8E9DF"))
  var rule := ColorRect.new()
  rule.color = Color("#637276")
  rule.custom_minimum_size.y = 1*_scale
@@ -154,6 +156,8 @@ func _rebuild() -> void:
  var latch: Button = _button(case_col,"UNLATCH VAN" if van_ready else "SECURE VAN & GEAR",false,
   toggle_van,p,"JourneyVanLatch",true)
  latch.disabled = stage != "plan"
+ if latch.disabled:
+  latch.add_theme_color_override("font_disabled_color",Color("#E8E9DF"))
  var venue: Dictionary = Circuit.get_venue(venue_id)
  var ticket := Control.new()
  ticket.name = "JourneyPaperTicket"
@@ -171,7 +175,7 @@ func _rebuild() -> void:
  ticket_margin.add_child(ticket_col)
  _text(ticket_col,"ITINERARY  /  SIMULATED GAME DAY %d" % (int(demo_state["tour_day"])+2),11,Color("#62523E"),"JourneyTicketDate")
  _text(ticket_col,str(venue["venue"]).to_upper(),22 if mobile else 25,Color("#27312D"),"JourneyTicketVenue")
- _text(ticket_col,"%s  /  FEE £%d  /  NO DISTANCE ESTIMATE" % [str(venue["city"]),int(venue["fee"])],11,Color("#514B41"))
+ _text(ticket_col,"%s  /  SHOW FEE £%d  /  NO DISTANCE ESTIMATE" % [str(venue["city"]),int(venue["fee"])],11,Color("#514B41"))
  var plans: Array = Model.options(demo_state,venue_id)
  var choice_row := HBoxContainer.new()
  choice_row.name = "JourneyOptions"
@@ -183,6 +187,8 @@ func _rebuild() -> void:
   var choice: Button = _button(choice_row,"%s  £%d" % [label,int(option["total_cost"])],
    option_id==plan_id,func() -> void: choose_plan(option_id),p,"Plan"+option_id.capitalize(),false)
   choice.disabled = stage != "plan" or not bool(option["available"])
+  if choice.disabled:
+   choice.add_theme_color_override("font_disabled_color",p["ink"])
  var plan: Dictionary = Itinerary.preview(demo_state,venue_id,plan_id)
  var readouts := HBoxContainer.new()
  readouts.name = "JourneyConsequences"
