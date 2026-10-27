@@ -358,6 +358,24 @@ void fragment() {
 		_choice(paper, "Dev", "DEV · SCENE", bass_id == "dev", func() -> void: choose_bassist("dev"), paper_choice_x + hcol + 8.0, 286, hcol)
 		var singer_note := _label(paper, "SingerSideNote", "ALEX / VOCALS\nLINE-UP STARTS HERE", 13, Color("#6D6356"))
 		_rect(singer_note, paper_choice_x, 348, paper_choice_w, 40)
+	elif decision_side and stage == "social":
+		var outing_heading := _label(paper, "OutingSideHeading", "FIRST OUTING  /  PICK ONE", 16, INK)
+		_rect(outing_heading, paper_choice_x, 158, paper_choice_w, 28)
+		_choice(paper, "Dinner", "DINNER  ·  £24", outing_id == "dinner",
+			func() -> void: choose_outing("dinner"), paper_choice_x, 195, paper_choice_w)
+		_choice(paper, "LocalGig", "LOCAL GIG  ·  £15", outing_id == "watch_gig",
+			func() -> void: choose_outing("watch_gig"), paper_choice_x, 257, paper_choice_w)
+		var outing_note := _label(paper, "OutingSideNote", "DINNER / TRUST     GIG / BUZZ", 14, INK)
+		_rect(outing_note, paper_choice_x, 324, paper_choice_w, 31)
+	elif decision_side and stage == "rehearsal":
+		var room_heading := _label(paper, "RoomSideHeading", "REHEARSAL  /  PICK ONE", 16, INK)
+		_rect(room_heading, paper_choice_x, 158, paper_choice_w, 28)
+		_choice(paper, "Tighten", "DRILL SET  ·  £15", room_focus == "tighten",
+			func() -> void: choose_room_focus("tighten"), paper_choice_x, 195, paper_choice_w)
+		_choice(paper, "Connect", "CLEAR AIR  ·  £0", room_focus == "connect",
+			func() -> void: choose_room_focus("connect"), paper_choice_x, 257, paper_choice_w)
+		var room_note := _label(paper, "RoomSideNote", "DRILL / READY     TALK / TRUST", 14, INK)
+		_rect(room_note, paper_choice_x, 324, paper_choice_w, 31)
 	var y: float = 323 if narrow else 401
 	var strip := Panel.new()
 	strip.name = "ReadOnlyBandLedger"
