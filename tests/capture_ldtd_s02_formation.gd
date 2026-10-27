@@ -69,7 +69,7 @@ func _capture() -> void:
 	if stats.focus_mode != Control.FOCUS_NONE:
 		_fail("read-only stats must not accept focus")
 		return
-	var journal: Label = view.find_child("JournalEntry", true, false)
+	var journal: RichTextLabel = view.find_child("JournalEntry", true, false)
 	var gate: Label = view.find_child("MaterialGate", true, false)
 	if journal == null or gate == null:
 		_fail("missing scrapbook journal or material provenance")
