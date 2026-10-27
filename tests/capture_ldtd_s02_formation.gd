@@ -96,10 +96,21 @@ func _capture() -> void:
 	if bitmap.get_width() < width or bitmap.get_height() < height:
 		_fail("wrong actual renderer dimensions")
 		return
-	var corner: Color = bitmap.get_pixel(2, 2)
+	# S02B daylight is a full-bleed, *textured* original material, not a
+	# flat RGB fill. Read the authoritative environment and material phase,
+	# rather than comparing pixels to an obsolete flat #EDE5D7 color swatch.
+	var environment: ColorRect = view.find_child("FormationBackdrop", true, false)
+	var desk: TextureRect = view.find_child("FormationSunlitDesk", true, false)
+	var sheet: TextureRect = view.find_child("FormationNotebookMaterial", true, false)
 	var expected: Color = Color("#EDE5D7") if phase == "day" else (Color("#34444A") if phase == "dusk" else Color("#101820"))
-	if absf(corner.r - expected.r) > 0.13 or absf(corner.g - expected.g) > 0.13 or absf(corner.b - expected.b) > 0.13:
-		_fail("phase environment colour mismatch")
+	if environment == null or environment.color != expected or desk == null or desk.texture == null or sheet == null or sheet.texture == null:
+		_fail("phase environment material or genuine stationery missing")
+		return
+	if phase == "day" and desk.modulate != Color.WHITE:
+		_fail("daylight material is not sunlit")
+		return
+	if phase == "night" and desk.modulate == Color.WHITE:
+		_fail("night does not dim paper world")
 		return
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output.get_base_dir()))
 	if bitmap.save_png(ProjectSettings.globalize_path(output)) != OK:
