@@ -52,6 +52,11 @@ func _run() -> void:
 	_check(primary != null and primary.get_theme_stylebox("normal") is StyleBoxTexture, "session commitment has original raster paper art")
 	_check(stats != null and stats.focus_mode == Control.FOCUS_NONE, "career outcome stats read-only")
 	_check(view._choice_buttons.has("IdeaLyric") and view._choice_buttons.has("Form0"), "meaningful native pad choices present")
+	var sample_pad: TextureButton = view._choice_buttons.get("IdeaLyric")
+	var inset: Panel = sample_pad.find_child("PhysicalCaptionInsert", true, false) as Panel
+	var native_caption: Label = sample_pad.find_child("NativePadCaption", true, false) as Label
+	_check(inset != null and inset.get_theme_stylebox("panel") is StyleBoxFlat, "original photo's baked JAM lettering is physically masked by inset")
+	_check(native_caption != null and native_caption.text == "LYRIC", "native player choice is readable above inset, not baked into photo")
 	view.choose_idea("Groove")
 	for i in range(4):
 		await process_frame
