@@ -43,7 +43,7 @@ jobs:
                   path=Path(f'Art/UI/TourCraft/{family}_{state}.svg')
                   assert path.is_file(),path
                   data=path.read_text()
-                  assert '<svg' in data and 'gradient' in data and 'viewBox' in data,path
+                  assert '<svg' in data and 'gradient' in data.lower() and 'viewBox' in data,path
                   assert not any(s in data for s in ('BRISTOL','CARDIFF','£','CASH','VAN HEALTH')),f'Live data baked into {path}'
           for path in ('Art/UI/TourCraft/itinerary_sheet.svg','Art/UI/TourCraft/route_map.svg',
                        'Art/Photography/Formation/corkboard_day_pexels.webp',
