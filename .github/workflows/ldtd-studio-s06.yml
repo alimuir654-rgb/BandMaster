@@ -1,0 +1,110 @@
+name: Livin The Dream S06 — photographic studio recording first pass
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Scripts/ldtd_studio_recording_preview.gd'
+      - 'Scripts/ldtd_studio_key.gd'
+      - 'poc/ldtd_studio_recording.*'
+      - 'poc/ldtd_career_scene_shell.gd'
+      - 'Art/UI/StudioCraft/**'
+      - 'tests/ldtd_s06_studio_tests.gd'
+      - 'tests/capture_ldtd_s06_studio.gd'
+      - '.github/workflows/ldtd-studio-s06.yml'
+      - 'tools/check_scene_sprint_preflight.py'
+  workflow_dispatch:
+concurrency:
+  group: ldtd-s06-studio
+  cancel-in-progress: true
+jobs:
+  studio-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify S06 owner-authorised preflight
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S06
+      - name: Install Godot 4.7.2 and native renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Verify original source-backed photographic control families
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          root=Path('bandmaster_premium_dashboard_poc/assets')
+          for name in ('horizontal_base.png','horizontal_cap.png','meter_base.png','focus_ring_off.png','focus_rotor.png'):
+              assert (root/name).is_file(),name
+          for i in range(27):
+              assert (root/f'focus_led_{i:02d}.png').is_file(),i
+          for state in ('idle','hover','pressed','active','disabled'):
+              assert (root/f'nav_studio_{state}.png').is_file(),state
+              assert (Path('bandmaster_premium_controls_lab/assets')/f'transport_studio_{state}.png').is_file(),state
+          for name in ('Art/Photography/Formation/daylight_music_room_pexels.webp',
+                       'Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json',
+                       'Art/Backgrounds/shared/studio.webp',
+                       'Art/UI/StudioCraft/console_chassis.svg',
+                       'Art/UI/StudioCraft/README.md',
+                       'Art/Fonts/BarlowCondensed-SemiBold.ttf',
+                       'Art/Fonts/IBMPlexSans-Variable.ttf',
+                       'Art/Fonts/IBMPlexMono-Regular.ttf'):
+              assert Path(name).is_file(),name
+          chassis=Path('Art/UI/StudioCraft/console_chassis.svg').read_text()
+          assert '<svg' in chassis and 'linearGradient' in chassis and 'viewBox' in chassis
+          assert not any(word in chassis for word in ('£60','LATE TRAIN','FANS','READINESS')), 'no baked mutable labels'
+          print('S06 original photographed Lab05/07/08.4 source and authored chassis verified')
+          PY
+      - name: Godot import and authoritative recording/release tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_s06_studio_tests.gd 2>&1 | tee /tmp/test.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|S06 FAILURE:|ERROR:' /tmp/test.log; then exit 1; fi
+          grep -q 'LDTD S06 STUDIO PHOTOGRAPHIC CONTROLS, REAL RECORD AND ONCE-ONLY RELEASE PASSED' /tmp/test.log
+      - name: Actual native Godot four-device DAY and DUSK/NIGHT states
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s06_studio.gd -- --moment=day --width="$w" --height="$h" --output="screenshots/s06-studio-day-$dims.png" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD S06 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          done
+          for moment in dusk night; do
+            for dims in 390x844 1280x720; do
+              w="${dims%x*}"; h="${dims#*x}"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s06_studio.gd -- --moment="$moment" --width="$w" --height="$h" --output="screenshots/s06-studio-$moment-$dims.png" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD S06 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          paths=list(Path('screenshots').glob('s06-studio-*.png'))
+          assert len(paths)==8,paths
+          for path in paths:
+              data=path.read_bytes()[:24]
+              assert data[:8]==bytes.fromhex('89504e470d0a1a0a'),path
+              assert struct.unpack('>II',data[16:24]) in {(390,844),(720,1280),(1280,720),(1600,900)},path
+          print('S06 EIGHT NATIVE GODOT PNG DIMENSIONS VERIFIED')
+          PY
+      - name: Upload actual Godot studio renderer proof
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-s06-studio-eight-godot
+          path: screenshots/s06-studio-*.png
+          if-no-files-found: warn
+          retention-days: 21
