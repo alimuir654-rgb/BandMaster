@@ -4,6 +4,7 @@ on:
     branches: [first-pass-scene-sweep-2026-10-27]
     paths:
       - 'tools/build_formation_craft.py'
+      - 'tools/build_formation_photo_materials.py'
       - 'Scripts/formation_craft_skin.gd'
       - 'poc/ldtd_formation_rehearsal.gd'
       - 'tests/ldtd_s02b_stationery_tests.gd'
@@ -54,6 +55,24 @@ jobs:
                   assert im.mode=='RGBA' and im.width>=390 and im.height>=140,name
           print('22 original textured PNGs with exact SHA manifest VERIFIED')
           PY
+      - name: Prepare genuine licensed photographic cork and DAY music room layers
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 'https://images.pexels.com/photos/5988421/pexels-photo-5988421.jpeg?auto=compress&cs=tinysrgb&w=1600' --output /tmp/ldtd-cork.jpg
+          curl --fail --location --retry 3 'https://images.pexels.com/photos/20863659/pexels-photo-20863659.jpeg?auto=compress&cs=tinysrgb&w=1600' --output /tmp/ldtd-dayroom.jpg
+          python3 tools/build_formation_photo_materials.py /tmp/ldtd-cork.jpg /tmp/ldtd-dayroom.jpg
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          m=json.loads(Path('Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json').read_text())
+          assert len(m['records'])==2,m
+          for record in m['records']:
+              path=Path(record['asset'])
+              assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==record['committed_webp_sha256']
+              assert record['license'] and record['photographer'] and record['source_page']
+          print('TWO REAL LICENSED PHOTO MATERIALS AND RIGHTS METADATA PASS')
+          PY
       - name: Godot 4.7.2 import + original mechanics + craft interaction tests
         shell: bash
         run: |
@@ -71,7 +90,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Art/UI/FormationCraft
+          git add Art/UI/FormationCraft Art/Photography/Formation
           git diff --cached --check
           if ! git diff --cached --quiet; then
             git commit -m 'Store validated original tactile formation stationery PNGs'
@@ -117,5 +136,7 @@ jobs:
             screenshots/s02b-*.png
             Art/UI/FormationCraft/*.png
             Art/UI/FormationCraft/SOURCE_SHA256.json
+            Art/Photography/Formation/*.webp
+            Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json
           retention-days: 21
           if-no-files-found: warn
