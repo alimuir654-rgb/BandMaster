@@ -313,8 +313,12 @@ void fragment() {
 	}[stage], 16, Color("#4B5B5D"))
 	_rect(step, pleft, 63, inner, 64)
 
-	var recruit_side: bool = stage == "recruit" and not narrow
-	var photo_w: float = inner * 0.54 if recruit_side else inner
+	# Every actionable landscape stage must share the first fold with the
+	# photograph; the previous social/rehearsal full-width photo buried both
+	# choices below the fixed dock at 1280×720.
+	var decision_side: bool = not narrow and stage in ["recruit", "social", "rehearsal"]
+	var recruit_side: bool = stage == "recruit" and decision_side
+	var photo_w: float = inner * 0.54 if decision_side else inner
 	var paper_choice_x: float = pleft + photo_w + 17.0
 	var paper_choice_w: float = inner - photo_w - 25.0
 	var frame := Panel.new()
