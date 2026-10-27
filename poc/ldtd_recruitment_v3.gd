@@ -39,6 +39,15 @@ func _viewport_changed() -> void:
   _wide = wide_now
   _render()
 
+func _touch_factor() -> float:
+ # Godot mobile canvas scaling can make a 50-unit button <44 physical pixels.
+ # Scale hit targets and native lettering by actual window-to-logical ratio.
+ var win := DisplayServer.window_get_size()
+ return clampf(get_viewport_rect().size.x / float(maxi(win.x,1)),1.0,2.2)
+
+func _minimum_hit_height(proposed: float) -> float:
+ return maxf(proposed,ceilf(47.0*_touch_factor()))
+
 func _style(fill: Color, radius: int=8, stroke: Color=C_LINE) -> StyleBoxFlat:
  var s := StyleBoxFlat.new()
  s.bg_color=fill
@@ -52,7 +61,7 @@ func _label(parent: Node, s: String, font_size: int=15, colour: Color=C_WHITE) -
  var l := Label.new()
  l.text=s
  l.add_theme_color_override("font_color",colour)
- l.add_theme_font_size_override("font_size",font_size)
+ l.add_theme_font_size_override("font_size",maxi(font_size,ceili(float(font_size)*minf(_touch_factor(),1.5))))
  l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  parent.add_child(l)
  return l
@@ -60,7 +69,7 @@ func _label(parent: Node, s: String, font_size: int=15, colour: Color=C_WHITE) -
 func _button(parent: Node, s: String, action: Callable, selected: bool=false, disabled: bool=false, height: float=50.0) -> Button:
  var b := Button.new()
  b.text=s
- b.custom_minimum_size.y=height
+ b.custom_minimum_size.y=_minimum_hit_height(height)
  b.focus_mode=Control.FOCUS_ALL
  b.mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
  b.disabled=disabled
@@ -103,7 +112,7 @@ func _transport(parent: Node, caption: String, action: Callable) -> TextureButto
  b.stretch_mode=TextureButton.STRETCH_KEEP_ASPECT_CENTERED
  b.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
  b.flip_h=caption=="PREVIOUS"
- b.custom_minimum_size=Vector2(76,53)
+ b.custom_minimum_size=Vector2(maxf(76.0,ceilf(58.0*_touch_factor())),_minimum_hit_height(53.0))
  var base := "res://bandmaster_premium_controls_lab/assets/transport_studio_"
  b.texture_normal=load(base+"idle.png")
  b.texture_hover=load(base+"hover.png")
@@ -237,7 +246,7 @@ func _recruitment(parent: Node) -> void:
  if not _wide:
   _label(top,"200 POINT CAP",12,C_MUTED)
  var tabs_scroll := ScrollContainer.new()
- tabs_scroll.custom_minimum_size.y=60
+ tabs_scroll.custom_minimum_size.y=_minimum_hit_height(60.0)+10.0
  tabs_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO
  tabs_scroll.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
  parent.add_child(tabs_scroll)
@@ -288,7 +297,7 @@ func _portrait_and_stats(parent: Node) -> void:
  var center := _panel(parent,C_PANEL,Vector2(350,0) if _wide else Vector2.ZERO)
  center.get_parent().size_flags_stretch_ratio=1.5
  var portrait_box := PanelContainer.new()
- portrait_box.custom_minimum_size.y=310 if _wide else 175
+ portrait_box.custom_minimum_size.y=310.0 if _wide else maxf(175.0,185.0*_touch_factor())
  portrait_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  portrait_box.add_theme_stylebox_override("panel",_style(Color("#17191C"),6,Color("#6E6152")))
  center.add_child(portrait_box)
