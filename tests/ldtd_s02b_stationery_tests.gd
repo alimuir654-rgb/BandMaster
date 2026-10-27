@@ -47,6 +47,21 @@ func _run() -> void:
 	if stat == null or stat.focus_mode != Control.FOCUS_NONE or stat.mouse_filter != Control.MOUSE_FILTER_IGNORE:
 		_fail("read-only stats are interactive")
 		return
+	# Visual language must reflect game-phase state, not a baked DAY label.
+	var photo_label: Label = v.find_child("PhotoSource", true, false) as Label
+	if photo_label == null or photo_label.text != "DAY  /  REHEARSAL ROOM":
+		_fail("daytime photograph has an incorrect phase caption")
+		return
+	v.set_phase("night")
+	for i in range(8):
+		await process_frame
+	photo_label = v.find_child("PhotoSource", true, false) as Label
+	if photo_label == null or photo_label.text != "NIGHT  /  REHEARSAL ROOM":
+		_fail("night world retained incorrect DAY caption")
+		return
+	v.set_phase("day")
+	for i in range(8):
+		await process_frame
 	var base: String = JSON.stringify(v.preview_state)
 	v.choose_drummer("rae")
 	v.choose_bassist("dev")
@@ -69,6 +84,13 @@ func _run() -> void:
 	for i in range(8):
 		await process_frame
 	primary = v.find_child("FormationPrimaryAction", true, false)
+	var story: Label = v.find_child("StageDescription", true, false) as Label
+	if story == null or story.text.contains("career save"):
+		_fail("developer QA language leaked into player-facing chapter")
+		return
+	if primary.text != "FIRST CHAPTER FINISHED":
+		_fail("completion still exposes internal double-charge diagnostics")
+		return
 	if not primary.disabled or not (primary.get_theme_stylebox("disabled") is StyleBoxTexture):
 		_fail("completed decision missing physical disabled state")
 		return
