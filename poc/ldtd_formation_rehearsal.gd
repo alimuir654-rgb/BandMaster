@@ -5,6 +5,14 @@ extends Control
 const Catalogue = preload("res://Scripts/formation_catalogue.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
+## Previously validated OFL typography, brought from scene-worlds branch during CI.
+const FONT_DISPLAY := "res://Art/Fonts/BarlowCondensed-SemiBold.ttf"
+const FONT_BODY := "res://Art/Fonts/IBMPlexSans-Variable.ttf"
+const FONT_NUMBERS := "res://Art/Fonts/IBMPlexMono-Regular.ttf"
+
+func _font(path: String) -> Font:
+	return load(path) as Font if ResourceLoader.exists(path) else null
+
 const Craft = preload("res://Scripts/formation_craft_skin.gd")
 const PHASES := ["day", "dusk", "night"]
 const ROOM_PHOTO := "res://Art/Backgrounds/shared/formation.webp"
@@ -140,6 +148,10 @@ func _label(parent: Node, name_value: String, caption: String, font_size: int, c
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	l.add_theme_font_size_override("font_size", font_size)
+	var role: String = FONT_DISPLAY if name_value in ["PlayerFacingTitle","StageHeading","StageHeading","ChapterLabel","DrummerSideHeading","BassSideHeading"] else (FONT_NUMBERS if name_value in ["ReadOnlyStats","FormationStatus","MaterialGate"] else FONT_BODY)
+	var typeface: Font = _font(role)
+	if typeface != null:
+		l.add_theme_font_override("font", typeface)
 	l.add_theme_color_override("font_color", color)
 	parent.add_child(l)
 	return l
@@ -158,6 +170,9 @@ func _button(parent: Node, name_value: String, caption: String, selected: bool, 
 	b.name = name_value
 	b.text = caption
 	Craft.apply_to(b, kind, selected, 52.0 if kind == "commit" else 48.0)
+	var btnfont: Font = _font(FONT_DISPLAY if kind == "tab" or kind == "commit" else FONT_BODY)
+	if btnfont != null:
+		b.add_theme_font_override("font", btnfont)
 	b.pressed.connect(action)
 	parent.add_child(b)
 	return b
