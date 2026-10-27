@@ -204,24 +204,6 @@ func _render() -> void:
 		song_button.custom_minimum_size.y = 46 * _scale
 	_text(rack_col, "DEMO SET / NO CAREER BOOKINGS OR REWARDS", 11, Color("#B5C4C5"), "GigSetlistDisclaimer")
 
-	var meters := PanelContainer.new()
-	meters.name = "GigSignalRack"
-	meters.add_theme_stylebox_override("panel", _plate(Color("#17242A"), Color("#6D7F80"), 2))
-	col.add_child(meters)
-	var meter_margin := MarginContainer.new()
-	for side in ["left", "right"]:
-		meter_margin.add_theme_constant_override("margin_" + side, roundi(13 * _scale))
-	for side in ["top", "bottom"]:
-		meter_margin.add_theme_constant_override("margin_" + side, roundi(8 * _scale))
-	meters.add_child(meter_margin)
-	var meter_col := VBoxContainer.new()
-	meter_col.add_theme_constant_override("separation", roundi(6 * _scale))
-	meter_margin.add_child(meter_col)
-	_text(meter_col, "LIVE SIGNAL / CREW READINESS", 11, Color("#D4DEDC"))
-	_meter(meter_col, "SOUND", 7 if soundcheck_ready else (3 if equipment_ready else 1), Color("#62D69A"))
-	_meter(meter_col, "BAND", 7 if equipment_ready else 2, Color("#6FD6D6"))
-	_meter(meter_col, "CROWD", 3 if phase == "day" else (5 if phase == "dusk" else 8), Color("#E6AE55"))
-
 	var safety := HBoxContainer.new()
 	safety.name = "GigSafetyControls"
 	safety.add_theme_constant_override("separation", roundi(7 * _scale))
@@ -241,6 +223,24 @@ func _render() -> void:
 	_button(cue_row, "Ⅱ  " + ("RELEASE" if held else "HOLD"), held, toggle_hold, p, "GigHold", "hold")
 	var encore := _button(cue_row, "★  ENCORE", encore_fired, fire_encore, p, "GigEncore", "encore")
 	encore.disabled = not can_encore()
+
+	var meters := PanelContainer.new()
+	meters.name = "GigSignalRack"
+	meters.add_theme_stylebox_override("panel", _plate(Color("#17242A"), Color("#6D7F80"), 2))
+	col.add_child(meters)
+	var meter_margin := MarginContainer.new()
+	for side in ["left", "right"]:
+		meter_margin.add_theme_constant_override("margin_" + side, roundi(13 * _scale))
+	for side in ["top", "bottom"]:
+		meter_margin.add_theme_constant_override("margin_" + side, roundi(8 * _scale))
+	meters.add_child(meter_margin)
+	var meter_col := VBoxContainer.new()
+	meter_col.add_theme_constant_override("separation", roundi(6 * _scale))
+	meter_margin.add_child(meter_col)
+	_text(meter_col, "LIVE SIGNAL / CREW READINESS", 11, Color("#D4DEDC"))
+	_meter(meter_col, "SOUND", 7 if soundcheck_ready else (3 if equipment_ready else 1), Color("#62D69A"))
+	_meter(meter_col, "BAND", 7 if equipment_ready else 2, Color("#6FD6D6"))
+	_meter(meter_col, "CROWD", 3 if phase == "day" else (5 if phase == "dusk" else 8), Color("#E6AE55"))
 
 	var footer := PanelContainer.new()
 	footer.name = "GigActionDock"
