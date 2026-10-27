@@ -55,6 +55,10 @@ func _run() -> void:
 		quit(1)
 		return
 	var pixel_scale := float(DisplayServer.window_get_size().x) / float(view.get_viewport_rect().size.x)
+	if readout.get_line_count() != 1 or readout.get_global_rect().size.x * pixel_scale < 60.0:
+		push_error("WRITING CAPTURE: BPM readout wrapped or collapsed into a vertical column")
+		quit(1)
+		return
 	if primary.custom_minimum_size.y * pixel_scale < 44.0:
 		push_error("WRITING CAPTURE: preview tap target under 44px")
 		quit(1)
