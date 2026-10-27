@@ -8,7 +8,7 @@
 4. **One owner scene-by-scene review sweep**, record defects, and do a deepening second pass by severity and player impact. Reserve final work for visual consistency, accessibility, saves/regression and integration.
 
 ## Approved target-state visual references (27 Oct)
-Actual PNG owner-approved concept snapshots have been packaged as `LivinTheDream_Approved_TargetViews_Repo_Import.zip`, SHA-256 `b9d7374ff43684ceffffd2356f7fe3b89f065576164506867e74b1f8061979a2`; this ZIP was created in the owner conversation but is not yet necessarily in the GitHub repository.
+Actual PNG owner-approved concept snapshots have been packaged as `LivinTheDream_Approved_TargetViews_Repo_Import.zip`, SHA-256 `f7049134dad06295bc01e17219c9139d9f0cd0029580c6574875484c223d1c42`; this ZIP was created in the owner conversation but is not yet necessarily in the GitHub repository.
 - `01_Songwriting_Rotary_Approved.png`, SHA `cac57df8c09be44f34cb761d20e492eead9f8e565ea755fa6b18ee6cf79a8443`: bright DAY, flush dark metal/cream housing, premium brushed rotary encoders and exact LED rings.
 - `02_Tour_Planning_Paper_Approved.png`, SHA `2eab9a78bdde66219a99b59edb38d2a120f85cb171c484bfafd627f86d0328a0`: genuinely tactile clipped itinerary, road-map strip, checklists, ticket, pen/tape and documents; DAY **much lighter**.
 - `03_Gig_Night_Showboard_Approved.png`, SHA `8dba2da1add21a3fe5835385bd55f949e49f7a9031a7e710a5270742ce2c2540`: gig NIGHT call-board with real paper/setlist/pen/highlighter/tape and practical stage atmosphere.
