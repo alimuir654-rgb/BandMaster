@@ -209,7 +209,9 @@ func _rebuild() -> void:
 	var tempo_row := HBoxContainer.new()
 	tempo_row.add_theme_constant_override("separation", roundi(8 * _scale))
 	rack_col.add_child(tempo_row)
-	_text(tempo_row, "TEMPO", 12, Color("#E3E6DF"))
+	var tempo_caption: Label = _text(tempo_row, "TEMPO", 12, Color("#E3E6DF"))
+	tempo_caption.autowrap_mode = TextServer.AUTOWRAP_OFF
+	tempo_caption.custom_minimum_size.x = 52 * _scale
 	var tempo_slider := HSlider.new()
 	tempo_slider.name = "TempoSlider"
 	tempo_slider.min_value = 65
@@ -222,6 +224,9 @@ func _rebuild() -> void:
 	tempo_slider.value_changed.connect(func(v: float) -> void: set_tempo(int(v)))
 	tempo_row.add_child(tempo_slider)
 	_tempo_label = _text(tempo_row, "%d BPM" % tempo, 13, Color("#F4D5A1"), "TempoReadout")
+	_tempo_label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	_tempo_label.custom_minimum_size.x = 67 * _scale
+	_tempo_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_text(col, "LOCAL DRAFT ONLY / NO BAND TIME, CASH OR SONG DATA CHANGED", 11, p["muted"], "WritingDisclaimer")
 
 	# Fixed dock: the preview action remains visible when the writing desk scrolls.
