@@ -71,8 +71,11 @@ func _capture() -> void:
 		return
 	var journal: Label = view.find_child("JournalEntry", true, false)
 	var gate: Label = view.find_child("MaterialGate", true, false)
-	if journal == null or gate == null or journal.get_global_rect().end.y + 3.0 > gate.get_global_rect().position.y:
-		_fail("scrapbook journal and material gate overlap")
+	if journal == null or gate == null:
+		_fail("missing scrapbook journal or material provenance")
+		return
+	if journal.position.y + journal.size.y + 3.0 > gate.position.y:
+		_fail("scrapbook journal and material gate overlap (note end %.1f, gate top %.1f)" % [journal.position.y + journal.size.y, gate.position.y])
 		return
 	var chapter: Label = view.find_child("ChapterLabel", true, false)
 	var gallery: Button = view.find_child("ReturnToGallery", true, false)
