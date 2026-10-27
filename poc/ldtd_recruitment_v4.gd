@@ -245,27 +245,29 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
 
 func _dossier(parent: Node,p: Dictionary,b:Rect2,compact:bool=false) -> void:
  _art(parent,ART+"paper_personnel.svg",b.position.x,b.position.y,b.size.x,b.size.y)
- var x:=b.position.x+20.0
+ # The original paper has a punched binding margin. Keep every text line
+ # entirely to the right of the punch holes, even at 390 physical pixels.
+ var x:=b.position.x+43.0
  var y:=b.position.y+18.0
- var w:=b.size.x-40.0
- var ratio:=b.size.y/440.0
- _text(parent,"PERSONNEL NOTES   /   "+str(p["name"]).to_upper(),x,y,w,31,21,INK,FONT_TITLE)
- y+=38
- _text(parent,str(p["story"]),x,y,w,102.0*ratio,14,INK,FONT_BODY,true)
- y+=108.0*ratio
- _text(parent,"+ "+str(p["strength"]),x,y,w,50.0*ratio,14,GREEN,FONT_BODY,true)
- y+=54.0*ratio
- _text(parent,"− "+str(p["friction"]),x,y,w,50.0*ratio,14,RED,FONT_BODY,true)
- y+=56.0*ratio
- _text(parent,str(p["personality"]).to_upper()+"  •  TROUBLE: "+str(p["trouble"]).to_upper(),x,y,w,27,14,INK,FONT_TITLE)
- y+=32
- _text(parent,str(p["bands"])+" PRIOR BANDS   /   "+str(p["experience_years"])+" YEARS",x,y,w,26,14,INK,FONT_MONO)
- y+=29
- _text(parent,str(p["age"])+" YEARS OLD   •   "+str(p["town"]),x,y,w,26,14,INK,FONT_MONO)
- y+=29
- if not compact:
-  _text(parent,str(p["ambition"]),x,y,w,48,14,INK,FONT_BODY,true)
- _text(parent,"TALENT   "+str(Model.incremental_cost(roster,p))+" POINTS",x,b.position.y+b.size.y-53,w,28,20,INK,FONT_TITLE)
+ var w:=b.size.x-65.0
+ var u:=clampf(b.size.y/528.0,1.0,1.22)
+ _text(parent,"PERSONNEL NOTES / "+str(p["name"]).to_upper(),x,y,w,31,21,INK,FONT_TITLE)
+ y+=38.0
+ _text(parent,str(p["story"]),x,y,w,112.0*u,16,INK,FONT_BODY,true)
+ y+=116.0*u
+ _text(parent,"+ "+str(p["strength"]),x,y,w,64.0*u,16,GREEN,FONT_BODY,true)
+ y+=68.0*u
+ _text(parent,"− "+str(p["friction"]),x,y,w,64.0*u,16,RED,FONT_BODY,true)
+ y+=68.0*u
+ _text(parent,str(p["personality"]).to_upper()+"  •  TROUBLE: "+str(p["trouble"]).to_upper(),x,y,w,30,15,INK,FONT_TITLE)
+ y+=34.0
+ _text(parent,str(p["bands"])+" PRIOR BANDS / "+str(p["experience_years"])+" YEARS",x,y,w,26,15,INK,FONT_MONO)
+ y+=30.0
+ _text(parent,str(p["age"])+" YEARS OLD  •  "+str(p["town"]),x,y,w,26,15,INK,FONT_MONO)
+ y+=30.0
+ # The ambition is content, not optional decoration: mobile paper has room.
+ _text(parent,str(p["ambition"]),x,y,w,66.0*u,16,INK,FONT_BODY,true)
+ _text(parent,"TALENT  "+str(Model.incremental_cost(roster,p))+" POINTS",x,b.position.y+b.size.y-53,w,28,20,INK,FONT_TITLE)
 
 func _landscape_scene(parent: Node) -> void:
  var s:float=minf(_view_w/1600.0,_view_h/900.0)
@@ -336,7 +338,7 @@ func _roster_dock(layout: Node,w:float,h:float,wide:bool) -> void:
   _text(layout,"CURRENT LINEUP  /  "+str(roster.size())+" MEMBERS",75,y,420,32,25,WHITE,FONT_TITLE)
   for i in range(6):
    var value: String="EMPTY" if i>=roster.size() else str(roster[i]["name"])
-   _text(layout,value,75+i*159,y+39,151,35,17,CREAM if i<roster.size() else MUTED,FONT_TITLE)
+   _text(layout,value,75+i*159,y+24,151,35,17,CREAM if i<roster.size() else MUTED,FONT_TITLE)
   _text(layout,str(Model.MAX_TALENT-Model.spent(roster))+" / "+str(Model.MAX_TALENT)+" TALENT LEFT",1150,y,342,40,25,AMBER,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_RIGHT)
   if step!=1:
    _plate(layout,"BACK",Rect2(1120,715,170,55),func() -> void: _back(),false,true,"metal_tab",23)
@@ -384,17 +386,23 @@ func _mobile_genre(parent: Node,w:float,h:float) -> void:
  _plate(parent,"MEET THE MUSICIANS",Rect2(18,h-184,w-36,48),func() -> void: _next(),false,true,"amber_key",23)
 
 func _mobile_recruit(parent: Node,w:float,h:float) -> void:
- _text(parent,genre.to_upper(),13,99,w-26,27,15,AMBER,FONT_MONO)
+ var can_name:bool=Model.viable(roster)
+ _text(parent,genre.to_upper(),13,99,w-180 if can_name else w-26,27,15,AMBER,FONT_MONO)
+ # Once a lineup is viable, the phone must expose the name-last step.
+ # Keep the dossier and add/remove controls available in their original places.
+ if can_name:
+  _plate(parent,"NAME BAND ›",Rect2(w-164,86,152,45),func() -> void: _next(),false,true,"amber_key",17)
  # All five role tabs are proper horizontally browsable native inputs, never default tabs.
  var roles: Array=Model.ROLE_TABS
- var active_idx:int=roles.find(role)
+ # Five roles must be directly reachable on a phone; the old three-window
+ # rail trapped users on Singers/Guitarists/Bassists with no way to reach Keys/Drums.
+ var captions:=["SING","GUITAR","BASS","KEYS","DRUMS"] if w<450.0 else ["SINGER","GUITAR","BASS","KEYS","DRUMS"]
+ var gap:=5.0
+ var tab_w:float=(w-24.0-4.0*gap)/5.0
  for idx in range(5):
   var v:String=str(roles[idx])
-  # First four in phone folded rail; current tab always visible via changing the three-window origin.
-  var origin:=clampi(active_idx-1,0,2)
-  if idx<origin or idx>=origin+3:continue
-  var xx:float=12.0+float(idx-origin)*(w-30.0)/3.0
-  _plate(parent,v.to_upper(),Rect2(xx,127,(w-36.0)/3.0,47),func() -> void: _set_role(v),v==role,true,"metal_tab",17)
+  var xx:float=12.0+float(idx)*(tab_w+gap)
+  _plate(parent,str(captions[idx]),Rect2(xx,134,tab_w,47),func() -> void: _set_role(v),v==role,true,"metal_tab",16)
  var p:Dictionary=_current()
  selected=p
  if p.is_empty():return
