@@ -235,12 +235,13 @@ func _rebuild() -> void:
 	dock.name = "WritingActionDock"
 	dock.add_theme_stylebox_override("panel", _plate(p["surface"], p["border"], 1))
 	add_child(dock)
-	dock.anchor_left = 0
-	dock.anchor_right = 1
+	var dock_width := minf(720.0 * _scale, get_viewport_rect().size.x - 16.0 * _scale)
+	dock.anchor_left = 0.5
+	dock.anchor_right = 0.5
 	dock.anchor_top = 1
 	dock.anchor_bottom = 1
-	dock.offset_left = 8 * _scale
-	dock.offset_right = -8 * _scale
+	dock.offset_left = -dock_width * 0.5
+	dock.offset_right = dock_width * 0.5
 	dock.offset_top = -dock_height
 	dock.offset_bottom = -4 * _scale
 	var dock_margin := MarginContainer.new()
