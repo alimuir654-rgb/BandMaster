@@ -56,6 +56,13 @@ func _capture() -> void:
   if button is Button and button.is_visible_in_tree() and not button.disabled and button.get_global_rect().size.y*multiplier>=44.0 and button.get_global_rect().end.y*multiplier <= float(height)+2.0:
    eligible+=1
  if eligible==0:
+  print("V3 SCREENSHOT DIAGNOSTIC window=",DisplayServer.window_get_size()," viewport=",view.get_viewport_rect().size," scale=",multiplier," buttons=",actions.size()," step=",view.step)
+  for b in actions:
+   if b is Button and b.is_visible_in_tree():
+    print("V3 BUTTON ",b.text," disabled=",b.disabled," rect=",b.get_global_rect())
+  var debug_image: Image=get_root().get_texture().get_image()
+  DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(output.get_base_dir()))
+  debug_image.save_png(ProjectSettings.globalize_path(output))
   _fail("no first-fold physical >=44px actionable button")
   return
  if stage=="recruit":
