@@ -1,0 +1,81 @@
+name: Premium Lab 08.4 — assemble verified original hardware sources
+on:
+  push:
+    branches:
+      - premium-hardware-eight-control-families-2026-10-27
+    paths:
+      - BandMaster_Lab08_4_Repo_Import_Part2.zip
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  assemble-lab08:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Verify two original-art archives and safely assemble isolated Godot source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from zipfile import ZipFile
+          from hashlib import sha256
+          from pathlib import Path, PurePosixPath
+          import stat
+          parts=[
+            ("BandMaster_Lab08_4_Repo_Import_Part1.zip", "01b8931c7b7a25ef466b84ca4fea9b1cd2e8496bf21c1d1398c6cea15ecf2266", 102),
+            ("BandMaster_Lab08_4_Repo_Import_Part2.zip", "925e64b6da9276a7418e52e4bcd16089b9175c6cafe413e600153cb3d04a7f49", 44),
+          ]
+          members=[]
+          seen=set()
+          for name,expected,count in parts:
+            p=Path(name)
+            assert p.is_file(),f'Missing required owner archive {name}'
+            assert sha256(p.read_bytes()).hexdigest()==expected,f'Unexpected ZIP bytes: {name}'
+            with ZipFile(p) as z:
+              entries=[i for i in z.infolist() if not i.is_dir()]
+              assert z.testzip() is None and len(entries)==count,f'ZIP integrity/entry count mismatch {name}'
+              for entry in entries:
+                rel=PurePosixPath(entry.filename)
+                mode=entry.external_attr >> 16
+                assert not rel.is_absolute() and '..' not in rel.parts and not stat.S_ISLNK(mode),f'Unsafe member: {rel}'
+                path=str(rel)
+                allowed=(rel.parts[0]=='bandmaster_premium_dashboard_poc' or
+                         path in ('docs/PREMIUM_LAB08_ASSEMBLY.md','tools/validate_lab08_assembly.py',
+                                  'Art/References/PremiumHardware/Lab08_ASSEMBLY_SHA256.json'))
+                assert allowed,f'Unexpected path {path}'
+                assert path not in seen,f'Duplicate member {path}'
+                assert not Path(path).exists(),f'Would overwrite existing file {path}'
+                seen.add(path)
+                assert entry.file_size < 5_000_000, f'Unusually large file: {path}'
+                members.append((name,path))
+          assert len(seen)==146,len(seen)
+          for name,path in members:
+            with ZipFile(name) as z:payload=z.read(path)
+            dst=Path(path)
+            dst.parent.mkdir(parents=True,exist_ok=True)
+            dst.write_bytes(payload)
+          print(f'PASS extracted {len(seen)} Lab08 source and manifest files without overwrite')
+          PY
+          python tools/validate_lab08_assembly.py
+          python -m pip install --disable-pip-version-check --quiet Pillow numpy
+          python bandmaster_premium_dashboard_poc/tests/validate_lab084.py
+      - name: Commit isolated source files to the draft branch only
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add bandmaster_premium_dashboard_poc \
+                  docs/PREMIUM_LAB08_ASSEMBLY.md \
+                  tools/validate_lab08_assembly.py \
+                  Art/References/PremiumHardware/Lab08_ASSEMBLY_SHA256.json
+          git diff --cached --check
+          git diff --cached --quiet && { echo "No changes"; exit 0; }
+          git commit -m 'Restore original Lab08 baseline with 08.2–08.4 precision-control patches'
+          git push origin HEAD:premium-hardware-eight-control-families-2026-10-27
