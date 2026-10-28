@@ -76,6 +76,22 @@ func _run() -> void:
   if name_key.get_global_rect().size.y*scale_x<44.0:
    _fail("name-stage key below 44 physical pixels")
    return
+ # Real visual defect regression at 09:07: the 160x160 Alex photo was
+ # severely cropped in both wide hero frames. Preserve the entire source
+ # until the rights-traced portrait masters replace the legacy thumbnails.
+ if stage=="recruit" and (width==390 or width==1280):
+  var hero_source:TextureRect=view.find_child("RecruitmentPortrait",true,false) as TextureRect
+  if hero_source==null or hero_source.texture==null:
+   _fail("missing sourced Alex hero for crop-policy check")
+   return
+  var source_dims:Vector2=hero_source.texture.get_size()
+  var is_legacy:bool=minf(source_dims.x,source_dims.y)<512.0
+  var ratio_source:float=source_dims.x/maxf(source_dims.y,1.0)
+  var ratio_frame:float=hero_source.size.x/maxf(hero_source.size.y,1.0)
+  var fraction_visible:float=minf(ratio_source/ratio_frame,ratio_frame/ratio_source)
+  if is_legacy and fraction_visible<0.84 and hero_source.stretch_mode!=TextureRect.STRETCH_KEEP_ASPECT_CENTERED:
+   _fail("wide hero cropped legacy identity portrait instead of preserving full face")
+   return
  var hit_count:=0
  var touches:=view.find_children("*","TextureButton",true,false)
  for child in touches:

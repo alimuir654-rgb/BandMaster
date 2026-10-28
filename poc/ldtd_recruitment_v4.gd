@@ -224,7 +224,21 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
  var pic:TextureRect
  if ResourceLoader.exists(path):
   pic=_art(parent,path,b.position.x,b.position.y,b.size.x,b.size.y)
-  pic.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  # The legacy Alex/Jo/Sam 160px square thumbnails are NOT portrait masters.
+  # Cover-scaling square faces into the wide phone/desktop hero was cutting
+  # off the forehead, chin and shoulders (confirmed in 09:07 native captures).
+  # Preserve the complete provisional picture; the material frame fills the
+  # sides. Full-resolution future portrait masters can still use cover scaling.
+  var source_size:Vector2=pic.texture.get_size()
+  var source_ratio:float=source_size.x/maxf(source_size.y,1.0)
+  var target_ratio:float=b.size.x/maxf(b.size.y,1.0)
+  var visible_fraction:float=minf(source_ratio/target_ratio,target_ratio/source_ratio)
+  var low_res:bool=minf(source_size.x,source_size.y)<512.0
+  pic.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED if low_res and visible_fraction<0.84 else TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  if low_res:
+   # Native text makes an existing low-resolution source impossible to mistake
+   # for approved production photography. This is not a new character image.
+   _text(parent,"LEGACY PHOTO  •  ART PENDING",b.position.x+9,b.position.y+7,b.size.x-18,23,12,AMBER,FONT_MONO)
  else:
   pic=_art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
   _text(parent,"PORTRAIT\nART PENDING",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,22,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
