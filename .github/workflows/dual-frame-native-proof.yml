@@ -43,7 +43,7 @@ jobs:
           p=Path(os.environ["ROOT"])/"scene/frame_demo.gd"
           s=p.read_text()
           s=re.sub(r"\bmaterial\b", "frame_material_kind", s)
-          s=s.replace("body = HBoxContainer.new()", "body = BoxContainer.new()")
+          s=s.replace("HBoxContainer.new()", "BoxContainer.new()")
           p.write_text(s)
           print("Fixed Control.material naming collision")
           PY
