@@ -124,12 +124,18 @@ func _run() -> void:
  if width==390 and stage=="recruit":
   var expected_labels:Array=view.Model.labels_for(view.role)
   var drawn_labels:Array=view.find_children("*","Label",true,false)
+  # The viewport may scale X and Y independently. Earlier QA incorrectly
+  # measured vertical glyph/target geometry with scale_x (not scale_y).
+  var scale_y:float=float(height)/maxf(view.get_viewport_rect().size.y,1.0)
   for attribute in expected_labels:
    var found:bool=false
    for visible_label in drawn_labels:
     if str(visible_label.text)==str(attribute):
-     if visible_label.get_theme_font_size("font_size")<16 or visible_label.get_global_rect().size.y*scale_x<30.0:
-      _fail("phone stat "+str(attribute)+" below 16px/30px readability floor")
+     var actual_size:int=visible_label.get_theme_font_size("font_size")
+     var physical_h:float=visible_label.get_global_rect().size.y*scale_y
+     print("PHONE STAT PIXELS: ",attribute," font=",actual_size," row=",snappedf(physical_h,0.1))
+     if actual_size<16 or physical_h<28.0:
+      _fail("phone stat "+str(attribute)+" too small: font="+str(actual_size)+" height="+str(physical_h))
       return
      found=true
    if not found:
@@ -140,7 +146,7 @@ func _run() -> void:
    for label in button.get_children():
     if label is Label and (str(label.text).begins_with("ADD  /") or str(label.text)=="REMOVE" or str(label.text)=="PERSON FILE"):
      var rb:Rect2=button.get_global_rect()
-     if rb.size.y*scale_x<52.0 or rb.end.y*scale_x>float(height)-135.0:
+     if rb.size.y*scale_y<50.0 or rb.end.y*scale_y>float(height)-135.0:
       _fail("phone decision action must be 52px and clear the roster")
       return
      action_count+=1

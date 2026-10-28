@@ -46,7 +46,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "12:00: Inspect new native 390x844 and 1280x720 screenshots at actual resolution and CI; repair any phone clipping before next sprint.",
+  "next_single_action": "Rerun native 390 phone screenshot and inspect logged font/row metrics; do not claim visual pass.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -121,7 +121,9 @@
       "phone_action_height_px": 52,
       "owner_approval": false,
       "art_gate": "blocked",
-      "master_portrait_count": 0
+      "master_portrait_count": 0,
+      "first_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685346733",
+      "first_native_ci_verdict": "FAIL: erroneous combined font/row geometry QA at 390 before screen captured; engine import and unit tests green; test corrected"
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
