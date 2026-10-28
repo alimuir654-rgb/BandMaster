@@ -8,7 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch uploaded ZIP from main\n        run: |\n          git fetch --depth=1 origin main\n          git show FETCH_HEAD:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip\n      - name: Extract experiment and inspect structure
+      - name: Fetch uploaded ZIP from main
+        run: |
+          git fetch --depth=1 origin main
+          git show FETCH_HEAD:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip
+      - name: Extract experiment and inspect structure
         run: |
           python3 - <<'PY'
           import zipfile, pathlib
