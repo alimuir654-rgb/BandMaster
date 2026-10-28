@@ -13,18 +13,59 @@ jobs:
   native-art:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
+    env:
+      ROOT: frame-proof/BandMaster_Frame_Experiment
+      LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@v4
-      - name: Collect pinned source artwork and provenance
+      - name: Acquire pinned original sources and successful baseline instructions
         run: |
           git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
-          mkdir -p art-sources
-          git archive FETCH_HEAD Art .agents/recruitment docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md docs/RECRUITMENT_REFERENCE_LOCK.md docs/recruitment_recovery bandmaster_premium_controls_lab bandmaster_premium_dashboard_poc docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md | tar -x -C art-sources
-          find art-sources -type f | sort > art-sources/inventory.txt
+          mkdir -p art-sources proof-shots
+          git archive FETCH_HEAD Art bandmaster_premium_controls_lab docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md | tar -x -C art-sources
+          git fetch --depth=1 origin 981bbdcd8908049ddc72f71606461676520e8630
+          git show FETCH_HEAD:.github/workflows/dual-frame-native-proof.yml > /tmp/verified-baseline.yml
+      - name: Install pinned engine and real renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil python3-yaml
+          curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+          godot --version
+      - name: Build materials and validate actual scenes before rendering
+        run: |
+          python3 - <<'PY'
+          import yaml, subprocess
+          steps=yaml.safe_load(open('/tmp/verified-baseline.yml'))['jobs']['native']['steps']
+          def run(name):
+              step=next(s for s in steps if s.get('name')==name)
+              subprocess.run(['bash','-e','-o','pipefail','-c',step['run']],check=True)
+          run('Extract original ZIP and load pinned canonical catalogue')
+          run('Repair actual source and both scene bindings before import')
+          subprocess.run(['python3','experiments/art_material/prepare_art.py'],check=True)
+          run('Create native interaction and screenshot test')
+          PY
+      - name: Render and verify 32 source-backed material states
+        timeout-minutes: 3
+        run: |
+          python3 - <<'PY'
+          import yaml, subprocess
+          steps=yaml.safe_load(open('/tmp/verified-baseline.yml'))['jobs']['native']['steps']
+          for name in ['Render 32 screenshots and verify interactions and live resize','Reject duplicate themes and publish review index']:
+              step=next(s for s in steps if s.get('name')==name)
+              subprocess.run(['bash','-e','-o','pipefail','-c',step['run']],check=True)
+          PY
+          cp "$ROOT/MATERIAL_MANIFEST.json" proof-shots/
+          cp "$ROOT/assets/material/SOURCE_PHOTO_MANIFEST.json" proof-shots/
+          cp art-sources/docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md proof-shots/
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: pinned-art-production-sources
-          path: art-sources/
-          retention-days: 7
+          name: art-material-native-proof
+          path: |
+            proof-shots/
+            frame-proof/BandMaster_Frame_Experiment/scene/frame_demo.gd
+            frame-proof/BandMaster_Frame_Experiment/assets/material/
+          retention-days: 14
           compression-level: 1
-          include-hidden-files: true
