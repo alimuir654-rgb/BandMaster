@@ -1,0 +1,93 @@
+name: Recruitment R1 — design-only art review source intake
+
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'BandMaster_R1_Art_Direction_Explorations_2026-10-28.zip'
+      - '.github/workflows/recruitment-r1-review-art-intake.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: recruitment-r1-review-art-intake
+  cancel-in-progress: false
+
+jobs:
+  verify-and-archive-design-explorations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Validate byte-exact R1 image-generation review pack, no production-asset promotion
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, pathlib, stat, zipfile
+          name=pathlib.Path('BandMaster_R1_Art_Direction_Explorations_2026-10-28.zip')
+          if not name.is_file():
+              raise SystemExit('R1 image review ZIP is NOT uploaded; no action')
+          expect='5af8ab767fc7038b30569554c8211039c4dd1e2f8b5b06ffd6378d56b62fc943'
+          if hashlib.sha256(name.read_bytes()).hexdigest()!=expect:
+              raise SystemExit('STOP: unexpected design ZIP SHA')
+          target_root=pathlib.Path('Art/References/RecruitmentR1')
+          with zipfile.ZipFile(name) as z:
+              infos=[i for i in z.infolist() if not i.is_dir()]
+              names={i.filename for i in infos}
+              if z.testzip() is not None or len(infos)!=10 or len(names)!=10:
+                  raise SystemExit('STOP: wrong archive inventory')
+              allowed={'README.md','R1_ART_AUDIT.json','SHA256SUMS.txt',
+                       'explorations/A-01-physical-studio.png',
+                       'explorations/A-02-contact-sheet.png',
+                       'explorations/A-03-case-dossier.png',
+                       'explorations/A-04-recruitment-camera.png',
+                       'review/R1-visual-options-contact-sheet.jpg',
+                       'review/DESIGN_ONLY_desktop_1280x720.jpg',
+                       'review/DESIGN_ONLY_phone_390x844.jpg'}
+              if names!=allowed:
+                  raise SystemExit('STOP: unexpected or missing member names')
+              audit=json.loads(z.read('R1_ART_AUDIT.json'))
+              if audit.get('art_target_pass') is not False or audit.get('owner_visual_approval') is not False or audit.get('standalone_portrait_master_count')!=0:
+                  raise SystemExit('STOP: intake may not imply an art or owner approval')
+              checks={}
+              for line in z.read('SHA256SUMS.txt').decode().splitlines():
+                  digest, rel=line.split('  ',1)
+                  if rel in checks: raise SystemExit('duplicate SHA member')
+                  checks[rel]=digest
+              if set(checks)!=names-{'SHA256SUMS.txt'}:
+                  raise SystemExit('STOP: incomplete SHA list')
+              staged=[]
+              for info in infos:
+                  p=pathlib.PurePosixPath(info.filename)
+                  mode=info.external_attr>>16
+                  if p.is_absolute() or '..' in p.parts or '\\' in info.filename or stat.S_ISLNK(mode) or info.file_size>4000000:
+                      raise SystemExit('STOP: unsafe member')
+                  data=z.read(info)
+                  if info.filename!='SHA256SUMS.txt' and hashlib.sha256(data).hexdigest()!=checks[info.filename]:
+                      raise SystemExit('STOP: corrupt source image or audit')
+                  dest=target_root/info.filename
+                  if dest.exists() and dest.read_bytes()!=data:
+                      raise SystemExit('STOP: refusing overwrite of existing art source')
+                  staged.append((dest,data))
+              for dest,data in staged:
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(data)
+          print('R1 REVIEW PACK VERIFIED, design-only. Owner/native/art gates stay BLOCKED.')
+          PY
+      - name: Commit art studies to archived references, never shippable recruitment sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/References/RecruitmentR1
+          git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'Exact R1 reference bytes already archived'
+          else
+            git commit -m 'Archive generated R1 design-only recruitment explorations (art P0 remains blocked)'
+            git push origin HEAD:first-pass-scene-sweep-2026-10-27
+          fi
