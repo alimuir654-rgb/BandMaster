@@ -36,7 +36,8 @@ jobs:
       - name: Build materials and validate actual scenes before rendering
         run: |
           python3 - <<'PY'
-          import yaml, subprocess
+          import yaml, subprocess, os
+          from pathlib import Path
           steps=yaml.safe_load(open('/tmp/verified-baseline.yml'))['jobs']['native']['steps']
           def run(name):
               step=next(s for s in steps if s.get('name')==name)
@@ -44,7 +45,14 @@ jobs:
           run('Extract original ZIP and load pinned canonical catalogue')
           run('Repair actual source and both scene bindings before import')
           subprocess.run(['python3','experiments/art_material/prepare_art.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/refine_art.py'],check=True)
           run('Create native interaction and screenshot test')
+          p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
+          s=p.read_text()
+          marker='check(scene.stat_rows.get_child_count() == 6, "Wrong attribute count " + prefix)'
+          assert marker in s
+          s=s.replace(marker,marker+'\n            check(Rect2(Vector2.ZERO,Vector2(sz)).encloses(scene.stat_rows.get_global_rect()), "Stats offscreen " + prefix)')
+          p.write_text(s)
           PY
       - name: Render and verify 32 source-backed material states
         timeout-minutes: 3
