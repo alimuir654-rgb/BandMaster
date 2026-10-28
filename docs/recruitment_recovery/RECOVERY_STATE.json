@@ -17,10 +17,22 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "milestones": {
-    "art_target": { "status": "blocked", "evidence": [] },
-    "source_layers": { "status": "blocked", "evidence": [] },
-    "godot_native": { "status": "blocked", "evidence": [] },
-    "visual_qa": { "status": "blocked", "evidence": [] }
+    "art_target": {
+      "status": "blocked",
+      "evidence": []
+    },
+    "source_layers": {
+      "status": "blocked",
+      "evidence": []
+    },
+    "godot_native": {
+      "status": "blocked",
+      "evidence": []
+    },
+    "visual_qa": {
+      "status": "blocked",
+      "evidence": []
+    }
   },
   "native_screenshots": {
     "390x844": null,
@@ -28,9 +40,24 @@
   },
   "native_ci_url": null,
   "known_art_p0": [
-    "Two believable, visually distinct musician portraits in one coherent style not produced/approved",
-    "Finished desktop and phone recruitment art targets not produced/approved",
-    "Existing clip-art/native proof is materially below owner-approved physical look"
+    "No individually generated identity-specific source portrait masters for alex / nia_griffiths",
+    "Four exploratory mockups contain fictional candidate Nia Carter, prices, stat labels and talent counts: not authoritative game data",
+    "Desktop and phone views are cropped flattened generated compositions, not independent authored responsive source layers",
+    "Six read-only attributes should be beneath portrait, not scattered in unsupported regions",
+    "Owner-approved 1536x1024 reference binary not verified in GitHub; no new Godot capture or owner signoff"
   ],
-  "next_single_action": "R1: produce two strong identity-safe musician source portraits plus authored desktop and phone art targets; compare against V4 reference, record source rights and exact files"
+  "next_single_action": "Produce two separate master portraits for actual catalogue IDs alex and nia_griffiths; ensure same plausible documentary style, record real bytes/provenance, then author independent desktop and mobile screen targets. Existing generated UI boards are unapproved illustrative only.",
+  "art_exploration": {
+    "status": "generated_unapproved_not_in_repository",
+    "designs": 4,
+    "source_resolution": "1536x1024",
+    "source_zip_filename": "BandMaster_R1_Art_Direction_Explorations_2026-10-28.zip",
+    "source_zip_sha256": "5af8ab767fc7038b30569554c8211039c4dd1e2f8b5b06ffd6378d56b62fc943",
+    "source_zip_committed": false,
+    "standalone_portrait_masters": 0,
+    "desktop_target_independently_authored": false,
+    "phone_target_independently_authored": false,
+    "review_doc": "docs/recruitment_recovery/10_R1_IMAGE_GENERATION_REVIEW_2026-10-28.md",
+    "not_native_game_capture": true
+  }
 }
