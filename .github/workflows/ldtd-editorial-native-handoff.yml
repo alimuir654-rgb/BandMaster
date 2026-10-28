@@ -1,0 +1,99 @@
+name: LDTD editorial recruitment — isolated native Godot art handoff
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'poc/ldtd_editorial_native_handoff.*'
+      - 'tests/capture_ldtd_editorial_native_handoff.gd'
+      - 'tests/ldtd_editorial_native_handoff_tests.gd'
+      - '.github/workflows/ldtd-editorial-native-handoff.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ldtd-editorial-native-handoff
+  cancel-in-progress: true
+jobs:
+  isolated-native-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install verified Godot 4.7.2 and physical-display screenshot dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+          python -m pip install --disable-pip-version-check --quiet pillow cairosvg
+      - name: Import all original source-backed textures and run deterministic local-model test
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/editorial_import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/editorial_import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_editorial_native_handoff_tests.gd 2>&1 | tee /tmp/editorial_test.log
+          grep -q 'EDITORIAL NATIVE HANDOFF TEST PASS:' /tmp/editorial_test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|EDITORIAL NATIVE TEST FAILURE:|ERROR:' /tmp/editorial_test.log
+      - name: Capture actual Godot viewport pixels at phone and landscape physical sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_editorial_native_handoff.gd -- --width="$width" --height="$height" --output="screenshots/editorial-native-${dims}.png" 2>&1 | tee /tmp/editorial_capture.log
+            grep -q 'EDITORIAL NATIVE GODOT SCREENSHOT PASS:' /tmp/editorial_capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|EDITORIAL NATIVE CAPTURE FAILURE:|ERROR:' /tmp/editorial_capture.log
+          done
+      - name: Pixel-level sanity and honest side-by-side visual evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from PIL import Image,ImageDraw,ImageStat
+          from pathlib import Path
+          import cairosvg
+          out=Path("screenshots")
+          board=Image.new("RGB",(1340,1670),(9,14,15))
+          d=ImageDraw.Draw(board)
+          y=20
+          for suffix,w,h in (("1280x720",1280,720),("390x844",390,844)):
+              native=Image.open(out/f"editorial-native-{suffix}.png").convert("RGB")
+              assert native.size==(w,h),(suffix,native.size)
+              colors=native.getcolors(maxcolors=1000000)
+              assert colors is None or len(colors)>80,("unexpected blank native screenshot",suffix)
+              sample=native.crop((int(w*.15),int(h*.20),int(w*.85),int(h*.80)))
+              assert sum(ImageStat.Stat(sample).stddev)>35,("render lacks visual content",suffix)
+              design=Path(f"docs/visual-proofs/recruitment_editorial_{'desktop_1280' if w==1280 else 'phone_390'}.svg")
+              design_png=out/f"design-only-{suffix}.png"
+              cairosvg.svg2png(url=str(design),write_to=str(design_png))
+              reference=Image.open(design_png).convert("RGB")
+              assert reference.size==native.size
+              # Show the whole 1280 frame and a scaled phone frame side-by-side.
+              # This is a DESIGN vs ENGINE comparison, not an owner art approval.
+              if w==1280:
+                  board.paste(reference.resize((640,360)),(20,y+30))
+                  board.paste(native.resize((640,360)),(680,y+30))
+                  d.text((20,y),"DESIGN-ONLY SVG (left) vs REAL GODOT 4.7.2 (right) / 1280x720",fill=(242,173,57))
+                  y+=430
+              else:
+                  board.paste(reference,(130,y+30))
+                  board.paste(native,(820,y+30))
+                  d.text((20,y),"DESIGN-ONLY SVG (left) vs REAL GODOT 4.7.2 (right) / 390x844",fill=(242,173,57))
+                  y+=900
+              print("ACTUAL GODOT PIXELS VERIFIED",suffix,"RGB deviation",ImageStat.Stat(sample).stddev)
+          board.save(out/"editorial-design-vs-godot-evidence.png")
+          print("ENGINEERING GREEN IS NOT OWNER ART APPROVAL. PORTRAITS REMAIN P0.")
+          PY
+      - name: Upload native Godot screenshots, design comparison and failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ldtd-editorial-native-godot-390-1280
+          path: screenshots/*.png
+          if-no-files-found: warn
+          retention-days: 14
