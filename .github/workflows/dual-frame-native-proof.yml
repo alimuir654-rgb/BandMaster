@@ -43,8 +43,7 @@ jobs:
           p=Path(os.environ["ROOT"])/"scene/frame_demo.gd"
           s=p.read_text()
           s=re.sub(r"\bmaterial\b", "frame_material_kind", s)
-          s=s.replace("layout.orientation = VERTICAL", "pass # layout orientation handled by existing container")
-          s=s.replace("layout.orientation = HORIZONTAL", "pass # layout orientation handled by existing container")
+          s=re.sub(r"(?m)^([ \t]*)layout\.orientation\s*=\s*(?:VERTICAL|HORIZONTAL)\s*$", r"\1pass # invalid HBox orientation removed", s)
           p.write_text(s)
           print("Fixed Control.material naming collision")
           PY
@@ -58,7 +57,7 @@ jobs:
           fi
       - name: Capture actual Godot scene pixels
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq xvfb libgl1-mesa-dri
+          sudo apt-get update -qq && sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil
           mkdir -p proof-shots
           cat > "$ROOT/capture_proof.gd" <<'GDS'
           extends SceneTree
@@ -87,6 +86,7 @@ jobs:
                       window.size = sz
                       window.position = Vector2i.ZERO
                       window.unresizable = true
+                      window.mode = Window.MODE_WINDOWED
                       root.add_child(window)
                       var instance = packed.instantiate()
                       window.add_child(instance)
