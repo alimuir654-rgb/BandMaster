@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="350" viewBox="0 0 320 350" role="img" aria-label="Original layered gig-zine illustration study, not a photograph or approved production character">
+<defs><clipPath id="crop"><rect width="320" height="350"/></clipPath><pattern id="screen" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#151d1d" opacity=".22"/><circle cx="8" cy="8" r=".9" fill="#151d1d" opacity=".16"/></pattern></defs>
+<g clip-path="url(#crop)"><rect width="320" height="350" fill="#d9c5a2"/><path d="M-10 82L320 -7V127L-10 230Z" fill="#d5a15c"/><path d="M-12 292L330 131V360H-12Z" fill="#8c9782"/><rect width="320" height="350" fill="url(#screen)" opacity=".52"/><path d="M0 19L320 19M0 334L320 334" stroke="#f1e8cd" stroke-width="3" opacity=".6"/>
+<path d="M6 54l37 -11m-22 25l31 -9m211 23l44 -15m-20 26l33 -10M12 205l42 -20m217 84l49 -17" stroke="#1c2827" stroke-width="3" opacity=".38"/>
+<!-- NIA: distinct dark-skinned bassist, 3/4 left turn, bleached short curls, angular brow, hoop, green denim jacket -->
+<path d="M-15 356C2 298 46 259 103 243L139 232L198 231L265 262C296 277 322 316 338 356Z" fill="#152220" stroke="#121b1b" stroke-width="8"/>
+<path d="M13 353L66 274L119 255L147 352Z" fill="#4a6153"/><path d="M170 352L209 253L262 278L309 352Z" fill="#3c574d"/>
+<path d="M101 247L143 225L168 249L201 228L232 253L188 349L132 349Z" fill="#e2c69e" stroke="#152221" stroke-width="5"/>
+<path d="M133 233L166 273L198 234L184 303L151 306Z" fill="#1d2929"/>
+<path d="M130 220L129 185L192 185L202 240L170 260Z" fill="#6f4030" stroke="#182121" stroke-width="5"/>
+<path d="M112 107C118 61 149 47 194 54C234 60 247 95 234 146L217 194L184 219L145 210L117 180L109 137Z" fill="#8b5138" stroke="#172120" stroke-width="6"/>
+<path d="M112 121L131 176L151 197L177 211L154 207L123 181Z" fill="#603828" opacity=".8"/>
+<path d="M213 102L233 124L226 168L207 194L196 195L212 161Z" fill="#bd7950" opacity=".68"/>
+<path d="M110 125Q92 115 99 142L116 160M233 126Q251 114 250 136Q247 151 230 161" fill="#8b5138" stroke="#172120" stroke-width="4"/>
+<path d="M109 128Q102 88 128 62L145 49Q158 27 185 35Q222 30 237 68Q251 86 239 123L223 98L214 86L196 80Q172 98 143 86L126 108Z" fill="#1b2524" stroke="#111a1b" stroke-width="7"/>
+<path d="M117 90Q121 49 149 43Q176 21 202 39Q223 38 237 71L225 85Q203 63 176 71Q145 71 127 101Z" fill="#e2d1a5" stroke="#1b2220" stroke-width="5"/>
+<path d="M130 57l12 -13m-3 33l10 -29m0 36l13 -42m1 38l12 -44m0 43l13 -43m0 40l13 -32m-2 33l11 -21m-89 32l-7 19" stroke="#8e855f" stroke-width="4" opacity=".75"/>
+<path d="M122 132L154 125M185 121L216 126" stroke="#1b1b1a" stroke-width="7" stroke-linecap="round"/>
+<path d="M127 142l24 -3M187 138l23 3" stroke="#151b1b" stroke-width="3"/><circle cx="141" cy="141" r="3.4" fill="#111818"/><circle cx="199" cy="139" r="3.4" fill="#111818"/>
+<path d="M171 137L164 166L176 172" fill="none" stroke="#5b3229" stroke-width="4"/>
+<path d="M153 185Q169 197 191 185L186 195Q168 204 154 192Z" fill="#392524" stroke="#3c2625" stroke-width="2"/>
+<path d="M152 185l36 1" stroke="#e1b59b" stroke-width="2.2"/><path d="M128 168l9 14m-3 -23l8 11m-1 -25l7 13" stroke="#4e3329" stroke-width="2" opacity=".72"/>
+<circle cx="235" cy="163" r="9" fill="none" stroke="#e3c481" stroke-width="3.3"/><circle cx="235" cy="163" r="3" fill="#1b2422"/>
+<circle cx="174" cy="175" r="2.8" fill="#e8c990" stroke="#22211d" stroke-width="1.5"/>
+<path d="M89 266L120 350M228 263l-31 87" stroke="#172521" stroke-width="5"/><path d="M52 301l25 -20m-18 36l25 -20m162 -12l30 20m-38 -4l28 20" stroke="#d6bf8c" stroke-width="3" opacity=".75"/>
+<path d="M15 335L317 234" stroke="#d4b07a" stroke-width="21"/><path d="M15 335L317 234" stroke="#182424" stroke-width="2.5" stroke-dasharray="7 5"/>
+<path d="M33 328l17 -5m13 -8l18 -5m13 -9l17 -5m13 -9l17 -5m13 -9l17 -5m13 -9l17 -5m13 -9l17 -5m13 -9l17 -5" stroke="#fff0cf" stroke-width="3"/>
+<path d="M264 259l25 -8m-14 18l25 -8" stroke="#1b2422" stroke-width="5"/>
+<path d="M75 294l25 9l-9 23l-26 -9Z" fill="#d95542" stroke="#eadab7" stroke-width="2"/>
+<path d="M78 300l12 18m-16 -2l21 -9" stroke="#eedcc2" stroke-width="2"/>
+<path d="M33 350l50 -22m174 9l40 13" stroke="#e1c99c" stroke-width="2" opacity=".45"/>
+<path d="M10 10H310V340H10Z" fill="none" stroke="#f2e6c7" stroke-width="2"/><path d="M10 24H36M285 24H310M10 326H42M277 326H310" stroke="#171f20" stroke-width="3"/><rect x="14" y="14" width="93" height="22" fill="#f4ad39"/><text x="20" y="29" font-family="DejaVu Sans,sans-serif" font-size="10" font-weight="800" fill="#13191a" letter-spacing=".5">AUDITION 02</text><rect x="15" y="308" width="125" height="21" fill="#151d1d" opacity=".87"/><text x="22" y="323" font-family="DejaVu Sans,sans-serif" font-size="9" font-weight="800" fill="#f1e8d4" letter-spacing="1.2">CARDIFF / 2026</text></g></svg>
