@@ -4,6 +4,13 @@ const Scene=preload("res://poc/ldtd_editorial_native_handoff.tscn")
 const Model=preload("res://Scripts/recruitment_catalogue_v3.gd")
 func _initialize() -> void:
  call_deferred("_run")
+func _meters(root: Node) -> Array:
+ var found: Array=[]
+ for child in root.get_children():
+  if str(child.name).begins_with("Meter_") and child is Control:
+   found.append(child)
+  found.append_array(_meters(child))
+ return found
 func _die(s: String) -> void:
  push_error("EDITORIAL NATIVE CAPTURE FAILURE: "+s)
  quit(1)
@@ -43,15 +50,13 @@ func _run() -> void:
  if role_count!=5 or recruit==null or recruit.size.y<60 or recruit.texture_pressed==null:
   _die("five native role keys and primary native recruit action required")
   return
- var meters:=0
- for node in view.find_children("*","Control",true,false):
-  if node.name.begins_with("Meter_"):
-   meters+=1
-   if node.focus_mode!=Control.FOCUS_NONE or node.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
-    _die("meter is interactive")
-    return
- if meters!=6:
-  _die("exactly six inert native stat meters required, found "+str(meters))
+ var meters: Array=_meters(view)
+ for node in meters:
+  if node.focus_mode!=Control.FOCUS_NONE or node.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+   _die("meter is interactive")
+   return
+ if meters.size()!=6:
+  _die("exactly six inert native stat meters required, found "+str(meters.size()))
   return
  var captions: Array=[]
  for l in view.find_children("*","Label",true,false):
