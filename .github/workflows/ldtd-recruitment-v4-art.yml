@@ -80,6 +80,20 @@ jobs:
             grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
             ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
           done
+      - name: Surface real native pixels for independent visual QA
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          # The 390 PNG below is lossless, at original physical dimensions.
+          # The 1280 JPEG is a Godot-saved same-dimension preview; the 1280
+          # lossless PNG remains in artifacts. These are NOT source art.
+          for path in screenshots/v4-recruit-390x844.png screenshots/v4-recruit-1280x720-review.jpg; do
+            test -s "$path"
+            echo "RECRUITMENT_NATIVE_PROOF_BEGIN:$path"
+            base64 "$path"
+            echo "RECRUITMENT_NATIVE_PROOF_END:$path"
+          done
       - name: Save native reviewable screenshots, including failures
         if: always()
         uses: actions/upload-artifact@v4

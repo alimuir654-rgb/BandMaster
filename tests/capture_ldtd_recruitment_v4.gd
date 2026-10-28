@@ -120,6 +120,33 @@ func _run() -> void:
   if is_legacy and fraction_visible<0.84 and hero_source.stretch_mode!=TextureRect.STRETCH_KEEP_ASPECT_CENTERED:
    _fail("wide hero cropped legacy identity portrait instead of preserving full face")
    return
+ # Actual 390px first-fold readability/roster clearance regression (12:00).
+ if width==390 and stage=="recruit":
+  var expected_labels:Array=view.Model.labels_for(view.role)
+  var drawn_labels:Array=view.find_children("*","Label",true,false)
+  for attribute in expected_labels:
+   var found:bool=false
+   for visible_label in drawn_labels:
+    if str(visible_label.text)==str(attribute):
+     if visible_label.get_theme_font_size("font_size")<16 or visible_label.get_global_rect().size.y*scale_x<30.0:
+      _fail("phone stat "+str(attribute)+" below 16px/30px readability floor")
+      return
+     found=true
+   if not found:
+    _fail("phone missing readable stat "+str(attribute))
+    return
+  var action_count:=0
+  for button in view.find_children("*","TextureButton",true,false):
+   for label in button.get_children():
+    if label is Label and (str(label.text).begins_with("ADD  /") or str(label.text)=="REMOVE" or str(label.text)=="PERSON FILE"):
+     var rb:Rect2=button.get_global_rect()
+     if rb.size.y*scale_x<52.0 or rb.end.y*scale_x>float(height)-135.0:
+      _fail("phone decision action must be 52px and clear the roster")
+      return
+     action_count+=1
+  if action_count!=2:
+   _fail("phone needs recruit and dossier actions both above dock")
+   return
  var hit_count:=0
  var touches:=view.find_children("*","TextureButton",true,false)
  for child in touches:
@@ -167,6 +194,13 @@ func _run() -> void:
  if img.save_png(ProjectSettings.globalize_path(output))!=OK:
   _fail("save failed")
   return
+ # Same-dimension JPEG is a review/log transport preview only; the original
+ # full-resolution lossless PNG stays in the uploaded native artifact.
+ if width==1280 and stage=="recruit":
+  var preview:String=output.get_basename()+"-review.jpg"
+  if img.save_jpg(ProjectSettings.globalize_path(preview),0.72)!=OK:
+   _fail("save independent native-size visual preview failed")
+   return
  print("LDTD V4 NATIVE SCREENSHOT PASS: "+output)
  view.queue_free()
  quit(0)

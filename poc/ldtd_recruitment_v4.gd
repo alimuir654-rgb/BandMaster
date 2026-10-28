@@ -306,8 +306,10 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
  for idx in range(6):
   var yy: float=y+row_h*float(idx)
   var tablet:bool=not _landscape and _view_w>=600.0
-  var name_w := 145.0 if tablet else (125.0 if _landscape else 103.0)
-  _text(parent,str(names[idx]),x,yy,name_w,row_h-1,18 if tablet else (18 if _landscape else 13),WHITE,FONT_BODY)
+  # Physical 390px: 16px readable labels and extra row height for six passive bars.
+  var phone_compact:bool=not _landscape and _view_w<450.0
+  var name_w := 145.0 if tablet else (125.0 if _landscape else (115.0 if phone_compact else 103.0))
+  _text(parent,str(names[idx]),x,yy,name_w,row_h-1,18 if tablet else (18 if _landscape else (16 if phone_compact else 13)),WHITE,FONT_BODY)
   var meter_x:=x+name_w+3.0
   var meter_w:=maxf(55.0,w-name_w-57.0)
   _art(parent,ART+"meter_glass_rail.svg",meter_x,yy+2.0,meter_w,row_h-4.0)
@@ -318,7 +320,7 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
   meter.mouse_filter=Control.MOUSE_FILTER_IGNORE
   meter.focus_mode=Control.FOCUS_NONE
   parent.add_child(meter)
-  _text(parent,str(scores[idx])+"/10",x+w-49,yy,48,row_h-1,18 if tablet else (17 if _landscape else 14),CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_RIGHT)
+  _text(parent,str(scores[idx])+"/10",x+w-49,yy,48,row_h-1,18 if tablet else (17 if _landscape else (16 if phone_compact else 14)),CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_RIGHT)
 
 func _dossier(parent: Node,p: Dictionary,b:Rect2,compact:bool=false) -> void:
  _art(parent,ART+"paper_personnel.svg",b.position.x,b.position.y,b.size.x,b.size.y)
@@ -515,11 +517,17 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  var role_y:float=photo_y+photo_h
  _text(parent,(" / ".join(PackedStringArray(p["roles"]))+"  •  "+str(p["town"])),18,role_y,w-36,26,18 if tablet else 15,CREAM,FONT_BODY,false,HORIZONTAL_ALIGNMENT_CENTER)
  var meter_y:float=role_y+32.0
- var meter_row:float=35.0 if tablet else 27.0
+ var meter_row:float=35.0 if tablet else (31.0 if compact else 27.0)
  _meters(parent,p,17,meter_y,w-34,meter_row)
  var summary_y:float=meter_y+meter_row*6.0+5.0
- _text(parent,str(p["bands"])+" BANDS  •  "+str(p["years_playing"] if p.has("years_playing") else p["experience_years"])+" YRS  •  "+str(p["personality"]),18,summary_y,w-36,30,17 if tablet else 13,WHITE,FONT_BODY)
- var action_y:float=summary_y+38.0
+ var action_y:float
+ if compact:
+  # The redundant microtype band-history line already exists in PERSON FILE;
+  # recover its vertical pixels for legible attributes and visible action.
+  action_y=meter_y+meter_row*6.0+12.0
+ else:
+  _text(parent,str(p["bands"])+" BANDS  •  "+str(p["years_playing"] if p.has("years_playing") else p["experience_years"])+" YRS  •  "+str(p["personality"]),18,summary_y,w-36,30,17 if tablet else 13,WHITE,FONT_BODY)
+  action_y=summary_y+38.0
  var already:bool=Model.contains(roster,str(p["id"]))
  _plate(parent,"REMOVE" if already else ("ADD  /  "+str(Model.incremental_cost(roster,p))+" PTS"),Rect2(12,action_y,(w-36)/2,52),func() -> void: _add_remove(),false,already or Model.can_add(roster,p),"amber_key",23)
  # The full paper file remains a separate intentional material view.

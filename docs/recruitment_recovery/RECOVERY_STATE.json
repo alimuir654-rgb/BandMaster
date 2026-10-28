@@ -46,7 +46,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "12:00: Inspect genuine 390x844 original pixels and make one verified phone-first readability/spacing improvement without introducing fictional data, face duplication or unproven art. R1 Alex/Nia high-resolution independently authored masters still art-P0 BLOCKED.",
+  "next_single_action": "12:00: Inspect new native 390x844 and 1280x720 screenshots at actual resolution and CI; repair any phone clipping before next sprint.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -112,6 +112,16 @@
       "phone_390_png_sha256": "a09536458b980a70497d355f3b22b8335ff7b96776c75ed0bddd5d3e9e22f065",
       "measured_visual_verdict": "photographic 8-piece bezels visibly improve 3 desktop frames; true full-world photographic fidelity FAIL due 160px Alex, missing Nia portrait and SVG paper/case",
       "native_gate": "ENGINEERING PASS, visual-quality BLOCKED"
+    },
+    "1200_phone_readability": {
+      "status": "awaiting_native_4_7_2_ci_and_pixel_review",
+      "initial_branch_head": "f3cb7c43c6381f254d0a300694d11a8ede59f67a",
+      "phone_stat_label_min_px": 16,
+      "phone_meter_row_px": 31,
+      "phone_action_height_px": 52,
+      "owner_approval": false,
+      "art_gate": "blocked",
+      "master_portrait_count": 0
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
