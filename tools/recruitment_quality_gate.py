@@ -161,14 +161,33 @@ def verify_source(root: Path, asset: dict) -> None:
         raise GateError(f'{aid}: actual rights basis required')
     if asset.get('origin_kind') == 'licensed_third_party' and not asset.get('source_url'):
         raise GateError(f'{aid}: third-party source URL required')
-    if asset['type'] == 'portrait' and not asset.get('candidate_id'):
-        raise GateError(f'{aid}: immutable candidate ID required')
+    if asset['type'] == 'portrait':
+        if not asset.get('candidate_id'):
+            raise GateError(f'{aid}: immutable candidate ID required')
+        if not path.lower().endswith('.png'):
+            raise GateError(f'{aid}: portrait master must be an independently usable PNG')
+        w, h = png_size(real)
+        if min(w, h) < 1024:
+            raise GateError(f'{aid}: full-resolution portrait master requires >=1024 px on both axes, got {w}x{h}')
+        if (w, h) != (asset.get('width'), asset.get('height')):
+            raise GateError(f'{aid}: registered portrait size does not match actual PNG source')
     if asset['type'] == 'design_target':
         if not path.lower().endswith('.png'):
             raise GateError(f'{aid}: use real PNG output for physical-size evidence')
         w, h = png_size(real)
         if (w, h) != (asset.get('width'), asset.get('height')):
             raise GateError(f'{aid}: target PNG dimensions {(w, h)} disagree with manifest')
+
+
+def verify_portrait_pair(by_id: dict) -> None:
+    """The source-art gate cannot accept misnamed or duplicated masters."""
+    expected = {'portrait_featured': 'alex', 'portrait_contrast': 'nia_griffiths'}
+    for aid, candidate_id in expected.items():
+        if by_id[aid].get('candidate_id') != candidate_id:
+            raise GateError(f'{aid}: expected canonical candidate ID {candidate_id!r}')
+    first, second = (by_id[k] for k in expected)
+    if first.get('sha256') and first.get('sha256') == second.get('sha256'):
+        raise GateError('Portrait masters cannot share source bytes/SHA256 across two identities')
 
 
 def check_basic(root: Path, package_only: bool) -> tuple[dict, dict]:
@@ -225,6 +244,7 @@ def check_basic(root: Path, package_only: bool) -> tuple[dict, dict]:
             raise GateError(f'{a["id"]}: planned asset cannot claim a source; switch status to ready after verifying')
     if not REQUIRED_ASSETS <= set(by_id):
         raise GateError('Asset manifest lacks: ' + ', '.join(sorted(REQUIRED_ASSETS - set(by_id))))
+    verify_portrait_pair(by_id)
     if (state.get('owner_approved') or state.get('internal_art_review') == 'provisional_pass') and state.get('known_art_p0'):
         raise GateError('Art approval/provisional approval cannot coexist with unresolved P0s')
     return state, by_id

@@ -14,12 +14,12 @@
       "rights_basis": null,
       "width": null,
       "height": null,
-      "notes": "Author real high-quality image; old Alex SVG is NOT acceptable"
+      "notes": "Canonical Alex Vale (Bristol singer/guitarist, age 24): genuine independent >=1024x1024 documentary-style portrait source master MISSING; the 160px provisional face and full-screen generated UI are NOT eligible."
     },
     {
       "id": "portrait_contrast",
       "type": "portrait",
-      "candidate_id": null,
+      "candidate_id": "nia_griffiths",
       "status": "planned",
       "path": null,
       "sha256": null,
@@ -28,7 +28,7 @@
       "rights_basis": null,
       "width": null,
       "height": null,
-      "notes": "Resolve second actual catalogue person ID before art mapping"
+      "notes": "Canonical Nia Griffiths (Cardiff singer, age 23): independent >=1024x1024 photographic-style source master is still MISSING. Never reuse Alex's face, Nia Carter concept figure, or a crop of flattened UI."
     },
     {
       "id": "desktop_art_target",

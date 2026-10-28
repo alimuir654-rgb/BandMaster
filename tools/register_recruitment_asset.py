@@ -40,12 +40,15 @@ def register(root: Path, asset_id: str, relative: str, origin: str,
         raise GateError('Third-party source must have official HTTPS origin URL')
     if entry['type'] == 'portrait':
         candidate_id = candidate_id or entry.get('candidate_id')
-        if not candidate_id:
-            raise GateError('Portrait must map to actual catalogue identity')
+        expected_id = {'portrait_featured': 'alex', 'portrait_contrast': 'nia_griffiths'}[asset_id]
+        if candidate_id != expected_id:
+            raise GateError(f'Portrait {asset_id} must retain catalogue identity {expected_id!r}')
     if path.suffix.lower() == '.png':
         width, height = png_size(path)
         if width < 64 or height < 64:
             raise GateError(f'Image source too small at {width}x{height}')
+        if entry['type'] == 'portrait' and min(width, height) < 1024:
+            raise GateError(f'Portrait master requires >=1024 px on both axes; got {width}x{height}')
     else:
         try:
             svg = ElementTree.parse(path).getroot()
