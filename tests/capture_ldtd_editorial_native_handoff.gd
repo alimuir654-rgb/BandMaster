@@ -58,6 +58,11 @@ func _run() -> void:
  if meters.size()!=6:
   _die("exactly six inert native stat meters required, found "+str(meters.size()))
   return
+ var role_caption:Label=(view._stage.get_node("Role_0") as TextureButton).get_child(0)
+ var meter_caption:Label=(meters[0] as Control).get_child(0)
+ if role_caption.get_theme_font_size("font_size")<11 or meter_caption.get_theme_font_size("font_size")<11 or meter_caption.size.x<90:
+  _die("native role/stat text must be physically legible, no boolean-ternary 1px regression")
+  return
  var captions: Array=[]
  for l in view.find_children("*","Label",true,false):
   captions.append(str(l.text))
