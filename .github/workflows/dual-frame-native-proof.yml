@@ -1,136 +1,250 @@
 name: Dual frame native Godot proof
-on:
+'on':
   push:
     branches: [dual-frame-proof-2026-10-28]
   workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dual-frame-native-proof
+  cancel-in-progress: true
 jobs:
   native:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch uploaded ZIP from main
-        run: |
-          git fetch --depth=1 origin main
-          git show FETCH_HEAD:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip
-      - name: Extract experiment and inspect structure
+      - name: Extract original ZIP and load pinned canonical catalogue
         run: |
           python3 - <<'PY'
-          import zipfile, pathlib
-          z=zipfile.ZipFile("BandMaster_Frame_Experiment_v2.zip")
+          from pathlib import PurePosixPath
+          import zipfile
+          z=zipfile.ZipFile('BandMaster_Frame_Experiment_v2.zip')
           for n in z.namelist():
-              p=pathlib.PurePosixPath(n)
-              if p.is_absolute() or ".." in p.parts: raise RuntimeError(n)
-          z.extractall("frame-proof")
-          print("\n".join(z.namelist()))
+              p=PurePosixPath(n)
+              assert not p.is_absolute() and '..' not in p.parts
+          z.extractall('frame-proof')
           PY
-      - name: Install Godot 4.7.2
+          ROOT=frame-proof/BandMaster_Frame_Experiment
+          echo "ROOT=$ROOT" >> "$GITHUB_ENV"
+          mkdir -p "$ROOT/Scripts" proof-shots
+          git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
+          for FILE in recruitment_catalogue_v3.gd formation_catalogue.gd; do
+            git show FETCH_HEAD:Scripts/$FILE > "$ROOT/Scripts/$FILE"
+          done
+      - name: Repair actual source and both scene bindings before import
         run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, os
+          root=Path(os.environ['ROOT'])
+          p=root/'scene/frame_demo.gd'
+          s=p.read_text()
+          s=re.sub(r'\bmaterial\b','frame_material_kind',s)
+          s=s.replace('body = HBoxContainer.new()', 'body = BoxContainer.new()')
+          for path in (root/'scene').glob('*.tscn'):
+              path.write_text(re.sub(r'(?m)^material =', 'frame_material_kind =', path.read_text()))
+          s=re.sub(r'const CANDIDATES := \[.*?\n\]', 'const Catalogue = preload("res://Scripts/recruitment_catalogue_v3.gd")\nvar CANDIDATES: Array = []',s,flags=re.S)
+          s=s.replace('const STAT_NAMES := ["VOCALS", "SONGWRITING", "STAGE", "RELIABILITY", "CHEMISTRY", "CREATIVITY"]','const STAT_NAMES := Catalogue.ATTRIBUTE_NAMES')
+          s=s.replace('func _ready() -> void:', '''func _ready() -> void:
+              for person in Catalogue.people():
+                  if person.id in ["alex", "nia_griffiths"]:
+                      CANDIDATES.append({"id":person.id, "name":person.name, "role":"Singer", "cost":Catalogue.cost(person), "stats":Catalogue.stats_for(person,"Singer"), "story":person.story, "town":person.town})
+              _install_material_theme()''')
+          s=s.replace('var background: TextureRect','var background: NinePatchRect')
+          s=s.replace('background = TextureRect.new()', 'background = NinePatchRect.new()')
+          s=s.replace('    background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n    background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED','''    background.patch_margin_left = 108 if frame_material_kind == "notepaper" else 28
+              background.patch_margin_right = 28
+              background.patch_margin_top = 26
+              background.patch_margin_bottom = 28''')
+          s=s.replace('heading.text = "RECRUITMENT · " + frame_material_kind.to_upper()', 'heading.text = "FIELD NOTES" if frame_material_kind == "notepaper" else "FLIGHT CASE"')
+          s=s.replace('var narrow := size.x < 700','var narrow := size.x < 900')
+          s=s.replace('button.visible = not narrow or button == candidate_buttons[selected]','button.visible = true')
+          s=s.replace('details = Label.new()', 'details = Label.new()\n    details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART')
+          s=s.replace('dossier.add_child(details)', 'dossier.add_child(details)\n    dossier.move_child(details, 0)')
+          s=s.replace('meter.value = candidate.stats[i]', '''meter.value = candidate.stats[i]
+                  meter.show_percentage = false
+                  var shade := Color("6eaa69") if int(candidate.stats[i]) >= 8 else (Color("d6a243") if int(candidate.stats[i]) >= 5 else Color("b85c55"))
+                  meter.add_theme_stylebox_override("fill", _skin(shade))''')
+          s=s.replace('line.add_child(meter)', '''line.add_child(meter)
+                  var value_label := Label.new()
+                  value_label.text = "%d / 10" % int(candidate.stats[i])
+                  value_label.custom_minimum_size.x = 48
+                  value_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+                  line.add_child(value_label)''')
+          s=s.replace('button.text = CANDIDATES[i].name','button.text = CANDIDATES[i].name + "  /  " + CANDIDATES[i].town')
+          s=s.replace('dossier.name = "Dossier"','dossier.name = "Dossier"\n    dossier.size_flags_stretch_ratio = 2.0')
+          s=s.replace('portrait.custom_minimum_size.y = 135 if narrow else 185', 'portrait.custom_minimum_size.y = 135 if narrow else 220')
+          s=s.replace('    _update_budget()\n    if mobile:', '''    _update_budget()
+              recruit_button.add_theme_stylebox_override("normal", _skin(Color("e4b35c")))
+              recruit_button.add_theme_color_override("font_color", Color("22252a"))
+              if mobile:''')
+          s += '''
+          # Skins reuse the uploaded technical raster plate; NOT photographic source art.
+          func _skin(tint: Color) -> StyleBoxTexture:
+              var skin := StyleBoxTexture.new()
+              skin.texture = load("res://assets/notepaper_frame_1280x720.png")
+              skin.region_rect = Rect2(140, 4, 180, 32)
+              skin.modulate_color = tint
+              skin.set_texture_margin_all(5)
+              skin.content_margin_left = 9
+              skin.content_margin_right = 9
+              skin.content_margin_top = 4
+              skin.content_margin_bottom = 4
+              return skin
+
+          func _install_material_theme() -> void:
+              var paper := frame_material_kind == "notepaper"
+              var ink := Color("252a31") if paper else Color("f4f0e7")
+              var face := Color("e9dfc9") if paper else Color("363c43")
+              var palette := Theme.new()
+              palette.default_font_size = 16
+              palette.set_color("font_color", "Label", ink)
+              for key in ["font_color", "font_hover_color", "font_pressed_color", "font_focus_color"]:
+                  palette.set_color(key, "Button", ink)
+              palette.set_color("font_disabled_color", "Button", Color("252a31"))
+              palette.set_stylebox("normal", "Button", _skin(face))
+              palette.set_stylebox("hover", "Button", _skin(face.lightened(0.15)))
+              palette.set_stylebox("pressed", "Button", _skin(Color("d6a243")))
+              palette.set_stylebox("disabled", "Button", _skin(Color("d6a243")))
+              var focus := _skin(Color("efbb5c"))
+              focus.draw_center = false
+              focus.set_texture_margin_all(3)
+              palette.set_stylebox("focus", "Button", focus)
+              palette.set_stylebox("panel", "PanelContainer", _skin(Color("d7cdb7") if paper else Color("20262c")))
+              palette.set_stylebox("background", "ProgressBar", _skin(Color("b7b3a7") if paper else Color("44494e")))
+              theme = palette
+          '''
+          assert 'var frame_material_kind' in s and 'body = BoxContainer.new()' in s
+          p.write_text(s)
+          print('Fixed scene bindings, canonical data, responsive layout and texture themes')
+          PY
+      - name: Install pinned Godot and real software renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil
           curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
           unzip -q /tmp/godot.zip -d /tmp
           sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
-      - name: Find project and run native import
+          godot --version
+      - name: Create native interaction and screenshot test
         run: |
-          PROJECT=$(find frame-proof -name project.godot -print -quit)
-          test -n "$PROJECT"
-          ROOT=$(dirname "$PROJECT")
-          echo "ROOT=$ROOT" >> "$GITHUB_ENV"
-          godot --headless --path "$ROOT" --editor --quit
-      - name: Fix Godot Control material identifier collision
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import os, re
-          p=Path(os.environ["ROOT"])/"scene/frame_demo.gd"
-          s=p.read_text()
-          s=re.sub(r"\bmaterial\b", "frame_material_kind", s)
-          s=s.replace("HBoxContainer.new()", "BoxContainer.new()")
-          p.write_text(s)
-          print("Fixed Control.material naming collision")
-          PY
-      - name: Native smoke test
-        run: |
-          TEST=$(find "$ROOT" -iname '*smoke*.gd' -print -quit)
-          if [ -n "$TEST" ]; then
-            godot --headless --path "$ROOT" --script "${TEST#"$ROOT"/}"
-          else
-            echo "No smoke test found" >&2; exit 1
-          fi
-      - name: Capture actual Godot scene pixels
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil
-          mkdir -p proof-shots
-          cat > "$ROOT/capture_proof.gd" <<'GDS'
+          mkdir -p "$ROOT/proof-shots"
+          cat > "$ROOT/tests/native_proof.gd" <<'GDS'
           extends SceneTree
+          var failures: Array[String] = []
+          var records: Array = []
           func _initialize() -> void:
-              call_deferred("_capture")
-          func _capture() -> void:
-              var files: Array[String] = []
-              _collect("res://", files)
-              var scenes: Array[String] = []
-              for file in files:
-                  if file.ends_with(".tscn") and not file.contains("test"):
-                      scenes.append(file)
-              scenes.sort()
-              print("SCENES: ", scenes)
-              if scenes.size() < 2:
-                  push_error("Expected at least two scenes")
-                  quit(2)
+              call_deferred("_run")
+          func check(ok: bool, message: String) -> void:
+              if not ok:
+                  failures.append(message)
+                  push_error(message)
+          func settle() -> void:
+              await process_frame
+              await process_frame
+              await RenderingServer.frame_post_draw
+          func shot(window: Window, tag: String) -> void:
+              await settle()
+              var image: Image = window.get_texture().get_image()
+              check(image != null, "Null rendered image " + tag)
+              if image == null:
                   return
-              var sizes = [Vector2i(390,844), Vector2i(720,1280), Vector2i(1280,720), Vector2i(1600,900)]
-              for scene_path in scenes:
-                  var packed = load(scene_path)
-                  if not packed is PackedScene:
+              check(image.get_size() == window.size, "Wrong viewport dimensions " + tag)
+              check(image.save_png("res://proof-shots/" + tag + ".png") == OK, "Save failed " + tag)
+              records.append({"file":tag + ".png", "width":image.get_width(), "height":image.get_height()})
+          func _run() -> void:
+              for kind in ["flightcase", "notepaper"]:
+                  var packed: PackedScene = load("res://scene/" + kind + ".tscn")
+                  check(packed != null, "Scene missing " + kind)
+                  if packed == null:
                       continue
-                  for sz in sizes:
+                  for sz in [Vector2i(390,844), Vector2i(720,1280), Vector2i(1280,720), Vector2i(1600,900)]:
                       var window := Window.new()
                       window.size = sz
                       window.position = Vector2i.ZERO
-                      window.unresizable = true
-                      window.mode = Window.MODE_WINDOWED
                       root.add_child(window)
-                      var instance = packed.instantiate()
-                      window.add_child(instance)
-                      await process_frame
-                      await process_frame
-                      await process_frame
-                      var image = window.get_texture().get_image()
-                      var base = scene_path.get_file().get_basename()
-                      var output = "res://proof-shots/" + base + "-" + str(sz.x) + "x" + str(sz.y) + ".png"
-                      var err = image.save_png(output)
-                      if err != OK:
-                          push_error("Screenshot save failed " + output + " " + str(err))
-                          quit(3)
-                          return
-                      print("CAPTURED ", output, " ", image.get_size())
+                      window.show()
+                      var scene = packed.instantiate()
+                      window.add_child(scene)
+                      await settle()
+                      var prefix: String = "%s-%dx%d" % [kind, sz.x, sz.y]
+                      check(scene.frame_material_kind == kind, "Wrong material " + prefix)
+                      check(scene.background.texture.resource_path.contains(kind), "Wrong texture " + prefix)
+                      check(scene.body.vertical == (sz.x < 900), "Wrong physical layout " + prefix)
+                      check(scene.stat_rows.get_child_count() == 6, "Wrong attribute count " + prefix)
+                      check(scene.talent == 200, "Starting budget " + prefix)
+                      check(scene.CANDIDATES[0].id == "alex" and scene.CANDIDATES[1].id == "nia_griffiths", "Canonical identities")
+                      var controls: Array = scene.tabs.duplicate()
+                      controls.append_array(scene.candidate_buttons)
+                      controls.append(scene.recruit_button)
+                      controls.append(scene.roster_button)
+                      for button in controls:
+                          var bounds: Rect2 = button.get_global_rect()
+                          check(button.is_visible_in_tree(), "Hidden control " + button.text + prefix)
+                          check(bounds.size.x >= 44 and bounds.size.y >= 44, "Small touch target " + button.text + prefix)
+                          check(Rect2(Vector2.ZERO,Vector2(sz)).encloses(bounds), "Offscreen control " + button.text + prefix)
+                      await shot(window, prefix + "-alex")
+                      scene.candidate_buttons[1].pressed.emit()
+                      await settle()
+                      check(scene.details.text.contains("Nia Griffiths"), "Candidate signal " + prefix)
+                      check(scene.CANDIDATES[1].cost == 45, "Nia canonical cost")
+                      await shot(window, prefix + "-nia")
+                      scene.recruit_button.pressed.emit()
+                      check(scene.talent == 155 and scene.roster.size() == 1, "Recruit transaction " + prefix)
+                      await shot(window, prefix + "-recruited")
+                      scene.recruit_button.pressed.emit()
+                      check(scene.talent == 200 and scene.roster.is_empty(), "Refund transaction " + prefix)
+                      scene.recruit_button.grab_focus()
+                      await settle()
+                      check(scene.recruit_button.has_focus(), "Keyboard focus " + prefix)
+                      check(scene.talent == 200, "Focus must not spend talent")
+                      await shot(window, prefix + "-focus")
+                      window.size = Vector2i(1280,720) if sz.x < 900 else Vector2i(390,844)
+                      await settle()
+                      check(scene.body.vertical == (window.size.x < 900), "Live resize " + prefix)
+                      check(scene.selected == 1 and scene.talent == 200, "Resize preserved state " + prefix)
+                      print("VERIFIED ", prefix)
                       window.queue_free()
                       await process_frame
-              quit(0)
-          func _collect(dirpath: String, files: Array[String]) -> void:
-              var dir = DirAccess.open(dirpath)
-              if dir == null: return
-              dir.list_dir_begin()
-              while true:
-                  var n = dir.get_next()
-                  if n == "": break
-                  if n.begins_with("."): continue
-                  var p = dirpath.path_join(n)
-                  if dir.current_is_dir():
-                      _collect(p, files)
-                  else:
-                      files.append(p)
-              dir.list_dir_end()
+              var out := FileAccess.open("res://proof-shots/results.json", FileAccess.WRITE)
+              out.store_string(JSON.stringify({"screenshots":records,"failures":failures,"engine":Engine.get_version_info(),"renderer":DisplayServer.get_name()}, "  "))
+              print("NATIVE_RESULT: ", records.size(), " captures; ", failures.size(), " failures")
+              quit(0 if failures.is_empty() and records.size() == 32 else 1)
           GDS
-          mkdir -p "$ROOT/proof-shots"
-          xvfb-run -a godot --rendering-method gl_compatibility --path "$ROOT" --script res://capture_proof.gd
-          cp "$ROOT"/proof-shots/*.png proof-shots/
+          timeout 90s godot --headless --path "$ROOT" --editor --quit 2>&1 | tee proof-shots/import.log
+          ! grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/import.log
+      - name: Render 32 screenshots and verify interactions and live resize
+        timeout-minutes: 3
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: |
+          set -o pipefail
+          timeout 150s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --path "$ROOT" --script res://tests/native_proof.gd 2>&1 | tee proof-shots/native.log
+          ! grep -E 'SCRIPT ERROR|ERROR:' proof-shots/native.log
+          cp "$ROOT"/proof-shots/* proof-shots/
+      - name: Reject duplicate themes and publish review index
+        run: |
           python3 - <<'PY'
-          from PIL import Image
           from pathlib import Path
-          shots=list(Path("proof-shots").glob("*.png"))
-          assert len(shots)>=8, f"Only {len(shots)} screenshots"
-          for p in shots:
-              im=Image.open(p); im.verify()
-              print(p, Image.open(p).size)
+          from PIL import Image, ImageChops, ImageStat
+          import hashlib,json,os,zipfile
+          p=Path('proof-shots'); shots=list(p.glob('*.png')); assert len(shots)==32
+          records=[]
+          for f in shots:
+              im=Image.open(f); im.verify()
+              records.append({'file':f.name,'sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'size':Image.open(f).size})
+          for size in ['390x844','720x1280','1280x720','1600x900']:
+              a=Image.open(p/f'flightcase-{size}-alex.png').convert('RGB')
+              b=Image.open(p/f'notepaper-{size}-alex.png').convert('RGB')
+              assert sum(ImageStat.Stat(ImageChops.difference(a,b)).mean)>40, 'Themes not visually distinct'
+          (p/'manifest.json').write_text(json.dumps({'commit':os.environ['GITHUB_SHA'],'images':records},indent=2))
+          (p/'index.html').write_text('<h1>BandMaster native frame proof</h1><p>Technical art only. Portraits unavailable. Images rendered by Godot.</p>'+''.join('<h2>'+r['file']+'</h2><img style="max-width:100%;height:auto" src="'+r['file']+'">' for r in records))
+          root=Path(os.environ['ROOT'])
+          with zipfile.ZipFile(p/'BandMaster_testable_project.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for f in root.rglob('*'):
+                  if f.is_file() and '.godot' not in f.parts and 'proof-shots' not in f.parts:
+                      z.write(f,f.relative_to(root))
           PY
       - uses: actions/upload-artifact@v4
         if: always()
@@ -138,4 +252,5 @@ jobs:
           name: dual-frame-native-proof
           path: |
             proof-shots/
-            frame-proof/
+            frame-proof/BandMaster_Frame_Experiment/proof-shots/
+          if-no-files-found: error
