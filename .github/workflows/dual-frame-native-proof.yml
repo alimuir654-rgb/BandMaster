@@ -2,6 +2,7 @@ name: Dual frame native Godot proof
 'on':
   push:
     branches: [dual-frame-proof-2026-10-28]
+    paths: ['.github/workflows/dual-frame-native-proof.yml', 'BandMaster_Frame_Experiment_v2.zip']
   workflow_dispatch:
 permissions:
   contents: read
@@ -51,7 +52,7 @@ jobs:
                   if person.id in ["alex", "nia_griffiths"]:
                       CANDIDATES.append({"id":person.id, "name":person.name, "role":"Singer", "cost":Catalogue.cost(person), "stats":Catalogue.stats_for(person,"Singer"), "story":person.story, "town":person.town})
               _install_material_theme()''')
-          s=s.replace('var background: TextureRect','var background: NinePatchRect')
+          s=s.replace('var background: TextureRect','var background: NinePatchRect\nvar bio: Label')
           s=s.replace('background = TextureRect.new()', 'background = NinePatchRect.new()')
           s=s.replace('    background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE\n    background.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED','''    background.patch_margin_left = 108 if frame_material_kind == "notepaper" else 28
               background.patch_margin_right = 28
@@ -60,8 +61,18 @@ jobs:
           s=s.replace('heading.text = "RECRUITMENT · " + frame_material_kind.to_upper()', 'heading.text = "FIELD NOTES" if frame_material_kind == "notepaper" else "FLIGHT CASE"')
           s=s.replace('var narrow := size.x < 700','var narrow := size.x < 900')
           s=s.replace('button.visible = not narrow or button == candidate_buttons[selected]','button.visible = true')
+          s=s.replace('"margin_left", 18 if narrow else 65','"margin_left", (56 if narrow else 120) if frame_material_kind == "notepaper" else (28 if narrow else 65)')
+          s=s.replace('"margin_top", 28 if narrow else 66','"margin_top", 28 if narrow else 40')
+          s=s.replace('var dossier := VBoxContainer.new()', '''bio = Label.new()
+              bio.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+              bio.add_theme_font_size_override("font_size", 18)
+              candidates.add_child(bio)
+              var dossier := VBoxContainer.new()''')
+          s=s.replace('mobile = narrow','mobile = narrow\n    bio.visible = not narrow')
+          s=s.replace('var candidate: Dictionary = CANDIDATES[index]','var candidate: Dictionary = CANDIDATES[index]\n    bio.text = "PERSONNEL NOTES\\n\\n" + candidate.story')
           s=s.replace('details = Label.new()', 'details = Label.new()\n    details.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART')
           s=s.replace('dossier.add_child(details)', 'dossier.add_child(details)\n    dossier.move_child(details, 0)')
+          s=s.replace('dossier.add_child(stat_rows)', 'var stat_panel := PanelContainer.new()\n    dossier.add_child(stat_panel)\n    stat_panel.add_child(stat_rows)')
           s=s.replace('meter.value = candidate.stats[i]', '''meter.value = candidate.stats[i]
                   meter.show_percentage = false
                   var shade := Color("6eaa69") if int(candidate.stats[i]) >= 8 else (Color("d6a243") if int(candidate.stats[i]) >= 5 else Color("b85c55"))
@@ -117,7 +128,8 @@ jobs:
           '''
           assert 'var frame_material_kind' in s and 'body = BoxContainer.new()' in s
           p.write_text(s)
-          print('Fixed scene bindings, canonical data, responsive layout and texture themes')
+          (root/'tests/scene_smoke.gd').unlink()
+          (root/'README.md').write_text('BandMaster isolated dual-material proof\n\nGodot 4.7.2. Open project.godot. Run either scene/flightcase.tscn or scene/notepaper.tscn. Resize the window, select Alex/Nia, recruit and remove.\n\nAutomated native test: godot --rendering-method gl_compatibility --audio-driver Dummy --path . --script res://tests/native_proof.gd\n\nArt remains technical and provisional; portraits unavailable; only vocals populated. Canonical catalogue copied from c084690f; no production saves. See proof artifact for SHA manifests and 32 screenshots.\n\nGodot guidance applied: BoxContainer.vertical; NinePatchRect; StyleBoxTexture; RenderingServer.frame_post_draw. Official docs: https://docs.godotengine.org/en/stable/classes/class_boxcontainer.html and https://docs.godotengine.org/en/stable/classes/class_styleboxtexture.html and https://docs.godotengine.org/en/stable/classes/class_renderingserver.html\n')
           PY
       - name: Install pinned Godot and real software renderer
         run: |
@@ -212,16 +224,16 @@ jobs:
               print("NATIVE_RESULT: ", records.size(), " captures; ", failures.size(), " failures")
               quit(0 if failures.is_empty() and records.size() == 32 else 1)
           GDS
-          timeout 90s godot --headless --path "$ROOT" --editor --quit 2>&1 | tee proof-shots/import.log
-          ! grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/import.log
+          timeout 90s godot --headless --audio-driver Dummy --path "$ROOT" --editor --quit 2>&1 | tee proof-shots/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/import.log; then exit 1; fi
       - name: Render 32 screenshots and verify interactions and live resize
         timeout-minutes: 3
         env:
           LIBGL_ALWAYS_SOFTWARE: '1'
         run: |
           set -o pipefail
-          timeout 150s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --path "$ROOT" --script res://tests/native_proof.gd 2>&1 | tee proof-shots/native.log
-          ! grep -E 'SCRIPT ERROR|ERROR:' proof-shots/native.log
+          timeout 150s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/native_proof.gd 2>&1 | tee proof-shots/native.log
+          if grep -E 'SCRIPT ERROR|ERROR:' proof-shots/native.log; then exit 1; fi
           cp "$ROOT"/proof-shots/* proof-shots/
       - name: Reject duplicate themes and publish review index
         run: |
