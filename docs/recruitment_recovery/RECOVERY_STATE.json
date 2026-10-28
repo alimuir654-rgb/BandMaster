@@ -46,7 +46,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "Produce and source-register TWO separate full-resolution canonical fictional documentary-photographic portrait master images, alex and nia_griffiths, with explicit rights/provenance, source path and SHA. Do not generate another flattened UI collage or crop one to fake a master. Continue isolated Godot only where this R1 tool blocker cannot be cleared.",
+  "next_single_action": "Open the 11:00 source-verified photo-bezel native 1280x720 Godot screenshot at physical pixels; check portrait, paper, touch and 200-point roster remains unobscured, correct one observed defect. Resume R1 portrait master task when image generation can deliver separately reusable exact assets.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -86,7 +86,24 @@
     "source_gate": "blocked",
     "pixel_review_source_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
     "corrective_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
-    "corrective_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40670282077"
+    "corrective_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40670282077",
+    "1100_photographic_bezel": {
+      "phase": "11:00 desktop physical-material pilot",
+      "status": "source_verified__native_ci_pending",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "source_sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+      "provenance": "Art/References/PremiumHardware/SOURCE_SHA256_MANIFEST.json",
+      "photo_atlas_pieces": 24,
+      "frames": [
+        "RecruitmentCandidateMetalFrame",
+        "RecruitmentDossierMetalFrame",
+        "RecruitmentHeroMetalFrame"
+      ],
+      "test": "tests/capture_ldtd_recruitment_v4.gd (1280x720 recruit)",
+      "visual_gate": "BLOCKED until actual post-change Godot screenshot inspected",
+      "art_gate": "BLOCKED",
+      "owner_approval": false
+    }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
   "native_pixel_inspection_1000": {

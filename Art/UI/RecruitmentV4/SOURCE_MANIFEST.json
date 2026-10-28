@@ -148,6 +148,14 @@
     {
       "asset": "Art/Portraits/indie/alex.webp",
       "note": "Existing small Alex identity art; NOT claimed to be high-res photographic headshot"
+    },
+    {
+      "asset": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+      "width": 966,
+      "height": 426,
+      "source": "Owner-supplied BandMaster Lab07 PNG, verified via Art/References/PremiumHardware/SOURCE_SHA256_MANIFEST.json",
+      "note": "Desktop independent 8-piece metal-edge photo atlas only; source's baked GUITAR/CHANNEL labels remain excluded. Provisional visual proof, not final source-art or owner signoff."
     }
   ],
   "known_gaps": [

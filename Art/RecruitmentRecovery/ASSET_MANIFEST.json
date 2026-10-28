@@ -155,6 +155,20 @@
       "width": null,
       "height": null,
       "notes": "Point to verified original metal_tab_disabled.svg or higher-quality source-backed replacement; role input only"
+    },
+    {
+      "id": "lab07_photographic_metal_bezel",
+      "type": "material_source",
+      "candidate_id": null,
+      "status": "provisional_native",
+      "path": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+      "origin_kind": "owner_supplied_generated_lab07_png",
+      "source_url": null,
+      "rights_basis": "Original owner-supplied BandMaster Lab07 source archive; repository SOURCE_SHA256_MANIFEST.json, NOT a third-party model release or game-owner art approval",
+      "width": 966,
+      "height": 426,
+      "notes": "Only 8 separable blank photo-metal perimeter atlas crops used per frame; central source GUITAR/CHANNEL lettering and arrows MUST NOT be displayed. Pilot framed desktop hero, candidate rail and personnel dossier; not final photographic art pass."
     }
   ]
 }

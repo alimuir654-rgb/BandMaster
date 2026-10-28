@@ -8,6 +8,52 @@ const Meter = preload("res://poc/ldtd_recruitment_meter.gd")
 const ART := "res://Art/UI/RecruitmentV4/"
 const PHOTO := "res://Art/Portraits/indie/"
 const TRANSPORT := "res://bandmaster_premium_controls_lab/assets/transport_studio_"
+
+# 11:00 physical-roadcase spike: use only the BLANK, genuinely raster/photo-
+# rendered Lab07 metal perimeter. The middle of this source contains baked
+# "GUITAR" and arrow glyphs; deliberately NEVER atlas that centre into the UI.
+# The original 966x426 PNG remains unchanged and traceable to the owner-supplied
+# 27 October Lab07 intake. Eight independently addressable edge/corner regions
+# make real framed physical objects rather than a flattened screen composite.
+const LAB07_METAL := "res://bandmaster_premium_controls_lab/assets/channel_studio_idle.png"
+
+func _photo_metal_piece(parent: Node, source: Texture2D, crop: Rect2, box: Rect2, piece_name: String) -> void:
+ var section := AtlasTexture.new()
+ section.atlas=source
+ section.region=crop
+ var piece := TextureRect.new()
+ piece.name=piece_name
+ piece.position=box.position
+ piece.size=box.size
+ piece.texture=section
+ piece.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+ piece.stretch_mode=TextureRect.STRETCH_SCALE
+ piece.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ piece.focus_mode=Control.FOCUS_NONE
+ parent.add_child(piece)
+
+func _photo_metal_bezel(parent: Node, bounds: Rect2, bezel_name: String) -> void:
+ # The centre stays TRANSPARENT and all captions, portraits and input controls
+ # remain real Godot nodes. No source-text, channel arrows or baked labels used.
+ var source:Texture2D=load(LAB07_METAL)
+ var sx:float=float(source.get_width())
+ var sy:float=float(source.get_height())
+ var bezel:=_node(parent,bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y)
+ bezel.name=bezel_name
+ var thick:=14.0
+ var across:=maxf(0.0,bounds.size.x-2.0*thick)
+ var down:=maxf(0.0,bounds.size.y-2.0*thick)
+ # Source edge regions are restricted to the metal perimeter: top 0..63,
+ # bottom sy-63..sy and sides 0..66 / sx-66..sx. No centre lettering.
+ _photo_metal_piece(bezel,source,Rect2(5,5,92,76),Rect2(0,0,thick,thick),"TopLeftRivet")
+ _photo_metal_piece(bezel,source,Rect2(sx-97,5,92,76),Rect2(bounds.size.x-thick,0,thick,thick),"TopRightRivet")
+ _photo_metal_piece(bezel,source,Rect2(5,sy-81,92,76),Rect2(0,bounds.size.y-thick,thick,thick),"BottomLeftRivet")
+ _photo_metal_piece(bezel,source,Rect2(sx-97,sy-81,92,76),Rect2(bounds.size.x-thick,bounds.size.y-thick,thick,thick),"BottomRightRivet")
+ _photo_metal_piece(bezel,source,Rect2(99,6,sx-198,53),Rect2(thick,0,across,thick),"TopBrushedRail")
+ _photo_metal_piece(bezel,source,Rect2(99,sy-59,sx-198,53),Rect2(thick,bounds.size.y-thick,across,thick),"BottomBrushedRail")
+ _photo_metal_piece(bezel,source,Rect2(7,85,54,sy-170),Rect2(0,thick,thick,down),"LeftBrushedRail")
+ _photo_metal_piece(bezel,source,Rect2(sx-61,85,54,sy-170),Rect2(bounds.size.x-thick,thick,thick,down),"RightBrushedRail")
+
 const FONT_TITLE := preload("res://Art/Fonts/BarlowCondensed-SemiBold.ttf")
 const FONT_BODY := preload("res://Art/Fonts/IBMPlexSans-Variable.ttf")
 const FONT_MONO := preload("res://Art/Fonts/IBMPlexMono-Regular.ttf")
@@ -242,13 +288,16 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
    # copy across the performer's eyes (caught in actual 10:08 native PNG).
    if visible_fraction<0.84:
     var film_side:float=maxf(45.0,(b.size.x-b.size.y*source_ratio)*0.5-15.0)
-    _text(parent,"ART\nPENDING",b.position.x+9,b.position.y+12,film_side,37,11,AMBER,FONT_MONO,true)
+    _text(parent,"ART\nPENDING",b.position.x+21,b.position.y+18,maxf(28.0,film_side-10.0),37,11,AMBER,FONT_MONO,true)
    else:
     _text(parent,"TEMP ART",b.position.x+9,b.position.y+7,b.size.x-18,23,12,AMBER,FONT_MONO)
  else:
   pic=_art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
   _text(parent,"PORTRAIT\nART PENDING",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,22,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
  pic.name="RecruitmentPortrait"
+ if _landscape:
+  # Source-backed raised metal rim, not a UI collage or input widget.
+  _photo_metal_bezel(parent,b,"RecruitmentHeroMetalFrame")
  # This named visual node is audited in native screenshots; a placeholder is never source approval.
 
 func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float) -> void:
@@ -333,6 +382,10 @@ func _landscape_scene(parent: Node) -> void:
 
 func _landscape_recruit(layout: Node) -> void:
  # Four fixed visual zones from the owner-approved mockup.
+ # Reusable independently source-backed perimeter panels. Draw before the
+ # native controls/paper so material stays physically behind live content.
+ _photo_metal_bezel(layout,Rect2(309,177,220,526),"RecruitmentCandidateMetalFrame")
+ _photo_metal_bezel(layout,Rect2(1024,176,527,561),"RecruitmentDossierMetalFrame")
  var roles: Array=Model.ROLE_TABS
  for idx in range(roles.size()):
   var v: String=str(roles[idx])

@@ -76,6 +76,34 @@ func _run() -> void:
   if name_key.get_global_rect().size.y*scale_x<44.0:
    _fail("name-stage key below 44 physical pixels")
    return
+ # Desktop 11:00 real-material pilot: the recruitment stage must show three
+ # independent 8-piece photographed Lab07 metal perimeters. Their AtlasTexture
+ # regions must reference the unchanged 966x426 owner-supplied PNG. No centre
+ # text can be baked into a simulated source frame or obscure the live UI.
+ if width==1280 and stage=="recruit":
+  for frame_name in ["RecruitmentCandidateMetalFrame","RecruitmentDossierMetalFrame","RecruitmentHeroMetalFrame"]:
+   var frame:Control=view.find_child(frame_name,true,false) as Control
+   if frame==null or frame.get_child_count()!=8:
+    _fail("missing independently assembled photographed desktop frame "+frame_name)
+    return
+   for piece in frame.get_children():
+    if not (piece is TextureRect):
+     _fail("desktop metal frame has non-image piece "+frame_name)
+     return
+    var rect:TextureRect=piece as TextureRect
+    var atlas:AtlasTexture=rect.texture as AtlasTexture
+    if atlas==null or atlas.atlas==null or atlas.atlas.resource_path!="res://bandmaster_premium_controls_lab/assets/channel_studio_idle.png":
+     _fail("bezel piece lacks source-verified Lab07 photograph "+frame_name)
+     return
+    if rect.mouse_filter!=Control.MOUSE_FILTER_IGNORE or rect.focus_mode!=Control.FOCUS_NONE:
+     _fail("decorative photographed frame intercepts focus/touch "+frame_name)
+     return
+    var crop:Rect2=atlas.region
+    var source_w:float=float(atlas.atlas.get_width())
+    var source_h:float=float(atlas.atlas.get_height())
+    if crop.position.x>70.0 and crop.position.x+crop.size.x<source_w-70.0 and crop.position.y>65.0 and crop.position.y+crop.size.y<source_h-65.0:
+     _fail("cropped centre of source contains baked GUITAR/CHANNEL text "+frame_name)
+     return
  # Real visual defect regression at 09:07: the 160x160 Alex photo was
  # severely cropped in both wide hero frames. Preserve the entire source
  # until the rights-traced portrait masters replace the legacy thumbnails.
