@@ -42,7 +42,9 @@ jobs:
           import os, re
           p=Path(os.environ["ROOT"])/"scene/frame_demo.gd"
           s=p.read_text()
-          s=re.sub(r"\bmaterial\b", "frame_material_kind", s)\n          s=s.replace("layout.orientation = VERTICAL", "pass # layout orientation handled by existing container")\n          s=s.replace("layout.orientation = HORIZONTAL", "pass # layout orientation handled by existing container")
+          s=re.sub(r"\bmaterial\b", "frame_material_kind", s)
+          s=s.replace("layout.orientation = VERTICAL", "pass # layout orientation handled by existing container")
+          s=s.replace("layout.orientation = HORIZONTAL", "pass # layout orientation handled by existing container")
           p.write_text(s)
           print("Fixed Control.material naming collision")
           PY
