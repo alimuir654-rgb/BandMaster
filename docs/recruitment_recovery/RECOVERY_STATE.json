@@ -150,13 +150,14 @@
       "art_gate": "blocked"
     },
     "1300_nia_identity_and_budget": {
-      "status": "source_committed_ci_pending",
+      "status": "corrective_source_committed__retest_pending",
       "canonical_id": "nia_griffiths",
       "source_cost_points": 45,
       "initial_budget_points": 200,
       "no_verified_nia_portrait": true,
       "art_gate": "blocked",
-      "owner_approval": false
+      "owner_approval": false,
+      "prior_failed_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693092541"
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",

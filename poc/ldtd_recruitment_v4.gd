@@ -221,11 +221,14 @@ func _set_role(value: String) -> void:
  candidate_index=0
  _mobile_scroll=0
  _bio_open=false
+ # Selection is model state, not an accidental rendering side effect.
+ selected=_current()
  _render()
 
 func _move(delta: int) -> void:
  candidate_index=posmod(candidate_index+delta,6)
  _bio_open=false
+ selected=_current()
  _render()
 
 func _add_remove() -> void:
@@ -421,6 +424,8 @@ func _landscape_recruit(layout: Node) -> void:
 
 func _choose_candidate(idx: int) -> void:
  candidate_index=idx
+ selected=_current()
+ _bio_open=false
  _render()
 
 func _roster_dock(layout: Node,w:float,h:float,wide:bool) -> void:
