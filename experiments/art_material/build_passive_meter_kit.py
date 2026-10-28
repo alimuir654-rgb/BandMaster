@@ -92,5 +92,27 @@ new="""        var meter := TextureRect.new()
         meter.set_meta("source_kit", "lab07_lab08_passive_meter")
         line.add_child(meter)"""
 assert old in s,'Baseline native meter fragment changed'
-p.write_text(s.replace(old,new,1))
+s=s.replace(old,new,1)
+assert '    roster_button.text = "ROSTER" if narrow else "VIEW ROSTER"' in s
+s=s.replace('    roster_button.text = "ROSTER" if narrow else "VIEW ROSTER"',
+'''    roster_button.text = "ROSTER" if narrow else "VIEW ROSTER"
+    _apply_meter_sizes()''',1)
+assert '    _update_budget()\n    recruit_button.add_theme_stylebox_override' in s
+s=s.replace('    _update_budget()\n    recruit_button.add_theme_stylebox_override',
+'''    _apply_meter_sizes()
+    _update_budget()
+    recruit_button.add_theme_stylebox_override''',1)
+s+="""
+
+func _apply_meter_sizes() -> void:
+    # Keep physical ten-cell source proportions consistent across all resolutions.
+    var target_height := 22.0 if size.x < 500 else (34.0 if size.x < 900 else (28.0 if size.x < 1500 else 38.0))
+    var target_width := (maxf(140.0, size.x - 242.0) if size.x < 500 else minf(340.0, size.x * 0.43))
+    for row in stat_rows.get_children():
+        var meter := row.get_node_or_null("ReadOnlyMeter") as TextureRect
+        if meter:
+            meter.custom_minimum_size = Vector2(target_width, target_height)
+            meter.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+"""
+p.write_text(s)
 print('PASSIVE_RAG_SOURCE_KIT',len(records),'native meter sprites; no portrait substitute')
