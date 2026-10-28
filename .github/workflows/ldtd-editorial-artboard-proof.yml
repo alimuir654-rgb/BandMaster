@@ -84,6 +84,27 @@ jobs:
               board.paste(img,(x,30))
               d.text((x+7,385),name,fill=(238,231,212))
           board.save(out/"recruitment_portraits_contact_sheet.png")
+          # Reproduce the exact physical portrait rectangles used by the two
+          # independently composed artboards, for each candidate, side by side.
+          sizes=((330,276,"desktop"),(200,240,"phone"))
+          comparison=Image.new("RGB",(1140,620),(13,19,19))
+          draw=ImageDraw.Draw(comparison)
+          draw.text((15,10),"PORTRAIT LEGIBILITY: SOURCE 320x350 / DESKTOP 330x276 / PHONE 200x240",fill=(244,173,57))
+          for i,(name,img) in enumerate(zip(("ALEX VALE","NIA MORGAN"),images)):
+              x=15+i*565
+              draw.text((x,40),name,fill=(240,235,220))
+              dx=x
+              for (w,h,device) in sizes:
+                  # Source was drawn as scalable vector, not raster upsample.
+                  source=Path(f"docs/visual-proofs/recruitment_portrait_{name.lower().split()[0]}_ink_study.svg")
+                  temp=out/f"scale_{name.lower().split()[0]}_{device}.png"
+                  cairosvg.svg2png(url=str(source),write_to=str(temp),output_width=w,output_height=h)
+                  preview=Image.open(temp).convert("RGB")
+                  comparison.paste(preview,(dx,75))
+                  draw.text((dx,75+h+10),f"{device} {w}x{h}",fill=(232,228,210))
+                  dx+=w+10
+          comparison.save(out/"recruitment_portraits_physical_size_comparison.png")
+
           print("PORTRAIT STUDIES ONLY: 2 independent 320x350 authored vector sources; not owner-approved.")
           PY
       - name: Upload two source-backed artboard renders (not Godot captures)
