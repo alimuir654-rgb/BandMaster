@@ -1,3 +1,29 @@
+# RECRUITMENT QUALITY RECOVERY — 28 OCTOBER 2026 — MANDATORY CURRENT MISSION
+
+**THIS SECTION IS AN ADDITION TO, NOT A REPLACEMENT FOR, THE EXISTING 27 OCTOBER V4 CONTRACT BELOW.** It governs new work on recruitment until the human game owner changes it. **Do not merge PR #199, modify `main`, change save systems or restart broader scene sprints.**
+
+## Before any recruitment work
+1. Read `docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md`, `docs/RECRUITMENT_REFERENCE_LOCK.md`, `docs/recruitment_recovery/00_SINGLE_SOURCE_OF_TRUTH.md` and `docs/recruitment_recovery/RECOVERY_STATE.json` (single authoritative stop/go state).
+2. Read the relevant assigned role contract under `.agents/recruitment/` and `docs/recruitment_recovery/04_SPRINT_PLAYBOOK.md`. These are instruction files, not automatically deployed agents.
+3. Read the latest failed native screenshot review and *actually view* genuine current Godot 390x844 and 1280x720 captures before claiming any quality progress.
+4. Check latest GitHub branch head, concurrent writers, source bytes, candidate IDs, rights and asset SHA; do not overwrite active work or declare missing assets without checking GitHub.
+5. Choose ONE art P0. New scenes, broad game changes, React/engine migration, plugins or paid tools are out of scope.
+
+## Mandatory production sequence
+- Art director + asset producer deliver **two genuinely distinct musician images** and a cohesive finished target for desktop/phone **before** isolated native integration. Images must be real authored/generated source media, not another code-drawn SVG face. Source assets must be independently addressable; a flattened screen is never the interactive game.
+- The art director may issue only an **internal provisional** approval for isolated technical integration, with documented source paths and observed quality. The game owner alone approves the final aesthetic and any merge/rollout.
+- Native Godot implementation must bind to actual recruitment data and use independently textured assets, image-backed interaction states, deliberate 390/1280 layouts, inert six stats, correct touch/focus and source-verified assets.
+- Pass `python3 tools/recruitment_quality_gate.py --root . --stage prep` for planning validation. This test deliberately does NOT approve art. `--stage art`, `--stage native` and `--stage owner` require real independently verified evidence.
+- Append a dated factual entry to `docs/recruitment_recovery/05_SPRINT_LEDGER.md`; update the single `RECOVERY_STATE.json` only with actual progress. Never set `owner_approved=true` from an agent or CI result.
+- If any art P0 remains, STOP new screens. Keep engineering success and artistic failure separate. The next job is correcting the P0, not producing more features.
+
+## Visual bar / sources
+- Approved visual direction: richly physical dark roadcase, unique prominent musician portrait, five role tabs, six browseable candidate contacts, six read-only red/amber/green stats beneath portrait, paper dossier, amber recruit control and roster/talent dock. Phone is separately designed; 44 physical px minimum targets.
+- Reuse the best existing photographic Lab07/Lab08 controls after source verification. Old Alex/Nia **code SVG portraits remain art failures**, not an art production fallback. No character/photo identity remapping.
+- No claiming art approval from green CI, simulated personas, source presence, exact screenshot dimensions or merely attractive concept art. A native pixel inspection and real owner review are required.
+
+---
+
 # STOP-THE-LINE VISUAL QUALITY DIRECTIVE — 27 OCTOBER 2026
 **READ FIRST**: [docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md](docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md). This owner-directed V4 visual contract supersedes earlier broad scene queues, V3 design, and generic UI-helper defaults. Do **not** resume S03–S07, merge PR #199 or modify live formation/save workflows without further explicit owner approval.
 

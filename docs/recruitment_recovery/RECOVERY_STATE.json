@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "mission": "one_recruitment_screen_only",
+  "repo": "alimuir654-rgb/BandMaster",
+  "target_branch": "first-pass-scene-sweep-2026-10-27",
+  "pull_request": 199,
+  "active_sprint": "R1",
+  "current_stage": "prep",
+  "last_verified_code_sha": "bd45ba4381493d30663f4c14f5015c703836923e",
+  "reference": {
+    "owner_direction_approved": true,
+    "binary_in_repository_verified": false,
+    "file": null,
+    "sha256": "278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223"
+  },
+  "internal_art_review": "blocked",
+  "owner_approved": false,
+  "owner_approval_evidence": null,
+  "milestones": {
+    "art_target": { "status": "blocked", "evidence": [] },
+    "source_layers": { "status": "blocked", "evidence": [] },
+    "godot_native": { "status": "blocked", "evidence": [] },
+    "visual_qa": { "status": "blocked", "evidence": [] }
+  },
+  "native_screenshots": {
+    "390x844": null,
+    "1280x720": null
+  },
+  "native_ci_url": null,
+  "known_art_p0": [
+    "Two believable, visually distinct musician portraits in one coherent style not produced/approved",
+    "Finished desktop and phone recruitment art targets not produced/approved",
+    "Existing clip-art/native proof is materially below owner-approved physical look"
+  ],
+  "next_single_action": "R1: produce two strong identity-safe musician source portraits plus authored desktop and phone art targets; compare against V4 reference, record source rights and exact files"
+}
