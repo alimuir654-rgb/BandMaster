@@ -2,6 +2,13 @@ extends SceneTree
 const Scene=preload("res://poc/ldtd_editorial_native_handoff.tscn")
 const Model=preload("res://Scripts/recruitment_catalogue_v3.gd")
 var errors:=0
+func _meters(root: Node) -> Array:
+ var found: Array=[]
+ for child in root.get_children():
+  if str(child.name).begins_with("Meter_") and child is Control:
+   found.append(child)
+  found.append_array(_meters(child))
+ return found
 func _initialize() -> void:
  call_deferred("_run")
 func _check(v: bool,msg: String) -> void:
@@ -27,12 +34,11 @@ func _run() -> void:
  view._browse(1)
  _check(view.candidate_index==1,"candidate browse changes actual selection")
  _check(view._person().has("id"),"candidate selection remains authoritative")
- var meters:=0
- for c in view.find_children("*","Control",true,false):
-  if c.name.begins_with("Meter_"):
-   meters+=1
-   _check(c.focus_mode==Control.FOCUS_NONE and c.mouse_filter==Control.MOUSE_FILTER_IGNORE,"meter never captures focus/input")
- _check(meters==6,"six native, non-interactive stat bars")
+ var found_meters: Array=_meters(view)
+ print("EDITORIAL NATIVE METER COUNT:",found_meters.size())
+ for c in found_meters:
+  _check(c.focus_mode==Control.FOCUS_NONE and c.mouse_filter==Control.MOUSE_FILTER_IGNORE,"meter never captures focus/input")
+ _check(found_meters.size()==6,"six native, non-interactive stat bars")
  _check(not view.has_method("_style"),"legacy V3 flat helper quarantined")
  view.queue_free()
  if errors==0:print("EDITORIAL NATIVE HANDOFF TEST PASS: real model, local interaction, six inert meters, no saves")
