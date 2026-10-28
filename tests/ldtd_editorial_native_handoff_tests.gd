@@ -16,6 +16,9 @@ func _check(v: bool,msg: String) -> void:
   errors+=1
   push_error("EDITORIAL NATIVE TEST FAILURE: "+msg)
 func _run() -> void:
+ # Use a real 1280x720 X display, not the 1x1 headless display stub.
+ get_root().size=Vector2i(1280,720)
+ DisplayServer.window_set_size(Vector2i(1280,720))
  var view:Control=Scene.instantiate()
  get_root().add_child(view)
  for i in range(5):await process_frame
