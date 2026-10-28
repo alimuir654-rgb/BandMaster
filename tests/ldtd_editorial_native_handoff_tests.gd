@@ -42,6 +42,12 @@ func _run() -> void:
  for c in found_meters:
   _check(c.focus_mode==Control.FOCUS_NONE and c.mouse_filter==Control.MOUSE_FILTER_IGNORE,"meter never captures focus/input")
  _check(found_meters.size()==6,"six native, non-interactive stat bars")
+ var role_key:TextureButton=view._stage.get_node("Role_0")
+ var role_caption:Label=role_key.get_child(0)
+ _check(role_caption.get_theme_font_size("font_size")>=11 and role_caption.size.x>=40,"role captions must be legible, never boolean 1px font")
+ var meter_rail:Control=view._stage.get_node("Meter_Technique")
+ var meter_caption:Label=meter_rail.get_child(0)
+ _check(meter_caption.get_theme_font_size("font_size")>=11 and meter_caption.size.x>=90,"six meter labels must be legible, never boolean 1px font")
  _check(not view.has_method("_style"),"legacy V3 flat helper quarantined")
  view.queue_free()
  if errors==0:print("EDITORIAL NATIVE HANDOFF TEST PASS: real model, local interaction, six inert meters, no saves")
