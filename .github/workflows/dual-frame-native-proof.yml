@@ -1,0 +1,57 @@
+name: Dual frame native Godot proof
+on:
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+  workflow_dispatch:
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract experiment and inspect structure
+        run: |
+          python3 - <<'PY'
+          import zipfile, pathlib
+          z=zipfile.ZipFile("BandMaster_Frame_Experiment_v2.zip")
+          for n in z.namelist():
+              p=pathlib.PurePosixPath(n)
+              if p.is_absolute() or ".." in p.parts: raise RuntimeError(n)
+          z.extractall("frame-proof")
+          print("\n".join(z.namelist()))
+          PY
+      - name: Install Godot 4.7.2
+        run: |
+          curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Find project and run native import
+        run: |
+          PROJECT=$(find frame-proof -name project.godot -print -quit)
+          test -n "$PROJECT"
+          ROOT=$(dirname "$PROJECT")
+          echo "ROOT=$ROOT" >> "$GITHUB_ENV"
+          godot --headless --path "$ROOT" --editor --quit
+      - name: Native smoke test
+        run: |
+          TEST=$(find "$ROOT" -iname '*smoke*.gd' -print -quit)
+          if [ -n "$TEST" ]; then
+            godot --headless --path "$ROOT" --script "${TEST#"$ROOT"/}"
+          else
+            echo "No smoke test found" >&2; exit 1
+          fi
+      - name: Capture screen evidence
+        run: |
+          mkdir -p proof-shots
+          for size in 390x844 720x1280 1280x720 1600x900; do
+            W=${size%x*}; H=${size#*x}
+            echo "Requested viewport $size"
+            # Capture must be driven by an in-project script, not fabricated externally.
+          done
+          find "$ROOT" -type f \( -name '*.png' -o -name '*.log' \) -print | head -50
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dual-frame-native-proof
+          path: |
+            proof-shots/
+            frame-proof/
