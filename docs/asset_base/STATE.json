@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "asset-producer-20261028T225715Z-C01",
-    "claimed_utc": "2026-10-28T22:57:15Z",
-    "base_head": "41d940c74de1073e2e0e1d92e3f9d801dd9a1c31",
-    "lease_expires_utc": "2026-10-28T23:55:00Z",
-    "stream": "C",
-    "status": "authoring standalone character artwork"
-  },
-  "last_verified_code_sha": "8efb9e547f6f147237179b4439a91566e3ceae68",
+  "writer": null,
+  "last_verified_code_sha": "eba5a9859080b88e75cb17f1e29099c454de3da3",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -31,18 +24,19 @@
     "art_acceptance": "not_passed",
     "screenshots": 32
   },
-  "scheduled_worker_generation_capability": "checking_image_gen_directly",
-  "next_stream": "C",
-  "next_single_action": "Produce and inspect two distinct standalone Alex/Nia character sources using an available authorised route; verify generation capability on this scheduled runner, never repeat a known unavailable method.",
+  "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
+  "next_stream": "F",
+  "next_single_action": "Author and inspect source-backed flight-case/night and notebook/day borders, panel mounts and phone/tablet safe areas, then prove in native 390x844/1280x720 screens. No portrait collage crops.",
   "streams": {
     "C": {
-      "status": "queued",
+      "status": "blocked_standalone_generation_method",
       "priority": "P0",
       "target": "Two distinctive canonical portrait masters and derived crops",
       "assets": [],
       "verified_native_evidence": [],
-      "blocked_reason": null,
-      "ineffective_attempts": 0
+      "blocked_reason": "Two image_gen attempts for one isolated Alex Vale fictional musician portrait returned whole UI showcase collages with Alex/Nia, labels and invented display hashes. Both outputs explicitly rejected; zero standalone masters. Change method rather than retry unchanged.",
+      "ineffective_attempts": 2,
+      "next_action": "At 02:00 checkpoint verify a materially different no-cost solo-portrait creation route; preserve character gap if none."
     },
     "F": {
       "status": "queued",
@@ -55,19 +49,40 @@
         "tablet composition",
         "material fidelity"
       ],
-      "ineffective_attempts": 0
+      "ineffective_attempts": 0,
+      "next_action": "Source-backed standalone day/night frame corners, panel mounts and quiet text-safe areas, correct crowded phone footer and tablet photo crop."
     },
     "U": {
-      "status": "queued",
+      "status": "partial_native_verified",
       "priority": "P0",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
-      "assets": [],
-      "verified_native_evidence": [],
+      "assets": [
+        "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py"
+      ],
+      "verified_native_evidence": [
+        {
+          "tested_code_sha": "eba5a9859080b88e75cb17f1e29099c454de3da3",
+          "run_id": 40784840836,
+          "artifact_id": 12856999913,
+          "artifact_sha256": "e200e322de38a7089b3e13d445368fe7cb48bb66240bc30dc1236f78ad1521cc",
+          "screenshots": 32,
+          "assertion_failures": 0,
+          "inspected": [
+            "flightcase-390x844-alex",
+            "notepaper-390x844-alex",
+            "flightcase-720x1280-nia",
+            "notepaper-720x1280-alex",
+            "flightcase-1280x720-nia",
+            "notepaper-1600x900-nia"
+          ]
+        }
+      ],
       "baseline_gaps": [
         "paper controls too plain",
         "uniform heavy metal tabs"
       ],
-      "ineffective_attempts": 0
+      "ineffective_attempts": 0,
+      "next_action": "Later: integrate five-state tactile Lab07 controls and dedicated read-only meter/no-focus assertion; don't proliferate generic button variants."
     }
   },
   "checkpoints": [
@@ -103,6 +118,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": null,
-  "review_index": null
+  "last_completed_deliverable": "C01: native Godot source-backed read-only passive meter atlas, 22 distinct sprites, 32 screenshots and 0 native failures; portrait generator route blocked.",
+  "review_index": null,
+  "last_updated_utc": "2026-10-28T23:09:00Z"
 }
