@@ -35,7 +35,7 @@ jobs:
           set -euo pipefail
           godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/editorial_import.log
           ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/editorial_import.log
-          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_editorial_native_handoff_tests.gd 2>&1 | tee /tmp/editorial_test.log
+          xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/ldtd_editorial_native_handoff_tests.gd 2>&1 | tee /tmp/editorial_test.log
           grep -q 'EDITORIAL NATIVE HANDOFF TEST PASS:' /tmp/editorial_test.log
           ! grep -E 'SCRIPT ERROR:|Parse Error:|EDITORIAL NATIVE TEST FAILURE:|ERROR:' /tmp/editorial_test.log
       - name: Capture actual Godot viewport pixels at phone and landscape physical sizes
