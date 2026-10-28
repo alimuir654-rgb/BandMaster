@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "9b8a2cc0663b2e3049e90cb89932b294a3da2c70",
+  "last_verified_code_sha": "fe4ec9728d657cdea98374a4262d0c89fc3294ec",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -37,15 +37,17 @@
   "native_screenshots": {
     "390x844": {
       "name": "v4-recruit-390x844.png",
-      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553/artifacts/12836145817",
+      "sha256": "e6e028336ea8ad7613fe5f59a53a1225be0cdeb7b241e80eed5114238f576c5b",
       "native_png_opened_original_pixels": true,
-      "source": "CI 40702142390 base64 lossless original screenshot"
+      "source": "CI run 40732048553, Godot 4.7.2 lossless original PNG"
     },
     "1280x720": {
       "name": "v4-recruit-1280x720.png",
-      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
-      "native_jpeg_preview_opened_same_dimensions": true,
-      "native_lossless_png_opened": false
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553/artifacts/12836145817",
+      "sha256": "80bd1298b9b1d0ab6649833bae45554aa0653aa5d0d3bd7a0ea70c95f18b7f78",
+      "native_png_opened_original_pixels": true,
+      "source": "CI run 40732048553, Godot 4.7.2 lossless original PNG"
     },
     "nia_390x844": {
       "name": "v4-nia-390x844.png",
@@ -96,15 +98,15 @@
       "native_png_opened_original_pixels": true
     }
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553",
   "known_art_p0": [
     "Two independently authored >=1024x1024 standalone rights/provenance-audited photographic-style masters for canonical alex and nia_griffiths remain absent; 15:00 image generation returned another UI composite (SHA256 6cd8b49a...) and is rejected.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
-    "Actual source film/contact, roadcase, paper and role controls remain largely authored SVGs rather than photographic physical texture layers: final four native Godot screenshots still visibly far below owner-liked A-03 design.",
+    "17:00 source-backed Lab07 photographed OUTER case rails, header/dock braces and earlier three inset bezels are now integrated and verified in native Godot pixels; however central case, paper dossier, role/CTA skins remain largely authored SVG/vector materials, substantially poorer than owner-liked photographic A-03 design.",
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "17:00: make one P0-specific SOURCE-BACKED photographic/material improvement to the existing isolated Godot recruitment screen; obtain real 390x844/1280x720 native before/after pixel evidence. Keep standalone Alex/Nia portrait-masters blocked and no production merges.",
+  "next_single_action": "18:00: stabilise exact tested 17:00 source head, capture/review all four true Godot device viewports and produce concise owner contact sheet comparing the photographed roadcase with approved design direction. Keep missing separately authored alex/nia_griffiths portrait masters as P0, visual QA BLOCKED, owner_approved=false and PR #199 draft/unmerged.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -329,9 +331,61 @@
       },
       "art_gate": "BLOCKED",
       "owner_approval": false
+    },
+    "1700_photo_case_material": {
+      "status": "real_godot_4_7_2_pass__art_p0_blocked",
+      "code_sha": "fe4ec9728d657cdea98374a4262d0c89fc3294ec",
+      "source_lab07": {
+        "path": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+        "git_blob_sha1": "d8e9059be4818fe0da57bdce2c785579a3d9dad4",
+        "width": 966,
+        "height": 426,
+        "usage": "blank photographed edge/corner/rail only; NO baked centre text"
+      },
+      "source_line_trace": {
+        "poc/ldtd_recruitment_v4.gd": {
+          "photo_shell": 61,
+          "compose": 214
+        },
+        "tests/capture_ldtd_recruitment_v4.gd": {
+          "photo_shell_audit": 161
+        }
+      },
+      "files_changed": [
+        "poc/ldtd_recruitment_v4.gd",
+        "tests/capture_ldtd_recruitment_v4.gd"
+      ],
+      "native_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553",
+      "native_artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553/artifacts/12836145817",
+      "native_zip_sha256": "253dd3df8f19522372cbada4694493f281d67288d67bf429e0a273116fd9dc90",
+      "native_png_count": 32,
+      "physical_side_by_side": {
+        "phone_390": {
+          "before_sha256": "eaee0466f870f818a2c37e67b83a8574178dad4b3446997f789bbd1fce7d66a8",
+          "after_sha256": "e6e028336ea8ad7613fe5f59a53a1225be0cdeb7b241e80eed5114238f576c5b",
+          "changed_pixels_above_12_rgb_max_percent": 8.13,
+          "inspected_both_original_pixels": true
+        },
+        "landscape_1280": {
+          "before_sha256": "5b05c4fce7c3c9011c94ee3711699e9f8e87001fb7cb795c754105d382b5ef83",
+          "after_sha256": "80bd1298b9b1d0ab6649833bae45554aa0653aa5d0d3bd7a0ea70c95f18b7f78",
+          "changed_pixels_above_12_rgb_max_percent": 7.41,
+          "inspected_both_original_pixels": true
+        }
+      },
+      "qa": {
+        "recruitment_ci": "completed_success",
+        "standard_headless": "completed_success",
+        "structure": "completed_success",
+        "photographic_material_source_audited": true,
+        "interactivity_invariant": true,
+        "unavailable_master_art_p0": true,
+        "owner_approval": false
+      },
+      "art_gate": "BLOCKED"
     }
   },
-  "last_submitted_code_sha": "9b8a2cc0663b2e3049e90cb89932b294a3da2c70",
+  "last_submitted_code_sha": "fe4ec9728d657cdea98374a4262d0c89fc3294ec",
   "native_pixel_inspection_1000": {
     "source_code_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
     "source_ci_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
