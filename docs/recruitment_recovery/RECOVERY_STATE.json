@@ -92,7 +92,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "16:00: run the scheduled deterministic Godot role/recruit/remove/accessibility QA on the draft native proof while explicitly carrying the unresolved standalone Alex/Nia portrait P0. Do not rerun uncontrolled full-UI image generation.",
+  "next_single_action": "16:00: verify newly submitted role/roster/candidate deterministic Godot CI and 8 native screenshots; fix any observed failed assertion without skipping; then 17:00 visual P0-specific repair.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -269,6 +269,25 @@
       "phone_png_original_pixels_viewed": true,
       "landscape_same_size_godot_jpeg_viewed": true,
       "focused_png_original_pixels_viewed": false,
+      "art_gate": "BLOCKED",
+      "owner_approval": false
+    },
+    "1600_role_gameplay_qa": {
+      "status": "submitted_pending_native_ci",
+      "head_before_change": "2b012c00ff0f1c2dcad38f6c3bdacd96cdf30a22",
+      "scope": [
+        "five role families, six unique choices each",
+        "candidate transport wrapping and model-backed prices",
+        "dual-role Aisha charge/refund exactly once",
+        "unaffordable recruit leaves roster/budget unchanged",
+        "eight genuine 390/1280 Godot role screenshots",
+        "native read-only meters, portrait identity, textured controls and 44px phone tabs"
+      ],
+      "source_paths": [
+        "tests/ldtd_recruitment_v4_tests.gd",
+        "tests/capture_ldtd_recruitment_v4.gd",
+        ".github/workflows/ldtd-recruitment-v4-art.yml"
+      ],
       "art_gate": "BLOCKED",
       "owner_approval": false
     }

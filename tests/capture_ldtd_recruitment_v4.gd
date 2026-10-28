@@ -14,7 +14,8 @@ func _run() -> void:
   if arg.begins_with("--height="):height=int(arg.trim_prefix("--height="))
   if arg.begins_with("--stage="):stage=arg.trim_prefix("--stage=")
   if arg.begins_with("--output="):output=arg.trim_prefix("--output=")
- if not ["genre","recruit","name","bio","ready","missing","nia","focus","nia_focus"].has(stage):
+ var role_for_stage:Dictionary={"role_guitar":"Guitarist","role_bass":"Bassist","role_keys":"Keyboardist","role_drums":"Drummer"}
+ if not (["genre","recruit","name","bio","ready","missing","nia","focus","nia_focus"].has(stage) or role_for_stage.has(stage)):
   _fail("unknown stage")
   return
  get_root().size=Vector2i(width,height)
@@ -54,6 +55,58 @@ func _run() -> void:
   if view.Model.MAX_TALENT-view.Model.spent(view.roster)!=200:
    _fail("candidate browse mutated initial 200-point talent")
    return
+
+ # 16:00 native visual QA across the other four physical role tabs. Switch
+ # all six candidates, ensure canonical identities, and render the selected
+ # first performer after verifying no budget/roster side effects.
+ if role_for_stage.has(stage):
+  view._set_role(str(role_for_stage[stage]))
+  for i in range(3):await process_frame
+  var choices:Array=view.Model.pool(view.genre,view.role)
+  if choices.size()!=6:
+   _fail("role has fewer than six actual candidate records: "+view.role)
+   return
+  var ids:Dictionary={}
+  for position in range(6):
+   view._choose_candidate(position)
+   var chosen:Dictionary=view._current()
+   var chosen_id:String=str(chosen.get("id",""))
+   if chosen_id!=str(choices[position]["id"]) or str(view.selected.get("id",""))!=chosen_id or ids.has(chosen_id):
+    _fail("native six-position selection identity failed in "+view.role)
+    return
+   ids[chosen_id]=true
+  view._move(1)
+  if view.candidate_index!=0:
+   _fail("native role paging does not wrap in "+view.role)
+   return
+  view._choose_candidate(0)
+  for i in range(3):await process_frame
+  var current:Dictionary=view._current()
+  var portrait:TextureRect=view.find_child("RecruitmentPortrait",true,false) as TextureRect
+  if portrait==null or str(portrait.get_meta("candidate_id",""))!=str(current["id"]):
+   _fail("wrong-person hero after role switching to "+view.role)
+   return
+  for i in range(6):
+   var meter:Control=view.find_child("RecruitmentMeter"+str(i+1),true,false) as Control
+   if meter==null or str(meter.get_meta("candidate_id",""))!=str(current["id"]) or str(meter.get_meta("attribute_label",""))!=str(view.Model.labels_for(view.role)[i]) or int(meter.get("value"))!=int(view.Model.stats_for(current,view.role)[i]):
+    _fail("wrong-source six-meter value in "+view.role+" / "+str(i))
+    return
+  if view.Model.spent(view.roster)!=0 or view.roster.size()!=0:
+   _fail("candidate switching altered 200-point budget or roster")
+   return
+  if width==390:
+   var controls:Dictionary={}
+   for b in view.find_children("*","TextureButton",true,false):
+    var caption:String=str(b.get_meta("control_caption",""))
+    if ["SING","GUITAR","BASS","KEYS","DRUMS"].has(caption):
+     controls[caption]=true
+     if b.get_global_rect().size.x*float(width)/maxf(view.get_viewport_rect().size.x,1.0)<44.0:
+      _fail("narrow phone role tab below 44px: "+caption)
+      return
+   if controls.size()!=5:
+    _fail("phone lacks five reachable physical role tabs after switch")
+    return
+  print("NATIVE FIVE-ROLE SOURCE QA: ",view.role," six unique candidates, correct portrait ID, six passive attributes, 200 points unspent")
  if stage=="missing":
   view._move(1)
   for i in range(2):await process_frame
@@ -72,7 +125,7 @@ func _run() -> void:
  if stage=="bio":
   view._show_dossier()
   for i in range(4):await process_frame
- var expected_step:int=1 if ["bio","ready","missing","nia","focus","nia_focus"].has(stage) else ["genre","recruit","name"].find(stage)
+ var expected_step:int=1 if (["bio","ready","missing","nia","focus","nia_focus"].has(stage) or role_for_stage.has(stage)) else ["genre","recruit","name"].find(stage)
  if view.step!=expected_step or (stage=="bio" and not view._bio_open) or (stage=="ready" and not view.Model.viable(view.roster)):
   _fail("scene step contract")
   return
@@ -210,7 +263,7 @@ func _run() -> void:
   if first_meter_y<hero_rect.end.y*scale_x-1.0 or first_meter_y>hero_rect.end.y*scale_x+75.0:
    _fail("phone six-meter bank not directly below hero portrait")
    return
- if ["recruit","missing","nia","focus","nia_focus"].has(stage):
+ if (["recruit","missing","nia","focus","nia_focus"].has(stage) or role_for_stage.has(stage)):
   var count:=0
   for child in view.find_children("*","Control",true,false):
    if child.get_script()==load("res://poc/ldtd_recruitment_meter.gd"):
@@ -223,7 +276,7 @@ func _run() -> void:
    return
  # 14:00 native source/focus audit: exact six catalogue values and no
  # keyboard/touch access to passive bar controls for both canonical candidates.
- if ["recruit","nia","focus","nia_focus"].has(stage) and (width==390 or width==1280):
+ if (["recruit","nia","focus","nia_focus"].has(stage) or role_for_stage.has(stage)) and (width==390 or width==1280):
   var current:Dictionary=view._current()
   var labels:Array=view.Model.labels_for(view.role)
   var values:Array=view.Model.stats_for(current,view.role)
@@ -293,7 +346,7 @@ func _run() -> void:
   return
  # Same-dimension JPEG is a review/log transport preview only; the original
  # full-resolution lossless PNG stays in the uploaded native artifact.
- if width==1280 and stage=="recruit":
+ if width==1280 and (stage=="recruit" or stage=="role_drums"):
   var preview:String=output.get_basename()+"-review.jpg"
   if img.save_jpg(ProjectSettings.globalize_path(preview),0.72)!=OK:
    _fail("save independent native-size visual preview failed")

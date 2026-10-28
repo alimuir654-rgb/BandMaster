@@ -90,6 +90,17 @@ jobs:
               ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
             done
           done
+          # 16:00 UX QA: four additional role families at phone and landscape,
+          # with all six unique candidates, identity, stats, focus and budget audited.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            for role_stage in role_guitar role_bass role_keys role_drums; do
+              path="screenshots/v4-${role_stage}-${dims}.png"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage="$role_stage" --output="$path" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
           # Missing-photo honesty proof: native film contact, no swapped face.
           for dims in 390x844 1280x720; do
             width="${dims%x*}"; height="${dims#*x}"
@@ -106,7 +117,7 @@ jobs:
           # The 390 PNG below is lossless, at original physical dimensions.
           # The 1280 JPEG is a Godot-saved same-dimension preview; the 1280
           # lossless PNG remains in artifacts. These are NOT source art.
-          for path in screenshots/v4-recruit-390x844.png screenshots/v4-recruit-1280x720-review.jpg; do
+          for path in screenshots/v4-recruit-390x844.png screenshots/v4-recruit-1280x720-review.jpg screenshots/v4-role_keys-390x844.png screenshots/v4-role_drums-1280x720-review.jpg; do
             test -s "$path"
             echo "RECRUITMENT_NATIVE_PROOF_BEGIN:$path"
             base64 "$path"
