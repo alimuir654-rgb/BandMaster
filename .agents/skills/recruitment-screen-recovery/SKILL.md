@@ -14,3 +14,9 @@ This skill is provided as a file **for agents that support project-local skills*
 **Execute:** follow `04_SPRINT_PLAYBOOK.md`; record in `05_SPRINT_LEDGER.md`; validate with `python3 tools/recruitment_quality_gate.py --root . --stage prep`. Run appropriate actual Godot screenshot and mechanical tests when the code exists. Human owner art approval remains separate and binding.
 
 **Stop:** any art P0, rights gap, hidden identity mismatch, fake native screenshot or wider scene request. Do not claim pass based on CI alone. Never change production saves or merge PR #199.
+
+## Current explicit owner permission — 28 Oct 2026
+
+Owner has praised R1 visual studies and authorises isolated Godot fidelity development through 19:00 today despite unresolved R1 individual-portrait source P0. **Do not convert an art P0 into a visual pass or merge; do build a clearly labelled provisional Godot rendering if necessary to identify visual fidelity defects.** This permission supersedes only the skill's previous blanket 'stop all development if any art P0' wording. Read `docs/recruitment_recovery/13_2026_10_28_SPRINT_QUEUE.md` and continue the next incomplete sprint, never restart R0.
+
+---

@@ -1,3 +1,10 @@
+# OWNER AUTHORISED ISOLATED GODOT RECOVERY — 28 OCT 2026, 08:56 UK
+
+The owner has now reviewed the four R1 photographic roadcase concept studies and says they **look good**. This approves the **creative direction as a build target**, NOT specific fictional candidate names/prices/stats, usable separated layers, finished Godot pixels, final artwork or a production merge. The owner authorises a hands-off hourly Godot recruitment-screen quality programme **09:00 through 19:00 UK, 28 October 2026**, including meaningful isolated native integration before the art-quality P0 is fully resolved when required to benchmark fidelity. The 19:00 slot is review-only. A source-art gap must stay honestly BLOCKED and visibly labelled; no substitute image is called accepted production art. The more restrictive prior art-first staging rules still govern artistic approval and release, but must **not** be used to prevent an explicitly owner-authorised isolated native proof.
+
+**For current sprint order and acceptance per hour read** `docs/recruitment_recovery/13_2026_10_28_SPRINT_QUEUE.md`; update the one current state and append-only ledger on each run. At start inspect newest branch head/CI and last writer. Continue the next unfinished step instead of restarting. Owner-review evidence = actual source art paths/hashes, Godot 390x844 and 1280x720 screenshots, side-by-side against the R1 concepts, real role/budget interactions and five specific *simulated* lens findings. No false human approval. **Never** bake a full generated UI collage as the interactive screen; use native labels, canonical Alex/Nia catalogue data, sourced controls and proper layers. No paid Figma image credits, main/save changes, auto-merges, additional scenes or unnecessary engine migration.
+
+---
 # RECRUITMENT QUALITY RECOVERY — 28 OCTOBER 2026 — MANDATORY CURRENT MISSION
 
 **THIS SECTION IS AN ADDITION TO, NOT A REPLACEMENT FOR, THE EXISTING 27 OCTOBER V4 CONTRACT BELOW.** It governs new work on recruitment until the human game owner changes it. **Do not merge PR #199, modify `main`, change save systems or restart broader scene sprints.**
