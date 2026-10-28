@@ -1,0 +1,29 @@
+name: Art material native experiment
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['.github/workflows/art-material-proof.yml', 'experiments/art_material/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: art-material-proof
+  cancel-in-progress: true
+jobs:
+  native-art:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect pinned source artwork and provenance
+        run: |
+          git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
+          mkdir -p art-sources
+          git archive FETCH_HEAD Art .agents/recruitment docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md docs/RECRUITMENT_REFERENCE_LOCK.md docs/recruitment_recovery | tar -x -C art-sources
+          find art-sources/Art -type f | sort > art-sources/inventory.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-art-production-sources
+          path: art-sources/
+          retention-days: 7
+          compression-level: 1
