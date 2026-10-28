@@ -97,7 +97,8 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add AGENTS.md README_IMPORT.md PACKAGE_SHA256.txt .agents/recruitment             .agents/skills/recruitment-screen-recovery .github/workflows/recruitment-recovery-plan.yml             Art/RecruitmentRecovery docs/recruitment_recovery             tools/recruitment_quality_gate.py tools/recruitment_scope_guard.py             tools/register_recruitment_asset.py tests/test_recruitment_quality_gate.py
+          git add AGENTS.md README_IMPORT.md PACKAGE_SHA256.txt .agents/recruitment             .agents/skills/recruitment-screen-recovery             Art/RecruitmentRecovery docs/recruitment_recovery             tools/recruitment_quality_gate.py tools/recruitment_scope_guard.py             tools/register_recruitment_asset.py tests/test_recruitment_quality_gate.py
+          # Workflow updates are installed separately by authorized connector, not Actions bot.
           git diff --cached --check
           if git diff --cached --quiet; then
             echo 'All exact recovery files already present; no change'
