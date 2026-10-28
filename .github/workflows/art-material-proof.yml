@@ -22,7 +22,7 @@ jobs:
         run: |
           git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
           mkdir -p art-sources proof-shots
-          git archive FETCH_HEAD Art bandmaster_premium_controls_lab docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md | tar -x -C art-sources
+          git archive FETCH_HEAD Art bandmaster_premium_controls_lab bandmaster_premium_dashboard_poc docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md | tar -x -C art-sources
           git fetch --depth=1 origin 981bbdcd8908049ddc72f71606461676520e8630
           git show FETCH_HEAD:.github/workflows/dual-frame-native-proof.yml > /tmp/verified-baseline.yml
       - name: Install pinned engine and real renderer
@@ -46,6 +46,7 @@ jobs:
           run('Repair actual source and both scene bindings before import')
           subprocess.run(['python3','experiments/art_material/prepare_art.py'],check=True)
           subprocess.run(['python3','experiments/art_material/refine_art.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/build_passive_meter_kit.py'],check=True)
           run('Create native interaction and screenshot test')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
           s=p.read_text()
@@ -65,6 +66,8 @@ jobs:
               subprocess.run(['bash','-e','-o','pipefail','-c',step['run']],check=True)
           PY
           cp "$ROOT/MATERIAL_MANIFEST.json" proof-shots/
+          cp "$ROOT/PASSIVE_METER_MANIFEST.json" proof-shots/
+          cp "$ROOT/assets/material/passive_meter_atlas.png" proof-shots/
           cp "$ROOT/assets/material/SOURCE_PHOTO_MANIFEST.json" proof-shots/
           cp art-sources/docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md proof-shots/
       - uses: actions/upload-artifact@v4
