@@ -1,0 +1,52 @@
+name: LDTD editorial recruitment artboards (design-only)
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'docs/visual-proofs/recruitment_editorial_*.svg'
+      - '.github/workflows/ldtd-editorial-artboard-proof.yml'
+  workflow_dispatch:
+jobs:
+  artboard-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SVG renderer for evidence only
+        run: |
+          python -m pip install --disable-pip-version-check --quiet cairosvg pillow
+      - name: Validate independent artboard geometry and render actual SVG pixels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import cairosvg
+          from PIL import Image
+          out = Path("artboard_evidence")
+          out.mkdir(exist_ok=True)
+          for suffix, width, height in (("desktop_1280",1280,720),("phone_390",390,844)):
+              source = Path(f"docs/visual-proofs/recruitment_editorial_{suffix}.svg")
+              root = ET.parse(source).getroot()
+              assert root.attrib["width"] == str(width)
+              assert root.attrib["height"] == str(height)
+              assert root.attrib["viewBox"] == f"0 0 {width} {height}"
+              labels = [e.text or "" for e in root.iter() if e.tag.endswith("text")]
+              full = " ".join(labels)
+              for phrase in ("FIND YOUR PEOPLE","ALEX","RECRUIT","VOCALS","LIVE","WRITING","RHYTHM","CHEMISTRY","RELIABILITY","160 / 200"):
+                  assert phrase in full, (suffix, phrase)
+              # Source-based UI proof, not actual Godot gameplay and not owner art approval.
+              output = out / f"recruitment_editorial_{suffix}.png"
+              cairosvg.svg2png(url=str(source),write_to=str(output))
+              with Image.open(output) as im:
+                  assert im.size == (width,height)
+                  print(f"DESIGN ONLY: {source} -> {output}, {im.size}")
+          PY
+      - name: Upload two source-backed artboard renders (not Godot captures)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ldtd-editorial-artboards-design-only
+          path: |
+            docs/visual-proofs/recruitment_editorial_desktop_1280.svg
+            docs/visual-proofs/recruitment_editorial_phone_390.svg
+            artboard_evidence/*.png
+          if-no-files-found: error
