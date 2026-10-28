@@ -14,7 +14,7 @@ func _run() -> void:
   if arg.begins_with("--height="):height=int(arg.trim_prefix("--height="))
   if arg.begins_with("--stage="):stage=arg.trim_prefix("--stage=")
   if arg.begins_with("--output="):output=arg.trim_prefix("--output=")
- if not ["genre","recruit","name","bio","ready","missing"].has(stage):
+ if not ["genre","recruit","name","bio","ready","missing","nia"].has(stage):
   _fail("unknown stage")
   return
  get_root().size=Vector2i(width,height)
@@ -25,6 +25,35 @@ func _run() -> void:
  if stage!="genre":
   view._next()
   for i in range(4):await process_frame
+ if stage=="nia":
+  var nia_index:int=-1
+  var singer_pool:Array=view.Model.pool(view.genre,"Singer")
+  for i in range(singer_pool.size()):
+   if str(singer_pool[i]["id"])=="nia_griffiths":nia_index=i
+  if nia_index<0:
+   _fail("Nia Griffiths missing from source catalogue pool")
+   return
+  view._choose_candidate(nia_index)
+  for i in range(3):await process_frame
+  if str(view._current()["id"])!="nia_griffiths" or str(view.selected.get("id",""))!="nia_griffiths":
+   _fail("native Nia selection lost canonical person")
+   return
+  var portrait:TextureRect=view.find_child("RecruitmentPortrait",true,false) as TextureRect
+  var source_notice:Label=view.find_child("RecruitmentPortraitStatus",true,false) as Label
+  if portrait==null or portrait.texture==null or str(portrait.get_meta("candidate_id",""))!="nia_griffiths" or str(portrait.get_meta("art_status",""))!="missing":
+   _fail("unsourced Nia must never reuse Alex source photo")
+   return
+  if not str(portrait.texture.resource_path).ends_with("/photo_pending_contact.svg") or source_notice==null or not source_notice.text.contains("NIA GRIFFITHS"):
+   _fail("Nia source portrait/status not honest and named")
+   return
+  var captions:Array=[]
+  for label in view.find_children("*","Label",true,false):captions.append(str(label.text))
+  if not captions.has("NIA GRIFFITHS") or not (captions.has("ADD  /  45 PTS") or captions.has("ADD TO BAND  /  45 POINTS")):
+   _fail("Nia name or model-backed 45-point price not visible")
+   return
+  if view.Model.MAX_TALENT-view.Model.spent(view.roster)!=200:
+   _fail("candidate browse mutated initial 200-point talent")
+   return
  if stage=="missing":
   view._move(1)
   for i in range(2):await process_frame
@@ -43,7 +72,7 @@ func _run() -> void:
  if stage=="bio":
   view._show_dossier()
   for i in range(4):await process_frame
- var expected_step:int=1 if ["bio","ready","missing"].has(stage) else ["genre","recruit","name"].find(stage)
+ var expected_step:int=1 if ["bio","ready","missing","nia"].has(stage) else ["genre","recruit","name"].find(stage)
  if view.step!=expected_step or (stage=="bio" and not view._bio_open) or (stage=="ready" and not view.Model.viable(view.roster)):
   _fail("scene step contract")
   return
@@ -181,7 +210,7 @@ func _run() -> void:
   if first_meter_y<hero_rect.end.y*scale_x-1.0 or first_meter_y>hero_rect.end.y*scale_x+75.0:
    _fail("phone six-meter bank not directly below hero portrait")
    return
- if stage=="recruit" or stage=="missing":
+ if ["recruit","missing","nia"].has(stage):
   var count:=0
   for child in view.find_children("*","Control",true,false):
    if child.get_script()==load("res://poc/ldtd_recruitment_meter.gd"):

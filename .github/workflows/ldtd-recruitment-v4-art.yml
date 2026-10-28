@@ -72,6 +72,14 @@ jobs:
             grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
             ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
           done
+          # Model-backed Nia candidate, 45-point price and missing-photo honesty.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-nia-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=nia --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
           # Missing-photo honesty proof: native film contact, no swapped face.
           for dims in 390x844 1280x720; do
             width="${dims%x*}"; height="${dims#*x}"
