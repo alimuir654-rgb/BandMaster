@@ -40,13 +40,13 @@
   },
   "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
   "known_art_p0": [
-    "No individually generated identity-specific source portrait masters for alex / nia_griffiths",
-    "Four exploratory mockups contain fictional candidate Nia Carter, prices, stat labels and talent counts: not authoritative game data",
-    "Desktop and phone views are cropped flattened generated compositions, not independent authored responsive source layers",
-    "Six read-only attributes should be beneath portrait, not scattered in unsupported regions",
-    "Owner-approved 1536x1024 reference binary not verified in GitHub; no new Godot capture or owner signoff"
+    "No separately generated, identity-specific, full-resolution documentary portrait masters for alex and nia_griffiths. New 10:03 image-generation attempt again returned a full UI collage, not a portrait source.",
+    "Four R1 owner-liked concepts include fictional Nia Carter and invented pounds/stats; design only, not authoritative game data or usable independent assets.",
+    "Roadcase/candidate/paper source still primarily authored SVG rather than photographic physical layers; desktop and phone design boards are not independently authored source masters.",
+    "Original owner-approved reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 remains unverified in GitHub; final owner visual signoff absent.",
+    "Current actual Godot 09:07 pictures show severely cover-cropped 160px Alex square face at 390x844 and 1280x720. 10:08 source repair committed; pixel result on new CI not yet inspected."
   ],
-  "next_single_action": "Open actual 390x844 Godot PNG from artifact 12804501323 at original pixels and compare hero/meter/CTA/dock against owner-liked A-03; correct any overlap. Independently generated canonical Alex and Nia portrait masters remain source-art P0.",
+  "next_single_action": "Inspect new native 390x844 and 1280x720 PNGs from Godot run 40669732322 at original pixels to verify the legacy Alex uncropped portrait and all six inert meters/CTA/dock; if technically sound, produce independently sourced Alex Vale and Nia Griffiths full-resolution standalone masters with a generator that can constrain output type (R1 art P0 remains blocked).",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -58,10 +58,19 @@
     "desktop_target_independently_authored": false,
     "phone_target_independently_authored": false,
     "review_doc": "docs/recruitment_recovery/10_R1_IMAGE_GENERATION_REVIEW_2026-10-28.md",
-    "not_native_game_capture": true
+    "not_native_game_capture": true,
+    "rejected_additional_generation_attempt": {
+      "time_uk": "2026-10-28 10:03",
+      "output": "1536x1024 combined UI device mockup, NOT standalone musician portrait",
+      "sha256": "270821e54a5c5bab9e2b07e97799c26c2250822a492fe55af6d05f5a27e3d614",
+      "rights": "OpenAI image-generated reference only, not released as production art",
+      "source_file": "chat runtime /mnt/data/a_widescreen_ui_mockup_image_with_multiple_device.png",
+      "committed_to_repo": false,
+      "portrait_master_count_delta": 0
+    }
   },
   "provisional_native_spike": {
-    "status": "engineering_capture_pass_art_unreviewed",
+    "status": "09_verified_godot_pixels_inspected__10_crop_repair_pending_ci",
     "target": "390x844_hero_dominance_and_six_meters",
     "source_paths": [
       "poc/ldtd_recruitment_v4.gd",
@@ -73,7 +82,35 @@
     "native_run_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
     "native_artifact_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731/artifacts/12804501323",
     "confirmed_screenshots": "4 device sizes for each of genre/recruit/name; 390x844 and 1280x720 ready and missing, 390x844 and 720x1280 dossier",
-    "pixels_independently_viewed": false,
-    "source_gate": "blocked"
+    "pixels_independently_viewed": true,
+    "source_gate": "blocked",
+    "pixel_review_source_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
+    "corrective_code_sha": "c2306ddf617d1ec4f1d26f075fbdc91110b6deaa",
+    "corrective_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40669732322"
+  },
+  "last_submitted_code_sha": "c2306ddf617d1ec4f1d26f075fbdc91110b6deaa",
+  "native_pixel_inspection_1000": {
+    "source_code_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
+    "source_ci_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
+    "artifact_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731/artifacts/12804501323",
+    "genuine_godot_pngs": {
+      "390x844": {
+        "name": "v4-recruit-390x844.png",
+        "sha256": "ffffca8702c3f264ab1c5961edfab9d074ca8a9cebd42cde0d00de867dd5c572",
+        "opened_at_original_pixels": true
+      },
+      "1280x720": {
+        "name": "v4-recruit-1280x720.png",
+        "sha256": "5ae0ba6ea3ac185251b7fc4efbdcc3b16873026149d0c5d2761c6965cd22d800",
+        "opened_at_original_pixels": true
+      }
+    },
+    "observed_p0": "Legacy 160px square Alex face overcropped into wide hero; eyes, forehead, chin dominate and chest/shoulders absent. True photographic master pair still absent.",
+    "corrective_code_sha": "c2306ddf617d1ec4f1d26f075fbdc91110b6deaa",
+    "corrective_native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40669732322",
+    "corrective_native_ci_status_at_logging": "in_progress",
+    "corrective_pixel_review": "pending",
+    "screenshots_are_native": true,
+    "owner_approval": false
   }
 }
