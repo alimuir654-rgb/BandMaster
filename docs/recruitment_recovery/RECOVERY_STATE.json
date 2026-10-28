@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "6ca9184346d66a829e6b70e4b1c18ec2bb2087c1",
+  "last_verified_code_sha": "e29ee39a81417fafc65c2c6705422b408a5bc78b",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -35,10 +35,19 @@
     }
   },
   "native_screenshots": {
-    "390x844": null,
-    "1280x720": null
+    "390x844": {
+      "name": "v4-recruit-390x844.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
+      "native_png_opened_original_pixels": true
+    },
+    "1280x720": {
+      "name": "v4-recruit-1280x720.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
+      "native_jpeg_preview_opened_same_dimensions": true,
+      "native_lossless_png_opened": false
+    }
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699",
   "known_art_p0": [
     "Two full-resolution independently authored rights/provenance-audited identity-specific source masters for canonical alex and nia_griffiths are absent; imagegen latest output repeated a flattened UI collage.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
@@ -46,7 +55,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "Rerun native 390 phone screenshot and inspect logged font/row metrics; do not claim visual pass.",
+  "next_single_action": "13:00: Validate native candidate switching to canonical Nia Griffiths and role/budget costs without a wrong-person photo; keep source-art P0 blocked.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -114,16 +123,31 @@
       "native_gate": "ENGINEERING PASS, visual-quality BLOCKED"
     },
     "1200_phone_readability": {
-      "status": "awaiting_native_4_7_2_ci_and_pixel_review",
-      "initial_branch_head": "f3cb7c43c6381f254d0a300694d11a8ede59f67a",
-      "phone_stat_label_min_px": 16,
-      "phone_meter_row_px": 31,
+      "status": "native_godot_4_7_2_engineering_pass__art_p0_blocked",
+      "source_sha": "e29ee39a81417fafc65c2c6705422b408a5bc78b",
+      "prior_failed_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685346733",
+      "passed_native_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699",
+      "native_artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
+      "native_390_original_lossless_png_inspected": true,
+      "native_1280_same_dimension_jpeg_preview_inspected": true,
+      "source_code": [
+        "poc/ldtd_recruitment_v4.gd:310-322",
+        "poc/ldtd_recruitment_v4.gd:520-532",
+        "tests/capture_ldtd_recruitment_v4.gd:123-151"
+      ],
+      "font_sizes_390": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "label_height_physical_px_390": 30,
       "phone_action_height_px": 52,
+      "phone_roster_overlap": false,
       "owner_approval": false,
-      "art_gate": "blocked",
-      "master_portrait_count": 0,
-      "first_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685346733",
-      "first_native_ci_verdict": "FAIL: erroneous combined font/row geometry QA at 390 before screen captured; engine import and unit tests green; test corrected"
+      "art_gate": "blocked"
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
