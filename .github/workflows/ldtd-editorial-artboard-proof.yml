@@ -36,7 +36,7 @@ jobs:
                   assert phrase in full, (suffix, phrase)
               # Check design geometry, not actual input/focus. Every role tab and CTA
               # is at least 44 physical pixels high in its independently sized artboard.
-              rects = {(int(e.attrib["x"]),int(e.attrib["y"]),int(e.attrib["width"]),int(e.attrib["height"]))
+              rects = {(round(float(e.attrib["x"])),round(float(e.attrib["y"])),round(float(e.attrib["width"])),round(float(e.attrib["height"])))
                        for e in root.iter() if e.tag.endswith("rect") and
                        all(k in e.attrib for k in ("x","y","width","height"))}
               if suffix == "desktop_1280":
