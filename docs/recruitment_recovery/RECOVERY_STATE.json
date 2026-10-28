@@ -106,7 +106,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "18:00: stabilise exact tested 17:00 source head, capture/review all four true Godot device viewports and produce concise owner contact sheet comparing the photographed roadcase with approved design direction. Keep missing separately authored alex/nia_griffiths portrait masters as P0, visual QA BLOCKED, owner_approved=false and PR #199 draft/unmerged.",
+  "next_single_action": "19:00 UK 28 Oct 2026: FINAL REVIEW ONLY — no code or repo implementation changes. Verify draft PR #199 current head, CI 40732048553 native artifacts, 18:00 four-viewport owner review pack and honest R1 photographic gap; deliver direct links, STOP/GO and ONE next P0: two distinct >=1024px canonical Alex/Nia standalone source portraits with SHA/provenance. Then stop.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -454,5 +454,47 @@
     "committed": false,
     "master_portrait_count": 0,
     "quality_verdict": "R1 art gate BLOCKED; no Nia attempt after output-type failure"
+  },
+  "owner_review_1800": {
+    "reviewed_at_uk": "2026-10-28 18:00",
+    "state": "prepared_review_only__technical_pass__art_p0_fail",
+    "source_pr_head_before_review": "9128c44755634b4170eb37130b930d23f18ea5d8",
+    "last_tested_code_sha": "fe4ec9728d657cdea98374a4262d0c89fc3294ec",
+    "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553",
+    "native_ci_conclusion": "completed_success",
+    "source_artifact_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40732048553/artifacts/12836145817",
+    "native_32_png_zip_sha256": "253dd3df8f19522372cbada4694493f281d67288d67bf429e0a273116fd9dc90",
+    "attached_contact_sheet": "BandMaster_18_Godot_4_Viewport_Review.png",
+    "attached_review_pack": "BandMaster_18_Owner_Review_Pack.zip",
+    "review_pack_sha256": "328f5a666537685bdae4fbed5bcc70b82ce376fbb1b4c8829c71a45c96b81d49",
+    "source_png_originals": {
+      "390x844": {
+        "file": "v4-recruit-390x844.png",
+        "sha256": "e6e028336ea8ad7613fe5f59a53a1225be0cdeb7b241e80eed5114238f576c5b",
+        "inspected_original_pixels": true
+      },
+      "720x1280": {
+        "file": "v4-recruit-720x1280.png",
+        "sha256": "7c0ebcf4ed85d1914771c7f38be6c63707d3af1029248689218daa5290ea853b",
+        "inspected_original_pixels": true
+      },
+      "1280x720": {
+        "file": "v4-recruit-1280x720.png",
+        "sha256": "80bd1298b9b1d0ab6649833bae45554aa0653aa5d0d3bd7a0ea70c95f18b7f78",
+        "inspected_original_pixels": true
+      },
+      "1600x900": {
+        "file": "v4-recruit-1600x900.png",
+        "sha256": "cdf813d81f51fd11a6ac84f260397ed8d30f627f0a9bfb35762796a2db056faf",
+        "inspected_original_pixels": true
+      }
+    },
+    "repo_review_doc": "docs/recruitment_recovery/15_2026_10_28_1800_OWNER_REVIEW.md",
+    "art_gate": "blocked",
+    "native_gameplay_technical_status": "verified_pass_from_1700_no_1800_engine_rerun",
+    "owner_approved": false,
+    "original_owner_reference_binary_repo_verified": false,
+    "r1_concept_zip_repo_verified": false,
+    "next_scheduled_step": "19:00_review_only"
   }
 }
