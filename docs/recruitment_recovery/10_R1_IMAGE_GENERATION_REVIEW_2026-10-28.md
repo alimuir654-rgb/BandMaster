@@ -33,3 +33,9 @@ Each original file is **1536×1024**. The review ZIP also contains contact-sheet
 **ART GATE: BLOCKED.** Preserve A-03 as the preferred high-level reference, but before any Godot rollout, produce **two independent, identity-specific photographic portrait master images** for `alex` and `nia_griffiths`, each with true SHA, attribution to image generation, documented crop/lighting, and a matching pair review. Then generate separately composed desktop and phone art targets with real/native data slots; the existing mockups are visual reference only. The R1 design ZIP can be archived on the draft branch when uploaded; the separate importer must not accidentally mark images as shippable.
 
 Do not claim owner visual acceptance or R1 completion. No new game screen or main merge.
+
+## Tool-selection finding — do not repeat failed output type
+
+Repeated attempts to direct image generation toward standalone portrait source artwork returned **four flattened recruitment-screen composites** instead. The generated screens look far better than earlier procedural SVG faces, but still cannot satisfy the portrait-master requirement. **Do not run another generic whole-screen generation prompt as R1 progress.** Use a tool/workflow that can be explicitly directed to a **single image of one person, no interface, no type**, export the actual image bytes as a unique source file, verify visual identity and then generate the second character separately. If a tool cannot constrain output type, mark SOURCE BLOCKED rather than cropping the face out of a flattened composite as a production asset.
+
+Figma's connected `generate_image` action supports explicit prompts and could be a future alternative, but it **consumes Figma AI credits**, so it has **NOT** been invoked and must not be activated without owner approval of paid usage. No new services, subscriptions or licensing expenses were incurred.
