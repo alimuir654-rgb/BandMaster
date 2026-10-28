@@ -85,7 +85,7 @@ func _label(parent: Node,s: String,x: float,y: float,w: float,h: float,pt: int=1
  var l:=Label.new()
  l.text=s
  l.position=Vector2(x,y)
- l.size=Vector2(w,h)
+ l.custom_minimum_size=Vector2.ZERO
  l.clip_text=true
  l.horizontal_alignment=align
  l.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
@@ -95,6 +95,9 @@ func _label(parent: Node,s: String,x: float,y: float,w: float,h: float,pt: int=1
  l.add_theme_color_override("font_color",c)
  l.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(l)
+ # Match the proven V4 layout order: Godot recalculates Label minimum size
+ # on insertion; apply explicit physical bounds AFTER parenting.
+ l.size=Vector2(w,h)
  return l
 
 func _texture(parent: Node,path: String,x: float,y: float,w: float,h: float,covered: bool=false) -> TextureRect:
