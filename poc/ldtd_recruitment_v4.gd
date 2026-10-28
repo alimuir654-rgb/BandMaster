@@ -220,7 +220,9 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
  # The real source portraits are often small. Never use a different person's photo.
  var photo_id: String=str(person.get("id",""))
  var path: String=PHOTO+photo_id+".webp"
- _art(parent,ART+"metal_tab_idle.svg",b.position.x-3,b.position.y-3,b.size.x+6,b.size.y+6)
+ # A musician photo is a photographic film-contact object, NOT a giant
+ # metal input button. This independently authored source has no baked text.
+ _art(parent,ART+"photo_pending_contact.svg",b.position.x-3,b.position.y-3,b.size.x+6,b.size.y+6)
  var pic:TextureRect
  if ResourceLoader.exists(path):
   pic=_art(parent,path,b.position.x,b.position.y,b.size.x,b.size.y)
@@ -236,9 +238,13 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
   var low_res:bool=minf(source_size.x,source_size.y)<512.0
   pic.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED if low_res and visible_fraction<0.84 else TextureRect.STRETCH_KEEP_ASPECT_COVERED
   if low_res:
-   # Native text makes an existing low-resolution source impossible to mistake
-   # for approved production photography. This is not a new character image.
-   _text(parent,"LEGACY PHOTO  •  ART PENDING",b.position.x+9,b.position.y+7,b.size.x-18,23,12,AMBER,FONT_MONO)
+   # Disclose unresolved art IN THE LETTERBOX rather than printing unreadable
+   # copy across the performer's eyes (caught in actual 10:08 native PNG).
+   if visible_fraction<0.84:
+    var film_side:float=maxf(45.0,(b.size.x-b.size.y*source_ratio)*0.5-15.0)
+    _text(parent,"ART\nPENDING",b.position.x+9,b.position.y+12,film_side,37,11,AMBER,FONT_MONO,true)
+   else:
+    _text(parent,"TEMP ART",b.position.x+9,b.position.y+7,b.size.x-18,23,12,AMBER,FONT_MONO)
  else:
   pic=_art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
   _text(parent,"PORTRAIT\nART PENDING",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,22,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
