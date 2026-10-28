@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Extract experiment and inspect structure
+      - name: Fetch uploaded ZIP from main\n        run: git show origin/main:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip\n      - name: Extract experiment and inspect structure
         run: |
           python3 - <<'PY'
           import zipfile, pathlib
@@ -39,15 +39,81 @@ jobs:
           else
             echo "No smoke test found" >&2; exit 1
           fi
-      - name: Capture screen evidence
+      - name: Capture actual Godot scene pixels
         run: |
           mkdir -p proof-shots
-          for size in 390x844 720x1280 1280x720 1600x900; do
-            W=${size%x*}; H=${size#*x}
-            echo "Requested viewport $size"
-            # Capture must be driven by an in-project script, not fabricated externally.
-          done
-          find "$ROOT" -type f \( -name '*.png' -o -name '*.log' \) -print | head -50
+          cat > "$ROOT/capture_proof.gd" <<'GDS'
+          extends SceneTree
+          func _initialize() -> void:
+              call_deferred("_capture")
+          func _capture() -> void:
+              var files: Array[String] = []
+              _collect("res://", files)
+              var scenes: Array[String] = []
+              for file in files:
+                  if file.ends_with(".tscn"):
+                      scenes.append(file)
+              scenes.sort()
+              print("SCENES: ", scenes)
+              if scenes.size() < 2:
+                  push_error("Expected at least two scenes")
+                  quit(2)
+                  return
+              var sizes = [Vector2i(390,844), Vector2i(720,1280), Vector2i(1280,720), Vector2i(1600,900)]
+              for scene_path in scenes:
+                  var packed = load(scene_path)
+                  if not packed is PackedScene:
+                      continue
+                  for sz in sizes:
+                      var window := Window.new()
+                      window.size = sz
+                      window.position = Vector2i.ZERO
+                      window.unresizable = true
+                      root.add_child(window)
+                      var instance = packed.instantiate()
+                      window.add_child(instance)
+                      await process_frame
+                      await process_frame
+                      await process_frame
+                      var image = window.get_texture().get_image()
+                      var base = scene_path.get_file().get_basename()
+                      var output = "res://proof-shots/" + base + "-" + str(sz.x) + "x" + str(sz.y) + ".png"
+                      var err = image.save_png(output)
+                      if err != OK:
+                          push_error("Screenshot save failed " + output + " " + str(err))
+                          quit(3)
+                          return
+                      print("CAPTURED ", output, " ", image.get_size())
+                      window.queue_free()
+                      await process_frame
+              quit(0)
+          func _collect(dirpath: String, files: Array[String]) -> void:
+              var dir = DirAccess.open(dirpath)
+              if dir == null: return
+              dir.list_dir_begin()
+              while true:
+                  var n = dir.get_next()
+                  if n == "": break
+                  if n.begins_with("."): continue
+                  var p = dirpath.path_join(n)
+                  if dir.current_is_dir():
+                      _collect(p, files)
+                  else:
+                      files.append(p)
+              dir.list_dir_end()
+          GDS
+          mkdir -p "$ROOT/proof-shots"
+          godot --headless --path "$ROOT" --script res://capture_proof.gd
+          cp "$ROOT"/proof-shots/*.png proof-shots/
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          shots=list(Path("proof-shots").glob("*.png"))
+          assert len(shots)>=8, f"Only {len(shots)} screenshots"
+          for p in shots:
+              im=Image.open(p); im.verify()
+              print(p, Image.open(p).size)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:
