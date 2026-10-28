@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "e29ee39a81417fafc65c2c6705422b408a5bc78b",
+  "last_verified_code_sha": "8653a415bb69d924fa701ca7e3e038020ad2c2a2",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -45,9 +45,21 @@
       "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
       "native_jpeg_preview_opened_same_dimensions": true,
       "native_lossless_png_opened": false
+    },
+    "nia_390x844": {
+      "name": "v4-nia-390x844.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566/artifacts/12819085300",
+      "sha256": "4b26c8095698aa7d732f3d787dd03f82ad585f964e4a0d6e31e0f55e831003a9",
+      "native_png_opened_original_pixels": true
+    },
+    "nia_1280x720": {
+      "name": "v4-nia-1280x720.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566/artifacts/12819085300",
+      "sha256": "9f637637f9a65c237bcf07aff35d2900301813a30cad3e5cc2b88c1dc5a525cf",
+      "native_png_opened_original_pixels": true
     }
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566",
   "known_art_p0": [
     "Two full-resolution independently authored rights/provenance-audited identity-specific source masters for canonical alex and nia_griffiths are absent; imagegen latest output repeated a flattened UI collage.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
@@ -55,7 +67,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "Verify 13:00 Nia native screenshot CI and true rendered source label; keep art P0 blocked; 14:00 next assess passive meters/controls.",
+  "next_single_action": "14:00: Audit six source-derived inert colour meters and all input focus/hover/pressed/disabled states at 390 and 1280 native capture; source portrait art still blocked.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -150,17 +162,49 @@
       "art_gate": "blocked"
     },
     "1300_nia_identity_and_budget": {
-      "status": "corrective_source_committed__retest_pending",
+      "status": "native_godot_4_7_2_engineering_pass__source_art_p0_blocked",
       "canonical_id": "nia_griffiths",
       "source_cost_points": 45,
       "initial_budget_points": 200,
       "no_verified_nia_portrait": true,
       "art_gate": "blocked",
       "owner_approval": false,
-      "prior_failed_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693092541"
+      "prior_failed_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693092541",
+      "source_sha": "8653a415bb69d924fa701ca7e3e038020ad2c2a2",
+      "corrected_native_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566",
+      "native_screenshot_artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566/artifacts/12819085300",
+      "native_screenshot_count": 20,
+      "headless_model_tests_passed": true,
+      "candidate_cost_points": 45,
+      "initial_points": 200,
+      "after_recruit_points": 155,
+      "after_remove_points": 200,
+      "identity_matches_source": true,
+      "nia_portrait_master_present": false,
+      "portrait_fallback_status": "named_no_verified_photo",
+      "original_pixel_review": {
+        "phone_390": {
+          "image": "v4-nia-390x844.png",
+          "sha256": "4b26c8095698aa7d732f3d787dd03f82ad585f964e4a0d6e31e0f55e831003a9",
+          "opened_original_pixels": true
+        },
+        "landscape_1280": {
+          "image": "v4-nia-1280x720.png",
+          "sha256": "9f637637f9a65c237bcf07aff35d2900301813a30cad3e5cc2b88c1dc5a525cf",
+          "opened_original_pixels": true
+        },
+        "tablet_720": {
+          "opened_original_pixels": true,
+          "verdict": "source Alex 160 pixel face coarse enlarged and much blank lower band"
+        },
+        "desktop_1600": {
+          "opened_original_pixels": true,
+          "verdict": "vector case/paper fidelity below R1 reference"
+        }
+      }
     }
   },
-  "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
+  "last_submitted_code_sha": "8653a415bb69d924fa701ca7e3e038020ad2c2a2",
   "native_pixel_inspection_1000": {
     "source_code_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
     "source_ci_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
