@@ -144,13 +144,13 @@ func _meter(parent: Node,tag: String,value: int,x: float,y: float,track_width: f
  rail.focus_mode=Control.FOCUS_NONE
  rail.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(rail)
- _label(rail,tag.to_upper(),0,0,phone and 101.0 or 93.0,19,phone and 11 or 12,MUTED,FONT_MONO)
+ _label(rail,tag.to_upper(),0,0,(101.0 if phone else 93.0),19,(11 if phone else 12),MUTED,FONT_MONO)
  var offset:=110.0 if phone else 98.0
  _frame(rail,offset,5,track_width,10,Color("#3d4944"))
  var color:=RED if value<=3 else (AMBER if value<=6 else GREEN)
  if value>0:
   _frame(rail,offset,5,track_width*float(value)/10.0,10,color)
- _label(rail,str(value).pad_zeros(2),offset+track_width+6,0,25,19,phone and 12 or 13,WHITE,FONT_MONO)
+ _label(rail,str(value).pad_zeros(2),offset+track_width+6,0,25,19,(12 if phone else 13),WHITE,FONT_MONO)
 
 func _render() -> void:
  var physical: Vector2i=DisplayServer.window_get_size()
@@ -202,7 +202,7 @@ func _role_keys(stage: Node,phone: bool) -> void:
   var x: float=17.0+72.0*i if phone else 428.0+124.0*i
   var y: float=108.0 if phone else 130.0
   var w: float=68.0 if phone else 118.0
-  _key(stage,"Role_"+str(i),name_text,x,y,w,44.0,Callable(self,"_choose_role").bind(i),str(Model.ROLE_TABS[i])==role,false,phone and 12 or 16)
+  _key(stage,"Role_"+str(i),name_text,x,y,w,44.0,Callable(self,"_choose_role").bind(i),str(Model.ROLE_TABS[i])==role,false,(12 if phone else 16))
 
 func _candidate_rail(stage: Node,phone: bool) -> void:
  var pool: Array=Model.pool(genre,role)
@@ -213,7 +213,7 @@ func _candidate_rail(stage: Node,phone: bool) -> void:
   var y: float=182.0 if phone else 190.0+64.0*i
   var w: float=54.0 if phone else 105.0
   var h: float=48.0 if phone else 52.0
-  _key(stage,"Candidate_"+str(i),caption,x,y,w,h,Callable(self,"_browse").bind(i),candidate_index==i,false,phone and 13 or 15)
+  _key(stage,"Candidate_"+str(i),caption,x,y,w,h,Callable(self,"_browse").bind(i),candidate_index==i,false,(13 if phone else 15))
 
 func _portrait(stage: Node,phone: bool,person: Dictionary) -> void:
  var x: float=18.0 if phone else 285.0
@@ -226,9 +226,9 @@ func _portrait(stage: Node,phone: bool,person: Dictionary) -> void:
  else:
   # Explicit source blocker. Never show Alex's face as another candidate.
   _frame(stage,x,y,w,h,Color("#5b665e"))
-  _label(stage,"PORTRAIT",x+9,y+h*0.39,w-18,25,phone and 16 or 22,WHITE,FONT_TITLE,HORIZONTAL_ALIGNMENT_CENTER)
-  _label(stage,"ART PENDING",x+9,y+h*0.5,w-18,25,phone and 12 or 16,AMBER,FONT_MONO,HORIZONTAL_ALIGNMENT_CENTER)
- _label(stage,"AUDITION 0"+str(candidate_index+1),x+9,y+8,w-18,18,phone and 11 or 12,INK,FONT_MONO)
+  _label(stage,"PORTRAIT",x+9,y+h*0.39,w-18,25,(16 if phone else 22),WHITE,FONT_TITLE,HORIZONTAL_ALIGNMENT_CENTER)
+  _label(stage,"ART PENDING",x+9,y+h*0.5,w-18,25,(12 if phone else 16),AMBER,FONT_MONO,HORIZONTAL_ALIGNMENT_CENTER)
+ _label(stage,"AUDITION 0"+str(candidate_index+1),x+9,y+8,w-18,18,(11 if phone else 12),INK,FONT_MONO)
  if not phone:
   _label(stage,str(person["name"]).to_upper(),x,y+h+4,250,32,27,WHITE,FONT_TITLE)
   _label(stage,role.to_upper(),x+248,y+h+7,85,22,13,AMBER,FONT_TITLE,HORIZONTAL_ALIGNMENT_RIGHT)
