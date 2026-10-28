@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "0d883362da4828d23e1fc1e38ea2db25a7b5ab7e",
+  "last_verified_code_sha": "9b8a2cc0663b2e3049e90cb89932b294a3da2c70",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -82,9 +82,21 @@
       "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
       "native_png_capture_verified": true,
       "opened_at_original_pixels": false
+    },
+    "role_keys_390x844": {
+      "name": "v4-role_keys-390x844.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008/artifacts/12831129490",
+      "sha256": "84851630bc1851d8f59c39c2b9bd30ced3f4a426455e051d166668ab12da4041",
+      "native_png_opened_original_pixels": true
+    },
+    "role_drums_1280x720": {
+      "name": "v4-role_drums-1280x720.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008/artifacts/12831129490",
+      "sha256": "a7f0fd423323a63dee85d4c5a417627e947753c2d653ab5865f6c69ca561e3d9",
+      "native_png_opened_original_pixels": true
     }
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008",
   "known_art_p0": [
     "Two independently authored >=1024x1024 standalone rights/provenance-audited photographic-style masters for canonical alex and nia_griffiths remain absent; 15:00 image generation returned another UI composite (SHA256 6cd8b49a...) and is rejected.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
@@ -92,7 +104,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "16:00: verify newly submitted role/roster/candidate deterministic Godot CI and 8 native screenshots; fix any observed failed assertion without skipping; then 17:00 visual P0-specific repair.",
+  "next_single_action": "17:00: make one P0-specific SOURCE-BACKED photographic/material improvement to the existing isolated Godot recruitment screen; obtain real 390x844/1280x720 native before/after pixel evidence. Keep standalone Alex/Nia portrait-masters blocked and no production merges.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -273,26 +285,53 @@
       "owner_approval": false
     },
     "1600_role_gameplay_qa": {
-      "status": "submitted_pending_native_ci",
-      "head_before_change": "2b012c00ff0f1c2dcad38f6c3bdacd96cdf30a22",
-      "scope": [
-        "five role families, six unique choices each",
-        "candidate transport wrapping and model-backed prices",
-        "dual-role Aisha charge/refund exactly once",
-        "unaffordable recruit leaves roster/budget unchanged",
-        "eight genuine 390/1280 Godot role screenshots",
-        "native read-only meters, portrait identity, textured controls and 44px phone tabs"
+      "status": "real_godot_4_7_2_ci_pass__art_p0_blocked",
+      "verified_code_sha": "9b8a2cc0663b2e3049e90cb89932b294a3da2c70",
+      "run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40723255008/artifacts/12831129490",
+      "artifact_zip_sha256": "64fb814cd52a85e305ddec69c157f3811c70a3a3a90fcb1ae9b1018456bb7e66",
+      "total_native_pngs": 32,
+      "new_role_native_pngs": 8,
+      "role_families": 5,
+      "candidates_each": 6,
+      "deterministic_assertions": [
+        "six distinct canonical candidates per genre/role",
+        "five role-tab selection and six-position forward/back wrap",
+        "200-point browse budget never spent",
+        "cross-tab Aisha singer/keyboardist single charge/refund",
+        "no roster or budget mutation when unaffordable",
+        "selected name/portrait metadata and six read-only catalogue stats match",
+        "native five-state textured 44px+ phone role controls"
       ],
-      "source_paths": [
-        "tests/ldtd_recruitment_v4_tests.gd",
-        "tests/capture_ldtd_recruitment_v4.gd",
-        ".github/workflows/ldtd-recruitment-v4-art.yml"
-      ],
+      "original_pixel_review": {
+        "keys_390": {
+          "image": "v4-role_keys-390x844.png",
+          "size": "390x844",
+          "sha256": "84851630bc1851d8f59c39c2b9bd30ced3f4a426455e051d166668ab12da4041",
+          "lossless_opened": true,
+          "observation": "five role keys readable; missing-photo placeholder remains dominating case"
+        },
+        "drums_1280": {
+          "image": "v4-role_drums-1280x720.png",
+          "size": "1280x720",
+          "sha256": "a7f0fd423323a63dee85d4c5a417627e947753c2d653ab5865f6c69ca561e3d9",
+          "lossless_opened": true,
+          "observation": "six drummer candidate rails and source data readable, portrait missing and synthetic paper material P0"
+        }
+      },
+      "source_line_trace": {
+        "model_sweep": 35,
+        "model_cross_tab": 94,
+        "model_budget": 118,
+        "native_stage": 59,
+        "native_source_check": 109,
+        "workflow_capture": 93
+      },
       "art_gate": "BLOCKED",
       "owner_approval": false
     }
   },
-  "last_submitted_code_sha": "0d883362da4828d23e1fc1e38ea2db25a7b5ab7e",
+  "last_submitted_code_sha": "9b8a2cc0663b2e3049e90cb89932b294a3da2c70",
   "native_pixel_inspection_1000": {
     "source_code_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
     "source_ci_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
