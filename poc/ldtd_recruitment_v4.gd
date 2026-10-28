@@ -32,7 +32,7 @@ func _photo_metal_piece(parent: Node, source: Texture2D, crop: Rect2, box: Rect2
  piece.focus_mode=Control.FOCUS_NONE
  parent.add_child(piece)
 
-func _photo_metal_bezel(parent: Node, bounds: Rect2, bezel_name: String) -> void:
+func _photo_metal_bezel(parent: Node, bounds: Rect2, bezel_name: String, thick: float=14.0) -> void:
  # The centre stays TRANSPARENT and all captions, portraits and input controls
  # remain real Godot nodes. No source-text, channel arrows or baked labels used.
  var source:Texture2D=load(LAB07_METAL)
@@ -40,7 +40,6 @@ func _photo_metal_bezel(parent: Node, bounds: Rect2, bezel_name: String) -> void
  var sy:float=float(source.get_height())
  var bezel:=_node(parent,bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y)
  bezel.name=bezel_name
- var thick:=14.0
  var across:=maxf(0.0,bounds.size.x-2.0*thick)
  var down:=maxf(0.0,bounds.size.y-2.0*thick)
  # Source edge regions are restricted to the metal perimeter: top 0..63,
@@ -53,6 +52,24 @@ func _photo_metal_bezel(parent: Node, bounds: Rect2, bezel_name: String) -> void
  _photo_metal_piece(bezel,source,Rect2(99,sy-59,sx-198,53),Rect2(thick,bounds.size.y-thick,across,thick),"BottomBrushedRail")
  _photo_metal_piece(bezel,source,Rect2(7,85,54,sy-170),Rect2(0,thick,thick,down),"LeftBrushedRail")
  _photo_metal_piece(bezel,source,Rect2(sx-61,85,54,sy-170),Rect2(bounds.size.x-thick,thick,thick,down),"RightBrushedRail")
+
+# 17:00 photographic material repair: the chassis, not only its inset cards,
+# must belong to one physically photographed source. Reuse the original blank
+# brushed-metal Lab07 perimeter (not its centre GUITAR/CHANNEL glyphs).
+# Atlas pieces are separate inert Godot visual nodes. The labels, photographs,
+# five roles and buttons are always rendered by Godot on top of this surface.
+func _photo_roadcase_shell(parent: Node, width: float, height: float) -> void:
+ var rim_thickness:float=16.0 if _landscape else 12.0
+ _photo_metal_bezel(parent,Rect2(3.0,3.0,width-6.0,height-6.0),"RecruitmentRoadcasePhotoShell",rim_thickness)
+ var source:Texture2D=load(LAB07_METAL)
+ var separators:=_node(parent,0.0,0.0,width,height)
+ separators.name="RecruitmentRoadcasePhotoBraces"
+ # Blank metal above the dock makes the roster, auditions and CTA read as
+ # contents of the SAME physical case. It must not cover active controls.
+ var dock_y:float=height*0.858 if _landscape else height-141.0
+ _photo_metal_piece(separators,source,Rect2(104,6,758,51),Rect2(27.0,dock_y,width-54.0,8.0),"LowerBrushedBrace")
+ if _landscape:
+  _photo_metal_piece(separators,source,Rect2(104,6,758,51),Rect2(27.0,73.0,width-54.0,7.0),"UpperBrushedBrace")
 
 const FONT_TITLE := preload("res://Art/Fonts/BarlowCondensed-SemiBold.ttf")
 const FONT_BODY := preload("res://Art/Fonts/IBMPlexSans-Variable.ttf")
@@ -194,6 +211,7 @@ func _render() -> void:
  # The roadcase is a single integrated authored material, not twelve floating cards.
  var case_source: String=ART+"case_roadcase.svg" if _landscape else (ART+"case_roadcase_phone.svg" if _view_w<600.0 else ART+"case_roadcase_tablet.svg")
  _art(canvas,case_source,0,0,_view_w,_view_h)
+ _photo_roadcase_shell(canvas,_view_w,_view_h)
  if _landscape:
   _landscape_scene(canvas)
  else:

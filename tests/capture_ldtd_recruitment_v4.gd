@@ -158,6 +158,36 @@ func _run() -> void:
   if name_key.get_global_rect().size.y*scale_x<44.0:
    _fail("name-stage key below 44 physical pixels")
    return
+ # 17:00 photograph-backed roadcase repair: the actual source photo must
+ # form the outer chassis and dock brace at BOTH phone and desktop. These
+ # independently addressable AtlasTexture layers stay inert, and may never
+ # include Lab07's baked GUITAR/CHANNEL centre or act as a screen composite.
+ if stage=="recruit" and (width==390 or width==1280):
+  var case_frame:Control=view.find_child("RecruitmentRoadcasePhotoShell",true,false) as Control
+  var braces:Control=view.find_child("RecruitmentRoadcasePhotoBraces",true,false) as Control
+  var expected_braces:int=2 if width==1280 else 1
+  if case_frame==null or case_frame.get_child_count()!=8 or braces==null or braces.get_child_count()!=expected_braces:
+   _fail("real photograph-backed full-case frame/brace not composed at physical viewport")
+   return
+  for element in case_frame.get_children()+braces.get_children():
+   if not (element is TextureRect):
+    _fail("roadcase shell must use separate real source-image regions")
+    return
+   var piece:TextureRect=element as TextureRect
+   var atlas:AtlasTexture=piece.texture as AtlasTexture
+   if atlas==null or atlas.atlas==null or atlas.atlas.resource_path!="res://bandmaster_premium_controls_lab/assets/channel_studio_idle.png":
+    _fail("case shell piece source is not the approved Lab07 photograph")
+    return
+   if piece.mouse_filter!=Control.MOUSE_FILTER_IGNORE or piece.focus_mode!=Control.FOCUS_NONE:
+    _fail("photographic case piece intercepts input or keyboard focus")
+    return
+   var crop:Rect2=atlas.region
+   var source_width:float=float(atlas.atlas.get_width())
+   var source_height:float=float(atlas.atlas.get_height())
+   if crop.position.x>70.0 and crop.position.x+crop.size.x<source_width-70.0 and crop.position.y>65.0 and crop.position.y+crop.size.y<source_height-65.0:
+    _fail("photographic case includes baked middle labels")
+    return
+  print("PHOTO ROADCASE SHELL QA: ",width,"x",height," source-backed inert shell, ",expected_braces," independently sampled brushed braces")
  # Desktop 11:00 real-material pilot: the recruitment stage must show three
  # independent 8-piece photographed Lab07 metal perimeters. Their AtlasTexture
  # regions must reference the unchanged 966x426 owner-supplied PNG. No centre
