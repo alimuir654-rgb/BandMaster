@@ -85,6 +85,25 @@ func _run() -> void:
  if hit_count==0:
   _fail("no visible 44 physical pixel source-textured control")
   return
+ # Physical-size visual hierarchy regression: the 390px phone must show
+ # a dominant portrait AND six inert stats immediately below it. These are
+ # measurable geometry checks, not an art-direction acceptance.
+ if width==390 and stage=="recruit":
+  var hero:Control=view.find_child("RecruitmentPortrait",true,false) as Control
+  if hero==null:
+   _fail("phone missing named hero portrait source node")
+   return
+  var hero_rect:Rect2=hero.get_global_rect()
+  if hero_rect.size.x*scale_x<330.0 or hero_rect.size.y*scale_x<220.0:
+   _fail("phone portrait not visually dominant at physical pixels")
+   return
+  var first_meter_y:float=1000000.0
+  for meter_node in view.find_children("*","Control",true,false):
+   if meter_node.get_script()==load("res://poc/ldtd_recruitment_meter.gd"):
+    first_meter_y=minf(first_meter_y,meter_node.get_global_rect().position.y*scale_x)
+  if first_meter_y<hero_rect.end.y*scale_x-1.0 or first_meter_y>hero_rect.end.y*scale_x+75.0:
+   _fail("phone six-meter bank not directly below hero portrait")
+   return
  if stage=="recruit" or stage=="missing":
   var count:=0
   for child in view.find_children("*","Control",true,false):

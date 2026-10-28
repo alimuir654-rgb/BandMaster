@@ -221,13 +221,15 @@ func _portrait_picture(parent: Node,b: Rect2,person: Dictionary) -> void:
  var photo_id: String=str(person.get("id",""))
  var path: String=PHOTO+photo_id+".webp"
  _art(parent,ART+"metal_tab_idle.svg",b.position.x-3,b.position.y-3,b.size.x+6,b.size.y+6)
+ var pic:TextureRect
  if ResourceLoader.exists(path):
-  var pic:=_art(parent,path,b.position.x,b.position.y,b.size.x,b.size.y)
+  pic=_art(parent,path,b.position.x,b.position.y,b.size.x,b.size.y)
   pic.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
  else:
-  _art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
+  pic=_art(parent,ART+"photo_pending_contact.svg",b.position.x,b.position.y,b.size.x,b.size.y)
   _text(parent,"PORTRAIT\nART PENDING",b.position.x+5,b.position.y+b.size.y*0.28,b.size.x-10,b.size.y*.40,22,CREAM,FONT_TITLE,true,HORIZONTAL_ALIGNMENT_CENTER)
- # Do not mislabel ID cards as photographed portraits; source art is placeholder.
+ pic.name="RecruitmentPortrait"
+ # This named visual node is audited in native screenshots; a placeholder is never source approval.
 
 func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float) -> void:
  var names: Array=Model.labels_for(role)
@@ -364,8 +366,13 @@ func _portrait_scene(parent: Node) -> void:
  var w:float=_view_w
  var h:float=_view_h
  var margin:=12.0
- _text(parent,"LIVIN' THE DREAM",margin,18,w-24,32,27,AMBER,FONT_TITLE)
- _text(parent,["01 / CHOOSE GENRE","02 / RECRUIT YOUR BAND","03 / NAME YOUR BAND"][step],margin,51,w-24,36,28,WHITE,FONT_TITLE)
+ # On a narrow phone, preserve the physical-size hero instead of spending
+ # the first 100px on a desktop-height header. The source labels stay native.
+ var phone_recruit:bool=w<450.0 and step==1
+ var phase:String="02 / RECRUIT" if phone_recruit else ["01 / CHOOSE GENRE","02 / RECRUIT YOUR BAND","03 / NAME YOUR BAND"][step]
+ var phase_w:float=205.0 if phone_recruit and Model.viable(roster) else w-24.0
+ _text(parent,"LIVIN' THE DREAM",margin,9.0 if phone_recruit else 18.0,w-24,26.0 if phone_recruit else 32.0,23 if phone_recruit else 27,AMBER,FONT_TITLE)
+ _text(parent,phase,margin,36.0 if phone_recruit else 51.0,phase_w,32.0 if phone_recruit else 36.0,24 if phone_recruit else 28,WHITE,FONT_TITLE)
  if step==0:
   _mobile_genre(parent,w,h)
  elif step==2:
@@ -396,11 +403,12 @@ func _mobile_genre(parent: Node,w:float,h:float) -> void:
 
 func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  var can_name:bool=Model.viable(roster)
- _text(parent,genre.to_upper(),13,99,w-180 if can_name else w-26,27,15,AMBER,FONT_MONO)
+ var compact:bool=w<450.0
+ _text(parent,genre.to_upper(),13,71.0 if compact else 99.0,w-180 if can_name else w-26,23 if compact else 27,15,AMBER,FONT_MONO)
  # Once a lineup is viable, the phone must expose the name-last step.
  # Keep the dossier and add/remove controls available in their original places.
  if can_name:
-  _plate(parent,"NAME BAND ›",Rect2(w-164,86,152,45),func() -> void: _next(),false,true,"amber_key",17)
+  _plate(parent,"NAME BAND ›",Rect2(w-164,40.0 if compact else 86.0,152,45),func() -> void: _next(),false,true,"amber_key",17)
  # All five role tabs are proper horizontally browsable native inputs, never default tabs.
  var roles: Array=Model.ROLE_TABS
  # Five roles must be directly reachable on a phone; the old three-window
@@ -411,22 +419,25 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  for idx in range(5):
   var v:String=str(roles[idx])
   var xx:float=12.0+float(idx)*(tab_w+gap)
-  _plate(parent,str(captions[idx]),Rect2(xx,134,tab_w,47),func() -> void: _set_role(v),v==role,true,"metal_tab",16)
+  _plate(parent,str(captions[idx]),Rect2(xx,96.0 if compact else 134.0,tab_w,47),func() -> void: _set_role(v),v==role,true,"metal_tab",16)
  var p:Dictionary=_current()
  selected=p
  if p.is_empty():return
- _transport(parent,"◀",Rect2(15,179,56,44),func() -> void: _move(-1),true)
- _text(parent,str(p["name"]).to_upper(),75,178,w-151,34,26,WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
- _text(parent,str(candidate_index+1)+"/6",75,211,w-151,22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
- _transport(parent,"▶",Rect2(w-72,179,56,44),func() -> void: _move(1))
+ _transport(parent,"◀",Rect2(15,146.0 if compact else 179.0,56,44),func() -> void: _move(-1),true)
+ _text(parent,str(p["name"]).to_upper(),75,145.0 if compact else 178.0,w-151,28 if compact else 34,24 if compact else 26,WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
+ _text(parent,str(candidate_index+1)+"/6",75,171.0 if compact else 211.0,w-151,19 if compact else 22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
+ _transport(parent,"▶",Rect2(w-72,146.0 if compact else 179.0,56,44),func() -> void: _move(1))
  # A 720px portrait viewport is a tablet composition, not a 390px phone
  # stretched sideways. Keep its source square framing rather than cropping the face, and scale the
  # passive meter bank before the action and fixed roster dock.
  var tablet:bool=w>=600.0
- var photo_w:float=440.0 if tablet else w-148.0
- var photo_h:float=450.0 if tablet else 175.0
- var photo_x:float=(w-photo_w)*0.5 if tablet else 74.0
- var photo_y:float=242.0
+ # Narrow phone: the portrait grows from 242x175 to 362x222 at 390px,
+ # and the 6 passive meters / 52px recruit key remain above the fixed dock.
+ # Tablet retains its own 440x450 source composition.
+ var photo_w:float=440.0 if tablet else (w-28.0 if compact else w-148.0)
+ var photo_h:float=450.0 if tablet else (222.0 if compact else 175.0)
+ var photo_x:float=(w-photo_w)*0.5 if tablet or compact else 74.0
+ var photo_y:float=193.0 if compact else 242.0
  _portrait_picture(parent,Rect2(photo_x,photo_y,photo_w,photo_h),p)
  var role_y:float=photo_y+photo_h
  _text(parent,(" / ".join(PackedStringArray(p["roles"]))+"  •  "+str(p["town"])),18,role_y,w-36,26,18 if tablet else 15,CREAM,FONT_BODY,false,HORIZONTAL_ALIGNMENT_CENTER)
