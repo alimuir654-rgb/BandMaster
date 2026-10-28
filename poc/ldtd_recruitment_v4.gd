@@ -138,6 +138,8 @@ func _plate(parent: Node, caption: String, bounds: Rect2, action: Callable, acti
  b.texture_hover=load(ART+finish+("_selected.svg" if active else "_hover.svg"))
  b.texture_pressed=load(ART+finish+"_pressed.svg")
  b.texture_disabled=load(ART+finish+"_disabled.svg")
+ b.texture_focused=load(ART+finish+"_hover.svg")
+ b.set_meta("control_caption",caption)
  b.disabled=not enabled
  b.pressed.connect(action)
  b.focus_entered.connect(func() -> void: b.modulate=Color("#FFE0A7"))
@@ -160,6 +162,8 @@ func _transport(parent: Node, symbol: String, bounds: Rect2, action: Callable, b
  b.texture_hover=load(TRANSPORT+"hover.png")
  b.texture_pressed=load(TRANSPORT+"pressed.png")
  b.texture_disabled=load(TRANSPORT+"disabled.png")
+ b.texture_focused=load(TRANSPORT+"hover.png")
+ b.set_meta("control_caption",symbol)
  b.pressed.connect(action)
  b.focus_entered.connect(func() -> void: b.modulate=Color("#FFE0A7"))
  b.focus_exited.connect(func() -> void: b.modulate=Color.WHITE)
@@ -226,7 +230,10 @@ func _set_role(value: String) -> void:
  _render()
 
 func _move(delta: int) -> void:
- candidate_index=posmod(candidate_index+delta,6)
+ var available:Array=Model.pool(genre,role)
+ if available.is_empty():
+  return
+ candidate_index=posmod(candidate_index+delta,available.size())
  _bio_open=false
  selected=_current()
  _render()
@@ -327,6 +334,10 @@ func _meters(parent: Node,person: Dictionary,x:float,y:float,w:float,row_h:float
   meter.position=Vector2(meter_x+5.0,yy+4.0)
   meter.size=Vector2(maxf(45.0,meter_w-10.0),row_h-8.0)
   meter.value=int(scores[idx])
+  meter.name="RecruitmentMeter"+str(idx+1)
+  meter.set_meta("candidate_id",str(person.get("id","")))
+  meter.set_meta("attribute_label",str(names[idx]))
+  meter.set_meta("read_only",true)
   meter.mouse_filter=Control.MOUSE_FILTER_IGNORE
   meter.focus_mode=Control.FOCUS_NONE
   parent.add_child(meter)
@@ -512,7 +523,7 @@ func _mobile_recruit(parent: Node,w:float,h:float) -> void:
  if p.is_empty():return
  _transport(parent,"◀",Rect2(15,146.0 if compact else 179.0,56,44),func() -> void: _move(-1),true)
  _text(parent,str(p["name"]).to_upper(),75,145.0 if compact else 178.0,w-151,28 if compact else 34,24 if compact else 26,WHITE,FONT_TITLE,false,HORIZONTAL_ALIGNMENT_CENTER)
- _text(parent,str(candidate_index+1)+"/6",75,171.0 if compact else 211.0,w-151,19 if compact else 22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
+ _text(parent,str(candidate_index+1)+"/"+str(Model.pool(genre,role).size()),75,171.0 if compact else 211.0,w-151,19 if compact else 22,13,CREAM,FONT_MONO,false,HORIZONTAL_ALIGNMENT_CENTER)
  _transport(parent,"▶",Rect2(w-72,146.0 if compact else 179.0,56,44),func() -> void: _move(1))
  # A 720px portrait viewport is a tablet composition, not a 390px phone
  # stretched sideways. Keep its source square framing rather than cropping the face, and scale the

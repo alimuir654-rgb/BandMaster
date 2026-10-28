@@ -14,7 +14,7 @@ func _run() -> void:
   if arg.begins_with("--height="):height=int(arg.trim_prefix("--height="))
   if arg.begins_with("--stage="):stage=arg.trim_prefix("--stage=")
   if arg.begins_with("--output="):output=arg.trim_prefix("--output=")
- if not ["genre","recruit","name","bio","ready","missing","nia"].has(stage):
+ if not ["genre","recruit","name","bio","ready","missing","nia","focus","nia_focus"].has(stage):
   _fail("unknown stage")
   return
  get_root().size=Vector2i(width,height)
@@ -25,7 +25,7 @@ func _run() -> void:
  if stage!="genre":
   view._next()
   for i in range(4):await process_frame
- if stage=="nia":
+ if stage=="nia" or stage=="nia_focus":
   var nia_index:int=-1
   var singer_pool:Array=view.Model.pool(view.genre,"Singer")
   for i in range(singer_pool.size()):
@@ -72,7 +72,7 @@ func _run() -> void:
  if stage=="bio":
   view._show_dossier()
   for i in range(4):await process_frame
- var expected_step:int=1 if ["bio","ready","missing","nia"].has(stage) else ["genre","recruit","name"].find(stage)
+ var expected_step:int=1 if ["bio","ready","missing","nia","focus","nia_focus"].has(stage) else ["genre","recruit","name"].find(stage)
  if view.step!=expected_step or (stage=="bio" and not view._bio_open) or (stage=="ready" and not view.Model.viable(view.roster)):
   _fail("scene step contract")
   return
@@ -210,7 +210,7 @@ func _run() -> void:
   if first_meter_y<hero_rect.end.y*scale_x-1.0 or first_meter_y>hero_rect.end.y*scale_x+75.0:
    _fail("phone six-meter bank not directly below hero portrait")
    return
- if ["recruit","missing","nia"].has(stage):
+ if ["recruit","missing","nia","focus","nia_focus"].has(stage):
   var count:=0
   for child in view.find_children("*","Control",true,false):
    if child.get_script()==load("res://poc/ldtd_recruitment_meter.gd"):
@@ -220,6 +220,68 @@ func _run() -> void:
      return
   if count!=6:
    _fail("need six inert attribute meters")
+   return
+ # 14:00 native source/focus audit: exact six catalogue values and no
+ # keyboard/touch access to passive bar controls for both canonical candidates.
+ if ["recruit","nia","focus","nia_focus"].has(stage) and (width==390 or width==1280):
+  var current:Dictionary=view._current()
+  var labels:Array=view.Model.labels_for(view.role)
+  var values:Array=view.Model.stats_for(current,view.role)
+  var count:=0
+  for m in view.find_children("*","Control",true,false):
+   if m.get_script()!=load("res://poc/ldtd_recruitment_meter.gd"):continue
+   var i:int=int(str(m.name).trim_prefix("RecruitmentMeter"))-1
+   if i<0 or i>=6 or str(m.name)!="RecruitmentMeter"+str(i+1):
+    _fail("passive attribute has no stable catalogue index")
+    return
+   if str(m.get_meta("candidate_id",""))!=str(current["id"]) or str(m.get_meta("attribute_label",""))!=str(labels[i]) or int(m.value)!=int(values[i]):
+    _fail("wrong person/role/stat value in readonly meter "+str(i))
+    return
+   if not bool(m.get_meta("read_only",false)) or m.mouse_filter!=Control.MOUSE_FILTER_IGNORE or m.focus_mode!=Control.FOCUS_NONE:
+    _fail("attribute is an interactive control")
+    return
+   count+=1
+  if count!=6:
+   _fail("not six independent passive meters")
+   return
+  print("SIX CANONICAL METER VALUES: ",str(current["id"])," = ",values)
+  var scale_y:float=float(height)/maxf(view.get_viewport_rect().size.y,1.0)
+  var checked:=0
+  for key in view.find_children("*","TextureButton",true,false):
+   if key.disabled:
+    if key.focus_mode!=Control.FOCUS_NONE:
+     _fail("disabled source key can receive focus")
+     return
+    continue
+   if key.focus_mode!=Control.FOCUS_ALL or key.texture_normal==null or key.texture_hover==null or key.texture_pressed==null or key.texture_disabled==null or key.texture_focused==null:
+    _fail("missing textured visual state or keyboard focus: "+str(key.get_meta("control_caption","?")))
+    return
+   var rb:Rect2=key.get_global_rect()
+   var px:Rect2=Rect2(rb.position.x*scale_x,rb.position.y*scale_y,rb.size.x*scale_x,rb.size.y*scale_y)
+   if px.position.x>=-0.5 and px.position.y>=-0.5 and px.end.x<=float(width)+0.5 and px.end.y<=float(height)+0.5:
+    if px.size.x<44.0 or px.size.y<44.0:
+     _fail("textured control smaller than 44px: "+str(key.get_meta("control_caption","?"))+" "+str(px.size))
+     return
+    checked+=1
+  if checked<8:
+   _fail("not enough visible accessible physical controls")
+   return
+  print("FIVE-STATE TEXTURED CONTROL AUDIT: ",checked," 44px+ native buttons")
+ if stage=="focus" or stage=="nia_focus":
+  var action:TextureButton=null
+  for key in view.find_children("*","TextureButton",true,false):
+   if str(key.get_meta("control_caption","")).begins_with("ADD"):action=key
+  if action==null or action.disabled:
+   _fail("no enabled recruit action to audit focus")
+   return
+  var spent:int=view.Model.spent(view.roster)
+  action.grab_focus()
+  for i in range(4):await process_frame
+  if not action.has_focus() or action.texture_focused==null:
+   _fail("recruit keyboard focus is not visibly textured")
+   return
+  if view.Model.spent(view.roster)!=spent:
+   _fail("keyboard focus changed talent budget")
    return
  var img:Image=get_root().get_texture().get_image()
  if img.get_width()<width or img.get_height()<height:
