@@ -1,0 +1,168 @@
+{
+  "contract": "docs/ART_DIRECTION_PRODUCTION_CONTRACT_V4.md",
+  "source_type": "original authored vector material prototypes, NOT photorealistic images",
+  "creation_date": "2026-10-27",
+  "case_art": "Art/UI/RecruitmentV4/case_roadcase.svg",
+  "states": [
+    "idle",
+    "hover",
+    "pressed",
+    "selected",
+    "disabled"
+  ],
+  "material_images": [
+    {
+      "asset": "Art/UI/RecruitmentV4/amber_key_disabled.svg",
+      "git_blob_sha1": "cd9482122d1d3bb1907b5320c8bcf4b928f9a33a",
+      "bytes": 832,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/amber_key_hover.svg",
+      "git_blob_sha1": "5d2e69606445f8304c50e2596b8b40c19768150c",
+      "bytes": 760,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/amber_key_idle.svg",
+      "git_blob_sha1": "ec75d68a0c227ec7ca87210ff01abe6c6f13ab97",
+      "bytes": 760,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/amber_key_pressed.svg",
+      "git_blob_sha1": "3840be80e0cf76a61e48305776185f04ebdf6135",
+      "bytes": 760,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/amber_key_selected.svg",
+      "git_blob_sha1": "ec75d68a0c227ec7ca87210ff01abe6c6f13ab97",
+      "bytes": 760,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/case_roadcase_phone.svg",
+      "git_blob_sha1": "9f0cf5ffc490bb70387556f3de24619dc071fa66",
+      "bytes": 10968,
+      "source": "Original authored portrait-specific V4 roadcase vector, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/case_roadcase_tablet.svg",
+      "git_blob_sha1": "1fa75d442c92070ef389180bf43233828edd371c",
+      "bytes": 10895,
+      "source": "Original authored portrait-specific V4 roadcase vector, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/case_roadcase.svg",
+      "git_blob_sha1": "06b78f056b165d159974194eb8e5ef5e944b975a",
+      "bytes": 19488,
+      "source": "Original authored V4 vector material and finish, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/metal_tab_disabled.svg",
+      "git_blob_sha1": "6b32aa117816ed98d74afcb1c8525edd35a2dd78",
+      "bytes": 834,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/metal_tab_hover.svg",
+      "git_blob_sha1": "5d6a3335a30fa1899c42d18bf94b9cbd4c45c374",
+      "bytes": 760,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/metal_tab_idle.svg",
+      "git_blob_sha1": "301965786267ca09acccc14edd5b9ca8e6b44164",
+      "bytes": 762,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/metal_tab_pressed.svg",
+      "git_blob_sha1": "654e21c4358cf54aa0e19ae015ae41e3ec309a98",
+      "bytes": 762,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/metal_tab_selected.svg",
+      "git_blob_sha1": "55684f243336cfd0016c02afbf98c19bb13e1bdf",
+      "bytes": 760,
+      "source": "Original authored V4 high-contrast selected metal tab gradient, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/meter_glass_rail.svg",
+      "git_blob_sha1": "ce6f738681f05bcd85188c0b6d2e55a64506515f",
+      "bytes": 821,
+      "source": "Original authored SVG texture for BandMaster V4",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/paper_personnel.svg",
+      "git_blob_sha1": "306340bcb8f355680a8de224803ba36ecd0ff9bc",
+      "bytes": 5342,
+      "source": "Original authored V4 vector material and finish, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    },
+    {
+      "asset": "Art/UI/RecruitmentV4/photo_pending_contact.svg",
+      "git_blob_sha1": "62f6759035d920579f357ee77c3dfe675411e839",
+      "bytes": 2602,
+      "source": "Original authored empty film contact placeholder, no face or third-party photo, 27 Oct 2026",
+      "license": "Original project art; no third-party stock",
+      "media_type": "image/svg+xml"
+    }
+  ],
+  "ported_source_parts": [
+    {
+      "asset": "bandmaster_premium_controls_lab/assets/transport_studio_{idle,hover,pressed,active,disabled}.png",
+      "note": "Verified pre-existing premium transport photographs; original photographic source trace via docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md"
+    },
+    {
+      "asset": "Art/Portraits/indie/alex.webp",
+      "note": "Existing small Alex identity art; NOT claimed to be high-res photographic headshot"
+    },
+    {
+      "asset": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+      "width": 966,
+      "height": 426,
+      "source": "Owner-supplied BandMaster Lab07 PNG, verified via Art/References/PremiumHardware/SOURCE_SHA256_MANIFEST.json",
+      "note": "Desktop independent 8-piece metal-edge photo atlas only; source's baked GUITAR/CHANNEL labels remain excluded. Provisional visual proof, not final source-art or owner signoff."
+    }
+  ],
+  "known_gaps": [
+    "The roadcase surface is hand-authored SVG approximation and does NOT yet match photo material richness",
+    "Only four existing legacy portrait IDs exist",
+    "No permission to reuse concept full-screen illustration as shippable UI texture",
+    "Landscape, 390 phone and 720 tablet now have independently authored case geometries; original SVGs remain non-photographic material proofs",
+    "Missing-portrait contacts are explicit empty film cards, NOT headshots or identity-matched photography"
+  ]
+}

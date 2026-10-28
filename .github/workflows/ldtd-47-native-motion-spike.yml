@@ -1,0 +1,36 @@
+name: LDTD Godot 4.7 — native UI motion quality spike
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'poc/ldtd_control_motion_47.gd'
+      - 'tests/ldtd_control_motion_47_tests.gd'
+      - '.github/workflows/ldtd-47-native-motion-spike.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offset-ui-sandbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install verified Godot 4.7.2
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq unzip libgl1 libx11-6
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import source without errors
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+      - name: Test visual-only Control offsets against live Container layout
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_control_motion_47_tests.gd 2>&1 | tee /tmp/motion-test.log
+          grep -q 'LDTD GODOT 4.7 OFFSET-MOTION SANDBOX ALL TESTS PASSED' /tmp/motion-test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|LDTD NATIVE 4.7 MOTION FAILURE:|ERROR:' /tmp/motion-test.log

@@ -1,0 +1,16 @@
+# S06 studio material provenance and limits — 27 October 2026
+
+This isolated Godot scene combines **existing original photographic control PNGs** already tracked on the active draft branch with one **new authored procedural SVG chassis**. The chassis is **not** a photograph; its brushed-metal gradients and screws only house actual image-backed controls.
+
+- `console_chassis.svg`: original authored SVG (not externally sourced photography); no player data, costs or captions baked into it. Git blob hash is tracked by the repository; render quality must be checked in native Godot PNGs.
+- `bandmaster_premium_dashboard_poc/assets/horizontal_base.png`, `horizontal_cap.png`, `meter_base.png`: original approved Lab05/08 photographic fader and read-only meter layers; rendered by `Scripts/premium_photographic_fader.gd` and `Scripts/premium_photographic_meter.gd`.
+- `bandmaster_premium_dashboard_poc/assets/focus_ring_off.png`, `focus_led_00.png`–`focus_led_26.png`, `focus_rotor.png`: tracked Lab08.4 photo-derived rotary with exact zero-lit logic; upstream `rotary_pointer.png` remains missing, so current rotor is a documented source-backed fallback.
+- `bandmaster_premium_controls_lab/assets/transport_studio_{idle,hover,pressed,active,disabled}.png`: tracked original Lab07 photographed transport keys; all five states preserved.
+- `bandmaster_premium_dashboard_poc/assets/nav_studio_{idle,hover,pressed,active,disabled}.png`: tracked original studio navigation/photo-hardware states for action and gallery buttons; live action/cost labels native.
+- `Art/Photography/Formation/daylight_music_room_pexels.webp`: previously documented real Pexels photograph of a bright music room (see `Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json` for photographer, licence, SHA and URL). This is **not** claimed to depict an actual recording studio. Used for first-pass daylight studio context because actual room daylight matters.
+- `Art/Backgrounds/shared/backstage.webp`: existing repository rehearsal/backstage room scene used for dusk/night; the previously tested `shared/studio.webp` actually depicted a rainy van street and was removed after real Godot screenshot inspection. No new external photo provenance is claimed.
+- `Art/Fonts/BarlowCondensed-SemiBold.ttf`, `IBMPlexSans-Variable.ttf`, `IBMPlexMono-Regular.ttf`: existing tracked font sources with OFL notices.
+
+The studio's fader and rotary values control **local monitor preferences only**; they never change recorded song quality or career statistics. The read-only HYPE meter displays authoritative `buzz` and cannot receive focus or input. Real `Recording.record` deducts £60 and two days, then optional `Recording.release` deducts £25 and one day and adds actual model fans/press. The action is gated by Lab07 arm state and cannot settle twice. No save writes or production integration.
+
+**Manual Godot check:** open `res://poc/ldtd_studio_recording.tscn`; use faders and rotary; arm the photographed transport; record the demo; optionally release it. Test keyboard focus and left/right/home/end on controls, then compare the unchanged buzz/HYPE meter before/after monitor adjustments. View 390×844 and 1280×720, including DUSK and NIGHT after actions. All original material assets must exist in Git; no concept-reference ZIP was verified.

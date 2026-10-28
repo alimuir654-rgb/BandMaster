@@ -1,0 +1,11 @@
+# Recruitment V4 — Owner-approved image reference (locked)
+**Owner approved the visual mockup in conversation on 27 Oct 2026, then rejected actual V3 as a major regression. This reference is visually authoritative, not a production texture.**
+
+- Local/source title at time of inspection: `a_detailed_ui_game_mockup_scene_a_wide_high_reso.png`.
+- Pixel dimensions: **1536 × 1024** RGB.
+- SHA-256: `278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223`.
+- The image exists as the owner-approved **conversation artifact**. It has **not been verified as committed in GitHub**; do not claim `Art/References/RecruitmentV4/owner_approved.png` exists until its exact bytes are imported and SHA checked.
+- Accepted elements: contiguous dark physical road-case frame; genre rail; 5 role tabs; six UK candidate thumbnails; prominent authentic musician portrait; six rich red/amber/green readonly meters below photo; pinned/torn paper dossier with experience/trouble/ambitions and green/red factors; one large amber physical recruit action; bottom roster and 200-point allocation. Character names, money, stats, comments and headshots shown in the generated reference are **illustrative**, not simulation source.
+- Every native landscape screenshot must be shown side-by-side with this image at common widths and reviewed for regional mass, touch ergonomics, typography, credible material depth and photo quality. A difference image or a passing CI does not establish artistic equivalence; a real owner decision is required.
+- Rejected baseline for comparison is V3 `poc/ldtd_recruitment_v3.tscn` and screenshot run 40563985982; never mistake it for accepted styling.
+- First V4 native proof (engine GREEN but art P0 remains) run [40568189611](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40568189611), screenshot artifact [12764990324](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40568189611/artifacts/12764990324). Revised 14-screen V4 proof [40569622788](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40569622788) / [12763947969](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40569622788/artifacts/12763947969). Render evidence inspected on both phone and landscape; no owner sign-off.

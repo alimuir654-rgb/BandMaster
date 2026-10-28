@@ -1,0 +1,133 @@
+name: LDTD Recruitment V4 — physical art contract, mechanics, real Godot captures
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Art/UI/RecruitmentV4/**'
+      - 'poc/ldtd_recruitment_v4.gd'
+      - 'poc/ldtd_recruitment_v4.tscn'
+      - 'tools/check_v4_visual_contract.py'
+      - 'tests/ldtd_recruitment_v4_tests.gd'
+      - 'tests/capture_ldtd_recruitment_v4.gd'
+      - '.github/workflows/ldtd-recruitment-v4-art.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ldtd-recruitment-v4-art
+  cancel-in-progress: true
+jobs:
+  real-godot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Visual design helper lint — must be image-backed
+        run: python3 tools/check_v4_visual_contract.py
+      - name: Install Godot 4.7.2 and native renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip -o /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Source imported, rules tested, native controls actionable
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          godot --headless --audio-driver Dummy --path . --script res://tests/ldtd_recruitment_v4_tests.gd 2>&1 | tee /tmp/test.log
+          grep -q 'LDTD V4 RECRUITMENT MODEL AND ART-SEMANTICS PASSED' /tmp/test.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 FAILURE:|ERROR:' /tmp/test.log
+      - name: Capture four actual Godot device screens for each new-game stage
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            width="${dims%x*}"; height="${dims#*x}"
+            for stage in genre recruit name; do
+              path="screenshots/v4-${stage}-${dims}.png"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage="$stage" --output="$path" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          # Explicit viable-lineup proof: phone and landscape must offer a
+          # non-overlapping, physically tappable name-last transition.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-ready-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=ready --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
+          for dims in 390x844 720x1280; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-bio-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=bio --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
+          # Model-backed Nia candidate, 45-point price and missing-photo honesty.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-nia-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=nia --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
+          # Native keyboard focus and six source-backed read-only meter states.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            for stage in focus nia_focus; do
+              path="screenshots/v4-${stage}-${dims}.png"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage="$stage" --output="$path" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          # 16:00 UX QA: four additional role families at phone and landscape,
+          # with all six unique candidates, identity, stats, focus and budget audited.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            for role_stage in role_guitar role_bass role_keys role_drums; do
+              path="screenshots/v4-${role_stage}-${dims}.png"
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage="$role_stage" --output="$path" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          # Missing-photo honesty proof: native film contact, no swapped face.
+          for dims in 390x844 1280x720; do
+            width="${dims%x*}"; height="${dims#*x}"
+            path="screenshots/v4-missing-${dims}.png"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_recruitment_v4.gd -- --width="$width" --height="$height" --stage=missing --output="$path" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD V4 NATIVE SCREENSHOT PASS:' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|V4 CAPTURE FAILURE:|ERROR:' /tmp/capture.log
+          done
+      - name: Surface real native pixels for independent visual QA
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          # The 390 PNG below is lossless, at original physical dimensions.
+          # The 1280 JPEG is a Godot-saved same-dimension preview; the 1280
+          # lossless PNG remains in artifacts. These are NOT source art.
+          for path in screenshots/v4-recruit-390x844.png screenshots/v4-recruit-1280x720-review.jpg screenshots/v4-role_keys-390x844.png screenshots/v4-role_drums-1280x720-review.jpg; do
+            test -s "$path"
+            echo "RECRUITMENT_NATIVE_PROOF_BEGIN:$path"
+            base64 "$path"
+            echo "RECRUITMENT_NATIVE_PROOF_END:$path"
+          done
+      - name: Save native reviewable screenshots, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ldtd-recruitment-v4-actual-godot
+          path: screenshots/*.png
+          if-no-files-found: warn
+          retention-days: 14

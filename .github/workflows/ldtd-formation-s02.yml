@@ -1,0 +1,81 @@
+name: Livin The Dream S02 — formation and rehearsal native Godot proof
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'poc/ldtd_formation_rehearsal.*'
+      - 'tests/ldtd_s02_formation_tests.gd'
+      - 'tests/capture_ldtd_s02_formation.gd'
+      - 'tools/check_scene_sprint_preflight.py'
+      - '.github/workflows/ldtd-formation-s02.yml'
+      - 'Scripts/formation_catalogue.gd'
+      - 'Scripts/band_social.gd'
+      - 'Scripts/practice_room.gd'
+  workflow_dispatch:
+concurrency:
+  group: ldtd-s02-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  formation-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce actual S02 preflight, five warnings and previous handoff
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S02
+      - name: Install Godot 4.7.2 and Xvfb
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Import and test existing career rules and once-only S02 journey
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          for script in tests/v24_formation_tests.gd tests/v23_jams_social_tests.gd tests/v22_practice_room_tests.gd tests/ldtd_s02_formation_tests.gd; do
+            godot --headless --audio-driver Dummy --path . --script "res://$script" 2>&1 | tee /tmp/s02-tests.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|TEST FAILURE:|ERROR:' /tmp/s02-tests.log
+          done
+          grep -q 'LDTD S02 FORMATION REHEARSAL MODEL AND ONCE-ONLY TESTS PASSED' /tmp/s02-tests.log
+      - name: Capture 9 real Godot scenes across four devices, DAY NIGHT and DUSK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="$(echo "$dims" | cut -dx -f1)"; h="$(echo "$dims" | cut -dx -f2)"
+            for phase in day night; do
+              stage=recruit
+              if [ "$phase" = night ]; then stage=summary; fi
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage="$stage" --phase="$phase" --width="$w" --height="$h" --output="screenshots/s02-$stage-$phase-$dims.png" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage=rehearsal --phase=dusk --width=1280 --height=720 --output=screenshots/s02-rehearsal-dusk-1280x720.png 2>&1 | tee /tmp/capture.log
+          grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          pngs=list(Path("screenshots").glob("s02-*.png"))
+          assert len(pngs)==9,len(pngs)
+          for p in pngs:
+              data=p.read_bytes()[:24]
+              assert data[:8]==bytes.fromhex("89504e470d0a1a0a"),p
+              assert struct.unpack(">II",data[16:24]) in {(390,844),(720,1280),(1280,720),(1600,900)},p
+          print("9 ACTUAL S02 GODOT IMAGES VERIFIED")
+          PY
+      - name: Publish actual Godot formation screenshot artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-s02-formation-9-godot
+          path: screenshots/s02-*.png
+          if-no-files-found: warn
+          retention-days: 21

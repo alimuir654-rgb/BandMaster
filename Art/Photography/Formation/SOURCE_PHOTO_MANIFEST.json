@@ -1,0 +1,42 @@
+{
+  "source_type": "real photographs, not AI/generated",
+  "license_page": "https://www.pexels.com/license/",
+  "records": [
+    {
+      "asset": "Art/Photography/Formation/corkboard_day_pexels.webp",
+      "source_photo_id": "5988421",
+      "photographer": "Eva Bronzini",
+      "source_page": "https://www.pexels.com/photo/a-close-up-shot-of-a-cork-board-5988421/",
+      "license": "Pexels Free License - subject to source terms",
+      "downloaded_jpeg_sha256": "7cc546942d66fffe37d8413ac6513f7787326348941eb895744ddf0cb4067774",
+      "committed_webp_sha256": "da895a5b1fe0f9d5ea6753613b3a4bedb99422ac662d5a81e7a8f3151b9c6e9b",
+      "source_original_dimensions": [
+        1600,
+        2400
+      ],
+      "asset_dimensions": [
+        1600,
+        1200
+      ],
+      "alterations": "ImageOps.fit and restrained exposure/colour treatment; native gameplay text layered separately"
+    },
+    {
+      "asset": "Art/Photography/Formation/daylight_music_room_pexels.webp",
+      "source_photo_id": "20863659",
+      "photographer": "Monica Escalera",
+      "source_page": "https://www.pexels.com/photo/a-room-with-musical-instruments-20863659/",
+      "license": "Pexels Free License - subject to source terms",
+      "downloaded_jpeg_sha256": "455e290c3712f579693abffa94b426a844497caf8d1108d8a40ac61a3d3b6021",
+      "committed_webp_sha256": "7907c83a6fc72a4bd4c83c0c6bb05b11e17300663f90543cc4fd81a4d3cd09de",
+      "source_original_dimensions": [
+        1600,
+        2409
+      ],
+      "asset_dimensions": [
+        1400,
+        820
+      ],
+      "alterations": "ImageOps.fit and restrained exposure/colour treatment; native gameplay text layered separately"
+    }
+  ]
+}

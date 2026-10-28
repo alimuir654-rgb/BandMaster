@@ -1,0 +1,242 @@
+name: Livin The Dream S02B — original tactile paper art and Godot quality reset
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'Art/Fonts/**'
+      - 'Art/Photography/Formation/**'
+      - 'Art/UI/FormationCraft/**'
+      - 'tools/build_formation_craft.py'
+      - 'tools/build_formation_photo_materials.py'
+      - 'tools/check_scene_sprint_preflight.py'
+      - 'Scripts/formation_craft_skin.gd'
+      - 'poc/ldtd_formation_rehearsal.gd'
+      - 'tests/ldtd_s02b_stationery_tests.gd'
+      - 'tests/capture_ldtd_s02_formation.gd'
+      - '.github/workflows/ldtd-formation-s02b-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ldtd-s02b-visual-reset
+  cancel-in-progress: true
+jobs:
+  materials-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: Require user-authorized visual reset preflight and five personas
+        run: python3 tools/check_scene_sprint_preflight.py --sprint S02B-C
+      - name: Install original raster-material build tools, Godot 4.7.2 and renderer
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb unzip libgl1 libx11-6 python3-numpy python3-pil
+          curl --fail --location --retry 3 'https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip' --output /tmp/godot.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m 755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Build four-family five-state original stationery sprites
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/build_formation_craft.py
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json,hashlib
+          root=Path('Art/UI/FormationCraft')
+          m=json.loads((root/'SOURCE_SHA256.json').read_text())
+          assert m['state_count']==20 and len(m['files'])==22,m
+          for name,h in m['files'].items():
+              f=Path(name)
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==h,name
+              with Image.open(f) as im:
+                  assert im.mode=='RGBA' and im.width>=390 and im.height>=140,name
+          print('22 original textured PNGs with exact SHA manifest VERIFIED')
+          PY
+      - name: Verify committed licensed photographic materials and source provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          from PIL import Image
+          m=json.loads(Path('Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json').read_text())
+          assert m['source_type'].startswith('real photographs'), 'Misidentified photo source'
+          assert len(m['records'])==2,m
+          for record in m['records']:
+              path=Path(record['asset'])
+              assert path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest()==record['committed_webp_sha256'],path
+              assert record['license'] and record['photographer'] and record['source_page']
+              assert len(record['downloaded_jpeg_sha256'])==64
+              with Image.open(path) as im:
+                  assert im.width>=1200 and im.height>=800,path
+          print('PASS: committed photographic WebPs, SHA, source rights and metadata')
+          PY
+      - name: Verify checked-in OFL editorial typography without rewriting licence notices
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          expected=[
+            'BarlowCondensed-SemiBold.ttf','IBMPlexSans-Variable.ttf',
+            'IBMPlexMono-Regular.ttf','OFL-BarlowCondensed.txt',
+            'OFL-IBMPlexSans.txt','OFL-IBMPlexMono.txt'
+          ]
+          for name in expected:
+              f=Path('Art/Fonts')/name
+              assert f.is_file() and f.stat().st_size>500,name
+          print('PASS: checked-in editorial fonts and untouched upstream OFL notices')
+          PY
+      - name: Godot 4.7.2 import + original mechanics + craft interaction tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          godot --headless --audio-driver Dummy --path . --editor --import --quit 2>&1 | tee /tmp/import.log
+          ! grep -E 'SCRIPT ERROR:|Parse Error:|ERROR: Failed loading resource:' /tmp/import.log
+          for script in tests/v24_formation_tests.gd tests/v23_jams_social_tests.gd tests/v22_practice_room_tests.gd tests/ldtd_s02_formation_tests.gd tests/ldtd_s02b_stationery_tests.gd; do
+            godot --headless --audio-driver Dummy --path . --script "res://$script" 2>&1 | tee /tmp/test.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|TEST FAILURE:|S02B FAILURE:|ERROR:' /tmp/test.log
+          done
+          grep -q 'LDTD S02B PREMIUM STATIONERY CONTROLS AND INPUT/STAT CONTRACT PASSED' /tmp/test.log
+      - name: Enforce deterministic art generation and read-only CI
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Assets must already be reviewed and tracked: CI is a validator, never an art-commit bot.
+          # In particular, do not restore upstream OFL text, whose original trailing spaces
+          # are legally preserved and must not trigger Git's whitespace error.
+          git diff --exit-code -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts
+          git diff --cached --exit-code -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts
+          test -z "$(git ls-files --others --exclude-standard -- Art/UI/FormationCraft Art/Photography/Formation Art/Fonts)"
+          echo 'PASS: exact committed art reproduced; CI left source/rights material untouched'
+      - name: Render actual tactile Godot screen comparisons at four devices and day-dusk-night
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p screenshots
+          for dims in 390x844 720x1280 1280x720 1600x900; do
+            w="${dims%x*}"; h="${dims#*x}"
+            for phase in day night; do
+              stage=recruit
+              if [ "$phase" = night ]; then stage=summary; fi
+              xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage="$stage" --phase="$phase" --width="$w" --height="$h" --output="screenshots/s02b-$stage-$phase-$dims.png" 2>&1 | tee /tmp/capture.log
+              grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+              ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+            done
+          done
+          xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage=rehearsal --phase=dusk --width=1280 --height=720 --output=screenshots/s02b-rehearsal-dusk-1280x720.png 2>&1 | tee /tmp/capture.log
+          grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+          # Both real outing tickets must also fit the first fold on phone
+          # and landscape; these are additional native renders, not mockups.
+          for dims in 390x844 1280x720; do
+            w="${dims%x*}"; h="${dims#*x}"
+            xvfb-run -a godot --audio-driver Dummy --rendering-method gl_compatibility --path . --script res://tests/capture_ldtd_s02_formation.gd -- --stage=social --phase=day --width="$w" --height="$h" --output="screenshots/s02b-social-day-$dims.png" 2>&1 | tee /tmp/capture.log
+            grep -q 'LDTD S02 ACTUAL GODOT SCREENSHOT PASSED' /tmp/capture.log
+            ! grep -E 'SCRIPT ERROR:|Parse Error:|SCREENSHOT FAILURE:|ERROR:' /tmp/capture.log
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageChops,ImageStat
+          files=list(Path('screenshots').glob('s02b-*.png'))
+          assert len(files)==11,len(files)
+          for f in files:
+              with Image.open(f) as im:
+                  assert im.size in {(390,844),(720,1280),(1280,720),(1600,900)},f
+          day=Image.open('screenshots/s02b-recruit-day-1280x720.png').convert('RGB')
+          night=Image.open('screenshots/s02b-summary-night-1280x720.png').convert('RGB')
+          difference=ImageStat.Stat(ImageChops.difference(day,night)).mean
+          assert sum(difference)/3>20,('Weak DAY/NIGHT material difference',difference)
+          # Actual renderer pixels outside the notebook must show pale
+          # photographed DAY cork, not the earlier black/charred backdrop.
+          daylight_cork=[day.getpixel(point) for point in [(80,350),(1200,350),(1140,570)]]
+          assert min(sum(rgb)/3 for rgb in daylight_cork)>160,('P0: DAY cork remains charred',daylight_cork)
+          print('11 REAL GODOT MATERIAL SCREENSHOTS VERIFIED; DAY cork pixel luminance',daylight_cork)
+          PY
+      - name: Assemble real Godot screenshots into an owner-facing comparison sheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageDraw,ImageFont,ImageStat
+          root=Path('screenshots')
+          devices=[('390x844',(390,844),400),('720x1280',(720,1280),450),
+                   ('1280x720',(1280,720),840),('1600x900',(1600,900),840)]
+          shot={}
+          for stage,phase in [('recruit','day'),('summary','night')]:
+              for size,dims,_ in devices:
+                  path=root/f's02b-{stage}-{phase}-{size}.png'
+                  assert path.is_file(),path
+                  with Image.open(path) as image:
+                      assert image.format=='PNG' and image.size==dims,path
+                      rgb=image.convert('RGB')
+                  assert ImageStat.Stat(rgb.convert('L')).stddev[0]>3,path
+                  shot[(stage,size)]=rgb
+          with Image.open(root/'s02b-rehearsal-dusk-1280x720.png') as dusk:
+              assert dusk.size==(1280,720)
+              dusk=dusk.convert('RGB')
+          try:
+              face=lambda size:ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',size)
+              face(18)
+          except OSError:
+              face=lambda size:ImageFont.load_default()
+          gap=24; margin=32; row_h=925
+          widths=[w+20 for _,_,w in devices]
+          total=margin*2+sum(widths)+gap*3
+          canvas=Image.new('RGB',(total,2530),(243,241,236))
+          draw=ImageDraw.Draw(canvas)
+          draw.text((margin,21),"LIVIN' THE DREAM / FORMATION — OWNER VISUAL REVIEW",font=face(30),fill=(33,42,47))
+          draw.text((margin,68),"Nine core ACTUAL Godot renders; two extra social checks. Not owner-approved.",
+                    font=face(18),fill=(86,94,98))
+          for row,(stage,phase) in enumerate([('recruit','day'),('summary','night')]):
+              x=margin;y=117+row*row_h
+              for size,_,max_width in devices:
+                  width=max_width+20
+                  draw.rounded_rectangle((x,y,x+width,y+row_h-18),radius=10,
+                                        fill=(255,254,251),outline=(210,208,200),width=2)
+                  draw.text((x+13,y+15),f'{phase.upper()} / {size}',font=face(19),fill=(35,43,47))
+                  thumb=shot[(stage,size)].copy()
+                  thumb.thumbnail((max_width-16,790),Image.Resampling.LANCZOS)
+                  canvas.paste(thumb,(x+(width-thumb.width)//2,y+58))
+                  draw.text((x+13,y+row_h-53),"Full-size original PNG also supplied",
+                            font=face(13),fill=(94,98,99))
+                  x+=width+gap
+          y=117+2*row_h
+          draw.rounded_rectangle((margin,y,total-margin,y+515),radius=10,
+                                fill=(255,254,251),outline=(210,208,200),width=2)
+          draw.text((margin+16,y+15),"DUSK / REHEARSAL / 1280x720",font=face(21),fill=(35,43,47))
+          thumb=dusk.copy();thumb.thumbnail((820,462),Image.Resampling.LANCZOS)
+          canvas.paste(thumb,(margin+16,y+48))
+          checklist=["Owner review: daylight atmosphere, paper/cork texture,",
+                     "physical interaction styling, native typography,",
+                     "first-fold choices, and day/night distinction.",
+                     "P0 owner visual sign-off is still OPEN.",
+                     "Inspect original PNGs for text/edge fidelity."]
+          for idx,line in enumerate(checklist):
+              draw.text((margin+885,y+90+idx*58),line,font=face(20),fill=(39,48,52))
+          out=root/'s02b-owner-review-contact-sheet.png'
+          canvas.save(out,optimize=True)
+          assert out.stat().st_size>50000,out
+          print('PASS: labelled owner sheet assembled from exactly 9 real Godot screenshots')
+          PY
+      - name: Publish eleven native screenshots and 22 source assets
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: livin-the-dream-s02b-tactile-formation-review
+          path: |
+            screenshots/s02b-*.png
+            Art/UI/FormationCraft/*.png
+            Art/UI/FormationCraft/SOURCE_SHA256.json
+            Art/Photography/Formation/*.webp
+            Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json
+          retention-days: 21
+          if-no-files-found: warn

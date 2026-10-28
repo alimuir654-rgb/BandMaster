@@ -1,0 +1,119 @@
+name: LDTD editorial recruitment artboards (design-only)
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'docs/visual-proofs/recruitment_editorial_*.svg'
+      - 'docs/visual-proofs/recruitment_portrait_*.svg'
+      - '.github/workflows/ldtd-editorial-artboard-proof.yml'
+  workflow_dispatch:
+jobs:
+  artboard-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SVG renderer for evidence only
+        run: |
+          python -m pip install --disable-pip-version-check --quiet cairosvg pillow
+      - name: Validate independent artboard geometry and render actual SVG pixels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import cairosvg
+          from PIL import Image
+          out = Path("artboard_evidence")
+          out.mkdir(exist_ok=True)
+          for suffix, width, height in (("desktop_1280",1280,720),("phone_390",390,844)):
+              source = Path(f"docs/visual-proofs/recruitment_editorial_{suffix}.svg")
+              root = ET.parse(source).getroot()
+              assert root.attrib["width"] == str(width)
+              assert root.attrib["height"] == str(height)
+              assert root.attrib["viewBox"] == f"0 0 {width} {height}"
+              labels = [e.text or "" for e in root.iter() if e.tag.endswith("text")]
+              full = " ".join(labels)
+              for phrase in ("FIND YOUR PEOPLE","ALEX","RECRUIT","VOCALS","LIVE","WRITING","RHYTHM","CHEMISTRY","RELIABILITY","160 / 200"):
+                  assert phrase in full, (suffix, phrase)
+              # Check design geometry, not actual input/focus. Every role tab and CTA
+              # is at least 44 physical pixels high in its independently sized artboard.
+              rects = {(round(float(e.attrib["x"])),round(float(e.attrib["y"])),round(float(e.attrib["width"])),round(float(e.attrib["height"])))
+                       for e in root.iter() if e.tag.endswith("rect") and
+                       all(k in e.attrib for k in ("x","y","width","height"))}
+              if suffix == "desktop_1280":
+                  for i in range(5):
+                      assert (430+i*123,126,117,44) in rects
+                  assert (1063,461,182,67) in rects
+              else:
+                  for i in range(5):
+                      assert (17+i*72,106,68,44) in rects
+                  assert (19,664,352,60) in rects
+              assert "NO ONE SIGNED" in full, "Do not show an un-recruited artist in roster"
+              assert not any(e.tag.endswith(("script","foreignObject","image")) for e in root.iter()), "No unverified embedded image"
+              # Source-based UI proof, not actual Godot gameplay and not owner art approval.
+              output = out / f"recruitment_editorial_{suffix}.png"
+              cairosvg.svg2png(url=str(source),write_to=str(output))
+              with Image.open(output) as im:
+                  assert im.size == (width,height)
+                  print(f"DESIGN ONLY: {source} -> {output}, {im.size}")
+          PY
+      - name: Render original portrait studies as separate art evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import cairosvg
+          from PIL import Image, ImageDraw, ImageFont
+          out=Path("artboard_evidence")
+          out.mkdir(exist_ok=True)
+          images=[]
+          for name in ("alex","nia"):
+              source=Path(f"docs/visual-proofs/recruitment_portrait_{name}_ink_study.svg")
+              root=ET.parse(source).getroot()
+              assert root.attrib["viewBox"]=="0 0 320 350"
+              assert not any(el.tag.endswith(("image","script","foreignObject")) for el in root.iter())
+              output=out/f"recruitment_portrait_{name}_ink_study.png"
+              cairosvg.svg2png(url=str(source),write_to=str(output))
+              image=Image.open(output).convert("RGB")
+              assert image.size==(320,350)
+              images.append(image)
+          board=Image.new("RGB",(680,410),(14,20,20))
+          d=ImageDraw.Draw(board)
+          for i,(name,img) in enumerate(zip(("ALEX VALE","NIA MORGAN"),images)):
+              x=10+i*340
+              board.paste(img,(x,30))
+              d.text((x+7,385),name,fill=(238,231,212))
+          board.save(out/"recruitment_portraits_contact_sheet.png")
+          # Reproduce the exact physical portrait rectangles used by the two
+          # independently composed artboards, for each candidate, side by side.
+          sizes=((330,276,"desktop"),(200,240,"phone"))
+          comparison=Image.new("RGB",(1140,620),(13,19,19))
+          draw=ImageDraw.Draw(comparison)
+          draw.text((15,10),"PORTRAIT LEGIBILITY: SOURCE 320x350 / DESKTOP 330x276 / PHONE 200x240",fill=(244,173,57))
+          for i,(name,img) in enumerate(zip(("ALEX VALE","NIA MORGAN"),images)):
+              x=15+i*565
+              draw.text((x,40),name,fill=(240,235,220))
+              dx=x
+              for (w,h,device) in sizes:
+                  # Source was drawn as scalable vector, not raster upsample.
+                  source=Path(f"docs/visual-proofs/recruitment_portrait_{name.lower().split()[0]}_ink_study.svg")
+                  temp=out/f"scale_{name.lower().split()[0]}_{device}.png"
+                  cairosvg.svg2png(url=str(source),write_to=str(temp),output_width=w,output_height=h)
+                  preview=Image.open(temp).convert("RGB")
+                  comparison.paste(preview,(dx,75))
+                  draw.text((dx,75+h+10),f"{device} {w}x{h}",fill=(232,228,210))
+                  dx+=w+10
+          comparison.save(out/"recruitment_portraits_physical_size_comparison.png")
+
+          print("PORTRAIT STUDIES ONLY: 2 independent 320x350 authored vector sources; not owner-approved.")
+          PY
+      - name: Upload two source-backed artboard renders (not Godot captures)
+        uses: actions/upload-artifact@v4
+        with:
+          name: ldtd-editorial-artboards-design-only
+          path: |
+            docs/visual-proofs/recruitment_editorial_desktop_1280.svg
+            docs/visual-proofs/recruitment_editorial_phone_390.svg
+            docs/visual-proofs/recruitment_portrait_*.svg
+            artboard_evidence/*.png
+          if-no-files-found: error

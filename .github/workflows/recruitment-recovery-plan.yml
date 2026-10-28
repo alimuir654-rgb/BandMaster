@@ -1,0 +1,43 @@
+name: Recruitment recovery — planning contract only (NOT visual approval)
+
+on:
+  push:
+    branches: [first-pass-scene-sweep-2026-10-27]
+    paths:
+      - 'AGENTS.md'
+      - '.agents/recruitment/**'
+      - '.agents/skills/recruitment-screen-recovery/**'
+      - 'docs/recruitment_recovery/**'
+      - 'Art/RecruitmentRecovery/**'
+      - 'tools/recruitment_quality_gate.py'
+      - 'tools/register_recruitment_asset.py'
+      - 'tools/recruitment_scope_guard.py'
+      - 'tests/test_recruitment_quality_gate.py'
+      - '.github/workflows/recruitment-recovery-plan.yml'
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - '.agents/recruitment/**'
+      - '.agents/skills/recruitment-screen-recovery/**'
+      - 'docs/recruitment_recovery/**'
+      - 'Art/RecruitmentRecovery/**'
+      - 'tools/recruitment_quality_gate.py'
+      - 'tools/register_recruitment_asset.py'
+      - 'tools/recruitment_scope_guard.py'
+      - 'tests/test_recruitment_quality_gate.py'
+      - '.github/workflows/recruitment-recovery-plan.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  enforce-planning-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate root AGENTS preservation, recovery state, manifest and no fake asset approvals
+        run: python3 tools/recruitment_quality_gate.py --root . --stage prep
+      - name: Negative tests must prove art / owner gates remain blocked without evidence
+        run: python3 -m unittest discover -s tests -p test_recruitment_quality_gate.py -v
+      - name: Explicit non-approval notice
+        run: echo 'Planning checks only. NO artistic quality, native screenshot or owner approval is implied.'
