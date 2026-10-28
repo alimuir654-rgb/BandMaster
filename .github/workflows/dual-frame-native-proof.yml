@@ -35,6 +35,17 @@ jobs:
           ROOT=$(dirname "$PROJECT")
           echo "ROOT=$ROOT" >> "$GITHUB_ENV"
           godot --headless --path "$ROOT" --editor --quit
+      - name: Fix Godot Control material identifier collision
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os, re
+          p=Path(os.environ["ROOT"])/"scene/frame_demo.gd"
+          s=p.read_text()
+          s=re.sub(r"\bmaterial\b", "frame_material_kind", s)
+          p.write_text(s)
+          print("Fixed Control.material naming collision")
+          PY
       - name: Native smoke test
         run: |
           TEST=$(find "$ROOT" -iname '*smoke*.gd' -print -quit)
