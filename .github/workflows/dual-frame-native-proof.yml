@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch uploaded ZIP from main\n        run: git show origin/main:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip\n      - name: Extract experiment and inspect structure
+      - name: Fetch uploaded ZIP from main\n        run: |\n          git fetch --depth=1 origin main\n          git show FETCH_HEAD:BandMaster_Frame_Experiment_v2.zip > BandMaster_Frame_Experiment_v2.zip\n      - name: Extract experiment and inspect structure
         run: |
           python3 - <<'PY'
           import zipfile, pathlib
@@ -51,7 +51,7 @@ jobs:
               _collect("res://", files)
               var scenes: Array[String] = []
               for file in files:
-                  if file.ends_with(".tscn"):
+                  if file.ends_with(".tscn") and not file.contains("test"):
                       scenes.append(file)
               scenes.sort()
               print("SCENES: ", scenes)
