@@ -89,7 +89,7 @@
     "corrective_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40670282077",
     "1100_photographic_bezel": {
       "phase": "11:00 desktop physical-material pilot",
-      "status": "source_verified__native_ci_pending",
+      "status": "source_manifest_validation_corrected__ci_pending",
       "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
       "source_sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
       "provenance": "Art/References/PremiumHardware/SOURCE_SHA256_MANIFEST.json",
@@ -102,7 +102,8 @@
       "test": "tests/capture_ldtd_recruitment_v4.gd (1280x720 recruit)",
       "visual_gate": "BLOCKED until actual post-change Godot screenshot inspected",
       "art_gate": "BLOCKED",
-      "owner_approval": false
+      "owner_approval": false,
+      "prep_first_run": "FAILED: invalid manifest asset status on run 40677176160; corrected to supported ready/generated_original; retest pending"
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
