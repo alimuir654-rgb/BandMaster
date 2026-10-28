@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
+  "last_verified_code_sha": "6ca9184346d66a829e6b70e4b1c18ec2bb2087c1",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -38,7 +38,7 @@
     "390x844": null,
     "1280x720": null
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40670282077",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894",
   "known_art_p0": [
     "Two full-resolution independently authored rights/provenance-audited identity-specific source masters for canonical alex and nia_griffiths are absent; imagegen latest output repeated a flattened UI collage.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
@@ -46,7 +46,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "Open the 11:00 source-verified photo-bezel native 1280x720 Godot screenshot at physical pixels; check portrait, paper, touch and 200-point roster remains unobscured, correct one observed defect. Resume R1 portrait master task when image generation can deliver separately reusable exact assets.",
+  "next_single_action": "12:00: Inspect genuine 390x844 original pixels and make one verified phone-first readability/spacing improvement without introducing fictional data, face duplication or unproven art. R1 Alex/Nia high-resolution independently authored masters still art-P0 BLOCKED.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -89,7 +89,7 @@
     "corrective_native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40670282077",
     "1100_photographic_bezel": {
       "phase": "11:00 desktop physical-material pilot",
-      "status": "source_manifest_validation_corrected__ci_pending",
+      "status": "source_pilot_genuine_godot_native_pass__art_still_blocked",
       "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
       "source_sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
       "provenance": "Art/References/PremiumHardware/SOURCE_SHA256_MANIFEST.json",
@@ -103,7 +103,15 @@
       "visual_gate": "BLOCKED until actual post-change Godot screenshot inspected",
       "art_gate": "BLOCKED",
       "owner_approval": false,
-      "prep_first_run": "FAILED: invalid manifest asset status on run 40677176160; corrected to supported ready/generated_original; retest pending"
+      "prep_first_run": "FAILED: invalid manifest asset status on run 40677176160; corrected to supported ready/generated_original; retest pending",
+      "prep_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677396909",
+      "native_ci": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894",
+      "native_artifacts": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894/artifacts/12811441136",
+      "pixels_independently_viewed": true,
+      "desktop_1280_png_sha256": "5b05c4fce7c3c9011c94ee3711699e9f8e87001fb7cb795c754105d382b5ef83",
+      "phone_390_png_sha256": "a09536458b980a70497d355f3b22b8335ff7b96776c75ed0bddd5d3e9e22f065",
+      "measured_visual_verdict": "photographic 8-piece bezels visibly improve 3 desktop frames; true full-world photographic fidelity FAIL due 160px Alex, missing Nia portrait and SVG paper/case",
+      "native_gate": "ENGINEERING PASS, visual-quality BLOCKED"
     }
   },
   "last_submitted_code_sha": "2d3f7bfd5e44d3b14601e0aa25a051407c42a791",
@@ -153,5 +161,16 @@
         "opened_at_original_pixels": true
       }
     }
+  },
+  "native_pixel_inspection_1100": {
+    "run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894",
+    "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40677166894/artifacts/12811441136",
+    "code_sha": "6ca9184346d66a829e6b70e4b1c18ec2bb2087c1",
+    "native_source_compare_sha": "a930c8d4da35aa9730f29f34642d35270e7b996a33102a951716541678f7f543",
+    "native_1280_sha": "5b05c4fce7c3c9011c94ee3711699e9f8e87001fb7cb795c754105d382b5ef83",
+    "native_390_sha": "a09536458b980a70497d355f3b22b8335ff7b96776c75ed0bddd5d3e9e22f065",
+    "viewed_original_pixels": true,
+    "material_improved": true,
+    "photo_master_pair_available": false
   }
 }
