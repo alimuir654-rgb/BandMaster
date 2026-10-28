@@ -38,3 +38,7 @@
 7. No main merge, production saves/formation edits, unrelated scenes, paid Figma AI, proprietary assets without rights, false user approval or generic progress-only output. If no valid new art, use a clearly labelled **provisional** source-backed Godot proof and keep the art gate BLOCKED; don't stall all native development.
 
 **Evening success threshold:** Not just a plausible concept: at least one runnable, **genuine native Godot** recruitment screen with substantive photographic/physical UI quality close to reference at phone and landscape, interactive canonical candidate data, inspected screenshot evidence, honest remaining discrepancies. Only owner can declare actual art approval.
+
+## Pro subscription execution amendment — 28 October
+
+**Do not disrupt the running hourly schedule.** Pro makes a dedicated Codex Cloud task a better eventual engineering execution environment, but no Codex Cloud tool/environment has been attached to this chat. Read `docs/recruitment_recovery/14_PRO_CAPABILITY_ROUTE.md` before claiming a migration. Until there is an actual published environment and task, today's existing GitHub-backed automation is the active writer. Only one writer is permitted per branch. Higher-reasoning reviews must inspect **real Godot screenshots**, not replace code or images with another planning memo.
