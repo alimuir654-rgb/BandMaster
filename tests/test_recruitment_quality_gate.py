@@ -73,8 +73,8 @@ class RecoveryGateTests(unittest.TestCase):
         def chunk(tag, payload):
             return struct.pack('>I', len(payload)) + tag + payload + struct.pack('>I', zlib.crc32(tag + payload) & 0xffffffff)
         ihdr = struct.pack('>IIBBBBB', 1, 1, 8, 6, 0, 0, 0)
-        png = b'\\x89PNG\\r\\n\\x1a\\n' + chunk(b'IHDR', ihdr)
-        png += chunk(b'IDAT', zlib.compress(b'\\x00\\xff\\x11\\x22\\xff')) + chunk(b'IEND', b'')
+        png = b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', ihdr)
+        png += chunk(b'IDAT', zlib.compress(b'\x00\xff\x11\x22\xff')) + chunk(b'IEND', b'')
         with tempfile.TemporaryDirectory() as t:
             root = Path(t)
             (root / 'mini.png').write_bytes(png)
