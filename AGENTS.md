@@ -1,3 +1,12 @@
+# CURRENT OWNER MISSION — ASSET BASE THROUGH 16:00 UK 29 OCTOBER 2026
+
+The owner authorised three workstreams after reviewing the source-material Godot experiment: **scene backgrounds/frames; direct controls/passive meters; character artwork**. Work autonomously on the supporting asset base, adjusting priorities, technique and optional breadth whenever visual quality is off track for the 16:00 review. This is authorisation to continue, NOT final artwork acceptance.
+
+Before any work read `docs/asset_base/PROGRAMME_2026-10-29.md`, `STATE.json`, `LEDGER.md`, `.agents/asset_base/WORKSTREAMS.md` and the prior verified review under `docs/dual_frame_proof/`. One ordered writer on `dual-frame-proof-2026-10-28`; preserve main, PR #199 and production saves. Earlier 28 Oct stop/recruitment-only rules are superseded only for isolated asset-library/assembly work. No merges, costs or engine changes. Keep `owner_approved=false`.
+
+Characters receive the first production slot. The controller must review actual pixels at 02/06/10/12 checkpoints and change the plan when off track; no more than one ineffective corrective continuation on a family. Freeze optional breadth before quality; no new families after14:00, no implementation writes after15:00, final review16:00. Scheduled work is a sequence of invocations, not a claim of continuous background execution. Relevant native proof already exists; do not restart its setup or use the pull-request-only run query to infer push CI absence.
+
+---
 # BandMaster — AI development contract
 
 ## Roles
