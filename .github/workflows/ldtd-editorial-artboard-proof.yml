@@ -4,6 +4,7 @@ on:
     branches: [first-pass-scene-sweep-2026-10-27]
     paths:
       - 'docs/visual-proofs/recruitment_editorial_*.svg'
+      - 'docs/visual-proofs/recruitment_portrait_*.svg'
       - '.github/workflows/ldtd-editorial-artboard-proof.yml'
   workflow_dispatch:
 jobs:
@@ -56,6 +57,35 @@ jobs:
                   assert im.size == (width,height)
                   print(f"DESIGN ONLY: {source} -> {output}, {im.size}")
           PY
+      - name: Render original portrait studies as separate art evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import cairosvg
+          from PIL import Image, ImageDraw, ImageFont
+          out=Path("artboard_evidence")
+          out.mkdir(exist_ok=True)
+          images=[]
+          for name in ("alex","nia"):
+              source=Path(f"docs/visual-proofs/recruitment_portrait_{name}_ink_study.svg")
+              root=ET.parse(source).getroot()
+              assert root.attrib["viewBox"]=="0 0 320 350"
+              assert not any(el.tag.endswith(("image","script","foreignObject")) for el in root.iter())
+              output=out/f"recruitment_portrait_{name}_ink_study.png"
+              cairosvg.svg2png(url=str(source),write_to=str(output))
+              image=Image.open(output).convert("RGB")
+              assert image.size==(320,350)
+              images.append(image)
+          board=Image.new("RGB",(680,410),(14,20,20))
+          d=ImageDraw.Draw(board)
+          for i,(name,img) in enumerate(zip(("ALEX VALE","NIA MORGAN"),images)):
+              x=10+i*340
+              board.paste(img,(x,30))
+              d.text((x+7,385),name,fill=(238,231,212))
+          board.save(out/"recruitment_portraits_contact_sheet.png")
+          print("PORTRAIT STUDIES ONLY: 2 independent 320x350 authored vector sources; not owner-approved.")
+          PY
       - name: Upload two source-backed artboard renders (not Godot captures)
         uses: actions/upload-artifact@v4
         with:
@@ -63,5 +93,6 @@ jobs:
           path: |
             docs/visual-proofs/recruitment_editorial_desktop_1280.svg
             docs/visual-proofs/recruitment_editorial_phone_390.svg
+            docs/visual-proofs/recruitment_portrait_*.svg
             artboard_evidence/*.png
           if-no-files-found: error
