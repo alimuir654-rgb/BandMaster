@@ -6,7 +6,7 @@
   "pull_request": 199,
   "active_sprint": "R1",
   "current_stage": "prep",
-  "last_verified_code_sha": "8653a415bb69d924fa701ca7e3e038020ad2c2a2",
+  "last_verified_code_sha": "0d883362da4828d23e1fc1e38ea2db25a7b5ab7e",
   "reference": {
     "owner_direction_approved": true,
     "binary_in_repository_verified": false,
@@ -37,12 +37,13 @@
   "native_screenshots": {
     "390x844": {
       "name": "v4-recruit-390x844.png",
-      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
-      "native_png_opened_original_pixels": true
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "native_png_opened_original_pixels": true,
+      "source": "CI 40702142390 base64 lossless original screenshot"
     },
     "1280x720": {
       "name": "v4-recruit-1280x720.png",
-      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40685796699/artifacts/12815535382",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
       "native_jpeg_preview_opened_same_dimensions": true,
       "native_lossless_png_opened": false
     },
@@ -57,9 +58,33 @@
       "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566/artifacts/12819085300",
       "sha256": "9f637637f9a65c237bcf07aff35d2900301813a30cad3e5cc2b88c1dc5a525cf",
       "native_png_opened_original_pixels": true
+    },
+    "focus_alex_phone": {
+      "name": "v4-focus-390x844.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "native_png_capture_verified": true,
+      "opened_at_original_pixels": false
+    },
+    "focus_nia_phone": {
+      "name": "v4-nia_focus-390x844.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "native_png_capture_verified": true,
+      "opened_at_original_pixels": false
+    },
+    "focus_alex_landscape": {
+      "name": "v4-focus-1280x720.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "native_png_capture_verified": true,
+      "opened_at_original_pixels": false
+    },
+    "focus_nia_landscape": {
+      "name": "v4-nia_focus-1280x720.png",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "native_png_capture_verified": true,
+      "opened_at_original_pixels": false
     }
   },
-  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40693564566",
+  "native_ci_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390",
   "known_art_p0": [
     "Two full-resolution independently authored rights/provenance-audited identity-specific source masters for canonical alex and nia_griffiths are absent; imagegen latest output repeated a flattened UI collage.",
     "R1 four owner-liked image concepts include fictional Nia Carter and invented pounds/stats; those composites are design-only and not safely reusable as native source layers.",
@@ -67,7 +92,7 @@
     "Legacy Alex source art is only a 160x160 square image and pixelates on 390/720/1280/1600; whole face preserved now but image too small and lacks documentary waist-up setting.",
     "Owner's original reference binary SHA 278998d5c7875557aab95ac6d225026481a29fddd23537a7c94ac99765caa223 not in GitHub; no independent responsive authored source targets and no owner native visual signoff."
   ],
-  "next_single_action": "14:00: Audit six source-derived inert colour meters and all input focus/hover/pressed/disabled states at 390 and 1280 native capture; source portrait art still blocked.",
+  "next_single_action": "15:00: Obtain two distinct independently usable high-resolution photographic-style portrait master files for canonical alex and nia_griffiths with honest generation/rights provenance; if actual standalone export unavailable, report source blocker without false artwork acceptance.",
   "art_exploration": {
     "status": "generated_unapproved_not_in_repository",
     "designs": 4,
@@ -202,9 +227,53 @@
           "verdict": "vector case/paper fidelity below R1 reference"
         }
       }
+    },
+    "1400_meter_focus_audit": {
+      "status": "godot_472_ci_pass__art_p0_blocked",
+      "code_sha": "0d883362da4828d23e1fc1e38ea2db25a7b5ab7e",
+      "source_lines": {
+        "plate_focus": 141,
+        "photo_focus": 165,
+        "model_index": 236,
+        "meter_binding": 338,
+        "native_semantics": 224
+      },
+      "run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390",
+      "artifact": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40702142390/artifacts/12821832722",
+      "screenshot_count": 24,
+      "focus_png_count": 4,
+      "real_singer_values": {
+        "alex": [
+          8,
+          7,
+          6,
+          8,
+          8,
+          6
+        ],
+        "nia_griffiths": [
+          8,
+          6,
+          9,
+          6,
+          9,
+          7
+        ]
+      },
+      "physical_keys_checked": {
+        "phone_390": 9,
+        "landscape_1280": 22
+      },
+      "physical_min_touch_px": 44,
+      "readonly_and_focus_assertions": true,
+      "phone_png_original_pixels_viewed": true,
+      "landscape_same_size_godot_jpeg_viewed": true,
+      "focused_png_original_pixels_viewed": false,
+      "art_gate": "BLOCKED",
+      "owner_approval": false
     }
   },
-  "last_submitted_code_sha": "8653a415bb69d924fa701ca7e3e038020ad2c2a2",
+  "last_submitted_code_sha": "0d883362da4828d23e1fc1e38ea2db25a7b5ab7e",
   "native_pixel_inspection_1000": {
     "source_code_sha": "20cc67f5e47585e3deea0e6daeb5deb67dbe6a20",
     "source_ci_run": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40661564731",
