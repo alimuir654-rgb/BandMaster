@@ -1,0 +1,38 @@
+name: Collect existing development lessons
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['.github/workflows/lessons-review.yml']
+permissions:
+  contents: read
+jobs:
+  lessons:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect tracked lesson documents from current and prior work
+        run: |
+          git fetch --depth=1 origin main first-pass-scene-sweep-2026-10-27
+          python3 - <<'PY'
+          import subprocess, zipfile, json, hashlib
+          refs={'current':'HEAD','main':'origin/main','recruitment':'origin/first-pass-scene-sweep-2026-10-27'}
+          records=[]
+          with zipfile.ZipFile('BandMaster_Lessons_Source_Records.zip','w',zipfile.ZIP_DEFLATED) as out:
+              for label,ref in refs.items():
+                  commit=subprocess.check_output(['git','rev-parse',ref],text=True).strip()
+                  paths=subprocess.check_output(['git','ls-tree','-r','--name-only',ref],text=True).splitlines()
+                  for path in paths:
+                      if not path.endswith('.md'):continue
+                      if '/' in path and not path.startswith(('docs/','.agents/')):continue
+                      data=subprocess.check_output(['git','show',ref+':'+path])
+                      out.writestr(label+'/'+path,data)
+                      records.append({'ref':label,'commit':commit,'path':path,'sha256':hashlib.sha256(data).hexdigest()})
+              out.writestr('SOURCE_INDEX.json',json.dumps(records,indent=2))
+          print('Collected',len(records),'tracked Markdown source records. No other branches changed.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lessons-source-records
+          path: BandMaster_Lessons_Source_Records.zip
+          retention-days: 14
