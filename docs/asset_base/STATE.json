@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "F07-2026-10-29T0503Z",
+    "stream": "F",
+    "started_at": "2026-10-29T05:08:00Z",
+    "lease_expires_at": "2026-10-29T05:48:00Z",
+    "base_head": "6c4a3e404e5a1c01d154215a0b358a39055605af",
+    "purpose": "F07 source-backed landscape dossier material assembly and actual native tests"
+  },
   "last_verified_code_sha": "ab17f151e3fcc1878d194440d39371dd5fdc7639",
   "baseline": {
     "run_id": 40778019754,
@@ -240,5 +247,5 @@
     "native_baseline_run": 40805840636,
     "notice": "C05 local assets have NOT been published to GitHub or natively rendered; art approval remains false"
   },
-  "last_updated_utc": "2026-10-29T03:09:00Z"
+  "last_updated_utc": "2026-10-29T05:08:00Z"
 }
