@@ -528,3 +528,6 @@ Kept existing Lab07/Lab08 controls, passive meters, C21 dialog and the documente
 
 ## C24 source intake — build-dependency finding
 Downloaded and verified the actual CC0 Clipboard and Office Notepads originals. First inspection run40944602273 failed before rendering because Ubuntu Blender's glTF importer lacked numpy. Original files/logs preserved in artifact12928432605. This is an offline build issue, not an art result; logged before corrective implementation. Existing controls and game runtime unchanged.
+
+
+C24 renderer dependency correction succeeded: original glTF imports. The Ubuntu Blender build lacks optional OpenImageDenoiser; source inspection therefore remains unrendered. Logged before removing that optional setting. This changes no Godot runtime or source assets.
