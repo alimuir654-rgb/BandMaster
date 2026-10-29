@@ -46,7 +46,18 @@ func run_tests() -> void:
  var snapshot := game.snapshot()
  check(game.save_sandbox(),"sandbox save")
  var loaded = Game.new()
- check(loaded.load_sandbox() and JSON.stringify(loaded.snapshot())==JSON.stringify(snapshot),"sandbox restart exact state")
+ var loaded_ok: bool = loaded.load_sandbox()
+ var expected_text: String = JSON.stringify(snapshot)
+ var actual_text: String = JSON.stringify(loaded.snapshot())
+ print("C26_SAVE_DEBUG loaded=",loaded_ok," lengths=",expected_text.length(),"/",actual_text.length())
+ var first_diff := -1
+ for index in range(mini(expected_text.length(),actual_text.length())):
+  if expected_text[index] != actual_text[index]:
+   first_diff = index
+   break
+ if first_diff >= 0:
+  print("C26_SAVE_DIFF ",first_diff," before=",expected_text.substr(maxi(0,first_diff-30),150)," after=",actual_text.substr(maxi(0,first_diff-30),150))
+ check(loaded_ok and actual_text==expected_text,"sandbox restart exact state")
  check(not loaded.restore({"schema_version":1,"roster":[{"id":"evil"}],"phase":"play"}),"corrupt roster rejected")
  check(JSON.stringify(loaded.snapshot())==JSON.stringify(snapshot),"failed restore non-mutating")
  var stars = Game.new()
