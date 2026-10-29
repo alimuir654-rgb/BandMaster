@@ -25,20 +25,30 @@ func screenshot(window: Window, tag: String) -> void:
     records.append({"file":tag + ".png", "size":[image.get_width(),image.get_height()]})
 func click(window: Window, button: Button) -> void:
     var centre := button.get_global_rect().get_center()
+    # Native X11 windows also require the OS cursor to enter their area;
+    # otherwise the platform's hover refresh can undo injected mouse motion.
+    window.grab_focus()
+    window.warp_mouse(centre)
+    await settle()
     window.notify_mouse_entered()
     var motion := InputEventMouseMotion.new()
+    motion.window_id = window.get_window_id()
     motion.position = centre
     motion.global_position = centre
     window.push_input(motion, true)
-    await process_frame
+    var hovered := window.gui_get_hovered_control()
+    print("POINTER_PROBE ", window.size, " target=", button.get_path(), " rect=", button.get_global_rect(), " hovered=", hovered.get_path() if hovered != null else NodePath("none"))
     for down in [true, false]:
         var e := InputEventMouseButton.new()
+        e.window_id = window.get_window_id()
         e.button_index = MOUSE_BUTTON_LEFT
+        e.button_mask = MOUSE_BUTTON_MASK_LEFT if down else 0
         e.position = centre
         e.global_position = centre
         e.pressed = down
         window.push_input(e, true)
-        await process_frame
+    await settle()
+    print("POINTER_RESULT pressed=",button.button_pressed," text=",button.text)
 func exercise(scene: Control, window: Window) -> void:
     var step = scene.live.stepper
     var hits := [0]
@@ -83,18 +93,20 @@ func exercise(scene: Control, window: Window) -> void:
     check(toggle.button_pressed and toggle.text.ends_with("ON"), "Actual mouse click toggles state")
     toggle.grab_focus()
     await settle()
-    var e := InputEventKey.new()
-    e.keycode = KEY_SPACE
-    e.pressed = true
-    window.push_input(e, true)
-    await process_frame
-    e = InputEventKey.new()
-    e.keycode = KEY_SPACE
-    e.pressed = false
-    window.push_input(e, true)
+    for down in [true, false]:
+        var e := InputEventKey.new()
+        e.window_id = window.get_window_id()
+        e.keycode = KEY_SPACE
+        e.pressed = down
+        window.push_input(e, true)
+        await process_frame
     await settle()
     check(not toggle.button_pressed and toggle.text.ends_with("OFF"), "Actual keyboard activation toggles state")
     check(toggle.has_focus(), "Keyboard focus retained")
+    toggle.disabled = true
+    await click(window, toggle)
+    check(not toggle.button_pressed, "Disabled toggle ignores actual mouse input")
+    toggle.disabled = false
     for b in scene.controls:
         check(b.get_global_rect().size.x >= 44 and b.get_global_rect().size.y >= 44, "Physical touch size " + b.text)
         check(b.get_theme_stylebox("normal") is StyleBoxTexture, "Image-backed button skin " + b.text)
@@ -102,7 +114,6 @@ func exercise(scene: Control, window: Window) -> void:
 func run() -> void:
     DirAccess.make_dir_recursive_absolute("res://proof")
     root.gui_embed_subwindows = false
-    # Every promised drop-in scene must instantiate, not merely parse.
     for kind in ["toggle", "stepper", "choices", "browse", "pagination", "meter", "action", "panel", "ticket"]:
         var wrapper = load("res://scenes/" + kind + ".tscn").instantiate()
         root.add_child(wrapper)

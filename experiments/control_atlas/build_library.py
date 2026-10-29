@@ -35,11 +35,11 @@ def main() -> None:
         texture=Image.open(source/('paper_surface.png' if look=='notepaper' else 'case_surface.png')).convert('RGBA')
         if look=='notepaper':texture=ImageEnhance.Contrast(texture).enhance(1.6)
         panel.paste(texture.crop((24,24,216,216)),(32,32));dest=art/f'frame_{look}_panel.png';panel.save(dest)
-        record(dest,str(parent.relative_to(a.root)),'fixed source corners; independent source-material centre',digest(parent),nine_slice=[24]*4,safe_insets=[28]*4)
+        record(dest,str(parent.relative_to(a.root)),'fixed source corners; independent source-material centre',digest(parent),nine_slice=[40]*4,safe_insets=[30]*4,corner_source_pixels_preserved=True)
         small=Image.open(source/'metal_key.png').convert('RGBA') if look=='flightcase' else original
         inset=nine(small,(192,96),12 if look=='flightcase' else 20);dest=art/f'frame_{look}_inset.png';inset.save(dest)
         parent2=parent if look=='notepaper' else source/'metal_key.png'
-        record(dest,str(parent2.relative_to(a.root)),'quiet source-backed inset; no baked text/icons',digest(parent2),nine_slice=[12]*4,safe_insets=[16]*4)
+        record(dest,str(parent2.relative_to(a.root)),'quiet source-backed inset; no baked text/icons',digest(parent2),nine_slice=[28 if look=='notepaper' else 20]*4,safe_insets=[12]*4)
         shutil.copy2(parent,art/f'frame_{look}_previous.png')
     vendor=a.root/'bandmaster_premium_dashboard_poc';dest=out/'bandmaster_premium_dashboard_poc';dest.mkdir(exist_ok=True);shutil.copy2(vendor/'studio_control.gd',dest/'studio_control.gd');(dest/'assets').mkdir(exist_ok=True)
     selected=['horizontal_base.png','horizontal_cap.png','vertical_base.png','vertical_cap.png','focus_ring_off.png','buzz_ring_off.png','rotary_pointer.png','meter_base.png']
@@ -55,7 +55,7 @@ def main() -> None:
     provenance=out/'provenance';provenance.mkdir(exist_ok=True)
     for name in ['DIRECT_CONTROL_MANIFEST.json','PASSIVE_METER_MANIFEST.json','MATERIAL_MANIFEST.json','FRAME_KIT_MANIFEST.json','U04_CONTROL_MANIFEST.json']:
         if (a.root/name).exists():shutil.copy2(a.root/name,provenance/name)
-    manifest={'schema_version':1,'owner_approved':False,'source_version':'0c041e326098a2c9c8a613368b5eac9dd94e1dc8 (U18)','rights':'Inherited owner-supplied image-generated Lab07/Lab08 sources; CC0 Paper001 per retained source manifest. Not claimed real hardware photography.','unchanged_meter_files':sum(r.get('passive',False) for r in records),'records':records,'vendor_hashes':vendor_hashes,'frame_presets':['panel','inset','portrait','ticket','header','modal'],'background_or_character_changes':False}
+    manifest={'schema_version':1,'owner_approved':False,'source_version':'0c041e326098a2c9c8a613368b5eac9dd94e1dc8 (U18)','rights':'Inherited owner-supplied image-generated Lab07/Lab08 sources; CC0 Paper001 per retained source manifest. Not claimed real hardware photography.','unchanged_meter_files':sum(r.get('passive',False) for r in records),'records':records,'vendor_hashes':vendor_hashes,'frame_presets':['panel','inset','portrait','ticket','header','modal'],'background_or_character_changes':False,'button_rendering':'Original images retained byte-for-byte; proportionally downsampled to48px height at runtime before nine-slice.'}
     (out/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n');assert manifest['unchanged_meter_files']==22
     (out/'.gitignore').write_text('.godot/\n*.import\n*.uid\nproof/\n')
     print(f'Built {out}: {len(records)} raster records and {len(vendor_hashes)} unchanged vendor files')
