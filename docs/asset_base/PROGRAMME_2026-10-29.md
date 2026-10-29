@@ -68,3 +68,9 @@ Consult retained official Godot guidance as needed: https://docs.godotengine.org
 
 ## Owner handover
 By 16:00 provide a compact source/native comparison for both looks, control-state atlas, distinct-character contact sheet, runnable isolated Godot project, provenance/hashes and per-stream internal pass/partial/blocked verdict. Link only files and artifacts that exist. Preserve baseline comparison and separate new work from existing assets. Routine logs stay in the repository; do not ask the owner to find errors, repeat uploads or trigger CI. Capacity/source failures are disclosed, not disguised. This programme is finite and does not auto-extend.
+
+## Owner direction — Thursday 29 October, 09:00 UK (verbatim)
+
+> The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.
+
+This confirms the finite 16:00 review, *not* final artwork acceptance, merging or extension. Keep the liked six read-only red/amber/green meters unchanged absent a measured regression. Prioritise genuinely indie-credible individual Alex/Nia source masters; if no compliant source can be obtained without false rights/identity claims, keep P0 artwork HOLD and improve integrated two-look native composition instead. Reuse existing materials. Add only restrained native select/browse/recruit/remove feedback, not new systems. Evaluate 10/12/14/15/16 gates. Compare final native evidence with C12 and morning proof, disclose remaining weaknesses.
