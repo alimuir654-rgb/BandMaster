@@ -1,0 +1,35 @@
+name: Mandatory continuous-improvement gate
+'on':
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+      - name: Validate preflight, issue history and scoped changes
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 -m unittest discover -s tests -p test_improvement_gate.py -v
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,os,subprocess,sys
+          sys.path.insert(0,'tools')
+          from improvement_gate import check,read_json
+          root=Path.cwd(); current=read_json(root/'docs/continuous_improvement/CURRENT.json')
+          before=os.environ.get('BEFORE','')
+          if not before or set(before)=={'0'}:
+              before=subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()
+          names=subprocess.check_output(['git','diff','--name-only',before,'HEAD'],text=True).splitlines()
+          def meta(p):return p.startswith(('docs/','.agents/')) or p in ['AGENTS.md','.github/PULL_REQUEST_TEMPLATE.md']
+          implementation=any(not meta(p) for p in names)
+          print(json.dumps(check(root,current['session'],before,implementation),indent=2))
+          print('Implementation changes require a previously committed active preflight:',implementation)
+          PY
