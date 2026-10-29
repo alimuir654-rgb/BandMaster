@@ -1,12 +1,12 @@
 {
-  "writer": null,
-  "base_head": "14bf4d55b804e6b335557bb0e197c4e27d659fbc",
-  "claimed_at": "2026-10-29T14:50:00+00:00",
-  "expires_at": "2026-10-29T16:00:00+00:00",
-  "scope": "components/control_atlas and isolated native proof; scene backgrounds and characters deferred",
+  "writer": "C21-frame-styling-hardening-20261029T1551",
+  "base_head": "d50773a281078cb0f20526b63088446e90489466",
+  "claimed_at": "2026-10-29T15:56:00+00:00",
+  "expires_at": "2026-10-29T16:51:20+00:00",
+  "scope": "Owner-authorised one-hour follow-on: additional frame styling and hardening of the existing isolated reusable control library. No backgrounds, characters, meter redesign, production scenes, saves or merges.",
+  "owner_instruction_verbatim": "continue with some additional frame styling and hardening/improvement work. One hour",
+  "authority": "Direct owner follow-on supersedes earlier implementation freeze for this scoped session only; no recurring programme extension. 16:00 report must not claim this in-progress sprint complete.",
   "owner_approved": false,
-  "released_at": "2026-10-29T15:36:50.462036+00:00",
-  "result": "native_pass_visual_partial",
-  "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
-  "run_id": 40901641892
+  "previous_verified_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
+  "previous_verified_run_id": 40901641892
 }
