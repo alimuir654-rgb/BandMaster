@@ -1,6 +1,6 @@
 extends SceneTree
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
-const Base = preload("res://Scripts/recruitment_catalogue_v3.gd")
+const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 var checks := 0
 var failures: Array[String] = []
 func _init() -> void:

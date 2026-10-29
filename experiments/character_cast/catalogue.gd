@@ -1,6 +1,6 @@
 extends RefCounted
 ## Opt-in casting supplement. Never replaces canonical people or writes saves.
-const Base = preload("res://Scripts/recruitment_catalogue_v3.gd")
+const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const DATA_PATH := "res://Data/CharacterCast/approved_cast_2026-10-29.json"
 const MAX_TALENT := Base.MAX_TALENT
 const ROLE_TABS := Base.ROLE_TABS
