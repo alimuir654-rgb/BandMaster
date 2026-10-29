@@ -39,7 +39,6 @@ def generate():
     edge.line((52,49,846,49),fill=(255,255,255,86),width=2)
     tape=Image.open(tape_path).convert("RGBA").crop((208,0,436,43))
     tape=tape.resize((222,42),Image.Resampling.LANCZOS)
-    day.alpha_composite(tape,(104,8))
     day.alpha_composite(tape.transpose(Image.Transpose.FLIP_LEFT_RIGHT),(581,10))
     paper_out=MAT/"dossier_shell_notepaper.png";day.save(paper_out)
     night=ImageEnhance.Brightness(tiled(Image.open(surface_path).convert("RGB"),(W,H)).convert("RGBA")).enhance(.72)
@@ -80,7 +79,7 @@ def integrate():
     shell.set_texture_margin_all(65)
     shell.content_margin_left = 32
     shell.content_margin_right = 32
-    shell.content_margin_top = 52
+    shell.content_margin_top = 24
     shell.content_margin_bottom = 24
     return shell
 
