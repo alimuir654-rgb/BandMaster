@@ -13,7 +13,7 @@ out.mkdir(parents=True,exist_ok=True)
 states=("idle","hover","pressed","active","disabled")
 families={
     "action":dict(source="transport_studio",crop=(124,78,666,347),blank=(307,117,476,309),size=(480,148),margins=[31,29,31,29],safe=[56,34,424,114]),
-    "tab":dict(source="pad_studio",crop=(14,9,532,398),blank=(172,177,375,292),size=(200,132),margins=[27,26,27,26],safe=[35,30,165,105]),
+    "tab":dict(source="channel_studio",crop=(291,105,678,271),blank=(366,152,605,241),size=(320,112),margins=[12,13,12,13],safe=[26,26,294,92]),
     "browse":dict(source="channel_studio",crop=(291,105,678,271),blank=(366,152,605,241),size=(382,126),margins=[31,25,31,25],safe=[46,30,336,98])
 }
 def checksum(path):
@@ -49,15 +49,16 @@ def sprite(surface,theme,size,state,family,original):
     ImageDraw.Draw(mask).rounded_rectangle((0,0,metal.width-1,metal.height-1),radius=13,fill=255)
     metal.putalpha(mask)
     result.alpha_composite(metal,(inset[0],inset[1]))
-    if family in ("action","browse"):
+    if family in ("action","browse","tab"):
         # Source's own state-dependent LED strips; no fake signal/zero state.
         box=(67,138,109,289) if family=="action" else (46,164,75,258)
-        led=original.crop(box).resize((12,round(h*.55)),Image.Resampling.LANCZOS).convert("RGBA")
+        led_width=5 if family=="tab" else 12
+        led=original.crop(box).resize((led_width,round(h*.55)),Image.Resampling.LANCZOS).convert("RGBA")
         if state=="disabled":
             led=ImageOps.grayscale(led).convert("RGBA")
         y=(h-led.height)//2
-        result.alpha_composite(led,(10,y))
-        result.alpha_composite(ImageOps.mirror(led),(w-22,y))
+        result.alpha_composite(led,(7 if family=="tab" else 10,y))
+        result.alpha_composite(ImageOps.mirror(led),(w-(12 if family=="tab" else 22),y))
     if state=="focus":
         ImageDraw.Draw(result).rounded_rectangle((2,2,w-3,h-3),radius=14,outline=(247,210,142,250),width=3)
     return result
@@ -126,11 +127,22 @@ replace('    recruit_button.add_theme_stylebox_override("normal", _surface("pape
         '    # Native action has source-backed normal, hover, pressed and disabled variants.')
 replace('    recruit_button.add_theme_color_override("font_color", Color("22252a"))',
         '    recruit_button.add_theme_color_override("font_color", Color("f5ecda"))')
+replace('var roster_button: Button',
+        'var roster_button: Button\nvar actions_bar: HBoxContainer')
+replace('var actions := HBoxContainer.new()',
+        'var actions := HBoxContainer.new()\n    actions_bar = actions\n    actions.alignment = BoxContainer.ALIGNMENT_END')
+replace('    recruit_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL',
+        '    recruit_button.size_flags_horizontal = Control.SIZE_SHRINK_END')
+replace('button.text = CANDIDATES[i].name + "\\n" + CANDIDATES[i].town',
+        'button.text = CANDIDATES[i].name')
+replace('    roster_button.text = "ROSTER" if narrow else "VIEW ROSTER"',
+        '    roster_button.text = "ROSTER" if narrow else "VIEW ROSTER"\n    recruit_button.custom_minimum_size.x = 205 if size.x < 500 else (270 if narrow else 310)\n    roster_button.custom_minimum_size.x = 80 if narrow else 135\n    for candidate_button in candidate_buttons:\n        candidate_button.add_theme_font_size_override("font_size", 14 if narrow else 17)')
+
 s+='''
 func _control_style(family: String, state: String) -> StyleBoxTexture:
     var style := StyleBoxTexture.new()
     style.texture = load("res://assets/material/control_%s_%s_%s.png" % [family, frame_material_kind, state])
-    style.set_texture_margin_all(20)
+    style.set_texture_margin_all(12 if family == "tab" else 20)
     style.content_margin_left = 8
     style.content_margin_right = 8
     style.content_margin_top = 7
