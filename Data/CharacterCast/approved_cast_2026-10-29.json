@@ -1,0 +1,860 @@
+{
+  "schema_version": 1,
+  "cast_id": "approved-natural-cast-2026-10-29",
+  "source_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_type": "AI-generated fictional casting contact sheet",
+  "approval": {
+    "casting_reference": true,
+    "individual_production_masters": false,
+    "game_balance": false
+  },
+  "role_order": [
+    "Singer",
+    "Guitarist",
+    "Bassist",
+    "Keyboardist",
+    "Drummer"
+  ],
+  "stats_scale": [
+    1,
+    10
+  ],
+  "vocal_labels": [
+    "Tone",
+    "Originality",
+    "Character",
+    "Presence",
+    "Soulfulness",
+    "Lyricism"
+  ],
+  "instrument_labels": [
+    "Technique",
+    "Timing",
+    "Originality",
+    "Feel",
+    "Versatility",
+    "Presence"
+  ],
+  "behaviour_labels": {
+    "reliability": "1 unreliable to 10 dependable",
+    "collaboration": "1 resistant to compromise to 10 cooperative"
+  },
+  "balance_note": "Authored fictional design scores, not measured traits. Music cost uses existing catalogue sum; unchanged 200 talent and fifth-member overhead. No trouble discount. Musical Character is separate from cooperation.",
+  "integration_note": "Additive adapter only. Existing canonical IDs and saves unchanged. rehearsal_risk is exposed data, not an already integrated penalty in existing gameplay.",
+  "people": [
+    {
+      "id": "cast_jack",
+      "name": "Jack",
+      "gender": "Not specified",
+      "age": 22,
+      "town": "Sheffield",
+      "roles": [
+        "Guitarist"
+      ],
+      "primary_role": "Guitarist",
+      "vocal": [],
+      "instrument": [
+        6,
+        6,
+        5,
+        6,
+        4,
+        6
+      ],
+      "talent_cost": 33,
+      "reliability": 8,
+      "collaboration": 8,
+      "personality": "Steady",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 2,
+      "story": "First committed band after playing rhythm guitar with friends.",
+      "strength": "Steady supporting parts; listens to the singer.",
+      "friction": "Needs encouragement to suggest new parts.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_jack.png",
+      "source_card_index": 0,
+      "preview_crop": [
+        14,
+        16,
+        254,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_maya",
+      "name": "Maya",
+      "gender": "Not specified",
+      "age": 23,
+      "town": "Bristol",
+      "roles": [
+        "Singer"
+      ],
+      "primary_role": "Singer",
+      "vocal": [
+        7,
+        6,
+        6,
+        7,
+        6,
+        4
+      ],
+      "instrument": [],
+      "talent_cost": 36,
+      "reliability": 8,
+      "collaboration": 8,
+      "personality": "Thoughtful",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 3,
+      "story": "Open-mic singer with a first notebook of songs.",
+      "strength": "Warm melodic instinct and encouraging rehearsals.",
+      "friction": "Lyrics and stage confidence need development.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_maya.png",
+      "source_card_index": 1,
+      "preview_crop": [
+        279,
+        16,
+        505,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_ellis",
+      "name": "Ellis",
+      "gender": "Not specified",
+      "age": 21,
+      "town": "Leeds",
+      "roles": [
+        "Drummer"
+      ],
+      "primary_role": "Drummer",
+      "vocal": [],
+      "instrument": [
+        5,
+        6,
+        4,
+        5,
+        4,
+        6
+      ],
+      "talent_cost": 30,
+      "reliability": 9,
+      "collaboration": 8,
+      "personality": "Dependable",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 4,
+      "story": "First proper band after learning with college friends.",
+      "strength": "Prepared, consistent simple grooves.",
+      "friction": "Fast fills and unfamiliar time signatures need practice.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ellis.png",
+      "source_card_index": 2,
+      "preview_crop": [
+        530,
+        16,
+        758,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_zoe",
+      "name": "Zoe",
+      "gender": "Not specified",
+      "age": 24,
+      "town": "Glasgow",
+      "roles": [
+        "Bassist"
+      ],
+      "primary_role": "Bassist",
+      "vocal": [],
+      "instrument": [
+        6,
+        7,
+        6,
+        7,
+        5,
+        6
+      ],
+      "talent_cost": 37,
+      "reliability": 7,
+      "collaboration": 7,
+      "personality": "Independent",
+      "trouble": "Medium",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 5,
+      "story": "DIY-show regular building basslines around the vocal.",
+      "strength": "Punchy hooks without filling every gap.",
+      "friction": "Can dig in when asked to simplify a favourite part.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "source_card_index": 3,
+      "preview_crop": [
+        786,
+        16,
+        1008,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_dan",
+      "name": "Dan",
+      "gender": "Not specified",
+      "age": 22,
+      "town": "Manchester",
+      "roles": [
+        "Keyboardist"
+      ],
+      "primary_role": "Keyboardist",
+      "vocal": [],
+      "instrument": [
+        5,
+        5,
+        6,
+        5,
+        5,
+        3
+      ],
+      "talent_cost": 29,
+      "reliability": 8,
+      "collaboration": 8,
+      "personality": "Thoughtful",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 6,
+      "story": "Bedroom demo-maker trying a first live band.",
+      "strength": "Useful textures and patient listening.",
+      "friction": "Live patch changes and stage presence are untested.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_dan.png",
+      "source_card_index": 4,
+      "preview_crop": [
+        1036,
+        16,
+        1266,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_ryan",
+      "name": "Ryan",
+      "gender": "Not specified",
+      "age": 26,
+      "town": "Cardiff",
+      "roles": [
+        "Guitarist"
+      ],
+      "primary_role": "Guitarist",
+      "vocal": [],
+      "instrument": [
+        6,
+        7,
+        7,
+        8,
+        6,
+        5
+      ],
+      "talent_cost": 39,
+      "reliability": 9,
+      "collaboration": 9,
+      "personality": "Steady",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 2,
+      "story": "Acoustic songwriter moving into an electric band.",
+      "strength": "Timing, feel and space for other players.",
+      "friction": "Less comfortable with flashy high-speed leads.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ryan.png",
+      "source_card_index": 5,
+      "preview_crop": [
+        1290,
+        16,
+        1520,
+        242
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_lily",
+      "name": "Lily",
+      "gender": "Not specified",
+      "age": 25,
+      "town": "Liverpool",
+      "roles": [
+        "Singer"
+      ],
+      "primary_role": "Singer",
+      "vocal": [
+        8,
+        7,
+        8,
+        8,
+        8,
+        5
+      ],
+      "instrument": [],
+      "talent_cost": 44,
+      "reliability": 7,
+      "collaboration": 6,
+      "personality": "Driven",
+      "trouble": "Medium",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 3,
+      "story": "Strong live voice from small local support slots.",
+      "strength": "Distinctive tone and convincing delivery.",
+      "friction": "Pushes for immediate takes when others need preparation.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 1
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_lily.png",
+      "source_card_index": 6,
+      "preview_crop": [
+        14,
+        351,
+        254,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_marcus",
+      "name": "Marcus",
+      "gender": "Not specified",
+      "age": 27,
+      "town": "Birmingham",
+      "roles": [
+        "Drummer"
+      ],
+      "primary_role": "Drummer",
+      "vocal": [],
+      "instrument": [
+        8,
+        8,
+        6,
+        9,
+        7,
+        7
+      ],
+      "talent_cost": 45,
+      "reliability": 9,
+      "collaboration": 9,
+      "personality": "Dependable",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 4,
+      "story": "Experienced in local funk and rock projects, not a touring veteran.",
+      "strength": "Pocket, listening and adapting to others.",
+      "friction": "Dislikes last-minute set changes without a run-through.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "source_card_index": 7,
+      "preview_crop": [
+        279,
+        351,
+        505,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_ben",
+      "name": "Ben",
+      "gender": "Not specified",
+      "age": 21,
+      "town": "Nottingham",
+      "roles": [
+        "Bassist"
+      ],
+      "primary_role": "Bassist",
+      "vocal": [],
+      "instrument": [
+        5,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "talent_cost": 28,
+      "reliability": 8,
+      "collaboration": 8,
+      "personality": "Steady",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 5,
+      "story": "New bassist moving over from bedroom guitar.",
+      "strength": "Affordable, enthusiastic and receptive to feedback.",
+      "friction": "Can lose the groove during unfamiliar runs.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ben.png",
+      "source_card_index": 8,
+      "preview_crop": [
+        530,
+        351,
+        758,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_freya",
+      "name": "Freya",
+      "gender": "Not specified",
+      "age": 24,
+      "town": "Brighton",
+      "roles": [
+        "Keyboardist"
+      ],
+      "primary_role": "Keyboardist",
+      "vocal": [],
+      "instrument": [
+        6,
+        7,
+        8,
+        7,
+        7,
+        5
+      ],
+      "talent_cost": 40,
+      "reliability": 8,
+      "collaboration": 7,
+      "personality": "Creative",
+      "trouble": "Medium",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 6,
+      "story": "Home recordings made with a second-hand keyboard.",
+      "strength": "Inventive harmonies and atmospheric arrangements.",
+      "friction": "Needs a clear brief to avoid endless sound experiments.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_freya.png",
+      "source_card_index": 9,
+      "preview_crop": [
+        786,
+        351,
+        1008,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_arjun",
+      "name": "Arjun",
+      "gender": "Not specified",
+      "age": 26,
+      "town": "Leicester",
+      "roles": [
+        "Guitarist"
+      ],
+      "primary_role": "Guitarist",
+      "vocal": [],
+      "instrument": [
+        8,
+        7,
+        9,
+        8,
+        8,
+        6
+      ],
+      "talent_cost": 46,
+      "reliability": 8,
+      "collaboration": 8,
+      "personality": "Creative",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 2,
+      "story": "Rehearsal-room guitarist with a broad listening habit.",
+      "strength": "Original voicings and versatile supporting parts.",
+      "friction": "Sometimes overcomplicates a direct song.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "source_card_index": 10,
+      "preview_crop": [
+        1036,
+        351,
+        1266,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_nina",
+      "name": "Nina",
+      "gender": "Not specified",
+      "age": 22,
+      "town": "Newcastle",
+      "roles": [
+        "Singer"
+      ],
+      "primary_role": "Singer",
+      "vocal": [
+        6,
+        5,
+        6,
+        4,
+        7,
+        3
+      ],
+      "instrument": [],
+      "talent_cost": 31,
+      "reliability": 9,
+      "collaboration": 9,
+      "personality": "Dependable",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 3,
+      "story": "First band after singing with friends and at open mics.",
+      "strength": "Warmth, patience and a good ear for harmony.",
+      "friction": "Quiet on stage; original lyrics still developing.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_nina.png",
+      "source_card_index": 11,
+      "preview_crop": [
+        1290,
+        351,
+        1520,
+        579
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_tom",
+      "name": "Tom",
+      "gender": "Not specified",
+      "age": 21,
+      "town": "Bristol",
+      "roles": [
+        "Guitarist"
+      ],
+      "primary_role": "Guitarist",
+      "vocal": [],
+      "instrument": [
+        5,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "talent_cost": 28,
+      "reliability": 8,
+      "collaboration": 9,
+      "personality": "Thoughtful",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 4,
+      "story": "Bedroom player learning how a band fits together.",
+      "strength": "Listens well and improves with specific feedback.",
+      "friction": "Needs preparation before exposed lead parts.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_tom.png",
+      "source_card_index": 12,
+      "preview_crop": [
+        14,
+        693,
+        254,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_casey",
+      "name": "Casey",
+      "gender": "Not specified",
+      "age": 23,
+      "town": "Sheffield",
+      "roles": [
+        "Drummer"
+      ],
+      "primary_role": "Drummer",
+      "vocal": [],
+      "instrument": [
+        6,
+        6,
+        7,
+        5,
+        5,
+        8
+      ],
+      "talent_cost": 37,
+      "reliability": 7,
+      "collaboration": 6,
+      "personality": "Restless",
+      "trouble": "Medium",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 5,
+      "story": "Small punk shows shaped an energetic but rough style.",
+      "strength": "Energy and imaginative accents.",
+      "friction": "Can rush quiet passages when excited.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 1
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_casey.png",
+      "source_card_index": 13,
+      "preview_crop": [
+        279,
+        693,
+        505,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_hannah",
+      "name": "Hannah",
+      "gender": "Not specified",
+      "age": 26,
+      "town": "Reading",
+      "roles": [
+        "Bassist"
+      ],
+      "primary_role": "Bassist",
+      "vocal": [],
+      "instrument": [
+        7,
+        8,
+        6,
+        9,
+        8,
+        6
+      ],
+      "talent_cost": 44,
+      "reliability": 9,
+      "collaboration": 8,
+      "personality": "Steady",
+      "trouble": "Low",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 6,
+      "story": "Small soul and indie sets with several groups of friends.",
+      "strength": "Feel, timing and economical choices.",
+      "friction": "Waits for others to start creative discussion.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_hannah.png",
+      "source_card_index": 14,
+      "preview_crop": [
+        530,
+        693,
+        758,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_oscar",
+      "name": "Oscar",
+      "gender": "Not specified",
+      "age": 27,
+      "town": "Bath",
+      "roles": [
+        "Keyboardist"
+      ],
+      "primary_role": "Keyboardist",
+      "vocal": [],
+      "instrument": [
+        9,
+        8,
+        7,
+        8,
+        9,
+        6
+      ],
+      "talent_cost": 47,
+      "reliability": 8,
+      "collaboration": 7,
+      "personality": "Perfectionist",
+      "trouble": "Medium",
+      "wildcard": false,
+      "bands": 1,
+      "experience_years": 2,
+      "story": "Technically trained player starting to write with a band.",
+      "strength": "Harmony, versatility and fast arrangement learning.",
+      "friction": "Needs reminding when a simple part is enough.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 0,
+        "creative_friction": 0
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_oscar.png",
+      "source_card_index": 15,
+      "preview_crop": [
+        786,
+        693,
+        1008,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_bex",
+      "name": "Bex",
+      "gender": "Not specified",
+      "age": 25,
+      "town": "Leeds",
+      "roles": [
+        "Guitarist"
+      ],
+      "primary_role": "Guitarist",
+      "vocal": [],
+      "instrument": [
+        10,
+        9,
+        10,
+        9,
+        8,
+        10
+      ],
+      "talent_cost": 56,
+      "reliability": 5,
+      "collaboration": 2,
+      "personality": "Combative",
+      "trouble": "High",
+      "wildcard": true,
+      "bands": 2,
+      "experience_years": 3,
+      "story": "Fictional wildcard: gifted DIY guitarist whose last two bands ended over creative arguments.",
+      "strength": "Exceptional technique, original riffs and fearless presence.",
+      "friction": "Challenges arrangements publicly and resists compromise; talent does not excuse poor teamwork.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 2,
+        "creative_friction": 5
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_bex.png",
+      "source_card_index": 16,
+      "preview_crop": [
+        1036,
+        693,
+        1266,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    },
+    {
+      "id": "cast_sam",
+      "name": "Sam",
+      "gender": "Not specified",
+      "age": 24,
+      "town": "Manchester",
+      "roles": [
+        "Singer"
+      ],
+      "primary_role": "Singer",
+      "vocal": [
+        9,
+        10,
+        9,
+        10,
+        8,
+        9
+      ],
+      "instrument": [],
+      "talent_cost": 55,
+      "reliability": 3,
+      "collaboration": 3,
+      "personality": "Unpredictable",
+      "trouble": "High",
+      "wildcard": true,
+      "bands": 2,
+      "experience_years": 4,
+      "story": "Fictional wildcard: magnetic open-mic frontperson with songs stronger than rehearsal habits.",
+      "strength": "Unusual phrasing, striking lyrics and room-filling presence.",
+      "friction": "Late preparation and defensiveness under pressure undermine trust; needs clear boundaries.",
+      "ambition": "Build an original band and earn a first proper following.",
+      "rehearsal_risk": {
+        "missed_preparation": 4,
+        "creative_friction": 4
+      },
+      "portrait_preview": "res://Art/References/ApprovedCast20261029/previews/cast_sam.png",
+      "source_card_index": 17,
+      "preview_crop": [
+        1290,
+        693,
+        1520,
+        921
+      ],
+      "portrait_stage": "approved_contact_sheet_preview_not_production_master"
+    }
+  ]
+}

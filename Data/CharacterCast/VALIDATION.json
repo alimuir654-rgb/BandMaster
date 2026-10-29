@@ -1,0 +1,16 @@
+{
+  "people": 18,
+  "roles": {
+    "Singer": 4,
+    "Guitarist": 5,
+    "Bassist": 3,
+    "Keyboardist": 3,
+    "Drummer": 3
+  },
+  "unique_preview_hashes": 18,
+  "affordable_five_role_lineups": 274,
+  "total_five_role_lineups": 540,
+  "minimum_five_role_cost": 152,
+  "source_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+  "production_masters": false
+}

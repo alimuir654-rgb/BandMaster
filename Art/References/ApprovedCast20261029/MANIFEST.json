@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "source": {
+    "file": "Art/References/ApprovedCast20261029/approved_cast_reference.png",
+    "sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "type": "Chat image-generated fictional reference",
+    "generator_id": "a047c285-dc09-4cde-aaf4-5c3f5c1b5a9e",
+    "rights_basis": "Owner-directed generation and explicit permission to import this output; no CC0, real-photography, model-release or exclusive-copyright claim."
+  },
+  "owner_approved_reference": true,
+  "owner_approved_production_masters": false,
+  "derivatives": [
+    {
+      "id": "cast_jack",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_jack.png",
+      "dimensions": [
+        240,
+        226
+      ],
+      "crop": [
+        14,
+        16,
+        254,
+        242
+      ],
+      "sha256": "d6557ca2cab01e3ffd682a97f3b9b7392a5037fdba28979dd40f3c236dd1cc94",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_maya",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_maya.png",
+      "dimensions": [
+        226,
+        226
+      ],
+      "crop": [
+        279,
+        16,
+        505,
+        242
+      ],
+      "sha256": "099a85ed6594cce2a4af797e51ae5b4afb23eca063b28daca82450d53da7c626",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_ellis",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_ellis.png",
+      "dimensions": [
+        228,
+        226
+      ],
+      "crop": [
+        530,
+        16,
+        758,
+        242
+      ],
+      "sha256": "00de6890ff0588682fe264f3158c1a0333dca037da67ccb9f12e7be4e7b74a2c",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_zoe",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "dimensions": [
+        222,
+        226
+      ],
+      "crop": [
+        786,
+        16,
+        1008,
+        242
+      ],
+      "sha256": "0645525447b8160f08d8b33b333f95797a8ce0e77d446702699fb422a0853cdc",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_dan",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_dan.png",
+      "dimensions": [
+        230,
+        226
+      ],
+      "crop": [
+        1036,
+        16,
+        1266,
+        242
+      ],
+      "sha256": "c2bbc1f460786b43e2cf83500cd28a47e152e95b32a80dba3af355166cfee8d7",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_ryan",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_ryan.png",
+      "dimensions": [
+        230,
+        226
+      ],
+      "crop": [
+        1290,
+        16,
+        1520,
+        242
+      ],
+      "sha256": "0a2b6e7f6c1674f5280de46e1ca786f50c348ad4faa228edfd468eb7b0d87940",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_lily",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_lily.png",
+      "dimensions": [
+        240,
+        228
+      ],
+      "crop": [
+        14,
+        351,
+        254,
+        579
+      ],
+      "sha256": "a04c4f8d2fc8977c985939a035a8190b432045351f90c2a632df30eb579a9457",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_marcus",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "dimensions": [
+        226,
+        228
+      ],
+      "crop": [
+        279,
+        351,
+        505,
+        579
+      ],
+      "sha256": "fd8837224b05e22a888e1795b2d2b7f294b02bbc6143115ac950fcfa6a230798",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_ben",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_ben.png",
+      "dimensions": [
+        228,
+        228
+      ],
+      "crop": [
+        530,
+        351,
+        758,
+        579
+      ],
+      "sha256": "7f879211cf6dcad23edfb005f7393ad75c57ab7889ba6f6cc79c82fc5c06b089",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_freya",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_freya.png",
+      "dimensions": [
+        222,
+        228
+      ],
+      "crop": [
+        786,
+        351,
+        1008,
+        579
+      ],
+      "sha256": "84b1d946f1796138f015519e0cd3f4befa05326a22100e683d48d039e5f82c14",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_arjun",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "dimensions": [
+        230,
+        228
+      ],
+      "crop": [
+        1036,
+        351,
+        1266,
+        579
+      ],
+      "sha256": "7b3b7ae2b40248eaa24963e631f756932fdefaf997085e11fe0f2c273f846939",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_nina",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_nina.png",
+      "dimensions": [
+        230,
+        228
+      ],
+      "crop": [
+        1290,
+        351,
+        1520,
+        579
+      ],
+      "sha256": "8f58b43a77ceb6d533ef10bce2ef33f79934a94d96a0b1af76926867bf69340e",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_tom",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_tom.png",
+      "dimensions": [
+        240,
+        228
+      ],
+      "crop": [
+        14,
+        693,
+        254,
+        921
+      ],
+      "sha256": "4bffc183ae5ed296f1ea76ffb467cda9b5e301162b4937f8f16bed698d1afe2b",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_casey",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_casey.png",
+      "dimensions": [
+        226,
+        228
+      ],
+      "crop": [
+        279,
+        693,
+        505,
+        921
+      ],
+      "sha256": "dcc2cbb3dcf11e3626f192f9f2af0533a6f5a70b6b4d31d886f855b2d4851e07",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_hannah",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_hannah.png",
+      "dimensions": [
+        228,
+        228
+      ],
+      "crop": [
+        530,
+        693,
+        758,
+        921
+      ],
+      "sha256": "908f8ab88d6071baf7822865c267e7de9530fe4136b706a327c9a2640847b795",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_oscar",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_oscar.png",
+      "dimensions": [
+        222,
+        228
+      ],
+      "crop": [
+        786,
+        693,
+        1008,
+        921
+      ],
+      "sha256": "cb27c4a0478618b281eacbc186409129bd6cc1f6fd6720d169e147f57ba25c12",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_bex",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_bex.png",
+      "dimensions": [
+        230,
+        228
+      ],
+      "crop": [
+        1036,
+        693,
+        1266,
+        921
+      ],
+      "sha256": "5c1922ef4157061e79809909aeccbd1692005cad0a188cff3cda82447a350464",
+      "upscaled": false,
+      "production_master": false
+    },
+    {
+      "id": "cast_sam",
+      "file": "Art/References/ApprovedCast20261029/previews/cast_sam.png",
+      "dimensions": [
+        230,
+        228
+      ],
+      "crop": [
+        1290,
+        693,
+        1520,
+        921
+      ],
+      "sha256": "c8f629d4786eed5e33fd5f6a680e15025df5768753304e56bca17585544ebdcf",
+      "upscaled": false,
+      "production_master": false
+    }
+  ],
+  "usage": "Reference and small casting previews only. Baked card text/icons excluded. Do not use whole collage as interface, enlarge crops into claimed high-resolution masters or silently recast existing canonical characters."
+}
