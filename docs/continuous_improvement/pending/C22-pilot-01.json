@@ -1,0 +1,21 @@
+{
+  "reviewed_in_session": "C22",
+  "reviewed_by": "assistant_actual_evidence_review",
+  "events": [{
+    "event_id": "C22-paper-pilot-01-native-review",
+    "id": "BM-03",
+    "event": "review",
+    "recorded_at": "2026-10-29T18:20:00+00:00",
+    "observation": "The first controlled native panel restores offset-sheet depth and a cork mount versus rejected C21, but retains faint double printed rules and a duller central surface than C20. It remains below the frame mockup; no family rollout or artistic approval.",
+    "expected": "Retained material construction with quiet tactile paper and readable content, approaching the pinned mockup rather than simply changing colour.",
+    "evidence": ["https://github.com/alimuir654-rgb/BandMaster/actions/runs/40927695391", "artifact12920643554 sha256 b26c4f295203dd85bd382c36474432bbdc45331412f8f6cd2c968615d5c807f2", "paper-controlled-C20-1280x720.png", "paper-controlled-C21-1280x720.png", "paper-controlled-C22-1280x720.png"],
+    "severity": "P1",
+    "cause_confidence": "observed",
+    "owner_role": "art direction and technical art",
+    "affected_paths": ["experiments/frame_recovery/build.py", "candidate art/frame_notepaper_panel_c22.png"],
+    "prevention": "Keep equal-size/content/state/background A/B; preserve source edge and leaf, correct only internal printed rule/texture and mount proportions. One corrective continuation maximum.",
+    "verification": "Repeat unchanged native suites and controlled four-viewport comparison; inspect originals against the mockup and prior candidate.",
+    "next_action": "One correction restores retained paper texture and reduces the form-like inner rule; no new frame families; retain HOLD if target not met."
+  }],
+  "ledger_entry": "## C22 first controlled frame pilot — native PASS, visual PARTIAL\nRun40927695391 at7b68d0e47d8a5fa941c8257a842294a0086e52b7 passed2281 assertions in each of standalone/host.84 distinct views, including12 equal-layout comparisons. Source depth recovered but inner rules/dull face remain. This observation is appended before the single corrective implementation continuation; no candidate automatically replaces published defaults. Owner approval false."
+}

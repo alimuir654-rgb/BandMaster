@@ -33,3 +33,84 @@ jobs:
           print(json.dumps(check(root,current['session'],before,implementation),indent=2))
           print('Implementation changes require a previously committed active preflight:',implementation)
           PY
+  append_reviewed_events:
+    needs: preflight
+    if: github.event_name == 'push' && github.ref_name == 'dual-frame-proof-2026-10-28' && contains(github.event.head_commit.message, '[log-issues]')
+    permissions:
+      contents: write
+    concurrency:
+      group: bandmaster-improvement-log-writer
+      cancel-in-progress: false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Append explicit review receipts without rewriting history or artwork
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import json,os,subprocess,sys,tempfile
+          sys.path.insert(0,'tools')
+          from improvement_gate import append_event,check,digest,ensure,issue_events,read_json,safe_path
+          root=Path.cwd();current=read_json(root/'docs/continuous_improvement/CURRENT.json')
+          session_path=safe_path(root,current['session']);session=read_json(session_path)
+          lock_path=root/'docs/asset_base/CONTROL_SPRINT_LOCK.json';lock=read_json(lock_path)
+          ensure(session['status']=='active','Only the active session may append a reviewed receipt')
+          ensure(str(lock.get('writer','')).startswith(session['id']+'-'),'Session does not own writer')
+          ensure(datetime.fromisoformat(lock['expires_at'])>datetime.now(timezone.utc),'Writer lease expired')
+          state_path=root/'docs/asset_base/STATE.json';state=read_json(state_path)
+          ensure(state.get('writer') is None,'Another writer owns STATE')
+          names=subprocess.check_output(['git','diff','--name-only',os.environ['BEFORE'],'HEAD'],text=True).splitlines()
+          ensure(all(n.startswith('docs/') or n=='.github/workflows/continuous-improvement.yml' for n in names),'Log receipts cannot contain art/code changes')
+          receipts=[n for n in names if n.startswith('docs/continuous_improvement/pending/') and n.endswith('.json')]
+          ensure(bool(receipts),'No explicit review receipt in this push')
+          ledger_entries=[]
+          for name in sorted(receipts):
+              receipt=read_json(safe_path(root,name))
+              ensure(receipt.get('reviewed_in_session')==session['id'],'Wrong session receipt')
+              ensure(receipt.get('reviewed_by')=='assistant_actual_evidence_review','Missing explicit review record')
+              ensure(isinstance(receipt.get('events'),list) and bool(receipt['events']),'No events')
+              applied=False
+              for event in receipt['events']:
+                  _,existing=issue_events(root)
+                  old=next((x for x in existing if x.get('event_id')==event.get('event_id')),None)
+                  if old is not None:
+                      ensure(old==event,'Existing event ID differs; append a correction instead')
+                      continue
+                  with tempfile.TemporaryDirectory() as directory:
+                      p=Path(directory)/'event.json';p.write_text(json.dumps(event));append_event(root,p);applied=True
+              if applied and receipt.get('ledger_entry'):ledger_entries.append(receipt['ledger_entry'])
+              if receipt.get('closeout'):
+                  ensure(session['status']=='active','Duplicate closeout')
+                  session['status']='closed';session['closeout']=receipt['closeout']
+                  state['last_improvement_review']={'session':session['id'],**receipt['closeout'],'owner_approved':False}
+                  state['next_single_action']=receipt['closeout']['next_action'];state['owner_approved']=False
+                  lock['writer']=None;lock['released_at']=datetime.now(timezone.utc).isoformat()
+                  lock['result']='closed_with_evidence';lock['tested_code_sha']=receipt['closeout']['tested_sha']
+                  current['status']='closed';current['next_action']=receipt['closeout']['next_action']
+          raw,_=issue_events(root)
+          session['issue_log_review']={'bytes':len(raw),'sha256':digest(raw)}
+          session_path.write_text(json.dumps(session,indent=2)+'\n')
+          print(json.dumps(check(root,current['session']),indent=2))
+          if ledger_entries:
+              with (root/'docs/asset_base/LEDGER.md').open('a') as stream:
+                  for entry in ledger_entries:stream.write('\n\n'+entry+'\n')
+          if session['status']=='closed':
+              for p,data in [(state_path,state),(lock_path,lock),(root/'docs/continuous_improvement/CURRENT.json',current)]:
+                  p.write_text(json.dumps(data,indent=2)+'\n')
+          PY
+      - name: Publish only reviewed log and session metadata with head guard
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Branch moved; refuse competing log write'; exit 1; }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/continuous_improvement/ISSUES.jsonl docs/continuous_improvement/sessions/ docs/continuous_improvement/CURRENT.json docs/asset_base/LEDGER.md docs/asset_base/STATE.json docs/asset_base/CONTROL_SPRINT_LOCK.json
+          if git diff --cached --quiet; then echo 'Identical receipt already applied'; exit 0; fi
+          git commit -m 'Append reviewed improvement events and session evidence [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"

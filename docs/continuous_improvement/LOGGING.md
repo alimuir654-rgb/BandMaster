@@ -1,0 +1,9 @@
+# Adding issues and closing a session
+
+Local checkouts use `tools/improvement_gate.py append --event <event.json>`, review new events, then update the session's reviewed byte-prefix/hash. Do not edit past log lines.
+
+For the GitHub-connected writer, a metadata-only commit containing `docs/continuous_improvement/pending/<unique-receipt>.json` and the message marker `[log-issues]` triggers the guarded append job in `continuous-improvement.yml`. The envelope contains `reviewed_in_session`, `reviewed_by: assistant_actual_evidence_review`, and an `events` list. These are explicit evidence-review records, not automated claims that images were read. Every event has the fields specified in README.md. An optional ledger_entry appends the accompanying findings. The job requires a successful preflight, matching active session, unexpired dedicated writer, no competing STATE writer and unchanged remote head; it rejects mixed source/art changes. Existing identical event IDs are not duplicated; mismatched IDs are rejected. It commits the event history and refreshed review receipt before the next implementation push.
+
+A final receipt may include a closeout object with tested_sha, evidence, visual_verdict (hold/partial/internal_pass), next_action and new_issue_review. That closes the session, records the outcome in live STATE, appends the ledger and releases its writer. New implementation must start with a newly committed active preflight; a closed record is not reusable authority.
+
+This mechanism does not confer artistic/owner approval, enable recurring work, change branch protection or edit production/main. It preserves explicit failed attempts and evidence. Local checks exercised append preservation, receipt refresh, duplicate-event idempotence and rejection of mixed code/log pushes before this workflow was installed.
