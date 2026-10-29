@@ -26,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "final_evidence_review",
-  "next_single_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening.",
+  "next_single_action": "Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -587,16 +587,17 @@
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
   "last_improvement_review": {
-    "session": "C22",
-    "tested_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+    "session": "C23",
+    "tested_sha": "ad3bca76e70cc3c75f7f581317d62b82db64e748",
+    "verification_scope": "This SHA is the reviewed repository baseline; only sourcing/preflight checks were performed. No new native Godot test or artwork implementation.",
     "evidence": [
-      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40930454213",
-      "artifact12922032827 sha256 3e1e7d7d16d0d1ab8d9f37d17159d8cd510261c31099fbe359bb289213e96bb2",
-      "docs/continuous_improvement/C22_REVIEW.md"
+      "docs/continuous_improvement/ASSET_ACQUISITION_SHORTLIST_2026-10-29.md",
+      "Official asset and licence URLs recorded in shortlist",
+      "Local improvement_gate check passed for C23"
     ],
-    "visual_verdict": "partial",
-    "next_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening.",
-    "new_issue_review": "C22 first pilot finding committed before correction; final fidelity hold, phone-caption BM22 recurrence and supported-query BM34 recurrence appended. No owner visual approval.",
+    "visual_verdict": "hold",
+    "next_action": "Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse.",
+    "new_issue_review": "Recorded source redistribution/AI-use constraints under BM-14 and repository/icon-policy duplication under BM-15. External source previews not retrieved remain unverified. No artwork approval.",
     "owner_approved": false
   }
 }

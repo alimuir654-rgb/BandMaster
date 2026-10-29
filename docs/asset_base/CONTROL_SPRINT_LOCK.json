@@ -1,11 +1,14 @@
 {
- "writer":"C23-asset-shortlist-20261029T191743",
- "base_head":"ad3bca76e70cc3c75f7f581317d62b82db64e748",
- "claimed_at":"2026-10-29T19:17:43+00:00",
- "expires_at":"2026-10-29T20:00:00+00:00",
- "scope":"Owner-requested asset acquisition shortlist and continuous-improvement research records only. No code/art/import/purchase/game/save/main changes.",
- "authority":"Latest direct owner approval to produce the specific shortlist; no recurring programme extension or final-art approval.",
- "owner_approved":false,
- "previous_verified_code_sha":"761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
- "previous_verified_run_id":40930454213
+  "writer": null,
+  "base_head": "ad3bca76e70cc3c75f7f581317d62b82db64e748",
+  "claimed_at": "2026-10-29T19:17:43+00:00",
+  "expires_at": "2026-10-29T20:00:00+00:00",
+  "scope": "Owner-requested asset acquisition shortlist and continuous-improvement research records only. No code/art/import/purchase/game/save/main changes.",
+  "authority": "Latest direct owner approval to produce the specific shortlist; no recurring programme extension or final-art approval.",
+  "owner_approved": false,
+  "previous_verified_code_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+  "previous_verified_run_id": 40930454213,
+  "released_at": "2026-10-29T19:21:54.623326+00:00",
+  "result": "closed_with_evidence",
+  "tested_code_sha": "ad3bca76e70cc3c75f7f581317d62b82db64e748"
 }

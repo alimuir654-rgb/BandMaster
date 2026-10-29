@@ -1,12 +1,12 @@
 {
- "schema_version":1,
- "session":"docs/continuous_improvement/sessions/C23.json",
- "scope":"Owner-requested reuse-first acquisition shortlist; research and log metadata only",
- "owner_approved":false,
- "target":"mockups",
- "backgrounds":"deferred",
- "characters":"deferred",
- "meters":"protected",
- "status":"active",
- "next_action":"Complete exact source/rights/reuse shortlist; no asset import, purchase or implementation in this task."
+  "schema_version": 1,
+  "session": "docs/continuous_improvement/sessions/C23.json",
+  "scope": "Owner-requested reuse-first acquisition shortlist; research and log metadata only",
+  "owner_approved": false,
+  "target": "mockups",
+  "backgrounds": "deferred",
+  "characters": "deferred",
+  "meters": "protected",
+  "status": "closed",
+  "next_action": "Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse."
 }
