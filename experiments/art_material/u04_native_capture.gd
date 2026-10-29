@@ -83,7 +83,7 @@ func _run() -> void:
             var shot: Image = window.get_texture().get_image()
             check(shot!=null and shot.get_size()==sz,"Viewport capture mismatch "+fname)
             check(shot.save_png("res://proof-shots/"+fname)==OK,"Capture failed "+fname)
-            captures.append(dict(file=fname,width=sz.x,height=sz.y,value=value))
+            captures.append({"file":fname,"width":sz.x,"height":sz.y,"value":value})
         window.queue_free()
         await process_frame
     var file := FileAccess.open("res://proof-shots/u04-results.json",FileAccess.WRITE)
