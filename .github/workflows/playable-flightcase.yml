@@ -1,0 +1,57 @@
+name: C26 flightcase gameplay proof
+on:
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths:
+      - 'experiments/playable_flightcase/**'
+      - '.github/workflows/playable-flightcase.yml'
+permissions:
+  contents: read
+concurrency:
+  group: bandmaster-playable-c26
+  cancel-in-progress: false
+jobs:
+  gameplay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check committed work preflight and deadline guard
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C26.json --before "$BEFORE" --require-prior-record
+          python3 - <<'PY'
+          import json,datetime
+          p=json.load(open('docs/asset_base/CONTROL_SPRINT_LOCK.json'))
+          assert p['writer']=='C26-playable-20261029T231000'
+          assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(p['expires_at'])
+          PY
+      - name: Install exact Godot 4.7.2
+        run: |
+          curl -fsSL --retry 2 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          chmod +x /tmp/Godot_v4.7.2-stable_linux.x86_64
+      - name: Assemble isolated playable runtime
+        run: |
+          mkdir -p /tmp/c26-playable/{Scripts,experiments,Data,Art/References,components}
+          cp -r Scripts/. /tmp/c26-playable/Scripts/
+          cp -r experiments/character_cast /tmp/c26-playable/experiments/
+          cp -r experiments/playable_flightcase /tmp/c26-playable/experiments/
+          cp -r Data/CharacterCast /tmp/c26-playable/Data/
+          cp -r Art/References/ApprovedCast20261029 /tmp/c26-playable/Art/References/
+          cp -r components/control_atlas /tmp/c26-playable/components/
+          printf 'config_version=5\n[application]\nconfig/name="C26 isolated flightcase gameplay"\n' > /tmp/c26-playable/project.godot
+          set -o pipefail
+          timeout 100s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c26-playable --script res://experiments/playable_flightcase/native_test.gd 2>&1 | tee /tmp/c26-native.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/c26-native.log; then exit 1; fi
+          grep -q 'C26_GAMEPLAY_RESULT' /tmp/c26-native.log
+          git diff --exit-code -- Scripts Art/References Data/CharacterCast components
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c26-playable-gameplay-native-evidence
+          path: /tmp/c26-native.log
+          retention-days: 30
