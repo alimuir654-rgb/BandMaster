@@ -1,0 +1,21 @@
+{
+ "reviewed_in_session":"C24",
+ "reviewed_by":"assistant_actual_evidence_review",
+ "events":[{
+  "event_id":"C24-offline-render-numpy-dependency",
+  "id":"BM-13",
+  "event":"recurrence",
+  "recorded_at":"2026-10-29T20:00:06+00:00",
+  "severity":"P1",
+  "cause_confidence":"observed",
+  "owner_role":"build engineering and technical art",
+  "observation":"Original Clipboard and Office Notepads glTF files and all texture/buffer dependencies downloaded and hash-verified, but Ubuntu Blender 4.0.2 failed importing glTF because its Python environment lacked numpy. No source inspection render was produced. The workflow correctly failed and retained original files and logs.",
+  "expected":"Offline art tool dependencies must support the selected source format before a render is claimed successful.",
+  "evidence":["run40944602273/job123696527420","ModuleNotFoundError: No module named numpy in io_scene_gltf2/blender/imp/gltf2_blender_mesh.py","artifact12928432605 SHA2567821323774b067c4db72ebb2e9d6d29bc142f3ae2c1cb1840af2e3f7b201c1d5 downloaded and verified"],
+  "affected_paths":[".github/workflows/frame-source-proof.yml"],
+  "prevention":"Install the importer Python dependencies explicitly and use Blender --python-exit-code 1 plus required output checks. Keep source acquisition and source-art acceptance separate.",
+  "verification":"Repeat the same original-source inspection; require GEOMETRY_REPORT.json and nonempty RGBA source renders before judging visual fit.",
+  "next_action":"Add python3-numpy to the existing offline renderer install; no asset-method change or unrelated runtime dependency."
+ }],
+ "ledger_entry":"## C24 source intake — build-dependency finding\nDownloaded and verified the actual CC0 Clipboard and Office Notepads originals. First inspection run40944602273 failed before rendering because Ubuntu Blender's glTF importer lacked numpy. Original files/logs preserved in artifact12928432605. This is an offline build issue, not an art result; logged before corrective implementation. Existing controls and game runtime unchanged."
+}
