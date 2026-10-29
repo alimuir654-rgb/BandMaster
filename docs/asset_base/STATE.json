@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "V19-20261029T1408Z-e5314ca",
+    "owner": "BandMaster 14:00 native validation/packaging",
+    "base_head": "e5314ca771c4a22e5bc98d326f8b3c7a03d635d3",
+    "claimed_at": "2026-10-29T14:08:01.543Z",
+    "lease_until": "2026-10-29T14:50:00+00:00",
+    "scope": "14:00 validation/review-index/source-native packaging only; no implementation or new families"
+  },
   "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "baseline": {
     "run_id": 40778019754,
