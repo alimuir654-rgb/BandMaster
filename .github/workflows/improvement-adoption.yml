@@ -1,0 +1,42 @@
+name: Adopt consolidated lessons before frame recovery
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['.github/workflows/improvement-adoption.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bandmaster-improvement-adoption
+  cancel-in-progress: false
+jobs:
+  adopt:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test preflight enforcement with positive and negative fixtures
+        run: |
+          python3 -m py_compile tools/improvement_gate.py tools/bootstrap_improvement.py
+          python3 -m unittest discover -s tests -p test_improvement_gate.py -v
+      - name: Construct append-only issue register and first scoped preflight
+        run: |
+          python3 tools/bootstrap_improvement.py
+          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C22.json
+      - name: Publish policy records before any framing implementation
+        run: |
+          test "$GITHUB_REF_NAME" = dual-frame-proof-2026-10-28
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Concurrent branch change; refusing write'; exit 1; }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/continuous_improvement/ISSUES.jsonl docs/continuous_improvement/CURRENT.json docs/continuous_improvement/sessions/C22.json docs/asset_base/STATE.json docs/asset_base/LEDGER.md docs/asset_base/PROGRAMME_2026-10-29.md docs/asset_base/REVIEW_INDEX.md
+          git commit -m 'C22 commit reviewed lessons log and mandatory preflight before frame work [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: c22-committed-improvement-policy
+          path: |
+            docs/continuous_improvement/
+            tools/improvement_gate.py
+            tests/test_improvement_gate.py
+          retention-days: 30

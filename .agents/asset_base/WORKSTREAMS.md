@@ -1,18 +1,15 @@
-# Three-stream asset producer / controller contract
+# Asset-base roles under the continuous-improvement contract
 
-Read docs/asset_base/PROGRAMME_2026-10-29.md, STATE.json and LEDGER.md on every invocation. These are role instructions, not evidence that separate agents or a particular model are deployed. Owner approval of continuing work does not approve final artwork.
+MANDATORY FOR EVERY ROLE: root AGENTS.md; docs/continuous_improvement/CHECK_BEFORE_WORK.md, LESSONS.md, ISSUES.jsonl, CURRENT.json and the active session. Run the recorded preflight before work and append new issues/recurrences before the next implementation iteration. These are simulated working lenses, not claims of independent agents or human approval.
 
-## Controller
-Own one writer slot and one highest-impact deliverable per invocation. Rotate C/F/U subject to dependencies and due checkpoints. Read existing source instead of rebuilding. If a source method fails twice with no useful improvement, change method or document the hard block; do not polish unrelated small widgets for hours. Check all due checkpoints using actual local time; quality shortfall triggers resource/scope changes immediately. Three workstreams need not be three simultaneous jobs. Never force-overwrite another writer.
+Controller: one writer, latest owner scope, one dominant issue, expected-SHA publication, no repeated completed work or expired portrait-first queue. Use the existing state/ledger for evidence; the improvement register is the only canonical lesson log.
 
-## C character producer
-Read the real recruitment catalogue. Produce standalone fictional Alex and Nia source images in one cohesive photographic style; no generated whole-screen composites. Canonical identities are immutable. Native labels/stats/costs are not generated art. No duplicate faces, environment substitution or 160px upscaling. Verify actual generator availability early. Keep authored source plus portrait/thumbnail crops and source/crop hashes. Inspect faces/hands, framing and recognisability with names hidden. Record internal provisional review, never human approval. Extra cast is optional after anchor pass.
+Art direction: the mockups are the goal. Open target and native baseline; judge depth, material construction, hierarchy and state. Reject regressions regardless of tests. Preserve successful features; use identical-content/bounds A/B comparisons. C21 notepaper is rejected, C20 is only a recovery baseline.
 
-## F environment/material producer
-Flight-case/night and notepaper/day need different physical visual languages and cohesive lighting. Author reusable surfaces, edges, corners, paper leaves, mounts and calm text-safe areas, not screen composites. Preserve independent layers, transparency, density and physical hardware proportions. Review at phone and desktop size before variant proliferation. Do not claim an image-generated material is a photograph or invent a licence. Source-backed compositing is permitted; procedural stand-ins do not automatically pass the photographic bar.
+Technical art: verify actual separate sources, rights basis, density, crop and nine-slice margins. Do not replace convincing edges with schematic shapes merely to produce more variants. Protect controls/meters/hardware unless fixing an evidenced in-scope defect.
 
-## U control assembly producer
-Source-verified Lab07/Lab08 reuse first. Build state families at appropriate dimensions and independent text/icon overlays. Preserve neutral bases, exact value lighting and ghost-free zero/max. Read-only RAG meters differ visibly/semantically from player sliders/knobs; no input/focus on passive stats. Native hit/focus behavior and >=44 physical-pixel targets. Day hardware sits in a credible housing surrounded by light ambience. Avoid generic flat defaults, screenshot crops masquerading as components or unrelated mixed-style assets.
+UI/accessibility: meaningful first-fold action, readable native labels, 44 physical-pixel targets, deliberate phone/landscape composition, coherent states, keyboard/focus and long-copy handling. Passive meters remain inert.
 
-## Integrator / evidence reviewer
-Use existing Godot4.7.2 real GL/Xvfb path. Native captures at390x844/720x1280/1280x720/1600x900, actual state interactions and live resizing. Test theme binding, canonical identity/cost, 200 talent and reversible recruitment. Inspect the actual screenshots, don't just count them. Append art direction/technical art/UI-accessibility/engineering/QA-production simulated verdicts with specific defects. Do not treat tests as aesthetic sign-off. At14:00 cease new families;15:00 implementation freeze;16:00 evidence-only owner review.
+Godot engineering: inspect current source and actual engine API; retain hardening and deterministic models, no save mutation. Test clean standalone and nested host, real input, rendering and resize. Bound tests and log failures honestly.
+
+QA/producer: inspect actual native originals at all four target sizes; retain exact SHA/run/artifact and target comparison. Record five simulated findings and all new issues with verification. Green CI is not art approval; no merge, costs, new backgrounds/characters or automatic programme extension.

@@ -1,49 +1,31 @@
-# C21 FOLLOW-ON COMPLETE — FRAMES / HARDENING
+# BandMaster / Livin' The Dream — mandatory work contract
 
-Read docs/asset_base/C21_VERIFIED_REVIEW.md and STATE.json. Dedicated control writer is released. Latest direct one-hour frame-styling/hardening session is complete; no automatic extension. Source-backed frame families and hardened dialog are published in components/control_atlas. Preserve liked meters; backgrounds/characters remain deferred. New implementation requires current owner direction; no merge/main/save authority.
+## Read before ALL further work
+The owner requires a continuous-improvement function. Before planning, code, art, testing, integration or scheduled work, read:
+1. `docs/continuous_improvement/CHECK_BEFORE_WORK.md`
+2. `docs/continuous_improvement/LESSONS.md`
+3. `docs/continuous_improvement/ISSUES.jsonl` — including new events since the last task
+4. `docs/continuous_improvement/CURRENT.json`, the current session and latest owner direction
+5. Relevant source, latest native evidence and `docs/asset_base/CONTROL_SPRINT_LOCK.json` / `STATE.json`.
 
-# C20 COMPLETED — CONTROL LIBRARY AVAILABLE
+**The target is the owner-approved mockups, not merely a functional approximation.** Technical PASS is not artistic PASS. C21 notepaper was subsequently rejected by the owner as worse than C20; preserve C21 reliability but do not treat its paper artwork as approved. Old positive internal reports remain history, not current acceptance.
 
-Read docs/asset_base/C20_VERIFIED_REVIEW.md and STATE.json. The dedicated C20 lock is released. Latest owner direction still defers backgrounds/characters; reusable controls and frames now live in components/control_atlas. Do not re-run completed inventory or overwrite the verified kit. No merge or automatic programme extension.
+## Before editing
+- One writer on `dual-frame-proof-2026-10-28`; inspect live head/leases and publish non-force with expected SHA. Do not change main, PR #199, production scenes/saves or merge without explicit new authority.
+- Commit a scoped preflight session BEFORE implementation. Record current policy hashes, reviewed issue prefix, relevant BM lesson IDs, exact target/baseline, one dominant issue, controlled comparison, protected components and test commands.
+- Run `python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/<ID>.json`. Source/native workflows must run the gate, not merely mention it.
+- Reuse the verified existing components. Read project.godot, relevant scripts/scenes, ARCHITECTURE.md and save schema for affected code. Verify real APIs, paths and data; do not assume plugins/autoloads exist.
 
-# LATEST DIRECT OWNER REQUEST — C20 REUSABLE CONTROLS / FRAMES
+## During and after work
+- Implement, test, render, inspect actual pixels and correct specific defects. Compare identical viewport/content/state/background/frame bounds against the mockup and previous baseline.
+- Log each new issue or recurrence in ISSUES.jsonl BEFORE the next implementation iteration. Include evidence, expected/observed result, severity, cause confidence, responsible role, preventive check and verification. Retain failed-attempt history. Two ineffective attempts mean change technique or hold, not more micro-polish.
+- Keep source-art provenance, native data/labels and interactions separate. No screenshot-as-interface, invented rights, upscaled detail claims, duplicate identities or unverified source imports.
+- Preserve owner-liked passive meter bytes and inert semantics, existing hardware, save compatibility and deterministic gameplay. No destructive migration, duplicate settlement or production user:// writes from isolated proofs.
+- Run actual Godot tests and four-viewpoint captures for changed UI. Bound tests; check error logs and exact tested SHA. Simulated personas are not human reviewers. Do not claim runtime, native screenshot or artistic success without corresponding evidence.
+- Closeout records files, source hashes, exact run/artifact, images opened, five simulated review lenses, remaining defects and ONE next action. Update live state/ledger and release writer. Owner artwork approval remains false until explicit acceptance.
+- No paid tools, engine migration, unapproved runtime dependencies, imaginary model/agent claims or continuous-background-work promises. Routine tool/log/source retrieval is the assistant's responsibility.
 
-Read `docs/asset_base/OWNER_CONTROLS_SPRINT.md` and `CONTROL_SPRINT_LOCK.json` FIRST. The owner explicitly redirected work after V19: leave scene backgrounds, reuse existing repository controls, build missing reusable controls, improve frames against the supplied atlas mockups. This authorises one scoped implementation sprint; not a schedule extension or final-art approval. Character/background generation is deferred. Preserve passive-meter artwork and semantics. Check the dedicated C20 lock before claiming STATE or modifying this branch; do not race this writer. Existing time-based reporting still uses actual verified evidence only.
+## Current owner scope
+Consolidate lessons and make checks mandatory first; only then restart frame improvement. Backgrounds and character production remain deferred. Preserve current controls/meters and C21 hardening. Old timed programmes have ended; this direct request does not create or extend recurring automation.
 
-# CURRENT OWNER MISSION — ASSET BASE THROUGH 16:00 UK 29 OCTOBER 2026
-
-The owner authorised three workstreams after reviewing the source-material Godot experiment: **scene backgrounds/frames; direct controls/passive meters; character artwork**. Work autonomously on the supporting asset base, adjusting priorities, technique and optional breadth whenever visual quality is off track for the 16:00 review. This is authorisation to continue, NOT final artwork acceptance.
-
-Before any work read `docs/asset_base/PROGRAMME_2026-10-29.md`, `STATE.json`, `LEDGER.md`, `.agents/asset_base/WORKSTREAMS.md` and the prior verified review under `docs/dual_frame_proof/`. One ordered writer on `dual-frame-proof-2026-10-28`; preserve main, PR #199 and production saves. Earlier 28 Oct stop/recruitment-only rules are superseded only for isolated asset-library/assembly work. No merges, costs or engine changes. Keep `owner_approved=false`.
-
-Characters receive the first production slot. The controller must review actual pixels at 02/06/10/12 checkpoints and change the plan when off track; no more than one ineffective corrective continuation on a family. Freeze optional breadth before quality; no new families after14:00, no implementation writes after15:00, final review16:00, except the later direct C20 authorisation above. Scheduled work is a sequence of invocations, not a claim of continuous background execution. Relevant native proof already exists; do not restart its setup or use the pull-request-only run query to infer push CI absence.
-
----
-# BandMaster — AI development contract
-
-## Roles
-The game owner sets creative direction and accepts gameplay changes. The assistant acts as programmer, tester, release manager and technical adviser.
-
-## Non-negotiable rules
-- Read `project.godot`, relevant `Scripts/*.gd`, scene files, and `ARCHITECTURE.md` before making changes.
-- Use Godot 4 GDScript. Do not assume plugins or autoloads exist. Verify node paths, file names, signal names and APIs against the repository.
-- Preserve current gameplay and JSON save/load compatibility. Never erase or reset user saves as a migration strategy.
-- Separate simulation state, presentation, persistence and event content as the codebase grows; make incremental changes, not speculative rewrites.
-- Prefer complete, ready-to-use files and exact paths over partial snippets. No placeholders.
-- Every code change must include a brief change summary, test evidence (what actually ran), known limitations and manual Godot test instructions.
-- Never claim runtime tests passed unless they actually ran.
-- Commit work on a feature branch and propose a pull request; do not modify `main` without the owner's request.
-- Preserve `.godot/` in ignore rules; never commit secrets, temporary cache or private save files.
-- Document changes to the persistent state model in `STATE_SCHEMA.md`.
-- Do not introduce paid services, cloud inference, Ink dependencies or art licensing requirements without discussing them with the owner.
-- Prioritise player-initiated band management and emergent systems over endless forced multi-choice events.
-
-## Acceptance checks
-1. Relevant scripts parse in Godot headless editor (once runtime validation is configured).
-2. Main menu, band builder, rehearsal and tour pathways remain reachable.
-3. New game, save, quit, continue and reload round-trip correctly.
-4. Critical bounds and event consequences are deterministic and reproducible where designed.
-5. The owner can test a feature with short numbered steps.
-
-## Baseline
-At creation, `project.godot` starts `band_builder.tscn` via its UID. `Scripts/band_builder.gd`, `Scripts/main_menu.gd` and `Scripts/tour_intro.gd` exist. This is a documentation baseline, not proof of runtime correctness.
+Historical mission instructions are preserved in `docs/continuous_improvement/legacy/AGENTS_before_C22.md`. They never override newer owner direction or the canonical improvement checks. Every future task must update the session and append findings, not create another competing lesson register.
