@@ -512,3 +512,7 @@ Dedicated writer released; no automatic extension.
 
 ## C22 continuous-improvement consolidation — BEFORE frame implementation
 125 tracked Markdown source records / 87 unique versions surveyed across current, main and recruitment refs, plus available 23–29 October conversation. 46 known failure/prevention entries now canonical. C21 notepaper rejection appended; older internal visual verdict is superseded, technical hardening retained. Root AGENTS and specialist instructions route all future work through current policy hashes, append-only issue log and scoped preflight. The automated gate validates records, not artistic quality or human reading; main/PR199 untouched. Local 24 positive/negative tests are repeated in adoption CI. No new framing implementation has been performed before this publication.
+
+
+## C22 first controlled frame pilot — native PASS, visual PARTIAL
+Run40927695391 at7b68d0e47d8a5fa941c8257a842294a0086e52b7 passed2281 assertions in each of standalone/host.84 distinct views, including12 equal-layout comparisons. Source depth recovered but inner rules/dull face remain. This observation is appended before the single corrective implementation continuation; no candidate automatically replaces published defaults. Owner approval false.
