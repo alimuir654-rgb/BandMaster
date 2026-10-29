@@ -1,10 +1,7 @@
-# Current review index — C22
+# Current review
 
-The canonical continuous-improvement entry point is `docs/continuous_improvement/README.md`. Read CHECK_BEFORE_WORK.md, LESSONS.md, ISSUES.jsonl and CURRENT.json before any future task. A closed session cannot authorise further implementation.
+Latest scoped result: [C24 reused-source dossier proof](../continuous_improvement/C24_REVIEW.md).
 
-Current review: `docs/continuous_improvement/C22_REVIEW.md`.
-Known history:46 failure/prevention lessons from the source audit and conversation. C21 notepaper remains owner-rejected; technical hardening remains valid.
+Native validation and packaging passed in standalone/separate host. Final automatic art publication was refused after the one-hour lease expired; the overall workflow is not green. Source/build scripts are committed, candidate layers/testable project remain in artifact12931758623, and the published default library is unchanged. Visual status PARTIAL; owner_approved=false. Current session closed and writer released. No automatic extension.
 
-C22 restarted one source-preserving paper-panel pilot only after the lessons/log/preflight commit. Native final source761a3c640ce33a6fcefba4fdfcb37cfbabc191f3; run40930454213; artifact12922032827. Source and testable candidate are in that artifact and reproducible through experiments/frame_recovery. Candidate has not replaced the default library or been approved. The first pilot is retained separately in run40927695391.
-
-Engineering:2281 assertions per standalone/host and84 view/state captures each,zero failures. Visual:PARTIAL relative to the mockup; caption clipping in the390px comparison harness remains a logged defect. Owner approval:false. Next priority:complete one representative notepaper panel against the locked mockup before wider rollout, fixing the comparison caption first. Backgrounds/characters remain deferred; meters protected.
+Prior source/frame review: [C22](../continuous_improvement/C22_REVIEW.md). Preserve historical lessons and issues; no claim of full frame-family completion.
