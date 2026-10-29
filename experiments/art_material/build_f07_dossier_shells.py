@@ -72,7 +72,7 @@ def integrate():
     dossier_shell.add_child(dossier)""")
     replace("    tablet_sheet.visible = tablet","""    tablet_sheet.visible = tablet
     # Texture-backed inner bay is deliberately omitted on narrow views.
-    var shell_style := StyleBoxEmpty.new() if narrow else _dossier_shell_style()
+    var shell_style: StyleBox = StyleBoxEmpty.new() if narrow else _dossier_shell_style()
     dossier_shell.add_theme_stylebox_override("panel", shell_style)""")
     replace("func _portrait_mount() -> StyleBoxTexture:","""func _dossier_shell_style() -> StyleBoxTexture:
     var shell := StyleBoxTexture.new()
