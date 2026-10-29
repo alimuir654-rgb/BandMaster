@@ -1,5 +1,5 @@
 """Render own source inspection images from unmodified CC0 geometry/materials."""
-import bpy,json,math
+import bpy,json
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path('c24-sources').resolve();OUT=Path('c24-probe').resolve();OUT.mkdir(exist_ok=True)
@@ -18,7 +18,7 @@ for item in manifest['assets']:
     for o in meshes:
         a,b=bounds([o]);inventory.append({'name':o.name,'bounds':[list(a),list(b)],'size':list(b-a),'vertices':len(o.data.vertices),'materials':[m.name if m else None for m in o.data.materials]})
     report['assets'].append({'id':item['id'],'bounds':[list(lo),list(hi)],'objects':inventory,'images':[{'name':im.name,'size':list(im.size),'filepath':im.filepath} for im in bpy.data.images]})
-    scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=20;scene.cycles.use_denoising=True
+    scene=bpy.context.scene;scene.render.engine='CYCLES';scene.cycles.samples=64;scene.cycles.use_denoising=False
     scene.render.resolution_x=1024;scene.render.resolution_y=1024;scene.render.resolution_percentage=100
     scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA';scene.render.film_transparent=True
     scene.view_settings.view_transform='Standard';scene.view_settings.look='None'
