@@ -14,14 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "C15B-20261029-1107-source-truthful-indie-portrait",
-    "claimed_at_utc": "2026-10-29T11:06:37Z",
-    "lease_until_utc": "2026-10-29T11:51:37Z",
-    "base_head_sha": "8da2b0f317dad241dcfa6436ac0b6adcc5aeff0a",
-    "purpose": "Complete stalled C15 source-truthful gritty portrait reversion, actual four-size Godot render, visual compare, preserve passive meter baseline"
-  },
-  "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
+  "writer": null,
+  "last_verified_code_sha": "b704e0393485fa60d9ea7b03c70e117eadaa6825",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -31,11 +25,11 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "C",
-  "next_single_action": "C15B: assemble two individually addressable original-resolution 512x690 gritty indie photo studies with restrained light/night finishes, compare native Godot against C12 and C14. Do not call them independently generated >=1024 masters. Preserve C14 meters, 200 talent, six read-only stats; native 32+20 verification.",
+  "next_stream": "F",
+  "next_single_action": "At first invocation at/after 12:00 quality gate: freeze optional families and inspect C15 final native vs C12/C14. Correct only largest visibly demonstrated widescreen layout/material or input flaw. Keep C15 gritty distinct 512px portraits explicitly provisional; obtain independent >=1024 credible masters only via a genuinely new proven route. Do not redesign owner-liked meters.",
   "streams": {
     "C": {
-      "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
+      "status": "partial_c15_indie_512_credible_source_native_32_pass_not_independent_master",
       "priority": "P0",
       "target": "Two distinctive canonical portrait masters and derived crops",
       "assets": [
@@ -52,7 +46,11 @@
         "Original publisher visualizevalue/headshots GitHub commit21f916173b6c844c52ccb3ac76e7d7b44de87c3e, CC0-1.0 LICENSE source sha256 6756ab60a39f24637b432f5998fea78d06872ffd44eab1c82ef22209d174d4be; synthetic persons not real release-verified models.",
         "New source scripts experiments/art_material/strengthen_portrait_hierarchy.py and import_cc0_cast.py on isolated branch, native generated manifest C11_CC0_CAST_MANIFEST.json; no full-screen composite.",
         "C13 source script experiments/art_material/documentary_portrait_finish.py pinned code 3c1572136929ec5949a8853737fa21f1f7f7dee7; 4 separate 1024px photographic-print derivatives from verified C11 individual CC0 masters, no subject upsizing; C13_DOCUMENTARY_PORTRAITS_MANIFEST.json records source and output SHA256 in CI artifact.",
-        "C13 real X11 Godot4.7.2 native run40839437732 artifact12881659300 SHA256 f639a992682beb83414a38367d05b60cb77357a907b95002507d846067c4c60e; 32 scene screenshots failure[]; structure run40839437625 and headless run40839437599 both SUCCESS."
+        "C13 real X11 Godot4.7.2 native run40839437732 artifact12881659300 SHA256 f639a992682beb83414a38367d05b60cb77357a907b95002507d846067c4c60e; 32 scene screenshots failure[]; structure run40839437625 and headless run40839437599 both SUCCESS.",
+        "C15 alex/day: assets/characters/alex_portrait_indie_day_source512.webp, 512x690, SHA256 9e7ef9d03a3311b485531227928d1eca21e45a0ee82ad8da2e128e5339ecb2c5; original-resolution derivative of ONE paired-origin generated portrait-only study, NOT independent 1024 master; rights/source caveat in C15 manifest; owner approved false.",
+        "C15 alex/night: assets/characters/alex_portrait_indie_night_source512.webp, 512x690, SHA256 7abe4bdaf6e8bb899571957bbef23bd6ef57f6fa2ee777a4b8d6c07f150462bc; original-resolution derivative of ONE paired-origin generated portrait-only study, NOT independent 1024 master; rights/source caveat in C15 manifest; owner approved false.",
+        "C15 nia_griffiths/day: assets/characters/nia_griffiths_portrait_indie_day_source512.webp, 512x690, SHA256 29fa1cc0de7516c3d90602358bbbbe91e6214049596dc5be14c6f3bbf83b9e76; original-resolution derivative of ONE paired-origin generated portrait-only study, NOT independent 1024 master; rights/source caveat in C15 manifest; owner approved false.",
+        "C15 nia_griffiths/night: assets/characters/nia_griffiths_portrait_indie_night_source512.webp, 512x690, SHA256 a73e556687363d1f21b7898df1a474ab2d9aa9aeaeecebb94b4e572bf28178df; original-resolution derivative of ONE paired-origin generated portrait-only study, NOT independent 1024 master; rights/source caveat in C15 manifest; owner approved false."
       ],
       "verified_native_evidence": [
         {
@@ -115,22 +113,51 @@
             "source/original 1024px faces and graded derivatives"
           ],
           "verdict": "Two truly separate CC0 synthetic 1024x1024 originals, native Godot links/layout PASS. Art direction PARTIAL/FAIL professional musician authenticity; still reads as corporate headshots."
+        },
+        {
+          "tested_code_sha": "b704e0393485fa60d9ea7b03c70e117eadaa6825",
+          "run_id": 40863989717,
+          "artifact_id": 12892717495,
+          "artifact_sha256": "ab30f658ea2216e5715bfccd0f9bb21abd5d70ee16093ecce090fd753be61574",
+          "screenshots": 32,
+          "hardware_screenshots": 20,
+          "assertion_failures": 0,
+          "engine": "Godot 4.7.2 official / X11 / OpenGL llvmpipe",
+          "repository_checks": [
+            "native 40863989717 SUCCESS",
+            "headless 40863989461 SUCCESS",
+            "structure 40863989481 SUCCESS"
+          ],
+          "inspected": [
+            "C12/C14/C15 actual flightcase-1280x720-alex and notepaper-1280x720-nia side-by-side",
+            "C15 flightcase-390x844-alex",
+            "C15 notepaper-390x844-nia",
+            "C15 flightcase-720x1280-nia",
+            "C15 notepaper-720x1280-alex",
+            "C15 flightcase-1600x900-nia",
+            "C15 notepaper-1600x900-alex",
+            "Source atlas Alex/Nia day/night in original 512x690",
+            "23 passive-meter PNG byte equality across C12/C14/C15"
+          ],
+          "verdict": "Real visible indie-character improvement over C12/C14 corporate-looking 1024px sources; two distinct low-res paired-origin character studies remain below independent hi-res source master requirement. Owner artwork approval FALSE."
         }
       ],
-      "blocked_reason": "The previous source-resolution and independent-likeness blocker is materially mitigated by two separately generated 1024px CC0 synthetic people, source and licensing pinned and verified. New P0 is aesthetic: professional/corporate wardrobe, polished office-photo faces and white-matte halo do not fit believable UK indie musician portrait target. No further composite/collage-generation retries. Source publisher asserts synthetic faces, not independent legal likeness guarantee. Owner art acceptance false.",
+      "blocked_reason": "Two independent >=1024px documentary-style UK indie musician portrait masters remain BLOCKED; the C15 artistically stronger 512x690 Alex/Nia previews are distinct persons but derive from one paired-origin generated portrait-only plate. Genuine independent subject source and release assurance not established; source limitations disclosed; no upscaling.",
       "ineffective_attempts": 5,
-      "next_action": "P0 genuine indie musician source art for Alex/Nia; 1024px separate CC0 corporate source not artistically acceptable; no more simple colour grade, no collage generation, no unsupported likeness/source claims.",
+      "next_action": "Do not repeat prior collage-generation path or polish minor photo grades. Replace C15 paired-origin 512 studies only if genuinely separately generated/licensed >=1024 musician-credible originals available. Otherwise keep artistically better C15 previews as explicitly provisional and improve biggest native composition gap.",
       "improved": [
         "Full face visible in actual 1280x720 and1600x900 native Godot landscapes for both characters; phone/tablet keep prior portrait source; resize and candidate binding verified.",
         "C08 face/upper body shows at larger physical size on both 1280 and1600 desktop within independent 420x540 source-backed vertical mounts; mobile/tablet not regressed; raw source pixels not upscaled.",
         "C10 desktop two-candidate horizontal native rail frees height for enlarged 385x365/500x515 portrait, 32-state native PASS at40835824773.",
-        "C12 two distinct 1024px synthetic CC0 original source photos, no master-upscale or reused identity. Original and source-graded rehearsal derivatives imported natively with verified source SHA and commercial CC0; first skin transparency defect identified in native screenshot and fixed using alpha mask; 32-state native PASS."
+        "C12 two distinct 1024px synthetic CC0 original source photos, no master-upscale or reused identity. Original and source-graded rehearsal derivatives imported natively with verified source SHA and commercial CC0; first skin transparency defect identified in native screenshot and fixed using alpha mask; 32-state native PASS.",
+        "C15 real native scenes now show separate gritty Alex leather-jacket portrait and Nia relaxed-messy-hair knitwear portrait; two independent theme grades per person at unscaled original 512x690, sharp face presence and materially stronger musician authenticity than corporate C12/C14."
       ],
       "remaining_gaps": [
         "Art P0: new CC0 face sources resemble corporate/studio headshots rather than candid musician auditions; visually weaker in authenticity than C10 low-res gritty previews. Neither is approved finished art.",
         "Raw images individually 1024px and visibly sharp, but current natural wardrobe, hair/lighting and pose not cohesive with UK indie backstage character direction.",
         "Some bright-edge hair halo remains against dark room; optional alpha-level improvements only if material stylistic change is successful.",
-        "At 1600x900 large native notes paper remains sparsely used; do not dilute P0 on micro margins."
+        "At 1600x900 large native notes paper remains sparsely used; do not dilute P0 on micro margins.",
+        "C15: more musician-credible photo studies but 512x690 paired-origin sources below independently generated >=1024 master specification; images carry non-approved labels; no final artist signoff."
       ]
     },
     "F": {
@@ -191,7 +218,7 @@
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "The two 1200x900 source-backed ambience layers subtly improve context but cannot fix corporate-looking faces; hold decorative variants, correct only obvious major gaps after C portrait work.",
+      "next_action": "At 12:00 owner gate freeze all optional families; inspect C15 actual four-size native proof and correct only dominant wide-screen whitespace, first-fold/portrait/background integration/layout defects; preserve source-backed night case and day paper shells.",
       "improved": [
         "phone safe insets: footer text no longer crosses screw/rail",
         "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
@@ -293,7 +320,7 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Preserve 23 passive-meter source sprite hashes exactly, no focus/mouse. Existing native press/select transitions now pass; defer additional UI polish.",
+      "next_action": "Maintain 23 byte-identical owner-liked passive-meter PNGs and six mouse-ignore/focus-none stats. C14 browse/select/recruit/remove native micro-motion and existing 44px hit-area state family remain. Fix only proven input/focus defects, not meter cosmetic variants.",
       "improved": [
         "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
         "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
