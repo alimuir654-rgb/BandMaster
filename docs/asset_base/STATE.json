@@ -14,14 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "U03-20261029-0055",
-    "claim_at_utc": "2026-10-29T00:58:00Z",
-    "base_head": "371697cef1fca66c503540db4b4a0e92e2b511c2",
-    "scope": "Lab07 direct-control state family; native two-look integration",
-    "lease_expires_utc": "2026-10-29T01:25:00Z"
-  },
-  "last_verified_code_sha": "cc92fa652d53e6733d96e555b1082d21230fd425",
+  "writer": null,
+  "last_verified_code_sha": "4338de95cdc291dc0c754807f6d41cc0dd182bc7",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -31,8 +25,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "U",
-  "next_single_action": "Build verified Lab07 tactile normal/hover/pressed/selected/disabled input states and a physically housed day control; keep passive meters independent. At 02:00 run C portrait-route quality gate.",
+  "next_stream": "C",
+  "next_single_action": "At/after 02:00 assess a materially DIFFERENT standalone portrait-production route for canonical Alex/Nia, not the two rejected multi-panel UI collage method. Prioritise P0 source portraits; if no viable compliant route, record precise blocker and advance unblocked F without pretending character art is complete.",
   "streams": {
     "C": {
       "status": "blocked_standalone_generation_method",
@@ -99,7 +93,8 @@
       "priority": "P0",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
-        "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py"
+        "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py",
+        "U03 36 distinct source-backed Lab07 hardware sprites: 3 direct-control families (action/tab/browse) x 2 material themes x 6 states; exact SHA256, crop/safe/nine-slice metadata in DIRECT_CONTROL_MANIFEST.json; atlas SHA256 5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209; source experiments/art_material/build_direct_control_kit.py"
       ],
       "verified_native_evidence": [
         {
@@ -117,6 +112,22 @@
             "flightcase-1280x720-nia",
             "notepaper-1600x900-nia"
           ]
+        },
+        {
+          "tested_code_sha": "4338de95cdc291dc0c754807f6d41cc0dd182bc7",
+          "run_id": 40798552220,
+          "artifact_id": 12865371251,
+          "artifact_sha256": "42c2cf90d4f22c0d090e9d958d5cbf91d201aad0b01a23115d8303dfa4af4843",
+          "screenshots": 32,
+          "assertion_failures": 0,
+          "inspected": [
+            "notepaper-390x844-alex",
+            "flightcase-1280x720-alex",
+            "notepaper-720x1280-nia",
+            "flightcase-1600x900-nia",
+            "direct_control_atlas.png",
+            "F02 baseline compared"
+          ]
         }
       ],
       "baseline_gaps": [
@@ -124,7 +135,21 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Later: integrate five-state tactile Lab07 controls and dedicated read-only meter/no-focus assertion; don't proliferate generic button variants."
+      "next_action": "Retain core tactile sprite family without further micro-polish until portraits/source composition have been solved. Only revisit if owner review identifies specific integration defects.",
+      "improved": [
+        "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
+        "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
+        "Day hardware physically housed on source paper, dark controls consistent with night case",
+        "390 names and role tabs legible after native correction; 1280 recruitment control no longer over-stretched",
+        "32 native 4-resolution captures; 0 assertions; source-validated passive stat focus/mouse invariants; all three checks green"
+      ],
+      "remaining_gaps": [
+        "Two canonical standalone musician portraits still missing (C P0)",
+        "390px role tabs still visually dense and day-theme dark metal could be lighter in later art direction",
+        "Large desktop material gaps and oversize tablet notes panel remain F art issues",
+        "Dedicated fader/rotary assemblies not revalidated in this U03 deliverable",
+        "Art direction and owner approval both still pending"
+      ]
     }
   },
   "checkpoints": [
@@ -160,7 +185,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "F02: four source-backed physical frame/mount plates, native responsive phone/tablet layout corrections, 32 screenshots/zero failures. F material kit partial, C portraits blocked, U meters partial.",
+  "last_completed_deliverable": "U03: Lab07 source-backed 36-sprite tactile control kit, native selected/disabled semantics, 32 Godot screenshots/zero failures, role/CTA corrections. C portraits blocked; F material partial; U controls partial.",
   "review_index": null,
-  "last_updated_utc": "2026-10-29T00:58:00Z"
+  "last_updated_utc": "2026-10-29T01:12:00Z"
 }
