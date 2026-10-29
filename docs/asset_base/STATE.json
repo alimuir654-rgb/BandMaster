@@ -15,12 +15,12 @@
     "character_artwork"
   ],
   "writer": {
-    "run_id": "C04-20261029T0200Z",
+    "run_id": "C05-20261029T0257Z",
     "stream": "C",
-    "base_head": "d3c7c712b1bea076ac825da51ec04e240276733f",
-    "claimed_at": "2026-10-29T02:03:00+00:00",
-    "expires_at": "2026-10-29T02:53:00+00:00",
-    "phase": "standalone-source-production",
+    "base_head": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
+    "claimed_at": "2026-10-29T02:57:10+00:00",
+    "expires_at": "2026-10-29T03:44:00+00:00",
+    "phase": "alternate-standalone-portrait-route",
     "owner_approved": false
   },
   "last_verified_code_sha": "4338de95cdc291dc0c754807f6d41cc0dd182bc7",
@@ -195,5 +195,5 @@
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
   "last_completed_deliverable": "U03: Lab07 source-backed 36-sprite tactile control kit, native selected/disabled semantics, 32 Godot screenshots/zero failures, role/CTA corrections. C portraits blocked; F material partial; U controls partial.",
   "review_index": null,
-  "last_updated_utc": "2026-10-29T01:12:00Z"
+  "last_updated_utc": "2026-10-29T02:57:10Z"
 }
