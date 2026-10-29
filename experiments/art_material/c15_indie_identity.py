@@ -146,7 +146,7 @@ def patch_test():
     s = once(s, '"C13 character grade mismatched material " + prefix',
                  '"C15 per-material indie preview mismatched " + prefix')
     s = once(s,
-        'check(scene.character_photo.texture.resource_path.contains("portrait_provisional"), "Wrong vertical portrait after live resize " + prefix)',
+        'check(scene.character_photo.texture.resource_path.contains("portrait_doc_"), "Wrong vertical portrait after live resize " + prefix)',
         'check(scene.character_photo.texture.resource_path.contains("portrait_indie_"), "C15 correct identity source after live resize " + prefix)')
     p.write_text(s)
     print("C15_NATIVE_TEST source-specific Alex/Nia, 512x690 and day/night, unchanged interaction/meter checks")
