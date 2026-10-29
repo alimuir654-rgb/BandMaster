@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "id": "F02-20261029T0000Z",
-    "owner": "asset-production",
-    "stream": "F",
-    "base_head": "05b5cecfacf5e067acc4d1ce91fbf0c5b27a2faf",
-    "lease_at": "2026-10-29T00:00:29Z",
-    "lease_expires": "2026-10-29T01:00:00Z"
-  },
-  "last_verified_code_sha": "eba5a9859080b88e75cb17f1e29099c454de3da3",
+  "writer": null,
+  "last_verified_code_sha": "cc92fa652d53e6733d96e555b1082d21230fd425",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -32,8 +25,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "F",
-  "next_single_action": "Author and inspect source-backed flight-case/night and notebook/day borders, panel mounts and phone/tablet safe areas, then prove in native 390x844/1280x720 screens. No portrait collage crops.",
+  "next_stream": "U",
+  "next_single_action": "Build verified Lab07 tactile normal/hover/pressed/selected/disabled input states and a physically housed day control; keep passive meters independent. At 02:00 run C portrait-route quality gate.",
   "streams": {
     "C": {
       "status": "blocked_standalone_generation_method",
@@ -46,18 +39,54 @@
       "next_action": "At 02:00 checkpoint verify a materially different no-cost solo-portrait creation route; preserve character gap if none."
     },
     "F": {
-      "status": "queued",
+      "status": "partial_native_verified",
       "priority": "P0",
       "target": "Flight-case/night and notepaper/day reusable frame families",
-      "assets": [],
-      "verified_native_evidence": [],
+      "assets": [
+        "portrait_mount_flightcase.png 512x384 RGBA, SHA256 56739c929d78bc52c944095dd23b68176e2d3950e0619cde6aba0f4640f5f601",
+        "portrait_mount_notepaper.png 512x384 RGBA, SHA256 189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+        "dossier_sheet_flightcase.png 640x300 RGBA, SHA256 a9bbc5d8391ee80e2864928131a650aa8cc8f3fc6c5e37de7f9bb2653bf079ed",
+        "dossier_sheet_notepaper.png 640x300 RGBA, SHA256 1c198f7ae4cce74e5aa0012a5681a9cddbb26dd5ab431332eaa237105d2d526a",
+        "frame_kit_atlas.png SHA256 46b26d06891460b10d59cca70e1dfb8330aedd35c759ca3d31a3cc37f50eb09d",
+        "experiments/art_material/build_frame_kit.py and FRAME_KIT_MANIFEST.json generated in native artifact"
+      ],
+      "verified_native_evidence": [
+        {
+          "tested_code_sha": "cc92fa652d53e6733d96e555b1082d21230fd425",
+          "run_id": 40792084712,
+          "artifact_id": 12862017672,
+          "artifact_sha256": "e9ba2a5ed780cc1bb28cc2827908d3964c1b04fc42b7b48281de56ab89a7f135",
+          "screenshots": 32,
+          "assertion_failures": 0,
+          "inspected": [
+            "flightcase-390x844-alex",
+            "notepaper-390x844-alex",
+            "flightcase-720x1280-nia",
+            "notepaper-720x1280-nia",
+            "flightcase-1280x720-alex",
+            "notepaper-1600x900-nia",
+            "all-eight four-viewport contact sheet"
+          ]
+        }
+      ],
       "baseline_gaps": [
         "phone safe-inset crowding",
         "tablet composition",
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Source-backed standalone day/night frame corners, panel mounts and quiet text-safe areas, correct crowded phone footer and tablet photo crop."
+      "next_action": "Hold additional frame variants; retain four source-backed plates and address residual paper and wide-layout composition only after higher-impact character/control work.",
+      "improved": [
+        "phone safe insets: footer text no longer crosses screw/rail",
+        "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
+        "photographic material source mounts and separate physically styled notes sheets for both looks"
+      ],
+      "remaining_gaps": [
+        "Still missing standalone candidate portraits",
+        "Day controls remain weak and often flat",
+        "Tablet personnel note inserts still have more empty space than intended",
+        "Wide landscape layouts have excessive unoccupied material area"
+      ]
     },
     "U": {
       "status": "partial_native_verified",
@@ -125,7 +154,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "C01: native Godot source-backed read-only passive meter atlas, 22 distinct sprites, 32 screenshots and 0 native failures; portrait generator route blocked.",
+  "last_completed_deliverable": "F02: four source-backed physical frame/mount plates, native responsive phone/tablet layout corrections, 32 screenshots/zero failures. F material kit partial, C portraits blocked, U meters partial.",
   "review_index": null,
-  "last_updated_utc": "2026-10-29T00:00:29Z"
+  "last_updated_utc": "2026-10-29T00:11:00Z"
 }
