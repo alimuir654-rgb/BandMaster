@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "id": "F16-20261029T1210Z-02dc6f7",
+    "stream": "F",
+    "claimed_at_utc": "2026-10-29T12:10:00+00:00",
+    "lease_expires_at_utc": "2026-10-29T12:50:00+00:00",
+    "base_head_sha": "02dc6f72d4533421ff297015f5ea29b86a6fc862",
+    "purpose": "12:00 quality gate; source-backed compact widescreen dossier/whitespace correction and actual Godot CI, no new families"
+  },
   "last_verified_code_sha": "b704e0393485fa60d9ea7b03c70e117eadaa6825",
   "baseline": {
     "run_id": 40778019754,
@@ -26,7 +33,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "F",
-  "next_single_action": "At first invocation at/after 12:00 quality gate: freeze optional families and inspect C15 final native vs C12/C14. Correct only largest visibly demonstrated widescreen layout/material or input flaw. Keep C15 gritty distinct 512px portraits explicitly provisional; obtain independent >=1024 credible masters only via a genuinely new proven route. Do not redesign owner-liked meters.",
+  "next_single_action": "F16 sole-writer: compact and vertically balance 1600x900 sourced dossier without altering 390/720/1280, run native32+hardware20+three CI, inspect both looks, correct real defects, then release lease. 14:00 gate validation/packaging.",
   "streams": {
     "C": {
       "status": "partial_c15_indie_512_credible_source_native_32_pass_not_independent_master",
@@ -360,8 +367,8 @@
     },
     {
       "at": "2026-10-29T12:00:00+00:00",
-      "status": "pending",
-      "decision": null
+      "status": "reviewed_frozen_optional_breadth_reassigned_F16",
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
