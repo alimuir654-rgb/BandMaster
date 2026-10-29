@@ -53,9 +53,11 @@ jobs:
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','install'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','install'],check=True)
           subprocess.run(['python3','experiments/art_material/build_f07_dossier_shells.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/recompose_portrait_stage.py','--phase','install'],check=True)
           run('Create native interaction and screenshot test')
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','patch-test'],check=True)
+          subprocess.run(['python3','experiments/art_material/recompose_portrait_stage.py','--phase','patch-test'],check=True)
           import shutil
           shutil.copy2('experiments/art_material/u04_native_capture.gd',Path(os.environ['ROOT'])/'tests/u04_native_capture.gd')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
@@ -90,6 +92,7 @@ jobs:
           cp "$ROOT/C05_PREVIEW_MANIFEST.json" proof-shots/
           cp "$ROOT/C06_FOCALSAFE_MANIFEST.json" proof-shots/
           cp "$ROOT/F07_DOSSIER_MANIFEST.json" proof-shots/
+          cp "$ROOT/C08_PORTRAIT_STAGE_MANIFEST.json" proof-shots/
           cp "$ROOT/assets/material/f07_dossier_shell_atlas.png" proof-shots/
           timeout 100s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/u04_native_capture.gd 2>&1 | tee proof-shots/u04-native.log
           test "${PIPESTATUS[0]}" -eq 0
@@ -113,6 +116,7 @@ jobs:
             frame-proof/BandMaster_Frame_Experiment/assets/material/
             frame-proof/BandMaster_Frame_Experiment/assets/characters/
             frame-proof/BandMaster_Frame_Experiment/C06_FOCALSAFE_MANIFEST.json
+            frame-proof/BandMaster_Frame_Experiment/C08_PORTRAIT_STAGE_MANIFEST.json
             frame-proof/BandMaster_Frame_Experiment/bandmaster_premium_dashboard_poc/
           retention-days: 14
           compression-level: 1
