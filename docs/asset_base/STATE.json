@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C13-doc-portrait-20261029-0758",
+    "base_head": "26e78df907870371f5cfc130093472c904cb21aa",
+    "started_at": "2026-10-29T07:58:00+00:00",
+    "lease_expires_at": "2026-10-29T08:40:00+00:00",
+    "workstream": "C",
+    "scope": "indie documentary source treatment visual spike, preserve approved source originals"
+  },
   "last_verified_code_sha": "98b4f49588c06a3d9dee9f659851ffa25f4b0c55",
   "baseline": {
     "run_id": 40778019754,
