@@ -537,3 +537,6 @@ C24 source-art inspection PASS for usable source geometry, not final art. Origin
 
 
 C24 source candidate withheld: native offline renderer completed but actual full source image exposed misplaced A4 sheets. Geometry bounds cache is suspected. Logged before vertex-based centring correction; no import or quality claim.
+
+
+C24 source geometry correction verified. Separate pixel check found98.36percent clipped opaque paper. This is a source-render calibration defect; candidate withheld before integration. A bounded exposure bracket on the existing scene replaces guessed lighting adjustments; no additional frame family.
