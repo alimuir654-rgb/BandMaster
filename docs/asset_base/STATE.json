@@ -26,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "final_evidence_review",
-  "next_single_action": "15:00 STOP ALL IMPLEMENTATION WRITES, evidence/index only. 16:00 NO WRITES; compare authentic C12 morning vs last verified U18 four-viewport native proof. Disclose two missing independently generated >=1024 portrait masters, 720 face crop and 1600 negative space; retain owner-liked 23 RAG source sprites, six passive meters and approval false.",
+  "next_single_action": "Review the completed reusable library and use it in the next owner-authorised scene assembly; do not resume deferred background or character work.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -503,16 +503,56 @@
     "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
     "owner_approved": false
   },
-  "latest_owner_scope": "C20: backgrounds/characters deferred; inventory and reuse controls, build missing reusable behaviours, improve frame system",
+  "latest_owner_scope": "Backgrounds and characters deferred; reusable control and frame kit built and natively verified. No automatic extension or merge.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
     "artifact_id": 12909338595,
-    "status": "native_pass_visual_review_pending",
+    "status": "verified_library_available_owner_visual_review_pending",
     "source_root": "components/control_atlas",
     "standalone_and_host_import_verified": true,
     "background_changes": false,
     "character_changes": false,
-    "owner_approved": false
+    "owner_approved": false,
+    "schema_version": 1,
+    "sprint": "C20-reusable-control-library",
+    "published_module_sha": "1b2bcf0fcf1b6a9fac2f9986d60422904314a780",
+    "artifact_sha256": "d6255c084ec2f49c9902e482612cca5c9eb95c7b09972b259d99dd13ccb367c4",
+    "standalone": {
+      "assertions": 689,
+      "failures": 0,
+      "captures": 48
+    },
+    "nested_host": {
+      "assertions": 689,
+      "failures": 0,
+      "captures": 48
+    },
+    "distinct_gallery_views": 48,
+    "internal_engineering": "pass",
+    "internal_visual": "improved_partial",
+    "unchanged_runtime_meter_images": 22,
+    "unchanged_original_control_images": 36,
+    "unchanged_lab08_image_layers": 58,
+    "native_originals_opened": [
+      "flightcase-controls-1600x900-top.png",
+      "notepaper-frames-1600x900-top.png",
+      "notepaper-controls-390x844-top.png",
+      "flightcase-hardware-720x1280-top.png",
+      "flightcase-hardware-1280x720-top.png"
+    ],
+    "derived_native_atlases": {
+      "controls_sha256": "676cc7d4397256bf2bf41a2d5fc0bec25750330a6d2a4516e07095eb8a461e99",
+      "frames_sha256": "09f70548e519c73031facf3b216e248af88284bbdaca67549f712c915f844131",
+      "mobile_sha256": "fc45ceae4634749470a381e9343844fb4dbe24b6bd1ec891c72a0de8bf854940"
+    },
+    "remaining": [
+      "Heavy paper shadow and repeated silhouettes remain less refined than mockups",
+      "Disabled day label is very muted",
+      "Modal preset is not a complete modal controller",
+      "Passive ring gauge, bespoke pictograms and scene-specific bindings not implemented"
+    ],
+    "next_action": "Review the completed reusable library and use it in the next owner-authorised scene assembly; do not resume deferred background or character work.",
+    "reviewed_at": "2026-10-29T15:36:50.462036+00:00"
   }
 }

@@ -74,3 +74,7 @@ By 16:00 provide a compact source/native comparison for both looks, control-stat
 > The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.
 
 This confirms the finite 16:00 review, *not* final artwork acceptance, merging or extension. Keep the liked six read-only red/amber/green meters unchanged absent a measured regression. Prioritise genuinely indie-credible individual Alex/Nia source masters; if no compliant source can be obtained without false rights/identity claims, keep P0 artwork HOLD and improve integrated two-look native composition instead. Reuse existing materials. Add only restrained native select/browse/recruit/remove feedback, not new systems. Evaluate 10/12/14/15/16 gates. Compare final native evidence with C12 and morning proof, disclose remaining weaknesses.
+
+
+## Latest direct-owner scope / C20 closeout
+Backgrounds and characters remain deferred. Reusable controls and frame library are now published under components/control_atlas, tested standalone and in a separate host. Read C20_VERIFIED_REVIEW.md and CONTROL_INVENTORY_C20.md. The historical portrait-first queue is not the next action. Owner artwork approval remains false; this sprint does not extend the finite programme.

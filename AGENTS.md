@@ -1,3 +1,7 @@
+# C20 COMPLETED — CONTROL LIBRARY AVAILABLE
+
+Read docs/asset_base/C20_VERIFIED_REVIEW.md and STATE.json. The dedicated C20 lock is released. Latest owner direction still defers backgrounds/characters; reusable controls and frames now live in components/control_atlas. Do not re-run completed inventory or overwrite the verified kit. No merge or automatic programme extension.
+
 # LATEST DIRECT OWNER REQUEST — C20 REUSABLE CONTROLS / FRAMES
 
 Read `docs/asset_base/OWNER_CONTROLS_SPRINT.md` and `CONTROL_SPRINT_LOCK.json` FIRST. The owner explicitly redirected work after V19: leave scene backgrounds, reuse existing repository controls, build missing reusable controls, improve frames against the supplied atlas mockups. This authorises one scoped implementation sprint; not a schedule extension or final-art approval. Character/background generation is deferred. Preserve passive-meter artwork and semantics. Check the dedicated C20 lock before claiming STATE or modifying this branch; do not race this writer. Existing time-based reporting still uses actual verified evidence only.

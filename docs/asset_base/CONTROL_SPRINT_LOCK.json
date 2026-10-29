@@ -1,1 +1,12 @@
-{"writer":"C20-reusable-control-library","base_head":"14bf4d55b804e6b335557bb0e197c4e27d659fbc","claimed_at":"2026-10-29T14:50:00+00:00","expires_at":"2026-10-29T16:00:00+00:00","scope":"components/control_atlas and isolated native proof; scene backgrounds and characters deferred","owner_approved":false}
+{
+  "writer": null,
+  "base_head": "14bf4d55b804e6b335557bb0e197c4e27d659fbc",
+  "claimed_at": "2026-10-29T14:50:00+00:00",
+  "expires_at": "2026-10-29T16:00:00+00:00",
+  "scope": "components/control_atlas and isolated native proof; scene backgrounds and characters deferred",
+  "owner_approved": false,
+  "released_at": "2026-10-29T15:36:50.462036+00:00",
+  "result": "native_pass_visual_partial",
+  "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
+  "run_id": 40901641892
+}
