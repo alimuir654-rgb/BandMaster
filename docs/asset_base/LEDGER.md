@@ -543,3 +543,6 @@ C24 source geometry correction verified. Separate pixel check found98.36percent 
 
 
 C24 calibration blocked by a saved-scene relative path after artifact relocation, not missing source bytes. Recorded before correcting the explicit cork-root remap. No calibrated image or Godot integration is claimed from failed run40949472716.
+
+
+C24 native integration first run withheld: original2185checks pass but new demonstration352checks include90failures. ActualPNG confirms missing text and offscreenaction. Recorded before bounded native layout correction; no publication or technicalPASSclaim.
