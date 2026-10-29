@@ -26,30 +26,35 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq blender python3-pil python3-numpy
           blender --background --factory-startup --python-exit-code 1 --python-expr 'import numpy; print("glTF dependency verified:", numpy.__version__)'
-      - name: Render source inspection proofs
+      - name: Reuse the pinned existing cork source with verified provenance
         run: |
-          set -o pipefail
-          timeout 360s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/probe.py 2>&1 | tee c24-source-render.log
-          test -f c24-probe/GEOMETRY_REPORT.json
-      - name: Retain reviewed baseline for precise local inspection
-        if: always()
-        run: |
+          git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
+          mkdir -p /tmp/c24-source
+          git show FETCH_HEAD:Art/Photography/Formation/corkboard_day_pexels.webp > /tmp/c24-source/cork.webp
+          git show FETCH_HEAD:Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json > /tmp/c24-source/photos.json
           python3 - <<'PY'
           from pathlib import Path
-          import zipfile
-          with zipfile.ZipFile('c24-reviewed-baseline.zip','w',zipfile.ZIP_DEFLATED) as z:
-            for base in ['components/control_atlas','experiments/frame_recovery','experiments/control_atlas','experiments/frame_hardening','experiments/frame_assets','docs/continuous_improvement','tools/improvement_gate.py','project.godot','ARCHITECTURE.md','docs/asset_base/STATE.json']:
-              p=Path(base)
-              for f in ([p] if p.is_file() else p.rglob('*')):
-                if f.is_file() and f.suffix not in ['.ttf','.otf','.import','.uid'] and '.godot' not in f.parts:z.write(f,f)
+          from PIL import Image,ImageEnhance
+          import json,hashlib
+          p=Path('/tmp/c24-source');m=json.loads((p/'photos.json').read_text())
+          row=next(r for r in m['records'] if r['asset'].endswith('corkboard_day_pexels.webp'))
+          assert hashlib.sha256((p/'cork.webp').read_bytes()).hexdigest()==row['committed_webp_sha256']
+          im=Image.open(p/'cork.webp').convert('RGB');im=ImageEnhance.Color(im).enhance(.75);im=ImageEnhance.Contrast(im).enhance(.8);im.save(p/'cork.png')
+          (p/'CORK_SOURCE.json').write_text(json.dumps({'pinned_commit':'c084690f7ccde4625eaebf68b89ae476fd08724d','original_record':row,'derived_png_sha256':hashlib.sha256((p/'cork.png').read_bytes()).hexdigest(),'transform':'Colour .75, contrast .8; original source is not redistributed in the art pack'},indent=2)+'\n')
           PY
+      - name: Render one layered source-art candidate for actual inspection
+        run: |
+          set -o pipefail
+          timeout 420s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/render_dossier.py 2>&1 | tee c24-source-render.log
+          test -f c24-art/SOURCE_RENDER_MANIFEST.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: c24-source-art-inspection
+          name: c24-dossier-source-candidate
           path: |
-            c24-sources/
-            c24-probe/
+            c24-art/
+            c24-sources/clipboard/
+            c24-sources/office_notepads/
+            c24-sources/SOURCE_MANIFEST.json
             c24-source-render.log
-            c24-reviewed-baseline.zip
           retention-days: 30
