@@ -15,11 +15,11 @@
     "character_artwork"
   ],
   "writer": {
-    "run_id": "C15-20261029-1001-core-indie-reversion",
-    "claimed_at_utc": "2026-10-29T10:01:22Z",
-    "lease_until_utc": "2026-10-29T10:36:22Z",
-    "base_head_sha": "ecc8c58eed4a1b3e1861a734cc565294529e23d8",
-    "purpose": "10:00 gate: reselect credible original-size indie-photo source and strengthen native two-look portrait integration without touching owner-liked meters"
+    "run_id": "C15B-20261029-1107-source-truthful-indie-portrait",
+    "claimed_at_utc": "2026-10-29T11:06:37Z",
+    "lease_until_utc": "2026-10-29T11:51:37Z",
+    "base_head_sha": "8da2b0f317dad241dcfa6436ac0b6adcc5aeff0a",
+    "purpose": "Complete stalled C15 source-truthful gritty portrait reversion, actual four-size Godot render, visual compare, preserve passive meter baseline"
   },
   "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
   "baseline": {
@@ -32,7 +32,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "C15 10:00 gate: source-truthful gritty 512px canonical Alex/Nia native portrait reversion with substantially improved indie credibility, retain 1024 CC0 corporate images as provenance archive not preferred scene art; no fake high-resolution master claim. Full 32-native four-viewport recheck; preserve meters.",
+  "next_single_action": "C15B: assemble two individually addressable original-resolution 512x690 gritty indie photo studies with restrained light/night finishes, compare native Godot against C12 and C14. Do not call them independently generated >=1024 masters. Preserve C14 meters, 200 talent, six read-only stats; native 32+20 verification.",
   "streams": {
     "C": {
       "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
