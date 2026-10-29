@@ -14,14 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "C14-ambition-20261029-0907",
-    "claimed_at": "2026-10-29T09:07:00Z",
-    "lease_expires_at": "2026-10-29T09:55:00Z",
-    "base_head": "c880c30200f6800e22d91c1d30ce1c1510a9a88e",
-    "workstream": "F+U integrated scene composition; C indie portrait source remains active P0"
-  },
-  "last_verified_code_sha": "3c1572136929ec5949a8853737fa21f1f7f7dee7",
+  "writer": null,
+  "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -32,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "C14: Preserve owner-liked passive meters, improve full two-look native composition and recruitment decisions without new gameplay; replace corporate sources only with truly compliant independent rights-clear musician art, not photo grading/collage; verify real native screenshots.",
+  "next_single_action": "10:00 quality gate: compare verified C12/C13 versus C14 real native photos and put remaining time into rights-clear genuinely UK indie-musician Alex/Nia masters; source styling not further colour-grade of corporate portrait; if unavailable hold ART P0. Owner-liked read-only passive meters remain unchanged; fix only dominant composition/input defects before 12:00 family freeze.",
   "streams": {
     "C": {
       "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
@@ -119,7 +113,7 @@
       ],
       "blocked_reason": "The previous source-resolution and independent-likeness blocker is materially mitigated by two separately generated 1024px CC0 synthetic people, source and licensing pinned and verified. New P0 is aesthetic: professional/corporate wardrobe, polished office-photo faces and white-matte halo do not fit believable UK indie musician portrait target. No further composite/collage-generation retries. Source publisher asserts synthetic faces, not independent legal likeness guarantee. Owner art acceptance false.",
       "ineffective_attempts": 5,
-      "next_action": "Stop additional grades of corporate headshots; seek genuinely music-scene wardrobe/pose/ambience from separately rights-clear synthetic original sources (no real-person model-release assumptions), check source hashes, independently inspect native.",
+      "next_action": "P0 genuine indie musician source art for Alex/Nia; 1024px separate CC0 corporate source not artistically acceptable; no more simple colour grade, no collage generation, no unsupported likeness/source claims.",
       "improved": [
         "Full face visible in actual 1280x720 and1600x900 native Godot landscapes for both characters; phone/tablet keep prior portrait source; resize and candidate binding verified.",
         "C08 face/upper body shows at larger physical size on both 1280 and1600 desktop within independent 420x540 source-backed vertical mounts; mobile/tablet not regressed; raw source pixels not upscaled.",
@@ -134,7 +128,7 @@
       ]
     },
     "F": {
-      "status": "partial_native_verified_f07_day_landscape",
+      "status": "partial_c14_native_environment_two_themes_verified_not_art_approved",
       "priority": "P0",
       "target": "Flight-case/night and notepaper/day reusable frame families",
       "assets": [
@@ -191,7 +185,7 @@
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Hold extra F shell variants until canonical individual character masters exist; fix only observed major visual defects.",
+      "next_action": "The two 1200x900 source-backed ambience layers subtly improve context but cannot fix corporate-looking faces; hold decorative variants, correct only obvious major gaps after C portrait work.",
       "improved": [
         "phone safe insets: footer text no longer crosses screw/rail",
         "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
@@ -205,10 +199,12 @@
         "Tablet personnel note inserts still have more empty space than intended",
         "Wide landscape layouts have excessive unoccupied material area",
         "1600 notepaper retains large left-column empty field despite improved right dossier; paper controls dark; portraits still lack separate high-resolution original masters."
-      ]
+      ],
+      "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
+      "last_native_run_id": 40848431365
     },
     "U": {
-      "status": "partial_art_improved_u09_native_verified",
+      "status": "partial_c14_native_browse_recruit_remove_motion_verified_meters_unchanged",
       "priority": "P0",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
@@ -291,7 +287,7 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Do not expend additional sessions on U09 small-label polish until character master P0 or full 10:00 integrated quality gate; keep existing source-backed states, native result and unapproved status.",
+      "next_action": "Preserve 23 passive-meter source sprite hashes exactly, no focus/mouse. Existing native press/select transitions now pass; defer additional UI polish.",
       "improved": [
         "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
         "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
@@ -308,7 +304,9 @@
         "Art direction and owner approval both still pending",
         "U04 demo 390px heading truncation and capped amber position mark present at 0; no value-dependent rail glow at zero. Dials are INPUTS, passive RAG remain read-only.",
         "U09 final 390 action/ROSTER typography still visually dense on physical hardware despite bounds PASS; 1600 portrait/notes have excess whitespace; original high-res musician masters remain absent."
-      ]
+      ],
+      "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
+      "last_native_run_id": 40848431365
     }
   },
   "checkpoints": [
@@ -385,5 +383,23 @@
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
+  },
+  "last_run_summary": {
+    "id": "C14",
+    "completed_at_utc": "2026-10-29T09:22:38Z",
+    "source_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
+    "art_run": 40848431365,
+    "artifact_id": 12886141655,
+    "full_artifact_sha256": "d8fe5f5ac3876caf17252f5805090f2a319d1b27dc1da2b889d3b813115956ef",
+    "headless_run": 40848431349,
+    "structure_run": 40848431224,
+    "native_recruitment_screenshots": 32,
+    "hardware_screenshots": 20,
+    "recorded_assertion_failures": 0,
+    "native_gl_godot": "4.7.2-stable",
+    "visual_verdict": "PARTIAL; before/after is subtle, corporate portraits still P0 art hold",
+    "owner_approved": false,
+    "meter_source_sprite_sha_unchanged": true,
+    "monitoring": "Review at 10:00; freeze optional new families at 12:00"
   }
 }
