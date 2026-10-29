@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "C25",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "yes - get these into the rep. Score them up and have a range across the instruments. Add a couple of edgy people in there for a good mix - extra talented but difficult to work with.",
+  "baseline_sha": "7806efeddb68528df44efc87a1df3a4ca2386ea4",
+  "dominant_issue": "BM-16",
+  "lesson_ids": ["BM-01","BM-08","BM-10","BM-13","BM-14","BM-15","BM-16","BM-17","BM-20","BM-22","BM-29","BM-30","BM-34","BM-35","BM-36","BM-39","BM-41","BM-45"],
+  "reviewed_documents": {"docs/continuous_improvement/LESSONS.md":"1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd","docs/continuous_improvement/CHECK_BEFORE_WORK.md":"b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"},
+  "issue_log_review": {"bytes":64362,"sha256":"34666b861b64e6b9e290ac6ba02f6a974e6c343f6169c316a2af53e19efed9e8"},
+  "target": {"locator":"Owner-approved 18-person generated cast contact sheet a_wide_documentary_style_collage_stripboard_of_ba.png; rows Jack/Maya/Ellis/Zoe/Dan/Ryan, Lily/Marcus/Ben/Freya/Arjun/Nina, Tom/Casey/Hannah/Oscar/Bex/Sam","original_sha256":"52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f","pixels_inspected":true},
+  "hypothesis":"Import the exact approved reference and additive fictional cast data without replacing canonical identities. Create varied 1-10 music scores priced by the existing recruitment rules, affordable mixed-role lineups and two transparent high-talent/high-friction options. Appearance does not determine personality. Label all contact-sheet crop derivatives as low-resolution casting previews, never independent production masters.",
+  "controlled_comparison":"Compare imported source bytes to the approved source SHA, visually inspect any preview crop against its precise card, validate five-role distributions and spending with the actual recruitment model. No frame, meter, existing person or production-save changes.",
+  "stop_condition":"Bounded single writer until 23:35 UTC, within the owner's overnight authority ending 30 October 09:00 UK. No new image generation or framing work. Report source transfer failure honestly; never publish bogus image bytes or master claims. Release the writer for the scheduled gameplay programme.",
+  "protected":["Scripts/recruitment_catalogue_v3.gd and canonical Alex/Nia identities","existing controls and passive meters","production scenes and saves","main and PR199"],
+  "allowed_paths":["docs/continuous_improvement/**","docs/asset_base/CONTROL_SPRINT_LOCK.json","docs/asset_base/STATE.json","docs/asset_base/LEDGER.md","docs/asset_base/REVIEW_INDEX.md","Art/References/ApprovedCast20261029/**","Data/CharacterCast/**","experiments/character_cast/**",".github/workflows/character-cast-intake.yml"],
+  "validation_commands":["python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C25.json","python3 experiments/character_cast/validate.py","Godot4.7.2 isolated cast catalogue and original recruitment-rule tests","SHA256 approved image and native-size preview crop inspection"],
+  "started_at":"2026-10-29T22:49:00+00:00",
+  "scope_end":"2026-10-29T23:35:00+00:00"
+}

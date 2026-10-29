@@ -1,3 +1,10 @@
 {
- "writer":null,"base_head":"e263d939923e577319e1c5ac0d1518b9c8cf6512","claimed_at":"2026-10-29T19:58:00+00:00","expires_at":"2026-10-29T20:49:50+00:00","scope":"Direct owner one-hour session: actual CC0 source models, one reusable dossier source-art and native proof; no background/character/control redesign/production/save edits.","authority":"Direct owner: ok go. one hour. No recurring extension, purchase, merge or final-art approval.","owner_approved":false,"previous_verified_code_sha":"761a3c640ce33a6fcefba4fdfcb37cfbabc191f3","previous_verified_run_id":40930454213,"released_at":"2026-10-29T20:57:00+00:00","result":"native_tests_pass_visual_partial_publication_held_after_deadline","tested_code_sha":"e3a9138fa652b9c9a119a4ae9e8ff31d44bc4f4e","run_id":40952219968,"closeout":"Metadata only after production stopped; expired lease was not renewed. See docs/continuous_improvement/C24_REVIEW.md."
+ "writer":"C25-approved-cast-20261029T224900",
+ "base_head":"7806efeddb68528df44efc87a1df3a4ca2386ea4",
+ "claimed_at":"2026-10-29T22:49:00+00:00",
+ "expires_at":"2026-10-29T23:35:00+00:00",
+ "scope":"Direct owner approved-cast import, varied role scores and two fictional high-talent/high-friction profiles. No frame/production-save/main edits.",
+ "authority":"Direct owner cast approval/import/scoring request, within separately authorised overnight work through 30 October 09:00 UK.",
+ "owner_approved":false,
+ "previous_closed_session":"C24"
 }

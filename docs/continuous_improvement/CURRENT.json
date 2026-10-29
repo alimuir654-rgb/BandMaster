@@ -1,3 +1,15 @@
 {
- "schema_version":1,"session":"docs/continuous_improvement/sessions/C24.json","scope":"Closed owner-authorised one-hour reused-source dossier proof; final metadata-only evidence closeout","owner_approved":false,"target":"mockups","backgrounds":"deferred","characters":"deferred","meters":"protected","status":"closed","next_action":"Review the representative source-derived dossier against the locked mockup before any wider frame rollout; new implementation needs a new scoped preflight. Native tests passed, but default publication was prevented by the hour deadline."
+ "schema_version":1,
+ "session":"docs/continuous_improvement/sessions/C25.json",
+ "scope":"Owner-approved 18-person casting reference import and additive scored fictional roster; prepare for overnight gameplay integration",
+ "owner_approved":false,
+ "casting_reference_approved":true,
+ "casting_reference_sha256":"52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+ "target":"mockups and approved natural British starting-out cast",
+ "backgrounds":"deferred",
+ "frames":"park notebook; flight-case reversible baseline",
+ "characters":"approved casting reference; scores authored; no independent-master claim",
+ "meters":"protected",
+ "status":"active",
+ "next_action":"Import exact approved artwork and balanced additive catalogue; release writer to connected gameplay work. New authority through 30 October 09:00 supersedes expired frame-only schedules."
 }
