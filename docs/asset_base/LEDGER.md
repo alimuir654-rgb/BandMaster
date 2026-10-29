@@ -561,3 +561,5 @@ Next one action: continue authorised overnight flight-case playable recruitment�
 
 ## C26 — preflight and exclusive gameplay writer, 29 Oct 23:10 UK
 Direct owner instruction supersedes C24 frame-only work: park notebook, prefer reversible flightcase, deliver real recruitment→songwriting→rehearsal gameplay; use the published C25 18-person approved casting reference and scored supplement. No character-generation, frame atlas, generic controls, production saves/main/PR199, or merge. Dominant BM-25 disconnected gameplay; preserve canonical rules and source controls/meters. C26 preflight must pass gate before any gameplay implementation. Writer lease ends23:53Z; all overnight implementation stops08:00 and 09:00 is evidence-only. Approval remains false for full game.
+
+C26 native gameplay first run40972088926: real Godot4.7.2 48/50 checks passed, sandbox save/restart exact parity failed; observed failure logged as BM-35 BEFORE any correction. Production models and sources remain unchanged. Next fix limited to diagnosing and restoring truthful save parity.
