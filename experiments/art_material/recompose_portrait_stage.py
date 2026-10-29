@@ -120,7 +120,7 @@ def patch_test():
         s=once(s,old,new)
     s=once(s,'check(scene.character_photo.texture.resource_path.contains("portrait_landscape_focalsafe") == (window.size.x >= 900), "Wrong portrait source after live resize " + prefix)',
        'check(scene.character_photo.texture.resource_path.contains("portrait_provisional"), "Wrong vertical portrait after live resize " + prefix)')
-    anchor='check(scene.portrait.get_theme_stylebox("panel") is StyleBoxTexture, "Source portrait bezel missing " + prefix)'
+    anchor='check(scene.stat_rows.get_child_count() == 6, "Wrong attribute count " + prefix)'
     new=anchor+'''
             check(scene.portrait_stage.visible == (sz.x >= 900), "Portrait stage visibility " + prefix)
             check(scene.portrait.get_parent() == scene.portrait_stage if sz.x >= 900 else scene.portrait.get_parent().name == "Dossier", "Portrait parent " + prefix)
