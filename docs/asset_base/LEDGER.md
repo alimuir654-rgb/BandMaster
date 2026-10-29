@@ -524,3 +524,7 @@ Canonical46-entry lesson register, mandatory pre-work checklist, source audit, a
 
 ## C23 — owner-requested asset shortlist, research only
 Kept existing Lab07/Lab08 controls, passive meters, C21 dialog and the documented Lucide policy. Identified exact CC0 Clipboard/Office Notepads source candidates; optional Kenney input hints; retained existing Paper001 rather than counting reacquisition. Held Texturelabs/Fuzzimo/paper GUI source distribution pending appropriate permission. Official listing/terms verified, original external files/pixels/import/native tests NOT verified. Owner reference and C22 comparison opened. Five simulated lenses and source URLs are in ASSET_ACQUISITION_SHORTLIST_2026-10-29.md. No purchases, source imports, code/main/save changes or automation extension.
+
+
+## C24 source intake — build-dependency finding
+Downloaded and verified the actual CC0 Clipboard and Office Notepads originals. First inspection run40944602273 failed before rendering because Ubuntu Blender's glTF importer lacked numpy. Original files/logs preserved in artifact12928432605. This is an offline build issue, not an art result; logged before corrective implementation. Existing controls and game runtime unchanged.

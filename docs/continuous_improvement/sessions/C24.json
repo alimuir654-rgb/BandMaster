@@ -3,19 +3,72 @@
   "id": "C24",
   "status": "active",
   "owner_approved": false,
-  "owner_request": "ok go. one hour — execute the CC0 clipboard/notepad source-art proof and representative dossier-frame integration proposed after C23.",
+  "owner_request": "ok go. one hour \u2014 execute the CC0 clipboard/notepad source-art proof and representative dossier-frame integration proposed after C23.",
   "baseline_sha": "e263d939923e577319e1c5ac0d1518b9c8cf6512",
   "dominant_issue": "BM-03",
-  "lesson_ids": ["BM-01","BM-02","BM-03","BM-04","BM-05","BM-08","BM-13","BM-14","BM-15","BM-17","BM-19","BM-22","BM-29","BM-30","BM-31","BM-34","BM-39","BM-41","BM-45","BM-46"],
-  "reviewed_documents": {"docs/continuous_improvement/LESSONS.md":"1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd","docs/continuous_improvement/CHECK_BEFORE_WORK.md":"b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"},
-  "issue_log_review": {"bytes":53741,"sha256":"7f890d6ba994a3cc8bdb34543712aedf1cbb03ddc9876124b0b95f2a0d2450a9"},
-  "target": {"locator":"Owner-supplied bandmaster_ui_frame_atlas.png, notepaper/day dossier and panel; C22_Mockup_Target_vs_Native.png both opened at start","original_sha256":"5d24ec44eada22c353fc4403cfd237c4d005062743c42d173aefa4108d45f5f8","pixels_inspected":true},
-  "hypothesis":"Use the actual CC0 Clipboard metal fastening and Office Notepads blank-sheet construction as offline rendered source layers, rather than sketching approximations. Preserve existing controls, paper baseline and C21 dialog behaviour; only adopt a visibly stronger source treatment.",
-  "controlled_comparison":"Inspect downloaded original geometry/materials and own orthographic source renders first. Then render baseline/candidate with identical content, state, background and bounds at four viewport sizes. Fix the recorded phone caption and assert its bounds before harness reuse. No catalogue preview or mockup becomes a game texture.",
-  "stop_condition":"One-hour owner scope starting 2026-10-29T19:49:50Z. One source-method correction maximum. Stop at an evidenced blocker if the original files are inaccessible. Do not spend the session rebuilding controls or creating unrelated families. No automatic extension.",
-  "protected":["22 passive-meter runtime images","36 button-state images","58 Lab08 layers and hardware logic","C21 dialog logic","production scenes and saves","main and PR199"],
-  "allowed_paths":["docs/continuous_improvement/**","docs/asset_base/CONTROL_SPRINT_LOCK.json","docs/asset_base/STATE.json","docs/asset_base/LEDGER.md","docs/asset_base/REVIEW_INDEX.md","experiments/frame_assets/**",".github/workflows/frame-source-proof.yml","Art/UI/FrameCandidates/C24/**"],
-  "validation_commands":["python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C24.json","Native source acquisition hashes and original geometry/material inventory","Offline Blender orthographic PNG layer render and actual image inspection","Godot 4.7.2 native control/dialog regressions plus four-size controlled frame proof and caption assertions","Protected original file hashes and separate-host integration"],
-  "started_at":"2026-10-29T19:49:50+00:00",
-  "scope_end":"2026-10-29T20:49:50+00:00"
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-03",
+    "BM-04",
+    "BM-05",
+    "BM-08",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-17",
+    "BM-19",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 55218,
+    "sha256": "0919503f96ff4ad6361cc78d4ae1e04a28152872ad06a092a7f700e95394f58f"
+  },
+  "target": {
+    "locator": "Owner-supplied bandmaster_ui_frame_atlas.png, notepaper/day dossier and panel; C22_Mockup_Target_vs_Native.png both opened at start",
+    "original_sha256": "5d24ec44eada22c353fc4403cfd237c4d005062743c42d173aefa4108d45f5f8",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Use the actual CC0 Clipboard metal fastening and Office Notepads blank-sheet construction as offline rendered source layers, rather than sketching approximations. Preserve existing controls, paper baseline and C21 dialog behaviour; only adopt a visibly stronger source treatment.",
+  "controlled_comparison": "Inspect downloaded original geometry/materials and own orthographic source renders first. Then render baseline/candidate with identical content, state, background and bounds at four viewport sizes. Fix the recorded phone caption and assert its bounds before harness reuse. No catalogue preview or mockup becomes a game texture.",
+  "stop_condition": "One-hour owner scope starting 2026-10-29T19:49:50Z. One source-method correction maximum. Stop at an evidenced blocker if the original files are inaccessible. Do not spend the session rebuilding controls or creating unrelated families. No automatic extension.",
+  "protected": [
+    "22 passive-meter runtime images",
+    "36 button-state images",
+    "58 Lab08 layers and hardware logic",
+    "C21 dialog logic",
+    "production scenes and saves",
+    "main and PR199"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/frame_assets/**",
+    ".github/workflows/frame-source-proof.yml",
+    "Art/UI/FrameCandidates/C24/**"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C24.json",
+    "Native source acquisition hashes and original geometry/material inventory",
+    "Offline Blender orthographic PNG layer render and actual image inspection",
+    "Godot 4.7.2 native control/dialog regressions plus four-size controlled frame proof and caption assertions",
+    "Protected original file hashes and separate-host integration"
+  ],
+  "started_at": "2026-10-29T19:49:50+00:00",
+  "scope_end": "2026-10-29T20:49:50+00:00"
 }
