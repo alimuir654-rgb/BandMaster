@@ -1,0 +1,279 @@
+extends Control
+## C26 player-facing isolated scene. Existing photographic flightcase controls,
+## original inert meters and genuine career rules; no flattened clickable mockup.
+const Game = preload("res://experiments/playable_flightcase/session.gd")
+const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const Kit = preload("res://components/control_atlas/kit.gd")
+var game = Game.new()
+var role: String = "Singer"
+var selected_index := 2
+var idea_index := 0
+var form_index := 0
+var leader_index := 0
+var song_title := "THE LAST BUS HOME"
+var last_message := "Build a band. Talent points are separate from your cash."
+var look := "flightcase"
+
+func _ready() -> void:
+ set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ get_viewport().size_changed.connect(_rebuild)
+ _rebuild()
+
+func _clear() -> void:
+ for child in get_children():
+  remove_child(child)
+  child.queue_free()
+
+func _label(content: String, points: int = 16) -> Label:
+ var label: Label = Kit.label(content,look,points)
+ label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ return label
+
+func _box() -> VBoxContainer:
+ var box := VBoxContainer.new()
+ box.add_theme_constant_override("separation",8)
+ box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ return box
+
+func _panel(body: Control, kind := "panel") -> PanelContainer:
+ var panel: PanelContainer = Kit.frame(look,kind)
+ panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ panel.add_child(body)
+ return panel
+
+func _button(title: String, action: Callable, family: String = "action") -> Button:
+ var button: Button = Kit.button(title,look,family)
+ button.pressed.connect(action)
+ return button
+
+func _rebuild() -> void:
+ if not is_inside_tree():
+  return
+ _clear()
+ var size_now: Vector2 = get_viewport_rect().size
+ var mobile := size_now.x < 720
+ var bg := TextureRect.new()
+ bg.texture = load("res://components/control_atlas/art/case_surface.png")
+ bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ bg.stretch_mode = TextureRect.STRETCH_SCALE
+ bg.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ bg.modulate = Color(0.52,0.57,0.61)
+ add_child(bg)
+ var outer := MarginContainer.new()
+ outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ for side in ["left","top","right","bottom"]:
+  outer.add_theme_constant_override("margin_"+side,12 if mobile else 20)
+ add_child(outer)
+ var root_box := _box()
+ root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ outer.add_child(root_box)
+ var header := HBoxContainer.new()
+ header.add_theme_constant_override("separation",12)
+ var title := _label("LIVIN' THE DREAM",26 if not mobile else 21)
+ title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ header.add_child(title)
+ var budget := _label("TALENT %d / %d" % [game.remaining(),Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+ budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+ header.add_child(budget)
+ root_box.add_child(header)
+ var status := _label(last_message,14)
+ status.custom_minimum_size.y = 32
+ status.add_theme_color_override("font_color",Color("f0c78b"))
+ root_box.add_child(status)
+ if game.phase == "recruit":
+  _recruit_page(root_box,mobile)
+ else:
+  _practice_page(root_box,mobile)
+
+func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
+ var tabs := GridContainer.new()
+ tabs.columns = 3 if mobile else 5
+ tabs.add_theme_constant_override("h_separation",5)
+ tabs.add_theme_constant_override("v_separation",4)
+ root_box.add_child(tabs)
+ for name in Base.ROLE_TABS:
+  var item: Button = _button(str(name).to_upper(),_change_role.bind(str(name)),"tab")
+  item.toggle_mode = true
+  item.button_pressed = str(name)==role
+  tabs.add_child(item)
+ var choices: Array = game.choices(role)
+ if choices.is_empty():
+  root_box.add_child(_label("No candidates for this role."))
+  return
+ selected_index = clampi(selected_index,0,choices.size()-1)
+ var person: Dictionary = choices[selected_index]
+ var scroll := ScrollContainer.new()
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ root_box.add_child(scroll)
+ var content := _box() if mobile else HBoxContainer.new()
+ if not mobile:
+  content.add_theme_constant_override("separation",12)
+ content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ scroll.add_child(content)
+ var detail := _box()
+ detail.custom_minimum_size.x = 0 if mobile else 390
+ content.add_child(_panel(detail,"portrait"))
+ var browse := HBoxContainer.new()
+ browse.add_theme_constant_override("separation",6)
+ detail.add_child(browse)
+ var previous: Button = _button("‹",_move_candidate.bind(-1),"browse")
+ previous.custom_minimum_size.x = 48
+ browse.add_child(previous)
+ var name := _label("%s  •  %s" % [str(person["name"]).to_upper(),role.to_upper()],19)
+ name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ browse.add_child(name)
+ var following: Button = _button("›",_move_candidate.bind(1),"browse")
+ following.custom_minimum_size.x = 48
+ browse.add_child(following)
+ var image_path := str(person.get("portrait_preview",""))
+ if image_path.is_empty() or not ResourceLoader.exists(image_path):
+  detail.add_child(_label("ARCHIVE PROFILE  •  PORTRAIT PROVISIONAL",13))
+ else:
+  var image := TextureRect.new()
+  image.texture = load(image_path)
+  image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  image.custom_minimum_size = Vector2(210,205)
+  image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  detail.add_child(image)
+ var stats: Array = Base.stats_for(person,role)
+ var captions: Array = Base.labels_for(role)
+ for i in range(stats.size()):
+  var line := HBoxContainer.new()
+  line.add_theme_constant_override("separation",8)
+  detail.add_child(line)
+  var label := _label(str(captions[i]).to_upper(),13)
+  label.custom_minimum_size.x = 90
+  line.add_child(label)
+  var meter := Kit.PassiveMeter.new(look,int(stats[i]))
+  meter.name = "PassiveMeter"+str(i)
+  line.add_child(meter)
+  line.add_child(_label(str(int(stats[i])),14))
+ var cost := Base.incremental_cost(game.roster,person)
+ var recruited := Base.contains(game.roster,str(person["id"]))
+ var action: Button = _button("REMOVE FROM BAND" if recruited else "RECRUIT  •  %d TALENT" % cost,_remove.bind(str(person["id"])) if recruited else _recruit.bind(str(person["id"])))
+ action.name = "RecruitAction" if not recruited else "RemoveAction"
+ action.disabled = false if recruited else not Base.can_add(game.roster,person)
+ detail.add_child(action)
+ var aside := _box()
+ aside.custom_minimum_size.x = 0 if mobile else 320
+ aside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ content.add_child(_panel(aside,"panel"))
+ aside.add_child(_label("THE PERSON",19))
+ aside.add_child(_label("%s • %s" % [str(person.get("town","UK")),str(person.get("personality","Musician"))],15))
+ aside.add_child(_label(str(person.get("story","An aspiring musician looking for a band.")),14))
+ aside.add_child(_label("STRENGTH • "+str(person.get("strength","Still developing")),14))
+ aside.add_child(_label("FRICTION • "+str(person.get("friction","Unknown")),14))
+ if person.has("collaboration"):
+  aside.add_child(_label("RELIABILITY %d/10   COLLABORATION %d/10" % [int(person["reliability"]),int(person["collaboration"])],14))
+ aside.add_child(_label("YOUR BAND",18))
+ for member in game.roster:
+  aside.add_child(_label("• %s   %s" % [str(member["name"]),str(member.get("primary_role",(member["roles"] as Array)[0]))],14))
+ aside.add_child(_label("TALENT USED %d/200  •  %s" % [game.spent(),"READY" if game.can_start() else Base.missing(game.roster)],14))
+ var start: Button = _button("START YOUR FIRST PRACTICE",_launch)
+ start.name = "StartAction"
+ start.disabled = not game.can_start()
+ aside.add_child(start)
+
+func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
+ var scroll := ScrollContainer.new()
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ root_box.add_child(scroll)
+ var content := _box() if mobile else HBoxContainer.new()
+ content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ if not mobile:
+  content.add_theme_constant_override("separation",12)
+ scroll.add_child(content)
+ var actions := _box()
+ actions.custom_minimum_size.x = 0 if mobile else 470
+ content.add_child(_panel(actions))
+ actions.add_child(_label("FIRST PRACTICE",22))
+ actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
+ actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
+ actions.add_child(_label("IDEA",13))
+ var ideas := Kit.ChoiceStrip.new(look,PackedStringArray(["Riff","Lyric","Groove"]),idea_index)
+ ideas.selection_changed.connect(func(index: int): idea_index=index)
+ actions.add_child(ideas)
+ actions.add_child(_label("ARRANGEMENT",13))
+ var forms := Kit.ChoiceStrip.new(look,PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"]),form_index)
+ forms.selection_changed.connect(func(index: int): form_index=index)
+ actions.add_child(forms)
+ actions.add_child(_label("SONG TITLE",13))
+ var entry := LineEdit.new()
+ entry.name = "SongTitle"
+ entry.text = song_title
+ entry.custom_minimum_size.y = 48
+ entry.text_changed.connect(func(value: String): song_title=value)
+ entry.add_theme_font_size_override("font_size",17)
+ actions.add_child(entry)
+ var leader_names := PackedStringArray()
+ for p in game.career.get("members",[]):
+  leader_names.append(str(p.get("name","Musician")))
+ var lead := Kit.BrowseSelector.new(look,leader_names)
+ lead.selected = clampi(leader_index,0,maxi(0,leader_names.size()-1))
+ lead.call("_refresh")
+ lead.selection_changed.connect(func(index: int,_item: String): leader_index=index)
+ actions.add_child(_label("SESSION LEADER",13))
+ actions.add_child(lead)
+ var write: Button = _button("WRITE SESSION  •  %d/3" % [int(game.career.get("song_draft_progress",0))+1],_write)
+ write.name = "WriteAction"
+ actions.add_child(write)
+ var rehearse: Button = _button("REHEARSE  •  £15",_rehearse)
+ rehearse.name = "RehearseAction"
+ rehearse.disabled = int(game.career.get("cash",0))<15
+ actions.add_child(rehearse)
+ actions.add_child(_button("CLEAR THE AIR",_connect))
+ var info := _box()
+ info.custom_minimum_size.x = 0 if mobile else 350
+ content.add_child(_panel(info))
+ info.add_child(_label("THE BAND",19))
+ for p in game.career.get("members",[]):
+  info.add_child(_label("%s  •  %s   morale %d" % [str(p.get("name","")),str(p.get("role","")),int(p.get("morale",0))],14))
+ info.add_child(_label("SETLIST",18))
+ if game.career.get("song_catalogue",[]).is_empty():
+  info.add_child(_label("No finished original songs. Write three sessions.",14))
+ else:
+  for song in game.career.get("song_catalogue",[]):
+   info.add_child(_label("%s  •  quality %d" % [str(song.get("title","UNTITLED")),int(song.get("quality",0))],14))
+ info.add_child(_label("GIG PREP: Build a complete original and rehearse. Booking isn't available in this isolated proof yet.",14))
+ info.add_child(_button("SAVE SANDBOX",_save,"tab"))
+ info.add_child(_button("LOAD SANDBOX",_load,"tab"))
+
+func _change_role(value: String) -> void:
+ role = value
+ selected_index = 0
+ _rebuild()
+func _move_candidate(delta: int) -> void:
+ var items: Array = game.choices(role)
+ selected_index = posmod(selected_index+delta,items.size())
+ _rebuild()
+func _recruit(id: String) -> void:
+ last_message = str(game.recruit(id)["message"])
+ _rebuild()
+func _remove(id: String) -> void:
+ last_message = str(game.remove_member(id)["message"])
+ _rebuild()
+func _launch() -> void:
+ last_message = str(game.launch()["message"])
+ _rebuild()
+func _write() -> void:
+ var result: Dictionary = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
+ last_message = str(result["message"])
+ _rebuild()
+func _rehearse() -> void:
+ last_message = str(game.rehearse()["message"])
+ _rebuild()
+func _connect() -> void:
+ last_message = str(game.clear_air()["message"])
+ _rebuild()
+func _save() -> void:
+ last_message = "Sandbox saved." if game.save_sandbox() else "Sandbox save failed."
+ _rebuild()
+func _load() -> void:
+ last_message = "Sandbox restored." if game.load_sandbox() else "No valid sandbox save."
+ _rebuild()
