@@ -97,9 +97,9 @@ def patch_test():
     p=ROOT/"tests/native_proof.gd";s=p.read_text()
     a='check(scene.recruit_button.get_meta("source_kit", "") == "U03_Lab07_Tactile", "Direct control skin not bound " + prefix)'
     b=a+"""
-            var ink := scene.tabs[0].get_theme_color("font_color")
+            var ink: Color = scene.tabs[0].get_theme_color("font_color")
             check(ink.r < 0.35 if kind == "notepaper" else ink.r > 0.70, "U09 theme text contrast " + prefix)
-            var action_ink := scene.recruit_button.get_theme_color("font_color")
+            var action_ink: Color = scene.recruit_button.get_theme_color("font_color")
             check(action_ink.r < 0.35 if kind == "notepaper" else action_ink.r > 0.70, "U09 action text contrast " + prefix)"""
     p.write_text(once(s,a,b))
     print("U09_NATIVE_CONTRAST_TEST_READY")
