@@ -14,7 +14,13 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "U03-20261029-0055",
+    "claim_at_utc": "2026-10-29T00:58:00Z",
+    "base_head": "371697cef1fca66c503540db4b4a0e92e2b511c2",
+    "scope": "Lab07 direct-control state family; native two-look integration",
+    "lease_expires_utc": "2026-10-29T01:25:00Z"
+  },
   "last_verified_code_sha": "cc92fa652d53e6733d96e555b1082d21230fd425",
   "baseline": {
     "run_id": 40778019754,
@@ -156,5 +162,5 @@
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
   "last_completed_deliverable": "F02: four source-backed physical frame/mount plates, native responsive phone/tablet layout corrections, 32 screenshots/zero failures. F material kit partial, C portraits blocked, U meters partial.",
   "review_index": null,
-  "last_updated_utc": "2026-10-29T00:11:00Z"
+  "last_updated_utc": "2026-10-29T00:58:00Z"
 }
