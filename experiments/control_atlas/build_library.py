@@ -39,7 +39,7 @@ def main() -> None:
         small=Image.open(source/'metal_key.png').convert('RGBA') if look=='flightcase' else original
         inset=nine(small,(192,96),12 if look=='flightcase' else 20);dest=art/f'frame_{look}_inset.png';inset.save(dest)
         parent2=parent if look=='notepaper' else source/'metal_key.png'
-        record(dest,str(parent2.relative_to(a.root)),'quiet source-backed inset; no baked text/icons',digest(parent2),nine_slice=[28 if look=='notepaper' else 20]*4,safe_insets=[12]*4)
+        record(dest,str(parent2.relative_to(a.root)),'quiet source-backed inset; no baked text/icons',digest(parent2),nine_slice=[28 if look=='notepaper' else 20]*4,safe_insets=[32 if look=='notepaper' else 24]*4)
         shutil.copy2(parent,art/f'frame_{look}_previous.png')
     vendor=a.root/'bandmaster_premium_dashboard_poc';dest=out/'bandmaster_premium_dashboard_poc';dest.mkdir(exist_ok=True);shutil.copy2(vendor/'studio_control.gd',dest/'studio_control.gd');(dest/'assets').mkdir(exist_ok=True)
     selected=['horizontal_base.png','horizontal_cap.png','vertical_base.png','vertical_cap.png','focus_ring_off.png','buzz_ring_off.png','rotary_pointer.png','meter_base.png']

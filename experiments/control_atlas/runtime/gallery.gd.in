@@ -180,12 +180,13 @@ func _frames_page() -> void:
     for preset in ["panel", "inset", "portrait", "ticket", "header", "modal"]:
         var c := _card(preset.to_upper() + " FRAME", "Fixed corners, quiet centre, explicit content-safe insets.")
         var p := Kit.frame(look, preset)
-        p.size_flags_vertical = Control.SIZE_EXPAND_FILL
-        p.custom_minimum_size.y = 100 if preset in ["panel", "portrait", "modal"] else 64
+        p.size_flags_vertical = Control.SIZE_EXPAND_FILL if preset in ["panel", "modal"] else Control.SIZE_SHRINK_CENTER
+        if preset != "portrait":
+            p.custom_minimum_size.y = 120 if preset in ["panel", "modal"] else 88
         c.add_child(p)
         var body := VBoxContainer.new()
         p.add_child(body)
-        var text := Kit.label("LIVE CONTENT", look, 15)
+        var text := Kit.label("PORTRAIT" if preset == "portrait" else "LIVE CONTENT", look, 15)
         text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
         body.add_child(text)
         if preset == "modal":

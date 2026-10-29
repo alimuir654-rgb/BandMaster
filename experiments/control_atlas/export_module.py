@@ -24,6 +24,7 @@ def main()->None:
     (dest/'MANIFEST.json').write_text(json.dumps(manifest,indent=2)+'\n')
     config=(a.source/'project.godot').read_text().replace('"res://','"res://'+PREFIX+'/')
     (a.target/'project.godot').write_text(config)
+    (dest/'README.md').write_text('# Drop-in installation\n\nPlace the included components/control_atlas folder at res://components/control_atlas in an existing Godot 4.7.2 project. Do not replace that project\'s project.godot. Run components/control_atlas/gallery.tscn with F6, or instance scenes/*.tscn into your own screen. The standalone testable ZIP is a separate project with its own project.godot. Resource paths are explicitly scoped; move the folder only with Godot resource-path refactoring.\n\n'+(a.source/'README.md').read_text())
     (dest/'proof').mkdir()
     with zipfile.ZipFile('BandMaster_C20_Drop_In_Library.zip','w',zipfile.ZIP_DEFLATED) as z:
         for f in dest.rglob('*'):
