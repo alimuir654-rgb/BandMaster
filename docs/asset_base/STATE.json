@@ -15,12 +15,12 @@
     "character_artwork"
   ],
   "writer": {
-    "run_id": "C05B-20261029T0317Z",
+    "run_id": "C06-FACESAFE-20261029T0403Z",
     "stream": "C",
-    "base_head": "f2835c94bdad37a1205eeda90418b116cfcf0dc2",
-    "claimed_at": "2026-10-29T03:17:00+00:00",
-    "expires_at": "2026-10-29T03:55:00+00:00",
-    "phase": "binary-preview-github-native-integration",
+    "base_head": "3109d94457e98224fe221d01b6a471280cab8e41",
+    "claimed_at": "2026-10-29T04:04:55.465Z",
+    "expires_at": "2026-10-29T04:39:55.465Z",
+    "phase": "native-landscape-face-safe-correction",
     "owner_approved": false
   },
   "last_verified_code_sha": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
@@ -34,7 +34,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "Import provisional paired-portrait source bytes into the isolated Godot CI using the checked-in C05 adapter, render actual Alex/Nia and both material themes at four resolutions, verify no regressions. Do NOT call paired-source derivatives compliant independent portrait masters. If transfer blocked, retain local project and pursue truly single-subject generator route without repeating split/collage method.",
+  "next_single_action": "Integrate aspect-aware provisional portraits using source-derived face-safe frame without inflating or changing original portrait bytes; verify actual four-size native screenshots and candidate switching. Remains provisional paired source.",
   "streams": {
     "C": {
       "status": "partial_local_provisional_portrait_art_not_native_verified",
