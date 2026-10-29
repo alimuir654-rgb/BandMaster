@@ -49,7 +49,10 @@ jobs:
           subprocess.run(['python3','experiments/art_material/build_passive_meter_kit.py'],check=True)
           subprocess.run(['python3','experiments/art_material/build_frame_kit.py'],check=True)
           subprocess.run(['python3','experiments/art_material/build_direct_control_kit.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/build_u04_control_assembly.py'],check=True)
           run('Create native interaction and screenshot test')
+          import shutil
+          shutil.copy2('experiments/art_material/u04_native_capture.gd',Path(os.environ['ROOT'])/'tests/u04_native_capture.gd')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
           s=p.read_text()
           marker='check(scene.stat_rows.get_child_count() == 6, "Wrong attribute count " + prefix)'
@@ -78,6 +81,13 @@ jobs:
           cp "$ROOT/PASSIVE_METER_MANIFEST.json" proof-shots/
           cp "$ROOT/FRAME_KIT_MANIFEST.json" proof-shots/
           cp "$ROOT/DIRECT_CONTROL_MANIFEST.json" proof-shots/
+          timeout 100s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/u04_native_capture.gd 2>&1 | tee proof-shots/u04-native.log
+          test "${PIPESTATUS[0]}" -eq 0
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/u04-native.log; then exit 1; fi
+          cp "$ROOT"/proof-shots/u04-*.png proof-shots/
+          cp "$ROOT"/proof-shots/u04-results.json proof-shots/
+          cp "$ROOT/U04_CONTROL_MANIFEST.json" proof-shots/
+          cp "$ROOT/assets/material/u04_control_value_atlas.png" proof-shots/
           cp "$ROOT/assets/material/direct_control_atlas.png" proof-shots/
           cp "$ROOT/assets/material/frame_kit_atlas.png" proof-shots/
           cp "$ROOT/assets/material/passive_meter_atlas.png" proof-shots/
@@ -91,5 +101,6 @@ jobs:
             proof-shots/
             frame-proof/BandMaster_Frame_Experiment/scene/frame_demo.gd
             frame-proof/BandMaster_Frame_Experiment/assets/material/
+            frame-proof/BandMaster_Frame_Experiment/bandmaster_premium_dashboard_poc/
           retention-days: 14
           compression-level: 1
