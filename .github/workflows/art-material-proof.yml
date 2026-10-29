@@ -59,7 +59,6 @@ jobs:
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/recompose_portrait_stage.py','--phase','patch-test'],check=True)
-          subprocess.run(['python3','experiments/art_material/rebalance_day_hardware.py','--phase','patch-test'],check=True)
           import shutil
           shutil.copy2('experiments/art_material/u04_native_capture.gd',Path(os.environ['ROOT'])/'tests/u04_native_capture.gd')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
@@ -76,6 +75,7 @@ jobs:
           s=s.replace(marker,marker+'\n            check(scene.tabs[0].get_theme_stylebox("disabled") is StyleBoxTexture, "No role disabled sprite " + prefix)')
           s=s.replace(marker,marker+'\n            for row in scene.stat_rows.get_children():\n                var meter := row.get_node_or_null("ReadOnlyMeter") as TextureRect\n                check(meter != null and meter.mouse_filter == Control.MOUSE_FILTER_IGNORE and meter.focus_mode == Control.FOCUS_NONE, "Passive stat accepts input " + prefix)')
           p.write_text(s)
+          subprocess.run(['python3','experiments/art_material/rebalance_day_hardware.py','--phase','patch-test'],check=True)
           PY
       - name: Render and verify 32 source-backed material states
         timeout-minutes: 3
