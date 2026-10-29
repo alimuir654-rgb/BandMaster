@@ -117,6 +117,7 @@ replace('    stat_panel.add_child(stat_rows)\n    var actions := HBoxContainer.n
     dossier.add_child(tablet_sheet)
     tablet_notes = Label.new()
     tablet_notes.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    tablet_notes.vertical_alignment = VERTICAL_ALIGNMENT_TOP
     tablet_notes.add_theme_font_size_override("font_size", 18)
     tablet_sheet.add_child(tablet_notes)
     var actions := HBoxContainer.new()''')
@@ -132,7 +133,7 @@ replace('    root_margin.add_theme_constant_override("margin_right", 24 if narro
     root_margin.add_theme_constant_override("margin_top", 48 if size.x < 500 else (35 if narrow else 42))
     root_margin.add_theme_constant_override("margin_bottom", 50 if size.x < 500 else (30 if narrow else 32))''')
 replace('    portrait.custom_minimum_size.y = 180 if narrow else 230',
-'''    portrait.custom_minimum_size.y = 320 if tablet else (150 if narrow else 230)
+'''    portrait.custom_minimum_size.y = 435 if tablet else (150 if narrow else 230)
     portrait.size_flags_vertical = Control.SIZE_SHRINK_BEGIN if tablet else Control.SIZE_EXPAND_FILL''')
 replace('    bio.text = "PERSONNEL NOTES\\n\\n" + candidate.story',
         '    bio.text = "PERSONNEL NOTES\\n\\n" + candidate.story\n    tablet_notes.text = "PERSONNEL NOTES\\n\\n" + candidate.story')
