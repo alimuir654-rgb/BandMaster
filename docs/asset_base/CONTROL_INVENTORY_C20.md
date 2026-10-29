@@ -1,27 +1,37 @@
-# BandMaster reusable controls / frame kit
+# BandMaster reusable controls / frame kit — C20
 
-Open this folder's project.godot in Godot 4.7.2 and run gallery.tscn. Use Controls / Hardware / Frames and Day / Night. Narrow screens scroll vertically. This is an isolated library proof, not a replacement for production scenes.
+## Try the standalone gallery
+Open the standalone package's project.godot in Godot 4.7.2 and run gallery.tscn. Use Controls / Hardware / Frames and Day / Night. Narrow screens scroll vertically. This is an isolated component proof, not a replacement for production scenes.
 
-Drop-in wrappers live in scenes/: action, toggle, stepper, choices, browse, pagination, meter, panel, ticket. Set look, caption, initial and choices in the Inspector. Connect changed(value); call get_node(...).control for the typed runtime API. The factory in kit.gd exposes button(), toggle(), badge(), frame(), hardware(), PassiveMeter, Stepper, ChoiceStrip and BrowseSelector. APIs accept live data; example values are not new game rules.
+## Use the library
+The drop-in package contains components/control_atlas only: add that folder to an existing project without changing project settings. Run its gallery with F6 or instance one of the nine scenes. The factory and wrappers are tested both standalone and inside a separate host project. Paths are scoped under res://components/control_atlas/ in the drop-in version.
 
-Inventory / reuse:
-- Action/tab/browse skins: reuse all six U18/U03 Lab07 states; native button adapters now reusable outside recruitment.
-- RAG output meters: preserve 22 zero-to-ten state PNGs byte for byte. PassiveMeter exposes set_score() and never accepts focus/input. The original source atlas is not runtime artwork.
-- Horizontal/vertical faders and two rotary inputs: original Lab08 studio_control.gd plus exact original base/cap/27+23 light layers. No restyling or code modification to this vendor component.
-- Newly assembled reusable behaviour: boolean toggle; bounded integer stepper; exclusive segmented choice; wrap/bounded browser; pagination; selectable native row; passive value/price chip; icon/glyph action buttons.
-- Frames: four source-derived panel/inset masters serving six presets (panel, inset, portrait, ticket, header, modal). Tiled quiet centres, fixed corner margins, explicit content-safe padding. Not 12 falsely independent art masters. A modal preset is a visual container, not yet a modal focus-trap/dialog manager.
+Wrappers: action, toggle, stepper, choices, browse, pagination, meter, panel, ticket. Set look/caption/choices/initial in the Inspector; panel also exposes frame_preset. Connect changed(value). The control property exposes the underlying typed API. For hardware use Kit.hardware("horizontal"|"vertical"|"focus"|"buzz", initial). For selectable list rows use Kit.button(caption,look,"browse",true). Example labels and values are not new game rules.
 
-Scene mapping:
-Recruitment/personnel: choice strip, browse, selectable row, passive meter, portrait/panel/modal.
-Songwriting: toggle, stepper, segmented choices, browse sections, fader/rotary, inset.
-Rehearsal: toggle, linear/rotary input, meters, parameter strips.
-Tour/booking: stepper, browse, cost chip, rows, confirmation panel; bespoke route-map/calendar editor remains future work.
-Recording: existing transport/button states plus Lab08 faders/rotaries/meters; record logic remains in the game.
-Gig/backstage: cue action, selected toggle, page/setlist row, passive output.
-Management/admin: rows, price/value chip, pagination and modal panel.
-No scene background or character changes. No gameplay expansion.
+## Inventory and reuse
+- Action/tab/browse: 36 original U18/U03 Lab07 images, six states and two looks. Native button adapters and live labels; proportional runtime downsampling before nine-slice, original bytes retained.
+- Passive RAG meters: 22 original zero-to-ten runtime images unchanged. PassiveMeter.set_score() updates model-driven values; no focus or pointer input. The pre-existing source atlas is not a runtime requirement.
+- Horizontal and vertical faders, Focus and Buzz rotaries: Lab08 source bases, caps and 27/23 LED layers; existing input/lighting logic retained. The drop-in export changes resource prefixes only and records both original and module code hashes.
+- Newly reusable behaviours: boolean toggle, bounded integer stepper, exclusive segmented choice, wrap/bounded browser, pagination, selectable row adapter, passive value/price chip, glyph/icon action buttons.
+- Frames: four source-derived panel/inset masters serving six presets: panel, inset, portrait, ticket, header and modal. Quiet centres, complete fixed corner details, explicit content-safe padding; portrait preset is a vertical mount. These are not twelve independent artworks. Modal is a visual panel, not a complete modal focus-trap/dialog manager.
 
-Native verification: xvfb-run -a godot --rendering-method gl_compatibility --audio-driver Dummy --path . --script res://native_test.gd
-Evidence is stored in proof/ by CI. Source rights and SHA256 records are in MANIFEST.json and provenance/. Internal visual acceptance is separate from owner approval, which remains false.
+## Scene-by-scene component allocation
+| Scene | Reusable controls | Frame presets |
+| --- | --- | --- |
+| Recruitment / personnel | Action, role choices, browse, selectable rows, passive meters, value chips | Portrait, panel, ticket, modal |
+| Songwriting | Toggle, bounded stepper, segmented choices, section browse, fader/rotary | Panel, inset, header |
+| Rehearsal | Linear/rotary inputs, toggles, passive meters | Panel, inset, header |
+| Tour planning / booking | Stepper, browse, cost chip, rows, confirmation actions | Panel, ticket, modal |
+| Recording | Existing action/transport states, Lab08 faders and rotaries, passive outputs | Panel, inset, header |
+| Gig / backstage | Cue action, selected toggle, setlist rows, page selection, passive output | Panel, header, ticket |
+| Management / admin | Selectable rows, value/price chip, pagination, confirm/cancel | Panel, inset, modal |
 
-Guidance: https://docs.godotengine.org/en/stable/classes/class_styleboxtexture.html (nine-patch/tile behaviour); https://docs.godotengine.org/en/stable/classes/class_button.html (native button states); https://docs.godotengine.org/en/stable/tutorials/ui/gui_navigation.html (keyboard focus). Use native Control sizing and separate input/output semantics.
+## Explicit remaining scope
+A dedicated passive ring-meter family, richer purpose-drawn pictograms, a full modal focus-trap/controller, route-map/calendar editing and scene-specific gameplay bindings are not claimed complete. Existing controls can be used without those optional families. No scene background, character, recruitment logic or production-save changes are included.
+
+## Verification and provenance
+Native test: xvfb-run -a godot --rendering-method gl_compatibility --audio-driver Dummy --path . --script res://native_test.gd (standalone). The drop-in uses the corresponding res://components/control_atlas/native_test.gd path.
+Tests include actual pointer/keyboard activation, disabled input, bounds and once-only signals, exclusive choices, passive semantics, wrappers, four viewport sizes and live resize. Hardware source reuse is verified separately from the new behavioural APIs; this is not a full gameplay playthrough.
+Hashes, source dimensions, safe insets and inherited source/rights basis are in MANIFEST.json and provenance/. Lab07/Lab08 surfaces are owner-supplied image-generated photographic-style artwork, not claimed real photography. Artistic review remains separate from green tests; owner_approved stays false.
+
+Guidance: https://docs.godotengine.org/en/stable/classes/class_styleboxtexture.html ; https://docs.godotengine.org/en/stable/classes/class_button.html ; https://docs.godotengine.org/en/stable/tutorials/ui/gui_navigation.html . Use native sizing, complete corner slices and separate input/output semantics.

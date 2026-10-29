@@ -5,6 +5,7 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 @export_enum("toggle", "stepper", "choices", "browse", "pagination", "meter", "action", "panel", "ticket") var kind := "stepper"
 @export_enum("flightcase", "notepaper") var look := "flightcase"
 @export var choices := PackedStringArray(["One", "Two", "Three"])
+@export_enum("panel", "inset", "portrait", "ticket", "header", "modal") var frame_preset := "panel"
 @export var initial := 0
 @export var caption := "Action"
 var control: Control
@@ -27,7 +28,7 @@ func _ready() -> void:
             mouse_filter = Control.MOUSE_FILTER_IGNORE
             focus_mode = Control.FOCUS_NONE
         "panel":
-            control = Kit.frame(look)
+            control = Kit.frame(look, frame_preset)
         "ticket":
             control = Kit.badge(caption, look)
         _:

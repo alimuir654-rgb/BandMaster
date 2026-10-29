@@ -890,10 +890,10 @@
         20
       ],
       "safe_insets": [
-        12,
-        12,
-        12,
-        12
+        24,
+        24,
+        24,
+        24
       ]
     },
     {
@@ -941,10 +941,10 @@
         28
       ],
       "safe_insets": [
-        12,
-        12,
-        12,
-        12
+        32,
+        32,
+        32,
+        32
       ]
     }
   ],
@@ -1023,14 +1023,14 @@
   "module_path_rebases": [
     {
       "file": "component.gd",
-      "source_sha256": "14203332e4819e49d1ebda46e45e270492fcc7f6c4dda1ba92ad1b1c550d76f9",
-      "module_sha256": "819eeff08543bf68ab24e42ef4cd63257fa3707b46d90fa58e42e2dee0d21580",
+      "source_sha256": "6f97b108d499756a0c5896f65096d123275396cee26094bb03de8e905f1edcfa",
+      "module_sha256": "b71d337a7340070e80be2bd16ad4d46920cc6849ecb5dc87ddc5b2d5a11422d3",
       "change": "Resource prefix only; no control/state/lighting logic modified"
     },
     {
       "file": "gallery.gd",
-      "source_sha256": "b5c23e7f9abb0f677be9173546318365e572b5e1584082c2efacf81eea88c77b",
-      "module_sha256": "6df2d09fa953db3c7c19024ab9348cdb88b252d4293da1ac89b3ebd6d7e404f9",
+      "source_sha256": "e7bcd9eb78e05599c586214f9af6db38924842f820a2478efaf13b5b404b7c53",
+      "module_sha256": "24d1c07be1406c9fcdea8e1a0e00b975c68d25bc46f2a8a252ead22ae9841f69",
       "change": "Resource prefix only; no control/state/lighting logic modified"
     },
     {
@@ -1047,8 +1047,8 @@
     },
     {
       "file": "kit.gd",
-      "source_sha256": "38999c3eaab03cf8555f8cbd1ad705ca717b7e40fff88c13709e7db73ad836f7",
-      "module_sha256": "8e01b51e7d42280b56c7faf3d2d2a784f901729cb2252696cbd930ccc71e4a59",
+      "source_sha256": "4e28f7cfb9f9614ac5e4749e26ed22f1d9a3b1f7f0efce26e3abbfbd3a6d2fc9",
+      "module_sha256": "9372f845d9369d5e9c775113d973a38af5969e736141fae03400b436715a930d",
       "change": "Resource prefix only; no control/state/lighting logic modified"
     },
     {

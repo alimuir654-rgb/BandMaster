@@ -505,9 +505,9 @@
   },
   "latest_owner_scope": "C20: backgrounds/characters deferred; inventory and reuse controls, build missing reusable behaviours, improve frame system",
   "c20": {
-    "tested_code_sha": "cd8c99625bfd989694df2971d9e766f89a1a34f0",
-    "run_id": 40899430216,
-    "artifact_id": 12908074525,
+    "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
+    "run_id": 40901641892,
+    "artifact_id": 12909338595,
     "status": "native_pass_visual_review_pending",
     "source_root": "components/control_atlas",
     "standalone_and_host_import_verified": true,

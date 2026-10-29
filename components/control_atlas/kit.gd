@@ -40,6 +40,9 @@ static func button(label: String, look := "flightcase", family := "tab", toggle 
     b.add_theme_stylebox_override("focus", focus)
     for state in ["font_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color", "font_focus_color"]:
         b.add_theme_color_override(state, ink(look))
+    if look == "flightcase":
+        b.add_theme_color_override("font_pressed_color", Color("f1be62"))
+        b.add_theme_color_override("font_hover_pressed_color", Color("f1be62"))
     b.add_theme_color_override("font_disabled_color", Color("898579") if look == "notepaper" else Color("8d9396"))
     b.set_meta("source", "U18/U03 Lab07 original state family; proportional runtime downsample")
     return b
@@ -56,7 +59,7 @@ static func frame(look: String, preset := "panel") -> PanelContainer:
     var inset := preset in ["inset", "ticket", "header"]
     s.texture = load(MATERIAL + "frame_%s_%s.png" % [look, "inset" if inset else "panel"])
     var margin := (28 if look == "notepaper" else 20) if inset else 40
-    var padding := 12 if inset else 30
+    var padding := (32 if look == "notepaper" else 24) if inset else 30
     s.set_texture_margin_all(margin)
     s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
     s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
@@ -65,6 +68,9 @@ static func frame(look: String, preset := "panel") -> PanelContainer:
     s.content_margin_top = padding
     s.content_margin_bottom = padding
     p.add_theme_stylebox_override("panel", s)
+    if preset == "portrait":
+        p.custom_minimum_size = Vector2(180, 230)
+        p.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
     p.set_meta("frame_preset", preset)
     p.mouse_filter = Control.MOUSE_FILTER_PASS
     return p
