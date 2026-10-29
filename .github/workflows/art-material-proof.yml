@@ -47,12 +47,14 @@ jobs:
           subprocess.run(['python3','experiments/art_material/prepare_art.py'],check=True)
           subprocess.run(['python3','experiments/art_material/refine_art.py'],check=True)
           subprocess.run(['python3','experiments/art_material/build_passive_meter_kit.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/build_frame_kit.py'],check=True)
           run('Create native interaction and screenshot test')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
           s=p.read_text()
           marker='check(scene.stat_rows.get_child_count() == 6, "Wrong attribute count " + prefix)'
           assert marker in s
           s=s.replace(marker,marker+'\n            check(Rect2(Vector2.ZERO,Vector2(sz)).encloses(scene.stat_rows.get_global_rect()), "Stats offscreen " + prefix)')
+          s=s.replace(marker,marker+'\n            check(scene.portrait.get_theme_stylebox("panel") is StyleBoxTexture, "Source portrait bezel missing " + prefix)\n            check(scene.tablet_sheet.visible == (sz.x >= 600 and sz.x < 900), "Tablet composition wrong " + prefix)\n            check(scene.status.get_global_rect().end.y < sz.y - 32 if sz.x < 500 else true, "Footer too low " + prefix)')
           p.write_text(s)
           PY
       - name: Render and verify 32 source-backed material states
@@ -67,6 +69,8 @@ jobs:
           PY
           cp "$ROOT/MATERIAL_MANIFEST.json" proof-shots/
           cp "$ROOT/PASSIVE_METER_MANIFEST.json" proof-shots/
+          cp "$ROOT/FRAME_KIT_MANIFEST.json" proof-shots/
+          cp "$ROOT/assets/material/frame_kit_atlas.png" proof-shots/
           cp "$ROOT/assets/material/passive_meter_atlas.png" proof-shots/
           cp "$ROOT/assets/material/SOURCE_PHOTO_MANIFEST.json" proof-shots/
           cp art-sources/docs/PREMIUM_HARDWARE_SOURCE_INTAKE.md proof-shots/
