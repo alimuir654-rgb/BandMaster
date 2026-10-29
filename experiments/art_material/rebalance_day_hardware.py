@@ -72,6 +72,12 @@ def install():
         '    button.add_theme_color_override("font_disabled_color", Color("696359") if frame_material_kind == "notepaper" else Color("b8afa3"))')
     s=once(s,'    recruit_button.add_theme_color_override("font_color", Color("f5ecda"))',
         '    recruit_button.add_theme_color_override("font_color", Color("332719") if frame_material_kind == "notepaper" else Color("f5ecda"))')
+    # Native mobile tab names have to clear actual Lab07 metal side rails:
+    # shortened glyphs at 390px, original role strings remain tooltips and IDs.
+    s=once(s,'    for tab in tabs:\n        tab.add_theme_font_size_override("font_size", 12 if narrow else 16)',
+        '    for i in tabs.size():\n        tabs[i].text = ["VOX", "GTR", "BASS", "DRMS", "KEYS"][i] if size.x < 500 else ROLES[i]\n        tabs[i].tooltip_text = ROLES[i]\n        tabs[i].add_theme_font_size_override("font_size", 13 if size.x < 500 else (14 if narrow else 16))')
+    s=once(s,'    roster_button.custom_minimum_size.x = 80 if narrow else 135',
+        '    roster_button.custom_minimum_size.x = 105 if size.x < 500 else (110 if narrow else 135)')
     p.write_text(s)
     (ROOT/"U09_DAY_ENAMEL_MANIFEST.json").write_text(json.dumps({
        "kit":"U09 lab07-sourced DAY six-state enamel","owner_approved":False,
