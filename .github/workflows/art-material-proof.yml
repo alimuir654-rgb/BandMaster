@@ -50,7 +50,9 @@ jobs:
           subprocess.run(['python3','experiments/art_material/build_frame_kit.py'],check=True)
           subprocess.run(['python3','experiments/art_material/build_direct_control_kit.py'],check=True)
           subprocess.run(['python3','experiments/art_material/build_u04_control_assembly.py'],check=True)
+          subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','install'],check=True)
           run('Create native interaction and screenshot test')
+          subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','patch-test'],check=True)
           import shutil
           shutil.copy2('experiments/art_material/u04_native_capture.gd',Path(os.environ['ROOT'])/'tests/u04_native_capture.gd')
           p=Path(os.environ['ROOT'])/'tests/native_proof.gd'
@@ -81,6 +83,7 @@ jobs:
           cp "$ROOT/PASSIVE_METER_MANIFEST.json" proof-shots/
           cp "$ROOT/FRAME_KIT_MANIFEST.json" proof-shots/
           cp "$ROOT/DIRECT_CONTROL_MANIFEST.json" proof-shots/
+          cp "$ROOT/C05_PREVIEW_MANIFEST.json" proof-shots/
           timeout 100s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/u04_native_capture.gd 2>&1 | tee proof-shots/u04-native.log
           test "${PIPESTATUS[0]}" -eq 0
           if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/u04-native.log; then exit 1; fi
