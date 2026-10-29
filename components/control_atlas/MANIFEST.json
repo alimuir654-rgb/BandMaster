@@ -1408,8 +1408,10 @@
           104,
           86
         ],
-        "sha256": "7e5d26cee13af70195f623f1df1a86cd7bcca96efd6333fb117e9cad6014593c",
-        "owner_approved": false
+        "sha256": "59f56bc17c4293842338a632d4efc99d473aa4f8ffd0aa18a623e414886a18f0",
+        "owner_approved": false,
+        "pre_finish_sha256": "7e5d26cee13af70195f623f1df1a86cd7bcca96efd6333fb117e9cad6014593c",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       },
       {
         "look": "notepaper",
@@ -1436,8 +1438,10 @@
           96,
           72
         ],
-        "sha256": "e6578a480446723acb103f1dbf83916892055ae22f928afc3c3a7d417af20773",
-        "owner_approved": false
+        "sha256": "c468d1bd7f9bb1c9c9c047f774f41e26988b7fb5baf13202943ab9de370f90b3",
+        "owner_approved": false,
+        "pre_finish_sha256": "e6578a480446723acb103f1dbf83916892055ae22f928afc3c3a7d417af20773",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       },
       {
         "look": "notepaper",
@@ -1464,8 +1468,10 @@
           116,
           108
         ],
-        "sha256": "3385a2f1c4c9594a2eb32f8bcc1589ba9f8cee411e53cb36f305558eddd66349",
-        "owner_approved": false
+        "sha256": "c3883bb1767af06abc1f948bbc726878fdc20cdb08f4513b1887932ec3f4f2c3",
+        "owner_approved": false,
+        "pre_finish_sha256": "3385a2f1c4c9594a2eb32f8bcc1589ba9f8cee411e53cb36f305558eddd66349",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       },
       {
         "look": "notepaper",
@@ -1492,8 +1498,10 @@
           120,
           61
         ],
-        "sha256": "d956cbf11de63fb44bafadeb8be627fc33b0f84b9b92da9f633d53f2e56d733a",
-        "owner_approved": false
+        "sha256": "005c18e406754fac4b40bb3103cba99761ac2c29ec3d8b52fc9a32bb7752bd7c",
+        "owner_approved": false,
+        "pre_finish_sha256": "d956cbf11de63fb44bafadeb8be627fc33b0f84b9b92da9f633d53f2e56d733a",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       },
       {
         "look": "notepaper",
@@ -1520,8 +1528,10 @@
           124,
           68
         ],
-        "sha256": "01700832df8bcbbd620fc6494d33ded37927577db79927e0b95440415c429afd",
-        "owner_approved": false
+        "sha256": "ed7ead86437f0033d8cc59b253a95d223616d6f666d90c29129535878e086ff9",
+        "owner_approved": false,
+        "pre_finish_sha256": "01700832df8bcbbd620fc6494d33ded37927577db79927e0b95440415c429afd",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       },
       {
         "look": "notepaper",
@@ -1548,9 +1558,12 @@
           116,
           102
         ],
-        "sha256": "42b8983e6d2deffce86415262973a9134d5edd1c2bd47ace38a7cd16444a049f",
-        "owner_approved": false
+        "sha256": "64b87d350f74ebc60e90cbea65a474b274ad827d45b6979bd0b1b80d9082deeb",
+        "owner_approved": false,
+        "pre_finish_sha256": "42b8983e6d2deffce86415262973a9134d5edd1c2bd47ace38a7cd16444a049f",
+        "finish": "Retained paper-fibre luminance contrast and warm contact-stock tint; fixed source-derived tabs; no new photographic claim."
       }
-    ]
+    ],
+    "paper_finish": "Native review correction: reduce uniformly grey paper parts while retaining quiet readable faces and light shadows."
   }
 }
