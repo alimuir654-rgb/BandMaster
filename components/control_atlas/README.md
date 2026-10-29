@@ -2,6 +2,10 @@
 
 Place the included components/control_atlas folder at res://components/control_atlas in an existing Godot 4.7.2 project. Do not replace that project's project.godot. Run components/control_atlas/gallery.tscn with F6, or instance scenes/*.tscn into your own screen. The standalone testable ZIP is a separate project with its own project.godot. Resource paths are explicitly scoped; move the folder only with Godot resource-path refactoring.
 
+# Drop-in installation
+
+Place the included components/control_atlas folder at res://components/control_atlas in an existing Godot 4.7.2 project. Do not replace that project's project.godot. Run components/control_atlas/gallery.tscn with F6, or instance scenes/*.tscn into your own screen. The standalone testable ZIP is a separate project with its own project.godot. Resource paths are explicitly scoped; move the folder only with Godot resource-path refactoring.
+
 # BandMaster reusable controls / frame kit — C20
 
 ## Try the standalone gallery
@@ -39,3 +43,9 @@ Tests include actual pointer/keyboard activation, disabled input, bounds and onc
 Hashes, source dimensions, safe insets and inherited source/rights basis are in MANIFEST.json and provenance/. Lab07/Lab08 surfaces are owner-supplied image-generated photographic-style artwork, not claimed real photography. Artistic review remains separate from green tests; owner_approved stays false.
 
 Guidance: https://docs.godotengine.org/en/stable/classes/class_styleboxtexture.html ; https://docs.godotengine.org/en/stable/classes/class_button.html ; https://docs.godotengine.org/en/stable/tutorials/ui/gui_navigation.html . Use native sizing, complete corner slices and separate input/output semantics.
+
+
+## C21 frame styling and hardening
+Six distinct source-derived frame profiles in each look (twelve PNGs). Frames are decorative, non-focusable containers; live children remain native. FRAME_STYLES_C21.json defines margins, safe insets, provenance and hashes. Invalid frame look/preset values fall back to flightcase/panel; styles are per-instance.
+Kit.dialog(title,message,look) creates a reusable overlay: add it to a full-rect screen, connect completed(bool), then open_modal(). Escape cancels, Tab/Shift-Tab remain inside, and previous focus is restored. Call queue_free() on completed for one-shot dialogs. No gameplay/save state is changed.
+Existing native_test.gd remains the original C20 suite; frame_test.gd adds source/style, reflow and modal input/focus checks. Art remains subject to owner review.

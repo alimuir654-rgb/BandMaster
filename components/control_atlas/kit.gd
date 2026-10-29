@@ -43,7 +43,7 @@ static func button(label: String, look := "flightcase", family := "tab", toggle 
     if look == "flightcase":
         b.add_theme_color_override("font_pressed_color", Color("f1be62"))
         b.add_theme_color_override("font_hover_pressed_color", Color("f1be62"))
-    b.add_theme_color_override("font_disabled_color", Color("898579") if look == "notepaper" else Color("8d9396"))
+    b.add_theme_color_override("font_disabled_color", Color("615b51") if look == "notepaper" else Color("8d9396"))
     b.set_meta("source", "U18/U03 Lab07 original state family; proportional runtime downsample")
     return b
 static func label(text: String, look: String, points := 16) -> Label:
@@ -54,26 +54,13 @@ static func label(text: String, look: String, points := 16) -> Label:
     l.mouse_filter = Control.MOUSE_FILTER_IGNORE
     return l
 static func frame(look: String, preset := "panel") -> PanelContainer:
-    var p := PanelContainer.new()
-    var s := StyleBoxTexture.new()
-    var inset := preset in ["inset", "ticket", "header"]
-    s.texture = load(MATERIAL + "frame_%s_%s.png" % [look, "inset" if inset else "panel"])
-    var margin := (28 if look == "notepaper" else 20) if inset else 40
-    var padding := (32 if look == "notepaper" else 24) if inset else 30
-    s.set_texture_margin_all(margin)
-    s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
-    s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
-    s.content_margin_left = padding
-    s.content_margin_right = padding
-    s.content_margin_top = padding
-    s.content_margin_bottom = padding
-    p.add_theme_stylebox_override("panel", s)
-    if preset == "portrait":
-        p.custom_minimum_size = Vector2(180, 230)
-        p.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-    p.set_meta("frame_preset", preset)
-    p.mouse_filter = Control.MOUSE_FILTER_PASS
-    return p
+    return load("res://components/control_atlas/frame_styles.gd").make(look, preset)
+static func dialog(title: String, message: String, look := "flightcase") -> Control:
+    var overlay = load("res://components/control_atlas/framed_dialog.gd").new()
+    overlay.look = look
+    overlay.title_text = title
+    overlay.body_text = message
+    return overlay
 static func badge(text: String, look: String) -> PanelContainer:
     var p := frame(look, "ticket")
     var caption := label(text, look, 14)

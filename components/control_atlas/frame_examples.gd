@@ -1,0 +1,57 @@
+extends RefCounted
+const Kit = preload("res://components/control_atlas/kit.gd")
+static func populate(scene: Control) -> void:
+    var look: String = scene.look
+    var grid: GridContainer = scene.grid
+    var cards: Array = scene.cards
+    var live: Dictionary = scene.live
+    var captions := {
+        "panel": ["01  RACK / WORKSPACE", "Primary group · restrained hardware"],
+        "inset": ["02  RECESSED INSERT", "Secondary content · quieter border"],
+        "portrait": ["03  ARCHIVE MOUNT", "Fixed photo corners · vertical format"],
+        "ticket": ["04  TICKET / VALUE", "Compact data · perforated stub"],
+        "header": ["05  SECTION PLAQUE", "Title rail · fixed edge details"],
+        "modal": ["06  DECISION DIALOG", "Focus trap · Escape · return focus"]
+    }
+    for preset in ["panel", "inset", "portrait", "ticket", "header", "modal"]:
+        var card := VBoxContainer.new()
+        card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        card.add_theme_constant_override("separation", 10)
+        grid.add_child(card)
+        cards.append(card)
+        var title := Kit.label(captions[preset][0], look, 17)
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        card.add_child(title)
+        var info := Kit.label(captions[preset][1], look, 13)
+        info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        card.add_child(info)
+        var p := Kit.frame(look, preset)
+        if preset in ["panel", "modal"]:
+            p.custom_minimum_size.y = 250
+        card.add_child(p)
+        var body := VBoxContainer.new()
+        body.add_theme_constant_override("separation", 12)
+        p.add_child(body)
+        var headline := Kit.label({"panel":"SESSION DESK", "inset":"Personnel notes", "portrait":"PORTRAIT MOUNT", "ticket":"SESSION 03  /  200 TALENT", "header":"REHEARSAL / ARRANGEMENT", "modal":"Ready for the session?"}[preset], look, 18 if preset in ["panel","modal"] else 14)
+        headline.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        body.add_child(headline)
+        if preset in ["panel", "inset", "modal"]:
+            var detail := Kit.label("Live labels and controls remain separate from the source artwork.", look, 15)
+            detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+            body.add_child(detail)
+        if preset == "panel":
+            var row := HBoxContainer.new()
+            row.add_theme_constant_override("separation", 6)
+            body.add_child(row)
+            row.add_child(Kit.label("Tone", look))
+            row.add_child(Kit.PassiveMeter.new(look, 8))
+            row.add_child(Kit.label("8 / 10", look))
+        if preset == "modal":
+            var open := Kit.button("Open dialog", look, "action")
+            body.add_child(open)
+            live.dialog_open = open
+            open.pressed.connect(func():
+                var overlay = Kit.dialog("Confirm the session", "This reusable dialog owns keyboard focus. Escape cancels and returns focus to this button. No game data is changed.", look)
+                scene.add_child(overlay)
+                overlay.completed.connect(func(_accepted: bool): overlay.queue_free())
+                overlay.open_modal())

@@ -1,0 +1,42 @@
+extends RefCounted
+## Independent source art, fixed corners and explicit safe insets.
+const SPEC := "res://components/control_atlas/FRAME_STYLES_C21.json"
+static var profiles: Dictionary = {}
+static func _load_profiles() -> void:
+    if not profiles.is_empty():
+        return
+    var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SPEC))
+    if parsed is Dictionary:
+        for row in parsed.get("frames", []):
+            profiles[str(row.look) + "/" + str(row.preset)] = row
+static func normal_look(value: String) -> String:
+    return value if value in ["flightcase", "notepaper"] else "flightcase"
+static func normal_preset(value: String) -> String:
+    return value if value in ["panel", "inset", "portrait", "ticket", "header", "modal"] else "panel"
+static func apply(panel: PanelContainer, look: String, preset: String) -> void:
+    _load_profiles()
+    look = normal_look(look)
+    preset = normal_preset(preset)
+    var row: Dictionary = profiles[look + "/" + preset]
+    var s := StyleBoxTexture.new()
+    s.texture = load("res://components/control_atlas/" + str(row.file))
+    for i in range(4):
+        s.set_texture_margin(i, float(row.nine_slice[i]))
+        s.set_content_margin(i, float(row.content_insets[i]))
+    s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+    s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+    panel.add_theme_stylebox_override("panel", s)
+    panel.custom_minimum_size = Vector2(row.minimum_size[0], row.minimum_size[1])
+    if preset == "portrait":
+        panel.custom_minimum_size = Vector2(180, 230)
+    panel.set_meta("frame_preset", preset)
+    panel.set_meta("frame_look", look)
+    panel.set_meta("frame_profile", row.duplicate(true))
+    panel.mouse_filter = Control.MOUSE_FILTER_PASS
+    panel.focus_mode = Control.FOCUS_NONE
+static func make(look: String, preset: String = "panel") -> PanelContainer:
+    var panel := PanelContainer.new()
+    apply(panel, look, preset)
+    if preset == "portrait":
+        panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+    return panel

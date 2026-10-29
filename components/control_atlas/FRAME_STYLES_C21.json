@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "source_type": "Source-backed digital material compositing; NOT newly photographed hardware or generator output",
+  "rights": "Inherited C20 source basis: owner-supplied Lab07/Lab08 image-generated hardware; retained CC0 paper manifest. No additional licence asserted.",
+  "source_hashes": {
+    "paper_surface.png": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+    "case_surface.png": "0c692e795584b677fa7a4f97f04caf7b407c2e20ae00c87696333818202eba34",
+    "frame_flightcase_previous.png": "56739c929d78bc52c944095dd23b68176e2d3950e0619cde6aba0f4640f5f601",
+    "frame_notepaper_previous.png": "189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+    "frame_flightcase_inset.png": "413fff9396e08da6e9751451cc33c45f93f7c11dce7ef3edc347195d6bad8a6f"
+  },
+  "protected_originals": {
+    "art/control_tab_flightcase_focus.png": "e9da36f68f917371e181c9c0ae81e67b648faa4893764619ed778afa2d4881a3",
+    "art/control_browse_flightcase_hover.png": "9711ebfa1a4e2a913871ae392739af665512fb25b3a714ae7bb05024728da312",
+    "art/control_action_flightcase_focus.png": "a3baced8e6bb20bcdfe3294d37b839397f9a1c0eaad091f0f1ac39915b222aac",
+    "art/control_browse_notepaper_hover.png": "db3393c7b5024c41e905a2a0b133e1f4f8c13c36c7eecd622750be69e7aa148f",
+    "art/passive_meter_flightcase_10.png": "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+    "art/control_tab_notepaper_idle.png": "2c3c80258c3e54785eb87034c44060f440f53681338a131e2ec8777e586a49a3",
+    "art/control_browse_flightcase_pressed.png": "b2a6f2f7f1becb1d7f988c493f82c1d0aef1acc90a12add066f39a38c66137fa",
+    "art/passive_meter_notepaper_02.png": "134e146c1e1bb03a9865f0fa22fa2b7bfa0298926ecafed20a59db74707b1102",
+    "art/passive_meter_notepaper_01.png": "94552a8fcbcdc680d2f31d7277d570c4fd1a84685342bb2282443713c0c4f374",
+    "art/passive_meter_notepaper_00.png": "f0cfe2ee375bc3b5336efe2c608d8424585daddfe4e21c07ce2f0c2744c430dc",
+    "art/control_action_notepaper_disabled.png": "8ed8fdb326025d43f2b39cef8968c08a5f6f4eefd5a5c18f9f3f9f01ab79223b",
+    "art/passive_meter_flightcase_02.png": "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+    "art/control_action_notepaper_pressed.png": "051b597fa6659385e8dbf55a5755fba48533fb41262c5d420d20bd09a28cf37b",
+    "art/passive_meter_flightcase_06.png": "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+    "art/passive_meter_flightcase_05.png": "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+    "art/control_action_notepaper_idle.png": "7002d7ee6734ba30428519ad10fd0a63908e0ac579774c9405386655b411e19b",
+    "art/control_tab_notepaper_focus.png": "ce5e9159bd0c4aaac5517fb53827e931b77a3efd58180ff281ca260b65de44fe",
+    "art/control_tab_flightcase_active.png": "c1a5902f3a135e2b3c7bcf2f82184efb1f240fb8f3cbef756993f1a11836f061",
+    "art/control_action_flightcase_disabled.png": "a410e187481be0569749fa4e876e4ecc99133ed8667e55593f22dc347c8fa727",
+    "art/passive_meter_notepaper_06.png": "6ab7468183c73ea20afa4ae61b7e1a62693b0480695f8dc7d84e9f675e672ff9",
+    "art/control_action_notepaper_focus.png": "18b702dacffb776ac689d04c302f918b5746bab22739a86cab835bdc474f5133",
+    "art/passive_meter_notepaper_07.png": "7e8cfda0402a3ec011400eac1bd124b9af96a34cc64a76c13ceeca0ffb7d9a06",
+    "art/passive_meter_notepaper_05.png": "c5c29f9f60406407f343a1b11648b2ea59a96dacecf8baa8e2d20e605d0db0d6",
+    "art/passive_meter_notepaper_09.png": "ef5bb53f9effcf5ff566b9ea20cc4b8425e05d0227621158fc982fe60cbf2ccf",
+    "art/control_action_notepaper_hover.png": "7e78650533bcd7a11706fc4c0bca202aa6e1f6903ce29e9a9ec14b1ff545fa13",
+    "art/passive_meter_notepaper_08.png": "bc245a4a4b0ca4522e61195ef679845952b6f5324ae215964a1b3eaab2ba2e87",
+    "art/control_tab_notepaper_disabled.png": "20e645dcc02b987707c84a7dbb94b28e3e9ea13de53a055670967c5d4dea735d",
+    "art/control_browse_notepaper_disabled.png": "9f4726f39d92524ce4bfeb4be40d666124a79c8859c5d3a95c07a769c4c6bc37",
+    "art/passive_meter_flightcase_01.png": "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+    "art/control_action_flightcase_hover.png": "85e9aca6b08482a373848702d38cfb5ce675a4d54f5e845990318bd84a10dad6",
+    "art/control_tab_flightcase_idle.png": "9b05e573a9c0a0efb8fdb0e2344ddd3f8a0c2b127ae599f503ca22168aa47230",
+    "art/passive_meter_flightcase_04.png": "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+    "art/control_action_notepaper_active.png": "35067707ccbd5a96f55411ee217532e22fe1e5fc7871b6a700673675ac1e7a0c",
+    "art/control_action_flightcase_idle.png": "910a4c03244b22a50a9aa3a8fdffd8c91a06b6e3133b1ee4d9d0aebe076d7520",
+    "art/passive_meter_notepaper_10.png": "db3a5a8da24decd2b7d782bf2724b6206ecc844ded7405e76a1b212853baf54a",
+    "art/control_tab_notepaper_active.png": "e780407916834f83877d902e753720347c5e0c05c52ed74332fabbd1a6be6af7",
+    "art/passive_meter_flightcase_00.png": "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+    "art/passive_meter_flightcase_03.png": "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+    "art/control_browse_notepaper_pressed.png": "5479283f7b7ebac300d7244cf3814e531a34fe2ba53b933a9ee88a60fdce6fe8",
+    "art/control_browse_flightcase_disabled.png": "5b8586e00b194f4dbe24e522d6e545e7ad2d94db658d1f73379f96a5e6499d48",
+    "art/passive_meter_flightcase_09.png": "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+    "art/control_browse_flightcase_focus.png": "bcb4030648384fb208627ac6e2bf11abb79c8365d902700335a5bb37518a30ce",
+    "art/control_action_flightcase_active.png": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+    "art/control_browse_notepaper_active.png": "29f0e10bdd2666d9c3498c7fd8d7b7c37e427112e393cdafb2d019effff3c4ab",
+    "art/control_tab_flightcase_pressed.png": "9e28157699a76adc65893a063ea2c27603c53163e792e8b59de5205dc4fe856a",
+    "art/control_browse_flightcase_active.png": "c8ec6de58c17cf4eae511ecbbf6983e18897b1124fc2ed0881d0952f76e6fce0",
+    "art/passive_meter_flightcase_08.png": "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+    "art/control_tab_flightcase_hover.png": "b59a3a0f70b6040a48de95f92ff11b5d0244ccfb9557f8b16d3276bfb9bbfbd4",
+    "art/control_browse_flightcase_idle.png": "b9ba3bbd4930a92ac67302510f8b47d3e4d4e1c07d5deef7289b1a4894a5146b",
+    "art/passive_meter_notepaper_03.png": "f7af3428ddd32961bfb995e498cc0a05d895e31c552cd8798eb81bf3e615af1c",
+    "art/control_tab_flightcase_disabled.png": "616b09b37d50d0baacd1b75c1d9e43757747afea7264971d2d8350d90b9a9b76",
+    "art/control_tab_notepaper_pressed.png": "cc90507ca8172a75cdd83f62e04477a6cceadbc1c0f62e574d6b7377ea7ce6a3",
+    "art/control_tab_notepaper_hover.png": "75211785e6aa65b1159bc3d463e51b54bfc71ce7c51f22c3d94339284371ab86",
+    "art/control_action_flightcase_pressed.png": "6cef9a70b9b24f09dee7c31569a99f5cc10860fc8406f4d229515da03e05cba3",
+    "art/control_browse_notepaper_focus.png": "ffc3cdde43206d1a5c77edddbdffa459cb4dfda8d4bf7279b99ed67a4e4eed5f",
+    "art/control_browse_notepaper_idle.png": "0664adaf90099d1ba8767c81cb638f3a653b72f92cff27f6c146cfaf7930bc78",
+    "art/passive_meter_notepaper_04.png": "6da9495d6299a55562c584c587b7e4ce40e22b7a5e9f3500005a8c6915c46dda",
+    "art/passive_meter_flightcase_07.png": "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04"
+  },
+  "owner_approved": false,
+  "frames": [
+    {
+      "look": "flightcase",
+      "preset": "panel",
+      "file": "art/frame_flightcase_panel_c21.png",
+      "size": [
+        448,
+        300
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        28,
+        32,
+        28,
+        28
+      ],
+      "content_insets": [
+        28,
+        34,
+        28,
+        28
+      ],
+      "minimum_size": [
+        104,
+        86
+      ],
+      "sha256": "494fe243b789bad35521a7389a2cd475f0f18c4ddfb199b459da4285f8424cd7",
+      "owner_approved": false
+    },
+    {
+      "look": "flightcase",
+      "preset": "inset",
+      "file": "art/frame_flightcase_inset_c21.png",
+      "size": [
+        384,
+        156
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "content_insets": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "minimum_size": [
+        96,
+        72
+      ],
+      "sha256": "2734a406bdaed180f27f5c4bf283f72406fcef69ab5c16dbb9775656089f6f50",
+      "owner_approved": false
+    },
+    {
+      "look": "flightcase",
+      "preset": "portrait",
+      "file": "art/frame_flightcase_portrait_c21.png",
+      "size": [
+        300,
+        380
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        32,
+        38,
+        32,
+        42
+      ],
+      "content_insets": [
+        34,
+        40,
+        34,
+        44
+      ],
+      "minimum_size": [
+        116,
+        108
+      ],
+      "sha256": "12d6eef74173483cc97d671eb34f2ed049ff712b8049907c49e0c2c7f6bf0017",
+      "owner_approved": false
+    },
+    {
+      "look": "flightcase",
+      "preset": "ticket",
+      "file": "art/frame_flightcase_ticket_c21.png",
+      "size": [
+        384,
+        128
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        40,
+        30,
+        30,
+        30
+      ],
+      "content_insets": [
+        42,
+        18,
+        30,
+        18
+      ],
+      "minimum_size": [
+        120,
+        61
+      ],
+      "sha256": "db506434a4054f06590bb842e57b9c3ef9d1ba5947ac1b17f26a96dcdc21f804",
+      "owner_approved": false
+    },
+    {
+      "look": "flightcase",
+      "preset": "header",
+      "file": "art/frame_flightcase_header_c21.png",
+      "size": [
+        448,
+        100
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        36,
+        30,
+        36,
+        26
+      ],
+      "content_insets": [
+        38,
+        24,
+        38,
+        20
+      ],
+      "minimum_size": [
+        124,
+        68
+      ],
+      "sha256": "72e1b242e4927ad2efe7833cf409d1635e2197f9d28dec5e532af0bbeab3733f",
+      "owner_approved": false
+    },
+    {
+      "look": "flightcase",
+      "preset": "modal",
+      "file": "art/frame_flightcase_modal_c21.png",
+      "size": [
+        448,
+        300
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        32,
+        48,
+        32,
+        32
+      ],
+      "content_insets": [
+        34,
+        48,
+        34,
+        30
+      ],
+      "minimum_size": [
+        116,
+        102
+      ],
+      "sha256": "14c52097968184a9b69a77db300501aeb4717ef91aed72933af81969999238e6",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "panel",
+      "file": "art/frame_notepaper_panel_c21.png",
+      "size": [
+        448,
+        300
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        28,
+        32,
+        28,
+        28
+      ],
+      "content_insets": [
+        28,
+        34,
+        28,
+        28
+      ],
+      "minimum_size": [
+        104,
+        86
+      ],
+      "sha256": "7e5d26cee13af70195f623f1df1a86cd7bcca96efd6333fb117e9cad6014593c",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "inset",
+      "file": "art/frame_notepaper_inset_c21.png",
+      "size": [
+        384,
+        156
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "content_insets": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "minimum_size": [
+        96,
+        72
+      ],
+      "sha256": "e6578a480446723acb103f1dbf83916892055ae22f928afc3c3a7d417af20773",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "portrait",
+      "file": "art/frame_notepaper_portrait_c21.png",
+      "size": [
+        300,
+        380
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        32,
+        38,
+        32,
+        42
+      ],
+      "content_insets": [
+        34,
+        40,
+        34,
+        44
+      ],
+      "minimum_size": [
+        116,
+        108
+      ],
+      "sha256": "3385a2f1c4c9594a2eb32f8bcc1589ba9f8cee411e53cb36f305558eddd66349",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "ticket",
+      "file": "art/frame_notepaper_ticket_c21.png",
+      "size": [
+        384,
+        128
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        40,
+        30,
+        30,
+        30
+      ],
+      "content_insets": [
+        42,
+        18,
+        30,
+        18
+      ],
+      "minimum_size": [
+        120,
+        61
+      ],
+      "sha256": "d956cbf11de63fb44bafadeb8be627fc33b0f84b9b92da9f633d53f2e56d733a",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "header",
+      "file": "art/frame_notepaper_header_c21.png",
+      "size": [
+        448,
+        100
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        36,
+        30,
+        36,
+        26
+      ],
+      "content_insets": [
+        38,
+        24,
+        38,
+        20
+      ],
+      "minimum_size": [
+        124,
+        68
+      ],
+      "sha256": "01700832df8bcbbd620fc6494d33ded37927577db79927e0b95440415c429afd",
+      "owner_approved": false
+    },
+    {
+      "look": "notepaper",
+      "preset": "modal",
+      "file": "art/frame_notepaper_modal_c21.png",
+      "size": [
+        448,
+        300
+      ],
+      "mode": "RGBA",
+      "nine_slice": [
+        32,
+        48,
+        32,
+        32
+      ],
+      "content_insets": [
+        34,
+        48,
+        34,
+        30
+      ],
+      "minimum_size": [
+        116,
+        102
+      ],
+      "sha256": "42b8983e6d2deffce86415262973a9134d5edd1c2bd47ace38a7cd16444a049f",
+      "owner_approved": false
+    }
+  ]
+}

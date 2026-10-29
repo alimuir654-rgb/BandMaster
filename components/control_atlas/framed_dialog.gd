@@ -1,0 +1,104 @@
+extends Control
+## Modal overlay: owned focus, explicit cancellation, once-only completion.
+signal completed(accepted: bool)
+var look := "flightcase"
+var title_text := "Confirm action"
+var body_text := "Review this action before continuing."
+var confirm_text := "Confirm"
+var cancel_text := "Cancel"
+var panel: PanelContainer
+var confirm_button: Button
+var cancel_button: Button
+var is_open := false
+var _previous_focus: WeakRef
+var _fit_pending := false
+func _ready() -> void:
+    set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    mouse_filter = Control.MOUSE_FILTER_STOP
+    focus_mode = Control.FOCUS_NONE
+    z_index = 100
+    var kit = load("res://components/control_atlas/kit.gd")
+    panel = kit.frame(look, "modal")
+    add_child(panel)
+    var column := VBoxContainer.new()
+    column.add_theme_constant_override("separation", 16)
+    panel.add_child(column)
+    var heading: Label = kit.label(title_text, look, 22)
+    heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    column.add_child(heading)
+    var text: Label = kit.label(body_text, look, 16)
+    text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    column.add_child(text)
+    var actions := HBoxContainer.new()
+    actions.add_theme_constant_override("separation", 8)
+    column.add_child(actions)
+    cancel_button = kit.button(cancel_text, look)
+    confirm_button = kit.button(confirm_text, look, "action")
+    actions.add_child(cancel_button)
+    actions.add_child(confirm_button)
+    cancel_button.pressed.connect(_finish.bind(false))
+    confirm_button.pressed.connect(_finish.bind(true))
+    for button in [cancel_button, confirm_button]:
+        var other: Button = confirm_button if button == cancel_button else cancel_button
+        button.focus_next = button.get_path_to(other)
+        button.focus_previous = button.get_path_to(other)
+        for side in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+            button.set_focus_neighbor(side, button.get_path_to(other))
+    resized.connect(_fit)
+    panel.minimum_size_changed.connect(_queue_fit)
+    hide()
+    _fit()
+func _queue_fit() -> void:
+    if not _fit_pending:
+        _fit_pending = true
+        call_deferred("_fit")
+func _fit() -> void:
+    _fit_pending = false
+    if not is_instance_valid(panel):
+        return
+    var width := minf(560.0, maxf(260.0, size.x - 32.0))
+    panel.size = Vector2(width, panel.get_combined_minimum_size().y)
+    panel.position = ((size - panel.size) * 0.5).round()
+    queue_redraw()
+func open_modal() -> void:
+    if is_open or not is_node_ready():
+        return
+    var focused := get_viewport().gui_get_focus_owner()
+    _previous_focus = weakref(focused) if focused != null else null
+    is_open = true
+    show()
+    _fit()
+    cancel_button.grab_focus()
+func _finish(accepted: bool) -> void:
+    if not is_open:
+        return
+    is_open = false
+    hide()
+    _restore_focus()
+    completed.emit(accepted)
+func _restore_focus() -> void:
+    if _previous_focus != null:
+        var previous = _previous_focus.get_ref()
+        if is_instance_valid(previous) and previous.is_inside_tree() and previous.is_visible_in_tree() and previous.focus_mode != Control.FOCUS_NONE:
+            previous.grab_focus()
+    _previous_focus = null
+func _input(event: InputEvent) -> void:
+    if not is_open or not event is InputEventKey or not event.pressed or event.echo:
+        return
+    if event.keycode == KEY_ESCAPE:
+        get_viewport().set_input_as_handled()
+        _finish(false)
+    elif event.keycode == KEY_TAB:
+        get_viewport().set_input_as_handled()
+        if cancel_button.has_focus():
+            confirm_button.grab_focus()
+        else:
+            cancel_button.grab_focus()
+func _gui_input(_event: InputEvent) -> void:
+    if is_open:
+        accept_event()
+func _draw() -> void:
+    draw_rect(Rect2(Vector2.ZERO, size), Color(0.015, 0.02, 0.025, 0.72))
+func _exit_tree() -> void:
+    if is_open:
+        _restore_focus()
