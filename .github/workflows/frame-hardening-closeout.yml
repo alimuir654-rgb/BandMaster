@@ -1,0 +1,52 @@
+name: Record inspected C21 frame evidence
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['docs/asset_base/C21_VERIFIED_REVIEW.md', '.github/workflows/frame-hardening-closeout.yml']
+permissions:
+  contents: write
+concurrency:
+  group: c21-evidence-closeout
+  cancel-in-progress: false
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record actual inspection and release only the matching writer
+        run: |
+          test "$GITHUB_REF_NAME" = dual-frame-proof-2026-10-28
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Head changed; refusing concurrent closeout'; exit 1; }
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime,timezone
+          import json
+          tested='a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a'
+          root=Path('docs/asset_base');p=root/'STATE.json';state=json.loads(p.read_text())
+          lock_path=root/'CONTROL_SPRINT_LOCK.json';lock=json.loads(lock_path.read_text())
+          assert lock['writer']=='C21-frame-styling-hardening-20261029T1551'
+          assert state.get('writer') is None and state['c21']['tested_code_sha']==tested
+          assert state['c21']['run_id']==40911368930 and state['c21']['artifact_id']==12914490869
+          now=datetime.now(timezone.utc).isoformat()
+          state['c21'].update({'status':'native_pass_visual_partial','reviewed_at':now,'owner_approved':False,'native_assertions_per_host':2185,'native_screenshots_per_host':72,'protected_meter_pngs':22,'protected_button_pngs':36,'protected_lab08_pngs':58,'artifact_sha256':'5847e39c38c54ebe0e86a3dc70eaeee6e8211026724ff1528dba226bada79d5a','published_module_sha':'acd4cd0441feb682237ac4a906daadf11d86a197'})
+          state['owner_approved']=False
+          state['last_verified_component_sha']=tested
+          state['next_single_action']='C21 scoped session complete. Owner review of differentiated frames and hardened dialog; no automatic extension, background/character restart or merge.'
+          state['latest_owner_scope']='C21 one-hour direct follow-on completed: frames and hardening only; deferred backgrounds/characters and original meters retained.'
+          p.write_text(json.dumps(state,indent=2)+'\n')
+          review=(root/'C21_VERIFIED_REVIEW.md').read_text()
+          with (root/'LEDGER.md').open('a') as f:f.write('\n\n## C21 — actual native pixel review and scoped closeout '+now+'\n'+review+'\nDedicated writer released; no automatic extension.\n')
+          with (root/'PROGRAMME_2026-10-29.md').open('a') as f:f.write('\n\n## Direct owner follow-on C21 — completed\nOwner: "continue with some additional frame styling and hardening/improvement work. One hour". This bounded frame/library follow-on superseded the earlier implementation freeze only for this session, not recurring automation. Read C21_VERIFIED_REVIEW.md. Native suites2185 checks per host passed; visual judgement improved/PARTIAL, owner_approved=false. Backgrounds/characters remain deferred. No automatic continuation or merge.\n')
+          index=root/'REVIEW_INDEX.md'
+          with index.open('a') as f:f.write('\n\n## C21 frames and hardening — inspected\nReview: [C21_VERIFIED_REVIEW.md](C21_VERIFIED_REVIEW.md). Native run https://github.com/alimuir654-rgb/BandMaster/actions/runs/40911368930 ; artifact12914490869. Tested source '+tested+'. Source module components/control_atlas. Technical PASS, visual PARTIAL, approval false.\n')
+          agents=Path('AGENTS.md');agents.write_text('# C21 FOLLOW-ON COMPLETE — FRAMES / HARDENING\n\nRead docs/asset_base/C21_VERIFIED_REVIEW.md and STATE.json. Dedicated control writer is released. Latest direct one-hour frame-styling/hardening session is complete; no automatic extension. Source-backed frame families and hardened dialog are published in components/control_atlas. Preserve liked meters; backgrounds/characters remain deferred. New implementation requires current owner direction; no merge/main/save authority.\n\n'+agents.read_text())
+          lock.update({'writer':None,'released_at':now,'result':'native_pass_visual_partial','tested_code_sha':tested,'run_id':40911368930,'claim_git_timestamp':'2026-10-29T15:54:53+00:00','owner_approved':False})
+          lock_path.write_text(json.dumps(lock,indent=2)+'\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AGENTS.md docs/asset_base/STATE.json docs/asset_base/LEDGER.md docs/asset_base/PROGRAMME_2026-10-29.md docs/asset_base/REVIEW_INDEX.md docs/asset_base/CONTROL_SPRINT_LOCK.json
+          git commit -m 'C21 record native visual review and release scoped frame writer [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
