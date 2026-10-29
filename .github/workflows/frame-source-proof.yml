@@ -21,14 +21,15 @@ jobs:
         run: |
           python3 -m py_compile experiments/frame_assets/*.py
           timeout 240s python3 experiments/frame_assets/acquire.py
-      - name: Install offline source renderer
+      - name: Install offline source renderer and importer dependencies
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq blender python3-pil
+          sudo apt-get install -y -qq blender python3-pil python3-numpy
+          blender --background --factory-startup --python-exit-code 1 --python-expr 'import numpy; print("glTF dependency verified:", numpy.__version__)'
       - name: Render source inspection proofs
         run: |
           set -o pipefail
-          timeout 360s blender --background --factory-startup --python experiments/frame_assets/probe.py 2>&1 | tee c24-source-render.log
+          timeout 360s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/probe.py 2>&1 | tee c24-source-render.log
           test -f c24-probe/GEOMETRY_REPORT.json
       - name: Retain reviewed baseline for precise local inspection
         if: always()
@@ -37,7 +38,7 @@ jobs:
           from pathlib import Path
           import zipfile
           with zipfile.ZipFile('c24-reviewed-baseline.zip','w',zipfile.ZIP_DEFLATED) as z:
-            for base in ['components/control_atlas','experiments/frame_recovery','experiments/control_atlas','experiments/frame_hardening','docs/continuous_improvement','tools/improvement_gate.py','project.godot','ARCHITECTURE.md','docs/asset_base/STATE.json']:
+            for base in ['components/control_atlas','experiments/frame_recovery','experiments/control_atlas','experiments/frame_hardening','experiments/frame_assets','docs/continuous_improvement','tools/improvement_gate.py','project.godot','ARCHITECTURE.md','docs/asset_base/STATE.json']:
               p=Path(base)
               for f in ([p] if p.is_file() else p.rglob('*')):
                 if f.is_file() and f.suffix not in ['.ttf','.otf','.import','.uid'] and '.godot' not in f.parts:z.write(f,f)
