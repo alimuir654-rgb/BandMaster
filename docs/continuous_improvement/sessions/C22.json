@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C22",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Consolidate all recorded lessons and require checks/logging before future work, then restart framing; the goal is the mockups.",
   "baseline_sha": "ca73c433fadc37135e7b69ee6e222e82c5a5340d",
@@ -60,8 +60,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 47043,
-    "sha256": "7c1a05753b1fdbf4f9456d046ff6ccb90db7ca9c98f95224e9f0066cf7b6dd4d"
+    "bytes": 50651,
+    "sha256": "4e79e3597748ba51788a6247cf550ea3711638b747264f8fe09da4fec6cfdb87"
   },
   "target": {
     "locator": "Conversation original bandmaster_ui_frame_atlas.png (1672x941), design only; source index in SOURCE_AUDIT.md",
@@ -100,5 +100,16 @@
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C22.json",
     "Existing C20/C21 native suites in Godot 4.7.2, standalone and host",
     "Controlled frame comparison at 390x844,720x1280,1280x720,1600x900; inspect original PNGs"
-  ]
+  ],
+  "closeout": {
+    "tested_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+    "evidence": [
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40930454213",
+      "artifact12922032827 sha256 3e1e7d7d16d0d1ab8d9f37d17159d8cd510261c31099fbe359bb289213e96bb2",
+      "docs/continuous_improvement/C22_REVIEW.md"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening.",
+    "new_issue_review": "C22 first pilot finding committed before correction; final fidelity hold, phone-caption BM22 recurrence and supported-query BM34 recurrence appended. No owner visual approval."
+  }
 }

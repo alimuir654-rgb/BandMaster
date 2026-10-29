@@ -6,5 +6,7 @@
   "target": "mockups",
   "backgrounds": "deferred",
   "characters": "deferred",
-  "meters": "protected"
+  "meters": "protected",
+  "status": "closed",
+  "next_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening."
 }
