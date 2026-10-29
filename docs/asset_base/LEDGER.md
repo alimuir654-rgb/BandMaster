@@ -534,3 +534,6 @@ C24 renderer dependency correction succeeded: original glTF imports. The Ubuntu 
 
 
 C24 source-art inspection PASS for usable source geometry, not final art. Original Clipboard and Office Notepads source renders were downloaded, hashed and opened. The actual hinge/spring detail and blank A4 sheets support a different construction method from C21/C22. Inspection found overlit paper and disproportionate stamped fastening; these are recorded before the dossier source adaptation. Build dependency/denoiser blockers resolved by successful run40945919796.
+
+
+C24 source candidate withheld: native offline renderer completed but actual full source image exposed misplaced A4 sheets. Geometry bounds cache is suspected. Logged before vertex-based centring correction; no import or quality claim.
