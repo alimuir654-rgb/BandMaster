@@ -1,0 +1,54 @@
+name: C24 CC0 frame source proof
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['experiments/frame_assets/**', '.github/workflows/frame-source-proof.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: c24-frame-source-proof
+  cancel-in-progress: false
+jobs:
+  source-art:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require reviewed lessons before source work
+        run: python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C24.json
+      - name: Acquire original CC0 files with complete dependencies
+        run: |
+          python3 -m py_compile experiments/frame_assets/*.py
+          timeout 240s python3 experiments/frame_assets/acquire.py
+      - name: Install offline source renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq blender python3-pil
+      - name: Render source inspection proofs
+        run: |
+          set -o pipefail
+          timeout 360s blender --background --factory-startup --python experiments/frame_assets/probe.py 2>&1 | tee c24-source-render.log
+          test -f c24-probe/GEOMETRY_REPORT.json
+      - name: Retain reviewed baseline for precise local inspection
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile
+          with zipfile.ZipFile('c24-reviewed-baseline.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for base in ['components/control_atlas','experiments/frame_recovery','experiments/control_atlas','experiments/frame_hardening','docs/continuous_improvement','tools/improvement_gate.py','project.godot','ARCHITECTURE.md','docs/asset_base/STATE.json']:
+              p=Path(base)
+              for f in ([p] if p.is_file() else p.rglob('*')):
+                if f.is_file() and f.suffix not in ['.ttf','.otf','.import','.uid'] and '.godot' not in f.parts:z.write(f,f)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c24-source-art-inspection
+          path: |
+            c24-sources/
+            c24-probe/
+            c24-source-render.log
+            c24-reviewed-baseline.zip
+          retention-days: 30
