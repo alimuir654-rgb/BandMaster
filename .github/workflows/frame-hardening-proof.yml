@@ -1,0 +1,118 @@
+name: C21 frame styling and hardening proof
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['.github/workflows/frame-hardening-proof.yml', 'experiments/frame_hardening/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: frame-hardening-proof
+  cancel-in-progress: true
+jobs:
+  native-frames:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned engine and real renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil
+          curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Build from published controls without redrawing meters or hardware
+        run: |
+          python3 -m py_compile experiments/frame_hardening/*.py
+          python3 experiments/frame_hardening/integrate.py --source components/control_atlas --out frame-proof-c21 --templates experiments/frame_hardening/runtime
+          python3 experiments/frame_hardening/style_frames.py --root frame-proof-c21
+          mkdir -p frame-proof-c21/proof
+          set -o pipefail
+          timeout 90s godot --headless --audio-driver Dummy --path frame-proof-c21 --editor --quit 2>&1 | tee frame-proof-c21/proof/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c21/proof/import.log; then exit 1; fi
+      - name: Preserve original regression suite and exercise actual dialog input
+        run: |
+          set -o pipefail
+          for script in native_test frame_test; do
+            timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path frame-proof-c21 --script res://$script.gd 2>&1 | tee frame-proof-c21/proof/$script.log
+            if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c21/proof/$script.log; then exit 1; fi
+          done
+      - name: Verify the same module inside a separate host
+        run: |
+          set -o pipefail
+          python3 experiments/control_atlas/export_module.py --source frame-proof-c21 --target host-proof-c21
+          timeout 90s godot --headless --audio-driver Dummy --path host-proof-c21 --editor --quit 2>&1 | tee host-proof-c21/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c21/import.log; then exit 1; fi
+          for script in native_test frame_test; do
+            timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path host-proof-c21 --script res://components/control_atlas/$script.gd 2>&1 | tee host-proof-c21/$script.log
+            if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c21/$script.log; then exit 1; fi
+          done
+      - name: Verify evidence and package reusable source
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import hashlib,json,zipfile,shutil
+          for root in [Path('frame-proof-c21'),Path('host-proof-c21/components/control_atlas')]:
+              for name,count in [('results.json',48),('frame-results.json',16)]:
+                  f=root/'proof'/name;r=json.loads(f.read_text());assert not r['failures'] and len(r['screenshots'])==count
+                  for item in r['screenshots']:
+                      p=root/'proof'/item['file']
+                      with Image.open(p) as im: assert list(im.size)==item['size'];im.verify()
+                      item['sha256']=hashlib.sha256(p.read_bytes()).hexdigest()
+                  f.write_text(json.dumps(r,indent=2)+'\n')
+          p=Path('frame-proof-c21');m=json.loads((p/'FRAME_STYLES_C21.json').read_text())
+          for name,digest in m['protected_originals'].items():assert hashlib.sha256((p/name).read_bytes()).hexdigest()==digest
+          assert len(m['frames'])==12 and len({x['sha256'] for x in m['frames']})==12
+          with zipfile.ZipFile('BandMaster_C21_Testable_Frames.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for f in p.rglob('*'):
+                  if f.is_file() and not any(s in f.parts for s in ['proof','.godot','__pycache__']) and f.suffix not in ['.import','.uid','.ttf','.otf']:
+                      z.write(f,Path('BandMaster_Frame_Atlas')/f.relative_to(p))
+          shutil.move('BandMaster_C20_Drop_In_Library.zip','BandMaster_C21_Drop_In_Library.zip')
+          PY
+      - uses: actions/upload-artifact@v4
+        id: evidence
+        if: always()
+        with:
+          name: c21-frame-hardening-native-proof
+          path: |
+            frame-proof-c21/proof/
+            frame-proof-c21/FRAME_STYLES_C21.json
+            frame-proof-c21/MANIFEST.json
+            host-proof-c21/components/control_atlas/proof/results.json
+            host-proof-c21/components/control_atlas/proof/frame-results.json
+            host-proof-c21/*.log
+            BandMaster_C21_Testable_Frames.zip
+            BandMaster_C21_Drop_In_Library.zip
+          retention-days: 14
+      - name: Publish only the verified isolated module with writer guard
+        if: success()
+        env:
+          EVIDENCE_ID: ${{ steps.evidence.outputs.artifact-id }}
+        run: |
+          test "$GITHUB_REF_NAME" = dual-frame-proof-2026-10-28
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Competing branch update; refusing publication'; exit 1; }
+          python3 - <<'PY'
+          from pathlib import Path
+          import json,os,shutil
+          lock=json.loads(Path('docs/asset_base/CONTROL_SPRINT_LOCK.json').read_text())
+          assert lock['writer']=='C21-frame-styling-hardening-20261029T1551'
+          source=Path('host-proof-c21/components/control_atlas');target=Path('components/control_atlas')
+          shutil.rmtree(target);shutil.copytree(source,target,ignore=shutil.ignore_patterns('proof','.godot','*.import','*.uid'))
+          p=Path('docs/asset_base/STATE.json');s=json.loads(p.read_text());assert s.get('writer') is None
+          s['owner_approved']=False
+          s['latest_owner_scope']='Direct owner C21 one-hour frame styling and hardening; backgrounds/characters deferred; meter bytes preserved'
+          s['c21']={'tested_code_sha':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'artifact_id':int(os.environ['EVIDENCE_ID']),'status':'native_pass_visual_review_pending','review_path':'docs/asset_base/C21_VERIFIED_REVIEW.md','standalone_and_host_verified':True,'owner_approved':False}
+          s['next_single_action']='C21 inspect actual native artifacts, publish visual review and release dedicated writer; no automatic extension'
+          p.write_text(json.dumps(s,indent=2)+'\n')
+          with Path('docs/asset_base/LEDGER.md').open('a') as f:f.write('\n\n## C21 — direct-owner one-hour frame styling/hardening\nOwner: "continue with some additional frame styling and hardening/improvement work. One hour". Reused verified C20 sources, added 12 distinct frame derivatives and reusable modal focus behavior. Existing C20 tests retained. Tested SHA '+os.environ['GITHUB_SHA']+'; native run '+os.environ['GITHUB_RUN_ID']+'; artifact '+os.environ['EVIDENCE_ID']+'. Standalone and separate-host tests passed. Original controls/meter pixels preserved. Actual pixel review and five simulated lenses follow in C21_VERIFIED_REVIEW.md. No human approval, background/character/gameplay/save/main edits or merge.\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add components/control_atlas docs/asset_base/STATE.json docs/asset_base/LEDGER.md
+          git commit -m 'C21 publish natively verified frame styles and modal hardening [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
