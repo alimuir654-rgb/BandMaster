@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run": "U09-2026-10-29-0700",
-    "stream": "U",
-    "claimed_at": "2026-10-29T06:56:08+00:00",
-    "lease_until": "2026-10-29T08:00:00+00:00",
-    "base_sha": "80b69fe9b788f9dab3df84a6a0df6007c796c10c",
-    "mission": "Replace too-dark daytime native direct-control enamel faces using original Lab07 surface relief and prove in four viewports; preserve three-stream quality gate."
-  },
-  "last_verified_code_sha": "0c1bbe8991511e09116beb9bcbe77df23847b782",
+  "writer": null,
+  "last_verified_code_sha": "0f9bf998144277f0f68f7f3299ebb1b057c13df7",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -33,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "At 07:00 seek genuinely independent high-resolution no-cost, rights-clear character original sources via a DIFFERENT production pipeline (no further portrait-only prompt calls to the collage generator). Do not claim stock-photo models as actual named people or assume model releases; verify rights. If that source route is blocked, shift to one source-backed visual correction affecting the dominant unfinished core, not a new scene family.",
+  "next_single_action": "P0: Identify two independent >=1024px individually authored musician portraits with demonstrable commercial/game-usage rights and person/likeness permission; do not repeat failed collage generation, treat Unsplash/Pexels recognizable real-person photos without verified model release as unsuitable for fictional cast. If no compliant source, continue only large visible source/composition correction; no extra cast or scene variants.",
   "streams": {
     "C": {
       "status": "partial_c08_native_verified_original_character_masters_blocked",
@@ -174,13 +167,14 @@
       ]
     },
     "U": {
-      "status": "partial_native_verified",
+      "status": "partial_art_improved_u09_native_verified",
       "priority": "P0",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
         "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py",
         "U03 36 distinct source-backed Lab07 hardware sprites: 3 direct-control families (action/tab/browse) x 2 material themes x 6 states; exact SHA256, crop/safe/nine-slice metadata in DIRECT_CONTROL_MANIFEST.json; atlas SHA256 5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209; source experiments/art_material/build_direct_control_kit.py",
-        "U04 Lab08.4 creative focus / venue buzz / horizontal+vertical faders: 27+23 source LED overlays, five values each, 20 genuine native hardware captures, separate 32 recruitment renders. Native run40805840636."
+        "U04 Lab08.4 creative focus / venue buzz / horizontal+vertical faders: 27+23 source LED overlays, five values each, 20 genuine native hardware captures, separate 32 recruitment renders. Native run40805840636.",
+        "U09 `experiments/art_material/rebalance_day_hardware.py`: 18 DAY Lab07 source-backed action/tab/browse sprites recast in physically textured ivory/ochre/pewter with original bezel+LED; NIGHT 18 sprite bytes unchanged. Six states preserved, hash chain in U09_DAY_ENAMEL_MANIFEST.json; native day dark ink/night cream. `u09_day_enamel_atlas.png`."
       ],
       "verified_native_evidence": [
         {
@@ -226,6 +220,29 @@
             "U04 native comparison 390x844 zero/max and 1280x720 zero/max (from previous run)"
           ],
           "status": "input assembly source validated; visual hold remains"
+        },
+        {
+          "tested_code_sha": "0f9bf998144277f0f68f7f3299ebb1b057c13df7",
+          "run_id": 40834133607,
+          "artifact_id": 12879533540,
+          "artifact_sha256": "bbc15893a18f6ea0f44415a3a95146a47a20f2b317c58fef5607d3f47e12d9bb",
+          "screenshots": 32,
+          "hardware_captures": 20,
+          "assertion_failures": 0,
+          "repository_checks": [
+            "native 40834133607 SUCCESS",
+            "structure 40834133652 SUCCESS",
+            "headless 40834133630 SUCCESS"
+          ],
+          "inspected": [
+            "notepaper-390x844-alex versus C08",
+            "notepaper-720x1280-nia versus C08",
+            "notepaper-1280x720-alex versus C08",
+            "notepaper-1600x900-nia versus C08",
+            "flightcase-1280x720-alex SHA identical to C08",
+            "u09_day_enamel_atlas.png"
+          ],
+          "verdict": "Native DAY physical colour/selected states improved and compact phone role label clipping corrected; professional art target still PARTIAL due source portraits."
         }
       ],
       "baseline_gaps": [
@@ -233,13 +250,14 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Retain core tactile sprite family without further micro-polish until portraits/source composition have been solved. Only revisit if owner review identifies specific integration defects.",
+      "next_action": "Do not expend additional sessions on U09 small-label polish until character master P0 or full 10:00 integrated quality gate; keep existing source-backed states, native result and unapproved status.",
       "improved": [
         "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
         "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
         "Day hardware physically housed on source paper, dark controls consistent with night case",
         "390 names and role tabs legible after native correction; 1280 recruitment control no longer over-stretched",
-        "32 native 4-resolution captures; 0 assertions; source-validated passive stat focus/mouse invariants; all three checks green"
+        "32 native 4-resolution captures; 0 assertions; source-validated passive stat focus/mouse invariants; all three checks green",
+        "U09 day keys now warm enamel/ochre with preserved physical metal bezel and separate state sprites; Android/phone role abbreviations VOX/GTR/DRMS have full canonical tooltip, 390 target sizes unregressed; old night pixels unchanged."
       ],
       "remaining_gaps": [
         "Two canonical standalone musician portraits still missing (C P0)",
@@ -247,7 +265,8 @@
         "Large desktop material gaps and oversize tablet notes panel remain F art issues",
         "Dedicated fader/rotary assemblies not revalidated in this U03 deliverable",
         "Art direction and owner approval both still pending",
-        "U04 demo 390px heading truncation and capped amber position mark present at 0; no value-dependent rail glow at zero. Dials are INPUTS, passive RAG remain read-only."
+        "U04 demo 390px heading truncation and capped amber position mark present at 0; no value-dependent rail glow at zero. Dials are INPUTS, passive RAG remain read-only.",
+        "U09 final 390 action/ROSTER typography still visually dense on physical hardware despite bounds PASS; 1600 portrait/notes have excess whitespace; original high-res musician masters remain absent."
       ]
     }
   },
@@ -284,7 +303,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "C08: source-backed tall portrait frames and native portrait-dominant desktop two-look composition; 32 captures/0 failures, all three head-SHA checks green. Explicit C art-source HOLD.",
+  "last_completed_deliverable": "U09: rebuilt 18 DAY Lab07 six-state enamel control sprites, retained 18 byte-identical NIGHT, corrected 390px role-label physical fit, checked real Godot4.7.2 32 recruitment +20 hardware captures, zero failures, three checks green; visual partial, characters still P0 blocked.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -305,7 +324,13 @@
     "c08_four_viewport_review": "BandMaster_C08_Four_Viewport_Native_Review.png",
     "c08_source_stage_atlas": "BandMaster_C08_Portrait_Stage_Source_Atlas.png",
     "c08_review_pack": "BandMaster_C08_06h_Review_Pack.zip",
-    "c08_review_pack_sha256": "3a2db295263f8274d6bc71c7e120e5f79bb113e0a9fd3f66c6431afbc7446fdd"
+    "c08_review_pack_sha256": "3a2db295263f8274d6bc71c7e120e5f79bb113e0a9fd3f66c6431afbc7446fdd",
+    "u09_native_run": 40834133607,
+    "u09_native_artifact_id": 12879533540,
+    "u09_native_artifact_sha256": "bbc15893a18f6ea0f44415a3a95146a47a20f2b317c58fef5607d3f47e12d9bb",
+    "u09_native_day_before_after": "BandMaster_U09_FINAL_notepaper-390x844-alex_Before_After.png and BandMaster_U09_FINAL_notepaper-1280x720-alex_Before_After.png",
+    "u09_four_viewport_gallery": "BandMaster_U09_Final_Four_Viewport_Native_Gallery.png",
+    "u09_source_atlas": "BandMaster_U09_Final_Day_Enamel_State_Atlas.png"
   },
-  "last_updated_utc": "2026-10-29T05:24:00Z"
+  "last_updated_utc": "2026-10-29T07:18:30Z"
 }
