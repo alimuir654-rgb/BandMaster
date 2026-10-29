@@ -14,7 +14,15 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C04-20261029T0200Z",
+    "stream": "C",
+    "base_head": "d3c7c712b1bea076ac825da51ec04e240276733f",
+    "claimed_at": "2026-10-29T02:03:00+00:00",
+    "expires_at": "2026-10-29T02:53:00+00:00",
+    "phase": "standalone-source-production",
+    "owner_approved": false
+  },
   "last_verified_code_sha": "4338de95cdc291dc0c754807f6d41cc0dd182bc7",
   "baseline": {
     "run_id": 40778019754,
@@ -155,8 +163,8 @@
   "checkpoints": [
     {
       "at": "2026-10-29T02:00:00+00:00",
-      "status": "pending",
-      "decision": null
+      "status": "in_progress",
+      "decision": "Two previous whole-interface collage outputs rejected; try one truly isolated single-character image-generation route, then change technique if output is again a collage."
     },
     {
       "at": "2026-10-29T06:00:00+00:00",
