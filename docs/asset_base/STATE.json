@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "C13-doc-portrait-20261029-0758",
-    "base_head": "26e78df907870371f5cfc130093472c904cb21aa",
-    "started_at": "2026-10-29T07:58:00+00:00",
-    "lease_expires_at": "2026-10-29T08:40:00+00:00",
-    "workstream": "C",
-    "scope": "indie documentary source treatment visual spike, preserve approved source originals"
-  },
-  "last_verified_code_sha": "98b4f49588c06a3d9dee9f659851ffa25f4b0c55",
+  "writer": null,
+  "last_verified_code_sha": "3c1572136929ec5949a8853737fa21f1f7f7dee7",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -33,10 +26,10 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "C13 next P0: original independent 1024px CC0 portraits are now proven as a legal/source route, but studio-corporate visual authenticity is unacceptable as final musician art. Focus on rights-clear indie-music character visual direction using source-specific art, not generic UI collage; compare C10 visual plausibility vs C12 source fidelity, freeze extra variants. At10:00 gate reallocate remaining capacity to biggest actual quality gap.",
+  "next_single_action": "C14 P0: C13 demonstrated legitimate two-theme 1024px photographic treatment, but both synthetic source headshots still read as corporate portraits. Stop monochrome/colour grading; obtain or author two independently sourced rights-clear believable indie-band character masters, or clearly keep ART HOLD. At 10:00 compare actual C10 gritty previews versus C13 licensed masters and reallocate to dominant art gap; no optional cast/scene variants.",
   "streams": {
     "C": {
-      "status": "partial_c12_independent_1024_cc0_masters_native_pass_art_direction_unapproved",
+      "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
       "priority": "P0",
       "target": "Two distinctive canonical portrait masters and derived crops",
       "assets": [
@@ -51,7 +44,9 @@
         "NEW C11 independent CC0 original: Alex source full/03.png, 1024x1024 sha256 fa8312957e66429e54994fad9979fcd14aba91e1ac7a363b8cca3a1e968ef3eb, derived 1024 audition WEBP SHA256 28b97826b12af319ff1e15c6085320a725ea205f593cb671564af558177bdc64",
         "NEW C11 independent CC0 original: Nia source full/16.png 1024x1024 sha256 7bce14f9f3810c13be715dcb3b845e0a357b859532ee51ec5f30f0eb89ea2d86, derived audition WEBP sha256 d8b39575f5f8bf5098caf092c25979f9f3bb3f9ce43a5c003099da5962ad627f",
         "Original publisher visualizevalue/headshots GitHub commit21f916173b6c844c52ccb3ac76e7d7b44de87c3e, CC0-1.0 LICENSE source sha256 6756ab60a39f24637b432f5998fea78d06872ffd44eab1c82ef22209d174d4be; synthetic persons not real release-verified models.",
-        "New source scripts experiments/art_material/strengthen_portrait_hierarchy.py and import_cc0_cast.py on isolated branch, native generated manifest C11_CC0_CAST_MANIFEST.json; no full-screen composite."
+        "New source scripts experiments/art_material/strengthen_portrait_hierarchy.py and import_cc0_cast.py on isolated branch, native generated manifest C11_CC0_CAST_MANIFEST.json; no full-screen composite.",
+        "C13 source script experiments/art_material/documentary_portrait_finish.py pinned code 3c1572136929ec5949a8853737fa21f1f7f7dee7; 4 separate 1024px photographic-print derivatives from verified C11 individual CC0 masters, no subject upsizing; C13_DOCUMENTARY_PORTRAITS_MANIFEST.json records source and output SHA256 in CI artifact.",
+        "C13 real X11 Godot4.7.2 native run40839437732 artifact12881659300 SHA256 f639a992682beb83414a38367d05b60cb77357a907b95002507d846067c4c60e; 32 scene screenshots failure[]; structure run40839437625 and headless run40839437599 both SUCCESS."
       ],
       "verified_native_evidence": [
         {
@@ -118,7 +113,7 @@
       ],
       "blocked_reason": "The previous source-resolution and independent-likeness blocker is materially mitigated by two separately generated 1024px CC0 synthetic people, source and licensing pinned and verified. New P0 is aesthetic: professional/corporate wardrobe, polished office-photo faces and white-matte halo do not fit believable UK indie musician portrait target. No further composite/collage-generation retries. Source publisher asserts synthetic faces, not independent legal likeness guarantee. Owner art acceptance false.",
       "ineffective_attempts": 5,
-      "next_action": "Replace/rework C12 office-like portrait art with two distinct source-backed authentic indie musician portrait masters (rights-clear, no unverified stock model); keep C10 512px gritty previews as visual benchmark only and C12 CC0 originals as lawful standalone technical route; compare actual native close crops at 390/1280.",
+      "next_action": "Stop additional grades of corporate headshots; seek genuinely music-scene wardrobe/pose/ambience from separately rights-clear synthetic original sources (no real-person model-release assumptions), check source hashes, independently inspect native.",
       "improved": [
         "Full face visible in actual 1280x720 and1600x900 native Godot landscapes for both characters; phone/tablet keep prior portrait source; resize and candidate binding verified.",
         "C08 face/upper body shows at larger physical size on both 1280 and1600 desktop within independent 420x540 source-backed vertical mounts; mobile/tablet not regressed; raw source pixels not upscaled.",
