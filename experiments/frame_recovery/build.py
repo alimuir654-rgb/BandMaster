@@ -27,22 +27,28 @@ def main()->None:
     photo=json.loads(a.cork_manifest.read_text())
     source_record=next(x for x in photo['records'] if x['asset'].endswith('corkboard_day_pexels.webp'))
     assert sha(a.cork)==source_record['committed_webp_sha256'],'Cork source checksum mismatch'
-    sheet=src.copy();pixels=sheet.load();texture=Image.open(art/'paper_surface.png').convert('RGBA');tex=texture.load()
-    # Preserve the inherited irregular sheet boundary and offset leaf. Calm only the
-    # printed double-rule inside it; this is not a replacement drawn paper silhouette.
+    sheet=src.copy();pixels=sheet.load()
+    texture=Image.open(art/'paper_surface.png').convert('RGBA')
+    # BM-03 first native review: retain the exterior material construction, but
+    # remove the old form-like double rule and restore C20's actual paper grain.
+    # This mask affects only the sheet face, never its irregular outer silhouette.
     for y in range(H):
         for x in range(W):
             r,g,b,alpha=pixels[x,y]
             if r<40 and g<40 and b<40 and alpha<255:
                 pixels[x,y]=(r,g,b,round(alpha*.56))
-            elif 27<=x<W-27 and 26<=y<H-27 and (r<180 or alpha<245):
-                R,G,B,_=tex[x%texture.width,y%texture.height]
-                pixels[x,y]=(round(R*.88+r*.12),round(G*.88+g*.12),round(B*.88+b*.12),255)
+    fibre=ImageEnhance.Contrast(texture).enhance(1.6)
+    face=Image.new('RGBA',(W,H))
+    for y in range(0,H,fibre.height):
+        for x in range(0,W,fibre.width):face.paste(fibre,(x,y))
+    face_mask=Image.new('L',(W,H));face_mask.paste(255,(26,25,W-26,H-25))
+    face_mask=face_mask.filter(ImageFilter.GaussianBlur(1.2))
+    sheet=Image.composite(face,sheet,face_mask)
     # Retained source silhouette defines the mount; no new geometric frame outline.
     silhouette=src.getchannel('A').point(lambda v:255 if v>=245 else 0)
     fill=Image.new('L',(W,H));fill.paste(255,(25,25,W-25,H-25))
     silhouette=ImageChops.lighter(silhouette,fill)
-    board_mask=silhouette.filter(ImageFilter.MaxFilter(17))
+    board_mask=silhouette.filter(ImageFilter.MaxFilter(29))
     cork=Image.open(a.cork).convert('RGB').resize((W,H),Image.Resampling.LANCZOS)
     cork=ImageEnhance.Color(cork).enhance(.72)
     cork=ImageEnhance.Contrast(cork).enhance(.82).convert('RGBA');cork.putalpha(board_mask)
@@ -56,9 +62,10 @@ def main()->None:
     row=next(r for r in spec['frames'] if r['look']=='notepaper' and r['preset']=='panel')
     row.update({'file':'art/'+target.name,'size':[W,H],'nine_slice':[44,44,44,44],
        'content_insets':[40,40,40,40],'minimum_size':[160,144],'sha256':sha(target),'owner_approved':False,
-       'status':'candidate_native_review_required','source_method':'Retained irregular C20 sheet edges and leaf; subdued printed rules/shadow; inherited photographed cork mount'})
+       'status':'candidate_native_review_required','source_method':'Retained irregular C20 sheet edges and leaf; restored same-source fibre face without printed-rule clutter; inherited photographed cork mount'})
     spec['c22_panel_candidate']=True;spec_path.write_text(json.dumps(spec,indent=2)+'\n')
-    record={'schema_version':1,'owner_approved':False,'status':'candidate_not_final_art',
+    record={'schema_version':1,'owner_approved':False,'status':'candidate_not_final_art','iteration':2,
+      'prior_native_evidence':'run40927695391; issue C22-paper-pilot-01-native-review committed before correction',
       'target_original_sha256':'5d24ec44eada22c353fc4403cfd237c4d005062743c42d173aefa4108d45f5f8',
       'target_type':'Conversation design-only frame atlas; never used as production pixels',
       'source_type':'Digital compositing of retained C20 source paper and existing Pexels cork; not new photography or image generation',
@@ -66,7 +73,7 @@ def main()->None:
       'source_paths_sha256':{'art/frame_notepaper_previous.png':sha(parent),'art/paper_surface.png':sha(art/'paper_surface.png'),
         'Art/Photography/Formation/corkboard_day_pexels.webp':sha(a.cork)},
       'cork_rights_record':source_record,'output':row,'prior_profile':original,'protected_originals':before,
-      'construction':'Only representative panel. Preserved irregular source boundary and offset leaf. Reduced old cast-shadow alpha to56%; softened interior printed rules with the same paper material. Cork mount silhouette derives from existing sheet. No triangles/tape/fake clip drawn; no source enlargement.',
+      'construction':'Only representative panel. Preserved irregular source boundary and offset leaf. Reduced old cast-shadow alpha to56%; replaced only the interior printed face with the same paper material at the retained C20 contrast1.6. First native review led to removing double-rule clutter and enlarging the source-derived mount rim from8px to14px; no exterior sheet construction was redrawn. Cork mount silhouette derives from existing sheet. No triangles/tape/fake clip drawn; no source enlargement.',
       'comparison':'C20, C21 and C22 use identical native content/bounds/background/state at four sizes; tested separately from mockup fidelity.'}
     (a.out/'FRAME_RECOVERY_C22.json').write_text(json.dumps(record,indent=2)+'\n')
     manifest=json.loads((a.out/'MANIFEST.json').read_text());manifest['c22_recovery']=record
