@@ -531,3 +531,6 @@ Downloaded and verified the actual CC0 Clipboard and Office Notepads originals. 
 
 
 C24 renderer dependency correction succeeded: original glTF imports. The Ubuntu Blender build lacks optional OpenImageDenoiser; source inspection therefore remains unrendered. Logged before removing that optional setting. This changes no Godot runtime or source assets.
+
+
+C24 source-art inspection PASS for usable source geometry, not final art. Original Clipboard and Office Notepads source renders were downloaded, hashed and opened. The actual hinge/spring detail and blank A4 sheets support a different construction method from C21/C22. Inspection found overlit paper and disproportionate stamped fastening; these are recorded before the dossier source adaptation. Build dependency/denoiser blockers resolved by successful run40945919796.
