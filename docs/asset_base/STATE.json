@@ -26,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "final_evidence_review",
-  "next_single_action": "C21 scoped session complete. Owner review of differentiated frames and hardened dialog; no automatic extension, background/character restart or merge.",
+  "next_single_action": "Execute committed C22 preflight; recover one representative paper panel using retained source construction and controlled native comparison.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -406,12 +406,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -503,7 +503,7 @@
     "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
     "owner_approved": false
   },
-  "latest_owner_scope": "C21 one-hour direct follow-on completed: frames and hardening only; deferred backgrounds/characters and original meters retained.",
+  "latest_owner_scope": "C22: mandatory continuous-improvement checks/log FIRST, then frame recovery against mockups; no background/character work",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
@@ -572,5 +572,18 @@
     "artifact_sha256": "5847e39c38c54ebe0e86a3dc70eaeee6e8211026724ff1528dba226bada79d5a",
     "published_module_sha": "acd4cd0441feb682237ac4a906daadf11d86a197"
   },
-  "last_verified_component_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a"
+  "last_verified_component_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a",
+  "continuous_improvement": {
+    "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+    "lessons": "docs/continuous_improvement/LESSONS.md",
+    "issues": "docs/continuous_improvement/ISSUES.jsonl",
+    "session": "docs/continuous_improvement/sessions/C22.json",
+    "owner_approved": false
+  },
+  "c21_owner_visual_rejection": {
+    "notepaper": "worse than before per direct owner feedback",
+    "technical_hardening": "retain",
+    "art_acceptance": "rejected",
+    "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
+  }
 }

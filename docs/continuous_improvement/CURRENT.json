@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "session": "docs/continuous_improvement/sessions/C22.json",
+  "scope": "Lessons gate then source-preserving frame recovery",
+  "owner_approved": false,
+  "target": "mockups",
+  "backgrounds": "deferred",
+  "characters": "deferred",
+  "meters": "protected"
+}

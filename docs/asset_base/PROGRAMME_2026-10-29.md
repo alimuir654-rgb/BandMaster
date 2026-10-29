@@ -1,3 +1,9 @@
+# CURRENT ROUTING — C22 CONTINUOUS IMPROVEMENT
+
+Read AGENTS.md and docs/continuous_improvement/CHECK_BEFORE_WORK.md first. The historical timed programme below is closed. Latest direct owner scope is lessons consolidation then frame recovery against the mockups; backgrounds/characters remain deferred, meters protected. C21 paper was rejected by the owner. Do not execute the old portrait-first queue.
+
+---
+
 # BandMaster asset-base production — owner-authorised 28–29 October 2026
 
 ## Authority and deadline
