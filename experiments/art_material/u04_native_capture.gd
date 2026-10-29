@@ -33,7 +33,8 @@ func hardware(parent: Control, kind: String, pos: Vector2, dims: Vector2) -> Con
     node.size = dims
     return node
 func _run() -> void:
-    DirAccess.make_dir_recursive_absolute("res://proof-shots")
+    var proof_dir := DirAccess.open("res://")
+    check(proof_dir != null and proof_dir.dir_exists("proof-shots"),"proof-shots missing; CI must create it")
     for sz in [Vector2i(390,844),Vector2i(720,1280),Vector2i(1280,720),Vector2i(1600,900)]:
         var window := Window.new()
         window.size = sz
@@ -66,8 +67,8 @@ func _run() -> void:
             controls.append(hardware(canvas,"vertical",Vector2(585,340),Vector2(160,minf(340,sz.y-370))))
         await settle()
         check(controls.size()==4,"Wrong controls count")
-        check(controls[0].ring_layers.size()==27,"Creative Focus LED count " + str(sz))
-        check(controls[1].ring_layers.size()==23,"Venue Buzz LED count " + str(sz))
+        check((controls[0].get("ring_layers") as Array).size()==27,"Creative Focus LED count " + str(sz))
+        check((controls[1].get("ring_layers") as Array).size()==23,"Venue Buzz LED count " + str(sz))
         for control in controls:
             check(control.focus_mode==Control.FOCUS_ALL,"Input control not keyboard focusable " + str(sz))
             check(control.mouse_filter==Control.MOUSE_FILTER_STOP,"Input control missing pointer " + str(sz))
@@ -76,7 +77,7 @@ func _run() -> void:
         for value in [0,25,50,75,100]:
             for control in controls:
                 control.set_level(float(value))
-                check(int(control.level)==value,"Wrong value")
+                check(int(control.get("level"))==value,"Wrong value")
             await settle()
             var fname: String = "u04-%dx%d-value%03d.png" % [sz.x,sz.y,value]
             var shot: Image = window.get_texture().get_image()
