@@ -1,5 +1,5 @@
 {
-  "writer": "C21-frame-styling-hardening-20261029T1551",
+  "writer": null,
   "base_head": "d50773a281078cb0f20526b63088446e90489466",
   "claimed_at": "2026-10-29T15:56:00+00:00",
   "expires_at": "2026-10-29T16:51:20+00:00",
@@ -8,5 +8,10 @@
   "authority": "Direct owner follow-on supersedes earlier implementation freeze for this scoped session only; no recurring programme extension. 16:00 report must not claim this in-progress sprint complete.",
   "owner_approved": false,
   "previous_verified_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
-  "previous_verified_run_id": 40901641892
+  "previous_verified_run_id": 40901641892,
+  "released_at": "2026-10-29T16:32:00.754434+00:00",
+  "result": "native_pass_visual_partial",
+  "tested_code_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a",
+  "run_id": 40911368930,
+  "claim_git_timestamp": "2026-10-29T15:54:53+00:00"
 }

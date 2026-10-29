@@ -1,3 +1,7 @@
+# C21 FOLLOW-ON COMPLETE — FRAMES / HARDENING
+
+Read docs/asset_base/C21_VERIFIED_REVIEW.md and STATE.json. Dedicated control writer is released. Latest direct one-hour frame-styling/hardening session is complete; no automatic extension. Source-backed frame families and hardened dialog are published in components/control_atlas. Preserve liked meters; backgrounds/characters remain deferred. New implementation requires current owner direction; no merge/main/save authority.
+
 # C20 COMPLETED — CONTROL LIBRARY AVAILABLE
 
 Read docs/asset_base/C20_VERIFIED_REVIEW.md and STATE.json. The dedicated C20 lock is released. Latest owner direction still defers backgrounds/characters; reusable controls and frames now live in components/control_atlas. Do not re-run completed inventory or overwrite the verified kit. No merge or automatic programme extension.

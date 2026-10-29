@@ -26,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "final_evidence_review",
-  "next_single_action": "C21 inspect actual native artifacts, publish visual review and release dedicated writer; no automatic extension",
+  "next_single_action": "C21 scoped session complete. Owner review of differentiated frames and hardened dialog; no automatic extension, background/character restart or merge.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -503,7 +503,7 @@
     "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
     "owner_approved": false
   },
-  "latest_owner_scope": "Direct owner C21 one-hour frame styling and hardening; backgrounds/characters deferred; meter bytes preserved",
+  "latest_owner_scope": "C21 one-hour direct follow-on completed: frames and hardening only; deferred backgrounds/characters and original meters retained.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
@@ -559,9 +559,18 @@
     "tested_code_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a",
     "run_id": 40911368930,
     "artifact_id": 12914490869,
-    "status": "native_pass_visual_review_pending",
+    "status": "native_pass_visual_partial",
     "review_path": "docs/asset_base/C21_VERIFIED_REVIEW.md",
     "standalone_and_host_verified": true,
-    "owner_approved": false
-  }
+    "owner_approved": false,
+    "reviewed_at": "2026-10-29T16:32:00.754434+00:00",
+    "native_assertions_per_host": 2185,
+    "native_screenshots_per_host": 72,
+    "protected_meter_pngs": 22,
+    "protected_button_pngs": 36,
+    "protected_lab08_pngs": 58,
+    "artifact_sha256": "5847e39c38c54ebe0e86a3dc70eaeee6e8211026724ff1528dba226bada79d5a",
+    "published_module_sha": "acd4cd0441feb682237ac4a906daadf11d86a197"
+  },
+  "last_verified_component_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a"
 }

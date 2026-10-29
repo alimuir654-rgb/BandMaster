@@ -78,3 +78,7 @@ This confirms the finite 16:00 review, *not* final artwork acceptance, merging o
 
 ## Latest direct-owner scope / C20 closeout
 Backgrounds and characters remain deferred. Reusable controls and frame library are now published under components/control_atlas, tested standalone and in a separate host. Read C20_VERIFIED_REVIEW.md and CONTROL_INVENTORY_C20.md. The historical portrait-first queue is not the next action. Owner artwork approval remains false; this sprint does not extend the finite programme.
+
+
+## Direct owner follow-on C21 — completed
+Owner: "continue with some additional frame styling and hardening/improvement work. One hour". This bounded frame/library follow-on superseded the earlier implementation freeze only for this session, not recurring automation. Read C21_VERIFIED_REVIEW.md. Native suites2185 checks per host passed; visual judgement improved/PARTIAL, owner_approved=false. Backgrounds/characters remain deferred. No automatic continuation or merge.
