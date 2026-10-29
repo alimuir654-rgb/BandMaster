@@ -76,6 +76,9 @@ func _member(person: Dictionary,index: int) -> Dictionary:
  var total := 0
  for value in stats:
   total += int(value)
+ var raw_risk: Dictionary = person.get("rehearsal_risk",{})
+ var stable_risk := {"missed_preparation":maxi(0,int(raw_risk.get("missed_preparation",0))),
+  "creative_friction":maxi(0,int(raw_risk.get("creative_friction",0)))}
  var collaboration := clampi(int(person.get("collaboration",7)),1,10)
  var trait_name: String = str(person.get("personality","Creative"))
  if bool(person.get("wildcard",false)):
@@ -85,7 +88,7 @@ func _member(person: Dictionary,index: int) -> Dictionary:
  return {"id":index,"candidate_id":str(person["id"]),"name":str(person["name"]),
   "role":role,"trait":trait_name,"skill":clampi(roundi(float(total)/6.0*10.0),1,100),
   "loyalty":clampi(40+collaboration*5,0,100),"morale":55,"fatigue":5,
-  "life_status":"active","rehearsal_risk":(person.get("rehearsal_risk",{}) as Dictionary).duplicate(true)}
+  "life_status":"active","rehearsal_risk":stable_risk}
 
 func launch() -> Dictionary:
  if phase != "recruit":

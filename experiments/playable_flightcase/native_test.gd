@@ -59,6 +59,7 @@ func run_tests() -> void:
   print("C26_SAVE_DIFF ",first_diff," before=",expected_text.substr(maxi(0,first_diff-30),150)," after=",actual_text.substr(maxi(0,first_diff-30),150))
  check(loaded_ok and actual_text==expected_text,"sandbox restart exact state")
  check(typeof(loaded.career.get("cash",0))==TYPE_INT and typeof(loaded.career.get("action_counters",{}).get("rehearse",0))==TYPE_INT,"nested integer schema survives Godot JSON load")
+ check(typeof(game.career["members"][0]["rehearsal_risk"]["creative_friction"])==TYPE_INT and typeof(loaded.career["members"][0]["rehearsal_risk"]["creative_friction"])==TYPE_INT,"authored risk integers stay typed from handoff through save")
  check(not loaded.restore({"schema_version":1,"roster":[{"id":"evil"}],"phase":"play"}),"corrupt roster rejected")
  check(JSON.stringify(loaded.snapshot())==JSON.stringify(snapshot),"failed restore non-mutating")
  var stars = Game.new()
