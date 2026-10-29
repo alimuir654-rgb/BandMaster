@@ -1,14 +1,11 @@
 {
-  "writer": null,
-  "base_head": "ad3bca76e70cc3c75f7f581317d62b82db64e748",
-  "claimed_at": "2026-10-29T19:17:43+00:00",
-  "expires_at": "2026-10-29T20:00:00+00:00",
-  "scope": "Owner-requested asset acquisition shortlist and continuous-improvement research records only. No code/art/import/purchase/game/save/main changes.",
-  "authority": "Latest direct owner approval to produce the specific shortlist; no recurring programme extension or final-art approval.",
-  "owner_approved": false,
-  "previous_verified_code_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
-  "previous_verified_run_id": 40930454213,
-  "released_at": "2026-10-29T19:21:54.623326+00:00",
-  "result": "closed_with_evidence",
-  "tested_code_sha": "ad3bca76e70cc3c75f7f581317d62b82db64e748"
+ "writer":"C24-cc0-frame-source-20261029T194950",
+ "base_head":"e263d939923e577319e1c5ac0d1518b9c8cf6512",
+ "claimed_at":"2026-10-29T19:58:00+00:00",
+ "expires_at":"2026-10-29T20:49:50+00:00",
+ "scope":"Direct owner one-hour session: acquire actual CC0 source models, produce one reusable dossier-frame art proof and native verification; no backgrounds/characters/control redesign/production or save edits.",
+ "authority":"Direct owner: ok go. one hour. No recurring schedule extension, purchase, merge or final-art approval.",
+ "owner_approved":false,
+ "previous_verified_code_sha":"761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+ "previous_verified_run_id":40930454213
 }
