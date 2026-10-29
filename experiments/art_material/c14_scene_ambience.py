@@ -43,10 +43,21 @@ def install():
                 px[x,y]=min(160,max(0,round(edge*(130 if kind=="flightcase" else 74))))
         over=Image.new("RGB",backdrop.size,"#060e14" if kind=="flightcase" else "#ddc9a9")
         backdrop=Image.composite(over,backdrop,veil)
+        # Native render revealed a hard rectangular room boundary against
+        # cork/paper. Feather the independent environmental plate into its
+        # theme's existing physical surface, without masking the portrait.
+        edge_alpha=Image.new("L",backdrop.size)
+        op=edge_alpha.load()
+        for yy in range(900):
+            for xx in range(1200):
+                fade=min(1.0,xx/170.0,(1199-xx)/170.0,yy/130.0,(899-yy)/130.0)
+                op[xx,yy]=max(0,min(255,round(255*(max(0.0,fade)**0.78))))
+        backdrop=backdrop.convert("RGBA")
+        backdrop.putalpha(edge_alpha)
         path=OUT/("c14_environment_"+kind+".webp")
         backdrop.save(path,format="WEBP",quality=91,method=5)
         records.append({"path":str(path.relative_to(ROOT)),"sha256":sha(path),
-                        "dimensions":[1200,900],"material":kind,"alpha":False,
+                        "dimensions":[1200,900],"material":kind,"alpha":True,
                         "source":str(SRC.relative_to(ROOT)),"source_sha256":sha(SRC),
                         "rights":"Existing Pexels environmental photo manifest, retained; not a character photo",
                         "usage":"Separate photographic atmosphere BEHIND native framed portrait, not a full UI screen",
@@ -132,6 +143,23 @@ def patch_test():
             check(scene.scene_atmosphere.get_parent() == scene.portrait_stage, "C14 scene atmosphere misplaced " + prefix)
             check(scene.scene_atmosphere.visible if sz.x >= 900 else not scene.portrait_stage.visible, "C14 scene responsive stage " + prefix)'''
     s=replace_once(s,marker,addition)
+    # The native test's real Button.pressed.emit() pathway MUST exercise
+    # visual-only Control 4.7 offsets, then reach a stable full-opacity frame.
+    browse='            scene.candidate_buttons[1].pressed.emit()\n            await settle()\n'
+    assert s.count(browse)==1,("C14 browse test anchor",s.count(browse))
+    s=s.replace(browse,'''            scene.candidate_buttons[1].pressed.emit()
+            check(scene.portrait.offset_transform_enabled and scene.portrait.offset_transform_visual_only, "C14 native selection motion absent " + prefix)
+            await create_timer(0.30).timeout
+            await settle()
+            check(scene.portrait.modulate.a >= 0.99 and scene.portrait.offset_transform_position.length() < 0.1, "C14 selected portrait did not settle " + prefix)
+''',1)
+    action='            scene.recruit_button.pressed.emit()\n'
+    assert s.count(action)==2,("C14 recruit/refund button test anchors",s.count(action))
+    s=s.replace(action,'''            scene.recruit_button.pressed.emit()
+            check(scene.recruit_button.offset_transform_enabled and scene.recruit_button.offset_transform_visual_only, "C14 native action motion absent " + prefix)
+            await create_timer(0.20).timeout
+            check(scene.recruit_button.offset_transform_scale.distance_to(Vector2.ONE) <= 0.02, "C14 action did not settle " + prefix)
+''')
     p.write_text(s)
     print("C14 source/semantics/responsive native assertions installed")
 
