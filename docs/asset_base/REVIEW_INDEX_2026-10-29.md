@@ -1,6 +1,6 @@
 # BandMaster — source/native owner review index (live candidate, 29 October 2026)
 
-**Last verified candidate at 13:21 Europe/London; not final owner acceptance.** Production implementation `a7d2e5803c491f36e26cc5d62863ff10b92985f2` (F16). Isolated feature branch `dual-frame-proof-2026-10-28`. `owner_approved=false`; no merge or production-save change. Optional families frozen since 12:00; retain 14:00 validation, 15:00 implementation stop, 16:00 owner review without writes.
+**14:00 source/native audit and package completed; no final owner acceptance.** Last verified code `0c041e326098a2c9c8a613368b5eac9dd94e1dc8` (U18); no 14:00 implementation or new native run. Isolated feature branch `dual-frame-proof-2026-10-28`. `owner_approved=false`; no merge or production-save change. Optional families frozen since 12:00; retain 14:00 validation, 15:00 implementation stop, 16:00 owner review without writes.
 
 ## Open real native evidence (not interface mockups)
 
@@ -29,3 +29,12 @@
 ## Remaining gates and handover requirements
 
 At14:00 verify both actual scene styles and 390×844, 720×1280, 1280×720, 1600×900 again, ensure all source/rights/state atlases are in the review package and only fix release blockers. At15:00 stop implementation writes, evidence/index only. At16:00 compare C12→C15→latest actual native captures, report that improved scene composition and control proof are **not** final owner art approval; disclose missing original portrait masters and remaining day button/large-screen art concerns. No automatic deadline extension, merge, paid assets or production saves.
+
+
+## V19 latest review index, 14:00 29 October
+
+Original U18 native Godot4.7.2 X11 [run 40880526534](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40880526534), artifact12900730044, ZIP SHA256 `0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018`; original C12 morning [run40837105664](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40837105664), artifact12880838182, ZIP SHA256 `a81c86aa5fe9612c135bd23acddda1c2815aa67415f1382f94a41bd0ca73c79d`. **32+20 genuine captures, zero failures**, 23 passive meter sprite hashes byte-identical C12→U18, six stats non-focus.
+
+Owner review files created from **actual original PNGs**: `BandMaster_V19_C12_to_U18_Actual_Native_1280x720.png`, `BandMaster_V19_C12_to_U18_Actual_Native_1600x900.png`, `BandMaster_V19_Current_Native_Four_Viewports.png`, `BandMaster_V19_Character_Source_Truth.png`, `BandMaster_V19_Source_Component_Atlas.png`. Full source/native ZIP `BandMaster_V19_14h_Source_Native_Review_Pack.zip` SHA256 `9bce29ca5b00fcee290dd9126a8e17ae976e10ba48c981833ffb6889b97ca2ed`; runnable **actual verified CI** Godot project ZIP `BandMaster_V19_U18_Verified_Testable_Godot_Project.zip` SHA256 `74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62`. These are conversation-local review deliverables, not GitHub binary commits. [Detailed reproducible source/hash/rights and five simulated verdicts](V19_14H_VERIFIED_PACKAGE.md).
+
+F visual PARTIAL (both looks cohesive but 1600 night negative space); U technical PASS/visual PARTIAL (owner-liked RAG unchanged, day small button text still crowded); C ART HOLD (separate indie 512×690 paired-origin derivatives, **missing two independently produced ≥1024 original musician masters**). 720 day portrait overscaled. 15:00 implementation freeze/evidence-only, 16:00 original C12→latest review with no writes. `owner_approved=false`.

@@ -32,11 +32,11 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "F",
-  "next_single_action": "At 14:00 validate/package existing core two-look/two-character kit and four-viewport native evidence only; no new families. Preserve 23 passive meter sprites and six no-input semantics. At15:00 implementation writes STOP, evidence/index-only; 16:00 read-only owner review comparing C12 to U18. Original independent >=1024 musician masters remain ART HOLD.",
+  "next_stream": "final_evidence_review",
+  "next_single_action": "15:00 STOP ALL IMPLEMENTATION WRITES, evidence/index only. 16:00 NO WRITES; compare authentic C12 morning vs last verified U18 four-viewport native proof. Disclose two missing independently generated >=1024 portrait masters, 720 face crop and 1600 negative space; retain owner-liked 23 RAG source sprites, six passive meters and approval false.",
   "streams": {
     "C": {
-      "status": "partial_c15_indie_512_credible_source_native_32_pass_not_independent_master",
+      "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
       "priority": "P0",
       "target": "Two distinctive canonical portrait masters and derived crops",
       "assets": [
@@ -151,7 +151,7 @@
       ],
       "blocked_reason": "Two independent >=1024px documentary-style UK indie musician portrait masters remain BLOCKED; the C15 artistically stronger 512x690 Alex/Nia previews are distinct persons but derive from one paired-origin generated portrait-only plate. Genuine independent subject source and release assurance not established; source limitations disclosed; no upscaling.",
       "ineffective_attempts": 5,
-      "next_action": "At 14:00 disclose per-character 512x690 paired-origin portraits versus independently produced >=1024 master requirement; no new cast or collage-route retries, maintain ART HOLD.",
+      "next_action": "15:00 documentation/evidence only; 16:00 disclose original master shortfall; no further collage-route retries.",
       "improved": [
         "Full face visible in actual 1280x720 and1600x900 native Godot landscapes for both characters; phone/tablet keep prior portrait source; resize and candidate binding verified.",
         "C08 face/upper body shows at larger physical size on both 1280 and1600 desktop within independent 420x540 source-backed vertical mounts; mobile/tablet not regressed; raw source pixels not upscaled.",
@@ -168,7 +168,7 @@
       ]
     },
     "F": {
-      "status": "partial_f16_native_wide_layout_improvement_32_pass_not_art_approved",
+      "status": "partial_v19_4viewport_native_packaged",
       "priority": "P0",
       "target": "Flight-case/night and notepaper/day reusable frame families",
       "assets": [
@@ -243,7 +243,7 @@
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "At 14:00 validate existing F16 1600 dossier and both photomaterial scenes, package source/native evidence; no optional variants. F16 composition unchanged by U18.",
+      "next_action": "15:00 index only; retain F16 night/day frames, disclose 1600 void and 720 portrait balance at 16:00.",
       "improved": [
         "phone safe insets: footer text no longer crosses screw/rail",
         "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
@@ -263,7 +263,7 @@
       "last_native_run_id": 40871929364
     },
     "U": {
-      "status": "partial_u18_13h_native_32_scene_20_hardware_pass_owner_liked_meters_unchanged",
+      "status": "technical_pass_v19_same_C12_meter_23_hashes_no_input",
       "priority": "P1-preserve",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
@@ -371,7 +371,7 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "No more meter or action-family refinements absent demonstrated regression. At14:00 package native source/state atlas, focus/pressed/browse/recruit/remove evidence, validate all four resolutions and six passive/focus invariants. Independent high-res C masters still hold.",
+      "next_action": "15:00 evidence only; preserve unchanged meters and 12 source action states; disclose 390 day label density.",
       "improved": [
         "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
         "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
@@ -417,8 +417,8 @@
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
-      "status": "pending",
-      "decision": null
+      "status": "reviewed_packaged_native_art_hold_no_new_family",
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -479,5 +479,26 @@
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "U17 native type correction succeeded technically but first screenshot showed lingering optical crowding; changed technique once to masked source-luminance U18 on existing six DAY action keys. U18 actual 390/720/1280/1600 day/night screens viewed; 32 scene and20 hardware PNGs, zero failures. Three push workflows success. All 23 owner-liked passive meter sprites and six NIGHT action sprites byte-identical to F16. Day face/labels are more legible, still a modest correction; C musician origins remain provisional ART HOLD. Writer released, no merge."
+  "last_run_summary": "U17 native type correction succeeded technically but first screenshot showed lingering optical crowding; changed technique once to masked source-luminance U18 on existing six DAY action keys. U18 actual 390/720/1280/1600 day/night screens viewed; 32 scene and20 hardware PNGs, zero failures. Three push workflows success. All 23 owner-liked passive meter sprites and six NIGHT action sprites byte-identical to F16. Day face/labels are more legible, still a modest correction; C musician origins remain provisional ART HOLD. Writer released, no merge.",
+  "last_packaged_at": "2026-10-29T14:15:02.922Z",
+  "last_validation": {
+    "gate": "14:00",
+    "tested_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
+    "run_id": 40880526534,
+    "artifact_id": 12900730044,
+    "run_zip_sha256": "0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018",
+    "C12_run_id": 40837105664,
+    "C12_artifact_id": 12880838182,
+    "C12_zip_sha256": "a81c86aa5fe9612c135bd23acddda1c2815aa67415f1382f94a41bd0ca73c79d",
+    "native_screenshots": 32,
+    "hardware_screenshots": 20,
+    "failures": 0,
+    "passive_meter_23_unchanged": true,
+    "character_masters_independent_1024": 0,
+    "review_zip": "BandMaster_V19_14h_Source_Native_Review_Pack.zip",
+    "review_zip_sha256": "9bce29ca5b00fcee290dd9126a8e17ae976e10ba48c981833ffb6889b97ca2ed",
+    "testable_project_zip": "BandMaster_V19_U18_Verified_Testable_Godot_Project.zip",
+    "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
+    "owner_approved": false
+  }
 }
