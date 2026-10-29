@@ -1,4 +1,4 @@
-"""Calibrate the inspected source scene, never paint over clipped detail."""
+"""Calibrate the inspected source scene with explicit relocated dependencies."""
 from pathlib import Path
 import bpy,json,hashlib
 from PIL import Image,ImageStat
@@ -7,8 +7,10 @@ bpy.ops.wm.open_mainfile(filepath=str(SRC/'dossier_source.blend'))
 for im in bpy.data.images:
     if im.source=='FILE':
         if not Path(bpy.path.abspath(im.filepath)).exists():
-            match=list(Path('c24-sources').resolve().rglob(Path(im.filepath).name))
-            if match:im.filepath=str(match[0]);im.reload()
+            name=Path(im.filepath).name
+            matches=list(Path('c24-sources').resolve().rglob(name))+list(Path('/tmp/c24-source').glob(name))
+            assert len(matches)==1,('Missing or ambiguous source texture',name,matches)
+            im.filepath=str(matches[0].resolve());im.reload()
         assert Path(bpy.path.abspath(im.filepath)).is_file(),im.filepath
 scene=bpy.context.scene
 board=bpy.data.objects['C24_board'];clip=bpy.data.objects['C24_clip']
