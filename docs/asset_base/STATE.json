@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "U17-20261029-20261029130824",
-    "stream": "U",
-    "claimed_at": "2026-10-29T13:08:24.387Z",
-    "expires_at": "2026-10-29T13:43:24.387Z",
-    "base_head": "682e57d1caea51c104e8b979811aae00f781d656",
-    "purpose": "13:00 measured day action/readability correction; native four-viewport validation; preserve meters; freeze optional breadth"
-  },
-  "last_verified_code_sha": "a7d2e5803c491f36e26cc5d62863ff10b92985f2",
+  "writer": null,
+  "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -32,8 +25,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "U",
-  "next_single_action": "At 13:00 inspect observed day recruit/roster ink legibility in real 390/1280 native evidence. Only act if demonstrably poor; preserve existing meter visuals and C15 portraits. No new asset families after 12:00. At14:00 validate/package, 15:00 implementation freeze, 16:00 read-only owner review.",
+  "next_stream": "F",
+  "next_single_action": "At 14:00 validate/package existing core two-look/two-character kit and four-viewport native evidence only; no new families. Preserve 23 passive meter sprites and six no-input semantics. At15:00 implementation writes STOP, evidence/index-only; 16:00 read-only owner review comparing C12 to U18. Original independent >=1024 musician masters remain ART HOLD.",
   "streams": {
     "C": {
       "status": "partial_c15_indie_512_credible_source_native_32_pass_not_independent_master",
@@ -151,7 +144,7 @@
       ],
       "blocked_reason": "Two independent >=1024px documentary-style UK indie musician portrait masters remain BLOCKED; the C15 artistically stronger 512x690 Alex/Nia previews are distinct persons but derive from one paired-origin generated portrait-only plate. Genuine independent subject source and release assurance not established; source limitations disclosed; no upscaling.",
       "ineffective_attempts": 5,
-      "next_action": "No independent >=1024 high-quality standalone Alex or Nia originals; C15 paired-origin 512 studies remain provisional and visually better than 1024 corporate CC0. Do not retry collage or change to unlicensed photo sources after 12 freeze; disclose missing masters at owner review.",
+      "next_action": "At 14:00 disclose per-character 512x690 paired-origin portraits versus independently produced >=1024 master requirement; no new cast or collage-route retries, maintain ART HOLD.",
       "improved": [
         "Full face visible in actual 1280x720 and1600x900 native Godot landscapes for both characters; phone/tablet keep prior portrait source; resize and candidate binding verified.",
         "C08 face/upper body shows at larger physical size on both 1280 and1600 desktop within independent 420x540 source-backed vertical mounts; mobile/tablet not regressed; raw source pixels not upscaled.",
@@ -243,7 +236,7 @@
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "12:00 freeze applied. Do not add new scene families. At 14:00 validate/review/package C12→C15→F16 native art, only fix reproducible layout/import defects; 15:00 implementation stop.",
+      "next_action": "At 14:00 validate existing F16 1600 dossier and both photomaterial scenes, package source/native evidence; no optional variants. F16 composition unchanged by U18.",
       "improved": [
         "phone safe insets: footer text no longer crosses screw/rail",
         "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
@@ -263,14 +256,15 @@
       "last_native_run_id": 40871929364
     },
     "U": {
-      "status": "partial_c14_native_browse_recruit_remove_motion_verified_meters_unchanged",
-      "priority": "P0",
+      "status": "partial_u18_13h_native_32_scene_20_hardware_pass_owner_liked_meters_unchanged",
+      "priority": "P1-preserve",
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
         "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py",
         "U03 36 distinct source-backed Lab07 hardware sprites: 3 direct-control families (action/tab/browse) x 2 material themes x 6 states; exact SHA256, crop/safe/nine-slice metadata in DIRECT_CONTROL_MANIFEST.json; atlas SHA256 5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209; source experiments/art_material/build_direct_control_kit.py",
         "U04 Lab08.4 creative focus / venue buzz / horizontal+vertical faders: 27+23 source LED overlays, five values each, 20 genuine native hardware captures, separate 32 recruitment renders. Native run40805840636.",
-        "U09 `experiments/art_material/rebalance_day_hardware.py`: 18 DAY Lab07 source-backed action/tab/browse sprites recast in physically textured ivory/ochre/pewter with original bezel+LED; NIGHT 18 sprite bytes unchanged. Six states preserved, hash chain in U09_DAY_ENAMEL_MANIFEST.json; native day dark ink/night cream. `u09_day_enamel_atlas.png`."
+        "U09 `experiments/art_material/rebalance_day_hardware.py`: 18 DAY Lab07 source-backed action/tab/browse sprites recast in physically textured ivory/ochre/pewter with original bezel+LED; NIGHT 18 sprite bytes unchanged. Six states preserved, hash chain in U09_DAY_ENAMEL_MANIFEST.json; native day dark ink/night cream. `u09_day_enamel_atlas.png`.",
+        "U18 source-backed face refinement at experiments/art_material/f16_widescreen_dossier.py, Git blob 1ea763e4daa0010915ed4bf3f6299e461e7d2098; generated six assets/material/control_action_notepaper_{idle,hover,pressed,active,disabled,focus}.png 480x148; original chrome/LED preserved, no new family. State hashes and original before hashes in artifact proof-shots/F16_WIDE_DOSSIER_MANIFEST.json, U18 atlas assets/material/u18_day_action_face_atlas.png SHA256 f1d1e0f6c4bb06e5b126d34378090e655eece45ae3d321acc8a07e482096952c."
       ],
       "verified_native_evidence": [
         {
@@ -339,6 +333,30 @@
             "u09_day_enamel_atlas.png"
           ],
           "verdict": "Native DAY physical colour/selected states improved and compact phone role label clipping corrected; professional art target still PARTIAL due source portraits."
+        },
+        {
+          "tested_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
+          "run_id": 40880526534,
+          "artifact_id": 12900730044,
+          "artifact_sha256": "0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018",
+          "screenshots": 32,
+          "hardware_captures": 20,
+          "assertion_failures": 0,
+          "repository_checks": [
+            "native 40880526534 SUCCESS",
+            "structure 40880526512 SUCCESS",
+            "headless 40880526543 SUCCESS"
+          ],
+          "inspected": [
+            "U18 notepaper-390x844-alex.png vs F16 & U17",
+            "U18 notepaper-1280x720-alex.png vs F16",
+            "U18 notepaper-720x1280-nia.png",
+            "U18 notepaper-1600x900-alex.png",
+            "U18 flightcase-390x844-alex.png vs F16",
+            "U18 flightcase-1280x720-alex.png vs F16",
+            "U18 source atlas u18_day_action_face_atlas.png"
+          ],
+          "status": "native interaction and source-art correction PASS, creative result partial; 23 meters/6 NIGHT action sprites byte-identical F16/U17/U18"
         }
       ],
       "baseline_gaps": [
@@ -346,7 +364,7 @@
         "uniform heavy metal tabs"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Owner-liked 23 meter source sprites and six passive stat semantics preserved and byte-verified through F16. Only if actual native day recruit/roster ink failure is demonstrable, one integrated U focused correction of action/browse/press/focus before 14:00; otherwise packaging.",
+      "next_action": "No more meter or action-family refinements absent demonstrated regression. At14:00 package native source/state atlas, focus/pressed/browse/recruit/remove evidence, validate all four resolutions and six passive/focus invariants. Independent high-res C masters still hold.",
       "improved": [
         "Native selected role and candidate state uses toggle_mode instead of disabled; genuinely disabled state retained",
         "36 independently source-backed Lab07 states across action, role tab and browse controls; keyboard focus outlined",
@@ -362,10 +380,11 @@
         "Dedicated fader/rotary assemblies not revalidated in this U03 deliverable",
         "Art direction and owner approval both still pending",
         "U04 demo 390px heading truncation and capped amber position mark present at 0; no value-dependent rail glow at zero. Dials are INPUTS, passive RAG remain read-only.",
-        "U09 final 390 action/ROSTER typography still visually dense on physical hardware despite bounds PASS; 1600 portrait/notes have excess whitespace; original high-res musician masters remain absent."
+        "U09 final 390 action/ROSTER typography still visually dense on physical hardware despite bounds PASS; 1600 portrait/notes have excess whitespace; original high-res musician masters remain absent.",
+        "U18 action face and responsive typography are clearer than F16 in opened native 390 and1280 screenshots but 390 label still physically dense; do not spend another slot on this same family after one ineffective U17 continuation and successful source-technique pivot."
       ],
-      "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
-      "last_native_run_id": 40848431365
+      "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
+      "last_native_run_id": 40880526534
     }
   },
   "checkpoints": [
@@ -401,7 +420,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "F16: 12:00 mandatory optional-family freeze; centred compact 1600px existing dossier in both looks, corrected native day biography clipping; 32+20 real Godot captures/zero failures, three CI green, C15 meter/portrait baselines intact; art remains PARTIAL.",
+  "last_completed_deliverable": "U18 / 13:00 DAY action legibility source correction, verified native Godot4.7.2 at 0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -447,28 +466,11 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-29T12:23:30+00:00",
+  "last_updated_utc": "2026-10-29T13:22:33.868Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": {
-    "id": "F16",
-    "completed_at_utc": "2026-10-29T12:23:30+00:00",
-    "source_sha": "a7d2e5803c491f36e26cc5d62863ff10b92985f2",
-    "art_run": 40871929364,
-    "artifact_id": 12896755551,
-    "full_artifact_sha256": "5ea5842fdef743f9ebabffc54a4be91c2bb1996f18216b414b1425a2d808462a",
-    "headless_run": 40871929389,
-    "structure_run": 40871929406,
-    "native_recruitment_screenshots": 32,
-    "hardware_screenshots": 20,
-    "recorded_assertion_failures": 0,
-    "native_gl_godot": "4.7.2-stable",
-    "visual_verdict": "PARTIAL: 1600 wide dossier materially more balanced, corrected notes clipping; independent high-res character masters still blocked; selected day buttons dark.",
-    "owner_approved": false,
-    "meter_source_sprite_sha_unchanged": true,
-    "review_pack": "BandMaster_F16_Compact_Review_Pack.zip"
-  }
+  "last_run_summary": "U17 native type correction succeeded technically but first screenshot showed lingering optical crowding; changed technique once to masked source-luminance U18 on existing six DAY action keys. U18 actual 390/720/1280/1600 day/night screens viewed; 32 scene and20 hardware PNGs, zero failures. Three push workflows success. All 23 owner-liked passive meter sprites and six NIGHT action sprites byte-identical to F16. Day face/labels are more legible, still a modest correction; C musician origins remain provisional ART HOLD. Writer released, no merge."
 }

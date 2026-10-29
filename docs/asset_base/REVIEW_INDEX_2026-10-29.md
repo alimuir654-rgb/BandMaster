@@ -1,6 +1,6 @@
 # BandMaster — source/native owner review index (live candidate, 29 October 2026)
 
-**Last verified candidate at 12:23 Europe/London; not final owner acceptance.** Production implementation `a7d2e5803c491f36e26cc5d62863ff10b92985f2` (F16). Isolated feature branch `dual-frame-proof-2026-10-28`. `owner_approved=false`; no merge or production-save change. Optional families frozen since 12:00; retain 14:00 validation, 15:00 implementation stop, 16:00 owner review without writes.
+**Last verified candidate at 13:21 Europe/London; not final owner acceptance.** Production implementation `a7d2e5803c491f36e26cc5d62863ff10b92985f2` (F16). Isolated feature branch `dual-frame-proof-2026-10-28`. `owner_approved=false`; no merge or production-save change. Optional families frozen since 12:00; retain 14:00 validation, 15:00 implementation stop, 16:00 owner review without writes.
 
 ## Open real native evidence (not interface mockups)
 
@@ -17,6 +17,14 @@
 **U — PASS for measured source and input invariants, visual PARTIAL.** Six live passive RAG meters remain completely read-only, `mouse_filter=IGNORE` and `focus_mode=NONE`. Independently SHA-256 checked all **23** `passive_meter_*.png` sources inside both C15 and F16 project ZIPs: byte-identical. Existing Lab07/Lab08 hardware state/pressed/selected/focus and deterministic candidate browse/recruit/remove interactions retained. Day action button ink remains visually dark at some sizes, an optional *defect correction* only, not permission to redesign the meters.
 
 **C — ART HOLD / partial technical integration.** Alex Vale `alex` and Nia Griffiths `nia_griffiths` are distinct canonical identities with proper costs (51/45), six stats, 200 talent reversible transactions. C15 has separate 512×690 per-look pictures, artistically more indie-credible than C12 1024px CC0 corporate headshots, but the sources were derived from one two-person generated plate; no **independently produced ≥1024px standalone originals**. Their native faces are not cropped away, but these images must remain labelled studies with honest synthetic provenance. No new cast until the missing two professional-quality originals exist.
+
+
+## U18 13:00 day-action legibility: current last verified tested assembly
+
+- **Current tested source:** `0c041e326098a2c9c8a613368b5eac9dd94e1dc8`, branch-only, native [run 40880526534](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40880526534), [artifact 12900730044](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40880526534/artifacts/12900730044), downloaded ZIP SHA256 `0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018`. Structure 40880526512 SUCCESS, Godot headless 40880526543 SUCCESS, 32 native recruitment captures +20 hardware/0 assertion failures.
+- **Real F16 vs U18 pixels opened:** `notepaper-390x844-alex.png`, `notepaper-1280x720-alex.png`, `notepaper-720x1280-nia.png`, `notepaper-1600x900-alex.png`, `flightcase-390x844-alex.png`, `flightcase-1280x720-alex.png`. `BandMaster_U18_F16_to_U18_Actual_Godot_Comparison.png`, `BandMaster_U18_Action_Key_Native_Three_Way.png` and `BandMaster_U18_Actual_Four_Viewport_Review.png` are honest comparison/contact sheets of actual Godot PNGs. Compact local review pack: `BandMaster_U18_13h_Review_Pack.zip` SHA256 `75363c2e4de26e25e6b145dad3c4c7e42fe6226e3330199b67f81ee9dafbe588`.
+- **Verified source:** `experiments/art_material/f16_widescreen_dossier.py` currently includes U17 native size/tooltip and the one U18 corrective source-technique pivot. Six DAY action source keys 480×148 retain original source bezel/LED/alpha, corrected ivory/ochre centre faces, separate native text, six states and SHA metadata in `proof-shots/F16_WIDE_DOSSIER_MANIFEST.json`. New *evidence atlas only* `assets/material/u18_day_action_face_atlas.png` SHA256 `f1d1e0f6c4bb06e5b126d34378090e655eece45ae3d321acc8a07e482096952c`. All 23 passive meter source PNGs and six NIGHT action sources byte-identical to F16. Source rights remain owner image-generated Lab07, not photographs. Four-resolution output verifies roster semantics, focus, recruitment/refunds and all six passive stats.
+- **Verdict:** U source/native technical PASS, day physical readability improved but artistic PARTIAL; F scene assembly PARTIAL; C original independent ≥1024px musician masters MISSING (two 512×690 paired-origin studies only), art HOLD. `owner_approved=false`. At 14:00 validate/review package; at 15:00 evidence only; 16:00 no writes and compare C12→C15→U18.
 
 ## Remaining gates and handover requirements
 
