@@ -1,0 +1,34 @@
+{
+ "reviewed_in_session":"C25",
+ "reviewed_by":"assistant_actual_evidence_review",
+ "events":[
+  {
+   "event_id":"C25-pinned-catalogue-native-resolution","id":"BM-15","event":"verified_resolution","recorded_at":"2026-10-29T23:04:00+00:00","severity":"P1","cause_confidence":"observed","owner_role":"Godot engineering and QA",
+   "observation":"The missing current-branch recruitment dependency was corrected with the exact existing repository blob9c40d3ae04558195e09961471c67e4e7952009a7 from source c084690f7ccde4625eaebf68b89ae476fd08724d. Native270checks now pass and publication completed under the guarded C25 lease. The earlier failed run is retained.",
+   "expected":"Reuse and verify actual branch-specific dependencies without introducing competing recruitment formulas or editing canonical identities.",
+   "evidence":["run40969779247 SUCCESS at e11a89f7ad3f52b55c956d3bbc4a815aff218400","Data/CharacterCast/NATIVE_TEST_RESULTS.json:270checks,failures[]","publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482","experiments/character_cast/vendor/README.md"],
+   "affected_paths":["experiments/character_cast/vendor/recruitment_catalogue_v3.gd","experiments/character_cast/catalogue.gd",".github/workflows/character-cast-intake.yml"],
+   "prevention":"Read actual checkout/tree and pin reused model bytes; retain source commit/blob provenance and canonical-data immutability tests.",
+   "verification":"Exact model hash, pricing/refund/duplicate/overspend/deep-copy and canonical identity tests passed. Existing full regression workflow40969779234 also completed successfully.",
+   "next_action":"Use the verified opt-in catalogue in the already-authorised isolated playable flow; do not duplicate pricing rules."
+  },
+  {
+   "event_id":"C25-approved-cast-source-and-score-review","id":"BM-14","event":"review","recorded_at":"2026-10-29T23:04:00+00:00","severity":"P2","cause_confidence":"observed","owner_role":"technical art and producer",
+   "observation":"Exact owner-approved18-person contact sheet and18 label-free native-size preview crops were published and downloaded. Original1536x1024SHA52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f and all derivative hashes verified. All18 crops visually inspected in original-size comparison. Bex and Sam are authored high-talent/high-friction options within the18, not new standalone portraits. Their personalities are game fiction, not appearance inferences.",
+   "expected":"Distinguish approved casting reference, small derivatives and production masters, and distinguish scored data from integrated gameplay consequences.",
+   "evidence":["Art/References/ApprovedCast20261029/MANIFEST.json","Data/CharacterCast/SCORES.md","artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0 downloaded","BandMaster_C25_Cast_Scores_Review.png opened with all18 crops","docs/continuous_improvement/C25_REVIEW.md"],
+   "affected_paths":["Art/References/ApprovedCast20261029/**","Data/CharacterCast/**"],
+   "prevention":"Keep source dimensions/provenance and per-asset approval explicit. Do not upscale preview crops, turn the contact sheet into an interface or claim reliability/friction penalties are active before integration tests.",
+   "verification":"18profiles,five-rolecounts4/5/3/3/3,270nativechecks,274of540affordablefive-rolelineups. Artistic casting-reference acceptance is owner-given; global finished-art and balance acceptance remain false.",
+   "next_action":"Move to connected gameplay using the approved cast supplement, not further framing or repetitive portrait generation."
+  }
+ ],
+ "ledger_entry":"## C25 — approved cast intake and initial scoring, 29 October23:04 UK\n\nPublished exact approved1536x1024 generated reference plus18small unscaled label-free previews and provenance/hash manifest. Eighteen additivecast_ids: singers4,guitars5,bass3,keys3,drums3; existing Alex/Nia/Sam identities untouched. Six role-specific1–10music stats; separate authored reliability/cooperation. Bex56talent/team2/reliable5 and Sam55/team3/reliable3 are two fictionally difficult standouts WITHIN the approved18. Existing200budget/fifth-member6overhead retained;274of540five-rolelineups affordable. BalancedMaya/Jack/Zoe/Dan/Casey178.\n\nTested e11a89f7ad3f52b55c956d3bbc4a815aff218400; run40969779247 SUCCESS; actual output publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482.270focused Godot4.7.2 assertions zero failures. Existing headless/regressions40969779234,structure40969779374 and improvement40969779198 also PASS. Artifact12939198737 downloadedSHA401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0; all18sourcecrop hashes verified and actual crops opened in BandMaster_C25_Cast_Scores_Review.png. No new scene captures claimed. Missing-branch model failure logged before exactblobvendor fix; originalfailedrun retained.\n\nFive SIMULATED lenses: Art—approved natural casting retained, no duplicate-person instrument set imported; Technical art—correct source hashes and honest small previews, no high-resmaster claim; UI—six music values separated from socialtraits, no layout change; Engineering—real rule tests,canonicalIDs andsave safety preserved; QA/producer—published not merely staged, scores provisional and personality consequences NOT yet integrated.\n\nNext one action: continue authorised overnight flight-case playable recruitment→songwriting→rehearsal slice with this opt-in cast and tested real consequences. Park notebook. No production scenes/saves/main/PR199 edits or merge. owner_approved=false for wholekit; casting_reference_approved=true only. See C25_REVIEW.md.",
+ "closeout":{
+  "tested_sha":"e11a89f7ad3f52b55c956d3bbc4a815aff218400",
+  "evidence":["https://github.com/alimuir654-rgb/BandMaster/actions/runs/40969779247","publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482","artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0","docs/continuous_improvement/C25_REVIEW.md"],
+  "visual_verdict":"partial",
+  "next_action":"Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
+  "new_issue_review":"BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule."
+ }
+}
