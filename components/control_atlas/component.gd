@@ -1,0 +1,36 @@
+extends MarginContainer
+## Drop-in wrapper: set kind/look in the inspector; connect changed.
+signal changed(value: Variant)
+const Kit = preload("res://components/control_atlas/kit.gd")
+@export_enum("toggle", "stepper", "choices", "browse", "pagination", "meter", "action", "panel", "ticket") var kind := "stepper"
+@export_enum("flightcase", "notepaper") var look := "flightcase"
+@export var choices := PackedStringArray(["One", "Two", "Three"])
+@export var initial := 0
+@export var caption := "Action"
+var control: Control
+func _ready() -> void:
+    match kind:
+        "stepper":
+            control = Kit.Stepper.new(look, 0, 10, initial)
+            control.value_changed.connect(func(v: int): changed.emit(v))
+        "choices", "pagination":
+            control = Kit.ChoiceStrip.new(look, choices, initial)
+            control.selection_changed.connect(func(v: int): changed.emit(v))
+        "browse":
+            control = Kit.BrowseSelector.new(look, choices)
+            control.selection_changed.connect(func(v: int, _s: String): changed.emit(v))
+        "toggle":
+            control = Kit.toggle(look, caption)
+            control.toggled.connect(func(v: bool): changed.emit(v))
+        "meter":
+            control = Kit.PassiveMeter.new(look, initial)
+            mouse_filter = Control.MOUSE_FILTER_IGNORE
+            focus_mode = Control.FOCUS_NONE
+        "panel":
+            control = Kit.frame(look)
+        "ticket":
+            control = Kit.badge(caption, look)
+        _:
+            control = Kit.button(caption, look, "action")
+            control.pressed.connect(func(): changed.emit(true))
+    add_child(control)

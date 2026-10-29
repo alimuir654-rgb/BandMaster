@@ -1,0 +1,1115 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "source_version": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8 (U18)",
+  "rights": "Inherited owner-supplied image-generated Lab07/Lab08 sources; CC0 Paper001 per retained source manifest. Not claimed real hardware photography.",
+  "unchanged_meter_files": 22,
+  "records": [
+    {
+      "path": "art/control_action_flightcase_active.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+      "source": "verified U18 assets/material/control_action_flightcase_active.png",
+      "source_sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_flightcase_disabled.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "a410e187481be0569749fa4e876e4ecc99133ed8667e55593f22dc347c8fa727",
+      "source": "verified U18 assets/material/control_action_flightcase_disabled.png",
+      "source_sha256": "a410e187481be0569749fa4e876e4ecc99133ed8667e55593f22dc347c8fa727",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_flightcase_focus.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "a3baced8e6bb20bcdfe3294d37b839397f9a1c0eaad091f0f1ac39915b222aac",
+      "source": "verified U18 assets/material/control_action_flightcase_focus.png",
+      "source_sha256": "a3baced8e6bb20bcdfe3294d37b839397f9a1c0eaad091f0f1ac39915b222aac",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_flightcase_hover.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "85e9aca6b08482a373848702d38cfb5ce675a4d54f5e845990318bd84a10dad6",
+      "source": "verified U18 assets/material/control_action_flightcase_hover.png",
+      "source_sha256": "85e9aca6b08482a373848702d38cfb5ce675a4d54f5e845990318bd84a10dad6",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_flightcase_idle.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "910a4c03244b22a50a9aa3a8fdffd8c91a06b6e3133b1ee4d9d0aebe076d7520",
+      "source": "verified U18 assets/material/control_action_flightcase_idle.png",
+      "source_sha256": "910a4c03244b22a50a9aa3a8fdffd8c91a06b6e3133b1ee4d9d0aebe076d7520",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_flightcase_pressed.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "6cef9a70b9b24f09dee7c31569a99f5cc10860fc8406f4d229515da03e05cba3",
+      "source": "verified U18 assets/material/control_action_flightcase_pressed.png",
+      "source_sha256": "6cef9a70b9b24f09dee7c31569a99f5cc10860fc8406f4d229515da03e05cba3",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_active.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "35067707ccbd5a96f55411ee217532e22fe1e5fc7871b6a700673675ac1e7a0c",
+      "source": "verified U18 assets/material/control_action_notepaper_active.png",
+      "source_sha256": "35067707ccbd5a96f55411ee217532e22fe1e5fc7871b6a700673675ac1e7a0c",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_disabled.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "8ed8fdb326025d43f2b39cef8968c08a5f6f4eefd5a5c18f9f3f9f01ab79223b",
+      "source": "verified U18 assets/material/control_action_notepaper_disabled.png",
+      "source_sha256": "8ed8fdb326025d43f2b39cef8968c08a5f6f4eefd5a5c18f9f3f9f01ab79223b",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_focus.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "18b702dacffb776ac689d04c302f918b5746bab22739a86cab835bdc474f5133",
+      "source": "verified U18 assets/material/control_action_notepaper_focus.png",
+      "source_sha256": "18b702dacffb776ac689d04c302f918b5746bab22739a86cab835bdc474f5133",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_hover.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "7e78650533bcd7a11706fc4c0bca202aa6e1f6903ce29e9a9ec14b1ff545fa13",
+      "source": "verified U18 assets/material/control_action_notepaper_hover.png",
+      "source_sha256": "7e78650533bcd7a11706fc4c0bca202aa6e1f6903ce29e9a9ec14b1ff545fa13",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_idle.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "7002d7ee6734ba30428519ad10fd0a63908e0ac579774c9405386655b411e19b",
+      "source": "verified U18 assets/material/control_action_notepaper_idle.png",
+      "source_sha256": "7002d7ee6734ba30428519ad10fd0a63908e0ac579774c9405386655b411e19b",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_action_notepaper_pressed.png",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "sha256": "051b597fa6659385e8dbf55a5755fba48533fb41262c5d420d20bd09a28cf37b",
+      "source": "verified U18 assets/material/control_action_notepaper_pressed.png",
+      "source_sha256": "051b597fa6659385e8dbf55a5755fba48533fb41262c5d420d20bd09a28cf37b",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_active.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "c8ec6de58c17cf4eae511ecbbf6983e18897b1124fc2ed0881d0952f76e6fce0",
+      "source": "verified U18 assets/material/control_browse_flightcase_active.png",
+      "source_sha256": "c8ec6de58c17cf4eae511ecbbf6983e18897b1124fc2ed0881d0952f76e6fce0",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_disabled.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "5b8586e00b194f4dbe24e522d6e545e7ad2d94db658d1f73379f96a5e6499d48",
+      "source": "verified U18 assets/material/control_browse_flightcase_disabled.png",
+      "source_sha256": "5b8586e00b194f4dbe24e522d6e545e7ad2d94db658d1f73379f96a5e6499d48",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_focus.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "bcb4030648384fb208627ac6e2bf11abb79c8365d902700335a5bb37518a30ce",
+      "source": "verified U18 assets/material/control_browse_flightcase_focus.png",
+      "source_sha256": "bcb4030648384fb208627ac6e2bf11abb79c8365d902700335a5bb37518a30ce",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_hover.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "9711ebfa1a4e2a913871ae392739af665512fb25b3a714ae7bb05024728da312",
+      "source": "verified U18 assets/material/control_browse_flightcase_hover.png",
+      "source_sha256": "9711ebfa1a4e2a913871ae392739af665512fb25b3a714ae7bb05024728da312",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_idle.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "b9ba3bbd4930a92ac67302510f8b47d3e4d4e1c07d5deef7289b1a4894a5146b",
+      "source": "verified U18 assets/material/control_browse_flightcase_idle.png",
+      "source_sha256": "b9ba3bbd4930a92ac67302510f8b47d3e4d4e1c07d5deef7289b1a4894a5146b",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_flightcase_pressed.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "b2a6f2f7f1becb1d7f988c493f82c1d0aef1acc90a12add066f39a38c66137fa",
+      "source": "verified U18 assets/material/control_browse_flightcase_pressed.png",
+      "source_sha256": "b2a6f2f7f1becb1d7f988c493f82c1d0aef1acc90a12add066f39a38c66137fa",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_active.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "29f0e10bdd2666d9c3498c7fd8d7b7c37e427112e393cdafb2d019effff3c4ab",
+      "source": "verified U18 assets/material/control_browse_notepaper_active.png",
+      "source_sha256": "29f0e10bdd2666d9c3498c7fd8d7b7c37e427112e393cdafb2d019effff3c4ab",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_disabled.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "9f4726f39d92524ce4bfeb4be40d666124a79c8859c5d3a95c07a769c4c6bc37",
+      "source": "verified U18 assets/material/control_browse_notepaper_disabled.png",
+      "source_sha256": "9f4726f39d92524ce4bfeb4be40d666124a79c8859c5d3a95c07a769c4c6bc37",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_focus.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "ffc3cdde43206d1a5c77edddbdffa459cb4dfda8d4bf7279b99ed67a4e4eed5f",
+      "source": "verified U18 assets/material/control_browse_notepaper_focus.png",
+      "source_sha256": "ffc3cdde43206d1a5c77edddbdffa459cb4dfda8d4bf7279b99ed67a4e4eed5f",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_hover.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "db3393c7b5024c41e905a2a0b133e1f4f8c13c36c7eecd622750be69e7aa148f",
+      "source": "verified U18 assets/material/control_browse_notepaper_hover.png",
+      "source_sha256": "db3393c7b5024c41e905a2a0b133e1f4f8c13c36c7eecd622750be69e7aa148f",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_idle.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "0664adaf90099d1ba8767c81cb638f3a653b72f92cff27f6c146cfaf7930bc78",
+      "source": "verified U18 assets/material/control_browse_notepaper_idle.png",
+      "source_sha256": "0664adaf90099d1ba8767c81cb638f3a653b72f92cff27f6c146cfaf7930bc78",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_browse_notepaper_pressed.png",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "sha256": "5479283f7b7ebac300d7244cf3814e531a34fe2ba53b933a9ee88a60fdce6fe8",
+      "source": "verified U18 assets/material/control_browse_notepaper_pressed.png",
+      "source_sha256": "5479283f7b7ebac300d7244cf3814e531a34fe2ba53b933a9ee88a60fdce6fe8",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_active.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "c1a5902f3a135e2b3c7bcf2f82184efb1f240fb8f3cbef756993f1a11836f061",
+      "source": "verified U18 assets/material/control_tab_flightcase_active.png",
+      "source_sha256": "c1a5902f3a135e2b3c7bcf2f82184efb1f240fb8f3cbef756993f1a11836f061",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_disabled.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "616b09b37d50d0baacd1b75c1d9e43757747afea7264971d2d8350d90b9a9b76",
+      "source": "verified U18 assets/material/control_tab_flightcase_disabled.png",
+      "source_sha256": "616b09b37d50d0baacd1b75c1d9e43757747afea7264971d2d8350d90b9a9b76",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_focus.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "e9da36f68f917371e181c9c0ae81e67b648faa4893764619ed778afa2d4881a3",
+      "source": "verified U18 assets/material/control_tab_flightcase_focus.png",
+      "source_sha256": "e9da36f68f917371e181c9c0ae81e67b648faa4893764619ed778afa2d4881a3",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_hover.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "b59a3a0f70b6040a48de95f92ff11b5d0244ccfb9557f8b16d3276bfb9bbfbd4",
+      "source": "verified U18 assets/material/control_tab_flightcase_hover.png",
+      "source_sha256": "b59a3a0f70b6040a48de95f92ff11b5d0244ccfb9557f8b16d3276bfb9bbfbd4",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_idle.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "9b05e573a9c0a0efb8fdb0e2344ddd3f8a0c2b127ae599f503ca22168aa47230",
+      "source": "verified U18 assets/material/control_tab_flightcase_idle.png",
+      "source_sha256": "9b05e573a9c0a0efb8fdb0e2344ddd3f8a0c2b127ae599f503ca22168aa47230",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_flightcase_pressed.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "9e28157699a76adc65893a063ea2c27603c53163e792e8b59de5205dc4fe856a",
+      "source": "verified U18 assets/material/control_tab_flightcase_pressed.png",
+      "source_sha256": "9e28157699a76adc65893a063ea2c27603c53163e792e8b59de5205dc4fe856a",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_active.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "e780407916834f83877d902e753720347c5e0c05c52ed74332fabbd1a6be6af7",
+      "source": "verified U18 assets/material/control_tab_notepaper_active.png",
+      "source_sha256": "e780407916834f83877d902e753720347c5e0c05c52ed74332fabbd1a6be6af7",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_disabled.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "20e645dcc02b987707c84a7dbb94b28e3e9ea13de53a055670967c5d4dea735d",
+      "source": "verified U18 assets/material/control_tab_notepaper_disabled.png",
+      "source_sha256": "20e645dcc02b987707c84a7dbb94b28e3e9ea13de53a055670967c5d4dea735d",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_focus.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "ce5e9159bd0c4aaac5517fb53827e931b77a3efd58180ff281ca260b65de44fe",
+      "source": "verified U18 assets/material/control_tab_notepaper_focus.png",
+      "source_sha256": "ce5e9159bd0c4aaac5517fb53827e931b77a3efd58180ff281ca260b65de44fe",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_hover.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "75211785e6aa65b1159bc3d463e51b54bfc71ce7c51f22c3d94339284371ab86",
+      "source": "verified U18 assets/material/control_tab_notepaper_hover.png",
+      "source_sha256": "75211785e6aa65b1159bc3d463e51b54bfc71ce7c51f22c3d94339284371ab86",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_idle.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "2c3c80258c3e54785eb87034c44060f440f53681338a131e2ec8777e586a49a3",
+      "source": "verified U18 assets/material/control_tab_notepaper_idle.png",
+      "source_sha256": "2c3c80258c3e54785eb87034c44060f440f53681338a131e2ec8777e586a49a3",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/control_tab_notepaper_pressed.png",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "sha256": "cc90507ca8172a75cdd83f62e04477a6cceadbc1c0f62e574d6b7377ea7ce6a3",
+      "source": "verified U18 assets/material/control_tab_notepaper_pressed.png",
+      "source_sha256": "cc90507ca8172a75cdd83f62e04477a6cceadbc1c0f62e574d6b7377ea7ce6a3",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/passive_meter_flightcase_00.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+      "source": "verified U18 assets/material/passive_meter_flightcase_00.png",
+      "source_sha256": "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_01.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+      "source": "verified U18 assets/material/passive_meter_flightcase_01.png",
+      "source_sha256": "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_02.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+      "source": "verified U18 assets/material/passive_meter_flightcase_02.png",
+      "source_sha256": "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_03.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+      "source": "verified U18 assets/material/passive_meter_flightcase_03.png",
+      "source_sha256": "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_04.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+      "source": "verified U18 assets/material/passive_meter_flightcase_04.png",
+      "source_sha256": "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_05.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+      "source": "verified U18 assets/material/passive_meter_flightcase_05.png",
+      "source_sha256": "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_06.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+      "source": "verified U18 assets/material/passive_meter_flightcase_06.png",
+      "source_sha256": "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_07.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04",
+      "source": "verified U18 assets/material/passive_meter_flightcase_07.png",
+      "source_sha256": "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_08.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+      "source": "verified U18 assets/material/passive_meter_flightcase_08.png",
+      "source_sha256": "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_09.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+      "source": "verified U18 assets/material/passive_meter_flightcase_09.png",
+      "source_sha256": "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_flightcase_10.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+      "source": "verified U18 assets/material/passive_meter_flightcase_10.png",
+      "source_sha256": "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_00.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "f0cfe2ee375bc3b5336efe2c608d8424585daddfe4e21c07ce2f0c2744c430dc",
+      "source": "verified U18 assets/material/passive_meter_notepaper_00.png",
+      "source_sha256": "f0cfe2ee375bc3b5336efe2c608d8424585daddfe4e21c07ce2f0c2744c430dc",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_01.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "94552a8fcbcdc680d2f31d7277d570c4fd1a84685342bb2282443713c0c4f374",
+      "source": "verified U18 assets/material/passive_meter_notepaper_01.png",
+      "source_sha256": "94552a8fcbcdc680d2f31d7277d570c4fd1a84685342bb2282443713c0c4f374",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_02.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "134e146c1e1bb03a9865f0fa22fa2b7bfa0298926ecafed20a59db74707b1102",
+      "source": "verified U18 assets/material/passive_meter_notepaper_02.png",
+      "source_sha256": "134e146c1e1bb03a9865f0fa22fa2b7bfa0298926ecafed20a59db74707b1102",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_03.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "f7af3428ddd32961bfb995e498cc0a05d895e31c552cd8798eb81bf3e615af1c",
+      "source": "verified U18 assets/material/passive_meter_notepaper_03.png",
+      "source_sha256": "f7af3428ddd32961bfb995e498cc0a05d895e31c552cd8798eb81bf3e615af1c",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_04.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "6da9495d6299a55562c584c587b7e4ce40e22b7a5e9f3500005a8c6915c46dda",
+      "source": "verified U18 assets/material/passive_meter_notepaper_04.png",
+      "source_sha256": "6da9495d6299a55562c584c587b7e4ce40e22b7a5e9f3500005a8c6915c46dda",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_05.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "c5c29f9f60406407f343a1b11648b2ea59a96dacecf8baa8e2d20e605d0db0d6",
+      "source": "verified U18 assets/material/passive_meter_notepaper_05.png",
+      "source_sha256": "c5c29f9f60406407f343a1b11648b2ea59a96dacecf8baa8e2d20e605d0db0d6",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_06.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "6ab7468183c73ea20afa4ae61b7e1a62693b0480695f8dc7d84e9f675e672ff9",
+      "source": "verified U18 assets/material/passive_meter_notepaper_06.png",
+      "source_sha256": "6ab7468183c73ea20afa4ae61b7e1a62693b0480695f8dc7d84e9f675e672ff9",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_07.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "7e8cfda0402a3ec011400eac1bd124b9af96a34cc64a76c13ceeca0ffb7d9a06",
+      "source": "verified U18 assets/material/passive_meter_notepaper_07.png",
+      "source_sha256": "7e8cfda0402a3ec011400eac1bd124b9af96a34cc64a76c13ceeca0ffb7d9a06",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_08.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "bc245a4a4b0ca4522e61195ef679845952b6f5324ae215964a1b3eaab2ba2e87",
+      "source": "verified U18 assets/material/passive_meter_notepaper_08.png",
+      "source_sha256": "bc245a4a4b0ca4522e61195ef679845952b6f5324ae215964a1b3eaab2ba2e87",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_09.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "ef5bb53f9effcf5ff566b9ea20cc4b8425e05d0227621158fc982fe60cbf2ccf",
+      "source": "verified U18 assets/material/passive_meter_notepaper_09.png",
+      "source_sha256": "ef5bb53f9effcf5ff566b9ea20cc4b8425e05d0227621158fc982fe60cbf2ccf",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/passive_meter_notepaper_10.png",
+      "size": [
+        436,
+        54
+      ],
+      "mode": "RGBA",
+      "sha256": "db3a5a8da24decd2b7d782bf2724b6206ecc844ded7405e76a1b212853baf54a",
+      "source": "verified U18 assets/material/passive_meter_notepaper_10.png",
+      "source_sha256": "db3a5a8da24decd2b7d782bf2724b6206ecc844ded7405e76a1b212853baf54a",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": true
+    },
+    {
+      "path": "art/paper_surface.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGB",
+      "sha256": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+      "source": "verified U18 assets/material/paper_surface.png",
+      "source_sha256": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/case_surface.png",
+      "size": [
+        384,
+        384
+      ],
+      "mode": "RGB",
+      "sha256": "0c692e795584b677fa7a4f97f04caf7b407c2e20ae00c87696333818202eba34",
+      "source": "verified U18 assets/material/case_surface.png",
+      "source_sha256": "0c692e795584b677fa7a4f97f04caf7b407c2e20ae00c87696333818202eba34",
+      "method": "unchanged copy",
+      "owner_approved": false,
+      "passive": false
+    },
+    {
+      "path": "art/frame_flightcase_panel.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "8a4a7ffaf93835fb3fdfac5b8c869175c7d0f447a576fa61c7ba47ee16684dd7",
+      "source": "assets/material/portrait_mount_flightcase.png",
+      "source_sha256": "56739c929d78bc52c944095dd23b68176e2d3950e0619cde6aba0f4640f5f601",
+      "method": "fixed source corners; independent source-material centre",
+      "owner_approved": false,
+      "nine_slice": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "safe_insets": [
+        30,
+        30,
+        30,
+        30
+      ],
+      "corner_source_pixels_preserved": true
+    },
+    {
+      "path": "art/frame_flightcase_inset.png",
+      "size": [
+        192,
+        96
+      ],
+      "mode": "RGBA",
+      "sha256": "413fff9396e08da6e9751451cc33c45f93f7c11dce7ef3edc347195d6bad8a6f",
+      "source": "assets/material/metal_key.png",
+      "source_sha256": "f460cc023781de4b70a927ebd80a93d86318193b27b3a0d6e4cae464e0ae1a3b",
+      "method": "quiet source-backed inset; no baked text/icons",
+      "owner_approved": false,
+      "nine_slice": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "safe_insets": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "path": "art/frame_notepaper_panel.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "sha256": "66bf06eb7bcab45216e23dd47b988019e92092f3aa07bf7994e6ea5dc3f9d94c",
+      "source": "assets/material/portrait_mount_notepaper.png",
+      "source_sha256": "189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+      "method": "fixed source corners; independent source-material centre",
+      "owner_approved": false,
+      "nine_slice": [
+        40,
+        40,
+        40,
+        40
+      ],
+      "safe_insets": [
+        30,
+        30,
+        30,
+        30
+      ],
+      "corner_source_pixels_preserved": true
+    },
+    {
+      "path": "art/frame_notepaper_inset.png",
+      "size": [
+        192,
+        96
+      ],
+      "mode": "RGBA",
+      "sha256": "5498b6bc455a75aee43d4b0f7f17eb49a733692f994e9e4ecca41f3fce26f587",
+      "source": "assets/material/portrait_mount_notepaper.png",
+      "source_sha256": "189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+      "method": "quiet source-backed inset; no baked text/icons",
+      "owner_approved": false,
+      "nine_slice": [
+        28,
+        28,
+        28,
+        28
+      ],
+      "safe_insets": [
+        12,
+        12,
+        12,
+        12
+      ]
+    }
+  ],
+  "vendor_hashes": {
+    "bandmaster_premium_dashboard_poc/studio_control.gd": "dda540b15fd0d8e78bf5769dc18c5fdca78f72c3c7bf9678e6950321909205f6",
+    "bandmaster_premium_dashboard_poc/assets/vertical_base.png": "694b733f520df1582f6e6114876904304931fbc4ac5be7bfe507e2d564c09e45",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_21.png": "d3db175f73ab44984b61389489df20fa2dd6b456fbc05e25454b2f8d8f8ca564",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_06.png": "33d80e066324004c7ca52581a1f4c51ab03ef4539db5de6d3e53207436e28b09",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_22.png": "8a4eec27b6af9b15f99cd0b3f9f89f7399b4515f62eeb668165f9d587370d377",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_12.png": "f7369c5dea5f63289174feb51e12212100255366384ad5b761fcd6233cbcf1a1",
+    "bandmaster_premium_dashboard_poc/assets/rotary_pointer.png": "6121184820d3d389b3150d7ef80a1b48663ad535ae63e9b0de92739e607dc274",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_11.png": "7dbc24c0a85ae405fe2e58623acbbf7026be260a0f9f2fdf4f6b66d589e6c626",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_05.png": "7c8cd351fd8112c5b46b6049c99a3f53b99d13c5ecc2ec01815e2de6f840c9ae",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_10.png": "ccf22cb547f051d18f9a88f797d4f9718197f8c62ccafb6fc24e9e375c331ac0",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_00.png": "a84a1b10d08c6584a976e7cf78850deed2f603d3cf2b076d173a130265c39742",
+    "bandmaster_premium_dashboard_poc/assets/buzz_ring_off.png": "bf1c7b4e7d10121e5a6a5ea4746e1cc91734700d7f940cf9321765a3f484741b",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_17.png": "58d86382462483dd2c8f7f3faffee83db55a8a4626eab9be2983e18b9a49d26c",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_19.png": "208d1efae80e77e650749ffb711464654d9a305f2f43674c38cf8d581949d894",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_01.png": "280d760991e8c27a9e34b44aed14c86ea8f2d3d70311692e3b0fb4ef20f8427f",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_06.png": "ba82f6d6949573cf9cb504ea940d45c383f24f5570d45a314ed5aed6d3c0b737",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_16.png": "4d808072d2c89fe58a30758785ececc60685eec771a2daafa005dabe061be36a",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_13.png": "6717949bdad4545babe8250fd3e9a1d2d760a80fbee319799d89786f3ac9cab9",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_23.png": "fe3fe2c587e71cb3c09940126f29b0f15d948f6ac4c43bfae9ce40f0016dbe5d",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_13.png": "baa4dbee3b0b201588457d2477c47ec9a7587e800f2b874d2b5e061196934b97",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_02.png": "b69c1bf98f55552844985f4233c07602c63598a678f85d7f340f2bce9c89623f",
+    "bandmaster_premium_dashboard_poc/assets/horizontal_cap.png": "c1f243c1385061c134a2a3efa7db630583536886cb0816c7875fb265e279446f",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_03.png": "b04482898e627b082bfcdc561709899d318085b5210ef0d66f0ba57de366cc18",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_17.png": "f7133f9a56367a7ed31cd8b2f54aec59658d218e55799b77ce024ea5537d3ece",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_08.png": "166f22354e85eb06b1dc4204e2272468dbdb67bbab444bccb35d50af9a8b9271",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_20.png": "8ce0458c35d7025c76480e328d0145144f499d9430ea3c659020e270f24502eb",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_20.png": "54606448d817cf92c8431ae6e2b54b2036df4dd6b1d274a01b7fbfcc1eda7da3",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_16.png": "a64befbe2bdae628f435b1ccc62a070f4d557b06027c9336c7241d847986a112",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_25.png": "402451de23e323950f83da6b2b3aa7d142b959a567d134be3dc5c6b54c00ce53",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_22.png": "aa3af86ab2f675c5c9b21aebb705ebc9fdd2732db26c69a799b34f00be9af549",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_04.png": "49dc223f8eef46a244a2d4dea10d40335efc3eee54b71d3a3b56ea66df81e2be",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_08.png": "1a45cd563b745dfa1bac08d18a3845bf33b570c716ee7bdd9bae9585138f198f",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_14.png": "b5cdcc856dc4f763c9d953d72128723ec3bdc5dea0b5b10fe02c9cfae422a36a",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_15.png": "64c8d7c3583f6cc7358567a58fd747cb35737ba90162ebbe899c67cacf916d67",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_03.png": "262eecd713b22723d6e489443aa8933293b873feba9bd57069dc357e4c6e692a",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_09.png": "46028b8e80efdf3983176b2b5ec61185ddbd7314913a637109aedcdfcc154ac1",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_19.png": "d8e852bf1fca0658545243c14fe2462df09104188dc137c3405ed4d7239ceab3",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_26.png": "352afb765c6ea9bde9c996bd5c365e5d8a8473fea029d39c53967bef59b4182a",
+    "bandmaster_premium_dashboard_poc/assets/vertical_cap.png": "b6d1e489fdb4514424a7314f2151e993c582d28992030c1b4ba7f52931fd01ec",
+    "bandmaster_premium_dashboard_poc/assets/horizontal_base.png": "06a9f12df4cca5777cd29f359ae688259ba85010283c178591750c3c4bee8d96",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_09.png": "f132e75d8e07cd8fec73fec950600328e56111ba78db318bafea8b136dd82070",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_05.png": "cafeb758601e317de3b628b6b37d61f742545a56f3d43bcef8b41b5d1e6e2164",
+    "bandmaster_premium_dashboard_poc/assets/meter_base.png": "76bbe984f21ec1446bb2b6cd71da059425cdc420065c22e94dd88a596e61dd2f",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_07.png": "688efbd2b3a60cd65e55de16d3ff3426c2fd42dc3b1938cb78cf1bf583ef9e0e",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_18.png": "2d4949d7787fbfa056984688dcb85fe205b4d953d387ecb5e5171a0c24aaa0d3",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_15.png": "feeb80ce6ca6a2fbf2eb2f04395eec3f68b6f586a03f2bb311ccd8ed2681b187",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_14.png": "65c91c8e6287a4a602aedfbbc8c279273a34cdd168f71326355e7ade9901fd2a",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_04.png": "63eeddb17b2435f4efe4e2d64bd6a5db96c746aee360bc60fdf6afe04319043b",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_02.png": "d79c16f4d3ca92c308ae60b45cf03b6bddc6081a181042d0a76c6bba93b8f286",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_07.png": "f5cebaafbcbd246fdb593cb71efe03bdaa53f091195c13e1bab9b149fb0b08e9",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_12.png": "9bbd3e881892c63a8413af69380fb68e5b55e89f1268eff9406e98b9d3724269",
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_21.png": "6147c53fd3751eec2891a15c689aaef1682ffb821008267b749ffc2804460c40",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_11.png": "2498c30ff72e12a2cc7b069262ddb90f970dad764073c31356203410c7d8564f",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_01.png": "01ce4ab33af2a0b9dc4bb17f492134e5feae53cc77d7957b5f4f39db467984aa",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_10.png": "3fed34ee833350da28574494cd7412e0bebc8b0f1c44b26edf23b06f4b045448",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_00.png": "45d2786dd410757bb432d0b8c2b5803e1f41d4a80c5914b9fb67f5a642c3586a",
+    "bandmaster_premium_dashboard_poc/assets/focus_ring_off.png": "eddac46220113c772711dd9d37006b2128c752d960c732cdace9ee4decbd284f",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_18.png": "49dbee5532656fab3905d2765b418e922241e840bc9304654730dad4f46fb53c",
+    "bandmaster_premium_dashboard_poc/assets/focus_led_24.png": "5558f4dfc05177c30db964b552c30b4268ccb2cfa6d04d544a318f256ecd76e8"
+  },
+  "frame_presets": [
+    "panel",
+    "inset",
+    "portrait",
+    "ticket",
+    "header",
+    "modal"
+  ],
+  "background_or_character_changes": false,
+  "button_rendering": "Original images retained byte-for-byte; proportionally downsampled to48px height at runtime before nine-slice.",
+  "installation_root": "res://components/control_atlas/",
+  "module_path_rebases": [
+    {
+      "file": "component.gd",
+      "source_sha256": "14203332e4819e49d1ebda46e45e270492fcc7f6c4dda1ba92ad1b1c550d76f9",
+      "module_sha256": "819eeff08543bf68ab24e42ef4cd63257fa3707b46d90fa58e42e2dee0d21580",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "gallery.gd",
+      "source_sha256": "b5c23e7f9abb0f677be9173546318365e572b5e1584082c2efacf81eea88c77b",
+      "module_sha256": "6df2d09fa953db3c7c19024ab9348cdb88b252d4293da1ac89b3ebd6d7e404f9",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "gallery.tscn",
+      "source_sha256": "7ef12ddfcfc1c9547376ec3e0ded0dfe51e257822ebcd7a5aecc265fee073634",
+      "module_sha256": "754a9f1358295806ae98bc3b3cdcbf4482abd96dcd15fc89ee720bf5c4ced35f",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "native_test.gd",
+      "source_sha256": "f6544823a4b1cc7681d8d255df9d2018b63a0b3fcc171eab41aecc392930149d",
+      "module_sha256": "8dd4edb81561fc4d51a0a7adf60335fc24cff7dce2d55185c2f4f9596cd2fca5",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "kit.gd",
+      "source_sha256": "38999c3eaab03cf8555f8cbd1ad705ca717b7e40fff88c13709e7db73ad836f7",
+      "module_sha256": "8e01b51e7d42280b56c7faf3d2d2a784f901729cb2252696cbd930ccc71e4a59",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "bandmaster_premium_dashboard_poc/studio_control.gd",
+      "source_sha256": "dda540b15fd0d8e78bf5769dc18c5fdca78f72c3c7bf9678e6950321909205f6",
+      "module_sha256": "33978842d2f73b0652b12454e079d9cecfd8b7fdfdae4ad49b7088bc5e71a253",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/meter.tscn",
+      "source_sha256": "bb79b4303191bc143803fcce3ba12c0602d8b70cd7bc90c176527a41b54fcb78",
+      "module_sha256": "1933d0e9bd979de8ed10d0e506e80378c873f3f680e1475ef0b9288081140310",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/panel.tscn",
+      "source_sha256": "f4522c84a3e3d0d491a26a75743c44355a21e0fe2170c7a949b5422b2c2d4c4e",
+      "module_sha256": "4feef9591ef3c2ebd43e1b247ec8c9b2f4ce163890c9be4b11c38d4f77f110cb",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/ticket.tscn",
+      "source_sha256": "ff8094808f08354ab34e6c8ddb9f9613594ed31c4a7f0a48bc8f24d0f31c835b",
+      "module_sha256": "20652ad3f9dcb73964711227bbc8899970a5e5c06c411c87d4201da3214d49e4",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/toggle.tscn",
+      "source_sha256": "43c6a8e8034957cb2f5c8fd734466c6c640894e3104bb5c156c9e5f719bab2cf",
+      "module_sha256": "97d3d080ad942c46280db416a3fd12ebdc73aaabfb536add3fcd9ce161eb4306",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/pagination.tscn",
+      "source_sha256": "2d48d1eab3441c88cc90d79eec36aab1f65b17453f115b72a7bb30e971e95254",
+      "module_sha256": "24d8849e499b9130ee6fbdbbc793f8b0598f200d2c7da8428ee244e140ca06d9",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/action.tscn",
+      "source_sha256": "d41ba30f548499f06880b9c1455bdda29d54c4f6900e6d469f62b2c4753422b7",
+      "module_sha256": "815ae08e57ef7f0b3a04b48a409da90cf099bf9065d9833974558e28f9d0f81d",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/choices.tscn",
+      "source_sha256": "80e064af1f706640571132ce3e400810eae7321e43c82fcda9214f1d94e765bb",
+      "module_sha256": "3c222d9965c947cdb58c0e89abacd94863de4642e790ca734ab9e24115165031",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/browse.tscn",
+      "source_sha256": "0ac1b8fc3987f6651fc79698536fcee5fde6f8c3552e1467ab8dbb0782b27e4e",
+      "module_sha256": "1dbf6e81750b1989d6d719eceeaf738b917a4ebe6f227eace81f34d986deebb7",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
+      "file": "scenes/stepper.tscn",
+      "source_sha256": "0219261d816df1ec16ba0f557ae2585a30c89580e7122967590b3d441c4b3542",
+      "module_sha256": "b0fd6ea62afb564931c0bd037f9a52aba5a844e5911de475a8ecbdf9dbed6102",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    }
+  ]
+}

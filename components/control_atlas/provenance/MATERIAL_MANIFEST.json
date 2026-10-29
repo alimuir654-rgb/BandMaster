@@ -1,0 +1,132 @@
+{
+  "source_commit": "c084690f7ccde4625eaebf68b89ae476fd08724d",
+  "paper_license": "CC0-1.0",
+  "paper_license_url": "https://docs.ambientcg.com/license/",
+  "paper_zip_sha256": "21b3b955d9cd8bd6c83ebac6a71f7dcbaea819d28b6a0f82a1a3805f67793dcb",
+  "hardware_origin": "owner-supplied image-generated Lab07 originals, not a claimed real photograph",
+  "owner_approved": false,
+  "assets": [
+    {
+      "path": "assets/material/flightcase_frame.png",
+      "sha256": "cbc36fe809bf6b2ef0d9e17fac54c512744d8aff498b451d1f35a355ce355352",
+      "size": [
+        256,
+        256
+      ],
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "transform": "Blank nine-slice assembly from unlettered perimeter; no GUITAR, CHANNEL or arrows",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/case_surface.png",
+      "sha256": "0c692e795584b677fa7a4f97f04caf7b407c2e20ae00c87696333818202eba34",
+      "size": [
+        384,
+        384
+      ],
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "transform": "Text-free surface sample (190,133,310,245)",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/metal_key.png",
+      "sha256": "f460cc023781de4b70a927ebd80a93d86318193b27b3a0d6e4cae464e0ae1a3b",
+      "size": [
+        240,
+        66
+      ],
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "transform": "Inner key rim; baked play symbol replaced by text-free material",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/amber_key.png",
+      "sha256": "55cc96e49637439d9e8e826f9f50573bcccf271345e22ec0cf9b6774c2d98b36",
+      "size": [
+        240,
+        66
+      ],
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "transform": "Warm amber grade of blank physical key",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/notepaper_frame.png",
+      "sha256": "891cd489a1ab0e16e1a0ab63de842e37ab17ae66cb9d268f74478deab5f5f2aa",
+      "size": [
+        512,
+        512
+      ],
+      "source": "https://ambientcg.com/get?file=Paper001_2K-JPG.zip",
+      "transform": "CC0 Paper001 material; warm grade. Source method approximation, NOT claimed photographic",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/paper_surface.png",
+      "sha256": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+      "size": [
+        384,
+        384
+      ],
+      "source": "https://ambientcg.com/get?file=Paper001_2K-JPG.zip",
+      "transform": "Separate unruled paper material",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/paper_key.png",
+      "sha256": "1cdf76a1df2c55cadb23016f3d9b072e206d33c397c0dec5a7e9c89b2dd2e7ce",
+      "size": [
+        480,
+        120
+      ],
+      "source": "https://ambientcg.com/get?file=Paper001_2K-JPG.zip",
+      "transform": "Paper tab with restrained lower edge",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/paper_amber.png",
+      "sha256": "cb3ce2dbe6b4d9e10af57546bcf3fc05496644b4ceb7c0d34a3deed94e9f59eb",
+      "size": [
+        480,
+        120
+      ],
+      "source": "https://ambientcg.com/get?file=Paper001_2K-JPG.zip",
+      "transform": "Amber paper action tab",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/audition_room.webp",
+      "source": "Art/Photography/Formation/daylight_music_room_pexels.webp",
+      "sha256": "7907c83a6fc72a4bd4c83c0c6bb05b11e17300663f90543cc4fd81a4d3cd09de",
+      "usage": "Audition environment, NOT Alex or Nia portrait",
+      "owner_approved": false,
+      "size": [
+        1400,
+        820
+      ]
+    },
+    {
+      "path": "assets/material/audition_room_flightcase.webp",
+      "sha256": "d62627a506b38451e12c872f3e1b08c84a24df2f023f8cd0948752967e05ac3c",
+      "source": "Art/Photography/Formation/daylight_music_room_pexels.webp",
+      "transform": "Brightness/colour grade for material palette",
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/audition_room_notepaper.webp",
+      "sha256": "79624fb28134199967aa0ff9f5d6a38e86fdeccd77d079e867f821c282dd5430",
+      "source": "Art/Photography/Formation/daylight_music_room_pexels.webp",
+      "transform": "Brightness/colour grade for material palette",
+      "owner_approved": false
+    }
+  ],
+  "visual_correction": "Native first-render inspection: correct stretched frame bolts, LED edge smearing, key proportions, page depth and caption placement.",
+  "scope": "Reusable frame/control/environment materials only. No musician portrait acceptance.",
+  "added_material_sources": [
+    {
+      "path": "assets/material/notepaper_frame.png",
+      "additional_source": "Art/Photography/Formation/corkboard_day_pexels.webp",
+      "rights": "Existing Pexels source manifest retained"
+    }
+  ]
+}

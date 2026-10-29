@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "kit": "U04 Lab08.4 layered controls",
+  "owner_approved": false,
+  "source_type": "Owner-supplied IMAGE-GENERATED photographed-style Lab08.4 assets, NOT real hardware photography",
+  "native_script": "bandmaster_premium_dashboard_poc/studio_control.gd",
+  "zero_fader_ghost_fix": true,
+  "derived_pointer_source": "Original focus_rotor.png hue-isolated, rotated 45deg; no new synthetic art",
+  "derived_pointer_sha256": "6121184820d3d389b3150d7ef80a1b48663ad535ae63e9b0de92739e607dc274",
+  "review_atlas_sha256": "ad5b5832a6d1e3e1c03d6a26b57066f1534be0c506180adf8d9b9bb5a4d4aa50",
+  "asset_records": [
+    {
+      "kind": "focus",
+      "value": 0,
+      "lit_segments": 0,
+      "segments": 27,
+      "path": "assets/material/u04_focus_000_review.png",
+      "size": [
+        394,
+        390
+      ],
+      "sha256": "f6a848a53d05ba981246a0126caa513e4fab8b3c6ea7adee8d86b67ae7c37d80",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "focus",
+      "value": 25,
+      "lit_segments": 7,
+      "segments": 27,
+      "path": "assets/material/u04_focus_025_review.png",
+      "size": [
+        394,
+        390
+      ],
+      "sha256": "966cc5d62d29f65068298be27dccd996217d97e3cddb3d3fbe3aa31988968bf2",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "focus",
+      "value": 50,
+      "lit_segments": 14,
+      "segments": 27,
+      "path": "assets/material/u04_focus_050_review.png",
+      "size": [
+        394,
+        390
+      ],
+      "sha256": "d6f78d78530a9bba107e152e8a62c51ab40bff6472103a6274655799857b3719",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "focus",
+      "value": 75,
+      "lit_segments": 20,
+      "segments": 27,
+      "path": "assets/material/u04_focus_075_review.png",
+      "size": [
+        394,
+        390
+      ],
+      "sha256": "ee3cff2889e291a7c02a9dbe0573560754c953ea79d5ca739570b229c19bd8b2",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "focus",
+      "value": 100,
+      "lit_segments": 27,
+      "segments": 27,
+      "path": "assets/material/u04_focus_100_review.png",
+      "size": [
+        394,
+        390
+      ],
+      "sha256": "6da19880a38ae110687971a1be06a1b60acbcb0c0b3bb67abc0151359251817c",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "buzz",
+      "value": 0,
+      "lit_segments": 0,
+      "segments": 23,
+      "path": "assets/material/u04_buzz_000_review.png",
+      "size": [
+        392,
+        390
+      ],
+      "sha256": "7a9fc800ca0fa815b214b55694ef65c0059f6ce044f240fa7b3a630f38bd3364",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "buzz",
+      "value": 25,
+      "lit_segments": 6,
+      "segments": 23,
+      "path": "assets/material/u04_buzz_025_review.png",
+      "size": [
+        392,
+        390
+      ],
+      "sha256": "b56b00e44b6492e94bd8e5066e73f14186e8d7f86583f4cb7cb9ac070c9203b1",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "buzz",
+      "value": 50,
+      "lit_segments": 12,
+      "segments": 23,
+      "path": "assets/material/u04_buzz_050_review.png",
+      "size": [
+        392,
+        390
+      ],
+      "sha256": "f71dc12000cd1c0a61ee4cf98ec82941e25e1835b673c55b6d905f980d62f31a",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "buzz",
+      "value": 75,
+      "lit_segments": 17,
+      "segments": 23,
+      "path": "assets/material/u04_buzz_075_review.png",
+      "size": [
+        392,
+        390
+      ],
+      "sha256": "13b3f989e7852b3b666424fc9c739618c7fdd7cda25b3f110326940ddd97775c",
+      "role": "REVIEW COMPOSITE ONLY"
+    },
+    {
+      "kind": "buzz",
+      "value": 100,
+      "lit_segments": 23,
+      "segments": 23,
+      "path": "assets/material/u04_buzz_100_review.png",
+      "size": [
+        392,
+        390
+      ],
+      "sha256": "dcee434b951eff17180ad15c0c2a9560bbe47c130b25ccb9e94a947c9961bbc8",
+      "role": "REVIEW COMPOSITE ONLY"
+    }
+  ],
+  "interactive_proof": "Godot studio_control.gd; source layers live, preview composites not used as controls"
+}

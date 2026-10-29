@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "source_type": "owner-supplied image-generated artwork, not original photography",
+  "source_sha256": {
+    "bandmaster_premium_controls_lab/assets/signal_reference_reference.png": "ebd0b79fa8b4bc9bdd2b69ad93af5976f7324dffa589e72d15e67fd2bed20646",
+    "bandmaster_premium_dashboard_poc/assets/horizontal_base.png": "06a9f12df4cca5777cd29f359ae688259ba85010283c178591750c3c4bee8d96"
+  },
+  "crops": {
+    "rail": [
+      110,
+      107,
+      732,
+      169
+    ],
+    "red": [
+      61,
+      230,
+      97,
+      246
+    ],
+    "amber": [
+      61,
+      153,
+      97,
+      170
+    ],
+    "green": [
+      61,
+      94,
+      97,
+      110
+    ],
+    "off": [
+      61,
+      38,
+      97,
+      53
+    ]
+  },
+  "assets": [
+    {
+      "path": "assets/material/passive_meter_flightcase_00.png",
+      "sha256": "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 0,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_01.png",
+      "sha256": "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 1,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_02.png",
+      "sha256": "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 2,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_03.png",
+      "sha256": "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 3,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_04.png",
+      "sha256": "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 4,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_05.png",
+      "sha256": "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 5,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_06.png",
+      "sha256": "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 6,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_07.png",
+      "sha256": "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 7,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_08.png",
+      "sha256": "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 8,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_09.png",
+      "sha256": "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 9,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_flightcase_10.png",
+      "sha256": "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "value": 10,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_00.png",
+      "sha256": "f0cfe2ee375bc3b5336efe2c608d8424585daddfe4e21c07ce2f0c2744c430dc",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 0,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_01.png",
+      "sha256": "94552a8fcbcdc680d2f31d7277d570c4fd1a84685342bb2282443713c0c4f374",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 1,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_02.png",
+      "sha256": "134e146c1e1bb03a9865f0fa22fa2b7bfa0298926ecafed20a59db74707b1102",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 2,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_03.png",
+      "sha256": "f7af3428ddd32961bfb995e498cc0a05d895e31c552cd8798eb81bf3e615af1c",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 3,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_04.png",
+      "sha256": "6da9495d6299a55562c584c587b7e4ce40e22b7a5e9f3500005a8c6915c46dda",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 4,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_05.png",
+      "sha256": "c5c29f9f60406407f343a1b11648b2ea59a96dacecf8baa8e2d20e605d0db0d6",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 5,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_06.png",
+      "sha256": "6ab7468183c73ea20afa4ae61b7e1a62693b0480695f8dc7d84e9f675e672ff9",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 6,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_07.png",
+      "sha256": "7e8cfda0402a3ec011400eac1bd124b9af96a34cc64a76c13ceeca0ffb7d9a06",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 7,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_08.png",
+      "sha256": "bc245a4a4b0ca4522e61195ef679845952b6f5324ae215964a1b3eaab2ba2e87",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 8,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_09.png",
+      "sha256": "ef5bb53f9effcf5ff566b9ea20cc4b8425e05d0227621158fc982fe60cbf2ccf",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 9,
+      "interactive": false,
+      "focusable": false
+    },
+    {
+      "path": "assets/material/passive_meter_notepaper_10.png",
+      "sha256": "db3a5a8da24decd2b7d782bf2724b6206ecc844ded7405e76a1b212853baf54a",
+      "width": 436,
+      "height": 54,
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "value": 10,
+      "interactive": false,
+      "focusable": false
+    }
+  ],
+  "atlas_sha256": "e7d31694cc00a22635b28255feb61887a417f0692c2978332010113d5419842b",
+  "interaction_contract": "Read-only TextureRect, mouse ignored, keyboard focus NONE, native labels and values",
+  "colour_contract": "0 dark; 1-3 red; 4-6 amber; 7-10 green. No coloured emission at zero.",
+  "scaling": "LED array not sliced; image is 436x54. Validate actual 390,720,1280,1600 displays."
+}

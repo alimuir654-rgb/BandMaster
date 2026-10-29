@@ -1,0 +1,1053 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "kit": "U03 tactile action / tab / candidate-browse source states",
+  "rights_basis": "Original owner-provided image-generated Lab07 artwork; not real hardware photography",
+  "source_sha256": {
+    "bandmaster_premium_controls_lab/assets/transport_studio_idle.png": "7c00a854abb486ff509ec57071637c015580305fc0dda12e639ccd4c4557b2f4",
+    "bandmaster_premium_controls_lab/assets/transport_studio_hover.png": "3d8d635955946f53d0392884bc83f523757265a691b784f8ffe8cceaeae4a0bc",
+    "bandmaster_premium_controls_lab/assets/transport_studio_pressed.png": "23cd616d021ac84f927755b1b27b2da7c280c59123bf2f2580ebcfa145a48ad4",
+    "bandmaster_premium_controls_lab/assets/transport_studio_active.png": "629e28d28c453cb712915af843a057e346d425d7a81d9ce027752e487ecd29cd",
+    "bandmaster_premium_controls_lab/assets/transport_studio_disabled.png": "8885721dc37e88bf652eba7bff13c8ebc883e2c7c9885d4b8e8ad4fd6d926e71",
+    "bandmaster_premium_controls_lab/assets/channel_studio_idle.png": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+    "bandmaster_premium_controls_lab/assets/channel_studio_hover.png": "56dc54ebe712a722492a477759f1617687898cb845d3f1ae5a22ce716a821c57",
+    "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png": "fbbf7e73084f80b5db88b1d3b858f33ec66b7532b20e575e0b1d15f9f7e3eaef",
+    "bandmaster_premium_controls_lab/assets/channel_studio_active.png": "c239cf6e51b9488ddbf7a735c1c22beb8beea543b44a5f8ae5062aabe9b6569e",
+    "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png": "5600fe2b5731b198690f44bd4aa050a7b0ab988062202e5dea32fa1a59975fe6"
+  },
+  "assets": [
+    {
+      "path": "assets/material/control_action_flightcase_idle.png",
+      "sha256": "910a4c03244b22a50a9aa3a8fdffd8c91a06b6e3133b1ee4d9d0aebe076d7520",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "idle",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_idle.png",
+      "sha256": "7002d7ee6734ba30428519ad10fd0a63908e0ac579774c9405386655b411e19b",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_idle.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "idle",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "722ad2b7817252d4b10b3926d70413cc8d79f6afadd7bc782533d3a5c774521b",
+      "U18_previous_sha256": "a651ec59adb374c45eba5db284ab6672d8a936f6fd9fb7e75ec9750be8236fc2",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_action_flightcase_hover.png",
+      "sha256": "85e9aca6b08482a373848702d38cfb5ce675a4d54f5e845990318bd84a10dad6",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_hover.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "hover",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_hover.png",
+      "sha256": "7e78650533bcd7a11706fc4c0bca202aa6e1f6903ce29e9a9ec14b1ff545fa13",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_hover.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "hover",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "0aa634c641f4775374112836fde96dc3b32813284f74c09d8b9f5dd09ef823c9",
+      "U18_previous_sha256": "3773c2173448970ab8e9dc8cd7f75e9b22aab6bdb5571b1a00fa84e6e3f6eddb",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_action_flightcase_pressed.png",
+      "sha256": "6cef9a70b9b24f09dee7c31569a99f5cc10860fc8406f4d229515da03e05cba3",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_pressed.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "pressed",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_pressed.png",
+      "sha256": "051b597fa6659385e8dbf55a5755fba48533fb41262c5d420d20bd09a28cf37b",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_pressed.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "pressed",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "6f92ccf83aefb770a277ed41af1aff4d89c47f48645904d0118931740fa5ae19",
+      "U18_previous_sha256": "17529612e46a484f1f26d16986688b76e82ce141061bef685287d9a39009399e",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_action_flightcase_active.png",
+      "sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_active.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "active",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_active.png",
+      "sha256": "35067707ccbd5a96f55411ee217532e22fe1e5fc7871b6a700673675ac1e7a0c",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_active.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "active",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "24ef8d2e5cc81dd22fcf3f76ba68ef19e3ccedb3d2023ed874f280a99bf4ec52",
+      "U18_previous_sha256": "6a98b6d3433940e2b29d3ee1bcc43c35d20d0e68a6ab06a992d859baaa2c6cf2",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_action_flightcase_disabled.png",
+      "sha256": "a410e187481be0569749fa4e876e4ecc99133ed8667e55593f22dc347c8fa727",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_disabled.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "disabled",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_disabled.png",
+      "sha256": "8ed8fdb326025d43f2b39cef8968c08a5f6f4eefd5a5c18f9f3f9f01ab79223b",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_disabled.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "disabled",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "c66b8a6690bdfc5389431b8e6adfe35d20466041de0ad9afb3529bbbea9fae09",
+      "U18_previous_sha256": "b5d6c7cb337a3d2724a4767761bcf16fc37c197407a7720ef1e17726a10222c4",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_action_flightcase_focus.png",
+      "sha256": "a3baced8e6bb20bcdfe3294d37b839397f9a1c0eaad091f0f1ac39915b222aac",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_hover.png",
+      "theme": "flightcase",
+      "family": "action",
+      "state": "focus",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_action_notepaper_focus.png",
+      "sha256": "18b702dacffb776ac689d04c302f918b5746bab22739a86cab835bdc474f5133",
+      "source": "bandmaster_premium_controls_lab/assets/transport_studio_hover.png",
+      "theme": "notepaper",
+      "family": "action",
+      "state": "focus",
+      "size": [
+        480,
+        148
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        29,
+        31,
+        29
+      ],
+      "content_safe_rect": [
+        56,
+        34,
+        424,
+        114
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "695b5ac67fec217266698c604df2ceec3b374160b42d76c649c2f6a8be4028e8",
+      "U18_previous_sha256": "27524bff379635555f453b4222e25a2d342747669128ed229edd10bc72d36efc",
+      "U18_face_refined": true
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_idle.png",
+      "sha256": "9b05e573a9c0a0efb8fdb0e2344ddd3f8a0c2b127ae599f503ca22168aa47230",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "idle",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_idle.png",
+      "sha256": "2c3c80258c3e54785eb87034c44060f440f53681338a131e2ec8777e586a49a3",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "idle",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "eabd20862e2f42e67d4d48024a4c63786d62d5793884e74f6c8d4877c26c8b46"
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_hover.png",
+      "sha256": "b59a3a0f70b6040a48de95f92ff11b5d0244ccfb9557f8b16d3276bfb9bbfbd4",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "hover",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_hover.png",
+      "sha256": "75211785e6aa65b1159bc3d463e51b54bfc71ce7c51f22c3d94339284371ab86",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "hover",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "de84ce3f557ef664649eae8450e5efd6f8fc976dca38a3538e384cddd1a8d927"
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_pressed.png",
+      "sha256": "9e28157699a76adc65893a063ea2c27603c53163e792e8b59de5205dc4fe856a",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "pressed",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_pressed.png",
+      "sha256": "cc90507ca8172a75cdd83f62e04477a6cceadbc1c0f62e574d6b7377ea7ce6a3",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "pressed",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "1e36b2e90a5e3bcedf1a60e9f864795b67a5e7b895a878007c71c66a67d5da6d"
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_active.png",
+      "sha256": "c1a5902f3a135e2b3c7bcf2f82184efb1f240fb8f3cbef756993f1a11836f061",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_active.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "active",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_active.png",
+      "sha256": "e780407916834f83877d902e753720347c5e0c05c52ed74332fabbd1a6be6af7",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_active.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "active",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "b5652e6cfe95b4e1deb0b6bc95313da1289b9c5849c34a3e7b2f4892e1134557"
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_disabled.png",
+      "sha256": "616b09b37d50d0baacd1b75c1d9e43757747afea7264971d2d8350d90b9a9b76",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "disabled",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_disabled.png",
+      "sha256": "20e645dcc02b987707c84a7dbb94b28e3e9ea13de53a055670967c5d4dea735d",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "disabled",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "e3a5e6ceb712e7a2388715e81f5b0497cf7f00eedb8c98d55e56fe4c2839eaf1"
+    },
+    {
+      "path": "assets/material/control_tab_flightcase_focus.png",
+      "sha256": "e9da36f68f917371e181c9c0ae81e67b648faa4893764619ed778afa2d4881a3",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "flightcase",
+      "family": "tab",
+      "state": "focus",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_tab_notepaper_focus.png",
+      "sha256": "ce5e9159bd0c4aaac5517fb53827e931b77a3efd58180ff281ca260b65de44fe",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "notepaper",
+      "family": "tab",
+      "state": "focus",
+      "size": [
+        320,
+        112
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        12,
+        13,
+        12,
+        13
+      ],
+      "content_safe_rect": [
+        26,
+        26,
+        294,
+        92
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "a64b5fe8b64a0405605f599ec47a0ae6007d11a6db9626f93edfe1d88caeb26a"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_idle.png",
+      "sha256": "b9ba3bbd4930a92ac67302510f8b47d3e4d4e1c07d5deef7289b1a4894a5146b",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "idle",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_idle.png",
+      "sha256": "0664adaf90099d1ba8767c81cb638f3a653b72f92cff27f6c146cfaf7930bc78",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_idle.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "idle",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "b15a08507b90ac314837e1dbb87ef29b28f4e847356696b5491fbb21137979dc"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_hover.png",
+      "sha256": "9711ebfa1a4e2a913871ae392739af665512fb25b3a714ae7bb05024728da312",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "hover",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_hover.png",
+      "sha256": "db3393c7b5024c41e905a2a0b133e1f4f8c13c36c7eecd622750be69e7aa148f",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "hover",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "951713527a22b5acff47a7610e78b6d4b6b64ae8986ce4c2d70d00b065ebacf6"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_pressed.png",
+      "sha256": "b2a6f2f7f1becb1d7f988c493f82c1d0aef1acc90a12add066f39a38c66137fa",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "pressed",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_pressed.png",
+      "sha256": "5479283f7b7ebac300d7244cf3814e531a34fe2ba53b933a9ee88a60fdce6fe8",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_pressed.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "pressed",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "88c3e09397fb49b3b7b4cfbaae59333730efad7001a2dc696d1569351d1f37d9"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_active.png",
+      "sha256": "c8ec6de58c17cf4eae511ecbbf6983e18897b1124fc2ed0881d0952f76e6fce0",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_active.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "active",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_active.png",
+      "sha256": "29f0e10bdd2666d9c3498c7fd8d7b7c37e427112e393cdafb2d019effff3c4ab",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_active.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "active",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "2ce62c3a4857dd1fedfc09b17b008b77ee3fde18a4c58ada43fd565bec1b45a2"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_disabled.png",
+      "sha256": "5b8586e00b194f4dbe24e522d6e545e7ad2d94db658d1f73379f96a5e6499d48",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "disabled",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_disabled.png",
+      "sha256": "9f4726f39d92524ce4bfeb4be40d666124a79c8859c5d3a95c07a769c4c6bc37",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_disabled.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "disabled",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "ce68aca6cb7539d172c624a2b21d6da780aaa2bacb98fbda34c5f96a33f80b3e"
+    },
+    {
+      "path": "assets/material/control_browse_flightcase_focus.png",
+      "sha256": "bcb4030648384fb208627ac6e2bf11abb79c8365d902700335a5bb37518a30ce",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "flightcase",
+      "family": "browse",
+      "state": "focus",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true
+    },
+    {
+      "path": "assets/material/control_browse_notepaper_focus.png",
+      "sha256": "ffc3cdde43206d1a5c77edddbdffa459cb4dfda8d4bf7279b99ed67a4e4eed5f",
+      "source": "bandmaster_premium_controls_lab/assets/channel_studio_hover.png",
+      "theme": "notepaper",
+      "family": "browse",
+      "state": "focus",
+      "size": [
+        382,
+        126
+      ],
+      "mode": "RGBA",
+      "nine_slice_LTRB": [
+        31,
+        25,
+        31,
+        25
+      ],
+      "content_safe_rect": [
+        46,
+        30,
+        336,
+        98
+      ],
+      "interactive": true,
+      "focusable": true,
+      "U09_day_enamel": true,
+      "original_U03_sha256": "b5f373d00f00fc95202790b109040e356a13a039972b0136d2848026250a0f29"
+    }
+  ],
+  "atlas_sha256": "5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209",
+  "states": [
+    "idle",
+    "hover",
+    "pressed",
+    "active/selected",
+    "disabled",
+    "keyboard focus"
+  ],
+  "semantic_contract": "Selected uses Button.toggle_mode + set_pressed_no_signal; selected is NOT disabled. Native text, focus and input remain live.",
+  "separation": "Meters remain separate passive TextureRects, mouse-ignore and unfocusable; no fader/rotary revalidation claimed",
+  "U09_day_material": "Warm photographed-source enamel instead of black floating DAY hardware; night originals unchanged",
+  "U18_day_action_correction": "Only six day action faces source-backed brightened; 23 RAG and NIGHT bytes unchanged"
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "kit": "F02 frame mounts and tablet dossier surfaces",
+  "owner_approved": false,
+  "source_type": "Lab07 owner image-generated hardware, ambientCG CC0 Paper001 paper; existing Pexels photograph provenance for cork",
+  "source_sha256": {
+    "bandmaster_premium_controls_lab/assets/channel_studio_idle.png": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+    "Art/Photography/Formation/corkboard_day_pexels.webp": "da895a5b1fe0f9d5ea6753613b3a4bedb99422ac662d5a81e7a8f3151b9c6e9b",
+    "assets/material/paper_surface.png": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+    "assets/material/flightcase_frame.png": "cbc36fe809bf6b2ef0d9e17fac54c512744d8aff498b451d1f35a355ce355352"
+  },
+  "assets": [
+    {
+      "path": "assets/material/portrait_mount_flightcase.png",
+      "sha256": "56739c929d78bc52c944095dd23b68176e2d3950e0619cde6aba0f4640f5f601",
+      "dimensions": [
+        512,
+        384
+      ],
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "role": "portrait bezel",
+      "source": "owner Lab07 image-generated metal frame",
+      "nine_slice_source_px": {
+        "left": 42,
+        "top": 42,
+        "right": 42,
+        "bottom": 42
+      },
+      "safe_content_inset_px": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "interactive": false,
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/portrait_mount_notepaper.png",
+      "sha256": "189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+      "dimensions": [
+        512,
+        384
+      ],
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "role": "paper photo contact mount",
+      "source": "ambientCG Paper001 CC0 paper texture",
+      "nine_slice_source_px": {
+        "left": 36,
+        "top": 36,
+        "right": 36,
+        "bottom": 45
+      },
+      "safe_content_inset_px": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "interactive": false,
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/dossier_sheet_flightcase.png",
+      "sha256": "a9bbc5d8391ee80e2864928131a650aa8cc8f3fc6c5e37de7f9bb2653bf079ed",
+      "dimensions": [
+        640,
+        300
+      ],
+      "mode": "RGBA",
+      "theme": "flightcase",
+      "role": "material backing for tablet personnel notes",
+      "source": "owner Lab07 image-generated metal plate + sourced case surface",
+      "nine_slice_source_px": {
+        "left": 42,
+        "top": 42,
+        "right": 42,
+        "bottom": 42
+      },
+      "safe_content_inset_px": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "interactive": false,
+      "owner_approved": false
+    },
+    {
+      "path": "assets/material/dossier_sheet_notepaper.png",
+      "sha256": "1c198f7ae4cce74e5aa0012a5681a9cddbb26dd5ab431332eaa237105d2d526a",
+      "dimensions": [
+        640,
+        300
+      ],
+      "mode": "RGBA",
+      "theme": "notepaper",
+      "role": "material backing for tablet personnel notes",
+      "source": "ambientCG Paper001 CC0 paper insert",
+      "nine_slice_source_px": {
+        "left": 42,
+        "top": 42,
+        "right": 42,
+        "bottom": 42
+      },
+      "safe_content_inset_px": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "interactive": false,
+      "owner_approved": false
+    }
+  ],
+  "atlas_sha256": "46b26d06891460b10d59cca70e1dfb8330aedd35c759ca3d31a3cc37f50eb09d",
+  "notes": "Modular material primitives, not composited screens, not musician portraits. Safe insets and paper mounts are provisional."
+}
