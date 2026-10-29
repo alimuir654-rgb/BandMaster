@@ -1,0 +1,80 @@
+name: C25 approved character cast
+on:
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths:
+      - 'experiments/character_cast/**'
+      - 'Data/CharacterCast/source_transfer.json'
+      - '.github/workflows/character-cast-intake.yml'
+permissions:
+  contents: write
+concurrency:
+  group: bandmaster-c25-approved-cast
+  cancel-in-progress: false
+jobs:
+  cast:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Verify committed preflight and exclusive writer
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C25.json --before "$BEFORE" --require-prior-record
+          python3 - <<'PY'
+          import json,datetime
+          p=json.load(open('docs/asset_base/CONTROL_SPRINT_LOCK.json'))
+          assert p['writer']=='C25-approved-cast-20261029T224900'
+          assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(p['expires_at'])
+          PY
+      - name: Acquire only the exact approved source and build score data
+        run: |
+          python3 -m pip install --quiet Pillow
+          python3 experiments/character_cast/build.py
+      - name: Run actual recruitment rules in isolated Godot
+        run: |
+          curl -fsSL --retry 2 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          chmod +x /tmp/Godot_v4.7.2-stable_linux.x86_64
+          mkdir -p /tmp/cast-test/Scripts /tmp/cast-test/experiments/character_cast /tmp/cast-test/Data /tmp/cast-test/Art/References
+          cp Scripts/recruitment_catalogue_v3.gd Scripts/formation_catalogue.gd /tmp/cast-test/Scripts/
+          cp experiments/character_cast/*.gd /tmp/cast-test/experiments/character_cast/
+          cp -r Data/CharacterCast /tmp/cast-test/Data/
+          cp -r Art/References/ApprovedCast20261029 /tmp/cast-test/Art/References/
+          printf 'config_version=5\n[application]\nconfig/name="C25 isolated cast tests"\n' > /tmp/cast-test/project.godot
+          set -o pipefail
+          timeout 90s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/cast-test --script res://experiments/character_cast/native_test.gd 2>&1 | tee /tmp/cast-test/native.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/cast-test/native.log; then exit 1; fi
+          cp /tmp/cast-test/cast-results.json Data/CharacterCast/NATIVE_TEST_RESULTS.json
+          git diff --exit-code -- Scripts components
+      - name: Publish verified art and scores without overwriting another writer
+        run: |
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          python3 - <<'PY'
+          import json,datetime
+          p=json.load(open('docs/asset_base/CONTROL_SPRINT_LOCK.json'))
+          assert p['writer']=='C25-approved-cast-20261029T224900'
+          assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(p['expires_at'])
+          PY
+          rm -f Data/CharacterCast/source_transfer.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/References/ApprovedCast20261029 Data/CharacterCast
+          git commit -m 'C25 import exact approved cast reference, honest previews and verified additive scores [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: c25-approved-cast-evidence
+          path: |
+            Art/References/ApprovedCast20261029/
+            Data/CharacterCast/approved_cast_2026-10-29.json
+            Data/CharacterCast/SCORES.md
+            Data/CharacterCast/VALIDATION.json
+            Data/CharacterCast/NATIVE_TEST_RESULTS.json
+            /tmp/cast-test/native.log
+          retention-days: 30
