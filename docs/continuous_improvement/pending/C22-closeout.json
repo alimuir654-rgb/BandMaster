@@ -1,0 +1,44 @@
+{
+  "reviewed_in_session": "C22",
+  "reviewed_by": "assistant_actual_evidence_review",
+  "events": [
+    {
+      "event_id": "C22-phone-caption-native-recurrence", "id": "BM-22", "event": "recurrence", "recorded_at": "2026-10-29T18:34:00+00:00", "severity": "P1", "cause_confidence": "observed", "owner_role": "QA and art direction",
+      "observation": "In actual paper-controlled-C22-390x844.png the proof-harness subtitle clips at the right edge. Panel content and actions remain in bounds; existing assertions do not cover that caption.",
+      "expected": "Every displayed caption wraps or deliberately truncates within the physical viewport without accidental clipping.",
+      "evidence": ["run40930454213", "artifact12922032827", "paper-controlled-C22-390x844.png", "experiments/frame_recovery/comparison.gd.in"],
+      "affected_paths": ["experiments/frame_recovery/comparison.gd.in"],
+      "prevention": "Constrain and test header/subtitle text bounds after layout; inspect actual phone pixels rather than assume the wrap flag is sufficient.",
+      "verification": "Native390x844 capture plus a caption-bounds/line-wrap assertion before the harness is reused.",
+      "next_action": "Fix comparison caption as a prerequisite to the next native material iteration. Open; not silently resolved by panel tests."
+    },
+    {
+      "event_id": "C22-final-paper-candidate-review", "id": "BM-03", "event": "review", "recorded_at": "2026-10-29T18:34:00+00:00", "severity": "P1", "cause_confidence": "observed", "owner_role": "QA and art direction",
+      "observation": "The corrected native panel restores sheet depth, source grain and cork backing versus rejectedC21. Cork is coarse and fastening/edge detail remains below the mockup. Candidate is not promoted to the default library; all other frame families remain unchanged.",
+      "expected": "Mockup-level tactile material construction, not merely a cleaner functional rectangle.",
+      "evidence": ["C22_REVIEW.md", "run40930454213 at761a3c640ce33a6fcefba4fdfcb37cfbabc191f3", "artifact12922032827 sha256 3e1e7d7d16d0d1ab8d9f37d17159d8cd510261c31099fbe359bb289213e96bb2", "paper-controlled-C22-1280x720.png", "paper-controlled-C22-1600x900.png"],
+      "affected_paths": ["experiments/frame_recovery/build.py", "candidate art/frame_notepaper_panel_c22.png"],
+      "prevention": "Do not extrapolate one partial panel into an entire frame family; preserve the labelled target/baseline/candidate and separate technical/visual/owner verdicts.",
+      "verification": "2281 native assertions per standalone/host passed; original pixels and mockup inspected. Visual remainsPARTIAL; owner_approved=false.",
+      "next_action": "Complete one representative panel against the mockup before wider frame rollout."
+    },
+    {
+      "event_id": "C22-workflow-query-route-recurrence", "id": "BM-34", "event": "recurrence", "recorded_at": "2026-10-29T18:34:00+00:00", "severity": "P1", "cause_confidence": "observed", "owner_role": "QA and art direction",
+      "observation": "The connector rejected a workflow-name-specific runs URL with HTTP400. The supported repository actions/runs?head_sha= route successfully located the native run. No CI absence was inferred from the rejected route.",
+      "expected": "Use an actually supported query and exact testedSHA; endpoint rejection is not evidence that CI did not run.",
+      "evidence": ["C22 tool trace: rejected /actions/workflows/frame-recovery-proof.yml/runs request; successful repository /actions/runs?head_sha= request", "run40927695391"],
+      "affected_paths": ["GitHub connector query route; no game source"],
+      "prevention": "Reuse the known-working commit-SHA run query and job/artifact wrappers; avoid repeating the unsupported path.",
+      "verification": "Successful exact-SHA run, native artifact download and digest verification retained in C22_REVIEW.md.",
+      "next_action": "Keep the supported route in future evidence retrieval."
+    }
+  ],
+  "closeout": {
+    "tested_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+    "evidence": ["https://github.com/alimuir654-rgb/BandMaster/actions/runs/40930454213", "artifact12922032827 sha256 3e1e7d7d16d0d1ab8d9f37d17159d8cd510261c31099fbe359bb289213e96bb2", "docs/continuous_improvement/C22_REVIEW.md"],
+    "visual_verdict": "partial",
+    "next_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening.",
+    "new_issue_review": "C22 first pilot finding committed before correction; final fidelity hold, phone-caption BM22 recurrence and supported-query BM34 recurrence appended. No owner visual approval."
+  },
+  "ledger_entry": "## C22 closeout — lessons governed the restarted frame work\nCanonical46-entry lesson register, mandatory pre-work checklist, source audit, append-only events, scoped preflight and push/PR gate are installed. The issue/session log was committed at339b69b before frame implementation. First pilot gap appended at229aaa1 before the one correction. Final tested source761a3c640ce33a6fcefba4fdfcb37cfbabc191f3, native run40930454213, artifact12922032827 SHA2563e1e7d7d16d0d1ab8d9f37d17159d8cd510261c31099fbe359bb289213e96bb2:2281 assertions,84 captures in each standalone/host,zero failures.117 protected source/logic files retained. Actual four-viewpoint pixels inspected; paper depth/grain/cork improve but mockup fidelity remainsPARTIAL. Phone proof subtitle clipping newly logged; green tests do not close it. C21 default module not overwritten by candidate. Read docs/continuous_improvement/C22_REVIEW.md for five simulated lenses and exact paths. Main/PR199/production saves unchanged; owner_approved=false. Session closes and writer releases; no schedule extension."
+}
