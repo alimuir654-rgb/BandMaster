@@ -1,12 +1,12 @@
 {
-  "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/C22.json",
-  "scope": "Lessons gate then source-preserving frame recovery",
-  "owner_approved": false,
-  "target": "mockups",
-  "backgrounds": "deferred",
-  "characters": "deferred",
-  "meters": "protected",
-  "status": "closed",
-  "next_action": "Complete one representative notepaper panel against the locked mockup before wider frame rollout; first fix the recorded phone comparison caption. Preserve meters and C21 hardening."
+ "schema_version":1,
+ "session":"docs/continuous_improvement/sessions/C23.json",
+ "scope":"Owner-requested reuse-first acquisition shortlist; research and log metadata only",
+ "owner_approved":false,
+ "target":"mockups",
+ "backgrounds":"deferred",
+ "characters":"deferred",
+ "meters":"protected",
+ "status":"active",
+ "next_action":"Complete exact source/rights/reuse shortlist; no asset import, purchase or implementation in this task."
 }

@@ -1,15 +1,11 @@
 {
-  "writer": null,
-  "base_head": "ca73c433fadc37135e7b69ee6e222e82c5a5340d",
-  "claimed_at": "2026-10-29T17:38:00+00:00",
-  "expires_at": "2026-10-29T19:15:00+00:00",
-  "scope": "Consolidate repository lessons and introduce mandatory preflight/issue logging before resuming isolated frame improvements against mockups.",
-  "owner_approved": false,
-  "authority": "Direct owner request in this conversation on 29 October 2026. Backgrounds, character art, production scenes and saves remain out of scope. No merge or recurring schedule extension.",
-  "previous_verified_code_sha": "a6e76b9b8f4094deefbc43cc2aa9d8b4a18f3a9a",
-  "previous_verified_run_id": 40911368930,
-  "art_status": "C21 notepaper rejected by owner as visual regression; retain tested hardening, not rejected artwork.",
-  "released_at": "2026-10-29T18:37:28.203499+00:00",
-  "result": "closed_with_evidence",
-  "tested_code_sha": "761a3c640ce33a6fcefba4fdfcb37cfbabc191f3"
+ "writer":"C23-asset-shortlist-20261029T191743",
+ "base_head":"ad3bca76e70cc3c75f7f581317d62b82db64e748",
+ "claimed_at":"2026-10-29T19:17:43+00:00",
+ "expires_at":"2026-10-29T20:00:00+00:00",
+ "scope":"Owner-requested asset acquisition shortlist and continuous-improvement research records only. No code/art/import/purchase/game/save/main changes.",
+ "authority":"Latest direct owner approval to produce the specific shortlist; no recurring programme extension or final-art approval.",
+ "owner_approved":false,
+ "previous_verified_code_sha":"761a3c640ce33a6fcefba4fdfcb37cfbabc191f3",
+ "previous_verified_run_id":40930454213
 }

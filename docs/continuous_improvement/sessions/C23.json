@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "C23",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Yes, go ahead with the shortlisted asset acquisition list by frames/materials, controls/dialogs, meters/icons and repository reuse versus external sources.",
+  "baseline_sha": "ad3bca76e70cc3c75f7f581317d62b82db64e748",
+  "dominant_issue": "BM-46",
+  "lesson_ids": ["BM-01","BM-02","BM-03","BM-08","BM-13","BM-14","BM-15","BM-17","BM-38","BM-39","BM-41","BM-43","BM-45","BM-46"],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {"bytes":50651,"sha256":"4e79e3597748ba51788a6247cf550ea3711638b747264f8fe09da4fec6cfdb87"},
+  "target": {"locator":"Owner-supplied bandmaster_ui_frame_atlas.png; current C22_Mockup_Target_vs_Native.png also opened","original_sha256":"5d24ec44eada22c353fc4403cfd237c4d005062743c42d173aefa4108d45f5f8","pixels_inspected":true},
+  "hypothesis":"A named, licence-screened shortlist of missing physical source layers plus reuse of the existing control/icon policy is more useful than another generic GUI-kit list.",
+  "controlled_comparison":"Research only: owner mockup and C22 comparison opened. External preview endpoints failed; original external source pixels and native integration remain unverified.",
+  "stop_condition":"No purchase, import, game-code change or component rebuild. Deliver exact candidates and clear outstanding file/visual checks.",
+  "protected":["22 passive meter state PNGs","36 button states","58 Lab08 image layers and hardware logic","C21 dialog behaviour","production scenes and saves"],
+  "allowed_paths":["docs/continuous_improvement/**","docs/asset_base/CONTROL_SPRINT_LOCK.json","docs/asset_base/STATE.json","docs/asset_base/LEDGER.md"],
+  "validation_commands":["python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C23.json","Verify official asset pages and published terms; no native test claimed because no artwork/code changed."]
+}

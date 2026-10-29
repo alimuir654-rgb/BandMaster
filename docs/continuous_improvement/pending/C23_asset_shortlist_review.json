@@ -1,0 +1,47 @@
+{
+ "reviewed_in_session":"C23",
+ "reviewed_by":"assistant_actual_evidence_review",
+ "events":[
+  {
+   "event_id":"C23-asset-licence-distribution-review",
+   "id":"BM-14",
+   "event":"review",
+   "recorded_at":"2026-10-29T19:17:43+00:00",
+   "severity":"P1",
+   "cause_confidence":"observed",
+   "owner_role":"asset intake and release engineering",
+   "observation":"The broad free-asset recommendation did not distinguish finished-game commercial use from permission to distribute raw sources in a public repo or reusable component ZIP. Texturelabs, Fuzzimo and the examined paper GUI packs impose redistribution restrictions. Texturelabs additionally restricts AI-generation assistance. No restricted source was downloaded or imported here.",
+   "expected":"Candidate clearance separately covers source type, commercial game use, editable-source redistribution and any AI-generation restriction before intake.",
+   "evidence":["https://texturelabs.org/terms/","https://www.fuzzimo.com/about/","https://erinbrume.itch.io/paper-gui","https://loudeyes.itch.io/paper-ui-pack-for-games","docs/continuous_improvement/ASSET_ACQUISITION_SHORTLIST_2026-10-29.md"],
+   "affected_paths":["External asset acquisition process; no game files changed"],
+   "prevention":"Use the exact asset's current terms, not the word free or a marketplace category. Prefer CC0/compatible licences for public reusable sources and retain licence notices.",
+   "verification":"Official terms inspected; restricted candidates explicitly on hold; no claimed downloaded binary hashes or native integration.",
+   "next_action":"First evaluate CC0 Clipboard/Office Notepads source files and original pixels; do not vendor restricted tape/clip packs."
+  },
+  {
+   "event_id":"C23-repository-reuse-before-kit-shopping",
+   "id":"BM-15",
+   "event":"review",
+   "recorded_at":"2026-10-29T19:17:43+00:00",
+   "severity":"P1",
+   "cause_confidence":"observed",
+   "owner_role":"technical art and UI integration",
+   "observation":"The prior generic sourcing answer proposed Game-icons as a primary source and new control kits despite an existing Lucide policy and reusable native controls. Live inventory confirms controls are already present; generic replacement would duplicate work. Some external preview URLs could not be retrieved, so shortlist fit remains provisional.",
+   "expected":"Inventory the actual branch first and acquire the minimum missing layer, not a new visual/control framework. Keep source-page checks separate from pixel acceptance.",
+   "evidence":["docs/ART_SHORTLIST_AND_ICON_IMPLEMENTATION.md","docs/asset_base/CONTROL_INVENTORY_C20.md","Art/Icons/","https://lucide.dev/license","docs/continuous_improvement/ASSET_ACQUISITION_SHORTLIST_2026-10-29.md"],
+   "affected_paths":["Acquisition shortlist and existing icon policy; no control code changed"],
+   "prevention":"Preserve current controls/meters and the established icon API. Extend Lucide selectively. Unavailable original/preview files stay uninspected, not silently approved.",
+   "verification":"Live repository inventory and policy read; owner target/current native image opened; no external source-pixel or runtime success claimed.",
+   "next_action":"Run one source-art evaluation for physical paper/clip construction before any wider frame integration."
+  }
+ ],
+ "ledger_entry":"## C23 — owner-requested asset shortlist, research only\nKept existing Lab07/Lab08 controls, passive meters, C21 dialog and the documented Lucide policy. Identified exact CC0 Clipboard/Office Notepads source candidates; optional Kenney input hints; retained existing Paper001 rather than counting reacquisition. Held Texturelabs/Fuzzimo/paper GUI source distribution pending appropriate permission. Official listing/terms verified, original external files/pixels/import/native tests NOT verified. Owner reference and C22 comparison opened. Five simulated lenses and source URLs are in ASSET_ACQUISITION_SHORTLIST_2026-10-29.md. No purchases, source imports, code/main/save changes or automation extension.",
+ "closeout":{
+  "tested_sha":"ad3bca76e70cc3c75f7f581317d62b82db64e748",
+  "verification_scope":"This SHA is the reviewed repository baseline; only sourcing/preflight checks were performed. No new native Godot test or artwork implementation.",
+  "evidence":["docs/continuous_improvement/ASSET_ACQUISITION_SHORTLIST_2026-10-29.md","Official asset and licence URLs recorded in shortlist","Local improvement_gate check passed for C23"],
+  "visual_verdict":"hold",
+  "next_action":"Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse.",
+  "new_issue_review":"Recorded source redistribution/AI-use constraints under BM-14 and repository/icon-policy duplication under BM-15. External source previews not retrieved remain unverified. No artwork approval."
+ }
+}
