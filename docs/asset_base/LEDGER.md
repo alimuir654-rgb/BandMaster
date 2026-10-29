@@ -540,3 +540,6 @@ C24 source candidate withheld: native offline renderer completed but actual full
 
 
 C24 source geometry correction verified. Separate pixel check found98.36percent clipped opaque paper. This is a source-render calibration defect; candidate withheld before integration. A bounded exposure bracket on the existing scene replaces guessed lighting adjustments; no additional frame family.
+
+
+C24 calibration blocked by a saved-scene relative path after artifact relocation, not missing source bytes. Recorded before correcting the explicit cork-root remap. No calibrated image or Godot integration is claimed from failed run40949472716.
