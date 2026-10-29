@@ -546,3 +546,14 @@ C24 calibration blocked by a saved-scene relative path after artifact relocation
 
 
 C24 native integration first run withheld: original2185checks pass but new demonstration352checks include90failures. ActualPNG confirms missing text and offscreenaction. Recorded before bounded native layout correction; no publication or technicalPASSclaim.
+
+
+## C25 — approved cast intake and initial scoring, 29 October23:04 UK
+
+Published exact approved1536x1024 generated reference plus18small unscaled label-free previews and provenance/hash manifest. Eighteen additivecast_ids: singers4,guitars5,bass3,keys3,drums3; existing Alex/Nia/Sam identities untouched. Six role-specific1–10music stats; separate authored reliability/cooperation. Bex56talent/team2/reliable5 and Sam55/team3/reliable3 are two fictionally difficult standouts WITHIN the approved18. Existing200budget/fifth-member6overhead retained;274of540five-rolelineups affordable. BalancedMaya/Jack/Zoe/Dan/Casey178.
+
+Tested e11a89f7ad3f52b55c956d3bbc4a815aff218400; run40969779247 SUCCESS; actual output publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482.270focused Godot4.7.2 assertions zero failures. Existing headless/regressions40969779234,structure40969779374 and improvement40969779198 also PASS. Artifact12939198737 downloadedSHA401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0; all18sourcecrop hashes verified and actual crops opened in BandMaster_C25_Cast_Scores_Review.png. No new scene captures claimed. Missing-branch model failure logged before exactblobvendor fix; originalfailedrun retained.
+
+Five SIMULATED lenses: Art—approved natural casting retained, no duplicate-person instrument set imported; Technical art—correct source hashes and honest small previews, no high-resmaster claim; UI—six music values separated from socialtraits, no layout change; Engineering—real rule tests,canonicalIDs andsave safety preserved; QA/producer—published not merely staged, scores provisional and personality consequences NOT yet integrated.
+
+Next one action: continue authorised overnight flight-case playable recruitment→songwriting→rehearsal slice with this opt-in cast and tested real consequences. Park notebook. No production scenes/saves/main/PR199 edits or merge. owner_approved=false for wholekit; casting_reference_approved=true only. See C25_REVIEW.md.

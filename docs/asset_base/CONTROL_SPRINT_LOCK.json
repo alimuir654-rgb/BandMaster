@@ -1,10 +1,13 @@
 {
- "writer":"C25-approved-cast-20261029T224900",
- "base_head":"7806efeddb68528df44efc87a1df3a4ca2386ea4",
- "claimed_at":"2026-10-29T22:49:00+00:00",
- "expires_at":"2026-10-29T23:35:00+00:00",
- "scope":"Direct owner approved-cast import, varied role scores and two fictional high-talent/high-friction profiles. No frame/production-save/main edits.",
- "authority":"Direct owner cast approval/import/scoring request, within separately authorised overnight work through 30 October 09:00 UK.",
- "owner_approved":false,
- "previous_closed_session":"C24"
+  "writer": null,
+  "base_head": "7806efeddb68528df44efc87a1df3a4ca2386ea4",
+  "claimed_at": "2026-10-29T22:49:00+00:00",
+  "expires_at": "2026-10-29T23:35:00+00:00",
+  "scope": "Direct owner approved-cast import, varied role scores and two fictional high-talent/high-friction profiles. No frame/production-save/main edits.",
+  "authority": "Direct owner cast approval/import/scoring request, within separately authorised overnight work through 30 October 09:00 UK.",
+  "owner_approved": false,
+  "previous_closed_session": "C24",
+  "released_at": "2026-10-29T23:04:44.292605+00:00",
+  "result": "closed_with_evidence",
+  "tested_code_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400"
 }

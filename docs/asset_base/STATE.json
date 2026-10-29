@@ -26,7 +26,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "final_evidence_review",
-  "next_single_action": "Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse.",
+  "next_single_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -587,17 +587,17 @@
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
   "last_improvement_review": {
-    "session": "C23",
-    "tested_sha": "ad3bca76e70cc3c75f7f581317d62b82db64e748",
-    "verification_scope": "This SHA is the reviewed repository baseline; only sourcing/preflight checks were performed. No new native Godot test or artwork implementation.",
+    "session": "C25",
+    "tested_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400",
     "evidence": [
-      "docs/continuous_improvement/ASSET_ACQUISITION_SHORTLIST_2026-10-29.md",
-      "Official asset and licence URLs recorded in shortlist",
-      "Local improvement_gate check passed for C23"
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40969779247",
+      "publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482",
+      "artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0",
+      "docs/continuous_improvement/C25_REVIEW.md"
     ],
-    "visual_verdict": "hold",
-    "next_action": "Evaluate actual CC0 Clipboard and Office Notepads source files with one source-art render proof against the locked frame mockup before integration; retain controls/meters/dialog and fix the logged phone comparison caption before harness reuse.",
-    "new_issue_review": "Recorded source redistribution/AI-use constraints under BM-14 and repository/icon-policy duplication under BM-15. External source previews not retrieved remain unverified. No artwork approval.",
+    "visual_verdict": "partial",
+    "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
+    "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule.",
     "owner_approved": false
   }
 }

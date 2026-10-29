@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C25",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "yes - get these into the rep. Score them up and have a range across the instruments. Add a couple of edgy people in there for a good mix - extra talented but difficult to work with.",
   "baseline_sha": "7806efeddb68528df44efc87a1df3a4ca2386ea4",
@@ -31,8 +31,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 66268,
-    "sha256": "d99d22e5ad384ae85f5553c254acc33fe38acae95abaae47592759262ab53d01"
+    "bytes": 69696,
+    "sha256": "26aa728a2acbfc0f5123043b2fb33c089c8eb4707b6324888d81a0a1b79b98d4"
   },
   "target": {
     "locator": "Owner-approved 18-person generated cast contact sheet a_wide_documentary_style_collage_stripboard_of_ba.png; rows Jack/Maya/Ellis/Zoe/Dan/Ryan, Lily/Marcus/Ben/Freya/Arjun/Nina, Tom/Casey/Hannah/Oscar/Bex/Sam",
@@ -66,5 +66,17 @@
     "SHA256 approved image and native-size preview crop inspection"
   ],
   "started_at": "2026-10-29T22:49:00+00:00",
-  "scope_end": "2026-10-29T23:35:00+00:00"
+  "scope_end": "2026-10-29T23:35:00+00:00",
+  "closeout": {
+    "tested_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400",
+    "evidence": [
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40969779247",
+      "publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482",
+      "artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0",
+      "docs/continuous_improvement/C25_REVIEW.md"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
+    "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule."
+  }
 }
