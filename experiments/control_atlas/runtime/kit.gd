@@ -1,13 +1,20 @@
 extends RefCounted
-## Reusable native controls. Text and state are never baked into image assets.
+## Native reusable controls backed by verified original source artwork.
 const MATERIAL := "res://art/"
 const Hardware = preload("res://bandmaster_premium_dashboard_poc/studio_control.gd")
+static var skin_textures: Dictionary = {}
 static func ink(look: String) -> Color:
     return Color("282620") if look == "notepaper" else Color("efe9da")
 static func skin(look: String, family: String, state: String) -> StyleBoxTexture:
     var s := StyleBoxTexture.new()
-    s.texture = load(MATERIAL + "control_%s_%s_%s.png" % [family, look, state])
-    s.set_texture_margin_all(12 if family == "tab" else 16)
+    var path := MATERIAL + "control_%s_%s_%s.png" % [family, look, state]
+    if not skin_textures.has(path):
+        var source: Texture2D = load(path)
+        var image := source.get_image()
+        image.resize(roundi(float(image.get_width()) * 48.0 / image.get_height()), 48, Image.INTERPOLATE_LANCZOS)
+        skin_textures[path] = ImageTexture.create_from_image(image)
+    s.texture = skin_textures[path]
+    s.set_texture_margin_all(12)
     s.content_margin_left = 12
     s.content_margin_right = 12
     s.content_margin_top = 6
@@ -34,7 +41,7 @@ static func button(label: String, look := "flightcase", family := "tab", toggle 
     for state in ["font_color", "font_hover_color", "font_pressed_color", "font_hover_pressed_color", "font_focus_color"]:
         b.add_theme_color_override(state, ink(look))
     b.add_theme_color_override("font_disabled_color", Color("898579") if look == "notepaper" else Color("8d9396"))
-    b.set_meta("source", "U18/U03 Lab07 original state family")
+    b.set_meta("source", "U18/U03 Lab07 original state family; proportional runtime downsample")
     return b
 static func label(text: String, look: String, points := 16) -> Label:
     var l := Label.new()
@@ -46,22 +53,26 @@ static func label(text: String, look: String, points := 16) -> Label:
 static func frame(look: String, preset := "panel") -> PanelContainer:
     var p := PanelContainer.new()
     var s := StyleBoxTexture.new()
-    s.texture = load(MATERIAL + "frame_%s_%s.png" % [look, "inset" if preset in ["inset", "ticket", "header"] else "panel"])
-    var margin := 12 if preset in ["inset", "ticket", "header"] else 24
+    var inset := preset in ["inset", "ticket", "header"]
+    s.texture = load(MATERIAL + "frame_%s_%s.png" % [look, "inset" if inset else "panel"])
+    var margin := (28 if look == "notepaper" else 20) if inset else 40
+    var padding := 12 if inset else 30
     s.set_texture_margin_all(margin)
-    s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE_FIT
-    s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE_FIT
-    s.content_margin_left = margin + 4
-    s.content_margin_right = margin + 4
-    s.content_margin_top = margin + 4
-    s.content_margin_bottom = margin + 4
+    s.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+    s.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+    s.content_margin_left = padding
+    s.content_margin_right = padding
+    s.content_margin_top = padding
+    s.content_margin_bottom = padding
     p.add_theme_stylebox_override("panel", s)
     p.set_meta("frame_preset", preset)
     p.mouse_filter = Control.MOUSE_FILTER_PASS
     return p
 static func badge(text: String, look: String) -> PanelContainer:
     var p := frame(look, "ticket")
-    p.add_child(label(text, look, 16))
+    var caption := label(text, look, 14)
+    caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    p.add_child(caption)
     p.mouse_filter = Control.MOUSE_FILTER_IGNORE
     p.focus_mode = Control.FOCUS_NONE
     return p
@@ -142,7 +153,9 @@ class ChoiceStrip extends HBoxContainer:
     func select(index: int, emit := true) -> void:
         if index < 0 or index >= buttons.size() or buttons[index].disabled:
             return
-        buttons[index].set_pressed_no_signal(true)
+        # set_pressed_no_signal intentionally does not update ButtonGroup peers.
+        for i in range(buttons.size()):
+            buttons[i].set_pressed_no_signal(i == index)
         if selected == index:
             return
         selected = index

@@ -25,13 +25,19 @@ func screenshot(window: Window, tag: String) -> void:
     records.append({"file":tag + ".png", "size":[image.get_width(),image.get_height()]})
 func click(window: Window, button: Button) -> void:
     var centre := button.get_global_rect().get_center()
+    window.notify_mouse_entered()
+    var motion := InputEventMouseMotion.new()
+    motion.position = centre
+    motion.global_position = centre
+    window.push_input(motion, true)
+    await process_frame
     for down in [true, false]:
         var e := InputEventMouseButton.new()
         e.button_index = MOUSE_BUTTON_LEFT
         e.position = centre
         e.global_position = centre
         e.pressed = down
-        window.push_input(e)
+        window.push_input(e, true)
         await process_frame
 func exercise(scene: Control, window: Window) -> void:
     var step = scene.live.stepper
@@ -80,12 +86,12 @@ func exercise(scene: Control, window: Window) -> void:
     var e := InputEventKey.new()
     e.keycode = KEY_SPACE
     e.pressed = true
-    window.push_input(e)
+    window.push_input(e, true)
     await process_frame
     e = InputEventKey.new()
     e.keycode = KEY_SPACE
     e.pressed = false
-    window.push_input(e)
+    window.push_input(e, true)
     await settle()
     check(not toggle.button_pressed and toggle.text.ends_with("OFF"), "Actual keyboard activation toggles state")
     check(toggle.has_focus(), "Keyboard focus retained")
@@ -96,10 +102,19 @@ func exercise(scene: Control, window: Window) -> void:
 func run() -> void:
     DirAccess.make_dir_recursive_absolute("res://proof")
     root.gui_embed_subwindows = false
+    # Every promised drop-in scene must instantiate, not merely parse.
+    for kind in ["toggle", "stepper", "choices", "browse", "pagination", "meter", "action", "panel", "ticket"]:
+        var wrapper = load("res://scenes/" + kind + ".tscn").instantiate()
+        root.add_child(wrapper)
+        await process_frame
+        check(wrapper.control != null and wrapper.control.get_parent() == wrapper, "Reusable scene instantiates " + kind)
+        wrapper.queue_free()
+        await process_frame
     for look in ["flightcase", "notepaper"]:
         for sz in [Vector2i(390,844),Vector2i(720,1280),Vector2i(1280,720),Vector2i(1600,900)]:
             var window := Window.new()
             window.size = sz
+            window.position = Vector2i.ZERO
             root.add_child(window)
             window.show()
             var scene = Gallery.instantiate()

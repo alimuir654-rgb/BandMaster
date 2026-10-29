@@ -39,19 +39,22 @@ func display(style: String, view: String) -> void:
     top = VBoxContainer.new()
     top.add_theme_constant_override("separation", 10)
     margin.add_child(top)
-    var heading := Kit.label("BANDMASTER  /  COMPONENT LIBRARY", look, 24)
-    heading.clip_text = true
+    var heading := Kit.label("BANDMASTER  /  COMPONENT LIBRARY", look, 22)
+    heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     heading.custom_minimum_size.y = 32
     top.add_child(heading)
     subtitle = Kit.label(("DAY · NOTEPAPER" if look == "notepaper" else "NIGHT · FLIGHT CASE") + "   /   " + page.to_upper(), look, 14)
     top.add_child(subtitle)
     var nav := HBoxContainer.new()
+    nav.add_theme_constant_override("separation", 4)
     top.add_child(nav)
     for v in ["controls", "hardware", "frames"]:
         var n := Kit.button(v.capitalize(), look)
+        n.add_theme_font_size_override("font_size", 14)
         n.pressed.connect(display.bind(look, v))
         nav.add_child(n)
     var swap := Kit.button("Day" if look == "flightcase" else "Night", look)
+    swap.add_theme_font_size_override("font_size", 14)
     swap.pressed.connect(display.bind("notepaper" if look == "flightcase" else "flightcase", page))
     nav.add_child(swap)
     scroll = ScrollContainer.new()
@@ -79,7 +82,9 @@ func _card(title: String, text: String) -> VBoxContainer:
     var body := VBoxContainer.new()
     body.add_theme_constant_override("separation", 10)
     p.add_child(body)
-    body.add_child(Kit.label(title, look, 18))
+    var title_label := Kit.label(title, look, 17)
+    title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    body.add_child(title_label)
     var info := Kit.label(text, look, 13)
     info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     body.add_child(info)
@@ -110,7 +115,7 @@ func _controls_page() -> void:
     c.add_child(roles)
     controls.append_array(roles.buttons)
     live.roles = roles
-    c.add_child(Kit.badge("SELECTED  /  one option at a time", look))
+    c.add_child(Kit.badge("SELECT ONE  /  exclusive choice", look))
     c = _card("03  TOGGLE + BOUNDED STEPPER", "Reusable state APIs. Bounds disable the relevant button.")
     var toggle := Kit.toggle(look)
     c.add_child(toggle)
@@ -173,10 +178,10 @@ func _hardware_page() -> void:
     c.add_child(Kit.badge("INPUT ≠ OUTPUT", look))
 func _frames_page() -> void:
     for preset in ["panel", "inset", "portrait", "ticket", "header", "modal"]:
-        var c := _card(preset.to_upper() + " FRAME", "Fixed corners, tiled centre, explicit content-safe insets.")
+        var c := _card(preset.to_upper() + " FRAME", "Fixed corners, quiet centre, explicit content-safe insets.")
         var p := Kit.frame(look, preset)
         p.size_flags_vertical = Control.SIZE_EXPAND_FILL
-        p.custom_minimum_size.y = 92 if preset in ["panel", "portrait", "modal"] else 60
+        p.custom_minimum_size.y = 100 if preset in ["panel", "portrait", "modal"] else 64
         c.add_child(p)
         var body := VBoxContainer.new()
         p.add_child(body)
