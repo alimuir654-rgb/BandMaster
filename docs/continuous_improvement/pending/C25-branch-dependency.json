@@ -1,0 +1,15 @@
+{
+ "reviewed_in_session":"C25",
+ "reviewed_by":"assistant_actual_evidence_review",
+ "events":[{
+  "event_id":"C25-canonical-model-branch-presence",
+  "id":"BM-15","event":"recurrence","recorded_at":"2026-10-29T22:57:00+00:00","severity":"P1","cause_confidence":"observed","owner_role":"integration engineering",
+  "observation":"Run40969391610 verified and downloaded the exact approved cast image, generated18 unique non-upscaled previews and validated274/540 affordable lineups, but isolated native setup failed because Scripts/recruitment_catalogue_v3.gd is absent from the actual checked-out working branch. The same model is verified at PR199 source commit c084690f7ccde4625eaebf68b89ae476fd08724d, blob9c40d3ae04558195e09961471c67e4e7952009a7. No production model or image publication occurred.",
+  "expected":"Check actual branch tree/dependency bytes, not only a fetched code excerpt, and pin the existing model rather than duplicating rules.",
+  "evidence":["run40969391610/job123782021213","cp: cannot stat Scripts/recruitment_catalogue_v3.gd","source artifact12939411811 sha25677e23256689e3bbaf9f2353d8bd200061614a26c6eb99b627954a035410e302f","verified source c084690f7ccde4625eaebf68b89ae476fd08724d/Scripts/recruitment_catalogue_v3.gd"],
+  "affected_paths":["experiments/character_cast/catalogue.gd","experiments/character_cast/native_test.gd",".github/workflows/character-cast-intake.yml"],
+  "prevention":"Vendor the exact existing repository blob within the isolated supplement; preserve canonical Scripts and keep source commit/blob provenance. Reuse the already verified immutable image artifact rather than expiring transfer links.",
+  "verification":"Require native cast tests to pass using exact pinned recruitment model, compare its blob and original data, then publish only with current writer/head guards.",
+  "next_action":"Pin the source model under experiments/character_cast/vendor, rebase the two explicit preloads, restore the already hashed source from artifact and rerun unchanged assertions."
+ }]
+}
