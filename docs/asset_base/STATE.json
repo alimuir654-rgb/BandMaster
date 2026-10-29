@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run": "U09-2026-10-29-0700",
+    "stream": "U",
+    "claimed_at": "2026-10-29T06:56:08+00:00",
+    "lease_until": "2026-10-29T08:00:00+00:00",
+    "base_sha": "80b69fe9b788f9dab3df84a6a0df6007c796c10c",
+    "mission": "Replace too-dark daytime native direct-control enamel faces using original Lab07 surface relief and prove in four viewports; preserve three-stream quality gate."
+  },
   "last_verified_code_sha": "0c1bbe8991511e09116beb9bcbe77df23847b782",
   "baseline": {
     "run_id": 40778019754,
