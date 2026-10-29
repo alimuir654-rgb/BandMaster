@@ -57,7 +57,7 @@ def install():
     # At smaller widths retain exactly the verified C15 placement.
     if size.x >= 1500:
         dossier_shell.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-        dossier_shell.custom_minimum_size.y = 468
+        dossier_shell.custom_minimum_size.y = 530
     else:
         dossier_shell.size_flags_vertical = Control.SIZE_EXPAND_FILL
         dossier_shell.custom_minimum_size.y = 0
@@ -71,7 +71,7 @@ def install():
         "owner_approved": False,
         "source_scene": "scene/frame_demo.gd",
         "source_art_change": False,
-        "component_improvement": "1600x900 source-backed dossier shrinks to its 468px minimum and vertically centres; unchanged at 390x844, 720x1280 and 1280x720",
+        "component_improvement": "1600x900 source-backed dossier shrinks to its 530px minimum and vertically centres; unchanged at 390x844, 720x1280 and 1280x720",
         "source_art_sources": source_panels,
         "read_only_meter_sha256": meters_before,
         "read_only_meter_semantics": "Six RAG bars retain mouse IGNORE and focus NONE, no regeneration",
@@ -86,9 +86,10 @@ def patch_test():
     s = path.read_text()
     anchor = '            check(scene.portrait_stage.visible == (sz.x >= 900), "Portrait stage visibility " + prefix)\n'
     extra = '''            check(scene.dossier_shell.size_flags_vertical == Control.SIZE_SHRINK_CENTER if sz.x >= 1500 else scene.dossier_shell.size_flags_vertical == Control.SIZE_EXPAND_FILL, "F16 adaptive wide dossier sizing " + prefix)
-            check(scene.dossier_shell.get_global_rect().size.y <= 555 if sz.x >= 1500 else true, "F16 too much empty widescreen dossier " + prefix)
+            check(scene.dossier_shell.get_global_rect().size.y <= 605 if sz.x >= 1500 else true, "F16 too much empty widescreen dossier " + prefix)
             check(abs(scene.dossier_shell.get_global_rect().get_center().y - scene.portrait.get_global_rect().get_center().y) <= 145 if sz.x >= 1500 else true, "F16 dossier and portrait not balanced " + prefix)
             check(scene.dossier_shell.get_global_rect().end.y < scene.actions_bar.get_global_rect().position.y if sz.x >= 1500 else true, "F16 dossier collides with action rail " + prefix)
+            check(scene.bio.get_global_rect().end.y < scene.dossier_shell.get_global_rect().end.y - 38 if sz.x >= 1500 and kind == "notepaper" else true, "F16 editorial notes too near paper bottom " + prefix)
 '''
     s = replace_once(s, anchor, anchor + extra)
     path.write_text(s)
