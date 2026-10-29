@@ -1,0 +1,50 @@
+extends Control
+## Isolated portrait-ratio dossier. Art layers never receive input.
+var content: VBoxContainer
+var version := "C24"
+var layers: Array[Control] = []
+var baseline: NinePatchRect
+func _ready() -> void:
+    mouse_filter = Control.MOUSE_FILTER_PASS
+    for role in ["shadow", "board", "paper", "clip"]:
+        var layer := TextureRect.new()
+        layer.texture = load("res://art/c24/dossier_" + role + ".png")
+        layer.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        layer.stretch_mode = TextureRect.STRETCH_SCALE
+        layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+        add_child(layer)
+        layers.append(layer)
+    baseline = NinePatchRect.new()
+    baseline.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    baseline.patch_margin_left = 40
+    baseline.patch_margin_top = 40
+    baseline.patch_margin_right = 40
+    baseline.patch_margin_bottom = 40
+    add_child(baseline)
+    content = VBoxContainer.new()
+    content.add_theme_constant_override("separation", 14)
+    content.mouse_filter = Control.MOUSE_FILTER_PASS
+    add_child(content)
+    resized.connect(_layout)
+    set_version(version)
+    _layout()
+func set_version(value: String) -> void:
+    if value not in ["C20", "C21", "C24"]:
+        return
+    version = value
+    if baseline == null:
+        return
+    baseline.visible = value != "C24"
+    baseline.texture = load("res://art/frame_notepaper_panel.png" if value == "C20" else "res://art/frame_notepaper_panel_c21.png")
+    for layer in layers:
+        layer.visible = value == "C24"
+func _layout() -> void:
+    if content == null:
+        return
+    for layer in layers:
+        layer.position = Vector2.ZERO
+        layer.size = size
+    baseline.position = Vector2.ZERO
+    baseline.size = size
+    content.position = Vector2(size.x * 0.11, size.y * 0.17)
+    content.size = Vector2(size.x * 0.78, size.y * 0.73)

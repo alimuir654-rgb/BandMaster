@@ -1,0 +1,66 @@
+extends "res://native_test.gd"
+const Demo = preload("res://dossier_demo.tscn")
+var geometry: Array = []
+func run() -> void:
+    DirAccess.make_dir_recursive_absolute("res://proof")
+    root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
+    root.content_scale_size = Vector2i.ZERO
+    root.position = Vector2i.ZERO
+    for sz in [Vector2i(390,844), Vector2i(720,1280), Vector2i(1280,720), Vector2i(1600,900)]:
+        root.size = sz
+        root.show()
+        var scene = Demo.instantiate()
+        root.add_child(scene)
+        await settle()
+        var expected: Rect2 = scene.frame.get_global_rect()
+        for version in ["C20", "C21", "C24"]:
+            scene.set_version(version)
+            await settle()
+            var screen := Rect2(Vector2.ZERO, Vector2(sz))
+            var panel: Rect2 = scene.frame.get_global_rect()
+            check(panel == expected, "Identical frame geometry " + version)
+            check(screen.encloses(panel), "Frame inside viewport")
+            for label in [scene.heading, scene.caption, scene.feedback]:
+                check(screen.encloses(label.get_global_rect()), "Caption inside viewport")
+                check(label.get_visible_line_count() == label.get_line_count(), "Caption has no hidden lines")
+                check(label.size.x <= sz.x - 39, "Caption width constrained")
+            check(panel.encloses(scene.frame.content.get_global_rect()), "Content fits panel")
+            for child in scene.frame.content.get_children():
+                check(panel.encloses(child.get_global_rect()), "Content child in panel")
+            check(scene.action.size.y >= 44 and scene.action.size.x >= 44, "Physical action target")
+            check(scene.meter.mouse_filter == Control.MOUSE_FILTER_IGNORE and scene.meter.focus_mode == Control.FOCUS_NONE, "Meter is passive")
+            for layer in scene.frame.layers:
+                check(layer.mouse_filter == Control.MOUSE_FILTER_IGNORE, "Art layer ignores input")
+            var before: int = scene.clicks
+            await click(root, scene.action)
+            check(scene.clicks == before + 1, "Actual pointer activates once")
+            scene.action.grab_focus()
+            await settle()
+            for down in [true, false]:
+                var event := InputEventKey.new()
+                event.window_id = root.get_window_id()
+                event.keycode = KEY_SPACE
+                event.pressed = down
+                root.push_input(event, true)
+                await process_frame
+            await settle()
+            check(scene.clicks == before + 2, "Actual keyboard activates once")
+            scene.action.disabled = true
+            await click(root, scene.action)
+            check(scene.clicks == before + 2, "Disabled action ignores input")
+            scene.action.disabled = false
+            scene.action.release_focus()
+            scene.feedback.text = "Live controls; separate source-art layers."
+            root.warp_mouse(Vector2(sz.x-2,sz.y-2))
+            root.notify_mouse_exited()
+            await screenshot(root, "dossier-%s-%dx%d" % [version,sz.x,sz.y])
+            geometry.append({"version":version,"size":[sz.x,sz.y],"frame":[panel.position.x,panel.position.y,panel.size.x,panel.size.y]})
+        root.size = Vector2i(390,844)
+        await settle()
+        check(Rect2(Vector2.ZERO,Vector2(root.size)).encloses(scene.frame.get_global_rect()),"Live resize stays in bounds")
+        scene.queue_free()
+        await process_frame
+    var file := FileAccess.open("res://proof/dossier-results.json",FileAccess.WRITE)
+    file.store_string(JSON.stringify({"engine":Engine.get_version_info(),"assertions":assertions,"failures":failures,"screenshots":records,"controlled_geometry":geometry},"  "))
+    print("C24_DOSSIER_RESULT ",assertions," assertions / ",failures.size()," failures")
+    quit(0 if failures.is_empty() and records.size() == 12 else 1)

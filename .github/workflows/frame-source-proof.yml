@@ -5,56 +5,94 @@ name: C24 CC0 frame source proof
     paths: ['experiments/frame_assets/**', '.github/workflows/frame-source-proof.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   actions: read
 concurrency:
   group: c24-frame-source-proof
   cancel-in-progress: false
 jobs:
-  source-art:
+  native-dossier:
     runs-on: ubuntu-24.04
     timeout-minutes: 12
+    env:
+      LIBGL_ALWAYS_SOFTWARE: '1'
     steps:
       - uses: actions/checkout@v4
-      - name: Require reviewed lessons before source work
+      - name: Require current reviewed source-art preflight
         run: python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C24.json
       - uses: actions/download-artifact@v4
         with:
-          name: c24-dossier-source-candidate
-          run-id: 40948281068
+          name: c24-calibrated-source-layers
+          run-id: 40950171890
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: c24-reviewed-source
-      - name: Acquire original CC0 files with complete dependencies
-        run: timeout 240s python3 experiments/frame_assets/acquire.py
-      - name: Install the verified offline source renderer
+      - name: Install pinned Godot and real renderer
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq blender python3-pil python3-numpy
-      - name: Restore verified inherited cork source for saved scene
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri python3-pil
+          curl -fL --retry 3 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp
+          sudo install -m755 /tmp/Godot_v4.7.2-stable_linux.x86_64 /usr/local/bin/godot
+      - name: Assemble only the candidate with existing controls untouched
         run: |
-          git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
-          mkdir -p /tmp/c24-source
-          git show FETCH_HEAD:Art/Photography/Formation/corkboard_day_pexels.webp > /tmp/c24-source/cork.webp
-          git show FETCH_HEAD:Art/Photography/Formation/SOURCE_PHOTO_MANIFEST.json > /tmp/c24-source/photos.json
-          python3 - <<'PY'
-          from pathlib import Path
-          from PIL import Image,ImageEnhance
-          import json,hashlib
-          p=Path('/tmp/c24-source');m=json.loads((p/'photos.json').read_text())
-          row=next(r for r in m['records'] if r['asset'].endswith('corkboard_day_pexels.webp'))
-          assert hashlib.sha256((p/'cork.webp').read_bytes()).hexdigest()==row['committed_webp_sha256']
-          im=Image.open(p/'cork.webp').convert('RGB');im=ImageEnhance.Color(im).enhance(.75);im=ImageEnhance.Contrast(im).enhance(.8);im.save(p/'cork.png')
-          PY
-      - name: Measure exposure and render existing source layers without changing construction
+          python3 -m py_compile experiments/frame_assets/build_native.py experiments/frame_assets/package_native.py
+          python3 experiments/frame_assets/build_native.py --layers c24-reviewed-source/c24-art
+          set -o pipefail
+          timeout 90s godot --headless --audio-driver Dummy --path frame-proof-c24 --editor --quit 2>&1 | tee frame-proof-c24/proof/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c24/proof/import.log; then exit 1; fi
+      - name: Preserve regressions and exercise real native frame interaction
         run: |
           set -o pipefail
-          timeout 420s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/calibrate_source.py 2>&1 | tee c24-source-render.log
-          test -f c24-art/SOURCE_RENDER_MANIFEST.json
+          for script in native_test frame_test frame_stress_test dossier_test; do
+            timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path frame-proof-c24 --script res://$script.gd 2>&1 | tee frame-proof-c24/proof/$script.log
+            if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c24/proof/$script.log; then exit 1; fi
+          done
+      - name: Test identical module in separate host
+        run: |
+          set -o pipefail
+          python3 experiments/control_atlas/export_module.py --source frame-proof-c24 --target host-proof-c24
+          timeout 90s godot --headless --audio-driver Dummy --path host-proof-c24 --editor --quit 2>&1 | tee host-proof-c24/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c24/import.log; then exit 1; fi
+          for script in native_test frame_test frame_stress_test dossier_test; do
+            timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path host-proof-c24 --script res://components/control_atlas/$script.gd 2>&1 | tee host-proof-c24/$script.log
+            if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c24/$script.log; then exit 1; fi
+          done
+      - name: Validate captures and package provisional source and project
+        run: python3 experiments/frame_assets/package_native.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: c24-calibrated-source-layers
+          name: c24-native-dossier-proof
           path: |
-            c24-art/
-            c24-source-render.log
+            frame-proof-c24/proof/
+            frame-proof-c24/art/c24/
+            frame-proof-c24/C24_DOSSIER_MANIFEST.json
+            host-proof-c24/components/control_atlas/proof/*.json
+            host-proof-c24/*.log
+            BandMaster_C24_Testable_Dossier.zip
+            BandMaster_C24_Dossier_Layers.zip
           retention-days: 30
+      - name: Publish only verified experimental asset layers with writer guard
+        if: success()
+        run: |
+          test "$GITHUB_REF_NAME" = dual-frame-proof-2026-10-28
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Concurrent writer; refusing publication'; exit 1; }
+          python3 - <<'PY'
+          from pathlib import Path
+          from datetime import datetime,timezone
+          import json,shutil,os
+          lock=json.loads(Path('docs/asset_base/CONTROL_SPRINT_LOCK.json').read_text())
+          assert lock['writer']=='C24-cc0-frame-source-20261029T194950'
+          assert datetime.now(timezone.utc)<datetime.fromisoformat(lock['expires_at'])
+          assert json.loads(Path('docs/asset_base/STATE.json').read_text()).get('writer') is None
+          target=Path('Art/UI/FrameCandidates/C24');target.mkdir(parents=True,exist_ok=True)
+          for image in Path('frame-proof-c24/art/c24').glob('*.png'):shutil.copy2(image,target/image.name)
+          shutil.copy2('frame-proof-c24/C24_DOSSIER_MANIFEST.json',target/'MANIFEST.json')
+          (target/'README.md').write_text('# C24 experimental dossier source layers\n\nOwn offline renders of documented CC0 source meshes plus inherited cork finish. NOT owner-approved, not a replacement for the default frame library, not a complete screen. Full is a reference composite; runtime uses separate board/paper/clip/shadow layers and live Godot content.\n\nReproducible assembly: experiments/frame_assets/build_native.py and runtime templates. Native tested source '+os.environ['GITHUB_SHA']+'; run '+os.environ['GITHUB_RUN_ID']+'. Four-view tests and original control/dialog regressions are in the artifact. Source provenance, crop and protected hashes are in MANIFEST.json.\n')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Art/UI/FrameCandidates/C24
+          git commit -m 'C24 retain verified experimental dossier layers without replacing existing frame library [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
