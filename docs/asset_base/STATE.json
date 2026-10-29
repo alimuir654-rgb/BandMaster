@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C10_20261029_0723_source-composition",
+    "claimed_at_utc": "2026-10-29T07:23:38Z",
+    "lease_expires_utc": "2026-10-29T08:15:00Z",
+    "base_head": "18b95f1b48e4b33e2297b80675839284f1ae68fb",
+    "workstream": "C",
+    "scope": "existing portrait-stage source asset + responsive desktop hierarchy only; 06:00 gate acknowledged"
+  },
   "last_verified_code_sha": "0f9bf998144277f0f68f7f3299ebb1b057c13df7",
   "baseline": {
     "run_id": 40778019754,
@@ -332,5 +339,5 @@
     "u09_four_viewport_gallery": "BandMaster_U09_Final_Four_Viewport_Native_Gallery.png",
     "u09_source_atlas": "BandMaster_U09_Final_Day_Enamel_State_Atlas.png"
   },
-  "last_updated_utc": "2026-10-29T07:18:30Z"
+  "last_updated_utc": "2026-10-29T07:23:38Z"
 }
