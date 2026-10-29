@@ -1,0 +1,63 @@
+name: Record inspected C20 control-library evidence
+'on':
+  push:
+    branches: [dual-frame-proof-2026-10-28]
+    paths: ['docs/asset_base/C20_VERIFIED_REVIEW.json', '.github/workflows/control-atlas-closeout.yml']
+permissions:
+  contents: write
+concurrency:
+  group: control-atlas-closeout
+  cancel-in-progress: false
+jobs:
+  record:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record inspected evidence and release only the matching writer lease
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = dual-frame-proof-2026-10-28
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git fetch --depth=1 origin 14bf4d55b804e6b335557bb0e197c4e27d659fbc
+          python3 - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          from datetime import datetime,timezone
+          base=Path('docs/asset_base')
+          review=json.loads((base/'C20_VERIFIED_REVIEW.json').read_text())
+          state=json.loads((base/'STATE.json').read_text())
+          lock=json.loads((base/'CONTROL_SPRINT_LOCK.json').read_text())
+          assert lock.get('writer')=='C20-reusable-control-library', 'Writer mismatch; do not release another lease'
+          assert state.get('writer') is None, 'Another writer claimed the shared state'
+          assert state['c20']['tested_code_sha']==review['tested_code_sha'], 'Newer build exists; reconcile before closing'
+          assert review['owner_approved'] is False
+          changed=subprocess.check_output(['git','diff','--name-only','14bf4d55b804e6b335557bb0e197c4e27d659fbc','HEAD'],text=True).splitlines()
+          allowed=('docs/asset_base/','experiments/control_atlas/','components/control_atlas/','.github/workflows/control-atlas-')
+          assert all(p=='AGENTS.md' or p.startswith(allowed) for p in changed), changed
+          now=datetime.now(timezone.utc).isoformat()
+          state['c20'].update(review)
+          state['c20']['status']='verified_library_available_owner_visual_review_pending'
+          state['c20']['reviewed_at']=now
+          state['owner_approved']=False
+          state['next_single_action']=review['next_action']
+          state['latest_owner_scope']='Backgrounds and characters deferred; reusable control and frame kit built and natively verified. No automatic extension or merge.'
+          (base/'STATE.json').write_text(json.dumps(state,indent=2)+'\n')
+          lock.update({'writer':None,'released_at':now,'result':'native_pass_visual_partial','tested_code_sha':review['tested_code_sha'],'run_id':review['run_id']})
+          (base/'CONTROL_SPRINT_LOCK.json').write_text(json.dumps(lock,indent=2)+'\n')
+          ledger=base/'LEDGER.md'
+          with ledger.open('a') as f:
+              f.write('\n\n## C20 inspected closeout — '+now+'\n'+(base/'C20_VERIFIED_REVIEW.md').read_text()+'\n')
+          programme=base/'PROGRAMME_2026-10-29.md'
+          with programme.open('a') as f:
+              f.write('\n\n## Latest direct-owner scope / C20 closeout\nBackgrounds and characters remain deferred. Reusable controls and frame library are now published under components/control_atlas, tested standalone and in a separate host. Read C20_VERIFIED_REVIEW.md and CONTROL_INVENTORY_C20.md. The historical portrait-first queue is not the next action. Owner artwork approval remains false; this sprint does not extend the finite programme.\n')
+          agents=Path('AGENTS.md')
+          agents.write_text('# C20 COMPLETED — CONTROL LIBRARY AVAILABLE\n\nRead docs/asset_base/C20_VERIFIED_REVIEW.md and STATE.json. The dedicated C20 lock is released. Latest owner direction still defers backgrounds/characters; reusable controls and frames now live in components/control_atlas. Do not re-run completed inventory or overwrite the verified kit. No merge or automatic programme extension.\n\n'+agents.read_text())
+          print('Recorded verified C20 evidence and released matching lease; scoped changes:',len(changed))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AGENTS.md docs/asset_base/STATE.json docs/asset_base/CONTROL_SPRINT_LOCK.json docs/asset_base/LEDGER.md docs/asset_base/PROGRAMME_2026-10-29.md
+          git commit -m 'C20 record actual pixel review, preserve source contracts and release writer [skip ci]'
+          git push origin HEAD:"$GITHUB_REF_NAME"
