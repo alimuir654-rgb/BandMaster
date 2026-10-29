@@ -1,13 +1,10 @@
 {
-  "writer": null,
-  "base_head": "7806efeddb68528df44efc87a1df3a4ca2386ea4",
-  "claimed_at": "2026-10-29T22:49:00+00:00",
-  "expires_at": "2026-10-29T23:35:00+00:00",
-  "scope": "Direct owner approved-cast import, varied role scores and two fictional high-talent/high-friction profiles. No frame/production-save/main edits.",
-  "authority": "Direct owner cast approval/import/scoring request, within separately authorised overnight work through 30 October 09:00 UK.",
+  "writer": "C26-playable-20261029T231000",
+  "base_head": "1aee1c476daf2d2e080c6aeb416abf20b480eeab",
+  "claimed_at": "2026-10-29T23:10:00+00:00",
+  "expires_at": "2026-10-29T23:53:00+00:00",
+  "scope": "One bounded C26 player-facing flight-case recruitment/first-gameplay slice, no frames/production-save/main/PR199 edits.",
+  "authority": "29 Oct owner-directed finite overnight gameplay through 30 Oct09:00 with current C25 approved cast; each hourly session independently guarded.",
   "owner_approved": false,
-  "previous_closed_session": "C24",
-  "released_at": "2026-10-29T23:04:44.292605+00:00",
-  "result": "closed_with_evidence",
-  "tested_code_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400"
+  "previous_closed_session": "C25"
 }

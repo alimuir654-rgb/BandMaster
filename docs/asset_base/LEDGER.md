@@ -557,3 +557,7 @@ Tested e11a89f7ad3f52b55c956d3bbc4a815aff218400; run40969779247 SUCCESS; actual 
 Five SIMULATED lenses: Art—approved natural casting retained, no duplicate-person instrument set imported; Technical art—correct source hashes and honest small previews, no high-resmaster claim; UI—six music values separated from socialtraits, no layout change; Engineering—real rule tests,canonicalIDs andsave safety preserved; QA/producer—published not merely staged, scores provisional and personality consequences NOT yet integrated.
 
 Next one action: continue authorised overnight flight-case playable recruitment→songwriting→rehearsal slice with this opt-in cast and tested real consequences. Park notebook. No production scenes/saves/main/PR199 edits or merge. owner_approved=false for wholekit; casting_reference_approved=true only. See C25_REVIEW.md.
+
+
+## C26 — preflight and exclusive gameplay writer, 29 Oct 23:10 UK
+Direct owner instruction supersedes C24 frame-only work: park notebook, prefer reversible flightcase, deliver real recruitment→songwriting→rehearsal gameplay; use the published C25 18-person approved casting reference and scored supplement. No character-generation, frame atlas, generic controls, production saves/main/PR199, or merge. Dominant BM-25 disconnected gameplay; preserve canonical rules and source controls/meters. C26 preflight must pass gate before any gameplay implementation. Writer lease ends23:53Z; all overnight implementation stops08:00 and 09:00 is evidence-only. Approval remains false for full game.

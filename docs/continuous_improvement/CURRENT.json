@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/C25.json",
-  "scope": "Owner-approved 18-person casting reference import and additive scored fictional roster; prepare for overnight gameplay integration",
+  "session": "docs/continuous_improvement/sessions/C26.json",
+  "scope": "Live owner-authorised overnight gameplay: first genuine flightcase recruitment -> songwriting -> rehearsal candidate, current C25 cast opt-in",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
   "target": "mockups and approved natural British starting-out cast",
   "backgrounds": "deferred",
-  "frames": "park notebook; flight-case reversible baseline",
+  "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "closed",
-  "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October."
+  "status": "active",
+  "next_action": "Build and test a real flight-case recruitment UI + pure session transaction flow with C25 authored cast, no notebooks, no production save changes."
 }
