@@ -14,15 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "F07-2026-10-29T0503Z",
-    "stream": "F",
-    "started_at": "2026-10-29T05:08:00Z",
-    "lease_expires_at": "2026-10-29T05:48:00Z",
-    "base_head": "6c4a3e404e5a1c01d154215a0b358a39055605af",
-    "purpose": "F07 source-backed landscape dossier material assembly and actual native tests"
-  },
-  "last_verified_code_sha": "ab17f151e3fcc1878d194440d39371dd5fdc7639",
+  "writer": null,
+  "last_verified_code_sha": "f0823d9ef2f11ef87ba29163692e898f5fb9d23e",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -32,8 +25,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "F",
-  "next_single_action": "06:00 quality gate is next mandatory decision. Until then, F may improve one dominant paper/landscape material composition gap with actual native proof, but no optional scene variants or minor control polishing; standalone high-resolution Alex/Nia sources remain the major P0.",
+  "next_stream": "C",
+  "next_single_action": "At first run on/after 06:00, mandatory cross-stream quality gate: compare real C/F/U native evidence, suspend optional breadth, pursue genuinely independent high-resolution Alex/Nia portrait masters or record exact unavailable source route; do not repeat collage generator. F07 is partial, stop paper micro-polish.",
   "streams": {
     "C": {
       "status": "partial_native_verified_provisional_portraits_focal_safe",
@@ -79,7 +72,7 @@
       ]
     },
     "F": {
-      "status": "partial_native_verified",
+      "status": "partial_native_verified_f07_day_landscape",
       "priority": "P0",
       "target": "Flight-case/night and notepaper/day reusable frame families",
       "assets": [
@@ -88,7 +81,10 @@
         "dossier_sheet_flightcase.png 640x300 RGBA, SHA256 a9bbc5d8391ee80e2864928131a650aa8cc8f3fc6c5e37de7f9bb2653bf079ed",
         "dossier_sheet_notepaper.png 640x300 RGBA, SHA256 1c198f7ae4cce74e5aa0012a5681a9cddbb26dd5ab431332eaa237105d2d526a",
         "frame_kit_atlas.png SHA256 46b26d06891460b10d59cca70e1dfb8330aedd35c759ca3d31a3cc37f50eb09d",
-        "experiments/art_material/build_frame_kit.py and FRAME_KIT_MANIFEST.json generated in native artifact"
+        "experiments/art_material/build_frame_kit.py and FRAME_KIT_MANIFEST.json generated in native artifact",
+        "F07 day dossier_shell_notepaper.png 900x650 RGBA SHA256 8f18fbf294bfac5dfeef06ab3328ae45ea245ebcf7c26b5b4506928e3a8e1a7f; existing CC0 paper + photographed Pexels cork + FormationCraft source tape; nine-slice65; calm text area[82,72,818,568].",
+        "F07 optional night dossier_shell_flightcase.png 900x650 RGBA SHA256 f20284e26d1d94402458ecc678cab29fb54b1ef852ae1d3995b6154071b11928; produced but intentionally NOT nested on existing chrome.",
+        "F07 source experiments/art_material/build_f07_dossier_shells.py; generated F07_DOSSIER_MANIFEST.json and f07_dossier_shell_atlas.png"
       ],
       "verified_native_evidence": [
         {
@@ -107,6 +103,23 @@
             "notepaper-1600x900-nia",
             "all-eight four-viewport contact sheet"
           ]
+        },
+        {
+          "tested_code_sha": "f0823d9ef2f11ef87ba29163692e898f5fb9d23e",
+          "run_id": 40822590709,
+          "artifact_id": 12875670648,
+          "artifact_sha256": "ed4180580d866879ddae9918bf6499f91cba76c6fcac57acd0062e9ad4a77503",
+          "screenshots": 32,
+          "assertion_failures": 0,
+          "inspected": [
+            "notepaper-390x844-alex",
+            "notepaper-720x1280-nia",
+            "notepaper-1280x720-alex",
+            "notepaper-1600x900-nia",
+            "flightcase-1280x720-alex",
+            "C06 notepaper-1280x720-alex direct before/after"
+          ],
+          "verdict": "Day paper-on-cork physical dossier region improves large-screen material hierarchy; night chrome not nested; all interactive controls remain within viewport."
         }
       ],
       "baseline_gaps": [
@@ -115,17 +128,19 @@
         "material fidelity"
       ],
       "ineffective_attempts": 0,
-      "next_action": "Hold additional frame variants; retain four source-backed plates and address residual paper and wide-layout composition only after higher-impact character/control work.",
+      "next_action": "Hold further F decorative work. Re-evaluate at06:00 cross-stream visual gate; priority is character source quality, then wide composition only if new character art becomes available.",
       "improved": [
         "phone safe insets: footer text no longer crosses screw/rail",
         "tablet audition-room image reduced from overwhelming height, now bounded to 435 physical pixels",
-        "photographic material source mounts and separate physically styled notes sheets for both looks"
+        "photographic material source mounts and separate physically styled notes sheets for both looks",
+        "Wide day dossier now source-backed cork/paper stage with independently live native labels, photo and passive RAG; 1280 native before/after visually inspected; night avoids nested heavy case chrome."
       ],
       "remaining_gaps": [
         "Still missing standalone candidate portraits",
         "Day controls remain weak and often flat",
         "Tablet personnel note inserts still have more empty space than intended",
-        "Wide landscape layouts have excessive unoccupied material area"
+        "Wide landscape layouts have excessive unoccupied material area",
+        "1600 notepaper retains large left-column empty field despite improved right dossier; paper controls dark; portraits still lack separate high-resolution original masters."
       ]
     },
     "U": {
@@ -239,13 +254,19 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "C05: two provisional non-UI fictional portrait textures and thumbs from one paired generated studio plate, separately bound in local isolated Godot project, source pack/manifest/static checks. C05 native Godot NOT run. U04 last remotely verified native 52 images/zero failures.",
+  "last_completed_deliverable": "F07: two 900x650 source-backed dossier-shell assets, day landscape paper/cork bay integrated in responsive isolated Godot, night optional primitive only; final four-device native 32 state/0 failure proof, after one actual offscreen-control regression repaired.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
     "local_godot_project": "conversation artifact BandMaster_C05_Local_Godot_Project.zip",
     "native_baseline_run": 40805840636,
-    "notice": "C05 local assets have NOT been published to GitHub or natively rendered; art approval remains false"
+    "notice": "C05 local assets have NOT been published to GitHub or natively rendered; art approval remains false",
+    "f07_native_run": 40822590709,
+    "f07_artifact_id": 12875670648,
+    "f07_native_before_after": "conversation artifact BandMaster_F07_Paper_Native_Before_After.png",
+    "f07_native_gallery": "conversation artifact BandMaster_F07_Native_Multi_Viewport.png",
+    "f07_source_atlas": "conversation artifact BandMaster_F07_Final_Source_Atlas.png",
+    "note": "F07 engineering validated; all art owner_approved false; high-res standalone characters missing"
   },
-  "last_updated_utc": "2026-10-29T05:08:00Z"
+  "last_updated_utc": "2026-10-29T05:24:00Z"
 }
