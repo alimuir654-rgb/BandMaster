@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "id": "F02-20261029T0000Z",
+    "owner": "asset-production",
+    "stream": "F",
+    "base_head": "05b5cecfacf5e067acc4d1ce91fbf0c5b27a2faf",
+    "lease_at": "2026-10-29T00:00:29Z",
+    "lease_expires": "2026-10-29T01:00:00Z"
+  },
   "last_verified_code_sha": "eba5a9859080b88e75cb17f1e29099c454de3da3",
   "baseline": {
     "run_id": 40778019754,
@@ -120,5 +127,5 @@
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
   "last_completed_deliverable": "C01: native Godot source-backed read-only passive meter atlas, 22 distinct sprites, 32 screenshots and 0 native failures; portrait generator route blocked.",
   "review_index": null,
-  "last_updated_utc": "2026-10-28T23:09:00Z"
+  "last_updated_utc": "2026-10-29T00:00:29Z"
 }
