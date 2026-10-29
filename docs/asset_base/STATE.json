@@ -14,7 +14,13 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C14-ambition-20261029-0907",
+    "claimed_at": "2026-10-29T09:07:00Z",
+    "lease_expires_at": "2026-10-29T09:55:00Z",
+    "base_head": "c880c30200f6800e22d91c1d30ce1c1510a9a88e",
+    "workstream": "F+U integrated scene composition; C indie portrait source remains active P0"
+  },
   "last_verified_code_sha": "3c1572136929ec5949a8853737fa21f1f7f7dee7",
   "baseline": {
     "run_id": 40778019754,
@@ -26,7 +32,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "C14 P0: C13 demonstrated legitimate two-theme 1024px photographic treatment, but both synthetic source headshots still read as corporate portraits. Stop monochrome/colour grading; obtain or author two independently sourced rights-clear believable indie-band character masters, or clearly keep ART HOLD. At 10:00 compare actual C10 gritty previews versus C13 licensed masters and reallocate to dominant art gap; no optional cast/scene variants.",
+  "next_single_action": "C14: Preserve owner-liked passive meters, improve full two-look native composition and recruitment decisions without new gameplay; replace corporate sources only with truly compliant independent rights-clear musician art, not photo grading/collage; verify real native screenshots.",
   "streams": {
     "C": {
       "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
@@ -374,5 +380,10 @@
     "c12_four_viewport_gallery": "BandMaster_C12_Native_Four_Viewport_Gallery.png",
     "c12_source_native_pack": "BandMaster_C12_Character_Source_And_Native_Review.zip sha256 8d96a990ec157c46e8e7fc256f89b959ea835ef1a7eab15358c403664bd99511"
   },
-  "last_updated_utc": "2026-10-29T07:46:35Z"
+  "last_updated_utc": "2026-10-29T07:46:35Z",
+  "owner_feedback_2026_10_29": {
+    "received_at_utc": "2026-10-29T09:04:32Z",
+    "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
+    "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
+  }
 }
