@@ -25,8 +25,6 @@ func screenshot(window: Window, tag: String) -> void:
     records.append({"file":tag + ".png", "size":[image.get_width(),image.get_height()]})
 func click(window: Window, button: Button) -> void:
     var centre := button.get_global_rect().get_center()
-    # Native X11 windows also require the OS cursor to enter their area;
-    # otherwise the platform's hover refresh can undo injected mouse motion.
     window.grab_focus()
     window.warp_mouse(centre)
     await settle()
@@ -37,7 +35,7 @@ func click(window: Window, button: Button) -> void:
     motion.global_position = centre
     window.push_input(motion, true)
     var hovered := window.gui_get_hovered_control()
-    print("POINTER_PROBE ", window.size, " target=", button.get_path(), " rect=", button.get_global_rect(), " hovered=", hovered.get_path() if hovered != null else NodePath("none"))
+    print("POINTER_PROBE ", window.size, " rect=", button.get_global_rect(), " hovered=", hovered.get_path() if hovered != null else NodePath("none"))
     for down in [true, false]:
         var e := InputEventMouseButton.new()
         e.window_id = window.get_window_id()
@@ -48,7 +46,6 @@ func click(window: Window, button: Button) -> void:
         e.pressed = down
         window.push_input(e, true)
     await settle()
-    print("POINTER_RESULT pressed=",button.button_pressed," text=",button.text)
 func exercise(scene: Control, window: Window) -> void:
     var step = scene.live.stepper
     var hits := [0]
@@ -114,6 +111,9 @@ func exercise(scene: Control, window: Window) -> void:
 func run() -> void:
     DirAccess.make_dir_recursive_absolute("res://proof")
     root.gui_embed_subwindows = false
+    root.position = Vector2i.ZERO
+    root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
+    root.content_scale_size = Vector2i.ZERO
     for kind in ["toggle", "stepper", "choices", "browse", "pagination", "meter", "action", "panel", "ticket"]:
         var wrapper = load("res://scenes/" + kind + ".tscn").instantiate()
         root.add_child(wrapper)
@@ -121,12 +121,11 @@ func run() -> void:
         check(wrapper.control != null and wrapper.control.get_parent() == wrapper, "Reusable scene instantiates " + kind)
         wrapper.queue_free()
         await process_frame
+    # Exercise the actual application window, not overlapping OS test popups.
     for look in ["flightcase", "notepaper"]:
         for sz in [Vector2i(390,844),Vector2i(720,1280),Vector2i(1280,720),Vector2i(1600,900)]:
-            var window := Window.new()
+            var window := root
             window.size = sz
-            window.position = Vector2i.ZERO
-            root.add_child(window)
             window.show()
             var scene = Gallery.instantiate()
             window.add_child(scene)
@@ -152,7 +151,7 @@ func run() -> void:
             window.size = Vector2i(1280,720) if sz.x<900 else Vector2i(390,844)
             await settle()
             check(scene.grid.columns == (3 if window.size.x>=1200 else 1), "Live responsive resize")
-            window.queue_free()
+            scene.queue_free()
             await process_frame
     var output := FileAccess.open("res://proof/results.json", FileAccess.WRITE)
     output.store_string(JSON.stringify({"engine":Engine.get_version_info(),"renderer":DisplayServer.get_name(),"assertions":assertions,"failures":failures,"screenshots":records},"  "))

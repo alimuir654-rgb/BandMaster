@@ -12,7 +12,7 @@ concurrency:
 jobs:
   native-kit:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 12
     env:
       ROOT: frame-proof/BandMaster_Frame_Experiment
       LIBGL_ALWAYS_SOFTWARE: '1'
@@ -36,24 +36,31 @@ jobs:
               step=next(s for s in steps if s.get('name')==name)
               subprocess.run(['bash','-e','-o','pipefail','-c',step['run']],check=True)
           PY
-      - name: Build reusable kit from verified assets
+      - name: Build reusable kit and import standalone project
         run: |
-          python3 -m py_compile experiments/control_atlas/build_library.py
-          python3 experiments/control_atlas/build_library.py --root "$ROOT" --out components/control_atlas --templates experiments/control_atlas/runtime
-          mkdir -p components/control_atlas/proof
+          python3 -m py_compile experiments/control_atlas/build_library.py experiments/control_atlas/export_module.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          out=Path('/tmp/c20-runtime');out.mkdir(exist_ok=True)
+          for f in Path('experiments/control_atlas/runtime').iterdir():
+              if f.is_file():shutil.copy2(f,out/f.name.removesuffix('.in'))
+          PY
+          python3 experiments/control_atlas/build_library.py --root "$ROOT" --out control-proof --templates /tmp/c20-runtime
+          mkdir -p control-proof/proof
           set -o pipefail
-          timeout 90s godot --headless --audio-driver Dummy --path components/control_atlas --editor --quit 2>&1 | tee components/control_atlas/proof/import.log
-          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' components/control_atlas/proof/import.log; then exit 1; fi
-      - name: Test real controls and render both themes at four sizes
+          timeout 90s godot --headless --audio-driver Dummy --path control-proof --editor --quit 2>&1 | tee control-proof/proof/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' control-proof/proof/import.log; then exit 1; fi
+      - name: Test real controls and render standalone gallery
         run: |
           set -o pipefail
-          timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path components/control_atlas --script res://native_test.gd 2>&1 | tee components/control_atlas/proof/native.log
-          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' components/control_atlas/proof/native.log; then exit 1; fi
+          timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path control-proof --script res://native_test.gd 2>&1 | tee control-proof/proof/native.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' control-proof/proof/native.log; then exit 1; fi
           python3 - <<'PY'
           from pathlib import Path
           from PIL import Image
           import json,zipfile,hashlib
-          p=Path('components/control_atlas');r=json.loads((p/'proof/results.json').read_text())
+          p=Path('control-proof');r=json.loads((p/'proof/results.json').read_text())
           assert not r['failures'] and len(r['screenshots'])==48
           for item in r['screenshots']:
               q=p/'proof'/item['file']
@@ -65,15 +72,33 @@ jobs:
                   if f.is_file() and '.godot' not in f.parts and 'proof' not in f.parts and f.suffix not in ['.import','.uid','.ttf','.otf']:
                       z.write(f,Path('BandMaster_Control_Atlas')/f.relative_to(p))
           PY
+      - name: Prove the drop-in module inside a separate host project
+        run: |
+          set -o pipefail
+          python3 experiments/control_atlas/export_module.py --source control-proof --target module-proof
+          timeout 90s godot --headless --audio-driver Dummy --path module-proof --editor --quit 2>&1 | tee module-proof/import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' module-proof/import.log; then exit 1; fi
+          timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path module-proof --script res://components/control_atlas/native_test.gd 2>&1 | tee module-proof/native.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' module-proof/native.log; then exit 1; fi
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('module-proof/components/control_atlas/proof/results.json');r=json.loads(p.read_text())
+          assert not r['failures'] and len(r['screenshots'])==48
+          PY
       - uses: actions/upload-artifact@v4
         id: evidence
         if: always()
         with:
           name: reusable-controls-native-proof
           path: |
-            components/control_atlas/proof/
-            components/control_atlas/MANIFEST.json
+            control-proof/proof/
+            control-proof/MANIFEST.json
+            module-proof/components/control_atlas/proof/results.json
+            module-proof/import.log
+            module-proof/native.log
             BandMaster_C20_Testable_Controls.zip
+            BandMaster_C20_Drop_In_Library.zip
           retention-days: 14
       - name: Publish verified reusable files with non-force writer guard
         if: success()
@@ -85,22 +110,23 @@ jobs:
           test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA" || { echo 'Branch moved; refusing competing publication'; exit 1; }
           python3 - <<'PY'
           from pathlib import Path
-          from datetime import datetime,timezone
-          import json,os
+          import json,os,shutil
           state_path=Path('docs/asset_base/STATE.json');state=json.loads(state_path.read_text())
           assert state.get('writer') is None, 'Another writer owns STATE'
           lock=json.loads(Path('docs/asset_base/CONTROL_SPRINT_LOCK.json').read_text());assert lock['writer']=='C20-reusable-control-library'
+          target=Path('components/control_atlas')
+          if target.exists():shutil.rmtree(target)
+          shutil.copytree('module-proof/components/control_atlas',target,ignore=shutil.ignore_patterns('proof','.godot','*.uid','*.import'))
           state['owner_approved']=False
-          state['latest_owner_scope']='C20: backgrounds/characters deferred; inventory and reuse controls, build missing reusable behaviours, improve existing frame system'
-          state['c20']={'tested_code_sha':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'artifact_id':int(os.environ['EVIDENCE_ID']),'status':'native_pass_visual_review_pending','source_root':'components/control_atlas','background_changes':False,'character_changes':False,'owner_approved':False}
+          state['latest_owner_scope']='C20: backgrounds/characters deferred; inventory and reuse controls, build missing reusable behaviours, improve frame system'
+          state['c20']={'tested_code_sha':os.environ['GITHUB_SHA'],'run_id':int(os.environ['GITHUB_RUN_ID']),'artifact_id':int(os.environ['EVIDENCE_ID']),'status':'native_pass_visual_review_pending','source_root':'components/control_atlas','standalone_and_host_import_verified':True,'background_changes':False,'character_changes':False,'owner_approved':False}
           state_path.write_text(json.dumps(state,indent=2)+'\n')
-          Path('docs/asset_base/CONTROL_INVENTORY_C20.md').write_text(Path('components/control_atlas/README.md').read_text())
-          ledger=Path('docs/asset_base/LEDGER.md')
-          with ledger.open('a') as f:
-              f.write('\n\n## C20 controls/frame library — native validation completed, visual review pending\nLatest direct owner scope replaces background/portrait priority for this sprint. Reused U18 action/tab/browse sprites, original RAG meter bytes and Lab08 inputs. Added reusable toggle/stepper/choices/browse/pagination/rows/value chips and source-backed scale-safe frames.\nTested source '+os.environ['GITHUB_SHA']+'; run '+os.environ['GITHUB_RUN_ID']+'; artifact '+os.environ['EVIDENCE_ID']+'. Native results in artifact, not final artistic approval. No main/PR199/save change. Detailed simulated visual assessments follow only after actual images are opened.\n')
+          Path('docs/asset_base/CONTROL_INVENTORY_C20.md').write_text(Path('control-proof/README.md').read_text())
+          with Path('docs/asset_base/LEDGER.md').open('a') as f:
+              f.write('\n\n## C20 controls/frame library — native validation completed, visual review pending\nReused U18 action/tab/browse sprites, unchanged RAG artwork and Lab08 input logic. Resource paths are scoped inside components/control_atlas; no game project settings replaced. Added reusable toggle, stepper, choice, browse, pagination, row/value adapters and scale-safe frames.\nTested source '+os.environ['GITHUB_SHA']+'; run '+os.environ['GITHUB_RUN_ID']+'; artifact '+os.environ['EVIDENCE_ID']+'. Both standalone and nested host projects executed native tests; not final artistic approval. No main/PR199/save change. Pixel inspection and detailed simulated assessment follow.\n')
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add components/control_atlas docs/asset_base/STATE.json docs/asset_base/CONTROL_INVENTORY_C20.md docs/asset_base/LEDGER.md
-          git commit -m 'C20 publish natively verified reusable control library and frame assets [skip ci]'
+          git commit -m 'C20 publish natively verified drop-in control library and frame assets [skip ci]'
           git push origin HEAD:"$GITHUB_REF_NAME"
