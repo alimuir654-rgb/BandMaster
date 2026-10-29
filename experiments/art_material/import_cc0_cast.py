@@ -34,7 +34,11 @@ def matte_white(src):
     """Use white seamless background to preserve dark shirt and synthetic hair."""
     bg=Image.new("RGB",src.size,(255,255,255))
     delta=ImageOps.grayscale(ImageChops.difference(src,bg))
-    alpha=delta.point(lambda v:max(0,min(255,int((v-8)*6.1))))
+    alpha=delta.point(lambda v:max(0,min(255,int((v-8)*16.0))))
+    # Preserve bright skin (not just dark clothes), else light forehead/cheek
+    # becomes semi-transparent over the dark room: a visibly unacceptable face.
+    # Original Alex 1024x1024 forehead (500,250) differs from white by >20.
+    assert alpha.getpixel((500,250)) >= 240, "Skin alpha matte still transparent"
     return alpha.filter(ImageFilter.GaussianBlur(.65))
 def assemble(src,room,center):
     source=src.convert("RGB")
