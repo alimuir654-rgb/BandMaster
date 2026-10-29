@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "U17-20261029-20261029130824",
+    "stream": "U",
+    "claimed_at": "2026-10-29T13:08:24.387Z",
+    "expires_at": "2026-10-29T13:43:24.387Z",
+    "base_head": "682e57d1caea51c104e8b979811aae00f781d656",
+    "purpose": "13:00 measured day action/readability correction; native four-viewport validation; preserve meters; freeze optional breadth"
+  },
   "last_verified_code_sha": "a7d2e5803c491f36e26cc5d62863ff10b92985f2",
   "baseline": {
     "run_id": 40778019754,
