@@ -7,9 +7,19 @@ var meter: TextureRect
 var heading: Label
 var caption: Label
 var feedback: Label
+var title: Label
+var sub: Label
+var copy: Label
+var tone: Label
 var controls: HBoxContainer
 var clicks := 0
 var selected := "C24"
+func text_node(value: String, points: int, parent: Node) -> Label:
+    var label: Label = Kit.label(value, "notepaper", points)
+    label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    label.size = Vector2(300, 80)
+    parent.add_child(label)
+    return label
 func _ready() -> void:
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     var bg := ColorRect.new()
@@ -17,40 +27,17 @@ func _ready() -> void:
     bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
     add_child(bg)
     bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    var margin := MarginContainer.new()
-    margin.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-    margin.offset_left = 20
-    margin.offset_right = -20
-    margin.offset_top = 16
-    add_child(margin)
-    var header := VBoxContainer.new()
-    header.add_theme_constant_override("separation", 6)
-    margin.add_child(header)
-    heading = Kit.label("DOSSIER / MATERIAL PROOF", "notepaper", 18)
-    heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    header.add_child(heading)
-    caption = Kit.label("Same content and size. Only the frame changes.", "notepaper", 14)
-    caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    header.add_child(caption)
+    heading = text_node("DOSSIER / MATERIAL PROOF", 18, self)
+    caption = text_node("Same content and size. Only the frame changes.", 14, self)
     frame = Dossier.new()
+    frame.size = Vector2(350, 481.25)
     add_child(frame)
-    var title := Kit.label("REHEARSAL NOTES", "notepaper", 22)
-    title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    frame.content.add_child(title)
-    var sub := Kit.label("WORKING SHEET  /  01", "notepaper", 13)
-    frame.content.add_child(sub)
-    var copy := Kit.label("Listen together. Refine the arrangement. Keep the next decision clear.", "notepaper", 17)
-    copy.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    frame.content.add_child(copy)
-    var row := VBoxContainer.new()
-    row.add_theme_constant_override("separation", 6)
-    frame.content.add_child(row)
-    row.add_child(Kit.label("Tone  ·  8 / 10", "notepaper", 15))
+    title = text_node("REHEARSAL NOTES", 22, frame.content)
+    sub = text_node("WORKING SHEET  /  01", 13, frame.content)
+    copy = text_node("Listen together. Refine the arrangement. Keep the next decision clear.", 17, frame.content)
+    tone = text_node("Tone  ·  8 / 10", 15, frame.content)
     meter = Kit.PassiveMeter.new("notepaper", 8)
-    row.add_child(meter)
-    var gap := Control.new()
-    gap.size_flags_vertical = Control.SIZE_EXPAND_FILL
-    frame.content.add_child(gap)
+    frame.content.add_child(meter)
     action = Kit.button("Review notes", "notepaper", "action")
     frame.content.add_child(action)
     action.pressed.connect(func(): clicks += 1; feedback.text = "Reviewed  ·  %d" % clicks)
@@ -58,21 +45,19 @@ func _ready() -> void:
     controls.add_theme_constant_override("separation", 10)
     add_child(controls)
     for value in ["C20", "C21", "C24"]:
-        var b := Kit.button(value, "notepaper", "tab")
-        b.custom_minimum_size = Vector2(88, 46)
-        controls.add_child(b)
-        b.pressed.connect(set_version.bind(value))
-    feedback = Kit.label("Live controls; separate source-art layers.", "notepaper", 13)
+        var button := Kit.button(value, "notepaper", "tab")
+        button.custom_minimum_size = Vector2(88, 46)
+        controls.add_child(button)
+        button.pressed.connect(set_version.bind(value))
+    feedback = text_node("Live controls; separate source-art layers.", 13, self)
     feedback.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    feedback.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    add_child(feedback)
     resized.connect(_layout)
     _layout()
 func set_version(value: String) -> void:
     selected = value
     frame.set_version(value)
 func _layout() -> void:
-    if frame == null:
+    if frame == null or feedback == null:
         return
     var available := Vector2(maxf(280, size.x - 40), maxf(420, size.y - 210))
     var height := minf(available.y, 740)
@@ -82,12 +67,25 @@ func _layout() -> void:
         height = width / (8.0 / 11.0)
     frame.position = Vector2((size.x - width) / 2, 114)
     frame.size = Vector2(width, height)
-    controls.position = Vector2((size.x - 284) / 2, minf(size.y - 77, frame.position.y + height + 12))
+    frame._layout()
+    heading.position = Vector2(20, 16)
+    heading.size = Vector2(size.x - 40, 28)
+    caption.position = Vector2(20, 49)
+    caption.size = Vector2(size.x - 40, 48)
+    var content_width := width * 0.78
+    title.position = Vector2.ZERO
+    title.size = Vector2(content_width, 36)
+    sub.position = Vector2(0, 42)
+    sub.size = Vector2(content_width, 24)
+    copy.position = Vector2(0, 80)
+    copy.size = Vector2(content_width, 82)
+    tone.position = Vector2(0, 178)
+    tone.size = Vector2(content_width, 24)
+    meter.position = Vector2(0, 208)
+    meter.size = Vector2(content_width, 34)
+    action.position = Vector2(0, height * 0.73 - 48)
+    action.size = Vector2(content_width, 48)
+    controls.position = Vector2((size.x - 284) / 2, minf(size.y - 87, frame.position.y + height + 12))
     controls.size = Vector2(284, 46)
     feedback.position = Vector2(20, controls.position.y + 49)
-    feedback.size = Vector2(size.x - 40, 28)
-    for label in [heading, caption, feedback]:
-        label.custom_maximum_size = Vector2(size.x - 40, 0)
-    for child in frame.content.get_children():
-        if child is Label and child.autowrap_mode != TextServer.AUTOWRAP_OFF:
-            child.custom_maximum_size = Vector2(width * 0.78, 0)
+    feedback.size = Vector2(size.x - 40, 36)

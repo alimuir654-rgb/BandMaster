@@ -1,6 +1,6 @@
 extends Control
-## Isolated portrait-ratio dossier. Art layers never receive input.
-var content: VBoxContainer
+## Candidate art is inert; content uses explicit safe-area bounds.
+var content: Control
 var version := "C24"
 var layers: Array[Control] = []
 var baseline: NinePatchRect
@@ -21,8 +21,7 @@ func _ready() -> void:
     baseline.patch_margin_right = 40
     baseline.patch_margin_bottom = 40
     add_child(baseline)
-    content = VBoxContainer.new()
-    content.add_theme_constant_override("separation", 14)
+    content = Control.new()
     content.mouse_filter = Control.MOUSE_FILTER_PASS
     add_child(content)
     resized.connect(_layout)
