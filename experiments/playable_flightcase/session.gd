@@ -200,8 +200,25 @@ func save_sandbox() -> bool:
  file.close()
  return true
 
+func _restore_integral_numbers(value: Variant) -> Variant:
+ # Godot's JSON parser returns 5.0 for an encoded integer 5; this v1
+ # sandbox schema uses integers only. Preserve nested career field types.
+ if value is Dictionary:
+  var result: Dictionary = {}
+  for key in value:
+   result[key] = _restore_integral_numbers(value[key])
+  return result
+ if value is Array:
+  var result: Array = []
+  for entry in value:
+   result.append(_restore_integral_numbers(entry))
+  return result
+ if value is float and absf(value) < 1000000000.0 and value == floor(value):
+  return int(value)
+ return value
+
 func load_sandbox() -> bool:
  if not FileAccess.file_exists(SAVE_PATH):
   return false
  var value: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
- return restore(value) if value is Dictionary else false
+ return restore(_restore_integral_numbers(value) as Dictionary) if value is Dictionary else false
