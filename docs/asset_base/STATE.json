@@ -14,16 +14,8 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": {
-    "run_id": "C05-20261029T0257Z",
-    "stream": "C",
-    "base_head": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
-    "claimed_at": "2026-10-29T02:57:10+00:00",
-    "expires_at": "2026-10-29T03:44:00+00:00",
-    "phase": "alternate-standalone-portrait-route",
-    "owner_approved": false
-  },
-  "last_verified_code_sha": "4338de95cdc291dc0c754807f6d41cc0dd182bc7",
+  "writer": null,
+  "last_verified_code_sha": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -34,17 +26,24 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "At/after 02:00 assess a materially DIFFERENT standalone portrait-production route for canonical Alex/Nia, not the two rejected multi-panel UI collage method. Prioritise P0 source portraits; if no viable compliant route, record precise blocker and advance unblocked F without pretending character art is complete.",
+  "next_single_action": "Import provisional paired-portrait source bytes into the isolated Godot CI using the checked-in C05 adapter, render actual Alex/Nia and both material themes at four resolutions, verify no regressions. Do NOT call paired-source derivatives compliant independent portrait masters. If transfer blocked, retain local project and pursue truly single-subject generator route without repeating split/collage method.",
   "streams": {
     "C": {
-      "status": "blocked_standalone_generation_method",
+      "status": "partial_local_provisional_portrait_art_not_native_verified",
       "priority": "P0",
       "target": "Two distinctive canonical portrait masters and derived crops",
-      "assets": [],
+      "assets": [
+        "LOCAL ONLY, not yet GitHub: BandMaster_C05_Portrait_Source_Pack.zip SHA256 852a3734f252af3335cfe770620994eb7e87b6477fb20041c978ad0a2186eb52",
+        "LOCAL ONLY, not yet GitHub: BandMaster_C05_Local_Godot_Project.zip SHA256 ee35bfb7e0c5a19831f7e8fc6c38adc249cf2640bad247ff05eb17736ec73932",
+        "LOCAL review image: BandMaster_C05_Portrait_Contact_Sheet.png SHA256 dcbbac6bc7f793a8439ecbbedf9c329f2e83dab3bda0091db9c7c956a2b766b3",
+        "Alex derived 1024x1024 canvas SHA256 c462113bf78db38feb91a3c6d25c298aa1dc62a248b50015eb1c16814a88d5dc, original 760x1024 subject crop SHA256 733b717fa68e78746c1a3f217ae0a6d039bd4ecd665524d47fc4c93815428d9c",
+        "Nia derived 1024x1024 canvas SHA256 bab02c7590a2439b1c79f7bd7e250f4062f8feb01f73cb6125aa58a41aeb2ef2, original 761x1024 subject crop SHA256 a9b1d49eb2fa2dda1a35f305c446e68c6d8c9f735cc80c523e5d9cd4ad0d7e98",
+        "Committed reusable import adapter: experiments/art_material/build_character_studies.py at 1a9413267af5094288c2902c772c6db9e3612713"
+      ],
       "verified_native_evidence": [],
-      "blocked_reason": "Two image_gen attempts for one isolated Alex Vale fictional musician portrait returned whole UI showcase collages with Alex/Nia, labels and invented display hashes. Both outputs explicitly rejected; zero standalone masters. Change method rather than retry unchanged.",
-      "ineffective_attempts": 2,
-      "next_action": "At 02:00 checkpoint verify a materially different no-cost solo-portrait creation route; preserve character gap if none."
+      "blocked_reason": "Original individual one-person >=1024px shorter-side AI generations still absent: 2 earlier UI collages, 2 subsequent paired portrait-only plates. A paired source was segmented into two separately addressable textures, but source generation and native CI master gates remain OPEN.",
+      "ineffective_attempts": 4,
+      "next_action": "Transfer source inputs without passing around screenshots; invoke source adapter, then native Godot 4.7.2 CI and inspect both candidate/theme/resolution sets. Preserve need for truly single-subject high-res source masters."
     },
     "F": {
       "status": "partial_native_verified",
@@ -102,7 +101,8 @@
       "target": "Coherent tactile input-state and passive-meter assembly kit",
       "assets": [
         "CI generated 22 unique 436x54 RGBA Lab07+Lab08 source-backed values 00-10 in two materials; separate state atlas; PASSIVE_METER_MANIFEST.json; generator experiments/art_material/build_passive_meter_kit.py",
-        "U03 36 distinct source-backed Lab07 hardware sprites: 3 direct-control families (action/tab/browse) x 2 material themes x 6 states; exact SHA256, crop/safe/nine-slice metadata in DIRECT_CONTROL_MANIFEST.json; atlas SHA256 5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209; source experiments/art_material/build_direct_control_kit.py"
+        "U03 36 distinct source-backed Lab07 hardware sprites: 3 direct-control families (action/tab/browse) x 2 material themes x 6 states; exact SHA256, crop/safe/nine-slice metadata in DIRECT_CONTROL_MANIFEST.json; atlas SHA256 5d6e8f4155104757b4eeb0e95c18e556c1b24da8e01849990b71b02b9b403209; source experiments/art_material/build_direct_control_kit.py",
+        "U04 Lab08.4 creative focus / venue buzz / horizontal+vertical faders: 27+23 source LED overlays, five values each, 20 genuine native hardware captures, separate 32 recruitment renders. Native run40805840636."
       ],
       "verified_native_evidence": [
         {
@@ -136,6 +136,18 @@
             "direct_control_atlas.png",
             "F02 baseline compared"
           ]
+        },
+        {
+          "tested_code_sha": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
+          "run_id": 40805840636,
+          "artifact_id": 12867479646,
+          "artifact_sha256": "5ee5ddc39dbc4847ca7ca2d585381a0f34e01189d6bb72b301a19c147d052bbd",
+          "screenshots": 52,
+          "assertion_failures": 0,
+          "inspected": [
+            "U04 native comparison 390x844 zero/max and 1280x720 zero/max (from previous run)"
+          ],
+          "status": "input assembly source validated; visual hold remains"
         }
       ],
       "baseline_gaps": [
@@ -156,15 +168,16 @@
         "390px role tabs still visually dense and day-theme dark metal could be lighter in later art direction",
         "Large desktop material gaps and oversize tablet notes panel remain F art issues",
         "Dedicated fader/rotary assemblies not revalidated in this U03 deliverable",
-        "Art direction and owner approval both still pending"
+        "Art direction and owner approval both still pending",
+        "U04 demo 390px heading truncation and capped amber position mark present at 0; no value-dependent rail glow at zero. Dials are INPUTS, passive RAG remain read-only."
       ]
     }
   },
   "checkpoints": [
     {
       "at": "2026-10-29T02:00:00+00:00",
-      "status": "in_progress",
-      "decision": "Two previous whole-interface collage outputs rejected; try one truly isolated single-character image-generation route, then change technique if output is again a collage."
+      "status": "reviewed_partial_corrective_pivot",
+      "decision": "Tried materially different portrait-only plate generation twice: avoided UI collage but still returned paired portraits. Extracted two provisional independent files from the photographic-only plate, preserved hashes and no subject upscaling, prepared locally importable Godot project and committed ingestion adapter. This is visual source progress, NOT compliant one-person generation nor native C05 proof. Freeze additional generator retries of identical method and focus next on source-to-native integration."
     },
     {
       "at": "2026-10-29T06:00:00+00:00",
@@ -193,7 +206,13 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "U03: Lab07 source-backed 36-sprite tactile control kit, native selected/disabled semantics, 32 Godot screenshots/zero failures, role/CTA corrections. C portraits blocked; F material partial; U controls partial.",
-  "review_index": null,
-  "last_updated_utc": "2026-10-29T02:57:10Z"
+  "last_completed_deliverable": "C05: two provisional non-UI fictional portrait textures and thumbs from one paired generated studio plate, separately bound in local isolated Godot project, source pack/manifest/static checks. C05 native Godot NOT run. U04 last remotely verified native 52 images/zero failures.",
+  "review_index": {
+    "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
+    "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
+    "local_godot_project": "conversation artifact BandMaster_C05_Local_Godot_Project.zip",
+    "native_baseline_run": 40805840636,
+    "notice": "C05 local assets have NOT been published to GitHub or natively rendered; art approval remains false"
+  },
+  "last_updated_utc": "2026-10-29T03:09:00Z"
 }
