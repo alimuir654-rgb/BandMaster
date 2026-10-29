@@ -440,3 +440,7 @@ Review the real controls/frame atlas, then use this library for the next authori
 
 ## C21 — direct-owner one-hour frame styling/hardening
 Owner: "continue with some additional frame styling and hardening/improvement work. One hour". Reused verified C20 sources, added 12 distinct frame derivatives and reusable modal focus behavior. Existing C20 tests retained. Tested SHA bd9dbb6329c71724251e404c7b9ac0e52e12e7c2; native run 40908525335; artifact 12912916325. Standalone and separate-host tests passed. Original controls/meter pixels preserved. Actual pixel review and five simulated lenses follow in C21_VERIFIED_REVIEW.md. No human approval, background/character/gameplay/save/main edits or merge.
+
+
+## C21 — direct-owner one-hour frame styling/hardening
+Owner: "continue with some additional frame styling and hardening/improvement work. One hour". Reused verified C20 sources, added 12 distinct frame derivatives and reusable modal focus behavior. Existing C20 tests retained. Tested SHA d09ee265fcb87b4fbee5b4bf9c533b610134bc3e; native run 40910023548; artifact 12913227697. Standalone and separate-host tests passed. Original controls/meter pixels preserved. Actual pixel review and five simulated lenses follow in C21_VERIFIED_REVIEW.md. No human approval, background/character/gameplay/save/main edits or merge.

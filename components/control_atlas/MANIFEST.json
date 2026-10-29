@@ -1028,6 +1028,12 @@
       "change": "Resource prefix only; no control/state/lighting logic modified"
     },
     {
+      "file": "frame_stress_test.gd",
+      "source_sha256": "d6bce4e5bf96e1d658f67c95a029b9d0d027eb3ac77619c0e119f8511740e8cf",
+      "module_sha256": "e8776f56c258c452dc5e1bcc403c93135a1d72df076394c8621bf0a1afb2abc0",
+      "change": "Resource prefix only; no control/state/lighting logic modified"
+    },
+    {
       "file": "gallery.gd",
       "source_sha256": "79947c308e6cff8483db7290a73352c8eda6d3b65df924f465484f012cba918f",
       "module_sha256": "cbc219139fea25ddb88257b0b6c1190837efa5b653b9daa080c9b15eca4ba8d5",
@@ -1041,8 +1047,8 @@
     },
     {
       "file": "framed_dialog.gd",
-      "source_sha256": "3475f1fa845739265cddd3d37d4859089309513e85042afee71cfb7152e85c29",
-      "module_sha256": "7612a67154b06fa11b074a983b9e51471674dd61803532dd4ddcc8bd681307a6",
+      "source_sha256": "a789aa01fbcff96f53f2c2ce60c3fa8bfaa7dc6f07f6ab6b749b3a5a57057943",
+      "module_sha256": "be46315c499d5053cf18dc9a1eeda6c0e1f3f819645abe692c0a8d1b88f8be67",
       "change": "Resource prefix only; no control/state/lighting logic modified"
     },
     {
