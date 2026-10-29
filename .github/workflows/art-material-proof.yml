@@ -52,6 +52,7 @@ jobs:
           subprocess.run(['python3','experiments/art_material/build_u04_control_assembly.py'],check=True)
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','install'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','install'],check=True)
+          subprocess.run(['python3','experiments/art_material/build_f07_dossier_shells.py'],check=True)
           run('Create native interaction and screenshot test')
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','patch-test'],check=True)
@@ -64,6 +65,7 @@ jobs:
           s=s.replace(marker,marker+'\n            check(Rect2(Vector2.ZERO,Vector2(sz)).encloses(scene.stat_rows.get_global_rect()), "Stats offscreen " + prefix)')
           s=s.replace(marker,marker+'\n            check(scene.portrait.get_theme_stylebox("panel") is StyleBoxTexture, "Source portrait bezel missing " + prefix)\n            check(scene.tablet_sheet.visible == (sz.x >= 600 and sz.x < 900), "Tablet composition wrong " + prefix)\n            check(scene.status.get_global_rect().end.y < sz.y - 32 if sz.x < 500 else true, "Footer too low " + prefix)')
           s=s.replace(marker,marker+'\n            check(scene.tabs[0].toggle_mode and scene.tabs[0].button_pressed and not scene.tabs[0].disabled, "Selected role incorrectly disabled " + prefix)')
+          s=s.replace(marker,marker+'\n            check(scene.dossier_shell.get_theme_stylebox("panel") is StyleBoxTexture if sz.x >= 900 else scene.dossier_shell.get_theme_stylebox("panel") is StyleBoxEmpty, "F07 shell material binding " + prefix)')
           s=s.replace(marker,marker+'\n            check(scene.candidate_buttons[0].toggle_mode and scene.candidate_buttons[0].button_pressed and not scene.candidate_buttons[0].disabled, "Selected candidate incorrectly disabled " + prefix)')
           s=s.replace(marker,marker+'\n            check(scene.recruit_button.get_meta("source_kit", "") == "U03_Lab07_Tactile", "Direct control skin not bound " + prefix)')
           s=s.replace(marker,marker+'\n            check(scene.tabs[0].get_theme_stylebox("pressed") is StyleBoxTexture, "No role pressed sprite " + prefix)')
@@ -87,6 +89,8 @@ jobs:
           cp "$ROOT/DIRECT_CONTROL_MANIFEST.json" proof-shots/
           cp "$ROOT/C05_PREVIEW_MANIFEST.json" proof-shots/
           cp "$ROOT/C06_FOCALSAFE_MANIFEST.json" proof-shots/
+          cp "$ROOT/F07_DOSSIER_MANIFEST.json" proof-shots/
+          cp "$ROOT/assets/material/f07_dossier_shell_atlas.png" proof-shots/
           timeout 100s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/u04_native_capture.gd 2>&1 | tee proof-shots/u04-native.log
           test "${PIPESTATUS[0]}" -eq 0
           if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' proof-shots/u04-native.log; then exit 1; fi
