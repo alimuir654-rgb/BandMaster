@@ -14,7 +14,15 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C05B-20261029T0317Z",
+    "stream": "C",
+    "base_head": "f2835c94bdad37a1205eeda90418b116cfcf0dc2",
+    "claimed_at": "2026-10-29T03:17:00+00:00",
+    "expires_at": "2026-10-29T03:55:00+00:00",
+    "phase": "binary-preview-github-native-integration",
+    "owner_approved": false
+  },
   "last_verified_code_sha": "22b1ebb82ea9330b350ebdef530feb5de8ba7781",
   "baseline": {
     "run_id": 40778019754,
