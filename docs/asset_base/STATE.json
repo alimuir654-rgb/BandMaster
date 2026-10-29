@@ -14,7 +14,13 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "C15-20261029-1001-core-indie-reversion",
+    "claimed_at_utc": "2026-10-29T10:01:22Z",
+    "lease_until_utc": "2026-10-29T10:36:22Z",
+    "base_head_sha": "ecc8c58eed4a1b3e1861a734cc565294529e23d8",
+    "purpose": "10:00 gate: reselect credible original-size indie-photo source and strengthen native two-look portrait integration without touching owner-liked meters"
+  },
   "last_verified_code_sha": "512c74898f079242341a16ff18cff8f1eb7a1933",
   "baseline": {
     "run_id": 40778019754,
@@ -26,7 +32,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "C",
-  "next_single_action": "10:00 quality gate: compare verified C12/C13 versus C14 real native photos and put remaining time into rights-clear genuinely UK indie-musician Alex/Nia masters; source styling not further colour-grade of corporate portrait; if unavailable hold ART P0. Owner-liked read-only passive meters remain unchanged; fix only dominant composition/input defects before 12:00 family freeze.",
+  "next_single_action": "C15 10:00 gate: source-truthful gritty 512px canonical Alex/Nia native portrait reversion with substantially improved indie credibility, retain 1024 CC0 corporate images as provenance archive not preferred scene art; no fake high-resolution master claim. Full 32-native four-viewport recheck; preserve meters.",
   "streams": {
     "C": {
       "status": "partial_c13_two_theme_cc0_doc_1024_native_pass_artistically_unapproved",
@@ -322,8 +328,8 @@
     },
     {
       "at": "2026-10-29T10:00:00+00:00",
-      "status": "pending",
-      "decision": null
+      "status": "reviewed_replanned_source_identity_p0",
+      "decision": "10:00 visually compared C12 sharp separate CC0 corporate headshots, C13/C14 native scenes and earlier gritty C05 two-person photographic-only source. Current corporate portraits are visually off-target for UK indie musicians, despite 1024px source. Pivot from further tonal grades and risky unreleased real-person photos: select the previously generated C05 gritty individual 512x690 provisional character images, preserve true pixel size and provenance, integrate into both complete night/day native looks; continue seeking actual independently generated >=1024 standalone musician masters. Hold added cast/families and owner-liked meters; test all four sizes, compare against C12 and C14; stop if not visibly better."
     },
     {
       "at": "2026-10-29T12:00:00+00:00",
@@ -378,7 +384,7 @@
     "c12_four_viewport_gallery": "BandMaster_C12_Native_Four_Viewport_Gallery.png",
     "c12_source_native_pack": "BandMaster_C12_Character_Source_And_Native_Review.zip sha256 8d96a990ec157c46e8e7fc256f89b959ea835ef1a7eab15358c403664bd99511"
   },
-  "last_updated_utc": "2026-10-29T07:46:35Z",
+  "last_updated_utc": "2026-10-29T10:01:22Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
