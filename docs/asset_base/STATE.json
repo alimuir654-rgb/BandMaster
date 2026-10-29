@@ -14,7 +14,14 @@
     "direct_controls_and_passive_meters",
     "character_artwork"
   ],
-  "writer": null,
+  "writer": {
+    "run_id": "Q06-PORTRAIT-STAGE-20261029T0601",
+    "base_head": "8c905afce9ac8fda71fd46c3f513028b8a42438d",
+    "started_at": "2026-10-29T06:01:18+00:00",
+    "expires_at": "2026-10-29T06:53:00+00:00",
+    "workstream": "C/F",
+    "purpose": "06:00 source/native visual gate and portrait-dominant reusable native stage; no extra families"
+  },
   "last_verified_code_sha": "f0823d9ef2f11ef87ba29163692e898f5fb9d23e",
   "baseline": {
     "run_id": 40778019754,
@@ -25,8 +32,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "C",
-  "next_single_action": "At first run on/after 06:00, mandatory cross-stream quality gate: compare real C/F/U native evidence, suspend optional breadth, pursue genuinely independent high-resolution Alex/Nia portrait masters or record exact unavailable source route; do not repeat collage generator. F07 is partial, stop paper micro-polish.",
+  "next_stream": "C/F",
+  "next_single_action": "06:00 focused portrait-first desktop composition using provisional sources, test actual Godot 4 sizes and stop if it worsens; do not attempt same collage generator again.",
   "streams": {
     "C": {
       "status": "partial_native_verified_provisional_portraits_focal_safe",
@@ -229,8 +236,8 @@
     },
     {
       "at": "2026-10-29T06:00:00+00:00",
-      "status": "pending",
-      "decision": null
+      "status": "reviewed_quality_below_target_scope_reduced",
+      "decision": "Opened actual F07 native 390x844 and1280x720 both styles, F07 source material and U03 atlas. C previews are 512px per-person crops from a paired generated plate; independently generated >=1024px masters absent. Single-subject image-generation route again returned a multi-panel collage e0a2e9c8f03b6dd1b724516aaae99f093e50744dd16535d03a6149485ce4af31; rejected and not used. Suspend extra cast and scene variants. Biggest visible controllable gap is tiny letterboxed desktop portraits alongside large empty columns. Author one source-backed vertical portrait-mount family and recompose existing desktop Godot scene portrait-first without upscaling person pixels. Keep owner art gate blocked until true independent masters exist."
     },
     {
       "at": "2026-10-29T10:00:00+00:00",
