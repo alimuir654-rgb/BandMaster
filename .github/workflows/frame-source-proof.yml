@@ -6,6 +6,7 @@ name: C24 CC0 frame source proof
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: c24-frame-source-proof
   cancel-in-progress: false
@@ -17,16 +18,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Require reviewed lessons before source work
         run: python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C24.json
+      - uses: actions/download-artifact@v4
+        with:
+          name: c24-dossier-source-candidate
+          run-id: 40948281068
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: c24-reviewed-source
       - name: Acquire original CC0 files with complete dependencies
-        run: |
-          python3 -m py_compile experiments/frame_assets/*.py
-          timeout 240s python3 experiments/frame_assets/acquire.py
-      - name: Install offline source renderer and importer dependencies
+        run: timeout 240s python3 experiments/frame_assets/acquire.py
+      - name: Install the verified offline source renderer
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq blender python3-pil python3-numpy
-          blender --background --factory-startup --python-exit-code 1 --python-expr 'import numpy; print("glTF dependency verified:", numpy.__version__)'
-      - name: Reuse the pinned existing cork source with verified provenance
+      - name: Restore verified inherited cork source for saved scene
         run: |
           git fetch --depth=1 origin c084690f7ccde4625eaebf68b89ae476fd08724d
           mkdir -p /tmp/c24-source
@@ -40,21 +44,17 @@ jobs:
           row=next(r for r in m['records'] if r['asset'].endswith('corkboard_day_pexels.webp'))
           assert hashlib.sha256((p/'cork.webp').read_bytes()).hexdigest()==row['committed_webp_sha256']
           im=Image.open(p/'cork.webp').convert('RGB');im=ImageEnhance.Color(im).enhance(.75);im=ImageEnhance.Contrast(im).enhance(.8);im.save(p/'cork.png')
-          (p/'CORK_SOURCE.json').write_text(json.dumps({'pinned_commit':'c084690f7ccde4625eaebf68b89ae476fd08724d','original_record':row,'derived_png_sha256':hashlib.sha256((p/'cork.png').read_bytes()).hexdigest(),'transform':'Colour .75, contrast .8; original source is not redistributed in the art pack'},indent=2)+'\n')
           PY
-      - name: Render one layered source-art candidate for actual inspection
+      - name: Measure exposure and render existing source layers without changing construction
         run: |
           set -o pipefail
-          timeout 420s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/render_dossier.py 2>&1 | tee c24-source-render.log
+          timeout 420s blender --background --factory-startup --python-exit-code 1 --python experiments/frame_assets/calibrate_source.py 2>&1 | tee c24-source-render.log
           test -f c24-art/SOURCE_RENDER_MANIFEST.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: c24-dossier-source-candidate
+          name: c24-calibrated-source-layers
           path: |
             c24-art/
-            c24-sources/clipboard/
-            c24-sources/office_notepads/
-            c24-sources/SOURCE_MANIFEST.json
             c24-source-render.log
           retention-days: 30
