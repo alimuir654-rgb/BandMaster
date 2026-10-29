@@ -56,6 +56,7 @@ jobs:
           subprocess.run(['python3','experiments/art_material/recompose_portrait_stage.py','--phase','install'],check=True)
           subprocess.run(['python3','experiments/art_material/rebalance_day_hardware.py','--phase','install'],check=True)
           subprocess.run(['python3','experiments/art_material/strengthen_portrait_hierarchy.py','--phase','install'],check=True)
+          subprocess.run(['python3','experiments/art_material/import_cc0_cast.py','--phase','install'],check=True)
           run('Create native interaction and screenshot test')
           subprocess.run(['python3','experiments/art_material/integrate_preview_characters.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/fix_character_focal_crops.py','--phase','patch-test'],check=True)
@@ -78,6 +79,7 @@ jobs:
           p.write_text(s)
           subprocess.run(['python3','experiments/art_material/rebalance_day_hardware.py','--phase','patch-test'],check=True)
           subprocess.run(['python3','experiments/art_material/strengthen_portrait_hierarchy.py','--phase','patch-test'],check=True)
+          subprocess.run(['python3','experiments/art_material/import_cc0_cast.py','--phase','patch-test'],check=True)
           PY
       - name: Render and verify 32 source-backed material states
         timeout-minutes: 3
@@ -99,6 +101,7 @@ jobs:
           cp "$ROOT/C08_PORTRAIT_STAGE_MANIFEST.json" proof-shots/
           cp "$ROOT/U09_DAY_ENAMEL_MANIFEST.json" proof-shots/
           cp "$ROOT/C10_PORTRAIT_HIERARCHY_MANIFEST.json" proof-shots/
+          cp "$ROOT/C11_CC0_CAST_MANIFEST.json" proof-shots/
           cp "$ROOT/assets/material/u09_day_enamel_atlas.png" proof-shots/
           cp "$ROOT/assets/material/f07_dossier_shell_atlas.png" proof-shots/
           timeout 100s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path "$ROOT" --script res://tests/u04_native_capture.gd 2>&1 | tee proof-shots/u04-native.log
