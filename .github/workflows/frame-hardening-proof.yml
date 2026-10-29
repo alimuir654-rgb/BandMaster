@@ -33,10 +33,10 @@ jobs:
           set -o pipefail
           timeout 90s godot --headless --audio-driver Dummy --path frame-proof-c21 --editor --quit 2>&1 | tee frame-proof-c21/proof/import.log
           if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c21/proof/import.log; then exit 1; fi
-      - name: Preserve original regression suite and exercise actual dialog input
+      - name: Preserve original regressions and exercise actual dialog input and lifecycle
         run: |
           set -o pipefail
-          for script in native_test frame_test; do
+          for script in native_test frame_test frame_stress_test; do
             timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path frame-proof-c21 --script res://$script.gd 2>&1 | tee frame-proof-c21/proof/$script.log
             if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' frame-proof-c21/proof/$script.log; then exit 1; fi
           done
@@ -46,7 +46,7 @@ jobs:
           python3 experiments/control_atlas/export_module.py --source frame-proof-c21 --target host-proof-c21
           timeout 90s godot --headless --audio-driver Dummy --path host-proof-c21 --editor --quit 2>&1 | tee host-proof-c21/import.log
           if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c21/import.log; then exit 1; fi
-          for script in native_test frame_test; do
+          for script in native_test frame_test frame_stress_test; do
             timeout 180s xvfb-run -a -s '-screen 0 1920x1440x24' godot --rendering-method gl_compatibility --audio-driver Dummy --path host-proof-c21 --script res://components/control_atlas/$script.gd 2>&1 | tee host-proof-c21/$script.log
             if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' host-proof-c21/$script.log; then exit 1; fi
           done
@@ -57,7 +57,7 @@ jobs:
           from PIL import Image
           import hashlib,json,zipfile,shutil
           for root in [Path('frame-proof-c21'),Path('host-proof-c21/components/control_atlas')]:
-              for name,count in [('results.json',48),('frame-results.json',16)]:
+              for name,count in [('results.json',48),('frame-results.json',16),('stress-results.json',8)]:
                   f=root/'proof'/name;r=json.loads(f.read_text());assert not r['failures'] and len(r['screenshots'])==count
                   for item in r['screenshots']:
                       p=root/'proof'/item['file']
@@ -84,6 +84,7 @@ jobs:
             frame-proof-c21/MANIFEST.json
             host-proof-c21/components/control_atlas/proof/results.json
             host-proof-c21/components/control_atlas/proof/frame-results.json
+            host-proof-c21/components/control_atlas/proof/stress-results.json
             host-proof-c21/*.log
             BandMaster_C21_Testable_Frames.zip
             BandMaster_C21_Drop_In_Library.zip
