@@ -4,7 +4,7 @@ const Model = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Recruit = preload("res://experiments/playable_flightcase/ui.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
-const BandLineup = preload("res://experiments/playable_flightcase/band_lineup.gd")
+const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 var setup = Model.new()
 var showing_menu := true
@@ -255,21 +255,13 @@ func _formed() -> void:
  var panel: PanelContainer = _wide_stage(root,760.0)
  panel.name = "MilestoneOneStage"
  var column := _column()
+ column.add_theme_constant_override("separation",8 if size.x < 480 else 10)
  panel.add_child(column)
- var eyebrow := _label("MILESTONE 01  /  THE LINEUP",14)
- eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(eyebrow)
- var headline := _label("YOU'VE GOT A BAND.",34 if size.x>=720 else 27)
- headline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(headline)
- var intro := _label("Guitar. Bass. Drums. Somebody's brave enough to sing.",15)
- intro.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(intro)
- var band_photos: Variant = BandLineup.new()
- band_photos.name = "SelectedBandLineup"
- column.add_child(band_photos)
- band_photos.configure(setup.game.roster,setup.lead_vocal_id,size.x)
- var budget := _label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],15)
+ var poster: Variant = BandPoster.new()
+ poster.name = "BandFormationPoster"
+ column.add_child(poster)
+ poster.configure(setup.game.roster,setup.lead_vocal_id,size.x)
+ var budget := _label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],13 if size.x<480 else 15)
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(budget)
  column.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))

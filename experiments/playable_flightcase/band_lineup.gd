@@ -9,7 +9,7 @@ var selected_ids: Array[String] = []
 var vocalist_id: String = ""
 var columns_used: int = 0
 
-func configure(roster: Array, lead_id: String, viewport_width: float) -> void:
+func configure(roster: Array, lead_id: String, viewport_width: float, available_width: float = 0.0) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -27,8 +27,10 @@ func configure(roster: Array, lead_id: String, viewport_width: float) -> void:
  columns_used = mini(count,3 if (viewport_width < 480.0 and count >= 5) else (4 if viewport_width < 900.0 else 6))
  var gap: int = 6 if viewport_width < 720.0 else 10
  var usable: float = clampf(viewport_width - (104.0 if viewport_width < 720.0 else 152.0),262.0,660.0)
- var width: float = minf(116.0,floorf((usable-float(gap*(columns_used-1)))/float(columns_used)))
- var portrait_height: float = minf(112.0,width)
+ if available_width > 0.0:
+  usable = minf(usable,maxf(192.0,available_width))
+ var width: float = minf(166.0,floorf((usable-float(gap*(columns_used-1)))/float(columns_used)))
+ var portrait_height: float = minf(150.0,width)
  if viewport_width < 480.0 and count >= 5:
   portrait_height = minf(portrait_height,86.0)
  var grid := GridContainer.new()

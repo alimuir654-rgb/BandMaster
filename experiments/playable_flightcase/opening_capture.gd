@@ -2,6 +2,7 @@ extends SceneTree
 ## Captures are native GL/Mesa/Xvfb pixels, never flattened mockup art.
 const UI = preload("res://experiments/playable_flightcase/opening_ui.gd")
 const Group = preload("res://experiments/playable_flightcase/band_lineup.gd")
+const Poster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 var failures: Array[String] = []
 func _init() -> void:
@@ -207,6 +208,20 @@ func take() -> void:
    var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
    if m1==null or m1.get_global_rect().size.x < expected_width - 2.0:
     failures.append("milestone1 retained narrow portrait composition")
+   # S36: actual source-textured press/flyer treatment, never an image
+   # of the whole UI. The player-selected roster is inside this native print.
+   var print: Control = screen.find_child("BandFormationPoster",true,false)
+   var paper: PanelContainer = screen.find_child("BandPosterPaper",true,false) as PanelContainer
+   var headline: Label = screen.find_child("BandPosterHeadline",true,false) as Label
+   if print==null or print.focus_mode!=Control.FOCUS_NONE or print.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+    failures.append("S36 noninteractive editorial poster missing or focusable")
+   if paper==null or not paper.get_theme_stylebox("panel") is StyleBoxTexture:
+    failures.append("S36 printed poster missing original paper texture")
+   if headline==null or headline.text!="YOU'VE GOT A BAND.":
+    failures.append("S36 editorial milestone lacks exact live headline")
+   var m1_button: Button = screen.find_child("MilestoneNextAction",true,false)
+   if m1_button==null or m1_button.get_global_rect().end.y > float(h)-4.0 or m1_button.get_global_rect().size.y < 44.0:
+    failures.append("S36 Name action obscured by first-issue poster on "+str(w)+"x"+str(h))
    # S35: exact selected IDs and the one real singer must appear in native
    # GL, not merely in the underlying deterministic model.
    var group: Variant = screen.find_child("SelectedBandLineup",true,false)
