@@ -85,7 +85,15 @@ func _rebuild() -> void:
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
  root_box.add_child(header)
- var status := _label(last_message,14)
+ var display_message := last_message
+ if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
+  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+  if not saved_report.is_empty():
+   display_message = "LAST SESSION  •  " + str(saved_report.get("verdict","Session completed")) + "  •  Notes below."
+  else:
+   display_message = "Your band is ready. Choose a session."
+ var status := _label(display_message,14)
+ status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
  root_box.add_child(status)
