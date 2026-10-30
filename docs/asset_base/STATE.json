@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": "S36-editorial-20261030T095900",
   "last_verified_code_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
   "baseline": {
     "run_id": 40778019754,
@@ -606,10 +606,11 @@
     "checkpoint_run": 41001787068
   },
   "last_scoped_preflight": {
-    "id": "S35",
-    "baseline_sha": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
-    "created_at": "2026-10-30T09:34:14Z",
-    "deadline": "2026-10-30T10:20:00Z"
+    "session": "S36",
+    "baseline_sha": "38b48118193f569ad5866dee0eb57e14d6249cae",
+    "scope_end": "2026-10-30T10:55:00Z",
+    "authority": "issue201",
+    "owner_approved": false
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -645,7 +646,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S35",
+  "current_session": "S36",
   "last_verified_native_run": 41034920916,
   "latest_verified_phase2": {
     "sprint": "S35",

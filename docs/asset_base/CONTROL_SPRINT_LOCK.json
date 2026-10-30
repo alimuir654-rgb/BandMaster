@@ -1,12 +1,10 @@
 {
-  "writer": null,
-  "base_head": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
-  "claimed_at": "2026-10-30T09:34:14Z",
-  "expires_at": "2026-10-30T10:20:00Z",
-  "scope": "S35 real roster portrait group verified, full native all four; source C34 protected, writer released",
-  "authority": "Owner post-review issue#201; issue#200 historic; manual owner_approved=false",
+  "writer": "S36-editorial-20261030T095900",
+  "base_head": "38b48118193f569ad5866dee0eb57e14d6249cae",
+  "claimed_at": "2026-10-30T09:59:46.887Z",
+  "expires_at": "2026-10-30T10:55:00Z",
+  "scope": "S36 restrained editorial band-formed milestone, real selected portraits, prior S35 intact",
+  "authority": "Owner issue201 S2 new post-review, issue200 historical, owner_approved=false",
   "owner_approved": false,
-  "previous_closed_session": "C34",
-  "status": "released",
-  "released_at": "2026-10-30T09:42:30Z"
+  "status": "claimed"
 }

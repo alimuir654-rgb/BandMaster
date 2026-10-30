@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S35.json",
-  "scope": "Post-review owner-authorised Phase 2 issue #201 S1 of six: selected actual cast imagery in native milestone; next editorial celebration, name/logo identity and consequential rehearsal results, then QA. Historical issue #200 freeze expired; new authority does not merge or approve art.",
+  "session": "docs/continuous_improvement/sessions/S36.json",
+  "scope": "Phase 2 issue#201 S2 editorial restrained band-formed celebration using existing source-honest dynamic S35 portraits; isolated C34 rollback and all original contracts protected.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "closed",
-  "next_action": "S36 editorial-style understated poster/venue-flyer celebration on milestone1 using this same dynamic roster component; preserve CTA and native regressions.",
+  "status": "active",
+  "next_action": "S36 improve real band-formed milestone editorials with real native four-viewport proof; no owner art approval.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
