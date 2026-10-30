@@ -1,12 +1,11 @@
 {
-  "writer": null,
-  "base_head": "87cd22efeb0fa5de5563d55af09b419db03aea2e",
-  "claimed_at": "2026-10-30T04:07:07.322Z",
-  "expires_at": "2026-10-30T04:18:39.575Z",
-  "scope": "C31 tested native responsive title/summary closeout; no active writer",
-  "authority": "Issue200/comment6511055491, C30 expired03:50, C30 verified d5f71bb, code/art freeze08:00, review09:00",
+  "writer": "C32-milestones-20261030T04591",
+  "base_head": "916fd136f1cab19b0940ac3674f3040e85281e52",
+  "claimed_at": "2026-10-30T04:59:10.694Z",
+  "expires_at": "2026-10-30T05:39:10.694Z",
+  "scope": "C32 existing milestone1/2 responsive source-backed native polish only",
+  "authority": "Owner issue200/comment6511055491; full native completion gate C30; C31 e32ce640 runnable fallback;08:00 freeze/09:00 review",
   "owner_approved": false,
   "previous_closed_session": "C31",
-  "released_at": "2026-10-30T04:18:39.575Z",
-  "status": "released"
+  "status": "active"
 }

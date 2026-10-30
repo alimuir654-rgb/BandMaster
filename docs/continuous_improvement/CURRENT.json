@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/C31.json",
+  "session": "docs/continuous_improvement/sessions/C32.json",
   "scope": "Owner-confirmed finite opening journey: title/Continue/New -> genre -> recruit three mandatory instrument players plus explicit vocals -> milestones -> intent-based naming -> logo/vibe -> isolated gameplay handoff. Verified-completion-only visual polish before08:00;09:00 review.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "closed",
-  "next_action": "C32 gated polish: fix skinny milestone1 and milestone2 180px portrait frames with deliberate source-backed responsive celebration screens, preserve C31 tested checkpoint and native full journey.",
+  "status": "active",
+  "next_action": "C32 widen milestone1/milestone2 into original source-backed flight-case stage; native full regression and fallback retained",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {

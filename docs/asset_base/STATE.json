@@ -602,16 +602,18 @@
   "conditional_polish": {
     "authorised": true,
     "gate": "all opening stages + real saves/Continue/handoff + no critical native defects",
-    "reached": false,
+    "reached": true,
     "earliest": "after verified complete",
     "freeze_at": "2026-10-30T08:00:00Z",
-    "owner_review": "2026-10-30T09:00:00Z"
+    "owner_review": "2026-10-30T09:00:00Z",
+    "checkpoint_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
+    "checkpoint_run": 41001787068
   },
   "last_scoped_preflight": {
-    "id": "C30",
-    "baseline_sha": "dfcb32e91d5134b54c3c13f9d9de2cdb01f87282",
-    "created_at": "2026-10-30T02:59:29.437Z",
-    "deadline": "2026-10-30T03:50:00+00:00"
+    "id": "C32",
+    "baseline_sha": "916fd136f1cab19b0940ac3674f3040e85281e52",
+    "created_at": "2026-10-30T04:59:10.694Z",
+    "deadline": "2026-10-30T05:39:10.694Z"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,

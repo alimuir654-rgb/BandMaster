@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "C32",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner issue200/comment6511055491: conditional polish after full native verified opening. C31 packaged tested e32ce640/run41001787068. Implement only existing milestone compositions before08:00; 09:00 evidence review.",
+  "baseline_sha": "916fd136f1cab19b0940ac3674f3040e85281e52",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-03",
+    "BM-05",
+    "BM-08",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-41",
+    "BM-42",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 102302,
+    "sha256": "ae41674d32bee784e19a1853e14d4a715323c474e5c064dcf5e0c3f4eff04be7"
+  },
+  "target": {
+    "locator": "Owner-approved road-case design original SHA6cd8b49a... broader target; actual C31 milestone1 1280x720 and milestone2 390x844 native PNGs opened: both use thin 180px portrait frame.",
+    "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Use C31 existing source-backed responsive wide case stage in milestone1/2, centre congratulations and name, preserve actual roster, talent and fixed naming outcome; ensure all buttons visible and no portrait sliver at four viewport sizes.",
+  "controlled_comparison": "C31 identical live fixture milestone1/2 screenshots 390x844,720x1280,1280x720,1600x900 vs C32. Preserve nine-slice source art, functional 52+88 strict model tests, four true-pointer journeys, save/Continue/handoff and standalone startup. Revert on regression.",
+  "stop_condition": "C32 bounded 2026-10-30T04:59:10.694Z to 2026-10-30T05:39:10.694Z; code/art freeze 2026-10-30T08:00Z, review-only09:00; fallback e32ce640/run41001787068. No main/PR199/production writes, engine change, merge or new UI families.",
+  "protected": [
+    "22 passive meter PNG bytes/inert behavior",
+    "36 Lab07 and58 Lab08 hardware image bytes",
+    "C21 modal behavior",
+    "C25 approved casting source, real identities",
+    "main/PR199/production scenes and saves",
+    "C31 verified e32ce640 playable zip"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C32.json --before $BEFORE --require-prior-record",
+    "Godot4.7.2 C26 52/opening 88 and Xvfb real GL four-viewpoint full route screenshot capture",
+    "Original source art unchanged; packaged candidate import/main-scene smoke test"
+  ],
+  "started_at": "2026-10-30T04:59:10.694Z",
+  "scope_end": "2026-10-30T05:39:10.694Z",
+  "completion_gate": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  }
+}
