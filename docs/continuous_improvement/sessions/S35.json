@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S35",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Phase 2 owner authorisation 30 Oct after09:00 review: 'Add everything, queue it up, plan the sprints, run the sprints.' Issue #201 S1, dynamically display actual selected 3–6 approved musicians together as source-honest preview portraits, with lead vocals and roles; keep C34 rollback and all safeguards. Issue #200 and comment6511055491 historical authority reviewed, not a renewed overnight deadline.",
   "baseline_sha": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
@@ -38,8 +38,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 116018,
-    "sha256": "0da99fc37a7bbba31ba38254758511832e2c8b65fc18457d486856dd8bff849d"
+    "bytes": 119059,
+    "sha256": "e04a59e78709dab6a437ef188e06e693e1f08f7d676976b6ed98972b18a389c2"
   },
   "target": {
     "locator": "C34 actual Godot native c27-milestone1-390x844.png SHA256 2b9eafa56ea437eb33047effba83e045e8295363e6253f9e256a2f6631317dbb and c27-milestone1-1280x720.png SHA256 85bf8c25072be07dc004a82c6342dd4b51ea869ec94a29712f3528464cb2c127; original PNGs opened. C25 18 separate preview crops ~222-240 by 226-228 pixels inspected as contact sheet; these are LOW-RES contact-sheet crops, not independent portrait masters. Owner mockup original not available for pixel re-open; C34 native is controlled baseline, approved casting source separate.",
@@ -71,5 +71,32 @@
     "Compare original C34 vs S35 milestone1 exact state native PNGs, inspect real 3/4/5/6 layout, 44px first-fold Name action, gameplay save/reload/handoff"
   ],
   "started_at": "2026-10-30T09:34:14Z",
-  "scope_end": "2026-10-30T10:20:00Z"
+  "scope_end": "2026-10-30T10:20:00Z",
+  "closeout": {
+    "tested_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
+    "evidence": [
+      "S35 preflight e8c72d6e2fa44e8961f13afd113f299309826e82 strict gate success",
+      "S35 tested source fc0bb1732cd009a2e36b2172c721486c5309a8e2 native Godot4.7.2 push run41034920916 SUCCESS 52/52 C26,88/88 opening and four real mouse full journeys 390x844 720x1280 1280x720 1600x900 all failures[]",
+      "Native artifact12966969121 SHA256b0ef554a3cdd34b4379b0ca97f054f7c719cfae05af116ddef38d15d71576833, full original milestone images opened; 390 SHA1f2738f372c3cbeadaf8799e549f3e4cca5151e3846083c9a64102dae19b68c1;1280 SHAce9693cf365d3b2a1b2a8c7ace504ff5f1457efdd9eed647d0468743ee3f078d",
+      "Playable artifact12967846572 SHA256 25034fb4c1f4a98446289fcc044ccb9e084008a06d476ca8c76ce3d0f6fc27aa, inner ZIP SHA256 4276a847ec94da935211bf2eecffb896da646a072bb97a9a121ae7848d362902; project main scene verified",
+      "205 original protected PNG/script paths compared byte SHA256 with C34 standalone and are unchanged; no production/main/PR199 edits",
+      "All four exact source HEAD workflows green: native41034920916, gate41034920802, structure41034920804, headless41034920786"
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "On C34 actual formed stage, names were pure typography; S35 now shows the real three recruited faces, legible per-person names, roles, one lead singer, first-fold Name action at all four viewports. Viewed full original 390/720/1280/1600 before and after. Focal source remains small square contact-sheet previews; no editorial poster yet, no seamless group photo or owner artwork approval. 4/5/6 only component-level native proofs, not visually inspected end-to-end full-band fixtures.",
+    "new_issue_review": "Appended S35 BM-21 verified_resolution event after native evidence inspection; retained complete prior 116018-byte history without edits, refreshed entire reviewed prefix 119059 bytes SHA256 e04a59e78709dab6a437ef188e06e693e1f08f7d676976b6ed98972b18a389c2. No failed attempts this sprint.",
+    "changed_files": [
+      "experiments/playable_flightcase/band_lineup.gd",
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "Actual faces give the formerly text-only band-formed moment human identity and balance; still needs S36 subtle editorial celebratory poster (PARTIAL).",
+      "technical_art": "C25 genuine low-res approved contact-sheet previews downsampled in native TextureRects, not falsely called independent master/transparent cutouts; 205 protected files SHA identical.",
+      "ui_accessibility": "All three selected labels and one lead badge visibly readable at 390/720/1280/1600, complete Name action inside phone first fold and 44px input assertions retained; 5/6 dense compositions need future native visual check.",
+      "godot_engineering": "Pure state-fed component; no saves/recruit/career source changed, native Godot4.7.2 52+88+four pointer full journeys passed.",
+      "qa_producer": "All four exact tested SHA push workflows green; preserved C34 rollback and standalone packaged candidate, four-size original PNGs inspect, live writer released; no owner art approval."
+    },
+    "next_action": "S36 editorial-style understated poster/venue-flyer celebration on milestone1 using this same dynamic roster component; preserve CTA and native regressions."
+  }
 }

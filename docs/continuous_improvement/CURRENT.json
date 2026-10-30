@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "S35 implement native selected 3–6 person lineup on formed milestone; test native four views; one writer only.",
+  "status": "closed",
+  "next_action": "S36 editorial-style understated poster/venue-flyer celebration on milestone1 using this same dynamic roster component; preserve CTA and native regressions.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
@@ -36,6 +36,13 @@
     "session": "C34",
     "tested_sha": "104c494b255055da3e5bba0e4a0bed78c190d0a0",
     "native_run_id": 41019394924,
+    "visual_verdict": "partial",
+    "owner_approved": false
+  },
+  "last_phase2_sprint": {
+    "id": "S35",
+    "tested_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
+    "native_run_id": 41034920916,
     "visual_verdict": "partial",
     "owner_approved": false
   }

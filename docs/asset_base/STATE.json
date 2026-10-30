@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S35-group-20261030T093414",
-  "last_verified_code_sha": "104c494b255055da3e5bba0e4a0bed78c190d0a0",
+  "writer": null,
+  "last_verified_code_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -29,7 +29,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "S35 implement selected roster-driven 3–6 cast preview lineup while preserving full C34 controls/gameplay.",
+  "next_single_action": "S36 editorial-style understated poster/venue-flyer celebration on milestone1 using this same dynamic roster component; preserve CTA and native regressions.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -423,16 +423,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": {
-    "id": "V19_14H_VERIFIED_PACKAGE",
-    "kind": "validation_and_source_native_review_pack",
-    "status": "completed_technical_partial_art_hold",
-    "tested_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
-    "artifact_run": 40880526534,
-    "review_index": "docs/asset_base/REVIEW_INDEX_2026-10-29.md",
-    "pack_sha256": "9bce29ca5b00fcee290dd9126a8e17ae976e10ba48c981833ffb6889b97ca2ed",
-    "owner_approved": false
-  },
+  "last_completed_deliverable": "S35 real roster-driven approved portrait montage at formation milestone (technical native PASS, visual PARTIAL)",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -478,7 +469,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-30T09:34:14Z",
+  "last_updated_utc": "2026-10-30T09:42:30Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -655,5 +646,14 @@
     "owner_approved": false
   },
   "current_session": "S35",
-  "last_verified_native_run": 41019394924
+  "last_verified_native_run": 41034920916,
+  "latest_verified_phase2": {
+    "sprint": "S35",
+    "source_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
+    "native_run": 41034920916,
+    "artifact": 12966969121,
+    "artifact_sha256": "b0ef554a3cdd34b4379b0ca97f054f7c719cfae05af116ddef38d15d71576833",
+    "playable_artifact": 12967846572,
+    "owner_approved": false
+  }
 }

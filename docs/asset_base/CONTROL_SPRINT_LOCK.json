@@ -1,12 +1,12 @@
 {
-  "writer": "S35-group-20261030T093414",
+  "writer": null,
   "base_head": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
   "claimed_at": "2026-10-30T09:34:14Z",
   "expires_at": "2026-10-30T10:20:00Z",
-  "scope": "S35 isolated roster-driven selected band portrait composition using C25 genuine low-res preview crops, full C34 rollback, no new masters/merges",
+  "scope": "S35 real roster portrait group verified, full native all four; source C34 protected, writer released",
   "authority": "Owner post-review issue#201; issue#200 historic; manual owner_approved=false",
   "owner_approved": false,
   "previous_closed_session": "C34",
-  "status": "active",
-  "released_at": null
+  "status": "released",
+  "released_at": "2026-10-30T09:42:30Z"
 }
