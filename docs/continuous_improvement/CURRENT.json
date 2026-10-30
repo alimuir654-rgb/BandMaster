@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "C33 strictly scoped existing logo/vibe live-preview native polish; compare C32 exact-stage four viewport A/B and preserve tested full gameplay.",
+  "status": "closed",
+  "next_action": "C34 existing recruitment presentation: correct first-fold recruit action visibility on phone and desktop, preserving six passive meters and source portraits, before08:00 freeze.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
@@ -31,5 +31,12 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  },
+  "last_polish": {
+    "session": "C33",
+    "tested_sha": "8d9559cbfd1ffb3b64465bea2c33f8b9e27d0099",
+    "native_run_id": 41011695193,
+    "owner_approved": false,
+    "visual_verdict": "partial"
   }
 }

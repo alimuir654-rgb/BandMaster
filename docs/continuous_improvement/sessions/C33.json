@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C33",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Issue200 and comment6511055491: C30/C31/C32 complete playable opening verified, completion-gated visual polish of existing logo/vibe only; original source-backed wide preview, full native regression, freeze08:00/review09:00 UK.",
   "baseline_sha": "1ec460ac11ac465f907e7b3926d12060fc6e5674",
@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 106688,
-    "sha256": "6927b09e0c1dad55e022ce4012c6935366c4354f147f3c4084537383c7eff4b3"
+    "bytes": 109239,
+    "sha256": "23862a4b9d2924d35ad259dc3e2c7984eda0a6f62565af91f024d0ac75b0ba4a"
   },
   "target": {
     "locator": "Owner-approved original road-case reference SHA6cd8b49a...; actual C32 native identity 1280x720 and390x844 PNGs from artifact12955795872 visually opened 30 Oct05:58: skinny 180px vertical preview while options spread across desktop.",
@@ -89,5 +89,29 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  },
+  "closeout": {
+    "tested_sha": "8d9559cbfd1ffb3b64465bea2c33f8b9e27d0099",
+    "evidence": [
+      "Native Godot4.7.2 run41011695193 success C26 52/52, opening 88/88, full true-pointer at390x844/720x1280/1280x720/1600x900; all failures empty.",
+      "Actual native four-viewport screenshots artifact12957563405 SHA256 f088b9f95ae27cbb542f1e5ee84301acec59edfd82caed446d04ea9752111bbb; opened identity and stamp at all four viewports; compared direct C32 same-state baselines.",
+      "Standalone runnable isolated Godot project artifact12957687869 outer ZIP SHA256 f92bf9c6d049b482f896d4e4d3b3f1d485086bafb138632d8b19b250985df487; Godot project smoke startup SUCCESS.",
+      "Other three strict HEAD workflows SUCCESS, preflight mandatory gate SUCCESS."
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "C33 corrects dominant skinny identity logo panel and makes name/poster treatment coherent with C31 title and C32 milestones, with visible live selected stamp style; still sparse versus approved mockups, owner has not approved artwork.",
+    "new_issue_review": "Read complete C32 106688-byte issue prefix SHA6927b09e... before C33, appended BM-21 verified resolution with exact screenshots/CI and refreshed prefix SHA23862a4b9d2924d35ad259dc3e2c7984eda0a6f62565af91f024d0ac75b0ba4a; no failed correction in C33.",
+    "next_action": "C34 existing recruitment presentation: correct first-fold recruit action visibility on phone and desktop, preserving six passive meters and source portraits, before08:00 freeze.",
+    "changed_files": [
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "Existing logo/vibe now looks like a band poster instead of a narrow profile mount; not yet a professional full art match.",
+      "technical_art": "Original photographic/hardware case textures remain unchanged and unstretched; only bounded layout and text palette colour varied.",
+      "ui_accessibility": "First-fold Finish action visible in desktop and 390 phone; width checked at four sizes and 44px controls retained.",
+      "godot_engineering": "No new runtime dependency; _wide_stage reused, clean native Godot4.7.2 project import/start, four viewport true-pointer paths.",
+      "qa_producer": "52+88+4 regression pass, deterministic named identity/save/handoff remains, bounded checkpoint retained, owner approval not inferred."
+    }
   }
 }

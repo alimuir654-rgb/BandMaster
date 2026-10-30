@@ -1,11 +1,12 @@
 {
-  "writer": "C33-identity-20261030T055950",
+  "writer": null,
   "base_head": "1ec460ac11ac465f907e7b3926d12060fc6e5674",
   "claimed_at": "2026-10-30T05:59:50Z",
   "expires_at": "2026-10-30T06:49:50Z",
-  "scope": "C33 completion-gated original source-backed identity logo/vibe preview only; no new family, no gameplay changes, preserve C32 fallback",
+  "scope": "C33 responsive logo/vibe native visual polish verified; writer released",
   "authority": "Owner issue200/comment6511055491, C32 verified59914526/run41006002295, before08:00 source freeze",
   "owner_approved": false,
-  "previous_closed_session": "C32",
-  "status": "active"
+  "previous_closed_session": "C33",
+  "status": "released",
+  "released_at": "2026-10-30T06:05:45Z"
 }

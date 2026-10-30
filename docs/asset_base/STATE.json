@@ -12,8 +12,8 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C33-identity-20261030T055950",
-  "last_verified_code_sha": "5991452688a467c4018986f035755ac0fe007c60",
+  "writer": null,
+  "last_verified_code_sha": "8d9559cbfd1ffb3b64465bea2c33f8b9e27d0099",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C33 native identity/logo live-preview wide frame, preserve 52+88+4 and C32 tested fallback.",
+  "next_single_action": "C34 existing recruitment presentation: correct first-fold recruit action visibility on phone and desktop, preserving six passive meters and source portraits, before08:00 freeze.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
