@@ -1,5 +1,6 @@
 extends SceneTree
 const Game = preload("res://experiments/playable_flightcase/session.gd")
+const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 var checks := 0
 var failures: Array[String] = []
 func _init() -> void:
@@ -47,10 +48,23 @@ func run_tests() -> void:
  check(drill.get("action_id","")=="practice:tighten:4" and drill.get("focus","")=="tighten","rehearsal idempotent audited action id")
  check(int(tracked.get("cash",{}).get("delta",999))==-15 and int(tracked.get("readiness",{}).get("after",-1))==int(game.career["readiness"]),"exact cost/readiness captured after risk")
  check(drill.get("member_changes",[]).size()==5 and tracked.has("cohesion") and tracked.has("tension"),"all member reactions and social metrics captured")
+ var after_real_rehearsal: String = JSON.stringify(game.snapshot())
+ var drill_view: Dictionary = Recap.present(drill,game.career.get("members",[]))
+ check(drill_view.get("verdict","")==drill.get("verdict","") and drill_view.get("metric_rows",[]).size()==6,"S39 saved rehearsal verdict and six actual metric lines")
+ check(drill_view.get("reactions",[]).size()==5 and drill_view.get("reactions",[])[0].get("candidate_id","")==drill["member_changes"][0]["candidate_id"],"S39 actual named individual musician reactions")
+ check(str(drill_view.get("metric_rows",[])[0].get("text","")).contains(str(int(game.career["readiness"]))),"S39 real readiness after value visible")
+ check(str(drill_view.get("metric_rows",[])[4].get("text","")).contains("£235"),"S39 real cost presented as pounds")
+ check(JSON.stringify(game.snapshot())==after_real_rehearsal,"S39 rendering is a pure read and cannot award another boost")
+ var mixed_fixture: Dictionary = drill.duplicate(true)
+ mixed_fixture["verdict"] = "Mixed session"
+ check(Recap.present(mixed_fixture,game.career.get("members",[])).get("verdict","")=="Mixed session","S39 mixed verdict fixture uses saved outcome without reroll")
  check(game.clear_air().get("ok",false) and int(game.career["tour_day"])==6,"conversation costs a day")
  var repaired: Dictionary = game.career.get("last_rehearsal_outcome",{})
  check(repaired.get("focus","")=="connect" and int(repaired.get("metrics",{}).get("cohesion",{}).get("delta",0))==6,"Clear Air raises existing relationship cohesion by 6")
  check(repaired.get("action_id","")=="practice:connect:5" and repaired.get("action_id","")!=drill.get("action_id",""),"distinct real actions, not repeated same reward")
+ var meeting_view: Dictionary = Recap.present(repaired,game.career.get("members",[]))
+ check(meeting_view.get("heading","").contains("BAND MEETING") and meeting_view.get("reactions",[]).size()==5,"S39 Clear Air meeting gives named saved member feedback")
+ check(str(meeting_view.get("next_step","")).contains("focused rehearsal"),"S39 Clear Air next action reflects the actual meeting")
  var poor = Game.new()
  var no_money: Dictionary = game.snapshot()
  no_money["career"]["cash"] = 0
@@ -73,6 +87,9 @@ func run_tests() -> void:
   print("C26_SAVE_DIFF ",first_diff," before=",expected_text.substr(maxi(0,first_diff-30),150)," after=",actual_text.substr(maxi(0,first_diff-30),150))
  check(loaded_ok and actual_text==expected_text,"sandbox restart exact state")
  check(JSON.stringify(loaded.career.get("last_rehearsal_outcome",{}))==JSON.stringify(repaired),"audit record survives restart, not re-settled")
+ var reloaded_view: Dictionary = Recap.present(loaded.career.get("last_rehearsal_outcome",{}),loaded.career.get("members",[]))
+ check(reloaded_view.get("action_id","")==meeting_view.get("action_id","") and reloaded_view.get("reactions",[]).size()==5,"S39 full recap survives save/restart without changing result")
+ check(Recap.present({},[]).is_empty(),"S39 old saves without report present no fabricated recap")
  check(typeof(loaded.career.get("cash",0))==TYPE_INT and typeof(loaded.career.get("action_counters",{}).get("rehearse",0))==TYPE_INT,"nested integer schema survives Godot JSON load")
  check(typeof(game.career["members"][0]["rehearsal_risk"]["creative_friction"])==TYPE_INT and typeof(loaded.career["members"][0]["rehearsal_risk"]["creative_friction"])==TYPE_INT,"authored risk integers stay typed from handoff through save")
  check(not loaded.restore({"schema_version":1,"roster":[{"id":"evil"}],"phase":"play"}),"corrupt roster rejected")
@@ -92,5 +109,8 @@ func run_tests() -> void:
  var result: Dictionary = risky.rehearse()
  check(result.get("ok",false) and str(result["message"]).contains("Missed preparation"),"wildcard missed practice consequence visible")
  check(result.has("outcome") and int(result["outcome"]["metrics"]["readiness"]["after"])==int(risky.career["readiness"]) and str(result["outcome"]["reason"]).contains("Missed preparation"),"tense roster reports post-risk outcome and cause")
+ var risky_view: Dictionary = Recap.present(result.get("outcome",{}),risky.career.get("members",[]))
+ check(not risky_view.is_empty() and str(risky_view.get("reason","")).contains("Missed preparation"),"S39 risky post-rehearsal recap reports true missed-preparation reason")
+ check(risky_view.get("reactions",[]).size()==5 and risky_view.get("metric_rows",[]).size()==6,"S39 tense roster shows every actual musician and outcome metric")
  print("C26_GAMEPLAY_RESULT ",JSON.stringify({"checks":checks,"failures":failures,"sandbox_save_only":Game.SAVE_PATH}))
  quit(0 if failures.is_empty() else 1)
