@@ -44,6 +44,19 @@ func _column() -> VBoxContainer:
  v.add_theme_constant_override("separation",12)
  return v
 
+func _wide_stage(root: VBoxContainer, max_width: float = 720.0) -> PanelContainer:
+ # Existing source-backed frame, bounded for landscape and sized to the
+ # physical phone/tablet safe area. Preserve nine-slice fixed hardware.
+ var centre := CenterContainer.new()
+ centre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ root.add_child(centre)
+ var stage: PanelContainer = Kit.frame(look,"panel")
+ var safe_width: float = maxf(280.0,minf(max_width,size.x - (40.0 if size.x<720 else 80.0)))
+ stage.custom_minimum_size.x = safe_width
+ stage.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ centre.add_child(stage)
+ return stage
+
 func _make_shell() -> VBoxContainer:
  var bg := TextureRect.new()
  bg.texture = load("res://components/control_atlas/art/case_surface.png")
@@ -95,14 +108,13 @@ func _menu() -> void:
  var spacer := Control.new()
  spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(spacer)
- var heading := Kit.frame(look,"portrait")
- root.add_child(heading)
+ var heading: PanelContainer = _wide_stage(root)
  var column := _column()
  heading.add_child(column)
  var eyebrow := _label("THE MUSIC BUSINESS IS CALLING",14)
  eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(eyebrow)
- var brand := _label("LIVIN' THE DREAM",42 if size.x>=720 else 32)
+ var brand := _label("LIVIN' THE\nDREAM" if size.x<600 else "LIVIN' THE DREAM",42 if size.x>=720 else 32)
  brand.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(brand)
  var tagline := _label("Three chords. A borrowed van. Something to prove.",16)
@@ -412,14 +424,19 @@ func _summary() -> void:
  var root: VBoxContainer = _make_shell()
  root.add_child(_label("YOU'VE STARTED SOMETHING",24))
  var body: VBoxContainer = _scroll_body(root)
- var card: PanelContainer = Kit.frame(look,"portrait")
- body.add_child(card)
+ var card: PanelContainer = _wide_stage(body,760.0)
  var info: VBoxContainer = _column()
  card.add_child(info)
  info.add_child(_label(setup.name_locked.to_upper(),30 if size.x>=720 else 25))
  info.add_child(_label(setup.game.genre+"  /  "+setup.vibe+"  /  "+setup.logo,14))
+ var roster_grid := GridContainer.new()
+ roster_grid.columns = 2 if size.x >= 840 else 1
+ roster_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ roster_grid.add_theme_constant_override("h_separation",24)
+ roster_grid.add_theme_constant_override("v_separation",6)
+ info.add_child(roster_grid)
  for p in setup.game.roster:
-  info.add_child(_label(str(p["name"])+(" — LEAD VOCALS" if str(p["id"])==setup.lead_vocal_id else " — "+str(p.get("primary_role","Musician"))),14))
+  roster_grid.add_child(_label(str(p["name"])+(" — LEAD VOCALS" if str(p["id"])==setup.lead_vocal_id else " — "+str(p.get("primary_role","Musician"))),14))
  info.add_child(_label("TALENT REMAINING  "+str(setup.remaining()),16))
  info.add_child(_label("STARTING MORALE  "+str(setup.game.career.get("morale",55)),16))
  body.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))

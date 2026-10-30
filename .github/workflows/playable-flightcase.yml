@@ -56,7 +56,7 @@ jobs:
           cp -r Data/CharacterCast /tmp/c27-opening/Data/
           cp -r Art/References/ApprovedCast20261029 /tmp/c27-opening/Art/References/
           cp -r components/control_atlas /tmp/c27-opening/components/
-          printf 'config_version=5\n[application]\nconfig/name="C27 isolated opening"\n' > /tmp/c27-opening/project.godot
+          printf 'config_version=5\n[application]\nconfig/name="Livin The Dream isolated opening"\nrun/main_scene="res://experiments/playable_flightcase/opening.tscn"\n' > /tmp/c27-opening/project.godot
           set -o pipefail
           timeout 110s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c27-opening --script res://experiments/playable_flightcase/native_test.gd 2>&1 | tee /tmp/c27-old-gameplay.log
           timeout 110s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c27-opening --script res://experiments/playable_flightcase/opening_test.gd 2>&1 | tee /tmp/c27-opening-test.log
@@ -82,6 +82,25 @@ jobs:
             grep -q 'C27_CAPTURE_RESULT' "/tmp/c27-capture-${view}.log"
             if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' "/tmp/c27-capture-${view}.log"; then exit 1; fi
           done
+      - name: Verify project entry and package playable isolated Godot candidate
+        if: success()
+        shell: bash
+        run: |
+          set -o pipefail
+          test -s /tmp/c27-opening/experiments/playable_flightcase/opening.tscn
+          timeout 45s xvfb-run -a /tmp/Godot_v4.7.2-stable_linux.x86_64 --path /tmp/c27-opening --rendering-method gl_compatibility --quit-after 3 2>&1 | tee /tmp/c27-project-launch.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/c27-project-launch.log; then exit 1; fi
+          cd /tmp/c27-opening
+          rm -rf .godot
+          zip -q -r /tmp/livin-the-dream-isolated-godot-4.7.2.zip .
+          unzip -t /tmp/livin-the-dream-isolated-godot-4.7.2.zip | tail -1
+          sha256sum /tmp/livin-the-dream-isolated-godot-4.7.2.zip | tee /tmp/c27-project-zip-sha256.txt
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: livin-the-dream-playable-opening-source
+          path: /tmp/livin-the-dream-isolated-godot-4.7.2.zip
+          retention-days: 30
       - uses: actions/upload-artifact@v4
         if: always()
         with:
