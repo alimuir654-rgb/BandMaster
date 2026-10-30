@@ -60,7 +60,7 @@ static func _reaction(report: Dictionary, change: Dictionary, members: Array) ->
   quote = "It helped to hear everyone out."
  elif tired > 0:
   quote = "Hard work, but we did the session."
- var changes: Array[String] = []
+ var changes := PackedStringArray()
  if mood != 0:
   changes.append("morale " + signed_change(mood))
  if tired != 0:
