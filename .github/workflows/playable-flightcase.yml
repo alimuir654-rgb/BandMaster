@@ -55,6 +55,14 @@ jobs:
           grep -q 'C26_GAMEPLAY_RESULT' /tmp/c27-old-gameplay.log
           grep -q 'C27_OPENING_RESULT' /tmp/c27-opening-test.log
           git diff --exit-code -- Scripts Art/References Data/CharacterCast components
+      - name: Import original source-backed PNG assets into isolated Godot project
+        shell: bash
+        run: |
+          set -o pipefail
+          test -s /tmp/c27-opening/components/control_atlas/art/control_action_flightcase_active.png
+          timeout 120s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --editor --path /tmp/c27-opening --import 2>&1 | tee /tmp/c27-editor-import.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/c27-editor-import.log; then exit 1; fi
+          find /tmp/c27-opening/.godot/imported -name 'control_action_flightcase_active.png*' -type f | grep -q .
       - name: Capture real Godot GL pixels on four supported viewports
         shell: bash
         run: |
