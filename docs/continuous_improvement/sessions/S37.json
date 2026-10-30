@@ -38,15 +38,15 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 125798,
-    "sha256": "15e51777681bf4e5a4a453454692f6d04be0c443781cd87533ab4b384106a614"
+    "bytes": 127581,
+    "sha256": "8e85bfa72f77937668bcf6a49e2d2c4457f61d81c6a017e65272711f68b0afd4"
   },
   "target": {
     "locator": "Personally opened actual C34 native c27-milestone2-390x844.png SHA37362c7d9c76651e7b473bc2a5f1470fa025b15c2606bb9c008a1c4247541220; identity-390 cb232455c788e7b7ae453f797896844dc1047413638ad15051650508e1213438; completed_band-390 b286539744189b031d41ed2110c5a0205f1e697ecc2e920b753ad675cc0c16f9, artifact C34. Current S36 left these screens unchanged. Opened original S36 band-formed 6-member native 720x1280 too, to reuse actual source-look. Owner original mockup pixels not locally available; native is controlled baseline, not art approval.",
     "original_sha256": "37362c7d9c76651e7b473bc2a5f1470fa025b15c2606bb9c008a1c4247541220",
     "pixels_inspected": true
   },
-  "hypothesis": "Add a native source-honest live name and real selected C25 portrait strip on the existing named milestone, logo/vibe and completed-band screens, preserving current live wordmark/stamp/monogram, all custom Unicode spellings and one-time naming data. Compact roster feature should fit existing 390px first-fold Finish, milestone2 Next and completed First Practice actions. Portraits are ~222–240px previews, not high-res masters. No new simulation or save fields. First native test exposed BM-30 invalid PackedStringArray.join() parse error (run41046177576). Appended before correction; use String.join and rerun unchanged tests.",
+  "hypothesis": "Add a native source-honest live name and real selected C25 portrait strip on the existing named milestone, logo/vibe and completed-band screens, preserving current live wordmark/stamp/monogram, all custom Unicode spellings and one-time naming data. Compact roster feature should fit existing 390px first-fold Finish, milestone2 Next and completed First Practice actions. Portraits are ~222–240px previews, not high-res masters. No new simulation or save fields. First native test exposed BM-30 invalid PackedStringArray.join() parse error (run41046177576). Appended before correction; use String.join and rerun unchanged tests. Reproduction at390 native showed HBox masthead column, first-fold Finish failure. BM-21 recurrence appended before correction; switch method to single-line masthead (not squeeze padding).",
   "controlled_comparison": "Same actual Jack/Zoe/Casey roster and custom name Side Street, intent Raw, one free rethink, saved logo Wordmark/Stamp; compare S36 (C34 for unchanged screens) and S37 GL original at 390x844 720x1280 1280x720 1600x900. Test real pointer logo change + named milestone + saved completion, visible selected IDs, one explicit singer, custom Unicode model/screen and 3–6 responsive density. Preserve all original 52 gameplay+88 setup+4 complete real-pointer full journeys; no first-fold CTA regression. Revert to S36 ee1f522 on defect.",
   "stop_condition": "Single conditional writer S37-identity-20261030T110500 through 2026-10-30T11:55:00Z; implement only one cohesive player-facing S3 visual continuity improvement, true native evidence and rollback on regression, record failures before correction, release writer in closeout. No merges/purchases/production saves or claims of independent artistic approval.",
   "protected": [
