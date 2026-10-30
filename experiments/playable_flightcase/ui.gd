@@ -6,6 +6,7 @@ signal back_requested
 const Game = preload("res://experiments/playable_flightcase/session.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
+const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 var game = Game.new()
 var onboarding_state = null
 var opening_owner = null
@@ -16,6 +17,7 @@ var form_index := 0
 var leader_index := 0
 var song_title := "THE LAST BUS HOME"
 var last_message := "Build a band. Talent points are separate from your cash."
+var recap_expanded := true
 var look := "flightcase"
 
 func _ready() -> void:
@@ -232,6 +234,9 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  content.add_child(_panel(actions))
  if opening_owner != null:
   actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab"))
+ var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+ if mobile and not saved_report.is_empty():
+  actions.add_child(_recap_section(saved_report))
  actions.add_child(_label("FIRST PRACTICE",22))
  actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
  actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
@@ -271,6 +276,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var info := _box()
  info.custom_minimum_size.x = 0 if mobile else 350
  content.add_child(_panel(info))
+ if not mobile and not saved_report.is_empty():
+  info.add_child(_recap_section(saved_report))
  info.add_child(_label("THE BAND",19))
  for p in game.career.get("members",[]):
   info.add_child(_label("%s  •  %s   morale %d" % [str(p.get("name","")),str(p.get("role","")),int(p.get("morale",0))],14))
@@ -283,6 +290,57 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  info.add_child(_label("GIG PREP: Build a complete original and rehearse. Booking isn't available in this isolated proof yet.",14))
  info.add_child(_button("SAVE SANDBOX",_save,"tab"))
  info.add_child(_button("LOAD SANDBOX",_load,"tab"))
+
+
+# A recap is a VIEW of an already settled, saved S38 result. Buttons never
+# call the practice resolver and cannot award the same improvement again.
+func _recap_section(saved_report: Dictionary) -> Control:
+ var view: Dictionary = Recap.present(saved_report,game.career.get("members",[]))
+ var wrapper := _box()
+ wrapper.name = "RehearsalRecapSection"
+ if view.is_empty():
+  wrapper.add_child(_label("Last session report is unavailable.",13))
+  return wrapper
+ var toggle: Button = _button("HIDE SESSION NOTES" if recap_expanded else "VIEW LAST SESSION NOTES ›",_toggle_recap,"tab")
+ toggle.name = "RecapToggleAction"
+ wrapper.add_child(toggle)
+ if not recap_expanded:
+  wrapper.add_child(_label(str(view.get("verdict","Session completed"))+"  •  "+str(view.get("heading","SESSION")),14))
+  return wrapper
+ var body := _box()
+ body.add_child(_label("AFTER THE SESSION  /  FROM THE ROOM",13))
+ body.add_child(_label(str(view.get("heading","SESSION")),15))
+ var verdict: Label = _label(str(view.get("verdict","Session completed")),22)
+ verdict.name = "RecapVerdict"
+ verdict.add_theme_color_override("font_color",Color("f0c78b"))
+ body.add_child(verdict)
+ body.add_child(_label(str(view.get("reason","")),13))
+ body.add_child(_label("WHAT ACTUALLY CHANGED",14))
+ var rows: Array = view.get("metric_rows",[])
+ for row in rows:
+  if not row is Dictionary:
+   continue
+  var number: Label = _label(str(row.get("text","")),13)
+  number.name = "RecapMetric_"+str(row.get("key",""))
+  body.add_child(number)
+ body.add_child(_label(str(view.get("footnote","")),12))
+ body.add_child(_label("FROM THE BAND",14))
+ for voice in view.get("reactions",[]):
+  if not voice is Dictionary:
+   continue
+  var person: Label = _label(str(voice.get("name","Musician"))+"  —  “"+str(voice.get("quote",""))+"”",13)
+  person.name = "RecapMember_"+str(voice.get("candidate_id",""))
+  body.add_child(person)
+  body.add_child(_label("    "+str(voice.get("effects","")),12))
+ body.add_child(_label("NEXT: "+str(view.get("next_step","")),13))
+ var panel: PanelContainer = _panel(body)
+ panel.name = "RehearsalRecapPanel"
+ wrapper.add_child(panel)
+ return wrapper
+
+func _toggle_recap() -> void:
+ recap_expanded = not recap_expanded
+ _rebuild()
 
 func _change_role(value: String) -> void:
  role = value
@@ -317,6 +375,8 @@ func _launch() -> void:
 func _write() -> void:
  var result: Dictionary = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  last_message = str(result["message"])
+ if bool(result.get("ok",false)):
+  recap_expanded = true
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
@@ -334,12 +394,16 @@ func _outcome_line(result: Dictionary) -> String:
 func _rehearse() -> void:
  var result: Dictionary = game.rehearse()
  last_message = _outcome_line(result)
+ if bool(result.get("ok",false)):
+  recap_expanded = true
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
 func _connect() -> void:
  var result: Dictionary = game.clear_air()
  last_message = _outcome_line(result)
+ if bool(result.get("ok",false)):
+  recap_expanded = true
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
@@ -351,5 +415,7 @@ func _load() -> void:
  var okay: bool = bool(opening_owner.load_draft()) if opening_owner != null else game.load_sandbox()
  if okay and opening_owner != null:
   game = opening_owner.game
+ if okay:
+  recap_expanded = true
  last_message = "Sandbox restored." if okay else "No valid sandbox save."
  _rebuild()
