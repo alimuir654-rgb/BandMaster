@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": "S40-editorial-recap-20261030T145500",
   "last_verified_code_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
   "baseline": {
     "run_id": 40778019754,
@@ -649,7 +649,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S38",
+  "current_session": "S40",
   "last_verified_native_run": 41053613819,
   "latest_verified_phase2": {
     "sprint": "S38",
@@ -661,5 +661,5 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "S40 Sprint6 final visual QA and package; user acceptance and production merge remain pending."
+  "next_action": "S40 owner-directed rehearsal recap art/UX, native validation before packaging. Prior S39 writer lease expired 14:25 and S39 session closed."
 }
