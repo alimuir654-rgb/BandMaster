@@ -38,15 +38,15 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 119059,
-    "sha256": "e04a59e78709dab6a437ef188e06e693e1f08f7d676976b6ed98972b18a389c2"
+    "bytes": 121316,
+    "sha256": "4d4809a89e3c7ea5dfceb81e5a9b4c7ff65d671367f6f07226eaf80edc0e71f8"
   },
   "target": {
     "locator": "S35 exact source fc0bb173 native milestone1 390x844 original SHA256 1f2738f372c3cbeadaf8799e549f3e4cca5151e3846083c9a64102dae19b68c1 (artifact 12966969121). Personally inspected the unchanged original pixels in the right-hand 390 and 1280 source comparison PNGs S35_band_lineup_before_after_390x844.png and 1280x720.png; standalone originals were not available to reopen here. Owner-original mockup unavailable. Existing flightcase/source portraits retained.",
     "original_sha256": "1f2738f372c3cbeadaf8799e549f3e4cca5151e3846083c9a64102dae19b68c1",
     "pixels_inspected": true
   },
-  "hypothesis": "Turn a small central roster card into an intentional music-press 'first issue' photo spread using already approved cast previews, source-backed flightcase/ticket materials and deliberate editorial typography/ink and rules, while preserving original member IDs and first-fold Name the Band 44px button. Dynamically adapt 3/4/5/6 portraits, no fixed group image and no save or character data changes.",
+  "hypothesis": "Turn a small central roster card into an intentional music-press 'first issue' photo spread using already approved cast previews, source-backed flightcase/ticket materials and deliberate editorial typography/ink and rules, while preserving original member IDs and first-fold Name the Band 44px button. Dynamically adapt 3/4/5/6 portraits, no fixed group image and no save or character data changes. Native five/six-person tablet inspect observed BM-21 4+1 / 4+2 composition; use a centered 3-column row treatment, see appended issue.",
   "controlled_comparison": "S35 vs S36 actual band-formed identical roster Jack (guitar+lead), Zoe (bass), Casey (drums), talent112/200 at390x844,720x1280,1280x720,1600x900; compare original GL PNGs before/after. Also native inspect 5/6 rosters, verify Name first-fold and focus, 4 real mouse complete routes with unchanged 52+88, Continue/Back/Save, protected art hashes. If CTA clipped, portrait distorted or regressions: revert from S35 fc0bb173.",
   "stop_condition": "Conditional writer S36 from 2026-10-30T09:59:46.887Z until 2026-10-30T10:55:00Z; no production changes; coherent actual editorial milestone and four native comparisons or truthful blocker; evidence closeout + release inside lease. No invented independent approval.",
   "protected": [
