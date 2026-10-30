@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S36-editorial-20261030T095900",
-  "last_verified_code_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
+  "writer": null,
+  "last_verified_code_sha": "ee1f522f273854082ac0ff1dda84f73a37b2f96f",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -610,7 +610,10 @@
     "baseline_sha": "38b48118193f569ad5866dee0eb57e14d6249cae",
     "scope_end": "2026-10-30T10:55:00Z",
     "authority": "issue201",
-    "owner_approved": false
+    "owner_approved": false,
+    "status": "closed",
+    "closed_at": "2026-10-30T10:17:50.865Z",
+    "source_verified_sha": "ee1f522f273854082ac0ff1dda84f73a37b2f96f"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -649,12 +652,12 @@
   "current_session": "S36",
   "last_verified_native_run": 41034920916,
   "latest_verified_phase2": {
-    "sprint": "S35",
-    "source_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
-    "native_run": 41034920916,
-    "artifact": 12966969121,
-    "artifact_sha256": "b0ef554a3cdd34b4379b0ca97f054f7c719cfae05af116ddef38d15d71576833",
-    "playable_artifact": 12967846572,
+    "sprint": "S36",
+    "source_sha": "ee1f522f273854082ac0ff1dda84f73a37b2f96f",
+    "native_run": 41039167975,
+    "artifact": 12969332473,
+    "artifact_sha256": "343cd2c24c8130dd29558de9611ea0d0d76c90ffdccf36295fe59f32fefb89a5",
+    "playable_artifact": 12969911103,
     "owner_approved": false
   }
 }

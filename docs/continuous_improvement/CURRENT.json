@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S36.json",
-  "scope": "Phase 2 issue#201 S2 editorial restrained band-formed celebration using existing source-honest dynamic S35 portraits; isolated C34 rollback and all original contracts protected.",
+  "scope": "Phase 2 issue#201 S2 complete: source-backed first-press band-formed poster with true selected cast, native four-view 5/6 centered. Await Sprint3 name/logo carry-through; no merge or owner artwork approval.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "S36 improve real band-formed milestone editorials with real native four-viewport proof; no owner art approval.",
+  "status": "closed",
+  "next_action": "S37: carry the real named band, actual selected roster and live wordmark/stamp/monogram through confirmed-name milestone, logo/vibe and completed identity; preserve custom Unicode names, once-only rewards and mobile CTA.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
@@ -40,9 +40,10 @@
     "owner_approved": false
   },
   "last_phase2_sprint": {
-    "id": "S35",
-    "tested_sha": "fc0bb1732cd009a2e36b2172c721486c5309a8e2",
-    "native_run_id": 41034920916,
+    "id": "S36",
+    "tested_sha": "ee1f522f273854082ac0ff1dda84f73a37b2f96f",
+    "native_run_id": 41039167975,
+    "artifact_id": 12969332473,
     "visual_verdict": "partial",
     "owner_approved": false
   }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S36",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner Phase 2 issue#201 Sprint2, 30 Oct post-review: understated editorial / music-magazine venue-flyer band-formed milestone with ACTUAL saved 3–6 C25 musician portraits from source-honest cropped previews, all genuine roles & exactly one lead vocal, no confetti. No production merge or new assets. Issue#200 and comment6511055491 reviewed as expired historical direction.",
   "baseline_sha": "38b48118193f569ad5866dee0eb57e14d6249cae",
@@ -38,8 +38,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 121316,
-    "sha256": "4d4809a89e3c7ea5dfceb81e5a9b4c7ff65d671367f6f07226eaf80edc0e71f8"
+    "bytes": 124554,
+    "sha256": "1a27e7344510d0db97b87f04aaf761e0e51da50f29c97f0d80b81bfa33d10b9f"
   },
   "target": {
     "locator": "S35 exact source fc0bb173 native milestone1 390x844 original SHA256 1f2738f372c3cbeadaf8799e549f3e4cca5151e3846083c9a64102dae19b68c1 (artifact 12966969121). Personally inspected the unchanged original pixels in the right-hand 390 and 1280 source comparison PNGs S35_band_lineup_before_after_390x844.png and 1280x720.png; standalone originals were not available to reopen here. Owner-original mockup unavailable. Existing flightcase/source portraits retained.",
@@ -71,5 +71,33 @@
     "Open original four-SHA S35/S36 GL PNGs same roster and visually inspect crowded 5/6 layout; preserve meter/cast/save/protected hashes"
   ],
   "started_at": "2026-10-30T09:59:46.887Z",
-  "scope_end": "2026-10-30T10:55:00Z"
+  "scope_end": "2026-10-30T10:55:00Z",
+  "closeout": {
+    "tested_sha": "ee1f522f273854082ac0ff1dda84f73a37b2f96f",
+    "evidence": [
+      "S36 preflight38d0b172da10eb05ac069e131b4512ce68308f53 prior committed active; Godot strict gate and structure pass",
+      "Exact verified code ee1f522f273854082ac0ff1dda84f73a37b2f96f native run41039167975 SUCCESS C26 gameplay52/52, opening state88/88, four real-pointer save/Continue/full opening routes with failures[]; true GL/Mesa/Xvfb original 390x844 720x1280 1280x720 1600x900",
+      "Native original screenshot/log artifact 12969332473 SHA256 343cd2c24c8130dd29558de9611ea0d0d76c90ffdccf36295fe59f32fefb89a5; original primary milestone PNGs and 5/6 rosters at four sizes inspected",
+      "Source S35 same-fixture original artifact12966969121 SHA256 b0ef554a3cdd34b4379b0ca97f054f7c719cfae05af116ddef38d15d71576833; same-state before/after 390x844,720x1280,1280x720,1600x900",
+      "Final native zip verified CRC with logs 52/88/four failures[]; corrected 720x1280 5/6 centered 3+2/3+3 and mobile 390 first-fold buttons",
+      "Standalone exact final native source artifact12969911103 outer SHA256 2a3753a5404111e07140db3e738a9a1c2f0db357aa7f49070ca9c44322aff625, inner Godot project SHA256 d44ddb761df99715d4cc1ad6916f1c30b279d16ee5d5d72379a17e1d9b64d713, CRC good; simpler single-layer conversation ZIP SHA256 e25f004477628a168a300610ff4a0d52f93333d4511cbb6e3170127ffa9e28cd, project.godot present"
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "Substantive source-backed cream/tactile print magazine masthead and rule, intentional inky headline and real 3–6-person cast montage, one vocalist, founding lineup and clear first fold in the existing dark flightcase. Relative to S35 typographic panel, source art and human faces now read as an editorial celebratory poster without confetti. Actual S35 versus S36 four same-state images opened, plus 5/6 across four sizes. Tablet 4+1 imbalance was documented then corrected to centered 3+2 and3+3. Contact-sheet preview crops are ~222–240px and are NOT high-resolution independent photo masters; some copy/style still requires owner review. No new generated art/audio.",
+    "new_issue_review": "BM-21 P2 asymmetric 5/6 tablet layout observed from true native image, appended as recurrence before code correction in aab52f8. Corrected source ee1f522 and verified original pixels; BM-21 verified_resolution appended while preserving all history. Reviewed log prefix 124554bytes SHA256 1a27e7344510d0db97b87f04aaf761e0e51da50f29c97f0d80b81bfa33d10b9f.",
+    "changed_files": [
+      "experiments/playable_flightcase/band_formed_poster.gd",
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/band_lineup.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: stronger music-press poster/first-press hierarchy; celebratory without confetti, selected faces as focal group. Still PARTIAL vs mockups; not owner-approved.",
+      "technical_art": "SIMULATED: reused existing paper material and C25 approved contact-sheet preview crops in true native labels; no fake full-resolution portraits, generated ensemble assets or changed source masters.",
+      "ui_accessibility": "SIMULATED: native 390/720/1280/1600 screens show readable distinct names, instrument/vocal label, and on-screen 44px Name/Back actions. 5/6 tablet unevenness corrected and visually reopened. Source textures remain read-only.",
+      "godot_engineering": "SIMULATED: isolated poster component reads real roster, no save/gameplay changes; 52/88/four native real-pointer complete journeys verified at exact final SHA. 3–6 layout native captures deterministic.",
+      "qa_producer": "SIMULATED: issue logged before correction, original failures retained, S35/C34 playable fallback preserved, native source exact SHA verified; owner_approved remains false. Audio/real device untouched."
+    },
+    "next_action": "S37: carry the real named band, actual selected roster and live wordmark/stamp/monogram through confirmed-name milestone, logo/vibe and completed identity; preserve custom Unicode names, once-only rewards and mobile CTA."
+  }
 }
