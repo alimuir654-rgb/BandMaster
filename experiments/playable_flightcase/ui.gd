@@ -8,6 +8,7 @@ const Base = preload("res://experiments/character_cast/vendor/recruitment_catalo
 const Kit = preload("res://components/control_atlas/kit.gd")
 var game = Game.new()
 var onboarding_state = null
+var opening_owner = null
 var role: String = "Singer"
 var selected_index := 2
 var idea_index := 0
@@ -212,6 +213,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var actions := _box()
  actions.custom_minimum_size.x = 0 if mobile else 470
  content.add_child(_panel(actions))
+ if opening_owner != null:
+  actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab"))
  actions.add_child(_label("FIRST PRACTICE",22))
  actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
  actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
@@ -297,16 +300,26 @@ func _launch() -> void:
 func _write() -> void:
  var result: Dictionary = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  last_message = str(result["message"])
+ if opening_owner != null and bool(result.get("ok",false)):
+  opening_owner.save_draft()
  _rebuild()
 func _rehearse() -> void:
  last_message = str(game.rehearse()["message"])
+ if opening_owner != null and bool(result.get("ok",false)):
+  opening_owner.save_draft()
  _rebuild()
 func _connect() -> void:
  last_message = str(game.clear_air()["message"])
+ if opening_owner != null and bool(result.get("ok",false)):
+  opening_owner.save_draft()
  _rebuild()
 func _save() -> void:
- last_message = "Sandbox saved." if game.save_sandbox() else "Sandbox save failed."
+ var okay: bool = bool(opening_owner.save_draft()) if opening_owner != null else game.save_sandbox()
+ last_message = "Sandbox saved." if okay else "Sandbox save failed."
  _rebuild()
 func _load() -> void:
- last_message = "Sandbox restored." if game.load_sandbox() else "No valid sandbox save."
+ var okay: bool = bool(opening_owner.load_draft()) if opening_owner != null else game.load_sandbox()
+ if okay and opening_owner != null:
+  game = opening_owner.game
+ last_message = "Sandbox restored." if okay else "No valid sandbox save."
  _rebuild()
