@@ -1,12 +1,11 @@
 {
-  "writer": null,
-  "base_head": "1ec460ac11ac465f907e7b3926d12060fc6e5674",
-  "claimed_at": "2026-10-30T05:59:50Z",
-  "expires_at": "2026-10-30T06:49:50Z",
-  "scope": "C33 responsive logo/vibe native visual polish verified; writer released",
-  "authority": "Owner issue200/comment6511055491, C32 verified59914526/run41006002295, before08:00 source freeze",
+  "writer": "C34-recruit-dock-20261030T070830",
+  "base_head": "cc0079b36924e6f95caddc142b256054fec84e56",
+  "claimed_at": "2026-10-30T07:08:30Z",
+  "expires_at": "2026-10-30T07:49:00Z",
+  "scope": "C34 completion-gated recruitment first-fold decision dock, existing UI only; verified full four-viewpoint native workflow, no art/source family",
+  "authority": "Issue #200 and comment6511055491, verified C33 source8d9559c/run41011695193, art/code freeze08:00 and review09:00",
   "owner_approved": false,
   "previous_closed_session": "C33",
-  "status": "released",
-  "released_at": "2026-10-30T06:05:45Z"
+  "status": "active"
 }
