@@ -17,7 +17,12 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": {
+    "id": "S40-refinement-20261030T211025",
+    "claimed_at": "2026-10-30T21:10:25Z",
+    "expires_at": "2026-10-30T22:03:00Z",
+    "branch": "dual-frame-proof-2026-10-28"
+  },
   "last_verified_code_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
   "baseline": {
     "run_id": 40778019754,
@@ -469,7 +474,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-30T12:16:00Z",
+  "last_updated_utc": "2026-10-30T21:10:25Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -661,7 +666,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "S40 resumes with one new guarded writer claim: verify candidate source 9163db9 native Godot4.7.2 at four viewports including first-fold action, details toggle, member photo IDs and save/Continue. Diagnose/fix any native issue, then package only after PASS. No automatic approval/merge.",
+  "next_action": "S40 existing press: improve selected musician visibility and morale glanceability without touching gameplay; require exact native 4-view proof before package.",
   "latest_unverified_phase2_candidate": {
     "sprint": "S40",
     "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
