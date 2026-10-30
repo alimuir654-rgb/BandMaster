@@ -38,16 +38,16 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 94778,
-    "sha256": "2cf3b0c3c280aadcc2563c446550b817e2b92c222c6947000a67c11c874cfcde"
+    "bytes": 98616,
+    "sha256": "995615185e74f612b8e894649cac34e721b62e93f086bda5174095c78b9d4a49"
   },
   "target": {
     "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
     "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
     "pixels_inspected": true
   },
-  "hypothesis": "Replace portrait-specific 180px centred title and completed-summary housing with wide, bounded, responsive panel stage using ORIGINAL frame source, no new art or gameplay logic. Live typography must fit at four native sizes, desktop Quit and phone buttons remain visible; preserve all C30 real input/save tests and exact fallback.",
-  "controlled_comparison": "Same title brand/CTA and completed band/roster fixture at same native four viewports, same flightcase lighting/source. Compare original C30 title390/1280 and complete1600 against unchanged-state C31 captures; no portrait frame asset changes, no control/meter byte changes, and no cut of native real-pointer/52+88 tests. Stop/revert on input/save regression.",
+  "hypothesis": "Replace portrait-specific 180px centred title and completed-summary housing with wide, bounded, responsive panel stage using ORIGINAL frame source, no new art or gameplay logic. Live typography must fit at four native sizes, desktop Quit and phone buttons remain visible; preserve all C30 real input/save tests and exact fallback. Follow-up native assertion after logged BM-21; mandatory gate mismatch from stale issue prefix discovered in run41001582542 and this complete log has now been reviewed before retry.",
+  "controlled_comparison": "Same title brand/CTA and completed band/roster fixture at same native four viewports, same flightcase lighting/source. Compare original C30 title390/1280 and complete1600 against unchanged-state C31 captures; no portrait frame asset changes, no control/meter byte changes, and no cut of native real-pointer/52+88 tests. Stop/revert on input/save regression. CI runner must validate full updated issue prefix and C31 prior preflight before Godot starts.",
   "stop_condition": "Exclusive C31 writer until 2026-10-30T04:54:00+00:00; 08:00 implementation/art freeze, 09:00 evidence-only review. If visual change is weak or unverified, retain d5f71bb fallback; no main/PR199/production changes, no unrelated screen families.",
   "protected": [
     "All existing 22 passive meter PNGs and inert semantics",
@@ -69,7 +69,8 @@
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C31.json --before $BEFORE --require-prior-record",
     "Godot 4.7.2 C26 gameplay52 and opening-model88 strict tests; real Xvfb/GL four viewport full pointer progression and screenshot capture",
-    "Verify source artwork/meter bytes unchanged and checkpoint d5f71bb recoverable"
+    "Verify source artwork/meter bytes unchanged and checkpoint d5f71bb recoverable",
+    "Native capture asserts completed-band First Practice button width aligns <=760px bounded case stage at all four physical viewports."
   ],
   "started_at": "2026-10-30T04:07:07.322Z",
   "scope_end": "2026-10-30T04:54:00+00:00",
