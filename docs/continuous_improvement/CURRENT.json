@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S39.json",
-  "scope": "Phase 2 Sprint5 S39 complete: persistent saved player-driven rehearsal recap, six true stat deltas, musician-specific reactions and save/Continue restored status. Technical native 73+88+4 PASS; visual PARTIAL, no owner approval.",
+  "session": "docs/continuous_improvement/sessions/S40.json",
+  "scope": "Phase 2 S40 owner-specified engaging editorial rehearsal results: saved hero verdict + actual stat tiles + approved selected portrait reactions + first-fold return; no core mechanic/production changes.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "closed",
-  "next_action": "S40 Phase 2 sprint6 focused layout QA, exact native four-view opening+rehearsal and package owner playtest candidate; no production merge.",
+  "status": "active",
+  "next_action": "S40 existing visual recap revision: source-backed native print design, four viewport tests, exact save/no-double bonus regression and packaged isolated owner review; preserve C34/S39.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
