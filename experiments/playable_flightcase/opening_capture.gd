@@ -244,7 +244,14 @@ func take() -> void:
   else:
    await _draw_screen("completed_band",w,h)
  if screen.setup.screen=="complete":
-  await click_action(screen.find_child("StartPlayAction",true,false))
+  # A bounded source-backed identity stage must also bound its associated
+  # real progression button at phone, portrait tablet and desktop sizes.
+  var practice_button: Button = screen.find_child("StartPlayAction",true,false)
+  if practice_button != null:
+   var permitted_width: float = minf(780.0,float(w) - (40.0 if w < 720 else 80.0))
+   if practice_button.get_global_rect().size.x > permitted_width + 1.0:
+    failures.append("summary action wider than bounded case stage")
+  await click_action(practice_button)
   if screen.setup.screen!="play" or screen.setup.game.phase!="play":
    failures.append("real First Practice click did not hand off gameplay")
   else:
