@@ -4,6 +4,7 @@ const Model = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Recruit = preload("res://experiments/playable_flightcase/ui.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
+const BandLineup = preload("res://experiments/playable_flightcase/band_lineup.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 var setup = Model.new()
 var showing_menu := true
@@ -264,18 +265,10 @@ func _formed() -> void:
  var intro := _label("Guitar. Bass. Drums. Somebody's brave enough to sing.",15)
  intro.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(intro)
- var lineup := GridContainer.new()
- lineup.columns = 2 if size.x>=840 else 1
- lineup.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- lineup.add_theme_constant_override("h_separation",22)
- lineup.add_theme_constant_override("v_separation",6)
- column.add_child(lineup)
- for person in setup.game.roster:
-  var suffix := "  •  LEAD VOCALS" if str(person["id"])==setup.lead_vocal_id else ""
-  var credit := _label(str(person["name"])+" — "+str(person.get("primary_role",(person["roles"] as Array)[0]))+suffix,15)
-  if size.x<840:
-   credit.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  lineup.add_child(credit)
+ var band_photos: Variant = BandLineup.new()
+ band_photos.name = "SelectedBandLineup"
+ column.add_child(band_photos)
+ band_photos.configure(setup.game.roster,setup.lead_vocal_id,size.x)
  var budget := _label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],15)
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(budget)

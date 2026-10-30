@@ -1,6 +1,8 @@
 extends SceneTree
 ## Captures are native GL/Mesa/Xvfb pixels, never flattened mockup art.
 const UI = preload("res://experiments/playable_flightcase/opening_ui.gd")
+const Group = preload("res://experiments/playable_flightcase/band_lineup.gd")
+const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 var failures: Array[String] = []
 func _init() -> void:
  call_deferred("take")
@@ -205,6 +207,48 @@ func take() -> void:
    var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
    if m1==null or m1.get_global_rect().size.x < expected_width - 2.0:
     failures.append("milestone1 retained narrow portrait composition")
+   # S35: exact selected IDs and the one real singer must appear in native
+   # GL, not merely in the underlying deterministic model.
+   var group: Variant = screen.find_child("SelectedBandLineup",true,false)
+   if group==null or group.visible_ids()!=["cast_jack","cast_zoe","cast_casey"]:
+    failures.append("S35 lineup did not render the real selected three member IDs")
+   else:
+    for pid in ["cast_jack","cast_zoe","cast_casey"]:
+     var photo: TextureRect = group.find_child("LineupPortrait_"+pid,true,false) as TextureRect
+     if photo==null or photo.texture==null or photo.texture.get_width()<200 or photo.texture.get_width()>260:
+      failures.append("S35 source portrait missing or wrong resolution: "+pid)
+     var role_label: Label = group.find_child("LineupRole_"+pid,true,false) as Label
+     if role_label==null or role_label.text.is_empty():
+      failures.append("S35 selected player role credit missing: "+pid)
+    if group.find_children("LineupLeadVocal","Label",true,false).size()!=1:
+     failures.append("S35 vocalist badge must appear exactly once")
+    for child in group.find_children("*","TextureRect",true,false):
+     var image: TextureRect = child as TextureRect
+     if image.focus_mode!=Control.FOCUS_NONE or image.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+      failures.append("S35 selected portrait gained unexpected input/focus")
+   # Native 4/5/6 pure component proof uses approved IDs only. Construct
+   # offscreen; never mutate the actual player roster or saved milestone.
+   var all_cast: Array = ApprovedCast.people()
+   if all_cast.size()!=18:
+    failures.append("S35 canonical approved cast inventory is not 18")
+   else:
+    for count in [4,5,6]:
+     var proof: Variant = Group.new()
+     proof.visible = false
+     screen.add_child(proof)
+     var people: Array = all_cast.slice(0,count)
+     var singer: String = str(people[0].get("id",""))
+     proof.configure(people,singer,float(w))
+     if proof.visible_ids().size()!=count:
+      failures.append("S35 responsive lineup count "+str(count)+" did not match roster")
+     if proof.find_children("LineupLeadVocal","Label",true,false).size()!=1:
+      failures.append("S35 proof roster lead badge not unique at "+str(count))
+     for person in people:
+      var source_id: String = str(person.get("id",""))
+      var face: TextureRect = proof.find_child("LineupPortrait_"+source_id,true,false) as TextureRect
+      if face==null or face.texture==null:
+       failures.append("S35 proof missing canonical preview for "+source_id)
+     proof.queue_free()
    var m1_next: Button = screen.find_child("MilestoneNextAction",true,false)
    if m1_next==null or m1_next.get_global_rect().size.x<44.0:
     failures.append("milestone1 Next action lacks physical target")
