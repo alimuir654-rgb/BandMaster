@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "programme": "playable-overnight-2026-10-29",
+  "programme": "opening-journey-2026-10-30",
   "status": "in_progress",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
@@ -10,9 +10,9 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": [
-    "isolated_playable_flightcase_recruitment_songwriting_rehearsal"
+    "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": null,
+  "writer": "C27-opening-20261030T000600",
   "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "baseline": {
     "run_id": 40778019754,
@@ -23,8 +23,8 @@
     "screenshots": 32
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
-  "next_stream": "gameplay",
-  "next_single_action": "C26 real recruiting player-facing flow from current C25 supplements + existing native flightcase controls; test before expanding.",
+  "next_stream": "opening_journey",
+  "next_single_action": "C27 title -> separate genre -> real recruitment with explicit vocals and sandbox state; then naming/milestones/logo",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -575,7 +575,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/C22.json",
+    "session": "docs/continuous_improvement/sessions/C27.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -597,5 +597,14 @@
     "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
     "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule.",
     "owner_approved": false
+  },
+  "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
+  "conditional_polish": {
+    "authorised": true,
+    "gate": "all opening stages + real saves/Continue/handoff + no critical native defects",
+    "reached": false,
+    "earliest": "after verified complete",
+    "freeze_at": "2026-10-30T08:00:00Z",
+    "owner_review": "2026-10-30T09:00:00Z"
   }
 }

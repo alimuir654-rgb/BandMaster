@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "C27",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "29 Oct final owner goal: proper Livin' the Dream title/New/Continue; separate genre; 200-talent recruitment minimum guitar/bass/drums plus one explicitly selected singer; band-formed milestone1; three suggested names or free text with CONFIRMED Raw/Dark/Playful/Dreamy intent and individual tastes, one free rethink, once-only bonuses; name milestone2; logo/vibe; saved gameplay handoff. 30 Oct amendment: only after independently verified native end-to-end completion, use time remaining before 08:00 for flightcase visual polish, preserving tested checkpoint. Review 09:00. GitHub issue #200 + comment #6511055491.",
+  "baseline_sha": "f4c8df78724cfff340e0dd410aca738c96fd8e8c",
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-41",
+    "BM-42",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 73310,
+    "sha256": "f92cbf78b70d97cda5ce2ea1dcc7a5958a56a18fef1bd68ee7f28e04d67c7db5"
+  },
+  "target": {
+    "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
+    "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Build and test real menu -> genre -> recruit stage continuity with an explicit vocal assignment and genuine stateful controls, taking the already-tested C26 recruiting/songwriting/rehearsal pure rules as reuse baseline. Avoid adding generic static screens or changing production runtime. Preserve a unique C27 sandbox save. Never enter polish mode before the full opening journey passes tests.",
+  "controlled_comparison": "Use C26 f4c8df7 as functional recruitment baseline and its prior genuine 390x844/720x1280/1280x720/1600x900 native run. Compare retained C26 spend/refund/gameplay against C27 new title/genre/recruit/vocal actions. Verify approved cast IDs and meter/control PNG bytes unchanged; require same viewport/state/content before visual comparisons once new screens are rendered. Native first-fold, 44px targets, Back, Continue and role/singer validity; repeat save/reload and original C26 checks.",
+  "stop_condition": "Writer C27 at most through 00:52Z Fri30Oct. No concurrent edits, main/PR199/production save edits, forced update, merge, dependencies, notebook or optional art. Full overnight implementation/art freeze08:00Z and evidence-only review09:00Z. If critical tests fail, log BM issue before correction; after two ineffective attempts hold/change technique. Polish is gated on verified complete end-to-end path with save/handoff.",
+  "protected": [
+    "All existing 22 passive meter PNGs and inert semantics",
+    "36 Lab07 button state PNGs and 58 Lab08 hardware layers",
+    "C21 modal focus/scroll behavior",
+    "canonical Alex Vale/alex and Nia Griffiths/nia_griffiths",
+    "C25 exact source PNG and 18 previews",
+    "production Scripts/Scenes, main, PR199 and user:// production saves"
+  ],
+  "allowed_paths": [
+    "AGENTS.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C27.json --before $BEFORE --require-prior-record",
+    "Godot 4.7.2 native opening-stage logic tests plus unchanged C26 gameplay/save regression",
+    "Godot4.7.2 real GL/Xvfb capture at 390x844/720x1280/1280x720/1600x900",
+    "CI exact tested commit and negative input/save/roster tests; preserve control hashes"
+  ],
+  "started_at": "2026-10-30T00:06:00+00:00",
+  "scope_end": "2026-10-30T00:52:00+00:00"
+}

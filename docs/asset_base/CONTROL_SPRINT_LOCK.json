@@ -1,10 +1,10 @@
 {
-  "writer": "C26-playable-20261029T231000",
-  "base_head": "1aee1c476daf2d2e080c6aeb416abf20b480eeab",
-  "claimed_at": "2026-10-29T23:10:00+00:00",
-  "expires_at": "2026-10-29T23:53:00+00:00",
-  "scope": "One bounded C26 player-facing flight-case recruitment/first-gameplay slice, no frames/production-save/main/PR199 edits.",
-  "authority": "29 Oct owner-directed finite overnight gameplay through 30 Oct09:00 with current C25 approved cast; each hourly session independently guarded.",
+  "writer": "C27-opening-20261030T000600",
+  "base_head": "f4c8df78724cfff340e0dd410aca738c96fd8e8c",
+  "claimed_at": "2026-10-30T00:06:00+00:00",
+  "expires_at": "2026-10-30T00:52:00+00:00",
+  "scope": "C27 bounded opening flow menu->genre->recruit with singer assignment; docs/issue200 incorporation. No production changes.",
+  "authority": "Issue200 + comment6511055491, owner finite 09:00 UK30Oct opening-journey and conditional art polish",
   "owner_approved": false,
-  "previous_closed_session": "C25"
+  "previous_closed_session": "C26 final gameplay source f4c8df7; C26 preflight ledger remains historical"
 }

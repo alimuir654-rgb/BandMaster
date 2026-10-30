@@ -565,3 +565,7 @@ Direct owner instruction supersedes C24 frame-only work: park notebook, prefer r
 C26 native gameplay first run40972088926: real Godot4.7.2 48/50 checks passed, sandbox save/restart exact parity failed; observed failure logged as BM-35 BEFORE any correction. Production models and sources remain unchanged. Next fix limited to diagnosing and restoring truthful save parity.
 
 C26 second native feedback run40972756997: strict sandbox roundtrip still fails only because C25 JSON-parsed rehearsal risk appears as 0.0 in initial member state and 0 after load; filed BM-35 recurrence before a final handoff-normalisation correction. Do not weaken strict snapshot check.
+
+
+## C27 preflight — 30 Oct 00:06 UTC — owner-confirmed opening journey
+Issue #200 and comment #6511055491 supersede earlier songwriting/rehearsal-first scope and permit visual polish ONLY after native verified complete opening path. C26 head f4c8df78724cfff340e0dd410aca738c96fd8e8c is the reuse baseline (native C26 run40973307620 SUCCESS, not opening completion). Old C26 lock expired23:53 and state.writer null before C27 claim. Isolated paths and preflight C27 committed before implementation. First goal menu→genre→recruit+explicit vocals and real saved stage. Dominant BM-25; BM-35 save and BM-41 concurrency prevention reviewed. No portrait/notebook/visual polish until completion gate; 08:00 edit freeze and09:00 evidence review unchanged.
