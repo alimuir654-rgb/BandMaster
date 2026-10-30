@@ -1,11 +1,17 @@
 {
-  "writer": "S39-rehearsal-recap-20261030T130900",
-  "base_head": "d603d428b5fbac1b0a7aac49012d33cf3405ea5d",
-  "claimed_at": "2026-10-30T13:09:00Z",
-  "expires_at": "2026-10-30T14:25:00Z",
-  "scope": "S39 isolate persistent rehearsal recap/actual member reactions; no canon practice changes",
-  "authority": "Owner issue#201 S5; issue#200 historic; C34/S38 rollback, cast/meters/saves preserved",
+  "writer": "S40-editorial-recap-20261030T145500",
+  "base_head": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
+  "claimed_at": "2026-10-30T14:55:00Z",
+  "expires_at": "2026-10-30T16:45:00Z",
+  "scope": "S40 Phase2: visually redesign existing rehearsal outcome as print/editorial verdict, real delta tiles and selected portrait reactions; native four-view/input/save validation; then owner playtest packaging",
+  "authority": "30 Oct owner issue#201 comment6524557601; expired prior S39 lease has no live owner; C34/S39 rollback, no production merge",
   "owner_approved": false,
+  "previous_closed_session": "S39",
   "status": "claimed",
-  "released_at": null
+  "released_at": null,
+  "previous_stale_lease": {
+    "writer": "S39-rehearsal-recap-20261030T130900",
+    "expires_at": "2026-10-30T14:25:00Z",
+    "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
+  }
 }
