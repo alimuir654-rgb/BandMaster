@@ -3,6 +3,7 @@ extends SceneTree
 const UI = preload("res://experiments/playable_flightcase/opening_ui.gd")
 const Group = preload("res://experiments/playable_flightcase/band_lineup.gd")
 const Poster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
+const Kit = preload("res://components/control_atlas/kit.gd")
 const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 var failures: Array[String] = []
 func _init() -> void:
@@ -59,6 +60,58 @@ func click_action(button: Button) -> void:
  await process_frame
  await process_frame
  await process_frame
+# Source-honest visual-density fixture: this draws an actual Godot poster with
+# five/six C25 approved preview portraits, WITHOUT mutating the real player's
+# roster, spending talent, triggering milestone flags or writing a save.
+func _draw_roster_cover(member_count: int,w: int,h: int) -> void:
+ var people: Array = ApprovedCast.people().slice(0,member_count)
+ var overlay := Control.new()
+ overlay.name = "S36RosterDensityFixture"
+ overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ root.add_child(overlay)
+ overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ overlay.size = Vector2(w,h)
+ var bg := TextureRect.new()
+ bg.texture = load("res://components/control_atlas/art/case_surface.png")
+ bg.modulate = Color(0.52,0.57,0.61)
+ bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ bg.stretch_mode = TextureRect.STRETCH_SCALE
+ bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ overlay.add_child(bg)
+ bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var centre := CenterContainer.new()
+ centre.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ overlay.add_child(centre)
+ centre.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var frame: PanelContainer = Kit.frame("flightcase","panel")
+ frame.custom_minimum_size.x = maxf(280.0,minf(760.0,float(w)-(40.0 if w < 720 else 80.0)))
+ frame.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ centre.add_child(frame)
+ var content := VBoxContainer.new()
+ content.add_theme_constant_override("separation",8)
+ frame.add_child(content)
+ var poster: Variant = Poster.new()
+ poster.name = "S36PosterDensity"
+ content.add_child(poster)
+ poster.configure(people,str(people[0].get("id","")),float(w))
+ if poster.visible_ids().size()!=member_count:
+  failures.append("S36 "+str(member_count)+"-person poster lost a real C25 identity")
+ var note: Label = Kit.label("ROSTER LAYOUT PROOF  /  NOT A PLAYER SAVE","flightcase",12)
+ note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ content.add_child(note)
+ content.add_child(Kit.button("NAME THE BAND ›","flightcase","action"))
+ content.add_child(Kit.button("BACK TO MENU","flightcase","tab"))
+ await process_frame
+ await process_frame
+ var rect: Rect2 = frame.get_global_rect()
+ if rect.position.x < -2.0 or rect.position.y < -2.0 or rect.end.x > float(w)+2.0 or rect.end.y > float(h)+2.0:
+  failures.append("S36 "+str(member_count)+"-person poster overflows "+str(w)+"x"+str(h)+": "+str(rect))
+ await _draw_screen("milestone1_"+str(member_count)+"members_visual",w,h)
+ overlay.queue_free()
+ await process_frame
+ await process_frame
+
 func take() -> void:
  var w := maxi(320,int(OS.get_environment("CAPTURE_WIDTH")))
  var h := maxi(480,int(OS.get_environment("CAPTURE_HEIGHT")))
@@ -204,6 +257,8 @@ func take() -> void:
    failures.append("real Complete Lineup click did not reach milestone1")
   else:
    await _draw_screen("milestone1",w,h)
+   for density_count in [5,6]:
+    await _draw_roster_cover(density_count,w,h)
    var m1: Control = screen.find_child("MilestoneOneStage",true,false)
    var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
    if m1==null or m1.get_global_rect().size.x < expected_width - 2.0:
