@@ -49,7 +49,7 @@
   },
   "hypothesis": "A separate outcome stage with source-backed printed paper, dominant saved verdict, real signed readiness/morale/tension tiles, accurately pictured selected musician reactions and a fixed first-fold BACK TO PRACTICE action will improve readability and player engagement without changing any simulator data. The same report supports expandable exact six-metric explanations. Keep existing RecapMetric_*/RecapMember_* node names for S39 save tests. Do not flatten a screen into art or pretend contact-crop previews are masters.",
   "controlled_comparison": "Use exact saved Jack/Zoe/Casey real first Rehearse on Day2, readiness18→28, morale55→54, tension0→2, £250→£235 and same existing native case. Compare S39 original four viewport rehearsal_outcome/resumed PNG to exact S40 four-view Godot captures at390x844,720x1280,1280x720,1600x900. First-fold button must be ≥44px and visible on390x844 and1280x720; 3 real portraits preserve IDs; detailed numbers accessible; actual S39 Rehearse and Continue routes must remain green and no double settlement. Two ineffective attempts -> change method/hold.",
-  "stop_condition": "ONE writer S40-editorial-recap-20261030T145500 from 2026-10-30T14:55:00Z until 2026-10-30T16:45:00Z. Reclaimed after stale S39 lease expired at14:25 and S39 canonical state closed with writer null. Commit this preflight before changing UI, pass mandatory check and native CI; if critical defects emerge or lease expires without recovery, release and honestly report partial/blocked. Preserve source-tested S39 01ea1a... and C34 104c... rollback. No work on main/PR199, production saves, core practice rules or artwork masters.",
+  "stop_condition": "ONE writer S40-editorial-recap-20261030T145500 from 2026-10-30T14:55:00Z until 2026-10-30T16:45:00Z. Reclaimed after stale S39 lease expired at14:25 and S39 canonical state closed with writer null. Commit this preflight before changing UI, pass mandatory check and native CI; if critical defects emerge or lease expires without recovery, release and honestly report partial/blocked. Preserve source-tested S39 01ea1a... and C34 104c... rollback. No work on main/PR199, production saves, core practice rules or artwork masters.\nNew owner request at21:02 UK permits only prospective extension through22:03, preserving prior writer/release history and verified S39 rollback. At22:03 no writes. Native proof required.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
     "C25 18 identities and original 230x228 approved contact-crop previews (not high-res masters)",
@@ -71,7 +71,7 @@
     "Pack and verify playable isolated project only after exact SHA native PASS, five simulated lenses and truthful owner review"
   ],
   "started_at": "2026-10-30T14:55:00Z",
-  "scope_end": "2026-10-30T16:45:00Z",
+  "scope_end": "2026-10-30T22:03:00Z",
   "evidence_status": "Source implementation delivered; 11 connector-backed structural checks PASS. Exact Godot4.7.2 run/log/artifacts NOT accessible in this execution, so native, visual and owner verdict remain HOLD; no playable S40 package.",
   "issues_reviewed_at": "2026-10-30T15:10:00Z",
   "progress": {
@@ -98,5 +98,22 @@
       "qa_producer": "SIMULATED: S39 remains rollback and real verified build. New code and regression checks are committed, but source green cannot be inferred from 11 textual checks. Native evidence and ZIP held."
     },
     "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
+  },
+  "extension_2026_10_30_2102": {
+    "owner_authority": "One hour extra visual refinement through 22:03; previous 18:00 stop superseded prospectively, not rewritten",
+    "writer": "S40-refinement-20261030T211025",
+    "claimed_at": "2026-10-30T21:10:25Z",
+    "expires_at": "2026-10-30T22:03:00Z",
+    "preflight_head": "f2bbd842c85b2fdbd3d08f39f648983d591fe98b",
+    "baseline_native_verified": "01ea1a5730c087ab85960edd0104bf87012885a4",
+    "hypothesis": "Make actual saved selected C25 musician portraits more readable on phones, improve short reaction typography and show a passive signed-morale ink stripe; preserve actual report, six measures, controls and deterministic rewards.",
+    "risks": [
+      "S40 prior candidate 9163db9 remains native unverified",
+      "Keep fixed CTA first fold with scroll-safe portraits",
+      "Do not infer native pass from source or CI absence"
+    ],
+    "one_change": "existing S40 rehearsal_press.gd visuals only",
+    "validation": "mandatory existing native 4.7.2 pipeline, 4 actual screenshots/real inputs/save/Continue; no release without PASS",
+    "owner_approved": false
   }
 }
