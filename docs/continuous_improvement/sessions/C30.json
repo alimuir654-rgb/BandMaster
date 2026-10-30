@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 84842,
-    "sha256": "a62a6a602e040a5fc0531a3c2a15d5b9664712fbfdf61db6f77153b2b8dc7940"
+    "bytes": 86777,
+    "sha256": "b071256a35c1620c61a660024e4513fbec06670b94b9386bba1843609c4b833a"
   },
   "target": {
     "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
