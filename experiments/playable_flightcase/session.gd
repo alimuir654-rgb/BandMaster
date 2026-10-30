@@ -149,29 +149,84 @@ func _apply_risk(result: Dictionary,focus: String) -> Dictionary:
  result["state"] = next
  return result
 
+# S38: audit the REAL resolver's effects. This never awards a second boost.
+func _cohesion(state: Dictionary) -> int:
+ var members: Array = state.get("members",[])
+ var relations: Dictionary = state.get("relationships",{})
+ var total := 0
+ var pairs := 0
+ for a in range(members.size()):
+  if not members[a] is Dictionary or str(members[a].get("life_status","active"))!="active":
+   continue
+  for b in range(a+1,members.size()):
+   if not members[b] is Dictionary or str(members[b].get("life_status","active"))!="active":
+    continue
+   total += clampi(int(relations.get("%d_%d" % [a,b],50)),0,100)
+   pairs += 1
+ return roundi(float(total)/float(pairs)) if pairs>0 else 50
+
+func _change(before: int,after: int) -> Dictionary:
+ return {"before":before,"after":after,"delta":after-before}
+
+func _record_practice(result: Dictionary,focus: String) -> Dictionary:
+ if not bool(result.get("ok",false)):
+  return result
+ var next: Dictionary = (result["state"] as Dictionary).duplicate(true)
+ var action_no: int = int(next.get("action_count",0))
+ if action_no!=int(career.get("action_count",0))+1:
+  return {"ok":false,"message":"Action did not advance once; result not committed."}
+ var metrics: Dictionary = {}
+ for key in ["readiness","morale","tension","cash","tour_day"]:
+  metrics[key] = _change(int(career.get(key,0)),int(next.get(key,0)))
+ metrics["cohesion"] = _change(_cohesion(career),_cohesion(next))
+ var members: Array = []
+ var previous: Array = career.get("members",[])
+ var current: Array = next.get("members",[])
+ for i in range(mini(previous.size(),current.size())):
+  if not previous[i] is Dictionary or not current[i] is Dictionary:
+   continue
+  var diffs: Dictionary = {}
+  for stat in ["morale","fatigue","skill","loyalty"]:
+   diffs[stat] = _change(int(previous[i].get(stat,0)),int(current[i].get(stat,0)))
+  members.append({"candidate_id":str(current[i].get("candidate_id","")),
+   "name":str(current[i].get("name","Musician")),"changes":diffs})
+ var ready: int = int(metrics["readiness"]["delta"])
+ var tension: int = int(metrics["tension"]["delta"])
+ var cohesion: int = int(metrics["cohesion"]["delta"])
+ var verdict := "Mixed session"
+ if focus=="connect" and (cohesion>0 or tension<0):
+  verdict = "Band closer together"
+ elif ready<=0 or tension>=4:
+  verdict = "Tense session"
+ elif ready>=5 and tension<=3:
+  verdict = "Good progress"
+ var outcome: Dictionary = {"version":1,"action_id":"practice:%s:%d" % [focus,action_no],
+  "focus":focus,"day":int(next.get("tour_day",1)),"verdict":verdict,
+  "reason":str(result.get("message","")),"metrics":metrics,
+  "member_changes":members,"source":"existing deterministic practice resolver"}
+ next["last_rehearsal_outcome"] = outcome.duplicate(true)
+ result["outcome"] = outcome.duplicate(true)
+ result["state"] = next
+ career = next.duplicate(true)
+ return result
+
 func write_session(idea: String,form: String,title: String,leader_index: int) -> Dictionary:
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = _apply_risk(Practice.compose(career,idea,form,title,leader_index),"create")
- if bool(result.get("ok",false)):
-  career = (result["state"] as Dictionary).duplicate(true)
- return result
+ return _record_practice(result,"create")
 
 func rehearse() -> Dictionary:
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = _apply_risk(Practice.resolve(career,"tighten"),"tighten")
- if bool(result.get("ok",false)):
-  career = (result["state"] as Dictionary).duplicate(true)
- return result
+ return _record_practice(result,"tighten")
 
 func clear_air() -> Dictionary:
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = Practice.resolve(career,"connect")
- if bool(result.get("ok",false)):
-  career = (result["state"] as Dictionary).duplicate(true)
- return result
+ return _record_practice(result,"connect")
 
 func snapshot() -> Dictionary:
  return {"schema_version":1,"genre":genre,"roster":roster.duplicate(true),

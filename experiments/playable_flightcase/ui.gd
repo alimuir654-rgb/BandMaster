@@ -320,15 +320,26 @@ func _write() -> void:
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
+func _outcome_line(result: Dictionary) -> String:
+ if not bool(result.get("ok",false)) or not result.has("outcome"):
+  return str(result.get("message",""))
+ var report: Dictionary = result["outcome"]
+ var metrics: Dictionary = report.get("metrics",{})
+ var key := "cohesion" if str(report.get("focus",""))=="connect" else "readiness"
+ var title := "cohesion" if key=="cohesion" else "set"
+ var value: int = int(metrics.get(key,{}).get("delta",0))
+ var tension: int = int(metrics.get("tension",{}).get("delta",0))
+ return "%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)]
+
 func _rehearse() -> void:
  var result: Dictionary = game.rehearse()
- last_message = str(result.get("message",""))
+ last_message = _outcome_line(result)
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
 func _connect() -> void:
  var result: Dictionary = game.clear_air()
- last_message = str(result.get("message",""))
+ last_message = _outcome_line(result)
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
