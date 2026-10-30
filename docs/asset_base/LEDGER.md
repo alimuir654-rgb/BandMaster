@@ -575,3 +575,5 @@ C27 first native check run40978176916: 52/52 C26 gameplay pass, C27 test parse s
 C27 native run40978424317 passed original52 and new38 logic assertions but GL capture failed because isolated project had not imported source PNGs; BM-30 recurrence logged before correcting workflow. No visual PASS claim.
 
 C27 run40978617487: source PNG import fixed; source-based GL rendering now reveals two typed-container compilation failures in ui.gd. BM-28 recurrence logged before correction; 90 logic tests pass, no scene PASS yet.
+
+C27 native GL at26cbb4d passes model and imports, title renders, but real New click has a previously saved draft confirmation gate. BM-24 modal-capture recurrence logged before instrumented pointer test. Not a gameplay-complete claim.
