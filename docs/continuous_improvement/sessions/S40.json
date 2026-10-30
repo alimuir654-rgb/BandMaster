@@ -39,8 +39,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 140941,
-    "sha256": "9eacc3ec0d09ae1dd77d8772e77827ec17019d891ad948415a09231b84043960"
+    "bytes": 142372,
+    "sha256": "d5a6a474316e8a9aceee31cea1e0306b2ddb9a0466471f2e7553dbdcf408e9a1"
   },
   "target": {
     "locator": "Original actual S39 Godot 4.7.2 screenshot /mnt/data/S39_inspection/c27-rehearsal_outcome-390x844.png (SHA256 6be89b738e0f047e53af2d07f446ddaeff280a50cbaf082cc186003a2c8618cd), opened at 14:56 30 Oct; also original 1600 screenshot e13d49b. The phone screen is a long scroll of monochrome textual metrics and paragraphs, with rehearsal options below first fold. Owner explicitly rejected its engagement, requested more imagery. No owner-approved rehearsal mockup was supplied; preserve film/flightcase visual identity and mark owner_approved=false.",
@@ -73,7 +73,7 @@
   "started_at": "2026-10-30T14:55:00Z",
   "scope_end": "2026-10-30T22:03:00Z",
   "evidence_status": "Source implementation delivered; 11 connector-backed structural checks PASS. Exact Godot4.7.2 run/log/artifacts NOT accessible in this execution, so native, visual and owner verdict remain HOLD; no playable S40 package.",
-  "issues_reviewed_at": "2026-10-30T15:10:00Z",
+  "issues_reviewed_at": "2026-10-30T21:12:25Z",
   "progress": {
     "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
     "source_files": [
@@ -114,6 +114,12 @@
     ],
     "one_change": "existing S40 rehearsal_press.gd visuals only",
     "validation": "mandatory existing native 4.7.2 pipeline, 4 actual screenshots/real inputs/save/Continue; no release without PASS",
-    "owner_approved": false
+    "owner_approved": false,
+    "static_guard_history": {
+      "failed": "Dry run searched literal RecapHero_readiness though node name is constructed dynamically; no source was written",
+      "log_event_id": "S40-refinement-static-test-dynamic-anchor-20261030T211225",
+      "guard_fix": "Use dynamic RecapHero_ naming source anchor; do not misreport as native failure",
+      "status": "logged_before_correction"
+    }
   }
 }
