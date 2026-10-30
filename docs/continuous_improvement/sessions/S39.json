@@ -27,8 +27,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 130960,
-    "sha256": "bcee49ea674904eabdf9eb0ae4318c55893b5885ddecbb50470e1b6006f77de9"
+    "bytes": 132820,
+    "sha256": "0b909ecd94e2d6c8d3b240473446ab92312f15c28321fd35e0057d87ca5c7dab"
   },
   "target": {
     "locator": "Personally opened original actual S38 rehearsal_outcome 390x844 (local /mnt/data/S38_Rehearsal_Outcome_390x844.png), SHA256 23163240b2b9bba8014695eb50e7175daf23152c8d629b1891610bb96ea3a28c; native source artifact12974954839 from run41053613819. Baseline shows only small gold 'Good progress. set +10; tension +2' status above unchanged real practice controls. Owner requested full clear non-cheesy saved recap and individual reactions; current original approved design mockup not available, visual approval stays false.",
@@ -37,7 +37,7 @@
   },
   "hypothesis": "Render the saved existing S38 last_rehearsal_outcome as a source-backed readable in-scene result card (verdict, named choice, exact before→after and signed changes, each actual selected person named with noninvented trait/risk/morale/fatigue effects and succinct causal explanation); collapse/show through genuine controls and reload from existing saved career. Viewing never invokes resolver or increments action; no new derived rewards or fake band-chemistry stat. Test positive/mixed/tense and invalid/legacy report gracefully, four native sizes, real input/Continue.",
   "controlled_comparison": "Use identical Jack/Zoe/Casey source real Rehearse after day1 setup and native baseline S38 rehearsal_outcome PNG at 390x844/720x1280/1280x720/1600x900. Capture new S39 native result at four sizes; report must be visible in first fold without obscuring existing controls permanently, collapse/reopen via pointer, Save/Continue restore report and exact unchanged career. Inspected baseline S38 390 and 1600; preserve original case/meters/photo. Two failed attempts then change method/hold.",
-  "stop_condition": "One sole writer S39-rehearsal-recap-20261030T130900 claimed 2026-10-30T13:09:00Z to 2026-10-30T14:25:00Z; committed preflight before code and strict gate; no changes outside isolated UX/test/canonical governance, preserve all original games and images; log defects before fixes and release on closeout.",
+  "stop_condition": "One sole writer S39-rehearsal-recap-20261030T130900 claimed 2026-10-30T13:09:00Z to 2026-10-30T14:25:00Z; committed preflight before code and strict gate; no changes outside isolated UX/test/canonical governance, preserve all original games and images; log defects before fixes and release on closeout. New BM-30 recurrence logged before next correction (run41061383227).",
   "protected": [
     "Immutable C34 original 104c494b255055da3e5bba0e4a0bed78c190d0a0 and S38 verified c4ee73728664e1dc4cda162085fab34a2bde0c40 as rollbacks",
     "Original C25 18 cast/source preview crops, six owner-liked passive meters/inert behaviour, Lab07/Lab08 control textures and existing flightcase",
