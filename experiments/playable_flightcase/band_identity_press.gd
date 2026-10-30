@@ -137,7 +137,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
     lead.name = "IdentityLeadVocal"
     lead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     cell.add_child(lead)
- var footer_text: String = names.join(" · ")+"  /  LEAD: "+vocalist_name if compact else "YOUR SOUND  /  "+palette.to_upper()+"  /  "+vibe.to_upper()
+ var footer_text: String = " · ".join(names)+"  /  LEAD: "+vocalist_name if compact else "YOUR SOUND  /  "+palette.to_upper()+"  /  "+vibe.to_upper()
  var footer: Label = _ink(footer_text,9 if tiny else 11,true)
  footer.name = "IdentityPressFooter"
  footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
