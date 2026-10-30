@@ -1,12 +1,12 @@
 {
-  "writer": null,
-  "base_head": "cc0079b36924e6f95caddc142b256054fec84e56",
-  "claimed_at": "2026-10-30T07:08:30Z",
-  "expires_at": "2026-10-30T07:49:00Z",
-  "scope": "C34 verified first-fold recruit footer, bounded desktop material, all native playthroughs pass; writer released",
-  "authority": "Issue #200 and comment6511055491, verified C33 source8d9559c/run41011695193, art/code freeze08:00 and review09:00",
+  "writer": "S35-group-20261030T093414",
+  "base_head": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
+  "claimed_at": "2026-10-30T09:34:14Z",
+  "expires_at": "2026-10-30T10:20:00Z",
+  "scope": "S35 isolated roster-driven selected band portrait composition using C25 genuine low-res preview crops, full C34 rollback, no new masters/merges",
+  "authority": "Owner post-review issue#201; issue#200 historic; manual owner_approved=false",
   "owner_approved": false,
   "previous_closed_session": "C34",
-  "status": "released",
-  "released_at": "2026-10-30T07:22:15Z"
+  "status": "active",
+  "released_at": null
 }

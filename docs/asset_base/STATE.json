@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "programme": "opening-journey-2026-10-30",
+  "programme": "phase2-visual-identity-rehearsal-2026-10-30",
   "status": "in_progress",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
@@ -10,9 +10,14 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": [
-    "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
+    "S1_dynamic_actual_selected_lineup",
+    "S2_editorial_band_formed_poster",
+    "S3_name_logo_identity_carrythrough",
+    "S4_deterministic_rehearsal_outcomes",
+    "S5_member_feedback_result_ui",
+    "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": "S35-group-20261030T093414",
   "last_verified_code_sha": "104c494b255055da3e5bba0e4a0bed78c190d0a0",
   "baseline": {
     "run_id": 40778019754,
@@ -24,7 +29,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "08:00 freeze: validate/inspect/package verified C34 source;09:00 evidence-only owner review. No new implementation/art, no merge.",
+  "next_single_action": "S35 implement selected roster-driven 3–6 cast preview lineup while preserving full C34 controls/gameplay.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -473,7 +478,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-29T14:15:38.556Z",
+  "last_updated_utc": "2026-10-30T09:34:14Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -501,7 +506,7 @@
     "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
     "owner_approved": false
   },
-  "latest_owner_scope": "29 Oct direct: playable flightcase recruitment -> songwriting -> rehearsal, stop implementation08:00 and final review09:00 Fri30 Oct; C25 18-person cast source approved; preserve passive meters and no production writes",
+  "latest_owner_scope": "New post-review Phase2 owner authority issue201, six evidence-gated sprints; historical issue200 complete, never automatically merged",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
@@ -598,7 +603,7 @@
     "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule.",
     "owner_approved": false
   },
-  "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
+  "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": {
     "authorised": true,
     "gate": "all opening stages + real saves/Continue/handoff + no critical native defects",
@@ -610,10 +615,10 @@
     "checkpoint_run": 41001787068
   },
   "last_scoped_preflight": {
-    "id": "C32",
-    "baseline_sha": "916fd136f1cab19b0940ac3674f3040e85281e52",
-    "created_at": "2026-10-30T04:59:10.694Z",
-    "deadline": "2026-10-30T05:39:10.694Z"
+    "id": "S35",
+    "baseline_sha": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
+    "created_at": "2026-10-30T09:34:14Z",
+    "deadline": "2026-10-30T10:20:00Z"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -649,6 +654,6 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "C34",
+  "current_session": "S35",
   "last_verified_native_run": 41019394924
 }

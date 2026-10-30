@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "S35",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Phase 2 owner authorisation 30 Oct after09:00 review: 'Add everything, queue it up, plan the sprints, run the sprints.' Issue #201 S1, dynamically display actual selected 3–6 approved musicians together as source-honest preview portraits, with lead vocals and roles; keep C34 rollback and all safeguards. Issue #200 and comment6511055491 historical authority reviewed, not a renewed overnight deadline.",
+  "baseline_sha": "c704b6bfef4fe86ce6f0c584b84135ac28a9e306",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-10",
+    "BM-12",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-19",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-25",
+    "BM-26",
+    "BM-27",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 116018,
+    "sha256": "0da99fc37a7bbba31ba38254758511832e2c8b65fc18457d486856dd8bff849d"
+  },
+  "target": {
+    "locator": "C34 actual Godot native c27-milestone1-390x844.png SHA256 2b9eafa56ea437eb33047effba83e045e8295363e6253f9e256a2f6631317dbb and c27-milestone1-1280x720.png SHA256 85bf8c25072be07dc004a82c6342dd4b51ea869ec94a29712f3528464cb2c127; original PNGs opened. C25 18 separate preview crops ~222-240 by 226-228 pixels inspected as contact sheet; these are LOW-RES contact-sheet crops, not independent portrait masters. Owner mockup original not available for pixel re-open; C34 native is controlled baseline, approved casting source separate.",
+    "original_sha256": "2b9eafa56ea437eb33047effba83e045e8295363e6253f9e256a2f6631317dbb",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Source-honest existing C25 individual preview rectangles, arranged as a responsive 3–6-person photo strip in the existing band-formed milestone, show the real selected band after recruitment and keep the lead-vocal identity visible. Use dynamically selected IDs from saved roster, predictable cast ordering and responsive 3-up phone rows/one-row desktop; no new photo master, procedural faces, new catalogue or save changes. Protect first-fold Name the Band button. S2 will add editorial-poster celebratory treatment after S1 verified.",
+  "controlled_comparison": "Real C34 original milestone1 fixture Jack (guitar/lead), Zoe (bass), Casey (drums) at same 390x844,720x1280,1280x720,1600x900 compared to new S35 original Godot PNGs; check 3/4/5/6 selected ID matches actual cropped portraits/role labels, changed roster not stale and exact one lead badge. Preserve C34 52 C26 +88 opening + four mouse stages, 44px action, screenshot target, save/Continue, inset and first-fold. Revert if control clipping, face distortion or gameplay regressions; original owner mockup is not locally available and must not be claimed reopened.",
+  "stop_condition": "Bound S35 writer 2026-10-30T09:34:14Z through 10:20:00Z; one substantive source-honest native lineup improvement, focused tests, four screenshots and final lease release, no owner approval or merge; if no native CI runnable at scope end, close truthful blocker and preserve C34 checkpoint.",
+  "protected": [
+    "C34 immutable verified source104c494b255055da3e5bba0e4a0bed78c190d0a0 / run41019394924",
+    "C25 all18 canonical cast identities, provenance and untouched approved preview PNGs (contact sheet crops only)",
+    "Original six read-only musical meters, Lab07/Lab08 hardware, C21 dialog and existing input/save/gameplay",
+    "Production main/PR199/scenes, real user:// saves; no new external art/AI/audio runtime"
+  ],
+  "allowed_paths": [
+    "AGENTS.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S35.json --before $BEFORE --require-prior-record",
+    "Godot4.7.2 opening capture native x4 (390x844,720x1280,1280x720,1600x900), model88+C26 52 real pointer 4 routes, portrait source and lead label IDs",
+    "Compare original C34 vs S35 milestone1 exact state native PNGs, inspect real 3/4/5/6 layout, 44px first-fold Name action, gameplay save/reload/handoff"
+  ],
+  "started_at": "2026-10-30T09:34:14Z",
+  "scope_end": "2026-10-30T10:20:00Z"
+}
