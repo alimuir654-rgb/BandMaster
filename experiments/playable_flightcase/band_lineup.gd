@@ -24,7 +24,7 @@ func configure(roster: Array, lead_id: String, viewport_width: float, available_
   return
  # Small phone: three across, two rows if needed. Tablet: up to four;
  # desktop: one deliberate 3–6-person row.
- columns_used = mini(count,3 if (viewport_width < 480.0 and count >= 5) else (4 if viewport_width < 900.0 else 6))
+ columns_used = mini(count,3 if (count >= 5 and viewport_width < 900.0) else (4 if viewport_width < 900.0 else 6))
  var gap: int = 6 if viewport_width < 720.0 else 10
  var usable: float = clampf(viewport_width - (104.0 if viewport_width < 720.0 else 152.0),262.0,660.0)
  if available_width > 0.0:
@@ -33,13 +33,28 @@ func configure(roster: Array, lead_id: String, viewport_width: float, available_
  var portrait_height: float = minf(150.0,width)
  if viewport_width < 480.0 and count >= 5:
   portrait_height = minf(portrait_height,86.0)
- var grid := GridContainer.new()
+ # Five/six-person portrait tablet boards should compose into centred
+ # 3+2 / 3+3 rows. GridContainer leaves an awkward 4+1 / 4+2 matte.
+ # Noninteractive layout only; the selected identities and their data remain
+ # the sole source of each cell.
+ var centered_rows: bool = count >= 5 and viewport_width < 900.0
+ var grid: Container
+ if centered_rows:
+  var stack := VBoxContainer.new()
+  stack.add_theme_constant_override("separation",8 if viewport_width < 720.0 else 12)
+  stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  grid = stack
+ else:
+  var matrix := GridContainer.new()
+  matrix.columns = columns_used
+  matrix.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  matrix.add_theme_constant_override("h_separation",gap)
+  matrix.add_theme_constant_override("v_separation",8 if viewport_width < 720 else 12)
+  grid = matrix
  grid.name = "SelectedBandPortraitGrid"
- grid.columns = columns_used
- grid.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
- grid.add_theme_constant_override("h_separation",gap)
- grid.add_theme_constant_override("v_separation",8 if viewport_width<720 else 12)
  add_child(grid)
+ var row: HBoxContainer = null
+ var source_index: int = 0
  for person_variant in roster.slice(0,count):
   var person: Dictionary = person_variant
   var pid: String = str(person.get("id",""))
@@ -54,7 +69,17 @@ func configure(roster: Array, lead_id: String, viewport_width: float, available_
   cell.mouse_filter = Control.MOUSE_FILTER_IGNORE
   cell.focus_mode = Control.FOCUS_NONE
   cell.add_theme_constant_override("separation",2)
-  grid.add_child(cell)
+  if centered_rows:
+   if source_index % columns_used == 0:
+    row = HBoxContainer.new()
+    row.alignment = BoxContainer.ALIGNMENT_CENTER
+    row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    row.add_theme_constant_override("separation",gap)
+    grid.add_child(row)
+   row.add_child(cell)
+  else:
+   grid.add_child(cell)
+  source_index += 1
   var canonical: Dictionary = Cast.by_id(pid)
   var source: String = str(canonical.get("portrait_preview",""))
   if not source.is_empty() and ResourceLoader.exists(source):
