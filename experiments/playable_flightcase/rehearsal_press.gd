@@ -111,6 +111,8 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  content.add_child(gallery)
  var strip := HBoxContainer.new()
  strip.name = "RecapPortraitRow"
+ strip.alignment = BoxContainer.ALIGNMENT_CENTER
+ strip.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  strip.add_theme_constant_override("separation",5 if mobile else 12)
  gallery.add_child(strip)
  for voice in voices:
