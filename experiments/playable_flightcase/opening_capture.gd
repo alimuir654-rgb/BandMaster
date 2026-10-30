@@ -50,7 +50,26 @@ func take() -> void:
  if new_action==null:
   failures.append("New Band button missing")
  else:
+  print("C27_MENU_BUTTON rect=",new_action.get_global_rect()," viewport=",Vector2(w,h))
   await click_action(new_action)
+ # The preceding native opening-state test saves a draft to this isolated sandbox.
+ # New correctly requires confirmation; test the actual original C21 modal.
+ await process_frame
+ var confirmation: Control = null
+ for node in screen.get_children():
+  if node is Control and node.has_method("open_modal") and bool(node.get("is_open")):
+   confirmation = node
+   break
+ if confirmation != null:
+  print("C27_NEW_CONFIRM_REQUIRED true; real pointer confirming overwrite")
+  var accept_button: Button = confirmation.get("confirm_button")
+  if accept_button == null:
+   failures.append("new draft confirmation button missing")
+  else:
+   await click_action(accept_button)
+   await process_frame
+ else:
+  print("C27_NEW_CONFIRM_REQUIRED false, stage=",screen.setup.screen)
  if screen.setup.screen!="genre":
   failures.append("New Band did not open genre via pointer")
  else:
