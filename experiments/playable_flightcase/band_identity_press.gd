@@ -42,16 +42,14 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  content.add_theme_constant_override("separation",2 if compact else (4 if tiny else 7))
  content.mouse_filter = Control.MOUSE_FILTER_IGNORE
  paper.add_child(content)
- var mast := HBoxContainer.new()
- mast.add_theme_constant_override("separation",3)
- mast.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ # One truly bounded press masthead. Two shrinkable HBox labels made the
+ # right-hand edition wrap one character per line at 390px in native GL.
+ var edition_text: String = "FIRST PRESS / 002" if variant=="milestone" else ("BAND PROFILE / 001" if variant=="complete" else "IDENTITY PROOF")
+ var mast: Label = _ink("LIVIN' THE DREAM   /   "+edition_text,9 if tiny else 11,true)
+ mast.name = "IdentityPressMasthead"
+ mast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ mast.autowrap_mode = TextServer.AUTOWRAP_OFF
  content.add_child(mast)
- var publication: Label = _ink("LIVIN' THE DREAM",9 if tiny else 11)
- publication.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- mast.add_child(publication)
- var edition: Label = _ink("FIRST PRESS / 002" if variant=="milestone" else ("BAND PROFILE / 001" if variant=="complete" else "IDENTITY PROOF"),8 if tiny else 10,true)
- edition.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
- mast.add_child(edition)
  var rule := ColorRect.new()
  rule.name = "IdentityPressRule"
  rule.color = Color("756654")
