@@ -37,16 +37,16 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 111206,
-    "sha256": "15539bd079358d76d51f62be5b0470caec02bc2bbe544f12b6bf327f788c91d1"
+    "bytes": 113136,
+    "sha256": "bcee65fc5f95639462c53607b7e728469395c962e515dae1d00f9981b4be5a1e"
   },
   "target": {
     "locator": "Owner-approved roadcase recruitment art reference original SHA6cd8b49a... target; inspected current C33 native recruit PNGs at390x844,720x1280,1280x720,1600x900 on30Oct07:06; actual first-fold 390 Recruit button clipped,1280 action entirely below viewport, while 720/1600 present. Original mockup not locally available to re-open in this run. Directly opened exact native current baseline C33 four recruitment files; this flag attests those inspected pixels, NOT claiming the missing original owner mockup reopened.",
     "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
     "pixels_inspected": true
   },
-  "hypothesis": "Only reparent existing native Recruit/Remove and lineup-completion buttons from nested scrolling cards into a single persistent footer dock below the profile/person scroll and role tabs; preserve source-backed photographed buttons, full passive six meters, portrait, person/budget text and deterministic actions. The actual Recruit action will sit fully within first fold at390x844 and1280x720; do not hide the optional Complete Lineup route when valid.",
-  "controlled_comparison": "C33 identical recruit fixture 390x844/720x1280/1280x720/1600x900 screenshots opened. Compare exact C34 screenshots at same candidate, state and viewport: visible complete Recruit/Remove plus Complete Lineup 44px source button in footer; scrollable portrait and all six unchanged passive meters remain accessible. Run C26 gameplay52/52, opening88/88, complete four genuine mouse journeys and save/Continue. Revert to C33 tested8d9559c if new clipping, source mismatch, save/input error.",
+  "hypothesis": "Only reparent existing native Recruit/Remove and lineup-completion buttons from nested scrolling cards into a single persistent footer dock below the profile/person scroll and role tabs; preserve source-backed photographed buttons, full passive six meters, portrait, person/budget text and deterministic actions. The actual Recruit action will sit fully within first fold at390x844 and1280x720; do not hide the optional Complete Lineup route when valid. Native first pass exposed overwide desktop hardware; constrain new dock to existing centre-stage width while preserving all first-fold tests.",
+  "controlled_comparison": "C33 identical recruit fixture 390x844/720x1280/1280x720/1600x900 screenshots opened. Compare exact C34 screenshots at same candidate, state and viewport: visible complete Recruit/Remove plus Complete Lineup 44px source button in footer; scrollable portrait and all six unchanged passive meters remain accessible. Run C26 gameplay52/52, opening88/88, complete four genuine mouse journeys and save/Continue. Revert to C33 tested8d9559c if new clipping, source mismatch, save/input error. Compare bbe4ba62 full-width desktop action against bounded final C34 identical screenshots; keep mobile untouched.",
   "stop_condition": "C34 one bounded source window 2026-10-30T07:08:30Z through07:49:00Z; owner freezes ALL art/code at08:00Z and review-only09:00Z. One meaningful layout fix, no optional families, no merges, main/PR199/production-save writes.",
   "protected": [
     "All 22 liked passive meter PNGs and inert semantics",
