@@ -413,10 +413,18 @@ func _identity() -> void:
   for item in options:
    var value: String = str(item)
    buttons.add_child(_button(("✓ " if value==selected else "")+value.to_upper(),_design.bind(family,value),"tab"))
- body.add_child(_button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction"))
+ # The live design choices may scroll on a 1280x720 landscape screen.
+ # Keep the decision control in the shell, not in the scrolling choice list.
  if not response.is_empty():
   body.add_child(_label(response,14))
  body.add_child(_button("BACK TO MENU",_home,"tab"))
+ var action_holder := CenterContainer.new()
+ action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ root.add_child(action_holder)
+ var finish: Button = _button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction")
+ finish.custom_minimum_size.x = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
+ finish.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ action_holder.add_child(finish)
 func _design(family: String,value: String) -> void:
  var mark: String = value if family=="logo" else setup.logo
  var palette: String = value if family=="palette" else setup.palette
