@@ -1,4 +1,4 @@
-name: C26 flightcase gameplay proof
+name: C27 isolated opening journey proof
 on:
   push:
     branches: [dual-frame-proof-2026-10-28]
@@ -8,50 +8,68 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: bandmaster-playable-c26
+  group: bandmaster-opening-c27
   cancel-in-progress: false
 jobs:
-  gameplay:
+  opening:
     runs-on: ubuntu-24.04
-    timeout-minutes: 18
+    timeout-minutes: 19
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Check committed work preflight and deadline guard
+      - name: Verify scoped preflight, exact source writer and commit deadline
         env:
           BEFORE: ${{ github.event.before }}
         run: |
-          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C26.json --before "$BEFORE" --require-prior-record
+          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C27.json --before "$BEFORE" --require-prior-record
           python3 - <<'PY'
-          import json,datetime
+          import json,subprocess,datetime
           p=json.load(open('docs/asset_base/CONTROL_SPRINT_LOCK.json'))
-          assert p['writer']=='C26-playable-20261029T231000'
-          assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(p['expires_at'])
+          assert p['writer']=='C27-opening-20261030T000600'
+          authored=subprocess.check_output(['git','show','-s','--format=%cI','HEAD'],text=True).strip()
+          assert datetime.datetime.fromisoformat(authored)<=datetime.datetime.fromisoformat(p['expires_at'])
           PY
-      - name: Install exact Godot 4.7.2
+      - name: Install verified Godot 4.7.2 and native screenshot tools
         run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb libgl1-mesa-dri libxrender1 libxi6 libxcursor1 libxrandr2 >/dev/null
           curl -fsSL --retry 2 -o /tmp/godot.zip https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
           unzip -q /tmp/godot.zip -d /tmp
           chmod +x /tmp/Godot_v4.7.2-stable_linux.x86_64
-      - name: Assemble isolated playable runtime
+      - name: Assemble and test isolated opening and C26 gameplay
+        shell: bash
         run: |
-          mkdir -p /tmp/c26-playable/{Scripts,experiments,Data,Art/References,components}
-          cp -r Scripts/. /tmp/c26-playable/Scripts/
-          cp -r experiments/character_cast /tmp/c26-playable/experiments/
-          cp -r experiments/playable_flightcase /tmp/c26-playable/experiments/
-          cp -r Data/CharacterCast /tmp/c26-playable/Data/
-          cp -r Art/References/ApprovedCast20261029 /tmp/c26-playable/Art/References/
-          cp -r components/control_atlas /tmp/c26-playable/components/
-          printf 'config_version=5\n[application]\nconfig/name="C26 isolated flightcase gameplay"\n' > /tmp/c26-playable/project.godot
+          mkdir -p /tmp/c27-opening/{Scripts,experiments,Data,Art/References,components}
+          cp -r Scripts/. /tmp/c27-opening/Scripts/
+          cp -r experiments/character_cast /tmp/c27-opening/experiments/
+          cp -r experiments/playable_flightcase /tmp/c27-opening/experiments/
+          cp -r Data/CharacterCast /tmp/c27-opening/Data/
+          cp -r Art/References/ApprovedCast20261029 /tmp/c27-opening/Art/References/
+          cp -r components/control_atlas /tmp/c27-opening/components/
+          printf 'config_version=5\n[application]\nconfig/name="C27 isolated opening"\n' > /tmp/c27-opening/project.godot
           set -o pipefail
-          timeout 100s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c26-playable --script res://experiments/playable_flightcase/native_test.gd 2>&1 | tee /tmp/c26-native.log
-          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/c26-native.log; then exit 1; fi
-          grep -q 'C26_GAMEPLAY_RESULT' /tmp/c26-native.log
+          timeout 110s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c27-opening --script res://experiments/playable_flightcase/native_test.gd 2>&1 | tee /tmp/c27-old-gameplay.log
+          timeout 110s /tmp/Godot_v4.7.2-stable_linux.x86_64 --headless --path /tmp/c27-opening --script res://experiments/playable_flightcase/opening_test.gd 2>&1 | tee /tmp/c27-opening-test.log
+          if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' /tmp/c27-old-gameplay.log /tmp/c27-opening-test.log; then exit 1; fi
+          grep -q 'C26_GAMEPLAY_RESULT' /tmp/c27-old-gameplay.log
+          grep -q 'C27_OPENING_RESULT' /tmp/c27-opening-test.log
           git diff --exit-code -- Scripts Art/References Data/CharacterCast components
+      - name: Capture real Godot GL pixels on four supported viewports
+        shell: bash
+        run: |
+          set -o pipefail
+          for view in 390x844 720x1280 1280x720 1600x900; do
+            export CAPTURE_WIDTH="${view%x*}" CAPTURE_HEIGHT="${view#*x}"
+            timeout 100s xvfb-run -a /tmp/Godot_v4.7.2-stable_linux.x86_64 --path /tmp/c27-opening --rendering-method gl_compatibility --script res://experiments/playable_flightcase/opening_capture.gd 2>&1 | tee "/tmp/c27-capture-${view}.log"
+            grep -q 'C27_CAPTURE_RESULT' "/tmp/c27-capture-${view}.log"
+            if grep -E 'SCRIPT ERROR|Parse Error|Failed to load' "/tmp/c27-capture-${view}.log"; then exit 1; fi
+          done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: c26-playable-gameplay-native-evidence
-          path: /tmp/c26-native.log
+          name: c27-native-opening-test-and-four-viewports
+          path: |
+            /tmp/c27-*.log
+            /tmp/c27-*.png
           retention-days: 30

@@ -1,10 +1,13 @@
 extends Control
+signal lineup_confirmed
+signal back_requested
 ## C26 player-facing isolated scene. Existing photographic flightcase controls,
 ## original inert meters and genuine career rules; no flattened clickable mockup.
 const Game = preload("res://experiments/playable_flightcase/session.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 var game = Game.new()
+var onboarding_state = null
 var role: String = "Singer"
 var selected_index := 2
 var idea_index := 0
@@ -74,7 +77,8 @@ func _rebuild() -> void:
  var title := _label("LIVIN' THE DREAM",26 if not mobile else 21)
  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  header.add_child(title)
- var budget := _label("TALENT %d / %d" % [game.remaining(),Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+ var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
+ var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
  root_box.add_child(header)
@@ -82,6 +86,10 @@ func _rebuild() -> void:
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
  root_box.add_child(status)
+ if onboarding_state != null and game.phase == "recruit":
+  var back := _button("‹  CHANGE GENRE",func(): back_requested.emit(),"tab")
+  back.name = "RecruitBackAction"
+  root_box.add_child(back)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
  else:
@@ -157,7 +165,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var recruited := Base.contains(game.roster,str(person["id"]))
  var action: Button = _button("REMOVE FROM BAND" if recruited else "RECRUIT  •  %d TALENT" % cost,_remove.bind(str(person["id"])) if recruited else _recruit.bind(str(person["id"])))
  action.name = "RecruitAction" if not recruited else "RemoveAction"
- action.disabled = false if recruited else not Base.can_add(game.roster,person)
+ action.disabled = false if recruited else not (bool(onboarding_state.can_recruit(str(person["id"]))) if onboarding_state != null else Base.can_add(game.roster,person))
  detail.add_child(action)
  var aside := _box()
  aside.custom_minimum_size.x = 0 if mobile else 320
@@ -173,10 +181,22 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  aside.add_child(_label("YOUR BAND",18))
  for member in game.roster:
   aside.add_child(_label("• %s   %s" % [str(member["name"]),str(member.get("primary_role",(member["roles"] as Array)[0]))],14))
- aside.add_child(_label("TALENT USED %d/200  •  %s" % [game.spent(),"READY" if game.can_start() else Base.missing(game.roster)],14))
- var start: Button = _button("START YOUR FIRST PRACTICE",_launch)
+ if onboarding_state != null:
+  aside.add_child(_label("LEAD VOCALS  •  ASSIGN ONE BAND MEMBER",16))
+  for member in game.roster:
+   if onboarding_state.vocal_scores(member).size() == 6:
+    var chosen: bool = str(onboarding_state.lead_vocal_id) == str(member["id"])
+    var extra: int = 0 if (member["roles"] as Array).has("Singer") else 5
+    var vocal: Button = _button(("✓  " if chosen else "") + str(member["name"]) + ("  +%d TALENT" % extra if extra > 0 else "  INCLUDED"),_choose_vocal.bind(str(member["id"])),"tab")
+    vocal.disabled = chosen
+    aside.add_child(vocal)
+  aside.add_child(_label("Fifth member +6, sixth +12 additional. Vocalist doubling an instrument adds 5. Talent points buy ability and options, not cash.",13))
+  aside.add_child(_label("TALENT USED %d/200  •  %s" % [200-int(onboarding_state.remaining()),"READY" if bool(onboarding_state.ready()) else str(onboarding_state.missing())],14))
+ else:
+  aside.add_child(_label("TALENT USED %d/200  •  %s" % [game.spent(),"READY" if game.can_start() else Base.missing(game.roster)],14))
+ var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch)
  start.name = "StartAction"
- start.disabled = not game.can_start()
+ start.disabled = not (bool(onboarding_state.ready()) if onboarding_state != null else game.can_start())
  aside.add_child(start)
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
@@ -253,14 +273,27 @@ func _move_candidate(delta: int) -> void:
  selected_index = posmod(selected_index+delta,items.size())
  _rebuild()
 func _recruit(id: String) -> void:
- last_message = str(game.recruit(id)["message"])
+ last_message = str(onboarding_state.recruit(id)["message"] if onboarding_state != null else game.recruit(id)["message"])
  _rebuild()
 func _remove(id: String) -> void:
- last_message = str(game.remove_member(id)["message"])
+ last_message = str(onboarding_state.remove_member(id)["message"] if onboarding_state != null else game.remove_member(id)["message"])
+ _rebuild()
+func _choose_vocal(id: String) -> void:
+ if onboarding_state == null:
+  return
+ last_message = str(onboarding_state.choose_vocal(id)["message"])
  _rebuild()
 func _launch() -> void:
- last_message = str(game.launch()["message"])
- _rebuild()
+ if onboarding_state != null:
+  var result: Dictionary = onboarding_state.confirm_lineup()
+  last_message = str(result.get("message",""))
+  if bool(result.get("ok",false)):
+   lineup_confirmed.emit()
+  else:
+   _rebuild()
+ else:
+  last_message = str(game.launch()["message"])
+  _rebuild()
 func _write() -> void:
  var result: Dictionary = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  last_message = str(result["message"])
