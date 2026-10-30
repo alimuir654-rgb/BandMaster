@@ -1,5 +1,5 @@
 {
-  "writer": "S40-editorial-recap-20261030T145500",
+  "writer": null,
   "base_head": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
   "claimed_at": "2026-10-30T14:55:00Z",
   "expires_at": "2026-10-30T16:45:00Z",
@@ -7,11 +7,12 @@
   "authority": "30 Oct owner issue#201 comment6524557601; expired prior S39 lease has no live owner; C34/S39 rollback, no production merge",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-30T15:17:00Z",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
-  }
+  },
+  "note": "S40 source delivered at 9163db9; native Godot4.7.2 evidence not accessible, no S40 PASS or artwork signoff. S40 active preflight is for future guarded continuation."
 }
