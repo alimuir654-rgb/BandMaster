@@ -28,7 +28,7 @@ static func _reaction(report: Dictionary, change: Dictionary, members: Array) ->
   if candidate is Dictionary and str(candidate.get("candidate_id","")) == id:
    person = candidate
    break
- var trait: String = str(person.get("trait","Musician")).to_lower()
+ var personality_tag: String = str(person.get("trait","Musician")).to_lower()
  var risk: Dictionary = person.get("rehearsal_risk",{})
  var stats: Dictionary = change.get("changes",{})
  var mood: int = int(stats.get("morale",{}).get("delta",0))
@@ -41,18 +41,18 @@ static func _reaction(report: Dictionary, change: Dictionary, members: Array) ->
  elif focus == "create" and int(risk.get("creative_friction",0))>0 and str(report.get("reason","")).contains("Creative disagreements"):
   quote = "I didn't agree with all the decisions."
  elif mood > 0:
-  if trait.contains("perfectionist") or trait.contains("reliable"):
+  if personality_tag.contains("perfectionist") or personality_tag.contains("reliable"):
    quote = "That felt a bit more locked in."
-  elif focus == "create" and (trait.contains("creative") or trait.contains("chaos")):
+  elif focus == "create" and (personality_tag.contains("creative") or personality_tag.contains("chaos")):
    quote = "There's something worth building on."
   elif focus == "connect":
    quote = "We needed to have that conversation."
   else:
    quote = "That was a useful session."
  elif mood < 0:
-  if trait.contains("restless") or trait.contains("chaos"):
+  if personality_tag.contains("restless") or personality_tag.contains("chaos"):
    quote = "Too much repetition for my liking."
-  elif trait.contains("perfectionist") and focus == "create":
+  elif personality_tag.contains("perfectionist") and focus == "create":
    quote = "I wanted more time on the details."
   else:
    quote = "I wasn't feeling that one."
