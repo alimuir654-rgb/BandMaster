@@ -11,6 +11,9 @@ var settings_open := false
 var muted := false
 var notice := ""
 var look := "flightcase"
+var free_name: String = ""
+var chosen_intent: String = "Raw"
+var response: String = ""
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -73,6 +76,16 @@ func _render() -> void:
   _recruit()
  elif setup.screen == "formed":
   _formed()
+ elif setup.screen == "name":
+  _name()
+ elif setup.screen == "name_milestone":
+  _milestone_two()
+ elif setup.screen == "identity":
+  _identity()
+ elif setup.screen == "complete":
+  _summary()
+ elif setup.screen == "play":
+  _practice()
  else:
   showing_menu = true
   _menu()
@@ -237,8 +250,187 @@ func _formed() -> void:
   var suffix := "  •  LEAD VOCALS" if str(person["id"]) == setup.lead_vocal_id else ""
   column.add_child(_label(str(person["name"])+" — "+str(person.get("primary_role",(person["roles"] as Array)[0]))+suffix,16))
  column.add_child(_label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],16))
- column.add_child(_label("Next step: give this band a name. Naming and logo screens are not yet wired in this C27 checkpoint.",14))
+ column.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
  column.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
  var tail := Control.new()
  tail.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(tail)
+
+func _scroll_body(root: VBoxContainer) -> VBoxContainer:
+ var scroll := ScrollContainer.new()
+ scroll.horizontal_scroll_mode = Control.SCROLL_MODE_DISABLED
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(scroll)
+ var body: VBoxContainer = _column()
+ scroll.add_child(body)
+ return body
+
+func _start_naming() -> void:
+ if setup.start_naming():
+  _render()
+
+func _name() -> void:
+ var root: VBoxContainer = _make_shell()
+ root.add_child(_label("02 / NAME THE BAND",24))
+ root.add_child(_label("This is about your bandmates' taste, not an objective judgement of your name.",14))
+ var body: VBoxContainer = _scroll_body(root)
+ body.add_child(_label("THREE IDEAS",18))
+ for entry in setup.suggested_names():
+  var suggestion: Dictionary = entry
+  var title: String = str(suggestion["name"])
+  var intent: String = str(suggestion["intent"])
+  var option: Button = _button(title+"  /  "+intent.to_upper(),_submit.bind(title,intent),"tab")
+  option.disabled = not setup.name_offer.is_empty()
+  body.add_child(option)
+ body.add_child(_label("OR WRITE YOUR OWN",18))
+ var field := LineEdit.new()
+ field.name = "FreeBandName"
+ field.text = free_name
+ field.max_length = 36
+ field.custom_minimum_size.y = 48
+ field.placeholder_text = "Band name (2–36 characters)"
+ field.text_changed.connect(func(v: String): free_name=v)
+ body.add_child(field)
+ body.add_child(_label("WHAT ARE YOU GOING FOR?",14))
+ var intent_grid := GridContainer.new()
+ intent_grid.columns = 2
+ body.add_child(intent_grid)
+ for value in ["Raw","Dark","Playful","Dreamy"]:
+  var tone: String = value
+  var btn: Button = _button(("✓ " if chosen_intent==tone else "")+tone.to_upper(),_set_intent.bind(tone),"tab")
+  btn.disabled = not setup.name_offer.is_empty()
+  intent_grid.add_child(btn)
+ var submit: Button = _button("ASK THE BAND",_submit_free,"action","NameSubmitAction")
+ submit.disabled = not setup.name_offer.is_empty()
+ body.add_child(submit)
+ if not response.is_empty():
+  body.add_child(_label(response,14))
+ if not setup.name_offer.is_empty():
+  body.add_child(_label("BAND REACTIONS  /  "+setup.name_offer.to_upper(),18))
+  for opinion in setup.name_reactions():
+   var feeling: Dictionary = opinion
+   var card: PanelContainer = Kit.frame(look,"ticket")
+   body.add_child(card)
+   card.add_child(_label(str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"]),14))
+  var rethink: Button = _button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
+  rethink.disabled = setup.name_revisions>=1
+  body.add_child(rethink)
+  body.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
+ body.add_child(_button("BACK TO MENU",_home,"tab"))
+
+func _set_intent(v: String) -> void:
+ chosen_intent = v
+ call_deferred("_render")
+func _submit_free() -> void:
+ _submit(free_name,chosen_intent)
+func _submit(title: String,intent: String) -> void:
+ var result: Dictionary = setup.submit_name(title,intent)
+ response = str(result.get("message",""))
+ _render()
+func _rethink() -> void:
+ var result: Dictionary = setup.rethink_name()
+ response = str(result.get("message",""))
+ free_name = ""
+ _render()
+func _lock() -> void:
+ var result: Dictionary = setup.lock_name()
+ response = str(result.get("message",""))
+ _render()
+
+func _milestone_two() -> void:
+ var root: VBoxContainer = _make_shell()
+ var gap := Control.new()
+ gap.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(gap)
+ var card: PanelContainer = Kit.frame(look,"portrait")
+ root.add_child(card)
+ var body: VBoxContainer = _column()
+ card.add_child(body)
+ body.add_child(_label("MILESTONE 02 / THE NAME",16))
+ body.add_child(_label(setup.name_locked.to_upper(),31 if size.x>=720 else 25))
+ var delta: int = int(setup.name_delta)
+ body.add_child(_label("+3 band morale: everyone loves it." if delta==3 else ("−2 morale: a rough consensus." if delta<0 else "Mixed but workable. No morale change."),16))
+ body.add_child(_label("Any consequence is applied once.",13))
+ body.add_child(_button("LOGO & VIBE ›",_start_identity,"action","NameMilestoneNextAction"))
+ body.add_child(_button("BACK TO MENU",_home,"tab"))
+ var bottom := Control.new()
+ bottom.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(bottom)
+func _start_identity() -> void:
+ if setup.start_identity():
+  _render()
+
+func _identity() -> void:
+ var root: VBoxContainer = _make_shell()
+ root.add_child(_label("03 / THE LOOK",24))
+ root.add_child(_label("Choose a wordmark, palette and attitude. These choices are cosmetic.",14))
+ var body: VBoxContainer = _scroll_body(root)
+ var preview: PanelContainer = Kit.frame(look,"portrait")
+ body.add_child(preview)
+ var content: VBoxContainer = _column()
+ preview.add_child(content)
+ content.add_child(_label("LIVE PREVIEW  /  "+setup.logo.to_upper(),14))
+ var logo_text: String = setup.name_locked.to_upper()
+ if setup.logo=="Monogram":
+  logo_text = ""
+  for part in setup.name_locked.split(" ",false):
+   if not part.is_empty():
+    logo_text+=part.substr(0,1).to_upper()
+  logo_text=logo_text.substr(0,6)
+ elif setup.logo=="Stamp":
+  logo_text="— "+logo_text+" —"
+ var mark: Label = _label(logo_text,28 if size.x>=720 else 22)
+ mark.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ content.add_child(mark)
+ content.add_child(_label(setup.palette+"  /  "+setup.vibe,13))
+ for family in ["logo","palette","vibe"]:
+  body.add_child(_label(family.to_upper(),17))
+  var options: Array = Model.LOGOS if family=="logo" else (Model.PALETTES if family=="palette" else Model.VIBES)
+  var selected: String = setup.logo if family=="logo" else (setup.palette if family=="palette" else setup.vibe)
+  var buttons := GridContainer.new()
+  buttons.columns=2 if size.x<720 else 3
+  body.add_child(buttons)
+  for item in options:
+   var value: String = str(item)
+   buttons.add_child(_button(("✓ " if value==selected else "")+value.to_upper(),_design.bind(family,value),"tab"))
+ body.add_child(_button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction"))
+ if not response.is_empty():
+  body.add_child(_label(response,14))
+ body.add_child(_button("BACK TO MENU",_home,"tab"))
+func _design(family: String,value: String) -> void:
+ var mark: String = value if family=="logo" else setup.logo
+ var palette: String = value if family=="palette" else setup.palette
+ var vibe: String = value if family=="vibe" else setup.vibe
+ setup.set_identity(mark,palette,vibe)
+ call_deferred("_render")
+func _finish() -> void:
+ var result: Dictionary = setup.finish_identity()
+ response = str(result.get("message",""))
+ _render()
+
+func _summary() -> void:
+ var root: VBoxContainer = _make_shell()
+ root.add_child(_label("YOU'VE STARTED SOMETHING",24))
+ var body: VBoxContainer = _scroll_body(root)
+ var card: PanelContainer = Kit.frame(look,"portrait")
+ body.add_child(card)
+ var info: VBoxContainer = _column()
+ card.add_child(info)
+ info.add_child(_label(setup.name_locked.to_upper(),30 if size.x>=720 else 25))
+ info.add_child(_label(setup.game.genre+"  /  "+setup.vibe+"  /  "+setup.logo,14))
+ for p in setup.game.roster:
+  info.add_child(_label(str(p["name"])+(" — LEAD VOCALS" if str(p["id"])==setup.lead_vocal_id else " — "+str(p.get("primary_role","Musician"))),14))
+ info.add_child(_label("TALENT REMAINING  "+str(setup.remaining()),16))
+ info.add_child(_label("STARTING MORALE  "+str(setup.game.career.get("morale",55)),16))
+ body.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+ body.add_child(_button("BACK TO MENU",_home,"tab"))
+func _start_playing() -> void:
+ if setup.start_playing():
+  _render()
+func _practice() -> void:
+ var panel = Recruit.new()
+ panel.game = setup.game
+ panel.opening_owner = setup
+ panel.back_requested.connect(_home)
+ add_child(panel)
+ panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
