@@ -1,4 +1,4 @@
-name: C27 isolated opening journey proof
+name: Isolated opening journey native proof
 on:
   push:
     branches: [dual-frame-proof-2026-10-28]
@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: bandmaster-opening-c27
+  group: bandmaster-opening-native
   cancel-in-progress: false
 jobs:
   opening:
@@ -18,17 +18,26 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Verify scoped preflight, exact source writer and commit deadline
+      - name: Verify current preflight, exclusive writer and commit deadline
         env:
           BEFORE: ${{ github.event.before }}
         run: |
-          python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C27.json --before "$BEFORE" --require-prior-record
+          SESSION=$(python3 -c 'import json; print(json.load(open("docs/continuous_improvement/CURRENT.json"))["session"])')
+          python3 tools/improvement_gate.py check --session "$SESSION" --before "$BEFORE" --require-prior-record
           python3 - <<'PY'
           import json,subprocess,datetime
+          current=json.load(open('docs/continuous_improvement/CURRENT.json'))
+          session=json.load(open(current['session']))
           p=json.load(open('docs/asset_base/CONTROL_SPRINT_LOCK.json'))
-          assert p['writer']=='C27-opening-20261030T000600'
-          authored=subprocess.check_output(['git','show','-s','--format=%cI','HEAD'],text=True).strip()
-          assert datetime.datetime.fromisoformat(authored)<=datetime.datetime.fromisoformat(p['expires_at'])
+          assert current['session']=='docs/continuous_improvement/sessions/'+session['id']+'.json'
+          assert session['status']=='active' and session['owner_approved'] is False
+          assert p['writer'].startswith(session['id']+'-')
+          assert p['base_head']==session['baseline_sha']
+          assert p['expires_at']==session['scope_end']
+          authored=datetime.datetime.fromisoformat(subprocess.check_output(['git','show','-s','--format=%cI','HEAD'],text=True).strip())
+          claimed=datetime.datetime.fromisoformat(p['claimed_at'])
+          expiry=datetime.datetime.fromisoformat(p['expires_at'])
+          assert claimed <= authored <= expiry, (claimed,authored,expiry)
           PY
       - name: Install verified Godot 4.7.2 and native screenshot tools
         run: |

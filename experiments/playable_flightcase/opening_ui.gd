@@ -258,7 +258,7 @@ func _formed() -> void:
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
- scroll.horizontal_scroll_mode = Control.SCROLL_MODE_DISABLED
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(scroll)
  var body: VBoxContainer = _column()

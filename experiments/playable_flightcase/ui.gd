@@ -304,12 +304,14 @@ func _write() -> void:
   opening_owner.save_draft()
  _rebuild()
 func _rehearse() -> void:
- last_message = str(game.rehearse()["message"])
+ var result: Dictionary = game.rehearse()
+ last_message = str(result.get("message",""))
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
 func _connect() -> void:
- last_message = str(game.clear_air()["message"])
+ var result: Dictionary = game.clear_air()
+ last_message = str(result.get("message",""))
  if opening_owner != null and bool(result.get("ok",false)):
   opening_owner.save_draft()
  _rebuild()
