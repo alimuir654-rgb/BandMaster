@@ -330,8 +330,15 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  root_box.add_child(footer)
 
 func _toggle_recap_details() -> void:
+ var detail: Control = find_child("RecapDetailedBreakdown",true,false) as Control
+ var action: Button = find_child("RecapDetailsToggleAction",true,false) as Button
+ if detail==null or action==null:
+  return
+ # Disclosure only: retain the focused native control, report and scroll.
+ # Rebuilding here destroys all three and can make keyboard users lose place.
  recap_details_expanded = not recap_details_expanded
- _rebuild()
+ detail.visible = recap_details_expanded
+ action.text = "HIDE FULL BREAKDOWN" if recap_details_expanded else "FULL BREAKDOWN  ›"
 
 func _toggle_recap() -> void:
  recap_expanded = not recap_expanded

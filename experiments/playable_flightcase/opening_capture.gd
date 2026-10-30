@@ -6,6 +6,7 @@ const Poster = preload("res://experiments/playable_flightcase/band_formed_poster
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
+const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 var failures: Array[String] = []
 func _init() -> void:
  call_deferred("take")
@@ -89,6 +90,109 @@ func click_action(button: Button) -> void:
  await process_frame
  await process_frame
  await process_frame
+# Real ui_accept input, deliberately separate from the retained pointer proof.
+func _recap_key(keycode: int) -> void:
+ var down := InputEventKey.new()
+ down.keycode = keycode
+ down.physical_keycode = keycode
+ down.pressed = true
+ Input.parse_input_event(down)
+ await process_frame
+ var up := InputEventKey.new()
+ up.keycode = keycode
+ up.physical_keycode = keycode
+ up.pressed = false
+ Input.parse_input_event(up)
+ await process_frame
+ await process_frame
+ await process_frame
+
+func _recap_save_bytes() -> Dictionary:
+ var state: Dictionary = {}
+ for path in ["user://c26_playable_sandbox.json","user://c27_opening_draft.json","user://band_profile.json","user://tour_save.json"]:
+  state[path] = FileAccess.get_file_as_bytes(path) if FileAccess.file_exists(path) else null
+ return state
+
+func _check_recap_keyboard(screen,w: int,h: int) -> void:
+ var action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
+ var scroll: ScrollContainer = screen.find_child("RehearsalResultScroll",true,false) as ScrollContainer
+ var detail: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+ if action==null or scroll==null or detail==null:
+  failures.append("S40 keyboard disclosure controls missing")
+  return
+ scroll.ensure_control_visible(action)
+ await process_frame
+ await process_frame
+ action.grab_focus()
+ await process_frame
+ var action_id: int = action.get_instance_id()
+ var scroll_id: int = scroll.get_instance_id()
+ var detail_id: int = detail.get_instance_id()
+ var offset: int = scroll.scroll_vertical
+ var before: Dictionary = screen.setup.snapshot()
+ var saved_files: Dictionary = _recap_save_bytes()
+ if not action.has_focus():
+  failures.append("S40 full-breakdown action cannot receive keyboard focus")
+ await _recap_key(KEY_ENTER)
+ var live_action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
+ var live_scroll: ScrollContainer = screen.find_child("RehearsalResultScroll",true,false) as ScrollContainer
+ var live_detail: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+ if live_action==null or live_scroll==null or live_detail==null:
+  failures.append("S40 Enter destroyed disclosure controls")
+  return
+ if live_action.get_instance_id()!=action_id or live_scroll.get_instance_id()!=scroll_id or live_detail.get_instance_id()!=detail_id:
+  failures.append("S40 Enter rebuilt settled recap instead of revealing it in place")
+ if not live_action.has_focus():
+  failures.append("S40 Enter lost full-breakdown keyboard focus")
+ if absi(live_scroll.scroll_vertical-offset)>1:
+  failures.append("S40 Enter reset report scroll position")
+ if not live_detail.visible or live_action.text!="HIDE FULL BREAKDOWN":
+  failures.append("S40 genuine Enter did not reveal full ledger/update toggle")
+ var view: Dictionary = Recap.present(screen.setup.game.career.get("last_rehearsal_outcome",{}),screen.setup.game.career.get("members",[]))
+ var last_quote: Label = null
+ for voice in view.get("reactions",[]):
+  if not voice is Dictionary:
+   continue
+  var pid: String = str(voice.get("candidate_id",""))
+  var full_quote: Label = live_detail.find_child("RecapFullQuote_"+pid,true,false) as Label
+  var expected: String = str(voice.get("name","Musician"))+" — “"+str(voice.get("quote",""))+"”"
+  if full_quote==null or full_quote.text!=expected or not full_quote.is_visible_in_tree():
+   failures.append("S40 expanded ledger lost full authored reaction for "+pid)
+  elif full_quote.get_theme_font_size("font_size")<16:
+   failures.append("S40 full reaction text too small for "+pid)
+  else:
+   last_quote = full_quote
+ # Actual expanded native pixels show the complete reaction that the compact
+ # hero deliberately excerpts. Restore the prior reading position afterward.
+ if last_quote!=null:
+  live_scroll.ensure_control_visible(last_quote)
+  await process_frame
+  await process_frame
+  await _draw_screen("rehearsal_full_reactions",w,h)
+ live_scroll.scroll_vertical = offset
+ await process_frame
+ await process_frame
+ live_action.grab_focus()
+ var collapse_offset: int = live_scroll.scroll_vertical
+ await _recap_key(KEY_SPACE)
+ var closed_action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
+ var closed_scroll: ScrollContainer = screen.find_child("RehearsalResultScroll",true,false) as ScrollContainer
+ var closed_detail: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+ if closed_action==null or closed_scroll==null or closed_detail==null:
+  failures.append("S40 Space destroyed disclosure controls")
+ else:
+  if closed_action.get_instance_id()!=action_id or closed_scroll.get_instance_id()!=scroll_id or closed_detail.get_instance_id()!=detail_id:
+   failures.append("S40 Space rebuilt settled recap instead of collapsing it in place")
+  if not closed_action.has_focus():
+   failures.append("S40 Space lost full-breakdown keyboard focus")
+  if absi(closed_scroll.scroll_vertical-collapse_offset)>1:
+   failures.append("S40 Space reset report scroll position")
+  if closed_detail.visible or closed_action.text!="FULL BREAKDOWN  ›":
+   failures.append("S40 genuine Space did not collapse full ledger/update toggle")
+ if screen.setup.snapshot()!=before or _recap_save_bytes()!=saved_files:
+  failures.append("S40 keyboard disclosure changed settled gameplay or save bytes")
+ print("S40_NATIVE_DISCLOSURE ",JSON.stringify({"width":w,"height":h,"focus_retained":closed_action!=null and closed_action.has_focus(),"scroll_before":offset,"scroll_after":closed_scroll.scroll_vertical if closed_scroll!=null else -1,"full_reactions":view.get("reactions",[]).size()}))
+
 # Source-honest visual-density fixture: this draws an actual Godot poster with
 # five/six C25 approved preview portraits, WITHOUT mutating the real player's
 # roster, spending talent, triggering milestone flags or writing a save.
@@ -521,6 +625,7 @@ func take() -> void:
      failures.append("S40 detailed ledger did not collapse")
     if screen.setup.snapshot()!=before_details:
      failures.append("S40 expanding the journal changed settled gameplay")
+   await _check_recap_keyboard(screen,w,h)
    var before_ui_only: Dictionary = screen.setup.snapshot()
    var toggle_notes: Button = screen.find_child("RecapToggleAction",true,false) as Button
    if toggle_notes==null:

@@ -188,5 +188,10 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  detail.add_child(ink(str(view.get("footnote","")),10,true))
  for voice in voices:
   if voice is Dictionary:
+   # Compact hero captions are excerpts. The native optional ledger keeps the
+   # complete authored reaction available to touch and keyboard readers.
+   var full_quote := ink(str(voice.get("name","Musician"))+" — “"+str(voice.get("quote",""))+"”",16)
+   full_quote.name = "RecapFullQuote_"+str(voice.get("candidate_id",""))
+   detail.add_child(full_quote)
    detail.add_child(ink(str(voice.get("name","Musician"))+": "+str(voice.get("effects","")),11,true))
  detail.add_child(ink("NEXT MOVE  /  "+str(view.get("next_step","")),11 if mobile else 13))
