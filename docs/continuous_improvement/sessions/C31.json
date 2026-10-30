@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "C31",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "30 Oct owner issue #200 and comment 6511055491: once full opening native checkpoint verified, polish EXISTING title/completed-screen layout before 08:00, preserve fallback and visual approval false. C30 end-to-end verified run40996529020 at d5f71bb.",
+  "baseline_sha": "87cd22efeb0fa5de5563d55af09b419db03aea2e",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-41",
+    "BM-42",
+    "BM-45",
+    "BM-26",
+    "BM-03"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 94778,
+    "sha256": "2cf3b0c3c280aadcc2563c446550b817e2b92c222c6947000a67c11c874cfcde"
+  },
+  "target": {
+    "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
+    "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Replace portrait-specific 180px centred title and completed-summary housing with wide, bounded, responsive panel stage using ORIGINAL frame source, no new art or gameplay logic. Live typography must fit at four native sizes, desktop Quit and phone buttons remain visible; preserve all C30 real input/save tests and exact fallback.",
+  "controlled_comparison": "Same title brand/CTA and completed band/roster fixture at same native four viewports, same flightcase lighting/source. Compare original C30 title390/1280 and complete1600 against unchanged-state C31 captures; no portrait frame asset changes, no control/meter byte changes, and no cut of native real-pointer/52+88 tests. Stop/revert on input/save regression.",
+  "stop_condition": "Exclusive C31 writer until 2026-10-30T04:54:00+00:00; 08:00 implementation/art freeze, 09:00 evidence-only review. If visual change is weak or unverified, retain d5f71bb fallback; no main/PR199/production changes, no unrelated screen families.",
+  "protected": [
+    "All existing 22 passive meter PNGs and inert semantics",
+    "36 Lab07 button state PNGs and 58 Lab08 hardware layers",
+    "C21 modal focus/scroll behavior",
+    "canonical Alex Vale/alex and Nia Griffiths/nia_griffiths",
+    "C25 exact source PNG and 18 previews",
+    "production Scripts/Scenes, main, PR199 and user:// production saves"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C31.json --before $BEFORE --require-prior-record",
+    "Godot 4.7.2 C26 gameplay52 and opening-model88 strict tests; real Xvfb/GL four viewport full pointer progression and screenshot capture",
+    "Verify source artwork/meter bytes unchanged and checkpoint d5f71bb recoverable"
+  ],
+  "started_at": "2026-10-30T04:07:07.322Z",
+  "scope_end": "2026-10-30T04:54:00+00:00",
+  "completion_gate": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  }
+}

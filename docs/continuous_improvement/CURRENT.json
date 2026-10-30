@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/C30.json",
+  "session": "docs/continuous_improvement/sessions/C31.json",
   "scope": "Owner-confirmed finite opening journey: title/Continue/New -> genre -> recruit three mandatory instrument players plus explicit vocals -> milestones -> intent-based naming -> logo/vibe -> isolated gameplay handoff. Verified-completion-only visual polish before08:00;09:00 review.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "C30 gated polish: fix visibly narrow unreadable title/summary using existing source-backed flight-case look, compare native unchanged states/4 viewports, protect full tested checkpoint.",
+  "next_action": "C31 guarded title and completed-band responsive composition using original flight-case panel; screenshot A/B and native full regressions; package isolated playable project if safely possible.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {

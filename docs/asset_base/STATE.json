@@ -12,7 +12,7 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C30-opening-native-202610300300",
+  "writer": "C31-title-layout-202610300407",
   "last_verified_code_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
   "baseline": {
     "run_id": 40778019754,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C30 gated polish: fix visibly narrow unreadable title/summary using existing source-backed flight-case look, compare native unchanged states/4 viewports, protect full tested checkpoint.",
+  "next_single_action": "C31 guarded title and completed-band responsive composition using original flight-case panel; screenshot A/B and native full regressions; package isolated playable project if safely possible.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
