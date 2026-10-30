@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": "S38-rehearsal-20261030T120316",
   "last_verified_code_sha": "5b9ad990f41854e566028f7e12de059d965a73f7",
   "baseline": {
     "run_id": 40778019754,
@@ -29,7 +29,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "S38 rehearsal outcome model after sole writer claim and preflight",
+  "next_single_action": "S38 model+status result, verify actual pointer/save and native pixels",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -606,14 +606,12 @@
     "checkpoint_run": 41001787068
   },
   "last_scoped_preflight": {
-    "session": "S37",
-    "baseline_sha": "38b48118193f569ad5866dee0eb57e14d6249cae",
-    "scope_end": "2026-10-30T10:55:00Z",
-    "authority": "issue201",
+    "session": "S38",
+    "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
+    "scope_end": "2026-10-30T13:15:00Z",
+    "authority": "owner issue201 S4",
     "owner_approved": false,
-    "status": "closed",
-    "closed_at": "2026-10-30T12:00:00Z",
-    "source_verified_sha": "5b9ad990f41854e566028f7e12de059d965a73f7"
+    "status": "active"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -649,7 +647,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S37",
+  "current_session": "S38",
   "last_verified_native_run": 41047572833,
   "latest_verified_phase2": {
     "sprint": "S37",

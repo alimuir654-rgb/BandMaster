@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "S38",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner Phase2 issue#201 Sprint4: make existing C26 real rehearsal/write/clear-air consequences explicit and auditable in saved isolated candidate. One deterministic post-action result describing readiness, relationship cohesion, morale/member satisfaction and tension/fatigue with before/after deltas; choice and traits cause effects; no new song audio or production merges. Preserve issue#200 as historical and all repo policy.",
+  "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
+  "dominant_issue": "BM-36",
+  "lesson_ids": [
+    "BM-01",
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 130960,
+    "sha256": "bcee49ea674904eabdf9eb0ae4318c55893b5885ddecbb50470e1b6006f77de9"
+  },
+  "target": {
+    "locator": "Opened original S37 C26 practice-390x844.png SHA256 041fc721fa672b6741f02758adec3ed00baec0bf819ccd65fd1c33548e2a05e1 and practice-1280x720.png SHA256 6d253db48ab04ec1ed563c5b505c387a4bc017e215804d86ee84cece137b3ba0, native artifact12973406060; actual UI has Rehearse £15, Clear the Air, songwriting controls but no auditable result beyond short status. Original owner mockup not locally available; no claim of art acceptance.",
+    "original_sha256": "041fc721fa672b6741f02758adec3ed00baec0bf819ccd65fd1c33548e2a05e1",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Record a deterministic result snapshot alongside ONE existing successful Practice.resolve action, after existing risk adjustments, with exact before/after deltas for readiness/morale/tension, individual morale and mean existing relationship cohesion (no fictitious separate skill). Include amount spent/day and authored focus reason; show concise result in existing status header. Persist in existing sandbox career snapshot once; no resource grant from viewing/Continues. Test positive, mixed and tense selected casts, invalid/no money nonmutating, save/reload/no double settlement. No new UI screen until S39.",
+  "controlled_comparison": "Identical saved Jack/Zoe/Casey and 390x844/720x1280/1280x720/1600x900 C34/S37 native pre-action practice, then perform real Rehearse and Clear Air; after UI status shows positive/mixed deltas and outcome report round-trip. Preserve 52/88 prior checks and four full real pointer opening->first practice. Before/after native original PNG pixel view, 44px action and existing input-inert meters; do not judge visuals by test green.",
+  "stop_condition": "S38 sole writer S38-rehearsal-20261030T120316, claimed 2026-10-30T12:03:16Z through 2026-10-30T13:15:00Z. Preflight separately committed before source and gate must pass; one cohesive model + status improvement, no other systems, source or art masters. On failure log in existing append-only ISSUES.jsonl before correction, change method after two ineffective attempts. Release writer on closeout.",
+  "protected": [
+    "Immutable C34 original104c494b255055da3e5bba0e4a0bed78c190d0a0 and S37 finished5b9ad990f41854e566028f7e12de059d965a73f7 as code rollback",
+    "C25 eighteen natural British source identities and preview crops, owner-liked six passive meters and original control hardware, C21 dialog",
+    "Existing Scripts/practice_room.gd and Scripts/career_actions.gd canonical rules; production scenes/main/PR199/real saves, no new paid runtime or generated audio"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S38.json --before $S38_PREFLIGHT_SHA --require-prior-record",
+    "Godot4.7.2 native CI: C26 gameplay52+, opening88, full genuine pointer/Continue four sizes 390x844,720x1280,1280x720,1600x900, with explicit updated rehearsal tests",
+    "Open original native GL rehearsal pre/post PNGs at four sizes; compare actual status and no clipped action; inspect exact testedSHA run and errors"
+  ],
+  "started_at": "2026-10-30T12:03:16Z",
+  "scope_end": "2026-10-30T13:15:00Z"
+}

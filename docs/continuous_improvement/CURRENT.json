@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S37.json",
-  "scope": "Phase 2 issue#201 S3 verified: actual band-name/logo/selected lineup carry-through. Next S4 rehearsal outcome model.",
+  "session": "docs/continuous_improvement/sessions/S38.json",
+  "scope": "Phase2 S38 active: deterministic auditable C26 practice outcomes and saved before/after, no new screen.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "closed",
-  "next_action": "S38 rehearsal outcome state, first safe writer slot after S37 release.",
+  "status": "active",
+  "next_action": "S38 implement/test model+status within sole writer lease",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
