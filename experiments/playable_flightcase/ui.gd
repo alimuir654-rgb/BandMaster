@@ -56,7 +56,7 @@ func _rebuild() -> void:
   return
  _clear()
  var size_now: Vector2 = get_viewport_rect().size
- var mobile := size_now.x < 720
+ var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
  var bg := TextureRect.new()
  bg.texture = load("res://components/control_atlas/art/case_surface.png")
  bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
