@@ -1,6 +1,7 @@
 extends SceneTree
 const Game = preload("res://experiments/playable_flightcase/session.gd")
-const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
+const RECAP_PATH = "res://experiments/playable_flightcase/rehearsal_recap.gd"
+var Recap: GDScript = null
 var checks := 0
 var failures: Array[String] = []
 func _init() -> void:
@@ -11,6 +12,16 @@ func check(ok: bool,msg: String) -> void:
   failures.append(msg)
   push_error(msg)
 func run_tests() -> void:
+ # Diagnose the helper directly: preloads mask its underlying Godot compile line.
+ var probe := GDScript.new()
+ probe.source_code = FileAccess.get_file_as_string(RECAP_PATH)
+ var parse_result: Error = probe.reload()
+ print("S39_RECAP_DIRECT_PARSE ",parse_result)
+ if parse_result != OK:
+  push_error("S39 direct source compile failed; retain the native log before correction.")
+  quit(1)
+  return
+ Recap = load(RECAP_PATH) as GDScript
  var game = Game.new()
  check(game.remaining()==200 and game.spent()==0,"initial talent 200")
  check(game.choices("Singer").size()==6 and game.choices("Guitarist").size()==6,"C25 plus canonical singer/guitar anchors")
