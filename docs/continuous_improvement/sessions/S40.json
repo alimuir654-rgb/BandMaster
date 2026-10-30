@@ -72,6 +72,31 @@
   ],
   "started_at": "2026-10-30T14:55:00Z",
   "scope_end": "2026-10-30T16:45:00Z",
-  "evidence_status": "owner BM-01 recurrence appended; native verification pending",
-  "issues_reviewed_at": "2026-10-30T15:10:00Z"
+  "evidence_status": "Source implementation delivered; 11 connector-backed structural checks PASS. Exact Godot4.7.2 run/log/artifacts NOT accessible in this execution, so native, visual and owner verdict remain HOLD; no playable S40 package.",
+  "issues_reviewed_at": "2026-10-30T15:10:00Z",
+  "progress": {
+    "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
+    "source_files": [
+      "experiments/playable_flightcase/rehearsal_press.gd",
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "user_visible_change": "Existing rehearsal result is now a separate source-backed printed-paper edition with hero verdict, genuine signed set/morale/tension tile changes, actual selected C25 musician portrait strip and individual morale badges, optional six-measure ledger, persistent first-fold CONTINUE PRACTISING action and state-preserving view/reopen.",
+    "tests_written": "Genuine four-viewport S40 pointer capture assertions for source portraits, signed +10, fixed 44px action, expanding/collapsing true saved detail, no career mutation; existing 73 gameplay and88 opening tests retained.",
+    "validation_proven": "11 source-structure checks through connected GitHub; original verified S39 baseline native 73 gameplay +88 opening +4 real-pointer viewports; no native S40 result asserted.",
+    "native_validation": "NOT VERIFIED in this run: GitHub connector has no list for push-triggered runs (fetch_commit_workflow_runs filters PR only); local Godot engine absent/network blocked; no original S40 GL PNG inspected. Code pushes should trigger existing playable-flightcase workflow.",
+    "issue_log": "Owner-observed BM-01 recurrence appended to immutable ISSUES.jsonl at source history commit b27051f and session reviewed digest refreshed to 9eacc3ec0d09ae1dd77d8772e77827ec17019d891ad948415a09231b84043960; entry honestly notes formal filing after first S40 source commit.",
+    "protected_verified_checkpoints": [
+      "C34 104c494b255055da3e5bba0e4a0bed78c190d0a0",
+      "S39 01ea1a5730c087ab85960edd0104bf87012885a4"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED, source only: editorial result, true faces and larger metrics directly address the owner's complaint, but no native pixel inspection; artistic verdict HOLD.",
+      "technical_art": "SIMULATED: existing paper_surface and C25 approved ~230px previews reused at ~68–88px. No generated group masters, no photographic-rights claim, no changed original art.",
+      "ui_accessibility": "SIMULATED: CTA is outside result scroll and label is explicit; source test requires ≥44px and first-fold all four. Its native geometry and focus have NOT been seen.",
+      "godot_engineering": "SIMULATED: original resolver, save APIs and S39 presenter untouched; new press view reads saved report; native parser and true input not yet confirmed.",
+      "qa_producer": "SIMULATED: S39 remains rollback and real verified build. New code and regression checks are committed, but source green cannot be inferred from 11 textual checks. Native evidence and ZIP held."
+    },
+    "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
+  }
 }
