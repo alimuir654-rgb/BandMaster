@@ -633,6 +633,20 @@
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
   },
-  "last_verified_opening_run": 41001787068,
-  "last_verified_opening_project_artifact": 12952829399
+  "last_verified_opening_run": 41006002295,
+  "last_verified_opening_project_artifact": 12954924877,
+  "last_verified_milestone_polish": {
+    "session": "C32",
+    "source_sha": "5991452688a467c4018986f035755ac0fe007c60",
+    "run_id": 41006002295,
+    "artifact_id": 12955795872,
+    "project_artifact_id": 12954924877,
+    "checks": {
+      "gameplay": 52,
+      "opening": 88,
+      "real_pointer_viewports": 4
+    },
+    "visual_verdict": "partial, materially better milestone1/2",
+    "owner_approved": false
+  }
 }

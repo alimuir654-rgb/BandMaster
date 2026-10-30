@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C32",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner issue200/comment6511055491: conditional polish after full native verified opening. C31 packaged tested e32ce640/run41001787068. Implement only existing milestone compositions before08:00; 09:00 evidence review.",
   "baseline_sha": "916fd136f1cab19b0940ac3674f3040e85281e52",
@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 102302,
-    "sha256": "ae41674d32bee784e19a1853e14d4a715323c474e5c064dcf5e0c3f4eff04be7"
+    "bytes": 104710,
+    "sha256": "43143135c3d901694c44199b99a246f16711af8705de7125d8e83e4d4826ecea"
   },
   "target": {
     "locator": "Owner-approved road-case design original SHA6cd8b49a... broader target; actual C31 milestone1 1280x720 and milestone2 390x844 native PNGs opened: both use thin 180px portrait frame.",
@@ -89,5 +89,24 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  },
+  "closeout": {
+    "tested_sha": "5991452688a467c4018986f035755ac0fe007c60",
+    "evidence": [
+      "Godot4.7.2 run41006002295 success (native C26 52/52, opening 88/88, four full true-pointer viewports, added milestone frame/CTA geometry assertions).",
+      "Native screenshots artifact12955795872 SHA256 b54091fc35e7f0123d0f1872a6d8676edf0671ae822acb86dbfe1fedf4091f43",
+      "Standalone Godot packaged artifact12954924877 SHA256 9333c8cbc0fe7bd39479ce2ab4fc9b24debfda5a696d59de7330d4984c626b8a, ZIP verified locally, inner SHA9e12e5fde546c295eecb2fcdec28bd6a1b644dbb61c1df1b972dfc0eadadaaf0",
+      "Original C31 vs C32 milestone1 and milestone2 PNGs at390/720/1280/1600 opened, actual pixels inspected; mobile/desktop before-after PNGs generated"
+    ],
+    "visual_verdict": "meaningful gain in milestone frame coherence/readability; still PARTIAL vs owner mockup; owner_approved false",
+    "next_action": "C33: replace skinny live logo/vibe preview with source-backed responsive identity stage and verify all four viewports.",
+    "new_issue_review": "Reviewed all prior81 events, appended BM-21 verified resolution after direct native image review; exact 104710 bytes SHA256 43143135c3d901694c44199b99a246f16711af8705de7125d8e83e4d4826ecea.",
+    "simulated_lenses": {
+      "art_direction": "Milestone1/2 now visually cohesive with the corrected title/summary; but still sparse and not mockup-level richness.",
+      "technical_art": "Reused independent verified case panel nine-slice; no source PNGs, cast identities, meter or hardware files altered.",
+      "accessibility": "No sliver/orphaned band names; 390px names and CTA visible; native 44px and actual pointer coverage remain good.",
+      "godot": "Godot4.7.2 scene importing, layout, four viewport real pointer route and standalone startup green.",
+      "qa": "52 gameplay+88 opening+4 full paths and 4 push workflows green; isolated save and fallback retained; audio driver warning from headless runner only."
+    }
   }
 }

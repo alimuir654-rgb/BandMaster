@@ -1,11 +1,12 @@
 {
-  "writer": "C32-milestones-20261030T04591",
+  "writer": null,
   "base_head": "916fd136f1cab19b0940ac3674f3040e85281e52",
   "claimed_at": "2026-10-30T04:59:10.694Z",
   "expires_at": "2026-10-30T05:39:10.694Z",
-  "scope": "C32 existing milestone1/2 responsive source-backed native polish only",
+  "scope": "C32 full native verified wide milestone polish, closed; writer released",
   "authority": "Owner issue200/comment6511055491; full native completion gate C30; C31 e32ce640 runnable fallback;08:00 freeze/09:00 review",
   "owner_approved": false,
-  "previous_closed_session": "C31",
-  "status": "active"
+  "previous_closed_session": "C32",
+  "status": "released",
+  "released_at": "2026-10-30T05:06:14.882Z"
 }
