@@ -3,6 +3,7 @@ extends SceneTree
 const UI = preload("res://experiments/playable_flightcase/opening_ui.gd")
 const Group = preload("res://experiments/playable_flightcase/band_lineup.gd")
 const Poster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
+const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 var failures: Array[String] = []
@@ -18,6 +19,34 @@ func _draw_screen(name: String,w: int,h: int) -> void:
   failures.append("invalid "+name+" image dimensions")
  elif img.save_png(dest)!=OK:
   failures.append("could not save "+dest)
+# S37: native proof of source-backed saved lineup and Unicode name.
+func _check_identity_press(screen: Control, component_name: String, expected_name: String, logo: String) -> void:
+ var proof: Variant = screen.find_child(component_name,true,false)
+ if proof==null:
+  failures.append("S37 missing identity component "+component_name)
+  return
+ if proof.mouse_filter!=Control.MOUSE_FILTER_IGNORE or proof.focus_mode!=Control.FOCUS_NONE:
+  failures.append("S37 identity artwork stole input/focus: "+component_name)
+ if proof.visible_ids()!=["cast_jack","cast_zoe","cast_casey"]:
+  failures.append("S37 selected group changed: "+component_name+" "+str(proof.visible_ids()))
+ var full_name: Label = proof.find_child("IdentityFullName",true,false) as Label
+ var mark: Label = proof.find_child("IdentityLiveMark",true,false) as Label
+ if full_name==null or full_name.text!=expected_name:
+  failures.append("S37 live full band name lost: "+component_name)
+ if mark==null or mark.text.is_empty() or (logo=="Stamp" and not mark.text.begins_with("— ")):
+  failures.append("S37 selected logo missing as live text: "+component_name)
+ var paper: PanelContainer = proof.find_child("IdentityPressPaper",true,false) as PanelContainer
+ if paper==null or not paper.get_theme_stylebox("panel") is StyleBoxTexture:
+  failures.append("S37 identity press missing source paper: "+component_name)
+ for pid in ["cast_jack","cast_zoe","cast_casey"]:
+  var photo: TextureRect = proof.find_child("IdentityPortrait_"+pid,true,false) as TextureRect
+  if photo==null or photo.texture==null or photo.texture.get_width()<200 or photo.texture.get_width()>260:
+   failures.append("S37 portrait source mismatch: "+component_name+" / "+pid)
+  elif photo.focus_mode!=Control.FOCUS_NONE or photo.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+   failures.append("S37 portrait takes input: "+component_name+" / "+pid)
+ if component_name!="IdentityPreviewPrint" and proof.find_children("IdentityLeadVocal","Label",true,false).size()!=1:
+  failures.append("S37 noncompact identity singer count incorrect")
+
 func click_action(button: Button) -> void:
  if button==null or button.disabled:
   failures.append("missing or disabled action")
@@ -367,9 +396,10 @@ func take() -> void:
    var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
    if m2==null or m2.get_global_rect().size.x < expected_width - 2.0:
     failures.append("milestone2 retained narrow portrait composition")
+   _check_identity_press(screen,"NamedMilestonePrint","Side Street","Wordmark")
    var m2_next: Button = screen.find_child("NameMilestoneNextAction",true,false)
-   if m2_next==null or m2_next.get_global_rect().size.x<44.0:
-    failures.append("milestone2 Next action lacks physical target")
+   if m2_next==null or m2_next.get_global_rect().size.x<44.0 or m2_next.get_global_rect().end.y>float(h)-4.0:
+    failures.append("S37 milestone2 Next action clipped from first fold")
  if screen.setup.screen=="name_milestone":
   await click_action(screen.find_child("NameMilestoneNextAction",true,false))
   if screen.setup.screen!="identity":
@@ -381,6 +411,7 @@ func take() -> void:
   var expected_identity_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
   if identity_stage==null or identity_stage.get_global_rect().size.x < expected_identity_width-2.0:
    failures.append("logo/vibe live preview retained narrow portrait frame")
+  _check_identity_press(screen,"IdentityPreviewPrint","Side Street","Wordmark")
   var stamp_button: Button = null
   for entry in screen.find_children("*","Button",true,false):
    var b: Button = entry as Button
@@ -395,19 +426,34 @@ func take() -> void:
    var updated_preview: Control = screen.find_child("IdentityPreviewStage",true,false)
    if updated_preview==null or updated_preview.get_global_rect().size.x < expected_identity_width-2.0:
     failures.append("logo choice changed preview geometry")
+   _check_identity_press(screen,"IdentityPreviewPrint","Side Street","Stamp")
+  var finish_button: Button = screen.find_child("IdentityFinishAction",true,false)
+  if finish_button==null or finish_button.get_global_rect().size.y<44.0 or finish_button.get_global_rect().end.y>float(h)-4.0:
+   failures.append("S37 identity Finish action below first fold")
   await click_action(screen.find_child("IdentityFinishAction",true,false))
   if screen.setup.screen!="complete":
    failures.append("real Finish Identity did not reach completed summary")
   else:
    await _draw_screen("completed_band",w,h)
  if screen.setup.screen=="complete":
+  _check_identity_press(screen,"CompletedBandPrint","Side Street","Stamp")
+  # A hidden native fixture proves custom Unicode & monogram without changing saves.
+  var unicode_press: Variant = IdentityPress.new()
+  unicode_press.visible = false
+  screen.add_child(unicode_press)
+  unicode_press.configure(screen.setup.game.roster,screen.setup.lead_vocal_id,"Échos 雨","Monogram",screen.setup.palette,screen.setup.vibe,float(w),"complete")
+  var unicode_full: Label = unicode_press.find_child("IdentityFullName",true,false) as Label
+  var unicode_mark: Label = unicode_press.find_child("IdentityLiveMark",true,false) as Label
+  if unicode_full==null or unicode_full.text!="Échos 雨" or unicode_mark==null or not unicode_mark.text.contains("É"):
+   failures.append("S37 live custom Unicode or monogram broken")
+  unicode_press.queue_free()
   # A bounded source-backed identity stage must also bound its associated
   # real progression button at phone, portrait tablet and desktop sizes.
   var practice_button: Button = screen.find_child("StartPlayAction",true,false)
   if practice_button != null:
    var permitted_width: float = minf(780.0,float(w) - (40.0 if w < 720 else 80.0))
-   if practice_button.get_global_rect().size.x > permitted_width + 1.0:
-    failures.append("summary action wider than bounded case stage")
+   if practice_button.get_global_rect().size.x > permitted_width + 1.0 or practice_button.get_global_rect().end.y>float(h)-4.0:
+    failures.append("S37 completed First Practice action clipped or wider than case")
   await click_action(practice_button)
   if screen.setup.screen!="play" or screen.setup.game.phase!="play":
    failures.append("real First Practice click did not hand off gameplay")

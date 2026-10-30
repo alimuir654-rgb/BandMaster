@@ -5,6 +5,7 @@ const Recruit = preload("res://experiments/playable_flightcase/ui.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
+const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 var setup = Model.new()
 var showing_menu := true
@@ -366,9 +367,10 @@ func _milestone_two() -> void:
  var heading := _label("THE NAME'S OFFICIAL.",22 if size.x>=720 else 18)
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  body.add_child(heading)
- var band_name := _label(setup.name_locked.to_upper(),35 if size.x>=720 else 27)
- band_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(band_name)
+ var named_cover: Variant = IdentityPress.new()
+ named_cover.name = "NamedMilestonePrint"
+ body.add_child(named_cover)
+ named_cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"milestone")
  var delta: int = int(setup.name_delta)
  var reaction := _label("+3 band morale: everyone's behind it." if delta==3 else ("−2 band morale: not everyone's convinced." if delta<0 else "Mixed opinions. One band. No morale change."),15)
  reaction.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -396,26 +398,11 @@ func _identity() -> void:
  preview.name = "IdentityPreviewStage"
  var content: VBoxContainer = _column()
  preview.add_child(content)
- var headline: Label = _label("YOUR FIRST POSTER  /  "+setup.logo.to_upper(),13)
- headline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- content.add_child(headline)
- var logo_text: String = setup.name_locked.to_upper()
- if setup.logo=="Monogram":
-  logo_text = ""
-  for part in setup.name_locked.split(" ",false):
-   if not part.is_empty():
-    logo_text+=part.substr(0,1).to_upper()
-  logo_text=logo_text.substr(0,6)
- elif setup.logo=="Stamp":
-  logo_text="— "+logo_text+" —"
- var mark: Label = _label(logo_text,36 if size.x>=720 else 27)
- mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- # These are display colours only; chosen identity is still saved by the model.
- mark.add_theme_color_override("font_color",Color("e5b86a") if setup.palette=="Amber / Charcoal" else (Color("f0ede5") if setup.palette=="White / Ink" else Color("e27d72")))
- content.add_child(mark)
- var identity_caption: Label = _label(setup.palette.to_upper()+"  /  "+setup.vibe.to_upper(),14)
- identity_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- content.add_child(identity_caption)
+ # Native live ink, selected C25 previews; no prerendered band-specific art.
+ var identity_print: Variant = IdentityPress.new()
+ identity_print.name = "IdentityPreviewPrint"
+ content.add_child(identity_print)
+ identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"preview")
  for family in ["logo","palette","vibe"]:
   body.add_child(_label(family.to_upper(),17))
   var options: Array = Model.LOGOS if family=="logo" else (Model.PALETTES if family=="palette" else Model.VIBES)
@@ -450,7 +437,10 @@ func _summary() -> void:
  var card: PanelContainer = _wide_stage(body,760.0)
  var info: VBoxContainer = _column()
  card.add_child(info)
- info.add_child(_label(setup.name_locked.to_upper(),30 if size.x>=720 else 25))
+ var finished_print: Variant = IdentityPress.new()
+ finished_print.name = "CompletedBandPrint"
+ info.add_child(finished_print)
+ finished_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete")
  info.add_child(_label(setup.game.genre+"  /  "+setup.vibe+"  /  "+setup.logo,14))
  var roster_grid := GridContainer.new()
  roster_grid.columns = 2 if size.x >= 840 else 1
