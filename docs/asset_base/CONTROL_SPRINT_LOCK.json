@@ -1,18 +1,23 @@
 {
-  "writer": null,
+  "writer": "S40-refinement-20261030T211025",
   "base_head": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
-  "claimed_at": "2026-10-30T14:55:00Z",
-  "expires_at": "2026-10-30T16:45:00Z",
-  "scope": "S40 Phase2: visually redesign existing rehearsal outcome as print/editorial verdict, real delta tiles and selected portrait reactions; native four-view/input/save validation; then owner playtest packaging",
-  "authority": "30 Oct owner issue#201 comment6524557601; expired prior S39 lease has no live owner; C34/S39 rollback, no production merge",
+  "claimed_at": "2026-10-30T21:10:25Z",
+  "expires_at": "2026-10-30T22:03:00Z",
+  "scope": "S40 same-worker owner extension: improve legibility/engagement in existing rehearsal press, four-view native verification mandatory",
+  "authority": "Owner 30 Oct 21:02 prospective extension until 22:03; issue201 and comment6524557601; no competing worker",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-30T15:17:00Z",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S40 source delivered at 9163db9; native Godot4.7.2 evidence not accessible, no S40 PASS or artwork signoff. S40 active preflight is for future guarded continuation."
+  "note": "S40 source delivered at 9163db9; native Godot4.7.2 evidence not accessible, no S40 PASS or artwork signoff. S40 active preflight is for future guarded continuation.",
+  "previous_s40_release": {
+    "released_at": "2026-10-30T15:17:00Z",
+    "status": "released",
+    "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
+  }
 }
