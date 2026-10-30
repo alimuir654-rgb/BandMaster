@@ -12,8 +12,8 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C31-title-layout-202610300407",
-  "last_verified_code_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+  "writer": null,
+  "last_verified_code_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C31 guarded title and completed-band responsive composition using original flight-case panel; screenshot A/B and native full regressions; package isolated playable project if safely possible.",
+  "next_single_action": "C32 gated polish: fix skinny milestone1 and milestone2 180px portrait frames with deliberate source-backed responsive celebration screens, preserve C31 tested checkpoint and native full journey.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -630,5 +630,7 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
-  }
+  },
+  "last_verified_opening_run": 41001787068,
+  "last_verified_opening_project_artifact": 12952829399
 }

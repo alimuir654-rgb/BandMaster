@@ -1,3 +1,15 @@
+# Current verified opening checkpoint (C31, 30 October 04:16 UK)
+
+**RUNNABLE ISOLATED GODOT 4.7.2 CANDIDATE — TECHNICAL PASS, VISUAL POLISH PARTIAL, OWNER NOT APPROVED.** Exact tested commit `e32ce6402ee9da2ab4816a785ce448722f9f5e2d`; native [run 41001787068](https://github.com/alimuir654-rgb/BandMaster/actions/runs/41001787068) SUCCESS; [all-stage four-viewport native PNGs/logs](https://github.com/alimuir654-rgb/BandMaster/actions/runs/41001787068/artifacts/12953681854) ZIP sha256 `edb5347ddfc79b31c46b849ab95d27c306107201e03b3eeaa629c4bddefe6058`. Re-ran 52 C26 gameplay, 88 opening state and four actual mouse complete opening routes with zero failures. The existing complete C30 source d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a remains preserved as unpolished fallback.
+
+**Playable standalone package now verified:** [project artifact](https://github.com/alimuir654-rgb/BandMaster/actions/runs/41001787068/artifacts/12952829399), outer ZIP sha256 `03319391fdb4e04d50e6ffd5852e653259585ff142f32643b3a2ca7d6e5d2fc7`; contains `livin-the-dream-isolated-godot-4.7.2.zip` inner SHA256 `763c4b36fc8078d5e19c60e1f658c8dcd37bec930be1f55982f0b2bbea7cfb2f`. Extract the inner ZIP to a folder, import `project.godot` in Godot 4.7.2 and press Play. The main scene is `experiments/playable_flightcase/opening.tscn`; native startup smoke passed, original art/controls and all required script dependencies included. This is isolated candidate work, not a production integration or game release. Continue uses separate `user://c27_opening_draft.json`, not production saves.
+
+**Visible gains:** title now full readable LIVIN' THE DREAM on 1280/1600 (deliberate two lines at390); New/Continue/Settings/Quit visible, no clipped bottom action. Completed-band roster/source-backed panel now wide and readable, with center-aligned heading and action buttons. All four original native title/summary image pairs inspected; milestone1/2 still use weak skinny portrait mounts, wider recruitment/naming screens still require independent art judgement. The prior C31 gate failure run41001582542 was logged and corrected before final strict green checks. Avoid claiming final mockup art match.
+
+Next: C32 gated polish: fix skinny milestone1 and milestone2 180px portrait frames with deliberate source-backed responsive celebration screens, preserve C31 tested checkpoint and native full journey. Keep the conditional completion gate, full native regression, 08:00 art/code freeze and09:00 evidence-only review.
+
+---
+
 # Current verified opening checkpoint (C30, 30 October 03:18 UK)
 
 **PLAYABLE ISOLATED CANDIDATE — ENGINEERING GREEN, VISUAL QUALITY PARTIAL / OWNER NOT APPROVED.**

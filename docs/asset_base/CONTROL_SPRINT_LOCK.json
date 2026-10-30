@@ -1,10 +1,12 @@
 {
-  "writer": "C31-title-layout-202610300407",
+  "writer": null,
   "base_head": "87cd22efeb0fa5de5563d55af09b419db03aea2e",
   "claimed_at": "2026-10-30T04:07:07.322Z",
-  "expires_at": "2026-10-30T04:54:00+00:00",
-  "scope": "C31 owner-authorised completion-gated visual polish of ONLY title and completed summary using source-backed flightcase; preserve verified fallback.",
+  "expires_at": "2026-10-30T04:18:39.575Z",
+  "scope": "C31 tested native responsive title/summary closeout; no active writer",
   "authority": "Issue200/comment6511055491, C30 expired03:50, C30 verified d5f71bb, code/art freeze08:00, review09:00",
   "owner_approved": false,
-  "previous_closed_session": "C30 verified complete native checkpoint; C30 lease expired"
+  "previous_closed_session": "C31",
+  "released_at": "2026-10-30T04:18:39.575Z",
+  "status": "released"
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C31",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "30 Oct owner issue #200 and comment 6511055491: once full opening native checkpoint verified, polish EXISTING title/completed-screen layout before 08:00, preserve fallback and visual approval false. C30 end-to-end verified run40996529020 at d5f71bb.",
   "baseline_sha": "87cd22efeb0fa5de5563d55af09b419db03aea2e",
@@ -38,8 +38,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 98616,
-    "sha256": "995615185e74f612b8e894649cac34e721b62e93f086bda5174095c78b9d4a49"
+    "bytes": 102302,
+    "sha256": "ae41674d32bee784e19a1853e14d4a715323c474e5c064dcf5e0c3f4eff04be7"
   },
   "target": {
     "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
@@ -91,5 +91,24 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  },
+  "closeout": {
+    "tested_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
+    "evidence": [
+      "Godot4.7.2 run41001787068 success; 52/52 C26, 88/88 opening, four complete true-pointer playthroughs",
+      "screenshots artifact12953681854 sha256 edb5347ddfc79b31c46b849ab95d27c306107201e03b3eeaa629c4bddefe6058",
+      "standalone runnable project artifact12952829399 outer zip sha256 03319391fdb4e04d50e6ffd5852e653259585ff142f32643b3a2ca7d6e5d2fc7; inner zip sha256 763c4b36fc8078d5e19c60e1f658c8dcd37bec930be1f55982f0b2bbea7cfb2f",
+      "actual source screenshots opened at title390/720/1280/1600 and summary390/720/1280/1600; same-state before after desktop inspected"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "C32 gated polish: fix skinny milestone1 and milestone2 180px portrait frames with deliberate source-backed responsive celebration screens, preserve C31 tested checkpoint and native full journey.",
+    "new_issue_review": "Reviewed C31 BM-21 and BM-30 events including failed 41001582542, appended both verified resolutions, exact prefix 102302 bytes sha256 ae41674d32bee784e19a1853e14d4a715323c474e5c064dcf5e0c3f4eff04be7",
+    "simulated_lenses": {
+      "art_direction": "Title and complete card now credible modular flightcase composition; still generic/dark vs owner mockup, no final art approval.",
+      "technical_art": "Reused independent original nine-sliced source frames; untouched source PNG bytes and inert passive meters.",
+      "accessibility": "Readable multiword brand; New/Continue/Settings/Quit visible on 390 and1280; no 180px orphaning; unchanged real tap target checks.",
+      "godot": "New isolated opening.tscn as project main scene passes native startup smoke; source branch only, no production save changes.",
+      "qa": "52+88+four real-pointer full routes and strict CI green after documented gate failure; pre-existing partial keyboard coverage remains."
+    }
   }
 }
