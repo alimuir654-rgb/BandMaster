@@ -116,7 +116,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  root_box.add_child(scroll)
- var content := _box() if mobile else HBoxContainer.new()
+ var content: BoxContainer = _box() if mobile else HBoxContainer.new()
  if not mobile:
   content.add_theme_constant_override("separation",12)
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -204,7 +204,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  root_box.add_child(scroll)
- var content := _box() if mobile else HBoxContainer.new()
+ var content: BoxContainer = _box() if mobile else HBoxContainer.new()
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  if not mobile:
   content.add_theme_constant_override("separation",12)
