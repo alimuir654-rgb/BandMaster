@@ -241,6 +241,10 @@ func take() -> void:
   else:
    await _draw_screen("identity",w,h)
  if screen.setup.screen=="identity":
+  var identity_stage: Control = screen.find_child("IdentityPreviewStage",true,false)
+  var expected_identity_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
+  if identity_stage==null or identity_stage.get_global_rect().size.x < expected_identity_width-2.0:
+   failures.append("logo/vibe live preview retained narrow portrait frame")
   var stamp_button: Button = null
   for entry in screen.find_children("*","Button",true,false):
    var b: Button = entry as Button
@@ -252,6 +256,9 @@ func take() -> void:
    failures.append("logo selection pointer did not update preview")
   else:
    await _draw_screen("identity_stamp",w,h)
+   var updated_preview: Control = screen.find_child("IdentityPreviewStage",true,false)
+   if updated_preview==null or updated_preview.get_global_rect().size.x < expected_identity_width-2.0:
+    failures.append("logo choice changed preview geometry")
   await click_action(screen.find_child("IdentityFinishAction",true,false))
   if screen.setup.screen!="complete":
    failures.append("real Finish Identity did not reach completed summary")

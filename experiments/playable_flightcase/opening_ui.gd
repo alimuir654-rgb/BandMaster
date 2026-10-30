@@ -405,11 +405,15 @@ func _identity() -> void:
  root.add_child(_label("03 / THE LOOK",24))
  root.add_child(_label("Choose a wordmark, palette and attitude. These choices are cosmetic.",14))
  var body: VBoxContainer = _scroll_body(root)
- var preview: PanelContainer = Kit.frame(look,"portrait")
- body.add_child(preview)
+ # An identity is a poster-width mark, not a portrait-card thumbnail.
+ # Reuse the verified bounded original flight-case nine-slice panel.
+ var preview: PanelContainer = _wide_stage(body,760.0)
+ preview.name = "IdentityPreviewStage"
  var content: VBoxContainer = _column()
  preview.add_child(content)
- content.add_child(_label("LIVE PREVIEW  /  "+setup.logo.to_upper(),14))
+ var headline: Label = _label("YOUR FIRST POSTER  /  "+setup.logo.to_upper(),13)
+ headline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ content.add_child(headline)
  var logo_text: String = setup.name_locked.to_upper()
  if setup.logo=="Monogram":
   logo_text = ""
@@ -419,10 +423,14 @@ func _identity() -> void:
   logo_text=logo_text.substr(0,6)
  elif setup.logo=="Stamp":
   logo_text="— "+logo_text+" —"
- var mark: Label = _label(logo_text,28 if size.x>=720 else 22)
- mark.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ var mark: Label = _label(logo_text,36 if size.x>=720 else 27)
+ mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ # These are display colours only; chosen identity is still saved by the model.
+ mark.add_theme_color_override("font_color",Color("e5b86a") if setup.palette=="Amber / Charcoal" else (Color("f0ede5") if setup.palette=="White / Ink" else Color("e27d72")))
  content.add_child(mark)
- content.add_child(_label(setup.palette+"  /  "+setup.vibe,13))
+ var identity_caption: Label = _label(setup.palette.to_upper()+"  /  "+setup.vibe.to_upper(),14)
+ identity_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ content.add_child(identity_caption)
  for family in ["logo","palette","vibe"]:
   body.add_child(_label(family.to_upper(),17))
   var options: Array = Model.LOGOS if family=="logo" else (Model.PALETTES if family=="palette" else Model.VIBES)
