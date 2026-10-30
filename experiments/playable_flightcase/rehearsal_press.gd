@@ -107,7 +107,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  gallery.name = "RecapMemberGallery"
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
- gallery.custom_minimum_size.y = 142 if mobile else 170
+ gallery.custom_minimum_size.y = 168 if mobile else 188
  content.add_child(gallery)
  var strip := HBoxContainer.new()
  strip.name = "RecapPortraitRow"
@@ -150,6 +150,16 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   line.name = "RecapMember_"+person_id
   line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   card.add_child(line)
+  var personal_morale: int = 0
+  for individual in report.get("member_changes",[]):
+   if individual is Dictionary and str(individual.get("candidate_id",""))==person_id:
+    personal_morale = int(individual.get("changes",{}).get("morale",{}).get("delta",0))
+    break
+  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),9 if mobile else 10,true)
+  morale_badge.name = "RecapMood_"+person_id
+  morale_badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  morale_badge.add_theme_color_override("font_color",Color("954a42") if personal_morale<0 else (Color("376c58") if personal_morale>0 else Color("695c4b")))
+  card.add_child(morale_badge)
  var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
  breakdown.name = "RecapDetailsToggleAction"
  breakdown.pressed.connect(func(): details_toggled.emit())
