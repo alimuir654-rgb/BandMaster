@@ -517,6 +517,9 @@ func take() -> void:
     var restored_name: Label = screen.find_child("RecapMember_cast_jack",true,false) as Label
     if saved_recap==null or restored_name==null or not restored_name.text.contains("Jack"):
      failures.append("S39 saved rehearsal recap missing after genuine menu Continue")
+    var restored_header: Label = screen.find_child("StatusMessage",true,false) as Label
+    if restored_header==null or not restored_header.text.contains("LAST SESSION") or not restored_header.text.contains("Good progress"):
+     failures.append("S39 resumed phase shows stale recruitment text instead of saved rehearsal verdict")
     await _draw_screen("rehearsal_resumed",w,h)
 
  print("C27_CAPTURE_RESULT ",JSON.stringify({"width":w,"height":h,"failures":failures}))
