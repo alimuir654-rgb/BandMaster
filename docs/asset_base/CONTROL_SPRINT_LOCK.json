@@ -1,10 +1,11 @@
 {
-  "writer": "S37-identity-20261030T110500",
+  "writer": null,
   "base_head": "9515fe20c6ef8c0bd942fdfb24552e3475253645",
   "claimed_at": "2026-10-30T11:05:00Z",
   "expires_at": "2026-10-30T11:55:00Z",
-  "scope": "S37 selected-lineup live band-name/logo carry-through on existing named milestone, identity and summary",
+  "scope": "S37 verified identity continuity; expired old S37 lease recovered and released after source/CI/evidence inspection",
   "authority": "Owner post-review issue201 S3, historical issue200 #6511055491, owner_approved=false",
   "owner_approved": false,
-  "status": "claimed"
+  "status": "released",
+  "released_at": "2026-10-30T12:00:00Z"
 }

@@ -1,3 +1,9 @@
+# Phase 2 S37 verified identity continuity (2026-10-30 12:00 UTC)
+
+Source 5b9ad990f41854e566028f7e12de059d965a73f7; native run41047572833 SUCCESS (52 C26 + 88 opening + four true-pointer 390/720/1280/1600 full journeys, save/Continue), artifact12973406060 SHA256 53f84117dce78833ac5fe1a5d54920b3b089c4e07e1d18ad7445a443f9c6886d (ZIP CRC verified). Actual source-honest C25 portraits and live Side Street logo/name now appear on named milestone, Wordmark/Stamp/Monogram and completed band. Original 390/720/1280/1600 PNGs generated; manually opened 390/1280 identity,720 named milestone,1600 summary. Finished first-fold action visible in inspected screenshots. Old S37 source failures remain in append-only issues; exact tested source and all four CI checks green. S37 writer lease had expired 11:55 and was explicitly released by evidence closeout at12:00, without new game code changes. Engineering PASS; visual PARTIAL; owner_approved=false. Next S38 deterministic, saved rehearsal outcomes with exact before/after deltas, no duplicate practice spending.
+
+---
+
 # Phase 2 S36 — verified editorial band-formed poster (2026-10-30 10:17 UTC)
 
 **Verified isolated playable candidate, source `ee1f522f273854082ac0ff1dda84f73a37b2f96f`, NOT merged or owner art-approved.** New first-press / music-magazine cream printed panel inside original case housing, with true selected cast preview photos, names, instruments and assigned lead vocalist. No confetti, runtime AI, changes to gameplay or permanent saves. 

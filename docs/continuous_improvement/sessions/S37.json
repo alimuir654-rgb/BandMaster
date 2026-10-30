@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S37",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner Phase 2 issue#201 S3: after post-09:00 review, carry actual confirmed band name, real chosen 3–6 member C25 portraits and native live wordmark/stamp/monogram through name-locked milestone, logo/vibe preview and completed-band summary. Issue#200+comment6511055491 read for historical controls, not expired time gates. Never merge or mutate production saves.",
   "baseline_sha": "9515fe20c6ef8c0bd942fdfb24552e3475253645",
@@ -71,5 +71,31 @@
     "Open original native before and after of milestone2, identity Wordmark/Stamp, completed summary all four sizes, check first-fold Next/Finish/First Practice and 3–6 roster rows; inspect source SHA and error logs"
   ],
   "started_at": "2026-10-30T11:05:00Z",
-  "scope_end": "2026-10-30T11:55:00Z"
+  "scope_end": "2026-10-30T11:55:00Z",
+  "closeout": {
+    "tested_sha": "5b9ad990f41854e566028f7e12de059d965a73f7",
+    "evidence": [
+      "Source 5b9ad990f41854e566028f7e12de059d965a73f7 exact-SHA push CI successes: native opening run41047572833; gate41047572988; structure41047572889; Godot headless41047572982.",
+      "Native GL/Mesa/Xvfb screenshot/log artifact12973406060 SHA256 53f84117dce78833ac5fe1a5d54920b3b089c4e07e1d18ad7445a443f9c6886d, original ZIP integrity verified.",
+      "Godot capture logs report 52 C26 gameplay checks;88/88 opening model; four true-pointer complete 390x844/720x1280/1280x720/1600x900 save/Continue/gameplay runs failures[].",
+      "Original final native identity 390x844 and1280x720, named milestone720x1280 and completed 1600x900 opened: actual saved Side Street wordmark and selected Jack/Zoe/Casey with lead; 44px Finish/Logo/First Practice visible. Remaining visual: small source-honest portrait crops on desktop and oversized Back to Menu controls. Art PARTIAL.",
+      "Source captured failure history S37 Godot PackedStringArray.join parse, firstfold masthead, desktop CTA and issue SHA digest failure remain in ISSUES.jsonl; corrected source 5b9ad990f41854e566028f7e12de059d965a73f7 passes native."
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "Band naming now carries actual saved wordmark/stamp/monogram live text and selected roster into named milestone, identity options and completed summary. Source-limited portraits visibly small on desktop; not a final mockup match. Owner approval false.",
+    "new_issue_review": "S37 four earlier BM-21/BM-30 issue events retained append-only, reviewed preflight prefix 130960 bytes bcee49ea674904eabdf9eb0ae4318c55893b5885ddecbb50470e1b6006f77de9. Their failures were resolved by tested SHA but history retained; no new failure observed in closeout.",
+    "changed_files": [
+      "experiments/playable_flightcase/band_identity_press.gd",
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: coherent magazine identity across named, preview and summary; desktop portraits small and art still PARTIAL.",
+      "technical_art": "SIMULATED: original small C25 preview crops reused honestly; no invented high-resolution master or modified provenance.",
+      "ui_accessibility": "SIMULATED: inspected 390 phone and 1280 desktop identity Finish visible first fold; native suite covers four sizes, no disabled/focus regressions observed.",
+      "godot_engineering": "SIMULATED: native52 gameplay,88 setup and four full pointer journeys green at exact source SHA; no save model changes.",
+      "qa_producer": "SIMULATED: retained observed failures and final clean CI, recovered expired S37 writer after review; no production merge or owner artwork approval."
+    },
+    "next_action": "S38: implement deterministic saved rehearsal results with auditable before/after deltas, preserving current practice engine, focus choices, named-band save and player input."
+  }
 }
