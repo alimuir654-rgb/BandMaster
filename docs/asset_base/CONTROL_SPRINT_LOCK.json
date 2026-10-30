@@ -1,11 +1,10 @@
 {
-  "writer": null,
-  "base_head": "38b48118193f569ad5866dee0eb57e14d6249cae",
-  "claimed_at": "2026-10-30T09:59:46.887Z",
-  "expires_at": "2026-10-30T10:55:00Z",
-  "scope": "S36 editorial first-press selected-band milestone native verified, 5/6 centered and issue resolved; writer released",
-  "authority": "Owner issue201 S2 new post-review, issue200 historical, owner_approved=false",
+  "writer": "S37-identity-20261030T110500",
+  "base_head": "9515fe20c6ef8c0bd942fdfb24552e3475253645",
+  "claimed_at": "2026-10-30T11:05:00Z",
+  "expires_at": "2026-10-30T11:55:00Z",
+  "scope": "S37 selected-lineup live band-name/logo carry-through on existing named milestone, identity and summary",
+  "authority": "Owner post-review issue201 S3, historical issue200 #6511055491, owner_approved=false",
   "owner_approved": false,
-  "status": "released",
-  "released_at": "2026-10-30T10:17:50.865Z"
+  "status": "claimed"
 }
