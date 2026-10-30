@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S39",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Post-review owner Phase2 issue #201 Sprint5: show a persistent native post-rehearsal report in existing isolated gameplay, with verdict, exact saved before/after changes, actual authored musician-specific reactions, real cohesion/friction, a next action and Continue/reload safety; no additional practice boost, new audio or production changes. Issue #200 historical; preserve C34/S38 checkpoints.",
   "baseline_sha": "d603d428b5fbac1b0a7aac49012d33cf3405ea5d",
@@ -57,5 +57,42 @@
     "Inspect original GL screenshot PNG for post-rehearsal and resumed on all four sizes, compare S38 original identical content, exact source SHA/CI logs, label no owner art approval"
   ],
   "started_at": "2026-10-30T13:09:00Z",
-  "scope_end": "2026-10-30T14:25:00Z"
+  "scope_end": "2026-10-30T14:25:00Z",
+  "closeout": {
+    "tested_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
+    "evidence": [
+      "New pure isolated formatting model rehearsal_recap.gd uses the saved S38 last_rehearsal_outcome only; UI section in ui.gd shows real verdict/focus, source reason, signed readiness, mean real relationship cohesion, band morale, tension, cash, day before→after; named selected musician reactions and true personal morale/fatigue/loyalty effects; recommended next action, real show/hide. No resolver call, no secondary effect, audio/art-master changes or production/main/PR199 writes.",
+      "Real Jack/Zoe/Casey day1→2 post-REHEARSE: readiness18→28(+10), cohesion50→50(0), morale55→54(−1), tension0→2(+2), cash£250→£235(−£15), personal morale Jack+2/Zoe−1/Casey−4 and fatigue each+6. These are outputs of existing S38 real underlying resolver, not invented numerical awards. Saved report survives genuine Continue.",
+      "Original new helper first failed indirectly to parse on source c51f6f (Godot native run41061383227) and later test source c362052, both native failed. BM-30 occurrence recorded before correction; direct native probe run41062094405 located reserved identifier `trait` line31, renamed local personality_tag in source32334de, native run41062236566 PASS. The source/CI failed-attempt history is retained, not deleted.",
+      "After first native visual inspection discovered resumed header incorrectly said initial talent guidance. BM-21 event appended before isolated UI correction (source7b7f8), explicit resumed header native assertion added source01ea1a. Verified revised source native run41062997900 SUCCESS; BM-21 verified-resolution appended. No stale 'Build a band...' in actual saved day2 screen.",
+      "EXACT final native Godot4.7.2/Mesa/Xvfb run41062997900 SUCCESS: C26+12 S39 tests =73/73, opening88/88, all four genuine mouse-ptr full opening→practice→rehearse→collapse/reopen→save/Continue routes failures[] at390x844,720x1280,1280x720,1600x900; script parser direct probe returns0. Native artifact12981705661 original PNG/log ZIP SHA256 e5d541e8d68ba734e50dbcd85a472dd6541916a254c39a476b75cd7fd2b483a8 CRC PASS.",
+      "Four final source-SHA CI workflows all SUCCESS: native41062997900, mandatory gate41062997849, structure41062997815, headless41062997802. Isolated playable project artifact12982335406 outer SHA256 f1f55579d7758f2a7d767c7a4d64d7f3b9aee149fd71ead698f68e2011468275, unpacked inner standalone project SHA256 917650c2608869c9356dab49c7d30838861a3f156b1012f0a19c6192c913e62d (project.godot exists, 513 entries, ZIP integrity PASS). No desktop hardware/owner-liked passive meter images changed.",
+      "Original native PNG opened personally: final rehearsal_outcome390 SHA6be89b738e0f047e53af2d07f446ddaeff280a50cbaf082cc186003a2c8618cd;720 SHA767bed628332b007aff7a27ff65ef8293877faed2c1cd3d03981c33682f5029c;1280 SHAd29a03b4216cf066c8c30b2bf10e6a64b11a9d9108faef5585377d276560f6a3;1600 SHAe13d49bfd6a5b257fcd381d5215a1a4c3a4aa9243b3670d785f93e330a8b557b. Opened resumed390 SHA1c2eccb9935736eafb7951fe635eefebd177926ee4c4db5f7665870a819cec0d,1280 SHA09ae1185947d5bb8e72d46c7a7dcc22818845c0540e18d8bb120be0cf9560950,1600 SHAee763d06e1821a7d0e05515db8f8d49c831ee0867fd07ec543a543b4e3aefb02. Compared original S38 390/1600 and first S39 failed-header screenshots.",
+      "All S39 work stays on dual-frame-proof-2026-10-28 as isolated Godot project. C34 baseline 104c494... and S38 c4ee737... remain untouched and usable. Original C25 approved photos, control/6 inert meter texture bytes, original gameplay resolver and real production saves unchanged."
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "Substantive actual native UX improvement: readable physical session-notes module, real musician responses, six exact before→after result lines and next-action on saved play screen, after genuine gameplay and Continue. Desktop1600 shows complete two-column report with all controls visible. Phone390 and 720 portrait show report first and original actions later in scroll; at1280×720 Rehearse/next action lie below first fold, but real-pointer scrolling test passed. The repeated flight-case nested metal frame and typographic size remain less polished than owner mockups; first-play human visual review not yet done. Technical PASS, internal art PARTIAL, owner artwork approval false; no Android or device audio validation.",
+    "new_issue_review": "Full immutable append-only JSONL prefix 138491 bytes, SHA256 d72b2726d5e79e9abe332e41459b74fdfa675a5961a3aef0144de718d17c7fc8 reviewed; BM-30 Godot parser failure and verified resolution, BM-21 stale resumed header recurrence and verified resolution retained. All other original history preserved. No remaining critical native input/save failures identified; actual device/owner art acceptance still pending.",
+    "changed_files": [
+      "experiments/playable_flightcase/rehearsal_recap.gd",
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/native_test.gd",
+      "experiments/playable_flightcase/opening_capture.gd",
+      "docs/continuous_improvement/sessions/S39.json",
+      "docs/continuous_improvement/ISSUES.jsonl",
+      "docs/continuous_improvement/CURRENT.json",
+      "docs/asset_base/STATE.json",
+      "docs/asset_base/LEDGER.md",
+      "docs/asset_base/REVIEW_INDEX.md",
+      "docs/asset_base/CONTROL_SPRINT_LOCK.json"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: A report resembling in-room notes is more credible and less cheesy than a toast, but stacked material panels and dense phone text remain visually PARTIAL; not evidence of owner acceptance.",
+      "technical_art": "SIMULATED: No new art sources generated; preserves all approved source-honest C25 222–240px preview crops, existing source-backed flight-case metal and six passive meter bytes, no fake transparent masters.",
+      "ui_accessibility": "SIMULATED: Actual 390/720/1280/1600 screenshots read. Explicit HIDE/VIEW notes button, saved status and selected musician lines legible, original navigation remains. 390/720 rehearsal actions need scrolling when report expanded; 1280 first fold is crowded; meaningful scroll concern for S40 review.",
+      "godot_engineering": "SIMULATED: Direct parse and 73 game +88 opening +4 full real pointer test routes green, including show/hide as pure view and genuine saved Continue/no double settlement. New UI reads S38 report; original resolver and save namespaces intact.",
+      "qa_producer": "SIMULATED: failed native compilation and obsolete header both recorded before corrections with unchanged failure artifacts. Final exact SHA CI four workflows green; native screenshots/log ZIP and independently checked CRC/digests; no production merge. Owner approval false."
+    },
+    "next_action": "S40 Phase2 Sprint6: focused actual mobile/desktop legibility/scroll/selected-state QA, full isolated opening+rehearsal regression, final packaged playable handoff and owner review; retain S39 tested checkpoint and no unapproved merge or Android/device-audio claims."
+  }
 }
