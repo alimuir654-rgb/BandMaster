@@ -13,7 +13,7 @@
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
   "writer": "C30-opening-native-202610300300",
-  "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
+  "last_verified_code_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C30: correct native enum and handler result plus CI stale preflight; test complete naming/identity/save/handoff with four actual native viewports before polish.",
+  "next_single_action": "C30 gated polish: fix visibly narrow unreadable title/summary using existing source-backed flight-case look, compare native unchanged states/4 viewports, protect full tested checkpoint.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -612,5 +612,23 @@
     "baseline_sha": "dfcb32e91d5134b54c3c13f9d9de2cdb01f87282",
     "created_at": "2026-10-30T02:59:29.437Z",
     "deadline": "2026-10-30T03:50:00+00:00"
+  },
+  "playable_opening_checkpoint": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
   }
 }

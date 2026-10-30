@@ -3,7 +3,7 @@
   "base_head": "dfcb32e91d5134b54c3c13f9d9de2cdb01f87282",
   "claimed_at": "2026-10-30T02:59:29.437Z",
   "expires_at": "2026-10-30T03:50:00+00:00",
-  "scope": "C30 isolate native compile + CI gate repair + full opening test, conditional polish closed until end-to-end pass.",
+  "scope": "C30 complete opening checkpoint verified at d5f71bb; owner-authorised gated polish of existing screens only until08:00, preserve fallback and one writer.",
   "authority": "Owner issue200/comment6511055491, prior C29 expired 02:50 and base checked. 08:00 code freeze/09:00 review.",
   "owner_approved": false,
   "previous_closed_session": "C29 lease expired with only preflight and no source implementation"

@@ -11,7 +11,25 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "C30: correct native enum and handler result plus CI stale preflight; test complete naming/identity/save/handoff with four actual native viewports before polish.",
+  "next_action": "C30 gated polish: fix visibly narrow unreadable title/summary using existing source-backed flight-case look, compare native unchanged states/4 viewports, protect full tested checkpoint.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
-  "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00."
+  "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
+  "completion_gate": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  }
 }

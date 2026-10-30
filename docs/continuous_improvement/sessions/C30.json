@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 90622,
-    "sha256": "37ba5d4f01ca701f9587fd323d32d44f70d3c7bb4afc2147bbd3f36866ce045b"
+    "bytes": 94778,
+    "sha256": "2cf3b0c3c280aadcc2563c446550b817e2b92c222c6947000a67c11c874cfcde"
   },
   "target": {
     "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
@@ -72,5 +72,23 @@
     "Protect six inert meter bytes and isolated save user:// paths"
   ],
   "started_at": "2026-10-30T02:59:29.437Z",
-  "scope_end": "2026-10-30T03:50:00+00:00"
+  "scope_end": "2026-10-30T03:50:00+00:00",
+  "completion_gate": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  }
 }

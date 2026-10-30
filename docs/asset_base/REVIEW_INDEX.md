@@ -1,3 +1,16 @@
+# Current verified opening checkpoint (C30, 30 October 03:18 UK)
+
+**PLAYABLE ISOLATED CANDIDATE — ENGINEERING GREEN, VISUAL QUALITY PARTIAL / OWNER NOT APPROVED.**
+Source `d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a`, [native workflow run 40996529020](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40996529020), [four-size complete opening screenshots and test logs](https://github.com/alimuir654-rgb/BandMaster/actions/runs/40996529020/artifacts/12951901120), ZIP SHA256 `4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d`. Real Godot4.7.2: existing C26 52, extended opening88, native four-viewpoint stage-by-stage true-pointer playthrough all with zero assertion failures. This is an immutable fall-back test point for any optional visual polish; no production scene/real save edits, no merge.
+
+To play: obtain isolated project from the workflow/source path `experiments/playable_flightcase/`, launch Godot4.7.2 with the required scoped components and approved cast, choose New Band → Genre → Guitar/Bass/Drums → Assign one vocalist → Complete Lineup → milestone1 → three suggested/custom name with Raw/Dark/Playful/Dreamy → one rethink → lock → milestone2 → logo/vibe → First Practice; Continue restores the isolated draft. The workflow assembles dependencies in /tmp/c27-opening; source repository alone is not yet a packaged standalone zip of the isolated project. C25 portrait crops are only small previews; C21 notebook rejected and parked.
+
+Visual quality is explicitly NOT accepted: native title/summary layout weak, narrow central frames, cropped/orphaned brand, original owner mockup still artistic target. User condition authorises targeted polish on existing stages only until08:00 after this verified checkpoint, not new scope. See C30 session and issue #200.
+
+---
+
+## Prior cast and frame evidence (retained)
+
 # Current review
 
 Latest scoped result: [C25 approved cast imported and scored](../continuous_improvement/C25_REVIEW.md).
