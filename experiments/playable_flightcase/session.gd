@@ -95,6 +95,23 @@ func launch() -> Dictionary:
   return {"ok":false,"message":"The band has already started."}
  if not can_start():
   return {"ok":false,"message":"Still need: "+Base.missing(roster)}
+ return _commit_formation("",[])
+
+func launch_with_vocals(lead_id: String,vocal_scores: Array) -> Dictionary:
+ # An opening-journey-only option: selected instrumentalist may also sing.
+ # Canonical Base.viable remains intact for all previous C26 callers.
+ if phase != "recruit":
+  return {"ok":false,"message":"The band has already started."}
+ var roles: Array = Base.coverage(roster)
+ if roster.size()<3 or roster.size()>6 or Base.spent(roster)>Base.MAX_TALENT:
+  return {"ok":false,"message":"A valid band needs 3-6 musicians within budget."}
+ if not roles.has("Guitarist") or not roles.has("Bassist") or not roles.has("Drummer"):
+  return {"ok":false,"message":"Guitar, bass and drums are all required."}
+ if not Base.contains(roster,lead_id) or vocal_scores.size()!=6:
+  return {"ok":false,"message":"Choose one selected musician for lead vocals."}
+ return _commit_formation(lead_id,vocal_scores)
+
+func _commit_formation(lead_id: String,vocal_scores: Array) -> Dictionary:
  var members: Array = []
  for i in range(roster.size()):
   members.append(_member(roster[i],i))
@@ -103,6 +120,9 @@ func launch() -> Dictionary:
   "songs":0,"song_catalogue":[],"current_song_draft":{},"song_draft_progress":0,
   "fans":0,"buzz":0,"press":0,"gear":0,"gig_history":[],
   "action_count":0,"action_counters":{},"career_journal":[],"relationships":{}}
+ if not lead_id.is_empty():
+  career["lead_vocal_candidate_id"] = lead_id
+  career["lead_vocal_stats"] = vocal_scores.duplicate()
  phase = "play"
  return {"ok":true,"message":"Band formed. Book your first rehearsal."}
 
@@ -177,7 +197,13 @@ func restore(data: Dictionary) -> bool:
   return false
  if requested_phase == "play":
   if not Base.viable(trial):
-   return false
+   var roles: Array = Base.coverage(trial)
+   var lead_id: String = str(saved_state.get("lead_vocal_candidate_id",""))
+   var vocal_values: Variant = saved_state.get("lead_vocal_stats",[])
+   if trial.size()<3 or not roles.has("Guitarist") or not roles.has("Bassist") or not roles.has("Drummer"):
+    return false
+   if not Base.contains(trial,lead_id) or not vocal_values is Array or vocal_values.size()!=6:
+    return false
   var members: Variant = saved_state.get("members",[])
   if not members is Array or members.size() != trial.size():
    return false
