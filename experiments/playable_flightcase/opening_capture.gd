@@ -483,6 +483,28 @@ func take() -> void:
     failures.append("S38 genuine Rehearse press did not settle exactly once")
    if int(metrics.get("cash",{}).get("delta",999))!=-15 or not metrics.has("readiness") or not metrics.has("cohesion"):
     failures.append("S38 Rehearse outcome missing actual cost, readiness or social cohesion")
+   # S39: the player sees the full SAME saved result, not an invented second action.
+   var recap: Control = screen.find_child("RehearsalRecapPanel",true,false) as Control
+   var ready_text: Label = screen.find_child("RecapMetric_readiness",true,false) as Label
+   var cohesion_text: Label = screen.find_child("RecapMetric_cohesion",true,false) as Label
+   var musician_text: Label = screen.find_child("RecapMember_cast_jack",true,false) as Label
+   if recap==null or ready_text==null or cohesion_text==null or musician_text==null:
+    failures.append("S39 actual native rehearsal recap, exact metrics or named selected musician absent")
+   elif not ready_text.text.contains("28") or not musician_text.text.contains("Jack"):
+    failures.append("S39 native recital does not show actual saved readiness/selected Jack")
+   var before_ui_only: Dictionary = screen.setup.snapshot()
+   var toggle_notes: Button = screen.find_child("RecapToggleAction",true,false) as Button
+   if toggle_notes==null:
+    failures.append("S39 real recap show/hide button absent")
+   else:
+    await click_action(toggle_notes)
+    if screen.find_child("RehearsalRecapPanel",true,false)!=null:
+     failures.append("S39 hide report failed")
+    await click_action(screen.find_child("RecapToggleAction",true,false))
+    if screen.find_child("RehearsalRecapPanel",true,false)==null:
+     failures.append("S39 show report failed")
+    if screen.setup.snapshot()!=before_ui_only:
+     failures.append("S39 viewing notes mutated the career/settled rehearsal twice")
    await _draw_screen("rehearsal_outcome",w,h)
    var saved_after_rehearsal: Dictionary = screen.setup.snapshot()
    screen.call("_home")
@@ -491,6 +513,10 @@ func take() -> void:
    if screen.setup.screen!="play" or screen.setup.snapshot()!=saved_after_rehearsal:
     failures.append("S38 real Continue re-applied or lost the saved rehearsal")
    else:
+    var saved_recap: Control = screen.find_child("RehearsalRecapPanel",true,false) as Control
+    var restored_name: Label = screen.find_child("RecapMember_cast_jack",true,false) as Label
+    if saved_recap==null or restored_name==null or not restored_name.text.contains("Jack"):
+     failures.append("S39 saved rehearsal recap missing after genuine menu Continue")
     await _draw_screen("rehearsal_resumed",w,h)
 
  print("C27_CAPTURE_RESULT ",JSON.stringify({"width":w,"height":h,"failures":failures}))
