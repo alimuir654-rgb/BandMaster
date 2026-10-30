@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S38",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner Phase2 issue#201 Sprint4: make existing C26 real rehearsal/write/clear-air consequences explicit and auditable in saved isolated candidate. One deterministic post-action result describing readiness, relationship cohesion, morale/member satisfaction and tension/fatigue with before/after deltas; choice and traits cause effects; no new song audio or production merges. Preserve issue#200 as historical and all repo policy.",
   "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
@@ -57,5 +57,34 @@
     "Open original native GL rehearsal pre/post PNGs at four sizes; compare actual status and no clipped action; inspect exact testedSHA run and errors"
   ],
   "started_at": "2026-10-30T12:03:16Z",
-  "scope_end": "2026-10-30T13:15:00Z"
+  "scope_end": "2026-10-30T13:15:00Z",
+  "closeout": {
+    "tested_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+    "evidence": [
+      "Preflight aa0f6a06708a81d0f90076d7c235b2c7498c01a1 committed before source implementation; gate and structure PASS. Earlier completed S37 source 5b9ad990 and immutable C34 checkpoint preserved.",
+      "Native Godot 4.7.2 real GL/Mesa/Xvfb run41053613819 at exact tested SHA c4ee73728664e1dc4cda162085fab34a2bde0c40 SUCCESS: C26 gameplay61/61 (52 original + nine targeted rehearsal checks), opening88/88, 390x844/720x1280/1280x720/1600x900 true-pointer full opening/Continue/Rehearse/Continue journeys failures[].",
+      "Exact source SHA workflows: gate41053613797 success, structure41053613831 success, general Godot headless41053613795 success, native41053613819 success.",
+      "Original native screenshots/logs ZIP artifact12974954839 SHA256 23531e1b8ea49d199047f5d09b9f95e6a31e6c13a012ae5a5e23a2567c693486 CRC PASS, source files and GL original PNGs inspected: rehearsal_outcome-390x844 SHA23163240b2b9bba8014695eb50e7175daf23152c8d629b1891610bb96ea3a28c;720x1280 SHA979c0d1cf5aba74eb935aee18aed1481ec9bb9c86d345c7cc6f51603d1882135;1280x720 SHA698bb7676c5c5b53d3a6c7927803817a3ce5c466c90ee65fb583b161ea78d266;1600x900 SHA817d66614b7b20f590f456dc662c6a3d457cca37201454a07e5fdea4d79135b8.",
+      "Personally opened before original S37 practice-390/1280 and after S38 rehearsal outcome-390/720/1280/1600 plus resumed-390. Actual native pointer rehearsal brought Day1→2, cash £250→£235, readiness18→28, morale55→54, tension0→2, selected member morale changes; no visible clipping added.",
+      "Isolated Godot4.7.2 project artifact12975024435 outer SHA d37da01862b133728ef3f2b054dbc7ed5ff1392b8fca7ee4f5fe8fc3cf040665 inner single-layer importable source ZIP SHA 0d5e59ce0c2e70fff4aabb61d73a5e0d31a3255f688cddff1d4d27f94591708c CRC PASS project.godot present. No production engine/asset/scene/save changes.",
+      "Data contains causal focus, unique action ID, original rationale, per-member morale/fatigue/skill/loyalty and true relationship mean cohesion plus readiness/morale/tension/cash/day before/after, persisted in existing career via one state assignment with actual resolver, no extra grant. Failed cash0 rehearsal non-mutating, risk-adjusted case, reload outcome equality tests pass."
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "Actual first-practice screen now gives a short real result (Good progress. set +10; tension +2) following a genuine pointer click; result is a text-only status, not yet the complete responsive rehearsal recap the owner requested. At 390x844 the existing case UI retains first-fold real REHEARSE and CLEAR AIR; desktop1280 existing Rehearse is below first fold but scroll-and-click works. After Save/Continue, numerical state and full report data remain, but ephemeral status text resets to the old generic header. A persistent dedicated result presentation and clear 'readiness' wording/member quotes remain deliberately S39. No visual mockup approval; owner_approved=false.",
+    "new_issue_review": "Latest append-only event prefix 130960 bytes sha256 bcee49ea674904eabdf9eb0ae4318c55893b5885ddecbb50470e1b6006f77de9 reviewed unchanged; source & native tests observed zero new failures. Existing S37 BM-21/BM-30 failure history preserved. Remaining display scope (persistent recap, explicit mixed/tense fixtures) is owner-planned S39, not silently labelled verified.",
+    "changed_files": [
+      "experiments/playable_flightcase/session.gd",
+      "experiments/playable_flightcase/native_test.gd",
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: discreet immediate positive/tense verdict fits flight-case tone, but the present header-only result is visually small and not the final magazine-style outcome. Artistic PARTIAL.",
+      "technical_art": "SIMULATED: all original C25 cast art, source-backed hardware and owner-liked six passive meters untouched; no new art/portrait or runtime dependency.",
+      "ui_accessibility": "SIMULATED: physically visible REHEARSE on phone390 and tablet720; true-pointer scrolling required at desktop1280, existing behaviour. Verdict legible at top; persistent replay/clearer 'readiness' and member responses belong S39.",
+      "godot_engineering": "SIMULATED: accounting wraps actual canonical deterministic resolver, no invented stats/second rewards, preserves nested JSON integer save and per-person changes. 61+88+4 four viewport native zero failures.",
+      "qa_producer": "SIMULATED: exact code SHA, all four workflows green, artifact and original screen hashes/inspection recorded, no observed critical defects; no owner artwork sign-off and no real Android device/audio tested."
+    },
+    "next_action": "S39: native persistent rehearsal recap in existing gameplay, revealing saved exact before/after, characterful roster-specific reactions, actual cohesion/friction and no duplicate settlement, plus positive/mixed/tense outcome fixtures."
+  }
 }

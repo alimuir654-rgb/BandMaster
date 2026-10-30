@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S38.json",
-  "scope": "Phase2 S38 active: deterministic auditable C26 practice outcomes and saved before/after, no new screen.",
+  "scope": "Phase2 S38 complete: deterministic actual rehearsal outcomes with before/after saved in existing isolated gameplay; immediate short UI verdict. Next S39 persistent result/musician reactions.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "S38 implement/test model+status within sole writer lease",
+  "status": "closed",
+  "next_action": "S39: native persistent rehearsal recap in existing gameplay, revealing saved exact before/after, characterful roster-specific reactions, actual cohesion/friction and no duplicate settlement, plus positive/mixed/tense outcome fixtures.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
@@ -40,10 +40,10 @@
     "owner_approved": false
   },
   "last_phase2_sprint": {
-    "id": "S37",
-    "tested_sha": "5b9ad990f41854e566028f7e12de059d965a73f7",
-    "native_run_id": 41047572833,
-    "artifact_id": 12973406060,
+    "id": "S38",
+    "tested_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+    "native_run_id": 41053613819,
+    "artifact_id": 12974954839,
     "visual_verdict": "partial",
     "owner_approved": false
   }

@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S38-rehearsal-20261030T120316",
-  "last_verified_code_sha": "5b9ad990f41854e566028f7e12de059d965a73f7",
+  "writer": null,
+  "last_verified_code_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -29,7 +29,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "S38 model+status result, verify actual pointer/save and native pixels",
+  "next_single_action": "S39: native persistent rehearsal recap in existing gameplay, revealing saved exact before/after, characterful roster-specific reactions, actual cohesion/friction and no duplicate settlement, plus positive/mixed/tense outcome fixtures.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -423,7 +423,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "S37 real name/logo/selected-band identity continuity, native PASS, visual PARTIAL",
+  "last_completed_deliverable": "S38 deterministic rehearsals with saved per-member/social/financial/readiness outcomes and real immediate verdict; 61+88+four native pointer/save passes; visual partial",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -469,7 +469,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-30T12:00:00Z",
+  "last_updated_utc": "2026-10-30T12:16:00Z",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -609,9 +609,11 @@
     "session": "S38",
     "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
     "scope_end": "2026-10-30T13:15:00Z",
-    "authority": "owner issue201 S4",
+    "authority": "issue201 S4",
     "owner_approved": false,
-    "status": "active"
+    "status": "closed",
+    "source_verified_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+    "closed_at": "2026-10-30T12:16:00Z"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -648,13 +650,14 @@
     "owner_approved": false
   },
   "current_session": "S38",
-  "last_verified_native_run": 41047572833,
+  "last_verified_native_run": 41053613819,
   "latest_verified_phase2": {
-    "sprint": "S37",
-    "source_sha": "5b9ad990f41854e566028f7e12de059d965a73f7",
-    "native_run": 41047572833,
-    "artifact": 12973406060,
-    "artifact_sha256": "53f84117dce78833ac5fe1a5d54920b3b089c4e07e1d18ad7445a443f9c6886d",
+    "sprint": "S38",
+    "source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+    "native_run": 41053613819,
+    "artifact": 12974954839,
+    "artifact_sha256": "23531e1b8ea49d199047f5d09b9f95e6a31e6c13a012ae5a5e23a2567c693486",
+    "playable_artifact": 12975024435,
     "owner_approved": false
   }
 }
