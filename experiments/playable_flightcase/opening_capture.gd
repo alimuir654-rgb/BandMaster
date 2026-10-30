@@ -18,6 +18,13 @@ func click_action(button: Button) -> void:
  if button==null or button.disabled:
   failures.append("missing or disabled action")
   return
+ for layout_attempt in range(5):
+  if button.is_inside_tree() and button.get_global_rect().size.x>=44 and button.get_global_rect().size.y>=44:
+   break
+  await process_frame
+ if not button.is_inside_tree() or button.get_global_rect().size.x<44 or button.get_global_rect().size.y<44:
+  failures.append("action has no settled physical geometry: "+button.name)
+  return
  # Real controls can sit below the first fold on 390px phones. Scroll the
  # actual in-scene ScrollContainer rather than faking a pressed signal.
  var ancestor: Node = button.get_parent()
@@ -46,6 +53,8 @@ func click_action(button: Button) -> void:
  release.global_position = point
  release.pressed = false
  Input.parse_input_event(release)
+ await process_frame
+ await process_frame
  await process_frame
 func take() -> void:
  var w := maxi(320,int(OS.get_environment("CAPTURE_WIDTH")))
@@ -125,6 +134,10 @@ func take() -> void:
       role_tab=tab_button
       break
     await click_action(role_tab)
+    await process_frame
+    if str(pane.get("role"))!=desired_role:
+     failures.append("real role tab did not select "+desired_role+", observed "+str(pane.get("role")))
+     break
     var choices: Array = screen.setup.game.choices(desired_role)
     var found_target := false
     for attempt in range(choices.size()):
@@ -139,6 +152,7 @@ func take() -> void:
        next_candidate=candidate_button
        break
      await click_action(next_candidate)
+     await process_frame
     if not found_target:
      failures.append("could not browse to "+desired_id+" in "+desired_role)
      break
