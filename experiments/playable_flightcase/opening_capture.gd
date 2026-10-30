@@ -469,6 +469,29 @@ func take() -> void:
    failures.append("real Continue failed to restore live gameplay without state loss")
   else:
    await _draw_screen("resumed_practice",w,h)
+  # S38: genuine pointer press of the existing Rehearse button, then
+  # verify the saved causal result is restored by the real Continue menu.
+  var rehearsal_action: Button = screen.find_child("RehearseAction",true,false)
+  if rehearsal_action==null:
+   failures.append("S38 rehearsal control missing after actual gameplay handoff")
+  else:
+   var count_before: int = int(screen.setup.game.career.get("action_count",0))
+   await click_action(rehearsal_action)
+   var report: Dictionary = screen.setup.game.career.get("last_rehearsal_outcome",{})
+   var metrics: Dictionary = report.get("metrics",{})
+   if report.get("focus","")!="tighten" or int(screen.setup.game.career.get("action_count",0))!=count_before+1:
+    failures.append("S38 genuine Rehearse press did not settle exactly once")
+   if int(metrics.get("cash",{}).get("delta",999))!=-15 or not metrics.has("readiness") or not metrics.has("cohesion"):
+    failures.append("S38 Rehearse outcome missing actual cost, readiness or social cohesion")
+   await _draw_screen("rehearsal_outcome",w,h)
+   var saved_after_rehearsal: Dictionary = screen.setup.snapshot()
+   screen.call("_home")
+   await process_frame
+   await click_action(screen.find_child("ContinueAction",true,false))
+   if screen.setup.screen!="play" or screen.setup.snapshot()!=saved_after_rehearsal:
+    failures.append("S38 real Continue re-applied or lost the saved rehearsal")
+   else:
+    await _draw_screen("rehearsal_resumed",w,h)
 
  print("C27_CAPTURE_RESULT ",JSON.stringify({"width":w,"height":h,"failures":failures}))
  quit(0 if failures.is_empty() else 1)
