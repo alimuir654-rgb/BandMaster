@@ -110,6 +110,18 @@ func take() -> void:
   if meter == null or meter.focus_mode!=Control.FOCUS_NONE or meter.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
    failures.append("meter focus/input regression")
 
+ # The selected-candidate decision must be in the first fold without scrolling.
+ var first_dock: Control = screen.find_child("RecruitDecisionDock",true,false)
+ var first_recruit: Button = screen.find_child("RecruitAction",true,false)
+ if first_dock == null or first_recruit == null:
+  failures.append("first-fold recruitment decision dock or action missing")
+ else:
+  var recruit_rect: Rect2 = first_recruit.get_global_rect()
+  if recruit_rect.size.y < 44.0 or recruit_rect.position.y < 0.0 or recruit_rect.end.y > float(h) - 4.0:
+   failures.append("recruit action clipped or below first fold: "+str(recruit_rect))
+  if first_recruit.get_parent() != first_dock:
+   failures.append("recruit action still trapped inside portrait scroll")
+
  # Roster is an explicitly declared deterministic fixture here; the 38 original
  # C27 and expanded end-to-end model tests independently exercise recruit/remove,
  # refunds and vocals. The remaining transitions use actual native mouse events.
@@ -174,6 +186,12 @@ func take() -> void:
    if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready():
     failures.append("real vocalist selection or mandatory trio not ready")
   var ready_action: Button = screen.find_child("StartAction",true,false)
+  if ready_action == null:
+   failures.append("ready lineup action not revealed in fixed decision dock")
+  else:
+   var ready_rect: Rect2 = ready_action.get_global_rect()
+   if ready_rect.size.y < 44.0 or ready_rect.end.y > float(h) - 4.0:
+    failures.append("ready lineup action clipped below first fold: "+str(ready_rect))
   await click_action(ready_action)
   if screen.setup.screen!="formed":
    failures.append("real Complete Lineup click did not reach milestone1")

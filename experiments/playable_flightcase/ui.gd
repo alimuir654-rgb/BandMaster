@@ -167,7 +167,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var action: Button = _button("REMOVE FROM BAND" if recruited else "RECRUIT  •  %d TALENT" % cost,_remove.bind(str(person["id"])) if recruited else _recruit.bind(str(person["id"])))
  action.name = "RecruitAction" if not recruited else "RemoveAction"
  action.disabled = false if recruited else not (bool(onboarding_state.can_recruit(str(person["id"]))) if onboarding_state != null else Base.can_add(game.roster,person))
- detail.add_child(action)
+ # Keep the portrait and six passive meters scrollable, with the native
+ # recruit/remove decision persistently visible underneath the dossier.
  var aside := _box()
  aside.custom_minimum_size.x = 0 if mobile else 320
  aside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -198,7 +199,19 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch)
  start.name = "StartAction"
  start.disabled = not (bool(onboarding_state.ready()) if onboarding_state != null else game.can_start())
- aside.add_child(start)
+ # Real source-backed actions live outside the scroll on every viewport.
+ var dock: BoxContainer = _box() if mobile else HBoxContainer.new()
+ dock.name = "RecruitDecisionDock"
+ dock.add_theme_constant_override("separation",8)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ root_box.add_child(dock)
+ action.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ dock.add_child(action)
+ if not start.disabled:
+  start.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  if mobile:
+   start.text = "COMPLETE LINEUP"
+  dock.add_child(start)
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var scroll := ScrollContainer.new()
