@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "S40",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.",
+  "baseline_sha": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-14",
+    "BM-16",
+    "BM-17",
+    "BM-18",
+    "BM-20",
+    "BM-21",
+    "BM-26",
+    "BM-27",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 138491,
+    "sha256": "d72b2726d5e79e9abe332e41459b74fdfa675a5961a3aef0144de718d17c7fc8"
+  },
+  "target": {
+    "locator": "Original actual S39 Godot 4.7.2 screenshot /mnt/data/S39_inspection/c27-rehearsal_outcome-390x844.png (SHA256 6be89b738e0f047e53af2d07f446ddaeff280a50cbaf082cc186003a2c8618cd), opened at 14:56 30 Oct; also original 1600 screenshot e13d49b. The phone screen is a long scroll of monochrome textual metrics and paragraphs, with rehearsal options below first fold. Owner explicitly rejected its engagement, requested more imagery. No owner-approved rehearsal mockup was supplied; preserve film/flightcase visual identity and mark owner_approved=false.",
+    "original_sha256": "6be89b738e0f047e53af2d07f446ddaeff280a50cbaf082cc186003a2c8618cd",
+    "pixels_inspected": true
+  },
+  "hypothesis": "A separate outcome stage with source-backed printed paper, dominant saved verdict, real signed readiness/morale/tension tiles, accurately pictured selected musician reactions and a fixed first-fold BACK TO PRACTICE action will improve readability and player engagement without changing any simulator data. The same report supports expandable exact six-metric explanations. Keep existing RecapMetric_*/RecapMember_* node names for S39 save tests. Do not flatten a screen into art or pretend contact-crop previews are masters.",
+  "controlled_comparison": "Use exact saved Jack/Zoe/Casey real first Rehearse on Day2, readiness18→28, morale55→54, tension0→2, £250→£235 and same existing native case. Compare S39 original four viewport rehearsal_outcome/resumed PNG to exact S40 four-view Godot captures at390x844,720x1280,1280x720,1600x900. First-fold button must be ≥44px and visible on390x844 and1280x720; 3 real portraits preserve IDs; detailed numbers accessible; actual S39 Rehearse and Continue routes must remain green and no double settlement. Two ineffective attempts -> change method/hold.",
+  "stop_condition": "ONE writer S40-editorial-recap-20261030T145500 from 2026-10-30T14:55:00Z until 2026-10-30T16:45:00Z. Reclaimed after stale S39 lease expired at14:25 and S39 canonical state closed with writer null. Commit this preflight before changing UI, pass mandatory check and native CI; if critical defects emerge or lease expires without recovery, release and honestly report partial/blocked. Preserve source-tested S39 01ea1a... and C34 104c... rollback. No work on main/PR199, production saves, core practice rules or artwork masters.",
+  "protected": [
+    "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
+    "C25 18 identities and original 230x228 approved contact-crop previews (not high-res masters)",
+    "six passive signal meters unchanged, Lab07/Lab08 photographic control sources and current flightcase skin",
+    "Scripts/practice_room.gd, original resolver, production main/PR199 and real save names; no new bonus, AI music, paid dependency, production promotion"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before $S40_PREFLIGHT_SHA --require-prior-record",
+    "GitHub native Godot4.7.2 playable-flightcase workflow 73+ gameplay, 88 opening and four real mouse full opening+rehearsal+Continue journeys with gallery/screens",
+    "Inspect original same-state Godot screenshots at390x844 720x1280 1280x720 1600x900 against S39 baseline, check fixed first-fold CTA/collapsible details/portrait IDs, no duplicate settlement, source hashes/CI artifacts",
+    "Pack and verify playable isolated project only after exact SHA native PASS, five simulated lenses and truthful owner review"
+  ],
+  "started_at": "2026-10-30T14:55:00Z",
+  "scope_end": "2026-10-30T16:45:00Z",
+  "evidence_status": "preflight_pending_initial_gate"
+}
