@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S40-editorial-recap-20261030T145500",
+  "writer": null,
   "last_verified_code_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
   "baseline": {
     "run_id": 40778019754,
@@ -661,5 +661,15 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "S40 owner-directed rehearsal recap art/UX, native validation before packaging. Prior S39 writer lease expired 14:25 and S39 session closed."
+  "next_action": "S40 resumes with one new guarded writer claim: verify candidate source 9163db9 native Godot4.7.2 at four viewports including first-fold action, details toggle, member photo IDs and save/Continue. Diagnose/fix any native issue, then package only after PASS. No automatic approval/merge.",
+  "latest_unverified_phase2_candidate": {
+    "sprint": "S40",
+    "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
+    "native_verified": false,
+    "artistic_review": "hold",
+    "owner_approved": false,
+    "structural_checks": 11,
+    "checkpoint_verified": "01ea1a5730c087ab85960edd0104bf87012885a4",
+    "stage": "source_committed_awaiting_native_exact_sha"
+  }
 }
