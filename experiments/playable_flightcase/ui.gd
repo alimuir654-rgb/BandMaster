@@ -203,7 +203,11 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var dock: BoxContainer = _box() if mobile else HBoxContainer.new()
  dock.name = "RecruitDecisionDock"
  dock.add_theme_constant_override("separation",8)
- dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ if mobile:
+  dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ else:
+  dock.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  dock.custom_minimum_size.x = 760.0
  root_box.add_child(dock)
  action.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  dock.add_child(action)

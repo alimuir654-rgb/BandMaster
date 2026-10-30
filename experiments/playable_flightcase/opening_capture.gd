@@ -121,6 +121,10 @@ func take() -> void:
    failures.append("recruit action clipped or below first fold: "+str(recruit_rect))
   if first_recruit.get_parent() != first_dock:
    failures.append("recruit action still trapped inside portrait scroll")
+  if w >= 840 and w >= h:
+   var dock_rect: Rect2 = first_dock.get_global_rect()
+   if dock_rect.size.x > 762.0 or absf(dock_rect.get_center().x - float(w)*0.5) > 4.0:
+    failures.append("desktop recruit dock should be centred and source-proportionate: "+str(dock_rect))
 
  # Roster is an explicitly declared deterministic fixture here; the 38 original
  # C27 and expanded end-to-end model tests independently exercise recruit/remove,
