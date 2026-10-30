@@ -492,6 +492,35 @@ func take() -> void:
     failures.append("S39 actual native rehearsal recap, exact metrics or named selected musician absent")
    elif not ready_text.text.contains("28") or not musician_text.text.contains("Jack"):
     failures.append("S39 native recital does not show actual saved readiness/selected Jack")
+   # S40: real first-fold, character-portrait and signed-result evidence.
+   var stage_action: Button = screen.find_child("RecapToggleAction",true,false) as Button
+   var score_tile: Label = screen.find_child("RecapHero_readiness",true,false) as Label
+   var jack_photo: TextureRect = screen.find_child("RecapPortrait_cast_jack",true,false) as TextureRect
+   var zoe_photo: TextureRect = screen.find_child("RecapPortrait_cast_zoe",true,false) as TextureRect
+   var casey_photo: TextureRect = screen.find_child("RecapPortrait_cast_casey",true,false) as TextureRect
+   if score_tile==null or score_tile.text!="+10":
+    failures.append("S40 hero scorecard absent or not sourced from actual rehearsal +10")
+   if jack_photo==null or zoe_photo==null or casey_photo==null:
+    failures.append("S40 selected Jack Zoe Casey photographs not visible in native journal")
+   elif jack_photo.texture==null or jack_photo.texture.get_width()<200:
+    failures.append("S40 selected approved preview source missing or wrong resolution")
+   if stage_action==null or stage_action.get_global_rect().size.y<44 or stage_action.get_global_rect().end.y>float(h)-4.0:
+    failures.append("S40 real Continue Practising action not visible in first viewport")
+   var detail_action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
+   if detail_action==null:
+    failures.append("S40 accessible full-breakdown control missing")
+   else:
+    var before_details: Dictionary = screen.setup.snapshot()
+    await click_action(detail_action)
+    var expanded_detail: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+    if expanded_detail==null or not expanded_detail.visible:
+     failures.append("S40 genuine detail action did not reveal all six saved measures")
+    await click_action(screen.find_child("RecapDetailsToggleAction",true,false))
+    var collapsed_detail: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+    if collapsed_detail==null or collapsed_detail.visible:
+     failures.append("S40 detailed ledger did not collapse")
+    if screen.setup.snapshot()!=before_details:
+     failures.append("S40 expanding the journal changed settled gameplay")
    var before_ui_only: Dictionary = screen.setup.snapshot()
    var toggle_notes: Button = screen.find_child("RecapToggleAction",true,false) as Button
    if toggle_notes==null:
