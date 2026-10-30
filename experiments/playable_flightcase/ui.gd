@@ -318,7 +318,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  var center := CenterContainer.new()
  center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
- var press: PanelContainer = RehearsalPress.new()
+ var press: Variant = RehearsalPress.new()
  press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
