@@ -179,6 +179,13 @@ func take() -> void:
    failures.append("real Complete Lineup click did not reach milestone1")
   else:
    await _draw_screen("milestone1",w,h)
+   var m1: Control = screen.find_child("MilestoneOneStage",true,false)
+   var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
+   if m1==null or m1.get_global_rect().size.x < expected_width - 2.0:
+    failures.append("milestone1 retained narrow portrait composition")
+   var m1_next: Button = screen.find_child("MilestoneNextAction",true,false)
+   if m1_next==null or m1_next.get_global_rect().size.x<44.0:
+    failures.append("milestone1 Next action lacks physical target")
  if screen.setup.screen=="formed":
   await click_action(screen.find_child("MilestoneNextAction",true,false))
   if screen.setup.screen!="name":
@@ -220,6 +227,13 @@ func take() -> void:
    failures.append("real Name Lock did not reach milestone2")
   else:
    await _draw_screen("milestone2",w,h)
+   var m2: Control = screen.find_child("MilestoneTwoStage",true,false)
+   var expected_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
+   if m2==null or m2.get_global_rect().size.x < expected_width - 2.0:
+    failures.append("milestone2 retained narrow portrait composition")
+   var m2_next: Button = screen.find_child("NameMilestoneNextAction",true,false)
+   if m2_next==null or m2_next.get_global_rect().size.x<44.0:
+    failures.append("milestone2 Next action lacks physical target")
  if screen.setup.screen=="name_milestone":
   await click_action(screen.find_child("NameMilestoneNextAction",true,false))
   if screen.setup.screen!="identity":

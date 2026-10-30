@@ -248,25 +248,42 @@ func _on_lineup() -> void:
 
 func _formed() -> void:
  var root := _make_shell()
- var filler := Control.new()
- filler.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(filler)
- var panel := Kit.frame(look,"portrait")
- root.add_child(panel)
+ var headroom := Control.new()
+ headroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(headroom)
+ var panel: PanelContainer = _wide_stage(root,760.0)
+ panel.name = "MilestoneOneStage"
  var column := _column()
  panel.add_child(column)
- column.add_child(_label("MILESTONE 01  /  THE LINEUP",16))
- column.add_child(_label("YOU'VE GOT A BAND.",32 if size.x>=720 else 25))
- column.add_child(_label("Guitar. Bass. Drums. Somebody's brave enough to sing.",16))
+ var eyebrow := _label("MILESTONE 01  /  THE LINEUP",14)
+ eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ column.add_child(eyebrow)
+ var headline := _label("YOU'VE GOT A BAND.",34 if size.x>=720 else 27)
+ headline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ column.add_child(headline)
+ var intro := _label("Guitar. Bass. Drums. Somebody's brave enough to sing.",15)
+ intro.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ column.add_child(intro)
+ var lineup := GridContainer.new()
+ lineup.columns = 2 if size.x>=840 else 1
+ lineup.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ lineup.add_theme_constant_override("h_separation",22)
+ lineup.add_theme_constant_override("v_separation",6)
+ column.add_child(lineup)
  for person in setup.game.roster:
-  var suffix := "  •  LEAD VOCALS" if str(person["id"]) == setup.lead_vocal_id else ""
-  column.add_child(_label(str(person["name"])+" — "+str(person.get("primary_role",(person["roles"] as Array)[0]))+suffix,16))
- column.add_child(_label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],16))
+  var suffix := "  •  LEAD VOCALS" if str(person["id"])==setup.lead_vocal_id else ""
+  var credit := _label(str(person["name"])+" — "+str(person.get("primary_role",(person["roles"] as Array)[0]))+suffix,15)
+  if size.x<840:
+   credit.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  lineup.add_child(credit)
+ var budget := _label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],15)
+ budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ column.add_child(budget)
  column.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
  column.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
- var tail := Control.new()
- tail.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(tail)
+ var footroom := Control.new()
+ footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(footroom)
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
@@ -351,23 +368,34 @@ func _lock() -> void:
 
 func _milestone_two() -> void:
  var root: VBoxContainer = _make_shell()
- var gap := Control.new()
- gap.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(gap)
- var card: PanelContainer = Kit.frame(look,"portrait")
- root.add_child(card)
+ var headroom := Control.new()
+ headroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(headroom)
+ var card: PanelContainer = _wide_stage(root,700.0)
+ card.name = "MilestoneTwoStage"
  var body: VBoxContainer = _column()
  card.add_child(body)
- body.add_child(_label("MILESTONE 02 / THE NAME",16))
- body.add_child(_label(setup.name_locked.to_upper(),31 if size.x>=720 else 25))
+ var eyebrow := _label("MILESTONE 02  /  THE NAME",14)
+ eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(eyebrow)
+ var heading := _label("THE NAME'S OFFICIAL.",22 if size.x>=720 else 18)
+ heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(heading)
+ var band_name := _label(setup.name_locked.to_upper(),35 if size.x>=720 else 27)
+ band_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(band_name)
  var delta: int = int(setup.name_delta)
- body.add_child(_label("+3 band morale: everyone loves it." if delta==3 else ("−2 morale: a rough consensus." if delta<0 else "Mixed but workable. No morale change."),16))
- body.add_child(_label("Any consequence is applied once.",13))
+ var reaction := _label("+3 band morale: everyone's behind it." if delta==3 else ("−2 band morale: not everyone's convinced." if delta<0 else "Mixed opinions. One band. No morale change."),15)
+ reaction.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(reaction)
+ var settlement := _label("The name is locked. Its consequence is counted once.",13)
+ settlement.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(settlement)
  body.add_child(_button("LOGO & VIBE ›",_start_identity,"action","NameMilestoneNextAction"))
  body.add_child(_button("BACK TO MENU",_home,"tab"))
- var bottom := Control.new()
- bottom.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(bottom)
+ var footroom := Control.new()
+ footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root.add_child(footroom)
 func _start_identity() -> void:
  if setup.start_identity():
   _render()
