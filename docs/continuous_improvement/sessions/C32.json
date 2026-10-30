@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 104710,
-    "sha256": "43143135c3d901694c44199b99a246f16711af8705de7125d8e83e4d4826ecea"
+    "bytes": 106688,
+    "sha256": "6927b09e0c1dad55e022ce4012c6935366c4354f147f3c4084537383c7eff4b3"
   },
   "target": {
     "locator": "Owner-approved road-case design original SHA6cd8b49a... broader target; actual C31 milestone1 1280x720 and milestone2 390x844 native PNGs opened: both use thin 180px portrait frame.",
@@ -98,15 +98,23 @@
       "Standalone Godot packaged artifact12954924877 SHA256 9333c8cbc0fe7bd39479ce2ab4fc9b24debfda5a696d59de7330d4984c626b8a, ZIP verified locally, inner SHA9e12e5fde546c295eecb2fcdec28bd6a1b644dbb61c1df1b972dfc0eadadaaf0",
       "Original C31 vs C32 milestone1 and milestone2 PNGs at390/720/1280/1600 opened, actual pixels inspected; mobile/desktop before-after PNGs generated"
     ],
-    "visual_verdict": "meaningful gain in milestone frame coherence/readability; still PARTIAL vs owner mockup; owner_approved false",
+    "visual_verdict": "partial",
     "next_action": "C33: replace skinny live logo/vibe preview with source-backed responsive identity stage and verify all four viewports.",
-    "new_issue_review": "Reviewed all prior81 events, appended BM-21 verified resolution after direct native image review; exact 104710 bytes SHA256 43143135c3d901694c44199b99a246f16711af8705de7125d8e83e4d4826ecea.",
+    "new_issue_review": "Reviewed all prior81 events, appended BM-21 verified resolution after direct native image review; exact 104710 bytes SHA256 43143135c3d901694c44199b99a246f16711af8705de7125d8e83e4d4826ecea.; additional BM-30 closeout enum recurrence documented at 2026-10-30T05:08:41.386Z; original failing run41006571034 retained; corrected exact enum and updated issue hash 6927b09e0c1dad55e022ce4012c6935366c4354f147f3c4084537383c7eff4b3",
     "simulated_lenses": {
       "art_direction": "Milestone1/2 now visually cohesive with the corrected title/summary; but still sparse and not mockup-level richness.",
       "technical_art": "Reused independent verified case panel nine-slice; no source PNGs, cast identities, meter or hardware files altered.",
       "accessibility": "No sliver/orphaned band names; 390px names and CTA visible; native 44px and actual pointer coverage remain good.",
       "godot": "Godot4.7.2 scene importing, layout, four viewport real pointer route and standalone startup green.",
       "qa": "52 gameplay+88 opening+4 full paths and 4 push workflows green; isolated save and fallback retained; audio driver warning from headless runner only."
+    },
+    "visual_detail": "meaningful gain in milestone frame coherence/readability; still PARTIAL vs owner mockup; owner_approved false",
+    "validation_correction": {
+      "failed_run_id": 41006571034,
+      "cause": "Invalid closeout visual_verdict descriptive string; gate demands enum hold/partial/internal_pass",
+      "corrected": "partial",
+      "description_field": "visual_detail",
+      "source_unchanged_sha": "5991452688a467c4018986f035755ac0fe007c60"
     }
   }
 }
