@@ -27,8 +27,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 136356,
-    "sha256": "6f40a225fe2927aea68ef50f6c54e710b96211ee104e960803c4394a06a781ac"
+    "bytes": 138491,
+    "sha256": "d72b2726d5e79e9abe332e41459b74fdfa675a5961a3aef0144de718d17c7fc8"
   },
   "target": {
     "locator": "Personally opened original actual S38 rehearsal_outcome 390x844 (local /mnt/data/S38_Rehearsal_Outcome_390x844.png), SHA256 23163240b2b9bba8014695eb50e7175daf23152c8d629b1891610bb96ea3a28c; native source artifact12974954839 from run41053613819. Baseline shows only small gold 'Good progress. set +10; tension +2' status above unchanged real practice controls. Owner requested full clear non-cheesy saved recap and individual reactions; current original approved design mockup not available, visual approval stays false.",
