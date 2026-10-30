@@ -117,7 +117,7 @@ func take() -> void:
   failures.append("first-fold recruitment decision dock or action missing")
  else:
   var recruit_rect: Rect2 = first_recruit.get_global_rect()
-  if recruit_rect.size.y < 44.0 or recruit_rect.position.y < 0.0 or recruit_rect.end.y > float(h) - 4.0:
+  if recruit_rect.size.y < 44.0 or recruit_rect.size.x < 44.0 or recruit_rect.position.y < 0.0 or recruit_rect.position.x < 0.0 or recruit_rect.end.y > float(h) - 4.0 or recruit_rect.end.x > float(w) - 4.0:
    failures.append("recruit action clipped or below first fold: "+str(recruit_rect))
   if first_recruit.get_parent() != first_dock:
    failures.append("recruit action still trapped inside portrait scroll")
