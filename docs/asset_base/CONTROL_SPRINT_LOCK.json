@@ -1,10 +1,10 @@
 {
-  "writer": "C27-opening-20261030T000600",
-  "base_head": "f4c8df78724cfff340e0dd410aca738c96fd8e8c",
-  "claimed_at": "2026-10-30T00:06:00+00:00",
-  "expires_at": "2026-10-30T00:52:00+00:00",
-  "scope": "C27 bounded opening flow menu->genre->recruit with singer assignment; docs/issue200 incorporation. No production changes.",
-  "authority": "Issue200 + comment6511055491, owner finite 09:00 UK30Oct opening-journey and conditional art polish",
+  "writer": "C28-native-opening-20261030010241",
+  "base_head": "3a34b3082268d045f46ff5d773a31b69fdd1c842",
+  "claimed_at": "2026-10-30T01:02:41.362Z",
+  "expires_at": "2026-10-30T01:50:00+00:00",
+  "scope": "C28 exact observed native parse fix, four-view capture and full opening-flow/save verification; no visual polish until complete.",
+  "authority": "Owner issue200 and comment6511055491; 08:00 edits freeze and09:00 review; existing C27 lease expired",
   "owner_approved": false,
-  "previous_closed_session": "C26 final gameplay source f4c8df7; C26 preflight ledger remains historical"
+  "previous_closed_session": "C26 ended, C27 bounded writer lease expired"
 }

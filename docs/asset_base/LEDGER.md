@@ -577,3 +577,7 @@ C27 native run40978424317 passed original52 and new38 logic assertions but GL ca
 C27 run40978617487: source PNG import fixed; source-based GL rendering now reveals two typed-container compilation failures in ui.gd. BM-28 recurrence logged before correction; 90 logic tests pass, no scene PASS yet.
 
 C27 native GL at26cbb4d passes model and imports, title renders, but real New click has a previously saved draft confirmation gate. BM-24 modal-capture recurrence logged before instrumented pointer test. Not a gameplay-complete claim.
+
+
+## C28 scoped preflight — 2026-10-30T01:02:41.362Z
+Read issue #200 and comment #6511055491, live AGENTS, required gate/LESSONS/full ISSUES, C27 baseline, last native job log and relevant opening code, save model and workflow. C27 exclusive lease expired at00:52Z. Observed compile blocker BM-26 recorded APPEND-ONLY before changes: native run40979857097 actual error `Control.SCROLL_MODE_DISABLED` at opening_ui.gd:261, no four-view native screenshots. No claim that 52+38 green model assertions constitute a playable end-to-end flow. Reuse 3a34b308, source art and C26 rules. Single writer C28-native-opening-20261030010241 expires01:50Z; next action exact type-owner correction, then complete end-to-end test evidence. Conditional visual polish remains CLOSED. Main, PR199, production saves, approved casting source and passive meter bytes are protected; no merge.

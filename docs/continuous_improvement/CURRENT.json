@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/C27.json",
+  "session": "docs/continuous_improvement/sessions/C28.json",
   "scope": "Owner-confirmed finite opening journey: title/Continue/New -> genre -> recruit three mandatory instrument players plus explicit vocals -> milestones -> intent-based naming -> logo/vibe -> isolated gameplay handoff. Verified-completion-only visual polish before08:00;09:00 review.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Implement and verify connected native title -> separate genre -> recruitment screen and explicit lead vocal assignment, preserving working C26 state/rules. Naming and logo/milestones follow next.",
+  "next_action": "C28: fix observed ScrollContainer enum native parse failure, test real menu->genre->recruit capture and complete naming/logo/save/handoff checks before any visual polish.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/200",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00."
 }
