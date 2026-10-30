@@ -1,10 +1,10 @@
 {
-  "writer": "C28-native-opening-20261030010241",
-  "base_head": "3a34b3082268d045f46ff5d773a31b69fdd1c842",
-  "claimed_at": "2026-10-30T01:02:41.362Z",
-  "expires_at": "2026-10-30T01:50:00+00:00",
-  "scope": "C28 exact observed native parse fix, four-view capture and full opening-flow/save verification; no visual polish until complete.",
-  "authority": "Owner issue200 and comment6511055491; 08:00 edits freeze and09:00 review; existing C27 lease expired",
+  "writer": "C29-opening-native-20261030020533",
+  "base_head": "fd7950db30e7cb32dd5e60398ba1cd5bfb48b9ff",
+  "claimed_at": "2026-10-30T02:05:33+00:00",
+  "expires_at": "2026-10-30T02:50:00+00:00",
+  "scope": "C29 native correction, valid owner logging and connected full opening verification; no polish before full gameplay pass.",
+  "authority": "Owner issue200/comment6511055491. C28 lease ended01:50, branch checked fd7950. 08:00 freeze/09:00 review.",
   "owner_approved": false,
-  "previous_closed_session": "C26 ended, C27 bounded writer lease expired"
+  "previous_closed_session": "C28 expired with native compile defect and no implementation write"
 }

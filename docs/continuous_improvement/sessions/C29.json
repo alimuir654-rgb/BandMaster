@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "C29",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "30 Oct owner-confirmed issue200 opening journey and comment6511055491: completion first, then native-verified visual polish before08:00, review-only09:00. Continue C28 observed ScrollContainer compile defect and CI stale preflight, plus undefined result in rehearsal/clear-air; preserve original 52 gameplay and38 partial opening checks; no production mutation.",
+  "baseline_sha": "fd7950db30e7cb32dd5e60398ba1cd5bfb48b9ff",
+  "dominant_issue": "BM-26",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-41",
+    "BM-42",
+    "BM-45",
+    "BM-26"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 82029,
+    "sha256": "b930443054a1a4045772cb9d28bcf3ddca15296b5b7f5f787bf3976ad3778eed"
+  },
+  "target": {
+    "locator": "Owner-approved source reference /mnt/data/rock_band_recruitment_case_ui.png, original road-case recruitment target 1536x1024; visually opened 29 Oct 23:08; design mockup only, contains invented names/stats. C25 approved source is separate 18-person casting sheet SHA52968f3f...",
+    "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Correct the exactly observed native ScrollContainer enum, stale C27 preflight CI gate, and unresolved result variables in isolated scripts; extend actual opening-state tests to name/milestones/logo/save/handoff, then secure real four-viewport native render and genuine pointer progression. No visual polish until all critical end-to-end gates pass.",
+  "controlled_comparison": "Retain C28 exact code and approved 18-person cast/200 talent/6 inert meters. Re-run unchanged C26 52 and C27 38 tests, add strict model coverage through complete identity, Save/Continue and gameplay. Perform real GL/Xvfb snapshots at 390x844,720x1280,1280x720,1600x900; do not weaken compile checks. Protect source-asset hashes and isolate saves.",
+  "stop_condition": "Exclusive C29 writer to 2026-10-30T02:50:00Z, no force push. Earlier C28 writer lease expired01:50; later writer must check new live lock. No merges/production edits; code/art freeze08:00, evidence-only09:00. If native journey unfinished, no polish.",
+  "protected": [
+    "All existing 22 passive meter PNGs and inert semantics",
+    "36 Lab07 button state PNGs and 58 Lab08 hardware layers",
+    "C21 modal focus/scroll behavior",
+    "canonical Alex Vale/alex and Nia Griffiths/nia_griffiths",
+    "C25 exact source PNG and 18 previews",
+    "production Scripts/Scenes, main, PR199 and user:// production saves"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C29.json --before $BEFORE --require-prior-record",
+    "Godot4.7.2 52 original C26 gameplay and 38 original C27 opening tests plus expanded naming/identity/save/handoff tests",
+    "Godot4.7.2 GL/Mesa/Xvfb four-view actual input/screenshots, all compile errors fatal",
+    "Verify six inert meter byte hashes and production-save isolation"
+  ],
+  "started_at": "2026-10-30T02:05:33+00:00",
+  "scope_end": "2026-10-30T02:50:00+00:00"
+}

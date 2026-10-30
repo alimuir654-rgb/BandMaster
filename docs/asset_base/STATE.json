@@ -12,7 +12,7 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C28-native-opening-20261030010241",
+  "writer": "C29-opening-native-20261030020533",
   "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "baseline": {
     "run_id": 40778019754,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C28: fix observed ScrollContainer enum native parse failure, test real menu->genre->recruit capture and complete naming/logo/save/handoff checks before any visual polish.",
+  "next_single_action": "C29: fix exact C28 native enum, current-session CI preflight and undefined gameplay result; extend naming->identity->save/handoff model tests, then four-viewpoint native input capture. No polish until full gate.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
