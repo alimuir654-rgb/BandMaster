@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S40.json",
-  "scope": "Phase 2 S40 owner-specified engaging editorial rehearsal results: saved hero verdict + actual stat tiles + approved selected portrait reactions + first-fold return; no core mechanic/production changes.",
+  "scope": "S40 visually redesigned rehearsal recap in isolated GitHub source; candidate 9163db9 unverified in native engine, owner_approved=false. Exclusive writer released for evidence-gated continuation.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "S40 existing visual recap revision: source-backed native print design, four viewport tests, exact save/no-double bonus regression and packaged isolated owner review; preserve C34/S39.",
+  "next_action": "Native exact-SHA verification/inspection of S40 9163db9; correct if needed, package S40 only on PASS, preserve C34/S39 checkpoint.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
