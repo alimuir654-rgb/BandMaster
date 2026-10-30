@@ -228,6 +228,10 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   if mobile:
    start.text = "COMPLETE LINEUP"
   dock.add_child(start)
+ else:
+  # Hidden disabled actions were never parented; release their controls and
+  # source-backed style resources instead of leaking one on each rebuild.
+  start.free()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})

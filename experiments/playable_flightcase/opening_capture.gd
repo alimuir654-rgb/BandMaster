@@ -246,6 +246,7 @@ func _draw_roster_cover(member_count: int,w: int,h: int) -> void:
  await process_frame
 
 func take() -> void:
+ var initial_orphans: int = int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
  var w := maxi(320,int(OS.get_environment("CAPTURE_WIDTH")))
  var h := maxi(480,int(OS.get_environment("CAPTURE_HEIGHT")))
  DisplayServer.window_set_size(Vector2i(w,h))
@@ -656,5 +657,12 @@ func take() -> void:
      failures.append("S39 resumed phase shows stale recruitment text instead of saved rehearsal verdict")
     await _draw_screen("rehearsal_resumed",w,h)
 
- print("C27_CAPTURE_RESULT ",JSON.stringify({"width":w,"height":h,"failures":failures}))
+ # Deferred frees from the final screen transition must settle before checking
+ # controls allocated along the complete recruitment/Continue journey.
+ await process_frame
+ await process_frame
+ var remaining_orphans: int = int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
+ if remaining_orphans>initial_orphans:
+  failures.append("S40 journey leaked %d orphan controls" % (remaining_orphans-initial_orphans))
+ print("C27_CAPTURE_RESULT ",JSON.stringify({"width":w,"height":h,"orphan_nodes_added":remaining_orphans-initial_orphans,"failures":failures}))
  quit(0 if failures.is_empty() else 1)
