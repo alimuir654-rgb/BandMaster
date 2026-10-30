@@ -105,13 +105,60 @@ func take() -> void:
  # C27 and expanded end-to-end model tests independently exercise recruit/remove,
  # refunds and vocals. The remaining transitions use actual native mouse events.
  if screen.setup.screen=="recruit":
-  for person_id in ["cast_jack","cast_zoe","cast_casey"]:
-   if not bool(screen.setup.recruit(person_id).get("ok",false)):
-    failures.append("native fixture could not recruit "+person_id)
-  if not bool(screen.setup.choose_vocal("cast_jack").get("ok",false)):
-   failures.append("native fixture could not appoint lead vocals")
-  screen.call("_render")
-  await process_frame
+  # Unlike a model fixture, these are three actual user recruitment choices,
+  # including changing role, browsing the cast and appointing lead vocals.
+  var pane: Control = null
+  for child in screen.get_children():
+   if child is Control and child.has_method("_move_candidate") and child.has_method("_change_role"):
+    pane = child
+    break
+  if pane==null:
+   failures.append("real recruitment panel missing")
+  else:
+   for pair in [["Guitarist","cast_jack"],["Bassist","cast_zoe"],["Drummer","cast_casey"]]:
+    var desired_role: String = str(pair[0])
+    var desired_id: String = str(pair[1])
+    var role_tab: Button = null
+    for entry in pane.find_children("*","Button",true,false):
+     var tab_button: Button = entry as Button
+     if tab_button != null and tab_button.text==desired_role.to_upper():
+      role_tab=tab_button
+      break
+    await click_action(role_tab)
+    var choices: Array = screen.setup.game.choices(desired_role)
+    var found_target := false
+    for attempt in range(choices.size()):
+     var index: int = int(pane.get("selected_index"))
+     if index>=0 and index<choices.size() and str(choices[index].get("id",""))==desired_id:
+      found_target = true
+      break
+     var next_candidate: Button = null
+     for entry in pane.find_children("*","Button",true,false):
+      var candidate_button: Button = entry as Button
+      if candidate_button!=null and candidate_button.text=="›":
+       next_candidate=candidate_button
+       break
+     await click_action(next_candidate)
+    if not found_target:
+     failures.append("could not browse to "+desired_id+" in "+desired_role)
+     break
+    await click_action(pane.find_child("RecruitAction",true,false))
+    var confirmed := false
+    for member in screen.setup.game.roster:
+     if str(member.get("id",""))==desired_id:
+      confirmed=true
+    if not confirmed:
+     failures.append("real recruit pointer did not hire "+desired_id)
+     break
+   var vocal_action: Button = null
+   for entry in pane.find_children("*","Button",true,false):
+    var voice_button: Button = entry as Button
+    if voice_button!=null and voice_button.text.to_upper().contains("JACK") and voice_button.text.to_upper().contains("TALENT"):
+     vocal_action=voice_button
+     break
+   await click_action(vocal_action)
+   if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready():
+    failures.append("real vocalist selection or mandatory trio not ready")
   var ready_action: Button = screen.find_child("StartAction",true,false)
   await click_action(ready_action)
   if screen.setup.screen!="formed":
