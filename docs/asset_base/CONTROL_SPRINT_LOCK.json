@@ -1,10 +1,10 @@
 {
-  "writer": "C29-opening-native-20261030020533",
-  "base_head": "fd7950db30e7cb32dd5e60398ba1cd5bfb48b9ff",
-  "claimed_at": "2026-10-30T02:05:33+00:00",
-  "expires_at": "2026-10-30T02:50:00+00:00",
-  "scope": "C29 native correction, valid owner logging and connected full opening verification; no polish before full gameplay pass.",
-  "authority": "Owner issue200/comment6511055491. C28 lease ended01:50, branch checked fd7950. 08:00 freeze/09:00 review.",
+  "writer": "C30-opening-native-202610300300",
+  "base_head": "dfcb32e91d5134b54c3c13f9d9de2cdb01f87282",
+  "claimed_at": "2026-10-30T02:59:29.437Z",
+  "expires_at": "2026-10-30T03:50:00+00:00",
+  "scope": "C30 isolate native compile + CI gate repair + full opening test, conditional polish closed until end-to-end pass.",
+  "authority": "Owner issue200/comment6511055491, prior C29 expired 02:50 and base checked. 08:00 code freeze/09:00 review.",
   "owner_approved": false,
-  "previous_closed_session": "C28 expired with native compile defect and no implementation write"
+  "previous_closed_session": "C29 lease expired with only preflight and no source implementation"
 }

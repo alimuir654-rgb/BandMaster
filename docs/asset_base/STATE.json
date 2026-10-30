@@ -12,7 +12,7 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C29-opening-native-20261030020533",
+  "writer": "C30-opening-native-202610300300",
   "last_verified_code_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
   "baseline": {
     "run_id": 40778019754,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C29: fix exact C28 native enum, current-session CI preflight and undefined gameplay result; extend naming->identity->save/handoff model tests, then four-viewpoint native input capture. No polish until full gate.",
+  "next_single_action": "C30: correct native enum and handler result plus CI stale preflight; test complete naming/identity/save/handoff with four actual native viewports before polish.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -606,5 +606,11 @@
     "earliest": "after verified complete",
     "freeze_at": "2026-10-30T08:00:00Z",
     "owner_review": "2026-10-30T09:00:00Z"
+  },
+  "last_scoped_preflight": {
+    "id": "C30",
+    "baseline_sha": "dfcb32e91d5134b54c3c13f9d9de2cdb01f87282",
+    "created_at": "2026-10-30T02:59:29.437Z",
+    "deadline": "2026-10-30T03:50:00+00:00"
   }
 }
