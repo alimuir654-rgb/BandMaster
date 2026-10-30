@@ -422,6 +422,7 @@ func _identity() -> void:
  action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  root.add_child(action_holder)
  var finish: Button = _button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction")
+ finish.tooltip_text = "Save this band identity and continue to the completed lineup."
  finish.custom_minimum_size.x = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
  finish.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  action_holder.add_child(finish)
