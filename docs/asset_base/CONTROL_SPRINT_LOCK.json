@@ -1,10 +1,10 @@
 {
-  "writer": "S40-refinement-20261030T211025",
-  "base_head": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
-  "claimed_at": "2026-10-30T21:10:25Z",
-  "expires_at": "2026-10-30T22:03:00Z",
-  "scope": "S40 same-worker owner extension: improve legibility/engagement in existing rehearsal press, four-view native verification mandatory",
-  "authority": "Owner 30 Oct 21:02 prospective extension until 22:03; issue201 and comment6524557601; no competing worker",
+  "writer": "S40-codex-overnight-20261030",
+  "base_head": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
+  "claimed_at": "2026-10-30T23:48:38Z",
+  "expires_at": "2026-10-31T09:00:00Z",
+  "scope": "Owner renewed best-efforts work through31Oct09:00London: finish S40 access/input fixes, source-backed textures/frames/icon/art improvements, four-view native proof and packaging.",
+  "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
   "status": "claimed",
@@ -14,10 +14,33 @@
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S40 source delivered at 9163db9; native Godot4.7.2 evidence not accessible, no S40 PASS or artwork signoff. S40 active preflight is for future guarded continuation.",
+  "note": "Existing Phase2 automation remains paused. Current Codex root is sole publication coordinator; helpers edit only assigned paths or test copies.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
     "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
+  },
+  "previous_evening_lease": {
+    "writer": "S40-refinement-20261030T211025",
+    "base_head": "39c9ea73e428ea9a2c868c345b3cf4f00562e106",
+    "claimed_at": "2026-10-30T21:10:25Z",
+    "expires_at": "2026-10-30T22:03:00Z",
+    "scope": "S40 same-worker owner extension: improve legibility/engagement in existing rehearsal press, four-view native verification mandatory",
+    "authority": "Owner 30 Oct 21:02 prospective extension until 22:03; issue201 and comment6524557601; no competing worker",
+    "owner_approved": false,
+    "previous_closed_session": "S39",
+    "status": "claimed",
+    "released_at": null,
+    "previous_stale_lease": {
+      "writer": "S39-rehearsal-recap-20261030T130900",
+      "expires_at": "2026-10-30T14:25:00Z",
+      "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
+    },
+    "note": "S40 source delivered at 9163db9; native Godot4.7.2 evidence not accessible, no S40 PASS or artwork signoff. S40 active preflight is for future guarded continuation.",
+    "previous_s40_release": {
+      "released_at": "2026-10-30T15:17:00Z",
+      "status": "released",
+      "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
+    }
   }
 }
