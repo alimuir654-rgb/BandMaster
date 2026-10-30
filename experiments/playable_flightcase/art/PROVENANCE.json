@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "study": "S40 original paper frame source study",
+  "provider_tool": "OpenAI image_gen.imagegen",
+  "source_type": "Image-generated photorealistic paper material; not a photograph and not a native Godot screenshot",
+  "generated_original": "/workspace/generated_images/exec-e817f426-3530-4f83-a280-4cf41271b50a.png",
+  "copied_source": "/workspace/work/s40/material-study/paper-stack-source.png",
+  "sha256": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
+  "bytes": 2205746,
+  "dimensions": [
+    1448,
+    1086
+  ],
+  "mode": "RGBA",
+  "transparent_background_requested": true,
+  "transformations": "None. Original generated PNG copied byte-for-byte. Python used only to inspect dimensions, alpha and hashes, not to edit images.",
+  "rights_basis": "Generated using the available OpenAI image-generation tool in response to the owner's authorised art-improvement scope. No third-party photograph, paid stock licence, model release, or CC0 claim.",
+  "prompt": "Create exactly ONE independent production SOURCE ART asset: a blank tactile rehearsal-session paper frame, isolated on a truly transparent alpha background. Landscape 4:3 composition, high resolution at least 1024 pixels wide. Show a small stack of 3 warm off-white uncoated paper sheets viewed perfectly front-on from directly above, almost orthographic flatlay, no perspective vanishing lines. The top sheet is large, nearly rectangular with restrained natural slightly irregular cut and tiny torn-fibre edges. Convincing thin layered paper thickness and tight contact shadows are visible especially along the bottom and right edges; the stack looks like real modest everyday British rehearsal-room paper, not parchment or fantasy scrolls. Lower sheets are offset only a few millimetres, deliberate subtle real depth and very small edge shadow, no large dramatic cast shadow. Warm ivory top surface with very restrained fine uncoated paper grain, tiny occasional fibre, gentle natural daylight from upper left. Huge clean empty content-safe interior, over 85 percent blank face, even and calm so editable text can be laid on top in Godot. All pixels outside the sheets and their slight contact shadow must have alpha transparency. Preserve spacious transparent margin around every outer edge. Single coherent material and light grammar. NO UI layout, NO panels within the paper, NO mockup interface, NO people, NO faces, NO icons, NO lettering, NO marks, NO numbers, NO ruled lines, NO outlined border, NO fasteners, NO staples, NO tape, NO stickers, NO cork, NO table, NO background, NO contact sheet or variants. This output is the paper itself, a reusable standalone frame texture, NOT a screenshot. Photorealistic material study with subtle tactile detail, not digitally drawn rectangular card or procedural texture.",
+  "preflight_authority": "Parent confirms committed S40 overnight preflight254406f covers this assigned scratch generation attempt; no repository integration or publication authorised for this helper.",
+  "reviewed_lessons": [
+    "BM-01",
+    "BM-02",
+    "BM-03",
+    "BM-04",
+    "BM-07",
+    "BM-08",
+    "BM-09",
+    "BM-14",
+    "BM-19"
+  ],
+  "viewed_baselines": [
+    "/workspace/BandMaster/components/control_atlas/art/frame_notepaper_previous.png",
+    "/workspace/BandMaster/components/control_atlas/art/frame_notepaper_panel_c21.png",
+    "/workspace/BandMaster/components/control_atlas/art/paper_surface.png"
+  ],
+  "actual_output_type": "Single separate blank three-sheet stack, correct source-asset type; no interface, portrait, lettering, icons, collage, fasteners or opaque backing.",
+  "pixel_review": {
+    "strengths": [
+      "Warm off-white clean large interior has restrained fine fibrous paper texture.",
+      "Irregular upper/side/bottom edges and offset lower sheets read as actual layered thickness.",
+      "Bottom and right contact separation is clearly visible without a large theatrical cast shadow.",
+      "Native alpha channel surrounds the stack; all four image corners are fully transparent."
+    ],
+    "limitations": [
+      "Paper face alpha is mostly252–254 rather than255 (centre mean252.96). It is about99% opaque, not a fully opaque print sheet.",
+      "Low-alpha fringe specks extend outside main silhouette, with nonzero alpha bounding box(0,19,1430,1070); edge cleanup may be needed before production.",
+      "Texture/fibrous edges read somewhat like premium watercolour or deckle paper rather than basic rehearsal printer stock.",
+      "Slight surface-light variation and lower-sheet skew are baked into original source; nine-slice scaling and mobile/detail-density suitability remain untested.",
+      "No approved specific rehearsal paper mockup was supplied in current scope; this is an internal candidate, not target-matched owner-approved artwork."
+    ],
+    "alpha_zero_pixels": 386210,
+    "alpha_fully_opaque_pixels": 411,
+    "alpha_common_values": {
+      "0": 386210,
+      "252": 86391,
+      "253": 1044242
+    },
+    "alpha_bbox": [
+      0,
+      19,
+      1430,
+      1070
+    ],
+    "centre_alpha_range": [
+      252,
+      254
+    ],
+    "owner_approved": false,
+    "internal_visual_verdict": "Correct segmented source type and visibly more tactile than current simple baseline; candidate only, alpha cleanliness/stock authenticity/nine-slice/native integration gates remain open."
+  },
+  "repository_changes": true,
+  "published": false,
+  "native_tested": false,
+  "next_action": "Parent reviews original source at pixels; if retained, derive and test one reversible paper-frame candidate in the identical existing S40 native bounds with honest provenance.",
+  "repository_path": "experiments/playable_flightcase/art/session_paper.png",
+  "runtime_transformation": "GodotproportionalLanczosresizeonce to384x288forfixed-sizepaperedge; rawsourceunchanged. Nine-sliceedge/contentmargins native-testedseparately.",
+  "reused_inset": {
+    "path": "components/control_atlas/art/frame_notepaper_inset.png",
+    "origin": "ExistingC20 original inset: ambientCGPaper001CC0; see FRAME_KIT_MANIFEST.json",
+    "raw_source_changed": false
+  }
+}

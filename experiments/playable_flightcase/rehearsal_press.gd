@@ -5,7 +5,7 @@ signal details_toggled
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
-const PAPER = preload("res://components/control_atlas/art/paper_surface.png")
+const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 
 func ink(value: String, points: int, muted: bool = false) -> Label:
  var label: Label = Kit.label(value,"notepaper",points)
@@ -21,11 +21,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   old.queue_free()
  name = "RehearsalRecapPanel"
  size_flags_horizontal = Control.SIZE_EXPAND_FILL
- var stock := StyleBoxTexture.new()
- stock.texture = PAPER
- stock.set_texture_margin_all(8.0)
- stock.set_content_margin_all(10.0 if mobile else 18.0)
- add_theme_stylebox_override("panel",stock)
+ add_theme_stylebox_override("panel",Paper.sheet(mobile))
  var view: Dictionary = Recap.present(report,members)
  var content := VBoxContainer.new()
  content.name = "RecapEditorialBody"
@@ -72,12 +68,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   var tile := PanelContainer.new()
   tile.name = "RecapHeroTile_"+key
   tile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  var style := StyleBoxFlat.new()
-  style.bg_color = Color("e9ddca")
-  style.border_color = Color("ae987b")
-  style.set_border_width_all(1)
-  style.set_content_margin_all(5.0 if mobile else 10.0)
-  tile.add_theme_stylebox_override("panel",style)
+  tile.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  tile.focus_mode = Control.FOCUS_NONE
+  tile.add_theme_stylebox_override("panel",Paper.scorecard())
   tiles.add_child(tile)
   var stack := VBoxContainer.new()
   stack.add_theme_constant_override("separation",1)

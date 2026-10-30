@@ -605,6 +605,12 @@ func take() -> void:
    var casey_photo: TextureRect = screen.find_child("RecapPortrait_cast_casey",true,false) as TextureRect
    if score_tile==null or score_tile.text!="+10":
     failures.append("S40 hero scorecard absent or not sourced from actual rehearsal +10")
+   for metric_key in ["readiness","morale","tension"]:
+    var tile: PanelContainer = screen.find_child("RecapHeroTile_"+metric_key,true,false) as PanelContainer
+    if tile==null or not tile.get_theme_stylebox("panel") is StyleBoxTexture:
+     failures.append("S40 scorecard lost its separate source-backed paper: "+metric_key)
+    elif tile.mouse_filter!=Control.MOUSE_FILTER_IGNORE or tile.focus_mode!=Control.FOCUS_NONE:
+     failures.append("S40 scorecard became interactive: "+metric_key)
    if jack_photo==null or zoe_photo==null or casey_photo==null:
     failures.append("S40 selected Jack Zoe Casey photographs not visible in native journal")
    elif jack_photo.texture==null or jack_photo.texture.get_width()<200:
