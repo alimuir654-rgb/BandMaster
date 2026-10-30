@@ -12,8 +12,8 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": "C34-recruit-dock-20261030T070830",
-  "last_verified_code_sha": "8d9559cbfd1ffb3b64465bea2c33f8b9e27d0099",
+  "writer": null,
+  "last_verified_code_sha": "104c494b255055da3e5bba0e4a0bed78c190d0a0",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C34: move actual Recruit/Remove and Complete Lineup actions into an always-visible source-backed recruitment decision dock, preserve six passive meters and portrait, compare C33/C34 same viewports.",
+  "next_single_action": "08:00 freeze: validate/inspect/package verified C34 source;09:00 evidence-only owner review. No new implementation/art, no merge.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -649,5 +649,6 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "C34"
+  "current_session": "C34",
+  "last_verified_native_run": 41019394924
 }

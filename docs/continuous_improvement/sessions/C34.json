@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "C34",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner issue200/comment6511055491: after C30/C31/C32/C33 verified full native opening, only polish EXISTING recruitment first-fold decision visibility before08:00; reviewer sees actual full opening at09:00. No new cast, frames or gameplay expansion.",
   "baseline_sha": "cc0079b36924e6f95caddc142b256054fec84e56",
@@ -37,8 +37,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 113136,
-    "sha256": "bcee65fc5f95639462c53607b7e728469395c962e515dae1d00f9981b4be5a1e"
+    "bytes": 116018,
+    "sha256": "0da99fc37a7bbba31ba38254758511832e2c8b65fc18457d486856dd8bff849d"
   },
   "target": {
     "locator": "Owner-approved roadcase recruitment art reference original SHA6cd8b49a... target; inspected current C33 native recruit PNGs at390x844,720x1280,1280x720,1600x900 on30Oct07:06; actual first-fold 390 Recruit button clipped,1280 action entirely below viewport, while 720/1600 present. Original mockup not locally available to re-open in this run. Directly opened exact native current baseline C33 four recruitment files; this flag attests those inspected pixels, NOT claiming the missing original owner mockup reopened.",
@@ -88,5 +88,30 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  },
+  "closeout": {
+    "tested_sha": "104c494b255055da3e5bba0e4a0bed78c190d0a0",
+    "evidence": [
+      "Verified run41019394924 native Godot4.7.2 SUCCESS: 52 C26 gameplay+88 opening-state tests and four complete true-pointer 390x844/720x1280/1280x720/1600x900 journeys, failures[]; partial save/reload, real recruit/remove/voice, naming, milestones, identity handoff.",
+      "Exactly tested source104c494b255055da3e5bba0e4a0bed78c190d0a0, isolated native screenshots/logs artifact12961450344 SHA256c7d748b1d57dcc0c2125f492b96dcf6a4435374ce4a6c13a6b46744ba2d62115; four original final Recruit PNGs personally opened and direct C33 same-state first-fold comparisons inspected.",
+      "Playable self-contained zipped Godot4.7.2 source artifact12960718339 outer SHA256c9958f79e25cd3d6f245d472068a22628a07611278e0b4f83edf4cbe3389d251; inner zipped project SHA256eb933d7db0baa1e72e711a001be9d1fc7eb03bbf3ad79c1d39b0f07807f2fda4; ZIP tested and startup smoke pass.",
+      "Native true rectangle recruit/lineup CTA physical >=44px, unscrolled first-fold, desktop centered760px, six passive meters inert and original sources unchanged.",
+      "Mandatory improvement gate run41019394819 SUCCESS, structure run41019394881 SUCCESS; headless validation still in progress at initial closeout inspection; source native is the authoritative gameplay pass."
+    ],
+    "visual_verdict": "partial",
+    "visual_detail": "C34 genuinely resolves clipped phone Recruit and invisible desktop Recruit, preserves cast and six inert meters. Deliberately restrained 760px centred hardware on desktop corrects overlong first green pass. The broader photographic/source art still does not match approved professional mockup, artistically PARTIAL and owner_approved=false; 390 first fold shows five of six meters without scroll but scrollable detail remains accessible.",
+    "new_issue_review": "Read complete preflight prefix 109239bytes SHA23862a..., logged BM-30 false target pixel gate and retained failed runs41018591637/41018591641, refreshed review; initial green run41018984299 exposed overwide desktop dock, appended BM-21 recurrence BEFORE second correction and refreshed full prefix; final verified BM-21 resolution appended now full 116018 UTF8 bytes SHA256 0da99fc37a7bbba31ba38254758511832e2c8b65fc18457d486856dd8bff849d. No issue deletion or gate weakening.",
+    "next_action": "08:00 evidence/packaging only, 09:00 final owner review; no additional art/code, merges, main or production-save work.",
+    "changed_files": [
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "simulated_lenses": {
+      "art_direction": "Fixed first-fold recruitment action becomes legible, centered and material-consistent; composition still below approved mockup art fidelity (PARTIAL).",
+      "technical_art": "Original case/photo/meters/control-source art fully reused without stretched corner assets, re-sampling or misattribution.",
+      "ui_accessibility": "Real hit targets minimum44px inside all four viewports; recruiting and ready Complete Lineup no longer buried in scroll; lower profile and sixth meter still scrollable on small phone.",
+      "godot_engineering": "No engine/dependency/save model changes; Godot4.7.2 native real renderer, keyboard model controls and four actual mouse routes pass; standalone project startup verified.",
+      "qa_producer": "No model, cash/talent, milestone or save regression in52+88+4 tests; immutable C33 playable rollback retained. Initial and corrective failures logged, writer released and no owner artwork approval inferred."
+    }
   }
 }

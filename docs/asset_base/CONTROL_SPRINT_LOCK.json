@@ -1,11 +1,12 @@
 {
-  "writer": "C34-recruit-dock-20261030T070830",
+  "writer": null,
   "base_head": "cc0079b36924e6f95caddc142b256054fec84e56",
   "claimed_at": "2026-10-30T07:08:30Z",
   "expires_at": "2026-10-30T07:49:00Z",
-  "scope": "C34 completion-gated recruitment first-fold decision dock, existing UI only; verified full four-viewpoint native workflow, no art/source family",
+  "scope": "C34 verified first-fold recruit footer, bounded desktop material, all native playthroughs pass; writer released",
   "authority": "Issue #200 and comment6511055491, verified C33 source8d9559c/run41011695193, art/code freeze08:00 and review09:00",
   "owner_approved": false,
-  "previous_closed_session": "C33",
-  "status": "active"
+  "previous_closed_session": "C34",
+  "status": "released",
+  "released_at": "2026-10-30T07:22:15Z"
 }
