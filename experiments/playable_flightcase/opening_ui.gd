@@ -422,7 +422,9 @@ func _finish() -> void:
 
 func _summary() -> void:
  var root: VBoxContainer = _make_shell()
- root.add_child(_label("YOU'VE STARTED SOMETHING",24))
+ var summary_title: Label = _label("YOU'VE STARTED SOMETHING",24)
+ summary_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ root.add_child(summary_title)
  var body: VBoxContainer = _scroll_body(root)
  var card: PanelContainer = _wide_stage(body,760.0)
  var info: VBoxContainer = _column()
@@ -439,8 +441,16 @@ func _summary() -> void:
   roster_grid.add_child(_label(str(p["name"])+(" — LEAD VOCALS" if str(p["id"])==setup.lead_vocal_id else " — "+str(p.get("primary_role","Musician"))),14))
  info.add_child(_label("TALENT REMAINING  "+str(setup.remaining()),16))
  info.add_child(_label("STARTING MORALE  "+str(setup.game.career.get("morale",55)),16))
- body.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
+ var action_holder := CenterContainer.new()
+ action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ body.add_child(action_holder)
+ var action_column: VBoxContainer = _column()
+ var safe_width: float = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
+ action_column.custom_minimum_size.x = safe_width
+ action_column.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ action_holder.add_child(action_column)
+ action_column.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+ action_column.add_child(_button("BACK TO MENU",_home,"tab"))
 func _start_playing() -> void:
  if setup.start_playing():
   _render()
