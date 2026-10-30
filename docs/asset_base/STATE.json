@@ -17,13 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": {
-    "id": "S39-rehearsal-recap-20261030T130900",
-    "claimed_at": "2026-10-30T13:09:00Z",
-    "expires_at": "2026-10-30T14:25:00Z",
-    "scope": "S39 persistent rehearsal recap only"
-  },
-  "last_verified_code_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+  "writer": null,
+  "last_verified_code_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -664,5 +659,7 @@
     "artifact_sha256": "23531e1b8ea49d199047f5d09b9f95e6a31e6c13a012ae5a5e23a2567c693486",
     "playable_artifact": 12975024435,
     "owner_approved": false
-  }
+  },
+  "last_sprint": "S39",
+  "next_action": "S40 Sprint6 final visual QA and package; user acceptance and production merge remain pending."
 }
