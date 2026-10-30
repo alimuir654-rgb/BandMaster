@@ -47,7 +47,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var heading := ink(str(view.get("heading","SESSION")),11 if mobile else 13,true)
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(heading)
- var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),27 if mobile else 37)
+ var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),30 if mobile else 40)
  verdict.name = "RecapVerdict"
  verdict.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(verdict)
@@ -107,7 +107,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  gallery.name = "RecapMemberGallery"
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
- gallery.custom_minimum_size.y = 168 if mobile else 188
+ gallery.custom_minimum_size.y = 190 if mobile else 210
  content.add_child(gallery)
  var strip := HBoxContainer.new()
  strip.name = "RecapPortraitRow"
@@ -133,7 +133,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    photo.texture = load(photo_path)
    photo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
    photo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   photo.custom_minimum_size = Vector2(68 if mobile else 88,72 if mobile else 91)
+   photo.custom_minimum_size = Vector2(82 if mobile else 104,86 if mobile else 107)
    photo.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
    photo.mouse_filter = Control.MOUSE_FILTER_IGNORE
    photo.focus_mode = Control.FOCUS_NONE
@@ -146,7 +146,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   var short_quote: String = str(voice.get("quote",""))
   if short_quote.length()>32:
    short_quote = short_quote.substr(0,31).rstrip(" .")+"…"
-  var line := ink(display_name+"\n“"+short_quote+"”",10 if mobile else 12)
+  var line := ink(display_name+"\n“"+short_quote+"”",11 if mobile else 12)
   line.name = "RecapMember_"+person_id
   line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   card.add_child(line)
@@ -155,11 +155,21 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    if individual is Dictionary and str(individual.get("candidate_id",""))==person_id:
     personal_morale = int(individual.get("changes",{}).get("morale",{}).get("delta",0))
     break
-  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),9 if mobile else 10,true)
+  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),10 if mobile else 11,true)
   morale_badge.name = "RecapMood_"+person_id
   morale_badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   morale_badge.add_theme_color_override("font_color",Color("954a42") if personal_morale<0 else (Color("376c58") if personal_morale>0 else Color("695c4b")))
   card.add_child(morale_badge)
+  # Passive ink marker from the saved, signed personal morale change.
+  # The existing number remains legible without colour; no new control or reward.
+  var morale_ink := ColorRect.new()
+  morale_ink.name = "RecapMoodStripe_"+person_id
+  morale_ink.color = Color("954a42") if personal_morale < 0 else (Color("376c58") if personal_morale > 0 else Color("aa977c"))
+  morale_ink.custom_minimum_size = Vector2(0.0,4.0)
+  morale_ink.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  morale_ink.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  morale_ink.focus_mode = Control.FOCUS_NONE
+  card.add_child(morale_ink)
  var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
  breakdown.name = "RecapDetailsToggleAction"
  breakdown.pressed.connect(func(): details_toggled.emit())
