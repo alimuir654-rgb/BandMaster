@@ -18,7 +18,21 @@ func click_action(button: Button) -> void:
  if button==null or button.disabled:
   failures.append("missing or disabled action")
   return
+ # Real controls can sit below the first fold on 390px phones. Scroll the
+ # actual in-scene ScrollContainer rather than faking a pressed signal.
+ var ancestor: Node = button.get_parent()
+ while ancestor != null:
+  if ancestor is ScrollContainer:
+   (ancestor as ScrollContainer).ensure_control_visible(button)
+   await process_frame
+   await process_frame
+  ancestor = ancestor.get_parent()
  var point := button.get_global_rect().get_center()
+ var viewport_size := root.size
+ print("C30_NATIVE_ACTION ",button.name," rect=",button.get_global_rect()," point=",point," viewport=",viewport_size)
+ if point.x < 0 or point.y < 0 or point.x >= viewport_size.x or point.y >= viewport_size.y:
+  failures.append("action remains offscreen after scroll: "+button.name)
+  return
  var press := InputEventMouseButton.new()
  press.button_index = MOUSE_BUTTON_LEFT
  press.position = point
