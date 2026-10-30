@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "C33",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Issue200 and comment6511055491: C30/C31/C32 complete playable opening verified, completion-gated visual polish of existing logo/vibe only; original source-backed wide preview, full native regression, freeze08:00/review09:00 UK.",
+  "baseline_sha": "1ec460ac11ac465f907e7b3926d12060fc6e5674",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-03",
+    "BM-05",
+    "BM-08",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-41",
+    "BM-42",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 106688,
+    "sha256": "6927b09e0c1dad55e022ce4012c6935366c4354f147f3c4084537383c7eff4b3"
+  },
+  "target": {
+    "locator": "Owner-approved original road-case reference SHA6cd8b49a...; actual C32 native identity 1280x720 and390x844 PNGs from artifact12955795872 visually opened 30 Oct05:58: skinny 180px vertical preview while options spread across desktop.",
+    "original_sha256": "6cd8b49a81c23ad9659e5f6a4814b3d53d190f163f505b345ac9a790a25da34a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Replace ONLY the logo/vibe portrait-minimum live preview with existing _wide_stage source-backed bounded central frame; centre mark, tone and identity context while preserving dynamic logo selection and real name; prevent first-fold overflow; no art source or gameplay rule mutations.",
+  "controlled_comparison": "C32 identity and identity_stamp PNGs at390x844,720x1280,1280x720,1600x900 vs C33 same fixtures, all before/after stage/viewport matching; compare visual width, copy/readability and identity selection; rerun unchanged52+88 model, four real pointer journeys, sandbox Continue/handoff, fixed meter/control bytes, standalone smoke. Revert to C32 verified59914526 if regression.",
+  "stop_condition": "Single bounded C33 2026-10-30T05:59:50Z to2026-10-30T06:49:50Z; only completed screens polish under owner comment6511055491; no source/art after08:00 and evidence-only review09:00. No changes to main/PR199/production saves; no new art family, purchases or merge.",
+  "protected": [
+    "22 passive meter PNG bytes/inert behavior",
+    "36 Lab07 and58 Lab08 hardware image bytes",
+    "C21 modal behavior",
+    "C25 approved casting source, real identities",
+    "main/PR199/production scenes and saves",
+    "C31 verified e32ce640 playable zip"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/**",
+    ".github/workflows/playable-flightcase.yml"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/C33.json --before $BEFORE --require-prior-record",
+    "Godot4.7.2 native52+88 with GL/Mesa/Xvfb four complete real-mouse routes and same-state identity/identity_stamp PNG screenshots at390x844/720x1280/1280x720/1600x900",
+    "Original control, C25, passive-meter bytes unchanged, separate sandbox save and packaged isolated Godot project startup verified"
+  ],
+  "started_at": "2026-10-30T05:59:50Z",
+  "scope_end": "2026-10-30T06:49:50Z",
+  "completion_gate": {
+    "native_full_input_verified": true,
+    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
+    "run_id": 40996529020,
+    "artifact_id": 12951901120,
+    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
+    "checks": {
+      "c26_gameplay": 52,
+      "opening_model": 88,
+      "four_viewport_native_mouse": 4
+    },
+    "passed_at": "2026-10-30T03:18:03Z",
+    "limitations": [
+      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
+      "No artwork acceptance, isolated proof only, owner_approved false."
+    ],
+    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+  }
+}

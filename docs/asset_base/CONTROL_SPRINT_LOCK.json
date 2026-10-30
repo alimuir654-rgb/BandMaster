@@ -1,12 +1,11 @@
 {
-  "writer": null,
-  "base_head": "916fd136f1cab19b0940ac3674f3040e85281e52",
-  "claimed_at": "2026-10-30T04:59:10.694Z",
-  "expires_at": "2026-10-30T05:39:10.694Z",
-  "scope": "C32 full native verified wide milestone polish, closed; writer released",
-  "authority": "Owner issue200/comment6511055491; full native completion gate C30; C31 e32ce640 runnable fallback;08:00 freeze/09:00 review",
+  "writer": "C33-identity-20261030T055950",
+  "base_head": "1ec460ac11ac465f907e7b3926d12060fc6e5674",
+  "claimed_at": "2026-10-30T05:59:50Z",
+  "expires_at": "2026-10-30T06:49:50Z",
+  "scope": "C33 completion-gated original source-backed identity logo/vibe preview only; no new family, no gameplay changes, preserve C32 fallback",
+  "authority": "Owner issue200/comment6511055491, C32 verified59914526/run41006002295, before08:00 source freeze",
   "owner_approved": false,
   "previous_closed_session": "C32",
-  "status": "released",
-  "released_at": "2026-10-30T05:06:14.882Z"
+  "status": "active"
 }

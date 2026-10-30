@@ -12,8 +12,8 @@
   "scope": [
     "isolated_opening_menu_genre_recruit_milestones_name_intent_logo_vibe_and_gameplay_handoff"
   ],
-  "writer": null,
-  "last_verified_code_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
+  "writer": "C33-identity-20261030T055950",
+  "last_verified_code_sha": "5991452688a467c4018986f035755ac0fe007c60",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -24,7 +24,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "C32 gated polish: fix skinny milestone1 and milestone2 180px portrait frames with deliberate source-backed responsive celebration screens, preserve C31 tested checkpoint and native full journey.",
+  "next_single_action": "C33 native identity/logo live-preview wide frame, preserve 52+88+4 and C32 tested fallback.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
