@@ -4,7 +4,7 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
-  "baseline_sha": "1c53b9640304b95101ddc1b79f149dcdecc1bc87",
+  "baseline_sha": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
   "dominant_issue": "BM-24",
   "lesson_ids": [
     "BM-01",
@@ -48,17 +48,17 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 220348,
-    "sha256": "a41693fbd96bfb302a4d43abcc8e431dcbbcbd193aa48a8ea14f614bd5f9058c"
+    "bytes": 221948,
+    "sha256": "24159c3e83ff54d52e645db65d78ac1d4859c2a58a438975744cc7aec1e7cfe7"
   },
   "target": {
-    "locator": "/workspace/work/s40/runs/settings-2e087/captures/c27-title-390x844.png",
-    "original_sha256": "5b707297cd876a47036e0e13ed31fa362793134552df0f211fcb5ffe088f9672",
+    "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
+    "original_sha256": "411ad034dd652e8499befa1ae03f45cbd4c3e6ae914df82d15d73642a4c088b5",
     "pixels_inspected": true,
-    "note": "Existing native menu composition baseline; no art change planned and no fullUI owner approval inferred."
+    "note": "Already opened original existing modal390; baseline for identical copy/state/native art, not inferred owner wholeUI approval."
   },
-  "hypothesis": "Verify existing overwrite-draft KEEP BAND/Escape true cancellation and original invoker focus before changing code. No source edits unless native positive contract demonstrates substantive defect.",
-  "controlled_comparison": "Exact2e source and explicit valid scratch fixture; same menu/state at390x844,720x1280,1280x720,1600x900. Genuine pointer/Enter/Space/Tab/ShiftTab/Escape; exactly-once completion, modal-only focus, background input blocked, career/draft byte invariance and orphan stability. All prior views remain protected.",
+  "hypothesis": "Verify live390\u21941280 resizing with existing overwrite-draft modal pending; if reproduced repair host lifecycle to keep decision usable without changing component/art/model/save schema.",
+  "controlled_comparison": "Exact2e immutable native baseline, same actual fresh saved rehearsal career, real window resize while modal open, semantic focus/callback/geometry/unchangedbytes. After a fix same-byte positive probe and complete73+88/import/4native with all112prior source-view originals protected. MenuIDs may change across responsive reflow; no same-view invariant reused blindly.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -76,14 +76,15 @@
     "experiments/playable_flightcase/opening_capture.gd"
   ],
   "validation_commands": [
-    "Fresh isolated imported exact2e runtime native modal positive probe at4viewports using genuine input and validfixture draft",
-    "If a substantive source repair is needed: exact73gameplay+88opening+cleanimport+4fullnativejourneys; compare all112prior originals; then CRC/extractedpackage entry",
-    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before <committed-preflight> --require-prior-record"
+    "Fresh imported exact2e isolatedruntime, genuine nativewindow resize390\u21941280 with actualsavedcareer; record modality/focus/callback/bounds/state/savebytes and actualKEEP/Escape/Continue",
+    "After confirmedrepair: same immutable positive probe plus Godot4.7.2 native_test.gd73/opening_test.gd88/cleanimport/opening_capture.gd4complete genuinepointer/keyboard/savejourneys; compare original112PNGs",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before <committed-preflight> --require-prior-record",
+    "After exactnative/input/savePASS, build isolatedGodot project/reviewZIP atomically; CRC/fresh extractedimport/nativeentry and protectedsourceaudit"
   ],
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal2e73+88/import/4fullnative112PNG proof retained from03:00.04:00 adds724 focused native cancellation assertions/32cycles/20opened originals on unchangedsource; no new fullsuite or package build claimed.",
-  "issues_reviewed_at": "2026-10-31T04:09:52.459751+00:00",
+  "issues_reviewed_at": "2026-10-31T04:59:45.864195+00:00",
   "progress": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T03:38:05.378890+00:00",
@@ -817,5 +818,13 @@
       "next_action": "Existing RootUI modal live-resize positive probe; source remains exact2e;143events;08:50 read-only/09:00hardcutoff.",
       "note": "Responsive rebuild may legitimately change menu nodeIDs; verify semanticfocus/decision safety rather than reusing same-view identity assertion blindly."
     }
+  },
+  "modal_resize_pass": {
+    "started_at": "2026-10-31T04:59:45.864195+00:00",
+    "lease_ends": "2026-10-31T05:55:00Z",
+    "source_baseline": "2e087124c7323a1b3b480229425fdef1164b732e",
+    "preflight_base": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
+    "status": "immutable_native_probe_pending",
+    "owner_approved": false
   }
 }

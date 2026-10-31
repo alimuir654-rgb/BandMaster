@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "1c53b9640304b95101ddc1b79f149dcdecc1bc87",
-  "claimed_at": "2026-10-31T04:00:14.485548+00:00",
-  "expires_at": "2026-10-31T04:50:00Z",
-  "scope": "One existing overwrite-draft cancellation QA slice; immutable native probe first, scoped fix only on confirmed defect.",
+  "writer": "S40-modal-resize-20261031T0500",
+  "base_head": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
+  "claimed_at": "2026-10-31T04:59:45.864195+00:00",
+  "expires_at": "2026-10-31T05:55:00Z",
+  "scope": "One existing RootUI overwrite-draft live-resize lifecycle QA/fix slice; immutable native failure first. No component/art/model/save schema writes.",
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T04:09:52.459751+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "04:00 native cancellation validation complete; source/art unchanged, full2e proof/packages reused. Next distinct RootUI modal live-resize risk must be reproduced before repair. One writer, public history sync blocked;08:50 final read-only guard/09:00 cutoff retained.",
+  "note": "Root is coordinated source writer; helpers scratch/native/read-only only. No publichistory upload;08:50 read-only/09:00hardcutoff.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -74,5 +74,12 @@
     "claimed_at": "2026-10-31T03:07:21.432803+00:00",
     "expires_at": "2026-10-31T03:55:00Z",
     "released_at": "2026-10-31T03:38:05.378890+00:00"
+  },
+  "previous_modal_cancel_lease": {
+    "last_writer": "S40-modal-cancel-qa-20261031T0400",
+    "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+    "claimed_at": "2026-10-31T04:00:14.485548+00:00",
+    "expires_at": "2026-10-31T04:50:00Z",
+    "released_at": "2026-10-31T04:09:52.459751+00:00"
   }
 }
