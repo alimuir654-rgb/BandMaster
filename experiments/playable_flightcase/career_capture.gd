@@ -34,6 +34,7 @@ var checks: int = 0
 var failures: Array[String] = []
 var images: Array[String] = []
 var evidence: Array = []
+var visual_diagnostics: Array = []
 var protected_initial: Dictionary = {}
 var deadline: int = 0
 var practice_id: int = 0
@@ -417,13 +418,20 @@ func write_saved_draft() -> bool:
  var draft: Dictionary=model.game.career.get("current_song_draft",{})
  var sessions: Array=draft.get("sessions",[])
  if not verify(str(draft.get("title",""))==PENDING_TITLE and sessions.size()==1 and int(model.game.career.get("song_draft_progress",0))==1,"Songs page receives genuine saved1/3 Workshop.sessions array"): return false
- var has_title:=false
- var has_stage:=false
+ var title_label: Label
+ var stage_label: Label
  for node in desk().find_children("*","Label",true,false):
   var label:=node as Label
-  if label.text==PENDING_TITLE: has_title=inside(label)
-  if label.text.begins_with("SESSION 1 / 3"): has_stage=inside(label)
- return verify(has_title and has_stage,"actual Songbook displays saved native title/session count without clipping")
+  if label.text==PENDING_TITLE: title_label=label
+  if label.text.begins_with("SESSION 1 / 3"): stage_label=label
+ if not verify(title_label!=null and stage_label!=null,"Songbook native saved title/session labels exist"): return false
+ var diagnostic: Dictionary={"kind":"readonly Songbook visual layout","frame_before":Engine.get_process_frames(),"title_before":str(title_label.get_global_rect()),"stage_before":str(stage_label.get_global_rect()),"title_inside_before":inside(title_label),"stage_inside_before":inside(stage_label)}
+ # This measures a free navigation result, not a committing input. Preserve
+ # commit/burst/skip/resize input timing and require the same strong clip bounds.
+ if not await settled(title_label,Vector2(1,1)) or not await settled(stage_label,Vector2(1,1)): return false
+ diagnostic.merge({"frame_after":Engine.get_process_frames(),"title_after":str(title_label.get_global_rect()),"stage_after":str(stage_label.get_global_rect()),"title_inside_after":inside(title_label),"stage_inside_after":inside(stage_label)})
+ visual_diagnostics.append(diagnostic)
+ return verify(inside(title_label) and inside(stage_label),"actual Songbook displays saved native title/session count without clipping")
 
 func menu_continue_roundtrip() -> bool:
  var before:=guard()
@@ -498,7 +506,7 @@ func run() -> void:
  if is_instance_valid(screen): screen.free()
  await frames(3)
  verify(files(true)==protected_initial,"native career proof leaves original legacy3/C26 save bytes untouched")
- var result: Dictionary={"pass":failures.is_empty(),"checks":checks,"errors":failures,"width":width,"height":height,"engine":Engine.get_version_info(),"user_data":user_dir,"save_calls":model.saves if model!=null else 0,"load_calls":model.loads if model!=null else 0,"images":images,"paid_and_free_commits":evidence,"clip_method":"448a72bc ALL clipping ancestors and visible scrollbar area; real Tab reveal only","method":"genuine C27 fixture; native pointer/Enter/Space/Tab/Home/End; one-owner actual super save/load; true pending form and saved Workshop draft; exact original bridge/writing state"}
+ var result: Dictionary={"pass":failures.is_empty(),"checks":checks,"errors":failures,"width":width,"height":height,"engine":Engine.get_version_info(),"user_data":user_dir,"save_calls":model.saves if model!=null else 0,"load_calls":model.loads if model!=null else 0,"images":images,"paid_and_free_commits":evidence,"visual_diagnostics":visual_diagnostics,"clip_method":"448a72bc ALL clipping ancestors and visible scrollbar area; real Tab reveal only","method":"genuine C27 fixture; native pointer/Enter/Space/Tab/Home/End; one-owner actual super save/load; true pending form and saved Workshop draft; exact original bridge/writing state"}
  var receipt:=FileAccess.open(output+"/result.json",FileAccess.WRITE)
  if receipt==null:
   push_error("S45_CAREER_CAPTURE could not write result");quit(1);return
