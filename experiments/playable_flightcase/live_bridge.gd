@@ -9,13 +9,14 @@ const Tour = preload("res://Scripts/tour_itinerary.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const PracticeSession = preload("res://experiments/playable_flightcase/session.gd")
+const Reviews = preload("res://experiments/playable_flightcase/review_policy.gd")
 const LOCAL_VENUE := "local"
 
 static func show_day(state: Dictionary) -> bool:
  var booking: Dictionary = Calendar.pending(state)
  return not booking.is_empty() and int(booking.get("day",-1))==int(state.get("tour_day",0))
 
-static func booking_eligibility(state: Dictionary, hire: bool = false) -> Dictionary:
+static func booking_eligibility(state: Dictionary, hire: bool = false, offer_id: String = "standard") -> Dictionary:
  var active := 0
  var drummer := false
  var roster: Variant = state.get("members",[])
@@ -28,7 +29,7 @@ static func booking_eligibility(state: Dictionary, hire: bool = false) -> Dictio
  var normal_ready: bool = active>=2 and drummer
  # Original promoter UI only offers session fallback to an inadequate normal
  # lineup. Existing Tour validation includes travel plus the existing £25 fee.
- var offer: Dictionary = Promoter.negotiate(state,LOCAL_VENUE,"standard")
+ var offer: Dictionary = Promoter.negotiate(state,LOCAL_VENUE,offer_id)
  var normal_plan: Dictionary = Tour.validate(state,LOCAL_VENUE,Tour.DRIVE,false)
  var session_plan: Dictionary = Tour.validate(state,LOCAL_VENUE,Tour.DRIVE,true)
  var session_available: bool = not normal_ready and active>=1 and bool(offer.get("ok",false)) and bool(session_plan.get("ok",false))
@@ -50,6 +51,11 @@ static func booking_eligibility(state: Dictionary, hire: bool = false) -> Dictio
   view["message"] = str(normal_plan.get("message","The journey is unavailable."))
  else:
   view["ok"] = true
+ if bool(view["ok"]):
+  var confidence: Dictionary = Reviews.eligibility(state,LOCAL_VENUE,offer_id)
+  if not bool(confidence.get("ok",false)):
+   view["ok"] = false
+   view["message"] = str(confidence.get("message","This promoter offer is unavailable."))
  return view
 
 static func _post(before: Dictionary, result: Dictionary, source: String = "") -> Dictionary:
@@ -75,9 +81,13 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
  if verb in ["advance","perform","cancel","expire"] and not choice.is_empty():
   return {"ok":false,"message":"This live-career action does not accept a choice."}
  var before: Dictionary = state.duplicate(true)
+ if verb in ["book","perform"]:
+  var tracking: Dictionary = Reviews.validate(before)
+  if not bool(tracking.get("ok",false)):
+   return {"ok":false,"message":str(tracking.get("message","The show record cannot be read safely."))}
  match verb:
   "book":
-   var eligible: Dictionary = booking_eligibility(before,hire)
+   var eligible: Dictionary = booking_eligibility(before,hire,choice)
    if not bool(eligible.get("ok",false)):
     return {"ok":false,"message":str(eligible.get("message","Booking unavailable."))}
    if hire and choice!="standard":
@@ -115,7 +125,14 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
     var latest: Dictionary = history.back()
     result["message"] = str(result.get("message","Show finished."))+" Promoter settlement: £%d after the %s agreement." % [int(latest.get("fee",0)),str(terms.get("offer_id","standard"))]
    var booking: Dictionary = Calendar.pending(before)
-   return _post(before,result,"gig:"+str(booking.get("venue_id","")))
+   var finished: Dictionary = _post(before,result,"gig:"+str(booking.get("venue_id","")))
+   var reviewed: Dictionary = Reviews.apply(before,finished["state"])
+   if not bool(reviewed.get("ok",false)):
+    return {"ok":false,"message":str(reviewed.get("message","The show record could not be completed."))}
+   finished["state"] = reviewed["state"]
+   if not str(reviewed.get("message","")).is_empty():
+    finished["message"] = str(finished.get("message",""))+"\n\n"+str(reviewed["message"])
+   return finished
   "cancel":
    return _post(before,Calendar.cancel(before),"booking_cancel")
   "expire":

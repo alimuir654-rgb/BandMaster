@@ -9,6 +9,7 @@ const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
 const Brief = preload("res://Scripts/live_night_briefing.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
+const Reviews = preload("res://experiments/playable_flightcase/review_policy.gd")
 const OFFER_IDS := ["standard","guarantee","guestlist"]
 const APPROACH_IDS := ["tight","wild","crowd"]
 
@@ -184,12 +185,25 @@ static func _last_show(host, parent: Node, compact: bool, state: Dictionary) -> 
   # Original history records the plan tariff; at low hometown cash the actual
   # debit can be smaller. Do not label this as exact spending or net profit.
   host._copy(body,"RECORDED TRAVEL TARIFF £%d" % int(record["travel_cost"]),14,true)
+ var review: Dictionary = Reviews.latest(state)
+ if not review.is_empty():
+  var headline: Label = host._copy(body,str(review.get("headline","SHOW REPORT")),20)
+  headline.name="LiveReviewHeadline"
+  var response: Label = host._copy(body,str(review.get("body","")),16)
+  response.name="LiveReviewBody"
+  var confidence: Dictionary = Reviews.eligibility(state,"local","guarantee")
+  var recovery: Label = host._copy(body,str(confidence.get("recovery","")),16,true)
+  recovery.name="LiveReviewRecovery"
 
 
 static func dock(host, parent: Node, _compact: bool) -> void:
  var state: Dictionary = host.game.career
  _sync_context(host,state)
  var phase: String = str(Night.stage(state).get("phase","none"))
+ var review_status: Label = C.label("",16)
+ review_status.name="LiveReviewStatus"
+ review_status.visible=false
+ parent.add_child(review_status)
  var commitment: Label = C.label("",16)
  commitment.name="LiveCommitment"
  parent.add_child(commitment)
@@ -233,7 +247,12 @@ static func refresh_plans(host) -> void:
  if booking.is_empty():
   var hire: bool = bool(host.live_hire_session)
   var offer_id: String = str(host.live_offer)
-  var eligible: Dictionary = Live.booking_eligibility(state,hire)
+  var eligible: Dictionary = Live.booking_eligibility(state,hire,offer_id)
+  var review_status: Label = host.find_child("LiveReviewStatus",true,false) as Label
+  var confidence: Dictionary = Reviews.eligibility(state,"local","guarantee")
+  if review_status!=null:
+   review_status.visible=not bool(confidence.get("ok",false))
+   review_status.text=str(eligible.get("message","")) if offer_id=="guarantee" or not bool(confidence.get("restricted",false)) else "GUARANTEES PAUSED  /  Win a hometown show to restore them."
   var valid_plan: bool = Promoter.OFFERS.has(offer_id) and (not hire or offer_id=="standard")
   for id in OFFER_IDS:
    var button: Button = host.find_child("LiveOffer_"+str(id),true,false) as Button

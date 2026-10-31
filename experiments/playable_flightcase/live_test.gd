@@ -2,6 +2,7 @@ extends SceneTree
 ## Headless original-model/C27 save contract proof. No UI/input/device claims.
 ## Root copies this scratch file into an exact isolated runtime and runs it.
 const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
+const Reviews = preload("res://experiments/playable_flightcase/review_policy.gd")
 const Career = preload("res://experiments/playable_flightcase/career_bridge.gd")
 const Opening = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Session = preload("res://experiments/playable_flightcase/session.gd")
@@ -149,9 +150,20 @@ func parity(state: Dictionary, verb: String, choice: String = "", hire: bool = f
  var success: bool = bool(expected.get("ok",false))
  check(bool(actual.get("ok",false))==success,"original success/rejection parity: "+verb+" "+choice)
  if success:
-  check(actual.get("state")==expected.get("state"),"exact original full state composition: "+verb+" "+choice)
+  var actual_state: Dictionary = (actual.get("state",{}) as Dictionary).duplicate(true)
+  var expected_state: Dictionary = (expected.get("state",{}) as Dictionary).duplicate(true)
+  # S49 owns only this additive key. Other commands must preserve it exactly.
+  if verb=="perform":
+   actual_state.erase(Reviews.KEY)
+   expected_state.erase(Reviews.KEY)
+  check(actual_state==expected_state,"exact original full state composition except named new review metadata: "+verb+" "+choice)
   if expected.has("message"):
-   check(actual.get("message")==expected.get("message"),"exact original authored message: "+verb+" "+choice)
+   var original_message: String = str(expected.get("message",""))
+   if verb=="perform":
+    var report: Dictionary = Reviews.latest(actual.get("state",{}) as Dictionary)
+    check(not report.is_empty() and not str(report.get("body","")).is_empty(),"S49 performance has an explicit separately tested factual review")
+    original_message+="\n\n"+str(report.get("body",""))
+   check(actual.get("message")==original_message,"exact original authored message plus explicit S49 review body: "+verb+" "+choice)
  return actual
 
 func rejected(state: Dictionary, verb: String, choice: String = "", hire: bool = false) -> void:
