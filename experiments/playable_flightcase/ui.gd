@@ -158,8 +158,11 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  selected_index = clampi(selected_index,0,choices.size()-1)
  var person: Dictionary = choices[selected_index]
  var scroll := ScrollContainer.new()
+ scroll.name = "RecruitProfileScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.follow_focus = true
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  root_box.add_child(scroll)
  var content: BoxContainer = _box() if mobile else HBoxContainer.new()
  if not mobile:
@@ -181,38 +184,56 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var following: Button = _button("›",_move_candidate.bind(1),"browse")
  following.custom_minimum_size.x = 48
  browse.add_child(following)
+ # Phone decisions need the six stats as well as the authored trade-offs.
+ # Use the same source art at a compact display size beside the six readouts;
+ # desktop has room for the original large portrait in that arrangement.
+ var phone_profile: bool = get_viewport_rect().size.x<600
+ var wide_profile: bool = get_viewport_rect().size.x>=1000
+ var profile: BoxContainer = HBoxContainer.new() if wide_profile or phone_profile else _box()
+ profile.add_theme_constant_override("separation",8 if phone_profile else (12 if wide_profile else 8))
+ profile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ detail.add_child(profile)
  var image_path := str(person.get("portrait_preview",""))
  if image_path.is_empty() or not ResourceLoader.exists(image_path):
-  detail.add_child(_label("ARCHIVE PROFILE  •  PORTRAIT PROVISIONAL",13))
+  profile.add_child(_label("ARCHIVE PROFILE  •  PORTRAIT PROVISIONAL",13))
  else:
   var image := TextureRect.new()
+  image.name = "RecruitPortrait"
   image.texture = load(image_path)
   image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-  image.custom_minimum_size = Vector2(210,205)
+  image.custom_minimum_size = Vector2(80,79) if phone_profile else Vector2(210,205)
   image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  image.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
   image.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  detail.add_child(image)
+  image.focus_mode = Control.FOCUS_NONE
+  profile.add_child(image)
+ var meter_rows := _box()
+ profile.add_child(meter_rows)
  var stats: Array = Base.stats_for(person,role)
  var captions: Array = Base.labels_for(role)
  for i in range(stats.size()):
   var line := HBoxContainer.new()
-  line.add_theme_constant_override("separation",8)
-  detail.add_child(line)
+  line.name = "RecruitStatRow"+str(i)
+  line.add_theme_constant_override("separation",4 if phone_profile else 8)
+  meter_rows.add_child(line)
   var label := _label(str(captions[i]).to_upper(),13)
   label.custom_minimum_size.x = 90
   line.add_child(label)
   var meter := Kit.PassiveMeter.new(look,int(stats[i]))
   meter.name = "PassiveMeter"+str(i)
+  if phone_profile:
+   meter.custom_minimum_size.x = 80
   line.add_child(meter)
-  line.add_child(_label(str(int(stats[i])),14))
+  var numeric_value := _label(str(int(stats[i])),14)
+  numeric_value.custom_minimum_size.x = 18 if phone_profile else 24
+  line.add_child(numeric_value)
  var cost := Base.incremental_cost(game.roster,person)
  var recruited := Base.contains(game.roster,str(person["id"]))
  var action: Button = _button("REMOVE FROM BAND" if recruited else "RECRUIT  •  %d TALENT" % cost,_remove.bind(str(person["id"])) if recruited else _recruit.bind(str(person["id"])))
  action.name = "RecruitAction" if not recruited else "RemoveAction"
  action.disabled = false if recruited else not (bool(onboarding_state.can_recruit(str(person["id"]))) if onboarding_state != null else Base.can_add(game.roster,person))
- # Keep the portrait and six passive meters scrollable, with the native
- # recruit/remove decision persistently visible underneath the dossier.
+ # Keep the complete original dossier and all passive meters available.
  var aside := _box()
  aside.custom_minimum_size.x = 0 if mobile else 320
  aside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -243,21 +264,53 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch)
  start.name = "StartAction"
  start.disabled = not (bool(onboarding_state.ready()) if onboarding_state != null else game.can_start())
- # Real source-backed actions live outside the scroll on every viewport.
- var dock: BoxContainer = _box() if mobile else HBoxContainer.new()
+ # The actual authored trade-offs stay beside the decision, even while the
+ # portrait, stats and full dossier scroll. These are metadata, not new effects.
+ var context := _box()
+ context.name = "RecruitDecisionContext"
+ context.add_theme_constant_override("separation",4)
+ context.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ if not mobile:
+  context.custom_minimum_size.x = 760.0
+ root_box.add_child(context)
+ var strength := _label("STRENGTH  •  "+str(person.get("strength","Still developing")),16)
+ strength.name = "RecruitStrength"
+ context.add_child(strength)
+ var friction := _label("FRICTION  •  "+str(person.get("friction","Unknown")),16)
+ friction.name = "RecruitFriction"
+ context.add_child(friction)
+ var available: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
+ var budget_text: String
+ if recruited:
+  budget_text = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
+ elif game.roster.size()>=6:
+  budget_text = "BAND FULL  •  6/6 MEMBERS  •  %d TALENT AVAILABLE" % available
+  action.text = "BAND FULL"
+  action.tooltip_text = budget_text
+ elif available<cost:
+  budget_text = "NEED %d MORE TALENT  •  %d AVAILABLE" % [cost-available,available]
+ else:
+  budget_text = "%d TALENT  •  %d AVAILABLE  •  %d AFTER RECRUIT" % [cost,available,available-cost]
+ var affordability := _label(budget_text,16)
+ affordability.name = "RecruitAffordability"
+ affordability.add_theme_color_override("font_color",Color("f0c78b"))
+ context.add_child(affordability)
+ # One native action row also fits the ready phone: the budget line retains
+ # exact cost while short labels leave room for the existing Complete action.
+ var dock := HBoxContainer.new()
  dock.name = "RecruitDecisionDock"
  dock.add_theme_constant_override("separation",8)
- if mobile:
-  dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- else:
-  dock.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-  dock.custom_minimum_size.x = 760.0
- root_box.add_child(dock)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ context.add_child(dock)
  action.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  dock.add_child(action)
  if not start.disabled:
   start.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   if mobile:
+   if not recruited and game.roster.size()<6:
+    action.text = "RECRUIT"
+   elif recruited:
+    action.text = "REMOVE"
    start.text = "COMPLETE LINEUP"
   dock.add_child(start)
  else:

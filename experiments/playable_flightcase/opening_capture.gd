@@ -9,6 +9,22 @@ const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const RehearsalScreen = preload("res://experiments/playable_flightcase/ui.gd")
 const Game = preload("res://experiments/playable_flightcase/session.gd")
+const OpeningModel = preload("res://experiments/playable_flightcase/opening_state.gd")
+const RecruitBase = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+# Owner-protected passive meter PNG bytes from the verified 33f checkpoint.
+const METER_SHA256 := [
+ "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+ "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+ "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+ "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+ "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+ "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+ "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+ "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04",
+ "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+ "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+ "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+]
 var failures: Array[String] = []
 func _init() -> void:
  call_deferred("take")
@@ -168,6 +184,172 @@ func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool
  await process_frame
  await process_frame
  print("S40_PRACTICE_LAYOUT ",JSON.stringify({"width":w,"height":h,"cash":budget.text,"choice_round_trip":true,"fixed_actions":3}))
+
+func _recruit_person(pane) -> Dictionary:
+ var choices: Array = pane.game.choices(str(pane.role))
+ var index: int = int(pane.selected_index)
+ return choices[index] if index>=0 and index<choices.size() else {}
+
+func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
+ var person := _recruit_person(pane)
+ if person.is_empty():
+  failures.append("S40 "+tag+" selected candidate is not canonical")
+  return
+ var viewport := Rect2(0,0,w,h)
+ var context: Control = pane.find_child("RecruitDecisionContext",true,false)
+ var dock: Control = pane.find_child("RecruitDecisionDock",true,false)
+ var strength: Label = pane.find_child("RecruitStrength",true,false)
+ var friction: Label = pane.find_child("RecruitFriction",true,false)
+ var affordability: Label = pane.find_child("RecruitAffordability",true,false)
+ var header: Label = pane.find_child("BudgetLabel",true,false)
+ if context==null or dock==null or strength==null or friction==null or affordability==null or header==null:
+  failures.append("S40 "+tag+" recruitment trade-off context missing")
+  return
+ if strength.text!="STRENGTH  •  "+str(person.get("strength","Still developing")) or friction.text!="FRICTION  •  "+str(person.get("friction","Unknown")):
+  failures.append("S40 "+tag+" full authored candidate trade-offs changed or were truncated")
+ for label in [strength,friction,affordability]:
+  if label.get_theme_font_size("font_size")!=16 or not label.is_visible_in_tree() or not viewport.encloses(label.get_global_rect()):
+   failures.append("S40 "+tag+" 16px decision text is not fully visible in first fold: "+str(label.name))
+ if strength.get_global_rect().end.y>friction.get_global_rect().position.y or friction.get_global_rect().end.y>affordability.get_global_rect().position.y or affordability.get_global_rect().end.y>dock.get_global_rect().position.y:
+  failures.append("S40 "+tag+" trade-off text overlaps the next line/action row")
+ if not viewport.encloses(context.get_global_rect()) or (w>=840 and w>=h and context.size.x>762.0):
+  failures.append("S40 "+tag+" decision context exceeds viewport/bounded desktop width")
+ var available: int = int(pane.onboarding_state.remaining()) if pane.onboarding_state!=null else pane.game.remaining()
+ var cost: int = RecruitBase.incremental_cost(pane.game.roster,person)
+ var recruited: bool = RecruitBase.contains(pane.game.roster,str(person.id))
+ var expected: String
+ if recruited:
+  expected = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
+ elif pane.game.roster.size()>=6:
+  expected = "BAND FULL  •  6/6 MEMBERS  •  %d TALENT AVAILABLE" % available
+ elif cost>available:
+  expected = "NEED %d MORE TALENT  •  %d AVAILABLE" % [cost-available,available]
+ else:
+  expected = "%d TALENT  •  %d AVAILABLE  •  %d AFTER RECRUIT" % [cost,available,available-cost]
+ if affordability.text!=expected or header.text!="TALENT %d / 200" % available or not viewport.encloses(header.get_global_rect()):
+  failures.append("S40 "+tag+" availability/reservation/post-recruit forecast is incorrect")
+ var action: Button = pane.find_child("RemoveAction" if recruited else "RecruitAction",true,false)
+ var allowed: bool = bool(pane.onboarding_state.can_recruit(str(person.id))) if pane.onboarding_state!=null else RecruitBase.can_add(pane.game.roster,person)
+ if action==null:
+  failures.append("S40 "+tag+" recruit/remove decision missing")
+ else:
+  if action.get_parent()!=dock or action.size.y<44 or not viewport.encloses(action.get_global_rect()) or action.disabled!=(false if recruited else not allowed):
+   failures.append("S40 "+tag+" recruit/remove target is hidden, misplaced or wrongly gated")
+  if not recruited and pane.game.roster.size()>=6 and action.text!="BAND FULL":
+   failures.append("S40 "+tag+" full roster implies a zero-cost recruitment")
+ var ready: bool = bool(pane.onboarding_state.ready()) if pane.onboarding_state!=null else pane.game.can_start()
+ var start: Button = pane.find_child("StartAction",true,false)
+ if ready:
+  if start==null or start.get_parent()!=dock or start.size.y<44 or not viewport.encloses(start.get_global_rect()):
+   failures.append("S40 "+tag+" ready second action is clipped or misplaced")
+  if w<840 or w<h:
+   if start!=null and start.text!="COMPLETE LINEUP":
+    failures.append("S40 "+tag+" ready mobile completion label is not compact")
+   if action!=null and (recruited or pane.game.roster.size()<6) and action.text!=("REMOVE" if recruited else "RECRUIT"):
+    failures.append("S40 "+tag+" ready mobile recruit/remove label does not fit shared row")
+ var profile: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
+ var stats: Array = RecruitBase.stats_for(person,str(pane.role))
+ for index in range(6):
+  var meter: TextureRect = pane.find_child("PassiveMeter"+str(index),true,false)
+  var score: int = int(stats[index])
+  var path: String = "res://components/control_atlas/art/passive_meter_flightcase_%02d.png" % score
+  if meter==null or meter.texture==null or meter.texture.resource_path!=path or int(meter.get("score"))!=score or FileAccess.get_sha256(path)!=METER_SHA256[score]:
+   failures.append("S40 "+tag+" original selected passive meter bytes/value changed: "+str(index))
+  elif meter.focus_mode!=Control.FOCUS_NONE or meter.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+   failures.append("S40 "+tag+" passive selected stat takes input/focus: "+str(index))
+  elif profile==null or not profile.get_global_rect().encloses(meter.get_global_rect()):
+   failures.append("S40 "+tag+" first fold still hides selected meter "+str(index))
+ print("S40_RECRUIT_CONTEXT ",JSON.stringify({"case":tag,"candidate":person.id,"width":w,"height":h,"cost":cost,"available":available,"ready":ready,"copy":affordability.text}))
+
+func _check_recruit_profile_keyboard(pane,w: int,h: int,tag: String) -> void:
+ var scroll: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
+ if scroll==null:
+  failures.append("S40 "+tag+" keyboard dossier scroll missing")
+  return
+ var before: Dictionary = pane.game.snapshot()
+ var files: Dictionary = _recap_save_bytes()
+ var bar: VScrollBar = scroll.get_v_scroll_bar()
+ if bar.visible:
+  var action: Button = pane.find_child("RecruitAction",true,false)
+  if action!=null and not action.disabled:
+   action.grab_focus()
+  if bar.focus_mode!=Control.FOCUS_ALL or not await _tab_to(bar,24):
+   failures.append("S40 "+tag+" Tab cannot reach original dossier scrollbar")
+  await _recap_key(KEY_HOME)
+  if scroll.scroll_vertical!=0:
+   failures.append("S40 "+tag+" native Home did not restore the profile start")
+ # All six primary stats must be readable immediately. The optional dossier
+ # uses the engine's verified Home/End controls; Page Down is unsupported here.
+ for index in range(6):
+  var meter: Control = pane.find_child("PassiveMeter"+str(index),true,false)
+  if meter==null or not scroll.get_global_rect().encloses(meter.get_global_rect()):
+   failures.append("S40 "+tag+" initial profile/keyboard Home hides stat "+str(index))
+ if bar.visible:
+  await _recap_key(KEY_END)
+  if scroll.scroll_vertical!=roundi(bar.max_value-bar.page) or not bar.has_focus():
+   failures.append("S40 "+tag+" native End did not reach the full dossier with focus retained")
+  await _recap_key(KEY_HOME)
+  if scroll.scroll_vertical!=0 or not bar.has_focus():
+   failures.append("S40 "+tag+" native Home did not restore the dossier with focus retained")
+ print("S40_RECRUIT_SCROLL ",JSON.stringify({"case":tag,"width":w,"height":h,"visible_bar":bar.visible,"maximum":roundi(bar.max_value-bar.page),"home":scroll.scroll_vertical}))
+ if pane.game.snapshot()!=before or _recap_save_bytes()!=files:
+  failures.append("S40 "+tag+" keyboard dossier browsing mutated game/save bytes")
+
+func _draw_recruit_context_fixtures(screen,w: int,h: int) -> void:
+ var files: Dictionary = _recap_save_bytes()
+ var original: Dictionary = screen.setup.snapshot()
+ var cases := [
+  {"name":"long_bex","target":"cast_bex","roster":[],"capture":true},
+  {"name":"long_sam","target":"cast_sam","roster":[],"capture":true},
+  {"name":"ready_trio","target":"cast_casey","roster":["cast_jack","cast_zoe","cast_casey"],"vocal":"cast_jack","capture":true},
+  {"name":"fifth_cost","target":"cast_dan","roster":["cast_maya","cast_jack","cast_zoe","cast_casey"]},
+  {"name":"sixth_cost","target":"cast_jack","roster":["cast_nina","cast_tom","cast_ben","cast_ellis","cast_dan"]},
+  {"name":"vocal_reservation","target":"cast_nina","roster":["cast_maya","cast_jack","cast_zoe","cast_dan","cast_casey"],"vocal":"cast_jack"},
+  {"name":"shortfall","target":"cast_bex","roster":["cast_maya","cast_jack","cast_zoe","cast_dan","cast_casey"]},
+  {"name":"full_six","target":"cast_maya","roster":["cast_nina","cast_tom","cast_ben","cast_ellis","cast_dan","cast_jack"]},
+ ]
+ screen.hide()
+ for entry in cases:
+  var model := OpeningModel.new()
+  model.screen = "recruit"
+  for pid in entry.roster:
+   if not model.game.recruit(pid).get("ok",false):
+    failures.append("S40 invalid canonical recruitment fixture "+str(entry.name)+" "+str(pid))
+  # Reachable fixture reservation; no recruit/choose_vocal/save_draft call
+  # writes the player's sandbox while these read-only states are inspected.
+  model.lead_vocal_id = str(entry.get("vocal",""))
+  var candidate: Dictionary = model.game.person_by_id(str(entry.target))
+  var fixture = RehearsalScreen.new()
+  fixture.game = model.game
+  fixture.onboarding_state = model
+  fixture.last_message = "RECRUITMENT QA FIXTURE  /  NO SAVE"
+  fixture.role = str(candidate.get("primary_role",candidate.get("roles",["Singer"])[0]))
+  var choices: Array = model.game.choices(fixture.role)
+  fixture.selected_index = -1
+  for index in range(choices.size()):
+   if str(choices[index].get("id",""))==str(entry.target):
+    fixture.selected_index = index
+  if fixture.selected_index<0:
+   failures.append("S40 recruitment fixture candidate absent from actual role "+str(entry.target))
+   fixture.free()
+   continue
+  var before: Dictionary = model.snapshot()
+  root.add_child(fixture)
+  await process_frame
+  await process_frame
+  await process_frame
+  _check_recruit_context(fixture,w,h,str(entry.name))
+  if bool(entry.get("capture",false)):
+   await _draw_screen("recruit_"+str(entry.name),w,h)
+  if str(entry.name) in ["long_bex","long_sam"]:
+   await _check_recruit_profile_keyboard(fixture,w,h,str(entry.name))
+  if model.snapshot()!=before or _recap_save_bytes()!=files:
+   failures.append("S40 read-only recruitment fixture changed source state/save "+str(entry.name))
+  fixture.free()
+  await process_frame
+ screen.show()
+ if screen.setup.snapshot()!=original or _recap_save_bytes()!=files:
+  failures.append("S40 recruitment QA fixtures changed the real player's state/save")
 
 func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: int,h: int,context: String) -> void:
  var view: Dictionary = Recap.present(report,members)
@@ -597,6 +779,8 @@ func take() -> void:
   if pane==null:
    failures.append("real recruitment panel missing")
   else:
+   _check_recruit_context(pane,w,h,"actual initial Maya")
+   await _check_recruit_profile_keyboard(pane,w,h,"actual initial Maya")
    for pair in [["Guitarist","cast_jack"],["Bassist","cast_zoe"],["Drummer","cast_casey"]]:
     var desired_role: String = str(pair[0])
     var desired_id: String = str(pair[1])
@@ -629,6 +813,12 @@ func take() -> void:
     if not found_target:
      failures.append("could not browse to "+desired_id+" in "+desired_role)
      break
+    _check_recruit_context(pane,w,h,"actual browsed "+desired_id)
+    var before_count: int = screen.setup.game.roster.size()
+    var before_spent: int = screen.setup.game.spent()
+    var before_available: int = screen.setup.remaining()
+    var before_changes: int = screen.setup.change_counter
+    var hire_cost: int = RecruitBase.incremental_cost(screen.setup.game.roster,_recruit_person(pane))
     await click_action(pane.find_child("RecruitAction",true,false))
     var confirmed := false
     for member in screen.setup.game.roster:
@@ -637,6 +827,17 @@ func take() -> void:
     if not confirmed:
      failures.append("real recruit pointer did not hire "+desired_id)
      break
+    if screen.setup.game.roster.size()!=before_count+1 or screen.setup.game.spent()!=before_spent+hire_cost or screen.setup.remaining()!=before_available-hire_cost or screen.setup.change_counter!=before_changes+1:
+     failures.append("S40 real recruit did not charge/change roster exactly once: "+desired_id)
+    _check_recruit_context(pane,w,h,"actual recruited "+desired_id)
+    if desired_id=="cast_jack":
+     await click_action(pane.find_child("RemoveAction",true,false))
+     if screen.setup.game.roster.size()!=before_count or screen.setup.game.spent()!=before_spent or screen.setup.remaining()!=before_available or screen.setup.change_counter!=before_changes+2:
+      failures.append("S40 genuine Remove did not refund the exact actual recruit once")
+     _check_recruit_context(pane,w,h,"actual removed Jack")
+     await click_action(pane.find_child("RecruitAction",true,false))
+     if screen.setup.game.roster.size()!=before_count+1 or screen.setup.game.spent()!=before_spent+hire_cost or screen.setup.remaining()!=before_available-hire_cost or screen.setup.change_counter!=before_changes+3:
+      failures.append("S40 genuine re-recruit lost the exact original cost/one-shot change")
    var vocal_action: Button = null
    for entry in pane.find_children("*","Button",true,false):
     var voice_button: Button = entry as Button
@@ -646,6 +847,7 @@ func take() -> void:
    await click_action(vocal_action)
    if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready():
     failures.append("real vocalist selection or mandatory trio not ready")
+   _check_recruit_context(pane,w,h,"actual ready trio with vocal reservation")
   var ready_action: Button = screen.find_child("StartAction",true,false)
   if ready_action == null:
    failures.append("ready lineup action not revealed in fixed decision dock")
@@ -943,6 +1145,7 @@ func take() -> void:
     await _draw_screen("rehearsal_resumed",w,h)
 
  await _check_practice_dispatch(screen,w,h)
+ await _draw_recruit_context_fixtures(screen,w,h)
  await _draw_six_member_recap(screen,w,h)
 
  # Deferred frees from the final screen transition must settle before checking
