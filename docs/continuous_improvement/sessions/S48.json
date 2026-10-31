@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 424622,
-    "sha256": "4fee0c8c3bd1cbf63e2715e2248a2da49767e0b5aa163827983b8ef68a981f63"
+    "bytes": 426798,
+    "sha256": "c719fdc7fb518239e492500a8e437cf73bd5d7172186755535f76e0948e1ee89"
   },
   "target": {
     "locator": "/workspace/work/business/s47/corrected-phone/captures/finance-populated-390x844.png",

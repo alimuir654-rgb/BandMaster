@@ -48,13 +48,14 @@ static func render(host, parent: Node, compact: bool) -> void:
  _copy(host,body,"LIFE OFFSTAGE","OffstageHeading",26)
  _copy(host,body,"Time together, local music and the people you meet along the way.","OffstageIntroduction")
  if not str(host.notice).is_empty():_copy(host,body,str(host.notice),"OffstageNotice")
- var navigation: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
- navigation.add_theme_constant_override("separation",8)
- body.add_child(navigation)
- var plan: Button = _choice(navigation,"PLAN AN OUTING","OffstagePlanAction",host._offstage_show.bind("outing"),bool(host.busy))
- plan.set_pressed_no_signal(mode=="outing")
- var saved: Button = _choice(navigation,"SAVED INVITATION","OffstageSavedInviteAction",host._offstage_show.bind("invite"),bool(host.busy) or pending.is_empty())
- saved.set_pressed_no_signal(mode=="invite")
+ if not pending.is_empty():
+  var navigation: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
+  navigation.add_theme_constant_override("separation",8)
+  body.add_child(navigation)
+  var plan: Button = _choice(navigation,"PLAN AN OUTING","OffstagePlanAction",host._offstage_show.bind("outing"),bool(host.busy))
+  plan.set_pressed_no_signal(mode=="outing")
+  var saved: Button = _choice(navigation,"SAVED INVITATION","OffstageSavedInviteAction",host._offstage_show.bind("invite"),bool(host.busy))
+  saved.set_pressed_no_signal(mode=="invite")
  if mode=="invite":
   _invitation(host,body,state,pending[0])
  else:
