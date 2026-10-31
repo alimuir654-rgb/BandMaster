@@ -60,6 +60,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  if fresh_notes:
   why.visible_characters = 0
   why.set_meta("fresh_action_note",true)
+ else:
+  why.focus_mode = Control.FOCUS_NONE
+  why.mouse_filter = Control.MOUSE_FILTER_IGNORE
  why.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(why)
  var score := ink("THE SCORECARD",14 if tall_tablet else (11 if mobile else 12),true)
@@ -178,6 +181,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   if fresh_notes:
    line.visible_characters = 0
    line.set_meta("fresh_action_note",true)
+  else:
+   line.focus_mode = Control.FOCUS_NONE
+   line.mouse_filter = Control.MOUSE_FILTER_IGNORE
   line.name = "RecapMember_"+person_id
   line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   card.add_child(line)

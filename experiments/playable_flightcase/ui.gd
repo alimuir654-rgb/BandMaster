@@ -220,6 +220,14 @@ func _decorate_audition_heading(label: Label) -> void:
  art.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  label.self_modulate.a = 0.0
 
+func first_audition_candidate_index(for_role: String) -> int:
+ var choices: Array = game.choices(for_role)
+ for index in range(choices.size()):
+  var path: String = str(choices[index].get("portrait_preview",""))
+  if not path.is_empty() and ResourceLoader.exists(path):
+   return index
+ return 0
+
 func first_missing_audition_role() -> String:
  var covered: Array = Base.coverage(game.roster)
  for required in ["Guitarist","Bassist","Drummer"]:
@@ -350,6 +358,11 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   image.mouse_filter = Control.MOUSE_FILTER_IGNORE
   image.focus_mode = Control.FOCUS_NONE
   introduction.add_child(image)
+ else:
+  var archive: Label = _ink("ARCHIVE AUDITION\nNo approved portrait",13,true)
+  archive.name = "RecruitArchivePortrait"
+  archive.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
+  introduction.add_child(archive)
  var bio := _box()
  introduction.add_child(bio)
  bio.add_child(_ink(str(person.get("town","UK")),16))
@@ -520,7 +533,7 @@ func _vocal_audition_page(root_box: VBoxContainer, mobile: bool) -> void:
 
 func _show_singer_auditions() -> void:
  role = "Singer"
- selected_index = 0
+ selected_index = first_audition_candidate_index(role)
  vocals_panel = false
  lineup_review = false
  audition_note_id = ""
@@ -966,7 +979,7 @@ func _change_role(value: String) -> void:
  if value not in Base.ROLE_TABS:
   return
  role = value
- selected_index = 0
+ selected_index = first_audition_candidate_index(value)
  lineup_review = false
  vocals_panel = value=="Singer" and onboarding_state!=null
  audition_note_id = ""

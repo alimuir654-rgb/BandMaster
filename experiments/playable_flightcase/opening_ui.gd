@@ -513,6 +513,7 @@ func _recruit() -> void:
  child.onboarding_state = setup
  child.reduced_motion = reduced_motion
  child.role = child.first_missing_audition_role()
+ child.selected_index = child.first_audition_candidate_index(child.role)
  child.vocals_panel = child.role=="Singer"
  child.lineup_review = setup.ready()
  _recruit_view = child

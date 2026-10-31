@@ -699,8 +699,14 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  if not viewport.encloses(context.get_global_rect()) or (w>=840 and w>=h and context.size.x>762.0):
   failures.append("S43 "+tag+" decision context exceeds viewport/bounded desktop width")
  var portrait: TextureRect = pane.find_child("RecruitPortrait",true,false)
- if portrait==null or portrait.texture==null or portrait.texture.resource_path!=str(person.get("portrait_preview","")) or portrait.focus_mode!=Control.FOCUS_NONE or portrait.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
-  failures.append("S43 "+tag+" original canonical portrait changed or takes input/focus")
+ var portrait_path: String = str(person.get("portrait_preview",""))
+ if not portrait_path.is_empty() and ResourceLoader.exists(portrait_path):
+  if portrait==null or portrait.texture==null or portrait.texture.resource_path!=portrait_path or portrait.focus_mode!=Control.FOCUS_NONE or portrait.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+   failures.append("S43 "+tag+" original canonical portrait changed or takes input/focus")
+ else:
+  var archive: Label = pane.find_child("RecruitArchivePortrait",true,false) as Label
+  if portrait!=null or archive==null or not archive.text.contains("No approved portrait"):
+   failures.append("S43 "+tag+" archive candidate invents or hides missing portrait provenance")
  var available: int = int(pane.onboarding_state.remaining()) if pane.onboarding_state!=null else pane.game.remaining()
  var cost: int = RecruitBase.incremental_cost(pane.game.roster,person)
  var expected: String

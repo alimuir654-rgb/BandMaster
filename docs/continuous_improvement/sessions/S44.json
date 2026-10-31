@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 349193,
-    "sha256": "73cb7a427759485c6aeb09159ba7205ba70baf118338b920fa8e83893d2ab932"
+    "bytes": 355556,
+    "sha256": "d639f11452c4591dff1b0c345d96cf6b141db29f4be006bf1344552c43f95eaa"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -104,6 +104,23 @@
       "event_id": "S44-lineup-review-visual-form-clutter",
       "prior_native_checks": 604,
       "status": "scoped visual correction pending"
+    },
+    {
+      "event_id": "S44-ink-probe-static-observer-race",
+      "runtime_tested": false,
+      "scope": "scratch harness only"
+    },
+    {
+      "event_id": "S44-first-audition-archive-default",
+      "source": "a75ed26",
+      "validation": "/workspace/work/s40/runs/s44-audition-a75-full/validation.json"
+    },
+    {
+      "event_id": "S44-restored-note-focus-regression",
+      "source": "a75ed26"
     }
+  ],
+  "workflow_disclosures": [
+    "Event218 corrects217: scratch-only observer fix saved~12s before root event filing; original immutable, no runtime/product correction before native testing."
   ]
 }
