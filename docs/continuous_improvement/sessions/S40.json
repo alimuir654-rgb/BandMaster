@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 221948,
-    "sha256": "24159c3e83ff54d52e645db65d78ac1d4859c2a58a438975744cc7aec1e7cfe7"
+    "bytes": 223819,
+    "sha256": "1dfaae6507090042b36a9707cb330fd6934f69c948fb0278e955bfd66877d019"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -57,7 +57,7 @@
     "pixels_inspected": true,
     "note": "Already opened original existing modal390; baseline for identical copy/state/native art, not inferred owner wholeUI approval."
   },
-  "hypothesis": "Verify live390\u21941280 resizing with existing overwrite-draft modal pending; if reproduced repair host lifecycle to keep decision usable without changing component/art/model/save schema.",
+  "hypothesis": "Confirmed2e _erase destroyspendingmodal onlive resize. Root tracks existing new-band dialog, retainsit in-tree duringmenu reflow, movesitlast forGUIrouting, clearsrefbeforeacceptednavigation and focusescurrentsemanticNewBand aftercancel. Originalcomponent/art/model/savebytes unchanged.",
   "controlled_comparison": "Exact2e immutable native baseline, same actual fresh saved rehearsal career, real window resize while modal open, semantic focus/callback/geometry/unchangedbytes. After a fix same-byte positive probe and complete73+88/import/4native with all112prior source-view originals protected. MenuIDs may change across responsive reflow; no same-view invariant reused blindly.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
@@ -84,7 +84,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal2e73+88/import/4fullnative112PNG proof retained from03:00.04:00 adds724 focused native cancellation assertions/32cycles/20opened originals on unchangedsource; no new fullsuite or package build claimed.",
-  "issues_reviewed_at": "2026-10-31T04:59:45.864195+00:00",
+  "issues_reviewed_at": "2026-10-31T05:03:14.429586+00:00",
   "progress": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T03:38:05.378890+00:00",
@@ -824,7 +824,9 @@
     "lease_ends": "2026-10-31T05:55:00Z",
     "source_baseline": "2e087124c7323a1b3b480229425fdef1164b732e",
     "preflight_base": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
-    "status": "immutable_native_probe_pending",
-    "owner_approved": false
+    "status": "native_defect_recorded_before_fix",
+    "owner_approved": false,
+    "failed_baseline": "/workspace/work/s40/resize-qa/baseline/validation.json",
+    "baseline_probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276"
   }
 }
