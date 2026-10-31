@@ -69,10 +69,10 @@
     "root_released_at": "2026-10-31T07:58:01.634742+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
     "next_focus": "OwnerphoneAPKfeedback only; no speculative sourcewrites,08:50readonly/09hardcutoff.",
-    "last_prompt_updated_at": "2026-10-31T05:22:09.595461+00:00",
+    "last_prompt_updated_at": "2026-10-31T08:00:12.247703+00:00",
     "last_completed_checkpoint_source": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "final_review_guard": "Wake at08:50or later is read-only final review/report; handles early09:00invocation, hard09:00cutoff unchanged.",
-    "last_completed_focused_qa": "/workspace/work/s40/runs/resize-bb38882/fresh-probe-comparison.json"
+    "last_completed_focused_qa": "/workspace/work/s40/android/closeout.json"
   },
   "latest_local_checkpoint": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",

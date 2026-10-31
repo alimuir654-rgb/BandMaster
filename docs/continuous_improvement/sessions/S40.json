@@ -1145,6 +1145,12 @@
       "release_review": "SIMULATED:65,821,060byte APK uploaded toowner-privateDrive and readback confirms size/MIME/owneronlypermission; connectoromitsremotechecksum so onlylocalSHA isclaimed. Failurehistory retained andpublicledger syncstillblocked; sourcebb andrecipe d070 remainseparate."
     },
     "visual_verdict": "partial",
-    "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required."
+    "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required.",
+    "handoff": {
+      "recorded_at": "2026-10-31T08:00:12.247703+00:00",
+      "same_existing_worker_updated": true,
+      "new_queue_created": false,
+      "next_action": "Ownerphonefeedback only; APK alreadyprivatelydelivered. Reuse completedchecks, no speculativephonefixes or repeatbuild.08:50readonly/09hardcutoff."
+    }
   }
 }
