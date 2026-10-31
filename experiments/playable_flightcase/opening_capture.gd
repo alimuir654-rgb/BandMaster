@@ -237,6 +237,9 @@ func _draw_six_member_recap(screen,w: int,h: int) -> void:
   var last: Control = fixture.find_child("RecapPortraitCard_"+roster[-1],true,false) as Control
   if fixture.find_children("RecapPortraitCard_*","VBoxContainer",true,false).size()!=6:
    failures.append("S40 six-member gallery dropped a selected musician")
+  var browse_hint: Label = fixture.find_child("RecapBrowseHint",true,false) as Label
+  if browse_hint!=null and (browse_hint.get_line_count()!=1 or browse_hint.get_global_rect().size.y>32):
+   failures.append("S40 six-member browse hint collapsed into a vertical text column")
   if footer.get_global_rect().size.y<44 or footer.get_global_rect().end.y>float(h):
    failures.append("S40 six-member fixture lost first-fold Continue action")
   for pid in roster:

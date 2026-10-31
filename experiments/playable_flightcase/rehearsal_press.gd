@@ -106,7 +106,12 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  band_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  band_header.add_child(band_caption)
  if voices.size()>3 and mobile:
-  band_header.add_child(ink("SWIPE ›",12 if tall_tablet else 9,true))
+  var browse_hint := ink("SWIPE ›",12 if tall_tablet else 9,true)
+  browse_hint.name = "RecapBrowseHint"
+  browse_hint.autowrap_mode = TextServer.AUTOWRAP_OFF
+  browse_hint.size_flags_horizontal = Control.SIZE_SHRINK_END
+  browse_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+  band_header.add_child(browse_hint)
  var gallery := ScrollContainer.new()
  gallery.name = "RecapMemberGallery"
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
