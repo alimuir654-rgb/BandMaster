@@ -250,7 +250,7 @@ func paused_offer_and_recovery() -> bool:
  if not await open_live() or not await commit_live("advance") or not await choose_approach("tight") or not await commit_live("soundcheck","tight"):return false
  if not await perform_once(true,"review-success-note") or not check_review(true,2):return false
  if not await menu_reload() or not check_review(true,2) or not await choose_offer("guarantee","space"):return false
- var status_after: Label = named("LiveReviewStatus") as Label
+ var status_after: Label = desk().find_child("LiveReviewStatus",true,false) as Label
  if not verify(bool(Live.booking_eligibility(model.game.career,false,"guarantee").ok) and not (named("LiveMainAction") as Button).disabled and status_after!=null and not status_after.visible,"only an actual settled successful show restores GUARANTEE and hides stale paused status"):return false
  if not await capture("review-success-guarantee-restored"):return false
  # Real final booking proves the restored plan reaches the original resolver;
