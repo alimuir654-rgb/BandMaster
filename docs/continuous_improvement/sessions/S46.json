@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 399079,
-    "sha256": "c3632b7a55b54ee46beae6e88e8a35d8eb0b72fe9692de48c027d02c94f741e7"
+    "bytes": 400809,
+    "sha256": "893b9cfed91cbe2236ffdd53a96ae09aa3b9e9d3e6ad63f83d3aa5054be71da7"
   },
   "target": {
     "locator": "/workspace/work/unify/s45/focused-visual-final-phone/captures/career-gear-unowned-390x844.png",
@@ -96,5 +96,17 @@
   "overall_owner_window_end": "2026-10-31T21:40:00Z",
   "next_action": "Capture originalGIGS baseline and actual pre-fix practice-save-failure, then implement original live loop/shared presentation with one coordinated writer.",
   "research": "/workspace/work/unify/s45/next-original-loop-audit.json",
-  "scope_notes": "Hometown book is complete initial port; regional touring/repair/other original systems remain explicit next work. Native brand is reused RGBA lettering, not an invented installable font. Save schema stays1 with original additive career fields."
+  "scope_notes": "Hometown book is complete initial port; regional touring/repair/other original systems remain explicit next work. Native brand is reused RGBA lettering, not an invented installable font. Save schema stays1 with original additive career fields.",
+  "original_baseline": {
+    "execution": "/workspace/work/unify/s46/original-gigs-baseline/execution.json",
+    "capture": "/workspace/work/unify/s46/original-gigs-baseline/captures/baseline.json",
+    "checks": 102,
+    "originals": 8,
+    "opened": [
+      "legacy-gigs-unbooked-390x844.png",
+      "legacy-gigs-booked-1280x720.png"
+    ],
+    "observation": "Originalhero/header/controlroomstack consumesfirstfold; actualbookingpreparationdetails sitbelow. Newsharedpaperkeepscurrentbooking/stage/primarydecisionfirstfold; actualcurrentC25fixture/controlled146host, noUIbookingorproductionlaunchclaim."
+  },
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock"
 }
