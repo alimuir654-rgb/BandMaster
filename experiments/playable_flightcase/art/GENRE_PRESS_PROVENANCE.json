@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source_type": "Original native GDScript vector screenprint compositions; no new raster image or generated UI screenshot",
+  "source": "experiments/playable_flightcase/genre_press.gd",
+  "provider": "Authored native Godot CanvasItem drawing code",
+  "material": "Unmodified session_paper.png and session_paper.gd; separate existing generated blank paper with retained art/PROVENANCE.json",
+  "compositions": ["strings", "cut", "columns", "sun", "haze", "sequence", "stripes", "arch", "orbits", "collage", "horizon", "groove", "chevron", "offbeat"],
+  "rights_basis": "New original geometric compositions authored for the owner's authorized existing-screen artwork pass; no copied competitor marks, logos or photographs",
+  "meaning": "Abstract visual identity only, not new genre rules, scores, meters or editable controls",
+  "protected_sources_modified": false,
+  "owner_approved": false,
+  "native_tested": false
+}

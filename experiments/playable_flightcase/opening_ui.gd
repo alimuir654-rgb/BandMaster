@@ -6,6 +6,7 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
+const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 var setup = Model.new()
 var showing_menu := true
@@ -388,30 +389,43 @@ func _genre() -> void:
  var heading := _label("01 / CHOOSE YOUR SOUND",24)
  root.add_child(heading)
  root.add_child(_label("Your genre sets the starting direction. It does not restrict who you may audition.",14))
+ var wide: bool = size.x >= 900.0 and size.x > size.y
+ var body: BoxContainer = HBoxContainer.new() if wide else VBoxContainer.new()
+ body.name = "GenreWorkspace"
+ body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ body.add_theme_constant_override("separation",18 if wide else 12)
+ root.add_child(body)
+ var press := GenrePress.new()
+ press.configure(setup.game.genre,size)
+ if wide:
+  press.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ else:
+  body.add_child(press)
  var scroll := ScrollContainer.new()
+ scroll.name = "GenreIndexScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
- root.add_child(scroll)
- var grid := GridContainer.new()
- grid.columns = 1 if size.x < 720 else 2
- grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- grid.add_theme_constant_override("h_separation",10)
- grid.add_theme_constant_override("v_separation",10)
- scroll.add_child(grid)
+ scroll.follow_focus = true
+ if wide:
+  scroll.custom_minimum_size.x = 316
+  scroll.size_flags_horizontal = Control.SIZE_FILL
+ body.add_child(scroll)
+ var index := VBoxContainer.new()
+ index.name = "GenreChoiceIndex"
+ index.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ index.add_theme_constant_override("separation",6)
+ scroll.add_child(index)
  for item in Base.genres():
   var name: String = str(item)
-  var card := Kit.frame(look,"panel")
-  card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  grid.add_child(card)
-  var details := _column()
-  card.add_child(details)
   var button: Button = _button(("✓  " if setup.game.genre == name else "") + name.to_upper(),_choose_genre.bind(name),"tab","Genre_"+name.replace(" ","_").replace("/","_"))
   button.toggle_mode = true
   button.button_pressed = setup.game.genre == name
-  details.add_child(button)
-  var descriptor: Dictionary = Formation.GENRES.get(name,{})
-  details.add_child(_label(str(descriptor.get("description","Build a sound of your own.")),14))
-  details.add_child(_label("Strength: "+str(descriptor.get("strength","Your first gigs")),12))
+  button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
+  index.add_child(button)
+ if wide:
+  body.add_child(press)
  var footer := HBoxContainer.new()
  footer.add_theme_constant_override("separation",12)
  root.add_child(footer)
