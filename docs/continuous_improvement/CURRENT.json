@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "Existing title wordmark artwork ONLY, native brandLabel/stage/layout/controls and all verifiedgenre/core preserved.",
+  "scope": "Additional existing-title independent wordmark ink; verified genre artwork/core retained",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.",
+  "next_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -81,289 +81,210 @@
     "status": "historical_completed_at09:00; sameautomation reused for ownerapproveddayplan"
   },
   "latest_local_checkpoint": {
-    "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
-    "verified_at": "2026-10-31T12:33:08.173724+00:00",
-    "scope": "Additional owner-authorized EXISTING genre artwork/composition and native index continuity only",
-    "validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/complete-validation.json",
-    "visual_review": "/workspace/work/s40/runs/day31-genre-d5c3810-final/visual-review.json",
-    "focused_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/focused-validation.json",
-    "source_protection": "/workspace/work/s40/runs/day31-genre-d5c3810-final/source-protection-audit.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/day31-genre-d5c3810-final/runtime-source-audit.json",
-    "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-genre-d5c3810-final/protected-checkpoint-comparison.json",
+    "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+    "verified_at": "2026-10-31T13:02:19.966531+00:00",
+    "scope": "Additional existing-title independent wordmark ink; verified genre artwork/core retained",
+    "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/complete-validation.json",
+    "visual_review": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/focused-validation.json",
+    "source_protection": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/runtime-source-audit.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/protected-checkpoint-comparison.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
-      "focused": 5822,
       "native_journeys": 4,
       "standard_originals": 172,
-      "focused_originals": 46,
-      "engine_error_lines": 0
+      "focused_menu_checks": 3235,
+      "focused_profiles": 5,
+      "focused_originals": 65,
+      "opacity_render_proofs": 10,
+      "engine_error_lines": 0,
+      "orphan_growth": 0,
+      "protected_source_files": 342,
+      "runtime_source_files": 280
     },
     "opened_originals": [
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Britpop-1280x720.png",
-        "sha256": "902085fa67a0634411b55a4168b2b72f66de236d31424c20ecc982a4a2e2cd28",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Country___Americana-1280x720.png",
-        "sha256": "7e58d3e0ff1effd2f6e51930090d87906a05b2ac40a37d4e53e01750358c0338",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Experimental-1280x720.png",
-        "sha256": "2a6813a50ea9b9f7f3d371a915fa6d0143d89cbbbf85525707ad722e80b8cb9f",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Garage_rock-1280x720.png",
-        "sha256": "b449c73f9a93f3f7b4f3f764cfcec05558973cf8d7a448a62d6c59fe072318f3",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Goth-1280x720.png",
-        "sha256": "4c8438ff66c1cdd6e3fbf7dd51d993acadebd08b23a570284dce45c8e0deb6f2",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Indie_rock-1280x720.png",
-        "sha256": "eae63c7ccf02559fd3bc04296dae19bfc0e82cafee1c90e322d6402013708a97",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Jazz___Fusion-1280x720.png",
-        "sha256": "afed877036784152947f66ad86aca1af8ea66a60be23d1cba71e0c41c58e03c3",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Metal-1280x720.png",
-        "sha256": "c5e670fd544bf331e8eeac231244c124a2c0d4ae11f5aeacdb2314410834bb5b",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Post-punk-1280x720.png",
-        "sha256": "af4bff249356ce025a3cde369ae712695a9759c0488faf0d4d1d88c7afdfc882",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Prog_rock-1280x720.png",
-        "sha256": "dd78a873228e56fd6476c21e73a68d534f77071872dfb1e90f97a673d874985f",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Punk-1280x720.png",
-        "sha256": "86959ab9fae91faf42444e4a0955ae98402884c1a62124efb8572d5e4155cc47",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Shoegaze-1280x720.png",
-        "sha256": "261b5342f18761a4cf6ed5ff80ca6c6d87834ab5fb2954ecfb4a9ac7365bc78b",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Soul___Funk-1280x720.png",
-        "sha256": "af944d6571309e2f9ae9726088df6321493f6d9cbb3de9a3f7ab66c968357d46",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Synth-pop-1280x720.png",
-        "sha256": "3e443c5479d663da7b3f020b12b3beb28c24c05f9321316e2066d0b6e566f520",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Country___Americana-390x844.png",
-        "sha256": "a22ee27d477ca26c0d2abf9a67b3d045444a909a31f5db734c210f4dd92a8f71",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
+        "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
         "dimensions": [
           390,
           844
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Indie_rock-390x844.png",
-        "sha256": "8e4b2e89a7228faebd7a0162bb409349f55a583f7384e10c046672b7086bd301",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
+        "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
         "dimensions": [
           390,
           844
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Jazz___Fusion-390x844.png",
-        "sha256": "4aab4a1cf56666f7af07cef4144425ee1defcea92a728c9132830c14dc2ed03d",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
+        "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
         "dimensions": [
-          390,
-          844
+          1152,
+          648
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Synth-pop-390x844.png",
-        "sha256": "ceac1a6ffa24650094d1d302ea07bc34584c6915180be4470733ab6ebfcb396b",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
+        "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
         "dimensions": [
-          390,
-          844
+          1152,
+          648
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Indie_rock-720x1280.png",
-        "sha256": "06f3872df8d8d6d78dd945d9a469a19d5f0bd4749a11826ea520cdbee79f918d",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/opening-no-draft-closed-720x1280.png",
+        "sha256": "00c2c94b757be933622557243dee3830b68f414dc03b67861f4f5e56177259d8",
         "dimensions": [
           720,
           1280
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Country___Americana-720x1280.png",
-        "sha256": "ebdb86877c2f424d96b3f0eb02302d6d699a361b043468b627a82089f900fcf3",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/no-draft-settings-open-720x1280.png",
+        "sha256": "17d074acf59a60252fe02136bb2a4f5cc30bff8973b2cdfc67becbb17b2a0e54",
         "dimensions": [
           720,
           1280
         ],
-        "kind": "candidate_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Punk-1600x900.png",
-        "sha256": "e9125747f1a914f13cbe7cd4187a5e4f929f8d1dd068bde010bae7f595cfab1c",
-        "dimensions": [
-          1600,
-          900
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Jazz___Fusion-1600x900.png",
-        "sha256": "f55e587c991e332da6ede16088ba9354d9502e0f6bf8c1c4b18aedc696f6b696",
-        "dimensions": [
-          1600,
-          900
-        ],
-        "kind": "candidate_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-390x844.png",
-        "sha256": "db52c3f6c4e685c7f4783f207637ac977e34ff31645b582f33658a120b5ba2b2",
-        "dimensions": [
-          390,
-          844
-        ],
-        "kind": "baseline_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
-      },
-      {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-1280x720.png",
-        "sha256": "056f42556f8df20591b786b5337081105f211882d886c24df2b626c5f091bff4",
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/opening-no-draft-closed-1280x720.png",
+        "sha256": "0b47f5b53122fe04ea0c1507a0268cd369d20a05880a8093738858232231e3a1",
         "dimensions": [
           1280,
           720
         ],
-        "kind": "baseline_native",
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/no-draft-settings-open-1280x720.png",
+        "sha256": "abcd6a29d5c1cf125da9b2bf2985cc4ef8496eb32952a54bbcd71a17029c8cce",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/opening-no-draft-closed-1600x900.png",
+        "sha256": "fc53464a7c09f007540efae6f1a9ce69955df2cbab9bcdef864907c721419f71",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/no-draft-settings-open-1600x900.png",
+        "sha256": "911740b8dceaebfaac5024ec09aeef8a10f0427b7b5d4505fab4dabb132fd2ed",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "mode": "RGBA",
+        "kind": "candidate_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
+        "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_c9_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
+        "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_c9_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-no-draft-closed-1152x648.png",
+        "sha256": "76ea2047bc70b4c2b009499c8d3a18542bdff4a8e8fac11211ee0a4a740c61ba",
+        "dimensions": [
+          1152,
+          648
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_c9_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
+        "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
+        "dimensions": [
+          1152,
+          648
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_c9_actual_fresh_no_draft_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+      },
+      {
+        "path": "/workspace/generated_images/exec-6c5abac7-2e46-4586-b3f1-ea0f9bb2861c.png",
+        "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "kind": "raw_generated_wordmark_source2",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       },
       {
         "path": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -372,15 +293,16 @@
           1774,
           887
         ],
-        "kind": "style_reference_only",
+        "mode": "RGB",
+        "kind": "four_phone_style_reference_only",
         "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
       }
     ],
     "additional_root_originals_opened": [
       {
-        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-390x844.png",
-        "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
+        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
+        "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
         "dimensions": [
           390,
           844
@@ -389,8 +311,8 @@
         "rendering": "untouched original native Godot PNG"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-720x1280.png",
-        "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
+        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
+        "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
         "dimensions": [
           720,
           1280
@@ -399,8 +321,8 @@
         "rendering": "untouched original native Godot PNG"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1280x720.png",
-        "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
+        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
+        "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
         "dimensions": [
           1280,
           720
@@ -409,8 +331,8 @@
         "rendering": "untouched original native Godot PNG"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1600x900.png",
-        "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
+        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
+        "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
         "dimensions": [
           1600,
           900
@@ -420,42 +342,59 @@
       }
     ],
     "source_art": {
-      "type": "Original native GDScript vector screenprint compositions; existing independent generated paper source unchanged",
-      "source": "experiments/playable_flightcase/genre_press.gd",
-      "provenance": "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
-      "new_raster_assets": 0,
-      "model_or_schema_changes": false
+      "source_type": "Standalone image-generated RGBA wordmark, reference-edited fromfirstheldcandidate; not fullUI/photography/newfont",
+      "path": "experiments/playable_flightcase/art/opening_wordmark.png",
+      "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+      "raw_dimensions": [
+        1774,
+        887
+      ],
+      "runtime_crop": [
+        264,
+        95,
+        1248,
+        718
+      ],
+      "raw_file_unchanged": true,
+      "standard_import_operation": "Full Image.fix_alpha_edges onrawduplicate independentlymatchesimport/nativeRGBA exactly; allalpha/RGBatAlpha>=20 preserved.",
+      "provenance": "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
+    },
+    "retained_genre_proof": {
+      "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+      "focused_checks": 5822,
+      "genre_functions_and_sources_byte_identical": true,
+      "all4genre_standard_originals_byte_identical": true
     },
     "simulated_lenses": [
       {
         "lens": "SIMULATED first-time player",
-        "concern": "Can I identify the selected sound and next action without understanding the motif?",
-        "evidence": "Large native title on a single print and fixed Find Your People footer in all requested originals. Full existing description and strength are readable.",
-        "finding": "Hierarchy improves over repeated c9 card stacks. Abstract artwork supplements real labels; it does not replace them."
+        "concern": "Can I read the game title and find the primary action quickly?",
+        "evidence": "All10 native closed/open originals; matching C9phone/default baselines.",
+        "finding": "Wordmark is immediately legible and more memorable; New Band remains the dominant action. Continue is visibly disabled with its explanatory copy in NoDraft."
       },
       {
-        "lens": "SIMULATED musician / management-game player",
-        "concern": "Does artwork imply new benefits or restrictions?",
-        "evidence": "Inspected genre_press reads original Formation.GENRES data; heading retains the explanation that genre does not restrict auditions.",
-        "finding": "No new numerical buff, audition gate, invented band identity or real-world artist image observed. Genre recognition still depends on labels for some motifs."
+        "lens": "SIMULATED music-game player / art direction",
+        "concern": "Does title treatment fit a grounded British rehearsal/stage world?",
+        "evidence": "Native amber stage, actual wordmark source2 and opened concept board.",
+        "finding": "Warm distressed block print and ochre underline fit the existing music-poster material language better. Still internal PARTIAL: less irregular/skewed and more cleanly geometric than the concept, without claiming final taste approval."
       },
       {
         "lens": "SIMULATED UX/accessibility specialist",
-        "concern": "Is the selected print readable with usable persistent navigation?",
-        "evidence": "All 22 candidate originals opened; long Country phone copy, 720 portrait and 1280 short landscape inspected. Focused result JSONs report no failures.",
-        "finding": "No critical visible clipping/overlap observed. Native text and fixed footer are retained. This is desktop-rendered native evidence, not physical Android/touch or assistive-technology certification."
+        "concern": "Do decoration and resizing harm copy, button clarity or semantic continuity?",
+        "evidence": "390 and1152 default closed/open states,720/1280/1600 samples; inspected original Label and inert child implementation.",
+        "finding": "No visible overlap or lost copy; Label text/font/layout remain in source. No physical-phone or assistive-technology testing claim; fixed-title artwork is not a localization-ready font."
       },
       {
         "lens": "SIMULATED technical artist",
-        "concern": "Do new graphics honestly match the physical print direction?",
-        "evidence": "Original concept board, unchanged textured paper, all fourteen native motif fullscreen originals and PrintArt source opened/read.",
-        "finding": "Paper/ink treatment is cohesive and source-honest; motifs remain abstract and simpler than the concept board's richer photographed/illustrated physical world. Visual verdict remains PARTIAL."
+        "concern": "Are source, alpha and runtime transformations described honestly?",
+        "evidence": "Raw1774x887RGBA source2 opened; repository asset hash equality, explicit crop/provenance and focused import receipts read.",
+        "finding": "Raw bytes retained and crop/aspect fit are explicit. Faint raw alpha and standard import edge processing remain real limitations, not hidden under a clean-alpha claim. No whole-screen UI art or source-image retouch by reviewer."
       },
       {
         "lens": "SIMULATED Godot/release QA engineer",
-        "concern": "Could art success be confused with full functional completion?",
-        "evidence": "Four focused result JSONs read:5822 checks total, empty failure arrays; actual source d5 and diff paths inspected. Root full native journeys are separate.",
-        "finding": "Focused evidence supports the declared input/layout scope only. No full-journey, save compatibility, APK/device or owner acceptance PASS is claimed by this visual review."
+        "concern": "Could a focused visual pass be confused with whole-game release acceptance?",
+        "evidence": "Five focused receipts total3235checks, no failures/orphans; native source inspected. Full root native pipeline was separately running.",
+        "finding": "Scoped evidence supports this wordmark comparison only. Full73/88/four journeys/protected assets/source/packaging must close independently; no APK/device/remoteCI/owner approval inferred."
       }
     ],
     "visual_verdict": "partial",
@@ -463,12 +402,12 @@
     "new_android_apk": false,
     "new_project_zip": false,
     "remaining_gaps": [
-      "Genre motifs are original abstract vector prints, not bespoke photographic album art or an exact match to the distressed concept.",
-      "Large desktop paper retains unused lower space; no extra decorative content added solely to fill it.",
-      "Current privately delivered Androidv3 and isolatedZIP remain c9; this newer native genre-art checkpoint is not in thatAPK, and no phone/emulator test is claimed.",
-      "Budget/cash conversion/gameplay/genre rules/save schemas unchanged; those proposals remainbacklog."
+      "Global artwork remains PARTIAL/ownerfalse; word spacing is tight and the mark is cleaner/heavier than the original distressed concept.",
+      "Raw wordmark retains faint alpha1..8 specks; source remains unchanged, measured runtime crop handles fit. Godotimportfix_alpha_edges modifies low-alpha RGB only, independently reproduced exactly; no cleanrawalpha claim.",
+      "New genre/wordmark art is native-only so far. Existing privately deliveredv3APK and priorZIP remainc9; no newphone/device/emulator test orAPK generated.",
+      "Budget/cash conversion/genre gameplay variants remainbacklog; no model/economy/save-schema changes."
     ],
-    "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop."
+    "next_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop."
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -1681,6 +1620,396 @@
           "sequence": 8
         }
       }
+    },
+    {
+      "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+      "verified_at": "2026-10-31T12:33:08.173724+00:00",
+      "scope": "Additional owner-authorized EXISTING genre artwork/composition and native index continuity only",
+      "validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/validation.json",
+      "complete_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/complete-validation.json",
+      "visual_review": "/workspace/work/s40/runs/day31-genre-d5c3810-final/visual-review.json",
+      "focused_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/focused-validation.json",
+      "source_protection": "/workspace/work/s40/runs/day31-genre-d5c3810-final/source-protection-audit.json",
+      "runtime_source_audit": "/workspace/work/s40/runs/day31-genre-d5c3810-final/runtime-source-audit.json",
+      "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-genre-d5c3810-final/protected-checkpoint-comparison.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "focused": 5822,
+        "native_journeys": 4,
+        "standard_originals": 172,
+        "focused_originals": 46,
+        "engine_error_lines": 0
+      },
+      "opened_originals": [
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Britpop-1280x720.png",
+          "sha256": "902085fa67a0634411b55a4168b2b72f66de236d31424c20ecc982a4a2e2cd28",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Country___Americana-1280x720.png",
+          "sha256": "7e58d3e0ff1effd2f6e51930090d87906a05b2ac40a37d4e53e01750358c0338",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Experimental-1280x720.png",
+          "sha256": "2a6813a50ea9b9f7f3d371a915fa6d0143d89cbbbf85525707ad722e80b8cb9f",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Garage_rock-1280x720.png",
+          "sha256": "b449c73f9a93f3f7b4f3f764cfcec05558973cf8d7a448a62d6c59fe072318f3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Goth-1280x720.png",
+          "sha256": "4c8438ff66c1cdd6e3fbf7dd51d993acadebd08b23a570284dce45c8e0deb6f2",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Indie_rock-1280x720.png",
+          "sha256": "eae63c7ccf02559fd3bc04296dae19bfc0e82cafee1c90e322d6402013708a97",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Jazz___Fusion-1280x720.png",
+          "sha256": "afed877036784152947f66ad86aca1af8ea66a60be23d1cba71e0c41c58e03c3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Metal-1280x720.png",
+          "sha256": "c5e670fd544bf331e8eeac231244c124a2c0d4ae11f5aeacdb2314410834bb5b",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Post-punk-1280x720.png",
+          "sha256": "af4bff249356ce025a3cde369ae712695a9759c0488faf0d4d1d88c7afdfc882",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Prog_rock-1280x720.png",
+          "sha256": "dd78a873228e56fd6476c21e73a68d534f77071872dfb1e90f97a673d874985f",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Punk-1280x720.png",
+          "sha256": "86959ab9fae91faf42444e4a0955ae98402884c1a62124efb8572d5e4155cc47",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Shoegaze-1280x720.png",
+          "sha256": "261b5342f18761a4cf6ed5ff80ca6c6d87834ab5fb2954ecfb4a9ac7365bc78b",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Soul___Funk-1280x720.png",
+          "sha256": "af944d6571309e2f9ae9726088df6321493f6d9cbb3de9a3f7ab66c968357d46",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Synth-pop-1280x720.png",
+          "sha256": "3e443c5479d663da7b3f020b12b3beb28c24c05f9321316e2066d0b6e566f520",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Country___Americana-390x844.png",
+          "sha256": "a22ee27d477ca26c0d2abf9a67b3d045444a909a31f5db734c210f4dd92a8f71",
+          "dimensions": [
+            390,
+            844
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Indie_rock-390x844.png",
+          "sha256": "8e4b2e89a7228faebd7a0162bb409349f55a583f7384e10c046672b7086bd301",
+          "dimensions": [
+            390,
+            844
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Jazz___Fusion-390x844.png",
+          "sha256": "4aab4a1cf56666f7af07cef4144425ee1defcea92a728c9132830c14dc2ed03d",
+          "dimensions": [
+            390,
+            844
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Synth-pop-390x844.png",
+          "sha256": "ceac1a6ffa24650094d1d302ea07bc34584c6915180be4470733ab6ebfcb396b",
+          "dimensions": [
+            390,
+            844
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Indie_rock-720x1280.png",
+          "sha256": "06f3872df8d8d6d78dd945d9a469a19d5f0bd4749a11826ea520cdbee79f918d",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Country___Americana-720x1280.png",
+          "sha256": "ebdb86877c2f424d96b3f0eb02302d6d699a361b043468b627a82089f900fcf3",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Punk-1600x900.png",
+          "sha256": "e9125747f1a914f13cbe7cd4187a5e4f929f8d1dd068bde010bae7f595cfab1c",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Jazz___Fusion-1600x900.png",
+          "sha256": "f55e587c991e332da6ede16088ba9354d9502e0f6bf8c1c4b18aedc696f6b696",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "kind": "candidate_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-390x844.png",
+          "sha256": "db52c3f6c4e685c7f4783f207637ac977e34ff31645b582f33658a120b5ba2b2",
+          "dimensions": [
+            390,
+            844
+          ],
+          "kind": "baseline_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-1280x720.png",
+          "sha256": "056f42556f8df20591b786b5337081105f211882d886c24df2b626c5f091bff4",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "kind": "baseline_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        },
+        {
+          "path": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
+          "sha256": "2f9b3e5e63aa17d0cb505efd008c983c19495452dcdcf6872eb85d594d29b9c2",
+          "dimensions": [
+            1774,
+            887
+          ],
+          "kind": "style_reference_only",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+        }
+      ],
+      "additional_root_originals_opened": [
+        {
+          "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-390x844.png",
+          "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
+          "dimensions": [
+            390,
+            844
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-720x1280.png",
+          "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1280x720.png",
+          "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1600x900.png",
+          "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        }
+      ],
+      "source_art": {
+        "type": "Original native GDScript vector screenprint compositions; existing independent generated paper source unchanged",
+        "source": "experiments/playable_flightcase/genre_press.gd",
+        "provenance": "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
+        "new_raster_assets": 0,
+        "model_or_schema_changes": false
+      },
+      "simulated_lenses": [
+        {
+          "lens": "SIMULATED first-time player",
+          "concern": "Can I identify the selected sound and next action without understanding the motif?",
+          "evidence": "Large native title on a single print and fixed Find Your People footer in all requested originals. Full existing description and strength are readable.",
+          "finding": "Hierarchy improves over repeated c9 card stacks. Abstract artwork supplements real labels; it does not replace them."
+        },
+        {
+          "lens": "SIMULATED musician / management-game player",
+          "concern": "Does artwork imply new benefits or restrictions?",
+          "evidence": "Inspected genre_press reads original Formation.GENRES data; heading retains the explanation that genre does not restrict auditions.",
+          "finding": "No new numerical buff, audition gate, invented band identity or real-world artist image observed. Genre recognition still depends on labels for some motifs."
+        },
+        {
+          "lens": "SIMULATED UX/accessibility specialist",
+          "concern": "Is the selected print readable with usable persistent navigation?",
+          "evidence": "All 22 candidate originals opened; long Country phone copy, 720 portrait and 1280 short landscape inspected. Focused result JSONs report no failures.",
+          "finding": "No critical visible clipping/overlap observed. Native text and fixed footer are retained. This is desktop-rendered native evidence, not physical Android/touch or assistive-technology certification."
+        },
+        {
+          "lens": "SIMULATED technical artist",
+          "concern": "Do new graphics honestly match the physical print direction?",
+          "evidence": "Original concept board, unchanged textured paper, all fourteen native motif fullscreen originals and PrintArt source opened/read.",
+          "finding": "Paper/ink treatment is cohesive and source-honest; motifs remain abstract and simpler than the concept board's richer photographed/illustrated physical world. Visual verdict remains PARTIAL."
+        },
+        {
+          "lens": "SIMULATED Godot/release QA engineer",
+          "concern": "Could art success be confused with full functional completion?",
+          "evidence": "Four focused result JSONs read:5822 checks total, empty failure arrays; actual source d5 and diff paths inspected. Root full native journeys are separate.",
+          "finding": "Focused evidence supports the declared input/layout scope only. No full-journey, save compatibility, APK/device or owner acceptance PASS is claimed by this visual review."
+        }
+      ],
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "new_android_apk": false,
+      "new_project_zip": false,
+      "remaining_gaps": [
+        "Genre motifs are original abstract vector prints, not bespoke photographic album art or an exact match to the distressed concept.",
+        "Large desktop paper retains unused lower space; no extra decorative content added solely to fill it.",
+        "Current privately delivered Androidv3 and isolatedZIP remain c9; this newer native genre-art checkpoint is not in thatAPK, and no phone/emulator test is claimed.",
+        "Budget/cash conversion/gameplay/genre rules/save schemas unchanged; those proposals remainbacklog."
+      ],
+      "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop."
     }
   ],
   "latest_material_review": {
@@ -2029,7 +2358,7 @@
     "owner_approved": false,
     "no_apk_per_change": true
   },
-  "delivery_status": "Additionalgenreartverifiednativeonly. ExistingprivateV3APK/c9ZIPunchanged; no newAndroidclaim.",
+  "delivery_status": "Additionalgenre/wordmarkartverifiednativeonly; existingprivatev3APK/c9ZIPunchanged. Latestlocalpackage/screensdeliverynext, no newAndroidclaim.",
   "approved_day_schedule": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
     "enabled": true,

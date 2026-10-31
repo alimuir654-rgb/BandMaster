@@ -1,5 +1,5 @@
 {
-  "writer": "S41-opening-wordmark-20261031T1235",
+  "writer": null,
   "base_head": "5179aaf6023df34b34b84f7a4e19c75b9deb0763",
   "claimed_at": "2026-10-31T12:34:53.909061+00:00",
   "expires_at": "2026-10-31T14:10:00Z",
@@ -7,8 +7,8 @@
   "authority": "31 Oct12:06 direct owner: Run additional artwork improvements through to3pm. Existing screens only;14:50finalread-only/15:00hardstop.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T13:02:19.966531+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S41-genre-art-20261031T1218",
-  "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+  "last_writer": "S41-opening-wordmark-20261031T1235",
+  "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",

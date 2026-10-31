@@ -958,3 +958,12 @@ Next: One separately preflighted existing opening-brand artwork pass: independen
 Verifiedd5genre/core retained. Rootsolewriter through14:10; oneindependenttransparentdistressedbrandassetonly. ExactnativebrandLabel/text/layout/stage/controlbytes andallverifiedgenre artwork protected. Rawalpha/spelling/sourcehash/nativeaspectcontain/4viewA/B andrealMenuinput required. Sourcepending, no artapproval/newAPK.14:50read-only/15:00hardstop.
 
 Next: Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.
+
+
+# S41 opening wordmark artwork verified — 2026-10-31T13:02:19.966531+00:00
+
+Exact game `6c1f50d8c63deedaa678ff543fc6b85e4d767a33`: standalone1774x887RGBAwordmark3cbf6a54..., rawsourceunchanged/runtimecrop(264,95,1248,718), nativeLabel/text/font/layout/stage/hardware preserved.73+88/import/four genuine nativejourneys/172standardoriginals PASS;3235focusedchecks/65originals at5sizesPASS0ERROR/orphans.342protectedsourcefiles/280runtimepaths verified.136/172D5originalsexact;32changedmenuoriginals ALLbrandrectonly(+1pxAA),4disclosedfadeframes,0unexpected; allsettlednonmenus/genreoriginals exact.
+
+Source1held/secondalpha-methodchange andraw-vs-importharnessfailure retainedBEFOREcorrections. Independentfullrawduplicate→Image.fix_alpha_edges→crop equalsactualnativeimportRGBAexactly, ALLalpha/RGBatAlpha>=20 preserved. Rawfaintalpha caveatnotconcealed. Independent16imagesopened+4rootstandardtitles,5SIMULATEDlenses in`/workspace/work/s40/runs/day31-wordmark-6c1f50d/visual-review.json`; fullcloseout `/workspace/work/day31/wordmark-closeout.json`. ArtPARTIAL/ownerfalse; no newAPK/ZIP. Existingv3remainsc9. Writerreleased 2026-10-31T13:02:19.966531+00:00.
+
+Next: Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop.
