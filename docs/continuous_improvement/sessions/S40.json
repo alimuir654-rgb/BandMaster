@@ -4,7 +4,7 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
-  "baseline_sha": "eb7f4ce7fdd968f19e9bd0d9d1da3433bc72322b",
+  "baseline_sha": "1c53b9640304b95101ddc1b79f149dcdecc1bc87",
   "dominant_issue": "BM-24",
   "lesson_ids": [
     "BM-01",
@@ -48,16 +48,17 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 216579,
-    "sha256": "2cac46cc3fd35e9349cff90df10fcea7e571980f267b6973114a0a93dd8a7b83"
+    "bytes": 218006,
+    "sha256": "2e6f31f6795f86dae2f8805076549a5294fcc914596e36caa45250475509e825"
   },
   "target": {
-    "locator": "/workspace/work/s40/settings-qa/baseline/20261031T031855Z-routing-corrected/no-draft-390x844/captures/03-sound-after-enter.png",
-    "original_sha256": "4f30d1a6944370129b35666bf45ed2c45e64982daba8fc924a988e0e23591a42",
-    "pixels_inspected": true
+    "locator": "/workspace/work/s40/runs/settings-2e087/captures/c27-title-390x844.png",
+    "original_sha256": "5b707297cd876a47036e0e13ed31fa362793134552df0f211fcb5ffe088f9672",
+    "pixels_inspected": true,
+    "note": "Existing native menu composition baseline; no art change planned and no fullUI owner approval inferred."
   },
-  "hypothesis": "Confirmedsame-view _render destroysfocused menucontrols: constructexistingSettingspanel once, togglevisibilityinplace, updateactualmute+existingSoundtext/tooltipinplace. Preserveinitialclosedtitle pixels/currentnativeart and allmodel/save behaviors.",
-  "controlled_comparison": "Exact7f source title/menu same viewport and same saved-draft state at390x844/720x1280/1280x720/1600x900. Probe freshNoDraft and validDraft settings mouse/Enter/Space/Tab, realAudioServer mute, node/focus/rectangle continuity and game/savebyte invariance. Full73+88/import/4native journey after any confirmedsourcefix; initialtitles and protectedother scenes should match7f originals.",
+  "hypothesis": "Verify existing overwrite-draft KEEP BAND/Escape true cancellation and original invoker focus before changing code. No source edits unless native positive contract demonstrates substantive defect.",
+  "controlled_comparison": "Exact2e source and explicit valid scratch fixture; same menu/state at390x844,720x1280,1280x720,1600x900. Genuine pointer/Enter/Space/Tab/ShiftTab/Escape; exactly-once completion, modal-only focus, background input blocked, career/draft byte invariance and orphan stability. All prior views remain protected.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -71,18 +72,18 @@
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/**"
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/opening_capture.gd"
   ],
   "validation_commands": [
-    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before <committed-preflight> --require-prior-record",
-    "Existing isolated Godot4.7.2 native_test.gd73checks, opening_test.gd88checks, editorimport, four real-pointer opening_capture.gd viewports plus genuine keyboard disclosure and fullquotes save-immutability checks",
-    "Inspect original native390x844,720x1280,1280x720,1600x900 A/B against pinned same-state baseline. Preserve all original art/data and passive-meter hashes; scope-check exact diff.",
-    "Source-backed paper texture/frame pass with honest provenance. Package standalone importable project only after focused/native/input/save proof; smoke launch andZIPCRC."
+    "Fresh isolated imported exact2e runtime native modal positive probe at4viewports using genuine input and validfixture draft",
+    "If a substantive source repair is needed: exact73gameplay+88opening+cleanimport+4fullnativejourneys; compare all112prior originals; then CRC/extractedpackage entry",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before <committed-preflight> --require-prior-record"
   ],
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal2e08773+88/import/all4native112PNG+actualfreshNoDraft replay+CRC/extractednativeentryPASS. Sourceunpublished; no newremoteCI asserted.",
-  "issues_reviewed_at": "2026-10-31T03:38:05.378890+00:00",
+  "issues_reviewed_at": "2026-10-31T04:00:14.485548+00:00",
   "progress": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T03:38:05.378890+00:00",
@@ -575,5 +576,14 @@
     "completed_at": "2026-10-31T03:38:05.378890+00:00",
     "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "fresh_disk_source_wrapper": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json"
+  },
+  "modal_cancel_qa_pass": {
+    "started_at": "2026-10-31T04:00:14.485548+00:00",
+    "lease_ends": "2026-10-31T04:50:00Z",
+    "source_baseline": "2e087124c7323a1b3b480229425fdef1164b732e",
+    "preflight_base": "1c53b9640304b95101ddc1b79f149dcdecc1bc87",
+    "status": "native_probe_pending",
+    "protected": "No component/control_atlas/model/save schema/art changes; runtime scratch only until actual defect.",
+    "owner_approved": false
   }
 }
