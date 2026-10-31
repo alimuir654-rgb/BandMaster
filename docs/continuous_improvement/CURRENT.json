@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "Frozen6c1additionalart LOCAL checkpoint and selectedscreenshotPages only; no source/art/Androidwrites.",
+  "scope": "Additionalgenre/titleartverified andcurrentlocalcheckpoint/screens delivered; owner-review readiness/newfeedback only through15:00.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "One latest changed-source280-file LOCAL project/reviewZIP, fresh extractedimport/nativeopeningentry, then selectednativeartwork screenshots on existingreviewPages with explicitnot-in-v3APKnote. No source/art edits/newAPK/publicsourceupload.14:50read-only/15:00hardstop.",
+  "status": "active_review_ready",
+  "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -400,14 +400,248 @@
     "visual_verdict": "partial",
     "owner_approved": false,
     "new_android_apk": false,
-    "new_project_zip": false,
+    "new_project_zip": true,
     "remaining_gaps": [
       "Global artwork remains PARTIAL/ownerfalse; word spacing is tight and the mark is cleaner/heavier than the original distressed concept.",
       "Raw wordmark retains faint alpha1..8 specks; source remains unchanged, measured runtime crop handles fit. Godotimportfix_alpha_edges modifies low-alpha RGB only, independently reproduced exactly; no cleanrawalpha claim.",
       "New genre/wordmark art is native-only so far. Existing privately deliveredv3APK and priorZIP remainc9; no newphone/device/emulator test orAPK generated.",
       "Budget/cash conversion/genre gameplay variants remainbacklog; no model/economy/save-schema changes."
     ],
-    "next_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop."
+    "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+    "native_packages": {
+      "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+      "project_files": 280,
+      "source_archive_entries": 282,
+      "review_original_pngs": 22,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 13752144,
+          "sha256": "c91ef22baccb07a686830b65b94cf5f2704d462a7ace0268670038b6a45be3df",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/native-quality-review.zip",
+          "bytes": 11429561,
+          "sha256": "af23c6ead485aa6e053c27712230e945a4579f72d559f933b1b1b02fdb94ad5f",
+          "zip_crc": "PASS"
+        }
+      ],
+      "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
+      "isolated_project_entry_exception": "project.godot is the exact146-byte tested isolated95 recipe, not the production Git project; source project blob ID is recorded separately.",
+      "entry_recipe": {
+        "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+        "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
+        "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "manifest_paths": 274,
+        "isolated_entry_sha256": "f4a1d001bd3cc2006388b3e772bb2019ca7f9d744ddd134e50a6fa79a03ccc50"
+      },
+      "review_pngs": [
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
+          "archive_path": "original-png/c27-title-390x844.png",
+          "bytes": 295616,
+          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-390x844.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-390x844.png",
+          "bytes": 307646,
+          "sha256": "ec50dd63283071d2c1d250a4d8244fce87b76ae21633ca69c73dc5f22874848e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-390x844.png",
+          "archive_path": "original-png/c27-genre-390x844.png",
+          "bytes": 280206,
+          "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
+          "archive_path": "original-png/c27-title-720x1280.png",
+          "bytes": 641239,
+          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-720x1280.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-720x1280.png",
+          "bytes": 600069,
+          "sha256": "39fc7cc0849ca810d8c55d274b30fab486a9425e82812a6076c474f53253da0e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-720x1280.png",
+          "archive_path": "original-png/c27-genre-720x1280.png",
+          "bytes": 502935,
+          "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
+          "archive_path": "original-png/c27-title-1280x720.png",
+          "bytes": 732792,
+          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1280x720.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-1280x720.png",
+          "bytes": 794310,
+          "sha256": "c7969fbf9774dc63bd8dbf8eb5c7e4f97feb2e016157b4044b53f8314fabb5e0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1280x720.png",
+          "archive_path": "original-png/c27-genre-1280x720.png",
+          "bytes": 546266,
+          "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
+          "archive_path": "original-png/c27-title-1600x900.png",
+          "bytes": 796850,
+          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1600x900.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-1600x900.png",
+          "bytes": 859954,
+          "sha256": "722969430d026b9b9f63571c1da8ff2e3cd362c6d1037d06ded9462a72f4b5e7",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1600x900.png",
+          "archive_path": "original-png/c27-genre-1600x900.png",
+          "bytes": 716484,
+          "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-390x844.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-390x844.png",
+          "bytes": 277374,
+          "sha256": "ff83d9d65e36074cb6b338dcfb1e0178f7593015a7c6f08738ebf65ebbe04c1a",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-390x844.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-390x844.png",
+          "bytes": 294130,
+          "sha256": "52ce2007fe7567d3c38ad22d1b3f02feaea55ae6ddf8e9081a4c3df3d409e89b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-390x844.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+          "bytes": 320848,
+          "sha256": "e972c07af82d977167fed6328b70aa007e5a886166fb4710270cb201db2c1ce1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-1280x720.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-1280x720.png",
+          "bytes": 477160,
+          "sha256": "684460e607b0540e685c23333e270e1fea35d0aba1e1534b2dbe0336bd1ff389",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-1280x720.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-1280x720.png",
+          "bytes": 516573,
+          "sha256": "07e170f4d582432a9e2a42b6b379866f7d681ddbdb98b6f63df4bc09469b3667",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-1280x720.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+          "bytes": 536311,
+          "sha256": "50632466c45f760261e4396b1b714fbdaf73613fcd73520526e1bedfaf74114b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
+          "archive_path": "original-png/opening-no-draft-closed-390x844.png",
+          "bytes": 299484,
+          "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
+          "archive_path": "original-png/no-draft-settings-open-390x844.png",
+          "bytes": 309985,
+          "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
+          "archive_path": "original-png/opening-no-draft-closed-1152x648.png",
+          "bytes": 637886,
+          "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
+          "archive_path": "original-png/no-draft-settings-open-1152x648.png",
+          "bytes": 697577,
+          "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
+          "width": 1152,
+          "height": 648
+        }
+      ],
+      "explicit_poster_asset": "experiments/playable_flightcase/art/opening_stage.png",
+      "publication": "LOCAL only; no upload/publication performed",
+      "owner_approved": false,
+      "extracted_clean_import_and_native_entry": "PASS: fresh280-file exactmanifest/extracted import and actualnative configuredopening.tscn entry, explicitDummy audio andisolateduserdata",
+      "package_smoke": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/package-smoke.json",
+      "method": "Exact Git blobs + tested entry recipe + explicit PNG inventory loaded before writes; temporary ZIP CRC/content checks then atomic replacement.",
+      "explicit_extra_sources": [
+        "experiments/playable_flightcase/genre_press.gd",
+        "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
+        "experiments/playable_flightcase/art/opening_wordmark.png",
+        "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
+      ]
+    },
+    "owner_review_pages": {
+      "plan": {
+        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+        "edit_sequence": 6,
+        "canonical_readback_verified": true,
+        "images": 9
+      },
+      "phone": {
+        "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "edit_sequence": 9,
+        "canonical_readback_verified": true
+      }
+    }
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -2358,7 +2592,7 @@
     "owner_approved": false,
     "no_apk_per_change": true
   },
-  "delivery_status": "Additionalgenre/wordmarkartverifiednativeonly; existingprivatev3APK/c9ZIPunchanged. Latestlocalpackage/screensdeliverynext, no newAndroidclaim.",
+  "delivery_status": "Threeadditionalnativeartwork previews saved/readback onexistingPages. Latest280-fileproject/22PNG reviewZIPLOCAL. ExistingprivateAndroidv3 remainsc9; no newAPK.",
   "approved_day_schedule": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
     "enabled": true,
@@ -2367,9 +2601,9 @@
     "same_thread": true,
     "one_source_writer": true,
     "no_continuous_compute_claim": true,
-    "root_released_at": "2026-10-31T11:41:42.777354+00:00",
-    "next_focus": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
-    "latest_game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d"
+    "root_released_at": "2026-10-31T13:19:46.496525+00:00",
+    "next_focus": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+    "latest_game_source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33"
   },
   "previous_android_packages": [
     {
