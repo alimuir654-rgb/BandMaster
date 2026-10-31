@@ -1,5 +1,5 @@
 {
-  "writer": "S40-owner-android-package-20261031T0727",
+  "writer": null,
   "base_head": "35a6dd95da9d645d9397a4f06763fafb9e905f15",
   "claimed_at": "2026-10-31T07:30:56.276843+00:00",
   "expires_at": "2026-10-31T08:40:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T07:58:01.634742+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Root is sole writer, helpers scopedread-only/scratch.08:40lease ends/08:50finalread-only/09:00hardcutoff; no oldworker or competingqueue.",
+  "note": "OwnerAndroidAPK privateDrive delivery complete; sourcebb unchanged. Awaitactualphonefeedback, reuse successfulTESTkey/appID.08:50readonly/09hardcutoff. Publicledger syncblocked.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-modal-resize-20261031T0500",
+  "last_writer": "S40-owner-android-package-20261031T0727",
   "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
   "previous_checkpoint_release": {
     "writer": null,

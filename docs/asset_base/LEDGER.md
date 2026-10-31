@@ -824,3 +824,31 @@ Five explicitly SIMULATED lenses (not human acceptance):
 - returning_player: SIMULATED: Existing career and draft bytes survive both resize directions and cancellation. Real Continue returns the original saved rehearsal state, supporting trust in the preserved draft.
 - art_director: SIMULATED: The correction keeps original physical frames, materials, cast and meter artwork. Same-state visuals and112 prior screenshots are exact matches. It repairs continuity without resolving the remaining mockup-fidelity gap.
 - godot_release_qa: SIMULATED: Exactbb38882 passes73+88/import/four full native journeys,120 retained originals and extracted package smoke. Independent65-check replay fixes the preserved failing positive contract, with original dialog identity/focus retained and zero errors/orphan growth.
+
+## S40 owner Android package — 2026-10-31T07:58:01.634742+00:00
+
+# S40 Android phone playtest package — 31 October 2026
+
+Game source `bb38882b8d9ade1dcd302f5dd578b4db588558ac`; export recipe `d0704c0986be7f2400df6dce81127639ee91e2e4`. **Signed APK packaging checks PASS; Android device and emulator execution NOT TESTED. Visual PARTIAL; owner_approved=false.**
+
+Owner explicitly requested an Android install after reviewing four original screenshots. Official matching Godot4.7.2 template and isolated SDK36/Java21 tools export the same game with portrait390x844 canvas_items/expand, Compatibilityrenderer, touch-to-mouse and separate com.bandmaster.ownerplaytest.s40 private data. Original code/cast/meters/hardware/models/save schema unchanged; originalrooticon copied unchanged as packaginginput.
+
+APK:65,821,060bytes; SHA256 `36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e`. Android7+/API24; target36; ARM32/64. Import/export,CRC,16KBalignment,signatures,MAIN/LAUNCHER/noHOME intent and exactcastJSON checksPASS. No internet/storage/camera/mic permissions or privatekeys inAPK. Successful localTEST signingkey must be reused forfutureupdates; no productionkeys/saves accessed.
+
+Private owner APK: https://drive.google.com/file/d/1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I/view?usp=drivesdk
+Private playtest/screenshots Page: https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca
+Readback confirms APK size/MIME/owner-onlypermission; connector omitted remotechecksum, so no cloudSHA is claimed. APK is owner-requested privatebinary delivery, not publicsource/ledger synchronization. Public operational-history upload remainsblocked pendingexplicitapproval.
+
+Actualfirstexport failedunsupportednonGradleSDKoverrides; correctedbeforefreshbuild. Missingprojecticon warning correctedusingoriginalicon. Initialpreflightgate selectionfailure/docscommit andadbreadonlyhome failure retained; HOME unchanged andno device/emulator run. Full chronology inISSUES; build/toolchain/logs in `/workspace/work/s40/android/`, exactcloseout incloseout.json. No newAndroidPNGs; earlier4desktoporiginals reusedasvisualreference only.
+
+Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required.
+
+Writer released 2026-10-31T07:58:01.634742+00:00.
+
+Five clearly SIMULATED lenses (not human/device certification):
+
+- phone_tester: SIMULATED: Android7+ ARM32/64 APK and simple private-download/install steps are provided. Installs as BandMaster Playtest with separate applicationID; actualphone installation andtouch remainunverified.
+- mobile_accessibility: SIMULATED: copiedconfig uses390x844 canvas_items/expand portrait, Compatibilityrenderer and touch-to-mouse. Sourcecontrols remainoriginal; virtualkeyboard/caret, AndroidBack andsuspend/resume require firstphonefeedback.
+- technical_art: SIMULATED: exactbb gamefiles/portraits/meters/hardware/modelbytes unchanged. OnlyAndroidproject/exportconfig and unchangedoriginalrooticon are packaginginputs. Existing4native screenshots are desktopproof, notnewAndroidcaptures; positiveownerfeedback isnotblanketartapproval.
+- android_engineering: SIMULATED: officialmatching4.7.2template andSDK36 tools produce signed APK; CRC,16KBalignment,MAIN/LAUNCHERmanifest,24min/36targetSDK,ARMv7+ARM64 andexactcastJSON checksPASS. No storage/internet/camera/micpermission orprivatekey packaged; no emulator/deviceexecution claimed.
+- release_review: SIMULATED:65,821,060byte APK uploaded toowner-privateDrive and readback confirms size/MIME/owneronlypermission; connectoromitsremotechecksum so onlylocalSHA isclaimed. Failurehistory retained andpublicledger syncstillblocked; sourcebb andrecipe d070 remainseparate.
