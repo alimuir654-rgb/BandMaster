@@ -96,7 +96,7 @@
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Core75 verified73+88/import/4native172PNGs/748writing+750transitionfocused; poster artwork/source pending, no newPASS orartapproval.",
-  "next_action": "Generate/inspect ONE independent blank rehearsal-stage source layer, integrate onlyifnativeposterA/Bactuallyimproves menu whileallcurrentcontrols remain usable. Focused geometry/input beforefullnative proof.",
+  "next_action": "Cleanimport scopedposter candidate, focusedfreshNoDraft/savedmenurealinput/geometry at4sizes/defaultentry, thenfullsuite/nativeoriginalA/B onlyiffocusedPASS.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -443,7 +443,7 @@
     }
   ],
   "poster_pass": {
-    "status": "preflight",
+    "status": "integrated_candidate_pending_native",
     "started_at": "2026-10-31T10:36:50.515457+00:00",
     "lease_ends": "2026-10-31T12:15:00Z",
     "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
@@ -459,6 +459,30 @@
       "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
       "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
     },
-    "source_plan": "Independent image-generated blankwarmemptyrehearsal/ampstage, nopeople/cast,text,logos,brands,frames,UI. NativeGodotbrand/tagline/controls;originalhardwarebytes unchanged. No photography/highres/seamless/ownerartapproval claim."
+    "source_plan": "Independent image-generated blankwarmemptyrehearsal/ampstage, nopeople/cast,text,logos,brands,frames,UI. NativeGodotbrand/tagline/controls;originalhardwarebytes unchanged. No photography/highres/seamless/ownerartapproval claim.",
+    "source_layer": {
+      "source_path": "/workspace/generated_images/exec-ed58539b-6e71-4b76-8a5e-e790500432fa.png",
+      "production_candidate": "experiments/playable_flightcase/art/opening_stage.png",
+      "sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "bytes": 2223640,
+      "kind": "Independent image-generated empty rehearsal-stage source layer; no UI/text/people/cast, notphotography. Originalsource retained, productioncopybyte-identical.",
+      "provider": "OpenAI image_gen inthisthread forowner-approvedposterwork",
+      "inspection": "Rootopenedthefulloriginalgeneratedimage: quietdarkupperarea, warmamp/drumstage, nolettering/controls/people visible. Nativeintegration gainstillpending.",
+      "owner_approved": false
+    },
+    "source_pending": true,
+    "root_composition": "Originalcaseframe, photohero andnativecopy topaligned;44pxphone/56pxwide two-linebrand, actualoriginaleyebrow/tagline, gentlegradient45/40/24percent toretainstagecolour. FullNewBand+Continue/Settingspair, desktopQuit, existingnestedSettingsonecolumn, inplaceheroheight. No othergamescreens touched."
+  },
+  "review_page_native_screens": {
+    "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+    "sequence": 4,
+    "game_source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+    "original_pngs": 4,
+    "receipt": "/workspace/work/day31/native-page-delivery.json",
+    "file_access_confirmed": true,
+    "apk_update": false
   }
 }

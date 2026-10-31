@@ -124,60 +124,190 @@ func _render() -> void:
  if is_instance_valid(_new_band_dialog):
   move_child(_new_band_dialog,get_child_count()-1)
 
+func _opening_poster_wide() -> bool:
+ return size.x >= 900.0 and size.x > size.y
+
+func _opening_poster_gradient() -> GradientTexture2D:
+ var ramp := Gradient.new()
+ ramp.offsets = PackedFloat32Array([0.0,0.55,1.0])
+ ramp.colors = PackedColorArray([
+  Color(0.015,0.020,0.025,0.45),
+  Color(0.015,0.020,0.025,0.40),
+  Color(0.015,0.020,0.025,0.24)
+ ])
+ var texture := GradientTexture2D.new()
+ texture.gradient = ramp
+ texture.width = 8
+ texture.height = 256
+ texture.fill = GradientTexture2D.FILL_LINEAR
+ texture.fill_from = Vector2(0.5,0.0)
+ texture.fill_to = Vector2(0.5,1.0)
+ return texture
+
+func _opening_poster_hero() -> Control:
+ var hero := Control.new()
+ hero.name = "OpeningPosterHero"
+ hero.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ hero.focus_mode = Control.FOCUS_NONE
+ hero.clip_contents = true
+ hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+ var plate := TextureRect.new()
+ plate.name = "OpeningStageImage"
+ plate.texture = load("res://experiments/playable_flightcase/art/opening_stage.png")
+ plate.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ plate.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+ plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ plate.focus_mode = Control.FOCUS_NONE
+ plate.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ hero.add_child(plate)
+
+ var shade := TextureRect.new()
+ shade.name = "OpeningPosterReadabilityShade"
+ shade.texture = _opening_poster_gradient()
+ shade.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ shade.stretch_mode = TextureRect.STRETCH_SCALE
+ shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ shade.focus_mode = Control.FOCUS_NONE
+ shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ hero.add_child(shade)
+
+ var inset := MarginContainer.new()
+ inset.name = "OpeningPosterTextInset"
+ inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ inset.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ for side in ["left","right"]:
+  inset.add_theme_constant_override("margin_"+side,12 if size.x<600 else 20)
+ for side in ["top","bottom"]:
+  inset.add_theme_constant_override("margin_"+side,12)
+ hero.add_child(inset)
+
+ var copy := VBoxContainer.new()
+ copy.name = "OpeningPosterNativeCopy"
+ copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ copy.add_theme_constant_override("separation",8)
+ copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ copy.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+ inset.add_child(copy)
+
+ var eyebrow := _label("THE MUSIC BUSINESS IS CALLING",14)
+ eyebrow.name = "OpeningPosterEyebrow"
+ eyebrow.autowrap_mode = TextServer.AUTOWRAP_OFF
+ eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ copy.add_child(eyebrow)
+ var brand := _label("LIVIN' THE\nDREAM",44 if size.x<600 else 56)
+ brand.name = "OpeningPosterBrand"
+ brand.autowrap_mode = TextServer.AUTOWRAP_OFF
+ brand.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ copy.add_child(brand)
+ var tagline := _label("Three chords. A borrowed van.\nSomething to prove.",16)
+ tagline.name = "OpeningPosterTagline"
+ tagline.autowrap_mode = TextServer.AUTOWRAP_OFF
+ tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ copy.add_child(tagline)
+ return hero
+
 func _menu() -> void:
  var root := _make_shell()
  var spacer := Control.new()
  spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(spacer)
- var heading: PanelContainer = _wide_stage(root)
- var column := _column()
- heading.add_child(column)
- var eyebrow := _label("THE MUSIC BUSINESS IS CALLING",14)
- eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(eyebrow)
- var brand := _label("LIVIN' THE\nDREAM" if size.x<600 else "LIVIN' THE DREAM",42 if size.x>=720 else 32)
- brand.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(brand)
- var tagline := _label("Three chords. A borrowed van. Something to prove.",16)
- tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(tagline)
- column.add_child(_button("NEW BAND",_new_band,"action","NewBandAction"))
+
+ var wide: bool = _opening_poster_wide()
+ var stage: PanelContainer = _wide_stage(root,1120.0)
+ stage.name = "OpeningPosterStage"
+ var layout: BoxContainer = HBoxContainer.new() if wide else VBoxContainer.new()
+ layout.name = "OpeningPosterLayout"
+ layout.add_theme_constant_override("separation",20 if wide else 12)
+ stage.add_child(layout)
+
+ var hero := _opening_poster_hero()
+ layout.add_child(hero)
+ var actions := _column()
+ actions.name = "OpeningPosterActions"
+ if wide:
+  actions.custom_minimum_size.x = 420
+  actions.size_flags_horizontal = Control.SIZE_FILL
+  actions.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+ layout.add_child(actions)
+
+ actions.add_child(_button("NEW BAND",_new_band,"action","NewBandAction"))
+ var pair := HBoxContainer.new()
+ pair.name = "OpeningSecondaryActions"
+ pair.add_theme_constant_override("separation",8)
+ actions.add_child(pair)
  var carry: Button = _button("CONTINUE",_continue,"action","ContinueAction")
  carry.disabled = not setup.has_valid_draft()
  carry.tooltip_text = "No valid band draft to resume." if carry.disabled else "Resume your unfinished band."
- column.add_child(carry)
+ pair.add_child(carry)
+ pair.add_child(_button("SETTINGS",_toggle_settings,"tab","SettingsAction"))
  if carry.disabled:
   var reason := _label("Continue unlocks when a band draft has been saved.",13)
+  reason.name = "OpeningContinueReason"
   reason.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  column.add_child(reason)
- column.add_child(_button("SETTINGS",_toggle_settings,"tab","SettingsAction"))
+  actions.add_child(reason)
  if not OS.has_feature("mobile"):
-  column.add_child(_button("QUIT",func(): get_tree().quit(),"tab","QuitAction"))
- # A disclosure keeps its native controls alive so keyboard users can act
- # repeatedly without losing the focused button on every state change.
- var settings := Kit.frame(look,"panel")
+  actions.add_child(_button("QUIT",func(): get_tree().quit(),"tab","QuitAction"))
+
+ # This frame/control subtree is created once for this menu view. Its visibility
+ # and hero size change in place; Sound/Motion still update their own labels.
+ var settings: PanelContainer = Kit.frame(look,"panel")
  settings.name = "MenuSettingsPanel"
  settings.visible = settings_open
- root.add_child(settings)
- var panel := _column()
- settings.add_child(panel)
- panel.add_child(_label("SETTINGS",18))
- var setting_actions := GridContainer.new()
- setting_actions.columns = 2 if size.x>=900 else 1
- setting_actions.add_theme_constant_override("h_separation",12)
- setting_actions.add_theme_constant_override("v_separation",12)
- panel.add_child(setting_actions)
- var sound := _button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction")
- sound.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- setting_actions.add_child(sound)
- var motion := _button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction")
- motion.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- setting_actions.add_child(motion)
+ actions.add_child(settings)
+ var setting_column := _column()
+ settings.add_child(setting_column)
+ setting_column.add_child(_label("SETTINGS",18))
+ var sound: Button = _button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction")
+ setting_column.add_child(sound)
+ var motion: Button = _button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction")
+ setting_column.add_child(motion)
  if not notice.is_empty():
-  root.add_child(_label(notice,14))
+  actions.add_child(_label(notice,14))
+
  var tail := Control.new()
  tail.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(tail)
+ _opening_poster_fit_hero()
+ # A deferred second measurement observes the newly constructed nested minimum
+ # sizes without detaching/recreating any control or waiting arbitrary time.
+ call_deferred("_opening_poster_fit_hero")
+
+func _opening_poster_fit_hero() -> void:
+ var hero: Control = find_child("OpeningPosterHero",true,false) as Control
+ var actions: VBoxContainer = find_child("OpeningPosterActions",true,false) as VBoxContainer
+ var stage: PanelContainer = find_child("OpeningPosterStage",true,false) as PanelContainer
+ var copy: VBoxContainer = find_child("OpeningPosterNativeCopy",true,false) as VBoxContainer
+ if hero==null or actions==null or stage==null or copy==null:
+  return
+ var shell_margin: float = 16.0 if size.x<720.0 else 36.0
+ # _make_shell() has two spacer/stage gaps at12px each. Frame chrome is read
+ # from the ORIGINAL style, not replaced or assumed to be zero.
+ var usable: float = size.y-shell_margin*2.0-24.0
+ var chrome: float = stage.get_theme_stylebox("panel").get_minimum_size().y
+ var copy_floor: float = copy.get_combined_minimum_size().y+24.0
+ var requested: float
+ var available: float
+ if _opening_poster_wide():
+  # Also cover the unchanged isolated project's default1152x648 entry.
+  requested = minf(520.0,maxf(300.0,size.y-176.0))
+  available = usable-chrome-16.0
+ else:
+  var tall_tablet: bool = size.x>=600.0 and size.y>size.x
+  requested = (340.0 if settings_open else 500.0) if tall_tablet else (196.0 if settings_open else 330.0)
+  available = usable-chrome-12.0-actions.get_combined_minimum_size().y
+ # Never hide copy or shrink fonts to claim a fit. If an untested viewport has
+ # less than copy_floor available, the native bounds check must expose that.
+ hero.custom_minimum_size.y = maxf(copy_floor,minf(requested,available))
+
+func _toggle_settings() -> void:
+ var panel: Control = find_child("MenuSettingsPanel",true,false) as Control
+ if panel==null:
+  return
+ settings_open = not settings_open
+ panel.visible = settings_open
+ _opening_poster_fit_hero()
+ call_deferred("_opening_poster_fit_hero")
 
 func _new_band() -> void:
  if is_instance_valid(_new_band_dialog):
@@ -221,12 +351,6 @@ func _continue() -> void:
   notice = "No valid saved draft was found."
   _render()
 
-func _toggle_settings() -> void:
- var panel: Control = find_child("MenuSettingsPanel",true,false) as Control
- if panel==null:
-  return
- settings_open = not settings_open
- panel.visible = settings_open
 func _toggle_sound() -> void:
  muted = not muted
  AudioServer.set_bus_mute(0,muted)
