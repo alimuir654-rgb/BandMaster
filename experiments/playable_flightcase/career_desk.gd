@@ -288,8 +288,8 @@ func _gear_page(parent: Node, compact: bool) -> void:
  title.name = "GearItemTitle"
  _copy(body,str(item["type"]),13,true)
  _copy(body,str(item["description"]),16)
- _copy(body,"£%d ASKING PRICE  •  +%d READINESS ON PURCHASE" % [int(item["price"]),int(item["readiness"])],14,true)
  var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(selected_item)
+ _copy(body,("OWNED EQUIPMENT  •  SERVICE £%d / 1 DAY" % Gear.SERVICE_COST) if owned else ("£%d ASKING PRICE  •  +%d READINESS ON PURCHASE" % [int(item["price"]),int(item["readiness"])]),14,true)
  if owned:
   var record: Dictionary = Gear.record(game.career,selected_item)
   var condition: int = int(record.get("condition",-1))
@@ -387,12 +387,21 @@ func _road_cases(parent: Node, compact: bool) -> void:
 func _band_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  _copy(body,"THE PEOPLE IN YOUR BAND",24)
+ var dossiers := GridContainer.new()
+ dossiers.name = "CareerMemberDossiers"
+ dossiers.columns = 1 if compact else (3 if size.x>=1220 else 2)
+ dossiers.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ dossiers.add_theme_constant_override("h_separation",20)
+ dossiers.add_theme_constant_override("v_separation",18)
+ body.add_child(dossiers)
  var members: Array = game.career.get("members",[])
  for index in range(members.size()):
   var person: Dictionary = members[index]
+  var dossier := _box(8)
+  dossiers.add_child(dossier)
   var row := HBoxContainer.new()
   row.add_theme_constant_override("separation",12)
-  body.add_child(row)
+  dossier.add_child(row)
   var source: Dictionary = Cast.by_id(str(person.get("candidate_id","")))
   var path: String = str(source.get("portrait_preview",""))
   if not path.is_empty() and ResourceLoader.exists(path):
@@ -414,14 +423,13 @@ func _band_page(parent: Node, compact: bool) -> void:
   for stat in [["SKILL","skill"],["MORALE","morale"],["FATIGUE","fatigue"],["LOYALTY","loyalty"]]:
    var values := HBoxContainer.new()
    values.add_theme_constant_override("separation",8)
-   body.add_child(values)
+   dossier.add_child(values)
    var label := _copy(values,str(stat[0]),13,true)
    label.custom_minimum_size.x=68
    label.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
    var meter := C.meter(int(person.get(str(stat[1]),0)),"notepaper")
    meter.name = "CareerMemberStat_"+str(index)+"_"+str(stat[1])
    values.add_child(meter)
-  _copy(body," ",8)
  _road_cases(parent,compact)
 
 func _songs_page(parent: Node, compact: bool) -> void:
