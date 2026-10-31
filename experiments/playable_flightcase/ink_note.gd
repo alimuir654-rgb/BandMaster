@@ -35,6 +35,8 @@ func _init() -> void:
  tooltip_text = COMPLETE_HINT
 
 func begin(reduced_motion: bool = false) -> void:
+ if not is_inside_tree() or is_queued_for_deletion():
+  return
  _epoch += 1
  var current_epoch: int = _epoch
  _kill_tween()
