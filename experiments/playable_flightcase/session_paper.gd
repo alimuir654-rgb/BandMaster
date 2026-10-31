@@ -2,9 +2,7 @@ extends RefCounted
 ## Separate blank material source, never a flattened game screen. Original PNG
 ## and creation basis are retained beside the scene in art/PROVENANCE.json.
 const Paper = preload("res://experiments/playable_flightcase/art/session_paper.png")
-const Inset = preload("res://components/control_atlas/art/frame_notepaper_inset.png")
 static var paper_texture: ImageTexture
-static var inset_texture: ImageTexture
 
 static func sheet(compact: bool) -> StyleBoxTexture:
  if paper_texture == null:
@@ -15,6 +13,9 @@ static func sheet(compact: bool) -> StyleBoxTexture:
  stock.texture = paper_texture
  stock.set_texture_margin_all(32)
  stock.texture_margin_bottom = 40
+ # The source includes a transparent safety border. Let that border bleed
+ # outside the layout box so live text remains inside the actual paper face.
+ stock.set_expand_margin_all(16)
  stock.content_margin_left = 18 if compact else 26
  stock.content_margin_right = 18 if compact else 26
  stock.content_margin_top = 28
@@ -22,13 +23,14 @@ static func sheet(compact: bool) -> StyleBoxTexture:
  return stock
 
 static func scorecard() -> StyleBoxTexture:
- if inset_texture == null:
-  var image := Inset.get_image()
-  image.resize(96,48,Image.INTERPOLATE_LANCZOS)
-  inset_texture = ImageTexture.create_from_image(image)
+ if paper_texture == null:
+  sheet(false)
  var stock := StyleBoxTexture.new()
- stock.texture = inset_texture
- stock.set_texture_margin_all(10)
- stock.texture_margin_bottom = 12
+ stock.texture = paper_texture
+ # Printed score fields use the quiet interior of the same independent paper
+ # source. No raised bevel/shadow: these are results, not editable keys.
+ stock.region_rect = Rect2(64,48,256,160)
+ stock.set_texture_margin_all(6)
+ stock.modulate_color = Color("ede4d3")
  stock.set_content_margin_all(8)
  return stock
