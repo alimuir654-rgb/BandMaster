@@ -691,6 +691,9 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  details.name = "RecapDetailsToggleAction"
  details.tooltip_text = "Show the complete session breakdown and every bandmate's full reaction."
  details.icon = RehearsalPress.JournalIcon
+ # Reserve the longer expanded label so toggling disclosure cannot move the
+ # focused target or its neighbouring Continue action under a pointer.
+ details.custom_minimum_size.x = ceilf(details.get_theme_font("font").get_string_size("HIDE DETAILS",HORIZONTAL_ALIGNMENT_LEFT,-1,details.get_theme_font_size("font_size")).x + details.get_theme_stylebox("normal").get_minimum_size().x + details.icon.get_width() + details.get_theme_constant("h_separation"))
  actions.add_child(details)
  var footer: Button = _button("CONTINUE TO DAY %d  ›" % int(game.career.get("tour_day",1)),_toggle_recap)
  footer.name = "RecapToggleAction"

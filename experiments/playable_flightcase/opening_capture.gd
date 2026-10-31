@@ -976,7 +976,7 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
   failures.append("S40 Enter lost full-breakdown keyboard focus")
  if absi(live_scroll.scroll_vertical-offset)>1:
   failures.append("S40 Enter reset report scroll position")
- if not live_detail.visible or live_action.text!="HIDE FULL BREAKDOWN":
+ if not live_detail.visible or live_action.text!="HIDE DETAILS":
   failures.append("S40 genuine Enter did not reveal full ledger/update toggle")
  var view: Dictionary = Recap.present(screen.setup.game.career.get("last_rehearsal_outcome",{}),screen.setup.game.career.get("members",[]))
  var last_quote: Label = null
@@ -1017,7 +1017,7 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
    failures.append("S40 Space lost full-breakdown keyboard focus")
   if absi(closed_scroll.scroll_vertical-collapse_offset)>1:
    failures.append("S40 Space reset report scroll position")
-  if closed_detail.visible or closed_action.text!="FULL BREAKDOWN  ›":
+  if closed_detail.visible or closed_action.text!="DETAILS":
    failures.append("S40 genuine Space did not collapse full ledger/update toggle")
  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saved_files:
   failures.append("S40 keyboard disclosure changed settled gameplay or save bytes")
