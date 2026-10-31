@@ -950,7 +950,10 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
  if action==null or scroll==null or detail==null:
   failures.append("S40 keyboard disclosure controls missing")
   return
- scroll.ensure_control_visible(action)
+ if scroll.is_ancestor_of(action):
+  scroll.ensure_control_visible(action)
+ elif not Rect2(Vector2.ZERO,Vector2(root.size)).encloses(action.get_global_rect()) or action.size.y<44 or scroll.get_global_rect().intersects(action.get_global_rect()):
+  failures.append("S41 fixed disclosure action is not a safe physical viewport target")
  await process_frame
  await process_frame
  action.grab_focus()
