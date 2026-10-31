@@ -317,6 +317,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  var scroll := ScrollContainer.new()
  scroll.name = "RehearsalResultScroll"
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root_box.add_child(scroll)
  var center := CenterContainer.new()

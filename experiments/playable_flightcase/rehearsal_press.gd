@@ -101,6 +101,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  gallery.custom_minimum_size.y = 190 if mobile else 210
+ # The existing scrollbar is the keyboard route to offscreen bandmates.
+ # Godot skips it in focus traversal when the entire roster already fits.
+ gallery.get_h_scroll_bar().focus_mode = Control.FOCUS_ALL
  content.add_child(gallery)
  var strip := HBoxContainer.new()
  strip.name = "RecapPortraitRow"

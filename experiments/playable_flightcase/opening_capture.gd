@@ -7,6 +7,8 @@ const IdentityPress = preload("res://experiments/playable_flightcase/band_identi
 const Kit = preload("res://components/control_atlas/kit.gd")
 const ApprovedCast = preload("res://experiments/character_cast/catalogue.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
+const RehearsalScreen = preload("res://experiments/playable_flightcase/ui.gd")
+const Game = preload("res://experiments/playable_flightcase/session.gd")
 var failures: Array[String] = []
 func _init() -> void:
  call_deferred("take")
@@ -192,6 +194,116 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saved_files:
   failures.append("S40 keyboard disclosure changed settled gameplay or save bytes")
  print("S40_NATIVE_DISCLOSURE ",JSON.stringify({"width":w,"height":h,"focus_retained":closed_action!=null and closed_action.has_focus(),"scroll_before":offset,"scroll_after":closed_scroll.scroll_vertical if closed_scroll!=null else -1,"full_reactions":view.get("reactions",[]).size()}))
+
+func _tab_to(target: Control, limit: int = 8) -> bool:
+ for step in range(limit):
+  if target.has_focus():
+   return true
+  await _recap_key(KEY_TAB)
+ return target.has_focus()
+
+# Maximum affordable real C25 roster, genuine resolver, existing report view.
+# This labelled native fixture neither overwrites the player's game nor saves.
+func _draw_six_member_recap(screen,w: int,h: int) -> void:
+ var saved_files: Dictionary = _recap_save_bytes()
+ var original_game: Dictionary = screen.setup.snapshot()
+ var roster: Array[String] = ["cast_nina","cast_tom","cast_ben","cast_ellis","cast_dan","cast_jack"]
+ var game = Game.new()
+ for pid in roster:
+  if not game.recruit(pid).get("ok",false):
+   failures.append("S40 six-member fixture could not recruit actual "+pid)
+ if game.spent()!=197 or not game.launch().get("ok",false):
+  failures.append("S40 six-member fixture violated actual 197-talent formation")
+  return
+ if not game.clear_air().get("ok",false):
+  failures.append("S40 six-member fixture could not resolve real band meeting")
+  return
+ var before: Dictionary = game.snapshot()
+ var fixture = RehearsalScreen.new()
+ fixture.game = game
+ fixture.last_message = "SIX-MEMBER QA FIXTURE  /  197 TALENT  /  NO SAVE"
+ screen.hide()
+ root.add_child(fixture)
+ await process_frame
+ await process_frame
+ await process_frame
+ var gallery: ScrollContainer = fixture.find_child("RecapMemberGallery",true,false) as ScrollContainer
+ var footer: Button = fixture.find_child("RecapToggleAction",true,false) as Button
+ if gallery==null or footer==null:
+  failures.append("S40 six-member report/gallery fixture missing")
+ else:
+  var bar: HScrollBar = gallery.get_h_scroll_bar()
+  var first: Control = fixture.find_child("RecapPortraitCard_"+roster[0],true,false) as Control
+  var last: Control = fixture.find_child("RecapPortraitCard_"+roster[-1],true,false) as Control
+  if fixture.find_children("RecapPortraitCard_*","VBoxContainer",true,false).size()!=6:
+   failures.append("S40 six-member gallery dropped a selected musician")
+  if footer.get_global_rect().size.y<44 or footer.get_global_rect().end.y>float(h):
+   failures.append("S40 six-member fixture lost first-fold Continue action")
+  for pid in roster:
+   var portrait: TextureRect = fixture.find_child("RecapPortrait_"+pid,true,false) as TextureRect
+   var caption: Label = fixture.find_child("RecapMember_"+pid,true,false) as Label
+   var stripe: ColorRect = fixture.find_child("RecapMoodStripe_"+pid,true,false) as ColorRect
+   for passive in [portrait,caption,stripe]:
+    if passive==null or passive.focus_mode!=Control.FOCUS_NONE or passive.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+     failures.append("S40 gallery fixture made passive musician data interactive: "+pid)
+   var full_quote: Label = fixture.find_child("RecapFullQuote_"+pid,true,false) as Label
+   if full_quote==null or full_quote.get_theme_font_size("font_size")<16:
+    failures.append("S40 six-member report lost full reaction text: "+pid)
+  if bar.visible:
+   if bar.focus_mode!=Control.FOCUS_ALL or first==null or last==null:
+    failures.append("S40 overflowing gallery has no keyboard scrollbar/endpoint")
+   else:
+    footer.grab_focus()
+    if not await _tab_to(bar):
+     failures.append("S40 Tab cannot reach existing overflowing gallery scrollbar")
+    await _recap_key(KEY_END)
+    var maximum: int = roundi(bar.max_value-bar.page)
+    if gallery.scroll_horizontal!=maximum or not gallery.get_global_rect().encloses(last.get_global_rect()):
+     failures.append("S40 native End did not reveal final selected musician")
+    await _draw_screen("rehearsal_six_members_end",w,h)
+    await _recap_key(KEY_HOME)
+    if gallery.scroll_horizontal!=0 or not gallery.get_global_rect().encloses(first.get_global_rect()):
+     failures.append("S40 native Home did not restore first selected musician")
+  else:
+   footer.grab_focus()
+   for step in range(8):
+    await _recap_key(KEY_TAB)
+    if bar.has_focus():
+     failures.append("S40 hidden gallery scrollbar traps Tab when roster fits")
+  await _draw_screen("rehearsal_six_members",w,h)
+  var details: Button = fixture.find_child("RecapDetailsToggleAction",true,false) as Button
+  var report_scroll: ScrollContainer = fixture.find_child("RehearsalResultScroll",true,false) as ScrollContainer
+  var last_quote: Label = fixture.find_child("RecapFullQuote_"+roster[-1],true,false) as Label
+  if details==null or report_scroll==null or last_quote==null:
+   failures.append("S40 six-member ledger keyboard route missing")
+  else:
+   details.grab_focus()
+   await _recap_key(KEY_ENTER)
+   var vertical: VScrollBar = report_scroll.get_v_scroll_bar()
+   if vertical.visible:
+    if vertical.focus_mode!=Control.FOCUS_ALL or not await _tab_to(vertical):
+     failures.append("S40 Tab cannot reach existing expanded-ledger scrollbar")
+    await _recap_key(KEY_END)
+    if report_scroll.scroll_vertical!=roundi(vertical.max_value-vertical.page) or not report_scroll.get_global_rect().encloses(last_quote.get_global_rect()):
+     failures.append("S40 native End did not reveal final full musician reaction")
+    await _draw_screen("rehearsal_six_members_ledger_end",w,h)
+    await _recap_key(KEY_HOME)
+    if report_scroll.scroll_vertical!=0:
+     failures.append("S40 native Home did not restore ledger reading position")
+   else:
+    for step in range(8):
+     await _recap_key(KEY_TAB)
+     if vertical.has_focus():
+      failures.append("S40 hidden vertical scrollbar traps Tab when ledger fits")
+   details.grab_focus()
+   await _recap_key(KEY_SPACE)
+  print("S40_SIX_MEMBER_GALLERY ",JSON.stringify({"width":w,"height":h,"talent":game.spent(),"members":6,"overflow":bar.visible,"scroll_max":roundi(bar.max_value-bar.page),"verdict":game.career.get("last_rehearsal_outcome",{}).get("verdict","")}))
+ if game.snapshot()!=before or screen.setup.snapshot()!=original_game or _recap_save_bytes()!=saved_files:
+  failures.append("S40 six-member gallery fixture mutated real game or save bytes")
+ fixture.free()
+ screen.show()
+ await process_frame
+ await process_frame
 
 # Source-honest visual-density fixture: this draws an actual Godot poster with
 # five/six C25 approved preview portraits, WITHOUT mutating the real player's
@@ -662,6 +774,8 @@ func take() -> void:
     if restored_header==null or not restored_header.text.contains("LAST SESSION") or not restored_header.text.contains("Good progress"):
      failures.append("S39 resumed phase shows stale recruitment text instead of saved rehearsal verdict")
     await _draw_screen("rehearsal_resumed",w,h)
+
+ await _draw_six_member_recap(screen,w,h)
 
  # Deferred frees from the final screen transition must settle before checking
  # controls allocated along the complete recruitment/Continue journey.
