@@ -31,6 +31,21 @@ func _init() -> void:
 func _draw_screen(name: String,w: int,h: int) -> void:
  await process_frame
  await process_frame
+ # Standard screenshots document settled notes. The dedicated ink probe must
+ # capture actual partial/full phases separately; never force-complete here.
+ var deadline: int = Time.get_ticks_msec()+4500
+ while Time.get_ticks_msec()<deadline:
+  var revealing := false
+  for note in root.find_children("*","Label",true,false):
+   if note.is_visible_in_tree() and note.has_method("is_revealing") and note.is_revealing():
+    revealing = true
+    break
+  if not revealing:
+   break
+  await process_frame
+ for note in root.find_children("*","Label",true,false):
+  if note.is_visible_in_tree() and note.has_method("is_revealing") and note.is_revealing():
+   failures.append("S43 note reveal did not settle within its bounded duration")
  await RenderingServer.frame_post_draw
  var img: Image = root.get_texture().get_image()
  var dest := "/tmp/c27-%s-%dx%d.png" % [name,w,h]
@@ -643,7 +658,7 @@ func _recruit_person(pane) -> Dictionary:
 func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  var person := _recruit_person(pane)
  if person.is_empty():
-  failures.append("S40 "+tag+" selected candidate is not canonical")
+  failures.append("S43 "+tag+" selected candidate is not canonical")
   return
  var viewport := Rect2(0,0,w,h)
  var context: Control = pane.find_child("RecruitDecisionContext",true,false)
@@ -653,33 +668,41 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  var affordability: Label = pane.find_child("RecruitAffordability",true,false)
  var header: Label = pane.find_child("BudgetLabel",true,false)
  var candidate_name: Label = pane.find_child("RecruitCandidateName",true,false)
- var profile_bounds: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
+ var profile: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
  var expected_identity: String = "%s  •  %s" % [str(person.name).to_upper(),str(pane.role).to_upper()]
  if candidate_name==null or candidate_name.text!=expected_identity:
-  failures.append("S40 "+tag+" candidate name/role is not the full canonical identity")
- elif profile_bounds==null or candidate_name.get_global_rect().position.x<profile_bounds.get_global_rect().position.x or candidate_name.get_global_rect().end.x>profile_bounds.get_global_rect().end.x:
-  failures.append("S40 "+tag+" candidate name/role escapes profile width")
+  failures.append("S43 "+tag+" candidate name/role is not the full canonical identity")
+ elif profile==null or candidate_name.get_global_rect().position.x<profile.get_global_rect().position.x or candidate_name.get_global_rect().end.x>profile.get_global_rect().end.x:
+  failures.append("S43 "+tag+" complete candidate identity escapes profile width")
  elif str(person.id) in ["cast_maya","cast_bex","cast_sam"] and candidate_name.get_line_count()!=1:
-  failures.append("S40 "+tag+" short candidate identity/long role wraps despite fixed browse allocation")
+  failures.append("S43 "+tag+" short candidate identity/long role wraps despite fixed browse allocation")
  for arrow_name in ["RecruitPreviousAction","RecruitNextAction"]:
   var arrow: Button = pane.find_child(arrow_name,true,false)
-  if arrow==null or arrow.get_global_rect().size.x<44.0 or arrow.get_global_rect().size.x>50.0:
-   failures.append("S40 "+tag+" browse chevron width competes with candidate identity: "+arrow_name)
- if context==null or dock==null or strength==null or friction==null or affordability==null or header==null:
-  failures.append("S40 "+tag+" recruitment trade-off context missing")
+  if arrow==null or arrow.size.x<44.0 or arrow.size.x>50.0 or arrow.size.y<48.0:
+   failures.append("S43 "+tag+" physical browse chevron allocation changed: "+arrow_name)
+ if context==null or dock==null or strength==null or friction==null or affordability==null or header==null or profile==null:
+  failures.append("S43 "+tag+" candidate dossier/decision context missing")
   return
+ var recruited: bool = RecruitBase.contains(pane.game.roster,str(person.id))
+ var heard: bool = recruited or bool(pane.auditioned.get(str(person.id),false))
  if strength.text!="STRENGTH  •  "+str(person.get("strength","Still developing")) or friction.text!="FRICTION  •  "+str(person.get("friction","Unknown")):
-  failures.append("S40 "+tag+" full authored candidate trade-offs changed or were truncated")
- for label in [strength,friction,affordability]:
-  if label.get_theme_font_size("font_size")!=16 or not label.is_visible_in_tree() or not viewport.encloses(label.get_global_rect()):
-   failures.append("S40 "+tag+" 16px decision text is not fully visible in first fold: "+str(label.name))
- if strength.get_global_rect().end.y>friction.get_global_rect().position.y or friction.get_global_rect().end.y>affordability.get_global_rect().position.y or affordability.get_global_rect().end.y>dock.get_global_rect().position.y:
-  failures.append("S40 "+tag+" trade-off text overlaps the next line/action row")
+  failures.append("S43 "+tag+" complete authored audition notes changed or were truncated")
+ for note in [strength,friction]:
+  if note.get_theme_font_size("font_size")!=16 or note.visible!=heard or not note.has_method("is_revealing") or note.visible_characters_behavior!=TextServer.VC_CHARS_AFTER_SHAPING:
+   failures.append("S43 "+tag+" original 16px authored note/reveal guard changed: "+str(note.name))
+  if heard and (note.get_global_rect().position.x<profile.get_global_rect().position.x or note.get_global_rect().end.x>profile.get_global_rect().end.x):
+   failures.append("S43 "+tag+" audition note escapes readable dossier width: "+str(note.name))
+ if heard and strength.get_global_rect().end.y>friction.get_global_rect().position.y:
+  failures.append("S43 "+tag+" complete shaped notes overlap while revealing")
+ if affordability.get_theme_font_size("font_size")!=16 or not affordability.is_visible_in_tree() or not viewport.encloses(affordability.get_global_rect()) or affordability.get_global_rect().end.y>dock.get_global_rect().position.y:
+  failures.append("S43 "+tag+" actual 16px affordability is hidden, clipped or overlaps the fixed dock")
  if not viewport.encloses(context.get_global_rect()) or (w>=840 and w>=h and context.size.x>762.0):
-  failures.append("S40 "+tag+" decision context exceeds viewport/bounded desktop width")
+  failures.append("S43 "+tag+" decision context exceeds viewport/bounded desktop width")
+ var portrait: TextureRect = pane.find_child("RecruitPortrait",true,false)
+ if portrait==null or portrait.texture==null or portrait.texture.resource_path!=str(person.get("portrait_preview","")) or portrait.focus_mode!=Control.FOCUS_NONE or portrait.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+  failures.append("S43 "+tag+" original canonical portrait changed or takes input/focus")
  var available: int = int(pane.onboarding_state.remaining()) if pane.onboarding_state!=null else pane.game.remaining()
  var cost: int = RecruitBase.incremental_cost(pane.game.roster,person)
- var recruited: bool = RecruitBase.contains(pane.game.roster,str(person.id))
  var expected: String
  if recruited:
   expected = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
@@ -690,87 +713,111 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  else:
   expected = "%d TALENT  •  %d AVAILABLE  •  %d AFTER RECRUIT" % [cost,available,available-cost]
  if affordability.text!=expected or header.text!="TALENT %d / 200" % available or not viewport.encloses(header.get_global_rect()):
-  failures.append("S40 "+tag+" availability/reservation/post-recruit forecast is incorrect")
+  failures.append("S43 "+tag+" actual seat-fee/reservation/post-recruit forecast is incorrect")
  var action: Button = pane.find_child("RemoveAction" if recruited else "RecruitAction",true,false)
  var allowed: bool = bool(pane.onboarding_state.can_recruit(str(person.id))) if pane.onboarding_state!=null else RecruitBase.can_add(pane.game.roster,person)
  if action==null:
-  failures.append("S40 "+tag+" recruit/remove decision missing")
+  failures.append("S43 "+tag+" recruit/remove decision missing")
  else:
-  if action.get_parent()!=dock or action.size.y<44 or not viewport.encloses(action.get_global_rect()) or action.disabled!=(false if recruited else not allowed):
-   failures.append("S40 "+tag+" recruit/remove target is hidden, misplaced or wrongly gated")
+  if action.get_parent()!=dock or action.size.x<48 or action.size.y<48 or not viewport.encloses(action.get_global_rect()) or action.disabled!=(false if recruited else (not heard or not allowed)):
+   failures.append("S43 "+tag+" native decision is clipped, misplaced or bypasses audition/model guards")
   if not recruited and pane.game.roster.size()>=6 and action.text!="BAND FULL":
-   failures.append("S40 "+tag+" full roster implies a zero-cost recruitment")
+   failures.append("S43 "+tag+" full roster implies zero-cost recruitment")
+ var audition: Button = pane.find_child("AuditionAction",true,false)
+ if audition==null or audition.get_parent()!=dock or audition.size.x<48 or audition.size.y<48 or not viewport.encloses(audition.get_global_rect()):
+  failures.append("S43 "+tag+" presentation-only audition is not a visible fixed48px target")
+ if not pane.find_children("RoleTab_*","Button",true,false).is_empty():
+  failures.append("S43 "+tag+" obsolete recruitment tabs remain")
+ var covered: Array = RecruitBase.coverage(pane.game.roster)
+ var progress: Array = pane.find_children("AuditionProgress_*","Label",true,false)
+ var roles := ["Guitarist","Bassist","Drummer","Singer"]
+ var captions := ["GUITAR","BASS","DRUMS","VOICE"]
+ if progress.size()!=4:
+  failures.append("S43 "+tag+" ordered four-step audition progress missing")
+ else:
+  for index in range(4):
+   var done: bool = covered.has(roles[index]) if index<3 else (pane.onboarding_state!=null and not str(pane.onboarding_state.lead_vocal_id).is_empty())
+   var expected_caption: String = ("✓ " if done else str(index+1)+" ")+str(captions[index])
+   var label: Label = progress[index]
+   if str(label.name)!="AuditionProgress_"+str(roles[index]) or label.text!=expected_caption or label.focus_mode!=Control.FOCUS_NONE or label.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+    failures.append("S43 "+tag+" progress does not reflect original core roles/explicit voice in order")
+   elif done and label.get_theme_color("font_color")!=Color("a8ddb5"):
+    failures.append("S43 "+tag+" filled/assigned audition stage lost its green indicator")
+   elif not done and label.get_theme_color("font_color")==Color("a8ddb5"):
+    failures.append("S43 "+tag+" missing/removed stage remains green")
+ if pane.find_child("StartAction",true,false)!=null:
+  failures.append("S43 "+tag+" Complete Lineup is exposed outside review")
  var ready: bool = bool(pane.onboarding_state.ready()) if pane.onboarding_state!=null else pane.game.can_start()
- var covered_roles: Array = RecruitBase.coverage(pane.game.roster)
- for role_name in RecruitBase.ROLE_TABS:
-  var tab: Button = pane.find_child("RoleTab_"+str(role_name),true,false)
-  var covered: bool = covered_roles.has(role_name)
-  if str(role_name)=="Singer" and pane.onboarding_state!=null:
-   covered = not str(pane.onboarding_state.lead_vocal_id).is_empty()
-  if tab==null or tab.button_pressed!=(str(role_name)==str(pane.role)):
-   failures.append("Phone feedback: role tab lost independent browsing selection")
-  elif covered:
-   for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:
-    if tab.get_theme_color(state)!=Color("a8ddb5"):
-     failures.append("Phone feedback: recruited/assigned role is not green in "+str(state))
-  elif tab.has_theme_color_override("font_color") and tab.get_theme_color("font_color")==Color("a8ddb5"):
-   failures.append("Phone feedback: removed/unfilled role remains green")
- var start: Button = pane.find_child("StartAction",true,false)
- if ready:
-  if start==null or start.get_parent()!=dock or start.size.y<44 or not viewport.encloses(start.get_global_rect()):
-   failures.append("S40 "+tag+" ready second action is clipped or misplaced")
-  if w<840 or w<h:
-   if start!=null and start.text!="COMPLETE LINEUP":
-    failures.append("S40 "+tag+" ready mobile completion label is not compact")
-   if action!=null and (recruited or pane.game.roster.size()<6) and action.text!=("REMOVE" if recruited else "RECRUIT"):
-    failures.append("S40 "+tag+" ready mobile recruit/remove label does not fit shared row")
- var profile: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
+ var next_step: Button = pane.find_child("ReviewLineupAction" if str(pane.role) in ["Singer","Keyboardist"] else "AuditionNextStepAction",true,false)
+ if next_step==null or next_step.disabled!=(not ready if str(pane.role) in ["Singer","Keyboardist"] else not covered.has(str(pane.role))):
+  failures.append("S43 "+tag+" explicit Next/Review bypasses actual lineup coverage/readiness")
  var stats: Array = RecruitBase.stats_for(person,str(pane.role))
  for index in range(6):
   var meter: TextureRect = pane.find_child("PassiveMeter"+str(index),true,false)
   var score: int = int(stats[index])
   var path: String = "res://components/control_atlas/art/passive_meter_flightcase_%02d.png" % score
   if meter==null or meter.texture==null or meter.texture.resource_path!=path or int(meter.get("score"))!=score or FileAccess.get_sha256(path)!=METER_SHA256[score]:
-   failures.append("S40 "+tag+" original selected passive meter bytes/value changed: "+str(index))
+   failures.append("S43 "+tag+" original selected passive meter bytes/value changed: "+str(index))
   elif meter.focus_mode!=Control.FOCUS_NONE or meter.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
-   failures.append("S40 "+tag+" passive selected stat takes input/focus: "+str(index))
-  elif profile==null or not profile.get_global_rect().encloses(meter.get_global_rect()):
-   failures.append("S40 "+tag+" first fold still hides selected meter "+str(index))
- print("S40_RECRUIT_CONTEXT ",JSON.stringify({"case":tag,"candidate":person.id,"width":w,"height":h,"cost":cost,"available":available,"ready":ready,"copy":affordability.text}))
+   failures.append("S43 "+tag+" passive selected stat takes input/focus: "+str(index))
+  elif not profile.is_ancestor_of(meter) or meter.size.x<=0 or meter.size.y<=0 or meter.get_global_rect().position.x<profile.get_global_rect().position.x or meter.get_global_rect().end.x>profile.get_global_rect().end.x:
+   failures.append("S43 "+tag+" selected meter escapes readable dossier width: "+str(index))
+ print("S40_RECRUIT_CONTEXT ",JSON.stringify({"case":tag,"candidate":person.id,"width":w,"height":h,"cost":cost,"available":available,"ready":ready,"copy":affordability.text,"auditioned":heard}))
 
 func _check_recruit_profile_keyboard(pane,w: int,h: int,tag: String) -> void:
  var scroll: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
  if scroll==null:
-  failures.append("S40 "+tag+" keyboard dossier scroll missing")
+  failures.append("S43 "+tag+" keyboard dossier scroll missing")
   return
- var before: Dictionary = pane.game.snapshot()
+ var before: Dictionary = pane.onboarding_state.snapshot() if pane.onboarding_state!=null else pane.game.snapshot()
  var files: Dictionary = _recap_save_bytes()
  var bar: VScrollBar = scroll.get_v_scroll_bar()
- if bar.visible:
-  var action: Button = pane.find_child("RecruitAction",true,false)
-  if action!=null and not action.disabled:
-   action.grab_focus()
-  if bar.focus_mode!=Control.FOCUS_ALL or not await _tab_to(bar,24):
-   failures.append("S40 "+tag+" Tab cannot reach original dossier scrollbar")
-  await _recap_key(KEY_HOME)
-  if scroll.scroll_vertical!=0:
-   failures.append("S40 "+tag+" native Home did not restore the profile start")
- # All six primary stats must be readable immediately. The optional dossier
- # uses the engine's verified Home/End controls; Page Down is unsupported here.
+ if not scroll.follow_focus or scroll.horizontal_scroll_mode!=ScrollContainer.SCROLL_MODE_DISABLED:
+  failures.append("S43 "+tag+" dossier lost native follow-focus/vertical scrolling")
+ # Every original stat remains readable within the real clip viewport. The new
+ # audition card intentionally scrolls; inert meters do not become focus stops.
  for index in range(6):
+  var field: Control = pane.find_child("RecruitStatRow"+str(index),true,false)
   var meter: Control = pane.find_child("PassiveMeter"+str(index),true,false)
-  if meter==null or not scroll.get_global_rect().encloses(meter.get_global_rect()):
-   failures.append("S40 "+tag+" initial profile/keyboard Home hides stat "+str(index))
+  if field==null or meter==null:
+   failures.append("S43 "+tag+" original complete stat row missing: "+str(index))
+   continue
+  scroll.ensure_control_visible(field)
+  await process_frame
+  await process_frame
+  await RenderingServer.frame_post_draw
+  if not scroll.get_global_rect().encloses(field.get_global_rect()) or not scroll.get_global_rect().encloses(meter.get_global_rect()):
+   failures.append("S43 "+tag+" full original stat cannot be revealed in dossier viewport: "+str(index))
+ for note_name in ["RecruitStrength","RecruitFriction"]:
+  var note: Label = pane.find_child(note_name,true,false)
+  if note!=null and note.is_visible_in_tree():
+   scroll.ensure_control_visible(note)
+   await process_frame
+   await process_frame
+   await RenderingServer.frame_post_draw
+   if not scroll.get_global_rect().encloses(note.get_global_rect()) or note.get_visible_line_count()<note.get_line_count():
+    failures.append("S43 "+tag+" full authored note cannot fit/read within dossier viewport: "+note_name)
  if bar.visible:
-  await _recap_key(KEY_END)
-  if scroll.scroll_vertical!=roundi(bar.max_value-bar.page) or not bar.has_focus():
-   failures.append("S40 "+tag+" native End did not reach the full dossier with focus retained")
+  var audition: Button = pane.find_child("AuditionAction",true,false)
+  if audition!=null and not audition.disabled:
+   audition.grab_focus()
+  if bar.focus_mode!=Control.FOCUS_ALL or not await _tab_to(bar,32):
+   failures.append("S43 "+tag+" Tab cannot reach original dossier scrollbar")
   await _recap_key(KEY_HOME)
   if scroll.scroll_vertical!=0 or not bar.has_focus():
-   failures.append("S40 "+tag+" native Home did not restore the dossier with focus retained")
+   failures.append("S43 "+tag+" native Home did not restore profile start/focus")
+  await _recap_key(KEY_END)
+  if scroll.scroll_vertical!=roundi(bar.max_value-bar.page) or not bar.has_focus():
+   failures.append("S43 "+tag+" native End did not reach full dossier with focus retained")
+  await _recap_key(KEY_HOME)
+  if scroll.scroll_vertical!=0 or not bar.has_focus():
+   failures.append("S43 "+tag+" native Home did not restore dossier with focus retained")
+ else:
+  scroll.scroll_vertical = 0
  print("S40_RECRUIT_SCROLL ",JSON.stringify({"case":tag,"width":w,"height":h,"visible_bar":bar.visible,"maximum":roundi(bar.max_value-bar.page),"home":scroll.scroll_vertical}))
- if pane.game.snapshot()!=before or _recap_save_bytes()!=files:
-  failures.append("S40 "+tag+" keyboard dossier browsing mutated game/save bytes")
+ var after: Dictionary = pane.onboarding_state.snapshot() if pane.onboarding_state!=null else pane.game.snapshot()
+ if after!=before or _recap_save_bytes()!=files:
+  failures.append("S43 "+tag+" readable dossier/keyboard browsing mutated original state/save bytes")
 
 func _draw_recruit_context_fixtures(screen,w: int,h: int) -> void:
  var files: Dictionary = _recap_save_bytes()
@@ -799,6 +846,10 @@ func _draw_recruit_context_fixtures(screen,w: int,h: int) -> void:
   var fixture = RehearsalScreen.new()
   fixture.game = model.game
   fixture.onboarding_state = model
+  # QA presentation fixture only: expose full already-authored notes without
+  # audition animation, a resolver, a change_counter increment or a save.
+  fixture.auditioned[str(entry.target)] = true
+  fixture.audition_note_id = ""
   fixture.last_message = "RECRUITMENT QA FIXTURE  /  NO SAVE"
   fixture.role = str(candidate.get("primary_role",candidate.get("roles",["Singer"])[0]))
   var choices: Array = model.game.choices(fixture.role)
@@ -1265,9 +1316,8 @@ func take() -> void:
    if dock_rect.size.x > 762.0 or absf(dock_rect.get_center().x - float(w)*0.5) > 4.0:
     failures.append("desktop recruit dock should be centred and source-proportionate: "+str(dock_rect))
 
- # Roster is an explicitly declared deterministic fixture here; the 38 original
- # C27 and expanded end-to-end model tests independently exercise recruit/remove,
- # refunds and vocals. The remaining transitions use actual native mouse events.
+ # These are genuine ordered auditions and recruitment choices. Canonical
+ # read-only fee/long-copy fixtures are drawn separately without saving.
  if screen.setup.screen=="recruit":
   # Unlike a model fixture, these are three actual user recruitment choices,
   # including changing role, browsing the cast and appointing lead vocals.
@@ -1279,41 +1329,43 @@ func take() -> void:
   if pane==null:
    failures.append("real recruitment panel missing")
   else:
-   _check_recruit_context(pane,w,h,"actual initial Maya")
-   await _check_recruit_profile_keyboard(pane,w,h,"actual initial Maya")
+   _check_recruit_context(pane,w,h,"actual initial guitar audition")
+   await _check_recruit_profile_keyboard(pane,w,h,"actual initial guitar audition")
+   if str(pane.role)!="Guitarist" or not pane.find_children("RoleTab_*","Button",true,false).is_empty():
+    failures.append("S43 genuine recruitment did not begin with ordered guitar auditions")
    for pair in [["Guitarist","cast_jack"],["Bassist","cast_zoe"],["Drummer","cast_casey"]]:
     var desired_role: String = str(pair[0])
     var desired_id: String = str(pair[1])
-    var role_tab: Button = null
-    for entry in pane.find_children("*","Button",true,false):
-     var tab_button: Button = entry as Button
-     if tab_button != null and tab_button.text==desired_role.to_upper():
-      role_tab=tab_button
-      break
-    await click_action(role_tab)
-    await process_frame
-    if str(pane.get("role"))!=desired_role:
-     failures.append("real role tab did not select "+desired_role+", observed "+str(pane.get("role")))
+    if str(pane.role)!=desired_role:
+     failures.append("S43 explicit audition sequence did not select "+desired_role+", observed "+str(pane.role))
      break
+    var before_browse: Dictionary = screen.setup.snapshot()
+    var before_browse_files: Dictionary = _recap_save_bytes()
     var choices: Array = screen.setup.game.choices(desired_role)
     var found_target := false
     for attempt in range(choices.size()):
-     var index: int = int(pane.get("selected_index"))
+     var index: int = int(pane.selected_index)
      if index>=0 and index<choices.size() and str(choices[index].get("id",""))==desired_id:
       found_target = true
       break
-     var next_candidate: Button = null
-     for entry in pane.find_children("*","Button",true,false):
-      var candidate_button: Button = entry as Button
-      if candidate_button!=null and candidate_button.text=="›":
-       next_candidate=candidate_button
-       break
-     await click_action(next_candidate)
+     await click_action(pane.find_child("RecruitNextAction",true,false))
      await process_frame
+    if screen.setup.snapshot()!=before_browse or _recap_save_bytes()!=before_browse_files:
+     failures.append("S43 genuine candidate browsing mutated model/save bytes")
     if not found_target:
      failures.append("could not browse to "+desired_id+" in "+desired_role)
      break
     _check_recruit_context(pane,w,h,"actual browsed "+desired_id)
+    var invite: Button = pane.find_child("RecruitAction",true,false)
+    if invite==null or not invite.disabled:
+     failures.append("S43 unauditioned candidate can be invited before reading authored notes")
+    var before_audition: Dictionary = screen.setup.snapshot()
+    var before_audition_files: Dictionary = _recap_save_bytes()
+    await click_action(pane.find_child("AuditionAction",true,false))
+    await process_frame
+    if screen.setup.snapshot()!=before_audition or _recap_save_bytes()!=before_audition_files:
+     failures.append("S43 native audition reveal spent talent/day or wrote saves")
+    _check_recruit_context(pane,w,h,"actual auditioned "+desired_id)
     var before_count: int = screen.setup.game.roster.size()
     var before_spent: int = screen.setup.game.spent()
     var before_available: int = screen.setup.remaining()
@@ -1329,6 +1381,8 @@ func take() -> void:
      break
     if screen.setup.game.roster.size()!=before_count+1 or screen.setup.game.spent()!=before_spent+hire_cost or screen.setup.remaining()!=before_available-hire_cost or screen.setup.change_counter!=before_changes+1:
      failures.append("S40 real recruit did not charge/change roster exactly once: "+desired_id)
+    if str(pane.role)!=desired_role:
+     failures.append("S43 recruiting advanced into another spend target without explicit Next")
     _check_recruit_context(pane,w,h,"actual recruited "+desired_id)
     if desired_id=="cast_jack":
      await click_action(pane.find_child("RemoveAction",true,false))
@@ -1338,31 +1392,44 @@ func take() -> void:
      await click_action(pane.find_child("RecruitAction",true,false))
      if screen.setup.game.roster.size()!=before_count+1 or screen.setup.game.spent()!=before_spent+hire_cost or screen.setup.remaining()!=before_available-hire_cost or screen.setup.change_counter!=before_changes+3:
       failures.append("S40 genuine re-recruit lost the exact original cost/one-shot change")
-   var vocal_action: Button = null
-   var vocal_route: Button = pane.find_child("LeadVocalRoute",true,false)
-   if vocal_route==null or not Rect2(0,0,w,h).encloses(vocal_route.get_global_rect()) or vocal_route.size.y<44:
-    failures.append("Phone feedback: required lead-vocal route is not a first-fold target")
-   else:
-    var before_vocal_route: Dictionary = screen.setup.snapshot()
-    var before_vocal_files: Dictionary = _recap_save_bytes()
-    await _draw_screen("recruit_needs_vocals",w,h)
-    await click_action(vocal_route)
-    var revealed: Button = pane.find_child("VocalAssign_cast_jack",true,false)
-    if revealed==null or not revealed.has_focus() or not Rect2(0,0,w,h).encloses(revealed.get_global_rect()):
-     failures.append("Phone feedback: lead-vocal route did not reveal/focus existing Jack assignment")
-    if screen.setup.snapshot()!=before_vocal_route or _recap_save_bytes()!=before_vocal_files:
-     failures.append("Phone feedback: revealing vocals mutated career or saves")
-   for entry in pane.find_children("*","Button",true,false):
-    var voice_button: Button = entry as Button
-    if voice_button!=null and voice_button.text.to_upper().contains("JACK") and voice_button.text.to_upper().contains("TALENT"):
-     vocal_action=voice_button
-     break
+    var before_next: Dictionary = screen.setup.snapshot()
+    var before_next_files: Dictionary = _recap_save_bytes()
+    await click_action(pane.find_child("AuditionNextStepAction",true,false))
+    await process_frame
+    var expected_next: String = "Bassist" if desired_role=="Guitarist" else ("Drummer" if desired_role=="Bassist" else "Singer")
+    if str(pane.role)!=expected_next or screen.setup.snapshot()!=before_next or _recap_save_bytes()!=before_next_files:
+     failures.append("S43 explicit next audition changes state/save or skips ordered "+expected_next)
+   if str(pane.role)!="Singer" or not bool(pane.vocals_panel) or not screen.setup.lead_vocal_id.is_empty() or screen.setup.ready():
+    failures.append("S43 core trio did not reach explicit unresolved vocal decision")
+   if pane.find_child("StartAction",true,false)!=null:
+    failures.append("S43 Complete Lineup is exposed before vocal choice/review")
+   await _draw_screen("recruit_needs_vocals",w,h)
+   var vocal_action: Button = pane.find_child("VocalAssign_cast_jack",true,false)
+   var before_voice_route: Dictionary = screen.setup.snapshot()
+   var before_voice_files: Dictionary = _recap_save_bytes()
+   if vocal_action==null or not await _tab_to(vocal_action,32):
+    failures.append("S43 genuine Tab cannot reach recruited Jack's vocal decision")
+   elif not Rect2(0,0,w,h).encloses(vocal_action.get_global_rect()):
+    failures.append("S43 native vocal focus does not reveal the selected bandmate")
+   if screen.setup.snapshot()!=before_voice_route or _recap_save_bytes()!=before_voice_files:
+    failures.append("S43 viewing/focusing original vocal choices mutated model/save")
+   var before_voice_available: int = screen.setup.remaining()
+   var before_voice_changes: int = screen.setup.change_counter
+   var before_voice_game: Dictionary = screen.setup.game.snapshot()
    await click_action(vocal_action)
-   if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready():
-    failures.append("real vocalist selection or mandatory trio not ready")
-   if pane.find_child("LeadVocalRoute",true,false)!=null:
-    failures.append("Phone feedback: vocal route remained after valid assignment")
-   _check_recruit_context(pane,w,h,"actual ready trio with vocal reservation")
+   if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready() or screen.setup.vocal_extra_cost()!=5 or screen.setup.remaining()!=before_voice_available-5 or screen.setup.change_counter!=before_voice_changes+1 or screen.setup.game.snapshot()!=before_voice_game:
+    failures.append("S43 real instrumental vocal assignment did not reserve original5 talent exactly once")
+   var loaded_voice := OpeningModel.new()
+   if not loaded_voice.load_draft() or loaded_voice.snapshot()!=screen.setup.snapshot():
+    failures.append("S43 native vocal choice did not roundtrip exact C27 disk state")
+   if pane.find_child("StartAction",true,false)!=null:
+    failures.append("S43 ready trio skipped explicit lineup review")
+   var before_review: Dictionary = screen.setup.snapshot()
+   var before_review_files: Dictionary = _recap_save_bytes()
+   await click_action(pane.find_child("ReviewLineupAction",true,false))
+   await process_frame
+   if not bool(pane.lineup_review) or screen.setup.snapshot()!=before_review or _recap_save_bytes()!=before_review_files:
+    failures.append("S43 native lineup review mutated actual lineup/budget/save bytes")
   var ready_action: Button = screen.find_child("StartAction",true,false)
   if ready_action == null:
    failures.append("ready lineup action not revealed in fixed decision dock")

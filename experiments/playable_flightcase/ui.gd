@@ -12,6 +12,7 @@ const SessionTransition = preload("res://experiments/playable_flightcase/session
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
+static var audition_heading_texture: ImageTexture
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -207,7 +208,10 @@ func _decorate_audition_heading(label: Label) -> void:
   return
  var art := TextureRect.new()
  art.name = "AuditionsHeadingInk"
- art.texture = load(path)
+ if audition_heading_texture==null:
+  var source: Texture2D = load(path)
+  audition_heading_texture = ImageTexture.create_from_image(source.get_image().get_region(Rect2i(27,136,2024,544)))
+ art.texture = audition_heading_texture
  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -257,7 +261,7 @@ func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  margin.add_child(center)
  var paper := PanelContainer.new()
  paper.name = "AuditionPaper"
- paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,get_viewport_rect().size.x-(56.0 if mobile else 120.0)))
+ paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,get_viewport_rect().size.x-(72.0 if mobile else 120.0)))
  paper.add_theme_stylebox_override("panel",Paper.sheet(get_viewport_rect().size.x<600))
  center.add_child(paper)
  var body := _box()
@@ -275,7 +279,7 @@ func _audition_navigation(root_box: VBoxContainer) -> void:
  if role=="Keyboardist":
   previous_title = "‹  LINEUP REVIEW"
  elif role=="Singer" and not vocals_panel:
-  previous_title = "‹  YOUR BAND'S VOICES"
+  previous_title = "‹  VOICES"
  var previous: Button = _button(previous_title,_previous_audition,"tab")
  previous.name = "AuditionPreviousStepAction"
  navigation.add_child(previous)
@@ -385,7 +389,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  if heard:
   body.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
  else:
-  body.add_child(_ink("Meet the musician, then audition to hear their strengths and friction.",16,true))
+  body.add_child(_ink("Meet the musician, then audition to read what they bring to the room.",16,true))
  if person.has("collaboration"):
   body.add_child(_ink("RELIABILITY %d/10  •  COLLABORATION %d/10" % [int(person.reliability),int(person.collaboration)],14,true))
  if role=="Singer" and onboarding_state!=null and recruited:
@@ -456,6 +460,14 @@ func _audition_candidate() -> void:
  call_deferred("_reveal_audition_note")
 
 func _reveal_audition_note() -> void:
+ # Full note text is shaped before revealing. Wait for the native containers
+ # to settle before requesting the existing scroll control to reveal it.
+ await get_tree().process_frame
+ if not is_inside_tree():
+  return
+ await get_tree().process_frame
+ if not is_inside_tree():
+  return
  var scroll: ScrollContainer = find_child("RecruitProfileScroll",true,false) as ScrollContainer
  var note: Control = find_child("RecruitStrength",true,false) as Control
  if scroll!=null and note!=null:
@@ -542,7 +554,7 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
   body.add_child(edit)
  var lead_name := "NOT CHOSEN"
  for member in game.roster:
-  if str(member.id)==str(onboarding_state.lead_vocal_id):
+  if (onboarding_state!=null and str(member.id)==str(onboarding_state.lead_vocal_id)) or (onboarding_state==null and (member.roles as Array).has("Singer")):
    lead_name = str(member.name)
  body.add_child(_ink("LEAD VOCALS  •  "+lead_name,18))
  var voice: Button = _button("REVISIT LEAD VOCALS",_show_vocal_choices,"tab")
@@ -558,7 +570,8 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
  var context := _box()
  context.name = "RecruitDecisionContext"
  root_box.add_child(context)
- var budget: Label = _label("%d TALENT AVAILABLE  •  %d/6 MEMBERS" % [int(onboarding_state.remaining()),game.roster.size()],16)
+ var remaining: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
+ var budget: Label = _label("%d TALENT AVAILABLE  •  %d/6 MEMBERS" % [remaining,game.roster.size()],16)
  budget.name = "RecruitAffordability"
  context.add_child(budget)
  var dock := HBoxContainer.new()
@@ -570,7 +583,7 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
  dock.add_child(back)
  var confirm: Button = _button("CONFIRM THIS LINEUP  ›",_launch)
  confirm.name = "StartAction"
- confirm.disabled = not bool(onboarding_state.ready())
+ confirm.disabled = not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
  dock.add_child(confirm)
 
 

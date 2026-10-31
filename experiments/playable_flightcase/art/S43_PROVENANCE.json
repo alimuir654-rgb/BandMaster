@@ -15,7 +15,7 @@
       "source_type": "independent image-generated typography",
       "contains_live_ui": false,
       "byte_identical_copy": true,
-      "transforms": "none; native aspect-contain only",
+      "transforms": "Raw source unchanged. Runtime imported-image crop Rect2i(27,136,2024,544), measured alpha>8 ink bounds plus8px bleed, then native aspect-contain.",
       "alpha_bbox": [
         31,
         19,
@@ -109,6 +109,309 @@
         2154,
         698
       ]
+    },
+    {
+      "key": "genre_post_punk",
+      "source": "/workspace/generated_images/exec-606bf4b7-85a4-4758-8843-e07964a62d02.png",
+      "destination": "experiments/playable_flightcase/art/genre_post_punk.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "f2bb85ca3bd95ce2a6affc53254949e9c790bcee393cd68c7cf67063737e659e",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        10,
+        2164,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        33,
+        12,
+        2161,
+        717
+      ]
+    },
+    {
+      "key": "genre_britpop",
+      "source": "/workspace/generated_images/exec-4c068a6a-fb94-4255-9530-20bd711bcd2b.png",
+      "destination": "experiments/playable_flightcase/art/genre_britpop.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "8f3f77899c1e687b7201f4a0a32929356638470ffcb8a095280b873fdd2b4a61",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        0,
+        6,
+        2171,
+        719
+      ]
+    },
+    {
+      "key": "genre_shoegaze",
+      "source": "/workspace/generated_images/exec-7a38f24c-0bd4-45b5-95de-ccd5de3fec2b.png",
+      "destination": "experiments/playable_flightcase/art/genre_shoegaze.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "338dcefe54d6409d948c14d101aa3b71b4d2ec6746a5a5389c7d1bbac280c67e",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        0,
+        6,
+        2159,
+        716
+      ]
+    },
+    {
+      "key": "genre_garage",
+      "source": "/workspace/generated_images/exec-8fbd8d74-19c0-4ae8-8ffb-c790edfab879.png",
+      "destination": "experiments/playable_flightcase/art/genre_garage.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "f4455f3e7cd160869413813ce2d09c4811a7a5bd63f4049f1bb868599f5fd22d",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ]
+    },
+    {
+      "key": "genre_goth",
+      "source": "/workspace/generated_images/exec-ced2d5e3-5b1b-4d94-8a84-09abc2b56e9b.png",
+      "destination": "experiments/playable_flightcase/art/genre_goth.png",
+      "dimensions": [
+        2160,
+        728
+      ],
+      "mode": "RGBA",
+      "sha256": "f98ffef02a6ee9ac2ff29c913eb07d51026c6c0fa4c39e6afc98f2dcd6feea67",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2142,
+        728
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        30,
+        1,
+        2130,
+        714
+      ]
+    },
+    {
+      "key": "genre_prog",
+      "source": "/workspace/generated_images/exec-3cb0b6ab-e93b-48c0-abb1-e1d89867c79b.png",
+      "destination": "experiments/playable_flightcase/art/genre_prog.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "d983fa5319d036c7a69d1753f075a06ab6861b74742c2fcb9408109d8296d05a",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2164,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        12,
+        4,
+        2160,
+        709
+      ]
+    },
+    {
+      "key": "genre_experimental",
+      "source": "/workspace/generated_images/exec-1ed84663-d508-4544-8e2b-192ec601935d.png",
+      "destination": "experiments/playable_flightcase/art/genre_experimental.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "89f5151a7fe38e5ff3a41fd90c6bf6fa39e091cd0a092ddc27c80ae5fd97fcdc",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        16,
+        0,
+        2156,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        26,
+        7,
+        2150,
+        724
+      ]
+    },
+    {
+      "key": "genre_country",
+      "source": "/workspace/generated_images/exec-2c5eb900-731e-4dee-bb70-38889749aea5.png",
+      "destination": "experiments/playable_flightcase/art/genre_country.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "741106492670c9a013798a2e615cfcfed4ca76d356db76b4a2390dbf19a75f65",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        19,
+        2159,
+        709
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        13,
+        22,
+        2156,
+        702
+      ]
+    },
+    {
+      "key": "genre_soul",
+      "source": "/workspace/generated_images/exec-7c65a24d-c53a-42a4-9196-80c1a806f363.png",
+      "destination": "experiments/playable_flightcase/art/genre_soul.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "cfddb2deb58cf862df3133fb45a18a13e6e3702c45eb72fcdec590541ff0571e",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        13,
+        0,
+        2172,
+        710
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        18,
+        7,
+        2161,
+        705
+      ]
+    },
+    {
+      "key": "genre_metal",
+      "source": "/workspace/generated_images/exec-08307f42-1e3c-4443-9fa7-9e0ff6cbf2b1.png",
+      "destination": "experiments/playable_flightcase/art/genre_metal.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "65fdbd11f76e9bdafff3e743f2076483e9972019878f1d63265caacb65333018",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        0,
+        5,
+        2171,
+        715
+      ]
+    },
+    {
+      "key": "genre_jazz",
+      "source": "/workspace/generated_images/exec-033e231f-69e6-4a2f-ae4d-3e64e0f6da81.png",
+      "destination": "experiments/playable_flightcase/art/genre_jazz.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "67747d1c8f8f5b9b4746e4cf0228906616b69e83cf83ce6d1c5eb8e51b899d0e",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        12,
+        6,
+        2160,
+        711
+      ]
     }
+  ],
+  "native_validation": "HELD: no engine/native tests executed; automatic approval review rejected commands under earlier15:00cutoff. Source-art inspection is separate from native integration acceptance.",
+  "caveats": [
+    "Generated art contains low-alpha fringe/speck detail; raw sources are preserved, not manually retouched.",
+    "Some instrument close-ups intentionally meet canvas edges.",
+    "Native fit, contrast, performance and visual gain are UNVERIFIED while validation approval is blocked."
   ]
 }

@@ -7,7 +7,18 @@ const Formation = preload("res://Scripts/formation_catalogue.gd")
 const IMAGE_SOURCES := {
  "Indie rock":"genre_indie",
  "Punk":"genre_punk",
- "Synth-pop":"genre_synth"
+ "Post-punk":"genre_post_punk",
+ "Britpop":"genre_britpop",
+ "Shoegaze":"genre_shoegaze",
+ "Synth-pop":"genre_synth",
+ "Garage rock":"genre_garage",
+ "Goth":"genre_goth",
+ "Prog rock":"genre_prog",
+ "Experimental":"genre_experimental",
+ "Country / Americana":"genre_country",
+ "Soul / Funk":"genre_soul",
+ "Metal":"genre_metal",
+ "Jazz / Fusion":"genre_jazz"
 }
 const EDITIONS := {
  "Indie rock": ["355448", "strings"],
