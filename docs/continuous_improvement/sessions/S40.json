@@ -50,8 +50,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 235310,
-    "sha256": "8afb700a16c3b140aa5085eef17582f68fdc0a93e0efdd391bc21e5136ebb56c"
+    "bytes": 236905,
+    "sha256": "243c8a1638eb9ee11feb70e3f04d1a15a3bcef1a7cff850b12298055e47e4fbc"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -85,7 +85,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocalbb38882 full73+88/import/4native PASS,120retainedoriginals,112prioridentical,65samebytepositiveprobePASS,17originalsopened,CRC/freshextractedimport/nativeentryPASS; localonly, artPARTIAL/ownerfalse.",
-  "issues_reviewed_at": "2026-10-31T07:31:32.345137+00:00",
+  "issues_reviewed_at": "2026-10-31T07:38:17.130967+00:00",
   "progress": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "verified_at": "2026-10-31T05:20:03.478294+00:00",
@@ -757,6 +757,7 @@
       "failed_docs_only_commit": "76996fa9c9fc461cbb7bc41bda7210b5e810e427",
       "reason": "MissingdominantBM13 in selectedlessons; failedgate didnotstop shell docscommit.",
       "correction": "Recordedbeforefix; lessonselection+failfast corrected before Androidimplementation."
-    }
+    },
+    "adb_limit": "adb version failed because home is read-only; no HOME override/unsupportedenv workaround and no Android runtime claim. NonGradleexport proceeds independently."
   }
 }
