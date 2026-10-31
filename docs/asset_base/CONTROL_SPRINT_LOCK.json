@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "b4e5b609314c6abed6c6497f6f006c7bdacf647d",
-  "claimed_at": "2026-10-31T20:05:40.729313+00:00",
-  "expires_at": "2026-10-31T21:20:00Z",
-  "scope": "S46 closed; no active writer. Owner artwork/phone review is next; broader original career systems remain later work.",
-  "authority": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
+  "writer": "S47-finance-survival-20261031T2110",
+  "base_head": "f9cc2154438d861484ecf67e1c918c49682eb786",
+  "claimed_at": "2026-10-31T21:09:23.571723+00:00",
+  "expires_at": "2026-10-31T21:29:00Z",
+  "scope": "First implement a saved additive finance ledger and14 completed zero-cash-day failure boundary across current action commits, using the existing shared materials and read-only final accounts. Prepare concrete original-model-backed specification for sales/reviews/social contact follow-ons rather than silently inventing rates or cast.",
+  "authority": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T20:53:47.824374+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S46 full exact-source native/save/lifecycle/protection/LOCALpackage proof and ONE privateV5 complete. No pending helper/GL/source work. Preserve finite manual owner window; no automatic extension.",
+  "note": "NEW explicit gameplay/finance request supersedes earlier no-new-mechanics scope only for requested mechanics; finite owner window unchanged. RootONE source writer/ONE GL; helpers scratch/read-only scoped.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -149,5 +149,10 @@
     "last_writer": "S45-unified-career-gear-20261031T1840",
     "released_at": "2026-10-31T19:58:39.208791+00:00",
     "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac"
+  },
+  "previous_s46_release": {
+    "last_writer": "S46-unified-live-career-20261031T2005",
+    "released_at": "2026-10-31T20:53:47.824374+00:00",
+    "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   }
 }

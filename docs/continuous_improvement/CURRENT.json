@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S46.json",
-  "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
+  "session": "docs/continuous_improvement/sessions/S47.json",
+  "scope": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s46_verified_unified_local_career_private_v5_writer_released",
-  "next_action": "Owner installs V5 as an Update without uninstalling, starts with Continue and reviews the unified auditions, practice, shop and hometown-show flow; report concrete phone/artwork feedback in this same thread.",
+  "status": "s47_finance_survival_preflight",
+  "next_action": "Implement and test pure additive finance/failure policy, then connect the existing shared finance view and action guards.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Owner unification checkpoint complete and writer released. No pending source/GL/helper work or automatic queue extension. Owner review is the next action; broader systems need a new bounded scope.",
   "completion_gate": {
@@ -2769,7 +2769,7 @@
     "physical_phone_tested": false,
     "update_without_uninstall": true
   },
-  "previous_session": "docs/continuous_improvement/sessions/S45.json",
+  "previous_session": "S46",
   "day31_authority": {
     "approved_at": "2026-10-31T09:08:46.114986+00:00",
     "through": "2026-10-31T15:00:00Z",
@@ -3028,7 +3028,7 @@
     }
   ],
   "last_completed_session": "S46",
-  "writer": null,
+  "writer": "S47-finance-survival-20261031T2110",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",

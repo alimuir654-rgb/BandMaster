@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s46_verified_unified_local_career_private_v5_writer_released",
+  "status": "s47_finance_survival_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
-  "writer": null,
+  "writer": "S47-finance-survival-20261031T2110",
   "last_verified_code_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
   "baseline": {
     "run_id": 40778019754,
@@ -528,7 +528,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T20:53:47.824374+00:00",
+  "last_updated_utc": "2026-10-31T21:09:23.571723+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -537,7 +537,7 @@
   "last_run_summary": "PASS: frozenexact6c1archives/newextractednativeentry andselectedPageasset/canonicaldelivery. Nativephone/emulator/ownerartapproval unclaimed.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
   "last_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
-  "latest_owner_scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
+  "latest_owner_scope": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
@@ -668,7 +668,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S46",
+  "current_session": "S47",
   "last_verified_native_run": "/workspace/work/s40/runs/s46-unified-a9ba178-final/validation.json",
   "latest_verified_phase2": {
     "sprint": "S46",
@@ -698,7 +698,7 @@
     "publication": "LOCAL source; private selectedscreens/compiledAPK"
   },
   "last_sprint": "S46",
-  "next_action": "Owner installs V5 as an Update without uninstalling, starts with Continue and reviews the unified auditions, practice, shop and hometown-show flow; report concrete phone/artwork feedback in this same thread.",
+  "next_action": "Implement and test pure additive finance/failure policy, then connect the existing shared finance view and action guards.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
