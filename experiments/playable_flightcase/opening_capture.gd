@@ -578,7 +578,7 @@ func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool
    failures.append("S41 rehearsal cost is not the real £15")
   if screen.setup.snapshot()!=before or _recap_save_bytes()!=saves:
    failures.append("S41 previewing an activity changed model/day/cash/save bytes")
-  await _draw_screen("practice_mode_"+kind,w,h)
+  await _draw_screen("practice_mode_%s_day%d" % [kind,int(screen.setup.game.career.get("tour_day",1))],w,h)
  var frame: PanelContainer = screen.find_child("PracticeFrame",true,false) as PanelContainer
  var practice_scroll: ScrollContainer = screen.find_child("PracticeScroll",true,false) as ScrollContainer
  var budget: Label = screen.find_child("BudgetLabel",true,false) as Label
@@ -848,6 +848,10 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
  var completed: Label = screen.find_child("RecapCompletedDay",true,false) as Label
  if receipt==null or receipt.text!=str(view.get("receipt","")) or completed==null or completed.text!=str(view.get("completed_heading","")):
   failures.append("S41 "+context+" day/cash receipt differs from the saved resolver before/after values")
+ var details: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
+ var disclosure: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
+ if details!=null and not details.visible and (disclosure==null or disclosure.size.y<44 or not scroll.get_global_rect().encloses(disclosure.get_global_rect())):
+  failures.append("S41 "+context+" full-breakdown target is clipped below first report fold")
  if advice.get_global_rect().end.y>action.get_global_rect().position.y or scroll.get_global_rect().intersects(advice.get_global_rect()) or scroll.get_global_rect().intersects(action.get_global_rect()):
   failures.append("S40 "+context+" next move/return action overlaps report or each other")
  if advice.focus_mode!=Control.FOCUS_NONE or advice.mouse_filter!=Control.MOUSE_FILTER_IGNORE:

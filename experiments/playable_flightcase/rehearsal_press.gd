@@ -27,7 +27,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var view: Dictionary = Recap.present(report,members)
  var content := VBoxContainer.new()
  content.name = "RecapEditorialBody"
- content.add_theme_constant_override("separation",4 if short_landscape else (10 if tall_tablet else (5 if mobile else 9)))
+ content.add_theme_constant_override("separation",4 if short_landscape else (10 if tall_tablet else (4 if mobile else 9)))
  add_child(content)
  if view.is_empty():
   content.add_child(ink("No saved session report available.",15))

@@ -529,7 +529,12 @@ func _writing_workspace(body: VBoxContainer) -> void:
  var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
  stage.name = "WritingStageLabel"
  body.add_child(stage)
- body.add_child(_ink("SONG TITLE",14,true))
+ var fields := GridContainer.new()
+ fields.columns = 2 if get_viewport_rect().size.x>=1000 else 1
+ fields.add_theme_constant_override("h_separation",12)
+ fields.add_theme_constant_override("v_separation",6)
+ body.add_child(fields)
+ var title_field: VBoxContainer = _writing_field(fields,"SONG TITLE")
  var entry := LineEdit.new()
  entry.name = "SongTitle"
  entry.text = song_title
@@ -546,13 +551,13 @@ func _writing_workspace(body: VBoxContainer) -> void:
  entry.text_changed.connect(func(value: String):
   song_title = value
   _refresh_practice_commitment())
- body.add_child(entry)
+ title_field.add_child(entry)
  var validation: Label = _ink("",16)
  validation.name = "WritingValidation"
  validation.add_theme_color_override("font_color",Color("954a42"))
  validation.visible = false
- body.add_child(validation)
- body.add_child(_ink("SESSION LEADER",14,true))
+ title_field.add_child(validation)
+ var leader_field: VBoxContainer = _writing_field(fields,"SESSION LEADER")
  var leader_names := PackedStringArray()
  for person in game.career.get("members",[]):
   leader_names.append(str(person.get("name","Musician")))
@@ -567,15 +572,15 @@ func _writing_workspace(body: VBoxContainer) -> void:
  lead.selection_changed.connect(func(index: int,_item: String):
   leader_index = index
   _refresh_practice_commitment())
- body.add_child(lead)
- body.add_child(_ink("IDEA",14,true))
+ leader_field.add_child(lead)
+ var idea_field: VBoxContainer = _writing_field(fields,"IDEA")
  var ideas := Kit.ChoiceStrip.new("notepaper",PackedStringArray(Workshop.IDEAS),idea_index)
  ideas.name = "PracticeIdeaChoices"
  ideas.selection_changed.connect(func(index: int):
   idea_index = index
   _refresh_practice_commitment())
- body.add_child(ideas)
- body.add_child(_ink("ARRANGEMENT",14,true))
+ idea_field.add_child(ideas)
+ var arrangement_field: VBoxContainer = _writing_field(fields,"ARRANGEMENT")
  var forms := Kit.BrowseSelector.new("notepaper",PackedStringArray(Workshop.FORMS))
  forms.name = "PracticeArrangementChoices"
  forms.previous.name = "PracticeArrangementPrevious"
@@ -586,7 +591,15 @@ func _writing_workspace(body: VBoxContainer) -> void:
  forms.selection_changed.connect(func(index: int,_item: String):
   form_index = index
   _refresh_practice_commitment())
- body.add_child(forms)
+ arrangement_field.add_child(forms)
+
+func _writing_field(fields: GridContainer, title: String) -> VBoxContainer:
+ var field := VBoxContainer.new()
+ field.add_theme_constant_override("separation",4)
+ field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ fields.add_child(field)
+ field.add_child(_ink(title,14,true))
+ return field
 
 func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
  var rule: Dictionary = Practice.FOCUSES[kind]
