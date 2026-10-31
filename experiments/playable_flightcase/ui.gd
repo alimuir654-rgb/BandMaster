@@ -12,6 +12,7 @@ const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_
 const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
+const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
 static var audition_heading_texture: ImageTexture
@@ -130,13 +131,22 @@ func _rebuild() -> void:
  outer.add_child(root_box)
  var header := HBoxContainer.new()
  header.add_theme_constant_override("separation",12)
- var title := _label("AUDITIONS" if game.phase=="recruit" else "LIVIN' THE DREAM",26 if not mobile else 21)
- title.name = "AuditionsHeading" if game.phase=="recruit" else "PracticeBrand"
  if game.phase=="recruit":
+  var title := _label("AUDITIONS",26 if not mobile else 21)
+  title.name = "AuditionsHeading"
   title.custom_minimum_size.y = 44
   _decorate_audition_heading(title)
- title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- header.add_child(title)
+  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  header.add_child(title)
+ else:
+  var brand: Control = Shared.brand(52.0 if mobile else 36.0)
+  brand.name = "PracticeBrand"
+  header.add_child(brand)
+  var band_name: Label = _label(str(game.career.get("band_name","LIVIN' THE DREAM")),18)
+  band_name.name = "PracticeBandName"
+  band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+  band_name.max_lines_visible = 2
+  header.add_child(band_name)
  var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
  var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  budget.name = "BudgetLabel"
@@ -898,6 +908,15 @@ func _refresh_practice_commitment() -> void:
  var cost: Label = find_child("PracticeTimeCost",true,false) as Label
  if summary==null or cost==null:
   return
+ if opening_owner!=null and Live.show_day(game.career):
+  summary.text = "TONIGHT'S SHOW  •  THE VENUE IS EXPECTING YOU"
+  cost.text = "Open the live desk  •  No session will be started"
+  for control_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+   var show_action: Button = find_child(control_name,true,false) as Button
+   if show_action!=null:
+    show_action.text = "GO TO TONIGHT'S SHOW  ›"
+    show_action.disabled = false
+  return
  if practice_activity=="create":
   var members: Array = game.career.get("members",[])
   var leader_name: String = str(members[leader_index].get("name","Musician")) if leader_index>=0 and leader_index<members.size() else "Choose a leader"
@@ -1058,9 +1077,14 @@ func _connect() -> void:
 func _commit_session(kind: String) -> void:
  if session_busy:
   return
+ if opening_owner!=null and Live.show_day(game.career):
+  last_message = "Tonight's show comes first. No session has been started."
+  career_requested.emit()
+  return
  # Set before the synchronous resolver: rapid pointer/key events cannot queue
  # another legitimate day while this committed result is being presented.
  session_busy = true
+ var before_snapshot: Dictionary = game.snapshot().duplicate(true)
  var result: Dictionary
  if kind=="create":
   result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
@@ -1068,16 +1092,26 @@ func _commit_session(kind: String) -> void:
   result = game.rehearse()
  else:
   result = game.clear_air()
- last_message = _outcome_line(result)
  if not bool(result.get("ok",false)):
+  last_message = _outcome_line(result)
   session_busy = false
   _rebuild()
   return
+ if opening_owner!=null:
+  game.career = Live.after_practice(before_snapshot.get("career",{}),game.career)
+  result["state"] = game.career.duplicate(true)
+  if game.career.get("last_rehearsal_outcome",{}) is Dictionary:
+   result["outcome"] = game.career.get("last_rehearsal_outcome",{}).duplicate(true)
+  if not bool(opening_owner.save_draft()):
+   game.restore(before_snapshot)
+   session_busy = false
+   last_message = "The session could not be saved. Your previous band state and pending choices are retained."
+   _rebuild()
+   return
+ last_message = _outcome_line(result)
  recap_expanded = true
  recap_details_expanded = false
  _new_session_notes = true
- if opening_owner != null:
-  opening_owner.save_draft()
  if kind=="create" and int(game.career.get("song_draft_progress",0))==0:
   _hydrate_song_draft()
  _begin_session_presentation(kind,result.get("outcome",{}))
