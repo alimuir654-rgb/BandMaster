@@ -40,6 +40,8 @@ func open_home() -> void:
  catalogue_open = false
  notice = ""
  _scroll_position = 0
+ if is_instance_valid(_scroll):
+  _scroll.scroll_vertical = 0
  show()
  _render()
 
@@ -475,6 +477,17 @@ func _commit_gear(verb: String, member_index: int = -1) -> void:
   return
  var after: Dictionary = game.career
  receipt={"verb":verb,"item":selected_item,"item_name":str(Gear.item_for(selected_item).get("name",selected_item)),"text":str(result.get("message","Saved.")),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"readiness_before":int(before.get("readiness",0)),"readiness_after":int(after.get("readiness",0))}
+ receipt["changes"] = []
+ for field in ["readiness","morale","tension","reputation","fans"]:
+  if int(before.get(field,0))!=int(after.get(field,0)):
+   receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
+ # Surface existing original narrative consequences without inventing events.
+ var old_ids: Array = []
+ for entry in before.get("career_journal",[]):
+  if entry is Dictionary: old_ids.append(str(entry.get("id","")))
+ for entry in after.get("career_journal",[]):
+  if entry is Dictionary and not old_ids.has(str(entry.get("id",""))):
+   receipt["text"] += "\n\n"+str(entry.get("title","CAREER NOTE"))+"\n"+str(entry.get("text",""))
  receipt_open=true
  _fresh_receipt=true
  _scroll_position=0
@@ -522,7 +535,8 @@ func _receipt_page(parent: Node, compact: bool) -> void:
   var condition: int = int(record.get("condition",-1))
   _copy(body,"CONDITION  /  "+("UNKNOWN" if condition<0 else "%d / 100" % condition),18)
   _copy(body,str(record.get("provenance","")),14,true)
- _copy(body,"READINESS  %d → %d" % [int(receipt.get("readiness_before",0)),int(receipt.get("readiness_after",0))],16)
+ for change in receipt.get("changes",[]):
+  _copy(body,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],16)
 
 func _close_receipt() -> void:
  if busy:return

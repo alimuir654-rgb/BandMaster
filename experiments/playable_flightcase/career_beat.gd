@@ -16,3 +16,4 @@ func _ready() -> void:
   detail.text = detail_copy
  if action!=null:
   action.text = action_copy
+  action.tooltip_text = action_copy
