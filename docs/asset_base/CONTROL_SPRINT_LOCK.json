@@ -1,5 +1,5 @@
 {
-  "writer": "S42-owner-android-v4-20261031T1540",
+  "writer": null,
   "base_head": "971ae10aa48edbadea7c8b7409d9814c893518e8",
   "claimed_at": "2026-10-31T15:39:14.163427+00:00",
   "expires_at": "2026-10-31T16:15:00Z",
@@ -7,14 +7,14 @@
   "authority": "New direct owner after completed15:00window: Go ahead prep the next apk file.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T15:42:07.634863+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "RootONEartifact/metadatawriter, ONEGLentrysmoke. No source/historyupload/newAPK.14:50read-only/15:00hardstop.",
+  "note": "Completed single owner-requestedV4packaging; no game/art/schedule extension. Allsource/key/history remainslocal; compiledAPKprivate toexistingnamedreader.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",

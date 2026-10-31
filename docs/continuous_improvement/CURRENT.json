@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S42.json",
-  "scope": "New direct owner: Go ahead prep the next apk file. ONE packaging-only Android V4 of completed6c1 artwork; no source/art/schedule extension.",
+  "scope": "Completed ONE explicitly owner-requested post15:00 Android V4 packaging-only follow-up. No new source/art changes or schedule extension.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "owner_requested_android_packaging",
-  "next_action": "Build ONE V4 APK then verify/private-deliver and release artifactwriter. No phone runtime claim.",
+  "status": "android_v4_delivered_owner_feedback_pending",
+  "next_action": "Owner installs V4 as Update without uninstalling, confirms existing progress and reviews new title/genre artwork. No further automatic work or queue extension.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -2702,5 +2702,18 @@
     "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
     "session": "docs/continuous_improvement/sessions/S41.json",
     "current_session": null
+  },
+  "android_v4_package": {
+    "game_source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+    "version_code": 4,
+    "version_name": "0.41.1-playtest",
+    "sha256": "0fb480e04d1ab641a8ae52450e7f086fa4f3abceab4e1a969c56b994b1e6ea63",
+    "bytes": 68247033,
+    "private_url": "https://drive.google.com/file/d/1ym7q3EbSg127RLMT-a0v8KqsbKsjvZnA/view?usp=drivesdk",
+    "verified_reader": "alimuir654@gmail.com",
+    "update_save_compatible": true,
+    "phone_tested": false,
+    "build": "/workspace/work/day31/android/build-6c1f50d-v4/build.json",
+    "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   }
 }
