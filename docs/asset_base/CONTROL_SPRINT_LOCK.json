@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
-  "claimed_at": "2026-10-31T10:36:50.515457+00:00",
-  "expires_at": "2026-10-31T12:15:00Z",
-  "scope": "S41 optional approved poster opening only: one independent blank stage plate, original native menu controls/frame, responsive first-fold Settings and unchanged saved careers.",
+  "writer": "S41-milestone-package-20261031T1120",
+  "base_head": "fc155a3d3220354c902a9a02ae4385cd62c9e41f",
+  "claimed_at": "2026-10-31T11:21:16.860795+00:00",
+  "expires_at": "2026-10-31T12:30:00Z",
+  "scope": "S41 exact verified c9 milestone packaging and one private same-key Androidupdate; no game/art/source changes.",
   "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T11:19:04.702267+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Core75 verified/released. Rootsolewriter/GL;helpersscratch/read-only. Optionalposter mustprove nativeA/Bgain, otherwiseHOLD.14:50read-only/15:00hardstop.",
+  "note": "Rootsoleartifact/metadatawriter, oneGLwindow. Exactc9sourcefrozen. OneAPKcode3, sameappID/testkey, no source/historypublication.14:50read-only/15:00hardstop.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -112,5 +112,13 @@
     "expires_at": "2026-10-31T11:15:00Z",
     "released_at": "2026-10-31T10:34:47.354459+00:00",
     "source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1"
+  },
+  "previous_poster_lease": {
+    "last_writer": "S41-opening-poster-20261031T1038",
+    "base_head": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
+    "claimed_at": "2026-10-31T10:36:50.515457+00:00",
+    "expires_at": "2026-10-31T12:15:00Z",
+    "released_at": "2026-10-31T11:19:04.702267+00:00",
+    "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d"
   }
 }

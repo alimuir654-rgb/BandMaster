@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "S41 optional existing opening poster after verified daily loop",
+  "scope": "S41 exact verified c9 milestone packaging and one private same-key Androidupdate; no game/art/source changes.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.",
+  "next_action": "Inventory/preserveexactc9 project+originalreviewPNGs, atomicpackage andfresh extractednativeentry, thenone signedcode3 AndroidAPK andverifiedprivateowner delivery.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {

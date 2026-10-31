@@ -5,8 +5,8 @@
   "owner_approved": false,
   "owner_plan_approved": true,
   "owner_request": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
-  "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
-  "dominant_issue": "BM-21",
+  "baseline_sha": "fc155a3d3220354c902a9a02ae4385cd62c9e41f",
+  "dominant_issue": "BM-13",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 301621,
-    "sha256": "f12072e49504f7cd44d8775af0fa8eac56ee605706fb75ae2440c53bac705bf6"
+    "bytes": 303457,
+    "sha256": "1789c19d0f82f822ccb1f5c26a555c4509c076174756867a384f3b89d0e53fe3"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -65,9 +65,9 @@
     "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
     "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
   },
-  "hypothesis": "A single independent warm rehearsal-stage plate with large native poster lettering and original hardware controls will make the existing empty title frame more engaging while preserving first-fold actions. Wide image/action-rail composition; phone NewBand thenContinue/Settings pair, same live Settings controls.",
-  "controlled_comparison": "Exact75 title/menuNoDraftquery+validsavedstate at390x844,720x1280,1280x720,1600x900 versusoneposterplate/newnativecomposition. Openactualoriginals; comparecopy, allphysical48pxtargets, Settings/Sound/MotionIDs/focus/geometry whiletoggling, trueAudioServer anddraftbytes; modalresize/Continue and4fulljourneys. All324protectedfiles +allsettlednon-menuPNGsthroughformation/recruit/practice/results mustremainunchanged.",
-  "stop_condition": "Two ineffective art/layout attempts requirechangedtechniqueorHOLD; donotshrinktargets/copy/fonts tohideoverflow. Rejectplateifgeneric/busy/wrongfocalcrop; nofullUItexture,extraicons,cast,genre/economy scope. Preserve75 rollback;14:50read-only/15:00stop.",
+  "hypothesis": "A single exact-source isolatedproject and same-key versioncode3 APK will letowner testtheapprovedintegrateddailyloop/poster withoutuninstallingorlosingprogress. Buildonlyfrom276pinnedruntime/Gitpaths andverifiednativecheckpoint.",
+  "controlled_comparison": "Frozen c9source matches276explicitGit/runtimepaths includingdeclared146-byteisolatedprojectentry. InventoryselectedoriginalPNGpaths beforearchivewrites; temporaryZIP CRC/content checks andatomicrelease, thenfresh extracted-project cleanimport/actualnativeopeningentry. APKimport/export/signature/16KBzipalignment/MAIN-LAUNCHER/ARM32+64/noextra permissions/castJSON/sourcechecks; verify sameinstalledv1/v2certificate/appID andcode3. PrivateDriveuploadselectedcompiledAPKonly withreader alimuir654@gmail.com, ownerchair@lovewelluk.com; sourceZIP/loghistory remainlocal.",
+  "stop_condition": "No source/art/game/model/schema edits ornewSDK/dependencies. Preserveallartifactfailures beforecorrection. No rawledger/key/save upload orpublichistoryretry. AtmostONEnewmilestoneAPK; no uninstall/wipe.14:50read-only/15:00hardstop.",
   "protected": [
     "OriginalC25cast/contactcrop provenance and sourcebytes",
     "Allpassivemeter/hardware/artbytes andinertsemantics",
@@ -80,10 +80,7 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
-    "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/opening_capture.gd",
-    "experiments/playable_flightcase/art/opening_stage.png"
+    "docs/asset_base/REVIEW_INDEX.md"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S41.json",
@@ -92,11 +89,11 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T11:19:04.702267+00:00",
+  "issues_reviewed_at": "2026-10-31T11:21:16.954452+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
-  "evidence_status": "Exactc9 poster/core integratednativePASS,1146currentfocusedmenuchecks,172standardPNGs0ERROR/orphans; actualcaptioncontrast9.17+,324protected. ArtPARTIAL/ownerfalse. OneAPKpackagingnext.",
-  "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.",
+  "evidence_status": "Gamec9already73+88/import/4nativePASS0ERROR, artPARTIAL/ownerfalse; package/APKpending, no freshsourcechangesallowed.",
+  "next_action": "Inventory/preserveexactc9 project+originalreviewPNGs, atomicpackage andfresh extractednativeentry, thenone signedcode3 AndroidAPK andverifiedprivateowner delivery.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -769,6 +766,23 @@
         "experiments/playable_flightcase/rehearsal_press.gd",
         "experiments/playable_flightcase/rehearsal_recap.gd"
       ]
+    },
+    {
+      "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
+      "dominant_issue": "BM-21",
+      "hypothesis": "A single independent warm rehearsal-stage plate with large native poster lettering and original hardware controls will make the existing empty title frame more engaging while preserving first-fold actions. Wide image/action-rail composition; phone NewBand thenContinue/Settings pair, same live Settings controls.",
+      "controlled_comparison": "Exact75 title/menuNoDraftquery+validsavedstate at390x844,720x1280,1280x720,1600x900 versusoneposterplate/newnativecomposition. Openactualoriginals; comparecopy, allphysical48pxtargets, Settings/Sound/MotionIDs/focus/geometry whiletoggling, trueAudioServer anddraftbytes; modalresize/Continue and4fulljourneys. All324protectedfiles +allsettlednon-menuPNGsthroughformation/recruit/practice/results mustremainunchanged.",
+      "stop_condition": "Two ineffective art/layout attempts requirechangedtechniqueorHOLD; donotshrinktargets/copy/fonts tohideoverflow. Rejectplateifgeneric/busy/wrongfocalcrop; nofullUItexture,extraicons,cast,genre/economy scope. Preserve75 rollback;14:50read-only/15:00stop.",
+      "allowed_paths": [
+        "docs/continuous_improvement/**",
+        "docs/asset_base/STATE.json",
+        "docs/asset_base/LEDGER.md",
+        "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+        "docs/asset_base/REVIEW_INDEX.md",
+        "experiments/playable_flightcase/opening_ui.gd",
+        "experiments/playable_flightcase/opening_capture.gd",
+        "experiments/playable_flightcase/art/opening_stage.png"
+      ]
     }
   ],
   "poster_pass": {
@@ -816,5 +830,19 @@
     "receipt": "/workspace/work/day31/native-page-delivery.json",
     "file_access_confirmed": true,
     "apk_update": false
+  },
+  "packaging_pass": {
+    "status": "preflight",
+    "started_at": "2026-10-31T11:21:16.860795+00:00",
+    "lease_ends": "2026-10-31T12:30:00Z",
+    "frozen_game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+    "native_checkpoint": "/workspace/work/s40/runs/day31-poster-c9c67ad",
+    "recipe_expected": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "single_apk_version_code": 3,
+    "single_apk_version_name": "0.41.0-playtest",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "existing_test_key_path": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
+    "private_reader": "alimuir654@gmail.com",
+    "source_or_history_upload": false
   }
 }
