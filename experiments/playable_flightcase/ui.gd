@@ -8,6 +8,7 @@ const Base = preload("res://experiments/character_cast/vendor/recruitment_catalo
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
+const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
 var game = Game.new()
 var onboarding_state = null
 var opening_owner = null
@@ -21,6 +22,9 @@ var last_message := "Build a band. Talent points are separate from your cash."
 var recap_expanded := true
 var recap_details_expanded := false
 var look := "flightcase"
+var reduced_motion := false
+var session_busy := false
+var _session_overlay: Control
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
 # contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
@@ -56,10 +60,13 @@ class PracticePhoneChoices extends VBoxContainer:
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  get_viewport().size_changed.connect(_rebuild)
+ visibility_changed.connect(_on_visibility_changed)
  _rebuild()
 
 func _clear() -> void:
  for child in get_children():
+  if is_instance_valid(_session_overlay) and child==_session_overlay:
+   continue
   remove_child(child)
   child.queue_free()
 
@@ -139,6 +146,8 @@ func _rebuild() -> void:
   _recruit_page(root_box,mobile)
  else:
   _practice_page(root_box,mobile)
+ if is_instance_valid(_session_overlay):
+  move_child(_session_overlay,get_child_count()-1)
 
 func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var tabs := GridContainer.new()
@@ -509,6 +518,8 @@ func _toggle_recap_details() -> void:
  action.text = "HIDE FULL BREAKDOWN" if recap_details_expanded else "FULL BREAKDOWN  ›"
 
 func _toggle_recap() -> void:
+ if session_busy:
+  return
  recap_expanded = not recap_expanded
  recap_details_expanded = false
  _rebuild()
@@ -544,13 +555,7 @@ func _launch() -> void:
   last_message = str(game.launch()["message"])
   _rebuild()
 func _write() -> void:
- var result: Dictionary = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
- last_message = str(result["message"])
- if bool(result.get("ok",false)):
-  recap_expanded = true
- if opening_owner != null and bool(result.get("ok",false)):
-  opening_owner.save_draft()
- _rebuild()
+ _commit_session("create")
 func _outcome_line(result: Dictionary) -> String:
  if not bool(result.get("ok",false)) or not result.has("outcome"):
   return str(result.get("message",""))
@@ -563,26 +568,74 @@ func _outcome_line(result: Dictionary) -> String:
  return "%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)]
 
 func _rehearse() -> void:
- var result: Dictionary = game.rehearse()
- last_message = _outcome_line(result)
- if bool(result.get("ok",false)):
-  recap_expanded = true
- if opening_owner != null and bool(result.get("ok",false)):
-  opening_owner.save_draft()
- _rebuild()
+ _commit_session("tighten")
 func _connect() -> void:
- var result: Dictionary = game.clear_air()
+ _commit_session("connect")
+
+func _commit_session(kind: String) -> void:
+ if session_busy:
+  return
+ # Set before the synchronous resolver: rapid pointer/key events cannot queue
+ # another legitimate day while this committed result is being presented.
+ session_busy = true
+ var result: Dictionary
+ if kind=="create":
+  result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
+ elif kind=="tighten":
+  result = game.rehearse()
+ else:
+  result = game.clear_air()
  last_message = _outcome_line(result)
- if bool(result.get("ok",false)):
-  recap_expanded = true
- if opening_owner != null and bool(result.get("ok",false)):
+ if not bool(result.get("ok",false)):
+  session_busy = false
+  _rebuild()
+  return
+ recap_expanded = true
+ recap_details_expanded = false
+ if opening_owner != null:
   opening_owner.save_draft()
+ var overlay := SessionTransition.new()
+ overlay.configure(kind,result.get("outcome",{}),reduced_motion,look)
+ _session_overlay = overlay
+ overlay.covered.connect(_present_saved_session)
+ overlay.finished.connect(_finish_session_presentation)
+ add_child(overlay)
+
+func _present_saved_session() -> void:
+ # The only state here is presentation. Rebuild from the already saved result.
  _rebuild()
+
+func _finish_session_presentation() -> void:
+ if not session_busy:
+  return
+ session_busy = false
+ var overlay: Control = _session_overlay
+ _session_overlay = null
+ if is_instance_valid(overlay):
+  remove_child(overlay)
+  overlay.queue_free()
+ var next_action: Button = find_child("RecapToggleAction",true,false) as Button
+ if next_action!=null and is_visible_in_tree():
+  next_action.grab_focus()
+
+func _on_visibility_changed() -> void:
+ if not is_visible_in_tree() and is_instance_valid(_session_overlay):
+  _session_overlay.finish_now()
+
+func _exit_tree() -> void:
+ if is_instance_valid(_session_overlay):
+  _session_overlay.abort()
+ session_busy = false
+
 func _save() -> void:
+ if session_busy:
+  return
  var okay: bool = bool(opening_owner.save_draft()) if opening_owner != null else game.save_sandbox()
  last_message = "Sandbox saved." if okay else "Sandbox save failed."
  _rebuild()
 func _load() -> void:
+ if session_busy:
+  return
  var okay: bool = bool(opening_owner.load_draft()) if opening_owner != null else game.load_sandbox()
  if okay and opening_owner != null:
   game = opening_owner.game

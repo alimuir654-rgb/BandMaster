@@ -11,16 +11,18 @@ var setup = Model.new()
 var showing_menu := true
 var settings_open := false
 var muted := false
+var reduced_motion := false
 var notice := ""
 var look := "flightcase"
 var free_name: String = ""
 var chosen_intent: String = "Raw"
 var response: String = ""
 var _new_band_dialog: Control
+var _practice_view: Control
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- get_viewport().size_changed.connect(_render)
+ get_viewport().size_changed.connect(_on_viewport_resized)
  _render()
 
 func _erase() -> void:
@@ -31,6 +33,14 @@ func _erase() -> void:
    continue
   remove_child(old)
   old.queue_free()
+ _practice_view = null
+
+func _on_viewport_resized() -> void:
+ # The practice view owns its responsive reflow. Keep its pending form values
+ # and presentation-only overlay alive instead of replacing the whole host.
+ if not showing_menu and setup.screen=="play" and is_instance_valid(_practice_view):
+  return
+ _render()
 
 func _label(s: String,size: int = 16) -> Label:
  var l: Label = Kit.label(s,look,size)
@@ -151,8 +161,9 @@ func _menu() -> void:
  root.add_child(settings)
  var panel := _column()
  settings.add_child(panel)
- panel.add_child(_label("SETTINGS — AUDIO",18))
+ panel.add_child(_label("SETTINGS",18))
  panel.add_child(_button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction"))
+ panel.add_child(_button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction"))
  if not notice.is_empty():
   root.add_child(_label(notice,14))
  var tail := Control.new()
@@ -214,6 +225,12 @@ func _toggle_sound() -> void:
  if action!=null:
   action.text = "MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON"
   action.tooltip_text = action.text
+func _toggle_motion() -> void:
+ reduced_motion = not reduced_motion
+ var action: Button = find_child("MotionAction",true,false) as Button
+ if action!=null:
+  action.text = "TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON"
+  action.tooltip_text = "Off shows the same results immediately in this play session."
 func _home() -> void:
  showing_menu = true
  _render()
@@ -505,6 +522,8 @@ func _practice() -> void:
  var panel = Recruit.new()
  panel.game = setup.game
  panel.opening_owner = setup
+ panel.reduced_motion = reduced_motion
  panel.back_requested.connect(_home)
  add_child(panel)
+ _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)

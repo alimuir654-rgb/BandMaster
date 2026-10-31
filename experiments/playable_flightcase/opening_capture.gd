@@ -70,6 +70,7 @@ func click_action(button: Button) -> void:
  if button==null or button.disabled:
   failures.append("missing or disabled action")
   return
+ var action_name: String = button.name
  for layout_attempt in range(5):
   if button.is_inside_tree() and button.get_global_rect().size.x>=44 and button.get_global_rect().size.y>=44:
    break
@@ -108,6 +109,32 @@ func click_action(button: Button) -> void:
  await process_frame
  await process_frame
  await process_frame
+ if action_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+  await _wait_session_presentation(action_name)
+
+func _wait_session_presentation(action_name: String) -> void:
+ var overlays: Array[Node] = root.find_children("SessionTransition","Control",true,false)
+ if overlays.is_empty():
+  return # A rejected action must not start a presentation.
+ var overlay: Control = overlays[0] as Control
+ var owner_view: Control = overlay.get_parent() as Control
+ var count_after: int = int(owner_view.game.career.get("action_count",0))
+ var before_files: Dictionary = _recap_save_bytes()
+ for frame in range(120):
+  if not is_instance_valid(overlay):
+   break
+  if bool(overlay.get("_has_covered")):
+   await _draw_screen("session_beat_"+action_name,root.size.x,root.size.y)
+   break
+  await process_frame
+ for frame in range(150):
+  if not is_instance_valid(overlay):
+   break
+  await process_frame
+ if is_instance_valid(overlay) or bool(owner_view.session_busy):
+  failures.append("S41 session presentation did not finish within bounded native frames: "+action_name)
+ if int(owner_view.game.career.get("action_count",0))!=count_after or _recap_save_bytes()!=before_files:
+  failures.append("S41 presentation changed a committed action or save bytes: "+action_name)
 # Real ui_accept input, deliberately separate from the retained pointer proof.
 func _recap_key(keycode: int,shift: bool=false) -> void:
  var down := InputEventKey.new()
@@ -162,12 +189,15 @@ func _settings_targets(screen: Control,w: int,h: int,opened: bool,tag: String) -
    failures.append("S40 "+tag+" open Sound target is missing, clipped or smaller than44px")
   if panel==null or not panel.is_visible_in_tree() or not bounds.encloses(panel.get_global_rect()):
    failures.append("S40 "+tag+" open Settings panel is clipped")
+  var motion: Button = screen.find_child("MotionAction",true,false)
+  if motion==null or not motion.is_visible_in_tree() or motion.size.x<44 or motion.size.y<44 or not bounds.encloses(motion.get_global_rect()):
+   failures.append("S41 "+tag+" Motion target is missing, clipped or smaller than44px")
  elif sound!=null and sound.is_visible_in_tree():
   failures.append("S40 "+tag+" closed Settings still exposes Sound")
 
 func _settings_view(screen: Control) -> Dictionary:
  var view: Dictionary = {}
- for name in ["NewBandAction","ContinueAction","SettingsAction","QuitAction","SoundAction"]:
+ for name in ["NewBandAction","ContinueAction","SettingsAction","QuitAction","SoundAction","MotionAction"]:
   var control: Control = screen.find_child(name,true,false)
   if control!=null:
    view[name]={"id":control.get_instance_id(),"rect":control.get_global_rect()}
@@ -263,6 +293,20 @@ func _check_menu_settings(screen,w: int,h: int,tag: String) -> void:
   if cycle==0:
    await _draw_screen("settings_"+tag+("_muted" if AudioServer.is_bus_mute(master) else "_unmuted"),w,h)
   await _settings_sound_input(screen,w,h,false,KEY_SPACE,tag+" paired restore")
+  var motion: Button = screen.find_child("MotionAction",true,false)
+  if motion!=null:
+   var motion_view: Dictionary = _settings_view(screen)
+   var prior_motion: bool = bool(screen.reduced_motion)
+   await click_action(motion)
+   if bool(screen.reduced_motion)==prior_motion or not motion.has_focus() or motion.text!=("TRANSITIONS: OFF" if screen.reduced_motion else "TRANSITIONS: ON"):
+    failures.append("S41 "+tag+" pointer Motion toggle did not update in place")
+   _settings_same_view(screen,motion_view,tag+" motion pointer")
+   if cycle==0:
+    await _draw_screen("settings_"+tag+"_motion_off",w,h)
+   await _recap_key(KEY_SPACE)
+   if bool(screen.reduced_motion)!=prior_motion or not motion.has_focus():
+    failures.append("S41 "+tag+" immediate Space failed to restore Motion without retarget")
+   _settings_same_view(screen,motion_view,tag+" motion keyboard")
   settings=screen.find_child("SettingsAction",true,false)
   if settings==null:
    break
