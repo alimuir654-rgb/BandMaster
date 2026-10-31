@@ -1,6 +1,7 @@
 extends Control
 signal lineup_confirmed
 signal back_requested
+signal career_requested
 ## C26 player-facing isolated scene. Existing photographic flightcase controls,
 ## original inert meters and genuine career rules; no flattened clickable mockup.
 const Game = preload("res://experiments/playable_flightcase/session.gd")
@@ -10,6 +11,7 @@ const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd"
 const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
 const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
+const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
 static var audition_heading_texture: ImageTexture
@@ -85,10 +87,7 @@ func _clear() -> void:
   child.queue_free()
 
 func _label(content: String, points: int = 16) -> Label:
- var label: Label = Kit.label(content,look,points)
- label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- return label
+ return Shared.label(content,points,look)
 
 func _box() -> VBoxContainer:
  var box := VBoxContainer.new()
@@ -103,7 +102,7 @@ func _panel(body: Control, kind := "panel") -> PanelContainer:
  return panel
 
 func _button(title: String, action: Callable, family: String = "action") -> Button:
- var button: Button = Kit.button(title,look,family)
+ var button: Button = Shared.button(title,look,family)
  button.pressed.connect(action)
  return button
 
@@ -120,14 +119,7 @@ func _rebuild() -> void:
  _clear()
  var size_now: Vector2 = get_viewport_rect().size
  var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
- var bg := TextureRect.new()
- bg.texture = load("res://components/control_atlas/art/case_surface.png")
- bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
- bg.stretch_mode = TextureRect.STRETCH_SCALE
- bg.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
- bg.modulate = Color(0.52,0.57,0.61)
- add_child(bg)
+ add_child(Shared.background())
  var outer := MarginContainer.new()
  outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  for side in ["left","top","right","bottom"]:
@@ -655,11 +647,8 @@ func _edit_audition_member(id: String) -> void:
  _rebuild()
 
 func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
- var label: Label = Kit.label(content,"notepaper",points)
- label.add_theme_color_override("font_color",Color("695c4b") if muted else Color("29241f"))
- label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ var label: Label = Shared.paper_label(content,points,muted)
  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- label.mouse_filter = Control.MOUSE_FILTER_IGNORE
  return label
 
 func _select_practice_activity(kind: String) -> void:
@@ -770,10 +759,20 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   action.name = "ClearAirAction"
  dock.add_child(action)
  if opening_owner!=null:
+  var navigation := HBoxContainer.new()
+  navigation.add_theme_constant_override("separation",8)
+  dock.add_child(navigation)
   var back: Button = _button("BACK TO MENU",_practice_back,"tab")
   back.name = "PracticeBackAction"
-  dock.add_child(back)
+  navigation.add_child(back)
+  var career: Button = _button("CAREER DESK  ›",_open_career,"tab")
+  career.name = "CareerDeskAction"
+  navigation.add_child(career)
  _refresh_practice_commitment()
+
+func _open_career() -> void:
+ if not session_busy:
+  career_requested.emit()
 
 func _writing_notes(info: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)

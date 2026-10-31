@@ -9,14 +9,10 @@ const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const BandIcon = preload("res://experiments/playable_flightcase/art/icons/users.svg")
 const JournalIcon = preload("res://experiments/playable_flightcase/art/icons/notebook-pen.svg")
+const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 
 func ink(value: String, points: int, muted: bool = false) -> Label:
- var label: Label = Kit.label(value,"notepaper",points)
- label.add_theme_color_override("font_color",Color("695c4b") if muted else Color("29241f"))
- label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.mouse_filter = Control.MOUSE_FILTER_IGNORE
- label.focus_mode = Control.FOCUS_NONE
- return label
+ return Shared.paper_label(value,points,muted)
 
 func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false, external_details: bool = false, fresh_notes: bool = false) -> void:
  for old in get_children():

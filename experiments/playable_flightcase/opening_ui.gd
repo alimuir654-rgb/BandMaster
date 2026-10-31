@@ -8,6 +8,8 @@ const BandPoster = preload("res://experiments/playable_flightcase/band_formed_po
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
+const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
+const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const WORDMARK_CROP := Rect2i(264,95,1248,718)
 const WORDMARK_SHA256 := "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899"
@@ -25,6 +27,7 @@ var response: String = ""
 var _new_band_dialog: Control
 var _practice_view: Control
 var _recruit_view: Control
+var _career_view: Control
 var _fresh_name_reactions := false
 
 func _ready() -> void:
@@ -42,6 +45,7 @@ func _erase() -> void:
   old.queue_free()
  _practice_view = null
  _recruit_view = null
+ _career_view = null
 
 func _on_viewport_resized() -> void:
  # The practice view owns its responsive reflow. Keep its pending form values
@@ -51,13 +55,10 @@ func _on_viewport_resized() -> void:
  _render()
 
 func _label(s: String,size: int = 16) -> Label:
- var l: Label = Kit.label(s,look,size)
- l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- return l
+ return Shared.label(s,size,look)
 
 func _button(s: String,fn: Callable,family: String = "action",name: String = "") -> Button:
- var b: Button = Kit.button(s,look,family)
+ var b: Button = Shared.button(s,look,family)
  if not name.is_empty():
   b.name = name
  b.pressed.connect(fn)
@@ -768,6 +769,41 @@ func _practice() -> void:
  panel.opening_owner = setup
  panel.reduced_motion = reduced_motion
  panel.back_requested.connect(_home)
+ panel.career_requested.connect(_open_career_desk)
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+
+func _open_career_desk() -> void:
+ if setup.screen!="play" or not is_instance_valid(_practice_view) or bool(_practice_view.get("session_busy")):
+  return
+ _practice_view.hide()
+ if not is_instance_valid(_career_view):
+  var desk = CareerDesk.new()
+  desk.name = "CareerDesk"
+  desk.game = setup.game
+  desk.opening_owner = setup
+  desk.reduced_motion = reduced_motion
+  desk.practice_requested.connect(_return_from_career)
+  desk.menu_requested.connect(_home)
+  add_child(desk)
+  _career_view = desk
+ _career_view.call("open_home")
+ _career_view.show()
+ _career_view.call_deferred("_restore_focus","CareerNav_home")
+
+func _return_from_career(activity: String = "") -> void:
+ if is_instance_valid(_career_view) and bool(_career_view.get("busy")):
+  return
+ if is_instance_valid(_career_view):
+  _career_view.hide()
+ if is_instance_valid(_practice_view):
+  # Keep the actual pane and its pending title/setup values. Only refresh the
+  # view of the shared, already-saved career after a shop action.
+  _practice_view.set("recap_expanded",false)
+  _practice_view.set("last_message","Back in the practice room. Choose a session.")
+  if activity in ["create","tighten","connect"]:
+   _practice_view.set("practice_activity",activity)
+  _practice_view.show()
+  _practice_view.call("_rebuild")
+  _practice_view.call_deferred("_restore_practice_focus","CareerDeskAction")
