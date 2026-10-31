@@ -6,6 +6,8 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
+const BandIcon = preload("res://experiments/playable_flightcase/art/icons/users.svg")
+const JournalIcon = preload("res://experiments/playable_flightcase/art/icons/notebook-pen.svg")
 
 func ink(value: String, points: int, muted: bool = false) -> Label:
  var label: Label = Kit.label(value,"notepaper",points)
@@ -91,6 +93,15 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var band_header := HBoxContainer.new()
  band_header.add_theme_constant_override("separation",4)
  content.add_child(band_header)
+ var people_icon := TextureRect.new()
+ people_icon.texture = BandIcon
+ people_icon.custom_minimum_size = Vector2(20,20)
+ people_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ people_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+ people_icon.self_modulate = Color("695c4b")
+ people_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ people_icon.focus_mode = Control.FOCUS_NONE
+ band_header.add_child(people_icon)
  var band_caption := ink("FROM THE ROOM",14 if tall_tablet else (11 if mobile else 12),true)
  band_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  band_header.add_child(band_caption)
@@ -168,6 +179,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   card.add_child(morale_ink)
  var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
  breakdown.name = "RecapDetailsToggleAction"
+ breakdown.icon = JournalIcon
  breakdown.pressed.connect(func(): details_toggled.emit())
  content.add_child(breakdown)
  var detail := VBoxContainer.new()

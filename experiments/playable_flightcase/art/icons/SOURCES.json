@@ -1,0 +1,20 @@
+{
+  "licence": "ISC; retain LICENSE.txt",
+  "assets": [
+    {
+      "path": "experiments/playable_flightcase/art/icons/users.svg",
+      "sha256": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
+      "source": "Art/UI/Icons/users.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existing repository original copied byte-for-byte. Native TextureRect tint only for paper heading."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/notebook-pen.svg",
+      "sha256": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
+      "source": "Art/UI/Icons/notebook-pen.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existing repository original copied byte-for-byte. Native TextureRect tint only for paper heading."
+    }
+  ],
+  "owner_approved": false
+}
