@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
-  "claimed_at": "2026-10-30T23:48:38Z",
-  "expires_at": "2026-10-31T09:00:00Z",
-  "scope": "Owner renewed best-efforts work through31Oct09:00London: finish S40 access/input fixes, source-backed textures/frames/icon/art improvements, four-view native proof and packaging.",
+  "writer": "S40-recruit-context-20261031T0105",
+  "base_head": "9cea492bda19e1557fdd293f8b884db52254c5bb",
+  "claimed_at": "2026-10-31T01:07:16.164507+00:00",
+  "expires_at": "2026-10-31T01:55:00Z",
+  "scope": "One bounded recruitment decision-context and original-meter visibility pass; no new art/gameplay/production changes.",
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T00:44:14.815603+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -44,5 +44,12 @@
     }
   },
   "last_writer": "S40-codex-overnight-20261030",
-  "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d"
+  "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+  "previous_checkpoint_release": {
+    "writer": null,
+    "last_writer": "S40-codex-overnight-20261030",
+    "claimed_at": "2026-10-30T23:48:38Z",
+    "released_at": "2026-10-31T00:44:14.815603+00:00",
+    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d"
+  }
 }
