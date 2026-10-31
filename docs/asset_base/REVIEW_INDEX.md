@@ -237,3 +237,10 @@ Latest scoped result: [C25 approved cast imported and scored](../continuous_impr
 Next: already-authorised overnight connected flight-case gameplay, not another frame or photo session. Read [current night direction](../continuous_improvement/OWNER_DIRECTION_2026-10-29_NIGHT.md) and the mandatory improvement checks. C25 writer release is recorded by its closeout receipt.
 
 Retained history: [C24 reused-source dossier proof](../continuous_improvement/C24_REVIEW.md), [C22 frame recovery](../continuous_improvement/C22_REVIEW.md). C24 native tests passed but its final default publication was held after its expired lease; notebook work is now parked. No claim of owner approval for those frame candidates.
+
+
+# S41 approved day plan preflight — 2026-10-31T09:08:46.114986+00:00
+
+Owner approved the reviewedplan through15:00Europe/London. First boundedrootwriter through10:10; onequeue only. Scope: Approved daily-loop presentation: shared guarded session commit and short skip/reduced-motion transitions first; later draftcontinuity/rehearsal/dayclose via scoped checkpoints. No economy/model/art swap in firstslice. Baseline `37b1f70126acf7afe7648c042e1a036f5a9afcd8`; previousgame95 checkpoint retained. Conceptboard is designreferenceonly; protect originalmeters/cast/hardware/models/save-schema. No APKperchange; atmostone milestone. Native/source changes pending; no new PASS/artapproval.
+
+Next: Buildsharedsession presentationguard/fades/skippablebeat andverify real once-onlyinput before nextapprovedslice.

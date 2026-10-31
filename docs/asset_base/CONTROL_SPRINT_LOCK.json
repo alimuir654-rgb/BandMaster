@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "54f9088e7e19a1f06a041921ed250d6bb3595321",
-  "claimed_at": "2026-10-31T08:35:13.715710+00:00",
-  "expires_at": "2026-10-31T08:48:00Z",
-  "scope": "One boundedUIonly phonefeedback repair: green coveredrole tabs and a first-fold route to EXISTING lead-vocal assignment, then fullnativeproof and same-keyAPKupdate before08:48. Budget/cashconversion/poster/genre styling remain explicit next-pass proposals, not untestedlastminute model/art changes.08:50readonly/09hardcutoff.",
-  "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
+  "writer": "S41-session-flow-20261031T0913",
+  "base_head": "37b1f70126acf7afe7648c042e1a036f5a9afcd8",
+  "claimed_at": "2026-10-31T09:08:46.114986+00:00",
+  "expires_at": "2026-10-31T10:10:00Z",
+  "scope": "Approved daily-loop presentation: shared guarded session commit and short skip/reduced-motion transitions first; later draftcontinuity/rehearsal/dayclose via scoped checkpoints. No economy/model/art swap in firstslice.",
+  "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T08:46:29.830594+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "PhoneUI checkpoint released before08:48.08:50read-only/09:00hardcutoff. No new implementation or approval extension. Preserve sameTESTkey/appID; ownerphone retest pending.",
+  "note": "Newexplicitownerday-planapproval09:04; prior09freezehistorical. Rootsolewriter,helpersscratch/read-only. Hardfinish15:00;14:50read-only.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -88,5 +88,13 @@
     "claimed_at": "2026-10-31T04:59:45.864195+00:00",
     "expires_at": "2026-10-31T05:55:00Z",
     "released_at": "2026-10-31T05:20:03.478294+00:00"
+  },
+  "previous_phone_ui_lease": {
+    "last_writer": "S40-phone-ui-feedback-20261031T0834",
+    "base_head": "54f9088e7e19a1f06a041921ed250d6bb3595321",
+    "claimed_at": "2026-10-31T08:35:13.715710+00:00",
+    "expires_at": "2026-10-31T08:48:00Z",
+    "released_at": "2026-10-31T08:46:29.830594+00:00",
+    "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5"
   }
 }

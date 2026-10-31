@@ -873,3 +873,10 @@ Five explicitlySIMULATED lenses:
 
 
 Actual opened originals: ["/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-390x844.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-390x844.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-720x1280.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-720x1280.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1280x720.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1280x720.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1600x900.png", "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1600x900.png"]. Packages: `/workspace/work/s40/runs/phone-95b2574/packages/packaging.json`; smoke: `/workspace/work/s40/runs/phone-95b2574/packages/package-smoke.json`; protection: `/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json`.
+
+
+# S41 approved day plan preflight — 2026-10-31T09:08:46.114986+00:00
+
+Owner approved the reviewedplan through15:00Europe/London. First boundedrootwriter through10:10; onequeue only. Scope: Approved daily-loop presentation: shared guarded session commit and short skip/reduced-motion transitions first; later draftcontinuity/rehearsal/dayclose via scoped checkpoints. No economy/model/art swap in firstslice. Baseline `37b1f70126acf7afe7648c042e1a036f5a9afcd8`; previousgame95 checkpoint retained. Conceptboard is designreferenceonly; protect originalmeters/cast/hardware/models/save-schema. No APKperchange; atmostone milestone. Native/source changes pending; no new PASS/artapproval.
+
+Next: Buildsharedsession presentationguard/fades/skippablebeat andverify real once-onlyinput before nextapprovedslice.

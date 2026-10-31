@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S40.json",
-  "scope": "Owner-authorized overnight S40 native accessibility and source-backed visual improvement through31Oct09:00London; currentbranch only.",
+  "session": "docs/continuous_improvement/sessions/S41.json",
+  "scope": "Approved daily-loop presentation: shared guarded session commit and short skip/reduced-motion transitions first; later draftcontinuity/rehearsal/dayclose via scoped checkpoints. No economy/model/art swap in firstslice.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Review readiness and the privately delivered update with the owner. At08:50 remain read-only;09:00hard cutoff unchanged. No further implementation in this lease. Existing200talent budget, leftover-talent-to-cash conversion, genre styling and poster/title requests remain proposals for a separately scoped validated pass. Preserve same test signing key/applicationID and update without uninstalling; assess Android touch/keyboard/Back/Continue only from actual phone feedback.",
+  "next_action": "Buildsharedsession presentationguard/fades/skippablebeat andverify real once-onlyinput before nextapprovedslice.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Direct renewed owner authority through2026-10-31T09:00:00Z; previouslimits historical.",
   "completion_gate": {
@@ -765,5 +765,14 @@
       "cast_json_byte_identical": true,
       "original_source_files_unchanged": true
     }
+  },
+  "previous_session": "docs/continuous_improvement/sessions/S40.json",
+  "day31_authority": {
+    "approved_at": "2026-10-31T09:08:46.114986+00:00",
+    "through": "2026-10-31T15:00:00Z",
+    "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+    "owner_plan_approved": true,
+    "owner_approved": false,
+    "no_apk_per_change": true
   }
 }
