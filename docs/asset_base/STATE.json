@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S41 milestone delivered; owner-review readiness/newfeedback only through15:00,14:50finalread-only.",
-  "writer": "S41-genre-art-20261031T1218",
+  "writer": null,
   "last_verified_code_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
+  "next_single_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -434,10 +434,17 @@
       "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
       "closeout": "/workspace/work/day31/phone-closeout.json",
       "decision": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension."
+    },
+    {
+      "at": "2026-10-31T12:33:08.173724+00:00",
+      "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+      "status": "s41_additional_genre_art_verified",
+      "closeout": "/workspace/work/day31/genre-art-closeout.json",
+      "decision": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop."
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "S41 single integrated milestone package and private Androidv3delivery",
+  "last_completed_deliverable": "Additional owner-authorized EXISTING genre artwork/composition and native index continuity only",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -483,42 +490,15 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T12:10:13.386032+00:00",
+  "last_updated_utc": "2026-10-31T12:33:08.173724+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "Exactc9milestone delivered privately asv3;276-filelocalproject/38PNG reviewZIP/freshextractednativeentry/9AndroidchecksPASS. Sourcefrozen, no publicsource/history/deviceclaim.",
+  "last_run_summary": "PASS:73gameplay/88opening/cleanimport/4genuine native journeys/5822focused assertions;0ERROR/orphans,324protectedbytes and278runtime inputs pinned.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
-  "last_validation": {
-    "session": "S41",
-    "tested_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-    "verification_kind": "localGodot4.7.2,notremoteCI",
-    "validation": "/workspace/work/s40/runs/day31-poster-c9c67ad/validation.json",
-    "checks": {
-      "gameplay": 73,
-      "opening": 88,
-      "clean_import": true,
-      "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 172,
-      "current_focused_menu_checks": 1146,
-      "current_focused_menu_views": 2,
-      "current_focused_original_pngs": 14,
-      "contrast_native_checks": 10,
-      "caption_full_rect_min_contrast_closed": 9.639380606582602,
-      "caption_full_rect_min_contrast_open": 9.174565867492017,
-      "engine_error_lines": 0,
-      "orphan_growth": 0,
-      "protected_source_files": 324,
-      "runtime_source_files_with_entry_exception": 276,
-      "previous_originals_identical": 136,
-      "intentional_menu_changes": 32,
-      "disclosed_reopen_fade_frames": 4,
-      "unexpected_changed_originals": 0
-    },
-    "owner_approved": false
-  },
+  "last_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/validation.json",
   "latest_owner_scope": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -623,8 +603,8 @@
     "owner_approved": false,
     "status": "released",
     "preflight_sha": "a9181ba36d228cf353027882dd6af1ba95317e37",
-    "source_verified_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-    "closed_at": "2026-10-31T11:41:42.777354+00:00"
+    "source_verified_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+    "closed_at": "2026-10-31T12:33:08.173724+00:00"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -679,7 +659,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
+  "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -687,195 +667,381 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-    "verified_at": "2026-10-31T11:19:04.702267+00:00",
-    "scope": "S41 optional existing opening poster after verified daily loop",
-    "validation": "/workspace/work/s40/runs/day31-poster-c9c67ad/validation.json",
-    "visual_review": "/workspace/work/s40/runs/day31-poster-c9c67ad/visual-review.json",
-    "focused_validation": "/workspace/work/s40/runs/day31-poster-c9c67ad/focused-validation.json",
-    "source_protection": "/workspace/work/s40/runs/day31-poster-c9c67ad/source-protection-audit.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/day31-poster-c9c67ad/runtime-source-audit.json",
+    "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+    "verified_at": "2026-10-31T12:33:08.173724+00:00",
+    "scope": "Additional owner-authorized EXISTING genre artwork/composition and native index continuity only",
+    "validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/complete-validation.json",
+    "visual_review": "/workspace/work/s40/runs/day31-genre-d5c3810-final/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/day31-genre-d5c3810-final/focused-validation.json",
+    "source_protection": "/workspace/work/s40/runs/day31-genre-d5c3810-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/day31-genre-d5c3810-final/runtime-source-audit.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-genre-d5c3810-final/protected-checkpoint-comparison.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
-      "clean_import": true,
-      "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 172,
-      "current_focused_menu_checks": 1146,
-      "current_focused_menu_views": 2,
-      "current_focused_original_pngs": 14,
-      "contrast_native_checks": 10,
-      "caption_full_rect_min_contrast_closed": 9.639380606582602,
-      "caption_full_rect_min_contrast_open": 9.174565867492017,
-      "engine_error_lines": 0,
-      "orphan_growth": 0,
-      "protected_source_files": 324,
-      "runtime_source_files_with_entry_exception": 276,
-      "previous_originals_identical": 136,
-      "intentional_menu_changes": 32,
-      "disclosed_reopen_fade_frames": 4,
-      "unexpected_changed_originals": 0
+      "focused": 5822,
+      "native_journeys": 4,
+      "standard_originals": 172,
+      "focused_originals": 46,
+      "engine_error_lines": 0
     },
     "opened_originals": [
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-390x844.png",
-        "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
-        "bytes": 285966,
-        "width": 390,
-        "height": 844,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Britpop-1280x720.png",
+        "sha256": "902085fa67a0634411b55a4168b2b72f66de236d31424c20ecc982a4a2e2cd28",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-390x844.png",
-        "sha256": "ddbc0ad89a03d502c13f66afec0f4bd5b27be7b1cc24427b2fceaeef560fcef2",
-        "bytes": 304897,
-        "width": 390,
-        "height": 844,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Country___Americana-1280x720.png",
+        "sha256": "7e58d3e0ff1effd2f6e51930090d87906a05b2ac40a37d4e53e01750358c0338",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-720x1280.png",
-        "sha256": "8d6451598dc6e1db69738ed9d624b82a615175c95c5276e0c47fa7395ca649d8",
-        "bytes": 619548,
-        "width": 720,
-        "height": 1280,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Experimental-1280x720.png",
+        "sha256": "2a6813a50ea9b9f7f3d371a915fa6d0143d89cbbbf85525707ad722e80b8cb9f",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-720x1280.png",
-        "sha256": "c903950b61985c2f8f601eb41ac40d0ba672626d85c93e9e42e3f2c6a8820b0c",
-        "bytes": 590298,
-        "width": 720,
-        "height": 1280,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Garage_rock-1280x720.png",
+        "sha256": "b449c73f9a93f3f7b4f3f764cfcec05558973cf8d7a448a62d6c59fe072318f3",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1280x720.png",
-        "sha256": "aae24403399ff413d3122b82745788c3806ecd85c434595376d370e049027f5e",
-        "bytes": 707575,
-        "width": 1280,
-        "height": 720,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Goth-1280x720.png",
+        "sha256": "4c8438ff66c1cdd6e3fbf7dd51d993acadebd08b23a570284dce45c8e0deb6f2",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1280x720.png",
-        "sha256": "4a86a9380ed26d166bf8dfe7d9991e7565381c5d13fbc5188a9102db465d062a",
-        "bytes": 769827,
-        "width": 1280,
-        "height": 720,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Indie_rock-1280x720.png",
+        "sha256": "eae63c7ccf02559fd3bc04296dae19bfc0e82cafee1c90e322d6402013708a97",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1600x900.png",
-        "sha256": "3a19c6483522317d689c8d9dc71de3d9eff1644797b216e468b7bc4afd3bf747",
-        "bytes": 771876,
-        "width": 1600,
-        "height": 900,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Jazz___Fusion-1280x720.png",
+        "sha256": "afed877036784152947f66ad86aca1af8ea66a60be23d1cba71e0c41c58e03c3",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1600x900.png",
-        "sha256": "2c8659dd2de163ab0ad6cc1442ab1d44c89b6090e5a8577820c92d1880df498e",
-        "bytes": 834599,
-        "width": 1600,
-        "height": 900,
-        "mode": "RGBA",
-        "role": "full_suite_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Metal-1280x720.png",
+        "sha256": "c5e670fd544bf331e8eeac231244c124a2c0d4ae11f5aeacdb2314410834bb5b",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
-        "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
-        "bytes": 290461,
-        "width": 390,
-        "height": 844,
-        "mode": "RGBA",
-        "role": "focused_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Post-punk-1280x720.png",
+        "sha256": "af4bff249356ce025a3cde369ae712695a9759c0488faf0d4d1d88c7afdfc882",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
-        "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
-        "bytes": 307306,
-        "width": 390,
-        "height": 844,
-        "mode": "RGBA",
-        "role": "focused_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Prog_rock-1280x720.png",
+        "sha256": "dd78a873228e56fd6476c21e73a68d534f77071872dfb1e90f97a673d874985f",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       },
       {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
-        "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
-        "bytes": 676584,
-        "width": 1152,
-        "height": 648,
-        "mode": "RGBA",
-        "role": "focused_original",
-        "actually_opened": true,
-        "rendering": "untouched_original_native_Godot_PNG"
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Punk-1280x720.png",
+        "sha256": "86959ab9fae91faf42444e4a0955ae98402884c1a62124efb8572d5e4155cc47",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Shoegaze-1280x720.png",
+        "sha256": "261b5342f18761a4cf6ed5ff80ca6c6d87834ab5fb2954ecfb4a9ac7365bc78b",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Soul___Funk-1280x720.png",
+        "sha256": "af944d6571309e2f9ae9726088df6321493f6d9cbb3de9a3f7ab66c968357d46",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-wide/captures/genre-Synth-pop-1280x720.png",
+        "sha256": "3e443c5479d663da7b3f020b12b3beb28c24c05f9321316e2066d0b6e566f520",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Country___Americana-390x844.png",
+        "sha256": "a22ee27d477ca26c0d2abf9a67b3d045444a909a31f5db734c210f4dd92a8f71",
+        "dimensions": [
+          390,
+          844
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Indie_rock-390x844.png",
+        "sha256": "8e4b2e89a7228faebd7a0162bb409349f55a583f7384e10c046672b7086bd301",
+        "dimensions": [
+          390,
+          844
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Jazz___Fusion-390x844.png",
+        "sha256": "4aab4a1cf56666f7af07cef4144425ee1defcea92a728c9132830c14dc2ed03d",
+        "dimensions": [
+          390,
+          844
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-phone-real-tab/captures/genre-Synth-pop-390x844.png",
+        "sha256": "ceac1a6ffa24650094d1d302ea07bc34584c6915180be4470733ab6ebfcb396b",
+        "dimensions": [
+          390,
+          844
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Indie_rock-720x1280.png",
+        "sha256": "06f3872df8d8d6d78dd945d9a469a19d5f0bd4749a11826ea520cdbee79f918d",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-tablet/captures/genre-Country___Americana-720x1280.png",
+        "sha256": "ebdb86877c2f424d96b3f0eb02302d6d699a361b043468b627a82089f900fcf3",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Punk-1600x900.png",
+        "sha256": "e9125747f1a914f13cbe7cd4187a5e4f929f8d1dd068bde010bae7f595cfab1c",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/day31/genre-art-qa/focused-d5c3810-large/captures/genre-Jazz___Fusion-1600x900.png",
+        "sha256": "f55e587c991e332da6ede16088ba9354d9502e0f6bf8c1c4b18aedc696f6b696",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "kind": "candidate_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-390x844.png",
+        "sha256": "db52c3f6c4e685c7f4783f207637ac977e34ff31645b582f33658a120b5ba2b2",
+        "dimensions": [
+          390,
+          844
+        ],
+        "kind": "baseline_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-1280x720.png",
+        "sha256": "056f42556f8df20591b786b5337081105f211882d886c24df2b626c5f091bff4",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "kind": "baseline_native",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
+      },
+      {
+        "path": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
+        "sha256": "2f9b3e5e63aa17d0cb505efd008c983c19495452dcdcf6872eb85d594d29b9c2",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "kind": "style_reference_only",
+        "opened_original": true,
+        "inspection_method": "view_image at original resolution; original fullscreen image, not an atlas or synthetic comparison"
       }
     ],
     "additional_root_originals_opened": [
-      "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
-      "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png"
+      {
+        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-390x844.png",
+        "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened": true,
+        "rendering": "untouched original native Godot PNG"
+      },
+      {
+        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-720x1280.png",
+        "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "actually_opened": true,
+        "rendering": "untouched original native Godot PNG"
+      },
+      {
+        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1280x720.png",
+        "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "actually_opened": true,
+        "rendering": "untouched original native Godot PNG"
+      },
+      {
+        "path": "/workspace/work/s40/runs/day31-genre-d5c3810-final/captures/c27-genre-1600x900.png",
+        "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "actually_opened": true,
+        "rendering": "untouched original native Godot PNG"
+      }
     ],
     "source_art": {
-      "source_path": "/workspace/generated_images/exec-ed58539b-6e71-4b76-8a5e-e790500432fa.png",
-      "production_candidate": "experiments/playable_flightcase/art/opening_stage.png",
-      "sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
-      "width": 1448,
-      "height": 1086,
-      "mode": "RGB",
-      "bytes": 2223640,
-      "kind": "Independent image-generated empty rehearsal-stage source layer; no UI/text/people/cast, notphotography. Originalsource retained, productioncopybyte-identical.",
-      "provider": "OpenAI image_gen inthisthread forowner-approvedposterwork",
-      "inspection": "Rootopenedthefulloriginalgeneratedimage: quietdarkupperarea, warmamp/drumstage, nolettering/controls/people visible. Nativeintegration gainstillpending.",
-      "owner_approved": false
+      "type": "Original native GDScript vector screenprint compositions; existing independent generated paper source unchanged",
+      "source": "experiments/playable_flightcase/genre_press.gd",
+      "provenance": "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
+      "new_raster_assets": 0,
+      "model_or_schema_changes": false
     },
     "simulated_lenses": [
       {
-        "label": "SIMULATED first-time player",
-        "observation": "The large native title and rehearsal stage remain the first focal point. The tagline now separates clearly from the bright floor, and New Band remains immediately visible."
+        "lens": "SIMULATED first-time player",
+        "concern": "Can I identify the selected sound and next action without understanding the motif?",
+        "evidence": "Large native title on a single print and fixed Find Your People footer in all requested originals. Full existing description and strength are readable.",
+        "finding": "Hierarchy improves over repeated c9 card stacks. Abstract artwork supplements real labels; it does not replace them."
       },
       {
-        "label": "SIMULATED returning player",
-        "observation": "Enabled Continue and Settings remain beside each other in every saved-title original. Expanded Settings keeps navigation and both preferences inside the original frame."
+        "lens": "SIMULATED musician / management-game player",
+        "concern": "Does artwork imply new benefits or restrictions?",
+        "evidence": "Inspected genre_press reads original Formation.GENRES data; heading retains the explanation that genre does not restrict auditions.",
+        "finding": "No new numerical buff, audition gate, invented band identity or real-world artist image observed. Genre recognition still depends on labels for some motifs."
       },
       {
-        "label": "SIMULATED phone/touch player",
-        "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+        "lens": "SIMULATED UX/accessibility specialist",
+        "concern": "Is the selected print readable with usable persistent navigation?",
+        "evidence": "All 22 candidate originals opened; long Country phone copy, 720 portrait and 1280 short landscape inspected. Focused result JSONs report no failures.",
+        "finding": "No critical visible clipping/overlap observed. Native text and fixed footer are retained. This is desktop-rendered native evidence, not physical Android/touch or assistive-technology certification."
       },
       {
-        "label": "SIMULATED accessibility/keyboard reviewer",
-        "observation": "The native 16px tagline is retained, with measured full-background contrast above 9:1 in both phone contexts. The matte ignores input and focus. Existing root-run evidence supplies input/focus contracts; visual inspection alone does not establish them."
+        "lens": "SIMULATED technical artist",
+        "concern": "Do new graphics honestly match the physical print direction?",
+        "evidence": "Original concept board, unchanged textured paper, all fourteen native motif fullscreen originals and PrintArt source opened/read.",
+        "finding": "Paper/ink treatment is cohesive and source-honest; motifs remain abstract and simpler than the concept board's richer photographed/illustrated physical world. Visual verdict remains PARTIAL."
       },
       {
-        "label": "SIMULATED art/production reviewer",
-        "observation": "The caption matte is a restrained native overlay; original photograph, case grain and hardware remain intact. The opening is ready for owner review. Game-wide art remains PARTIAL with owner_approved=false."
+        "lens": "SIMULATED Godot/release QA engineer",
+        "concern": "Could art success be confused with full functional completion?",
+        "evidence": "Four focused result JSONs read:5822 checks total, empty failure arrays; actual source d5 and diff paths inspected. Root full native journeys are separate.",
+        "finding": "Focused evidence supports the declared input/layout scope only. No full-journey, save compatibility, APK/device or owner acceptance PASS is claimed by this visual review."
       }
     ],
     "visual_verdict": "partial",
@@ -883,478 +1049,12 @@
     "new_android_apk": false,
     "new_project_zip": false,
     "remaining_gaps": [
-      "OverallartstillPARTIAL; clean native type differs fromdistressedconcept andownerartapprovalpending.",
-      "Currentproofisdesktopnative, notAndroiddevice; latestprivatev2APKstill95source untilone milestonebuild.",
-      "Budget175trial/unusedtalentcash/genrevariants remainbacklog; no hiddenmodel/schema changes.",
-      "Pre-existingconditionalstoragefailurelimitation retained incore75closeout; notdemonstrated here."
+      "Genre motifs are original abstract vector prints, not bespoke photographic album art or an exact match to the distressed concept.",
+      "Large desktop paper retains unused lower space; no extra decorative content added solely to fill it.",
+      "Current privately delivered Androidv3 and isolatedZIP remain c9; this newer native genre-art checkpoint is not in thatAPK, and no phone/emulator test is claimed.",
+      "Budget/cash conversion/gameplay/genre rules/save schemas unchanged; those proposals remainbacklog."
     ],
-    "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.",
-    "native_packages": {
-      "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-      "project_files": 276,
-      "source_archive_entries": 278,
-      "review_original_pngs": 38,
-      "archives": [
-        {
-          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 12803797,
-          "sha256": "8a9a0ed1085483f59895b93540de02df7615c6abc01f16b56f7d1f60c4ac549e",
-          "zip_crc": "PASS"
-        },
-        {
-          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/native-quality-review.zip",
-          "bytes": 19053420,
-          "sha256": "ec7a69bb4b7abab90cd37f9457da125c0c20fd3657e703f8d29bc49af627e24a",
-          "zip_crc": "PASS"
-        }
-      ],
-      "validation": "/workspace/work/s40/runs/day31-poster-c9c67ad/validation.json",
-      "isolated_project_entry_exception": "project.godot is the exact146-byte tested isolated95 recipe, not the production Git project; source project blob ID is recorded separately.",
-      "entry_recipe": {
-        "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-        "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
-        "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-        "manifest_paths": 274,
-        "isolated_entry_sha256": "f4a1d001bd3cc2006388b3e772bb2019ca7f9d744ddd134e50a6fa79a03ccc50"
-      },
-      "review_pngs": [
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-390x844.png",
-          "archive_path": "original-png/c27-title-390x844.png",
-          "bytes": 285966,
-          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-390x844.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-390x844.png",
-          "bytes": 304897,
-          "sha256": "ddbc0ad89a03d502c13f66afec0f4bd5b27be7b1cc24427b2fceaeef560fcef2",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-390x844.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-390x844.png",
-          "bytes": 277374,
-          "sha256": "ff83d9d65e36074cb6b338dcfb1e0178f7593015a7c6f08738ebf65ebbe04c1a",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-390x844.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-390x844.png",
-          "bytes": 294130,
-          "sha256": "52ce2007fe7567d3c38ad22d1b3f02feaea55ae6ddf8e9081a4c3df3d409e89b",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-390x844.png",
-          "archive_path": "original-png/c27-practice_mode_connect_day1-390x844.png",
-          "bytes": 291718,
-          "sha256": "986c4c4782e564eb045f07c2a13ea8d363a685dceea18d2ce42f2b3227b2b5ef",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-390x844.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
-          "bytes": 320848,
-          "sha256": "e972c07af82d977167fed6328b70aa007e5a886166fb4710270cb201db2c1ce1",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-720x1280.png",
-          "archive_path": "original-png/c27-title-720x1280.png",
-          "bytes": 619548,
-          "sha256": "8d6451598dc6e1db69738ed9d624b82a615175c95c5276e0c47fa7395ca649d8",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-720x1280.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-720x1280.png",
-          "bytes": 590298,
-          "sha256": "c903950b61985c2f8f601eb41ac40d0ba672626d85c93e9e42e3f2c6a8820b0c",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-720x1280.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-720x1280.png",
-          "bytes": 555098,
-          "sha256": "e2b63c9c54b02e85c4fc072b18906f4b787d8cfea8b64966157fda5063e32cdc",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-720x1280.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-720x1280.png",
-          "bytes": 485148,
-          "sha256": "7c301c3d58a348b1b6a35a7d3a01edf8b76d0a99db625d43ee0fc70cf93f19b5",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-720x1280.png",
-          "archive_path": "original-png/c27-practice_mode_connect_day1-720x1280.png",
-          "bytes": 479648,
-          "sha256": "78be7640ecd35acbf80ea74458ee694b8a356b766efc7c5bd08a9d5289908887",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-720x1280.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-720x1280.png",
-          "bytes": 563343,
-          "sha256": "948266d9cd08009972724f19925455cc91b15e741b159cd3e85255616c6a1613",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1280x720.png",
-          "archive_path": "original-png/c27-title-1280x720.png",
-          "bytes": 707575,
-          "sha256": "aae24403399ff413d3122b82745788c3806ecd85c434595376d370e049027f5e",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1280x720.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-1280x720.png",
-          "bytes": 769827,
-          "sha256": "4a86a9380ed26d166bf8dfe7d9991e7565381c5d13fbc5188a9102db465d062a",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-1280x720.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-1280x720.png",
-          "bytes": 477160,
-          "sha256": "684460e607b0540e685c23333e270e1fea35d0aba1e1534b2dbe0336bd1ff389",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-1280x720.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-1280x720.png",
-          "bytes": 516573,
-          "sha256": "07e170f4d582432a9e2a42b6b379866f7d681ddbdb98b6f63df4bc09469b3667",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-1280x720.png",
-          "archive_path": "original-png/c27-practice_mode_connect_day1-1280x720.png",
-          "bytes": 512529,
-          "sha256": "ecad4f6be70c7741cbadedf93b0389eda36714b62ecc727d59015377759ceeb8",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-1280x720.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
-          "bytes": 536311,
-          "sha256": "50632466c45f760261e4396b1b714fbdaf73613fcd73520526e1bedfaf74114b",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1600x900.png",
-          "archive_path": "original-png/c27-title-1600x900.png",
-          "bytes": 771876,
-          "sha256": "3a19c6483522317d689c8d9dc71de3d9eff1644797b216e468b7bc4afd3bf747",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1600x900.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-1600x900.png",
-          "bytes": 834599,
-          "sha256": "2c8659dd2de163ab0ad6cc1442ab1d44c89b6090e5a8577820c92d1880df498e",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-1600x900.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-1600x900.png",
-          "bytes": 608142,
-          "sha256": "47f237d0bd5a03868879cce7fa70ac0debeffbd1777113a7c2ad595d34c023c0",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-1600x900.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-1600x900.png",
-          "bytes": 567158,
-          "sha256": "d7d49ecb849a5b239335e252bab97b83735b2c1bbbc50236ae2efdd15b2b374a",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-1600x900.png",
-          "archive_path": "original-png/c27-practice_mode_connect_day1-1600x900.png",
-          "bytes": 559839,
-          "sha256": "725ef72dd3d677bd80f1a2ab155f7c2e9242cf3debf6c541ba6127fb408cac01",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-1600x900.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-1600x900.png",
-          "bytes": 625284,
-          "sha256": "28c86bdb9cefa734b0d6dd8f22fae9c87c6fc67abccffbf237acba3b593b365a",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
-          "archive_path": "original-png/opening-no-draft-closed-390x844.png",
-          "bytes": 290461,
-          "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
-          "archive_path": "original-png/no-draft-settings-open-390x844.png",
-          "bytes": 307306,
-          "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-muted-390x844.png",
-          "archive_path": "original-png/no-draft-settings-muted-390x844.png",
-          "bytes": 307523,
-          "sha256": "83e8d5bd6cbd1bbecfb21e6e2c68d2bcbbfadf6394031402f3ee8c7c1ce687e2",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-saved-closed-390x844.png",
-          "archive_path": "original-png/opening-saved-closed-390x844.png",
-          "bytes": 285966,
-          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/saved-draft-settings-open-390x844.png",
-          "archive_path": "original-png/saved-draft-settings-open-390x844.png",
-          "bytes": 304897,
-          "sha256": "86bb96f4bdaf559bd1a4ef5dc3513ea9ed26af3d8e18ecb28dca49b785e524a9",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/saved-draft-settings-muted-390x844.png",
-          "archive_path": "original-png/saved-draft-settings-muted-390x844.png",
-          "bytes": 304972,
-          "sha256": "70afe19ef52512462d88ef5b460f35dde45f9d9b4d2aa445472ee31202e58990",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-continued-day2-390x844.png",
-          "archive_path": "original-png/opening-continued-day2-390x844.png",
-          "bytes": 322012,
-          "sha256": "97bda5102cf35fe06cd2c6e6cea05219649d396cb79c0be0e1bb22579de74b78",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-no-draft-closed-1152x648.png",
-          "archive_path": "original-png/opening-no-draft-closed-1152x648.png",
-          "bytes": 617261,
-          "sha256": "76ea2047bc70b4c2b009499c8d3a18542bdff4a8e8fac11211ee0a4a740c61ba",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
-          "archive_path": "original-png/no-draft-settings-open-1152x648.png",
-          "bytes": 676584,
-          "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-muted-1152x648.png",
-          "archive_path": "original-png/no-draft-settings-muted-1152x648.png",
-          "bytes": 676853,
-          "sha256": "130d27f6210f2760771af0a5e0df45f79cba7ee68f9c198ad1d2aa114a94cab1",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-saved-closed-1152x648.png",
-          "archive_path": "original-png/opening-saved-closed-1152x648.png",
-          "bytes": 611874,
-          "sha256": "cbc4ea72b8427af3c6c41c8e0de5e7e5923db5537144686af5990e348043e132",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/saved-draft-settings-open-1152x648.png",
-          "archive_path": "original-png/saved-draft-settings-open-1152x648.png",
-          "bytes": 673276,
-          "sha256": "adad99be2e637f79a49d373517331c4f4258cd85b883cda51160ca425eca1585",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/saved-draft-settings-muted-1152x648.png",
-          "archive_path": "original-png/saved-draft-settings-muted-1152x648.png",
-          "bytes": 673546,
-          "sha256": "253ff939c94bb6873af1370f64c24d224b4f5abe3595a1a03572d1f0b06df5c3",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-continued-day2-1152x648.png",
-          "archive_path": "original-png/opening-continued-day2-1152x648.png",
-          "bytes": 465469,
-          "sha256": "14dce3dcee024131cde53337875548c850c53085c4677da9e2c08c8301f33ca6",
-          "width": 1152,
-          "height": 648
-        }
-      ],
-      "explicit_poster_asset": "experiments/playable_flightcase/art/opening_stage.png",
-      "publication": "LOCAL only; no upload/publication performed",
-      "owner_approved": false,
-      "extracted_clean_import_and_native_entry": "PASS: fresh276-file manifest/extracted import and actual native opening.tscn entry, explicitDummy audio and isolateduserdata",
-      "package_smoke": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/package-smoke.json",
-      "method": "Exact Git blobs + tested entry recipe + explicit PNG inventory loaded before writes; temporary ZIP CRC/content checks then atomic replacement."
-    },
-    "android_milestone": {
-      "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "status": "v3_signed_apk_delivered_private_phone_retest_pending",
-      "owner_reported_v1_install_worked": true,
-      "agent_android_device_tested": false,
-      "updated_apk_phone_tested": false,
-      "build_receipt": "/workspace/work/day31/android/build-c9c67ad-v3/build.json",
-      "update_compatibility": "/workspace/work/day31/android/build-c9c67ad-v3/update-compatibility.json",
-      "private_delivery": {
-        "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-        "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-        "artifact_path": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
-        "local_sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
-        "size": 67439436,
-        "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
-        "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
-        "mime_type": "application/vnd.android.package-archive",
-        "permissions": [
-          {
-            "type": "user",
-            "role": "reader",
-            "emailAddress": "alimuir654@gmail.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          },
-          {
-            "type": "user",
-            "role": "owner",
-            "emailAddress": "chair@lovewelluk.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          }
-        ],
-        "remote_checksum": "Not exposed by connector; no remotechecksum claim",
-        "phone_v1_owner_install_worked": true,
-        "phone_v3_tested": false,
-        "agent_android_device_tested": false,
-        "readback": {
-          "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
-          "title": "BandMaster-Playtest-v3.apk",
-          "mime_type": "application/vnd.android.package-archive",
-          "size": "67439436",
-          "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
-          "display_url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
-          "file_or_folder": "file",
-          "created_time": null,
-          "modified_time": null,
-          "parent_ids": null,
-          "drive_id": null,
-          "current_user_can_share": null,
-          "has_augmented_permissions": null,
-          "shared": null,
-          "permissions": [
-            {
-              "type": "user",
-              "role": "reader",
-              "emailAddress": "alimuir654@gmail.com",
-              "domain": null,
-              "displayName": null,
-              "allowFileDiscovery": null
-            },
-            {
-              "type": "user",
-              "role": "owner",
-              "emailAddress": "chair@lovewelluk.com",
-              "domain": null,
-              "displayName": null,
-              "allowFileDiscovery": null
-            }
-          ],
-          "source_visibility_status": "permission_metadata_available"
-        },
-        "review_page": {
-          "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-          "sequence": 5
-        },
-        "phone_page": {
-          "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-          "sequence": 8
-        },
-        "poster_image_upload": {
-          "page_id": "page_dd078970782c81918d96b7c70e4e3673",
-          "reference": "library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec",
-          "file_name": "c27-title-390x844-b5d8379a37ca44de84ce7e8027b7fc4a.png",
-          "mime_type": "image/png",
-          "byte_size": 285966,
-          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
-          "file_access_confirmed": true,
-          "is_image": true,
-          "markdown": "![BandMaster native opening poster](library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec)",
-          "inserted": false,
-          "next_step": "Read the Page and use edit_page with its fresh guards to insert markdown."
-        }
-      },
-      "apk_checks": {
-        "apk": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
-        "bytes": 67439436,
-        "sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
-        "version_code": 3,
-        "version_name": "0.41.0-playtest",
-        "application_id": "com.bandmaster.ownerplaytest.s40",
-        "abis": [
-          "arm64-v8a",
-          "armeabi-v7a"
-        ],
-        "signature": "PASS",
-        "alignment_16kb": "PASS",
-        "apk_crc": "PASS",
-        "cast_json_byte_identical": true,
-        "original_source_files_unchanged": true
-      }
-    },
-    "owner_review_pages": {
-      "plan": {
-        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-        "sequence": 5
-      },
-      "phone": {
-        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-        "sequence": 8
-      }
-    }
+    "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",

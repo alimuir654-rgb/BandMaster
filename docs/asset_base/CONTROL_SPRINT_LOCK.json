@@ -1,5 +1,5 @@
 {
-  "writer": "S41-genre-art-20261031T1218",
+  "writer": null,
   "base_head": "f0b9cd129e691bcf6cc1f109581156f6499ef845",
   "claimed_at": "2026-10-31T12:10:13.386032+00:00",
   "expires_at": "2026-10-31T13:40:00Z",
@@ -7,8 +7,8 @@
   "authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T12:33:08.173724+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S41-milestone-package-20261031T1120",
-  "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+  "last_writer": "S41-genre-art-20261031T1218",
+  "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
