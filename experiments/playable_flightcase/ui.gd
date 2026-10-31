@@ -547,7 +547,7 @@ func _writing_workspace(body: VBoxContainer) -> void:
  focus_style.draw_center = false
  entry.add_theme_stylebox_override("focus",focus_style)
  entry.add_theme_color_override("font_color",Color("29241f"))
- entry.add_theme_color_override("font_placeholder_color",Color("6c5e4b"))
+ entry.add_theme_color_override("font_placeholder_color",Color("524536"))
  entry.add_theme_color_override("caret_color",Color("29241f"))
  entry.text_changed.connect(func(value: String):
   song_title = value
