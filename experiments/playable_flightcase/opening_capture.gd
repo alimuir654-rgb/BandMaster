@@ -109,16 +109,18 @@ func click_action(button: Button) -> void:
  await process_frame
  await process_frame
 # Real ui_accept input, deliberately separate from the retained pointer proof.
-func _recap_key(keycode: int) -> void:
+func _recap_key(keycode: int,shift: bool=false) -> void:
  var down := InputEventKey.new()
  down.keycode = keycode
  down.physical_keycode = keycode
+ down.shift_pressed = shift
  down.pressed = true
  Input.parse_input_event(down)
  await process_frame
  var up := InputEventKey.new()
  up.keycode = keycode
  up.physical_keycode = keycode
+ up.shift_pressed = shift
  up.pressed = false
  Input.parse_input_event(up)
  await process_frame
@@ -321,6 +323,184 @@ func _check_no_draft_settings(screen,w: int,h: int) -> void:
  await process_frame
  if screen.setup.snapshot()!=before or _recap_save_bytes()!=files:
   failures.append("S40 no-draft Settings fixture changed real career/save bytes")
+
+# Native overwrite-dialog resize integration. Existing models/components only.
+func _overwrite_dialogs(screen: Control) -> Array:
+ var active: Array=[]
+ for child in screen.get_children():
+  if child.has_method("open_modal") and bool(child.get("is_open")):
+   active.append(child)
+ return active
+
+func _overwrite_observe(dialog,seen: Array,callbacks: Array,accepted: Array) -> void:
+ var id: int=dialog.get_instance_id()
+ if seen.has(id):
+  return
+ seen.append(id)
+ var track: Callable=func(yes: bool):
+  callbacks[0]+=1
+  accepted.append(yes)
+ dialog.completed.connect(track)
+
+func _overwrite_outside_point(button: Button,panel: Control,w: int,h: int) -> Dictionary:
+ var viewport:=Rect2(0,0,w,h).grow(-1.0)
+ var available: Rect2=button.get_global_rect().grow(-2.0).intersection(viewport)
+ var blocked: Rect2=panel.get_global_rect()
+ for fx in [0.0,0.25,0.5,0.75,1.0]:
+  for fy in [0.0,0.25,0.5,0.75,1.0]:
+   var point: Vector2=available.position+available.size*Vector2(fx,fy)
+   if viewport.has_point(point) and button.get_global_rect().has_point(point) and not blocked.has_point(point):
+    return {"available":true,"point":point}
+ return {"available":false}
+
+func _overwrite_popup_bounds(dialog,w: int,h: int) -> bool:
+ var bounds:=Rect2(0,0,w,h)
+ if not dialog.is_open or dialog.heading.text!="Start a new band?" or dialog.message_label.text!="This replaces your saved opening draft. This cannot be undone.":
+  failures.append("S40 resized overwrite dialog lost its pending canonical warning")
+  return false
+ if not bounds.encloses(dialog.panel.get_global_rect()):
+  failures.append("S40 resized overwrite dialog extends outside physical viewport")
+  return false
+ for button in [dialog.cancel_button,dialog.confirm_button]:
+  if button.size.x<44 or button.size.y<44 or not bounds.encloses(button.get_global_rect()):
+   failures.append("S40 resized overwrite action is clipped or smaller than44px")
+   return false
+ return true
+
+func _overwrite_resize_flow(fixture,w: int,h: int) -> void:
+ var original: Dictionary=fixture.setup.snapshot()
+ var files: Dictionary=_recap_save_bytes()
+ var alternate:=Vector2i(1280,720) if w<1000 else Vector2i(390,844)
+ var targets: Array[Vector2i]=[alternate,Vector2i(w,h)]
+ var current:=Vector2i(w,h)
+ var prefix: String="overwrite_resize_from_%dx%d" % [w,h]
+ for leg in range(2):
+  var invoker: Button=fixture.find_child("NewBandAction",true,false)
+  if invoker==null:
+   failures.append("S40 overwrite resize fixture lost NewBand invoker")
+   return
+  if leg==0:
+   await click_action(invoker)
+  else:
+   if not invoker.has_focus():
+    failures.append("S40 resize cancel did not retain semantic NewBand focus for reopen")
+    return
+   await _recap_key(KEY_ENTER)
+  var active: Array=_overwrite_dialogs(fixture)
+  if active.size()!=1:
+   failures.append("S40 resize flow did not open exactly one existing overwrite dialog")
+   return
+  var dialog=active[0]
+  var callbacks: Array[int]=[0]
+  var accepted: Array=[]
+  var observed: Array=[]
+  _overwrite_observe(dialog,observed,callbacks,accepted)
+  if not _overwrite_popup_bounds(dialog,current.x,current.y):
+   return
+  if not dialog.cancel_button.has_focus():
+   failures.append("S40 overwrite resize flow did not start with safe KeepBand focus")
+   return
+  await _recap_key(KEY_TAB)
+  if not dialog.confirm_button.has_focus():
+   failures.append("S40 overwrite modal cannot focus confirm before live resize")
+   return
+  current=targets[leg]
+  root.size=current
+  DisplayServer.window_set_size(current)
+  await process_frame
+  await process_frame
+  await process_frame
+  await process_frame
+  active=_overwrite_dialogs(fixture)
+  if root.size!=current or DisplayServer.window_get_size()!=current or active.size()!=1 or callbacks[0]!=0:
+   failures.append("S40 actual live resize lost or implicitly completed the pending overwrite choice")
+   return
+  dialog=active[0]
+  _overwrite_observe(dialog,observed,callbacks,accepted)
+  if not _overwrite_popup_bounds(dialog,current.x,current.y):
+   return
+  if not dialog.confirm_button.has_focus():
+   failures.append("S40 live resize lost focused Confirm")
+   return
+  for name in ["NewBandAction","SettingsAction"]:
+   var background: Button=fixture.find_child(name,true,false)
+   if background==null:
+    failures.append("S40 overwrite resize fixture lost background menu target")
+    return
+   var route: Dictionary=_overwrite_outside_point(background,dialog.panel,current.x,current.y)
+   if route.available:
+    var point: Vector2=route.point
+    for down in [true,false]:
+     var mouse:=InputEventMouseButton.new()
+     mouse.button_index=MOUSE_BUTTON_LEFT
+     mouse.position=point
+     mouse.global_position=point
+     mouse.pressed=down
+     Input.parse_input_event(mouse)
+     await process_frame
+    await process_frame
+    await process_frame
+    if _overwrite_dialogs(fixture).size()!=1 or callbacks[0]!=0 or fixture.settings_open or not dialog.confirm_button.has_focus():
+     failures.append("S40 resized overwrite modal allowed background input or focus loss")
+     return
+   print("S40_OVERWRITE_BACKGROUND ",JSON.stringify({"from_width":w,"from_height":h,"width":current.x,"height":current.y,"target":name,"outside_point_available":route.available}))
+  await _draw_screen(prefix+("_alternate" if leg==0 else "_returned"),current.x,current.y)
+  await _recap_key(KEY_TAB)
+  if not dialog.cancel_button.has_focus():
+   failures.append("S40 resized modal Tab did not stay on KeepBand")
+   return
+  await _recap_key(KEY_TAB,true)
+  if not dialog.confirm_button.has_focus():
+   failures.append("S40 resized modal ShiftTab did not stay on Confirm")
+   return
+  if leg==0:
+   await _recap_key(KEY_ESCAPE)
+  else:
+   await click_action(dialog.cancel_button)
+  if callbacks[0]!=1 or accepted!=[false] or not _overwrite_dialogs(fixture).is_empty():
+   failures.append("S40 resized Escape/KeepBand did not cancel exactly once")
+   return
+  var restored: Button=fixture.find_child("NewBandAction",true,false)
+  if restored==null or not restored.is_visible_in_tree() or not restored.has_focus():
+   failures.append("S40 responsive cancel did not focus the current semantic NewBand invoker")
+   return
+  if fixture.setup.snapshot()!=original or _recap_save_bytes()!=files:
+   failures.append("S40 resize/cancel changed saved career or draft bytes")
+   return
+ print("S40_OVERWRITE_RESIZE ",JSON.stringify({"width":w,"height":h,"alternate":str(alternate),"callbacks_per_leg":1,"saved_state_unchanged":fixture.setup.snapshot()==original}))
+
+func _check_overwrite_resize(screen,w: int,h: int) -> void:
+ var original: Dictionary=screen.setup.snapshot()
+ var files: Dictionary=_recap_save_bytes()
+ var orphan_before: int=int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
+ var clone:=OpeningModel.new()
+ if not clone.load_draft() or not clone.has_valid_draft():
+  failures.append("S40 overwrite resize fixture requires an actual valid saved draft")
+  return
+ screen.hide()
+ var fixture=UI.new()
+ fixture.setup=clone
+ fixture.name="OverwriteResizeReadOnlyFixture"
+ fixture.set_meta("qa_fixture","actual saved draft clone; no save writes")
+ root.add_child(fixture)
+ await process_frame
+ await process_frame
+ await process_frame
+ await _overwrite_resize_flow(fixture,w,h)
+ # Always restore physical dimensions and the original screen, even after a
+ # failed assertion, so this focused proof cannot distort later screenshots.
+ root.size=Vector2i(w,h)
+ DisplayServer.window_set_size(Vector2i(w,h))
+ await process_frame
+ await process_frame
+ fixture.free()
+ screen.show()
+ await process_frame
+ await process_frame
+ if screen.setup.snapshot()!=original or _recap_save_bytes()!=files:
+  failures.append("S40 read-only resize fixture changed original career or save bytes")
+ if int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))>orphan_before:
+  failures.append("S40 read-only overwrite resize flow leaked orphan controls")
 
 func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool) -> void:
  var bounds := Rect2(0,0,w,h)
@@ -912,6 +1092,7 @@ func take() -> void:
  screen.showing_menu = true
  screen.call("_render")
  await _draw_screen("title",w,h)
+ await _check_overwrite_resize(screen,w,h)
  await _check_no_draft_settings(screen,w,h)
  var new_action: Button = screen.find_child("NewBandAction",true,false)
  if new_action==null:

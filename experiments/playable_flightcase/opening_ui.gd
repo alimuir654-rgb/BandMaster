@@ -16,6 +16,7 @@ var look := "flightcase"
 var free_name: String = ""
 var chosen_intent: String = "Raw"
 var response: String = ""
+var _new_band_dialog: Control
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -24,6 +25,10 @@ func _ready() -> void:
 
 func _erase() -> void:
  for old in get_children():
+  # A resize rebuilds the menu behind the pending decision. Keeping the
+  # original dialog in-tree preserves its focus and once-only callback.
+  if is_instance_valid(_new_band_dialog) and old==_new_band_dialog:
+   continue
   remove_child(old)
   old.queue_free()
 
@@ -104,6 +109,10 @@ func _render() -> void:
  else:
   showing_menu = true
   _menu()
+ # GUI picking follows child order, so retain the overlay above the rebuilt
+ # menu for input as well as drawing, without triggering exit-tree hooks.
+ if is_instance_valid(_new_band_dialog):
+  move_child(_new_band_dialog,get_child_count()-1)
 
 func _menu() -> void:
  var root := _make_shell()
@@ -151,14 +160,23 @@ func _menu() -> void:
  root.add_child(tail)
 
 func _new_band() -> void:
+ if is_instance_valid(_new_band_dialog):
+  return
  if setup.has_valid_draft():
   var dialog: Control = Kit.dialog("Start a new band?","This replaces your saved opening draft. This cannot be undone.",look)
+  _new_band_dialog = dialog
   dialog.confirm_text = "REPLACE DRAFT"
   dialog.cancel_text = "KEEP BAND"
   add_child(dialog)
   dialog.completed.connect(func(yes: bool):
+   _new_band_dialog = null
    if yes:
     _begin_new()
+   else:
+    # Responsive reflow may have replaced the original weak invoker.
+    var invoker: Button = find_child("NewBandAction",true,false) as Button
+    if invoker!=null and invoker.is_visible_in_tree() and not invoker.disabled:
+     invoker.grab_focus()
    dialog.queue_free())
   dialog.call_deferred("open_modal")
  else:

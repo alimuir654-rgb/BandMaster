@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 223819,
-    "sha256": "1dfaae6507090042b36a9707cb330fd6934f69c948fb0278e955bfd66877d019"
+    "bytes": 225275,
+    "sha256": "bbab66a02a263ffa47a7692868f134ef88988fd0caa848c8a1eb50c6a52decfc"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -84,7 +84,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal2e73+88/import/4fullnative112PNG proof retained from03:00.04:00 adds724 focused native cancellation assertions/32cycles/20opened originals on unchangedsource; no new fullsuite or package build claimed.",
-  "issues_reviewed_at": "2026-10-31T05:03:14.429586+00:00",
+  "issues_reviewed_at": "2026-10-31T05:08:51.083296+00:00",
   "progress": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T03:38:05.378890+00:00",
@@ -827,6 +827,7 @@
     "status": "native_defect_recorded_before_fix",
     "owner_approved": false,
     "failed_baseline": "/workspace/work/s40/resize-qa/baseline/validation.json",
-    "baseline_probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276"
+    "baseline_probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276",
+    "static_fragment_review": "Unsupported two-arg key helper detected before integration/execution, BM33 event146; optional real Shift modifier added before first compile."
   }
 }
