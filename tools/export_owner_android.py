@@ -19,6 +19,9 @@ def main():
     parser.add_argument('--template', required=True, type=Path)
     parser.add_argument('--sdk', required=True, type=Path)
     parser.add_argument('--java', required=True, type=Path)
+    parser.add_argument('--keystore', type=Path)
+    parser.add_argument('--version-code', type=int, default=1)
+    parser.add_argument('--version-name', default='0.40.0-playtest')
     args = parser.parse_args()
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
@@ -75,13 +78,16 @@ def main():
 
     keys = out / 'signing'
     keys.mkdir(mode=0o700)
-    keystore = keys / 'owner-playtest.keystore'
-    run('test-key', [args.java / 'bin/keytool', '-genkeypair', '-keystore', keystore,
+    keystore = args.keystore.resolve() if args.keystore else keys / 'owner-playtest.keystore'
+    if args.keystore:
+        assert keystore.is_file(), 'Existing successful test key required for update'
+    else:
+        run('test-key', [args.java / 'bin/keytool', '-genkeypair', '-keystore', keystore,
                      '-storetype', 'JKS', '-alias', 'androiddebugkey', '-keyalg', 'RSA',
                      '-keysize', '2048', '-validity', '3650', '-dname',
                      'CN=BandMaster Owner Playtest,O=BandMaster,C=GB',
                      '-storepass:env', 'BM_ANDROID_DEBUG_PASSWORD',
-                     '-keypass:env', 'BM_ANDROID_DEBUG_PASSWORD'])
+                        '-keypass:env', 'BM_ANDROID_DEBUG_PASSWORD'])
     keystore.chmod(0o600)
     (project / 'project.godot').write_text('''config_version=5
 [application]
@@ -135,7 +141,12 @@ permissions/write_external_storage=false
 permissions/record_audio=false
 permissions/camera=false
 '''
-    (project / 'export_presets.cfg').write_text(preset.replace('TEMPLATE', json.dumps(str(args.template))))
+    preset = preset.replace('TEMPLATE', json.dumps(str(args.template)))
+    preset = preset.replace('version/code=1', 'version/code=' + str(args.version_code))
+    preset = preset.replace('version/name="0.40.0-playtest"', 'version/name=' + json.dumps(args.version_name))
+    (project / 'export_presets.cfg').write_text(preset)
+    receipt.update(version_code=args.version_code, version_name=args.version_name,
+                   reused_test_signing_key=bool(args.keystore))
     config = out / 'editor-config/godot'
     config.mkdir(parents=True)
     settings = {'export/android/android_sdk_path': str(args.sdk),
