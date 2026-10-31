@@ -1,5 +1,5 @@
 {
-  "writer": "S40-settings-qa-20261031T0300",
+  "writer": null,
   "base_head": "eb7f4ce7fdd968f19e9bd0d9d1da3433bc72322b",
   "claimed_at": "2026-10-31T03:07:21.432803+00:00",
   "expires_at": "2026-10-31T03:55:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T03:38:05.378890+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Docs-only02:00materialHOLD/packageaudit complete; no source/art changes or newnativefullsuite. Existingfiniteworker may claim next boundedSettingsQA lease; oldworkerpaused,09:00sourcecutoff,publichistorysyncpendingapproval. Reviewrecord newline correction completed; originalrawledgerentry and94acb8c retained, newreadableappend added.",
+  "note": "Bounded03:00Settings/Sound focusfix/nativeproof/package complete. Existingfiniteworker may claim nextmodalcancelQA lease; oldworkerpaused.08:50onward read-only finalreview,09:00hardcutoff;publichistorysyncpendingexplicitapproval.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-material-review-20261031T0205",
-  "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+  "last_writer": "S40-settings-qa-20261031T0300",
+  "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",

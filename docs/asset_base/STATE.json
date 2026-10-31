@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S40-settings-qa-20261031T0300",
-  "last_verified_code_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+  "writer": null,
+  "last_verified_code_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -653,16 +653,19 @@
   "last_verified_native_run": 41053613819,
   "latest_verified_phase2": {
     "sprint": "S40",
-    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verification_kind": "local Godot4.7.2, not remoteCI",
-    "validation": "/workspace/work/s40/runs/recruit-7f323/validation.json",
+    "validation": "/workspace/work/s40/runs/settings-2e087/validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 96,
-      "recruit_context_fixture_cases_per_viewport": 8,
+      "native_pngs": 112,
+      "settings_contexts_per_viewport": 2,
+      "settings_cycles_per_context": 2,
+      "previous_pngs_unchanged": 96,
+      "fresh_disk_positive_probe": true,
       "orphan_growth": 0,
       "error_lines": 0
     },
@@ -670,7 +673,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Bounded existingSettings/Sound nativeQA; no sourcechange until defectconfirmed/logged, preserve7f checkpoint.",
+  "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -678,69 +681,90 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
-    "verified_at": "2026-10-31T01:39:45.903195+00:00",
-    "scope": "Bounded01:00recruitment decision-context checkpoint, local isolatedsource only; programme active until09:00Europe/London.",
-    "validation": "/workspace/work/s40/runs/recruit-7f323/validation.json",
-    "visual_review": "/workspace/work/s40/runs/recruit-7f323/visual-review.json",
+    "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+    "verified_at": "2026-10-31T03:38:05.378890+00:00",
+    "scope": "Bounded03:00existingSettings/Sound focus repair, localisolatedsource only; overnightprogramme remainsactive until09:00London.",
+    "validation": "/workspace/work/s40/runs/settings-2e087/validation.json",
+    "visual_review": "/workspace/work/s40/runs/settings-2e087/visual-review.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 96,
-      "recruit_context_fixture_cases_per_viewport": 8,
+      "native_pngs": 112,
+      "settings_contexts_per_viewport": 2,
+      "settings_cycles_per_context": 2,
+      "previous_pngs_unchanged": 96,
+      "fresh_disk_positive_probe": true,
       "orphan_growth": 0,
       "error_lines": 0
     },
     "images_opened_by_render_review": [
-      "c27-recruit-390x844.png",
-      "c27-recruit_long_bex-390x844.png",
-      "c27-recruit_long_sam-390x844.png",
-      "c27-recruit_ready_trio-390x844.png",
-      "c27-recruit-720x1280.png",
-      "c27-recruit_long_bex-720x1280.png",
-      "c27-recruit_long_sam-720x1280.png",
-      "c27-recruit_ready_trio-720x1280.png",
-      "c27-recruit-1280x720.png",
-      "c27-recruit_long_bex-1280x720.png",
-      "c27-recruit_long_sam-1280x720.png",
-      "c27-recruit_ready_trio-1280x720.png",
-      "c27-recruit-1600x900.png",
-      "c27-recruit_long_bex-1600x900.png",
-      "c27-recruit_long_sam-1600x900.png",
-      "c27-recruit_ready_trio-1600x900.png"
+      "c27-settings_no_draft_query_fixture_muted-1280x720.png",
+      "c27-settings_no_draft_query_fixture_muted-1600x900.png",
+      "c27-settings_no_draft_query_fixture_muted-390x844.png",
+      "c27-settings_no_draft_query_fixture_muted-720x1280.png",
+      "c27-settings_no_draft_query_fixture_open-1280x720.png",
+      "c27-settings_no_draft_query_fixture_open-1600x900.png",
+      "c27-settings_no_draft_query_fixture_open-390x844.png",
+      "c27-settings_no_draft_query_fixture_open-720x1280.png",
+      "c27-settings_saved_draft_muted-1280x720.png",
+      "c27-settings_saved_draft_muted-1600x900.png",
+      "c27-settings_saved_draft_muted-390x844.png",
+      "c27-settings_saved_draft_muted-720x1280.png",
+      "c27-settings_saved_draft_open-1280x720.png",
+      "c27-settings_saved_draft_open-1600x900.png",
+      "c27-settings_saved_draft_open-390x844.png",
+      "c27-settings_saved_draft_open-720x1280.png"
     ],
+    "fresh_probe_images_opened": [
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/01-menu-initial.png",
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/02-settings-mouse-open.png",
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/03-sound-after-enter.png",
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/04-sound-after-space.png",
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/05-sound-after-mouse.png",
+      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/06-settings-closed.png"
+    ],
+    "fresh_disk_source_wrapper": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
+    "fresh_probe_comparison": "/workspace/work/s40/runs/settings-2e087/fresh-probe-comparison.json",
+    "historical_probe_source_label_note": "Unchanged harness retains baseline source_sha literal; authoritative tested candidate source is the external postfix source manifest and this comparison candidate_source_sha.",
     "visual_verdict": "partial",
     "owner_approved": false,
     "packages": {
-      "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
       "project_files": 274,
       "review_original_pngs": 16,
       "archives": [
         {
-          "path": "/workspace/work/s40/runs/recruit-7f323/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10663724,
-          "sha256": "eaeff22e727e22c5fe68d52409dac6ed65cae3120bb1de4e1becd79c9e0ee057",
+          "path": "/workspace/work/s40/runs/settings-2e087/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10666002,
+          "sha256": "a8c6b69692686f33aa190d117f42abc8f7761c6277f8e054e7f9ef2c598f4d91",
           "zip_crc": "PASS"
         },
         {
-          "path": "/workspace/work/s40/runs/recruit-7f323/packages/native-quality-review.zip",
-          "bytes": 7396035,
-          "sha256": "19617dab510100fe4c3c0bf8d5ee758b6aeaf78570ad5b5281c6dd069b73e11a",
+          "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.zip",
+          "bytes": 6432293,
+          "sha256": "8afc494a90101542ac5df293c36ed3b2209c18a7633937517232e64ab0508247",
           "zip_crc": "PASS"
         }
       ],
       "publication": "local scratch only; no public attachment or remote CI artifact claimed",
       "owner_approved": false,
-      "review_before_smoke_sha256": "36804e050b4604c46f13a8d0eac01a50f9c71cf17fcbc500290327c39a9fe7d0",
+      "incomplete_proof_append_preserved": {
+        "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.incomplete-proof-append.zip",
+        "sha256": "5086f049c4b2004521754d6d9e3243f5cdd6a9d57059db68475ae398327620f5",
+        "reason": "Guessedcomparison filename failed; artifactnotreleased, rebuiltatomicallyaftercheckinginputs."
+      },
       "extracted_clean_import_and_native_entry": "PASS",
-      "package_smoke": "/workspace/work/s40/runs/recruit-7f323/packages/package-smoke.json"
+      "package_smoke": "/workspace/work/s40/runs/settings-2e087/packages/package-smoke.json",
+      "fresh_disk_positive_probe_source": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
+      "review_fresh_disk_original_pngs": 6,
+      "review_rebuild": "Completeinputscheckedbeforewrite; temporaryZIPCRCpassed thenatomicreplace."
     },
     "package_smoke": {
-      "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
-      "checked_at": "2026-10-31T01:38:31.622328+00:00",
-      "extracted_project": "/workspace/work/s40/runs/recruit-7f323/packages/extracted-smoke",
+      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+      "checked_at": "2026-10-31T03:31:37.611458+00:00",
+      "extracted_project": "/workspace/work/s40/runs/settings-2e087/packages/extracted-smoke",
       "steps": [
         {
           "step": "clean-import",
@@ -759,7 +783,7 @@
       "production_save_access": false,
       "owner_approved": false
     },
-    "protected_byte_audit": "/workspace/work/s40/protection-audit-recruit-7f323.json",
+    "protected_byte_audit": "/workspace/work/s40/protection-audit-settings-2e087.json",
     "source_hashes": {
       "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
       "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
@@ -767,26 +791,26 @@
       "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
       "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
       "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
-      "experiments/playable_flightcase/opening_capture.gd": "db06fea269dbeb986b2d3481c4878ac4b46c08682c948d406421de26d809ad17",
+      "experiments/playable_flightcase/opening_capture.gd": "073431e8fa6eb5050bce12a88ee753679a783b7343d4dccc8aaaeed7422a752d",
+      "experiments/playable_flightcase/opening_ui.gd": "70266a939794784fd039c14af62d5deb5a8d6400f258abc76b176ab7494e4de8",
       "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
       "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
       "experiments/playable_flightcase/ui.gd": "c6fec7f736b660d23bc0e2d96426a2865e3c69185808c242542e0a19d3c2899b"
     },
     "simulated_lenses": {
-      "art_direction": "SIMULATED: recruitment now reads identity\u2192six real stats\u2192full authored strengths/friction\u2192talent/action; original analogue material/hardware language is retained. Phone80px casting preview remains honest source usage. Visual PARTIAL, not owner mockup acceptance.",
-      "technical_art": "SIMULATED: all original cast/control/meter/model byte groups match b264; phone meter textures use normal80px native display sizing without raw image edits. No new art generation, enlarged master claims or copied competitor assets.",
-      "ui_accessibility": "SIMULATED: full16px trait/budget copy, six original13px-label/14px-number stats in initial fold at all4sizes,48px browse arrows and shared ready-phone action row. True Tab/Home/End dossier access; no unsupportedPageDown promise or real-device/screen-reader claim.",
-      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+4genuine pointer/keyboard/save journeys;8read-only recruitment economy/longcopy fixtures perviewport; genuine Jackremove/refund/re-recruit once, no model/save-schema changes, zeroERROR/orphan growth.",
-      "qa_producer": "SIMULATED: first phonecontext preview and compactBex failure preserved. Header allocation method changed after2ineffective attempts; final exactsource passes strict all6firstfold. UnsupportedPageDown assumption diagnosed before helper correction; original patch/log chronology disclosed. Packages/CRC/extracted launch local only; public sync still blocked."
+      "art_direction": "SIMULATED: no new artwork or layout changes; all96priornativePNGs identical. NewSettings open/muted views retain originalcase/hardware, labels and48px targets; overallart acceptance remainsPARTIAL.",
+      "technical_art": "SIMULATED: originalcast/control/meter/model bytes unchanged,274-file package matches exactsource. No tolexintegration, C21paperreplacement, newidentity or falsehigh-resolution claims.",
+      "ui_accessibility": "SIMULATED: focusedSettings/Sound controls now survive disclosure/mute; consecutiveEnter/Space and actualTab paths work. ActualMasterstate, visiblelabel andtooltip agree; no draft andsaved-menu branches covered. No physicaldevice/screen-reader claim.",
+      "godot_engineering": "SIMULATED:73+88/import/4complete native/input/save journeys PASS,112PNGs,0ERROR/orphan growth. Sameimmutablepositiveprobe failsold7f thenpassesactualfreshdisk2e with runtimehash pinned bywrapper; no model/save/persistence change.",
+      "qa_producer": "SIMULATED: disabledContinueTabskip was a harnessassumption, classifiedbeforecorrection; actualsevenfocus failures retained. Reviewproofappend pathfailure preserved and rebuiltatomically, CRC/extractedimport/nativeentryPASS. No remoteCI/publicsync or ownerartapproval claimed."
     },
     "remaining_gaps": [
-      "Overall art fidelity remains partial; this is not commercial certification or owner artwork acceptance.",
-      "Full narrative dossier/lead-vocal choices scroll; all6primary stats and complete decision traits are firstfold.",
-      "Original~230px C25 contact-crop previews remain low-resolution sources, not independent masters.",
-      "Existing nativeVSync/anchor warnings retained; noERROR lines or orphan growth.",
-      "Completepublic ledger/history upload is blocked by automatic approval review; explicit approval remains pending."
+      "OriginalwholeUI/mockupbinary notlocated; overallart remainspartial withtolex/material replacementHOLD.",
+      "ActualfreshdiskNoDraft390 replay is separatefrom readonlyNoDraftqueryfixture+actualsavedmenu contexts at4sizes; immutableprobe historical7f label is explicitlydisclosed, newwrapper pins actual2e.",
+      "Original~230px castingcontactcrops remain source limits; no real-device/screen-reader validation.",
+      "Publicfullledger/learninghistory sync blockedbyautomaticreview pendingexplicitapproval; no remoteCI/publishedartifact fornewlocal source."
     ],
-    "next_action": "Next bounded worker: compare one material/frame/icon mismatch on an existing title/menu or recruitment screen against inspected original references at identical native state. Retain a change only if it visibly improves the current source without losing first-fold reading, cast identity, passive-meter/hardware bytes or save/input safety; otherwise validate/package and prepare the09:00review."
+    "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",

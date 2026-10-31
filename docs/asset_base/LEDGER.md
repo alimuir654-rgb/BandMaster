@@ -746,3 +746,31 @@ Five explicitly SIMULATED review lenses (not human acceptance):
 - ui_accessibility: SIMULATED: exact7f all6stats/fulltraits/actions retained at4sizes. ExistingSettings/Sound has no currentnative inputcoverage, so next test should exercise genuine keys/focus and mute state; no defectclaim yet.
 - godot_engineering: SIMULATED: all274sourcepackagefiles match exacttestedGit tree (isolatedentryexception), botharchivesCRC/digestsPASS; no source/art/runtime edits or new fullnative test rerun. Existing7f proof remains authoritative.
 - qa_producer: SIMULATED: materialHOLD is a deliberate qualitygate, not an artisticPASS. No forceddecoration/competingqueue/publichistoryretry. Current package available locally only; next distinct nativeSettingsQA before09:00.
+
+
+## S40 bounded03:00 settings input checkpoint — 2026-10-31T03:38:05.378890+00:00
+
+# S40 settings keyboard/state checkpoint — 31 October 2026,03:00 slot
+
+Exact local tested source `2e087124c7323a1b3b480229425fdef1164b732e`: **technical PASS; visual PARTIAL; owner_approved=false**. No publicsync/newremoteCI claimed. Earlierrecords belowarehistory.
+
+Confirmed beforefix onactualfreshNoDraft7f: Entermuted Master but wholemenu rebuild destroyedfocus/control, sofollowingSpacecouldnotunmute. Source2e nowcreatesexistingSettingspanel once andtogglesvisibility; actualbus andexistingSoundlabel/tooltip updateinplace. No newfeature/persistence/art/model/schema changes.
+
+Verified73gameplay +88opening +cleanimport +4complete nativepointer/Enter/Space/Tab/Home/End/save journeys;112originalPNGs,0ERROR/orphans. Both readonlyNoDraftQUERYfixture andactualsavedmenu each2cycles perviewport. Separateactualfreshdisk390 samebytepositiveprobe nowpassesall7previousfailures; authoritativewrapper pins2e althoughimmutableprobe retains historical7f source literal (disclosed). All96previous7fPNGs identical;16newSettings and6freshprobe originals opened.
+
+Local274-file projectZIP and16+6original-PNG reviewZIP haveCRC/actualsourcehashproof and fresh extractedimport/nativeentryPASS. ReviewZIP partiallyappendedattempt ispreserved; finalbundle rebuiltatomicallyafteractualinputinventory. See `/workspace/work/s40/runs/settings-2e087/packages/packaging.json` for exactdigests. No download/remoteartifactavailability claimed.
+
+Originalcast/meters/hardware/model bytes unchanged; material/tolex replacement remainsHOLD andwholeUIartacceptance unproven.
+
+Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview. Writerreleased 2026-10-31T03:38:05.378890+00:00.
+
+
+Five explicitly SIMULATED review lenses (not humanacceptance):
+
+- art_direction: SIMULATED: no new artwork or layout changes; all96priornativePNGs identical. NewSettings open/muted views retain originalcase/hardware, labels and48px targets; overallart acceptance remainsPARTIAL.
+- technical_art: SIMULATED: originalcast/control/meter/model bytes unchanged,274-file package matches exactsource. No tolexintegration, C21paperreplacement, newidentity or falsehigh-resolution claims.
+- ui_accessibility: SIMULATED: focusedSettings/Sound controls now survive disclosure/mute; consecutiveEnter/Space and actualTab paths work. ActualMasterstate, visiblelabel andtooltip agree; no draft andsaved-menu branches covered. No physicaldevice/screen-reader claim.
+- godot_engineering: SIMULATED:73+88/import/4complete native/input/save journeys PASS,112PNGs,0ERROR/orphan growth. Sameimmutablepositiveprobe failsold7f thenpassesactualfreshdisk2e with runtimehash pinned bywrapper; no model/save/persistence change.
+- qa_producer: SIMULATED: disabledContinueTabskip was a harnessassumption, classifiedbeforecorrection; actualsevenfocus failures retained. Reviewproofappend pathfailure preserved and rebuiltatomically, CRC/extractedimport/nativeentryPASS. No remoteCI/publicsync or ownerartapproval claimed.
+
+Exacthashes/artifacts/imagesopened/source/probe-label disclosure inS40session; allsourceprotecteddata unchanged. ONE nextaction: Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview.

@@ -1,3 +1,19 @@
+# S40 settings keyboard/state checkpoint — 31 October 2026,03:00 slot
+
+Exact local tested source `2e087124c7323a1b3b480229425fdef1164b732e`: **technical PASS; visual PARTIAL; owner_approved=false**. No publicsync/newremoteCI claimed. Earlierrecords belowarehistory.
+
+Confirmed beforefix onactualfreshNoDraft7f: Entermuted Master but wholemenu rebuild destroyedfocus/control, sofollowingSpacecouldnotunmute. Source2e nowcreatesexistingSettingspanel once andtogglesvisibility; actualbus andexistingSoundlabel/tooltip updateinplace. No newfeature/persistence/art/model/schema changes.
+
+Verified73gameplay +88opening +cleanimport +4complete nativepointer/Enter/Space/Tab/Home/End/save journeys;112originalPNGs,0ERROR/orphans. Both readonlyNoDraftQUERYfixture andactualsavedmenu each2cycles perviewport. Separateactualfreshdisk390 samebytepositiveprobe nowpassesall7previousfailures; authoritativewrapper pins2e althoughimmutableprobe retains historical7f source literal (disclosed). All96previous7fPNGs identical;16newSettings and6freshprobe originals opened.
+
+Local274-file projectZIP and16+6original-PNG reviewZIP haveCRC/actualsourcehashproof and fresh extractedimport/nativeentryPASS. ReviewZIP partiallyappendedattempt ispreserved; finalbundle rebuiltatomicallyafteractualinputinventory. See `/workspace/work/s40/runs/settings-2e087/packages/packaging.json` for exactdigests. No download/remoteartifactavailability claimed.
+
+Originalcast/meters/hardware/model bytes unchanged; material/tolex replacement remainsHOLD andwholeUIartacceptance unproven.
+
+Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview. Writerreleased 2026-10-31T03:38:05.378890+00:00.
+
+---
+
 # S40 material review — 31 October 2026,02:00 slot
 
 **Material replacement HOLD; exact verified source remains `7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff`.** No source/art/runtime edits. Current title/recruitment originals were inspected at all4sizes; original hardware and quietcase material are coherent/readable. Available1254px tolexstudy has brighter/higherfrequencygrain with no demonstratednative gain. Only locatedapproved referencepixels are the castingcontactsheet (identityapproval), not a wholeUI/frame approval. No originalownerUI/mockupbinary located inavailable repo/work; do not infer art acceptance.
