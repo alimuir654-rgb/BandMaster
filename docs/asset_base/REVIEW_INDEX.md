@@ -387,3 +387,19 @@ Core75 checkpoint retained. Rootsolewriter S41-opening-poster-20261031T1038 thro
 # S41 single milestone packaging preflight
 
 Frozenverifiedc9 source. Rootsoleartifact/metadatawriter S41-milestone-package-20261031T1120 through12:30; no game/art/source edits. Inventoryexact276files/originalPNGs, tempZIP CRC/content/atomicrelease, freshextractedimport/nativeentry, thenONEsamekey/appID code3 APK0.41.0-playtest privatelysharedonlywithowner. Key/sourcehistory/savesneveruploaded; sourceZIPlocal. Build/deliverypending; no phone/remoteCIclaim.14:50read-only/15:00stop.
+
+
+# S44 current owner-review checkpoint — 2026-10-31T18:37:46.040093+00:00
+
+Exactgame `68ed79c42541b0cdb5a9620690388081fbc18195`; fullnative/focused/LOCALpackaging proof and44originalPNGnames actuallyopened: `/workspace/work/day31/s44/closeout.json`. Ownerreview: https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673 (seq18). TechnicalPASS; artworkPARTIAL/owner_approved=false. Acceptedopening retained; newpreviewisnotinV4APK.
+
+- player: SIMULATED: Guitar→bass→drums→explicit voice choice→lineup review replaces role tabs. Free audition reveals authored strengths/friction before invitation; visible confirmation and Edit routes retain player control.
+- management: SIMULATED: Actual talent costs, 5-point bandmate vocal fee, separate-singer inclusion, reservations, refund and full-band limits remain original. Animation/review spends nothing; budget/cash conversion remain backlog.
+- accessibility: SIMULATED: Original meters remain inert, fixed controls stay reachable, local tap/Enter/Space completes notes, reduced motion is immediate, and real Tab now reveals the last fresh six-member caption through nested scrolls. Long dossiers/reports still scroll.
+- art_direction: SIMULATED: Companion AUDITIONS lettering and fourteen instrument screenprints extend the accepted printed/analogue direction. Native paper/cast/hardware remain source-honest. Dense grain, generous wide paper space and body typography remain owner-review considerations; no blanket approval.
+- release_qa: SIMULATED: Exact68ed passes73+88/import/four genuine journeys with172 standard originals, eight focused phone/wide runs with72 originals, and a same-byte deferred-exit negative/positive proof. 339 protected inputs and297 runtime paths match. Local package imports/launches; new UI has no Android device proof.
+
+Remaining: Current Android download remains V4/game6c; this audition/ink/instrument-art pass is NOT in that APK and has no physical-phone/device/emulator proof. Long candidate dossiers, lower vocal options and longer writing reports use existing scrolls; six-member short-landscape gallery focus can intentionally shift the report scroll. New art is internally review-ready but globalvisual verdict remains PARTIAL/owner_approved=false; accepted opening splash is specifically retained. 175-point budget trial and unused-talent cash conversion remain backlog. No model/economy/save-schema changes. Project/review ZIPs remain LOCAL. Public full-ledger/history publication remains blocked; no retry/bypass/public source/remoteCI claim.
+
+Next: Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default.
+Writerreleased 2026-10-31T18:37:46.040093+00:00.

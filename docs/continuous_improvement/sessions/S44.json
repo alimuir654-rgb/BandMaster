@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S44",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "EXPLICIT new owner approval: Go ahead in response to May I continue this overhaul and run its required native tests after the previous3pm cutoff? Resume only requested audition/ink-note/genre-art implementation and native validation, no schedule extension.",
   "baseline_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
@@ -44,12 +44,12 @@
     "BM-46"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/LESSONS.md": "399b09b9aa08082a3a482b5c8bb9ada4b95fab95b9e59f2680a3b80806d9c739",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 374600,
-    "sha256": "262dacde5a92aec8d5faa4be3fb46913fa5c0d9bcb6997fe6b0b069cfde44001"
+    "bytes": 378830,
+    "sha256": "83d6932ae2b6974a598fd1848edc24e27e961f65695cdf4ae966873d368e388b"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -58,7 +58,7 @@
     "kind": "Actual current6c1 native phone recruitment baseline; result/genre/title source originals also inspected; owner direct feedback is target direction, no invented approved audition mockup"
   },
   "hypothesis": "Replacing role tabs with deliberate sequential auditions and an explicit review, revealing authored notes only after actions, and adding stronger standalone genre art will make the existing loop feel like meeting/choosing musicians rather than manipulating a stats form.",
-  "controlled_comparison": "Exact6c1 cast/state/cost/assets. Explicit guitar\u2192bass\u2192drums\u2192vocals\u2192review, editable/optional players accessible; navigation/audition/reveal consume no day/talent/save. Preserve six passive meter source bytes and full dossier; exact same-candidate/state A/B when layout changes. Notes keep full native text and AFTER_SHAPING layout; saved receipt/metrics/navigation immediate, reduced motion/reopen instant. Current title/stage unchanged except companion heading on recruitment. Native four views + actual pointer/key/save/Continue, 73/88 model tests unchanged; update obsolete tab assertions explicitly to new ordered-flow contract, not weaken source/settlement guards.",
+  "controlled_comparison": "Exact6c1 cast/state/cost/assets. Explicit guitar→bass→drums→vocals→review, editable/optional players accessible; navigation/audition/reveal consume no day/talent/save. Preserve six passive meter source bytes and full dossier; exact same-candidate/state A/B when layout changes. Notes keep full native text and AFTER_SHAPING layout; saved receipt/metrics/navigation immediate, reduced motion/reopen instant. Current title/stage unchanged except companion heading on recruitment. Native four views + actual pointer/key/save/Continue, 73/88 model tests unchanged; update obsolete tab assertions explicitly to new ordered-flow contract, not weaken source/settlement guards.",
   "stop_condition": "One root writer/GL, bounded lease19:00UTC. Explicit new owner post3pm approval recorded. Preserve all failures, two ineffective iterations change method/HOLD, no bypass/gateweakening/newmodels/economy/save-schema/cast/publication. V4 unchanged until newcandidate meets evidence gates; no automatic schedule extension.",
   "protected": [
     "C25 identities/contact-crop provenance and all portrait source bytes",
@@ -84,7 +84,7 @@
   "started_at": "2026-10-31T17:07:56.973979+00:00",
   "scope_end": "2026-10-31T19:00:00Z",
   "game_baseline_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-  "next_action": "Finish exact68ed full/focusedproof; thenLOCAL checkpoint andselectednativeScreens ifallpass, honestcloseout/release by19:00.",
+  "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default.",
   "candidate_source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
   "failures": [
     {
@@ -130,6 +130,83 @@
     "Event218 corrects217: scratch-only observer fix saved~12s before root event filing; original immutable, no runtime/product correction before native testing."
   ],
   "implementation_preflight_baseline_sha": "a567329e23ed14fef512018bdafa25d401c1d9bf",
-  "phase": "frozen_source_native_then_artifacts",
-  "artifact_scope": "ONE LOCAL297-file project/reviewZIP +fresh extraction/nativeentry onlyafterfull+focusedPASS; selectedcurrentnativeScreens privatelyinsertedexistingownerreviewPage, freshguards/readback. No APK/source-history-publication orgame/artwrites."
+  "phase": "native_verified_packaged_screens_delivered_writer_released",
+  "artifact_scope": "ONE LOCAL297-file project/reviewZIP +fresh extraction/nativeentry onlyafterfull+focusedPASS; selectedcurrentnativeScreens privatelyinsertedexistingownerreviewPage, freshguards/readback. No APK/source-history-publication orgame/artwrites.",
+  "ended_at": "2026-10-31T18:37:46.040093+00:00",
+  "tested_source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+  "candidate_native_verified": true,
+  "closeout": {
+    "tested_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+    "evidence": [
+      "/workspace/work/day31/s44/closeout.json",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/visual-review.json",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/packaging.json",
+      "/workspace/work/day31/s44/screenshot-delivery.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default.",
+    "new_issue_review": "All235events reviewed; preserved runtime/harness/metadatafailures, actualfocus/lifecycleproof andrawpixelcorrection. No assertion/gate weakening.",
+    "simulated_lenses": {
+      "player": "SIMULATED: Guitar→bass→drums→explicit voice choice→lineup review replaces role tabs. Free audition reveals authored strengths/friction before invitation; visible confirmation and Edit routes retain player control.",
+      "management": "SIMULATED: Actual talent costs, 5-point bandmate vocal fee, separate-singer inclusion, reservations, refund and full-band limits remain original. Animation/review spends nothing; budget/cash conversion remain backlog.",
+      "accessibility": "SIMULATED: Original meters remain inert, fixed controls stay reachable, local tap/Enter/Space completes notes, reduced motion is immediate, and real Tab now reveals the last fresh six-member caption through nested scrolls. Long dossiers/reports still scroll.",
+      "art_direction": "SIMULATED: Companion AUDITIONS lettering and fourteen instrument screenprints extend the accepted printed/analogue direction. Native paper/cast/hardware remain source-honest. Dense grain, generous wide paper space and body typography remain owner-review considerations; no blanket approval.",
+      "release_qa": "SIMULATED: Exact68ed passes73+88/import/four genuine journeys with172 standard originals, eight focused phone/wide runs with72 originals, and a same-byte deferred-exit negative/positive proof. 339 protected inputs and297 runtime paths match. Local package imports/launches; new UI has no Android device proof."
+    },
+    "original_pngs_opened": [
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_needs_vocals-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_long_bex-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_ready_trio-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-title-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-genre-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_outcome-390x844.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_needs_vocals-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_long_bex-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_ready_trio-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-title-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-genre-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_outcome-720x1280.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_needs_vocals-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_long_bex-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_ready_trio-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-title-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-genre-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_outcome-1280x720.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_needs_vocals-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_long_bex-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-recruit_ready_trio-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-title-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-genre-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_outcome-1600x900.png",
+      "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_six_members-1280x720.png",
+      "/workspace/work/day31/s44/audition-68ed79c-390x844/captures/audition-jack-reviewed-390x844.png",
+      "/workspace/work/day31/s44/audition-68ed79c-390x844/captures/audition-vocal-decision-390x844.png",
+      "/workspace/work/day31/s44/audition-68ed79c-390x844/captures/audition-lineup-review-390x844.png",
+      "/workspace/work/day31/s44/audition-68ed79c-1280x720/captures/audition-jack-reviewed-1280x720.png",
+      "/workspace/work/day31/s44/audition-68ed79c-1280x720/captures/audition-vocal-decision-1280x720.png",
+      "/workspace/work/day31/s44/audition-68ed79c-1280x720/captures/audition-lineup-review-1280x720.png",
+      "/workspace/work/day31/s44/ink-68ed79c-390x844/captures/natural-create-partial-390x844.png",
+      "/workspace/work/day31/s44/ink-68ed79c-390x844/captures/natural-create-complete-390x844.png",
+      "/workspace/work/day31/s44/ink-68ed79c-390x844/captures/natural-connect-partial-390x844.png",
+      "/workspace/work/day31/s44/ink-68ed79c-390x844/captures/natural-connect-complete-390x844.png",
+      "/workspace/work/day31/s44/genre-68ed79c-390x844/captures/genre-Punk-390x844.png",
+      "/workspace/work/day31/s44/genre-68ed79c-390x844/captures/genre-Synth-pop-390x844.png",
+      "/workspace/work/day31/s44/genre-68ed79c-1280x720/captures/genre-Country___Americana-1280x720.png",
+      "/workspace/work/day31/s44/genre-68ed79c-1280x720/captures/genre-Punk-1280x720.png",
+      "/workspace/work/day31/s44/six-focus-68ed79c-390x844/captures/02-real-tab-focused-last-caption-390x844.png"
+    ],
+    "remaining": [
+      "Current Android download remains V4/game6c; this audition/ink/instrument-art pass is NOT in that APK and has no physical-phone/device/emulator proof.",
+      "Long candidate dossiers, lower vocal options and longer writing reports use existing scrolls; six-member short-landscape gallery focus can intentionally shift the report scroll.",
+      "New art is internally review-ready but globalvisual verdict remains PARTIAL/owner_approved=false; accepted opening splash is specifically retained.",
+      "175-point budget trial and unused-talent cash conversion remain backlog. No model/economy/save-schema changes.",
+      "Project/review ZIPs remain LOCAL. Public full-ledger/history publication remains blocked; no retry/bypass/public source/remoteCI claim."
+    ],
+    "writer_released_at": "2026-10-31T18:37:46.040093+00:00"
+  }
 }

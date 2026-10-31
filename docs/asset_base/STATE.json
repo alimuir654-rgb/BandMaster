@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "explicit_owner_postcutoff_native_validation_active",
+  "status": "s44_native_review_ready_writer_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "EXPLICIT new owner approval: Go ahead in response to May I continue this overhaul and run its required native tests after the previous3pm cutoff? Resume only requested audition/ink-note/genre-art implementation and native validation, no schedule extension.",
-  "writer": "S44-approved-postcutoff-native-20261031T1707",
-  "last_verified_code_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+  "writer": null,
+  "last_verified_code_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "next_single_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -455,10 +455,18 @@
       "status": "s41_additional_art_localpackage_and_pages_delivered",
       "closeout": "/workspace/work/day31/artwork-delivery-closeout.json",
       "decision": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension."
+    },
+    {
+      "session": "S44",
+      "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+      "evidence": "/workspace/work/day31/s44/closeout.json",
+      "closed_at": "2026-10-31T18:37:46.040093+00:00",
+      "publication": "LOCALsource; selectedprivateScreens",
+      "owner_approved": false
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Final additional artwork localcheckpoint and selectednative screenshotdelivery",
+  "last_completed_deliverable": "Ordered auditions / action-onlyink /14instrumentprints: nativeverified68ed, local297filecheckpoint+28PNGreview,7privateScreens; V4unchanged",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -504,7 +512,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T13:19:46.496525+00:00",
+  "last_updated_utc": "2026-10-31T18:37:46.040093+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -512,7 +520,7 @@
   },
   "last_run_summary": "PASS: frozenexact6c1archives/newextractednativeentry andselectedPageasset/canonicaldelivery. Nativephone/emulator/ownerartapproval unclaimed.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
-  "last_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
+  "last_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
   "latest_owner_scope": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -596,17 +604,7 @@
     "art_acceptance": "rejected",
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
-  "last_improvement_review": {
-    "session": "S41",
-    "tested_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-    "evidence": [
-      "/workspace/work/s40/runs/day31-poster-c9c67ad/validation.json",
-      "/workspace/work/s40/runs/day31-poster-c9c67ad/visual-review.json"
-    ],
-    "visual_verdict": "partial",
-    "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.",
-    "owner_approved": false
-  },
+  "last_improvement_review": "/workspace/work/s40/runs/s44-audition-68ed79c-final/visual-review.json",
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
@@ -655,25 +653,30 @@
     "owner_approved": false
   },
   "current_session": "S44",
-  "last_verified_native_run": 41053613819,
+  "last_verified_native_run": "/workspace/work/s40/runs/s44-audition-68ed79c-final/validation.json",
   "latest_verified_phase2": {
-    "sprint": "S40",
-    "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-    "validation": "/workspace/work/s40/runs/phone-95b2574/validation.json",
+    "sprint": "S44",
+    "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+    "validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
-      "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 120,
+      "genuine_native_input_save_viewports": 4,
+      "standard_original_pngs": 172,
+      "focused_original_pngs": 72,
+      "focused_runs": 8,
       "engine_error_lines": 0,
-      "orphan_growth": 0
+      "orphan_growth": 0,
+      "protected_files": 339,
+      "runtime_source_paths": 297
     },
     "visual_verdict": "partial",
-    "owner_approved": false
+    "owner_approved": false,
+    "publication": "LOCALonly"
   },
-  "last_sprint": "S39",
-  "next_action": "Validate held candidate with isolated Godot4.7.2 models/import, focused auditions and ink notes, thenfour genuine journeys/originalpixels; correct demonstrated issues and deliver review-ready checkpoint. No APK by default.",
+  "last_sprint": "S44",
+  "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -681,567 +684,53 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-    "verified_at": "2026-10-31T13:02:19.966531+00:00",
-    "scope": "Additional existing-title independent wordmark ink; verified genre artwork/core retained",
-    "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/complete-validation.json",
-    "visual_review": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/visual-review.json",
-    "focused_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/focused-validation.json",
-    "source_protection": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/source-protection-audit.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/runtime-source-audit.json",
-    "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/protected-checkpoint-comparison.json",
+    "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+    "verified_at": "2026-10-31T18:37:46.040093+00:00",
+    "scope": "Owner-requested ordered auditions, action-only gradual notes, companion printed heading and14instrumentgenreillustrations",
+    "validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
+    "visual_review": "/workspace/work/s40/runs/s44-audition-68ed79c-final/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/focused-validation.json",
+    "source_protection": "/workspace/work/s40/runs/s44-audition-68ed79c-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s44-audition-68ed79c-final/runtime-source-audit.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/protected-checkpoint-comparison.json",
+    "pre_focus_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/final-vs68-pixels.json",
+    "closeout": "/workspace/work/day31/s44/closeout.json",
+    "packaging": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/packaging.json",
+    "project_zip": {
+      "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+      "bytes": 55097780,
+      "sha256": "3d2467788103b3f22bd13459e99df7769fa8033b891d6837bbaf576387b67e01",
+      "zip_crc": "PASS"
+    },
+    "review_zip": {
+      "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/native-quality-review.zip",
+      "bytes": 11812549,
+      "sha256": "c185174698841336e35e83dd7d7ba93d9c5f7dc50c616909f87cfa7d2b9b708b",
+      "zip_crc": "PASS"
+    },
+    "package_smoke": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/package-smoke.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
-      "native_journeys": 4,
-      "standard_originals": 172,
-      "focused_menu_checks": 3235,
-      "focused_profiles": 5,
-      "focused_originals": 65,
-      "opacity_render_proofs": 10,
+      "clean_import": true,
+      "genuine_native_input_save_viewports": 4,
+      "standard_original_pngs": 172,
+      "focused_original_pngs": 72,
+      "focused_runs": 8,
       "engine_error_lines": 0,
       "orphan_growth": 0,
-      "protected_source_files": 342,
-      "runtime_source_files": 280
+      "protected_files": 339,
+      "runtime_source_paths": 297
     },
-    "opened_originals": [
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
-        "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
-        "dimensions": [
-          390,
-          844
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
-        "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
-        "dimensions": [
-          390,
-          844
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
-        "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
-        "dimensions": [
-          1152,
-          648
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
-        "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
-        "dimensions": [
-          1152,
-          648
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/opening-no-draft-closed-720x1280.png",
-        "sha256": "00c2c94b757be933622557243dee3830b68f414dc03b67861f4f5e56177259d8",
-        "dimensions": [
-          720,
-          1280
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/no-draft-settings-open-720x1280.png",
-        "sha256": "17d074acf59a60252fe02136bb2a4f5cc30bff8973b2cdfc67becbb17b2a0e54",
-        "dimensions": [
-          720,
-          1280
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/opening-no-draft-closed-1280x720.png",
-        "sha256": "0b47f5b53122fe04ea0c1507a0268cd369d20a05880a8093738858232231e3a1",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/no-draft-settings-open-1280x720.png",
-        "sha256": "abcd6a29d5c1cf125da9b2bf2985cc4ef8496eb32952a54bbcd71a17029c8cce",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/opening-no-draft-closed-1600x900.png",
-        "sha256": "fc53464a7c09f007540efae6f1a9ce69955df2cbab9bcdef864907c721419f71",
-        "dimensions": [
-          1600,
-          900
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/no-draft-settings-open-1600x900.png",
-        "sha256": "911740b8dceaebfaac5024ec09aeef8a10f0427b7b5d4505fab4dabb132fd2ed",
-        "dimensions": [
-          1600,
-          900
-        ],
-        "mode": "RGBA",
-        "kind": "candidate_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
-        "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
-        "dimensions": [
-          390,
-          844
-        ],
-        "mode": "RGBA",
-        "kind": "baseline_c9_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
-        "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
-        "dimensions": [
-          390,
-          844
-        ],
-        "mode": "RGBA",
-        "kind": "baseline_c9_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-no-draft-closed-1152x648.png",
-        "sha256": "76ea2047bc70b4c2b009499c8d3a18542bdff4a8e8fac11211ee0a4a740c61ba",
-        "dimensions": [
-          1152,
-          648
-        ],
-        "mode": "RGBA",
-        "kind": "baseline_c9_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
-        "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
-        "dimensions": [
-          1152,
-          648
-        ],
-        "mode": "RGBA",
-        "kind": "baseline_c9_actual_fresh_no_draft_native",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/generated_images/exec-6c5abac7-2e46-4586-b3f1-ea0f9bb2861c.png",
-        "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
-        "dimensions": [
-          1774,
-          887
-        ],
-        "mode": "RGBA",
-        "kind": "raw_generated_wordmark_source2",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      },
-      {
-        "path": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
-        "sha256": "2f9b3e5e63aa17d0cb505efd008c983c19495452dcdcf6872eb85d594d29b9c2",
-        "dimensions": [
-          1774,
-          887
-        ],
-        "mode": "RGB",
-        "kind": "four_phone_style_reference_only",
-        "opened_original": true,
-        "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
-      }
-    ],
-    "additional_root_originals_opened": [
-      {
-        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
-        "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
-        "dimensions": [
-          390,
-          844
-        ],
-        "actually_opened": true,
-        "rendering": "untouched original native Godot PNG"
-      },
-      {
-        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
-        "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
-        "dimensions": [
-          720,
-          1280
-        ],
-        "actually_opened": true,
-        "rendering": "untouched original native Godot PNG"
-      },
-      {
-        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
-        "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
-        "dimensions": [
-          1280,
-          720
-        ],
-        "actually_opened": true,
-        "rendering": "untouched original native Godot PNG"
-      },
-      {
-        "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
-        "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
-        "dimensions": [
-          1600,
-          900
-        ],
-        "actually_opened": true,
-        "rendering": "untouched original native Godot PNG"
-      }
-    ],
-    "source_art": {
-      "source_type": "Standalone image-generated RGBA wordmark, reference-edited fromfirstheldcandidate; not fullUI/photography/newfont",
-      "path": "experiments/playable_flightcase/art/opening_wordmark.png",
-      "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
-      "raw_dimensions": [
-        1774,
-        887
-      ],
-      "runtime_crop": [
-        264,
-        95,
-        1248,
-        718
-      ],
-      "raw_file_unchanged": true,
-      "standard_import_operation": "Full Image.fix_alpha_edges onrawduplicate independentlymatchesimport/nativeRGBA exactly; allalpha/RGBatAlpha>=20 preserved.",
-      "provenance": "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
-    },
-    "retained_genre_proof": {
-      "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
-      "focused_checks": 5822,
-      "genre_functions_and_sources_byte_identical": true,
-      "all4genre_standard_originals_byte_identical": true
-    },
-    "simulated_lenses": [
-      {
-        "lens": "SIMULATED first-time player",
-        "concern": "Can I read the game title and find the primary action quickly?",
-        "evidence": "All10 native closed/open originals; matching C9phone/default baselines.",
-        "finding": "Wordmark is immediately legible and more memorable; New Band remains the dominant action. Continue is visibly disabled with its explanatory copy in NoDraft."
-      },
-      {
-        "lens": "SIMULATED music-game player / art direction",
-        "concern": "Does title treatment fit a grounded British rehearsal/stage world?",
-        "evidence": "Native amber stage, actual wordmark source2 and opened concept board.",
-        "finding": "Warm distressed block print and ochre underline fit the existing music-poster material language better. Still internal PARTIAL: less irregular/skewed and more cleanly geometric than the concept, without claiming final taste approval."
-      },
-      {
-        "lens": "SIMULATED UX/accessibility specialist",
-        "concern": "Do decoration and resizing harm copy, button clarity or semantic continuity?",
-        "evidence": "390 and1152 default closed/open states,720/1280/1600 samples; inspected original Label and inert child implementation.",
-        "finding": "No visible overlap or lost copy; Label text/font/layout remain in source. No physical-phone or assistive-technology testing claim; fixed-title artwork is not a localization-ready font."
-      },
-      {
-        "lens": "SIMULATED technical artist",
-        "concern": "Are source, alpha and runtime transformations described honestly?",
-        "evidence": "Raw1774x887RGBA source2 opened; repository asset hash equality, explicit crop/provenance and focused import receipts read.",
-        "finding": "Raw bytes retained and crop/aspect fit are explicit. Faint raw alpha and standard import edge processing remain real limitations, not hidden under a clean-alpha claim. No whole-screen UI art or source-image retouch by reviewer."
-      },
-      {
-        "lens": "SIMULATED Godot/release QA engineer",
-        "concern": "Could a focused visual pass be confused with whole-game release acceptance?",
-        "evidence": "Five focused receipts total3235checks, no failures/orphans; native source inspected. Full root native pipeline was separately running.",
-        "finding": "Scoped evidence supports this wordmark comparison only. Full73/88/four journeys/protected assets/source/packaging must close independently; no APK/device/remoteCI/owner approval inferred."
-      }
-    ],
     "visual_verdict": "partial",
     "owner_approved": false,
-    "new_android_apk": false,
-    "new_project_zip": true,
-    "remaining_gaps": [
-      "Global artwork remains PARTIAL/ownerfalse; word spacing is tight and the mark is cleaner/heavier than the original distressed concept.",
-      "Raw wordmark retains faint alpha1..8 specks; source remains unchanged, measured runtime crop handles fit. Godotimportfix_alpha_edges modifies low-alpha RGB only, independently reproduced exactly; no cleanrawalpha claim.",
-      "New genre/wordmark art is native-only so far. Existing privately deliveredv3APK and priorZIP remainc9; no newphone/device/emulator test orAPK generated.",
-      "Budget/cash conversion/genre gameplay variants remainbacklog; no model/economy/save-schema changes."
-    ],
-    "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
-    "native_packages": {
-      "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-      "project_files": 280,
-      "source_archive_entries": 282,
-      "review_original_pngs": 22,
-      "archives": [
-        {
-          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 13752144,
-          "sha256": "c91ef22baccb07a686830b65b94cf5f2704d462a7ace0268670038b6a45be3df",
-          "zip_crc": "PASS"
-        },
-        {
-          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/native-quality-review.zip",
-          "bytes": 11429561,
-          "sha256": "af23c6ead485aa6e053c27712230e945a4579f72d559f933b1b1b02fdb94ad5f",
-          "zip_crc": "PASS"
-        }
-      ],
-      "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
-      "isolated_project_entry_exception": "project.godot is the exact146-byte tested isolated95 recipe, not the production Git project; source project blob ID is recorded separately.",
-      "entry_recipe": {
-        "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-        "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
-        "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-        "manifest_paths": 274,
-        "isolated_entry_sha256": "f4a1d001bd3cc2006388b3e772bb2019ca7f9d744ddd134e50a6fa79a03ccc50"
-      },
-      "review_pngs": [
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
-          "archive_path": "original-png/c27-title-390x844.png",
-          "bytes": 295616,
-          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-390x844.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-390x844.png",
-          "bytes": 307646,
-          "sha256": "ec50dd63283071d2c1d250a4d8244fce87b76ae21633ca69c73dc5f22874848e",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-390x844.png",
-          "archive_path": "original-png/c27-genre-390x844.png",
-          "bytes": 280206,
-          "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
-          "archive_path": "original-png/c27-title-720x1280.png",
-          "bytes": 641239,
-          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-720x1280.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-720x1280.png",
-          "bytes": 600069,
-          "sha256": "39fc7cc0849ca810d8c55d274b30fab486a9425e82812a6076c474f53253da0e",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-720x1280.png",
-          "archive_path": "original-png/c27-genre-720x1280.png",
-          "bytes": 502935,
-          "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
-          "width": 720,
-          "height": 1280
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
-          "archive_path": "original-png/c27-title-1280x720.png",
-          "bytes": 732792,
-          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1280x720.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-1280x720.png",
-          "bytes": 794310,
-          "sha256": "c7969fbf9774dc63bd8dbf8eb5c7e4f97feb2e016157b4044b53f8314fabb5e0",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1280x720.png",
-          "archive_path": "original-png/c27-genre-1280x720.png",
-          "bytes": 546266,
-          "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
-          "archive_path": "original-png/c27-title-1600x900.png",
-          "bytes": 796850,
-          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1600x900.png",
-          "archive_path": "original-png/c27-settings_saved_draft_open-1600x900.png",
-          "bytes": 859954,
-          "sha256": "722969430d026b9b9f63571c1da8ff2e3cd362c6d1037d06ded9462a72f4b5e7",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1600x900.png",
-          "archive_path": "original-png/c27-genre-1600x900.png",
-          "bytes": 716484,
-          "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-390x844.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-390x844.png",
-          "bytes": 277374,
-          "sha256": "ff83d9d65e36074cb6b338dcfb1e0178f7593015a7c6f08738ebf65ebbe04c1a",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-390x844.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-390x844.png",
-          "bytes": 294130,
-          "sha256": "52ce2007fe7567d3c38ad22d1b3f02feaea55ae6ddf8e9081a4c3df3d409e89b",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-390x844.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
-          "bytes": 320848,
-          "sha256": "e972c07af82d977167fed6328b70aa007e5a886166fb4710270cb201db2c1ce1",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-1280x720.png",
-          "archive_path": "original-png/c27-practice_mode_create_day1-1280x720.png",
-          "bytes": 477160,
-          "sha256": "684460e607b0540e685c23333e270e1fea35d0aba1e1534b2dbe0336bd1ff389",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-1280x720.png",
-          "archive_path": "original-png/c27-practice_mode_tighten_day1-1280x720.png",
-          "bytes": 516573,
-          "sha256": "07e170f4d582432a9e2a42b6b379866f7d681ddbdb98b6f63df4bc09469b3667",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-1280x720.png",
-          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
-          "bytes": 536311,
-          "sha256": "50632466c45f760261e4396b1b714fbdaf73613fcd73520526e1bedfaf74114b",
-          "width": 1280,
-          "height": 720
-        },
-        {
-          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
-          "archive_path": "original-png/opening-no-draft-closed-390x844.png",
-          "bytes": 299484,
-          "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
-          "archive_path": "original-png/no-draft-settings-open-390x844.png",
-          "bytes": 309985,
-          "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
-          "width": 390,
-          "height": 844
-        },
-        {
-          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
-          "archive_path": "original-png/opening-no-draft-closed-1152x648.png",
-          "bytes": 637886,
-          "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
-          "width": 1152,
-          "height": 648
-        },
-        {
-          "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
-          "archive_path": "original-png/no-draft-settings-open-1152x648.png",
-          "bytes": 697577,
-          "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
-          "width": 1152,
-          "height": 648
-        }
-      ],
-      "explicit_poster_asset": "experiments/playable_flightcase/art/opening_stage.png",
-      "publication": "LOCAL only; no upload/publication performed",
-      "owner_approved": false,
-      "extracted_clean_import_and_native_entry": "PASS: fresh280-file exactmanifest/extracted import and actualnative configuredopening.tscn entry, explicitDummy audio andisolateduserdata",
-      "package_smoke": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/package-smoke.json",
-      "method": "Exact Git blobs + tested entry recipe + explicit PNG inventory loaded before writes; temporary ZIP CRC/content checks then atomic replacement.",
-      "explicit_extra_sources": [
-        "experiments/playable_flightcase/genre_press.gd",
-        "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
-        "experiments/playable_flightcase/art/opening_wordmark.png",
-        "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
-      ]
-    },
-    "owner_review_pages": {
-      "plan": {
-        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
-        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-        "edit_sequence": 6,
-        "canonical_readback_verified": true,
-        "images": 9
-      },
-      "phone": {
-        "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
-        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-        "edit_sequence": 9,
-        "canonical_readback_verified": true
-      }
-    }
+    "review_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+    "page_sequence": 18,
+    "selected_screenshots": 7,
+    "publication": "LOCAL project/history; selectednativeScreens privatelyshared existingPage; noAPK/remoteCI/publicsourceupload",
+    "android": "V4/game6c unchanged; newpass NOT in APK",
+    "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -1264,8 +753,8 @@
     "playable_artifact": 12975024435,
     "owner_approved": false
   },
-  "last_verified_native_run_is_historical_remote": true,
-  "last_verified_native_run_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+  "last_verified_native_run_is_historical_remote": false,
+  "last_verified_native_run_source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
   "latest_material_review": {
     "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
@@ -1477,11 +966,597 @@
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
-  "latest_unverified_candidate": {
-    "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
-    "status": "hold",
-    "native_verified": false,
-    "closeout": "/workspace/work/day31/s43/held-closeout.json",
-    "protected_inputs_unchanged": 339
-  }
+  "latest_unverified_candidate": null,
+  "prior_s44_verified_pointers": {
+    "last_verified_code_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+    "latest_local_native_checkpoint": {
+      "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+      "verified_at": "2026-10-31T13:02:19.966531+00:00",
+      "scope": "Additional existing-title independent wordmark ink; verified genre artwork/core retained",
+      "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
+      "complete_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/complete-validation.json",
+      "visual_review": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/visual-review.json",
+      "focused_validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/focused-validation.json",
+      "source_protection": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/source-protection-audit.json",
+      "runtime_source_audit": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/runtime-source-audit.json",
+      "protected_checkpoint_comparison": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/protected-checkpoint-comparison.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "native_journeys": 4,
+        "standard_originals": 172,
+        "focused_menu_checks": 3235,
+        "focused_profiles": 5,
+        "focused_originals": 65,
+        "opacity_render_proofs": 10,
+        "engine_error_lines": 0,
+        "orphan_growth": 0,
+        "protected_source_files": 342,
+        "runtime_source_files": 280
+      },
+      "opened_originals": [
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
+          "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
+          "dimensions": [
+            390,
+            844
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
+          "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
+          "dimensions": [
+            390,
+            844
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
+          "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
+          "dimensions": [
+            1152,
+            648
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
+          "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
+          "dimensions": [
+            1152,
+            648
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/opening-no-draft-closed-720x1280.png",
+          "sha256": "00c2c94b757be933622557243dee3830b68f414dc03b67861f4f5e56177259d8",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-tablet/captures/no-draft-settings-open-720x1280.png",
+          "sha256": "17d074acf59a60252fe02136bb2a4f5cc30bff8973b2cdfc67becbb17b2a0e54",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/opening-no-draft-closed-1280x720.png",
+          "sha256": "0b47f5b53122fe04ea0c1507a0268cd369d20a05880a8093738858232231e3a1",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-wide/captures/no-draft-settings-open-1280x720.png",
+          "sha256": "abcd6a29d5c1cf125da9b2bf2985cc4ef8496eb32952a54bbcd71a17029c8cce",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/opening-no-draft-closed-1600x900.png",
+          "sha256": "fc53464a7c09f007540efae6f1a9ce69955df2cbab9bcdef864907c721419f71",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-large/captures/no-draft-settings-open-1600x900.png",
+          "sha256": "911740b8dceaebfaac5024ec09aeef8a10f0427b7b5d4505fab4dabb132fd2ed",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "mode": "RGBA",
+          "kind": "candidate_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
+          "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
+          "dimensions": [
+            390,
+            844
+          ],
+          "mode": "RGBA",
+          "kind": "baseline_c9_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
+          "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
+          "dimensions": [
+            390,
+            844
+          ],
+          "mode": "RGBA",
+          "kind": "baseline_c9_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-no-draft-closed-1152x648.png",
+          "sha256": "76ea2047bc70b4c2b009499c8d3a18542bdff4a8e8fac11211ee0a4a740c61ba",
+          "dimensions": [
+            1152,
+            648
+          ],
+          "mode": "RGBA",
+          "kind": "baseline_c9_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
+          "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
+          "dimensions": [
+            1152,
+            648
+          ],
+          "mode": "RGBA",
+          "kind": "baseline_c9_actual_fresh_no_draft_native",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/generated_images/exec-6c5abac7-2e46-4586-b3f1-ea0f9bb2861c.png",
+          "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+          "dimensions": [
+            1774,
+            887
+          ],
+          "mode": "RGBA",
+          "kind": "raw_generated_wordmark_source2",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        },
+        {
+          "path": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
+          "sha256": "2f9b3e5e63aa17d0cb505efd008c983c19495452dcdcf6872eb85d594d29b9c2",
+          "dimensions": [
+            1774,
+            887
+          ],
+          "mode": "RGB",
+          "kind": "four_phone_style_reference_only",
+          "opened_original": true,
+          "inspection_method": "view_image at original resolution; original fullscreen/source image, no generated atlas"
+        }
+      ],
+      "additional_root_originals_opened": [
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
+          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+          "dimensions": [
+            390,
+            844
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
+          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+          "dimensions": [
+            720,
+            1280
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
+          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+          "dimensions": [
+            1280,
+            720
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
+          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+          "dimensions": [
+            1600,
+            900
+          ],
+          "actually_opened": true,
+          "rendering": "untouched original native Godot PNG"
+        }
+      ],
+      "source_art": {
+        "source_type": "Standalone image-generated RGBA wordmark, reference-edited fromfirstheldcandidate; not fullUI/photography/newfont",
+        "path": "experiments/playable_flightcase/art/opening_wordmark.png",
+        "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+        "raw_dimensions": [
+          1774,
+          887
+        ],
+        "runtime_crop": [
+          264,
+          95,
+          1248,
+          718
+        ],
+        "raw_file_unchanged": true,
+        "standard_import_operation": "Full Image.fix_alpha_edges onrawduplicate independentlymatchesimport/nativeRGBA exactly; allalpha/RGBatAlpha>=20 preserved.",
+        "provenance": "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
+      },
+      "retained_genre_proof": {
+        "source_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+        "focused_checks": 5822,
+        "genre_functions_and_sources_byte_identical": true,
+        "all4genre_standard_originals_byte_identical": true
+      },
+      "simulated_lenses": [
+        {
+          "lens": "SIMULATED first-time player",
+          "concern": "Can I read the game title and find the primary action quickly?",
+          "evidence": "All10 native closed/open originals; matching C9phone/default baselines.",
+          "finding": "Wordmark is immediately legible and more memorable; New Band remains the dominant action. Continue is visibly disabled with its explanatory copy in NoDraft."
+        },
+        {
+          "lens": "SIMULATED music-game player / art direction",
+          "concern": "Does title treatment fit a grounded British rehearsal/stage world?",
+          "evidence": "Native amber stage, actual wordmark source2 and opened concept board.",
+          "finding": "Warm distressed block print and ochre underline fit the existing music-poster material language better. Still internal PARTIAL: less irregular/skewed and more cleanly geometric than the concept, without claiming final taste approval."
+        },
+        {
+          "lens": "SIMULATED UX/accessibility specialist",
+          "concern": "Do decoration and resizing harm copy, button clarity or semantic continuity?",
+          "evidence": "390 and1152 default closed/open states,720/1280/1600 samples; inspected original Label and inert child implementation.",
+          "finding": "No visible overlap or lost copy; Label text/font/layout remain in source. No physical-phone or assistive-technology testing claim; fixed-title artwork is not a localization-ready font."
+        },
+        {
+          "lens": "SIMULATED technical artist",
+          "concern": "Are source, alpha and runtime transformations described honestly?",
+          "evidence": "Raw1774x887RGBA source2 opened; repository asset hash equality, explicit crop/provenance and focused import receipts read.",
+          "finding": "Raw bytes retained and crop/aspect fit are explicit. Faint raw alpha and standard import edge processing remain real limitations, not hidden under a clean-alpha claim. No whole-screen UI art or source-image retouch by reviewer."
+        },
+        {
+          "lens": "SIMULATED Godot/release QA engineer",
+          "concern": "Could a focused visual pass be confused with whole-game release acceptance?",
+          "evidence": "Five focused receipts total3235checks, no failures/orphans; native source inspected. Full root native pipeline was separately running.",
+          "finding": "Scoped evidence supports this wordmark comparison only. Full73/88/four journeys/protected assets/source/packaging must close independently; no APK/device/remoteCI/owner approval inferred."
+        }
+      ],
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "new_android_apk": false,
+      "new_project_zip": true,
+      "remaining_gaps": [
+        "Global artwork remains PARTIAL/ownerfalse; word spacing is tight and the mark is cleaner/heavier than the original distressed concept.",
+        "Raw wordmark retains faint alpha1..8 specks; source remains unchanged, measured runtime crop handles fit. Godotimportfix_alpha_edges modifies low-alpha RGB only, independently reproduced exactly; no cleanrawalpha claim.",
+        "New genre/wordmark art is native-only so far. Existing privately deliveredv3APK and priorZIP remainc9; no newphone/device/emulator test orAPK generated.",
+        "Budget/cash conversion/genre gameplay variants remainbacklog; no model/economy/save-schema changes."
+      ],
+      "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+      "native_packages": {
+        "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+        "project_files": 280,
+        "source_archive_entries": 282,
+        "review_original_pngs": 22,
+        "archives": [
+          {
+            "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+            "bytes": 13752144,
+            "sha256": "c91ef22baccb07a686830b65b94cf5f2704d462a7ace0268670038b6a45be3df",
+            "zip_crc": "PASS"
+          },
+          {
+            "path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/native-quality-review.zip",
+            "bytes": 11429561,
+            "sha256": "af23c6ead485aa6e053c27712230e945a4579f72d559f933b1b1b02fdb94ad5f",
+            "zip_crc": "PASS"
+          }
+        ],
+        "validation": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/validation.json",
+        "isolated_project_entry_exception": "project.godot is the exact146-byte tested isolated95 recipe, not the production Git project; source project blob ID is recorded separately.",
+        "entry_recipe": {
+          "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
+          "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+          "manifest_paths": 274,
+          "isolated_entry_sha256": "f4a1d001bd3cc2006388b3e772bb2019ca7f9d744ddd134e50a6fa79a03ccc50"
+        },
+        "review_pngs": [
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
+            "archive_path": "original-png/c27-title-390x844.png",
+            "bytes": 295616,
+            "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-390x844.png",
+            "archive_path": "original-png/c27-settings_saved_draft_open-390x844.png",
+            "bytes": 307646,
+            "sha256": "ec50dd63283071d2c1d250a4d8244fce87b76ae21633ca69c73dc5f22874848e",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-390x844.png",
+            "archive_path": "original-png/c27-genre-390x844.png",
+            "bytes": 280206,
+            "sha256": "cf1f4942f584f41c83d5ddaec74d33d6240d3f7e0e1fce09d670ca545c18060a",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-720x1280.png",
+            "archive_path": "original-png/c27-title-720x1280.png",
+            "bytes": 641239,
+            "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+            "width": 720,
+            "height": 1280
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-720x1280.png",
+            "archive_path": "original-png/c27-settings_saved_draft_open-720x1280.png",
+            "bytes": 600069,
+            "sha256": "39fc7cc0849ca810d8c55d274b30fab486a9425e82812a6076c474f53253da0e",
+            "width": 720,
+            "height": 1280
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-720x1280.png",
+            "archive_path": "original-png/c27-genre-720x1280.png",
+            "bytes": 502935,
+            "sha256": "9ce8beb7a0a84d0c76039b30a399d64e1eaaa5825ec42e102c154475ea5ec997",
+            "width": 720,
+            "height": 1280
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1280x720.png",
+            "archive_path": "original-png/c27-title-1280x720.png",
+            "bytes": 732792,
+            "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1280x720.png",
+            "archive_path": "original-png/c27-settings_saved_draft_open-1280x720.png",
+            "bytes": 794310,
+            "sha256": "c7969fbf9774dc63bd8dbf8eb5c7e4f97feb2e016157b4044b53f8314fabb5e0",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1280x720.png",
+            "archive_path": "original-png/c27-genre-1280x720.png",
+            "bytes": 546266,
+            "sha256": "48fbf8e69ba3d6df5c20a0188fc6412e23dc91e8e56d2253e3fbb7eca5f596b0",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-1600x900.png",
+            "archive_path": "original-png/c27-title-1600x900.png",
+            "bytes": 796850,
+            "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+            "width": 1600,
+            "height": 900
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-settings_saved_draft_open-1600x900.png",
+            "archive_path": "original-png/c27-settings_saved_draft_open-1600x900.png",
+            "bytes": 859954,
+            "sha256": "722969430d026b9b9f63571c1da8ff2e3cd362c6d1037d06ded9462a72f4b5e7",
+            "width": 1600,
+            "height": 900
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-genre-1600x900.png",
+            "archive_path": "original-png/c27-genre-1600x900.png",
+            "bytes": 716484,
+            "sha256": "0a43289a1ea220f91ceec7575e1bfa1cc2ce5163ff84450138757b90f7ae32f0",
+            "width": 1600,
+            "height": 900
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-390x844.png",
+            "archive_path": "original-png/c27-practice_mode_create_day1-390x844.png",
+            "bytes": 277374,
+            "sha256": "ff83d9d65e36074cb6b338dcfb1e0178f7593015a7c6f08738ebf65ebbe04c1a",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-390x844.png",
+            "archive_path": "original-png/c27-practice_mode_tighten_day1-390x844.png",
+            "bytes": 294130,
+            "sha256": "52ce2007fe7567d3c38ad22d1b3f02feaea55ae6ddf8e9081a4c3df3d409e89b",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-390x844.png",
+            "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+            "bytes": 320848,
+            "sha256": "e972c07af82d977167fed6328b70aa007e5a886166fb4710270cb201db2c1ce1",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_create_day1-1280x720.png",
+            "archive_path": "original-png/c27-practice_mode_create_day1-1280x720.png",
+            "bytes": 477160,
+            "sha256": "684460e607b0540e685c23333e270e1fea35d0aba1e1534b2dbe0336bd1ff389",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-practice_mode_tighten_day1-1280x720.png",
+            "archive_path": "original-png/c27-practice_mode_tighten_day1-1280x720.png",
+            "bytes": 516573,
+            "sha256": "07e170f4d582432a9e2a42b6b379866f7d681ddbdb98b6f63df4bc09469b3667",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-rehearsal_outcome-1280x720.png",
+            "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+            "bytes": 536311,
+            "sha256": "50632466c45f760261e4396b1b714fbdaf73613fcd73520526e1bedfaf74114b",
+            "width": 1280,
+            "height": 720
+          },
+          {
+            "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/opening-no-draft-closed-390x844.png",
+            "archive_path": "original-png/opening-no-draft-closed-390x844.png",
+            "bytes": 299484,
+            "sha256": "daf44b0e78f9f3bf913676bd8b877a182298181f91d6b75a02a5fc9717af5c0c",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-phone-import/captures/no-draft-settings-open-390x844.png",
+            "archive_path": "original-png/no-draft-settings-open-390x844.png",
+            "bytes": 309985,
+            "sha256": "36291f3f85ab8936aafd5a21af64dfe5caa18eecc8a82ce0a165d092bf12d0cf",
+            "width": 390,
+            "height": 844
+          },
+          {
+            "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/opening-no-draft-closed-1152x648.png",
+            "archive_path": "original-png/opening-no-draft-closed-1152x648.png",
+            "bytes": 637886,
+            "sha256": "5a2a1b4c8713df02dcf48c2ee3f98dcf058541d495acf87565649a822dc29e16",
+            "width": 1152,
+            "height": 648
+          },
+          {
+            "source_path": "/workspace/work/day31/wordmark-qa/focused-6c1f50d-default/captures/no-draft-settings-open-1152x648.png",
+            "archive_path": "original-png/no-draft-settings-open-1152x648.png",
+            "bytes": 697577,
+            "sha256": "61b45d7a570997832e22f5c9ae87e81a4d69f88a8756d79c4ace05cb39a92f07",
+            "width": 1152,
+            "height": 648
+          }
+        ],
+        "explicit_poster_asset": "experiments/playable_flightcase/art/opening_stage.png",
+        "publication": "LOCAL only; no upload/publication performed",
+        "owner_approved": false,
+        "extracted_clean_import_and_native_entry": "PASS: fresh280-file exactmanifest/extracted import and actualnative configuredopening.tscn entry, explicitDummy audio andisolateduserdata",
+        "package_smoke": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/packages/package-smoke.json",
+        "method": "Exact Git blobs + tested entry recipe + explicit PNG inventory loaded before writes; temporary ZIP CRC/content checks then atomic replacement.",
+        "explicit_extra_sources": [
+          "experiments/playable_flightcase/genre_press.gd",
+          "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
+          "experiments/playable_flightcase/art/opening_wordmark.png",
+          "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
+        ]
+      },
+      "owner_review_pages": {
+        "plan": {
+          "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+          "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+          "edit_sequence": 6,
+          "canonical_readback_verified": true,
+          "images": 9
+        },
+        "phone": {
+          "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+          "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+          "edit_sequence": 9,
+          "canonical_readback_verified": true
+        }
+      }
+    },
+    "latest_verified_phase2": {
+      "sprint": "S40",
+      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "validation": "/workspace/work/s40/runs/phone-95b2574/validation.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "clean_import": true,
+        "real_pointer_keyboard_save_viewports": 4,
+        "native_pngs": 120,
+        "engine_error_lines": 0,
+        "orphan_growth": 0
+      },
+      "visual_verdict": "partial",
+      "owner_approved": false
+    },
+    "last_completed_deliverable": "Final additional artwork localcheckpoint and selectednative screenshotdelivery"
+  },
+  "historical_held_candidates": [
+    {
+      "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+      "status": "hold",
+      "native_verified": false,
+      "closeout": "/workspace/work/day31/s43/held-closeout.json",
+      "protected_inputs_unchanged": 339
+    }
+  ]
 }

@@ -253,3 +253,7 @@ Read this and CHECK_BEFORE_WORK.md before every task. Review all new ISSUES.json
 ## Continuous learning loop
 
 Before the next implementation iteration, append every new failure/recurrence to ISSUES.jsonl with expected/observed behaviour, evidence, severity, cause confidence, affected files, responsible role, prevention, verification and next action. Reuse an existing BM ID for recurrence. After two ineffective attempts change the method or hold the work. Never delete failed attempts, silently change an accepted visual baseline or infer owner approval. Keep engineering, internal visual and owner verdicts independent.
+
+## 31 October native-image review clarification — BM-34
+
+Repeated heading and ordinal content was interpreted as missing during image review, but the saved PNG regions were pixel-identical. Before changing rendering resources for suspected missing content, compare the original full-resolution pixel regions at the same state and bounds. Check actual ink/alpha pixels as well as node properties. An image-view interpretation alone does not establish a renderer, driver or product defect. Events 223/226/227 are superseded by the raw-pixel correction in event 228; the unsupported fixes were removed while preserving their history.
