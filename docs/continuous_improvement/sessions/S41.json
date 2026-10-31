@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 309938,
-    "sha256": "a3cf7c5c6e01e9ee8b4bdbe027212fa074a08b2ef89429b736f9bbbe1cd44e26"
+    "bytes": 311650,
+    "sha256": "fc963195564a3f315f0587c23208d22d3fafe1d7fc1c65795cad81f5d6f8917b"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -92,7 +92,7 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T12:17:38.810237+00:00",
+  "issues_reviewed_at": "2026-10-31T12:20:07.461980+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Additional owner-authorized genre artwork slice preflight; no source/native success claimed.",
@@ -170,6 +170,17 @@
         "/workspace/work/day31/genre_art_probe.gd"
       ],
       "classification": "Existing whole-screen selection rebuild loses nativefocus/scroll; actual integration defect, not savecorruption."
+    },
+    {
+      "event_id": "S41-genre-selected-scroll-resize-4651771",
+      "source_sha": "46517716b2f22c7735a620883eb3904c03b63270",
+      "evidence": [
+        "46517716b2f22c7735a620883eb3904c03b63270",
+        "/workspace/work/day31/genre-art-qa/focused-4651771-phone/captures/result.json",
+        "/workspace/work/day31/genre-art-qa/focused-4651771-phone/captures/FIRST-FAILURE-390x844.png",
+        "/workspace/work/day31/genre-art-qa/focused-4651771-phone/native.log"
+      ],
+      "classification": "Focus/savefixed; longerselectedcopyreflow requires explicitpost-layoutscrollreveal. Changedmethod, notmorefont/artshrink."
     }
   ],
   "motion_probe_diagnosis": {

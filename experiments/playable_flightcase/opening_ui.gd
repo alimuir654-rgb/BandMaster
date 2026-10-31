@@ -448,6 +448,19 @@ func _choose_genre(value: String) -> void:
   if button!=null:
    button.text = ("✓  " if setup.game.genre == name else "")+name.to_upper()
    button.set_pressed_no_signal(setup.game.genre == name)
+ _reveal_focused_genre()
+
+func _reveal_focused_genre() -> void:
+ # A longer selected description changes the phone's index viewport. Native
+ # follow_focus alone does not re-reveal a control whose focus never changed.
+ # Wait for container reflow, then reveal the actual focused original button.
+ await get_tree().process_frame
+ if not is_inside_tree():
+  return
+ var scroll: ScrollContainer = find_child("GenreIndexScroll",true,false) as ScrollContainer
+ var focused: Control = get_viewport().gui_get_focus_owner()
+ if scroll!=null and focused!=null and scroll.is_ancestor_of(focused):
+  scroll.ensure_control_visible(focused)
 func _to_recruit() -> void:
  if setup.to_recruit():
   _render()
