@@ -140,5 +140,22 @@
       "/workspace/work/business/s48/native-8d35cca-large/captures/offstage-scout-invite-1600x900.png"
     ],
     "writer_released_at": "2026-10-31T22:04:21.070750+00:00"
+  },
+  "delivery_preflight": {
+    "base_head": "3f24a9347b36bbd3ded5ffd2f2f31d4035e19291",
+    "claimed_at": "2026-10-31T22:13:51.642009+00:00",
+    "expires_at": "2026-10-31T22:25:00Z",
+    "scope": "Owner-approved two screenshot private review Page delivery is saved atsequence21; metadata-only recording now. No source/art/GL/APK/save/queue/public-history changes.",
+    "source_write_allowed": false,
+    "allowed_paths": [
+      "docs/continuous_improvement/ISSUES.jsonl",
+      "docs/continuous_improvement/sessions/S48.json",
+      "docs/continuous_improvement/CURRENT.json",
+      "docs/asset_base/STATE.json",
+      "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+      "docs/asset_base/LEDGER.md",
+      "docs/asset_base/REVIEW_INDEX.md"
+    ],
+    "evidence": "/workspace/work/business/s48/page-delivery-approved.json"
   }
 }
