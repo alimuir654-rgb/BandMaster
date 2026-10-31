@@ -410,3 +410,18 @@ Writerreleased 2026-10-31T18:37:46.040093+00:00.
 Newownerrequest authorisesunifying originalwork withcurrentcomponents overnext~3hours. Verified68edrollback retained. RootONEwriter/GL `S45-unified-career-gear-20261031T1840` through20:10; overallreviewby~21:40. Firstport originalGearbuy/assign/service plusreadonlyBand/Songbook/currentcareerdesk; originalmodels/save-schema/artbytes unchanged, sharednewpresentation only. OriginalfullHub/productionentry isNOTlaunchedagainstrealuserdata. Baselinecapture andimplementationpending; no completedintegrationclaim.
 
 Next: Capture isolatedoriginalGEARbaseline, then implementsharedpresentation/currentcareerdesk/originalGearbridge; nativeproofbeforebroadening.
+
+
+# S45 current local owner-review checkpoint — 2026-10-31T19:58:39.208791+00:00
+
+Exact game `cca5e9fbd719e029904a716974700414f35a5fac`. Shared current-style original Gear and current Band/Songbook are native-verified and locally packaged. Complete source/tests/PNG names/failures: `/workspace/work/unify/s45/closeout.json`. TechnicalPASS; visualPARTIAL/owner_approved=false. V4 excludes this preview; broader original gig/touring work is not yet enabled.
+
+- SIMULATED first-time phone player: Selected item, real cost/day/after-balance and fixed native action are visible; original paper, hardware and supported native scroll retained.
+- SIMULATED returning original player: Original five-item Gear rules, ownership, condition, assignment and servicing are connected to the current C25 band. Band/Songbook are read-only views of actual current data; broader legacy systems remain separate work.
+- SIMULATED keyboard and motion reviewer: Real pointer/Enter/Space/Tab/Home/End, post-layout semantic focus, reduced-motion full notes and same-pane resize are proved. No PageDown, whole-app accessibility or physical-device claim.
+- SIMULATED gameplay and economy reviewer: 278 direct bridge/model/save assertions and exact original Story/Calendar/Life order. Voice projection never changes the canonical musician role; no new scores, starting budget, cash conversion or autoassignment.
+- SIMULATED save and lifecycle reviewer: One actual save per successful action, real blocked-path failure rollback/byte restoration/retry, running-Tween owner teardown/reload and 0→0 orphan count. Same C27 schema/path; legacy3/C26 bytes untouched in new journeys.
+
+Remaining: Original gigs/calendar/promoter/backstage/touring and other career systems are not yet exposed in this checkpoint. Current original practice still uses its earlier native text brand; the shared RGBA brand is now reused across the new career desk views. Further header consistency needs a separately verified change. Artwork remains visual PARTIAL/owner_approved=false; original previews are contact crops and the wordmark is image artwork, not an installable font. Secondary dossiers/road cases legitimately require native scrolling. No new Android build or owner-device test has occurred: existing V4 remains game6c1 and excludes S44/S45. New303-file project/review ZIPs are LOCAL, not downloadable public/CI artifacts. Public full learning-history/source publication remains blocked; no retry, push, merge, production save or production entry change.
+
+Next: Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window. Writer released 2026-10-31T19:58:39.208791+00:00.

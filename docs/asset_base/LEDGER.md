@@ -1040,3 +1040,12 @@ Next: Owner reviews the new audition, gradually appearing notes and genre screen
 Newownerrequest authorisesunifying originalwork withcurrentcomponents overnext~3hours. Verified68edrollback retained. RootONEwriter/GL `S45-unified-career-gear-20261031T1840` through20:10; overallreviewby~21:40. Firstport originalGearbuy/assign/service plusreadonlyBand/Songbook/currentcareerdesk; originalmodels/save-schema/artbytes unchanged, sharednewpresentation only. OriginalfullHub/productionentry isNOTlaunchedagainstrealuserdata. Baselinecapture andimplementationpending; no completedintegrationclaim.
 
 Next: Capture isolatedoriginalGEARbaseline, then implementsharedpresentation/currentcareerdesk/originalGearbridge; nativeproofbeforebroadening.
+
+
+# S45 unified career checkpoint — 2026-10-31T19:58:39.208791+00:00
+
+Tested game `cca5e9fbd719e029904a716974700414f35a5fac` brings original Gear buy/assign/service and actual current-band dossiers/Songbook into the shared paper/hardware/lettering style. Practice keeps its actual pending form across desk navigation and resize. Original prices, days, condition and original successful-result pipeline are preserved; no production entry/save, original model/art/schema or cast change.
+
+73 gameplay +88 opening +clean import +4 standard native journeys PASS (172 original PNGs); four career journeys add3823 assertions/36 originals;278 bridge assertions and325 reduced-motion/real-save-failure/active-Tween-teardown assertions PASS. All engine ERROR lines0; native0→0 orphan stress.339protected hashes/303runtime source paths exact.136/172 prior originals byte+pixel identical;32 new bottom action-row changes and4 disclosed transient fades,0unexpected. Five SIMULATED lenses, exact originals actually opened, all failures and remaining scope: `/workspace/work/unify/s45/closeout.json`.
+
+LOCAL303-file project ZIP `a7c7211c1329ddeced05ceb4a27deb0db69b21bdef4ed050b48b60274c9e8ce6` and22-original-PNG review ZIP `80768da6f104529a918ad35de66cc2ec6deedcf13c2e2fc04f4be91c817f926b` passed inventory/CRC/content and fresh extracted import/actual configured native entry. No new APK/Page/public upload; V4 remains unchanged. VisualPARTIAL/owner_approved=false. Writer `S45-unified-career-gear-20261031T1840` released. Next: Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window.

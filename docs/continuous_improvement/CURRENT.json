@@ -10,27 +10,30 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s45_owner_unification_preflight",
-  "next_action": "Capture isolatedoriginalGEARbaseline, then implementsharedpresentation/currentcareerdesk/originalGearbridge; nativeproofbeforebroadening.",
+  "status": "s45_verified_original_gear_shared_style_writer_released",
+  "next_action": "Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
-  "conditional_polish": "Earlierovernight/daytimefinite schedules completed. This explicitlyapproved post-cutoff manualoverhaul isnowclosed, noautomaticextension.",
+  "conditional_polish": "S45 closed and writer released. New owner ~3h unification window remains through21:40; next bounded preflight required, no automatic queue extension.",
   "completion_gate": {
     "native_full_input_verified": true,
-    "tested_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
-    "verification_kind": "LOCALGodot4.7.2; noAndroiddevice/remoteCIclaim",
-    "validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/validation.json",
+    "tested_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+    "verification_kind": "LOCAL Godot4.7.2; no physical Android/remoteCI claim",
+    "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "genuine_native_input_save_viewports": 4,
       "standard_original_pngs": 172,
-      "focused_original_pngs": 72,
-      "focused_runs": 8,
+      "career_original_pngs": 36,
+      "stress_original_pngs": 2,
+      "career_assertions": 3823,
+      "bridge_assertions": 278,
+      "stress_assertions": 325,
       "engine_error_lines": 0,
       "orphan_growth": 0,
       "protected_files": 339,
-      "runtime_source_paths": 297
+      "runtime_source_paths": 303
     },
     "visual_verdict": "partial",
     "owner_approved": false
@@ -72,53 +75,52 @@
     "status": "historical_completed_at09:00; sameautomation reused for ownerapproveddayplan"
   },
   "latest_local_checkpoint": {
-    "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
-    "verified_at": "2026-10-31T18:37:46.040093+00:00",
-    "scope": "Owner-requested ordered auditions, action-only gradual notes, companion printed heading and14instrumentgenreillustrations",
-    "validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
-    "visual_review": "/workspace/work/s40/runs/s44-audition-68ed79c-final/visual-review.json",
-    "focused_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/focused-validation.json",
-    "source_protection": "/workspace/work/s40/runs/s44-audition-68ed79c-final/source-protection-audit.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/s44-audition-68ed79c-final/runtime-source-audit.json",
-    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/protected-checkpoint-comparison.json",
-    "pre_focus_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/final-vs68-pixels.json",
-    "closeout": "/workspace/work/day31/s44/closeout.json",
-    "packaging": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/packaging.json",
+    "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+    "verified_at": "2026-10-31T19:58:39.208791+00:00",
+    "scope": "Shared current-style components; current-band career desk; exact original Gear buy/assign/service; original Band/Songbook presentation; safe retained practice navigation.",
+    "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
+    "visual_review": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/focused-validation.json",
+    "source_protection": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/runtime-source-audit.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/protected-checkpoint-comparison.json",
+    "closeout": "/workspace/work/unify/s45/closeout.json",
+    "packaging": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/packaging.json",
     "project_zip": {
-      "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-      "bytes": 55097780,
-      "sha256": "3d2467788103b3f22bd13459e99df7769fa8033b891d6837bbaf576387b67e01",
+      "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+      "bytes": 55126737,
+      "sha256": "a7c7211c1329ddeced05ceb4a27deb0db69b21bdef4ed050b48b60274c9e8ce6",
       "zip_crc": "PASS"
     },
     "review_zip": {
-      "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/native-quality-review.zip",
-      "bytes": 11812549,
-      "sha256": "c185174698841336e35e83dd7d7ba93d9c5f7dc50c616909f87cfa7d2b9b708b",
+      "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/native-quality-review.zip",
+      "bytes": 9824140,
+      "sha256": "80768da6f104529a918ad35de66cc2ec6deedcf13c2e2fc04f4be91c817f926b",
       "zip_crc": "PASS"
     },
-    "package_smoke": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/package-smoke.json",
+    "package_smoke": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/package-smoke.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "genuine_native_input_save_viewports": 4,
       "standard_original_pngs": 172,
-      "focused_original_pngs": 72,
-      "focused_runs": 8,
+      "career_original_pngs": 36,
+      "stress_original_pngs": 2,
+      "career_assertions": 3823,
+      "bridge_assertions": 278,
+      "stress_assertions": 325,
       "engine_error_lines": 0,
       "orphan_growth": 0,
       "protected_files": 339,
-      "runtime_source_paths": 297
+      "runtime_source_paths": 303
     },
     "visual_verdict": "partial",
     "owner_approved": false,
-    "review_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-    "page_sequence": 18,
-    "selected_screenshots": 7,
-    "publication": "LOCAL project/history; selectednativeScreens privatelyshared existingPage; noAPK/remoteCI/publicsourceupload",
-    "android": "V4/game6c unchanged; newpass NOT in APK",
-    "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default."
+    "publication": "LOCAL project/history; no new Page or Android delivery yet",
+    "android": "V4 unchanged; current preview not in APK",
+    "next_action": "Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window."
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -376,7 +378,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -494,7 +496,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -645,7 +647,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -843,7 +845,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2284,6 +2286,55 @@
           "canonical_readback_verified": true
         }
       }
+    },
+    {
+      "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+      "verified_at": "2026-10-31T18:37:46.040093+00:00",
+      "scope": "Owner-requested ordered auditions, action-only gradual notes, companion printed heading and14instrumentgenreillustrations",
+      "validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/validation.json",
+      "complete_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/complete-validation.json",
+      "visual_review": "/workspace/work/s40/runs/s44-audition-68ed79c-final/visual-review.json",
+      "focused_validation": "/workspace/work/s40/runs/s44-audition-68ed79c-final/focused-validation.json",
+      "source_protection": "/workspace/work/s40/runs/s44-audition-68ed79c-final/source-protection-audit.json",
+      "runtime_source_audit": "/workspace/work/s40/runs/s44-audition-68ed79c-final/runtime-source-audit.json",
+      "protected_checkpoint_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/protected-checkpoint-comparison.json",
+      "pre_focus_comparison": "/workspace/work/s40/runs/s44-audition-68ed79c-final/final-vs68-pixels.json",
+      "closeout": "/workspace/work/day31/s44/closeout.json",
+      "packaging": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/packaging.json",
+      "project_zip": {
+        "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+        "bytes": 55097780,
+        "sha256": "3d2467788103b3f22bd13459e99df7769fa8033b891d6837bbaf576387b67e01",
+        "zip_crc": "PASS"
+      },
+      "review_zip": {
+        "path": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/native-quality-review.zip",
+        "bytes": 11812549,
+        "sha256": "c185174698841336e35e83dd7d7ba93d9c5f7dc50c616909f87cfa7d2b9b708b",
+        "zip_crc": "PASS"
+      },
+      "package_smoke": "/workspace/work/s40/runs/s44-audition-68ed79c-final/packages/package-smoke.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "clean_import": true,
+        "genuine_native_input_save_viewports": 4,
+        "standard_original_pngs": 172,
+        "focused_original_pngs": 72,
+        "focused_runs": 8,
+        "engine_error_lines": 0,
+        "orphan_growth": 0,
+        "protected_files": 339,
+        "runtime_source_paths": 297
+      },
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "review_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+      "page_sequence": 18,
+      "selected_screenshots": 7,
+      "publication": "LOCAL project/history; selectednativeScreens privatelyshared existingPage; noAPK/remoteCI/publicsourceupload",
+      "android": "V4/game6c unchanged; newpass NOT in APK",
+      "next_action": "Owner reviews the new audition, gradually appearing notes and genre screenshots on the existing reviewPage; report concrete feedback. No additional APK/source/art/schedule work by default."
     }
   ],
   "latest_material_review": {
@@ -2295,10 +2346,11 @@
     "owner_approved": false
   },
   "latest_focused_native_qa": {
-    "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
-    "evidence": "/workspace/work/s40/runs/s44-audition-68ed79c-final/focused-validation.json",
-    "runs": 8,
-    "pass_": true
+    "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+    "evidence": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/focused-validation.json",
+    "native_profiles": 4,
+    "additional_stress": 1,
+    "pass": true
   },
   "previous_focused_native_qa": {
     "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -2355,8 +2407,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2374,7 +2426,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -2637,7 +2689,9 @@
     "page_sequence": 18,
     "selected_screenshots": 7,
     "artifact_visibility": "LOCALproject/reviewZIP; privatePageScreens",
-    "apk": "ExistingV4unchanged; previewNOTinAPK"
+    "apk": "ExistingV4unchanged; previewNOTinAPK",
+    "latest_local_project": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/packaging.json",
+    "latest_preview_delivery": "S45 LOCAL only; existing review Page still earlier S44; final milestone update pending."
   },
   "approved_day_schedule": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -2774,9 +2828,9 @@
       "protected_inputs_unchanged": 339
     }
   ],
-  "last_completed_session": "S44",
+  "last_completed_session": "S45",
   "writer": null,
-  "closed_at": "2026-10-31T18:37:46.040093+00:00",
+  "closed_at": "2026-10-31T19:58:39.208791+00:00",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",

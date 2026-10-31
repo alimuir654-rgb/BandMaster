@@ -1,20 +1,20 @@
 {
-  "writer": "S45-unified-career-gear-20261031T1840",
+  "writer": null,
   "base_head": "3c98bd3de3627b3f67ee5ecf287e11ca1da67b36",
   "claimed_at": "2026-10-31T18:51:13.442149+00:00",
   "expires_at": "2026-10-31T20:10:00Z",
-  "scope": "Newowner18:40 request: unify existingoriginalwork/currentstyle overnext~3hours. FirstboundedS45: sharedpresentation, currentC27careerdesk, originalpureGearbuy/assign/service +readonlyBand/Songbook. No productionentry/saves/main/PR199/newmodels/cast/economy/publication.",
+  "scope": "S45 closed; no active writer. Preserve original source/art/models/schema and same finite owner window.",
   "authority": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T19:58:39.208791+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S44released; newdirectownerscope prospectivelyauthorisesunification. RootONEwriter/ONEGL; firstlease20:10, overallreviewby~21:40. No competingqueue/oldworkerresume.",
+  "note": "S45 exact-source native/IO/lifecycle/LOCALpackage proof complete. No live helper/GL/source task. Owner~3h manual unification authority continues; separate bounded preflight before next original-system slice.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S44-approved-postcutoff-native-20261031T1707",
-  "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
+  "last_writer": "S45-unified-career-gear-20261031T1840",
+  "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
