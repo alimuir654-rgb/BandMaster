@@ -338,7 +338,9 @@ func commit_gear(verb: String, item: String, member: int=-1, method: String="poi
  var loaded:=Model.new()
  if not verify(loaded.load_draft() and loaded.snapshot()==model.snapshot() and model.saves==saves+1,"actual saved gear result reloads exactly; presentation never saves again"): return false
  evidence.append({"verb":verb,"item":item,"member":member,"before":before,"after":model.game.career.duplicate(true),"save_delta":model.saves-saves})
- return await free_action("CareerReceiptContinueAction","enter")
+ if not await free_action("CareerReceiptContinueAction","enter"): return false
+ await frames(3)
+ return verify(inside(named("GearItemTitle")) and inside(named("GearCatalogueAction")) and (named("CareerScroll") as ScrollContainer).scroll_vertical==0,"receipt return reveals current selected identity/browse at top after native layout")
 
 func band_and_native_scroll() -> bool:
  if not await free_action("CareerNav_band","space"): return false

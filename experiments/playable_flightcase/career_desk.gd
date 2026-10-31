@@ -25,6 +25,7 @@ var _overlay: Control
 var _scroll: ScrollContainer
 var _pending_focus := ""
 var _scroll_position := 0
+var _render_generation := 0
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -90,6 +91,7 @@ func _copy(parent: Node, value: String, points: int = 16, muted: bool = false) -
 func _render() -> void:
  if not is_inside_tree():
   return
+ _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
  if not busy and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
   _pending_focus = str(focus.name)
@@ -188,6 +190,16 @@ func _navigate(destination: String) -> void:
  _render()
 
 func _restore_focus(control_name: String) -> void:
+ # Native focus-follow scroll must use the new container layout. Grabbing
+ # focus during the rebuild can scroll against its temporary zero-size rects.
+ var generation: int = _render_generation
+ var tree: SceneTree = get_tree()
+ if tree==null:
+  return
+ await tree.process_frame
+ await tree.process_frame
+ if not is_inside_tree() or generation!=_render_generation:
+  return
  if busy or not is_visible_in_tree():
   return
  var target: Control = find_child(control_name,true,false) as Control
