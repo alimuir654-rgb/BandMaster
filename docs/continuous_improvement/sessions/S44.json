@@ -4,7 +4,7 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "EXPLICIT new owner approval: Go ahead in response to May I continue this overhaul and run its required native tests after the previous3pm cutoff? Resume only requested audition/ink-note/genre-art implementation and native validation, no schedule extension.",
-  "baseline_sha": "a567329e23ed14fef512018bdafa25d401c1d9bf",
+  "baseline_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
   "dominant_issue": "BM-21",
   "lesson_ids": [
     "BM-01",
@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 369866,
-    "sha256": "d25b4f99e3f7dec4772f568ce583a605091ed02bc8749c31c93dbfb8465bff01"
+    "bytes": 374600,
+    "sha256": "262dacde5a92aec8d5faa4be3fb46913fa5c0d9bcb6997fe6b0b069cfde44001"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -73,19 +73,10 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
-    "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/ui.gd",
-    "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/genre_press.gd",
-    "experiments/playable_flightcase/rehearsal_press.gd",
-    "experiments/playable_flightcase/ink_note.gd",
-    "experiments/playable_flightcase/art/auditions_heading.png",
-    "experiments/playable_flightcase/art/genre_*.png",
-    "experiments/playable_flightcase/art/S43_PROVENANCE.json",
-    "experiments/playable_flightcase/opening_capture.gd"
+    "docs/asset_base/REVIEW_INDEX.md"
   ],
   "validation_commands": [
-    "python -B tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S43.json",
+    "python -B tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S44.json",
     "Focused isolated native ordered-audition and ink-reveal pointer/key/state/save/resize/teardown probes with original PNGs",
     "Existing validate_candidate.py default recipe: 73gameplay+88opening+clean import+4 genuine input/save/Continue journeys390x844,720x1280,1280x720,1600x900; manually require zero engineERROR",
     "Inspect source and actual original candidate/baseline PNGs, protected source and settled non-target view comparisons; technical PASS separate from visual/owner verdict"
@@ -93,8 +84,8 @@
   "started_at": "2026-10-31T17:07:56.973979+00:00",
   "scope_end": "2026-10-31T19:00:00Z",
   "game_baseline_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-  "next_action": "Validate held candidate with isolated Godot4.7.2 models/import, focused auditions and ink notes, thenfour genuine journeys/originalpixels; correct demonstrated issues and deliver review-ready checkpoint. No APK by default.",
-  "candidate_source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+  "next_action": "Finish exact68ed full/focusedproof; thenLOCAL checkpoint andselectednativeScreens ifallpass, honestcloseout/release by19:00.",
+  "candidate_source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
   "failures": [
     {
       "event_id": "S44-initial-import-unterminated-recap-note",
@@ -137,5 +128,8 @@
   ],
   "workflow_disclosures": [
     "Event218 corrects217: scratch-only observer fix saved~12s before root event filing; original immutable, no runtime/product correction before native testing."
-  ]
+  ],
+  "implementation_preflight_baseline_sha": "a567329e23ed14fef512018bdafa25d401c1d9bf",
+  "phase": "frozen_source_native_then_artifacts",
+  "artifact_scope": "ONE LOCAL297-file project/reviewZIP +fresh extraction/nativeentry onlyafterfull+focusedPASS; selectedcurrentnativeScreens privatelyinsertedexistingownerreviewPage, freshguards/readback. No APK/source-history-publication orgame/artwrites."
 }
