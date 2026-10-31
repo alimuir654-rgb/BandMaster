@@ -4,8 +4,8 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
-  "baseline_sha": "e3d7afbc6dc30cd26d1bfc332aa60f6b587d65c9",
-  "dominant_issue": "BM-01",
+  "baseline_sha": "eb7f4ce7fdd968f19e9bd0d9d1da3433bc72322b",
+  "dominant_issue": "BM-24",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -48,16 +48,16 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 201568,
-    "sha256": "812062936a649d0f906a410875186b7b21c64a69ad91ba1bc5ce10948e0ef23e"
+    "bytes": 203248,
+    "sha256": "58b805bfd2dc6b59c97d892ccf74d687797fd818613892a82bb0890b6dac47f2"
   },
   "target": {
     "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
     "original_sha256": "a1fdfea28139e1a0fc63521a6abbbe6a0bf3164bb35ed0717fb13de113dac1d1",
     "pixels_inspected": true
   },
-  "hypothesis": "No source/art change justified from currentmaterialreview: retain quietcase/controlatlas and heldtolex. Verify exactexisting7f source/package hashes andreferenceavailability, distinguish verifiedtechnicalcheckpoint from absentwholeUIartapproval.",
-  "controlled_comparison": "Same exact real Maya0roster200talent at390x844/720x1280/1280x720/1600x900 versus33f original recruitment; add labelled Bex/Sam longtext, readylineup, insufficiency,5th/6thsurcharge, vocalreservation and fullband fixtures. Existing realRecruit/Remove/Complete path and entire rehearsal/practice/input/save proof remain.",
+  "hypothesis": "Probe currentSettings/Sound native lifecycle and actualAudioServer state first. If confirmedfocus loss/control destruction on same-view toggles, update existingcontrols in place without changing material, gameplay, saves or addingfeatures; preserve initialtitle and allcompletedviews.",
+  "controlled_comparison": "Exact7f source title/menu same viewport and same saved-draft state at390x844/720x1280/1280x720/1600x900. Probe freshNoDraft and validDraft settings mouse/Enter/Space/Tab, realAudioServer mute, node/focus/rectangle continuity and game/savebyte invariance. Full73+88/import/4native journey after any confirmedsourcefix; initialtitles and protectedother scenes should match7f originals.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal7f32373+88/import/all4native plus recruitmentlongcopy/economy/realremove proof and extractedpackage launch PASS. Source unpublished; no new remoteCI claimed.",
-  "issues_reviewed_at": "2026-10-31T02:12:30.667987+00:00",
+  "issues_reviewed_at": "2026-10-31T03:07:21.432803+00:00",
   "progress": {
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
     "verified_at": "2026-10-31T01:39:45.903195+00:00",
@@ -491,5 +491,14 @@
       "index_prefix_corrected": true,
       "source_unchanged": true
     }
+  },
+  "settings_qa_pass": {
+    "started_at": "2026-10-31T03:07:21.432803+00:00",
+    "lease_ends": "2026-10-31T03:55:00Z",
+    "source_baseline": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "preflight_head": "eb7f4ce7fdd968f19e9bd0d9d1da3433bc72322b",
+    "status": "probe_unconfirmed",
+    "one_outcome": "Reliable existingSettings/Sound focus/state continuity with originalvisuals and actualmuteeffect.",
+    "limits": "No new persistence/audio feature/dependency, no art swap, no model/save schema changes; stop after2ineffective corrections/change method orhold; no source/art/repo writes at08:50or later."
   }
 }
