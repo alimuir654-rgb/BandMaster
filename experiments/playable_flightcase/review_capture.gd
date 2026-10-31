@@ -54,7 +54,38 @@ func open_live() -> bool:
 
 func choose_offer(id: String, method: String="pointer") -> bool:
  if not await free_action("LiveOffer_"+id,method): return false
- return verify(str(desk().get("live_offer"))==id,"actual current selected promoter plan is "+id)
+ # Observe the actual post-selection reflow; never force focus or scrolling.
+ var chosen: Button = named("LiveOffer_"+id) as Button
+ if not await settled(chosen) or not text_fits(chosen): return false
+ return verify(str(desk().get("live_offer"))==id and chosen.has_focus() and chosen.button_pressed,"actual selected promoter row stays focused and fully inside all clips after reflow: "+id)
+
+func resize_paused_offer() -> bool:
+ var before: Dictionary = guard()
+ var original: Vector2i = Vector2i(width,height)
+ var expected_reason: String = str(Live.booking_eligibility(model.game.career,false,"guarantee").message)
+ if not verify(not expected_reason.is_empty() and str(desk().get("live_offer"))=="guarantee","resize starts on the actual selected paused GUARANTEE"): return false
+ var last_size: Vector2i = Vector2i(root.size)
+ # Every profile visits real phone and landscape, then returns to its original.
+ for window_size in [Vector2i(390,844),Vector2i(1280,720),original]:
+  if window_size==last_size: continue
+  root.size=window_size
+  DisplayServer.window_set_size(window_size)
+  width=int(window_size.x)
+  height=int(window_size.y)
+  await frames(7)
+  var chosen: Button = named("LiveOffer_guarantee") as Button
+  var main: Button = named("LiveMainAction") as Button
+  var status: Label = named("LiveReviewStatus") as Label
+  if not verify(is_instance_valid(screen) and screen.get("setup")==model and desk()!=null and desk().get("game")==model.game and str(desk().get("page"))=="gigs","real RootUI resize retains the authoritative career and current live page"): return false
+  # Responsive renders may replace controls. Check semantic focus, not IDs.
+  if not await settled(chosen) or not await settled(main): return false
+  if not verify(str(desk().get("live_offer"))=="guarantee" and chosen.button_pressed and chosen.has_focus() and root.gui_get_focus_owner()==chosen,"actual resize restores selected GUARANTEE semantic focus inside all clips"): return false
+  if not verify(main.disabled and main.size.x>=48 and main.size.y>=48 and status!=null and status.text==expected_reason and inside(status) and status.get_theme_font_size("font_size")>=16,"paused reason and disabled48px commit remain wholly visible after real resize"): return false
+  if not text_fits(chosen) or not check_fixed_layout() or not unchanged(before,"free paused-offer real window resize"): return false
+  review_evidence.append({"kind":"GENUINE native window resize while GUARANTEE paused","width":width,"height":height,"selected_offer":str(desk().get("live_offer")),"focused_control":str(root.gui_get_focus_owner().name),"selected_rect":str(chosen.get_global_rect()),"status_rect":str(status.get_global_rect()),"main_rect":str(main.get_global_rect()),"model_files_save_reviews_unchanged":true})
+  if not await capture("review-paused-offer-resized"): return false
+  last_size=window_size
+ return verify(Vector2i(root.size)==original and Vector2i(width,height)==original,"native resize returns to the requested physical capture profile")
 
 func choose_approach(id: String) -> bool:
  if not await free_action("LiveApproach_"+id,"enter"): return false
@@ -241,6 +272,7 @@ func menu_reload() -> bool:
 func paused_offer_and_recovery() -> bool:
  if not check_review(false,1) or not await menu_reload() or not check_review(false,1): return false
  if not await choose_offer("guarantee","space"): return false
+ if not await resize_paused_offer(): return false
  var before: Dictionary = guard()
  var eligible: Dictionary = Live.booking_eligibility(model.game.career,false,"guarantee")
  var status: Label = named("LiveReviewStatus") as Label

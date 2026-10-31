@@ -286,6 +286,7 @@ static func refresh_plans(host) -> void:
    commitment.text="DAY %d  •  £0 NOW" % (int(state.get("tour_day",1))+Calendar.LEAD_DAYS)
    if hire:
     commitment.text+="  •  SESSION £25 AT SHOW"
+  _reveal_focused_offer(host)
  else:
   for id in APPROACH_IDS:
    var button: Button = host.find_child("LiveApproach_"+str(id),true,false) as Button
@@ -307,3 +308,16 @@ static func refresh_plans(host) -> void:
     "soundcheck": commitment.text="SET CHOICE  •  NO TIME OR CASH SPENT"
     "stage": commitment.text="PERFORMANCE  •  SHOW DAY AND SETTLEMENT"
     "overdue": commitment.text="MISSED DATE  •  NO PERFORMANCE PAYOUT"
+
+
+static func _reveal_focused_offer(host) -> void:
+ # The fixed reason can resize the viewport without changing native focus.
+ # Reuse the genre index's post-layout reveal rather than rebuilding controls.
+ var tree: SceneTree = host.get_tree()
+ if tree==null:return
+ await tree.process_frame
+ if not is_instance_valid(host) or not host.is_inside_tree():return
+ var scroll: ScrollContainer = host.find_child("CareerScroll",true,false) as ScrollContainer
+ var focused: Control = host.get_viewport().gui_get_focus_owner()
+ if scroll!=null and focused!=null and str(focused.name).begins_with("LiveOffer_") and scroll.is_ancestor_of(focused):
+  scroll.ensure_control_visible(focused)

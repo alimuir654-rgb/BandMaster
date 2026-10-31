@@ -79,9 +79,9 @@ static func eligibility(state: Dictionary, venue_id: String = "local", offer_id:
  var data: Dictionary = view(state)
  var poor: bool = int(data["last_poor_seq"])>int(data["last_success_seq"])
  var restricted: bool = poor and offer_id=="guarantee"
- var recovery: String = "Play a successful hometown show to restore promoter confidence. STANDARD and GUESTLIST retain their normal requirements." if poor else ""
+ var recovery: String = "Play a successful hometown show to restore promoter confidence. STANDARD OFFER and BRING YOUR CROWD retain their normal requirements." if poor else ""
  # venue_id is deliberately not a gate. No regional policy is introduced.
- return {"ok":not restricted,"message":"The GUARANTEE offer is paused after the latest poor show. "+recovery if restricted else "","restricted":restricted,"recovery":recovery,"venue_id":venue_id}
+ return {"ok":not restricted,"message":"GUARANTEE paused after a poor show. Win a hometown show to restore it; STANDARD OFFER and BRING YOUR CROWD stay available." if restricted else "","restricted":restricted,"recovery":recovery,"venue_id":venue_id}
 
 static func _failure(before: Dictionary, message: String) -> Dictionary:
  return {"ok":false,"state":before.duplicate(true),"message":message}
@@ -151,7 +151,7 @@ static func apply(before: Dictionary, settled: Dictionary) -> Dictionary:
  if success:
   body+=(" Promoter confidence has recovered; all existing booking requirements still apply." if int(old["last_poor_seq"])>int(old["last_success_seq"]) else " The good reception keeps GUARANTEE offers available under their normal booking requirements.")
  else:
-  body+=" GUARANTEE offers are paused until a later successful show. STANDARD and GUESTLIST retain their normal requirements."
+  body+=" GUARANTEE offers are paused until a later successful show. STANDARD OFFER and BRING YOUR CROWD retain their normal requirements."
  report["body"]=body
  data["seq"]=seq
  data["seen_ids"][id]=seq
