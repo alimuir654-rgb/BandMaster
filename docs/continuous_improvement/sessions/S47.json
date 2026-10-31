@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 411825,
-    "sha256": "6f541653e8d5fdb0639cc2c7fb6aa539d6591040171a54c327140ebf77f2dca0"
+    "bytes": 414245,
+    "sha256": "d3ecdbabb540f25122cc489c9d9bb863e7576eb853fc2434fd25682d486341e8"
   },
   "target": {
     "locator": "/workspace/work/unify/s45/s46-regression-a9-phone/captures/career-gear-owned-390x844.png",

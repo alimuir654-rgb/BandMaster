@@ -115,6 +115,8 @@ static func apply(before: Dictionary, after: Dictionary, action: String, flows: 
  var old: Dictionary = view(before)
  if is_over(before):
   return _failure(before,"The band has closed. Final accounts are read-only.")
+ if int(old["accounted_day"])!=start_day or int(old["closing_balance"])!=int(before.get("cash",0)):
+  return _failure(before,"The saved finance checkpoint does not match this career state.")
  var incoming: Variant = after.get(KEY,{})
  # A previously accounted result is safe to present/load again. No resolver,
  # cumulative total or day counter is replayed here.
@@ -122,8 +124,6 @@ static func apply(before: Dictionary, after: Dictionary, action: String, flows: 
   return {"ok":true,"state":after.duplicate(true),"message":"Already accounted."}
  if before==after and _valid(incoming):
   return {"ok":true,"state":after.duplicate(true),"message":"Already accounted."}
- if int(old["accounted_day"])!=start_day or int(old["closing_balance"])!=int(before.get("cash",0)):
-  return _failure(before,"The saved finance checkpoint does not match this career state.")
  var days: int = end_day-start_day
  var closes: Array = closing_balances.duplicate(true)
  if days>1 and closes.size()!=days:

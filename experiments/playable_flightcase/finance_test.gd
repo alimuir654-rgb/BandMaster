@@ -58,7 +58,7 @@ func boundaries() -> void:
  var terminal:=pure(state,after14,"clear_air")
  check(bool(terminal.ok) and int(data(terminal.state).broke_days)==14 and Finance.is_over(terminal.state) and int(data(terminal.state).ended_day)==15,"EXACT fourteenth completed zero day ends once on day15")
  check(not bool(Finance.guard(terminal.state).get("ok",true)),"terminal guard rejects further gameplay")
- var later:=terminal.state.duplicate(true);later.cash=20;later.tour_day=16
+ var later: Dictionary=terminal.state.duplicate(true);later.cash=20;later.tour_day=16
  rejected(terminal.state,later)
  var replay:=pure(state,terminal.state,"clear_air")
  check(bool(replay.ok) and replay.state==terminal.state,"replaying already-accounted result never adds ledger, zero day or terminal event")
