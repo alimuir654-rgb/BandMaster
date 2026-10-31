@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S43.json",
-  "scope": "Requested S43 audition/ink-note/genre-art candidate prepared; native validation blocked by automatic review of prior15:00cutoff. No candidate release claim.",
+  "session": "docs/continuous_improvement/sessions/S44.json",
+  "scope": "EXPLICIT new owner approval: Go ahead in response to May I continue this overhaul and run its required native tests after the previous3pm cutoff? Resume only requested audition/ink-note/genre-art implementation and native validation, no schedule extension.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "candidate_held_native_approval_blocked",
-  "next_action": "Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.",
+  "status": "explicit_owner_postcutoff_native_validation_active",
+  "next_action": "Validate held candidate with isolated Godot4.7.2 models/import, focused auditions and ink notes, thenfour genuine journeys/originalpixels; correct demonstrated issues and deliver review-ready checkpoint. No APK by default.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {

@@ -1015,3 +1015,10 @@ Candidate `445230210a4b41371b29dff5eaa442a4918c10be` is NOT native-verified. Ord
 Automatic approval review rejected both native validation attempts before execution, enforcing old15:00hardstop and declining assistant-described newer authority. No workaround, newnativePNG, model/import/GL run, APK or package. Latest verified6c and deliveredV4 remain baseline. Exact actual source images opened, five SIMULATED lenses, source caveats, rejection evidence and pending tests: `/workspace/work/day31/s43/held-closeout.json`. Source-art inspection is promising, but nativefit/readability/behaviour and owneracceptance remain HOLD. Writer released.
 
 Next: Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.
+
+
+# S44 explicit post-cutoff native-validation preflight — 2026-10-31T17:07:56.973979+00:00
+
+Owner directly answered Go ahead to the exact request to continue the overhaul and required native tests after previous3pmcutoff. Historical cutoff/rejections remain; this is explicit new scope, not a bypass. One root writer/GL until19:00UTC; validate held4452302 candidate and correct demonstrated existing-screen issues only. No model/economy/save-schema/cast/source-publication changes or automatic schedule extension.
+
+Next: Validate held candidate with isolated Godot4.7.2 models/import, focused auditions and ink notes, thenfour genuine journeys/originalpixels; correct demonstrated issues and deliver review-ready checkpoint. No APK by default.

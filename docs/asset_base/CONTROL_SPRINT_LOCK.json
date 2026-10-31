@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "6061444619e400fbc4d46cf55bb272351f08aa2c",
-  "claimed_at": "2026-10-31T16:11:58.969742+00:00",
-  "expires_at": "2026-10-31T18:00:00Z",
-  "scope": "Owner-requested existing-screen audition flow, action-triggered ink notes, companion heading and stronger genre artwork. No model/economy/save-schema changes, no APK by default.",
-  "authority": "New direct owner feedback after V4: keep liked splash, extend title lettering, overhaul tabs into guitar/bass/drums/vocals auditions, progressively written action notes and improve genre images.",
+  "writer": "S44-approved-postcutoff-native-20261031T1707",
+  "base_head": "a567329e23ed14fef512018bdafa25d401c1d9bf",
+  "claimed_at": "2026-10-31T17:07:56.878322+00:00",
+  "expires_at": "2026-10-31T19:00:00Z",
+  "scope": "Explicit owner-approved post15:00 implementation/native validation of held audition/ink/genre candidate; root ONE writer/GL. No automatic schedule or production extension.",
+  "authority": "Owner replied Go ahead to the exact question May I continue this overhaul and run its required native tests after the previous3pm cutoff?",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T16:27:28.619647+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S43-owner-audition-engagement-20261031T1615",
+  "last_writer": "S44-approved-postcutoff-native-20261031T1707",
   "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
   "previous_checkpoint_release": {
     "writer": null,
@@ -133,5 +133,11 @@
     "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
     "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload."
   },
-  "candidate_native_verified": false
+  "candidate_native_verified": false,
+  "previous_held_s43_release": {
+    "last_writer": "S43-owner-audition-engagement-20261031T1615",
+    "released_at": "2026-10-31T16:27:28.619647+00:00",
+    "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+    "candidate_native_verified": false
+  }
 }
