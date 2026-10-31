@@ -10,6 +10,7 @@ const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
+const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const WORDMARK_CROP := Rect2i(264,95,1248,718)
 const WORDMARK_SHA256 := "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899"
@@ -773,6 +774,8 @@ func _practice() -> void:
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ if LiveRules.show_day(setup.game.career):
+  call_deferred("_open_career_desk")
 
 func _open_career_desk() -> void:
  if setup.screen!="play" or not is_instance_valid(_practice_view) or bool(_practice_view.get("session_busy")):
@@ -790,7 +793,11 @@ func _open_career_desk() -> void:
   _career_view = desk
  _career_view.call("open_home")
  _career_view.show()
- _career_view.call_deferred("_restore_focus","CareerNav_home")
+ if LiveRules.show_day(setup.game.career):
+  _career_view.call("_navigate","gigs")
+  _career_view.call_deferred("_restore_focus","LiveMainAction")
+ else:
+  _career_view.call_deferred("_restore_focus","CareerNav_home")
 
 func _return_from_career(activity: String = "") -> void:
  if is_instance_valid(_career_view) and bool(_career_view.get("busy")):

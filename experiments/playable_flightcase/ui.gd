@@ -13,6 +13,7 @@ const SessionTransition = preload("res://experiments/playable_flightcase/session
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
 static var audition_heading_texture: ImageTexture
@@ -740,7 +741,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   var reopen: Button = _button("VIEW LAST SESSION  ›",_toggle_recap,"tab")
   reopen.name = "ReopenSessionAction"
   info.add_child(reopen)
- info.add_child(_label("NEXT GOAL: finish an original and prepare the live set. Booking is not available in this playtest yet.",14))
+ var booking: Dictionary = Calendar.pending(game.career)
+ info.add_child(_label("NEXT GOAL: finish an original and prepare the live set. Find the hometown promoter at the career desk." if booking.is_empty() else ("NEXT SHOW: %s  •  DAY %d" % [str(booking.get("venue","The venue")),int(booking.get("day",0))]),14))
  if opening_owner==null:
   info.add_child(_button("SAVE PROGRESS",_save,"tab"))
   info.add_child(_button("LOAD SAVED PROGRESS",_load,"tab"))

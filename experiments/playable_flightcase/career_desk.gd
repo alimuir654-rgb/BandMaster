@@ -10,6 +10,13 @@ const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Gear = preload("res://Scripts/gear_shop.gd")
 const Songs = preload("res://Scripts/songbook_presentation.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
+const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
+const LiveDesk = preload("res://experiments/playable_flightcase/live_desk.gd")
+const Kit = preload("res://components/control_atlas/kit.gd")
+const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
+const Night = preload("res://Scripts/gig_night_flow.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -26,6 +33,12 @@ var _scroll: ScrollContainer
 var _pending_focus := ""
 var _scroll_position := 0
 var _render_generation := 0
+var live_offer := "standard"
+var live_approach := "tight"
+var live_hire_session := false
+var live_context_id := ""
+var _live_dialog: Control
+var _live_confirm_verb := ""
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -34,7 +47,7 @@ func _ready() -> void:
  _render()
 
 func open_home() -> void:
- if busy:
+ if busy or is_instance_valid(_live_dialog):
   return
  page = "home"
  receipt_open = false
@@ -54,6 +67,9 @@ func _visibility_changed() -> void:
   _overlay = null
   busy = false
   _fresh_receipt = false
+  if is_instance_valid(_live_dialog):
+   _live_dialog.queue_free()
+  _live_dialog = null
 
 func _exit_tree() -> void:
  if is_instance_valid(_overlay):
@@ -93,12 +109,14 @@ func _render() -> void:
   return
  _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
- if not busy and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
+ if not busy and not is_instance_valid(_live_dialog) and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
   _pending_focus = str(focus.name)
  if is_instance_valid(_scroll):
   _scroll_position = _scroll.scroll_vertical
  for child in get_children():
   if is_instance_valid(_overlay) and child==_overlay:
+   continue
+  if is_instance_valid(_live_dialog) and child==_live_dialog:
    continue
   remove_child(child)
   child.queue_free()
@@ -150,11 +168,17 @@ func _render() -> void:
   _band_page(body,compact)
  elif page=="songs":
   _songs_page(body,compact)
+ elif page=="gigs":
+  LiveDesk.render(self,body,compact)
  else:
   _home_page(body,compact)
  _decision_dock(shell,compact)
+ if page=="gigs" and not receipt_open:
+  LiveDesk.refresh_plans(self)
  _scroll.set_deferred("scroll_vertical",_scroll_position)
- if is_instance_valid(_overlay):
+ if is_instance_valid(_live_dialog):
+  move_child(_live_dialog,get_child_count()-1)
+ elif is_instance_valid(_overlay):
   move_child(_overlay,get_child_count()-1)
  elif not busy and is_visible_in_tree() and not _pending_focus.is_empty():
   call_deferred("_restore_focus",_pending_focus)
@@ -177,7 +201,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or destination not in ["home","gear","band","songs"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs"]:
   return
  page = destination
  receipt_open = false
@@ -186,7 +210,7 @@ func _navigate(destination: String) -> void:
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
- _pending_focus = "CareerNav_"+destination
+ _pending_focus = "LiveMainAction" if destination=="gigs" else "CareerNav_"+destination
  _render()
 
 func _restore_focus(control_name: String) -> void:
@@ -238,6 +262,8 @@ func _home_page(parent: Node, compact: bool) -> void:
  _copy(body,"%d FINISHED ORIGINALS  •  %d FANS" % [int(game.career.get("songs",0)),int(game.career.get("fans",0))],16)
  var practice := _button("THE PRACTICE ROOM  ›","CareerHomePracticeAction",_practice.bind(""),true)
  body.add_child(practice)
+ var live := _button("THE LIVE CIRCUIT  ›","CareerHomeLiveAction",_navigate.bind("gigs"),true)
+ body.add_child(live)
  var routes := GridContainer.new()
  routes.columns = 1 if size.x<560 else (2 if compact else 3)
  routes.add_theme_constant_override("h_separation",8)
@@ -247,7 +273,8 @@ func _home_page(parent: Node, compact: bool) -> void:
   routes.add_child(_button(str(entry[0])+"  ›","CareerHome_"+str(entry[1]),_navigate.bind(str(entry[1]))))
  # Put the next decisions before the status detail on the phone.
  body.move_child(practice,3)
- body.move_child(routes,4)
+ body.move_child(live,4)
+ body.move_child(routes,5)
 
 func _gear_page(parent: Node, compact: bool) -> void:
  if Gear.item_for(selected_item).is_empty():
@@ -460,7 +487,9 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if compact else Control.SIZE_SHRINK_CENTER
  parent.add_child(dock)
  if receipt_open:
-  dock.add_child(_button("BACK TO THE MUSIC SHOP  ›","CareerReceiptContinueAction",_close_receipt,true))
+  dock.add_child(_button("BACK TO THE LIVE DESK  ›" if str(receipt.get("kind","gear"))=="live" else "BACK TO THE MUSIC SHOP  ›","CareerReceiptContinueAction",_close_receipt,true))
+ elif page=="gigs":
+  LiveDesk.dock(self,dock,compact)
  elif page=="gear":
   if compact and catalogue_open:
    dock.add_child(_button("BACK TO SELECTED ITEM","GearCloseCatalogueAction",_toggle_catalogue))
@@ -551,8 +580,9 @@ func _finish_receipt() -> void:
 
 func _receipt_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
- _copy(body,"THE MUSIC SHOP RECORD",16,true)
- _copy(body,str(receipt.get("item_name","EQUIPMENT")),25)
+ var live: bool = str(receipt.get("kind","gear"))=="live"
+ _copy(body,"THE LIVE JOURNAL" if live else "THE MUSIC SHOP RECORD",16,true)
+ _copy(body,str(receipt.get("title","LIVE TONIGHT")) if live else str(receipt.get("item_name","EQUIPMENT")),25)
  _copy(body,"DAY %d → %d   •   £%d → £%d" % [int(receipt.get("day_before",1)),int(receipt.get("day_after",1)),int(receipt.get("cash_before",0)),int(receipt.get("cash_after",0))],16,true)
  var note: Label = Ink.new()
  note.name="CareerReceiptNote"
@@ -561,25 +591,131 @@ func _receipt_page(parent: Node, compact: bool) -> void:
  note.add_theme_color_override("font_color",Color("29241f"))
  if _fresh_receipt:note.visible_characters=0
  body.add_child(note)
- var record: Dictionary = Gear.record(game.career,str(receipt.get("item","")))
+ var record: Dictionary = {} if live else Gear.record(game.career,str(receipt.get("item","")))
  if not record.is_empty():
   var condition: int = int(record.get("condition",-1))
   _copy(body,"CONDITION  /  "+("UNKNOWN" if condition<0 else "%d / 100" % condition),18)
   _copy(body,str(record.get("provenance","")),14,true)
  for change in receipt.get("changes",[]):
   _copy(body,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],16)
+ for entry in receipt.get("journal_entries",[]):
+  _copy(body,str(entry.get("title","JOURNAL")),16,true)
+  _copy(body,str(entry.get("text","")),16)
 
 func _close_receipt() -> void:
  if busy:return
  receipt_open=false
  _fresh_receipt=false
- _pending_focus="GearCatalogueAction"
+ _pending_focus=LiveDesk.focus_name(self) if page=="gigs" else "GearCatalogueAction"
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
 
 func _practice(activity: String) -> void:
- if not busy:practice_requested.emit(activity)
+ if not busy and not is_instance_valid(_live_dialog):practice_requested.emit(activity)
 
 func _menu() -> void:
- if not busy:menu_requested.emit()
+ if not busy and not is_instance_valid(_live_dialog):menu_requested.emit()
+
+func _select_live_offer(offer: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ live_offer = offer
+ LiveDesk.refresh_plans(self)
+
+func _select_live_approach(approach: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ live_approach = approach
+ LiveDesk.refresh_plans(self)
+
+func _toggle_live_session() -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ live_hire_session = not live_hire_session
+ if live_hire_session:live_offer="standard"
+ LiveDesk.refresh_plans(self)
+
+func _ask_live_confirmation(verb: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ var booking: Dictionary = Calendar.pending(game.career)
+ if booking.is_empty() or verb not in ["perform","cancel"]:return
+ var dialog: Control = Kit.dialog("TAKE THE STAGE?" if verb=="perform" else "CANCEL THIS BOOKING?","","flightcase")
+ dialog.name = "LiveConfirmDialog"
+ if verb=="perform":
+  var venue: Dictionary = Gigs.get_venue(str(booking.get("venue_id","local")))
+  dialog.set("body_text","Play tonight's set at %s. The show uses %d day(s). Travel and any hired drummer are charged, then the venue pays its fee. The fee depends on your set and how the show goes." % [str(booking.get("venue","the venue")),int(venue.get("days",1))])
+  dialog.set("confirm_text","START THE SHOW")
+  dialog.set("cancel_text","NOT YET")
+ else:
+  var charge: int = mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
+  dialog.set("body_text","Cancel %s? The cancellation costs £%d. No day is used." % [str(booking.get("venue","this booking")),charge])
+  dialog.set("confirm_text","CANCEL BOOKING")
+  dialog.set("cancel_text","KEEP BOOKING")
+ _live_dialog=dialog
+ _live_confirm_verb=verb
+ dialog.completed.connect(_live_confirmation_completed)
+ add_child(dialog)
+ (dialog.get("confirm_button") as Button).name="LiveConfirmAction"
+ (dialog.get("cancel_button") as Button).name="LiveKeepAction"
+ dialog.call("open_modal")
+
+func _live_confirmation_completed(accepted: bool) -> void:
+ var dialog: Control = _live_dialog
+ var verb: String = _live_confirm_verb
+ _live_dialog=null
+ _live_confirm_verb=""
+ if is_instance_valid(dialog):dialog.queue_free()
+ if accepted:
+  _commit_live(verb)
+ else:
+  _pending_focus="LiveMainAction"
+  call_deferred("_restore_focus",_pending_focus)
+
+func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ busy=true
+ var before: Dictionary = game.career.duplicate(true)
+ var old_booking: Dictionary = Calendar.pending(before)
+ var result: Dictionary = LiveRules.resolve(before,verb,choice,hire)
+ if not bool(result.get("ok",false)):
+  busy=false
+  notice=str(result.get("message","Action unavailable."))
+  _render()
+  return
+ game.career=result["state"]
+ if not bool(opening_owner.save_draft()):
+  game.career=before
+  busy=false
+  notice="The change could not be saved. Your previous band state is retained."
+  _render()
+  return
+ if verb=="book":
+  live_context_id=""
+  live_approach="tight"
+ var after: Dictionary = game.career
+ var booking: Dictionary = Calendar.pending(after)
+ var title: String = str((old_booking if not old_booking.is_empty() else booking).get("venue","THE LIVE CIRCUIT"))
+ var text: String = str(result.get("message",""))
+ if text.is_empty():
+  var brief: Dictionary = Night.stage(after)
+  text=str(brief.get("detail","The next stage is ready."))
+ receipt={"kind":"live","verb":verb,"title":title,"text":text,"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"changes":[],"journal_entries":[]}
+ for field in ["readiness","morale","tension","reputation","fans"]:
+  if int(before.get(field,0))!=int(after.get(field,0)):
+   receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
+ var prior_entries: Array = before.get("career_journal",[])
+ for entry in after.get("career_journal",[]):
+  if entry is Dictionary and not prior_entries.has(entry):receipt["journal_entries"].append(entry.duplicate(true))
+ receipt_open=true
+ _fresh_receipt=true
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ var days: int = int(receipt.day_after)-int(receipt.day_before)
+ var cash_delta: int = int(receipt.cash_after)-int(receipt.cash_before)
+ var money: String = "£%d GAINED" % cash_delta if cash_delta>0 else "£%d SPENT" % -cash_delta
+ var overlay := Beat.new()
+ overlay.heading_copy="THE SHOW IS IN THE BOOKS" if verb=="perform" else "THE LIVE CIRCUIT"
+ overlay.detail_copy="%d DAY%s  •  %s" % [days,"" if days==1 else "S",money]
+ overlay.configure("report" if days==0 else "gig",{"metrics":{"tour_day":{"before":receipt.day_before,"after":receipt.day_after}}},reduced_motion,"flightcase",int(receipt.day_after),int(receipt.cash_after))
+ _overlay=overlay
+ overlay.covered.connect(_present_receipt)
+ overlay.finished.connect(_finish_receipt)
+ add_child(overlay)
