@@ -4,8 +4,8 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.\n31Oct07:27 direct owner: Nice!! This is looking good. Can you package as an android install so I can test on my phone.",
-  "baseline_sha": "35a6dd95da9d645d9397a4f06763fafb9e905f15",
-  "dominant_issue": "BM-13",
+  "baseline_sha": "54f9088e7e19a1f06a041921ed250d6bb3595321",
+  "dominant_issue": "BM-24",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -50,8 +50,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 247576,
-    "sha256": "4c2815870485062939f679161830f37181b36945b5401ff33702d43504085ac7"
+    "bytes": 249390,
+    "sha256": "745ac60c51a9a01b2899abceb719a14b79b8770ed2c2e0834ce635f59e2544ff"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -59,8 +59,8 @@
     "pixels_inspected": true,
     "note": "Already opened original existing modal390; baseline for identical copy/state/native art, not inferred owner wholeUI approval."
   },
-  "hypothesis": "Package exactverifiedbb source into a signed Android owner-playtest APK using matchingGodot4.7.2templates and isolated application/privateuserdata; only Android packaging config changes, no gameplay/art/model edits.",
-  "controlled_comparison": "All274 verifiedprojectsourcefiles match existingmanifest except explicitAndroidproject/export config. Matchphone logical viewport390x844, Compatibilityrenderer and touch-to-mouse native controls. Validate APK signature/ABI/manifest/resources; actual Android install/launch if a usable emulator exists, otherwise disclose devicevalidation limit.",
+  "hypothesis": "PhonefeedbackUIrepair only: unchangedtablabels turngreenfromactualcoverage/assignedlead; fixedLEADVOCALS route scrolls/focuses existingassignment action, statusnamesblocker. No balance/art/model/schema changes.",
+  "controlled_comparison": "Samebb recruitstates4viewports; all6stats/traits/budget/dock retained. Genuine recruit/remove/re-recruit verifiesgreenroles; realroute/reveal/assignJack+5 thenComplete andsaveContinue. Native73+88/import/4journeys. APKupdatesameappID+successfulkey/version2.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -74,6 +74,8 @@
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_capture.gd",
     "tools/export_owner_android.py"
   ],
   "validation_commands": [
@@ -85,7 +87,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocalbb38882 full73+88/import/4native PASS,120retainedoriginals,112prioridentical,65samebytepositiveprobePASS,17originalsopened,CRC/freshextractedimport/nativeentryPASS; localonly, artPARTIAL/ownerfalse.",
-  "issues_reviewed_at": "2026-10-31T07:58:01.634742+00:00",
+  "issues_reviewed_at": "2026-10-31T08:35:13.715710+00:00",
   "progress": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "verified_at": "2026-10-31T05:20:03.478294+00:00",
@@ -447,7 +449,7 @@
     },
     "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
   },
-  "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required.",
+  "next_action": "One boundedUIonly phonefeedback repair: green coveredrole tabs and a first-fold route to EXISTING lead-vocal assignment, then fullnativeproof and same-keyAPKupdate before08:48. Budget/cashconversion/poster/genre styling remain explicit next-pass proposals, not untestedlastminute model/art changes.08:50readonly/09hardcutoff.",
   "checkpoint": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "verified_at": "2026-10-31T05:20:03.478294+00:00",
@@ -1152,5 +1154,13 @@
       "new_queue_created": false,
       "next_action": "Ownerphonefeedback only; APK alreadyprivatelydelivered. Reuse completedchecks, no speculativephonefixes or repeatbuild.08:50readonly/09hardcutoff."
     }
+  },
+  "phone_feedback_pass": {
+    "started_at": "2026-10-31T08:35:13.715710+00:00",
+    "lease_ends": "2026-10-31T08:48:00Z",
+    "owner_feedback": "Poster splash, lowerbudget, confirmations, greenrole tabs,leftoverpoints->cash,genre styling,otherimprovements.",
+    "current_slice": "One boundedUIonly phonefeedback repair: green coveredrole tabs and a first-fold route to EXISTING lead-vocal assignment, then fullnativeproof and same-keyAPKupdate before08:48. Budget/cashconversion/poster/genre styling remain explicit next-pass proposals, not untestedlastminute model/art changes.08:50readonly/09hardcutoff.",
+    "status": "preflight",
+    "owner_approved": false
   }
 }
