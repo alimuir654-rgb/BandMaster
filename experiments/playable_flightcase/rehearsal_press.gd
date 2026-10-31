@@ -128,6 +128,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   band_header.add_child(browse_hint)
  var gallery := ScrollContainer.new()
  gallery.name = "RecapMemberGallery"
+ gallery.follow_focus = true
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  gallery.custom_minimum_size.y = 280 if tall_tablet else 230

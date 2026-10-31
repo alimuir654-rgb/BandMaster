@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 357123,
-    "sha256": "261c56aeafe14d052b7a35fd582ed5f63a926a06d1337672676a2418e65edb43"
+    "bytes": 365095,
+    "sha256": "86662d7811ec63ab4cc624bb8ee6edf0fe7a4309d2aefbed762861006148988a"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -124,6 +124,15 @@
       "source": "4ef4f79",
       "technical_pass": true,
       "visual_correction": "responsive-only"
+    },
+    {
+      "event_id": "S44-six-ink-fixture-disk-roundtrip-failure",
+      "classification": "unknown fixture beforeaction"
+    },
+    {
+      "event_id": "S44-header-caption-native-render-loss",
+      "source": "68da8d9",
+      "classification": "observednativepixels"
     }
   ],
   "workflow_disclosures": [

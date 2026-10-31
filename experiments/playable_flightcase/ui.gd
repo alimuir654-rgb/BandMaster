@@ -12,7 +12,6 @@ const SessionTransition = preload("res://experiments/playable_flightcase/session
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
-static var audition_heading_texture: ImageTexture
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -208,10 +207,10 @@ func _decorate_audition_heading(label: Label) -> void:
   return
  var art := TextureRect.new()
  art.name = "AuditionsHeadingInk"
- if audition_heading_texture==null:
-  var source: Texture2D = load(path)
-  audition_heading_texture = ImageTexture.create_from_image(source.get_image().get_region(Rect2i(27,136,2024,544)))
- art.texture = audition_heading_texture
+ var texture := AtlasTexture.new()
+ texture.atlas = load(path)
+ texture.region = Rect2(27,136,2024,544)
+ art.texture = texture
  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -931,6 +930,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  var short_landscape: bool = viewport_size.x>=900 and viewport_size.y<800
  var scroll := ScrollContainer.new()
  scroll.name = "RehearsalResultScroll"
+ scroll.follow_focus = true
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
