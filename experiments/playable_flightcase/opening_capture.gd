@@ -109,7 +109,7 @@ func click_action(button: Button) -> void:
  await process_frame
  await process_frame
  await process_frame
- if action_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+ if not root.find_children("SessionTransition","Control",true,false).is_empty():
   await _wait_session_presentation(action_name)
 
 func _wait_session_presentation(action_name: String) -> void:
@@ -548,57 +548,92 @@ func _check_overwrite_resize(screen,w: int,h: int) -> void:
 
 func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool) -> void:
  var bounds := Rect2(0,0,w,h)
- var practice_scroll: ScrollContainer = screen.find_child("PracticeScroll",true,false) as ScrollContainer
- var frame: Control = screen.find_child("PracticeFrame",true,false) as Control
- var budget: Label = screen.find_child("BudgetLabel",true,false) as Label
- if practice_scroll==null or frame==null or budget==null:
-  failures.append("S40 practice layout missing named form, frame or budget")
-  return
- if frame.get_global_rect().position.x<0 or frame.get_global_rect().end.x>float(w):
-  failures.append("S40 practice frame overflows viewport horizontally")
- if not budget.text.contains("£"+str(int(screen.setup.game.career.get("cash",0)))) or not bounds.encloses(budget.get_global_rect()):
-  failures.append("S40 practice cash/header is clipped or not the actual balance")
- for action_name in ["WriteAction","RehearseAction","ClearAirAction"]:
-  var action: Button = screen.find_child(action_name,true,false) as Button
-  if action==null or not bounds.encloses(action.get_global_rect()) or action.size.x<44 or action.size.y<44:
-   failures.append("S40 practice action is not a first-fold physical target: "+action_name)
-  elif practice_scroll.get_global_rect().intersects(action.get_global_rect()):
-   failures.append("S40 practice action overlaps its scrolling form: "+action_name)
- if not exercise_choices:
-  return
  var before: Dictionary = screen.setup.snapshot()
  var saves: Dictionary = _recap_save_bytes()
- for spec in [["PracticeIdeaChoices","idea_index",["Riff","Lyric","Groove"]],["PracticeArrangementChoices","form_index",["Verse / Chorus","Slow Build","Loose Jam"]]]:
-  var choices: Control = screen.find_child(str(spec[0]),true,false) as Control
-  if choices==null:
-   failures.append("S40 practice choice group missing: "+str(spec[0]))
+ for kind in ["tighten","connect","create"]:
+  var mode: Button = screen.find_child("PracticeMode_"+kind,true,false) as Button
+  if mode==null or not bounds.encloses(mode.get_global_rect()) or mode.size.x<44 or mode.size.y<44:
+   failures.append("S41 free activity choice missing/clipped/too small: "+kind)
    continue
-  var owner: Node = choices
-  while owner!=null and owner.get_script()!=RehearsalScreen:
-   owner = owner.get_parent()
-  var buttons: Array[Node] = choices.find_children("*","Button",true,false)
-  if buttons.size()!=3 or owner==null:
-   failures.append("S40 practice choices lost original three options or owner")
-   continue
+  await click_action(mode)
+  var expected_action: String = {"create":"WriteAction","tighten":"RehearseAction","connect":"ClearAirAction"}[kind]
+  var visible_actions: Array[String] = []
+  for action_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+   var action: Button = screen.find_child(action_name,true,false) as Button
+   if action!=null and action.is_visible_in_tree():
+    visible_actions.append(action_name)
+    var practice_scroll: Control = screen.find_child("PracticeScroll",true,false) as Control
+    if not bounds.encloses(action.get_global_rect()) or action.size.x<44 or action.size.y<44 or (practice_scroll!=null and practice_scroll.get_global_rect().intersects(action.get_global_rect())):
+     failures.append("S41 selected commit missing safe first-fold physical target: "+action_name)
+  if visible_actions!=[expected_action]:
+   failures.append("S41 activity must have exactly one committing action: "+kind)
+  var summary: Label = screen.find_child("PracticeCommitment",true,false) as Label
+  var cost: Label = screen.find_child("PracticeTimeCost",true,false) as Label
+  var back: Button = screen.find_child("PracticeBackAction",true,false) as Button
+  if summary==null or cost==null or summary.get_theme_font_size("font_size")<16 or cost.get_theme_font_size("font_size")<16 or not bounds.encloses(summary.get_global_rect()) or not bounds.encloses(cost.get_global_rect()) or not cost.text.contains("1 day"):
+   failures.append("S41 actual selected commitment/time cost is not readable in the first fold: "+kind)
+  if back==null or not bounds.encloses(back.get_global_rect()) or back.size.y<44:
+   failures.append("S41 activity Back to Menu is missing/clipped/too small")
+  if kind=="tighten" and cost!=null and not cost.text.contains("£15"):
+   failures.append("S41 rehearsal cost is not the real £15")
+  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saves:
+   failures.append("S41 previewing an activity changed model/day/cash/save bytes")
+  await _draw_screen("practice_mode_"+kind,w,h)
+ var frame: PanelContainer = screen.find_child("PracticeFrame",true,false) as PanelContainer
+ var practice_scroll: ScrollContainer = screen.find_child("PracticeScroll",true,false) as ScrollContainer
+ var budget: Label = screen.find_child("BudgetLabel",true,false) as Label
+ if practice_scroll==null or frame==null or budget==null:
+  failures.append("S41 practice workspace missing named scroll, paper or budget")
+  return
+ if frame.get_global_rect().position.x<16 or frame.get_global_rect().end.x>float(w)-16 or not frame.get_theme_stylebox("panel") is StyleBoxTexture:
+  failures.append("S41 source paper workspace/bleed escapes horizontal safe area")
+ if not budget.text.contains("£"+str(int(screen.setup.game.career.get("cash",0)))) or not bounds.encloses(budget.get_global_rect()):
+  failures.append("S41 practice cash/header is clipped or not the actual balance")
+ for field_name in ["SongTitle","PracticeLeaderSelector","PracticeIdeaChoices","PracticeArrangementChoices"]:
+  var field: Control = screen.find_child(field_name,true,false) as Control
+  if field==null or not practice_scroll.get_global_rect().encloses(field.get_global_rect()):
+   failures.append("S41 title/leader/idea/arrangement is below first fold: "+field_name)
+ if not exercise_choices:
+  return
+ var ideas: Control = screen.find_child("PracticeIdeaChoices",true,false) as Control
+ if ideas==null:
+  failures.append("S41 original idea choices missing")
+  return
+ var owner: Node = ideas
+ while owner!=null and owner.get_script()!=RehearsalScreen:
+  owner = owner.get_parent()
+ var buttons: Array[Node] = ideas.find_children("*","Button",true,false)
+ if buttons.size()!=3 or owner==null:
+  failures.append("S41 original three idea choices/owner missing")
+  return
+ for index in [1,2,0]:
+  var button: Button = buttons[index] as Button
+  var skin: StyleBox = button.get_theme_stylebox("normal")
+  var text_width: float = button.get_theme_font("font").get_string_size(button.text,HORIZONTAL_ALIGNMENT_LEFT,-1,button.get_theme_font_size("font_size")).x
+  if button.text!=str(["Riff","Lyric","Groove"][index]) or button.clip_text or text_width>button.size.x-skin.get_minimum_size().x+1.0:
+   failures.append("S41 original idea label changed or clipped: "+button.text)
+  await click_action(button)
+  var selected: int = 0
+  for peer in buttons:
+   if (peer as Button).button_pressed: selected+=1
+  if selected!=1 or not button.button_pressed or int(owner.idea_index)!=index:
+   failures.append("S41 real idea input lost exclusive selection")
+ var forms = screen.find_child("PracticeArrangementChoices",true,false)
+ if forms==null or forms.items!=PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"]):
+  failures.append("S41 compact arrangement lost original three model options")
+ else:
   for index in [1,2,0]:
-   var button: Button = buttons[index] as Button
-   var skin: StyleBox = button.get_theme_stylebox("normal")
-   var text_width: float = button.get_theme_font("font").get_string_size(button.text,HORIZONTAL_ALIGNMENT_LEFT,-1,button.get_theme_font_size("font_size")).x
-   if button.text!=str(spec[2][index]) or button.clip_text or text_width>button.size.x-skin.get_minimum_size().x+1.0 or button.get_global_rect().position.x<0 or button.get_global_rect().end.x>float(w):
-    failures.append("S40 practice option label clips or changed: "+button.text)
-   await click_action(button)
-   var selected: int = 0
-   for peer in buttons:
-    if (peer as Button).button_pressed:
-     selected += 1
-   if selected!=1 or not button.button_pressed or int(owner.get(str(spec[1])))!=index:
-    failures.append("S40 real practice option click failed exclusive actual selection: "+button.text)
+   await click_action(forms.next)
+   var display: Label = forms.display
+   var text_width: float = display.get_theme_font("font").get_string_size(display.text,HORIZONTAL_ALIGNMENT_LEFT,-1,display.get_theme_font_size("font_size")).x
+   if forms.selected!=index or int(owner.form_index)!=index or display.text!=str(forms.items[index]) or display.get_theme_font_size("font_size")<16 or display.clip_text or text_width>display.size.x+1.0 or not bounds.encloses(display.get_global_rect()):
+    failures.append("S41 native arrangement browsing lost actual value/readable full label")
  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saves:
-  failures.append("S40 practice option browsing mutated career or save bytes")
+  failures.append("S41 choosing idea/form mutated career or save bytes")
  practice_scroll.scroll_vertical = 0
  await process_frame
  await process_frame
- print("S40_PRACTICE_LAYOUT ",JSON.stringify({"width":w,"height":h,"cash":budget.text,"choice_round_trip":true,"fixed_actions":3}))
+ print("S41_PRACTICE_LAYOUT ",JSON.stringify({"width":w,"height":h,"cash":budget.text,"choice_round_trip":true,"fixed_commit_actions":1,"free_activity_previews":3}))
 
 func _recruit_person(pane) -> Dictionary:
  var choices: Array = pane.game.choices(str(pane.role))
@@ -806,8 +841,13 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
   failures.append("S40 "+context+" next move does not describe the actual saved outcome")
  if not advice.is_visible_in_tree() or advice.get_theme_font_size("font_size")!=16 or not viewport.encloses(advice.get_global_rect()):
   failures.append("S40 "+context+" canonical 16px next move is not visible in first fold")
- if action.text!="BACK TO PRACTICE  ›" or action.get_global_rect().size.y<44 or not viewport.encloses(action.get_global_rect()):
+ var career: Dictionary = screen.game.career if screen.get_script()==RehearsalScreen else screen.setup.game.career
+ if action.text!="CONTINUE TO DAY %d  ›" % int(career.get("tour_day",1)) or action.get_global_rect().size.y<44 or not viewport.encloses(action.get_global_rect()):
   failures.append("S40 "+context+" return action is mislabeled, too small or clipped")
+ var receipt: Label = screen.find_child("RecapDayReceipt",true,false) as Label
+ var completed: Label = screen.find_child("RecapCompletedDay",true,false) as Label
+ if receipt==null or receipt.text!=str(view.get("receipt","")) or completed==null or completed.text!=str(view.get("completed_heading","")):
+  failures.append("S41 "+context+" day/cash receipt differs from the saved resolver before/after values")
  if advice.get_global_rect().end.y>action.get_global_rect().position.y or scroll.get_global_rect().intersects(advice.get_global_rect()) or scroll.get_global_rect().intersects(action.get_global_rect()):
   failures.append("S40 "+context+" next move/return action overlaps report or each other")
  if advice.focus_mode!=Control.FOCUS_NONE or advice.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
@@ -879,6 +919,8 @@ func _check_practice_dispatch(screen: Control,w: int,h: int) -> void:
   await process_frame
   await process_frame
   await process_frame
+  if action_name=="ClearAirAction":
+   await click_action(fixture.find_child("PracticeMode_connect",true,false) as Button)
   await click_action(fixture.find_child(action_name,true,false) as Button)
   if trial.snapshot()!=expected.snapshot():
    failures.append("S40 relocated practice action differed from one genuine settlement: "+action_name)
@@ -1509,6 +1551,7 @@ func take() -> void:
    await _draw_screen("resumed_practice",w,h)
   # S38: genuine pointer press of the existing Rehearse button, then
   # verify the saved causal result is restored by the real Continue menu.
+  await click_action(screen.find_child("PracticeMode_tighten",true,false) as Button)
   var rehearsal_action: Button = screen.find_child("RehearseAction",true,false)
   if rehearsal_action==null:
    failures.append("S38 rehearsal control missing after actual gameplay handoff")
@@ -1583,7 +1626,7 @@ func take() -> void:
     if screen.find_child("RehearsalRecapPanel",true,false)!=null:
      failures.append("S39 hide report failed")
     await _check_practice_layout(screen,w,h,false)
-    await click_action(screen.find_child("RecapToggleAction",true,false))
+    await click_action(screen.find_child("ReopenSessionAction",true,false))
     if screen.find_child("RehearsalRecapPanel",true,false)==null:
      failures.append("S39 show report failed")
     if screen.setup.snapshot()!=before_ui_only:

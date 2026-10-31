@@ -9,6 +9,9 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
 const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
+const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
+const Workshop = preload("res://Scripts/song_workshop.gd")
 var game = Game.new()
 var onboarding_state = null
 var opening_owner = null
@@ -25,6 +28,7 @@ var look := "flightcase"
 var reduced_motion := false
 var session_busy := false
 var _session_overlay: Control
+var practice_activity := "create"
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
 # contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
@@ -59,6 +63,7 @@ class PracticePhoneChoices extends VBoxContainer:
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ _hydrate_song_draft()
  get_viewport().size_changed.connect(_rebuild)
  visibility_changed.connect(_on_visibility_changed)
  _rebuild()
@@ -96,6 +101,13 @@ func _button(title: String, action: Callable, family: String = "action") -> Butt
 func _rebuild() -> void:
  if not is_inside_tree():
   return
+ var previous_focus: Control = get_viewport().gui_get_focus_owner()
+ var focus_name := ""
+ var caret := -1
+ if game.phase=="play" and not session_busy and is_instance_valid(previous_focus) and is_ancestor_of(previous_focus):
+  focus_name = previous_focus.name
+  if previous_focus is LineEdit:
+   caret = (previous_focus as LineEdit).caret_column
  _clear()
  var size_now: Vector2 = get_viewport_rect().size
  var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
@@ -148,6 +160,36 @@ func _rebuild() -> void:
   _practice_page(root_box,mobile)
  if is_instance_valid(_session_overlay):
   move_child(_session_overlay,get_child_count()-1)
+ elif not focus_name.is_empty():
+  call_deferred("_restore_practice_focus",focus_name,caret)
+
+func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
+ if session_busy or not is_visible_in_tree():
+  return
+ var control: Control = find_child(control_name,true,false) as Control
+ if control!=null and control.is_visible_in_tree():
+  control.grab_focus()
+  if control is LineEdit and caret>=0:
+   (control as LineEdit).caret_column = mini(caret,(control as LineEdit).text.length())
+
+func _hydrate_song_draft() -> void:
+ if game.phase!="play":
+  return
+ var draft: Dictionary = game.career.get("current_song_draft",{})
+ if draft.is_empty():
+  if not (game.career.get("song_catalogue",[]) as Array).is_empty():
+   song_title = ""
+  return
+ song_title = str(draft.get("title",song_title))
+ idea_index = maxi(0,Workshop.IDEAS.find(str(draft.get("idea",Workshop.IDEAS[0]))))
+ form_index = maxi(0,Workshop.FORMS.find(str(draft.get("form",Workshop.FORMS[0]))))
+ var members: Array = game.career.get("members",[])
+ leader_index = 0
+ for index in range(members.size()):
+  if str(members[index].get("name",""))==str(draft.get("leader","")):
+   leader_index = index
+   break
+ leader_index = clampi(leader_index,0,maxi(0,members.size()-1))
 
 func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var tabs := GridContainer.new()
@@ -362,20 +404,41 @@ func _show_vocal_choices() -> void:
    choice.grab_focus()
    return
 
+func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
+ var label: Label = Kit.label(content,"notepaper",points)
+ label.add_theme_color_override("font_color",Color("695c4b") if muted else Color("29241f"))
+ label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ return label
+
+func _select_practice_activity(kind: String) -> void:
+ if session_busy or kind not in ["create","tighten","connect"]:
+  return
+ practice_activity = kind
+ _rebuild()
+ call_deferred("_restore_practice_focus","PracticeMode_"+kind)
+
+func _practice_back() -> void:
+ if not session_busy:
+  back_requested.emit()
+
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = get_viewport_rect().size.x
  var phone: bool = viewport_width<600
  var stacked: bool = mobile or viewport_width<1000
  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
- # The result is a deliberate separate physical press screen, not a long
- # report placed above the controls. The real choice stays in a fixed footer.
  if not saved_report.is_empty() and recap_expanded:
   _rehearsal_result_page(root_box,mobile,saved_report)
   return
- if not saved_report.is_empty():
-  var reopen: Button = _button("VIEW LAST SESSION  ›",_toggle_recap,"tab")
-  reopen.name = "RecapToggleAction"
-  root_box.add_child(reopen)
+ var mode_index: int = ["create","tighten","connect"].find(practice_activity)
+ var modes := Kit.ChoiceStrip.new(look,PackedStringArray(["WRITE","REHEARSE","CLEAR AIR"]),maxi(0,mode_index))
+ modes.name = "PracticeActivityChoices"
+ for index in range(3):
+  modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect"][index])
+  modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
+ modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect"][index])))
+ root_box.add_child(modes)
  var scroll := ScrollContainer.new()
  scroll.name = "PracticeScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -383,89 +446,195 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  scroll.follow_focus = true
  scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  root_box.add_child(scroll)
+ var outside := MarginContainer.new()
+ outside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for side in ["left","right","top","bottom"]:
+  outside.add_theme_constant_override("margin_"+side,16)
+ scroll.add_child(outside)
  var content: BoxContainer = _box() if stacked else HBoxContainer.new()
+ content.add_theme_constant_override("separation",18)
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- if not stacked:
-  content.add_theme_constant_override("separation",12)
- scroll.add_child(content)
- var actions := _box()
- actions.custom_minimum_size.x = 0 if stacked else 470
- var practice_frame := _panel(actions)
- practice_frame.name = "PracticeFrame"
- content.add_child(practice_frame)
- if opening_owner != null:
-  actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab"))
- actions.add_child(_label("FIRST PRACTICE",22))
- actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
- actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
- actions.add_child(_label("IDEA",13))
- var idea_labels := PackedStringArray(["Riff","Lyric","Groove"])
- var ideas := Kit.ChoiceStrip.new(look,idea_labels,idea_index)
- ideas.name = "PracticeIdeaChoices"
- ideas.selection_changed.connect(func(index: int): idea_index=index)
- actions.add_child(ideas)
- actions.add_child(_label("ARRANGEMENT",13))
- var form_labels := PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"])
- var forms: Variant = PracticePhoneChoices.new(look,form_labels,form_index) if phone else Kit.ChoiceStrip.new(look,form_labels,form_index)
- forms.name = "PracticeArrangementChoices"
- forms.selection_changed.connect(func(index: int): form_index=index)
- actions.add_child(forms)
- actions.add_child(_label("SONG TITLE",13))
- var entry := LineEdit.new()
- entry.name = "SongTitle"
- entry.text = song_title
- entry.custom_minimum_size.y = 48
- entry.text_changed.connect(func(value: String): song_title=value)
- entry.add_theme_font_size_override("font_size",17)
- actions.add_child(entry)
- var leader_names := PackedStringArray()
- for p in game.career.get("members",[]):
-  leader_names.append(str(p.get("name","Musician")))
- var lead := Kit.BrowseSelector.new(look,leader_names)
- lead.selected = clampi(leader_index,0,maxi(0,leader_names.size()-1))
- lead.call("_refresh")
- lead.selection_changed.connect(func(index: int,_item: String): leader_index=index)
- actions.add_child(_label("SESSION LEADER",13))
- actions.add_child(lead)
+ outside.add_child(content)
+ var holder := CenterContainer.new()
+ holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ holder.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+ content.add_child(holder)
+ var paper := PanelContainer.new()
+ paper.name = "PracticeFrame"
+ paper.custom_minimum_size.x = minf(780.0,maxf(270.0,viewport_width-(56.0 if mobile else 480.0)))
+ paper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ paper.add_theme_stylebox_override("panel",Paper.sheet(phone))
+ holder.add_child(paper)
+ var body := VBoxContainer.new()
+ body.add_theme_constant_override("separation",4)
+ body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ paper.add_child(body)
+ if practice_activity=="create":
+  _writing_workspace(body)
+ else:
+  _rehearsal_workspace(body,practice_activity)
  var info := _box()
- info.custom_minimum_size.x = 0 if stacked else 350
+ info.custom_minimum_size.x = 0 if stacked else 300
  content.add_child(_panel(info))
  info.add_child(_label("THE BAND",19))
- for p in game.career.get("members",[]):
-  info.add_child(_label("%s  •  %s   morale %d" % [str(p.get("name","")),str(p.get("role","")),int(p.get("morale",0))],14))
- info.add_child(_label("SETLIST",18))
+ for person in game.career.get("members",[]):
+  info.add_child(_label("%s  •  %s   morale %d" % [str(person.get("name","")),str(person.get("role","")),int(person.get("morale",0))],16))
+ info.add_child(_label("YOUR ORIGINALS",18))
  if game.career.get("song_catalogue",[]).is_empty():
-  info.add_child(_label("No finished original songs. Write three sessions.",14))
+  info.add_child(_label("No finished originals yet. Three writing sessions will complete your first song.",16))
  else:
   for song in game.career.get("song_catalogue",[]):
-   info.add_child(_label("%s  •  quality %d" % [str(song.get("title","UNTITLED")),int(song.get("quality",0))],14))
- info.add_child(_label("GIG PREP: Build a complete original and rehearse. Booking isn't available in this isolated proof yet.",14))
- info.add_child(_button("SAVE SANDBOX",_save,"tab"))
- info.add_child(_button("LOAD SANDBOX",_load,"tab"))
- # The same authoritative actions stay visible while the form and band notes
- # scroll. No action is duplicated, rerouted or charged by layout changes.
- var dock := GridContainer.new()
+   info.add_child(_label("%s  •  quality %d\nWritten by %s  •  %s" % [str(song.get("title","UNTITLED")),int(song.get("quality",0)),str(song.get("lead_writer","the band")),str(song.get("arrangement",""))],16))
+ if not saved_report.is_empty():
+  var reopen: Button = _button("VIEW LAST SESSION  ›",_toggle_recap,"tab")
+  reopen.name = "ReopenSessionAction"
+  info.add_child(reopen)
+ info.add_child(_label("NEXT GOAL: finish an original and prepare the live set. Booking is not available in this playtest yet.",14))
+ if opening_owner==null:
+  info.add_child(_button("SAVE PROGRESS",_save,"tab"))
+  info.add_child(_button("LOAD SAVED PROGRESS",_load,"tab"))
+ var dock := VBoxContainer.new()
  dock.name = "PracticeDecisionDock"
- dock.columns = 1 if phone else 3
- dock.add_theme_constant_override("h_separation",8)
- dock.add_theme_constant_override("v_separation",6)
+ dock.add_theme_constant_override("separation",5)
  dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
  dock.custom_minimum_size.x = minf(900.0,maxf(280.0,viewport_width-(24.0 if mobile else 40.0)))
  root_box.add_child(dock)
- var write: Button = _button("WRITE SESSION  •  %d/3" % [int(game.career.get("song_draft_progress",0))+1],_write)
- write.name = "WriteAction"
- dock.add_child(write)
- var rehearse: Button = _button("REHEARSE  •  £15",_rehearse)
- rehearse.name = "RehearseAction"
- rehearse.disabled = int(game.career.get("cash",0))<15
- dock.add_child(rehearse)
- var clear_air: Button = _button("CLEAR THE AIR",_connect)
- clear_air.name = "ClearAirAction"
- dock.add_child(clear_air)
+ var summary: Label = _label("",16)
+ summary.name = "PracticeCommitment"
+ dock.add_child(summary)
+ var cost: Label = _label("",16)
+ cost.name = "PracticeTimeCost"
+ cost.add_theme_color_override("font_color",Color("f0c78b"))
+ dock.add_child(cost)
+ var action: Button
+ if practice_activity=="create":
+  action = _button("WRITE SESSION",_write)
+  action.name = "WriteAction"
+ elif practice_activity=="tighten":
+  action = _button("START REHEARSAL  •  £15",_rehearse)
+  action.name = "RehearseAction"
+ else:
+  action = _button("CLEAR THE AIR",_connect)
+  action.name = "ClearAirAction"
+ dock.add_child(action)
+ if opening_owner!=null:
+  var back: Button = _button("BACK TO MENU",_practice_back,"tab")
+  back.name = "PracticeBackAction"
+  dock.add_child(back)
+ _refresh_practice_commitment()
 
+func _writing_workspace(body: VBoxContainer) -> void:
+ var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ body.add_child(_ink("WRITE AN ORIGINAL",22))
+ var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
+ stage.name = "WritingStageLabel"
+ body.add_child(stage)
+ body.add_child(_ink("SONG TITLE",14,true))
+ var entry := LineEdit.new()
+ entry.name = "SongTitle"
+ entry.text = song_title
+ entry.placeholder_text = "Name your original"
+ entry.max_length = 48
+ entry.custom_minimum_size.y = 48
+ entry.add_theme_font_size_override("font_size",17)
+ entry.add_theme_stylebox_override("normal",Paper.scorecard())
+ var focus_style: StyleBoxTexture = Kit.skin("notepaper","tab","focus")
+ focus_style.draw_center = false
+ entry.add_theme_stylebox_override("focus",focus_style)
+ entry.add_theme_color_override("font_color",Color("29241f"))
+ entry.add_theme_color_override("caret_color",Color("29241f"))
+ entry.text_changed.connect(func(value: String):
+  song_title = value
+  _refresh_practice_commitment())
+ body.add_child(entry)
+ var validation: Label = _ink("",16)
+ validation.name = "WritingValidation"
+ validation.add_theme_color_override("font_color",Color("954a42"))
+ validation.visible = false
+ body.add_child(validation)
+ body.add_child(_ink("SESSION LEADER",14,true))
+ var leader_names := PackedStringArray()
+ for person in game.career.get("members",[]):
+  leader_names.append(str(person.get("name","Musician")))
+ leader_index = clampi(leader_index,0,maxi(0,leader_names.size()-1))
+ var lead := Kit.BrowseSelector.new("notepaper",leader_names)
+ lead.name = "PracticeLeaderSelector"
+ lead.previous.name = "PracticeLeaderPrevious"
+ lead.next.name = "PracticeLeaderNext"
+ lead.display.clip_text = false
+ lead.selected = leader_index
+ lead.call("_refresh")
+ lead.selection_changed.connect(func(index: int,_item: String):
+  leader_index = index
+  _refresh_practice_commitment())
+ body.add_child(lead)
+ body.add_child(_ink("IDEA",14,true))
+ var ideas := Kit.ChoiceStrip.new("notepaper",PackedStringArray(Workshop.IDEAS),idea_index)
+ ideas.name = "PracticeIdeaChoices"
+ ideas.selection_changed.connect(func(index: int):
+  idea_index = index
+  _refresh_practice_commitment())
+ body.add_child(ideas)
+ body.add_child(_ink("ARRANGEMENT",14,true))
+ var forms := Kit.BrowseSelector.new("notepaper",PackedStringArray(Workshop.FORMS))
+ forms.name = "PracticeArrangementChoices"
+ forms.previous.name = "PracticeArrangementPrevious"
+ forms.next.name = "PracticeArrangementNext"
+ forms.display.clip_text = false
+ forms.selected = form_index
+ forms.call("_refresh")
+ forms.selection_changed.connect(func(index: int,_item: String):
+  form_index = index
+  _refresh_practice_commitment())
+ body.add_child(forms)
 
-# The journal is read-only: presentation and visibility never call the
-# resolver, generate a second outcome or change the saved band.
+func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
+ var rule: Dictionary = Practice.FOCUSES[kind]
+ body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
+ body.add_child(_ink(str(rule.get("description","")),16,true))
+ body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
+ var gap := Control.new()
+ gap.custom_minimum_size.y = 8
+ body.add_child(gap)
+ for row in [["readiness","READINESS"],["morale","MORALE"],["tension","TENSION"]]:
+  var line: Label = _ink("%s  %d%s" % [str(row[1]),int(game.career.get(str(row[0]),0))," / 100" if str(row[0])=="readiness" else ""],18)
+  line.name = "PracticeCurrent_"+str(row[0])
+  body.add_child(line)
+ body.add_child(_ink("Results depend on the band's actual preparation, traits and relationships.",16,true))
+
+func _refresh_practice_commitment() -> void:
+ if game.phase!="play":
+  return
+ var summary: Label = find_child("PracticeCommitment",true,false) as Label
+ var cost: Label = find_child("PracticeTimeCost",true,false) as Label
+ if summary==null or cost==null:
+  return
+ if practice_activity=="create":
+  var members: Array = game.career.get("members",[])
+  var leader_name: String = str(members[leader_index].get("name","Musician")) if leader_index>=0 and leader_index<members.size() else "Choose a leader"
+  summary.text = "%s  •  %s  •  %s" % [str(Workshop.IDEAS[idea_index]),str(Workshop.FORMS[form_index]),leader_name]
+  var preview: Dictionary = Workshop.develop(game.career,str(Workshop.IDEAS[idea_index]),str(Workshop.FORMS[form_index]),song_title,leader_index)
+  cost.text = "Uses 1 day  •  No room fee"
+  var validation: Label = find_child("WritingValidation",true,false) as Label
+  if validation!=null:
+   validation.visible = not bool(preview.get("ok",false))
+   validation.text = str(preview.get("message","Choose a title and session leader."))
+  var write: Button = find_child("WriteAction",true,false) as Button
+  if write!=null:
+   write.text = "WRITE SESSION %d OF 3" % [clampi(int(game.career.get("song_draft_progress",0)),0,2)+1]
+   write.disabled = not bool(preview.get("ok",false))
+ elif practice_activity=="tighten":
+  summary.text = "Readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
+  cost.text = "Uses 1 day  •  £15 room hire"
+  var rehearse: Button = find_child("RehearseAction",true,false) as Button
+  if rehearse!=null:
+   rehearse.disabled = int(game.career.get("cash",0))<15
+   if rehearse.disabled:
+    cost.text = "Uses 1 day  •  Needs £15  •  £%d available" % int(game.career.get("cash",0))
+ else:
+  summary.text = "A band meeting to work on trust and tension."
+  cost.text = "Uses 1 day  •  No room fee"
+
 func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
  var viewport_size := get_viewport_rect().size
  var tall_tablet: bool = viewport_size.x>=600 and viewport_size.x<900 and viewport_size.y>viewport_size.x
@@ -502,7 +671,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  next_move.mouse_filter = Control.MOUSE_FILTER_IGNORE
  next_move.focus_mode = Control.FOCUS_NONE
  dock.add_child(next_move)
- var footer: Button = _button("BACK TO PRACTICE  ›",_toggle_recap)
+ var footer: Button = _button("CONTINUE TO DAY %d  ›" % int(game.career.get("tour_day",1)),_toggle_recap)
  footer.name = "RecapToggleAction"
  dock.add_child(footer)
 
@@ -520,9 +689,11 @@ func _toggle_recap_details() -> void:
 func _toggle_recap() -> void:
  if session_busy:
   return
+ var leaving_result: bool = recap_expanded
  recap_expanded = not recap_expanded
  recap_details_expanded = false
- _rebuild()
+ var report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+ _begin_session_presentation("day" if leaving_result else "report",report)
 
 func _change_role(value: String) -> void:
  role = value
@@ -594,8 +765,16 @@ func _commit_session(kind: String) -> void:
  recap_details_expanded = false
  if opening_owner != null:
   opening_owner.save_draft()
+ if kind=="create" and int(game.career.get("song_draft_progress",0))==0:
+  _hydrate_song_draft()
+ _begin_session_presentation(kind,result.get("outcome",{}))
+
+func _begin_session_presentation(kind: String, report: Dictionary) -> void:
+ # Navigation/reopening uses the same presentation layer, with no resolver or
+ # save call. Only _commit_session may perform those existing operations.
+ session_busy = true
  var overlay := SessionTransition.new()
- overlay.configure(kind,result.get("outcome",{}),reduced_motion,look)
+ overlay.configure(kind,report,reduced_motion,look,int(game.career.get("tour_day",1)),int(game.career.get("cash",0)))
  _session_overlay = overlay
  overlay.covered.connect(_present_saved_session)
  overlay.finished.connect(_finish_session_presentation)
@@ -614,7 +793,7 @@ func _finish_session_presentation() -> void:
  if is_instance_valid(overlay):
   remove_child(overlay)
   overlay.queue_free()
- var next_action: Button = find_child("RecapToggleAction",true,false) as Button
+ var next_action: Button = find_child("RecapToggleAction" if recap_expanded else "PracticeMode_"+practice_activity,true,false) as Button
  if next_action!=null and is_visible_in_tree():
   next_action.grab_focus()
 
@@ -641,5 +820,6 @@ func _load() -> void:
   game = opening_owner.game
  if okay:
   recap_expanded = true
+  _hydrate_song_draft()
  last_message = "Sandbox restored." if okay else "No valid sandbox save."
  _rebuild()

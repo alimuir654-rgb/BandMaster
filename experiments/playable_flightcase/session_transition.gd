@@ -9,6 +9,8 @@ var reduced_motion := false
 var style := "flightcase"
 var focus_kind := "tighten"
 var completed_day := 1
+var next_day := 1
+var available_cash := 0
 var _shade: ColorRect
 var _card: VBoxContainer
 var _skip: Button
@@ -16,9 +18,11 @@ var _motion: Tween
 var _has_covered := false
 var _closed := false
 
-func configure(kind: String, report: Dictionary, reduce: bool, look: String) -> void:
+func configure(kind: String, report: Dictionary, reduce: bool, look: String, current_day: int = 0, current_cash: int = -1) -> void:
  focus_kind = kind
  completed_day = int(report.get("metrics",{}).get("tour_day",{}).get("before",1))
+ next_day = current_day if current_day>0 else int(report.get("metrics",{}).get("tour_day",{}).get("after",completed_day+1))
+ available_cash = current_cash if current_cash>=0 else int(report.get("metrics",{}).get("cash",{}).get("after",0))
  reduced_motion = reduce
  style = look
 
@@ -47,17 +51,20 @@ func _ready() -> void:
  _card.add_theme_constant_override("separation",16)
  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,get_viewport_rect().size.x-48.0))
  center.add_child(_card)
- var heading := Kit.label(str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR"}.get(focus_kind,"WITH THE BAND")),style,26)
+ var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
+ var heading := Kit.label(heading_text,style,26)
  heading.name = "SessionBeatTitle"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  _card.add_child(heading)
- var day := Kit.label("DAY %d  •  SESSION COMPLETE" % completed_day,style,16)
+ var day_text: String = "£%d AVAILABLE  •  CHOOSE YOUR NEXT SESSION" % available_cash if focus_kind=="day" else ("SAVED NOTES  •  NO TIME SPENT" if focus_kind=="report" else "DAY %d  •  SESSION COMPLETE" % completed_day)
+ var day := Kit.label(day_text,style,16)
  day.name = "SessionBeatDay"
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ day.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  day.add_theme_color_override("font_color",Color("f0c78b"))
  _card.add_child(day)
- _skip = Kit.button("SHOW THE RESULTS  ›",style,"tab")
+ _skip = Kit.button("PLAN THE DAY  ›" if focus_kind=="day" else ("SHOW SAVED NOTES  ›" if focus_kind=="report" else "SHOW THE RESULTS  ›"),style,"tab")
  _skip.name = "SkipSessionBeatAction"
  _skip.pressed.connect(finish_now)
  _card.add_child(_skip)
@@ -79,7 +86,7 @@ func _start() -> void:
  _motion = create_tween()
  _motion.tween_property(_shade,"color:a",1.0,0.15)
  _motion.tween_callback(_cover)
- _motion.tween_interval(0.65)
+ _motion.tween_interval(0.40 if focus_kind=="day" else (0.0 if focus_kind=="report" else 0.65))
  _motion.tween_property(self,"modulate:a",0.0,0.20)
  _motion.tween_callback(finish_now)
 

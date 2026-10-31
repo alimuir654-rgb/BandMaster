@@ -94,10 +94,20 @@ static func present(report: Dictionary, career_members: Array) -> Dictionary:
   next_step = "You have talked things through. Try a focused rehearsal."
  elif ready <= 0:
   next_step = "The set did not improve. Consider the band's preparation before drilling again."
+ var day_change: Dictionary = metrics.get("tour_day",{})
+ var cash_change: Dictionary = metrics.get("cash",{})
+ var has_receipt: bool = day_change.has("before") and day_change.has("after") and cash_change.has("before") and cash_change.has("after")
+ var completed_day: int = int(day_change.get("before",maxi(1,int(report.get("day",1))-1)))
+ var after_day: int = int(day_change.get("after",report.get("day",1)))
+ var receipt := "SAVED SESSION NOTES"
+ if has_receipt:
+  receipt = "£%d → £%d  •  %d DAY%s" % [int(cash_change["before"]),int(cash_change["after"]),after_day-completed_day,"" if after_day-completed_day==1 else "S"]
  return {"action_id":str(report.get("action_id","")),"focus":focus,
-  "heading":title + "  /  DAY " + str(int(report.get("day",0))),
+  "heading":title + "  /  DAY " + str(completed_day if has_receipt else int(report.get("day",0))),
   "verdict":str(report.get("verdict","Session completed")),
   "reason":str(report.get("reason","")),
+  "completed_day":completed_day,"after_day":after_day,"has_receipt":has_receipt,
+  "receipt":receipt,"completed_heading":"DAY %d COMPLETE  •  %s" % [completed_day,str({"tighten":"REHEARSAL","create":"WRITING","connect":"BAND MEETING"}.get(focus,"SESSION"))] if has_receipt else "SESSION COMPLETE",
   "metric_rows":rows,"reactions":voices,
   "footnote":"* Cohesion is the mean of existing pair relationships, not a separate bonus.",
   "next_step":next_step}

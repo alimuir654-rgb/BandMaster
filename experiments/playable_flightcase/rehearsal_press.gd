@@ -32,9 +32,10 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  if view.is_empty():
   content.add_child(ink("No saved session report available.",15))
   return
- var mast := ink("LIVIN' THE DREAM   /   THE SESSION FILES",13 if tall_tablet else (10 if mobile else 12),true)
+ var mast := ink(str(view.get("completed_heading","SESSION COMPLETE")),16,true)
+ mast.name = "RecapCompletedDay"
  mast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- mast.autowrap_mode = TextServer.AUTOWRAP_OFF
+ mast.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  content.add_child(mast)
  var rule := ColorRect.new()
  rule.name = "RecapInkRule"
@@ -42,7 +43,8 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  rule.custom_minimum_size.y = 2.0
  rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
  content.add_child(rule)
- var heading := ink(str(view.get("heading","SESSION")),14 if tall_tablet else (11 if mobile else 13),true)
+ var heading := ink(str(view.get("receipt","SAVED SESSION NOTES")),16 if tall_tablet else 14,true)
+ heading.name = "RecapDayReceipt"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(heading)
  var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),36 if short_landscape else (42 if tall_tablet else (30 if mobile else 40)))
