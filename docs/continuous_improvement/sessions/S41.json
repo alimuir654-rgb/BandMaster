@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 307928,
-    "sha256": "29f619ba572a9ca32a2b0924896396fdbaa6edc4577fce307b0869562e34c874"
+    "bytes": 309938,
+    "sha256": "a3cf7c5c6e01e9ee8b4bdbe027212fa074a08b2ef89429b736f9bbbe1cd44e26"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -92,7 +92,7 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T12:10:13.386032+00:00",
+  "issues_reviewed_at": "2026-10-31T12:17:38.810237+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Additional owner-authorized genre artwork slice preflight; no source/native success claimed.",
@@ -158,6 +158,18 @@
       "source": "7384278",
       "classification": "testAPIancestorassumption, notproductcallback",
       "evidence": "/workspace/work/s40/runs/day31-workspace-7384278/validation.json"
+    },
+    {
+      "event_id": "S41-genre-index-enter-space-focus-loss-be998ec",
+      "source_sha": "be998ece96ad58967e779bd9984d1fde2407eb6d",
+      "evidence": [
+        "be998ece96ad58967e779bd9984d1fde2407eb6d",
+        "/workspace/work/day31/genre-art-qa/focused-be998ec-phone/captures/result.json",
+        "/workspace/work/day31/genre-art-qa/focused-be998ec-phone/captures/FIRST-FAILURE-390x844.png",
+        "/workspace/work/day31/genre-art-qa/focused-be998ec-phone/native.log",
+        "/workspace/work/day31/genre_art_probe.gd"
+      ],
+      "classification": "Existing whole-screen selection rebuild loses nativefocus/scroll; actual integration defect, not savecorruption."
     }
   ],
   "motion_probe_diagnosis": {

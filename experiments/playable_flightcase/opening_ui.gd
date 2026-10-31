@@ -433,8 +433,21 @@ func _genre() -> void:
  footer.add_child(_button("FIND YOUR PEOPLE ›",_to_recruit,"action","GenreNextAction"))
 
 func _choose_genre(value: String) -> void:
- setup.set_genre(value)
- _render()
+ if not setup.set_genre(value):
+  return
+ # Genre artwork changes without replacing its native choice index. This
+ # retains keyboard focus and the user's scroll position after selection.
+ var press: Control = find_child("GenrePress",true,false) as Control
+ if press==null:
+  _render()
+  return
+ press.configure(setup.game.genre,size)
+ for item in Base.genres():
+  var name: String = str(item)
+  var button: Button = find_child("Genre_"+name.replace(" ","_").replace("/","_"),true,false) as Button
+  if button!=null:
+   button.text = ("✓  " if setup.game.genre == name else "")+name.to_upper()
+   button.set_pressed_no_signal(setup.game.genre == name)
 func _to_recruit() -> void:
  if setup.to_recruit():
   _render()

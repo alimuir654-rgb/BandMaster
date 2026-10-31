@@ -32,6 +32,9 @@ func _ink(text: String, points: int, node_name: String) -> Label:
  return label
 
 func configure(genre: String, viewport_size: Vector2) -> void:
+ for child in get_children():
+  remove_child(child)
+  child.queue_free()
  name = "GenrePress"
  mouse_filter = Control.MOUSE_FILTER_IGNORE
  focus_mode = Control.FOCUS_NONE
@@ -87,8 +90,9 @@ class PrintArt extends Control:
 
  func _line(points: Array, width: float = 2.0, alpha: float = 1.0) -> void:
   var packed := PackedVector2Array()
-  for point in points:
-   packed.append(point)
+  for i in range(points.size()):
+   var point: Vector2 = points[i]
+   packed.append(point+Vector2(sin(point.y*0.37+i)*0.38,cos(point.x*0.31+i)*0.38))
   draw_polyline(packed,Color(ink,alpha),width,true)
 
  func _polygon(points: Array, alpha: float = 1.0) -> void:
@@ -96,9 +100,21 @@ class PrintArt extends Control:
   for point in points:
    packed.append(point)
   draw_colored_polygon(packed,Color(ink,alpha))
+  # Small registration/dropout marks stay INSIDE the ink shape. Native text
+  # and the paper outside artwork receive no added noise or texture.
+  for i in range(100):
+   var point := Vector2(20+float((i*71)%280),12+float((i*43)%96))
+   if Geometry2D.is_point_in_polygon(point,packed):
+    draw_line(point,point+Vector2(0.8+float(i%3),-0.35),Color(0.93,0.90,0.84,0.65),0.65,true)
 
  func _ring(center: Vector2, radius: float, width: float = 2.0, alpha: float = 1.0) -> void:
-  draw_arc(center,radius,0,TAU,96,Color(ink,alpha),width,true)
+  for i in range(96):
+   if i%29==0:
+    continue
+   var angle: float = float(i)*TAU/96.0
+   var next: float = float(i+1)*TAU/96.0
+   var local_radius: float = radius+sin(float(i)*0.71)*0.35
+   draw_line(center+Vector2.from_angle(angle)*local_radius,center+Vector2.from_angle(next)*local_radius,Color(ink,alpha),width*(0.93+0.07*sin(float(i)*0.4)),true)
 
  func _draw() -> void:
   # Fit the complete original composition rather than cropping a fixed image.
