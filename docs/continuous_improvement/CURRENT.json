@@ -47,5 +47,17 @@
     "playable_artifact_id": 12982335406,
     "visual_verdict": "partial",
     "owner_approved": false
+  },
+  "overnight_continuation": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "enabled": true,
+    "thread": "current Codex thread",
+    "first_run": "2026-10-31T01:00:00Z",
+    "until": "2026-10-31T09:00:00Z",
+    "cadence": "hourly bounded best-effort attempts;09:00 review only",
+    "previous_worker_id": "6ae3c67254c48191aa33c260da9c0dc8",
+    "previous_worker_enabled": false,
+    "current_root_must_release_before_handoff": true,
+    "no_continuous_execution_claim": true
   }
 }
