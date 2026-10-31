@@ -1,5 +1,5 @@
 {
-  "writer": "S41-daily-workspace-20261031T0940",
+  "writer": null,
   "base_head": "79125ed173845808ec73ac6985903cc6978d4b4d",
   "claimed_at": "2026-10-31T09:40:01.161259+00:00",
   "expires_at": "2026-10-31T11:15:00Z",
@@ -7,8 +7,8 @@
   "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T10:34:47.354459+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S41-session-flow-20261031T0913",
-  "source_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086",
+  "last_writer": "S41-daily-workspace-20261031T0940",
+  "source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",

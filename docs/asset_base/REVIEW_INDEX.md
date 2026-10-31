@@ -1,3 +1,14 @@
+# S41 verified daily workspace — 2026-10-31T10:34:47.354459+00:00
+
+Exactsource `75d0214770098d76cbd4d17f540586143ea5dfc1`: free activity previews, one actualcommit, saved writing fields/history and Idea/Develop/Finish guidance, actual£15/one-day rehearsal, source-honest completedday/cash receipt and fixed Details/Continue.73+88/import/four genuine native journeys/172originalPNGs PASS,0ERROR/orphans;748 exact75 focusedwriting/history assertions and 750 exact75 transitionstresschecks. FailedContinueprobe clickedoldy360whileactualtargetmovedy470,0pressed/0loads; silentdiagnosis retained andpositive fullprobe usespostdrawstablephysicaltargets+onepressed, alloriginalburstassertions unchanged.324protectedsourcefiles unchanged;108/140 foundationoriginals exact,32 intentional practice/resultchanges. Actualoriginals and5SIMULATEDlenses: `/workspace/work/s40/runs/day31-workspace-75d0214/visual-review.json`. Rootadditionalhistory/placeholderoriginals in `/workspace/work/day31/workspace-closeout.json`. VisualPARTIAL/owner_approved=false. NoAPK or sourceZIPperchange.
+
+Failedfirstfold/disclosure/key/contrast/harness/auditclassification history retained beforecorrections. Currentconditional disk-savefailurelimitation notdemonstrated in thisrun; no Androiddeviceclaim. Budget/cash/genrebacklog unchanged. Writerreleased 2026-10-31T10:34:47.354459+00:00.
+
+Next: One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.
+
+
+## Preserved review history
+
 # S40 owner-phone UI checkpoint — 2026-10-31T08:46:29.830594+00:00
 
 Exact game source `95b2574eed82946a644f1d1f789b87ffbc5e93f5`; Android export recipe `e8a8547db1d89b276f2be9e3b88408520300ec60`. **Technical PASS; visual PARTIAL; owner_approved=false.** Owner reported firstAPK installation worked and disclosed recruitment assignment confusion. Existing native assignment now has a first-fold route; covered roles stay green independently of the browsed category. No separateSinger hire is required.

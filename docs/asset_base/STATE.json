@@ -5,20 +5,13 @@
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
-  "review_at": "2026-10-31T09:00:00+00:00",
+  "review_at": "2026-10-31T15:00:00Z",
   "production_authorised": true,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": [
-    "S1_dynamic_actual_selected_lineup",
-    "S2_editorial_band_formed_poster",
-    "S3_name_logo_identity_carrythrough",
-    "S4_deterministic_rehearsal_outcomes",
-    "S5_member_feedback_result_ui",
-    "S6_native_polish_and_packaging"
-  ],
-  "writer": "S41-daily-workspace-20261031T0940",
-  "last_verified_code_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086",
+  "scope": "Owner-approved31Octdayplan through15:00;14:50read-only",
+  "writer": null,
+  "last_verified_code_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -29,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Oneboundedwriting/activity/rehearsal/dayreceiptworkspace through11:15; thennativefocused+fourviewproof, actualoriginalpixelreview andrelease.",
+  "next_single_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -409,21 +402,28 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
       "status": "pending",
       "decision": null
+    },
+    {
+      "at": "2026-10-31T10:34:47.354459+00:00",
+      "status": "s41_daily_workspace_native_pass_visual_partial",
+      "source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+      "closeout": "/workspace/work/day31/workspace-closeout.json",
+      "decision": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop."
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "S38 deterministic rehearsals with saved per-member/social/financial/readiness outcomes and real immediate verdict; 61+88+four native pointer/save passes; visual partial",
+  "last_completed_deliverable": "S41 approved daily writing/rehearsal/day-close workspace",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -469,35 +469,40 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T09:40:01.161259+00:00",
+  "last_updated_utc": "2026-10-31T10:34:47.354459+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "OwnerAndroidAPK ofexactbb gamebuilt/signed/verifiedandprivatelydelivered; physicalphone/emulatoruntested. No game/art/model/sourceasset changes.",
+  "last_run_summary": "S41 dailyworkspace exact75 nativePASS,748focusedwriting/historychecks,172originals,0ERROR/orphans; artworkPARTIAL, Androidmilestonepending.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
   "last_validation": {
-    "gate": "14:00",
-    "tested_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
-    "run_id": 40880526534,
-    "artifact_id": 12900730044,
-    "run_zip_sha256": "0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018",
-    "C12_run_id": 40837105664,
-    "C12_artifact_id": 12880838182,
-    "C12_zip_sha256": "a81c86aa5fe9612c135bd23acddda1c2815aa67415f1382f94a41bd0ca73c79d",
-    "native_screenshots": 32,
-    "hardware_screenshots": 20,
-    "failures": 0,
-    "passive_meter_23_unchanged": true,
-    "character_masters_independent_1024": 0,
-    "review_zip": "BandMaster_V19_14h_Source_Native_Review_Pack.zip",
-    "review_zip_sha256": "9bce29ca5b00fcee290dd9126a8e17ae976e10ba48c981833ffb6889b97ca2ed",
-    "testable_project_zip": "BandMaster_V19_U18_Verified_Testable_Godot_Project.zip",
-    "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
+    "session": "S41",
+    "tested_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+    "verification_kind": "localGodot4.7.2,notremoteCI",
+    "validation": "/workspace/work/s40/runs/day31-workspace-75d0214/validation.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 172,
+      "focused_writing_history_checks": 748,
+      "focused_writing_views": 2,
+      "focused_original_pngs": 36,
+      "engine_error_lines": 0,
+      "orphan_growth": 0,
+      "protected_source_files": 324,
+      "runtime_exact_source_files_with_entry_exception": 275,
+      "foundation_originals_identical": 108,
+      "intentional_foundation_changes": 32,
+      "focused_transition_stress_checks": 750,
+      "focused_transition_views": 2
+    },
     "owner_approved": false
   },
-  "latest_owner_scope": "New post-review Phase2 owner authority issue201, six evidence-gated sprints; historical issue200 complete, never automatically merged",
+  "latest_owner_scope": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
     "run_id": 40901641892,
@@ -571,7 +576,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/C27.json",
+    "session": "docs/continuous_improvement/sessions/S41.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -581,39 +586,28 @@
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
   "last_improvement_review": {
-    "session": "C25",
-    "tested_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400",
+    "session": "S41",
+    "tested_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
     "evidence": [
-      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40969779247",
-      "publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482",
-      "artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0",
-      "docs/continuous_improvement/C25_REVIEW.md"
+      "/workspace/work/s40/runs/day31-workspace-75d0214/validation.json",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/visual-review.json",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/focused-validation.json"
     ],
     "visual_verdict": "partial",
-    "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
-    "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule.",
+    "next_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
     "owner_approved": false
   },
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
-  "conditional_polish": {
-    "authorised": true,
-    "gate": "all opening stages + real saves/Continue/handoff + no critical native defects",
-    "reached": true,
-    "earliest": "after verified complete",
-    "freeze_at": "2026-10-30T08:00:00Z",
-    "owner_review": "2026-10-30T09:00:00Z",
-    "checkpoint_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
-    "checkpoint_run": 41001787068
-  },
+  "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
-    "session": "S38",
-    "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
-    "scope_end": "2026-10-30T13:15:00Z",
-    "authority": "issue201 S4",
+    "session": "S41",
+    "preflight_sha": "7f2996474b0845a9a29ac4ae7cb4d06093c4cf8b",
+    "scope_end": "2026-10-31T11:15:00Z",
+    "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
     "owner_approved": false,
-    "status": "closed",
-    "source_verified_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
-    "closed_at": "2026-10-30T12:16:00Z"
+    "status": "released",
+    "source_verified_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+    "closed_at": "2026-10-31T10:34:47.354459+00:00"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -649,7 +643,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S40",
+  "current_session": "S41",
   "last_verified_native_run": 41053613819,
   "latest_verified_phase2": {
     "sprint": "S40",
@@ -668,7 +662,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Oneboundedwriting/activity/rehearsal/dayreceiptworkspace through11:15; thennativefocused+fourviewproof, actualoriginalpixelreview andrelease.",
+  "next_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -676,79 +670,83 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086",
-    "verified_at": "2026-10-31T09:33:25.545628+00:00",
-    "scope": "S41firstslice sharedguarded sessiontransitionfoundation",
-    "validation": "/workspace/work/s40/runs/day31-foundation-375e92a/validation.json",
-    "visual_review": "/workspace/work/s40/runs/day31-foundation-375e92a/visual-review.json",
-    "focused_validation": "/workspace/work/day31/transition-qa/focused-validation.json",
+    "source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+    "verified_at": "2026-10-31T10:34:47.354459+00:00",
+    "scope": "S41 approved daily writing/rehearsal/day-close workspace",
+    "validation": "/workspace/work/s40/runs/day31-workspace-75d0214/validation.json",
+    "visual_review": "/workspace/work/s40/runs/day31-workspace-75d0214/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/day31-workspace-75d0214/focused-validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 140,
-      "focused_native_checks": 498,
-      "focused_native_views": 2,
-      "focused_original_pngs": 20,
+      "native_pngs": 172,
+      "focused_writing_history_checks": 748,
+      "focused_writing_views": 2,
+      "focused_original_pngs": 36,
       "engine_error_lines": 0,
       "orphan_growth": 0,
-      "protected_source_files": 317,
-      "previous_pngs_identical": 104,
-      "intentional_settings_png_changes": 16
+      "protected_source_files": 324,
+      "runtime_exact_source_files_with_entry_exception": 275,
+      "foundation_originals_identical": 108,
+      "intentional_foundation_changes": 32,
+      "focused_transition_stress_checks": 750,
+      "focused_transition_views": 2
     },
     "standard_originals_opened": [
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-720x1280.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-720x1280.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-720x1280.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-720x1280.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-720x1280.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-1280x720.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-1280x720.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-1280x720.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-1280x720.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-1280x720.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-1600x900.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-1600x900.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-1600x900.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-1600x900.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-1600x900.png"
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_create_day1-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_tighten_day1-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_connect_day1-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-rehearsal_outcome-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_create_day1-720x1280.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_tighten_day1-720x1280.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_connect_day1-720x1280.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-rehearsal_outcome-720x1280.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_create_day1-1280x720.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_tighten_day1-1280x720.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_connect_day1-1280x720.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-rehearsal_outcome-1280x720.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_create_day1-1600x900.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_tighten_day1-1600x900.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-practice_mode_connect_day1-1600x900.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-rehearsal_outcome-1600x900.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-session_beat_ReopenSessionAction-390x844.png"
+    ],
+    "additional_review_originals_opened": [
+      "/workspace/work/day31/songwriting-qa/history-75d0214-phone/captures/saved-history-progress-1-390x844.png",
+      "/workspace/work/day31/songwriting-qa/history-75d0214-wide/captures/hydration-progress-2-1600x900.png",
+      "/workspace/work/day31/songwriting-qa/history-75d0214-phone/captures/duplicate-invalid-no-spend-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-b89c9a6/captures/c27-session_beat_ReopenSessionAction-390x844.png"
     ],
     "additional_root_originals_opened": [
-      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-session_beat_RehearseAction-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-settings_saved_draft_motion_off-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-settings_no_draft_query_fixture_open-1280x720.png",
-      "/workspace/work/day31/transition-qa/baseline-fb8651c/captures/FIRST-FAILURE-case_reduced_and_rejected-390x844.png",
-      "/workspace/work/day31/transition-qa/baseline-wide-fb8651c/captures/FIRST-FAILURE-case_resize-390x844.png",
-      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_no_draft_query_fixture_open-1280x720.png",
-      "/workspace/work/day31/transition-qa/settled-375e92a-wide/captures/resize-390x844-390x844.png",
-      "/workspace/work/day31/transition-qa/settled-375e92a-phone/captures/reduced-motion-result-390x844.png"
+      "/workspace/work/day31/songwriting-qa/history-75d0214-phone/captures/saved-history-progress-1-390x844.png",
+      "/workspace/work/day31/songwriting-qa/history-75d0214-phone/captures/duplicate-invalid-no-spend-390x844.png",
+      "/workspace/work/day31/songwriting-qa/history-75d0214-wide/captures/saved-history-progress-1-1600x900.png",
+      "/workspace/work/day31/transition-qa/workspace-75d0214-phone/captures/FIRST-FAILURE-case_reduced_and_rejected-390x844.png",
+      "/workspace/work/day31/transition-qa/rendered-targets-75d0214-phone/captures/FIRST-FAILURE-case_skip-390x844.png"
     ],
-    "source_protection": "/workspace/work/day31/protection-audit-foundation.json",
+    "source_protection": "/workspace/work/s40/runs/day31-workspace-75d0214/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/day31-workspace-75d0214/runtime-source-audit.json",
     "simulated_lenses": {
-      "phone_player": "SIMULATED: A committed session now has a readable named beat and visible results action, with the original result immediately recognizable afterward.",
-      "keyboard_accessibility": "SIMULATED: Native original Kit targets remain visible and standard Settings focus/input checks pass. The motion-off choice is discoverable; separate focused diagnosis must close before broader continuity claims.",
-      "management_player": "SIMULATED: Standard presentation checks preserve settled action count/save bytes. Completed-day captions describe the recorded session; no new economy or cost rule is introduced.",
-      "art_director": "SIMULATED: Original paper,cast,recruitment,meters and hardware remain exact on104 protected views. Sparse dark beats provide pacing foundation; approved paper hub/receipt composition remains future scoped work and overall artwork stays partial.",
-      "godot_release_qa": "SIMULATED: Exact375 passes73+88/import/four native journeys with140 originals.20 requested PNGs were opened; all120 old names compared,104 exact and16 intentional Settings differences. Earlier landscape/card failures are preserved, and focused Motion classification remains separate."
+      "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
+      "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
+      "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+      "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
+      "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
     },
     "visual_verdict": "partial",
     "owner_approved": false,
     "new_android_apk": false,
     "new_project_zip": false,
     "remaining_gaps": [
-      "Approvedwriting/rehearsal/daycloseworkspace stillnext, thischeckpointonlyfoundation.",
-      "Owner-facingposterart remainsdesignreference; nativeheroartnotintegrated.",
-      "S41actualphonebuildpendingoneendmilestone; v2phoneAPKstill95game.",
-      "Motionpreferencecurrentlysession-only, matchingnonpersistedexistingaudioUI;no newsettingspersistence/schema.",
-      "Historicalevent165 evidenceclocklabel09:17 inaccurate; its recorded_at timestamp is authoritative. Allfailedprobes retained; nativegeometrydiagnosis andpositiveprobe linked."
+      "Optional approved opening-poster artwork/integration remains pending.",
+      "Current S41 desktop proof is not Androiddevice proof; privately delivered v2 still95source.",
+      "Storage-write failure reporting is a conditional pre-existing limitation: commit currently ignores save_draft Boolean; no disk failure demonstrated in actualproof.",
+      "Motion preference remains session-only; no new persistence/schema.",
+      "Budget175trial, unused-talent cash conversion and genre variants remain backlog."
     ],
-    "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish."
+    "next_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -772,7 +770,7 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": true,
-  "last_verified_native_run_source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+  "last_verified_native_run_source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
   "latest_material_review": {
     "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
@@ -868,6 +866,72 @@
       ],
       "cast_json_byte_identical": true,
       "original_source_files_unchanged": true
+    }
+  },
+  "historical_last_completed_deliverable_before_s41": "S38 deterministic rehearsals with saved per-member/social/financial/readiness outcomes and real immediate verdict; 61+88+four native pointer/save passes; visual partial",
+  "historical_state_pointers_before_s41": {
+    "continuous_improvement": {
+      "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+      "lessons": "docs/continuous_improvement/LESSONS.md",
+      "issues": "docs/continuous_improvement/ISSUES.jsonl",
+      "session": "docs/continuous_improvement/sessions/S41.json",
+      "owner_approved": false
+    },
+    "last_run_summary": "OwnerAndroidAPK ofexactbb gamebuilt/signed/verifiedandprivatelydelivered; physicalphone/emulatoruntested. No game/art/model/sourceasset changes.",
+    "last_improvement_review": {
+      "session": "C25",
+      "tested_sha": "e11a89f7ad3f52b55c956d3bbc4a815aff218400",
+      "evidence": [
+        "https://github.com/alimuir654-rgb/BandMaster/actions/runs/40969779247",
+        "publication c330c1feb0cd3aa3df3a25bf7e8a44a6e5628482",
+        "artifact12939198737 SHA256401de73bb1df5d64aa71174e31077917b0a78de33b06668494f2a3ae655b4ab0",
+        "docs/continuous_improvement/C25_REVIEW.md"
+      ],
+      "visual_verdict": "partial",
+      "next_action": "Resume already-authorised overnight connected flight-case gameplay using C25 opt-in scored cast; preserve canonical identities, current controls/meters and sandbox saves. Traits are metadata until tested integration. Park notebook and optional portrait generation; implementation freezes08:00 and review09:00 UK30October.",
+      "new_issue_review": "BM-15 missing-branch dependency recurrence logged before exact-source correction and270nativechecks pass. Actual approved image/crops now published, downloaded/hash-verified and visually inspected. Partial means preview source limits, not a rejection of the owner-approved casting. No new production masters or live personality penalty claims. Writer released for the existing overnight schedule.",
+      "owner_approved": false
+    },
+    "last_validation": {
+      "gate": "14:00",
+      "tested_sha": "0c041e326098a2c9c8a613368b5eac9dd94e1dc8",
+      "run_id": 40880526534,
+      "artifact_id": 12900730044,
+      "run_zip_sha256": "0cce25e8c530abe0be379613f0d78b30ebc03b05afd1cfe3ed6bfc7d7968a018",
+      "C12_run_id": 40837105664,
+      "C12_artifact_id": 12880838182,
+      "C12_zip_sha256": "a81c86aa5fe9612c135bd23acddda1c2815aa67415f1382f94a41bd0ca73c79d",
+      "native_screenshots": 32,
+      "hardware_screenshots": 20,
+      "failures": 0,
+      "passive_meter_23_unchanged": true,
+      "character_masters_independent_1024": 0,
+      "review_zip": "BandMaster_V19_14h_Source_Native_Review_Pack.zip",
+      "review_zip_sha256": "9bce29ca5b00fcee290dd9126a8e17ae976e10ba48c981833ffb6889b97ca2ed",
+      "testable_project_zip": "BandMaster_V19_U18_Verified_Testable_Godot_Project.zip",
+      "testable_project_sha256": "74dec8facb33d6cd7956e6d2edf20be68946579a70220ec0db6139b757231d62",
+      "owner_approved": false
+    },
+    "last_scoped_preflight": {
+      "session": "S38",
+      "baseline_sha": "2d8b4883e62b10379140a686bb2c253f117f33a3",
+      "scope_end": "2026-10-30T13:15:00Z",
+      "authority": "issue201 S4",
+      "owner_approved": false,
+      "status": "closed",
+      "source_verified_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+      "closed_at": "2026-10-30T12:16:00Z"
+    },
+    "latest_owner_scope": "New post-review Phase2 owner authority issue201, six evidence-gated sprints; historical issue200 complete, never automatically merged",
+    "conditional_polish": {
+      "authorised": true,
+      "gate": "all opening stages + real saves/Continue/handoff + no critical native defects",
+      "reached": true,
+      "earliest": "after verified complete",
+      "freeze_at": "2026-10-30T08:00:00Z",
+      "owner_review": "2026-10-30T09:00:00Z",
+      "checkpoint_sha": "e32ce6402ee9da2ab4816a785ce448722f9f5e2d",
+      "checkpoint_run": 41001787068
     }
   }
 }
