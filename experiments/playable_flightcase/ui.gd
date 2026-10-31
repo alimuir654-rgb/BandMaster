@@ -539,34 +539,49 @@ func _review_lineup() -> void:
  _rebuild()
 
 func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
- root_box.add_child(_label("LINEUP REVIEW  •  YOUR BAND, YOUR CALL",20))
+ root_box.add_child(_label("LINEUP REVIEW",20))
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
- var covered: Array = Base.coverage(game.roster)
- for index in range(3):
-  var target_role: String = str(AUDITION_ROLES[index])
-  var selected := PackedStringArray()
-  for member in game.roster:
-   if (member.roles as Array).has(target_role):
-    selected.append(str(member.name))
-  body.add_child(_ink(("✓  " if covered.has(target_role) else "STILL NEED  ")+str(AUDITION_TITLES[index])+": "+", ".join(selected),18))
-  var edit: Button = _button("REVISIT "+str(AUDITION_TITLES[index]),_change_role.bind(target_role),"tab")
-  edit.name = "AuditionEdit_"+target_role
-  body.add_child(edit)
- var lead_name := "NOT CHOSEN"
+ body.add_child(_ink("THIS IS YOUR BAND",24))
  for member in game.roster:
-  if (onboarding_state!=null and str(member.id)==str(onboarding_state.lead_vocal_id)) or (onboarding_state==null and (member.roles as Array).has("Singer")):
-   lead_name = str(member.name)
- body.add_child(_ink("LEAD VOCALS  •  "+lead_name,18))
+  var row := HBoxContainer.new()
+  row.name = "LineupReviewMember_"+str(member.id)
+  row.add_theme_constant_override("separation",8)
+  body.add_child(row)
+  var path: String = str(member.get("portrait_preview",""))
+  if not path.is_empty() and ResourceLoader.exists(path):
+   var portrait := TextureRect.new()
+   portrait.name = "LineupReviewPortrait_"+str(member.id)
+   portrait.texture = load(path)
+   portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+   portrait.custom_minimum_size = Vector2(70,73) if mobile else Vector2(96,100)
+   portrait.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+   portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   portrait.focus_mode = Control.FOCUS_NONE
+   row.add_child(portrait)
+  var identity := _box()
+  identity.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+  identity.add_theme_constant_override("separation",2)
+  row.add_child(identity)
+  identity.add_child(_ink(str(member.name),18))
+  identity.add_child(_ink(str(member.get("primary_role","Musician")),14,true))
+  if onboarding_state!=null and str(onboarding_state.lead_vocal_id)==str(member.id):
+   var lead := _ink("LEAD VOCALS",13)
+   lead.add_theme_color_override("font_color",Color("376c58"))
+   identity.add_child(lead)
+  var edit: Button = _button("EDIT",_edit_audition_member.bind(str(member.id)),"tab")
+  edit.name = "AuditionEdit_"+str(member.id)
+  edit.custom_minimum_size.x = 64
+  edit.size_flags_horizontal = Control.SIZE_SHRINK_END
+  edit.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+  row.add_child(edit)
  var voice: Button = _button("REVISIT LEAD VOCALS",_show_vocal_choices,"tab")
  voice.name = "AuditionEdit_Singer"
  body.add_child(voice)
  var keys: Button = _button("OPTIONAL KEYBOARD AUDITIONS  ›",_change_role.bind("Keyboardist"),"tab")
  keys.name = "AuditionKeysAction"
  body.add_child(keys)
- body.add_child(_ink("EXACT LINEUP",18))
- for member in game.roster:
-  body.add_child(_ink("• "+str(member.name)+" / "+str(member.get("primary_role","Musician")),16))
- body.add_child(_ink("Extra players use the original fifth/sixth-seat fees. Revisit a player to remove them; unused talent remains talent.",14,true))
+ body.add_child(_ink("Nothing is final until you confirm. Edit any player or change the lead voice; unused talent remains talent.",14,true))
  var context := _box()
  context.name = "RecruitDecisionContext"
  root_box.add_child(context)
@@ -587,6 +602,22 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
  dock.add_child(confirm)
 
 
+
+func _edit_audition_member(id: String) -> void:
+ var member: Dictionary = game.person_by_id(id)
+ if member.is_empty():
+  return
+ role = str(member.get("primary_role",(member.get("roles",["Guitarist"]) as Array)[0]))
+ vocals_panel = false
+ lineup_review = false
+ audition_note_id = ""
+ selected_index = 0
+ var choices: Array = game.choices(role)
+ for index in range(choices.size()):
+  if str(choices[index].id)==id:
+   selected_index = index
+   break
+ _rebuild()
 
 func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
  var label: Label = Kit.label(content,"notepaper",points)

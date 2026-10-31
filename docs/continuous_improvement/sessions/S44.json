@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 347593,
-    "sha256": "6e2c3bfc7e10dcbdf3a073b2031ca4e9d1f0cabaa970ef0309ade07f251186fa"
+    "bytes": 349193,
+    "sha256": "73cb7a427759485c6aeb09159ba7205ba70baf118338b920fa8e83893d2ab932"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -99,6 +99,11 @@
     {
       "event_id": "S44-initial-import-unterminated-recap-note",
       "validation": "/workspace/work/s40/runs/s44-audition-initial/validation.json"
+    },
+    {
+      "event_id": "S44-lineup-review-visual-form-clutter",
+      "prior_native_checks": 604,
+      "status": "scoped visual correction pending"
     }
   ]
 }
