@@ -476,6 +476,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var info := _box()
  info.custom_minimum_size.x = 0 if stacked else 300
  content.add_child(_panel(info))
+ if practice_activity=="create":
+  _writing_notes(info)
  info.add_child(_label("THE BAND",19))
  for person in game.career.get("members",[]):
   info.add_child(_label("%s  •  %s   morale %d" % [str(person.get("name","")),str(person.get("role","")),int(person.get("morale",0))],16))
@@ -522,6 +524,30 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   back.name = "PracticeBackAction"
   dock.add_child(back)
  _refresh_practice_commitment()
+
+func _writing_notes(info: VBoxContainer) -> void:
+ var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ var guidance: Label = _label(str([
+  "IDEA: Find the hook and choose the musician to lead it.",
+  "DEVELOP: Shape the arrangement. Review the saved session below.",
+  "FINISH: Check title, leader and arrangement before completing the original."
+ ][progress]),16)
+ guidance.name = "WritingStageGuidance"
+ info.add_child(guidance)
+ info.add_child(_label("SAVED WRITING NOTES",18))
+ var draft: Dictionary = game.career.get("song_draft",{})
+ var sessions: Array = draft.get("sessions",[])
+ var lines := PackedStringArray()
+ if sessions.is_empty():
+  lines.append("No writing sessions recorded yet. Three sessions complete one original.")
+ else:
+  lines.append("Saved draft: "+str(draft.get("title","UNTITLED")))
+  for session in sessions:
+   lines.append("DAY %d  •  %s  •  %s  •  %s" % [int(session.get("day",1)),str(session.get("idea","")),str(session.get("form","")),str(session.get("leader",""))])
+ var history: Label = _label("\n".join(lines),16)
+ history.name = "WritingSavedHistoryLabel"
+ info.add_child(history)
+ info.add_child(_label("Notes describe saved sessions. The choices above apply when you commit.",14))
 
 func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
