@@ -910,3 +910,12 @@ Next: One separately scoped optional opening-poster integration using independen
 # S41 optional opening poster preflight
 
 Core75 checkpoint retained. Rootsolewriter S41-opening-poster-20261031T1038 through12:15; optionalexistingtitleonly. Oneindependentblankrehearsal-stageimage +originalnativebrand/copy/controls/frame; nofullUItexture, newcast,genre/economy/model/schema. Actual75 title390/1280 andapprovedboard opened. Focusedfirstfold/Settings/nativeinput beforefour-viewfullproof; sourcepending, no artapproval. Twoineffectiveiterations change method/HOLD.14:50read-only/15:00hardstop.
+
+
+# S41 verified opening poster — 2026-10-31T11:19:04.702267+00:00
+
+Exactsource `c9c67ad3fed4c3723f379b4daf44c5a021a34f4d`: oneindependentemptyrehearsalstagePNG1448x1086RGB/SHA4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45, nativeposterlettering/copy/actions, originalcasehardware.73+88/import/four genuine nativejourneys/172PNGs PASS,0ERROR/orphans;1146currentfocusedmenuchecksphone/default. Initial3dbfive-profile2865checks preservedseparately. Caption190contrastfailure wasretainedbeforelocalmattefix; actualnativeentirecaptionrect now9.64closed/9.17open, no fontshrink/imagechange/geometrymove.324protectedfiles unchanged;276runtimepaths pinned.136/172oldoriginalsexact,32intentionalmenus+4disclosedfadeframes,0unexpected; allsettlednonmenus exact.
+
+11actualoriginals/fiveSIMULATEDlenses/proof: `/workspace/work/s40/runs/day31-poster-c9c67ad/visual-review.json`; fullcloseout `/workspace/work/day31/poster-closeout.json`. TechnicalPASS, artPARTIAL/owner_approved=false; native type iscleanerthanconcept. NoAPK/ZIPclaimyet; earlierprivatev2still95. Writerreleased 2026-10-31T11:19:04.702267+00:00.
+
+Next: Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.
