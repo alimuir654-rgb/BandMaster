@@ -204,7 +204,22 @@ func _opening_poster_hero() -> Control:
  tagline.name = "OpeningPosterTagline"
  tagline.autowrap_mode = TextServer.AUTOWRAP_OFF
  tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- copy.add_child(tagline)
+ # Keep small copy readable at the stage's bright highlights. This local
+ # caption matte leaves the artwork and the native lettering size intact.
+ var caption_matte := PanelContainer.new()
+ caption_matte.name = "OpeningPosterCaptionMatte"
+ caption_matte.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ caption_matte.focus_mode = Control.FOCUS_NONE
+ caption_matte.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ var caption_stock := StyleBoxFlat.new()
+ caption_stock.bg_color = Color(0.012,0.015,0.020,0.65)
+ caption_stock.content_margin_left = 6
+ caption_stock.content_margin_right = 6
+ caption_stock.content_margin_top = 0
+ caption_stock.content_margin_bottom = 0
+ caption_matte.add_theme_stylebox_override("panel",caption_stock)
+ copy.add_child(caption_matte)
+ caption_matte.add_child(tagline)
  return hero
 
 func _menu() -> void:
