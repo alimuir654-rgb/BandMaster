@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Next bounded worker: compare one material/frame/icon mismatch on an existing title/menu or recruitment screen against inspected original references at identical native state. Retain a change only if it visibly improves the current source without losing first-fold reading, cast identity, passive-meter/hardware bytes or save/input safety; otherwise validate/package and prepare the09:00review.",
+  "next_action": "Next bounded worker: targeted nativeQA of existing title/menu Settings disclosure and MasterSound toggle using real mouse/Enter/Space/Tab; check focus/scroll/node continuity, actual AudioServer mute state and career/save-byte invariance. Treat rebuild-related focus risk as unconfirmed until reproduced. Log any actual defect and commit scoped preflight before a fix; no new feature, persistence or material swap. Keep current tolex/frame change on HOLD.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Direct renewed owner authority through2026-10-31T09:00:00Z; previouslimits historical.",
   "completion_gate": {
@@ -60,11 +60,12 @@
     "previous_worker_enabled": false,
     "current_root_must_release_before_handoff": false,
     "no_continuous_execution_claim": true,
-    "root_released_at": "2026-10-31T01:39:45.903195+00:00",
+    "root_released_at": "2026-10-31T02:05:55.560621+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
-    "next_focus": "Material/frame/icon consistency only if a concrete nativeA/B gain; latest verified packaging/review before09:00.",
-    "last_prompt_updated_at": "2026-10-31T01:42:09.787372+00:00",
-    "last_completed_checkpoint_source": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff"
+    "next_focus": "Targeted existingSettings/Sound nativeQA; no unprovenmaterialchange/repeatedunchangedfullsuite.",
+    "last_prompt_updated_at": "2026-10-31T02:09:45.374423+00:00",
+    "last_completed_checkpoint_source": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "final_review_guard": "Wake at08:50or later is read-only final review/report; handles early09:00invocation, hard09:00cutoff unchanged."
   },
   "latest_local_checkpoint": {
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
@@ -201,5 +202,13 @@
       "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
       "validation": "/workspace/work/s40/runs/practice-33f/validation.json"
     }
-  ]
+  ],
+  "latest_material_review": {
+    "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
+    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "verdict": "hold",
+    "audit": "/workspace/work/s40/material-review-0200.json",
+    "source_unchanged": true,
+    "owner_approved": false
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "writer": "S40-material-review-20261031T0205",
+  "writer": null,
   "base_head": "e3d7afbc6dc30cd26d1bfc332aa60f6b587d65c9",
   "claimed_at": "2026-10-31T02:02:27.020325+00:00",
   "expires_at": "2026-10-31T02:25:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T02:05:55.560621+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Bounded01:00recruitment checkpoint verified/released. Existing sole finite worker may claim next bounded lease; oldworkerpaused.09:00hard implementation cutoff, publichistorysyncawaitsexplicitapproval.",
+  "note": "Docs-only02:00materialHOLD/packageaudit complete; no source/art changes or newnativefullsuite. Existingfiniteworker may claim next boundedSettingsQA lease; oldworkerpaused,09:00sourcecutoff,publichistorysyncpendingapproval.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-recruit-context-20261031T0105",
+  "last_writer": "S40-material-review-20261031T0205",
   "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
   "previous_checkpoint_release": {
     "writer": null,

@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S40-material-review-20261031T0205",
+  "writer": null,
   "last_verified_code_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
   "baseline": {
     "run_id": 40778019754,
@@ -670,7 +670,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Docs/evidence only material-HOLD and existing7f package/reference audit; source checkpoint unchanged.",
+  "next_action": "Next bounded worker: targeted nativeQA of existing title/menu Settings disclosure and MasterSound toggle using real mouse/Enter/Space/Tab; check focus/scroll/node continuity, actual AudioServer mute state and career/save-byte invariance. Treat rebuild-related focus risk as unconfirmed until reproduced. Log any actual defect and commit scoped preflight before a fix; no new feature, persistence or material swap. Keep current tolex/frame change on HOLD.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -810,5 +810,13 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": true,
-  "last_verified_native_run_source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40"
+  "last_verified_native_run_source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
+  "latest_material_review": {
+    "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
+    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "verdict": "hold",
+    "source_unchanged": true,
+    "audit": "/workspace/work/s40/material-review-0200.json",
+    "owner_approved": false
+  }
 }
