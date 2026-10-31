@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
-  "claimed_at": "2026-10-31T04:59:45.864195+00:00",
-  "expires_at": "2026-10-31T05:55:00Z",
-  "scope": "One existing RootUI overwrite-draft live-resize lifecycle QA/fix slice; immutable native failure first. No component/art/model/save schema writes.",
+  "writer": "S40-owner-android-package-20261031T0727",
+  "base_head": "35a6dd95da9d645d9397a4f06763fafb9e905f15",
+  "claimed_at": "2026-10-31T07:30:56.276843+00:00",
+  "expires_at": "2026-10-31T08:40:00Z",
+  "scope": "Owner-authorized Android APK packaging of exactbb source and private delivery only; no game/art/model/component or production changes.",
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T05:20:03.478294+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "05:00 existing modal resize repair fullyverified/packagecomplete. No more concrete safe visual gap selected; next wake read-only readiness/newsteering unless demonstrated authorizedgap. Publicsync blocked;08:50read-only/09:00hardcutoff.",
+  "note": "Root is sole writer, helpers scopedread-only/scratch.08:40lease ends/08:50finalread-only/09:00hardcutoff; no oldworker or competingqueue.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -81,5 +81,12 @@
     "claimed_at": "2026-10-31T04:00:14.485548+00:00",
     "expires_at": "2026-10-31T04:50:00Z",
     "released_at": "2026-10-31T04:09:52.459751+00:00"
+  },
+  "previous_resize_lease": {
+    "last_writer": "S40-modal-resize-20261031T0500",
+    "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "claimed_at": "2026-10-31T04:59:45.864195+00:00",
+    "expires_at": "2026-10-31T05:55:00Z",
+    "released_at": "2026-10-31T05:20:03.478294+00:00"
   }
 }

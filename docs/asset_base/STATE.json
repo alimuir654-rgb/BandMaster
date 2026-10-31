@@ -17,7 +17,7 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": null,
+  "writer": "S40-owner-android-package-20261031T0727",
   "last_verified_code_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
   "baseline": {
     "run_id": 40778019754,
@@ -673,7 +673,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension.",
+  "next_action": "OwnerAndroidAPK package from exactbb source, validate and privately deliver; no production/source-art edits.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",

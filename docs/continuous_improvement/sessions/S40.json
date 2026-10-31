@@ -3,9 +3,9 @@
   "id": "S40",
   "status": "active",
   "owner_approved": false,
-  "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
-  "baseline_sha": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
-  "dominant_issue": "BM-24",
+  "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.\n31Oct07:27 direct owner: Nice!! This is looking good. Can you package as an android install so I can test on my phone.",
+  "baseline_sha": "35a6dd95da9d645d9397a4f06763fafb9e905f15",
+  "dominant_issue": "BM-13",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 232074,
-    "sha256": "088573b4392a1488fedd8acc4c244cf63d4e6b95a4be0e9218a1ff478c796f77"
+    "bytes": 233954,
+    "sha256": "eeb5875f52a51d5271e3f016568fe2c115feb28ac91d9c7c24fc7b75216b756e"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -57,8 +57,8 @@
     "pixels_inspected": true,
     "note": "Already opened original existing modal390; baseline for identical copy/state/native art, not inferred owner wholeUI approval."
   },
-  "hypothesis": "Confirmed2e _erase destroyspendingmodal onlive resize. Root tracks existing new-band dialog, retainsit in-tree duringmenu reflow, movesitlast forGUIrouting, clearsrefbeforeacceptednavigation and focusescurrentsemanticNewBand aftercancel. Originalcomponent/art/model/savebytes unchanged.",
-  "controlled_comparison": "Exact2e immutable native baseline, same actual fresh saved rehearsal career, real window resize while modal open, semantic focus/callback/geometry/unchangedbytes. After a fix same-byte positive probe and complete73+88/import/4native with all112prior source-view originals protected. MenuIDs may change across responsive reflow; no same-view invariant reused blindly.",
+  "hypothesis": "Package exactverifiedbb source into a signed Android owner-playtest APK using matchingGodot4.7.2templates and isolated application/privateuserdata; only Android packaging config changes, no gameplay/art/model edits.",
+  "controlled_comparison": "All274 verifiedprojectsourcefiles match existingmanifest except explicitAndroidproject/export config. Matchphone logical viewport390x844, Compatibilityrenderer and touch-to-mouse native controls. Validate APK signature/ABI/manifest/resources; actual Android install/launch if a usable emulator exists, otherwise disclose devicevalidation limit.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -72,19 +72,18 @@
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/opening_capture.gd"
+    "tools/export_owner_android.py"
   ],
   "validation_commands": [
-    "Fresh imported exact2e isolatedruntime, genuine nativewindow resize390\u21941280 with actualsavedcareer; record modality/focus/callback/bounds/state/savebytes and actualKEEP/Escape/Continue",
-    "After confirmedrepair: same immutable positive probe plus Godot4.7.2 native_test.gd73/opening_test.gd88/cleanimport/opening_capture.gd4complete genuinepointer/keyboard/savejourneys; compare original112PNGs",
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S40.json --before <committed-preflight> --require-prior-record",
-    "After exactnative/input/savePASS, build isolatedGodot project/reviewZIP atomically; CRC/fresh extractedimport/nativeentry and protectedsourceaudit"
+    "ExactGodot4.7.2 export with matchingtemplates, isolatedSDK/JDK/debugkeystore and projectcopy; no production credentials or saves",
+    "AndroidAPK ZIP/resource/ABI/manifest/signature verification; actual install/launch if suitable emulator exists; preserve all failurelogs",
+    "Private owner APK upload and verified downloadreference; no publicrepository/history upload"
   ],
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocalbb38882 full73+88/import/4native PASS,120retainedoriginals,112prioridentical,65samebytepositiveprobePASS,17originalsopened,CRC/freshextractedimport/nativeentryPASS; localonly, artPARTIAL/ownerfalse.",
-  "issues_reviewed_at": "2026-10-31T05:20:03.478294+00:00",
+  "issues_reviewed_at": "2026-10-31T07:30:56.276843+00:00",
   "progress": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "verified_at": "2026-10-31T05:20:03.478294+00:00",
@@ -742,5 +741,15 @@
       "new_queue_created": false,
       "next_action": "Read-only exact-source readiness/newsteering review; no repeated unchanged tests or decorative/QA scope for activity.08:50read-only/09:00hardcutoff retained."
     }
+  },
+  "android_owner_package": {
+    "started_at": "2026-10-31T07:30:56.276843+00:00",
+    "lease_ends": "2026-10-31T08:40:00Z",
+    "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "preflight_base": "35a6dd95da9d645d9397a4f06763fafb9e905f15",
+    "owner_authority": "DirectAndroidinstallrequest07:27; praise recorded as positive feedback, not blanketartapproval.",
+    "status": "toolchain_discovery",
+    "workspace": "/workspace/work/s40/android",
+    "owner_approved": false
   }
 }
