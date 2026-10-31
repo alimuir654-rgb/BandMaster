@@ -312,12 +312,21 @@ static func refresh_plans(host) -> void:
 
 static func _reveal_focused_offer(host) -> void:
  # The fixed reason can resize the viewport without changing native focus.
- # Reuse the genre index's post-layout reveal rather than rebuilding controls.
- var tree: SceneTree = host.get_tree()
- if tree==null:return
- await tree.process_frame
- if not is_instance_valid(host) or not host.is_inside_tree():return
- var scroll: ScrollContainer = host.find_child("CareerScroll",true,false) as ScrollContainer
- var focused: Control = host.get_viewport().gui_get_focus_owner()
- if scroll!=null and focused!=null and str(focused.name).begins_with("LiveOffer_") and scroll.is_ancestor_of(focused):
-  scroll.ensure_control_visible(focused)
+ # Footer wrapping may finish after process_frame. Observe rendered layout,
+ # then reveal the current native focus without rebuilding any controls.
+ var previous: String = ""
+ for attempt in range(6):
+  await RenderingServer.frame_post_draw
+  if not is_instance_valid(host) or not host.is_inside_tree():return
+  var scroll: ScrollContainer = host.find_child("CareerScroll",true,false) as ScrollContainer
+  var focused: Control = host.get_viewport().gui_get_focus_owner()
+  if scroll==null:return
+  if focused==null:continue
+  if not str(focused.name).begins_with("LiveOffer_") or not scroll.is_ancestor_of(focused):return
+  var status: Label = host.find_child("LiveReviewStatus",true,false) as Label
+  var signature: String = str(scroll.get_global_rect())+"|"+str(focused.get_global_rect())+"|"+str(scroll.get_v_scroll_bar().page)
+  if status!=null:signature+="|"+str(status.get_global_rect())
+  if signature==previous:
+   scroll.ensure_control_visible(focused)
+   return
+  previous=signature

@@ -53,8 +53,8 @@
   "game_baseline_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
   "dominant_issue": "BM-36",
   "issue_log_review": {
-    "bytes": 442899,
-    "sha256": "2b38e9ad2b5f14db25d6a8a9a69aa76e001e13026820fd4c89bded6b17436adb"
+    "bytes": 445990,
+    "sha256": "0073a8e1f40287b72f9df619fe4dc3dc625a2aab432071fd0a8f22ae40cc0dc3"
   },
   "target": {
     "locator": "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png",
