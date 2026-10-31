@@ -17,7 +17,7 @@ func ink(value: String, points: int, muted: bool = false) -> Label:
  label.focus_mode = Control.FOCUS_NONE
  return label
 
-func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false) -> void:
+func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false, external_details: bool = false) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -187,11 +187,12 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   morale_ink.mouse_filter = Control.MOUSE_FILTER_IGNORE
   morale_ink.focus_mode = Control.FOCUS_NONE
   card.add_child(morale_ink)
- var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
- breakdown.name = "RecapDetailsToggleAction"
- breakdown.icon = JournalIcon
- breakdown.pressed.connect(func(): details_toggled.emit())
- content.add_child(breakdown)
+ if not external_details:
+  var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
+  breakdown.name = "RecapDetailsToggleAction"
+  breakdown.icon = JournalIcon
+  breakdown.pressed.connect(func(): details_toggled.emit())
+  content.add_child(breakdown)
  var detail := VBoxContainer.new()
  detail.name = "RecapDetailedBreakdown"
  detail.add_theme_constant_override("separation",3)

@@ -666,7 +666,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
   center.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
  var press: Variant = RehearsalPress.new()
- press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape)
+ press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)
@@ -684,9 +684,17 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  next_move.mouse_filter = Control.MOUSE_FILTER_IGNORE
  next_move.focus_mode = Control.FOCUS_NONE
  dock.add_child(next_move)
+ var actions := HBoxContainer.new()
+ actions.add_theme_constant_override("separation",8)
+ dock.add_child(actions)
+ var details: Button = _button("HIDE DETAILS" if recap_details_expanded else "DETAILS",_toggle_recap_details,"tab")
+ details.name = "RecapDetailsToggleAction"
+ details.tooltip_text = "Show the complete session breakdown and every bandmate's full reaction."
+ details.icon = RehearsalPress.JournalIcon
+ actions.add_child(details)
  var footer: Button = _button("CONTINUE TO DAY %d  ›" % int(game.career.get("tour_day",1)),_toggle_recap)
  footer.name = "RecapToggleAction"
- dock.add_child(footer)
+ actions.add_child(footer)
 
 func _toggle_recap_details() -> void:
  var detail: Control = find_child("RecapDetailedBreakdown",true,false) as Control
@@ -697,7 +705,7 @@ func _toggle_recap_details() -> void:
  # Rebuilding here destroys all three and can make keyboard users lose place.
  recap_details_expanded = not recap_details_expanded
  detail.visible = recap_details_expanded
- action.text = "HIDE FULL BREAKDOWN" if recap_details_expanded else "FULL BREAKDOWN  ›"
+ action.text = "HIDE DETAILS" if recap_details_expanded else "DETAILS"
 
 func _toggle_recap() -> void:
  if session_busy:

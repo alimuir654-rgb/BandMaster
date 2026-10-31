@@ -52,8 +52,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 277446,
-    "sha256": "aab80d90d5d4432e6bed29a05e40a3e992443c445c1c6823a7d6540c7d780de9"
+    "bytes": 279094,
+    "sha256": "7ec0ce0bbc727c37faa46103bbdec61dd591599b1fb4738f4fb335ed26528f6a"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -92,7 +92,7 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T09:52:55.494426+00:00",
+  "issues_reviewed_at": "2026-10-31T09:58:16.899214+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Exact375standardnativePASS/498focusedPASS;visualPARTIAL/ownerfalse. Sourceunchangedmodels/art; noS41APKyet.",
@@ -146,6 +146,12 @@
       "issue": "S41-workspace-firstfold-wide-and-receipt-visual-failure",
       "source": "4b56714",
       "evidence": "/workspace/work/s40/runs/day31-workspace-4b56714/validation.json"
+    },
+    {
+      "issue": "S41-long-six-member-report-disclosure-firstfold-failure",
+      "source": "e43393c",
+      "method_changed": "fixed externaldisclosurefooter, no furtherfontshrink",
+      "evidence": "/workspace/work/s40/runs/day31-workspace-e43393c/validation.json"
     }
   ],
   "motion_probe_diagnosis": {

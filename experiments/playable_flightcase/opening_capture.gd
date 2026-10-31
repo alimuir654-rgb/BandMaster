@@ -850,8 +850,15 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
   failures.append("S41 "+context+" day/cash receipt differs from the saved resolver before/after values")
  var details: Control = screen.find_child("RecapDetailedBreakdown",true,false) as Control
  var disclosure: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
- if details!=null and not details.visible and (disclosure==null or disclosure.size.y<44 or not scroll.get_global_rect().encloses(disclosure.get_global_rect())):
-  failures.append("S41 "+context+" full-breakdown target is clipped below first report fold")
+ if disclosure==null or disclosure.size.y<44 or not viewport.encloses(disclosure.get_global_rect()) or scroll.get_global_rect().intersects(disclosure.get_global_rect()):
+  failures.append("S41 "+context+" full-breakdown target is not a safe fixed first-fold action")
+ else:
+  for target in [disclosure,action]:
+   var available: float = target.size.x-target.get_theme_stylebox("normal").get_minimum_size().x
+   if target.icon!=null:
+    available -= target.icon.get_width()+target.get_theme_constant("h_separation")
+   if target.get_theme_font("font").get_string_size(target.text,HORIZONTAL_ALIGNMENT_LEFT,-1,target.get_theme_font_size("font_size")).x>available+1.0:
+    failures.append("S41 "+context+" fixed result action label is clipped: "+target.text)
  if advice.get_global_rect().end.y>action.get_global_rect().position.y or scroll.get_global_rect().intersects(advice.get_global_rect()) or scroll.get_global_rect().intersects(action.get_global_rect()):
   failures.append("S40 "+context+" next move/return action overlaps report or each other")
  if advice.focus_mode!=Control.FOCUS_NONE or advice.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
