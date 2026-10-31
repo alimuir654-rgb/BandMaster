@@ -46,15 +46,15 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "id": "S49",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
   "baseline_sha": "444ed31a89e31fc73b3bb33986aa743aa8e419e0",
   "game_baseline_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
   "dominant_issue": "BM-36",
   "issue_log_review": {
-    "bytes": 445990,
-    "sha256": "0073a8e1f40287b72f9df619fe4dc3dc625a2aab432071fd0a8f22ae40cc0dc3"
+    "bytes": 448088,
+    "sha256": "1ff1bc7e4f16111f0820b32231fc19d40fdcb7b66fb569b5f2382405fbf091f1"
   },
   "target": {
     "locator": "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png",
@@ -94,6 +94,59 @@
   "scope_end": "2026-10-31T23:35:00Z",
   "source_freeze_target": "2026-10-31T23:25:00Z",
   "hard_stop": "2026-10-31T23:39:15Z",
-  "next_action": "Implement one factual settledshow report and recoverableguarantee offer policy, then rootnative proof; music/merch sales remain later.",
-  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock"
+  "next_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "tested_source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+  "candidate_native_verified": true,
+  "source_frozen_at": "2026-10-31T23:04:19Z",
+  "ended_at": "2026-10-31T23:21:39.347569+00:00",
+  "closeout": {
+    "tested_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+    "evidence": [
+      "/workspace/work/business/s49/closeout.json",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/complete-validation.json",
+      "/workspace/work/business/s49/visual-review179f336.json",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/packaging.json",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/package-smoke.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
+    "new_issue_review": "All281events reviewed.272firstgoodcopy;273rootbadhelperassumption explicitlysuperseded274;275/276globalrectdiagnosis;277/279selectedrowclipping andfailedoneframeattempt;278visiblelabels;280measuredfooterwrap andchangedmethod;281finalcurrentproof. Failedhistoryretained, no gateweakening.",
+    "simulated_lenses": {
+      "SIMULATED band leader": "Actual settled poor/good facts appear after action in original16pxInk notes; selected48pxoffer and current concise reason remain visible after reflow and realwindowresize.",
+      "SIMULATED returning player": "Legacy saves neutral/no backfilledreviews, originalschema1/unknownfields survive; persistentseenIDs and confidencecounters survive50/80history caps and diskreload without repeating rewards.",
+      "SIMULATED finance reviewer": "All original settlement fields and fee/travel/session math retained; explicitnumeric11/14/33/35 andoffer differences tested, no reviewcashpenalty or net-as-gross confusion. One failednativewrite restores completecareer/history/review/Finance, one retry settlesonce.",
+      "SIMULATED practice planner": "Four actualnewbands complete3nativewrites\u2192oneoriginal\u2192poorWILDshow\u2192STANDARDrecoverybooking\u21923paidrehearsals\u2192goodTIGHTshow\u2192restoredGUARANTEEbooking. Rehearsalalone never clears report; ordinary recovery stays reachable.",
+      "SIMULATED keyboard and lifecycle reviewer": "Actualmouse/Enter/Space/Tab/Home/End, reservedscroll-normalizednote geometry, stablefixedContinue andsemanticfocus after390\u21941280/original resize. All currentengineERROR0/orphangrowth0; no Androiddevice/wholeappaccessibility/humanreview claim."
+    },
+    "remaining": [
+      "New S47finance/S48offstage/S49show-report work remains LOCAL and is not included in currentV5. No newAPK or hostedS49screenshots were published.",
+      "Only hometown GUARANTEE terms are restricted; broader regionalvenue access, actualmusic/merch sales, vanrepair/touring and future sales-basedgates remain unimplemented. Merch proposal in S49_MERCH_NEXT_SLICE.md is DESIGN ONLY.",
+      "Long reports require scroll onphone/shortlandscape; desktopparagraphlines are long. OverallvisualPARTIAL/ownerfalse; physicalphone and hostedPage renderedlayout unverified.",
+      "Source/history and both newZIPs remain local. Originalpublicfullledger/learning-history publication rejection remains; no retry/bypass/newapproval inferred."
+    ],
+    "original_pngs_opened": [
+      "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png",
+      "/workspace/work/business/s49/native-e87a8c9-phone/captures/FIRST-FAILURE-390x844.png",
+      "/workspace/work/business/s49/native-5c383e2-phone/captures/review-poor-guarantee-paused-390x844.png",
+      "/workspace/work/business/s49/native-5c383e2-phone/captures/review-success-guarantee-restored-390x844.png",
+      "/workspace/work/business/s49/native-2bdf36e-phone/captures/FIRST-FAILURE-390x844.png",
+      "/workspace/work/business/s49/native-179f336-phone/captures/review-poor-guarantee-paused-390x844.png",
+      "/workspace/work/business/s49/native-179f336-phone/captures/review-success-guarantee-restored-390x844.png",
+      "/workspace/work/business/s49/native-179f336-tablet/captures/review-poor-guarantee-paused-720x1280.png",
+      "/workspace/work/business/s49/native-179f336-wide/captures/review-poor-guarantee-paused-1280x720.png",
+      "/workspace/work/business/s49/native-179f336-large/captures/review-success-guarantee-restored-1600x900.png",
+      "/workspace/work/business/s49/native-179f336-phone/captures/review-poor-note-full-390x844.png",
+      "/workspace/work/business/s49/native-179f336-phone-savefailure/captures/review-save-failure-restored-stage-390x844.png"
+    ],
+    "independent_originals_opened": 44,
+    "failure_disclosures": [
+      "272 initialfirstgoodcopy falselysaidrecovered; actualprioradverse condition added beforecompile.",
+      "273 root misclassified visible-onlynamed lookup;274 explicitlysupersedes it and switches retainednode API beforeexecution.",
+      "275 firstnativeglobalRect assertionfailed onlegitimatefocus-follow scrolling; immutablediagnostic276 proves38px scroll withunchangedtext/size; content-coordinate/fixedfooter invariant replacesglobal-only assumption, no productInkchange.",
+      "277 actual5ctechnicalPASS stillhidselectedoffer afterfooterreflow; firstoneprocess_frame attempt2bdffailed279. Exactdiagnostic280 showsreason49\u219275px andviewport485\u2192459; methodchanged to boundedactualpostdrawstable-layoutreveal. Final179passesstrongselectedrow/resize checks.",
+      "278 recoverycopy matched actualBRINGYOURCROWD label andconcise sharedmessage, no originaloffer/rate changes."
+    ],
+    "writer_released_at": "2026-10-31T23:21:39.347569+00:00"
+  }
 }

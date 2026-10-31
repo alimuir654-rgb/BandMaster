@@ -1,5 +1,5 @@
 {
-  "writer": "S49-review-confidence-20261031",
+  "writer": null,
   "base_head": "444ed31a89e31fc73b3bb33986aa743aa8e419e0",
   "claimed_at": "2026-10-31T22:43:11.629265+00:00",
   "expires_at": "2026-10-31T23:35:00Z",
@@ -7,14 +7,14 @@
   "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T23:21:39.347569+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "One new owner-authorised hour; rootsolewriter/GL, helpersscratch/read-only; sourcefreeze23:25, finalread-only23:35, hardstop23:39:15. No additionalAPK/publication/queue.",
+  "note": "S49 onehour work complete. Source frozen179, originalmodels/art/schema protected, localproject/reviewZIP smokePASS, no newAPK/hostedS49publication. No pendingGL/helper/implementation/queue.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S48-approved-page-delivery-closeout-20261031",
-  "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+  "last_writer": "S49-review-confidence-20261031",
+  "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -155,8 +155,8 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "Source frozen before22:25 target; local metadata complete before22:35 lease end; no automatic extension.",
-  "source_writer_released_at": "2026-10-31T22:04:21.070750+00:00",
+  "final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
+  "source_writer_released_at": "2026-10-31T23:21:39.347569+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "status": "owner_approved_saved_and_readback",
     "page_url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",

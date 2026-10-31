@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s49_review_confidence_preflight",
+  "status": "s49_reviews_verified_local_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
-  "writer": "S49-review-confidence-20261031",
-  "last_verified_code_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+  "writer": null,
+  "last_verified_code_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Implement one factual settledshow report and recoverableguarantee offer policy, then rootnative proof; music/merch sales remain later.",
+  "next_single_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -494,10 +494,18 @@
       "closeout": "/workspace/work/business/s48/closeout.json",
       "visual_verdict": "partial",
       "owner_approved": false
+    },
+    {
+      "session": "S49",
+      "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+      "verified_at": "2026-10-31T23:21:39.347569+00:00",
+      "closeout": "/workspace/work/business/s49/closeout.json",
+      "visual_verdict": "partial",
+      "owner_approved": false
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Saved offstage outings, promoter booking and milestone-qualified scout/local feature; original models/art/schema preserved",
+  "last_completed_deliverable": "Saved factual show reports, recoverableGUARANTEE offers, focus/reflow/resize-safe currentlive planning and latestisolatedproject checkpoint",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -543,13 +551,13 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T22:43:11.629265+00:00",
+  "last_updated_utc": "2026-10-31T23:21:39.347569+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "S48 exact8d:73+88/import/4standard,299offstage+340finance,4368focusednative/48PNGs incl2actualsavefailure retries;339original/308prior/315runtime;168standardexact+4fadeframes;0ERROR/orphans; initialhosted preview rejected, then specifically owner-approved and saved/readback atPage21; sourceunchanged.",
+  "last_run_summary": "S49 exact179:73+88/import/4standard172originals;507review+1984original live;5028focusednative/49originals inclactualpaidshowfailedsave+retry.339original/54Scripts/312prior/318runtime preserved.168standardexact+4disclosedfadeframes.0ERROR/orphans.318sourceZIP/49reviewPNGZIP freshmanifest/import/configuredentryPASS. V5unchanged; no newpublication.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
   "last_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
   "latest_owner_scope": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
@@ -626,7 +634,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/S48.json",
+    "session": "docs/continuous_improvement/sessions/S49.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -639,11 +647,12 @@
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
-    "session": "S48",
-    "preflight_sha": "525263698329e14e70ba5be2c0b16c4de2769ad0",
-    "source_verified_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+    "session": "S49",
+    "baseline_sha": "444ed31a89e31fc73b3bb33986aa743aa8e419e0",
+    "preflight_sha": "6b08f762c851ba315903e063600cdbe15d1a7556",
+    "source_verified_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
     "status": "released",
-    "closed_at": "2026-10-31T22:04:21.070750+00:00",
+    "closed_at": "2026-10-31T23:21:39.347569+00:00",
     "owner_approved": false
   },
   "playable_opening_checkpoint": {
@@ -704,8 +713,8 @@
     "owner_approved": false,
     "visual_verdict": "partial"
   },
-  "last_sprint": "S48",
-  "next_action": "Implement one factual settledshow report and recoverableguarantee offer policy, then rootnative proof; music/merch sales remain later.",
+  "last_sprint": "S49",
+  "next_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -713,91 +722,67 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
-    "verified_at": "2026-10-31T22:03:15.931775+00:00",
-    "technical_pass": true,
+    "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+    "verified_at": "2026-10-31T23:21:39.347569+00:00",
+    "scope": "Factual once-only show reports and recoverableGUARANTEE pressure; ordinary hometown recovery and originalsettlement preserved",
+    "validation": "/workspace/work/s40/runs/s49-reviews-179f336-final/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/s49-reviews-179f336-final/complete-validation.json",
+    "closeout": "/workspace/work/business/s49/closeout.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "standard_native_profiles": 4,
       "standard_original_pngs": 172,
-      "offstage_model_assertions": 299,
-      "finance_regression_assertions": 340,
-      "offstage_native_assertions": 4368,
-      "offstage_original_pngs": 48,
-      "offstage_core_profiles": 4,
-      "phone_real_failed_save_commands": 2,
+      "review_model_assertions": 507,
+      "original_live_model_assertions": 1984,
+      "focused_native_assertions": 5028,
+      "core_native_assertions": 4522,
+      "actual_phone_failed_save_assertions": 506,
+      "focused_original_pngs": 49,
+      "core_native_profiles": 4,
+      "actual_paid_show_save_failure_and_retry_cases": 1,
       "protected_originals": 339,
-      "protected_prior_runtime": 308,
-      "runtime_source_paths": 315,
-      "standard_pixels_identical": 168,
+      "protected_original_Scripts": 54,
+      "protected_prior_runtime": 312,
+      "runtime_source_paths": 318,
+      "byte_identical_standard_originals": 168,
       "disclosed_reopen_fade_frames": 4,
       "unexpected_pixel_changes": 0,
       "engine_error_lines": 0,
       "orphan_growth": 0
     },
-    "validation": "/workspace/work/s40/runs/s48-offstage-8d35cca-final/complete-validation.json",
-    "focused_validation": "/workspace/work/business/s48/focused-validation.json",
-    "visual_review": "/workspace/work/business/s48/visual-review.json",
-    "source_protection": "/workspace/work/business/s48/source-protection-audit.json",
-    "original_pngs_opened_by_root": [
-      "/workspace/work/business/s48/native-a26006e-phone/captures/offstage-watch-preview-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-watch-preview-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-invite-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-wide/captures/offstage-watch-preview-1280x720.png",
-      "/workspace/work/business/s48/native-8d35cca-phone-savefailure/captures/offstage-outing-save-failure-failed-restored-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-scout-invite-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-booked-390x844.png",
-      "/workspace/work/business/s48/native-8d35cca-tablet/captures/offstage-promoter-invite-720x1280.png",
-      "/workspace/work/business/s48/native-8d35cca-large/captures/offstage-scout-invite-1600x900.png"
-    ],
-    "simulated_lenses": {
-      "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
-      "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
-      "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
-      "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
-      "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
-    },
-    "remaining": [
-      "Local S47 finance and S48 offstage changes are NOT included in current V5; no new APK or ZIP built. Importable315-source isolated checkpoint is retained in verified runtime.",
-      "Recorded poor-performance/review pressure on future gig eligibility and actual inventory-backed music/merch sales remain unimplemented; existing ordinary booking remains reachable.",
-      "Phone full outing effects and scout response explanation require scrolling; visualPARTIAL/ownerfalse, no physicaldevice/emulator proof.",
-      "The two specifically owner-approved S48 screenshots are now published on the private reviewPage atsequence21; original rejection retained. Source/history public upload remains blocked and unattempted.",
-      "Source/history remain local; public fullledger/learning-history rejection not retried."
-    ],
-    "failure_disclosures": [
-      "266 consumed-scout-event authority defect caught statically before fix; regression nowpasses.",
-      "267 unchanged finance regression rejected wrong freshS48 namespace before models; immutable suite retried in its original strictS47 namespace340PASS.",
-      "268 actual initialphone firstfold context displaced by redundantmodes; remove empty invitationnavigation and verify corrected layout.",
-      "269 automatic approval review rejected hosted screenshot/Page edit; originaluploadstage receipts retained andPage20unchanged; no egress workaround."
-    ],
-    "next_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK.",
-    "owner_approved": false,
+    "source_protection": "/workspace/work/business/s49/source-protection-final.json",
+    "focused_validation": "/workspace/work/business/s49/focused-validation.json",
+    "visual_review": "/workspace/work/business/s49/visual-review179f336.json",
     "visual_verdict": "partial",
-    "publication": "LOCAL source/history/checkpoint only. Two screenshot uploads staged with Files access confirmed, but hosted Page insertion rejected; no publicsource or remoteCI claim.",
-    "new_apk_built": false,
-    "new_zip_built": false,
-    "scope": "Original paid offstage outings, durable business contacts, once-only standard local-show booking and milestone-qualified original local-feature interview",
-    "closeout": "/workspace/work/business/s48/closeout.json",
-    "complete_validation": "/workspace/work/s40/runs/s48-offstage-8d35cca-final/complete-validation.json",
-    "android": "Current V5/a9 unchanged; S47 finance and S48 offstage are NOT in APK",
-    "packaging": "No new ZIP; verified315-source isolated project remains local in /workspace/work/s40/runs/s48-offstage-8d35cca-final/runtime",
-    "writer_released_at": "2026-10-31T22:04:21.070750+00:00",
-    "closed_at": "2026-10-31T22:04:21.070750+00:00",
-    "session": "S48",
-    "page_delivery": {
-      "status": "owner_approved_saved_and_readback",
-      "page_url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-      "sequence": 21,
-      "completed_at": "2026-10-31T22:15:04.985188+00:00",
-      "receipt": "/workspace/work/business/s48/page-delivery-approved.json",
-      "original_rejection_preserved": "/workspace/work/business/s48/page-delivery-blocked.json",
-      "scope": "Two approved S48 outing/promoter screenshots and preview text only; no source/history publication, APK, GL or gameplay.",
-      "owner_authority": "Latest Go ahead in direct response to the explicit two-screenshot/privatePage approval question.",
-      "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
-      "rendered_preview_inspected": false
-    }
+    "owner_approved": false,
+    "android": "Current V5/a9 unchanged; S47finance/S48offstage/S49reviews are local and NOT in APK",
+    "packaging": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/packaging.json",
+    "artifacts": [
+      {
+        "path": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+        "bytes": 55197918,
+        "sha256": "983ec1f50117376462bd2915d29a9df68d7d94bb2a843731dcdc455fd909d67c",
+        "zip_crc": "PASS"
+      },
+      {
+        "path": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/livin-the-dream-s49-original-review.zip",
+        "bytes": 21150741,
+        "sha256": "0dd24d5111a5905a9558c1f17f0dd2f8a889d882bbc70d34a90f03318b117993",
+        "zip_crc": "PASS"
+      }
+    ],
+    "extracted_native_entry_pass": true,
+    "remaining": [
+      "New S47finance/S48offstage/S49show-report work remains LOCAL and is not included in currentV5. No newAPK or hostedS49screenshots were published.",
+      "Only hometown GUARANTEE terms are restricted; broader regionalvenue access, actualmusic/merch sales, vanrepair/touring and future sales-basedgates remain unimplemented. Merch proposal in S49_MERCH_NEXT_SLICE.md is DESIGN ONLY.",
+      "Long reports require scroll onphone/shortlandscape; desktopparagraphlines are long. OverallvisualPARTIAL/ownerfalse; physicalphone and hostedPage renderedlayout unverified.",
+      "Source/history and both newZIPs remain local. Originalpublicfullledger/learning-history publication rejection remains; no retry/bypass/newapproval inferred."
+    ],
+    "next_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
+    "publication": "Source/history/318-source project ZIP/49-originalPNG review ZIP LOCAL only; existingPage21has only previously approvedS48images, no newS49publication",
+    "writer_released_at": "2026-10-31T23:21:39.347569+00:00"
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",

@@ -1,6 +1,6 @@
 # Remaining owner requests after the S47 finance foundation
 
-Status: **Reviews, gig-access pressure and sales remain DESIGN ONLY / UNIMPLEMENTED.** The social-to-booking and scout slice below was subsequently implemented and verified in S48 at `8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164`. Its proof is `/workspace/work/business/s48/closeout.json`; it is local and not included in V5. This design record does not create another queue or schedule extension. The finance/14-day foundation has separate root-run evidence; verified V5/a9 remains the Android rollback.
+Status: **Factual show reports and recoverable GUARANTEE pressure are implemented locally in S49 at `179f3366917d0aa629b1e79ede2d1f099a06d72f`. Broader venue-access pressure and actual music/merch sales remain DESIGN ONLY / UNIMPLEMENTED.** Social-to-booking and scouts were verified in S48 at `8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164`. These changes are local and not included in V5. This design record does not create another queue or schedule extension. The finance/14-day foundation has separate root-run evidence; verified V5/a9 remains the Android rollback.
 
 The first implementation boundary remains one successful original-model result, then the new policy, then one owner save, then presentation. Save failure restores the complete original snapshot, including financial, review, sales, contact and opportunity metadata. No resolver runs inside an animation, render, query or reload.
 
@@ -13,6 +13,8 @@ The first implementation boundary remains one successful original-model result, 
 - `career_opportunities.gd` already has pending/once-resolved narrative choices and a support offer. It has no persistent contact/scout network. Current unified UI does not expose every original feature.
 
 ## 1. Recorded performance and reviews
+
+**Implemented in S49.** Each newly settled original show records its actual success flag, original settled fee, venue, scheduled/completed days and available original set/terms fields in `live_reviews_v1`. Stable booking-derived IDs, permanent consumed-ID checkpoints and bounded visible history prevent repeated reports. Legacy shows are not backfilled; no critic, stars or new quality score is invented. The report joins the existing saved Ink receipt after the authoritative original settlement chain and before one Finance/save boundary. Save failure restores the complete original state. The original design requirements below are retained for comparison.
 
 Proposed additive review records link to a stable **newly completed show ID**, never the current screen. Retain the original success, venue, completed day, originals played and settled fee as facts. Authored review wording may describe those facts. Do not invent attendance, ticket sales, a critic identity or a numeric rating from fields that the original result never recorded.
 
@@ -29,11 +31,13 @@ Acceptance:
 
 ## 2. Gig access and recovery
 
+**Current S49 policy, active in the local checkpoint:** a newly tracked poor show pauses only the existing **ASK FOR A GUARANTEE** offer. **STANDARD OFFER** and **BRING YOUR CROWD** keep all original lineup, cash, travel and promoter checks. One later actual successful show restores the guarantee; rehearsal alone does not clear the report. Existing confirmed bookings are honoured, and legacy saves without tracked reviews remain neutral. Preview and commit use the same current selected-offer policy. This is a consequence on reachable hometown terms; it does not claim to add regional touring or paid-sales gates.
+
 Keep all existing reputation/fan/lineup/travel checks. Any additional review/sales requirement belongs in one new pure eligibility policy used by both preview and commitment. Show every failing requirement and the concrete recovery route before confirmation. Revalidate at actual booking; a stale enabled button cannot bypass it.
 
 **Proposal for review, not active behaviour:** an upper-tier promoter may require a qualifying successful local show after the latest adverse review. A confirmed existing booking is honoured; a new policy does not retroactively cancel it. The original hometown route remains a recovery route under its existing lineup/cash rules. One poor result must not create an irreversible lockout.
 
-Per-tier review windows, success counts and any paid-sales thresholds are **not yet configured or implemented**. List them in a reviewable policy table before implementation; there are no hidden fallback values. Until such a table is approved and tested, preserve original eligibility. A legacy save without new evidence is not silently treated as a string of poor reviews or zero historical sales.
+Additional per-tier review windows, success counts and paid-sales thresholds are **not yet configured or implemented**. List them in a reviewable policy table before implementation; there are no hidden fallback values. Preserve original venue eligibility beyond the explicit S49 guarantee rule above. A legacy save without new evidence is not silently treated as a string of poor reviews or zero historical sales.
 
 Acceptance:
 
@@ -87,8 +91,8 @@ Acceptance:
 
 1. Verify the finance/14-day foundation and read-only final accounts; retain V5 if proof fails.
 2. Review the missing policy tables and the factual review/gate proposal with the owner.
-3. Implement recorded review evidence plus recoverable eligibility, retaining current settlement models.
+3. **Completed in S49:** factual newly settled show reports and recoverable guarantee-offer eligibility, retaining original settlement models.
 4. **Completed in S48:** one genuine social-to-existing-booking opportunity and the later milestone-qualified original feature interview.
-5. Implement one inventory-backed sales channel only after its price/cost/demand policy is agreed.
+5. Next: implement one inventory-backed merchandise channel with a visible authored price/cost/demand table and independent balance/save tests. See `S49_MERCH_NEXT_SLICE.md`; its proposed values are not active game rules.
 
 Within the owner-authorised scope, routine rates are development tuning and need no separate invented permission gate. Every future slice needs its own committed preflight, independent model arithmetic, actual save-failure/replay checks, four native viewports and inspected originals before packaging. This sequence is a proposal, not a running queue or authority beyond the current owner window.
