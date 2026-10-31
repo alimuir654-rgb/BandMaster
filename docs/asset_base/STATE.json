@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S41 milestone delivered; owner-review readiness/newfeedback only through15:00,14:50finalread-only.",
-  "writer": null,
+  "writer": "S41-genre-art-20261031T1218",
   "last_verified_code_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "next_single_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -483,7 +483,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T11:41:42.777354+00:00",
+  "last_updated_utc": "2026-10-31T12:10:13.386032+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -679,7 +679,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "next_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",

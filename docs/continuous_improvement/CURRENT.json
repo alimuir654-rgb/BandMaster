@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "S41 milestone delivered; owner-review readiness/newfeedback only through15:00,14:50finalread-only.",
+  "scope": "Existing genre screen artwork/composition only; original native buttons/data/hardware/cast/models protected.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active_review_ready",
-  "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "status": "active",
+  "next_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -1741,5 +1741,6 @@
         "original_source_files_unchanged": true
       }
     }
-  ]
+  ],
+  "additional_art_authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains."
 }

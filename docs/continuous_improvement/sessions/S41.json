@@ -4,9 +4,9 @@
   "status": "active",
   "owner_approved": false,
   "owner_plan_approved": true,
-  "owner_request": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
-  "baseline_sha": "fc155a3d3220354c902a9a02ae4385cd62c9e41f",
-  "dominant_issue": "BM-13",
+  "owner_request": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
+  "baseline_sha": "f0b9cd129e691bcf6cc1f109581156f6499ef845",
+  "dominant_issue": "BM-21",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 305981,
-    "sha256": "c5eedd72d59866e98c2a22cfc509f27cb92f6b8334f2dd6ae3ae24abfbe4aead"
+    "bytes": 307928,
+    "sha256": "29f619ba572a9ca32a2b0924896396fdbaa6edc4577fce307b0869562e34c874"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -65,9 +65,9 @@
     "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
     "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
   },
-  "hypothesis": "A single exact-source isolatedproject and same-key versioncode3 APK will letowner testtheapprovedintegrateddailyloop/poster withoutuninstallingorlosingprogress. Buildonlyfrom276pinnedruntime/Gitpaths andverifiednativecheckpoint.",
-  "controlled_comparison": "Frozen c9source matches276explicitGit/runtimepaths includingdeclared146-byteisolatedprojectentry. InventoryselectedoriginalPNGpaths beforearchivewrites; temporaryZIP CRC/content checks andatomicrelease, thenfresh extracted-project cleanimport/actualnativeopeningentry. APKimport/export/signature/16KBzipalignment/MAIN-LAUNCHER/ARM32+64/noextra permissions/castJSON/sourcechecks; verify sameinstalledv1/v2certificate/appID andcode3. PrivateDriveuploadselectedcompiledAPKonly withreader alimuir654@gmail.com, ownerchair@lovewelluk.com; sourceZIP/loghistory remainlocal.",
-  "stop_condition": "No source/art/game/model/schema edits ornewSDK/dependencies. Preserveallartifactfailures beforecorrection. No rawledger/key/save upload orpublichistoryretry. AtmostONEnewmilestoneAPK; no uninstall/wipe.14:50read-only/15:00hardstop.",
+  "hypothesis": "A single tactile genre sleeve with original per-genre native screenprint compositions beside a compact original choice index gives14 sounds distinct visual identity without repeating14 chrome cards or increasing scrolling.",
+  "controlled_comparison": "Current c9 original genre390/1280 and owner-reviewed analogue paper/poster concept versus exact same default/selected genre at390x844/720x1280/1280x720/1600x900. All14 actual names/order/descriptions/strengths preserved; real pointer/Enter/Space/Tab selection has one change/save, correct checkmark, Back/Next/Continue persist, no cash/day/roster mutation. Original paper/case/control/meter/cast/model bytes and all settled non-genre screenshots preserved.",
+  "stop_condition": "Two ineffective art/layout attempts require changed method or HOLD. Do not shrink fonts/targets to hide overflow; no new raster families, cast, model, budget, scoring, save schema or dependencies. This bounded lease ends13:40;14:50finalread-only/15:00hardstop.",
   "protected": [
     "OriginalC25cast/contactcrop provenance and sourcebytes",
     "Allpassivemeter/hardware/artbytes andinertsemantics",
@@ -80,7 +80,10 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S41.json",
@@ -89,11 +92,11 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T11:41:42.777354+00:00",
+  "issues_reviewed_at": "2026-10-31T12:10:13.386032+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
-  "evidence_status": "c9native/archives/freshentry/Androidintegrity/privatev3deliveryPASS; ownerphonefeedbackpending; artPARTIAL/ownerfalse. Allplannedcode/milestoneworkcomplete; no speculativeadditionalwrites.",
-  "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "evidence_status": "Additional owner-authorized genre artwork slice preflight; no source/native success claimed.",
+  "next_action": "One bounded genre-art composition pass: native printed genre sleeve plus compact original choice index; focused real input/pixel proof, then73/88/import/four genuine journeys and closeout. No further APK by default.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -1702,6 +1705,20 @@
         "experiments/playable_flightcase/opening_capture.gd",
         "experiments/playable_flightcase/art/opening_stage.png"
       ]
+    },
+    {
+      "baseline_sha": "fc155a3d3220354c902a9a02ae4385cd62c9e41f",
+      "dominant_issue": "BM-13",
+      "hypothesis": "A single exact-source isolatedproject and same-key versioncode3 APK will letowner testtheapprovedintegrateddailyloop/poster withoutuninstallingorlosingprogress. Buildonlyfrom276pinnedruntime/Gitpaths andverifiednativecheckpoint.",
+      "controlled_comparison": "Frozen c9source matches276explicitGit/runtimepaths includingdeclared146-byteisolatedprojectentry. InventoryselectedoriginalPNGpaths beforearchivewrites; temporaryZIP CRC/content checks andatomicrelease, thenfresh extracted-project cleanimport/actualnativeopeningentry. APKimport/export/signature/16KBzipalignment/MAIN-LAUNCHER/ARM32+64/noextra permissions/castJSON/sourcechecks; verify sameinstalledv1/v2certificate/appID andcode3. PrivateDriveuploadselectedcompiledAPKonly withreader alimuir654@gmail.com, ownerchair@lovewelluk.com; sourceZIP/loghistory remainlocal.",
+      "stop_condition": "No source/art/game/model/schema edits ornewSDK/dependencies. Preserveallartifactfailures beforecorrection. No rawledger/key/save upload orpublichistoryretry. AtmostONEnewmilestoneAPK; no uninstall/wipe.14:50read-only/15:00hardstop.",
+      "allowed_paths": [
+        "docs/continuous_improvement/**",
+        "docs/asset_base/STATE.json",
+        "docs/asset_base/LEDGER.md",
+        "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+        "docs/asset_base/REVIEW_INDEX.md"
+      ]
     }
   ],
   "poster_pass": {
@@ -2426,5 +2443,17 @@
     "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension."
   },
   "source_implementation_completed_at": "2026-10-31T11:41:42.777354+00:00",
-  "review_ready": true
+  "review_ready": false,
+  "genre_art_pass": {
+    "status": "preflight",
+    "authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
+    "baseline_game_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+    "baseline_head": "f0b9cd129e691bcf6cc1f109581156f6499ef845",
+    "baseline_originals": [
+      "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-390x844.png",
+      "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-genre-1280x720.png"
+    ],
+    "source_type": "New original native GDScript vector/print compositions on unchanged original paper; no new raster generation/integration planned.",
+    "owner_approved": false
+  }
 }
