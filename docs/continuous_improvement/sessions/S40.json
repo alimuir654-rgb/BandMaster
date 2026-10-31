@@ -50,8 +50,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 238402,
-    "sha256": "120b8c13153f594ac97512a498eadb1104682c9554e9f737ed4c4d59112a639f"
+    "bytes": 239953,
+    "sha256": "64c127a7f9808351b7fe8589595d2953dc08dce53ce00e0eeecbd53f512dda4a"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -85,7 +85,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocalbb38882 full73+88/import/4native PASS,120retainedoriginals,112prioridentical,65samebytepositiveprobePASS,17originalsopened,CRC/freshextractedimport/nativeentryPASS; localonly, artPARTIAL/ownerfalse.",
-  "issues_reviewed_at": "2026-10-31T07:43:22.363354+00:00",
+  "issues_reviewed_at": "2026-10-31T07:48:23.204997+00:00",
   "progress": {
     "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "verified_at": "2026-10-31T05:20:03.478294+00:00",
@@ -759,6 +759,7 @@
       "correction": "Recordedbeforefix; lessonselection+failfast corrected before Androidimplementation."
     },
     "adb_limit": "adb version failed because home is read-only; no HOME override/unsupportedenv workaround and no Android runtime claim. NonGradleexport proceeds independently.",
-    "failed_export": "build-af8c957 importPASS/exportexit1 unsupportedGradle-onlySDKoverrides; failurelogged153beforecorrection."
+    "failed_export": "build-af8c957 importPASS/exportexit1 unsupportedGradle-onlySDKoverrides; failurelogged153beforecorrection.",
+    "intermediate_apk": "build-2a7b3c2 valid signed APK65,706,128bytes; missingprojecticon nonfatalwarning recorded154before packaging-only correction; notdelivered."
   }
 }

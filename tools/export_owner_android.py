@@ -37,6 +37,11 @@ def main():
     assert manifest['source_sha'] == packaging['source_sha']
     for row in manifest['source_files']:
         assert hashlib.sha256((project / row['path']).read_bytes()).hexdigest() == row['sha256'], row['path']
+    # The minimal desktop bundle omitted the original project launcher icon.
+    # Reuse its exact tracked bytes; no new artwork or production-file edits.
+    repo = Path(__file__).resolve().parents[1]
+    icon = subprocess.check_output(['git', 'show', manifest['source_sha'] + ':icon.svg'], cwd=repo)
+    (project / 'icon.svg').write_bytes(icon)
     env = os.environ.copy()
     env.update(XDG_DATA_HOME=str(out / 'userdata'), XDG_CONFIG_HOME=str(out / 'editor-config'),
                XDG_CACHE_HOME=str(out / 'cache'), JAVA_HOME=str(args.java),
@@ -45,6 +50,7 @@ def main():
     receipt = {'game_source_sha': manifest['source_sha'], 'project_source_files': len(manifest['source_files']),
                'started_at': datetime.datetime.now(datetime.timezone.utc).isoformat(),
                'application_id': 'com.bandmaster.ownerplaytest.s40', 'steps': steps,
+               'original_project_icon_sha256': hashlib.sha256(icon).hexdigest(),
                'android_device_tested': False, 'owner_approved': False}
 
     def save():
@@ -80,6 +86,7 @@ def main():
     (project / 'project.godot').write_text('''config_version=5
 [application]
 config/name="BandMaster Playtest"
+config/icon="res://icon.svg"
 run/main_scene="res://experiments/playable_flightcase/opening.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="BandMasterOwnerPlaytestS40"
@@ -155,6 +162,10 @@ permissions/camera=false
     run('verify-alignment', [tools / 'zipalign', '-c', '-P', '16', '4', apk])
     badging = run('manifest', [tools / 'aapt', 'dump', 'badging', apk])
     permissions = run('permissions', [tools / 'aapt', 'dump', 'permissions', apk])
+    xml = run('manifest-tree', [tools / 'aapt', 'dump', 'xmltree', apk, 'AndroidManifest.xml'])
+    assert 'android.intent.action.MAIN' in xml and 'android.intent.category.LAUNCHER' in xml
+    assert 'android.intent.category.HOME' not in xml
+    assert '4.7.2.stable' in xml
     with zipfile.ZipFile(apk) as z:
         assert z.testzip() is None
         names = z.namelist()
