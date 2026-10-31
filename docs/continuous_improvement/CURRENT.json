@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "Additional existing-title independent wordmark ink; verified genre artwork/core retained",
+  "scope": "Frozen6c1additionalart LOCAL checkpoint and selectedscreenshotPages only; no source/art/Androidwrites.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop.",
+  "next_action": "One latest changed-source280-file LOCAL project/reviewZIP, fresh extractedimport/nativeopeningentry, then selectednativeartwork screenshots on existingreviewPages with explicitnot-in-v3APKnote. No source/art edits/newAPK/publicsourceupload.14:50read-only/15:00hardstop.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {

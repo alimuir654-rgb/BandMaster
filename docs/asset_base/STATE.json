@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S41 milestone delivered; owner-review readiness/newfeedback only through15:00,14:50finalread-only.",
-  "writer": null,
+  "writer": "S41-art-review-package-20261031T1305",
   "last_verified_code_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop.",
+  "next_single_action": "One latest changed-source280-file LOCAL project/reviewZIP, fresh extractedimport/nativeopeningentry, then selectednativeartwork screenshots on existingreviewPages with explicitnot-in-v3APKnote. No source/art edits/newAPK/publicsourceupload.14:50read-only/15:00hardstop.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -497,7 +497,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T13:02:19.966531+00:00",
+  "last_updated_utc": "2026-10-31T13:04:09.305960+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -666,7 +666,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Package latest verified280-file art checkpoint and selected CURRENT originalPNGs locally once; fresh extractedimport/actualnativeentry, then updateexistingownerreviewPages with selectedscreenshots and explicitnot-in-v3APKnote. No newAPK/sourcepublication. Rootartifactlease/preflightrequired;14:50read-only/15:00hardstop.",
+  "next_action": "One latest changed-source280-file LOCAL project/reviewZIP, fresh extractedimport/nativeopeningentry, then selectednativeartwork screenshots on existingreviewPages with explicitnot-in-v3APKnote. No source/art edits/newAPK/publicsourceupload.14:50read-only/15:00hardstop.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
