@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 378830,
-    "sha256": "83d6932ae2b6974a598fd1848edc24e27e961f65695cdf4ae966873d368e388b"
+    "bytes": 381461,
+    "sha256": "335c77c5e84be309f917bbaf9afc66ad736165bb96ad5c3dc00232bcead70300"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/s44-audition-68ed79c-final/captures/c27-rehearsal_outcome-390x844.png",
@@ -97,5 +97,19 @@
   "started_at": "2026-10-31T18:51:13.442149+00:00",
   "scope_end": "2026-10-31T20:10:00Z",
   "overall_owner_window_end": "2026-10-31T21:40:00Z",
-  "next_action": "Capture isolatedoriginalGEARbaseline, then implementsharedpresentation/currentcareerdesk/originalGearbridge; nativeproofbeforebroadening."
+  "next_action": "Capture isolatedoriginalGEARbaseline, then implementsharedpresentation/currentcareerdesk/originalGearbridge; nativeproofbeforebroadening.",
+  "original_baseline": {
+    "source_sha": "f11e1ffc2eb89a6f4cb0abff08de3a959e08ed97",
+    "execution": "/workspace/work/unify/s45/original-gear-baseline/execution.json",
+    "capture": "/workspace/work/unify/s45/original-gear-baseline/captures/baseline.json",
+    "checks": 102,
+    "originals": 8,
+    "opened": [
+      "legacy-gear-unowned-390x844.png",
+      "legacy-gear-owned-1280x720.png"
+    ],
+    "entry_exception": "/workspace/work/unify/s45/legacy-runtime-source.json",
+    "observation": "OriginalGearhero/header/navstack putsactualselectedequipment/Buybelowfirstfold. Candidatewillkeepselecteddossier/truecost/primarydecisionvisible; samecurrentC25fixture/physicalwindow/146bytecontrolledhost, notproductiondefaultlaunch."
+  },
+  "legacy_success_pipeline": "Reuse originalGear thenStory.observe\u2192Calendar.expire\u2192Life.refresh exactly. Life.refreshonlyreactivatesexistingavailablemembers; NEVER Life.candidates/recruit/depart, no membercount/identity changes. Effectivelead-vocalroleprojectionrestorescanonicalrole andsafeholdermetadata."
 }
