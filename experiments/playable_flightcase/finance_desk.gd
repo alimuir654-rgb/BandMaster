@@ -19,6 +19,7 @@ static func _row(host, parent: Node, title: String, amount: int, name: String) -
  var caption: Label = _copy(host,row,title)
  caption.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var money: Label = _copy(host,row,"£%d" % amount,name)
+ money.autowrap_mode=TextServer.AUTOWRAP_OFF
  money.size_flags_horizontal=Control.SIZE_SHRINK_END
  money.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
 

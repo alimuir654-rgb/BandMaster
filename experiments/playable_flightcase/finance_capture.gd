@@ -34,6 +34,9 @@ func first_fold_finance(cash: int, terminal: bool) -> bool:
  if not verify(desk()!=null and str(desk().get("page"))=="finance" and balance!=null and status!=null and title!=null,"actual finance page and named native money/status exist"): return false
  if not verify(balance.text=="£%d" % cash and inside(balance) and inside(status) and status.get_theme_font_size("font_size")>=16,"MoneyStatus: actual balance and full16px status initially visible inside all clips"): return false
  if not verify((title.text=="BAND HAS FOLDED")==terminal and Finance.is_over(model.game.career)==terminal,"terminal heading agrees with saved finance state"): return false
+ for money_name in ["FinanceIncome_Gig_fees","FinanceIncome_Music_sales","FinanceIncome_Merch_sales","FinanceOutgoing_Equipment","FinanceOutgoing_Rehearsal","FinanceIncomeTotal","FinanceOutgoingTotal"]:
+  var money: Label = named(money_name) as Label
+  if not verify(money!=null and money.get_line_count()==1 and money.size.x>=money.get_theme_font("font").get_string_size(money.text,HORIZONTAL_ALIGNMENT_LEFT,-1,money.get_theme_font_size("font_size")).x,"native monetary token stays one full-width line: "+money_name):return false
  return check_fixed_layout()
 
 func finance_scroll() -> bool:
