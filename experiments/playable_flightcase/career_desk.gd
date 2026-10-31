@@ -406,7 +406,9 @@ func _songs_page(parent: Node, compact: bool) -> void:
  if not draft.is_empty():
   _copy(body,"SAVED WRITING DRAFT",14,true)
   _copy(body,str(draft.get("title","UNTITLED")),21)
-  _copy(body,"SESSION %d / 3  •  %s" % [int(draft.get("sessions",game.career.get("song_draft_progress",0))),str(draft.get("leader","The band"))],16)
+  var sessions: Variant = draft.get("sessions",[])
+  var count: int = sessions.size() if sessions is Array else int(game.career.get("song_draft_progress",0))
+  _copy(body,"SESSION %d / 3  •  %s" % [count,str(draft.get("leader","The band"))],16)
   _copy(body,str(draft.get("idea",""))+"  /  "+str(draft.get("form","")),16,true)
  var entries: Array = Songs.entries(game.career)
  if entries.is_empty():
