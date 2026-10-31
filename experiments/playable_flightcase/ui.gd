@@ -535,7 +535,7 @@ func _writing_notes(info: VBoxContainer) -> void:
  guidance.name = "WritingStageGuidance"
  info.add_child(guidance)
  info.add_child(_label("SAVED WRITING NOTES",18))
- var draft: Dictionary = game.career.get("song_draft",{})
+ var draft: Dictionary = game.career.get("current_song_draft",{})
  var sessions: Array = draft.get("sessions",[])
  var lines := PackedStringArray()
  if sessions.is_empty():
