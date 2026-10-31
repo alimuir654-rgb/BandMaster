@@ -202,6 +202,19 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  var friction: Label = pane.find_child("RecruitFriction",true,false)
  var affordability: Label = pane.find_child("RecruitAffordability",true,false)
  var header: Label = pane.find_child("BudgetLabel",true,false)
+ var candidate_name: Label = pane.find_child("RecruitCandidateName",true,false)
+ var profile_bounds: ScrollContainer = pane.find_child("RecruitProfileScroll",true,false)
+ var expected_identity: String = "%s  •  %s" % [str(person.name).to_upper(),str(pane.role).to_upper()]
+ if candidate_name==null or candidate_name.text!=expected_identity:
+  failures.append("S40 "+tag+" candidate name/role is not the full canonical identity")
+ elif profile_bounds==null or candidate_name.get_global_rect().position.x<profile_bounds.get_global_rect().position.x or candidate_name.get_global_rect().end.x>profile_bounds.get_global_rect().end.x:
+  failures.append("S40 "+tag+" candidate name/role escapes profile width")
+ elif str(person.id) in ["cast_maya","cast_bex","cast_sam"] and candidate_name.get_line_count()!=1:
+  failures.append("S40 "+tag+" short candidate identity/long role wraps despite fixed browse allocation")
+ for arrow_name in ["RecruitPreviousAction","RecruitNextAction"]:
+  var arrow: Button = pane.find_child(arrow_name,true,false)
+  if arrow==null or arrow.get_global_rect().size.x<44.0 or arrow.get_global_rect().size.x>50.0:
+   failures.append("S40 "+tag+" browse chevron width competes with candidate identity: "+arrow_name)
  if context==null or dock==null or strength==null or friction==null or affordability==null or header==null:
   failures.append("S40 "+tag+" recruitment trade-off context missing")
   return

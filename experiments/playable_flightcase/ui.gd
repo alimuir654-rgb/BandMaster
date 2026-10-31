@@ -176,13 +176,18 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  browse.add_theme_constant_override("separation",6)
  detail.add_child(browse)
  var previous: Button = _button("‹",_move_candidate.bind(-1),"browse")
+ previous.name = "RecruitPreviousAction"
  previous.custom_minimum_size.x = 48
+ previous.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  browse.add_child(previous)
  var name := _label("%s  •  %s" % [str(person["name"]).to_upper(),role.to_upper()],19)
+ name.name = "RecruitCandidateName"
  name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  browse.add_child(name)
  var following: Button = _button("›",_move_candidate.bind(1),"browse")
+ following.name = "RecruitNextAction"
  following.custom_minimum_size.x = 48
+ following.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  browse.add_child(following)
  # Phone decisions need the six stats as well as the authored trade-offs.
  # Use the same source art at a compact display size beside the six readouts;
