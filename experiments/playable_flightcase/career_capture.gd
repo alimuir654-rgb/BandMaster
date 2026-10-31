@@ -333,6 +333,13 @@ func commit_gear(verb: String, item: String, member: int=-1, method: String="poi
   # Genuine second pointer at the prior commit point is blocked by the overlay.
   await pointer(original_point)
   if not verify(model.game.career==expected.state and model.saves==saves+1,"busy overlay blocks repeated paid pointer without duplicate settlement"): return false
+  var original_desk: int = desk().get_instance_id()
+  var alternate := Vector2i(1280,720) if width<900 else Vector2i(390,844)
+  for window_size in [alternate,Vector2i(width,height)]:
+   root.size=window_size
+   DisplayServer.window_set_size(window_size)
+   await frames(4)
+   if not verify(desk()!=null and desk().get_instance_id()==original_desk and practice().get_instance_id()==practice_id and model.game.career==expected.state and model.saves==saves+1,"actual live commit resize retains panes and one saved original settlement"): return false
  if not await wait_receipt() or not check_receipt(before,expected.state): return false
  if not await complete_note(natural,tag): return false
  var loaded:=Model.new()
@@ -340,7 +347,7 @@ func commit_gear(verb: String, item: String, member: int=-1, method: String="poi
  evidence.append({"verb":verb,"item":item,"member":member,"before":before,"after":model.game.career.duplicate(true),"save_delta":model.saves-saves})
  if not await free_action("CareerReceiptContinueAction","enter"): return false
  await frames(3)
- return verify(inside(named("GearItemTitle")) and inside(named("GearCatalogueAction")) and (named("CareerScroll") as ScrollContainer).scroll_vertical==0,"receipt return reveals current selected identity/browse at top after native layout")
+ return verify(inside(named("GearItemTitle")) and inside(named("GearCatalogueAction")) and named("GearCatalogueAction").has_focus() and (named("CareerScroll") as ScrollContainer).scroll_vertical==0,"receipt return reveals current selected identity/browse and semantic focus at top after native layout")
 
 func band_and_native_scroll() -> bool:
  if not await free_action("CareerNav_band","space"): return false
