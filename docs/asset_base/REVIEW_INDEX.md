@@ -1,3 +1,19 @@
+# S40 existing draft-cancellation QA — 31 October 2026,04:00 slot
+
+Exact local source `2e087124c7323a1b3b480229425fdef1164b732e` remains unchanged. **724 focused native checks /32 cancellation cycles /4 viewports PASS; overall art PARTIAL; owner_approved=false.**
+
+A real scratch band was formed, named, assigned an identity and rehearsed before testing. KEEP BAND pointer/Enter/Space and Escape each cancelled twice per viewport. Original New Band focus/node IDs/menu geometry returned; Tab/ShiftTab remained in the modal; completed(false) fired once; career/draft bytes stayed unchanged. Real Continue then resumed the original DAY2 / £235 career at all4 sizes. Zero engine errors/orphan growth.
+
+All20 original menu/modal/cancel/Continue PNGs were opened. Full warning and both actions fit at390x844,720x1280,1280x720,1600x900. All4 initialmenus are byte-identical to exact2e titles; cancellation changes are confined to the existing New Band focus/interaction drawing. At390 NewBand is fully covered by the panel, so its outside-panel background click is untestable; Settings is blocked, and both actions are blocked at the other3 sizes.
+
+Evidence: `/workspace/work/s40/modal-qa/{validation.json,visual-review.json,protected-menu-comparison.json,source-protection-audit.json,closeout.json}`. Exact PNG paths/hashes, executed native logs, root-opened390/1280 originals and five clearly SIMULATED lenses are recorded in S40. No new source/art/package or full73+88 suite was needed; prior exact2e full checkpoint/importable packages remain authoritative and local. No public upload or owner art approval.
+
+Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff.
+
+Writer released 2026-10-31T04:09:52.459751+00:00.
+
+---
+
 # S40 settings keyboard/state checkpoint — 31 October 2026,03:00 slot
 
 Exact local tested source `2e087124c7323a1b3b480229425fdef1164b732e`: **technical PASS; visual PARTIAL; owner_approved=false**. No publicsync/newremoteCI claimed. Earlierrecords belowarehistory.

@@ -1,5 +1,5 @@
 {
-  "writer": "S40-modal-cancel-qa-20261031T0400",
+  "writer": null,
   "base_head": "1c53b9640304b95101ddc1b79f149dcdecc1bc87",
   "claimed_at": "2026-10-31T04:00:14.485548+00:00",
   "expires_at": "2026-10-31T04:50:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T04:09:52.459751+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Root coordinates one writer, helpers scratch/read-only only; no publicsync, no art change; hard09:00 and08:50 finalreview guard retained.",
+  "note": "04:00 native cancellation validation complete; source/art unchanged, full2e proof/packages reused. Next distinct RootUI modal live-resize risk must be reproduced before repair. One writer, public history sync blocked;08:50 final read-only guard/09:00 cutoff retained.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-settings-qa-20261031T0300",
+  "last_writer": "S40-modal-cancel-qa-20261031T0400",
   "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
   "previous_checkpoint_release": {
     "writer": null,

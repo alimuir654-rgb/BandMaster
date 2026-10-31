@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview.",
+  "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Direct renewed owner authority through2026-10-31T09:00:00Z; previouslimits historical.",
   "completion_gate": {
@@ -63,9 +63,9 @@
     "previous_worker_enabled": false,
     "current_root_must_release_before_handoff": false,
     "no_continuous_execution_claim": true,
-    "root_released_at": "2026-10-31T03:38:05.378890+00:00",
+    "root_released_at": "2026-10-31T04:09:52.459751+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
-    "next_focus": "Existingoverwrite-draftKEEPBAND/Escape nativecancellation QA; no sourcefixwithoutconfirmeddefect.",
+    "next_focus": "Existing RootUI live resize with overwrite-draft modal open; reproduce risk before any source fix.",
     "last_prompt_updated_at": "2026-10-31T03:42:39.649642+00:00",
     "last_completed_checkpoint_source": "2e087124c7323a1b3b480229425fdef1164b732e",
     "final_review_guard": "Wake at08:50or later is read-only final review/report; handles early09:00invocation, hard09:00cutoff unchanged."
@@ -238,5 +238,81 @@
     "audit": "/workspace/work/s40/material-review-0200.json",
     "source_unchanged": true,
     "owner_approved": false
+  },
+  "latest_focused_native_qa": {
+    "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+    "verified_at": "2026-10-31T04:09:52.459751+00:00",
+    "status": "local_native_verified_source_unchanged",
+    "preflight_sha": "a56ac90c1a7b5f0f97063f537b311c2774a33ea4",
+    "validation": "/workspace/work/s40/modal-qa/validation.json",
+    "visual_review": "/workspace/work/s40/modal-qa/visual-review.json",
+    "protected_menu_comparison": "/workspace/work/s40/modal-qa/protected-menu-comparison.json",
+    "source_protection_audit": "/workspace/work/s40/modal-qa/source-protection-audit.json",
+    "probe_sha256": "8457835c92c218fc6caa533ffe84628bab508a405e7097065f7773100bb8ad47",
+    "checks": {
+      "focused_native_checks": 724,
+      "viewports": 4,
+      "cancel_cycles": 32,
+      "original_pngs": 20,
+      "engine_errors": 0,
+      "orphan_growth": 0,
+      "save_career_bytes_unchanged": true,
+      "real_continue_resumes_original_career": true,
+      "original_title_pngs_byte_identical": 4
+    },
+    "executed_logs": [
+      "/workspace/work/s40/modal-qa/views/390x844/native.log",
+      "/workspace/work/s40/modal-qa/views/720x1280/native.log",
+      "/workspace/work/s40/modal-qa/views/1280x720/native.log",
+      "/workspace/work/s40/modal-qa/views/1600x900/native.log"
+    ],
+    "images_opened_by_render_review": [
+      "/workspace/work/s40/modal-qa/views/390x844/01-valid-draft-menu.png",
+      "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
+      "/workspace/work/s40/modal-qa/views/390x844/03-after-keep-pointer.png",
+      "/workspace/work/s40/modal-qa/views/390x844/04-after-escape.png",
+      "/workspace/work/s40/modal-qa/views/390x844/05-after-continue.png",
+      "/workspace/work/s40/modal-qa/views/720x1280/01-valid-draft-menu.png",
+      "/workspace/work/s40/modal-qa/views/720x1280/02-modal-open.png",
+      "/workspace/work/s40/modal-qa/views/720x1280/03-after-keep-pointer.png",
+      "/workspace/work/s40/modal-qa/views/720x1280/04-after-escape.png",
+      "/workspace/work/s40/modal-qa/views/720x1280/05-after-continue.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/01-valid-draft-menu.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/03-after-keep-pointer.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/04-after-escape.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/05-after-continue.png",
+      "/workspace/work/s40/modal-qa/views/1600x900/01-valid-draft-menu.png",
+      "/workspace/work/s40/modal-qa/views/1600x900/02-modal-open.png",
+      "/workspace/work/s40/modal-qa/views/1600x900/03-after-keep-pointer.png",
+      "/workspace/work/s40/modal-qa/views/1600x900/04-after-escape.png",
+      "/workspace/work/s40/modal-qa/views/1600x900/05-after-continue.png"
+    ],
+    "images_opened_by_root": [
+      "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
+      "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png"
+    ],
+    "simulated_lenses": {
+      "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
+      "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
+      "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
+    },
+    "remaining_defects_or_limits": [
+      "At390 the modal completely covers the New Band button, so a background New Band click is not claimed. Settings background input is tested and blocked. Both background actions have exposed test points at the other three sizes and are blocked.",
+      "No arbitrary modal stack, invalid invoker, real touch device, screen-reader or audible playback certification is inferred.",
+      "Source is unchanged, so the prior73+88/import/full native journey checkpoint remains the full regression proof. This run adds focused cancellation coverage only.",
+      "Overall approved-mockup fidelity remains partial and owner approval remains false.",
+      "RootUI live resize while the modal is open remains uncovered; existing full-menu rebuild may differ from protected component gallery behavior. No defect asserted.",
+      "Public operational-history upload remains rejected by automatic approval review pending explicit owner approval; no publication retry."
+    ],
+    "source_unchanged": true,
+    "art_unchanged": true,
+    "full_regression_proof_reused": "/workspace/work/s40/runs/settings-2e087/validation.json; executed03:00 checkpoint, not rerun04:00",
+    "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   }
 }
