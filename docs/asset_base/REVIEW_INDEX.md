@@ -1,3 +1,21 @@
+# S40 pending confirmation resize checkpoint — 31 October 2026,05:00 slot
+
+Exact tested LOCAL source `bb38882b8d9ade1dcd302f5dd578b4db588558ac`: **technical PASS; visual PARTIAL; owner_approved=false.**
+
+Confirmed old2e native390→1280 resize destroyed the pending warning, with focus NONE and zero callbacks; career/save bytes remained safe. Failed logs and both original PNGs were retained BEFORE repair. Root now keeps the existing pending/open modal in-tree while rebuilding the menu, places it last for native input, clears its reference before navigation and restores the current New Band invoker on cancel. Original shared component, cast, meters, hardware, artwork, models and save schema bytes are unchanged.
+
+Executed73gameplay+88opening+cleanimport+4complete native pointer/keyboard/save journeys PASS, zero ERROR/resource leaks/orphan growth.116 primary PNGs plus4 actual alternate-size originals retained=120; all112 previous originals byte/pixel identical. Same-byte positive probe65PASS demonstrates preserved dialog/focus at both resize directions, once-only cancellation, unchanged career/draft bytes and real Continue. Full native regression additionally preserves intentional Confirm focus and blocks actual exposed background actions.
+
+All17 reviewed originals:8 integrated resize states+7 independent replay+2 failed baseline. Root opened baseline390/1280 and current returned390/alternate1280. Exact paths/hashes, logs, five clearly SIMULATED lenses and limits are in S40 and `/workspace/work/s40/runs/resize-bb38882/{visual-review.json,closeout.json}`. Static helper signature mismatch was caught before insertion/compile, logged, then corrected with genuine optional Shift events; no failed compile/run concealed.
+
+Local274-source-file importable Godot4.7.2 project ZIP and17-original-PNG review ZIP were built from prevalidated inputs under temporary names, CRC-checked and atomically released. Fresh extracted project clean import/native opening entry PASS. Exact digests: `/workspace/work/s40/runs/resize-bb38882/packages/packaging.json`. Local only, no public downloads or new remote CI; automatic review still blocks public operational-history sync.
+
+Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension.
+
+Writer released 2026-10-31T05:20:03.478294+00:00.
+
+---
+
 # S40 existing draft-cancellation QA — 31 October 2026,04:00 slot
 
 Exact local source `2e087124c7323a1b3b480229425fdef1164b732e` remains unchanged. **724 focused native checks /32 cancellation cycles /4 viewports PASS; overall art PARTIAL; owner_approved=false.**

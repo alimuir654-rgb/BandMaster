@@ -1,5 +1,5 @@
 {
-  "writer": "S40-modal-resize-20261031T0500",
+  "writer": null,
   "base_head": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
   "claimed_at": "2026-10-31T04:59:45.864195+00:00",
   "expires_at": "2026-10-31T05:55:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T05:20:03.478294+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Root is coordinated source writer; helpers scratch/native/read-only only. No publichistory upload;08:50 read-only/09:00hardcutoff.",
+  "note": "05:00 existing modal resize repair fullyverified/packagecomplete. No more concrete safe visual gap selected; next wake read-only readiness/newsteering unless demonstrated authorizedgap. Publicsync blocked;08:50read-only/09:00hardcutoff.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-modal-cancel-qa-20261031T0400",
-  "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+  "last_writer": "S40-modal-resize-20261031T0500",
+  "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",

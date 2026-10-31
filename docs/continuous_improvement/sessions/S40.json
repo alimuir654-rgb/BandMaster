@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 225275,
-    "sha256": "bbab66a02a263ffa47a7692868f134ef88988fd0caa848c8a1eb50c6a52decfc"
+    "bytes": 232074,
+    "sha256": "088573b4392a1488fedd8acc4c244cf63d4e6b95a4be0e9218a1ff478c796f77"
   },
   "target": {
     "locator": "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
@@ -83,215 +83,127 @@
   ],
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
-  "evidence_status": "Exactlocal2e73+88/import/4fullnative112PNG proof retained from03:00.04:00 adds724 focused native cancellation assertions/32cycles/20opened originals on unchangedsource; no new fullsuite or package build claimed.",
-  "issues_reviewed_at": "2026-10-31T05:08:51.083296+00:00",
+  "evidence_status": "Exactlocalbb38882 full73+88/import/4native PASS,120retainedoriginals,112prioridentical,65samebytepositiveprobePASS,17originalsopened,CRC/freshextractedimport/nativeentryPASS; localonly, artPARTIAL/ownerfalse.",
+  "issues_reviewed_at": "2026-10-31T05:20:03.478294+00:00",
   "progress": {
-    "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-    "verified_at": "2026-10-31T03:38:05.378890+00:00",
-    "scope": "Bounded03:00existingSettings/Sound focus repair, localisolatedsource only; overnightprogramme remainsactive until09:00London.",
-    "validation": "/workspace/work/s40/runs/settings-2e087/validation.json",
-    "visual_review": "/workspace/work/s40/runs/settings-2e087/visual-review.json",
+    "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "verified_at": "2026-10-31T05:20:03.478294+00:00",
+    "scope": "Bounded05:00 existing overwrite-draft live-resize host lifecycle repair; no art/component/model/save-schema change.",
+    "validation": "/workspace/work/s40/runs/resize-bb38882/validation.json",
+    "visual_review": "/workspace/work/s40/runs/resize-bb38882/visual-review.json",
+    "project_entry": "/workspace/work/s40/runs/resize-bb38882/project-entry.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/resize-bb38882/protected-checkpoint-comparison.json",
+    "fresh_probe_comparison": "/workspace/work/s40/runs/resize-bb38882/fresh-probe-comparison.json",
+    "source_protection_audit": "/workspace/work/s40/protection-audit-resize-bb38882.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 112,
-      "settings_contexts_per_viewport": 2,
-      "settings_cycles_per_context": 2,
-      "previous_pngs_unchanged": 96,
-      "fresh_disk_positive_probe": true,
-      "orphan_growth": 0,
-      "error_lines": 0
+      "primary_runner_pngs": 116,
+      "supplemental_alternate_originals": 4,
+      "retained_native_pngs": 120,
+      "previous_pngs_byte_identical": 112,
+      "new_integrated_modal_pngs_opened": 8,
+      "independent_same_byte_positive_checks": 65,
+      "independent_original_pngs_opened": 7,
+      "failed_baseline_originals_opened": 2,
+      "engine_error_lines": 0,
+      "orphan_growth": 0
     },
     "images_opened_by_render_review": [
-      "c27-settings_no_draft_query_fixture_muted-1280x720.png",
-      "c27-settings_no_draft_query_fixture_muted-1600x900.png",
-      "c27-settings_no_draft_query_fixture_muted-390x844.png",
-      "c27-settings_no_draft_query_fixture_muted-720x1280.png",
-      "c27-settings_no_draft_query_fixture_open-1280x720.png",
-      "c27-settings_no_draft_query_fixture_open-1600x900.png",
-      "c27-settings_no_draft_query_fixture_open-390x844.png",
-      "c27-settings_no_draft_query_fixture_open-720x1280.png",
-      "c27-settings_saved_draft_muted-1280x720.png",
-      "c27-settings_saved_draft_muted-1600x900.png",
-      "c27-settings_saved_draft_muted-390x844.png",
-      "c27-settings_saved_draft_muted-720x1280.png",
-      "c27-settings_saved_draft_open-1280x720.png",
-      "c27-settings_saved_draft_open-1600x900.png",
-      "c27-settings_saved_draft_open-390x844.png",
-      "c27-settings_saved_draft_open-720x1280.png"
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_1280x720_returned-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_1600x900_returned-1600x900.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_390x844_returned-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_720x1280_returned-720x1280.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_1280x720_alternate-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_1600x900_alternate-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_390x844_alternate-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_720x1280_alternate-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/02-after-live-resize-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/03-after-escape-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/04-open-before-resize-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/05-after-live-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/06-after-keep-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/07-after-continue-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/02-after-live-resize-1280x720.png"
     ],
-    "fresh_probe_images_opened": [
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/01-menu-initial.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/02-settings-mouse-open.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/03-sound-after-enter.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/04-sound-after-space.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/05-sound-after-mouse.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/06-settings-closed.png"
+    "images_opened_by_root": [
+      "/workspace/work/s40/resize-qa/baseline/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/02-after-live-resize-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_390x844_returned-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_390x844_alternate-1280x720.png"
     ],
-    "fresh_disk_source_wrapper": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
-    "fresh_probe_comparison": "/workspace/work/s40/runs/settings-2e087/fresh-probe-comparison.json",
-    "historical_probe_source_label_note": "Unchanged harness retains baseline source_sha literal; authoritative tested candidate source is the external postfix source manifest and this comparison candidate_source_sha.",
-    "visual_verdict": "partial",
-    "owner_approved": false,
-    "packages": {
-      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "project_files": 274,
-      "review_original_pngs": 16,
-      "archives": [
-        {
-          "path": "/workspace/work/s40/runs/settings-2e087/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10666002,
-          "sha256": "a8c6b69692686f33aa190d117f42abc8f7761c6277f8e054e7f9ef2c598f4d91",
-          "zip_crc": "PASS"
-        },
-        {
-          "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.zip",
-          "bytes": 6432293,
-          "sha256": "8afc494a90101542ac5df293c36ed3b2209c18a7633937517232e64ab0508247",
-          "zip_crc": "PASS"
-        }
-      ],
-      "publication": "local scratch only; no public attachment or remote CI artifact claimed",
-      "owner_approved": false,
-      "incomplete_proof_append_preserved": {
-        "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.incomplete-proof-append.zip",
-        "sha256": "5086f049c4b2004521754d6d9e3243f5cdd6a9d57059db68475ae398327620f5",
-        "reason": "Guessedcomparison filename failed; artifactnotreleased, rebuiltatomicallyaftercheckinginputs."
-      },
-      "extracted_clean_import_and_native_entry": "PASS",
-      "package_smoke": "/workspace/work/s40/runs/settings-2e087/packages/package-smoke.json",
-      "fresh_disk_positive_probe_source": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
-      "review_fresh_disk_original_pngs": 6,
-      "review_rebuild": "Completeinputscheckedbeforewrite; temporaryZIPCRCpassed thenatomicreplace."
-    },
-    "package_smoke": {
-      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "checked_at": "2026-10-31T03:31:37.611458+00:00",
-      "extracted_project": "/workspace/work/s40/runs/settings-2e087/packages/extracted-smoke",
-      "steps": [
-        {
-          "step": "clean-import",
-          "exit_code": 0,
-          "errors": [],
-          "pass": true
-        },
-        {
-          "step": "native-project-entry",
-          "exit_code": 0,
-          "errors": [],
-          "pass": true
-        }
-      ],
-      "pass": true,
-      "production_save_access": false,
-      "owner_approved": false
-    },
-    "protected_byte_audit": "/workspace/work/s40/protection-audit-settings-2e087.json",
-    "source_hashes": {
-      "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
-      "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
-      "experiments/playable_flightcase/art/icons/SOURCES.json": "5adc3c9e40bec7e693db61cfe8b78d78a4a2bad1ffa03c5a1e705f31ae97bded",
-      "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
-      "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
-      "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
-      "experiments/playable_flightcase/opening_capture.gd": "073431e8fa6eb5050bce12a88ee753679a783b7343d4dccc8aaaeed7422a752d",
-      "experiments/playable_flightcase/opening_ui.gd": "70266a939794784fd039c14af62d5deb5a8d6400f258abc76b176ab7494e4de8",
-      "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
-      "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
-      "experiments/playable_flightcase/ui.gd": "c6fec7f736b660d23bc0e2d96426a2865e3c69185808c242542e0a19d3c2899b"
+    "executed_logs": [
+      "/workspace/work/s40/runs/resize-bb38882/logs/gameplay.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/opening.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/import.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-390x844.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-720x1280.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-1280x720.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-1600x900.log",
+      "/workspace/work/s40/resize-qa/baseline/native.log",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/native.log",
+      "/workspace/work/s40/runs/resize-bb38882/packages/smoke-import.log",
+      "/workspace/work/s40/runs/resize-bb38882/packages/smoke-native-entry.log"
+    ],
+    "probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276",
+    "code_files": [
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "file_sha256": {
+      "experiments/playable_flightcase/opening_ui.gd": "7c515afc01f5fe3757c94132a95503fc104d07485345d67a4a5195774ae59ed5",
+      "experiments/playable_flightcase/opening_capture.gd": "047a2c8cfc556066196cea798323ce930d81408fe893dcdf903a4753f798a491"
     },
     "simulated_lenses": {
-      "art_direction": "SIMULATED: no new artwork or layout changes; all96priornativePNGs identical. NewSettings open/muted views retain originalcase/hardware, labels and48px targets; overallart acceptance remainsPARTIAL.",
-      "technical_art": "SIMULATED: originalcast/control/meter/model bytes unchanged,274-file package matches exactsource. No tolexintegration, C21paperreplacement, newidentity or falsehigh-resolution claims.",
-      "ui_accessibility": "SIMULATED: focusedSettings/Sound controls now survive disclosure/mute; consecutiveEnter/Space and actualTab paths work. ActualMasterstate, visiblelabel andtooltip agree; no draft andsaved-menu branches covered. No physicaldevice/screen-reader claim.",
-      "godot_engineering": "SIMULATED:73+88/import/4complete native/input/save journeys PASS,112PNGs,0ERROR/orphan growth. Sameimmutablepositiveprobe failsold7f thenpassesactualfreshdisk2e with runtimehash pinned bywrapper; no model/save/persistence change.",
-      "qa_producer": "SIMULATED: disabledContinueTabskip was a harnessassumption, classifiedbeforecorrection; actualsevenfocus failures retained. Reviewproofappend pathfailure preserved and rebuiltatomically, CRC/extractedimport/nativeentryPASS. No remoteCI/publicsync or ownerartapproval claimed."
+      "first_time_player": "SIMULATED: A window resize no longer makes the pending question disappear. The complete warning and both explicit choices remain legible in the existing visual language.",
+      "keyboard_user": "SIMULATED: The intentionally selected modal action retains focus during actual resize; Tab and Shift-Tab stay inside the modal. Escape/KEEP return focus to the current New Band action. No screen-reader certification is inferred.",
+      "returning_player": "SIMULATED: Existing career and draft bytes survive both resize directions and cancellation. Real Continue returns the original saved rehearsal state, supporting trust in the preserved draft.",
+      "art_director": "SIMULATED: The correction keeps original physical frames, materials, cast and meter artwork. Same-state visuals and112 prior screenshots are exact matches. It repairs continuity without resolving the remaining mockup-fidelity gap.",
+      "godot_release_qa": "SIMULATED: Exactbb38882 passes73+88/import/four full native journeys,120 retained originals and extracted package smoke. Independent65-check replay fixes the preserved failing positive contract, with original dialog identity/focus retained and zero errors/orphan growth."
     },
     "remaining_gaps": [
-      "OriginalwholeUI/mockupbinary notlocated; overallart remainspartial withtolex/material replacementHOLD.",
-      "ActualfreshdiskNoDraft390 replay is separatefrom readonlyNoDraftqueryfixture+actualsavedmenu contexts at4sizes; immutableprobe historical7f label is explicitlydisclosed, newwrapper pins actual2e.",
-      "Original~230px castingcontactcrops remain source limits; no real-device/screen-reader validation.",
-      "Publicfullledger/learninghistory sync blockedbyautomaticreview pendingexplicitapproval; no remoteCI/publishedartifact fornewlocal source."
+      "This targets the existing overwrite-draft confirmation, not arbitrary modal stacks, other invokers or every possible screen resize.",
+      "The main four-view fixture tests a real saved draft clone without save writes; the independent probe starts from a genuine saved model journey in separate fresh XDG data.",
+      "A fully covered phone New Band background target has no exposed click point; background tests only claim available points. Real Settings points and exposed wide menu routes are checked.",
+      "No real touch device, Android hardware, screen reader or final artwork acceptance is claimed. Known VSync and existing anchor warnings remain; no ERROR lines or orphan growth.",
+      "Overall artwork remains partial, owner_approved=false, and all artifacts/evidence are local.",
+      "Original whole-UI owner mockup binary remains unavailable; material replacement HOLD and overall artistic verdict PARTIAL.",
+      "Public operational-history upload remains rejected by automatic review pending explicit owner approval; no retry, public download or new remote CI artifact."
     ],
-    "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview.",
-    "supplemental_modal_qa": {
-      "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "verified_at": "2026-10-31T04:09:52.459751+00:00",
-      "status": "local_native_verified_source_unchanged",
-      "preflight_sha": "a56ac90c1a7b5f0f97063f537b311c2774a33ea4",
-      "validation": "/workspace/work/s40/modal-qa/validation.json",
-      "visual_review": "/workspace/work/s40/modal-qa/visual-review.json",
-      "protected_menu_comparison": "/workspace/work/s40/modal-qa/protected-menu-comparison.json",
-      "source_protection_audit": "/workspace/work/s40/modal-qa/source-protection-audit.json",
-      "probe_sha256": "8457835c92c218fc6caa533ffe84628bab508a405e7097065f7773100bb8ad47",
-      "checks": {
-        "focused_native_checks": 724,
-        "viewports": 4,
-        "cancel_cycles": 32,
-        "original_pngs": 20,
-        "engine_errors": 0,
-        "orphan_growth": 0,
-        "save_career_bytes_unchanged": true,
-        "real_continue_resumes_original_career": true,
-        "original_title_pngs_byte_identical": 4
-      },
-      "executed_logs": [
-        "/workspace/work/s40/modal-qa/views/390x844/native.log",
-        "/workspace/work/s40/modal-qa/views/720x1280/native.log",
-        "/workspace/work/s40/modal-qa/views/1280x720/native.log",
-        "/workspace/work/s40/modal-qa/views/1600x900/native.log"
+    "packages": {
+      "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "project_files": 274,
+      "review_original_pngs": 17,
+      "review_current_integrated_pngs": 8,
+      "review_independent_positive_pngs": 7,
+      "review_failed_baseline_pngs": 2,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10668133,
+          "sha256": "5fa57874d393b4f3608eded87d34345e75e2b2c5a6f46c367c2001e3d881d69d",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/native-quality-review.zip",
+          "bytes": 3692729,
+          "sha256": "c5875fbeb9cb7777bc4bf7b49ecc38b20fbff6efbd427f2c3d005bdf38b3af04",
+          "zip_crc": "PASS"
+        }
       ],
-      "images_opened_by_render_review": [
-        "/workspace/work/s40/modal-qa/views/390x844/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/390x844/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/390x844/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/390x844/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/05-after-continue.png"
-      ],
-      "images_opened_by_root": [
-        "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png"
-      ],
-      "simulated_lenses": {
-        "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-        "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-        "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
-        "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
-        "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
-      },
-      "remaining_defects_or_limits": [
-        "At390 the modal completely covers the New Band button, so a background New Band click is not claimed. Settings background input is tested and blocked. Both background actions have exposed test points at the other three sizes and are blocked.",
-        "No arbitrary modal stack, invalid invoker, real touch device, screen-reader or audible playback certification is inferred.",
-        "Source is unchanged, so the prior73+88/import/full native journey checkpoint remains the full regression proof. This run adds focused cancellation coverage only.",
-        "Overall approved-mockup fidelity remains partial and owner approval remains false.",
-        "RootUI live resize while the modal is open remains uncovered; existing full-menu rebuild may differ from protected component gallery behavior. No defect asserted.",
-        "Public operational-history upload remains rejected by automatic approval review pending explicit owner approval; no publication retry."
-      ],
-      "source_unchanged": true,
-      "art_unchanged": true,
-      "full_regression_proof_reused": "/workspace/work/s40/runs/settings-2e087/validation.json; executed03:00 checkpoint, not rerun04:00",
-      "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
-      "visual_verdict": "partial",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/resize-bb38882/packages/package-smoke.json",
+      "publication": "LOCAL only; no public download or remote CI artifact",
       "owner_approved": false,
-      "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
-    }
+      "method": "All input paths and hashes verified before writing; ZIP CRC checked under temporary name then atomically replaced."
+    },
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension."
   },
   "extension_2026_10_30_2102": {
     "owner_authority": "One hour extra visual refinement through 22:03; previous 18:00 stop superseded prospectively, not rewritten",
@@ -404,214 +316,126 @@
     },
     "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
   },
-  "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff.",
+  "next_action": "Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension.",
   "checkpoint": {
-    "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-    "verified_at": "2026-10-31T03:38:05.378890+00:00",
-    "scope": "Bounded03:00existingSettings/Sound focus repair, localisolatedsource only; overnightprogramme remainsactive until09:00London.",
-    "validation": "/workspace/work/s40/runs/settings-2e087/validation.json",
-    "visual_review": "/workspace/work/s40/runs/settings-2e087/visual-review.json",
+    "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "verified_at": "2026-10-31T05:20:03.478294+00:00",
+    "scope": "Bounded05:00 existing overwrite-draft live-resize host lifecycle repair; no art/component/model/save-schema change.",
+    "validation": "/workspace/work/s40/runs/resize-bb38882/validation.json",
+    "visual_review": "/workspace/work/s40/runs/resize-bb38882/visual-review.json",
+    "project_entry": "/workspace/work/s40/runs/resize-bb38882/project-entry.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/resize-bb38882/protected-checkpoint-comparison.json",
+    "fresh_probe_comparison": "/workspace/work/s40/runs/resize-bb38882/fresh-probe-comparison.json",
+    "source_protection_audit": "/workspace/work/s40/protection-audit-resize-bb38882.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 112,
-      "settings_contexts_per_viewport": 2,
-      "settings_cycles_per_context": 2,
-      "previous_pngs_unchanged": 96,
-      "fresh_disk_positive_probe": true,
-      "orphan_growth": 0,
-      "error_lines": 0
+      "primary_runner_pngs": 116,
+      "supplemental_alternate_originals": 4,
+      "retained_native_pngs": 120,
+      "previous_pngs_byte_identical": 112,
+      "new_integrated_modal_pngs_opened": 8,
+      "independent_same_byte_positive_checks": 65,
+      "independent_original_pngs_opened": 7,
+      "failed_baseline_originals_opened": 2,
+      "engine_error_lines": 0,
+      "orphan_growth": 0
     },
     "images_opened_by_render_review": [
-      "c27-settings_no_draft_query_fixture_muted-1280x720.png",
-      "c27-settings_no_draft_query_fixture_muted-1600x900.png",
-      "c27-settings_no_draft_query_fixture_muted-390x844.png",
-      "c27-settings_no_draft_query_fixture_muted-720x1280.png",
-      "c27-settings_no_draft_query_fixture_open-1280x720.png",
-      "c27-settings_no_draft_query_fixture_open-1600x900.png",
-      "c27-settings_no_draft_query_fixture_open-390x844.png",
-      "c27-settings_no_draft_query_fixture_open-720x1280.png",
-      "c27-settings_saved_draft_muted-1280x720.png",
-      "c27-settings_saved_draft_muted-1600x900.png",
-      "c27-settings_saved_draft_muted-390x844.png",
-      "c27-settings_saved_draft_muted-720x1280.png",
-      "c27-settings_saved_draft_open-1280x720.png",
-      "c27-settings_saved_draft_open-1600x900.png",
-      "c27-settings_saved_draft_open-390x844.png",
-      "c27-settings_saved_draft_open-720x1280.png"
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_1280x720_returned-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_1600x900_returned-1600x900.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_390x844_returned-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_720x1280_returned-720x1280.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_1280x720_alternate-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_1600x900_alternate-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_390x844_alternate-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_720x1280_alternate-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/02-after-live-resize-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/03-after-escape-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/04-open-before-resize-1280x720.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/05-after-live-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/06-after-keep-390x844.png",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/captures/07-after-continue-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/02-after-live-resize-1280x720.png"
     ],
-    "fresh_probe_images_opened": [
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/01-menu-initial.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/02-settings-mouse-open.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/03-sound-after-enter.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/04-sound-after-space.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/05-sound-after-mouse.png",
-      "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/no-draft-390x844/captures/06-settings-closed.png"
+    "images_opened_by_root": [
+      "/workspace/work/s40/resize-qa/baseline/01-open-before-resize-390x844.png",
+      "/workspace/work/s40/resize-qa/baseline/02-after-live-resize-1280x720.png",
+      "/workspace/work/s40/runs/resize-bb38882/captures/c27-overwrite_resize_from_390x844_returned-390x844.png",
+      "/workspace/work/s40/runs/resize-bb38882/resize-alternates/c27-overwrite_resize_from_390x844_alternate-1280x720.png"
     ],
-    "fresh_disk_source_wrapper": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
-    "fresh_probe_comparison": "/workspace/work/s40/runs/settings-2e087/fresh-probe-comparison.json",
-    "historical_probe_source_label_note": "Unchanged harness retains baseline source_sha literal; authoritative tested candidate source is the external postfix source manifest and this comparison candidate_source_sha.",
-    "visual_verdict": "partial",
-    "owner_approved": false,
-    "packages": {
-      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "project_files": 274,
-      "review_original_pngs": 16,
-      "archives": [
-        {
-          "path": "/workspace/work/s40/runs/settings-2e087/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10666002,
-          "sha256": "a8c6b69692686f33aa190d117f42abc8f7761c6277f8e054e7f9ef2c598f4d91",
-          "zip_crc": "PASS"
-        },
-        {
-          "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.zip",
-          "bytes": 6432293,
-          "sha256": "8afc494a90101542ac5df293c36ed3b2209c18a7633937517232e64ab0508247",
-          "zip_crc": "PASS"
-        }
-      ],
-      "publication": "local scratch only; no public attachment or remote CI artifact claimed",
-      "owner_approved": false,
-      "incomplete_proof_append_preserved": {
-        "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.incomplete-proof-append.zip",
-        "sha256": "5086f049c4b2004521754d6d9e3243f5cdd6a9d57059db68475ae398327620f5",
-        "reason": "Guessedcomparison filename failed; artifactnotreleased, rebuiltatomicallyaftercheckinginputs."
-      },
-      "extracted_clean_import_and_native_entry": "PASS",
-      "package_smoke": "/workspace/work/s40/runs/settings-2e087/packages/package-smoke.json",
-      "fresh_disk_positive_probe_source": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
-      "review_fresh_disk_original_pngs": 6,
-      "review_rebuild": "Completeinputscheckedbeforewrite; temporaryZIPCRCpassed thenatomicreplace."
-    },
-    "package_smoke": {
-      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "checked_at": "2026-10-31T03:31:37.611458+00:00",
-      "extracted_project": "/workspace/work/s40/runs/settings-2e087/packages/extracted-smoke",
-      "steps": [
-        {
-          "step": "clean-import",
-          "exit_code": 0,
-          "errors": [],
-          "pass": true
-        },
-        {
-          "step": "native-project-entry",
-          "exit_code": 0,
-          "errors": [],
-          "pass": true
-        }
-      ],
-      "pass": true,
-      "production_save_access": false,
-      "owner_approved": false
-    },
-    "protected_byte_audit": "/workspace/work/s40/protection-audit-settings-2e087.json",
-    "source_hashes": {
-      "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
-      "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
-      "experiments/playable_flightcase/art/icons/SOURCES.json": "5adc3c9e40bec7e693db61cfe8b78d78a4a2bad1ffa03c5a1e705f31ae97bded",
-      "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
-      "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
-      "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
-      "experiments/playable_flightcase/opening_capture.gd": "073431e8fa6eb5050bce12a88ee753679a783b7343d4dccc8aaaeed7422a752d",
-      "experiments/playable_flightcase/opening_ui.gd": "70266a939794784fd039c14af62d5deb5a8d6400f258abc76b176ab7494e4de8",
-      "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
-      "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
-      "experiments/playable_flightcase/ui.gd": "c6fec7f736b660d23bc0e2d96426a2865e3c69185808c242542e0a19d3c2899b"
+    "executed_logs": [
+      "/workspace/work/s40/runs/resize-bb38882/logs/gameplay.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/opening.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/import.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-390x844.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-720x1280.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-1280x720.log",
+      "/workspace/work/s40/runs/resize-bb38882/logs/capture-1600x900.log",
+      "/workspace/work/s40/resize-qa/baseline/native.log",
+      "/workspace/work/s40/resize-qa/postfix-bb38882/native.log",
+      "/workspace/work/s40/runs/resize-bb38882/packages/smoke-import.log",
+      "/workspace/work/s40/runs/resize-bb38882/packages/smoke-native-entry.log"
+    ],
+    "probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276",
+    "code_files": [
+      "experiments/playable_flightcase/opening_ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "file_sha256": {
+      "experiments/playable_flightcase/opening_ui.gd": "7c515afc01f5fe3757c94132a95503fc104d07485345d67a4a5195774ae59ed5",
+      "experiments/playable_flightcase/opening_capture.gd": "047a2c8cfc556066196cea798323ce930d81408fe893dcdf903a4753f798a491"
     },
     "simulated_lenses": {
-      "art_direction": "SIMULATED: no new artwork or layout changes; all96priornativePNGs identical. NewSettings open/muted views retain originalcase/hardware, labels and48px targets; overallart acceptance remainsPARTIAL.",
-      "technical_art": "SIMULATED: originalcast/control/meter/model bytes unchanged,274-file package matches exactsource. No tolexintegration, C21paperreplacement, newidentity or falsehigh-resolution claims.",
-      "ui_accessibility": "SIMULATED: focusedSettings/Sound controls now survive disclosure/mute; consecutiveEnter/Space and actualTab paths work. ActualMasterstate, visiblelabel andtooltip agree; no draft andsaved-menu branches covered. No physicaldevice/screen-reader claim.",
-      "godot_engineering": "SIMULATED:73+88/import/4complete native/input/save journeys PASS,112PNGs,0ERROR/orphan growth. Sameimmutablepositiveprobe failsold7f thenpassesactualfreshdisk2e with runtimehash pinned bywrapper; no model/save/persistence change.",
-      "qa_producer": "SIMULATED: disabledContinueTabskip was a harnessassumption, classifiedbeforecorrection; actualsevenfocus failures retained. Reviewproofappend pathfailure preserved and rebuiltatomically, CRC/extractedimport/nativeentryPASS. No remoteCI/publicsync or ownerartapproval claimed."
+      "first_time_player": "SIMULATED: A window resize no longer makes the pending question disappear. The complete warning and both explicit choices remain legible in the existing visual language.",
+      "keyboard_user": "SIMULATED: The intentionally selected modal action retains focus during actual resize; Tab and Shift-Tab stay inside the modal. Escape/KEEP return focus to the current New Band action. No screen-reader certification is inferred.",
+      "returning_player": "SIMULATED: Existing career and draft bytes survive both resize directions and cancellation. Real Continue returns the original saved rehearsal state, supporting trust in the preserved draft.",
+      "art_director": "SIMULATED: The correction keeps original physical frames, materials, cast and meter artwork. Same-state visuals and112 prior screenshots are exact matches. It repairs continuity without resolving the remaining mockup-fidelity gap.",
+      "godot_release_qa": "SIMULATED: Exactbb38882 passes73+88/import/four full native journeys,120 retained originals and extracted package smoke. Independent65-check replay fixes the preserved failing positive contract, with original dialog identity/focus retained and zero errors/orphan growth."
     },
     "remaining_gaps": [
-      "OriginalwholeUI/mockupbinary notlocated; overallart remainspartial withtolex/material replacementHOLD.",
-      "ActualfreshdiskNoDraft390 replay is separatefrom readonlyNoDraftqueryfixture+actualsavedmenu contexts at4sizes; immutableprobe historical7f label is explicitlydisclosed, newwrapper pins actual2e.",
-      "Original~230px castingcontactcrops remain source limits; no real-device/screen-reader validation.",
-      "Publicfullledger/learninghistory sync blockedbyautomaticreview pendingexplicitapproval; no remoteCI/publishedartifact fornewlocal source."
+      "This targets the existing overwrite-draft confirmation, not arbitrary modal stacks, other invokers or every possible screen resize.",
+      "The main four-view fixture tests a real saved draft clone without save writes; the independent probe starts from a genuine saved model journey in separate fresh XDG data.",
+      "A fully covered phone New Band background target has no exposed click point; background tests only claim available points. Real Settings points and exposed wide menu routes are checked.",
+      "No real touch device, Android hardware, screen reader or final artwork acceptance is claimed. Known VSync and existing anchor warnings remain; no ERROR lines or orphan growth.",
+      "Overall artwork remains partial, owner_approved=false, and all artifacts/evidence are local.",
+      "Original whole-UI owner mockup binary remains unavailable; material replacement HOLD and overall artistic verdict PARTIAL.",
+      "Public operational-history upload remains rejected by automatic review pending explicit owner approval; no retry, public download or new remote CI artifact."
     ],
-    "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview.",
-    "supplemental_modal_qa": {
-      "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
-      "verified_at": "2026-10-31T04:09:52.459751+00:00",
-      "status": "local_native_verified_source_unchanged",
-      "preflight_sha": "a56ac90c1a7b5f0f97063f537b311c2774a33ea4",
-      "validation": "/workspace/work/s40/modal-qa/validation.json",
-      "visual_review": "/workspace/work/s40/modal-qa/visual-review.json",
-      "protected_menu_comparison": "/workspace/work/s40/modal-qa/protected-menu-comparison.json",
-      "source_protection_audit": "/workspace/work/s40/modal-qa/source-protection-audit.json",
-      "probe_sha256": "8457835c92c218fc6caa533ffe84628bab508a405e7097065f7773100bb8ad47",
-      "checks": {
-        "focused_native_checks": 724,
-        "viewports": 4,
-        "cancel_cycles": 32,
-        "original_pngs": 20,
-        "engine_errors": 0,
-        "orphan_growth": 0,
-        "save_career_bytes_unchanged": true,
-        "real_continue_resumes_original_career": true,
-        "original_title_pngs_byte_identical": 4
-      },
-      "executed_logs": [
-        "/workspace/work/s40/modal-qa/views/390x844/native.log",
-        "/workspace/work/s40/modal-qa/views/720x1280/native.log",
-        "/workspace/work/s40/modal-qa/views/1280x720/native.log",
-        "/workspace/work/s40/modal-qa/views/1600x900/native.log"
+    "packages": {
+      "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "project_files": 274,
+      "review_original_pngs": 17,
+      "review_current_integrated_pngs": 8,
+      "review_independent_positive_pngs": 7,
+      "review_failed_baseline_pngs": 2,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10668133,
+          "sha256": "5fa57874d393b4f3608eded87d34345e75e2b2c5a6f46c367c2001e3d881d69d",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/native-quality-review.zip",
+          "bytes": 3692729,
+          "sha256": "c5875fbeb9cb7777bc4bf7b49ecc38b20fbff6efbd427f2c3d005bdf38b3af04",
+          "zip_crc": "PASS"
+        }
       ],
-      "images_opened_by_render_review": [
-        "/workspace/work/s40/modal-qa/views/390x844/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/390x844/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/390x844/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/390x844/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/720x1280/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/05-after-continue.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/01-valid-draft-menu.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/03-after-keep-pointer.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/04-after-escape.png",
-        "/workspace/work/s40/modal-qa/views/1600x900/05-after-continue.png"
-      ],
-      "images_opened_by_root": [
-        "/workspace/work/s40/modal-qa/views/390x844/02-modal-open.png",
-        "/workspace/work/s40/modal-qa/views/1280x720/02-modal-open.png"
-      ],
-      "simulated_lenses": {
-        "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-        "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-        "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
-        "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
-        "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
-      },
-      "remaining_defects_or_limits": [
-        "At390 the modal completely covers the New Band button, so a background New Band click is not claimed. Settings background input is tested and blocked. Both background actions have exposed test points at the other three sizes and are blocked.",
-        "No arbitrary modal stack, invalid invoker, real touch device, screen-reader or audible playback certification is inferred.",
-        "Source is unchanged, so the prior73+88/import/full native journey checkpoint remains the full regression proof. This run adds focused cancellation coverage only.",
-        "Overall approved-mockup fidelity remains partial and owner approval remains false.",
-        "RootUI live resize while the modal is open remains uncovered; existing full-menu rebuild may differ from protected component gallery behavior. No defect asserted.",
-        "Public operational-history upload remains rejected by automatic approval review pending explicit owner approval; no publication retry."
-      ],
-      "source_unchanged": true,
-      "art_unchanged": true,
-      "full_regression_proof_reused": "/workspace/work/s40/runs/settings-2e087/validation.json; executed03:00 checkpoint, not rerun04:00",
-      "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
-      "visual_verdict": "partial",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/resize-bb38882/packages/package-smoke.json",
+      "publication": "LOCAL only; no public download or remote CI artifact",
       "owner_approved": false,
-      "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
-    }
+      "method": "All input paths and hashes verified before writing; ZIP CRC checked under temporary name then atomically replaced."
+    },
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension."
   },
   "recruit_context_pass": {
     "started_at": "2026-10-31T01:07:16.164507+00:00",
@@ -686,6 +510,43 @@
         "extracted_clean_import_and_native_entry": "PASS",
         "package_smoke": "/workspace/work/s40/runs/recruit-7f323/packages/package-smoke.json"
       }
+    },
+    {
+      "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+      "verified_at": "2026-10-31T03:38:05.378890+00:00",
+      "validation": "/workspace/work/s40/runs/settings-2e087/validation.json",
+      "packages": {
+        "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
+        "project_files": 274,
+        "review_original_pngs": 16,
+        "archives": [
+          {
+            "path": "/workspace/work/s40/runs/settings-2e087/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+            "bytes": 10666002,
+            "sha256": "a8c6b69692686f33aa190d117f42abc8f7761c6277f8e054e7f9ef2c598f4d91",
+            "zip_crc": "PASS"
+          },
+          {
+            "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.zip",
+            "bytes": 6432293,
+            "sha256": "8afc494a90101542ac5df293c36ed3b2209c18a7633937517232e64ab0508247",
+            "zip_crc": "PASS"
+          }
+        ],
+        "publication": "local scratch only; no public attachment or remote CI artifact claimed",
+        "owner_approved": false,
+        "incomplete_proof_append_preserved": {
+          "path": "/workspace/work/s40/runs/settings-2e087/packages/native-quality-review.incomplete-proof-append.zip",
+          "sha256": "5086f049c4b2004521754d6d9e3243f5cdd6a9d57059db68475ae398327620f5",
+          "reason": "Guessedcomparison filename failed; artifactnotreleased, rebuiltatomicallyaftercheckinginputs."
+        },
+        "extracted_clean_import_and_native_entry": "PASS",
+        "package_smoke": "/workspace/work/s40/runs/settings-2e087/packages/package-smoke.json",
+        "fresh_disk_positive_probe_source": "/workspace/work/s40/settings-qa/postfix/20261031T032711Z-2e087/source.json",
+        "review_fresh_disk_original_pngs": 6,
+        "review_rebuild": "Completeinputscheckedbeforewrite; temporaryZIPCRCpassed thenatomicreplace."
+      },
+      "supplemental_modal_qa": "/workspace/work/s40/modal-qa/validation.json"
     }
   ],
   "material_review_pass": {
@@ -824,10 +685,56 @@
     "lease_ends": "2026-10-31T05:55:00Z",
     "source_baseline": "2e087124c7323a1b3b480229425fdef1164b732e",
     "preflight_base": "cfb32e30cfc763b9328b81a5b5f05e22ecea5def",
-    "status": "native_defect_recorded_before_fix",
+    "status": "local_native_verified_visual_partial",
     "owner_approved": false,
     "failed_baseline": "/workspace/work/s40/resize-qa/baseline/validation.json",
     "baseline_probe_sha256": "6e3e46d2947fe1a62cfc0ae07fceddf91f814b2f624b65082277aa29e7f32276",
-    "static_fragment_review": "Unsupported two-arg key helper detected before integration/execution, BM33 event146; optional real Shift modifier added before first compile."
+    "static_fragment_review": "Unsupported two-arg key helper detected before integration/execution, BM33 event146; optional real Shift modifier added before first compile.",
+    "completed_at": "2026-10-31T05:20:03.478294+00:00",
+    "tested_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "closeout": "/workspace/work/s40/runs/resize-bb38882/closeout.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "primary_runner_pngs": 116,
+      "supplemental_alternate_originals": 4,
+      "retained_native_pngs": 120,
+      "previous_pngs_byte_identical": 112,
+      "new_integrated_modal_pngs_opened": 8,
+      "independent_same_byte_positive_checks": 65,
+      "independent_original_pngs_opened": 7,
+      "failed_baseline_originals_opened": 2,
+      "engine_error_lines": 0,
+      "orphan_growth": 0
+    },
+    "packages": {
+      "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "project_files": 274,
+      "review_original_pngs": 17,
+      "review_current_integrated_pngs": 8,
+      "review_independent_positive_pngs": 7,
+      "review_failed_baseline_pngs": 2,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10668133,
+          "sha256": "5fa57874d393b4f3608eded87d34345e75e2b2c5a6f46c367c2001e3d881d69d",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/resize-bb38882/packages/native-quality-review.zip",
+          "bytes": 3692729,
+          "sha256": "c5875fbeb9cb7777bc4bf7b49ecc38b20fbff6efbd427f2c3d005bdf38b3af04",
+          "zip_crc": "PASS"
+        }
+      ],
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/resize-bb38882/packages/package-smoke.json",
+      "publication": "LOCAL only; no public download or remote CI artifact",
+      "owner_approved": false,
+      "method": "All input paths and hashes verified before writing; ZIP CRC checked under temporary name then atomically replaced."
+    }
   }
 }

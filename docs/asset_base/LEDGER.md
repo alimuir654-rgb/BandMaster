@@ -798,3 +798,29 @@ Five explicitly SIMULATED review lenses (not human acceptance):
 - returning_player: SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.
 - art_director: SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.
 - godot_release_qa: SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported.
+
+## S40 bounded05:00 native resize checkpoint — 2026-10-31T05:20:03.478294+00:00
+
+# S40 pending confirmation resize checkpoint — 31 October 2026,05:00 slot
+
+Exact tested LOCAL source `bb38882b8d9ade1dcd302f5dd578b4db588558ac`: **technical PASS; visual PARTIAL; owner_approved=false.**
+
+Confirmed old2e native390→1280 resize destroyed the pending warning, with focus NONE and zero callbacks; career/save bytes remained safe. Failed logs and both original PNGs were retained BEFORE repair. Root now keeps the existing pending/open modal in-tree while rebuilding the menu, places it last for native input, clears its reference before navigation and restores the current New Band invoker on cancel. Original shared component, cast, meters, hardware, artwork, models and save schema bytes are unchanged.
+
+Executed73gameplay+88opening+cleanimport+4complete native pointer/keyboard/save journeys PASS, zero ERROR/resource leaks/orphan growth.116 primary PNGs plus4 actual alternate-size originals retained=120; all112 previous originals byte/pixel identical. Same-byte positive probe65PASS demonstrates preserved dialog/focus at both resize directions, once-only cancellation, unchanged career/draft bytes and real Continue. Full native regression additionally preserves intentional Confirm focus and blocks actual exposed background actions.
+
+All17 reviewed originals:8 integrated resize states+7 independent replay+2 failed baseline. Root opened baseline390/1280 and current returned390/alternate1280. Exact paths/hashes, logs, five clearly SIMULATED lenses and limits are in S40 and `/workspace/work/s40/runs/resize-bb38882/{visual-review.json,closeout.json}`. Static helper signature mismatch was caught before insertion/compile, logged, then corrected with genuine optional Shift events; no failed compile/run concealed.
+
+Local274-source-file importable Godot4.7.2 project ZIP and17-original-PNG review ZIP were built from prevalidated inputs under temporary names, CRC-checked and atomically released. Fresh extracted project clean import/native opening entry PASS. Exact digests: `/workspace/work/s40/runs/resize-bb38882/packages/packaging.json`. Local only, no public downloads or new remote CI; automatic review still blocks public operational-history sync.
+
+Next bounded invocation: read-only review readiness for the exact bb38882 checkpoint and its existing local packages, checking new owner steering/head/lease/evidence before choosing work. Reuse verified evidence; do not rerun unchanged full suites, textures or archive checks, copy ledgers for activity, or manufacture another QA/art slice. Only a concrete demonstrated existing-screen gap or new owner steering justifies a scoped authorized source slice. Original whole-UI reference remains unavailable and material/tolex stays HOLD. At08:50 onward final review/report only;09:00 hard cutoff, no source/art/repository writes or automatic extension.
+
+Writer released 2026-10-31T05:20:03.478294+00:00.
+
+Five explicitly SIMULATED lenses (not human acceptance):
+
+- first_time_player: SIMULATED: A window resize no longer makes the pending question disappear. The complete warning and both explicit choices remain legible in the existing visual language.
+- keyboard_user: SIMULATED: The intentionally selected modal action retains focus during actual resize; Tab and Shift-Tab stay inside the modal. Escape/KEEP return focus to the current New Band action. No screen-reader certification is inferred.
+- returning_player: SIMULATED: Existing career and draft bytes survive both resize directions and cancellation. Real Continue returns the original saved rehearsal state, supporting trust in the preserved draft.
+- art_director: SIMULATED: The correction keeps original physical frames, materials, cast and meter artwork. Same-state visuals and112 prior screenshots are exact matches. It repairs continuity without resolving the remaining mockup-fidelity gap.
+- godot_release_qa: SIMULATED: Exactbb38882 passes73+88/import/four full native journeys,120 retained originals and extracted package smoke. Independent65-check replay fixes the preserved failing positive contract, with original dialog identity/focus retained and zero errors/orphan growth.
