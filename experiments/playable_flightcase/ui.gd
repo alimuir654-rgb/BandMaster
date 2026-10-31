@@ -9,14 +9,22 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
 const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
+const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
+const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
+const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
 var game = Game.new()
 var onboarding_state = null
 var opening_owner = null
-var role: String = "Singer"
-var selected_index := 2
+var role: String = "Guitarist"
+var selected_index := 0
+var auditioned: Dictionary = {}
+var audition_note_id := ""
+var vocals_panel := false
+var lineup_review := false
+var _new_session_notes := false
 var idea_index := 0
 var form_index := 0
 var leader_index := 0
@@ -104,7 +112,7 @@ func _rebuild() -> void:
  var previous_focus: Control = get_viewport().gui_get_focus_owner()
  var focus_name := ""
  var caret := -1
- if game.phase=="play" and not session_busy and is_instance_valid(previous_focus) and is_ancestor_of(previous_focus):
+ if not session_busy and is_instance_valid(previous_focus) and is_ancestor_of(previous_focus):
   focus_name = previous_focus.name
   if previous_focus is LineEdit:
    caret = (previous_focus as LineEdit).caret_column
@@ -129,7 +137,11 @@ func _rebuild() -> void:
  outer.add_child(root_box)
  var header := HBoxContainer.new()
  header.add_theme_constant_override("separation",12)
- var title := _label("LIVIN' THE DREAM",26 if not mobile else 21)
+ var title := _label("AUDITIONS" if game.phase=="recruit" else "LIVIN' THE DREAM",26 if not mobile else 21)
+ title.name = "AuditionsHeading" if game.phase=="recruit" else "PracticeBrand"
+ if game.phase=="recruit":
+  title.custom_minimum_size.y = 44
+  _decorate_audition_heading(title)
  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  header.add_child(title)
  var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
@@ -145,15 +157,13 @@ func _rebuild() -> void:
    display_message = "LAST SESSION  •  " + str(saved_report.get("verdict","Session completed")) + "  •  Notes below."
   else:
    display_message = "Your band is ready. Choose a session."
+ if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
+  display_message = "Meet the musicians. Auditions cost no time or talent."
  var status := _label(display_message,14)
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
  root_box.add_child(status)
- if onboarding_state != null and game.phase == "recruit":
-  var back := _button("‹  CHANGE GENRE",func(): back_requested.emit(),"tab")
-  back.name = "RecruitBackAction"
-  root_box.add_child(back)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
  else:
@@ -191,32 +201,44 @@ func _hydrate_song_draft() -> void:
    break
  leader_index = clampi(leader_index,0,maxi(0,members.size()-1))
 
-func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
- var tabs := GridContainer.new()
- tabs.columns = 3 if mobile else 5
- tabs.add_theme_constant_override("h_separation",5)
- tabs.add_theme_constant_override("v_separation",4)
- root_box.add_child(tabs)
- var covered_roles: Array = Base.coverage(game.roster)
- for name in Base.ROLE_TABS:
-  var item: Button = _button(str(name).to_upper(),_change_role.bind(str(name)),"tab")
-  item.name = "RoleTab_"+str(name)
-  item.toggle_mode = true
-  item.button_pressed = str(name)==role
-  var covered: bool = covered_roles.has(name)
-  if str(name)=="Singer" and onboarding_state!=null:
-   covered = not str(onboarding_state.lead_vocal_id).is_empty()
-  if covered:
-   for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:
-    item.add_theme_color_override(state,Color("a8ddb5"))
-   item.tooltip_text = "Covered in your lineup."
-  tabs.add_child(item)
- var choices: Array = game.choices(role)
- if choices.is_empty():
-  root_box.add_child(_label("No candidates for this role."))
+func _decorate_audition_heading(label: Label) -> void:
+ var path := "res://experiments/playable_flightcase/art/auditions_heading.png"
+ if not ResourceLoader.exists(path):
   return
- selected_index = clampi(selected_index,0,choices.size()-1)
- var person: Dictionary = choices[selected_index]
+ var art := TextureRect.new()
+ art.name = "AuditionsHeadingInk"
+ art.texture = load(path)
+ art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+ art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ art.focus_mode = Control.FOCUS_NONE
+ label.add_child(art)
+ art.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ label.self_modulate.a = 0.0
+
+func first_missing_audition_role() -> String:
+ var covered: Array = Base.coverage(game.roster)
+ for required in ["Guitarist","Bassist","Drummer"]:
+  if not covered.has(required):
+   return required
+ return "Singer"
+
+func _audition_progress(root_box: VBoxContainer) -> void:
+ var progress := HBoxContainer.new()
+ progress.name = "AuditionProgress"
+ progress.add_theme_constant_override("separation",4)
+ var covered: Array = Base.coverage(game.roster)
+ for index in range(4):
+  var done: bool = covered.has(AUDITION_ROLES[index]) if index<3 else (onboarding_state!=null and not str(onboarding_state.lead_vocal_id).is_empty())
+  var caption := _label(("✓ " if done else str(index+1)+" ")+str(["GUITAR","BASS","DRUMS","VOICE"][index]),12)
+  caption.name = "AuditionProgress_"+str(AUDITION_ROLES[index])
+  caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  caption.focus_mode = Control.FOCUS_NONE
+  caption.add_theme_color_override("font_color",Color("a8ddb5") if done else (Color("f0c78b") if role==str(AUDITION_ROLES[index]) else Color("b6b8b3")))
+  progress.add_child(caption)
+ root_box.add_child(progress)
+
+func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  var scroll := ScrollContainer.new()
  scroll.name = "RecruitProfileScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -224,185 +246,334 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  scroll.follow_focus = true
  scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  root_box.add_child(scroll)
- var content: BoxContainer = _box() if mobile else HBoxContainer.new()
- if not mobile:
-  content.add_theme_constant_override("separation",12)
- content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- scroll.add_child(content)
- var detail := _box()
- detail.custom_minimum_size.x = 0 if mobile else 390
- content.add_child(_panel(detail,"portrait"))
+ var margin := MarginContainer.new()
+ margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for side in ["left","right","top","bottom"]:
+  margin.add_theme_constant_override("margin_"+side,16)
+ scroll.add_child(margin)
+ var center := CenterContainer.new()
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ center.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+ margin.add_child(center)
+ var paper := PanelContainer.new()
+ paper.name = "AuditionPaper"
+ paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,get_viewport_rect().size.x-(56.0 if mobile else 120.0)))
+ paper.add_theme_stylebox_override("panel",Paper.sheet(get_viewport_rect().size.x<600))
+ center.add_child(paper)
+ var body := _box()
+ body.add_theme_constant_override("separation",10)
+ paper.add_child(body)
+ return body
+
+func _audition_navigation(root_box: VBoxContainer) -> void:
+ var navigation := HBoxContainer.new()
+ navigation.name = "AuditionNavigation"
+ navigation.add_theme_constant_override("separation",8)
+ root_box.add_child(navigation)
+ var index: int = AUDITION_ROLES.find(role)
+ var previous_title: String = "‹  CHANGE GENRE" if index==0 else "‹  "+str(AUDITION_TITLES[maxi(0,index-1)])
+ if role=="Keyboardist":
+  previous_title = "‹  LINEUP REVIEW"
+ elif role=="Singer" and not vocals_panel:
+  previous_title = "‹  YOUR BAND'S VOICES"
+ var previous: Button = _button(previous_title,_previous_audition,"tab")
+ previous.name = "AuditionPreviousStepAction"
+ navigation.add_child(previous)
+ var following: Button
+ if role=="Singer" or role=="Keyboardist":
+  following = _button("REVIEW LINEUP  ›",_review_lineup)
+  following.name = "ReviewLineupAction"
+  following.disabled = not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
+ else:
+  following = _button(str(AUDITION_TITLES[index+1])+"  ›",_next_audition)
+  following.name = "AuditionNextStepAction"
+  following.disabled = not Base.coverage(game.roster).has(role)
+ navigation.add_child(following)
+
+func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
+ _audition_progress(root_box)
+ if lineup_review:
+  _lineup_review_page(root_box,mobile)
+  return
+ if vocals_panel and onboarding_state!=null:
+  _vocal_audition_page(root_box,mobile)
+  return
+ var index: int = AUDITION_ROLES.find(role)
+ var chapter := _label(("0%d / 04  •  " % (index+1) if index>=0 else "OPTIONAL  •  ")+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"),20)
+ chapter.name = "AuditionStepTitle"
+ root_box.add_child(chapter)
+ var choices: Array = game.choices(role)
+ if choices.is_empty():
+  root_box.add_child(_label("No candidates for this role."))
+  _audition_navigation(root_box)
+  return
+ selected_index = clampi(selected_index,0,choices.size()-1)
+ var person: Dictionary = choices[selected_index]
+ var id: String = str(person.id)
+ var recruited: bool = Base.contains(game.roster,id)
+ var heard: bool = bool(auditioned.get(id,false)) or recruited
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
- detail.add_child(browse)
+ body.add_child(browse)
  var previous: Button = _button("‹",_move_candidate.bind(-1),"browse")
  previous.name = "RecruitPreviousAction"
  previous.custom_minimum_size.x = 48
  previous.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  browse.add_child(previous)
- var name := _label("%s  •  %s" % [str(person["name"]).to_upper(),role.to_upper()],19)
- name.name = "RecruitCandidateName"
- name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- browse.add_child(name)
+ var candidate_name: Label = _ink("%s  •  %s" % [str(person.name).to_upper(),role.to_upper()],19)
+ candidate_name.name = "RecruitCandidateName"
+ candidate_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ browse.add_child(candidate_name)
  var following: Button = _button("›",_move_candidate.bind(1),"browse")
  following.name = "RecruitNextAction"
  following.custom_minimum_size.x = 48
  following.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  browse.add_child(following)
- # Phone decisions need the six stats as well as the authored trade-offs.
- # Use the same source art at a compact display size beside the six readouts;
- # desktop has room for the original large portrait in that arrangement.
- var phone_profile: bool = get_viewport_rect().size.x<600
- var wide_profile: bool = get_viewport_rect().size.x>=1000
- var profile: BoxContainer = HBoxContainer.new() if wide_profile or phone_profile else _box()
- profile.add_theme_constant_override("separation",8 if phone_profile else (12 if wide_profile else 8))
- profile.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- detail.add_child(profile)
+ var introduction := HBoxContainer.new()
+ introduction.add_theme_constant_override("separation",12)
+ body.add_child(introduction)
  var image_path := str(person.get("portrait_preview",""))
- if image_path.is_empty() or not ResourceLoader.exists(image_path):
-  profile.add_child(_label("ARCHIVE PROFILE  •  PORTRAIT PROVISIONAL",13))
- else:
+ if not image_path.is_empty() and ResourceLoader.exists(image_path):
   var image := TextureRect.new()
   image.name = "RecruitPortrait"
   image.texture = load(image_path)
   image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-  image.custom_minimum_size = Vector2(80,79) if phone_profile else Vector2(210,205)
+  image.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
   image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
   image.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
   image.mouse_filter = Control.MOUSE_FILTER_IGNORE
   image.focus_mode = Control.FOCUS_NONE
-  profile.add_child(image)
- var meter_rows := _box()
- profile.add_child(meter_rows)
+  introduction.add_child(image)
+ var bio := _box()
+ introduction.add_child(bio)
+ bio.add_child(_ink(str(person.get("town","UK")),16))
+ bio.add_child(_ink(str(person.get("personality","Musician")),16,true))
+ bio.add_child(_ink(str(person.get("story","An aspiring musician looking for a band.")),14))
+ var stat_grid := GridContainer.new()
+ stat_grid.columns = 2 if mobile else 3
+ stat_grid.add_theme_constant_override("h_separation",12)
+ stat_grid.add_theme_constant_override("v_separation",5)
+ body.add_child(stat_grid)
  var stats: Array = Base.stats_for(person,role)
  var captions: Array = Base.labels_for(role)
- for i in range(stats.size()):
-  var line := HBoxContainer.new()
-  line.name = "RecruitStatRow"+str(i)
-  line.add_theme_constant_override("separation",4 if phone_profile else 8)
-  meter_rows.add_child(line)
-  var label := _label(str(captions[i]).to_upper(),13)
-  label.custom_minimum_size.x = 90
-  line.add_child(label)
+ for i in range(6):
+  var field := VBoxContainer.new()
+  field.name = "RecruitStatRow"+str(i)
+  field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  field.add_theme_constant_override("separation",1)
+  stat_grid.add_child(field)
+  field.add_child(_ink(str(captions[i]).to_upper(),13))
+  var row := HBoxContainer.new()
+  row.add_theme_constant_override("separation",4)
+  field.add_child(row)
   var meter := Kit.PassiveMeter.new(look,int(stats[i]))
   meter.name = "PassiveMeter"+str(i)
-  if phone_profile:
+  if get_viewport_rect().size.x<600:
    meter.custom_minimum_size.x = 80
-  line.add_child(meter)
-  var numeric_value := _label(str(int(stats[i])),14)
-  numeric_value.custom_minimum_size.x = 18 if phone_profile else 24
-  line.add_child(numeric_value)
- var cost := Base.incremental_cost(game.roster,person)
- var recruited := Base.contains(game.roster,str(person["id"]))
- var action: Button = _button("REMOVE FROM BAND" if recruited else "RECRUIT  •  %d TALENT" % cost,_remove.bind(str(person["id"])) if recruited else _recruit.bind(str(person["id"])))
- action.name = "RecruitAction" if not recruited else "RemoveAction"
- action.disabled = false if recruited else not (bool(onboarding_state.can_recruit(str(person["id"]))) if onboarding_state != null else Base.can_add(game.roster,person))
- # Keep the complete original dossier and all passive meters available.
- var aside := _box()
- aside.custom_minimum_size.x = 0 if mobile else 320
- aside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- content.add_child(_panel(aside,"panel"))
- aside.add_child(_label("THE PERSON",19))
- aside.add_child(_label("%s • %s" % [str(person.get("town","UK")),str(person.get("personality","Musician"))],15))
- aside.add_child(_label(str(person.get("story","An aspiring musician looking for a band.")),14))
- aside.add_child(_label("STRENGTH • "+str(person.get("strength","Still developing")),14))
- aside.add_child(_label("FRICTION • "+str(person.get("friction","Unknown")),14))
- if person.has("collaboration"):
-  aside.add_child(_label("RELIABILITY %d/10   COLLABORATION %d/10" % [int(person["reliability"]),int(person["collaboration"])],14))
- aside.add_child(_label("YOUR BAND",18))
- for member in game.roster:
-  aside.add_child(_label("• %s   %s" % [str(member["name"]),str(member.get("primary_role",(member["roles"] as Array)[0]))],14))
- if onboarding_state != null:
-  aside.add_child(_label("LEAD VOCALS  •  ASSIGN ONE BAND MEMBER",16))
-  for member in game.roster:
-   if onboarding_state.vocal_scores(member).size() == 6:
-    var chosen: bool = str(onboarding_state.lead_vocal_id) == str(member["id"])
-    var extra: int = 0 if (member["roles"] as Array).has("Singer") else 5
-    var vocal: Button = _button(("✓  " if chosen else "") + str(member["name"]) + ("  +%d TALENT" % extra if extra > 0 else "  INCLUDED"),_choose_vocal.bind(str(member["id"])),"tab")
-    vocal.name = "VocalAssign_"+str(member["id"])
-    vocal.disabled = chosen
-    aside.add_child(vocal)
-  aside.add_child(_label("Fifth member +6, sixth +12 additional. Vocalist doubling an instrument adds 5. Talent points buy ability and options, not cash.",13))
-  aside.add_child(_label("TALENT USED %d/200  •  %s" % [200-int(onboarding_state.remaining()),"READY" if bool(onboarding_state.ready()) else str(onboarding_state.missing())],14))
+  row.add_child(meter)
+  var score: Label = _ink(str(int(stats[i])),14)
+  score.custom_minimum_size.x = 18
+  row.add_child(score)
+ var strength: Label = _candidate_note("STRENGTH  •  "+str(person.get("strength","Still developing")),"RecruitStrength",heard and audition_note_id==id)
+ var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
+ strength.visible = heard
+ friction.visible = heard
+ body.add_child(strength)
+ body.add_child(friction)
+ if heard:
+  body.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
  else:
-  aside.add_child(_label("TALENT USED %d/200  •  %s" % [game.spent(),"READY" if game.can_start() else Base.missing(game.roster)],14))
- var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch)
- start.name = "StartAction"
- start.disabled = not (bool(onboarding_state.ready()) if onboarding_state != null else game.can_start())
- # The actual authored trade-offs stay beside the decision, even while the
- # portrait, stats and full dossier scroll. These are metadata, not new effects.
+  body.add_child(_ink("Meet the musician, then audition to hear their strengths and friction.",16,true))
+ if person.has("collaboration"):
+  body.add_child(_ink("RELIABILITY %d/10  •  COLLABORATION %d/10" % [int(person.reliability),int(person.collaboration)],14,true))
+ if role=="Singer" and onboarding_state!=null and recruited:
+  var chosen: bool = str(onboarding_state.lead_vocal_id)==id
+  var appoint: Button = _button("✓ LEAD VOCALS" if chosen else "CHOOSE "+str(person.name).to_upper()+" FOR LEAD VOCALS",_choose_vocal.bind(id))
+  appoint.name = "VocalAssign_"+id
+  appoint.disabled = chosen
+  body.add_child(appoint)
  var context := _box()
  context.name = "RecruitDecisionContext"
- context.add_theme_constant_override("separation",4)
+ context.add_theme_constant_override("separation",5)
  context.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
  if not mobile:
-  context.custom_minimum_size.x = 760.0
+  context.custom_minimum_size.x = 760
  root_box.add_child(context)
- var strength := _label("STRENGTH  •  "+str(person.get("strength","Still developing")),16)
- strength.name = "RecruitStrength"
- context.add_child(strength)
- var friction := _label("FRICTION  •  "+str(person.get("friction","Unknown")),16)
- friction.name = "RecruitFriction"
- context.add_child(friction)
- var available: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
+ var available: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
+ var cost: int = Base.incremental_cost(game.roster,person)
  var budget_text: String
  if recruited:
   budget_text = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
  elif game.roster.size()>=6:
   budget_text = "BAND FULL  •  6/6 MEMBERS  •  %d TALENT AVAILABLE" % available
-  action.text = "BAND FULL"
-  action.tooltip_text = budget_text
  elif available<cost:
   budget_text = "NEED %d MORE TALENT  •  %d AVAILABLE" % [cost-available,available]
  else:
   budget_text = "%d TALENT  •  %d AVAILABLE  •  %d AFTER RECRUIT" % [cost,available,available-cost]
- var affordability := _label(budget_text,16)
+ var affordability: Label = _label(budget_text,16)
  affordability.name = "RecruitAffordability"
  affordability.add_theme_color_override("font_color",Color("f0c78b"))
  context.add_child(affordability)
- # One native action row also fits the ready phone: the budget line retains
- # exact cost while short labels leave room for the existing Complete action.
  var dock := HBoxContainer.new()
  dock.name = "RecruitDecisionDock"
  dock.add_theme_constant_override("separation",8)
- dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  context.add_child(dock)
- action.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ var audition: Button = _button("READ NOTES" if heard else "AUDITION",_audition_candidate)
+ audition.name = "AuditionAction"
+ dock.add_child(audition)
+ var action: Button = _button("REMOVE" if recruited else "INVITE TO BAND",_remove.bind(id) if recruited else _recruit.bind(id))
+ action.name = "RemoveAction" if recruited else "RecruitAction"
+ var allowed: bool = bool(onboarding_state.can_recruit(id)) if onboarding_state!=null else Base.can_add(game.roster,person)
+ action.disabled = false if recruited else (not heard or not allowed)
+ if not recruited and game.roster.size()>=6:
+  action.text = "BAND FULL"
  dock.add_child(action)
- if not start.disabled:
-  start.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  if mobile:
-   if not recruited and game.roster.size()<6:
-    action.text = "RECRUIT"
-   elif recruited:
-    action.text = "REMOVE"
-   start.text = "COMPLETE LINEUP"
-  dock.add_child(start)
+ audition_note_id = ""
+ _audition_navigation(root_box)
+
+func _candidate_note(value: String, node_name: String, animate: bool) -> Label:
+ var note: Label = InkNote.new()
+ note.name = node_name
+ note.text = value
+ note.add_theme_font_size_override("font_size",16)
+ note.add_theme_color_override("font_color",Color("29241f"))
+ note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ if animate:
+  note.call_deferred("begin",reduced_motion)
+ return note
+
+func _audition_candidate() -> void:
+ var items: Array = game.choices(role)
+ if items.is_empty():
+  return
+ var id: String = str(items[selected_index].id)
+ auditioned[id] = true
+ audition_note_id = id
+ _rebuild()
+ call_deferred("_reveal_audition_note")
+
+func _reveal_audition_note() -> void:
+ var scroll: ScrollContainer = find_child("RecruitProfileScroll",true,false) as ScrollContainer
+ var note: Control = find_child("RecruitStrength",true,false) as Control
+ if scroll!=null and note!=null:
+  scroll.ensure_control_visible(note)
+
+func _next_audition() -> void:
+ var index: int = AUDITION_ROLES.find(role)
+ if index<0 or index>=3 or not Base.coverage(game.roster).has(role):
+  return
+ _change_role(str(AUDITION_ROLES[index+1]))
+
+func _previous_audition() -> void:
+ if role=="Keyboardist":
+  _review_lineup()
+ elif role=="Singer" and not vocals_panel:
+  _show_vocal_choices()
  else:
-  # Hidden disabled actions were never parented; release their controls and
-  # source-backed style resources instead of leaking one on each rebuild.
-  start.free()
-  var covered: Array = Base.coverage(game.roster)
-  if onboarding_state!=null and str(onboarding_state.lead_vocal_id).is_empty() and game.roster.size()>=3 and covered.has("Guitarist") and covered.has("Bassist") and covered.has("Drummer"):
-   var route: Button = _button("LEAD VOCALS ›",_show_vocal_choices,"tab")
-   route.name = "LeadVocalRoute"
-   route.tooltip_text = "Choose a bandmate for lead vocals before completing the lineup. A separate singer is optional."
-   route.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   if mobile:
-    action.text = "REMOVE" if recruited else ("RECRUIT" if game.roster.size()<6 else "BAND FULL")
-   dock.add_child(route)
+  var index: int = AUDITION_ROLES.find(role)
+  if index<=0:
+   back_requested.emit()
+  else:
+   _change_role(str(AUDITION_ROLES[index-1]))
+
+func _vocal_audition_page(root_box: VBoxContainer, mobile: bool) -> void:
+ root_box.add_child(_label("04 / 04  •  WHO TAKES THE MIC?",20))
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ body.add_child(_ink("YOUR BAND'S VOICES",24))
+ body.add_child(_ink("Choose a bandmate to sing, or audition a separate singer. Instrumentalists add 5 talent; a singer's vocals are included.",16,true))
+ for member in game.roster:
+  var scores: Array = onboarding_state.vocal_scores(member)
+  if scores.size()!=6:
+   continue
+  var chosen: bool = str(onboarding_state.lead_vocal_id)==str(member.id)
+  var extra: int = 0 if (member.roles as Array).has("Singer") else 5
+  body.add_child(_ink(str(member.name).to_upper()+"  /  "+str(member.get("primary_role","Musician")).to_upper(),20))
+  var score_text := PackedStringArray()
+  var names: Array = Base.labels_for("Singer")
+  for index in range(6):
+   score_text.append(str(names[index])+" "+str(int(scores[index])))
+  body.add_child(_ink("  •  ".join(score_text),14,true))
+  var assign: Button = _button(("✓ " if chosen else "")+str(member.name)+("  +5 TALENT" if extra else "  VOCALS INCLUDED"),_choose_vocal.bind(str(member.id)))
+  assign.name = "VocalAssign_"+str(member.id)
+  assign.disabled = chosen or game.remaining()<extra
+  body.add_child(assign)
+ var separate: Button = _button("AUDITION A SEPARATE SINGER  ›",_show_singer_auditions)
+ separate.name = "AuditionSeparateSingerAction"
+ body.add_child(separate)
+ body.add_child(_ink("A separate singer is optional. Your chosen voice is saved only when you select a person.",14,true))
+ _audition_navigation(root_box)
+
+func _show_singer_auditions() -> void:
+ role = "Singer"
+ selected_index = 0
+ vocals_panel = false
+ lineup_review = false
+ audition_note_id = ""
+ _rebuild()
 
 func _show_vocal_choices() -> void:
- var scroll: ScrollContainer = find_child("RecruitProfileScroll",true,false) as ScrollContainer
- if scroll==null:
-  return
+ role = "Singer"
+ vocals_panel = true
+ lineup_review = false
+ audition_note_id = ""
+ _rebuild()
+
+func _review_lineup() -> void:
+ lineup_review = true
+ audition_note_id = ""
+ _rebuild()
+
+func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
+ root_box.add_child(_label("LINEUP REVIEW  •  YOUR BAND, YOUR CALL",20))
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ var covered: Array = Base.coverage(game.roster)
+ for index in range(3):
+  var target_role: String = str(AUDITION_ROLES[index])
+  var selected := PackedStringArray()
+  for member in game.roster:
+   if (member.roles as Array).has(target_role):
+    selected.append(str(member.name))
+  body.add_child(_ink(("✓  " if covered.has(target_role) else "STILL NEED  ")+str(AUDITION_TITLES[index])+": "+", ".join(selected),18))
+  var edit: Button = _button("REVISIT "+str(AUDITION_TITLES[index]),_change_role.bind(target_role),"tab")
+  edit.name = "AuditionEdit_"+target_role
+  body.add_child(edit)
+ var lead_name := "NOT CHOSEN"
  for member in game.roster:
-  var choice: Button = find_child("VocalAssign_"+str(member["id"]),true,false) as Button
-  if choice!=null and not choice.disabled:
-   scroll.ensure_control_visible(choice)
-   choice.grab_focus()
-   return
+  if str(member.id)==str(onboarding_state.lead_vocal_id):
+   lead_name = str(member.name)
+ body.add_child(_ink("LEAD VOCALS  •  "+lead_name,18))
+ var voice: Button = _button("REVISIT LEAD VOCALS",_show_vocal_choices,"tab")
+ voice.name = "AuditionEdit_Singer"
+ body.add_child(voice)
+ var keys: Button = _button("OPTIONAL KEYBOARD AUDITIONS  ›",_change_role.bind("Keyboardist"),"tab")
+ keys.name = "AuditionKeysAction"
+ body.add_child(keys)
+ body.add_child(_ink("EXACT LINEUP",18))
+ for member in game.roster:
+  body.add_child(_ink("• "+str(member.name)+" / "+str(member.get("primary_role","Musician")),16))
+ body.add_child(_ink("Extra players use the original fifth/sixth-seat fees. Revisit a player to remove them; unused talent remains talent.",14,true))
+ var context := _box()
+ context.name = "RecruitDecisionContext"
+ root_box.add_child(context)
+ var budget: Label = _label("%d TALENT AVAILABLE  •  %d/6 MEMBERS" % [int(onboarding_state.remaining()),game.roster.size()],16)
+ budget.name = "RecruitAffordability"
+ context.add_child(budget)
+ var dock := HBoxContainer.new()
+ dock.name = "RecruitDecisionDock"
+ dock.add_theme_constant_override("separation",8)
+ context.add_child(dock)
+ var back: Button = _button("‹  VOCALS",_show_vocal_choices,"tab")
+ back.name = "AuditionPreviousStepAction"
+ dock.add_child(back)
+ var confirm: Button = _button("CONFIRM THIS LINEUP  ›",_launch)
+ confirm.name = "StartAction"
+ confirm.disabled = not bool(onboarding_state.ready())
+ dock.add_child(confirm)
+
+
 
 func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
  var label: Label = Kit.label(content,"notepaper",points)
@@ -693,7 +864,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
   center.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
  var press: Variant = RehearsalPress.new()
- press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true)
+ press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true,_new_session_notes and not reduced_motion)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)
@@ -740,6 +911,7 @@ func _toggle_recap_details() -> void:
 func _toggle_recap() -> void:
  if session_busy:
   return
+ _new_session_notes = false
  var leaving_result: bool = recap_expanded
  recap_expanded = not recap_expanded
  recap_details_expanded = false
@@ -747,14 +919,24 @@ func _toggle_recap() -> void:
  _begin_session_presentation("day" if leaving_result else "report",report)
 
 func _change_role(value: String) -> void:
+ if value not in Base.ROLE_TABS:
+  return
  role = value
  selected_index = 0
+ lineup_review = false
+ vocals_panel = value=="Singer" and onboarding_state!=null
+ audition_note_id = ""
  _rebuild()
 func _move_candidate(delta: int) -> void:
  var items: Array = game.choices(role)
+ if items.is_empty():
+  return
+ audition_note_id = ""
  selected_index = posmod(selected_index+delta,items.size())
  _rebuild()
 func _recruit(id: String) -> void:
+ if not bool(auditioned.get(id,false)):
+  return
  last_message = str(onboarding_state.recruit(id)["message"] if onboarding_state != null else game.recruit(id)["message"])
  _rebuild()
 func _remove(id: String) -> void:
@@ -814,6 +996,7 @@ func _commit_session(kind: String) -> void:
   return
  recap_expanded = true
  recap_details_expanded = false
+ _new_session_notes = true
  if opening_owner != null:
   opening_owner.save_draft()
  if kind=="create" and int(game.career.get("song_draft_progress",0))==0:
@@ -844,6 +1027,11 @@ func _finish_session_presentation() -> void:
  if is_instance_valid(overlay):
   remove_child(overlay)
   overlay.queue_free()
+ if _new_session_notes:
+  _new_session_notes = false
+  for note in find_children("*","Label",true,false):
+   if note.has_meta("fresh_action_note") and note.has_method("begin"):
+    note.begin(reduced_motion)
  var next_action: Button = find_child("RecapToggleAction" if recap_expanded else "PracticeMode_"+practice_activity,true,false) as Button
  if next_action!=null and is_visible_in_tree():
   next_action.grab_focus()

@@ -5,6 +5,7 @@ signal details_toggled
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
+const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const BandIcon = preload("res://experiments/playable_flightcase/art/icons/users.svg")
 const JournalIcon = preload("res://experiments/playable_flightcase/art/icons/notebook-pen.svg")
@@ -17,7 +18,7 @@ func ink(value: String, points: int, muted: bool = false) -> Label:
  label.focus_mode = Control.FOCUS_NONE
  return label
 
-func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false, external_details: bool = false) -> void:
+func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false, external_details: bool = false, fresh_notes: bool = false) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -51,7 +52,14 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  verdict.name = "RecapVerdict"
  verdict.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(verdict)
- var why := ink(str(view.get("reason","")),16 if tall_tablet else 14,true)
+ var why: Label = InkNote.new()
+ why.name = "RecapReasonNote"
+ why.text = str(view.get("reason",""))
+ why.add_theme_font_size_override("font_size",16)
+ why.add_theme_color_override("font_color",Color("695c4b"))
+ if fresh_notes:
+  why.visible_characters = 0
+  why.set_meta("fresh_action_note",true)
  why.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(why)
  var score := ink("THE SCORECARD",14 if tall_tablet else (11 if mobile else 12),true)
@@ -163,7 +171,13 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    var excerpt: String = short_quote.substr(0,32)
    var word_break: int = excerpt.rfind(" ")
    short_quote = excerpt.substr(0,word_break if word_break>0 else 31).rstrip(" .,!?")+"…"
-  var line := ink(display_name+"\n“"+short_quote+"”",16 if tall_tablet else 14)
+  var line: Label = InkNote.new()
+  line.text = display_name+"\n“"+short_quote+"”
+  line.add_theme_font_size_override("font_size",16 if tall_tablet else 14)
+  line.add_theme_color_override("font_color",Color("29241f"))
+  if fresh_notes:
+   line.visible_characters = 0
+   line.set_meta("fresh_action_note",true)
   line.name = "RecapMember_"+person_id
   line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   card.add_child(line)

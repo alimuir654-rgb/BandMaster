@@ -4,6 +4,11 @@ extends PanelContainer
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
+const IMAGE_SOURCES := {
+ "Indie rock":"genre_indie",
+ "Punk":"genre_punk",
+ "Synth-pop":"genre_synth"
+}
 const EDITIONS := {
  "Indie rock": ["355448", "strings"],
  "Punk": ["913c2c", "cut"],
@@ -62,13 +67,24 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  content.add_child(rule)
  var title: Label = _ink(genre.to_upper(),28 if compact else 40,"GenrePressTitle")
  content.add_child(title)
- var artwork := PrintArt.new()
+ var image_path: String = "res://experiments/playable_flightcase/art/"+str(IMAGE_SOURCES.get(genre,""))+".png"
+ var artwork: Control
+ if IMAGE_SOURCES.has(genre) and ResourceLoader.exists(image_path):
+  var picture := TextureRect.new()
+  picture.texture = load(image_path)
+  picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  artwork = picture
+  artwork.set_meta("source",image_path)
+ else:
+  var original := PrintArt.new()
+  original.ink = color
+  original.motif = str(edition[1])
+  artwork = original
  artwork.name = "GenreArtwork"
- artwork.ink = color
- artwork.motif = str(edition[1])
  artwork.set_meta("genre",genre)
  artwork.set_meta("motif",str(edition[1]))
- artwork.custom_minimum_size.y = 86 if compact else (220 if wide else 148)
+ artwork.custom_minimum_size.y = 100 if compact else (220 if wide else 160)
  artwork.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
  artwork.focus_mode = Control.FOCUS_NONE
@@ -78,7 +94,7 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  var strength: Label = _ink("Strength: "+str(descriptor.get("strength","Your first gigs")),14,"GenrePressStrength")
  content.add_child(strength)
  set_meta("genre",genre)
- set_meta("source","Original native vector screenprint; unchanged session_paper.png source")
+ set_meta("source","Independent image-generated instrument screenprint where supplied; original native motif fallback; unchanged session_paper.png")
 
 class PrintArt extends Control:
  var ink := Color("355448")

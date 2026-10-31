@@ -6,6 +6,7 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
+const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const WORDMARK_CROP := Rect2i(264,95,1248,718)
@@ -23,6 +24,8 @@ var chosen_intent: String = "Raw"
 var response: String = ""
 var _new_band_dialog: Control
 var _practice_view: Control
+var _recruit_view: Control
+var _fresh_name_reactions := false
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -38,11 +41,12 @@ func _erase() -> void:
   remove_child(old)
   old.queue_free()
  _practice_view = null
+ _recruit_view = null
 
 func _on_viewport_resized() -> void:
  # The practice view owns its responsive reflow. Keep its pending form values
  # and presentation-only overlay alive instead of replacing the whole host.
- if not showing_menu and setup.screen=="play" and is_instance_valid(_practice_view):
+ if not showing_menu and ((setup.screen=="play" and is_instance_valid(_practice_view)) or (setup.screen=="recruit" and is_instance_valid(_recruit_view))):
   return
  _render()
 
@@ -507,6 +511,11 @@ func _recruit() -> void:
  var child = Recruit.new()
  child.game = setup.game
  child.onboarding_state = setup
+ child.reduced_motion = reduced_motion
+ child.role = child.first_missing_audition_role()
+ child.vocals_panel = child.role=="Singer"
+ child.lineup_review = setup.ready()
+ _recruit_view = child
  child.lineup_confirmed.connect(_on_lineup)
  child.back_requested.connect(_back_genre)
  add_child(child)
@@ -596,12 +605,19 @@ func _name() -> void:
    var feeling: Dictionary = opinion
    var card: PanelContainer = Kit.frame(look,"ticket")
    body.add_child(card)
-   card.add_child(_label(str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"]),14))
+   var reaction: Label = InkNote.new()
+   reaction.text = str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"])
+   reaction.add_theme_font_size_override("font_size",16)
+   reaction.add_theme_color_override("font_color",Color("eee8dd"))
+   card.add_child(reaction)
+   if _fresh_name_reactions:
+    reaction.call_deferred("begin",reduced_motion)
   var rethink: Button = _button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
   rethink.disabled = setup.name_revisions>=1
   body.add_child(rethink)
   body.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
  body.add_child(_button("BACK TO MENU",_home,"tab"))
+ _fresh_name_reactions = false
 
 func _set_intent(v: String) -> void:
  chosen_intent = v
@@ -610,6 +626,7 @@ func _submit_free() -> void:
  _submit(free_name,chosen_intent)
 func _submit(title: String,intent: String) -> void:
  var result: Dictionary = setup.submit_name(title,intent)
+ _fresh_name_reactions = bool(result.get("ok",false))
  response = str(result.get("message",""))
  _render()
 func _rethink() -> void:

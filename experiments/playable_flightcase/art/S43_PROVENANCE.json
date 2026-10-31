@@ -1,0 +1,114 @@
+{
+  "scope": "Original section heading and text-free genre illustrations; not photography, cast masters, existing album art or full UI. Original approved cast/hardware/meters unchanged.",
+  "owner_approved": false,
+  "sources": [
+    {
+      "key": "auditions_heading",
+      "source": "/workspace/generated_images/exec-ce2ef8a5-07d1-4578-81b1-fa01e59d4be9.png",
+      "destination": "experiments/playable_flightcase/art/auditions_heading.png",
+      "dimensions": [
+        2079,
+        756
+      ],
+      "mode": "RGBA",
+      "sha256": "202c3bd3550293b9695621e11a8062eed0a10953fcd147fd9636954767795dd5",
+      "source_type": "independent image-generated typography",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        31,
+        19,
+        2073,
+        756
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        35,
+        144,
+        2043,
+        672
+      ]
+    },
+    {
+      "key": "genre_indie",
+      "source": "/workspace/generated_images/exec-bf331b4f-8f94-4d19-8765-f5d5961d33fa.png",
+      "destination": "experiments/playable_flightcase/art/genre_indie.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "35bd3c162a27acc6da8108f46b2b4f8d421b344e92d9150d439953196a4caf50",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2130,
+        710
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        0,
+        8,
+        2127,
+        708
+      ]
+    },
+    {
+      "key": "genre_punk",
+      "source": "/workspace/generated_images/exec-643c0d95-6166-4418-8341-ede57e6ebdd6.png",
+      "destination": "experiments/playable_flightcase/art/genre_punk.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "66ea7525c296bd2d374c5af7fe3e7be2387881f1a891fc723169a0f9b22bff4b",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        1,
+        0,
+        2172,
+        724
+      ]
+    },
+    {
+      "key": "genre_synth",
+      "source": "/workspace/generated_images/exec-1de0d0ec-980b-4ad9-81f2-708f732f43fc.png",
+      "destination": "experiments/playable_flightcase/art/genre_synth.png",
+      "dimensions": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "sha256": "feeb2fdc5c4963a312a8c95d7f2ba70f3ebbbb83e200b5edf99183fab781721b",
+      "source_type": "independent image-generated screenprint instrument illustration",
+      "contains_live_ui": false,
+      "byte_identical_copy": true,
+      "transforms": "none; native aspect-contain only",
+      "alpha_bbox": [
+        18,
+        33,
+        2156,
+        706
+      ],
+      "visible_ink_alpha_gt8_bbox": [
+        23,
+        43,
+        2154,
+        698
+      ]
+    }
+  ]
+}
