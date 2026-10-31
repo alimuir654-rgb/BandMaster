@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S42.json",
-  "scope": "Completed ONE explicitly owner-requested post15:00 Android V4 packaging-only follow-up. No new source/art changes or schedule extension.",
+  "session": "docs/continuous_improvement/sessions/S43.json",
+  "scope": "New direct owner request after V4: liked splash/title lettering; overhaul recruitment into guitarists, bass, drums then vocals, no tabs; action-triggered progressive pen-and-paper notes and engagement; improve genre images. Existing-screen UI/art only.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "android_v4_delivered_owner_feedback_pending",
-  "next_action": "Owner installs V4 as Update without uninstalling, confirms existing progress and reviews new title/genre artwork. No further automatic work or queue extension.",
+  "status": "owner_requested_audition_engagement_active",
+  "next_action": "Implement ordered auditions and action-only ink notes, evaluate independent genre artwork and heading, then native evidence/review; no APK by default.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -2715,5 +2715,6 @@
     "phone_tested": false,
     "build": "/workspace/work/day31/android/build-6c1f50d-v4/build.json",
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
-  }
+  },
+  "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval."
 }

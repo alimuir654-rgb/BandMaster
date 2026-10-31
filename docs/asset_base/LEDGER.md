@@ -999,3 +999,10 @@ Exactgame `6c1f50d8c63deedaa678ff543fc6b85e4d767a33`, unchangedexportrecipee8a85
 Build/compatibility/delivery/logs/twooriginalPNGnamesactuallyopened/fiveSIMULATEDlenses/remaininggaps: `/workspace/work/day31/android/phone-v4-closeout.json`. Reused unchanged6c1nativeproof, no redundantfullsuite/GL/source/art writes. TechnicalpackagePASS, overallartPARTIAL/ownerfalse. Oneexplicitpost15:00packagingrequest completed; dayplanfreezehistory andscheduleunchanged. Rootartifactwriterreleased.
 
 Next: Owner installs V4 as Update without uninstalling, confirms existing progress and reviews new title/genre artwork. No further automatic work or queue extension.
+
+
+# S43 owner audition/engagement preflight — 2026-10-31T16:11:59.050787+00:00
+
+New post-V4 owner feedback authorises existing-screen UX/art changes. Ordered guitar, bass, drums and vocals auditions replace tabs; action-triggered gradual native ink notes, companion title-style heading and stronger genre images. Original approved cast, meters, hardware, models, costs and save schema protected. One bounded root source writer/GL through18:00UTC; source/art and native verification pending. Liked splash acceptance is specific, not global art approval. No new APK by default or automatic queue extension.
+
+Next: Implement ordered auditions and action-only ink notes, evaluate independent genre artwork and heading, then native evidence/review; no APK by default.

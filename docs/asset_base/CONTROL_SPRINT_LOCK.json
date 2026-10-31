@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "971ae10aa48edbadea7c8b7409d9814c893518e8",
-  "claimed_at": "2026-10-31T15:39:14.163427+00:00",
-  "expires_at": "2026-10-31T16:15:00Z",
-  "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload.",
-  "authority": "New direct owner after completed15:00window: Go ahead prep the next apk file.",
+  "writer": "S43-owner-audition-engagement-20261031T1615",
+  "base_head": "6061444619e400fbc4d46cf55bb272351f08aa2c",
+  "claimed_at": "2026-10-31T16:11:58.969742+00:00",
+  "expires_at": "2026-10-31T18:00:00Z",
+  "scope": "Owner-requested existing-screen audition flow, action-triggered ink notes, companion heading and stronger genre artwork. No model/economy/save-schema changes, no APK by default.",
+  "authority": "New direct owner feedback after V4: keep liked splash, extend title lettering, overhaul tabs into guitar/bass/drums/vocals auditions, progressively written action notes and improve genre images.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T15:42:07.634863+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S42-owner-android-v4-20261031T1540",
+  "last_writer": "S43-owner-audition-engagement-20261031T1615",
   "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
   "previous_checkpoint_release": {
     "writer": null,
@@ -126,5 +126,11 @@
     "released_at": "2026-10-31T13:19:46.496525+00:00",
     "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
     "scope": "Frozen6c1additionalart LOCAL checkpoint and selectedscreenshotPages only; no source/art/Androidwrites."
+  },
+  "previous_v4_release": {
+    "last_writer": "S42-owner-android-v4-20261031T1540",
+    "released_at": "2026-10-31T15:42:07.634863+00:00",
+    "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+    "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload."
   }
 }
