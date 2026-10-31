@@ -216,7 +216,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  var practice := _button("THE PRACTICE ROOM  ›","CareerHomePracticeAction",_practice.bind(""),true)
  body.add_child(practice)
  var routes := GridContainer.new()
- routes.columns = 2 if compact else 3
+ routes.columns = 1 if size.x<560 else (2 if compact else 3)
  routes.add_theme_constant_override("h_separation",8)
  routes.add_theme_constant_override("v_separation",8)
  body.add_child(routes)
