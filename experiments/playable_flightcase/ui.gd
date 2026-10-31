@@ -12,6 +12,7 @@ const SessionTransition = preload("res://experiments/playable_flightcase/session
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
 const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
+static var audition_heading_texture: ImageTexture
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
@@ -37,17 +38,6 @@ var reduced_motion := false
 var session_busy := false
 var _session_overlay: Control
 var practice_activity := "create"
-# Recruitment shell stays alive while only its dossier/actions are rebuilt.
-# Keeping these CanvasItems removes repeated header/art/glyph teardown.
-var _recruit_background: TextureRect
-var _recruit_outer: MarginContainer
-var _recruit_root: VBoxContainer
-var _recruit_header: HBoxContainer
-var _recruit_title: Label
-var _recruit_budget: Label
-var _recruit_status: Label
-var _recruit_progress: HBoxContainer
-var _recruit_chapter: Label
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
 # contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
@@ -88,30 +78,11 @@ func _ready() -> void:
  _rebuild()
 
 func _clear() -> void:
- var keep_recruit: bool = game.phase=="recruit" and is_instance_valid(_recruit_background) and is_instance_valid(_recruit_outer) and is_instance_valid(_recruit_root) and _recruit_background.get_parent()==self and _recruit_outer.get_parent()==self and _recruit_root.get_parent()==_recruit_outer
  for child in get_children():
   if is_instance_valid(_session_overlay) and child==_session_overlay:
    continue
-  if keep_recruit and (child==_recruit_background or child==_recruit_outer):
-   continue
   remove_child(child)
   child.queue_free()
- if keep_recruit:
-  for child in _recruit_root.get_children():
-   if child==_recruit_header or child==_recruit_status or child==_recruit_progress or child==_recruit_chapter:
-    continue
-   _recruit_root.remove_child(child)
-   child.queue_free()
- else:
-  _recruit_background = null
-  _recruit_outer = null
-  _recruit_root = null
-  _recruit_header = null
-  _recruit_title = null
-  _recruit_budget = null
-  _recruit_status = null
-  _recruit_progress = null
-  _recruit_chapter = null
 
 func _label(content: String, points: int = 16) -> Label:
  var label: Label = Kit.label(content,look,points)
@@ -149,49 +120,51 @@ func _rebuild() -> void:
  _clear()
  var size_now: Vector2 = get_viewport_rect().size
  var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
- var root_box: VBoxContainer
+ var bg := TextureRect.new()
+ bg.texture = load("res://components/control_atlas/art/case_surface.png")
+ bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ bg.stretch_mode = TextureRect.STRETCH_SCALE
+ bg.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ bg.modulate = Color(0.52,0.57,0.61)
+ add_child(bg)
+ var outer := MarginContainer.new()
+ outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ for side in ["left","top","right","bottom"]:
+  outer.add_theme_constant_override("margin_"+side,12 if mobile else 20)
+ add_child(outer)
+ var root_box := _box()
+ root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ outer.add_child(root_box)
+ var header := HBoxContainer.new()
+ header.add_theme_constant_override("separation",12)
+ var title := _label("AUDITIONS" if game.phase=="recruit" else "LIVIN' THE DREAM",26 if not mobile else 21)
+ title.name = "AuditionsHeading" if game.phase=="recruit" else "PracticeBrand"
  if game.phase=="recruit":
-  root_box = _recruit_shell(mobile)
- else:
-  var bg := TextureRect.new()
-  bg.texture = load("res://components/control_atlas/art/case_surface.png")
-  bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  bg.stretch_mode = TextureRect.STRETCH_SCALE
-  bg.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
-  bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  bg.modulate = Color(0.52,0.57,0.61)
-  add_child(bg)
-  var outer := MarginContainer.new()
-  outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
-  for side in ["left","top","right","bottom"]:
-   outer.add_theme_constant_override("margin_"+side,12 if mobile else 20)
-  add_child(outer)
-  root_box = _box()
-  root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
-  outer.add_child(root_box)
-  var header := HBoxContainer.new()
-  header.add_theme_constant_override("separation",12)
-  var title := _label("LIVIN' THE DREAM",26 if not mobile else 21)
-  title.name = "PracticeBrand"
-  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  header.add_child(title)
-  var budget := _label("DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
-  budget.name = "BudgetLabel"
-  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-  header.add_child(budget)
-  root_box.add_child(header)
-  var display_message := last_message
-  if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
-   var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
-   if not saved_report.is_empty():
-    display_message = "LAST SESSION  •  " + str(saved_report.get("verdict","Session completed")) + "  •  Notes below."
-   else:
-    display_message = "Your band is ready. Choose a session."
-  var status := _label(display_message,14)
-  status.name = "StatusMessage"
-  status.custom_minimum_size.y = 32
-  status.add_theme_color_override("font_color",Color("f0c78b"))
-  root_box.add_child(status)
+  title.custom_minimum_size.y = 44
+  _decorate_audition_heading(title)
+ title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ header.add_child(title)
+ var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
+ var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+ budget.name = "BudgetLabel"
+ budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+ header.add_child(budget)
+ root_box.add_child(header)
+ var display_message := last_message
+ if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
+  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+  if not saved_report.is_empty():
+   display_message = "LAST SESSION  •  " + str(saved_report.get("verdict","Session completed")) + "  •  Notes below."
+  else:
+   display_message = "Your band is ready. Choose a session."
+ if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
+  display_message = "Meet the musicians. Auditions cost no time or talent."
+ var status := _label(display_message,14)
+ status.name = "StatusMessage"
+ status.custom_minimum_size.y = 32
+ status.add_theme_color_override("font_color",Color("f0c78b"))
+ root_box.add_child(status)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
  else:
@@ -200,58 +173,6 @@ func _rebuild() -> void:
   move_child(_session_overlay,get_child_count()-1)
  elif not focus_name.is_empty():
   call_deferred("_restore_practice_focus",focus_name,caret)
-
-func _recruit_shell(mobile: bool) -> VBoxContainer:
- if not is_instance_valid(_recruit_root):
-  _recruit_background = TextureRect.new()
-  _recruit_background.name = "RecruitmentBackground"
-  _recruit_background.texture = load("res://components/control_atlas/art/case_surface.png")
-  _recruit_background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-  _recruit_background.stretch_mode = TextureRect.STRETCH_SCALE
-  _recruit_background.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
-  _recruit_background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  _recruit_background.modulate = Color(0.52,0.57,0.61)
-  add_child(_recruit_background)
-  _recruit_outer = MarginContainer.new()
-  _recruit_outer.name = "RecruitmentShell"
-  _recruit_outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
-  add_child(_recruit_outer)
-  _recruit_root = _box()
-  _recruit_root.name = "RecruitmentRoot"
-  _recruit_root.size_flags_vertical = Control.SIZE_EXPAND_FILL
-  _recruit_outer.add_child(_recruit_root)
-  _recruit_header = HBoxContainer.new()
-  _recruit_header.name = "RecruitmentHeader"
-  _recruit_header.add_theme_constant_override("separation",12)
-  _recruit_title = _label("AUDITIONS",26 if not mobile else 21)
-  _recruit_title.name = "AuditionsHeading"
-  _recruit_title.custom_minimum_size.y = 44
-  _decorate_audition_heading(_recruit_title)
-  _recruit_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  _recruit_header.add_child(_recruit_title)
-  _recruit_budget = _label("",16)
-  _recruit_budget.name = "BudgetLabel"
-  _recruit_budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-  _recruit_header.add_child(_recruit_budget)
-  _recruit_root.add_child(_recruit_header)
-  _recruit_status = _label("",14)
-  _recruit_status.name = "StatusMessage"
-  _recruit_status.custom_minimum_size.y = 32
-  _recruit_status.add_theme_color_override("font_color",Color("f0c78b"))
-  _recruit_root.add_child(_recruit_status)
- # Existing responsive geometry is updated without replacing the CanvasItems.
- for side in ["left","top","right","bottom"]:
-  _recruit_outer.add_theme_constant_override("margin_"+side,12 if mobile else 20)
- var points: int = 26 if not mobile else 21
- if _recruit_title.get_theme_font_size("font_size")!=points:
-  _recruit_title.add_theme_font_size_override("font_size",points)
- var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
- _recruit_budget.text = "TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT]
- _recruit_status.text = "Meet the musicians. Auditions cost no time or talent." if last_message=="Build a band. Talent points are separate from your cash." else last_message
- # Retained background must stay behind the retained shell and any overlay.
- move_child(_recruit_background,0)
- move_child(_recruit_outer,1)
- return _recruit_root
 
 func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
  if session_busy or not is_visible_in_tree():
@@ -287,10 +208,10 @@ func _decorate_audition_heading(label: Label) -> void:
   return
  var art := TextureRect.new()
  art.name = "AuditionsHeadingInk"
- var texture := AtlasTexture.new()
- texture.atlas = load(path)
- texture.region = Rect2(27,136,2024,544)
- art.texture = texture
+ if audition_heading_texture==null:
+  var source: Texture2D = load(path)
+  audition_heading_texture = ImageTexture.create_from_image(source.get_image().get_region(Rect2i(27,136,2024,544)))
+ art.texture = audition_heading_texture
  art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
  art.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -315,34 +236,19 @@ func first_missing_audition_role() -> String:
  return "Singer"
 
 func _audition_progress(root_box: VBoxContainer) -> void:
- if not is_instance_valid(_recruit_progress):
-  _recruit_progress = HBoxContainer.new()
-  _recruit_progress.name = "AuditionProgress"
-  _recruit_progress.add_theme_constant_override("separation",4)
-  root_box.add_child(_recruit_progress)
+ var progress := HBoxContainer.new()
+ progress.name = "AuditionProgress"
+ progress.add_theme_constant_override("separation",4)
  var covered: Array = Base.coverage(game.roster)
  for index in range(4):
-  var caption: Label
-  if index<_recruit_progress.get_child_count():
-   caption = _recruit_progress.get_child(index) as Label
-  else:
-   caption = _label("",12)
-   caption.name = "AuditionProgress_"+str(AUDITION_ROLES[index])
-   caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-   caption.focus_mode = Control.FOCUS_NONE
-   _recruit_progress.add_child(caption)
   var done: bool = covered.has(AUDITION_ROLES[index]) if index<3 else (onboarding_state!=null and not str(onboarding_state.lead_vocal_id).is_empty())
-  caption.text = ("✓ " if done else str(index+1)+" ")+str(["GUITAR","BASS","DRUMS","VOICE"][index])
-  var colour := Color("a8ddb5") if done else (Color("f0c78b") if role==str(AUDITION_ROLES[index]) else Color("b6b8b3"))
-  if caption.get_theme_color("font_color")!=colour:
-   caption.add_theme_color_override("font_color",colour)
-
-func _audition_chapter(root_box: VBoxContainer, content: String) -> void:
- if not is_instance_valid(_recruit_chapter):
-  _recruit_chapter = _label("",20)
-  _recruit_chapter.name = "AuditionStepTitle"
-  root_box.add_child(_recruit_chapter)
- _recruit_chapter.text = content
+  var caption := _label(("✓ " if done else str(index+1)+" ")+str(["GUITAR","BASS","DRUMS","VOICE"][index]),12)
+  caption.name = "AuditionProgress_"+str(AUDITION_ROLES[index])
+  caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  caption.focus_mode = Control.FOCUS_NONE
+  caption.add_theme_color_override("font_color",Color("a8ddb5") if done else (Color("f0c78b") if role==str(AUDITION_ROLES[index]) else Color("b6b8b3")))
+  progress.add_child(caption)
+ root_box.add_child(progress)
 
 func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  var scroll := ScrollContainer.new()
@@ -405,7 +311,9 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   _vocal_audition_page(root_box,mobile)
   return
  var index: int = AUDITION_ROLES.find(role)
- _audition_chapter(root_box,("0%d / 04  •  " % (index+1) if index>=0 else "OPTIONAL  •  ")+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"))
+ var chapter := _label(("0%d / 04  •  " % (index+1) if index>=0 else "OPTIONAL  •  ")+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"),20)
+ chapter.name = "AuditionStepTitle"
+ root_box.add_child(chapter)
  var choices: Array = game.choices(role)
  if choices.is_empty():
   root_box.add_child(_label("No candidates for this role."))
@@ -603,7 +511,7 @@ func _previous_audition() -> void:
    _change_role(str(AUDITION_ROLES[index-1]))
 
 func _vocal_audition_page(root_box: VBoxContainer, mobile: bool) -> void:
- _audition_chapter(root_box,"04 / 04  •  WHO TAKES THE MIC?")
+ root_box.add_child(_label("04 / 04  •  WHO TAKES THE MIC?",20))
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
  body.add_child(_ink("YOUR BAND'S VOICES",24))
  body.add_child(_ink("Choose a bandmate to sing, or audition a separate singer. Instrumentalists add 5 talent; a singer's vocals are included.",16,true))
@@ -650,7 +558,7 @@ func _review_lineup() -> void:
  _rebuild()
 
 func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
- _audition_chapter(root_box,"LINEUP REVIEW")
+ root_box.add_child(_label("LINEUP REVIEW",20))
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
  body.add_child(_ink("THIS IS YOUR BAND",24))
  var roster := GridContainer.new()
