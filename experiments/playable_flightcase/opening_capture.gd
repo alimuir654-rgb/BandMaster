@@ -622,6 +622,20 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
   if not recruited and pane.game.roster.size()>=6 and action.text!="BAND FULL":
    failures.append("S40 "+tag+" full roster implies a zero-cost recruitment")
  var ready: bool = bool(pane.onboarding_state.ready()) if pane.onboarding_state!=null else pane.game.can_start()
+ var covered_roles: Array = RecruitBase.coverage(pane.game.roster)
+ for role_name in RecruitBase.ROLE_TABS:
+  var tab: Button = pane.find_child("RoleTab_"+str(role_name),true,false)
+  var covered: bool = covered_roles.has(role_name)
+  if str(role_name)=="Singer" and pane.onboarding_state!=null:
+   covered = not str(pane.onboarding_state.lead_vocal_id).is_empty()
+  if tab==null or tab.button_pressed!=(str(role_name)==str(pane.role)):
+   failures.append("Phone feedback: role tab lost independent browsing selection")
+  elif covered:
+   for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:
+    if tab.get_theme_color(state)!=Color("a8ddb5"):
+     failures.append("Phone feedback: recruited/assigned role is not green in "+str(state))
+  elif tab.has_theme_color_override("font_color") and tab.get_theme_color("font_color")==Color("a8ddb5"):
+   failures.append("Phone feedback: removed/unfilled role remains green")
  var start: Button = pane.find_child("StartAction",true,false)
  if ready:
   if start==null or start.get_parent()!=dock or start.size.y<44 or not viewport.encloses(start.get_global_rect()):
@@ -1225,6 +1239,19 @@ func take() -> void:
      if screen.setup.game.roster.size()!=before_count+1 or screen.setup.game.spent()!=before_spent+hire_cost or screen.setup.remaining()!=before_available-hire_cost or screen.setup.change_counter!=before_changes+3:
       failures.append("S40 genuine re-recruit lost the exact original cost/one-shot change")
    var vocal_action: Button = null
+   var vocal_route: Button = pane.find_child("LeadVocalRoute",true,false)
+   if vocal_route==null or not Rect2(0,0,w,h).encloses(vocal_route.get_global_rect()) or vocal_route.size.y<44:
+    failures.append("Phone feedback: required lead-vocal route is not a first-fold target")
+   else:
+    var before_vocal_route: Dictionary = screen.setup.snapshot()
+    var before_vocal_files: Dictionary = _recap_save_bytes()
+    await _draw_screen("recruit_needs_vocals",w,h)
+    await click_action(vocal_route)
+    var revealed: Button = pane.find_child("VocalAssign_cast_jack",true,false)
+    if revealed==null or not revealed.has_focus() or not Rect2(0,0,w,h).encloses(revealed.get_global_rect()):
+     failures.append("Phone feedback: lead-vocal route did not reveal/focus existing Jack assignment")
+    if screen.setup.snapshot()!=before_vocal_route or _recap_save_bytes()!=before_vocal_files:
+     failures.append("Phone feedback: revealing vocals mutated career or saves")
    for entry in pane.find_children("*","Button",true,false):
     var voice_button: Button = entry as Button
     if voice_button!=null and voice_button.text.to_upper().contains("JACK") and voice_button.text.to_upper().contains("TALENT"):
@@ -1233,6 +1260,8 @@ func take() -> void:
    await click_action(vocal_action)
    if screen.setup.lead_vocal_id!="cast_jack" or not screen.setup.ready():
     failures.append("real vocalist selection or mandatory trio not ready")
+   if pane.find_child("LeadVocalRoute",true,false)!=null:
+    failures.append("Phone feedback: vocal route remained after valid assignment")
    _check_recruit_context(pane,w,h,"actual ready trio with vocal reservation")
   var ready_action: Button = screen.find_child("StartAction",true,false)
   if ready_action == null:

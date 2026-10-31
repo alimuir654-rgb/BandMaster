@@ -146,10 +146,19 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  tabs.add_theme_constant_override("h_separation",5)
  tabs.add_theme_constant_override("v_separation",4)
  root_box.add_child(tabs)
+ var covered_roles: Array = Base.coverage(game.roster)
  for name in Base.ROLE_TABS:
   var item: Button = _button(str(name).to_upper(),_change_role.bind(str(name)),"tab")
+  item.name = "RoleTab_"+str(name)
   item.toggle_mode = true
   item.button_pressed = str(name)==role
+  var covered: bool = covered_roles.has(name)
+  if str(name)=="Singer" and onboarding_state!=null:
+   covered = not str(onboarding_state.lead_vocal_id).is_empty()
+  if covered:
+   for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:
+    item.add_theme_color_override(state,Color("a8ddb5"))
+   item.tooltip_text = "Covered in your lineup."
   tabs.add_child(item)
  var choices: Array = game.choices(role)
  if choices.is_empty():
@@ -260,6 +269,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
     var chosen: bool = str(onboarding_state.lead_vocal_id) == str(member["id"])
     var extra: int = 0 if (member["roles"] as Array).has("Singer") else 5
     var vocal: Button = _button(("✓  " if chosen else "") + str(member["name"]) + ("  +%d TALENT" % extra if extra > 0 else "  INCLUDED"),_choose_vocal.bind(str(member["id"])),"tab")
+    vocal.name = "VocalAssign_"+str(member["id"])
     vocal.disabled = chosen
     aside.add_child(vocal)
   aside.add_child(_label("Fifth member +6, sixth +12 additional. Vocalist doubling an instrument adds 5. Talent points buy ability and options, not cash.",13))
@@ -322,6 +332,26 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   # Hidden disabled actions were never parented; release their controls and
   # source-backed style resources instead of leaking one on each rebuild.
   start.free()
+  var covered: Array = Base.coverage(game.roster)
+  if onboarding_state!=null and str(onboarding_state.lead_vocal_id).is_empty() and game.roster.size()>=3 and covered.has("Guitarist") and covered.has("Bassist") and covered.has("Drummer"):
+   var route: Button = _button("LEAD VOCALS ›",_show_vocal_choices,"tab")
+   route.name = "LeadVocalRoute"
+   route.tooltip_text = "Choose a bandmate for lead vocals before completing the lineup. A separate singer is optional."
+   route.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   if mobile:
+    action.text = "REMOVE" if recruited else ("RECRUIT" if game.roster.size()<6 else "BAND FULL")
+   dock.add_child(route)
+
+func _show_vocal_choices() -> void:
+ var scroll: ScrollContainer = find_child("RecruitProfileScroll",true,false) as ScrollContainer
+ if scroll==null:
+  return
+ for member in game.roster:
+  var choice: Button = find_child("VocalAssign_"+str(member["id"]),true,false) as Button
+  if choice!=null and not choice.disabled:
+   scroll.ensure_control_visible(choice)
+   choice.grab_focus()
+   return
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = get_viewport_rect().size.x
