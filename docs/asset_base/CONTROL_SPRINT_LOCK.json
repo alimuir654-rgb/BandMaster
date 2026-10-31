@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "fc3279ae494fd11888783bf0c26afdf2ef5703d5",
-  "claimed_at": "2026-10-31T22:13:51.642009+00:00",
-  "expires_at": "2026-10-31T22:25:00Z",
-  "scope": "Owner-approved two screenshot private review Page delivery is saved atsequence21; metadata-only recording now. No source/art/GL/APK/save/queue/public-history changes.",
-  "authority": "Latest owner Go ahead to explicit question permitting outing/promoter screenshots on existing private reviewPage.",
+  "writer": "S49-review-confidence-20261031",
+  "base_head": "444ed31a89e31fc73b3bb33986aa743aa8e419e0",
+  "claimed_at": "2026-10-31T22:43:11.629265+00:00",
+  "expires_at": "2026-10-31T23:35:00Z",
+  "scope": "Turn actual original settled poor/good show flags into once-only saved factual reports; a poor tracked show pauses ONLY guarantee offers until a later actual successful show. STANDARD/GUESTLIST recovery stay under originalchecks; no stars/critic/rating/newcash model.",
+  "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T22:15:04.985188+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S48 source release remains22:04. This later owner-approved two-image Page delivery/metadata closeout is complete, no code/art/native/APK/publichistory changes.",
+  "note": "One new owner-authorised hour; rootsolewriter/GL, helpersscratch/read-only; sourcefreeze23:25, finalread-only23:35, hardstop23:39:15. No additionalAPK/publication/queue.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "status": "owner_approved_saved_and_readback",
     "page_url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
@@ -179,5 +179,10 @@
     "owner_authority": "Latest Go ahead in direct response to the explicit two-screenshot/privatePage approval question.",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
     "rendered_preview_inspected": false
+  },
+  "previous_s48_release": {
+    "last_writer": "S48-approved-page-delivery-closeout-20261031",
+    "released_at": "2026-10-31T22:15:04.985188+00:00",
+    "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   }
 }
