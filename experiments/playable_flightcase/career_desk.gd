@@ -646,7 +646,7 @@ func _ask_live_confirmation(verb: String) -> void:
   dialog.set("cancel_text","NOT YET")
  else:
   var charge: int = mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
-  dialog.set("body_text","Cancel %s? The cancellation costs £%d. No day is used." % [str(booking.get("venue","this booking")),charge])
+  dialog.set("body_text","Cancel %s? The cancellation costs £%d and up to 3 reputation. No day is used." % [str(booking.get("venue","this booking")),charge])
   dialog.set("confirm_text","CANCEL BOOKING")
   dialog.set("cancel_text","KEEP BOOKING")
  _live_dialog=dialog
