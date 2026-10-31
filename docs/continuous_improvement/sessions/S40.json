@@ -3,9 +3,9 @@
   "id": "S40",
   "status": "active",
   "owner_approved": false,
-  "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.",
+  "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
   "baseline_sha": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
-  "dominant_issue": "BM-24",
+  "dominant_issue": "BM-21",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 157359,
-    "sha256": "ad46b3e7232e66522031c26006001a9ae045b46e80fa748a35e055262cae8792"
+    "bytes": 159569,
+    "sha256": "b197c1980504a284160d77db52f124759f1cced5284c44d179e630cdb9ac8a25"
   },
   "target": {
     "locator": "Original local S40 Godot4.7.2 native result390 and1280 opened at original pixels; same-state four-view S39 baseline rerender from01ea1a also inspected. Current later source b2647df enlarges original cast previews and remains to rerender; retain this source, no stale replacement. No owner-approved rehearsal mockup supplied.",
@@ -57,7 +57,7 @@
     "pixels_inspected": true
   },
   "hypothesis": "Finish verified disclosure continuity and full-reaction accessibility, then one bounded source-backed paper/frame improvement on same S40 result. Reuse strongest original pre-C21 source art, protect source cast/meters/control bytes. Render every retained batch; no claim of final art acceptance.",
-  "controlled_comparison": "Use exact saved Jack/Zoe/Casey real first Rehearse on Day2, readiness18→28, morale55→54, tension0→2, £250→£235 and same existing native case. Compare S39 original four viewport rehearsal_outcome/resumed PNG to exact S40 four-view Godot captures at390x844,720x1280,1280x720,1600x900. First-fold button must be ≥44px and visible on390x844 and1280x720; 3 real portraits preserve IDs; detailed numbers accessible; actual S39 Rehearse and Continue routes must remain green and no double settlement. Two ineffective attempts -> change method/hold.",
+  "controlled_comparison": "Use exact saved Jack/Zoe/Casey real first Rehearse on Day2, readiness18\u219228, morale55\u219254, tension0\u21922, \u00a3250\u2192\u00a3235 and same existing native case. Compare S39 original four viewport rehearsal_outcome/resumed PNG to exact S40 four-view Godot captures at390x844,720x1280,1280x720,1600x900. First-fold button must be \u226544px and visible on390x844 and1280x720; 3 real portraits preserve IDs; detailed numbers accessible; actual S39 Rehearse and Continue routes must remain green and no double settlement. Two ineffective attempts -> change method/hold.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
     "C34 source SHA104c494b255055da3e5bba0e4a0bed78c190d0a0 and S39 verified source 01ea1a5730c087ab85960edd0104bf87012885a4 intact",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Existing9163db9 now independently verified: GitHub exactSHA native run41078291638 all4checks success; local73+88andfour nativepointer/save journeys pass. Original localfour-view PNGs and S39 rerenders inspected. Latest eveningb2647df retained but new native proof pending.",
-  "issues_reviewed_at": "2026-10-31T00:17:49Z",
+  "issues_reviewed_at": "2026-10-31T00:27:10.960072+00:00",
   "progress": {
     "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
     "source_files": [
@@ -101,8 +101,8 @@
     ],
     "simulated_lenses": {
       "art_direction": "SIMULATED, source only: editorial result, true faces and larger metrics directly address the owner's complaint, but no native pixel inspection; artistic verdict HOLD.",
-      "technical_art": "SIMULATED: existing paper_surface and C25 approved ~230px previews reused at ~68–88px. No generated group masters, no photographic-rights claim, no changed original art.",
-      "ui_accessibility": "SIMULATED: CTA is outside result scroll and label is explicit; source test requires ≥44px and first-fold all four. Its native geometry and focus have NOT been seen.",
+      "technical_art": "SIMULATED: existing paper_surface and C25 approved ~230px previews reused at ~68\u201388px. No generated group masters, no photographic-rights claim, no changed original art.",
+      "ui_accessibility": "SIMULATED: CTA is outside result scroll and label is explicit; source test requires \u226544px and first-fold all four. Its native geometry and focus have NOT been seen.",
       "godot_engineering": "SIMULATED: original resolver, save APIs and S39 presenter untouched; new press view reads saved report; native parser and true input not yet confirmed.",
       "qa_producer": "SIMULATED: S39 remains rollback and real verified build. New code and regression checks are committed, but source green cannot be inferred from 11 textual checks. Native evidence and ZIP held."
     },
@@ -170,6 +170,19 @@
     "destination": "experiments/playable_flightcase/art/icons/",
     "protected": "No originalassetbytechanges, no newactions, no icon-onlycontrols. Nativecopy/focus/CTA remains explicit.",
     "validation": "CleanSVGimport, originalsame-state4viewrender, source/licencehashaudit, pointer/keyboard/save regressions.",
+    "owner_approved": false
+  },
+  "benchmark_pass": {
+    "baseline_sha": "a018cafdc781a791a181eeca66ed3acacedfd18b",
+    "hypothesis": "Expose canonical next_step beside fixed return action and make reactions/numbers readable before more texture. Preserve all resolver/save/source-art semantics.",
+    "references": [
+      "https://www.gilligames.com/site/rs2/",
+      "https://playism.com/en/game/idol-manager/",
+      "https://www.ableton.com/en/note/manual/",
+      "https://github.com/LMMS/lmms.io/blob/898d78f547da6fe2f528e9a6a7fa61e5929ba6a6/public/img/screen.png"
+    ],
+    "evidence_limit": "Official descriptions/manuals for first3; actual official-repository LMMS screenshot inspected. No hands-on app testing; no blocked screenshot pixel claims.",
+    "stop_condition": "If increased type/guidance hides primary portraits or return action, correct layout once with preserved failing evidence; do not add tolex decoration to mask clarity failures.",
     "owner_approved": false
   }
 }
