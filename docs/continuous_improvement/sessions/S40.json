@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S40",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.\n31Oct07:27 direct owner: Nice!! This is looking good. Can you package as an android install so I can test on my phone.",
   "baseline_sha": "54f9088e7e19a1f06a041921ed250d6bb3595321",
@@ -1337,5 +1337,14 @@
         "original_source_files_unchanged": true
       }
     }
+  },
+  "closed_at": "2026-10-31T09:00:00Z",
+  "superseded_by_approved_session": "S41",
+  "closeout": {
+    "tested_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+    "evidence": "/workspace/work/s40/runs/phone-95b2574/validation.json",
+    "visual_verdict": "partial",
+    "next_action": "Newowner09:04approvedS41dayplan; overnightS40ended09:00. Preserveits95checkpoint asverifiedhistory.",
+    "new_issue_review": "S40reviewedthrough162beforefreeze; laterS41eventsbelongnewexplicitapprovedscope."
   }
 }

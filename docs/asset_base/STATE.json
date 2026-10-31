@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S41-session-flow-20261031T0913",
-  "last_verified_code_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+  "writer": null,
+  "last_verified_code_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -29,7 +29,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Buildsharedsession presentationguard/fades/skippablebeat andverify real once-onlyinput before nextapprovedslice.",
+  "next_single_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -469,7 +469,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T09:08:46.114986+00:00",
+  "last_updated_utc": "2026-10-31T09:33:25.545628+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -668,7 +668,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "Buildsharedsession presentationguard/fades/skippablebeat andverify real once-onlyinput before nextapprovedslice.",
+  "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -676,202 +676,79 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-    "verified_at": "2026-10-31T08:46:29.830594+00:00",
-    "validation": "/workspace/work/s40/runs/phone-95b2574/validation.json",
-    "scope": "Owner08:25phonefeedback UI-only recruitment discoverability repair.",
+    "source_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086",
+    "verified_at": "2026-10-31T09:33:25.545628+00:00",
+    "scope": "S41firstslice sharedguarded sessiontransitionfoundation",
+    "validation": "/workspace/work/s40/runs/day31-foundation-375e92a/validation.json",
+    "visual_review": "/workspace/work/s40/runs/day31-foundation-375e92a/visual-review.json",
+    "focused_validation": "/workspace/work/day31/transition-qa/focused-validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 120,
+      "native_pngs": 140,
+      "focused_native_checks": 498,
+      "focused_native_views": 2,
+      "focused_original_pngs": 20,
       "engine_error_lines": 0,
-      "orphan_growth": 0
+      "orphan_growth": 0,
+      "protected_source_files": 317,
+      "previous_pngs_identical": 104,
+      "intentional_settings_png_changes": 16
     },
-    "source_hashes": [
-      {
-        "path": "experiments/playable_flightcase/ui.gd",
-        "source_ref": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-        "sha256": "9020925824f87e3a4b05f0d32751f20871697742bc93e260c1a6daed6c3a30d2"
-      },
-      {
-        "path": "experiments/playable_flightcase/opening_capture.gd",
-        "source_ref": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-        "sha256": "646e1d21983353ba077f994ac9a16777f971ee5e7bd1357679753f0f895efd2c"
-      }
+    "standard_originals_opened": [
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-720x1280.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-720x1280.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-720x1280.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-720x1280.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-720x1280.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-1280x720.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-1280x720.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-1280x720.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-1280x720.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-1280x720.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_WriteAction-1600x900.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_RehearseAction-1600x900.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-session_beat_ClearAirAction-1600x900.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_saved_draft_motion_off-1600x900.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-rehearsal_outcome-1600x900.png"
     ],
-    "native_packages": {
-      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-      "project_files": 274,
-      "archives": [
-        {
-          "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10669056,
-          "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
-          "zip_crc": "PASS"
-        }
-      ],
-      "publication": "LOCAL only",
-      "owner_approved": false,
-      "extracted_clean_import_and_native_entry": "PASS with explicit Dummy audio; initial host ALSA error preserved",
-      "package_smoke": "/workspace/work/s40/runs/phone-95b2574/packages/package-smoke.json"
-    },
-    "package_smoke": {
-      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-      "clean_import": "PASS",
-      "native_entry_dummy_audio": "PASS",
-      "failed_default_audio_log": "/workspace/work/s40/runs/phone-95b2574/packages/native-entry.log",
-      "corrected_log": "/workspace/work/s40/runs/phone-95b2574/packages/native-entry-dummy.log",
-      "pass": true
-    },
-    "visual_review": "/workspace/work/s40/runs/phone-95b2574/visual-review.json",
-    "images_opened_by_render_review": [
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-390x844.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-390x844.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-720x1280.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-720x1280.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1280x720.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1280x720.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1600x900.png",
-      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1600x900.png"
+    "additional_root_originals_opened": [
+      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-session_beat_RehearseAction-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-settings_saved_draft_motion_off-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-fb8651c/captures/c27-settings_no_draft_query_fixture_open-1280x720.png",
+      "/workspace/work/day31/transition-qa/baseline-fb8651c/captures/FIRST-FAILURE-case_reduced_and_rejected-390x844.png",
+      "/workspace/work/day31/transition-qa/baseline-wide-fb8651c/captures/FIRST-FAILURE-case_resize-390x844.png",
+      "/workspace/work/s40/runs/day31-foundation-375e92a/captures/c27-settings_no_draft_query_fixture_open-1280x720.png",
+      "/workspace/work/day31/transition-qa/settled-375e92a-wide/captures/resize-390x844-390x844.png",
+      "/workspace/work/day31/transition-qa/settled-375e92a-phone/captures/reduced-motion-result-390x844.png"
     ],
-    "render_simulated_lenses": {
-      "phone_player": "SIMULATED: The missing vocal assignment now has a visible first-fold action instead of requiring a separate Singer or a search through the dossier.",
-      "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
-      "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
-      "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-      "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
-    },
-    "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
-    "source_protection_evidence": {
-      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-      "baseline": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-      "changed_game_paths": [
-        "experiments/playable_flightcase/opening_capture.gd",
-        "experiments/playable_flightcase/ui.gd"
-      ],
-      "all_model_art_hardware_meter_cast_bytes": "UNCHANGED by complete tracked diff",
-      "save_schema": "UNCHANGED",
-      "budget_cash_genre_poster": "UNCHANGED",
-      "pass": true
-    },
-    "protected_nonrecruit_originals": {
-      "kind": "Read-only independent byte and pixel comparison; no separate file written in this task.",
-      "baseline": "/workspace/work/s40/runs/resize-bb38882/captures",
-      "candidate": "/workspace/work/s40/runs/phone-95b2574/captures",
-      "nonrecruit_originals_compared": 100,
-      "all_byte_identical": true,
-      "all_pixel_identical": true,
-      "missing_or_differing_originals": [],
-      "intentional_recruitment_images_excluded": 20,
-      "result": "Title, practice, results and every other same-named non-recruit screenshot remain unchanged. Four new needs-vocals images supplement the existing recruitment views."
+    "source_protection": "/workspace/work/day31/protection-audit-foundation.json",
+    "simulated_lenses": {
+      "phone_player": "SIMULATED: A committed session now has a readable named beat and visible results action, with the original result immediately recognizable afterward.",
+      "keyboard_accessibility": "SIMULATED: Native original Kit targets remain visible and standard Settings focus/input checks pass. The motion-off choice is discoverable; separate focused diagnosis must close before broader continuity claims.",
+      "management_player": "SIMULATED: Standard presentation checks preserve settled action count/save bytes. Completed-day captions describe the recorded session; no new economy or cost rule is introduced.",
+      "art_director": "SIMULATED: Original paper,cast,recruitment,meters and hardware remain exact on104 protected views. Sparse dark beats provide pacing foundation; approved paper hub/receipt composition remains future scoped work and overall artwork stays partial.",
+      "godot_release_qa": "SIMULATED: Exact375 passes73+88/import/four native journeys with140 originals.20 requested PNGs were opened; all120 old names compared,104 exact and16 intentional Settings differences. Earlier landscape/card failures are preserved, and focused Motion classification remains separate."
     },
     "visual_verdict": "partial",
     "owner_approved": false,
-    "android_package": {
-      "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "status": "v2_signed_apk_delivered_private_phone_retest_pending",
-      "owner_reported_v1_install_worked": true,
-      "owner_reported_at": "2026-10-31T08:25:00Z",
-      "agent_android_device_tested": false,
-      "updated_apk_phone_tested": false,
-      "private_delivery": {
-        "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-        "recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-        "artifact_path": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
-        "local_sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
-        "size": 65825156,
-        "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
-        "permissions": [
-          {
-            "type": "user",
-            "role": "reader",
-            "emailAddress": "alimuir654@gmail.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          },
-          {
-            "type": "user",
-            "role": "owner",
-            "emailAddress": "chair@lovewelluk.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          }
-        ],
-        "remote_checksum": "Not exposed by connector",
-        "phone_v1_install": "Owner confirmed",
-        "phone_v2_tested": false,
-        "readback": {
-          "id": "1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H",
-          "title": "BandMaster-Playtest-v2.apk",
-          "mime_type": "application/vnd.android.package-archive",
-          "size": "65825156",
-          "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
-          "display_url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
-          "file_or_folder": "file",
-          "created_time": null,
-          "modified_time": null,
-          "parent_ids": null,
-          "drive_id": null,
-          "current_user_can_share": null,
-          "has_augmented_permissions": null,
-          "shared": null,
-          "permissions": [
-            {
-              "type": "user",
-              "role": "reader",
-              "emailAddress": "alimuir654@gmail.com",
-              "domain": null,
-              "displayName": null,
-              "allowFileDiscovery": null
-            },
-            {
-              "type": "user",
-              "role": "owner",
-              "emailAddress": "chair@lovewelluk.com",
-              "domain": null,
-              "displayName": null,
-              "allowFileDiscovery": null
-            }
-          ],
-          "source_visibility_status": "permission_metadata_available"
-        }
-      },
-      "build_receipt": "/workspace/work/s40/android/build-phone-v2-e8a8547/build.json",
-      "apk_checks": {
-        "apk": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
-        "bytes": 65825156,
-        "sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
-        "signature": "PASS",
-        "alignment_16kb": "PASS",
-        "application_id": "com.bandmaster.ownerplaytest.s40",
-        "abis": [
-          "arm64-v8a",
-          "armeabi-v7a"
-        ],
-        "cast_json_byte_identical": true,
-        "original_source_files_unchanged": true
-      }
-    },
-    "simulated_lenses": {
-      "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-      "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
-      "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
-      "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
-      "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
-    },
+    "new_android_apk": false,
+    "new_project_zip": false,
     "remaining_gaps": [
-      "UpdatedAPK actualphone behavior awaits owner; agent has no Androiddevice/emulator proof.",
-      "Poster/title,genre styling,200talent balance and leftover-to-cash conversion proposed only.",
-      "Overallart fidelity remainsPARTIAL; owner installation feedback is not blanket artwork acceptance.",
-      "Exact95 isolated274-file sourceZIP CRC/import/nativeentry PASS with explicitDummy audio; initialhostALSA error preserved before correction.",
-      "Public completehistory sync remains blocked pending explicit approval."
+      "Approvedwriting/rehearsal/daycloseworkspace stillnext, thischeckpointonlyfoundation.",
+      "Owner-facingposterart remainsdesignreference; nativeheroartnotintegrated.",
+      "S41actualphonebuildpendingoneendmilestone; v2phoneAPKstill95game.",
+      "Motionpreferencecurrentlysession-only, matchingnonpersistedexistingaudioUI;no newsettingspersistence/schema.",
+      "Historicalevent165 evidenceclocklabel09:17 inaccurate; its recorded_at timestamp is authoritative. Allfailedprobes retained; nativegeometrydiagnosis andpositiveprobe linked."
     ],
-    "next_action": "Review readiness and the privately delivered update with the owner. At08:50 remain read-only;09:00hard cutoff unchanged. No further implementation in this lease. Existing200talent budget, leftover-talent-to-cash conversion, genre styling and poster/title requests remain proposals for a separately scoped validated pass. Preserve same test signing key/applicationID and update without uninstalling; assess Android touch/keyboard/Back/Continue only from actual phone feedback."
+    "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
