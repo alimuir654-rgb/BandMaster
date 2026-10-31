@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "S41 exact verified c9 milestone packaging and one private same-key Androidupdate; no game/art/source changes.",
+  "scope": "S41 milestone delivered; owner-review readiness/newfeedback only through15:00,14:50finalread-only.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "Inventory/preserveexactc9 project+originalreviewPNGs, atomicpackage andfresh extractednativeentry, thenone signedcode3 AndroidAPK andverifiedprivateowner delivery.",
+  "status": "active_review_ready",
+  "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -282,7 +282,473 @@
       "Budget175trial/unusedtalentcash/genrevariants remainbacklog; no hiddenmodel/schema changes.",
       "Pre-existingconditionalstoragefailurelimitation retained incore75closeout; notdemonstrated here."
     ],
-    "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop."
+    "next_action": "Package exactc9 milestone isolatedproject/evidence, verify fresh extractedimport/nativeentry, thenONE sameapplicationID/testkey versioncode3 APK privatelyshared withowner. No newfeatures;14:50read-only/15:00hardstop.",
+    "native_packages": {
+      "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+      "project_files": 276,
+      "source_archive_entries": 278,
+      "review_original_pngs": 38,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 12803797,
+          "sha256": "8a9a0ed1085483f59895b93540de02df7615c6abc01f16b56f7d1f60c4ac549e",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/native-quality-review.zip",
+          "bytes": 19053420,
+          "sha256": "ec7a69bb4b7abab90cd37f9457da125c0c20fd3657e703f8d29bc49af627e24a",
+          "zip_crc": "PASS"
+        }
+      ],
+      "validation": "/workspace/work/s40/runs/day31-poster-c9c67ad/validation.json",
+      "isolated_project_entry_exception": "project.godot is the exact146-byte tested isolated95 recipe, not the production Git project; source project blob ID is recorded separately.",
+      "entry_recipe": {
+        "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+        "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
+        "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "manifest_paths": 274,
+        "isolated_entry_sha256": "f4a1d001bd3cc2006388b3e772bb2019ca7f9d744ddd134e50a6fa79a03ccc50"
+      },
+      "review_pngs": [
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-390x844.png",
+          "archive_path": "original-png/c27-title-390x844.png",
+          "bytes": 285966,
+          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-390x844.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-390x844.png",
+          "bytes": 304897,
+          "sha256": "ddbc0ad89a03d502c13f66afec0f4bd5b27be7b1cc24427b2fceaeef560fcef2",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-390x844.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-390x844.png",
+          "bytes": 277374,
+          "sha256": "ff83d9d65e36074cb6b338dcfb1e0178f7593015a7c6f08738ebf65ebbe04c1a",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-390x844.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-390x844.png",
+          "bytes": 294130,
+          "sha256": "52ce2007fe7567d3c38ad22d1b3f02feaea55ae6ddf8e9081a4c3df3d409e89b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-390x844.png",
+          "archive_path": "original-png/c27-practice_mode_connect_day1-390x844.png",
+          "bytes": 291718,
+          "sha256": "986c4c4782e564eb045f07c2a13ea8d363a685dceea18d2ce42f2b3227b2b5ef",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-390x844.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+          "bytes": 320848,
+          "sha256": "e972c07af82d977167fed6328b70aa007e5a886166fb4710270cb201db2c1ce1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-720x1280.png",
+          "archive_path": "original-png/c27-title-720x1280.png",
+          "bytes": 619548,
+          "sha256": "8d6451598dc6e1db69738ed9d624b82a615175c95c5276e0c47fa7395ca649d8",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-720x1280.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-720x1280.png",
+          "bytes": 590298,
+          "sha256": "c903950b61985c2f8f601eb41ac40d0ba672626d85c93e9e42e3f2c6a8820b0c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-720x1280.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-720x1280.png",
+          "bytes": 555098,
+          "sha256": "e2b63c9c54b02e85c4fc072b18906f4b787d8cfea8b64966157fda5063e32cdc",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-720x1280.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-720x1280.png",
+          "bytes": 485148,
+          "sha256": "7c301c3d58a348b1b6a35a7d3a01edf8b76d0a99db625d43ee0fc70cf93f19b5",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-720x1280.png",
+          "archive_path": "original-png/c27-practice_mode_connect_day1-720x1280.png",
+          "bytes": 479648,
+          "sha256": "78be7640ecd35acbf80ea74458ee694b8a356b766efc7c5bd08a9d5289908887",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-720x1280.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-720x1280.png",
+          "bytes": 563343,
+          "sha256": "948266d9cd08009972724f19925455cc91b15e741b159cd3e85255616c6a1613",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1280x720.png",
+          "archive_path": "original-png/c27-title-1280x720.png",
+          "bytes": 707575,
+          "sha256": "aae24403399ff413d3122b82745788c3806ecd85c434595376d370e049027f5e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1280x720.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-1280x720.png",
+          "bytes": 769827,
+          "sha256": "4a86a9380ed26d166bf8dfe7d9991e7565381c5d13fbc5188a9102db465d062a",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-1280x720.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-1280x720.png",
+          "bytes": 477160,
+          "sha256": "684460e607b0540e685c23333e270e1fea35d0aba1e1534b2dbe0336bd1ff389",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-1280x720.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-1280x720.png",
+          "bytes": 516573,
+          "sha256": "07e170f4d582432a9e2a42b6b379866f7d681ddbdb98b6f63df4bc09469b3667",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-1280x720.png",
+          "archive_path": "original-png/c27-practice_mode_connect_day1-1280x720.png",
+          "bytes": 512529,
+          "sha256": "ecad4f6be70c7741cbadedf93b0389eda36714b62ecc727d59015377759ceeb8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-1280x720.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+          "bytes": 536311,
+          "sha256": "50632466c45f760261e4396b1b714fbdaf73613fcd73520526e1bedfaf74114b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-title-1600x900.png",
+          "archive_path": "original-png/c27-title-1600x900.png",
+          "bytes": 771876,
+          "sha256": "3a19c6483522317d689c8d9dc71de3d9eff1644797b216e468b7bc4afd3bf747",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-settings_saved_draft_open-1600x900.png",
+          "archive_path": "original-png/c27-settings_saved_draft_open-1600x900.png",
+          "bytes": 834599,
+          "sha256": "2c8659dd2de163ab0ad6cc1442ab1d44c89b6090e5a8577820c92d1880df498e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_create_day1-1600x900.png",
+          "archive_path": "original-png/c27-practice_mode_create_day1-1600x900.png",
+          "bytes": 608142,
+          "sha256": "47f237d0bd5a03868879cce7fa70ac0debeffbd1777113a7c2ad595d34c023c0",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_tighten_day1-1600x900.png",
+          "archive_path": "original-png/c27-practice_mode_tighten_day1-1600x900.png",
+          "bytes": 567158,
+          "sha256": "d7d49ecb849a5b239335e252bab97b83735b2c1bbbc50236ae2efdd15b2b374a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-practice_mode_connect_day1-1600x900.png",
+          "archive_path": "original-png/c27-practice_mode_connect_day1-1600x900.png",
+          "bytes": 559839,
+          "sha256": "725ef72dd3d677bd80f1a2ab155f7c2e9242cf3debf6c541ba6127fb408cac01",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/day31-poster-c9c67ad/captures/c27-rehearsal_outcome-1600x900.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1600x900.png",
+          "bytes": 625284,
+          "sha256": "28c86bdb9cefa734b0d6dd8f22fae9c87c6fc67abccffbf237acba3b593b365a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-no-draft-closed-390x844.png",
+          "archive_path": "original-png/opening-no-draft-closed-390x844.png",
+          "bytes": 290461,
+          "sha256": "9512b130330db752c3a0791c40006c7f7f216b977a7b2ebfb4795d1dba90ac8e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-open-390x844.png",
+          "archive_path": "original-png/no-draft-settings-open-390x844.png",
+          "bytes": 307306,
+          "sha256": "6d206b26dfe8df54b9efddf5561806fd433d679ccccd3fc1729035d03c4b79be",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/no-draft-settings-muted-390x844.png",
+          "archive_path": "original-png/no-draft-settings-muted-390x844.png",
+          "bytes": 307523,
+          "sha256": "83e8d5bd6cbd1bbecfb21e6e2c68d2bcbbfadf6394031402f3ee8c7c1ce687e2",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-saved-closed-390x844.png",
+          "archive_path": "original-png/opening-saved-closed-390x844.png",
+          "bytes": 285966,
+          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/saved-draft-settings-open-390x844.png",
+          "archive_path": "original-png/saved-draft-settings-open-390x844.png",
+          "bytes": 304897,
+          "sha256": "86bb96f4bdaf559bd1a4ef5dc3513ea9ed26af3d8e18ecb28dca49b785e524a9",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/saved-draft-settings-muted-390x844.png",
+          "archive_path": "original-png/saved-draft-settings-muted-390x844.png",
+          "bytes": 304972,
+          "sha256": "70afe19ef52512462d88ef5b460f35dde45f9d9b4d2aa445472ee31202e58990",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-phone/captures/opening-continued-day2-390x844.png",
+          "archive_path": "original-png/opening-continued-day2-390x844.png",
+          "bytes": 322012,
+          "sha256": "97bda5102cf35fe06cd2c6e6cea05219649d396cb79c0be0e1bb22579de74b78",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-no-draft-closed-1152x648.png",
+          "archive_path": "original-png/opening-no-draft-closed-1152x648.png",
+          "bytes": 617261,
+          "sha256": "76ea2047bc70b4c2b009499c8d3a18542bdff4a8e8fac11211ee0a4a740c61ba",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-open-1152x648.png",
+          "archive_path": "original-png/no-draft-settings-open-1152x648.png",
+          "bytes": 676584,
+          "sha256": "2faad8ea10d1fe121ade4cafe6eecd0c5bf3c5d39067b734f9d39b35500562af",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/no-draft-settings-muted-1152x648.png",
+          "archive_path": "original-png/no-draft-settings-muted-1152x648.png",
+          "bytes": 676853,
+          "sha256": "130d27f6210f2760771af0a5e0df45f79cba7ee68f9c198ad1d2aa114a94cab1",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-saved-closed-1152x648.png",
+          "archive_path": "original-png/opening-saved-closed-1152x648.png",
+          "bytes": 611874,
+          "sha256": "cbc4ea72b8427af3c6c41c8e0de5e7e5923db5537144686af5990e348043e132",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/saved-draft-settings-open-1152x648.png",
+          "archive_path": "original-png/saved-draft-settings-open-1152x648.png",
+          "bytes": 673276,
+          "sha256": "adad99be2e637f79a49d373517331c4f4258cd85b883cda51160ca425eca1585",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/saved-draft-settings-muted-1152x648.png",
+          "archive_path": "original-png/saved-draft-settings-muted-1152x648.png",
+          "bytes": 673546,
+          "sha256": "253ff939c94bb6873af1370f64c24d224b4f5abe3595a1a03572d1f0b06df5c3",
+          "width": 1152,
+          "height": 648
+        },
+        {
+          "source_path": "/workspace/work/day31/poster-qa/menu-c9c67ad-default-entry/captures/opening-continued-day2-1152x648.png",
+          "archive_path": "original-png/opening-continued-day2-1152x648.png",
+          "bytes": 465469,
+          "sha256": "14dce3dcee024131cde53337875548c850c53085c4677da9e2c08c8301f33ca6",
+          "width": 1152,
+          "height": 648
+        }
+      ],
+      "explicit_poster_asset": "experiments/playable_flightcase/art/opening_stage.png",
+      "publication": "LOCAL only; no upload/publication performed",
+      "owner_approved": false,
+      "extracted_clean_import_and_native_entry": "PASS: fresh276-file manifest/extracted import and actual native opening.tscn entry, explicitDummy audio and isolateduserdata",
+      "package_smoke": "/workspace/work/s40/runs/day31-poster-c9c67ad/packages/package-smoke.json",
+      "method": "Exact Git blobs + tested entry recipe + explicit PNG inventory loaded before writes; temporary ZIP CRC/content checks then atomic replacement."
+    },
+    "android_milestone": {
+      "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "status": "v3_signed_apk_delivered_private_phone_retest_pending",
+      "owner_reported_v1_install_worked": true,
+      "agent_android_device_tested": false,
+      "updated_apk_phone_tested": false,
+      "build_receipt": "/workspace/work/day31/android/build-c9c67ad-v3/build.json",
+      "update_compatibility": "/workspace/work/day31/android/build-c9c67ad-v3/update-compatibility.json",
+      "private_delivery": {
+        "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+        "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+        "artifact_path": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+        "local_sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+        "size": 67439436,
+        "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+        "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+        "mime_type": "application/vnd.android.package-archive",
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          }
+        ],
+        "remote_checksum": "Not exposed by connector; no remotechecksum claim",
+        "phone_v1_owner_install_worked": true,
+        "phone_v3_tested": false,
+        "agent_android_device_tested": false,
+        "readback": {
+          "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+          "title": "BandMaster-Playtest-v3.apk",
+          "mime_type": "application/vnd.android.package-archive",
+          "size": "67439436",
+          "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+          "file_or_folder": "file",
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": null,
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "user",
+              "role": "reader",
+              "emailAddress": "alimuir654@gmail.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "chair@lovewelluk.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        },
+        "review_page": {
+          "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+          "sequence": 5
+        },
+        "phone_page": {
+          "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+          "sequence": 8
+        },
+        "poster_image_upload": {
+          "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+          "reference": "library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+          "file_name": "c27-title-390x844-b5d8379a37ca44de84ce7e8027b7fc4a.png",
+          "mime_type": "image/png",
+          "byte_size": 285966,
+          "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
+          "file_access_confirmed": true,
+          "is_image": true,
+          "markdown": "![BandMaster native opening poster](library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec)",
+          "inserted": false,
+          "next_step": "Read the Page and use edit_page with its fresh guards to insert markdown."
+        }
+      },
+      "apk_checks": {
+        "apk": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+        "bytes": 67439436,
+        "sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+        "version_code": 3,
+        "version_name": "0.41.0-playtest",
+        "application_id": "com.bandmaster.ownerplaytest.s40",
+        "abis": [
+          "arm64-v8a",
+          "armeabi-v7a"
+        ],
+        "signature": "PASS",
+        "alignment_16kb": "PASS",
+        "apk_crc": "PASS",
+        "cast_json_byte_identical": true,
+        "original_source_files_unchanged": true
+      }
+    },
+    "owner_review_pages": {
+      "plan": {
+        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+        "sequence": 5
+      },
+      "phone": {
+        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "sequence": 8
+      }
+    }
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -1050,20 +1516,23 @@
     "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview."
   },
   "android_owner_package": {
-    "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+    "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
     "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-    "status": "v2_signed_apk_delivered_private_phone_retest_pending",
+    "status": "v3_signed_apk_delivered_private_phone_retest_pending",
     "owner_reported_v1_install_worked": true,
-    "owner_reported_at": "2026-10-31T08:25:00Z",
     "agent_android_device_tested": false,
     "updated_apk_phone_tested": false,
+    "build_receipt": "/workspace/work/day31/android/build-c9c67ad-v3/build.json",
+    "update_compatibility": "/workspace/work/day31/android/build-c9c67ad-v3/update-compatibility.json",
     "private_delivery": {
-      "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
-      "recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "artifact_path": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
-      "local_sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
-      "size": 65825156,
-      "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+      "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "artifact_path": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+      "local_sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+      "size": 67439436,
+      "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+      "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+      "mime_type": "application/vnd.android.package-archive",
       "permissions": [
         {
           "type": "user",
@@ -1082,16 +1551,17 @@
           "allowFileDiscovery": null
         }
       ],
-      "remote_checksum": "Not exposed by connector",
-      "phone_v1_install": "Owner confirmed",
-      "phone_v2_tested": false,
+      "remote_checksum": "Not exposed by connector; no remotechecksum claim",
+      "phone_v1_owner_install_worked": true,
+      "phone_v3_tested": false,
+      "agent_android_device_tested": false,
       "readback": {
-        "id": "1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H",
-        "title": "BandMaster-Playtest-v2.apk",
+        "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+        "title": "BandMaster-Playtest-v3.apk",
         "mime_type": "application/vnd.android.package-archive",
-        "size": "65825156",
-        "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
-        "display_url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+        "size": "67439436",
+        "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
         "file_or_folder": "file",
         "created_time": null,
         "modified_time": null,
@@ -1119,20 +1589,43 @@
           }
         ],
         "source_visibility_status": "permission_metadata_available"
+      },
+      "review_page": {
+        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+        "sequence": 5
+      },
+      "phone_page": {
+        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "sequence": 8
+      },
+      "poster_image_upload": {
+        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+        "reference": "library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+        "file_name": "c27-title-390x844-b5d8379a37ca44de84ce7e8027b7fc4a.png",
+        "mime_type": "image/png",
+        "byte_size": 285966,
+        "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
+        "file_access_confirmed": true,
+        "is_image": true,
+        "markdown": "![BandMaster native opening poster](library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec)",
+        "inserted": false,
+        "next_step": "Read the Page and use edit_page with its fresh guards to insert markdown."
       }
     },
-    "build_receipt": "/workspace/work/s40/android/build-phone-v2-e8a8547/build.json",
     "apk_checks": {
-      "apk": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
-      "bytes": 65825156,
-      "sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
-      "signature": "PASS",
-      "alignment_16kb": "PASS",
+      "apk": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+      "bytes": 67439436,
+      "sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+      "version_code": 3,
+      "version_name": "0.41.0-playtest",
       "application_id": "com.bandmaster.ownerplaytest.s40",
       "abis": [
         "arm64-v8a",
         "armeabi-v7a"
       ],
+      "signature": "PASS",
+      "alignment_16kb": "PASS",
+      "apk_crc": "PASS",
       "cast_json_byte_identical": true,
       "original_source_files_unchanged": true
     }
@@ -1146,7 +1639,7 @@
     "owner_approved": false,
     "no_apk_per_change": true
   },
-  "delivery_status": "S41nativecheckpointverified; singlemilestoneAPKpending. Deliveredv2remains95untilnewreceipt.",
+  "delivery_status": "Onev3APK0.41.0/code3privatelydelivered; nativeproject/reviewZIPLOCAL. Actualphonev3testpending.",
   "approved_day_schedule": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
     "enabled": true,
@@ -1154,6 +1647,99 @@
     "review_only_from": "2026-10-31T14:50:00Z",
     "same_thread": true,
     "one_source_writer": true,
-    "no_continuous_compute_claim": true
-  }
+    "no_continuous_compute_claim": true,
+    "root_released_at": "2026-10-31T11:41:42.777354+00:00",
+    "next_focus": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension.",
+    "latest_game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d"
+  },
+  "previous_android_packages": [
+    {
+      "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "status": "v2_signed_apk_delivered_private_phone_retest_pending",
+      "owner_reported_v1_install_worked": true,
+      "owner_reported_at": "2026-10-31T08:25:00Z",
+      "agent_android_device_tested": false,
+      "updated_apk_phone_tested": false,
+      "private_delivery": {
+        "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+        "artifact_path": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+        "local_sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+        "size": 65825156,
+        "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          }
+        ],
+        "remote_checksum": "Not exposed by connector",
+        "phone_v1_install": "Owner confirmed",
+        "phone_v2_tested": false,
+        "readback": {
+          "id": "1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H",
+          "title": "BandMaster-Playtest-v2.apk",
+          "mime_type": "application/vnd.android.package-archive",
+          "size": "65825156",
+          "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+          "file_or_folder": "file",
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": null,
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "user",
+              "role": "reader",
+              "emailAddress": "alimuir654@gmail.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "chair@lovewelluk.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
+        }
+      },
+      "build_receipt": "/workspace/work/s40/android/build-phone-v2-e8a8547/build.json",
+      "apk_checks": {
+        "apk": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+        "bytes": 65825156,
+        "sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+        "signature": "PASS",
+        "alignment_16kb": "PASS",
+        "application_id": "com.bandmaster.ownerplaytest.s40",
+        "abis": [
+          "arm64-v8a",
+          "armeabi-v7a"
+        ],
+        "cast_json_byte_identical": true,
+        "original_source_files_unchanged": true
+      }
+    }
+  ]
 }
