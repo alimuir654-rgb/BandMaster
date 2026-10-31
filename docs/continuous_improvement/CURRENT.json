@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S43.json",
-  "scope": "New direct owner request after V4: liked splash/title lettering; overhaul recruitment into guitarists, bass, drums then vocals, no tabs; action-triggered progressive pen-and-paper notes and engagement; improve genre images. Existing-screen UI/art only.",
+  "scope": "Requested S43 audition/ink-note/genre-art candidate prepared; native validation blocked by automatic review of prior15:00cutoff. No candidate release claim.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "owner_requested_audition_engagement_active",
-  "next_action": "Implement ordered auditions and action-only ink notes, evaluate independent genre artwork and heading, then native evidence/review; no APK by default.",
+  "status": "candidate_held_native_approval_blocked",
+  "next_action": "Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -2716,5 +2716,12 @@
     "build": "/workspace/work/day31/android/build-6c1f50d-v4/build.json",
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
-  "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval."
+  "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
+  "latest_unverified_candidate": {
+    "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+    "status": "hold",
+    "native_verified": false,
+    "closeout": "/workspace/work/day31/s43/held-closeout.json",
+    "protected_inputs_unchanged": 339
+  }
 }

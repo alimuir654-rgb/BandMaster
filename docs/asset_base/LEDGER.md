@@ -1006,3 +1006,12 @@ Next: Owner installs V4 as Update without uninstalling, confirms existing progre
 New post-V4 owner feedback authorises existing-screen UX/art changes. Ordered guitar, bass, drums and vocals auditions replace tabs; action-triggered gradual native ink notes, companion title-style heading and stronger genre images. Original approved cast, meters, hardware, models, costs and save schema protected. One bounded root source writer/GL through18:00UTC; source/art and native verification pending. Liked splash acceptance is specific, not global art approval. No new APK by default or automatic queue extension.
 
 Next: Implement ordered auditions and action-only ink notes, evaluate independent genre artwork and heading, then native evidence/review; no APK by default.
+
+
+# S43 audition/ink/genre candidate HELD — 2026-10-31T16:27:28.619647+00:00
+
+Candidate `445230210a4b41371b29dff5eaa442a4918c10be` is NOT native-verified. Ordered guitar/bass/drums/vocals auditions, explicit review, action-only gradual ink notes, companion AUDITIONS heading and14 independent genre illustrations are prepared. All339 protected source inputs unchanged; original liked splash, cast, meters, hardware, models and save schema preserved. Standalone-null static finding filed before correction.
+
+Automatic approval review rejected both native validation attempts before execution, enforcing old15:00hardstop and declining assistant-described newer authority. No workaround, newnativePNG, model/import/GL run, APK or package. Latest verified6c and deliveredV4 remain baseline. Exact actual source images opened, five SIMULATED lenses, source caveats, rejection evidence and pending tests: `/workspace/work/day31/s43/held-closeout.json`. Source-art inspection is promising, but nativefit/readability/behaviour and owneracceptance remain HOLD. Writer released.
+
+Next: Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.

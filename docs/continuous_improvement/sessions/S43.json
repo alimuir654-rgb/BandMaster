@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S43",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "New direct owner request after V4: liked splash/title lettering; overhaul recruitment into guitarists, bass, drums then vocals, no tabs; action-triggered progressive pen-and-paper notes and engagement; improve genre images. Existing-screen UI/art only.",
   "baseline_sha": "6061444619e400fbc4d46cf55bb272351f08aa2c",
@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 342282,
-    "sha256": "dfd3fcf788fe1287a6036a064d863ec04b38d48ce63ae37b7ae5e1631632e8c9"
+    "bytes": 344461,
+    "sha256": "a455c6cbde25c4ba85119f6300a87d83813734d9837a786cd868958b6136caa0"
   },
   "target": {
     "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-recruit-390x844.png",
@@ -93,7 +93,7 @@
   "started_at": "2026-10-31T16:11:59.050787+00:00",
   "scope_end": "2026-10-31T18:00:00Z",
   "game_baseline_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-  "next_action": "Implement ordered auditions and action-only ink notes, evaluate independent genre artwork and heading, then native evidence/review; no APK by default.",
+  "next_action": "Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.",
   "failures": [
     {
       "event": "S43-validation-automatic-review-stale-cutoff",
@@ -108,5 +108,26 @@
       "tests_executed": false,
       "bypass_used": false
     }
-  ]
+  ],
+  "closed_at": "2026-10-31T16:27:28.619647+00:00",
+  "candidate_source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+  "closeout": {
+    "tested_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+    "candidate_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
+    "candidate_native_tested": false,
+    "evidence": [
+      "/workspace/work/day31/s43/held-closeout.json",
+      "experiments/playable_flightcase/art/S43_PROVENANCE.json"
+    ],
+    "visual_verdict": "hold",
+    "next_action": "Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.",
+    "new_issue_review": "Owner recurrence209; automatic-review rejection210; standalone null-host issue211 filed before staticfix; rejection212; candidateheld213. No native execution, bypass, APK or gateweakening.",
+    "five_simulated_lenses": {
+      "phone_player": "SIMULATED source review: one-role-at-a-time auditions and an explicit vocal/review route should replace tab jumping. Native fit and real input remain unverified.",
+      "management_player": "SIMULATED source review: existing setup APIs still own every hire/remove/vocal fee/save; navigation, audition and note reveal have no model/save calls. Exactly-once behaviour requires native proof.",
+      "accessibility": "SIMULATED source review: full text remains shaped, tap/Enter/Space can show notes, reduced motion stays immediate, and local note input retains focus. Actual keyboard/resize/teardown proof pending.",
+      "art_director": "SIMULATED original-source inspection: AUDITIONS lettering and14 instrument screenprints are more tangible than diagrams. Raw fringes, canvas-edge cropping, dense phone detail and final native contrast/fit remain unapproved/unverified.",
+      "release_qa": "SIMULATED static review:339 protected tracked inputs unchanged; explicit capture/probe adaptations prepared. Both validation attempts rejected before launch; no native PASS, no new APK/package and no bypass."
+    }
+  }
 }

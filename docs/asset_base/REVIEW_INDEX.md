@@ -1,3 +1,14 @@
+# S43 audition/ink/genre candidate HELD — 2026-10-31T16:27:28.619647+00:00
+
+Candidate `445230210a4b41371b29dff5eaa442a4918c10be` is NOT native-verified. Ordered guitar/bass/drums/vocals auditions, explicit review, action-only gradual ink notes, companion AUDITIONS heading and14 independent genre illustrations are prepared. All339 protected source inputs unchanged; original liked splash, cast, meters, hardware, models and save schema preserved. Standalone-null static finding filed before correction.
+
+Automatic approval review rejected both native validation attempts before execution, enforcing old15:00hardstop and declining assistant-described newer authority. No workaround, newnativePNG, model/import/GL run, APK or package. Latest verified6c and deliveredV4 remain baseline. Exact actual source images opened, five SIMULATED lenses, source caveats, rejection evidence and pending tests: `/workspace/work/day31/s43/held-closeout.json`. Source-art inspection is promising, but nativefit/readability/behaviour and owneracceptance remain HOLD. Writer released.
+
+Next: Obtain explicit owner permission to continue requested implementation and isolated native validation after previous15:00cutoff; then bounded preflight/lease and focused tests before full proof. Do not package or call candidate verified until tests pass.
+
+
+## Preserved review history
+
 # S42 requested Android V4 delivered — 2026-10-31T15:42:07.634863+00:00
 
 Exactgame `6c1f50d8c63deedaa678ff543fc6b85e4d767a33`, unchangedexportrecipee8a8547. V4/code4/0.41.1-playtest,68247033bytes SHA256 `0fb480e04d1ab641a8ae52450e7f086fa4f3abceab4e1a969c56b994b1e6ea63`. Nineexport/import/sign/alignment/manifeststeps PASS0ERROR; independent630-entry privacy/sourceaudit no blocker. Samecertificate/appID andbyte-identicalV3Android/saveconfig; currentgenre/titlewordmark actuallyincluded. PrivateAPK MIME/size/namedreader alimuir654@gmail.com readbackverified, noanyone/domainshare, no cloudchecksum/deviceproofclaim.
