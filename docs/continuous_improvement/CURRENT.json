@@ -69,10 +69,10 @@
     "root_released_at": "2026-10-31T05:20:03.478294+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
     "next_focus": "Read-only exact-checkpoint readiness/newsteering review; no repeat tests or invented art/QA scope.",
-    "last_prompt_updated_at": "2026-10-31T04:10:41.763215+00:00",
+    "last_prompt_updated_at": "2026-10-31T05:22:09.595461+00:00",
     "last_completed_checkpoint_source": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
     "final_review_guard": "Wake at08:50or later is read-only final review/report; handles early09:00invocation, hard09:00cutoff unchanged.",
-    "last_completed_focused_qa": "/workspace/work/s40/modal-qa/validation.json"
+    "last_completed_focused_qa": "/workspace/work/s40/runs/resize-bb38882/fresh-probe-comparison.json"
   },
   "latest_local_checkpoint": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
