@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S47",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
   "baseline_sha": "f9cc2154438d861484ecf67e1c918c49682eb786",
@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 418250,
-    "sha256": "5cf8d92411d845ced8ec8bd76bdc356bbe704cf92d266fabb216151377a0c980"
+    "bytes": 423384,
+    "sha256": "96e7be94914e7095328d824b55d6e8faade70e98adbe79f07f7eafaa938ec3de"
   },
   "target": {
     "locator": "/workspace/work/unify/s45/s46-regression-a9-phone/captures/career-gear-owned-390x844.png",
@@ -90,9 +90,46 @@
     "Clean import,73gameplay+88opening+4 genuine native journeys and actual finance/terminal/cancel/save-failure originals; zero engineERROR; original-source/hash/pixel audit"
   ],
   "started_at": "2026-10-31T21:09:23.571723+00:00",
-  "scope_end": "2026-10-31T21:29:00Z",
+  "scope_end": "2026-10-31T21:30:00Z",
   "overall_owner_window_end": "2026-10-31T21:40:00Z",
-  "next_action": "Implement and test pure additive finance/failure policy, then connect the existing shared finance view and action guards.",
+  "next_action": "Review finance/failure screenshots, then connect one genuine watch-gig outing to a once-only saved promoter introduction in the next bounded development window; remaining review/sales/gig-pressure design is recorded.",
   "research": "Original-source audit: social outings/recording/promotion exist; ledger/bankruptcy/sales/review/scout network missing. Existing source remains protected; no original state reset or generated replacementcast.",
-  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock"
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "final_closeout_note": "Source frozen at verifiedf093. Artifact/metadata closeout only through21:30, inside unchanged owner21:40 window; no new gameplay/source/art iteration or queue extension.",
+  "metadata_cleanup_end": "2026-10-31T21:35:00Z",
+  "source_frozen_at": "2026-10-31T21:30:00Z",
+  "ended_at": "2026-10-31T21:32:50.432716+00:00",
+  "tested_source_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
+  "candidate_native_verified": true,
+  "closeout": {
+    "tested_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
+    "evidence": [
+      "/workspace/work/business/s47/closeout.json",
+      "/workspace/work/s40/runs/s47-finance-f093818-final/complete-validation.json",
+      "/workspace/work/business/s47/visual-review-corrected.json",
+      "/workspace/work/business/s47/page-delivery.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Review finance/failure screenshots, then connect one genuine watch-gig outing to a once-only saved promoter introduction in the next bounded development window; remaining review/sales/gig-pressure design is recorded.",
+    "new_issue_review": "Allcurrentevents reviewed,258-264 failures and actual timing preserved; no gate weakening.",
+    "simulated_lenses": {
+      "SIMULATED phone player": "First-fold balance and income/outgoings; zero-cash countdown and14-day rule; native48px menu/return controls.",
+      "SIMULATED returning player": "Old saves begin tracking actual current balance/day without invented past transactions, changed cast or production migration.",
+      "SIMULATED finance reviewer": "Gross settled fees and actual expenses reconcile; capped local travel charged rather than nominal tariff; alltime totals survive80-row visible history.",
+      "SIMULATED lifecycle reviewer": "Phone14 genuine sessions persist one terminal state; other3 use13 disclosed model closings+one genuine session; actual Continue and stale-handler guards preserve final accounts.",
+      "SIMULATED keyboard and motion reviewer": "Actual pointer/Tab/Home/End, reduced-motion flow and disabled controls checked; no device/whole-app-accessibility claim."
+    },
+    "remaining": [
+      "Finance foundation is local and NOT included in V5; no new APK or ZIP generated.",
+      "Music/merch sales, poor-review/gig-access penalties, social contacts and scout opportunities remain unimplemented; source-grounded contracts are in docs/continuous_improvement/S47_REMAINING_GAMEPLAY.md.",
+      "OverallvisualPARTIAL/ownerfalse; physicalphone and Page-DOM rendered layout unverified.",
+      "No S47-specific actual blocked-save UI stress executed; complete-career rollback remains in all3commit handlers and additive metadata saves/loads exactly, but terminal failed-save stress remains specific next QA.",
+      "Source/history remain LOCAL; selected screenshots privately attached only. Public fullhistory block not retried."
+    ],
+    "original_pngs_opened": [
+      "/workspace/work/business/s47/corrected-phone/captures/finance-populated-390x844.png",
+      "/workspace/work/business/s47/corrected-phone/captures/finance-terminal-390x844.png"
+    ],
+    "writer_released_at": "2026-10-31T21:32:50.432716+00:00"
+  }
 }

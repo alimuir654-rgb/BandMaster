@@ -1,20 +1,20 @@
 {
-  "writer": "S47-finance-survival-20261031T2110",
+  "writer": null,
   "base_head": "f9cc2154438d861484ecf67e1c918c49682eb786",
   "claimed_at": "2026-10-31T21:09:23.571723+00:00",
-  "expires_at": "2026-10-31T21:29:00Z",
-  "scope": "First implement a saved additive finance ledger and14 completed zero-cash-day failure boundary across current action commits, using the existing shared materials and read-only final accounts. Prepare concrete original-model-backed specification for sales/reviews/social contact follow-ons rather than silently inventing rates or cast.",
+  "expires_at": "2026-10-31T21:35:00Z",
+  "scope": "Metadata/report/release only, no source/art/engine/ZIP/APK/queue writes. Complete necessary closeout inside unchanged outer21:40 owner window.",
   "authority": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T21:32:50.432716+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "NEW explicit gameplay/finance request supersedes earlier no-new-mechanics scope only for requested mechanics; finite owner window unchanged. RootONE source writer/ONE GL; helpers scratch/read-only scoped.",
+  "note": "Sourcefrozen21:30, necessary metadata-only closeout complete before21:35/outer21:40. No pending helper/GL/source/art/build task or extension.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S46-unified-live-career-20261031T2005",
-  "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+  "last_writer": "S47-metadata-closeout-20261031T2131",
+  "source_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -154,5 +154,7 @@
     "last_writer": "S46-unified-live-career-20261031T2005",
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
-  }
+  },
+  "final_closeout_note": "Source frozen at verifiedf093. Artifact/metadata closeout only through21:30, inside unchanged owner21:40 window; no new gameplay/source/art iteration or queue extension.",
+  "source_writer_released_at": "2026-10-31T21:30:00Z"
 }
