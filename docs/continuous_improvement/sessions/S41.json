@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 319442,
-    "sha256": "fa63623cdd11c59163d7adf9f2a2428fc9afbfcf5fb9aa11caf50b29ba81fa06"
+    "bytes": 322669,
+    "sha256": "178a3922f758af76443e8cc1ec534541d5baddbc395b77bebe11a12880e6bf8e"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -92,7 +92,7 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T12:34:53.909061+00:00",
+  "issues_reviewed_at": "2026-10-31T12:41:02.200470+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Wordmarkartsourcepreflight; no generation/integration/nativeclaimyet.",
@@ -200,6 +200,24 @@
         "/workspace/work/s40/runs/day31-genre-d5c3810/logs/capture-390x844.log"
       ],
       "classification": "FullrunnerfreshXDGneedsoriginalopening_testfixture; validationinvocation correctiononly."
+    },
+    {
+      "event_id": "S41-wordmark-source1-alpha-style-held",
+      "evidence": [
+        "/workspace/generated_images/exec-50d58a7b-dfd5-44a6-8543-52e68933dbfc.png",
+        "/workspace/work/day31/wordmark-source-review-1.json",
+        "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png"
+      ],
+      "classification": "Generatedwordmarksource heldunintegrated: alphafootprint/stylemismatch."
+    },
+    {
+      "event_id": "S41-wordmark-source2-alpha-fit-method-change",
+      "evidence": [
+        "/workspace/generated_images/exec-6c5abac7-2e46-4586-b3f1-ea0f9bb2861c.png",
+        "/workspace/work/day31/wordmark-source-review-2.json",
+        "/workspace/work/day31/wordmark-source-review-1.json"
+      ],
+      "classification": "Secondsourcefaintalpha persists; changedproductionfitmethodtoruntimecrop, no thirdgeneration."
     }
   ],
   "motion_probe_diagnosis": {

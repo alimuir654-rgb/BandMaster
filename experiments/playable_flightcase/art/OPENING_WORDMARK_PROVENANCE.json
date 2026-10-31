@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "provider_tool": "OpenAI image_gen.imagegen",
+  "source_type": "Independentimage-generatedtransparentwordmark; reference-basedsourceedit, notphotograph/nativeUI/completeposter",
+  "generated_original": "/workspace/generated_images/exec-6c5abac7-2e46-4586-b3f1-ea0f9bb2861c.png",
+  "referenced_source_original": "/workspace/generated_images/exec-50d58a7b-dfd5-44a6-8543-52e68933dbfc.png",
+  "source_sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+  "source_bytes": 1043097,
+  "source_dimensions": [
+    1774,
+    887
+  ],
+  "source_mode": "RGBA",
+  "repository_path": "experiments/playable_flightcase/art/opening_wordmark.png",
+  "copy_transformations": "None. RawPNG copiedbyte-for-byte; originalretained. Pythonusedonlyreadonlyanalysis/hashandbytecopy, neverrasterediting.",
+  "runtime_transformation": "Godot Image.get_region(Rect2i(264,95,1248,718)) createsanewcachedImageTexture. Cropisalpha>8/255maininkbboxexpanded8px. Entirelettering/counters/apostrophe/underline retained; faintglobalalpha1..8specksoutsidecrop areexcludedfromfit.",
+  "source_limitations": [
+    "Rawnonzeroalpha bbox(21,21,1742,887) includesfaintfringes; do notclaimfullycleanrawtransparentmargin.",
+    "Letteringstillinternalcandidate; nativeactualsmall-size/Settingsreview required; no independenthumanartapproval."
+  ],
+  "rights_basis": "Generated/editedusingavailableOpenAIimagegentoolforowner-authorizedexistinggameartwork. Originalwording suppliedbygame; no copiedcompetitorasset/fontorclaimedstocklicence.",
+  "prompt_summary": "Exact LIVIN' THE / DREAM inwarmivoryflatdistressedblockcapitals, shortochreunderline, isolatedtransparentbackground, noothertext/scene/frame/UI/cast. Correctiveeditremovedbevel/glow andrequestedcleanmargins.",
+  "native_validation_at_source_creation": "pending",
+  "owner_approved": false
+}

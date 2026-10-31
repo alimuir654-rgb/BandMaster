@@ -8,6 +8,9 @@ const BandPoster = preload("res://experiments/playable_flightcase/band_formed_po
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const WORDMARK_CROP := Rect2i(264,95,1248,718)
+const WORDMARK_SHA256 := "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899"
+static var _opening_wordmark_cache: ImageTexture
 var setup = Model.new()
 var showing_menu := true
 var settings_open := false
@@ -145,6 +148,24 @@ func _opening_poster_gradient() -> GradientTexture2D:
  texture.fill_to = Vector2(0.5,1.0)
  return texture
 
+func _opening_wordmark_texture() -> ImageTexture:
+ if _opening_wordmark_cache!=null:
+  return _opening_wordmark_cache
+ var source: Texture2D = load("res://experiments/playable_flightcase/art/opening_wordmark.png") as Texture2D
+ if source==null:
+  return null
+ var image: Image = source.get_image()
+ if image==null or image.is_empty():
+  return null
+ if image.is_compressed() and image.decompress()!=OK:
+  return null
+ if not Rect2i(Vector2i.ZERO,image.get_size()).encloses(WORDMARK_CROP):
+  return null
+ # Keep the source PNG untouched. Its faint global alpha specks are excluded
+ # from fitting by the measured main-ink bounds plus an 8px safety bleed.
+ _opening_wordmark_cache = ImageTexture.create_from_image(image.get_region(WORDMARK_CROP))
+ return _opening_wordmark_cache
+
 func _opening_poster_hero() -> Control:
  var hero := Control.new()
  hero.name = "OpeningPosterHero"
@@ -201,6 +222,23 @@ func _opening_poster_hero() -> Control:
  brand.autowrap_mode = TextServer.AUTOWRAP_OFF
  brand.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  copy.add_child(brand)
+ var wordmark_texture: ImageTexture = _opening_wordmark_texture()
+ if wordmark_texture!=null:
+  var wordmark := TextureRect.new()
+  wordmark.name = "OpeningPosterWordmark"
+  wordmark.texture = wordmark_texture
+  wordmark.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  wordmark.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  wordmark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  wordmark.focus_mode = Control.FOCUS_NONE
+  wordmark.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  wordmark.set_meta("source_crop_rect",WORDMARK_CROP)
+  wordmark.set_meta("source_alpha_nonzero_rect",Rect2i(21,21,1721,866))
+  wordmark.set_meta("source_sha256",WORDMARK_SHA256)
+  brand.add_child(wordmark)
+  # The native text, font, layout and semantic node remain intact. Only its
+  # own ink is hidden; self_modulate deliberately leaves the child visible.
+  brand.self_modulate.a = 0.0
  var tagline := _label("Three chords. A borrowed van.\nSomething to prove.",16)
  tagline.name = "OpeningPosterTagline"
  tagline.autowrap_mode = TextServer.AUTOWRAP_OFF
