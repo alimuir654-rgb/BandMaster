@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "37b1f70126acf7afe7648c042e1a036f5a9afcd8",
-  "claimed_at": "2026-10-31T09:08:46.114986+00:00",
-  "expires_at": "2026-10-31T10:10:00Z",
-  "scope": "Approved daily-loop presentation: shared guarded session commit and short skip/reduced-motion transitions first; later draftcontinuity/rehearsal/dayclose via scoped checkpoints. No economy/model/art swap in firstslice.",
+  "writer": "S41-daily-workspace-20261031T0940",
+  "base_head": "79125ed173845808ec73ac6985903cc6978d4b4d",
+  "claimed_at": "2026-10-31T09:40:01.161259+00:00",
+  "expires_at": "2026-10-31T11:15:00Z",
+  "scope": "S41approveddailyworkspace: savedwritingcontinuity, honestrehearsalcommitment, freeactivitynavigation anddayreceipt. No gameplay/model/schema/artchange.",
   "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T09:33:25.545628+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S41foundation375verified;rootreleased. Nextapprovedwriting/activityworkspace requiresnextboundedlease/preflight.15:00hardfinish;noAPKperchange.",
+  "note": "Ownerapproveddayplan09:04; secondscopedrootworkspacewriter. RootsoleGL/sourcewriter;helpersscratch/read-only. Firstfoundation375checkpointpreserved.15:00hardfinish.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -96,5 +96,13 @@
     "expires_at": "2026-10-31T08:48:00Z",
     "released_at": "2026-10-31T08:46:29.830594+00:00",
     "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5"
+  },
+  "previous_foundation_lease": {
+    "last_writer": "S41-session-flow-20261031T0913",
+    "base_head": "37b1f70126acf7afe7648c042e1a036f5a9afcd8",
+    "claimed_at": "2026-10-31T09:08:46.114986+00:00",
+    "expires_at": "2026-10-31T10:10:00Z",
+    "released_at": "2026-10-31T09:33:25.545628+00:00",
+    "source_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086"
   }
 }

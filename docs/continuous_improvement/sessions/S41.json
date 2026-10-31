@@ -5,8 +5,8 @@
   "owner_approved": false,
   "owner_plan_approved": true,
   "owner_request": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
-  "baseline_sha": "37b1f70126acf7afe7648c042e1a036f5a9afcd8",
-  "dominant_issue": "BM-25",
+  "baseline_sha": "79125ed173845808ec73ac6985903cc6978d4b4d",
+  "dominant_issue": "BM-21",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -52,8 +52,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 272373,
-    "sha256": "5ca5de8a3708cc3ebd9c0a9f6b50ac089f268943320f725aaf0fcafdb6064f87"
+    "bytes": 274126,
+    "sha256": "a68f7574b6a0b63c20eb87aac6f1b668a01b2d3ebf0d81636952cf9afd4e155b"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -62,9 +62,9 @@
     "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
     "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
   },
-  "hypothesis": "One purposeful session boundary with unchanged canonicalsettlement and motiontoggle replaces instantbuttonstream without losing responsiveness, state/focus or charging twice.",
-  "controlled_comparison": "Same approvedJack/Zoe/Casey career,genre,title,DAY1\u00a3250 and fourviewports versus95baseline. Preserveallnonpracticepixels except intentionalSettingsMotionrow; comparepractice/result identicalstate afterfade. InspecttransitionoriginalPNG too; technicalPASS separatevisualPARTIAL/ownerfalse.",
-  "stop_condition": "Two ineffectiveiterations requirechangedmethod/hold; no gateweakening. Firstleaseends10:10,15:00hardstopoverall; final14:50read-onlyreview. No new sourcequeue ormain/PR199/publichistorywrites.",
+  "hypothesis": "A source-honest selectedactivityworkspace withonecommit/fixedactualcostsummary andsaveddayreceipt makesdailydecisionsintentional; existingdraftfields surviveContinue/resize withoutnewmodels/scoring.",
+  "controlled_comparison": "SameJack/Zoe/Casey savedcareer at4profiles versus375foundation andapprovedboard: free_mode/choicebrowse exactsnapshot/filebytes invariance, 1/3+2/3GrooveLooseJamFLOORBOARDSCasey draftfixtures,actual3Writeclicks3days1song,\u00a315rehearsal1day,dayacknoaction; preserveallrecruit/title/milestonepixels andall317protectedsourcebytes plusplayableart.",
+  "stop_condition": "Twoineffectiveiterations changemethod/HOLD; nosourceoutsideapprovedworkspace. Thisleaseends11:15; overall14:50readonly/15:00hardstop. No economy/newgameplay/audio/editor/cast/assets orAPKperchange.",
   "protected": [
     "OriginalC25cast/contactcrop provenance and sourcebytes",
     "Allpassivemeter/hardware/artbytes andinertsemantics",
@@ -81,7 +81,9 @@
     "experiments/playable_flightcase/ui.gd",
     "experiments/playable_flightcase/opening_ui.gd",
     "experiments/playable_flightcase/session_transition.gd",
-    "experiments/playable_flightcase/opening_capture.gd"
+    "experiments/playable_flightcase/opening_capture.gd",
+    "experiments/playable_flightcase/rehearsal_press.gd",
+    "experiments/playable_flightcase/rehearsal_recap.gd"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S41.json",
@@ -90,11 +92,11 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T09:33:25.545628+00:00",
+  "issues_reviewed_at": "2026-10-31T09:40:01.161259+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Exact375standardnativePASS/498focusedPASS;visualPARTIAL/ownerfalse. Sourceunchangedmodels/art; noS41APKyet.",
-  "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish.",
+  "next_action": "Oneboundedwriting/activity/rehearsal/dayreceiptworkspace through11:15; thennativefocused+fourviewproof, actualoriginalpixelreview andrelease.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -292,5 +294,13 @@
     ],
     "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish."
   },
-  "foundation_completed_at": "2026-10-31T09:33:25.545628+00:00"
+  "foundation_completed_at": "2026-10-31T09:33:25.545628+00:00",
+  "workspace_pass": {
+    "started_at": "2026-10-31T09:40:01.161259+00:00",
+    "lease_ends": "2026-10-31T11:15:00Z",
+    "status": "preflight",
+    "owner_plan_approved": true,
+    "source_baseline": "375e92ad4788060cdd7cf31721524dc5af3ee086",
+    "source_pending": true
+  }
 }
