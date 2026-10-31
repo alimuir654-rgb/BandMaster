@@ -164,6 +164,9 @@ func _rebuild() -> void:
    display_message = "Your band is ready. Choose a session."
  if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
   display_message = "Meet the musicians. Auditions cost no time or talent."
+ if game.phase=="play" and opening_owner!=null and int(game.career.get("cash",0))==0:
+  var account: Dictionary = Finance.view(game.career)
+  display_message = "NO CASH  •  %d / 14 completed days  •  Check Finances in the Career Desk" % int(account.get("broke_days",0))
  var status := _label(display_message,14)
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32

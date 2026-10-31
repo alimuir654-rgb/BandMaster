@@ -51,6 +51,8 @@ static func render(host, parent: Node, compact: bool) -> void:
  _copy(host,summary,"BAND HAS FOLDED" if terminal else "THE BAND ACCOUNTS","FinanceTitle",26)
  _copy(host,summary,"FINAL CASH BALANCE" if terminal else "CURRENT CASH","FinanceBalanceHeading",16,true)
  _copy(host,summary,"£%d" % cash,"FinanceBalance",32)
+ var overview: Dictionary = account.get("totals",{})
+ _copy(host,summary,"INCOME £%d  •  OUTGOINGS £%d" % [_total(overview.get("income",{})),_total(overview.get("outgoing",{}))],"FinanceOverview")
  var status: String
  if terminal:
   status="The band closed on day %d after 14 consecutive completed days closing at £0. These are your final accounts." % int(account.get("ended_day",0))
