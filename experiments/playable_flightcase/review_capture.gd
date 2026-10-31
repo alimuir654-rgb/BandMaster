@@ -107,6 +107,16 @@ func native_read_receipt(note: Label, tag: String) -> bool:
   if not verify(scroll.scroll_vertical==0,"genuine Home restores saved receipt start"): return false
  return unchanged(before,"actual native receipt reading")
 
+func note_content_rect(note: Label) -> Rect2:
+ var rect: Rect2 = note.get_global_rect()
+ var ancestor: Node = note.get_parent()
+ while ancestor!=null:
+  if ancestor is ScrollContainer:
+   var scroll: ScrollContainer = ancestor as ScrollContainer
+   rect.position+=Vector2(scroll.scroll_horizontal,scroll.scroll_vertical)
+  ancestor=ancestor.get_parent()
+ return rect
+
 func complete_receipt(before: Dictionary, expected: Dictionary, tag: String="", natural: bool=false) -> bool:
  if not await wait_receipt(): return false
  var note: Label = named("CareerReceiptNote") as Label
@@ -116,7 +126,9 @@ func complete_receipt(before: Dictionary, expected: Dictionary, tag: String="", 
  if not verify(next_action!=null and inside(next_action) and next_action.size.y>=48 and int(receipt.day_before)==int(before.tour_day) and int(receipt.day_after)==int(expected.state.tour_day) and int(receipt.cash_before)==int(before.cash) and int(receipt.cash_after)==int(expected.state.cash),"fixed native Continue and receipt cash/day match one saved action"): return false
  var protected: Dictionary = guard()
  var full: String = note.text
- var rect: Rect2 = note.get_global_rect()
+ var rect: Rect2 = note_content_rect(note)
+ var global_before: Rect2 = note.get_global_rect()
+ var footer_rect: Rect2 = next_action.get_global_rect()
  if not tag.is_empty() and not await capture(tag+"-partial"): return false
  if natural:
   var until: int = Time.get_ticks_msec()+4500
@@ -129,7 +141,8 @@ func complete_receipt(before: Dictionary, expected: Dictionary, tag: String="", 
    await key(KEY_TAB)
   if not verify(note.has_focus(),"real native focus reaches current saved Ink note"): return false
   await key(KEY_SPACE)
- if not verify(not bool(note.call("is_revealing")) and note.visible_characters==-1 and note.text==full and note.get_global_rect()==rect,"natural/local-Space reveal completion preserves full text and reserved geometry"): return false
+ review_evidence.append({"case":"saved note reserved content geometry","tag":tag,"global_before":str(global_before),"global_after":str(note.get_global_rect()),"content_before":str(rect),"content_after":str(note_content_rect(note)),"fixed_continue_before":str(footer_rect),"fixed_continue_after":str(next_action.get_global_rect())})
+ if not verify(not bool(note.call("is_revealing")) and note.visible_characters==-1 and note.text==full and note_content_rect(note)==rect and next_action.get_global_rect()==footer_rect and inside(next_action),"natural/local-Space completion preserves full text, reserved content geometry and fixed Continue through native scrolling"): return false
  if not unchanged(protected,"saved note completion never advances/spends/saves"): return false
  if not tag.is_empty() and not await capture(tag+"-full"): return false
  if not await native_read_receipt(note,tag): return false
