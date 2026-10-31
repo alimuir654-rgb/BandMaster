@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 199825,
-    "sha256": "f59d4d057a63ce1e3b9420eb1d3813bf30903e5c4796e90d08e2c16d3c7567df"
+    "bytes": 201568,
+    "sha256": "812062936a649d0f906a410875186b7b21c64a69ad91ba1bc5ce10948e0ef23e"
   },
   "target": {
     "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal7f32373+88/import/all4native plus recruitmentlongcopy/economy/realremove proof and extractedpackage launch PASS. Source unpublished; no new remoteCI claimed.",
-  "issues_reviewed_at": "2026-10-31T02:05:55.560621+00:00",
+  "issues_reviewed_at": "2026-10-31T02:12:30.667987+00:00",
   "progress": {
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
     "verified_at": "2026-10-31T01:39:45.903195+00:00",
@@ -483,6 +483,13 @@
       "godot_engineering": "SIMULATED: all274sourcepackagefiles match exacttestedGit tree (isolatedentryexception), botharchivesCRC/digestsPASS; no source/art/runtime edits or new fullnative test rerun. Existing7f proof remains authoritative.",
       "qa_producer": "SIMULATED: materialHOLD is a deliberate qualitygate, not an artisticPASS. No forceddecoration/competingqueue/publichistoryretry. Current package available locally only; next distinct nativeSettingsQA before09:00."
     },
-    "next_action": "Next bounded worker: targeted nativeQA of existing title/menu Settings disclosure and MasterSound toggle using real mouse/Enter/Space/Tab; check focus/scroll/node continuity, actual AudioServer mute state and career/save-byte invariance. Treat rebuild-related focus risk as unconfirmed until reproduced. Log any actual defect and commit scoped preflight before a fix; no new feature, persistence or material swap. Keep current tolex/frame change on HOLD."
+    "next_action": "Next bounded worker: targeted nativeQA of existing title/menu Settings disclosure and MasterSound toggle using real mouse/Enter/Space/Tab; check focus/scroll/node continuity, actual AudioServer mute state and career/save-byte invariance. Treat rebuild-related focus risk as unconfirmed until reproduced. Log any actual defect and commit scoped preflight before a fix; no new feature, persistence or material swap. Keep current tolex/frame change on HOLD.",
+    "formatting_correction": {
+      "recorded_at": "2026-10-31T02:12:30.667987+00:00",
+      "failed_metadata_commit": "94acb8c",
+      "original_ledger_entry_retained": true,
+      "index_prefix_corrected": true,
+      "source_unchanged": true
+    }
   }
 }

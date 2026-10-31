@@ -8,13 +8,13 @@
   "owner_approved": false,
   "previous_closed_session": "S39",
   "status": "released",
-  "released_at": "2026-10-31T02:05:55.560621+00:00",
+  "released_at": "2026-10-31T02:12:30.667987+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Docs-only02:00materialHOLD/packageaudit complete; no source/art changes or newnativefullsuite. Existingfiniteworker may claim next boundedSettingsQA lease; oldworkerpaused,09:00sourcecutoff,publichistorysyncpendingapproval.",
+  "note": "Docs-only02:00materialHOLD/packageaudit complete; no source/art changes or newnativefullsuite. Existingfiniteworker may claim next boundedSettingsQA lease; oldworkerpaused,09:00sourcecutoff,publichistorysyncpendingapproval. Reviewrecord newline correction completed; originalrawledgerentry and94acb8c retained, newreadableappend added.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
