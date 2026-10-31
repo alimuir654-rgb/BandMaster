@@ -162,8 +162,17 @@ func _menu() -> void:
  var panel := _column()
  settings.add_child(panel)
  panel.add_child(_label("SETTINGS",18))
- panel.add_child(_button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction"))
- panel.add_child(_button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction"))
+ var setting_actions := GridContainer.new()
+ setting_actions.columns = 2 if size.x>=900 else 1
+ setting_actions.add_theme_constant_override("h_separation",12)
+ setting_actions.add_theme_constant_override("v_separation",12)
+ panel.add_child(setting_actions)
+ var sound := _button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction")
+ sound.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ setting_actions.add_child(sound)
+ var motion := _button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction")
+ motion.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ setting_actions.add_child(motion)
  if not notice.is_empty():
   root.add_child(_label(notice,14))
  var tail := Control.new()

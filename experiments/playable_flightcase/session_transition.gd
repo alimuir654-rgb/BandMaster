@@ -61,9 +61,14 @@ func _ready() -> void:
  _skip.name = "SkipSessionBeatAction"
  _skip.pressed.connect(finish_now)
  _card.add_child(_skip)
+ get_viewport().size_changed.connect(_fit_card)
  # Start after add_child has completed; reduced-motion cleanup can then safely
  # remove this node without mutating a parent that is still entering the tree.
  call_deferred("_start")
+
+func _fit_card() -> void:
+ if is_instance_valid(_card):
+  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,get_viewport_rect().size.x-48.0))
 
 func _start() -> void:
  if _closed or not is_inside_tree():

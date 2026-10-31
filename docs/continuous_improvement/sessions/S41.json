@@ -52,8 +52,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 256885,
-    "sha256": "e9529f8f1cd9c23a518094022dacbd61c4abfa952e5b6712cb35dfb46106a52d"
+    "bytes": 262057,
+    "sha256": "4937e143e6cf781e7510afbf70641ee432080338ee464794732ef054bb53ffff"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -90,7 +90,7 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T09:09:22.550121+00:00",
+  "issues_reviewed_at": "2026-10-31T09:19:51.545298+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
   "evidence_status": "Preflight only; source95verifiedbaseline; no S41implementation/nativePASS claimed.",
@@ -114,5 +114,21 @@
     "invalid_metadata_commit": "a4f5fcb",
     "issue": "S41-preflight-missing-dominant-and-failfast-20261031T0909",
     "source_implementation_before_gate": false
-  }
+  },
+  "failures": [
+    {
+      "source": "fb8651c",
+      "evidence": "/workspace/work/s40/runs/day31-foundation-fb8651c/validation.json",
+      "issue": "S41-foundation-short-landscape-settings-clipped"
+    },
+    {
+      "issue": "S41-transition-card-clipped-wide-to-phone",
+      "evidence": "/workspace/work/day31/transition-qa/baseline-wide-fb8651c/captures/result.json"
+    },
+    {
+      "issue": "S41-focused-motion-immediate-reveal-input-failure",
+      "classification": "unknownpendingdiagnostic",
+      "evidence": "/workspace/work/day31/transition-qa/baseline-fb8651c/captures/result.json"
+    }
+  ]
 }
