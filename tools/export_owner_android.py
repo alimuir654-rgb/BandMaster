@@ -108,8 +108,6 @@ script_export_mode=2
 [preset.0.options]
 custom_template/debug=TEMPLATE
 gradle_build/use_gradle_build=false
-gradle_build/min_sdk="24"
-gradle_build/target_sdk="36"
 architectures/armeabi-v7a=true
 architectures/arm64-v8a=true
 architectures/x86=false
