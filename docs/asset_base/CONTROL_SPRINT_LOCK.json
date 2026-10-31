@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "3c98bd3de3627b3f67ee5ecf287e11ca1da67b36",
-  "claimed_at": "2026-10-31T18:51:13.442149+00:00",
-  "expires_at": "2026-10-31T20:10:00Z",
-  "scope": "S45 closed; no active writer. Preserve original source/art/models/schema and same finite owner window.",
+  "writer": "S46-unified-live-career-20261031T2005",
+  "base_head": "b4e5b609314c6abed6c6497f6f006c7bdacf647d",
+  "claimed_at": "2026-10-31T20:05:40.729313+00:00",
+  "expires_at": "2026-10-31T21:20:00Z",
+  "scope": "Bring the existing hometown promoter/booking/preparation/arrival/soundcheck/stage/settlement loop onto the current saved C25 band using unchanged original pure models and shared paper/hardware/lettering/notes. Unify current practice brand/header and commit safety; no silent legacy tutorial or van/economy seeding.",
   "authority": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
+  "status": "claimed",
   "released_at": "2026-10-31T19:58:39.208791+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S45 exact-source native/IO/lifecycle/LOCALpackage proof complete. No live helper/GL/source task. Owner~3h manual unification authority continues; separate bounded preflight before next original-system slice.",
+  "note": "ONE root source writer/ONE GL; helpers scratch/read-only only. Same manual owner authority and finite window.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -144,5 +144,10 @@
     "last_writer": "S44-approved-postcutoff-native-20261031T1707",
     "source_sha": "68ed79c42541b0cdb5a9620690388081fbc18195",
     "released_at": "2026-10-31T18:37:46.040093+00:00"
+  },
+  "previous_s45_release": {
+    "last_writer": "S45-unified-career-gear-20261031T1840",
+    "released_at": "2026-10-31T19:58:39.208791+00:00",
+    "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac"
   }
 }

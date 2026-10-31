@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S45.json",
+  "session": "docs/continuous_improvement/sessions/S46.json",
   "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s45_verified_original_gear_shared_style_writer_released",
-  "next_action": "Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window.",
+  "status": "s46_unified_live_preflight",
+  "next_action": "Capture originalGIGS baseline and actual pre-fix practice-save-failure, then implement original live loop/shared presentation with one coordinated writer.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S45 closed and writer released. New owner ~3h unification window remains through21:40; next bounded preflight required, no automatic queue extension.",
   "completion_gate": {
@@ -2675,7 +2675,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "previous_session": "docs/continuous_improvement/sessions/S44.json",
+  "previous_session": "docs/continuous_improvement/sessions/S45.json",
   "day31_authority": {
     "approved_at": "2026-10-31T09:08:46.114986+00:00",
     "through": "2026-10-31T15:00:00Z",
@@ -2829,13 +2829,13 @@
     }
   ],
   "last_completed_session": "S45",
-  "writer": null,
-  "closed_at": "2026-10-31T19:58:39.208791+00:00",
+  "writer": "S46-unified-live-career-20261031T2005",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
     "at": "2026-10-31T18:51:13.442149+00:00",
     "overall_window_end": "2026-10-31T21:40:00Z",
     "finite_existing_thread": true
-  }
+  },
+  "previous_closed_at": "2026-10-31T19:58:39.208791+00:00"
 }
