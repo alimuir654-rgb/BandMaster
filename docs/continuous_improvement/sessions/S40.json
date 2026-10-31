@@ -4,8 +4,8 @@
   "status": "active",
   "owner_approved": false,
   "owner_request": "30 October 2026 owner correction in issue#201 comment6524557601: the S39 rehearsal recap is too text-heavy and not engaging. Replace existing rehearsal view with a substantive source-backed analogue music-press result: visual verdict, three large actual signed metric deltas, short real selected musician reactions with actual approved preview portraits, optional detailed breakdown and a first-fold continue button. Full S6 QA/packaging if verified; do not add a competing worker, new audio, gameplay bonuses or production/PR merge.\nNew direct owner instruction30Oct23:46: Continue through best efforts through to9am. Improve any textures,frames,icons andartwork.\n31Oct00:26 direct owner: compare planned changes with similar apps; reassess and adjust if below standard.",
-  "baseline_sha": "9cea492bda19e1557fdd293f8b884db52254c5bb",
-  "dominant_issue": "BM-21",
+  "baseline_sha": "e3d7afbc6dc30cd26d1bfc332aa60f6b587d65c9",
+  "dominant_issue": "BM-01",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -48,15 +48,15 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 195501,
-    "sha256": "bfaa80cbf61920087b68295fcc9c9e41c0e1f8ea5590dea1fed102a79dc5ce9f"
+    "bytes": 197796,
+    "sha256": "5e24fdd7b211f7f85b286f1a462b9455f2557c8226fbc4999c1dcad092f00154"
   },
   "target": {
     "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
     "original_sha256": "a1fdfea28139e1a0fc63521a6abbbe6a0bf3164bb35ed0717fb13de113dac1d1",
     "pixels_inspected": true
   },
-  "hypothesis": "Full16px native authored strengths/friction and exact available/cost/after talent in fixed plain context above existingactionrow; width>=1000 portraitandoriginal6meterrows alongside. All6meterbytes/state inert, full dossier scrollable, originalproofs protected. Readyphoneactions shareone48pxrow usingshortnativeactionlabels; no invented refunds.",
+  "hypothesis": "No source/art change justified from currentmaterialreview: retain quietcase/controlatlas and heldtolex. Verify exactexisting7f source/package hashes andreferenceavailability, distinguish verifiedtechnicalcheckpoint from absentwholeUIartapproval.",
   "controlled_comparison": "Same exact real Maya0roster200talent at390x844/720x1280/1280x720/1600x900 versus33f original recruitment; add labelled Bex/Sam longtext, readylineup, insufficiency,5th/6thsurcharge, vocalreservation and fullband fixtures. Existing realRecruit/Remove/Complete path and entire rehearsal/practice/input/save proof remain.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal7f32373+88/import/all4native plus recruitmentlongcopy/economy/realremove proof and extractedpackage launch PASS. Source unpublished; no new remoteCI claimed.",
-  "issues_reviewed_at": "2026-10-31T01:39:45.903195+00:00",
+  "issues_reviewed_at": "2026-10-31T02:02:27.020325+00:00",
   "progress": {
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
     "verified_at": "2026-10-31T01:39:45.903195+00:00",
@@ -462,5 +462,14 @@
         "package_smoke": "/workspace/work/s40/runs/practice-33f/packages/package-smoke.json"
       }
     }
-  ]
+  ],
+  "material_review_pass": {
+    "started_at": "2026-10-31T02:02:27.020325+00:00",
+    "lease_ends": "2026-10-31T02:25:00Z",
+    "allowed_work": "Canonical docs/evidence audit only, no implementation, asset edits or new native fullsuite on unchangedsource.",
+    "source_checkpoint": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "material_verdict": "hold",
+    "reason": "No concrete reference-supported materialmismatch demonstrated; tolexcandidate busier/brighter andoriginalUIreference notlocated.",
+    "owner_approved": false
+  }
 }
