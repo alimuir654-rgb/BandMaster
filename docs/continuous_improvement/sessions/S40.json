@@ -158,5 +158,18 @@
     "source_type": "OpenAIimage-generatedpaper, notphotograph orUI",
     "scope": "existing S40resultouterpaper+threeinsets only",
     "owner_approved": false
+  },
+  "icon_pass": {
+    "owner_authority": "Currentdirectrequest improvetextures,frames,icons/artthrough31Oct09:00London",
+    "hypothesis": "Reuse two existing ISC Lucide glyphs as quiet semantic cues: people beside FROMTHEROOM and notebook beside FULLBREAKDOWN, preserving all labels and originalbutton state textures.",
+    "source_paths": [
+      "Art/UI/Icons/users.svg",
+      "Art/UI/Icons/notebook-pen.svg",
+      "Art/UI/Icons/LUCIDE_LICENSE.txt"
+    ],
+    "destination": "experiments/playable_flightcase/art/icons/",
+    "protected": "No originalassetbytechanges, no newactions, no icon-onlycontrols. Nativecopy/focus/CTA remains explicit.",
+    "validation": "CleanSVGimport, originalsame-state4viewrender, source/licencehashaudit, pointer/keyboard/save regressions.",
+    "owner_approved": false
   }
 }
