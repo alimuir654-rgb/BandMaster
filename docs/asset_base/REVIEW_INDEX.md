@@ -271,3 +271,8 @@ Remaining: writing/rehearsal/dayreceiptworkspace andoptionalposter; actualS41pho
 # S41 daily workspace preflight — 2026-10-31T09:40:01.161259+00:00
 
 Verified375foundation preserved. Newrootlease S41-daily-workspace-20261031T0940 through11:15, scopedwriting/activity/rehearsal/dayreceipt UIonly. Actualsaveddata/models/art/hardware protected; nativebaseline draftprobe beforecorrection. Oneprimarycommit; freebrowsing; no neweconomy/song-scoring/audio/gigfeature. Next: Oneboundedwriting/activity/rehearsal/dayreceiptworkspace through11:15; thennativefocused+fourviewproof, actualoriginalpixelreview andrelease.
+
+
+# S41 optional opening poster preflight
+
+Core75 checkpoint retained. Rootsolewriter S41-opening-poster-20261031T1038 through12:15; optionalexistingtitleonly. Oneindependentblankrehearsal-stageimage +originalnativebrand/copy/controls/frame; nofullUItexture, newcast,genre/economy/model/schema. Actual75 title390/1280 andapprovedboard opened. Focusedfirstfold/Settings/nativeinput beforefour-viewfullproof; sourcepending, no artapproval. Twoineffectiveiterations change method/HOLD.14:50read-only/15:00hardstop.

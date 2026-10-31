@@ -9,8 +9,8 @@
   "production_authorised": true,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "Owner-approved31Octdayplan through15:00;14:50read-only",
-  "writer": null,
+  "scope": "S41 optional approved poster opening only: one independent blank stage plate, original native menu controls/frame, responsive first-fold Settings and unchanged saved careers.",
+  "writer": "S41-opening-poster-20261031T1038",
   "last_verified_code_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
+  "next_single_action": "Generate/inspect ONE independent blank rehearsal-stage source layer, integrate onlyifnativeposterA/Bactuallyimproves menu whileallcurrentcontrols remain usable. Focused geometry/input beforefullnative proof.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -469,7 +469,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T10:34:47.354459+00:00",
+  "last_updated_utc": "2026-10-31T10:36:50.515457+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -601,13 +601,11 @@
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
     "session": "S41",
-    "preflight_sha": "7f2996474b0845a9a29ac4ae7cb4d06093c4cf8b",
-    "scope_end": "2026-10-31T11:15:00Z",
+    "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
+    "scope_end": "2026-10-31T12:15:00Z",
     "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
     "owner_approved": false,
-    "status": "released",
-    "source_verified_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1",
-    "closed_at": "2026-10-31T10:34:47.354459+00:00"
+    "status": "active"
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -662,7 +660,7 @@
     "owner_approved": false
   },
   "last_sprint": "S39",
-  "next_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
+  "next_action": "Generate/inspect ONE independent blank rehearsal-stage source layer, integrate onlyifnativeposterA/Bactuallyimproves menu whileallcurrentcontrols remain usable. Focused geometry/input beforefullnative proof.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",

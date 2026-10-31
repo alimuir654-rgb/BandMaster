@@ -5,7 +5,7 @@
   "owner_approved": false,
   "owner_plan_approved": true,
   "owner_request": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
-  "baseline_sha": "79125ed173845808ec73ac6985903cc6978d4b4d",
+  "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
   "dominant_issue": "BM-21",
   "lesson_ids": [
     "BM-01",
@@ -45,15 +45,18 @@
     "BM-46",
     "BM-13",
     "BM-29",
-    "BM-25"
+    "BM-25",
+    "BM-07",
+    "BM-09",
+    "BM-23"
   ],
   "reviewed_documents": {
     "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 295832,
-    "sha256": "bdf7f2612c3723d73907904d1331e7e92fec82e9059dad6e5f65ceec9f9080b5"
+    "bytes": 297768,
+    "sha256": "bc811f003eb20251ce2c100190cb8a3f95ac3d3c447992f02a64e440f71f4665"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -62,9 +65,9 @@
     "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
     "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
   },
-  "hypothesis": "A source-honest selectedactivityworkspace withonecommit/fixedactualcostsummary andsaveddayreceipt makesdailydecisionsintentional; existingdraftfields surviveContinue/resize withoutnewmodels/scoring.",
-  "controlled_comparison": "SameJack/Zoe/Casey savedcareer at4profiles versus375foundation andapprovedboard: free_mode/choicebrowse exactsnapshot/filebytes invariance, 1/3+2/3GrooveLooseJamFLOORBOARDSCasey draftfixtures,actual3Writeclicks3days1song,£15rehearsal1day,dayacknoaction; preserveallrecruit/title/milestonepixels andall317protectedsourcebytes plusplayableart.",
-  "stop_condition": "Twoineffectiveiterations changemethod/HOLD; nosourceoutsideapprovedworkspace. Thisleaseends11:15; overall14:50readonly/15:00hardstop. No economy/newgameplay/audio/editor/cast/assets orAPKperchange.",
+  "hypothesis": "A single independent warm rehearsal-stage plate with large native poster lettering and original hardware controls will make the existing empty title frame more engaging while preserving first-fold actions. Wide image/action-rail composition; phone NewBand thenContinue/Settings pair, same live Settings controls.",
+  "controlled_comparison": "Exact75 title/menuNoDraftquery+validsavedstate at390x844,720x1280,1280x720,1600x900 versusoneposterplate/newnativecomposition. Openactualoriginals; comparecopy, allphysical48pxtargets, Settings/Sound/MotionIDs/focus/geometry whiletoggling, trueAudioServer anddraftbytes; modalresize/Continue and4fulljourneys. All324protectedfiles +allsettlednon-menuPNGsthroughformation/recruit/practice/results mustremainunchanged.",
+  "stop_condition": "Two ineffective art/layout attempts requirechangedtechniqueorHOLD; donotshrinktargets/copy/fonts tohideoverflow. Rejectplateifgeneric/busy/wrongfocalcrop; nofullUItexture,extraicons,cast,genre/economy scope. Preserve75 rollback;14:50read-only/15:00stop.",
   "protected": [
     "OriginalC25cast/contactcrop provenance and sourcebytes",
     "Allpassivemeter/hardware/artbytes andinertsemantics",
@@ -78,12 +81,9 @@
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/ui.gd",
     "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/session_transition.gd",
     "experiments/playable_flightcase/opening_capture.gd",
-    "experiments/playable_flightcase/rehearsal_press.gd",
-    "experiments/playable_flightcase/rehearsal_recap.gd"
+    "experiments/playable_flightcase/art/opening_stage.png"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S41.json",
@@ -92,11 +92,11 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T10:34:47.354459+00:00",
+  "issues_reviewed_at": "2026-10-31T10:36:50.609003+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
-  "evidence_status": "Exact75 dailyworkspace nativePASS;748 focusedwriting/history checks,172originals,0ERROR/orphans,324protected. VisualPARTIAL/ownerfalse. NoS41APKyet.",
-  "next_action": "One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.",
+  "evidence_status": "Core75 verified73+88/import/4native172PNGs/748writing+750transitionfocused; poster artwork/source pending, no newPASS orartapproval.",
+  "next_action": "Generate/inspect ONE independent blank rehearsal-stage source layer, integrate onlyifnativeposterA/Bactuallyimproves menu whileallcurrentcontrols remain usable. Focused geometry/input beforefullnative proof.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -419,5 +419,46 @@
       ],
       "next_action": "Build the approved saved songwriting/activity workspace and explicit rehearsal commitment/day receipt. Keep models/schema/art protected, one bounded root writer, focused then native four-view proof; no APK per change.14:50 read-only/15:00 hard finish."
     }
-  ]
+  ],
+  "preflight_history": [
+    {
+      "baseline_sha": "79125ed173845808ec73ac6985903cc6978d4b4d",
+      "dominant_issue": "BM-21",
+      "hypothesis": "A source-honest selectedactivityworkspace withonecommit/fixedactualcostsummary andsaveddayreceipt makesdailydecisionsintentional; existingdraftfields surviveContinue/resize withoutnewmodels/scoring.",
+      "controlled_comparison": "SameJack/Zoe/Casey savedcareer at4profiles versus375foundation andapprovedboard: free_mode/choicebrowse exactsnapshot/filebytes invariance, 1/3+2/3GrooveLooseJamFLOORBOARDSCasey draftfixtures,actual3Writeclicks3days1song,£15rehearsal1day,dayacknoaction; preserveallrecruit/title/milestonepixels andall317protectedsourcebytes plusplayableart.",
+      "stop_condition": "Twoineffectiveiterations changemethod/HOLD; nosourceoutsideapprovedworkspace. Thisleaseends11:15; overall14:50readonly/15:00hardstop. No economy/newgameplay/audio/editor/cast/assets orAPKperchange.",
+      "allowed_paths": [
+        "docs/continuous_improvement/**",
+        "docs/asset_base/STATE.json",
+        "docs/asset_base/LEDGER.md",
+        "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+        "docs/asset_base/REVIEW_INDEX.md",
+        "experiments/playable_flightcase/ui.gd",
+        "experiments/playable_flightcase/opening_ui.gd",
+        "experiments/playable_flightcase/session_transition.gd",
+        "experiments/playable_flightcase/opening_capture.gd",
+        "experiments/playable_flightcase/rehearsal_press.gd",
+        "experiments/playable_flightcase/rehearsal_recap.gd"
+      ]
+    }
+  ],
+  "poster_pass": {
+    "status": "preflight",
+    "started_at": "2026-10-31T10:36:50.515457+00:00",
+    "lease_ends": "2026-10-31T12:15:00Z",
+    "baseline_sha": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
+    "game_baseline": "75d0214770098d76cbd4d17f540586143ea5dfc1",
+    "baseline_originals_opened": [
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-title-390x844.png",
+      "/workspace/work/s40/runs/day31-workspace-75d0214/captures/c27-title-1280x720.png"
+    ],
+    "target_reference": {
+      "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
+      "original_sha256": "2f9b3e5e63aa17d0cb505efd008c983c19495452dcdcf6872eb85d594d29b9c2",
+      "pixels_inspected": true,
+      "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
+      "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
+    },
+    "source_plan": "Independent image-generated blankwarmemptyrehearsal/ampstage, nopeople/cast,text,logos,brands,frames,UI. NativeGodotbrand/tagline/controls;originalhardwarebytes unchanged. No photography/highres/seamless/ownerartapproval claim."
+  }
 }

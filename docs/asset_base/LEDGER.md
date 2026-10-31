@@ -905,3 +905,8 @@ Exactsource `75d0214770098d76cbd4d17f540586143ea5dfc1`: free activity previews, 
 Failedfirstfold/disclosure/key/contrast/harness/auditclassification history retained beforecorrections. Currentconditional disk-savefailurelimitation notdemonstrated in thisrun; no Androiddeviceclaim. Budget/cash/genrebacklog unchanged. Writerreleased 2026-10-31T10:34:47.354459+00:00.
 
 Next: One separately scoped optional opening-poster integration using independent blank stage artwork and original native controls, only after this verified core checkpoint. Preserve models/art/hardware; four-view native A/B. No APK per change;14:50read-only/15:00stop.
+
+
+# S41 optional opening poster preflight
+
+Core75 checkpoint retained. Rootsolewriter S41-opening-poster-20261031T1038 through12:15; optionalexistingtitleonly. Oneindependentblankrehearsal-stageimage +originalnativebrand/copy/controls/frame; nofullUItexture, newcast,genre/economy/model/schema. Actual75 title390/1280 andapprovedboard opened. Focusedfirstfold/Settings/nativeinput beforefour-viewfullproof; sourcepending, no artapproval. Twoineffectiveiterations change method/HOLD.14:50read-only/15:00hardstop.

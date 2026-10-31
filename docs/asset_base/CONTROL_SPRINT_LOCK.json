@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "79125ed173845808ec73ac6985903cc6978d4b4d",
-  "claimed_at": "2026-10-31T09:40:01.161259+00:00",
-  "expires_at": "2026-10-31T11:15:00Z",
-  "scope": "S41approveddailyworkspace: savedwritingcontinuity, honestrehearsalcommitment, freeactivitynavigation anddayreceipt. No gameplay/model/schema/artchange.",
+  "writer": "S41-opening-poster-20261031T1038",
+  "base_head": "f039ce4fd29a988d4d30ee6287dcd6e52d56e1cc",
+  "claimed_at": "2026-10-31T10:36:50.515457+00:00",
+  "expires_at": "2026-10-31T12:15:00Z",
+  "scope": "S41 optional approved poster opening only: one independent blank stage plate, original native menu controls/frame, responsive first-fold Settings and unchanged saved careers.",
   "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T10:34:47.354459+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Ownerapproveddayplan09:04; secondscopedrootworkspacewriter. RootsoleGL/sourcewriter;helpersscratch/read-only. Firstfoundation375checkpointpreserved.15:00hardfinish.",
+  "note": "Core75 verified/released. Rootsolewriter/GL;helpersscratch/read-only. Optionalposter mustprove nativeA/Bgain, otherwiseHOLD.14:50read-only/15:00hardstop.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -104,5 +104,13 @@
     "expires_at": "2026-10-31T10:10:00Z",
     "released_at": "2026-10-31T09:33:25.545628+00:00",
     "source_sha": "375e92ad4788060cdd7cf31721524dc5af3ee086"
+  },
+  "previous_daily_workspace_lease": {
+    "last_writer": "S41-daily-workspace-20261031T0940",
+    "base_head": "79125ed173845808ec73ac6985903cc6978d4b4d",
+    "claimed_at": "2026-10-31T09:40:01.161259+00:00",
+    "expires_at": "2026-10-31T11:15:00Z",
+    "released_at": "2026-10-31T10:34:47.354459+00:00",
+    "source_sha": "75d0214770098d76cbd4d17f540586143ea5dfc1"
   }
 }
