@@ -22,6 +22,37 @@ var recap_expanded := true
 var recap_details_expanded := false
 var look := "flightcase"
 
+# Phone-only layout wrapper around the same native Kit buttons and selection
+# contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
+class PracticePhoneChoices extends VBoxContainer:
+ signal selection_changed(index: int)
+ var selected := 0
+ var buttons: Array[Button] = []
+ var group := ButtonGroup.new()
+ func _init(style: String, labels: PackedStringArray, initial: int) -> void:
+  add_theme_constant_override("separation",4)
+  size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  group.allow_unpress = false
+  for index in range(labels.size()):
+   var option: Button = Kit.button(labels[index],style,"tab",true)
+   option.button_group = group
+   buttons.append(option)
+   add_child(option)
+   option.pressed.connect(select.bind(index))
+  if not buttons.is_empty():
+   selected = clampi(initial,0,buttons.size()-1)
+   buttons[selected].set_pressed_no_signal(true)
+ func select(index: int, emit: bool = true) -> void:
+  if index<0 or index>=buttons.size() or buttons[index].disabled:
+   return
+  for current in range(buttons.size()):
+   buttons[current].set_pressed_no_signal(current==index)
+  if selected==index:
+   return
+  selected = index
+  if emit:
+   selection_changed.emit(index)
+
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  get_viewport().size_changed.connect(_rebuild)
@@ -84,6 +115,7 @@ func _rebuild() -> void:
  header.add_child(title)
  var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
  var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+ budget.name = "BudgetLabel"
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
  root_box.add_child(header)
@@ -234,6 +266,9 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   start.free()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
+ var viewport_width: float = get_viewport_rect().size.x
+ var phone: bool = viewport_width<600
+ var stacked: bool = mobile or viewport_width<1000
  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
  # The result is a deliberate separate physical press screen, not a long
  # report placed above the controls. The real choice stays in a fixed footer.
@@ -245,28 +280,37 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   reopen.name = "RecapToggleAction"
   root_box.add_child(reopen)
  var scroll := ScrollContainer.new()
+ scroll.name = "PracticeScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.follow_focus = true
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  root_box.add_child(scroll)
- var content: BoxContainer = _box() if mobile else HBoxContainer.new()
+ var content: BoxContainer = _box() if stacked else HBoxContainer.new()
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- if not mobile:
+ if not stacked:
   content.add_theme_constant_override("separation",12)
  scroll.add_child(content)
  var actions := _box()
- actions.custom_minimum_size.x = 0 if mobile else 470
- content.add_child(_panel(actions))
+ actions.custom_minimum_size.x = 0 if stacked else 470
+ var practice_frame := _panel(actions)
+ practice_frame.name = "PracticeFrame"
+ content.add_child(practice_frame)
  if opening_owner != null:
   actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab"))
  actions.add_child(_label("FIRST PRACTICE",22))
  actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
  actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
  actions.add_child(_label("IDEA",13))
- var ideas := Kit.ChoiceStrip.new(look,PackedStringArray(["Riff","Lyric","Groove"]),idea_index)
+ var idea_labels := PackedStringArray(["Riff","Lyric","Groove"])
+ var ideas := Kit.ChoiceStrip.new(look,idea_labels,idea_index)
+ ideas.name = "PracticeIdeaChoices"
  ideas.selection_changed.connect(func(index: int): idea_index=index)
  actions.add_child(ideas)
  actions.add_child(_label("ARRANGEMENT",13))
- var forms := Kit.ChoiceStrip.new(look,PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"]),form_index)
+ var form_labels := PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"])
+ var forms: Variant = PracticePhoneChoices.new(look,form_labels,form_index) if phone else Kit.ChoiceStrip.new(look,form_labels,form_index)
+ forms.name = "PracticeArrangementChoices"
  forms.selection_changed.connect(func(index: int): form_index=index)
  actions.add_child(forms)
  actions.add_child(_label("SONG TITLE",13))
@@ -286,16 +330,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  lead.selection_changed.connect(func(index: int,_item: String): leader_index=index)
  actions.add_child(_label("SESSION LEADER",13))
  actions.add_child(lead)
- var write: Button = _button("WRITE SESSION  •  %d/3" % [int(game.career.get("song_draft_progress",0))+1],_write)
- write.name = "WriteAction"
- actions.add_child(write)
- var rehearse: Button = _button("REHEARSE  •  £15",_rehearse)
- rehearse.name = "RehearseAction"
- rehearse.disabled = int(game.career.get("cash",0))<15
- actions.add_child(rehearse)
- actions.add_child(_button("CLEAR THE AIR",_connect))
  var info := _box()
- info.custom_minimum_size.x = 0 if mobile else 350
+ info.custom_minimum_size.x = 0 if stacked else 350
  content.add_child(_panel(info))
  info.add_child(_label("THE BAND",19))
  for p in game.career.get("members",[]):
@@ -309,6 +345,26 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  info.add_child(_label("GIG PREP: Build a complete original and rehearse. Booking isn't available in this isolated proof yet.",14))
  info.add_child(_button("SAVE SANDBOX",_save,"tab"))
  info.add_child(_button("LOAD SANDBOX",_load,"tab"))
+ # The same authoritative actions stay visible while the form and band notes
+ # scroll. No action is duplicated, rerouted or charged by layout changes.
+ var dock := GridContainer.new()
+ dock.name = "PracticeDecisionDock"
+ dock.columns = 1 if phone else 3
+ dock.add_theme_constant_override("h_separation",8)
+ dock.add_theme_constant_override("v_separation",6)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ dock.custom_minimum_size.x = minf(900.0,maxf(280.0,viewport_width-(24.0 if mobile else 40.0)))
+ root_box.add_child(dock)
+ var write: Button = _button("WRITE SESSION  •  %d/3" % [int(game.career.get("song_draft_progress",0))+1],_write)
+ write.name = "WriteAction"
+ dock.add_child(write)
+ var rehearse: Button = _button("REHEARSE  •  £15",_rehearse)
+ rehearse.name = "RehearseAction"
+ rehearse.disabled = int(game.career.get("cash",0))<15
+ dock.add_child(rehearse)
+ var clear_air: Button = _button("CLEAR THE AIR",_connect)
+ clear_air.name = "ClearAirAction"
+ dock.add_child(clear_air)
 
 
 # The journal is read-only: presentation and visibility never call the
@@ -316,6 +372,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
 func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
  var viewport_size := get_viewport_rect().size
  var tall_tablet: bool = viewport_size.x>=600 and viewport_size.x<900 and viewport_size.y>viewport_size.x
+ var short_landscape: bool = viewport_size.x>=900 and viewport_size.y<800
  var scroll := ScrollContainer.new()
  scroll.name = "RehearsalResultScroll"
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -330,7 +387,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
   center.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
  var press: Variant = RehearsalPress.new()
- press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet)
+ press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)

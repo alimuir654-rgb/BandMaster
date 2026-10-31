@@ -115,6 +115,60 @@ func _recap_save_bytes() -> Dictionary:
   state[path] = FileAccess.get_file_as_bytes(path) if FileAccess.file_exists(path) else null
  return state
 
+func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool) -> void:
+ var bounds := Rect2(0,0,w,h)
+ var practice_scroll: ScrollContainer = screen.find_child("PracticeScroll",true,false) as ScrollContainer
+ var frame: Control = screen.find_child("PracticeFrame",true,false) as Control
+ var budget: Label = screen.find_child("BudgetLabel",true,false) as Label
+ if practice_scroll==null or frame==null or budget==null:
+  failures.append("S40 practice layout missing named form, frame or budget")
+  return
+ if frame.get_global_rect().position.x<0 or frame.get_global_rect().end.x>float(w):
+  failures.append("S40 practice frame overflows viewport horizontally")
+ if not budget.text.contains("£"+str(int(screen.setup.game.career.get("cash",0)))) or not bounds.encloses(budget.get_global_rect()):
+  failures.append("S40 practice cash/header is clipped or not the actual balance")
+ for action_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+  var action: Button = screen.find_child(action_name,true,false) as Button
+  if action==null or not bounds.encloses(action.get_global_rect()) or action.size.x<44 or action.size.y<44:
+   failures.append("S40 practice action is not a first-fold physical target: "+action_name)
+  elif practice_scroll.get_global_rect().intersects(action.get_global_rect()):
+   failures.append("S40 practice action overlaps its scrolling form: "+action_name)
+ if not exercise_choices:
+  return
+ var before: Dictionary = screen.setup.snapshot()
+ var saves: Dictionary = _recap_save_bytes()
+ for spec in [["PracticeIdeaChoices","idea_index",["Riff","Lyric","Groove"]],["PracticeArrangementChoices","form_index",["Verse / Chorus","Slow Build","Loose Jam"]]]:
+  var choices: Control = screen.find_child(str(spec[0]),true,false) as Control
+  if choices==null:
+   failures.append("S40 practice choice group missing: "+str(spec[0]))
+   continue
+  var owner: Node = choices
+  while owner!=null and owner.get_script()!=RehearsalScreen:
+   owner = owner.get_parent()
+  var buttons: Array[Node] = choices.find_children("*","Button",true,false)
+  if buttons.size()!=3 or owner==null:
+   failures.append("S40 practice choices lost original three options or owner")
+   continue
+  for index in [1,2,0]:
+   var button: Button = buttons[index] as Button
+   var skin: StyleBox = button.get_theme_stylebox("normal")
+   var text_width: float = button.get_theme_font("font").get_string_size(button.text,HORIZONTAL_ALIGNMENT_LEFT,-1,button.get_theme_font_size("font_size")).x
+   if button.text!=str(spec[2][index]) or button.clip_text or text_width>button.size.x-skin.get_minimum_size().x+1.0 or button.get_global_rect().position.x<0 or button.get_global_rect().end.x>float(w):
+    failures.append("S40 practice option label clips or changed: "+button.text)
+   await click_action(button)
+   var selected: int = 0
+   for peer in buttons:
+    if (peer as Button).button_pressed:
+     selected += 1
+   if selected!=1 or not button.button_pressed or int(owner.get(str(spec[1])))!=index:
+    failures.append("S40 real practice option click failed exclusive actual selection: "+button.text)
+ if screen.setup.snapshot()!=before or _recap_save_bytes()!=saves:
+  failures.append("S40 practice option browsing mutated career or save bytes")
+ practice_scroll.scroll_vertical = 0
+ await process_frame
+ await process_frame
+ print("S40_PRACTICE_LAYOUT ",JSON.stringify({"width":w,"height":h,"cash":budget.text,"choice_round_trip":true,"fixed_actions":3}))
+
 func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: int,h: int,context: String) -> void:
  var view: Dictionary = Recap.present(report,members)
  var advice: Label = screen.find_child("RecapNextMove",true,false) as Label
@@ -151,6 +205,10 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
     lower_edge -= gallery.get_h_scroll_bar().size.y
    if caption.get_global_rect().position.y<gallery.get_global_rect().position.y or caption.get_global_rect().end.y>lower_edge+1.0:
     failures.append("S40 "+context+" readable reaction is vertically clipped: "+pid)
+  if caption!=null and view.get("reactions",[]).size()<=3:
+   var mood: Label = screen.find_child("RecapMood_"+pid,true,false) as Label
+   if not scroll.get_global_rect().encloses(caption.get_global_rect()) or mood==null or not scroll.get_global_rect().encloses(mood.get_global_rect()):
+    failures.append("S40 "+context+" primary reaction or morale is outside initial report viewport: "+pid)
   if pid=="cast_casey" and caption!=null:
    var quote: String = str(voice.get("quote",""))
    var full: Label = screen.find_child("RecapFullQuote_"+pid,true,false) as Label
@@ -171,6 +229,42 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
   if readout==null or readout.get_theme_font_size("font_size")<minimum_readout or readout.text!=expected:
    failures.append("S40 "+context+" before/after readout is too small or not source-accurate: "+key)
  print("S40_RECAP_CLARITY ",JSON.stringify({"context":context,"width":w,"height":h,"next_move":advice.text,"reaction_min":minimum_reaction,"readout_min":minimum_readout,"return_label":action.text}))
+
+# Exercise the other two relocated actions on disposable copies of the real
+# career. Expected effects come from the unchanged authoritative model; neither
+# copy has an opening owner or any permission to save.
+func _check_practice_dispatch(screen: Control,w: int,h: int) -> void:
+ var before: Dictionary = screen.setup.snapshot()
+ var saved_files: Dictionary = _recap_save_bytes()
+ screen.hide()
+ for action_name in ["WriteAction","ClearAirAction"]:
+  var trial = Game.new()
+  var expected = Game.new()
+  if not trial.restore(screen.setup.game.snapshot()) or not expected.restore(screen.setup.game.snapshot()):
+   failures.append("S40 practice dispatch could not copy the genuine career")
+   continue
+  var result: Dictionary = expected.write_session("Riff","Verse / Chorus","THE LAST BUS HOME",0) if action_name=="WriteAction" else expected.clear_air()
+  if not result.get("ok",false):
+   failures.append("S40 practice dispatch expected model action was invalid")
+   continue
+  var fixture = RehearsalScreen.new()
+  fixture.game = trial
+  fixture.recap_expanded = false
+  fixture.last_message = "PRACTICE ACTION QA FIXTURE  /  NO SAVE"
+  root.add_child(fixture)
+  await process_frame
+  await process_frame
+  await process_frame
+  await click_action(fixture.find_child(action_name,true,false) as Button)
+  if trial.snapshot()!=expected.snapshot():
+   failures.append("S40 relocated practice action differed from one genuine settlement: "+action_name)
+  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saved_files:
+   failures.append("S40 isolated practice dispatch modified player state or save files")
+  print("S40_PRACTICE_DISPATCH ",JSON.stringify({"width":w,"height":h,"action":action_name,"action_count":trial.career.get("action_count",0),"matches_single_model_action":trial.snapshot()==expected.snapshot()}))
+  fixture.queue_free()
+  await process_frame
+  await process_frame
+ screen.show()
 
 func _check_recap_keyboard(screen,w: int,h: int) -> void:
  var action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
@@ -736,6 +830,7 @@ func take() -> void:
   if screen.setup.screen!="play" or screen.setup.game.phase!="play":
    failures.append("real First Practice click did not hand off gameplay")
   else:
+   await _check_practice_layout(screen,w,h,true)
    await _draw_screen("practice",w,h)
  if screen.setup.screen=="play":
   var before_resume: Dictionary = screen.setup.snapshot()
@@ -746,6 +841,7 @@ func take() -> void:
   if screen.setup.screen!="play" or screen.setup.snapshot()!=before_resume:
    failures.append("real Continue failed to restore live gameplay without state loss")
   else:
+   await _check_practice_layout(screen,w,h,false)
    await _draw_screen("resumed_practice",w,h)
   # S38: genuine pointer press of the existing Rehearse button, then
   # verify the saved causal result is restored by the real Continue menu.
@@ -822,6 +918,7 @@ func take() -> void:
     await click_action(toggle_notes)
     if screen.find_child("RehearsalRecapPanel",true,false)!=null:
      failures.append("S39 hide report failed")
+    await _check_practice_layout(screen,w,h,false)
     await click_action(screen.find_child("RecapToggleAction",true,false))
     if screen.find_child("RehearsalRecapPanel",true,false)==null:
      failures.append("S39 show report failed")
@@ -845,6 +942,7 @@ func take() -> void:
     _check_recap_clarity(screen,screen.setup.game.career.get("last_rehearsal_outcome",{}),screen.setup.game.career.get("members",[]),w,h,"resumed rehearsal")
     await _draw_screen("rehearsal_resumed",w,h)
 
+ await _check_practice_dispatch(screen,w,h)
  await _draw_six_member_recap(screen,w,h)
 
  # Deferred frees from the final screen transition must settle before checking

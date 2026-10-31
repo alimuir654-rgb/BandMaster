@@ -17,7 +17,7 @@ func ink(value: String, points: int, muted: bool = false) -> Label:
  label.focus_mode = Control.FOCUS_NONE
  return label
 
-func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false) -> void:
+func configure(report: Dictionary, members: Array, mobile: bool, expanded_details: bool, tall_tablet: bool = false, short_landscape: bool = false) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -27,7 +27,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var view: Dictionary = Recap.present(report,members)
  var content := VBoxContainer.new()
  content.name = "RecapEditorialBody"
- content.add_theme_constant_override("separation",10 if tall_tablet else (5 if mobile else 9))
+ content.add_theme_constant_override("separation",4 if short_landscape else (10 if tall_tablet else (5 if mobile else 9)))
  add_child(content)
  if view.is_empty():
   content.add_child(ink("No saved session report available.",15))
@@ -45,7 +45,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var heading := ink(str(view.get("heading","SESSION")),14 if tall_tablet else (11 if mobile else 13),true)
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(heading)
- var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),42 if tall_tablet else (30 if mobile else 40))
+ var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),36 if short_landscape else (42 if tall_tablet else (30 if mobile else 40)))
  verdict.name = "RecapVerdict"
  verdict.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(verdict)
