@@ -727,6 +727,13 @@ func take() -> void:
     failures.append("S40 selected Jack Zoe Casey photographs not visible in native journal")
    elif jack_photo.texture==null or jack_photo.texture.get_width()<200:
     failures.append("S40 selected approved preview source missing or wrong resolution")
+   if w>=600 and w<900 and h>w:
+    var tablet_quote: Label = screen.find_child("RecapMember_cast_jack",true,false) as Label
+    if tablet_quote==null or tablet_quote.get_theme_font_size("font_size")<16:
+     failures.append("S40 tall-tablet reactions still use phone-sized text")
+    for tablet_photo in [jack_photo,zoe_photo,casey_photo]:
+     if tablet_photo==null or tablet_photo.get_global_rect().size.x<150 or tablet_photo.get_global_rect().size.x>tablet_photo.texture.get_width():
+      failures.append("S40 tablet portrait is undersized or exceeds its honest source detail")
    if stage_action==null or stage_action.get_global_rect().size.y<44 or stage_action.get_global_rect().end.y>float(h)-4.0:
     failures.append("S40 real Continue Practising action not visible in first viewport")
    var detail_action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button

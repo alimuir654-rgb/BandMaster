@@ -314,6 +314,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
 # The journal is read-only: presentation and visibility never call the
 # resolver, generate a second outcome or change the saved band.
 func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
+ var viewport_size := get_viewport_rect().size
+ var tall_tablet: bool = viewport_size.x>=600 and viewport_size.x<900 and viewport_size.y>viewport_size.x
  var scroll := ScrollContainer.new()
  scroll.name = "RehearsalResultScroll"
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -322,9 +324,13 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  root_box.add_child(scroll)
  var center := CenterContainer.new()
  center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ if tall_tablet:
+  # Short reports sit naturally within the tablet; long expanded reports
+  # still grow the scroll content and remain readable from its top.
+  center.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
  var press: Variant = RehearsalPress.new()
- press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded)
+ press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)
