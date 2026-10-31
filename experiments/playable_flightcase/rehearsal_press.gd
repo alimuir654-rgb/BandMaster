@@ -49,7 +49,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  verdict.name = "RecapVerdict"
  verdict.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(verdict)
- var why := ink(str(view.get("reason","")),16 if tall_tablet else (12 if mobile else 14),true)
+ var why := ink(str(view.get("reason","")),16 if tall_tablet else 14,true)
  why.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(why)
  var score := ink("THE SCORECARD",14 if tall_tablet else (11 if mobile else 12),true)
@@ -63,7 +63,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  tiles.name = "RecapHeroMetrics"
  tiles.add_theme_constant_override("separation",10 if tall_tablet else (4 if mobile else 10))
  content.add_child(tiles)
- for selector in [["readiness","SET"],["morale","MORALE"],["tension","TENSION"]]:
+ for selector in [["readiness","READINESS"],["morale","MORALE"],["tension","TENSION"]]:
   var key: String = str(selector[0])
   var item: Dictionary = metrics.get(key,{})
   var delta: int = int(item.get("delta",0))
@@ -77,7 +77,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   var stack := VBoxContainer.new()
   stack.add_theme_constant_override("separation",1)
   tile.add_child(stack)
-  var cap := ink(str(selector[1]),14 if tall_tablet else (10 if mobile else 12),true)
+  var cap := ink(str(selector[1]),14 if tall_tablet else 12,true)
   cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   stack.add_child(cap)
   var change := ink(Recap.signed_change(delta),40 if tall_tablet else (27 if mobile else 34))
@@ -86,7 +86,8 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   var adverse: bool = (key=="tension" and delta>0) or (key!="tension" and delta<0)
   change.add_theme_color_override("font_color",Color("954a42") if adverse else (Color("376c58") if delta!=0 else Color("695c4b")))
   stack.add_child(change)
-  var before_after := ink("%d → %d" % [int(item.get("before",0)),int(item.get("after",0))],13 if tall_tablet else (9 if mobile else 11),true)
+  var before_after := ink("%d → %d" % [int(item.get("before",0)),int(item.get("after",0))],13 if tall_tablet else 12,true)
+  before_after.name = "RecapBeforeAfter_"+key
   before_after.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   stack.add_child(before_after)
  var voices: Array = view.get("reactions",[])
@@ -106,7 +107,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  band_caption.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  band_header.add_child(band_caption)
  if voices.size()>3 and mobile:
-  var browse_hint := ink("SWIPE ›",12 if tall_tablet else 9,true)
+  var browse_hint := ink("SWIPE ›",12,true)
   browse_hint.name = "RecapBrowseHint"
   browse_hint.autowrap_mode = TextServer.AUTOWRAP_OFF
   browse_hint.size_flags_horizontal = Control.SIZE_SHRINK_END
@@ -116,7 +117,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  gallery.name = "RecapMemberGallery"
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
- gallery.custom_minimum_size.y = 280 if tall_tablet else (190 if mobile else 210)
+ gallery.custom_minimum_size.y = 280 if tall_tablet else 230
  # The existing scrollbar is the keyboard route to offscreen bandmates.
  # Godot skips it in focus traversal when the entire roster already fits.
  gallery.get_h_scroll_bar().focus_mode = Control.FOCUS_ALL
@@ -157,8 +158,10 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    card.add_child(missing)
   var short_quote: String = str(voice.get("quote",""))
   if short_quote.length()>32:
-   short_quote = short_quote.substr(0,31).rstrip(" .")+"…"
-  var line := ink(display_name+"\n“"+short_quote+"”",16 if tall_tablet else (11 if mobile else 12))
+   var excerpt: String = short_quote.substr(0,32)
+   var word_break: int = excerpt.rfind(" ")
+   short_quote = excerpt.substr(0,word_break if word_break>0 else 31).rstrip(" .,!?")+"…"
+  var line := ink(display_name+"\n“"+short_quote+"”",16 if tall_tablet else 14)
   line.name = "RecapMember_"+person_id
   line.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   card.add_child(line)
@@ -167,7 +170,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    if individual is Dictionary and str(individual.get("candidate_id",""))==person_id:
     personal_morale = int(individual.get("changes",{}).get("morale",{}).get("delta",0))
     break
-  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),14 if tall_tablet else (10 if mobile else 11),true)
+  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),14 if tall_tablet else 12,true)
   morale_badge.name = "RecapMood_"+person_id
   morale_badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   morale_badge.add_theme_color_override("font_color",Color("954a42") if personal_morale<0 else (Color("376c58") if personal_morale>0 else Color("695c4b")))

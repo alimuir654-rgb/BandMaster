@@ -115,6 +115,63 @@ func _recap_save_bytes() -> Dictionary:
   state[path] = FileAccess.get_file_as_bytes(path) if FileAccess.file_exists(path) else null
  return state
 
+func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: int,h: int,context: String) -> void:
+ var view: Dictionary = Recap.present(report,members)
+ var advice: Label = screen.find_child("RecapNextMove",true,false) as Label
+ var action: Button = screen.find_child("RecapToggleAction",true,false) as Button
+ var scroll: ScrollContainer = screen.find_child("RehearsalResultScroll",true,false) as ScrollContainer
+ var viewport := Rect2(0,0,w,h)
+ if advice==null or action==null or scroll==null:
+  failures.append("S40 "+context+" missing next-move advice or return dock")
+  return
+ if advice.text!=str(view.get("next_step","")) or advice.text.is_empty():
+  failures.append("S40 "+context+" next move does not describe the actual saved outcome")
+ if not advice.is_visible_in_tree() or advice.get_theme_font_size("font_size")!=16 or not viewport.encloses(advice.get_global_rect()):
+  failures.append("S40 "+context+" canonical 16px next move is not visible in first fold")
+ if action.text!="BACK TO PRACTICE  ›" or action.get_global_rect().size.y<44 or not viewport.encloses(action.get_global_rect()):
+  failures.append("S40 "+context+" return action is mislabeled, too small or clipped")
+ if advice.get_global_rect().end.y>action.get_global_rect().position.y or scroll.get_global_rect().intersects(advice.get_global_rect()) or scroll.get_global_rect().intersects(action.get_global_rect()):
+  failures.append("S40 "+context+" next move/return action overlaps report or each other")
+ if advice.focus_mode!=Control.FOCUS_NONE or advice.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
+  failures.append("S40 "+context+" read-only next move steals input")
+ var tablet: bool = w>=600 and w<900 and h>w
+ var minimum_reaction: int = 16 if tablet else 14
+ var minimum_readout: int = 13 if tablet else 12
+ var gallery: ScrollContainer = screen.find_child("RecapMemberGallery",true,false) as ScrollContainer
+ for voice in view.get("reactions",[]):
+  if not voice is Dictionary:
+   continue
+  var pid: String = str(voice.get("candidate_id",""))
+  var caption: Label = screen.find_child("RecapMember_"+pid,true,false) as Label
+  if caption==null or caption.get_theme_font_size("font_size")<minimum_reaction:
+   failures.append("S40 "+context+" primary reaction is too small: "+pid)
+  elif gallery!=null:
+   var lower_edge: float = gallery.get_global_rect().end.y
+   if gallery.get_h_scroll_bar().visible:
+    lower_edge -= gallery.get_h_scroll_bar().size.y
+   if caption.get_global_rect().position.y<gallery.get_global_rect().position.y or caption.get_global_rect().end.y>lower_edge+1.0:
+    failures.append("S40 "+context+" readable reaction is vertically clipped: "+pid)
+  if pid=="cast_casey" and caption!=null:
+   var quote: String = str(voice.get("quote",""))
+   var full: Label = screen.find_child("RecapFullQuote_"+pid,true,false) as Label
+   if full==null or full.text!=str(voice.get("name","Musician"))+" — “"+quote+"”":
+    failures.append("S40 "+context+" complete Casey reaction changed")
+   if quote.length()>32:
+    var lines: PackedStringArray = caption.text.split("\n",false,1)
+    if lines.size()!=2 or not lines[1].begins_with("“") or not lines[1].ends_with("…”"):
+     failures.append("S40 "+context+" Casey excerpt has no clear truncation marker")
+    else:
+     var excerpt: String = lines[1].trim_prefix("“").trim_suffix("…”")
+     if excerpt.is_empty() or not quote.begins_with(excerpt) or quote.substr(excerpt.length(),1) not in [" ",".",",","!","?"]:
+      failures.append("S40 "+context+" Casey excerpt cuts a word instead of retaining a whole phrase")
+ for key in ["readiness","morale","tension"]:
+  var readout: Label = screen.find_child("RecapBeforeAfter_"+key,true,false) as Label
+  var metric: Dictionary = report.get("metrics",{}).get(key,{})
+  var expected: String = "%d → %d" % [int(metric.get("before",0)),int(metric.get("after",0))]
+  if readout==null or readout.get_theme_font_size("font_size")<minimum_readout or readout.text!=expected:
+   failures.append("S40 "+context+" before/after readout is too small or not source-accurate: "+key)
+ print("S40_RECAP_CLARITY ",JSON.stringify({"context":context,"width":w,"height":h,"next_move":advice.text,"reaction_min":minimum_reaction,"readout_min":minimum_readout,"return_label":action.text}))
+
 func _check_recap_keyboard(screen,w: int,h: int) -> void:
  var action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
  var scroll: ScrollContainer = screen.find_child("RehearsalResultScroll",true,false) as ScrollContainer
@@ -227,6 +284,7 @@ func _draw_six_member_recap(screen,w: int,h: int) -> void:
  await process_frame
  await process_frame
  await process_frame
+ _check_recap_clarity(fixture,game.career.get("last_rehearsal_outcome",{}),game.career.get("members",[]),w,h,"six-member band meeting")
  var gallery: ScrollContainer = fixture.find_child("RecapMemberGallery",true,false) as ScrollContainer
  var footer: Button = fixture.find_child("RecapToggleAction",true,false) as Button
  if gallery==null or footer==null:
@@ -739,6 +797,7 @@ func take() -> void:
       failures.append("S40 tablet portrait is undersized or exceeds its honest source detail")
    if stage_action==null or stage_action.get_global_rect().size.y<44 or stage_action.get_global_rect().end.y>float(h)-4.0:
     failures.append("S40 real Continue Practising action not visible in first viewport")
+   _check_recap_clarity(screen,report,screen.setup.game.career.get("members",[]),w,h,"three-member rehearsal")
    var detail_action: Button = screen.find_child("RecapDetailsToggleAction",true,false) as Button
    if detail_action==null:
     failures.append("S40 accessible full-breakdown control missing")
@@ -783,6 +842,7 @@ func take() -> void:
     var restored_header: Label = screen.find_child("StatusMessage",true,false) as Label
     if restored_header==null or not restored_header.text.contains("LAST SESSION") or not restored_header.text.contains("Good progress"):
      failures.append("S39 resumed phase shows stale recruitment text instead of saved rehearsal verdict")
+    _check_recap_clarity(screen,screen.setup.game.career.get("last_rehearsal_outcome",{}),screen.setup.game.career.get("members",[]),w,h,"resumed rehearsal")
     await _draw_screen("rehearsal_resumed",w,h)
 
  await _draw_six_member_recap(screen,w,h)

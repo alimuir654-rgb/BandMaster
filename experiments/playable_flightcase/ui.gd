@@ -334,11 +334,23 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)
- var footer: Button = _button("CONTINUE PRACTISING  ›",_toggle_recap)
+ var dock := VBoxContainer.new()
+ dock.name = "RecapDecisionDock"
+ dock.add_theme_constant_override("separation",6)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ dock.custom_minimum_size.x = minf(760.0,maxf(280.0,viewport_size.x-(48.0 if mobile else 88.0)))
+ root_box.add_child(dock)
+ # Advice is the existing pure presenter's reading of this saved result.
+ # Returning to practice does not spend another day or resolve another action.
+ var view: Dictionary = Recap.present(report,game.career.get("members",[]))
+ var next_move: Label = _label(str(view.get("next_step","")),16)
+ next_move.name = "RecapNextMove"
+ next_move.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ next_move.focus_mode = Control.FOCUS_NONE
+ dock.add_child(next_move)
+ var footer: Button = _button("BACK TO PRACTICE  ›",_toggle_recap)
  footer.name = "RecapToggleAction"
- footer.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
- footer.custom_minimum_size.x = minf(760.0,maxf(280.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
- root_box.add_child(footer)
+ dock.add_child(footer)
 
 func _toggle_recap_details() -> void:
  var detail: Control = find_child("RecapDetailedBreakdown",true,false) as Control
