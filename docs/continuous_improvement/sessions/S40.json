@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 186695,
-    "sha256": "2ef454daecb30bb3b5ab6e65fbb1e4d7eeb036e279ac0d40357d83e22c384f02"
+    "bytes": 188514,
+    "sha256": "690bdca6eb16f78734221fec7b121cb6800e4c20a68d935271a4a095a987a7a2"
   },
   "target": {
     "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exact local33f861 source verified:73+88/import/4realnative pointer+keyboard/save journeys and extracted package entry; source not publicly synced. Earlier9163 native CI recovered41078291638; not a run for new local source.",
-  "issues_reviewed_at": "2026-10-31T01:23:12.026680+00:00",
+  "issues_reviewed_at": "2026-10-31T01:28:51.169458+00:00",
   "progress": {
     "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
     "verified_at": "2026-10-31T00:44:14.815603+00:00",
@@ -418,6 +418,7 @@
     "limits": "No new source art needed; no fullbodyfontshrinking, ellipses or clippedfriction. Remove shows current available, not unverified refundforecast. Fullband must not suggest0price7thmember.",
     "stop_condition": "Two ineffective native attempts require technique change or hold. Release lease before01:55 and no implementationafter09:00.",
     "failed_preview": "a8e709e5 full16pxcontext/wide6statpreview passed its bounds but hiddenallphone stats; rootvisualFAIL. Preserveproof. Onechangedphonecompositionbeforebroaderpolish.",
-    "phone_correction": "Phone<600 existing portrait80x79 beside all6originalmeter textures displayed80x24, original13pxfullstatlabels/14pxnumbers; keep rawmeter/cast/control bytes unchanged and same16pxtraitcopy."
+    "phone_correction": "Phone<600 existing portrait80x79 beside all6originalmeter textures displayed80x24, original13pxfullstatlabels/14pxnumbers; keep rawmeter/cast/control bytes unchanged and same16pxtraitcopy.",
+    "method_change": "Twooverallphoneattemptsfailed: a8hidesallstats,3fcompactclips6thBexdue3lineheader. CHANGE technique: explicit48pxbrowsearrows/remainingidentitywidth, not smaller fonts/photos/meters. If ineffectivehold."
   }
 }
