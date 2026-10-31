@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 181885,
-    "sha256": "df7a7032a8bdbbdcff6fd142eb3c5d9afd616814fdfa5d02cb8993c69c417f2d"
+    "bytes": 185057,
+    "sha256": "663a3fb57a78ded7af7814092c3ebff018324c586ad841ad166048e40622e5e0"
   },
   "target": {
     "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exact local33f861 source verified:73+88/import/4realnative pointer+keyboard/save journeys and extracted package entry; source not publicly synced. Earlier9163 native CI recovered41078291638; not a run for new local source.",
-  "issues_reviewed_at": "2026-10-31T01:14:15.570234+00:00",
+  "issues_reviewed_at": "2026-10-31T01:19:52.457874+00:00",
   "progress": {
     "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
     "verified_at": "2026-10-31T00:44:14.815603+00:00",
@@ -416,6 +416,8 @@
     "preflight_head": "9cea492bda19e1557fdd293f8b884db52254c5bb",
     "one_outcome": "Readable trade-offs before Recruit with all original stats accessible.",
     "limits": "No new source art needed; no fullbodyfontshrinking, ellipses or clippedfriction. Remove shows current available, not unverified refundforecast. Fullband must not suggest0price7thmember.",
-    "stop_condition": "Two ineffective native attempts require technique change or hold. Release lease before01:55 and no implementationafter09:00."
+    "stop_condition": "Two ineffective native attempts require technique change or hold. Release lease before01:55 and no implementationafter09:00.",
+    "failed_preview": "a8e709e5 full16pxcontext/wide6statpreview passed its bounds but hiddenallphone stats; rootvisualFAIL. Preserveproof. Onechangedphonecompositionbeforebroaderpolish.",
+    "phone_correction": "Phone<600 existing portrait80x79 beside all6originalmeter textures displayed80x24, original13pxfullstatlabels/14pxnumbers; keep rawmeter/cast/control bytes unchanged and same16pxtraitcopy."
   }
 }
