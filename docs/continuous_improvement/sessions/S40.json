@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 161481,
-    "sha256": "9887625456477ee1c6b6a270ebc6edfe2cd3c5c4f88a5064117b6abf3b3b3700"
+    "bytes": 163123,
+    "sha256": "6185862449906e8cdb7f9b3aff4ea48c47967c7812f5c1a5117edc25179bdb52"
   },
   "target": {
     "locator": "Original local S40 Godot4.7.2 native result390 and1280 opened at original pixels; same-state four-view S39 baseline rerender from01ea1a also inspected. Current later source b2647df enlarges original cast previews and remains to rerender; retain this source, no stale replacement. No owner-approved rehearsal mockup supplied.",
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Existing9163db9 now independently verified: GitHub exactSHA native run41078291638 all4checks success; local73+88andfour nativepointer/save journeys pass. Original localfour-view PNGs and S39 rerenders inspected. Latest eveningb2647df retained but new native proof pending.",
-  "issues_reviewed_at": "2026-10-31T00:31:49.237560+00:00",
+  "issues_reviewed_at": "2026-10-31T00:33:39.639380+00:00",
   "progress": {
     "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
     "source_files": [
@@ -183,7 +183,8 @@
     ],
     "evidence_limit": "Official descriptions/manuals for first3; actual official-repository LMMS screenshot inspected. No hands-on app testing; no blocked screenshot pixel claims.",
     "stop_condition": "If increased type/guidance hides primary portraits or return action, correct layout once with preserved failing evidence; do not add tolex decoration to mask clarity failures.",
-    "owner_approved": false
+    "owner_approved": false,
+    "failed_candidate": "d154 technicalPASS, original1280primaryreactionsclipped by outerreportviewport. Evidence preserved; exact one controlled spacing correction at shortlandscape, not smaller captions."
   },
   "practice_layout_pass": {
     "baseline_sha": "d1542fa58fd0bded7eb3b3f82560997dd7bd4062",
