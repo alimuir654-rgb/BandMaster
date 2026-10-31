@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "c34eff0c2c41d9ef3a14f1f00f1ac3ce6127725c",
-  "claimed_at": "2026-10-31T13:04:09.305960+00:00",
-  "expires_at": "2026-10-31T14:30:00Z",
-  "scope": "Frozen6c1additionalart LOCAL checkpoint and selectedscreenshotPages only; no source/art/Androidwrites.",
-  "authority": "31 Oct12:06 direct owner: Run additional artwork improvements through to3pm. Existing screens only;14:50finalread-only/15:00hardstop.",
+  "writer": "S42-owner-android-v4-20261031T1540",
+  "base_head": "971ae10aa48edbadea7c8b7409d9814c893518e8",
+  "claimed_at": "2026-10-31T15:39:14.163427+00:00",
+  "expires_at": "2026-10-31T16:15:00Z",
+  "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload.",
+  "authority": "New direct owner after completed15:00window: Go ahead prep the next apk file.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T13:19:46.496525+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S41-art-review-package-20261031T1305",
+  "last_writer": "S42-owner-android-v4-20261031T1540",
   "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
   "previous_checkpoint_release": {
     "writer": null,
@@ -120,5 +120,11 @@
     "expires_at": "2026-10-31T12:15:00Z",
     "released_at": "2026-10-31T11:19:04.702267+00:00",
     "source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d"
+  },
+  "previous_art_delivery_release": {
+    "last_writer": "S41-art-review-package-20261031T1305",
+    "released_at": "2026-10-31T13:19:46.496525+00:00",
+    "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+    "scope": "Frozen6c1additionalart LOCAL checkpoint and selectedscreenshotPages only; no source/art/Androidwrites."
   }
 }

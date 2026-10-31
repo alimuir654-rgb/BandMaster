@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "Additionalgenre/titleartverified andcurrentlocalcheckpoint/screens delivered; owner-review readiness/newfeedback only through15:00.",
+  "session": "docs/continuous_improvement/sessions/S42.json",
+  "scope": "New direct owner: Go ahead prep the next apk file. ONE packaging-only Android V4 of completed6c1 artwork; no source/art/schedule extension.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active_review_ready",
-  "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+  "status": "owner_requested_android_packaging",
+  "next_action": "Build ONE V4 APK then verify/private-deliver and release artifactwriter. No phone runtime claim.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {
@@ -899,7 +899,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -1017,7 +1017,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -1168,7 +1168,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -1366,7 +1366,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2315,8 +2315,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2334,7 +2334,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -2695,5 +2695,12 @@
       }
     }
   ],
-  "additional_art_authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains."
+  "additional_art_authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
+  "prior_completed_dayplan": {
+    "scope": "Additionalgenre/titleartverified andcurrentlocalcheckpoint/screens delivered; owner-review readiness/newfeedback only through15:00.",
+    "status": "active_review_ready",
+    "next_action": "Read-only owner artwork/phone feedback and exact-checkpoint readiness through15:00. Additionalrequestedgenre/titleart iscomplete; no inventedart/QA slices, unchangedsuite/ZIPchecks, newAPK orsourcepublication foractivity. Onlyconcrete demonstratedexisting-screen gap/newownersteering warrantsfreshboundedpreflight before14:50.14:50finalread-only/15:00hardstop, no extension.",
+    "session": "docs/continuous_improvement/sessions/S41.json",
+    "current_session": null
+  }
 }

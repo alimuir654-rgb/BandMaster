@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "S42",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "New direct owner: Go ahead prep the next apk file. ONE packaging-only Android V4 of completed6c1 artwork; no source/art/schedule extension.",
+  "baseline_sha": "971ae10aa48edbadea7c8b7409d9814c893518e8",
+  "dominant_issue": "BM-13",
+  "lesson_ids": [
+    "BM-01",
+    "BM-08",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-17",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 333286,
+    "sha256": "94c9bd3c4f9318a99cb6108e77b05455ab83f9b3307bf453466757c375617e9a"
+  },
+  "target": {
+    "locator": "/workspace/work/s40/runs/day31-wordmark-6c1f50d/captures/c27-title-390x844.png",
+    "original_sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+    "pixels_inspected": true,
+    "kind": "Actual verified6c1 native phone title PNG opened this task; matchinggenrephoneoriginal alsoopened; no newartwork"
+  },
+  "hypothesis": "Packaging exact verified6c1 source with original Android config/signing certificate and versioncode4 will let owner update existing installation and test newgenre/titleart without savewipe.",
+  "controlled_comparison": "Existing280-file Git-pinned checkpoint to isolated Android export. Compare V3 appID/certificate/projectconfig/userdirectory unchanged, code3\u21924 only; inspect source/asset bytes inproject and APK, no private key/saves/ledgers bundled. Reuse existing73+88/4view proof; newexport/import/sign/align/manifest/log/inventory checks.",
+  "stop_condition": "One bounded artifact writer until16:15UTC; stop and record any source/hash,ERROR,cert,saveconfig orprivacy discrepancy before correction. No engine/source/art changes, paid services or publichistoryupload. No automatic schedule extension.",
+  "protected": [
+    "All game/art/model/save-schema source bytes",
+    "Original cast/meter/hardware bytes and inert semantics",
+    "Existing signing key/privatecontents",
+    "Existing V3 APK and phone progress",
+    "Production saves/main/PR199"
+  ],
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python -B tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S42.json",
+    "Existing tools/export_owner_android.py --checkpoint /workspace/work/s40/runs/day31-wordmark-6c1f50d --version-code4 --version-name0.41.1-playtest with original key/toolchain; actualCLIuses separate arguments",
+    "Inspect9exportsteps require0ERROR; signature/16KB/CRC/manifest/API24/target36/ARM32+64/privacy/sourceintegrity; compare originalV3projectconfig/certificate; readbackprivateAPKmetadata andnamedreaderACL"
+  ],
+  "started_at": "2026-10-31T15:39:14.249852+00:00",
+  "scope_end": "2026-10-31T16:15:00Z",
+  "game_source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
+  "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+  "next_action": "Build ONE V4 APK then verify/private-deliver and release artifactwriter. No phone runtime claim."
+}
