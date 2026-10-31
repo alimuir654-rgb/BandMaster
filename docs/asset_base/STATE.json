@@ -5,7 +5,7 @@
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
-  "review_at": "2026-10-30T09:00:00+00:00",
+  "review_at": "2026-10-31T09:00:00+00:00",
   "production_authorised": true,
   "owner_approved": false,
   "owner_approval_evidence": null,
@@ -17,8 +17,8 @@
     "S5_member_feedback_result_ui",
     "S6_native_polish_and_packaging"
   ],
-  "writer": "S40-codex-overnight-20261030",
-  "last_verified_code_sha": "01ea1a5730c087ab85960edd0104bf87012885a4",
+  "writer": null,
+  "last_verified_code_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -409,12 +409,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -652,6 +652,150 @@
   "current_session": "S40",
   "last_verified_native_run": 41053613819,
   "latest_verified_phase2": {
+    "sprint": "S40",
+    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+    "verification_kind": "local Godot4.7.2, not remote CI",
+    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 84,
+      "orphan_growth": 0,
+      "error_lines": 0
+    },
+    "visual_verdict": "partial",
+    "owner_approved": false
+  },
+  "last_sprint": "S39",
+  "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable.",
+  "owner_overnight_extension": {
+    "authorized_at": "2026-10-30T23:48:38Z",
+    "until": "2026-10-31T09:00:00Z",
+    "scope": "Owner-authorized overnight S40 native accessibility and source-backed visual improvement through31Oct09:00London; currentbranch only.",
+    "owner_approved": false
+  },
+  "latest_local_native_checkpoint": {
+    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+    "verified_at": "2026-10-31T00:44:14.815603+00:00",
+    "scope": "Local isolated S40 checkpoint; overnight programme remains active until09:00Europe/London, not merged or publicly published.",
+    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 84,
+      "orphan_growth": 0,
+      "error_lines": 0
+    },
+    "images_opened_by_render_review": [
+      "c27-practice-390x844.png",
+      "c27-practice-720x1280.png",
+      "c27-practice-1280x720.png",
+      "c27-practice-1600x900.png",
+      "c27-rehearsal_outcome-390x844.png",
+      "c27-rehearsal_outcome-720x1280.png",
+      "c27-rehearsal_outcome-1280x720.png",
+      "c27-rehearsal_outcome-1600x900.png",
+      "c27-rehearsal_six_members-390x844.png",
+      "c27-rehearsal_six_members_end-390x844.png",
+      "c27-rehearsal_six_members_ledger_end-390x844.png",
+      "c27-rehearsal_six_members-720x1280.png",
+      "c27-rehearsal_six_members_end-720x1280.png",
+      "c27-rehearsal_six_members_ledger_end-720x1280.png"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "packages": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "project_files": 274,
+      "review_original_pngs": 12,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10659289,
+          "sha256": "43f039e241c7c8b6dca01e8a4d27686b6aa82bb24446e920124b72164e3ba283",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/native-quality-review.zip",
+          "bytes": 5333564,
+          "sha256": "702233df356b9710bd76ba955f986fd0e6569f825ca3ea7f7d708d96a4e9b7b1",
+          "zip_crc": "PASS"
+        }
+      ],
+      "publication": "local scratch only; no public attachment or remote CI artifact claimed",
+      "owner_approved": false,
+      "review_before_smoke_sha256": "4ce32ab2bcbbbeb77c674b0db26a6cc29ac0d32446a18e6dee6eb2651859f6bb",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/practice-33f/packages/package-smoke.json"
+    },
+    "package_smoke": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "checked_at": "2026-10-31T00:43:58.470504+00:00",
+      "extracted_project": "/workspace/work/s40/runs/practice-33f/packages/extracted-smoke",
+      "steps": [
+        {
+          "step": "clean-import",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        },
+        {
+          "step": "native-project-entry",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "production_save_access": false,
+      "owner_approved": false
+    },
+    "protected_byte_audit": "/workspace/work/s40/protection-audit-20261031.json",
+    "source_hashes": {
+      "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
+      "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
+      "experiments/playable_flightcase/art/icons/SOURCES.json": "5adc3c9e40bec7e693db61cfe8b78d78a4a2bad1ffa03c5a1e705f31ae97bded",
+      "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
+      "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
+      "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
+      "experiments/playable_flightcase/opening_capture.gd": "cd0ac4539aadeb57ec0547614ce104a973f54bbc31600c82cff6710bd099f394",
+      "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
+      "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
+      "experiments/playable_flightcase/ui.gd": "248a602595cb7378f6de6d4b23d7c295d646cf055ac0005bb62e59ccdf094241"
+    },
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: layered paper/quiet printed score fields form a coherent music-press object; retain original case hardware and casting. Actual four-view pixels improved; owner-mockup match remains partial.",
+      "technical_art": "SIMULATED: raw generated paper1448x1086 hash/provenance retained, original~230px C25 crops not presented as high-resolution masters; licensed Lucide bytes and source rights retained; unused tolex study held.",
+      "ui_accessibility": "SIMULATED:14px primary reactions/12px numerical readouts,16px canonical next move, accurate Back to Practice,44px fixed session targets. Focus continuity, complete16px quotes and six-member End/Home access work; no real-device touch/screen-reader claim.",
+      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+four real pointer/keyboard/save journeys, zero orphan growth and ERROR lines; Write/ClearAir real clicks match one authoritative model settlement. Original models/save schemas/protected bytes unchanged.",
+      "qa_producer": "SIMULATED: rejected paper and d154 landscape failure retained; corrected exact source verified, packaged and extracted-project smoke checked. Local evidence only, remote sync blocked; art approval false and recruitment decision-context gap is next."
+    },
+    "remaining_gaps": [
+      "Recruitment trade-offs are below fold on phone; compact actual strength/friction context must precede more decoration.",
+      "Full optional ledger and lower writing form intentionally scroll; primary actions remain fixed.",
+      "No owner-approved rehearsal-specific mockup, real-device touch or screen-reader validation.",
+      "Four known native warnings per capture: unsupportedVSync and3existing anchor/size warnings; zeroERROR lines.",
+      "Publication remains blocked by automatic review of full public development-history upload; explicit approval pending."
+    ],
+    "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable."
+  },
+  "historical_unverified_phase2_candidate": {
+    "sprint": "S40",
+    "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
+    "native_verified": false,
+    "artistic_review": "hold",
+    "owner_approved": false,
+    "structural_checks": 11,
+    "checkpoint_verified": "01ea1a5730c087ab85960edd0104bf87012885a4",
+    "stage": "source_committed_awaiting_native_exact_sha",
+    "recovery_note": "Original9163 source later verified by native push run41078291638 and local rerenders; current local verified checkpoint33f supersedes it. Original unverified assertion retained as historical, not current status."
+  },
+  "latest_unverified_phase2_candidate": null,
+  "historical_remote_verified_phase2": {
     "sprint": "S38",
     "source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40",
     "native_run": 41053613819,
@@ -660,22 +804,6 @@
     "playable_artifact": 12975024435,
     "owner_approved": false
   },
-  "last_sprint": "S39",
-  "next_action": "Repair disclosure continuity/fullreactions, nativeverify then source-backed paper/frame visualpass; preservelatestb2647df and checkpoints.",
-  "latest_unverified_phase2_candidate": {
-    "sprint": "S40",
-    "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
-    "native_verified": false,
-    "artistic_review": "hold",
-    "owner_approved": false,
-    "structural_checks": 11,
-    "checkpoint_verified": "01ea1a5730c087ab85960edd0104bf87012885a4",
-    "stage": "source_committed_awaiting_native_exact_sha"
-  },
-  "owner_overnight_extension": {
-    "authorized_at": "2026-10-30T23:48:38Z",
-    "until": "2026-10-31T09:00:00Z",
-    "scope": "Owner-authorized overnight S40 native accessibility and source-backed visual improvement through31Oct09:00London; currentbranch only.",
-    "owner_approved": false
-  }
+  "last_verified_native_run_is_historical_remote": true,
+  "last_verified_native_run_source_sha": "c4ee73728664e1dc4cda162085fab34a2bde0c40"
 }

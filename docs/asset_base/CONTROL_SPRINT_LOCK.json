@@ -1,5 +1,5 @@
 {
-  "writer": "S40-codex-overnight-20261030",
+  "writer": null,
   "base_head": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
   "claimed_at": "2026-10-30T23:48:38Z",
   "expires_at": "2026-10-31T09:00:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T00:44:14.815603+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Existing Phase2 automation remains paused. Current Codex root is sole publication coordinator; helpers edit only assigned paths or test copies.",
+  "note": "Root local batch verified and released. Only existing finite current-Codex hourly worker may claim next bounded lease before09:00; old worker stays paused. Public history sync awaits explicit approval.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -42,5 +42,7 @@
       "status": "released",
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
-  }
+  },
+  "last_writer": "S40-codex-overnight-20261030",
+  "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d"
 }

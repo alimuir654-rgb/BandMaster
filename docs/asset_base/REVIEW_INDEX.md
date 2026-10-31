@@ -1,3 +1,26 @@
+# S40 local checkpoint and benchmark reassessment — 31 October 2026
+
+Exact local tested source `33f86107649bfe43b987bbacc3c29539b1166c8d`: **technical PASS; visual PARTIAL; owner_approved=false**. New source is saved locally and has not been publicly synced. Automatic approval review rejected full public development-history upload; explicit approval remains pending. Historical entries below retain their original chronology.
+
+The benchmark changed the priority from additional texture to readable decisions. Official descriptions/manuals support the first three comparisons; only the linked official LMMS screenshot was actually pixel-inspected. No hands-on competitor test or commercial-quality certification is claimed.
+
+| Reference | Relevant comparison | Adjustment |
+|---|---|---|
+| [Rising Star 2](https://www.gilligames.com/site/rs2/) | Rehearsal, personalities and career decisions | Keep genuine member-specific consequences and show existing next-step advice. |
+| [Idol Manager](https://playism.com/en/game/idol-manager/) | Character relationships and management trade-offs | Prioritise actual effects and recruitment trade-offs over decorative statistics. |
+| [Ableton Note manual](https://www.ableton.com/en/note/manual/) | Explicit navigation and state feedback | Accurate BACK TO PRACTICE label, retained focus and readable complete detail. |
+| [Official LMMS screenshot](https://github.com/LMMS/lmms.io/blob/898d78f547da6fe2f528e9a6a7fa61e5929ba6a6/public/img/screen.png) | Grouped native labels and meaningful colour | Explicit READINESS, signed numbers and consistent labels; no copied DAW chrome or phone-type inference. |
+
+Delivered: standalone source-backed layered paper/quiet printed score fields; licensed native notebook/people cues;14px primary reactions and12px before/after values;16px canonical next move and accurate return action; dedicated tablet/short-landscape composition; fully accessible six-member gallery/full quotes; phone practice choices/cash fit;3fixed existing practice actions. Original cast/control/meter/model/save bytes unchanged. The first paper candidate and d154 landscape clipping were visibly rejected before controlled corrections.
+
+Validation:73gameplay +88opening, cleanimport,4full real-pointer/Enter/Space/Tab/End/Home/save/Continue journeys;0orphans/ERROR lines,84originalPNGs. Disposable real Write/ClearAir clicks match exactly one model effect. Importable isolated project and twelve-original-PNG review ZIP have CRC and extracted-project import/launch proof; files are local under `/workspace/work/s40/runs/practice-33f/packages`, not public download links.
+
+Next three bounded sprints: (1) recruitment decision context: visible actual strength/friction/affordability before Recruit, full dossier and six inert meters retained; (2) material/frame/icon consistency only where same-state native comparisons show a benefit; (3) exact-source packaging/evidence review and09:00read-only report. No implementation at/after09:00Europe/London or automatic extension. Unintegrated tolex study remains held.
+
+Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable.
+
+---
+
 # S40 owner-directed rehearsal visual redesign — SOURCE CANDIDATE ONLY (30 October 2026 15:16 UTC)
 
 **Not yet verified in native Godot — do not treat as playable S40 release.** New S40 isolated source candidate [9163db9](https://github.com/alimuir654-rgb/BandMaster/commit/9163db9b6d8dd082d1299847c5c90f62c276b6eb) replaces S39 long textual rehearsal log with analogue printed scorecard: actual signed set/morale/tension deltas, source-honest selected cast portrait strip and short reactions, optional complete saved ledger, fixed Continue Practising and re-open View Last Session. Real input and save/no-double-reward tests were added, but **native run/logs/four-view GL screenshot pixels are still missing**; no PASS or art approval. Previous **verified S39** exact source `01ea1a5730c087ab85960edd0104bf87012885a4`, [native run41062997900](https://github.com/alimuir654-rgb/BandMaster/actions/runs/41062997900) remains rollback and playable; previous C34 also preserved. S40 preflight committed, append-only BM-01 recurrence retained, sole writer released for next evidence-gated continuation. ONE next action: four-viewport Godot4.7.2 native run, compare original S39 screenshots, fix actual issues, then package only on green tests. `owner_approved=false`.

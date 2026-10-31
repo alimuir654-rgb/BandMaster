@@ -48,8 +48,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 166807,
-    "sha256": "ba4c0f95e1fc8e3522abdfde21c8221e82b0c885b087e8a112dc6a26f67d4a77"
+    "bytes": 177208,
+    "sha256": "153fe3c9e8bfc3c52e799f9619cae5906aabac670171f5fedd74839f407e7342"
   },
   "target": {
     "locator": "Original local S40 Godot4.7.2 native result390 and1280 opened at original pixels; same-state four-view S39 baseline rerender from01ea1a also inspected. Current later source b2647df enlarges original cast previews and remains to rerender; retain this source, no stale replacement. No owner-approved rehearsal mockup supplied.",
@@ -81,32 +81,114 @@
   ],
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
-  "evidence_status": "Existing9163db9 now independently verified: GitHub exactSHA native run41078291638 all4checks success; local73+88andfour nativepointer/save journeys pass. Original localfour-view PNGs and S39 rerenders inspected. Latest eveningb2647df retained but new native proof pending.",
-  "issues_reviewed_at": "2026-10-31T00:36:53.239010+00:00",
+  "evidence_status": "Exact local33f861 source verified:73+88/import/4realnative pointer+keyboard/save journeys and extracted package entry; source not publicly synced. Earlier9163 native CI recovered41078291638; not a run for new local source.",
+  "issues_reviewed_at": "2026-10-31T00:44:14.815603+00:00",
   "progress": {
-    "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
-    "source_files": [
-      "experiments/playable_flightcase/rehearsal_press.gd",
-      "experiments/playable_flightcase/ui.gd",
-      "experiments/playable_flightcase/opening_capture.gd"
-    ],
-    "user_visible_change": "Existing rehearsal result is now a separate source-backed printed-paper edition with hero verdict, genuine signed set/morale/tension tile changes, actual selected C25 musician portrait strip and individual morale badges, optional six-measure ledger, persistent first-fold CONTINUE PRACTISING action and state-preserving view/reopen.",
-    "tests_written": "Genuine four-viewport S40 pointer capture assertions for source portraits, signed +10, fixed 44px action, expanding/collapsing true saved detail, no career mutation; existing 73 gameplay and88 opening tests retained.",
-    "validation_proven": "11 source-structure checks through connected GitHub; original verified S39 baseline native 73 gameplay +88 opening +4 real-pointer viewports; no native S40 result asserted.",
-    "native_validation": "NOT VERIFIED in this run: GitHub connector has no list for push-triggered runs (fetch_commit_workflow_runs filters PR only); local Godot engine absent/network blocked; no original S40 GL PNG inspected. Code pushes should trigger existing playable-flightcase workflow.",
-    "issue_log": "Owner-observed BM-01 recurrence appended to immutable ISSUES.jsonl at source history commit b27051f and session reviewed digest refreshed to 9eacc3ec0d09ae1dd77d8772e77827ec17019d891ad948415a09231b84043960; entry honestly notes formal filing after first S40 source commit.",
-    "protected_verified_checkpoints": [
-      "C34 104c494b255055da3e5bba0e4a0bed78c190d0a0",
-      "S39 01ea1a5730c087ab85960edd0104bf87012885a4"
-    ],
-    "simulated_lenses": {
-      "art_direction": "SIMULATED, source only: editorial result, true faces and larger metrics directly address the owner's complaint, but no native pixel inspection; artistic verdict HOLD.",
-      "technical_art": "SIMULATED: existing paper_surface and C25 approved ~230px previews reused at ~68\u201388px. No generated group masters, no photographic-rights claim, no changed original art.",
-      "ui_accessibility": "SIMULATED: CTA is outside result scroll and label is explicit; source test requires \u226544px and first-fold all four. Its native geometry and focus have NOT been seen.",
-      "godot_engineering": "SIMULATED: original resolver, save APIs and S39 presenter untouched; new press view reads saved report; native parser and true input not yet confirmed.",
-      "qa_producer": "SIMULATED: S39 remains rollback and real verified build. New code and regression checks are committed, but source green cannot be inferred from 11 textual checks. Native evidence and ZIP held."
+    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+    "verified_at": "2026-10-31T00:44:14.815603+00:00",
+    "scope": "Local isolated S40 checkpoint; overnight programme remains active until09:00Europe/London, not merged or publicly published.",
+    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 84,
+      "orphan_growth": 0,
+      "error_lines": 0
     },
-    "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
+    "images_opened_by_render_review": [
+      "c27-practice-390x844.png",
+      "c27-practice-720x1280.png",
+      "c27-practice-1280x720.png",
+      "c27-practice-1600x900.png",
+      "c27-rehearsal_outcome-390x844.png",
+      "c27-rehearsal_outcome-720x1280.png",
+      "c27-rehearsal_outcome-1280x720.png",
+      "c27-rehearsal_outcome-1600x900.png",
+      "c27-rehearsal_six_members-390x844.png",
+      "c27-rehearsal_six_members_end-390x844.png",
+      "c27-rehearsal_six_members_ledger_end-390x844.png",
+      "c27-rehearsal_six_members-720x1280.png",
+      "c27-rehearsal_six_members_end-720x1280.png",
+      "c27-rehearsal_six_members_ledger_end-720x1280.png"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "packages": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "project_files": 274,
+      "review_original_pngs": 12,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10659289,
+          "sha256": "43f039e241c7c8b6dca01e8a4d27686b6aa82bb24446e920124b72164e3ba283",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/native-quality-review.zip",
+          "bytes": 5333564,
+          "sha256": "702233df356b9710bd76ba955f986fd0e6569f825ca3ea7f7d708d96a4e9b7b1",
+          "zip_crc": "PASS"
+        }
+      ],
+      "publication": "local scratch only; no public attachment or remote CI artifact claimed",
+      "owner_approved": false,
+      "review_before_smoke_sha256": "4ce32ab2bcbbbeb77c674b0db26a6cc29ac0d32446a18e6dee6eb2651859f6bb",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/practice-33f/packages/package-smoke.json"
+    },
+    "package_smoke": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "checked_at": "2026-10-31T00:43:58.470504+00:00",
+      "extracted_project": "/workspace/work/s40/runs/practice-33f/packages/extracted-smoke",
+      "steps": [
+        {
+          "step": "clean-import",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        },
+        {
+          "step": "native-project-entry",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "production_save_access": false,
+      "owner_approved": false
+    },
+    "protected_byte_audit": "/workspace/work/s40/protection-audit-20261031.json",
+    "source_hashes": {
+      "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
+      "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
+      "experiments/playable_flightcase/art/icons/SOURCES.json": "5adc3c9e40bec7e693db61cfe8b78d78a4a2bad1ffa03c5a1e705f31ae97bded",
+      "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
+      "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
+      "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
+      "experiments/playable_flightcase/opening_capture.gd": "cd0ac4539aadeb57ec0547614ce104a973f54bbc31600c82cff6710bd099f394",
+      "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
+      "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
+      "experiments/playable_flightcase/ui.gd": "248a602595cb7378f6de6d4b23d7c295d646cf055ac0005bb62e59ccdf094241"
+    },
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: layered paper/quiet printed score fields form a coherent music-press object; retain original case hardware and casting. Actual four-view pixels improved; owner-mockup match remains partial.",
+      "technical_art": "SIMULATED: raw generated paper1448x1086 hash/provenance retained, original~230px C25 crops not presented as high-resolution masters; licensed Lucide bytes and source rights retained; unused tolex study held.",
+      "ui_accessibility": "SIMULATED:14px primary reactions/12px numerical readouts,16px canonical next move, accurate Back to Practice,44px fixed session targets. Focus continuity, complete16px quotes and six-member End/Home access work; no real-device touch/screen-reader claim.",
+      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+four real pointer/keyboard/save journeys, zero orphan growth and ERROR lines; Write/ClearAir real clicks match one authoritative model settlement. Original models/save schemas/protected bytes unchanged.",
+      "qa_producer": "SIMULATED: rejected paper and d154 landscape failure retained; corrected exact source verified, packaged and extracted-project smoke checked. Local evidence only, remote sync blocked; art approval false and recruitment decision-context gap is next."
+    },
+    "remaining_gaps": [
+      "Recruitment trade-offs are below fold on phone; compact actual strength/friction context must precede more decoration.",
+      "Full optional ledger and lower writing form intentionally scroll; primary actions remain fixed.",
+      "No owner-approved rehearsal-specific mockup, real-device touch or screen-reader validation.",
+      "Four known native warnings per capture: unsupportedVSync and3existing anchor/size warnings; zeroERROR lines.",
+      "Publication remains blocked by automatic review of full public development-history upload; explicit approval pending."
+    ],
+    "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable."
   },
   "extension_2026_10_30_2102": {
     "owner_authority": "One hour extra visual refinement through 22:03; previous 18:00 stop superseded prospectively, not rewritten",
@@ -151,7 +233,7 @@
       "owner_login": "alimuir654-rgb",
       "permissions": "admin/push true via connected GitHub"
     },
-    "publication_review": "Prior auto-review rejected canonical ledger upload as unverified destination/sensitivehistory. Destination ownership now verified; public161037-byte ledger prefix is identical to pinned remote f2bbd842. New append contains only scoped publicproject/test handoff; no secrets."
+    "publication_review": "Automatic review rejected uploading full development ledger/learning history to public repo even after owner/admin identity verification. Explicit user approval requested and still pending. No remote ref updated; no retry or indirect bypass."
   },
   "material_study": {
     "source_sha256": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
@@ -193,5 +275,138 @@
     "protected": "Original Kit and artwork bytes, model/presenter/save schema, existing3choice values and state, no new feature or gameplay reward.",
     "stop_condition": "One correction after observed native failure; if technique ineffective change method/hold. Hard09:00cutoff remains.",
     "owner_approved": false
+  },
+  "historical_source_delivery_progress": {
+    "candidate_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb",
+    "source_files": [
+      "experiments/playable_flightcase/rehearsal_press.gd",
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/opening_capture.gd"
+    ],
+    "user_visible_change": "Existing rehearsal result is now a separate source-backed printed-paper edition with hero verdict, genuine signed set/morale/tension tile changes, actual selected C25 musician portrait strip and individual morale badges, optional six-measure ledger, persistent first-fold CONTINUE PRACTISING action and state-preserving view/reopen.",
+    "tests_written": "Genuine four-viewport S40 pointer capture assertions for source portraits, signed +10, fixed 44px action, expanding/collapsing true saved detail, no career mutation; existing 73 gameplay and88 opening tests retained.",
+    "validation_proven": "11 source-structure checks through connected GitHub; original verified S39 baseline native 73 gameplay +88 opening +4 real-pointer viewports; no native S40 result asserted.",
+    "native_validation": "NOT VERIFIED in this run: GitHub connector has no list for push-triggered runs (fetch_commit_workflow_runs filters PR only); local Godot engine absent/network blocked; no original S40 GL PNG inspected. Code pushes should trigger existing playable-flightcase workflow.",
+    "issue_log": "Owner-observed BM-01 recurrence appended to immutable ISSUES.jsonl at source history commit b27051f and session reviewed digest refreshed to 9eacc3ec0d09ae1dd77d8772e77827ec17019d891ad948415a09231b84043960; entry honestly notes formal filing after first S40 source commit.",
+    "protected_verified_checkpoints": [
+      "C34 104c494b255055da3e5bba0e4a0bed78c190d0a0",
+      "S39 01ea1a5730c087ab85960edd0104bf87012885a4"
+    ],
+    "simulated_lenses": {
+      "art_direction": "SIMULATED, source only: editorial result, true faces and larger metrics directly address the owner's complaint, but no native pixel inspection; artistic verdict HOLD.",
+      "technical_art": "SIMULATED: existing paper_surface and C25 approved ~230px previews reused at ~68\u201388px. No generated group masters, no photographic-rights claim, no changed original art.",
+      "ui_accessibility": "SIMULATED: CTA is outside result scroll and label is explicit; source test requires \u226544px and first-fold all four. Its native geometry and focus have NOT been seen.",
+      "godot_engineering": "SIMULATED: original resolver, save APIs and S39 presenter untouched; new press view reads saved report; native parser and true input not yet confirmed.",
+      "qa_producer": "SIMULATED: S39 remains rollback and real verified build. New code and regression checks are committed, but source green cannot be inferred from 11 textual checks. Native evidence and ZIP held."
+    },
+    "next_action": "Execute exact-SHA native Godot4.7.2 workflow for S40 candidate 9163db9, obtain run IDs/artifacts, open original four-viewport rehearsal_outcome/resumed PNGs, compare with S39 baselines; fix observed defects (log before correction), then package and close sprint only on real PASS. Preserve single writer and owner_approved=false."
+  },
+  "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable.",
+  "checkpoint": {
+    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+    "verified_at": "2026-10-31T00:44:14.815603+00:00",
+    "scope": "Local isolated S40 checkpoint; overnight programme remains active until09:00Europe/London, not merged or publicly published.",
+    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 84,
+      "orphan_growth": 0,
+      "error_lines": 0
+    },
+    "images_opened_by_render_review": [
+      "c27-practice-390x844.png",
+      "c27-practice-720x1280.png",
+      "c27-practice-1280x720.png",
+      "c27-practice-1600x900.png",
+      "c27-rehearsal_outcome-390x844.png",
+      "c27-rehearsal_outcome-720x1280.png",
+      "c27-rehearsal_outcome-1280x720.png",
+      "c27-rehearsal_outcome-1600x900.png",
+      "c27-rehearsal_six_members-390x844.png",
+      "c27-rehearsal_six_members_end-390x844.png",
+      "c27-rehearsal_six_members_ledger_end-390x844.png",
+      "c27-rehearsal_six_members-720x1280.png",
+      "c27-rehearsal_six_members_end-720x1280.png",
+      "c27-rehearsal_six_members_ledger_end-720x1280.png"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "packages": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "project_files": 274,
+      "review_original_pngs": 12,
+      "archives": [
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10659289,
+          "sha256": "43f039e241c7c8b6dca01e8a4d27686b6aa82bb24446e920124b72164e3ba283",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/s40/runs/practice-33f/packages/native-quality-review.zip",
+          "bytes": 5333564,
+          "sha256": "702233df356b9710bd76ba955f986fd0e6569f825ca3ea7f7d708d96a4e9b7b1",
+          "zip_crc": "PASS"
+        }
+      ],
+      "publication": "local scratch only; no public attachment or remote CI artifact claimed",
+      "owner_approved": false,
+      "review_before_smoke_sha256": "4ce32ab2bcbbbeb77c674b0db26a6cc29ac0d32446a18e6dee6eb2651859f6bb",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/s40/runs/practice-33f/packages/package-smoke.json"
+    },
+    "package_smoke": {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "checked_at": "2026-10-31T00:43:58.470504+00:00",
+      "extracted_project": "/workspace/work/s40/runs/practice-33f/packages/extracted-smoke",
+      "steps": [
+        {
+          "step": "clean-import",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        },
+        {
+          "step": "native-project-entry",
+          "exit_code": 0,
+          "errors": [],
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "production_save_access": false,
+      "owner_approved": false
+    },
+    "protected_byte_audit": "/workspace/work/s40/protection-audit-20261031.json",
+    "source_hashes": {
+      "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
+      "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
+      "experiments/playable_flightcase/art/icons/SOURCES.json": "5adc3c9e40bec7e693db61cfe8b78d78a4a2bad1ffa03c5a1e705f31ae97bded",
+      "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
+      "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
+      "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
+      "experiments/playable_flightcase/opening_capture.gd": "cd0ac4539aadeb57ec0547614ce104a973f54bbc31600c82cff6710bd099f394",
+      "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
+      "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
+      "experiments/playable_flightcase/ui.gd": "248a602595cb7378f6de6d4b23d7c295d646cf055ac0005bb62e59ccdf094241"
+    },
+    "simulated_lenses": {
+      "art_direction": "SIMULATED: layered paper/quiet printed score fields form a coherent music-press object; retain original case hardware and casting. Actual four-view pixels improved; owner-mockup match remains partial.",
+      "technical_art": "SIMULATED: raw generated paper1448x1086 hash/provenance retained, original~230px C25 crops not presented as high-resolution masters; licensed Lucide bytes and source rights retained; unused tolex study held.",
+      "ui_accessibility": "SIMULATED:14px primary reactions/12px numerical readouts,16px canonical next move, accurate Back to Practice,44px fixed session targets. Focus continuity, complete16px quotes and six-member End/Home access work; no real-device touch/screen-reader claim.",
+      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+four real pointer/keyboard/save journeys, zero orphan growth and ERROR lines; Write/ClearAir real clicks match one authoritative model settlement. Original models/save schemas/protected bytes unchanged.",
+      "qa_producer": "SIMULATED: rejected paper and d154 landscape failure retained; corrected exact source verified, packaged and extracted-project smoke checked. Local evidence only, remote sync blocked; art approval false and recruitment decision-context gap is next."
+    },
+    "remaining_gaps": [
+      "Recruitment trade-offs are below fold on phone; compact actual strength/friction context must precede more decoration.",
+      "Full optional ledger and lower writing form intentionally scroll; primary actions remain fixed.",
+      "No owner-approved rehearsal-specific mockup, real-device touch or screen-reader validation.",
+      "Four known native warnings per capture: unsupportedVSync and3existing anchor/size warnings; zeroERROR lines.",
+      "Publication remains blocked by automatic review of full public development-history upload; explicit approval pending."
+    ],
+    "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable."
   }
 }
