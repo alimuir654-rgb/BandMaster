@@ -4,9 +4,9 @@
   "status": "active",
   "owner_approved": false,
   "owner_plan_approved": true,
-  "owner_request": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
-  "baseline_sha": "f0b9cd129e691bcf6cc1f109581156f6499ef845",
-  "dominant_issue": "BM-21",
+  "owner_request": "31 Oct12:06 direct owner: Run additional artwork improvements through to3pm. Existing screens only;14:50finalread-only/15:00hardstop.",
+  "baseline_sha": "5179aaf6023df34b34b84f7a4e19c75b9deb0763",
+  "dominant_issue": "BM-14",
   "lesson_ids": [
     "BM-01",
     "BM-02",
@@ -55,8 +55,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 317463,
-    "sha256": "765b0b925bc503ac89203bc9df3be749a7b470f34cc8e16fc470bd9ca207bc35"
+    "bytes": 319442,
+    "sha256": "fa63623cdd11c59163d7adf9f2a2428fc9afbfcf5fb9aa11caf50b29ba81fa06"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-0953bb73-90ad-4e95-8051-dc3f9582cdbe.png",
@@ -65,9 +65,9 @@
     "kind": "Owner-reviewed generated design-only four-screenconcept, notproductiontexture; originalprotectedmeters/cast retained",
     "plan_page": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673"
   },
-  "hypothesis": "A single tactile genre sleeve with original per-genre native screenprint compositions beside a compact original choice index gives14 sounds distinct visual identity without repeating14 chrome cards or increasing scrolling.",
-  "controlled_comparison": "Current c9 original genre390/1280 and owner-reviewed analogue paper/poster concept versus exact same default/selected genre at390x844/720x1280/1280x720/1600x900. All14 actual names/order/descriptions/strengths preserved; real pointer/Enter/Space/Tab selection has one change/save, correct checkmark, Back/Next/Continue persist, no cash/day/roster mutation. Original paper/case/control/meter/cast/model bytes and all settled non-genre screenshots preserved.",
-  "stop_condition": "Two ineffective art/layout attempts require changed method or HOLD. Do not shrink fonts/targets to hide overflow; no new raster families, cast, model, budget, scoring, save schema or dependencies. This bounded lease ends13:40;14:50finalread-only/15:00hardstop.",
+  "hypothesis": "A standalone distressedivory/amberwordmark over the verifiedemptyrehearsalstage gives theexistingtitlehandbillidentity while retaining nativecopy/layout/input andapprovedgenre/corebytes.",
+  "controlled_comparison": "Exactd5 sameNoDraft/savedmenu states at390/720/1280/1600 plusactual1152x648defaultentry. BrandLabeltext/font/rect/minimum, stage/caption/controls andfocusedSettings mustremainunchanged. SourceRGBA alpha/usedbbox/exactspelling/counters/halo inspected; originalrawPNGunchanged; aspectcontainchildglyphswithinLabelbounds. ActualMenu/Sound/Motion/Continue/modalresize andall4completejourneys73/88/import. Allsettlednon-menuPNGsexact; changes confined tobranddrawrect, plusknowntransientfadeframes.",
+  "stop_condition": "At mosttwoineffectivewordmarksource/integrationattempts thenchangedmethod/HOLD. Rejectwrongwording,halo,checkerboard/bakedmatte,small/croppedletteringorcontrolmovement. No newfont/gameplay/economy/schema/cast/dependency/APK. Lease14:10;14:50read-only/15:00hardstop.",
   "protected": [
     "OriginalC25cast/contactcrop provenance and sourcebytes",
     "Allpassivemeter/hardware/artbytes andinertsemantics",
@@ -82,8 +82,8 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/REVIEW_INDEX.md",
     "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/genre_press.gd",
-    "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json"
+    "experiments/playable_flightcase/art/opening_wordmark.png",
+    "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S41.json",
@@ -92,11 +92,11 @@
     "OriginalPNG review at390x844,720x1280,1280x720,1600x900; protectedsource/pixelcomparison against95"
   ],
   "started_at": "2026-10-31T09:08:46.114986+00:00",
-  "issues_reviewed_at": "2026-10-31T12:33:08.173724+00:00",
+  "issues_reviewed_at": "2026-10-31T12:34:53.909061+00:00",
   "scope_end": "2026-10-31T15:00:00Z",
   "first_slice_lease_end": "2026-10-31T10:10:00Z",
-  "evidence_status": "PASS:73gameplay/88opening/cleanimport/4genuine native journeys/5822focused assertions;0ERROR/orphans,324protectedbytes and278runtime inputs pinned. VisualPARTIAL/ownerfalse; no newAPK/ZIP.",
-  "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop.",
+  "evidence_status": "Wordmarkartsourcepreflight; no generation/integration/nativeclaimyet.",
+  "next_action": "Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.",
   "plan": [
     "Sharedsessionfoundation",
     "Songwritingdraftcontinuity",
@@ -1903,6 +1903,23 @@
         "docs/asset_base/CONTROL_SPRINT_LOCK.json",
         "docs/asset_base/REVIEW_INDEX.md"
       ]
+    },
+    {
+      "baseline_sha": "f0b9cd129e691bcf6cc1f109581156f6499ef845",
+      "dominant_issue": "BM-21",
+      "hypothesis": "A single tactile genre sleeve with original per-genre native screenprint compositions beside a compact original choice index gives14 sounds distinct visual identity without repeating14 chrome cards or increasing scrolling.",
+      "controlled_comparison": "Current c9 original genre390/1280 and owner-reviewed analogue paper/poster concept versus exact same default/selected genre at390x844/720x1280/1280x720/1600x900. All14 actual names/order/descriptions/strengths preserved; real pointer/Enter/Space/Tab selection has one change/save, correct checkmark, Back/Next/Continue persist, no cash/day/roster mutation. Original paper/case/control/meter/cast/model bytes and all settled non-genre screenshots preserved.",
+      "stop_condition": "Two ineffective art/layout attempts require changed method or HOLD. Do not shrink fonts/targets to hide overflow; no new raster families, cast, model, budget, scoring, save schema or dependencies. This bounded lease ends13:40;14:50finalread-only/15:00hardstop.",
+      "allowed_paths": [
+        "docs/continuous_improvement/**",
+        "docs/asset_base/STATE.json",
+        "docs/asset_base/LEDGER.md",
+        "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+        "docs/asset_base/REVIEW_INDEX.md",
+        "experiments/playable_flightcase/opening_ui.gd",
+        "experiments/playable_flightcase/genre_press.gd",
+        "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json"
+      ]
     }
   ],
   "poster_pass": {
@@ -2627,7 +2644,7 @@
     "next_action": "Read-only owner-review readiness and new phone feedback through15:00; no further source/art/APK changes unless a concrete demonstrated existing-screen defect or new owner steering justifies a separately preflighted bounded slice before14:50.14:50finalread-only/15:00hardstop, no extension."
   },
   "source_implementation_completed_at": "2026-10-31T11:41:42.777354+00:00",
-  "review_ready": true,
+  "review_ready": false,
   "genre_art_pass": {
     "status": "verified_released",
     "authority": "31 Oct 12:06 direct owner: Run additional artwork improvements through to 3pm. Existing screens/art only; preserve approved game/models/cast/hardware.14:50 read-only/15:00 hard stop remains.",
@@ -3051,5 +3068,14 @@
     "owner_approved": false,
     "new_apk_or_zip": false,
     "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop."
+  },
+  "wordmark_pass": {
+    "status": "preflight",
+    "authority": "31 Oct12:06 direct owner: Run additional artwork improvements through to3pm. Existing screens only;14:50finalread-only/15:00hardstop.",
+    "baseline_game_sha": "d5c3810623c9b6978789b33abdd90b2cdb07ade6",
+    "protected_manifest": "/workspace/work/day31/protected-source-genre-baseline.json",
+    "protected_files": 342,
+    "new_asset_pending": "experiments/playable_flightcase/art/opening_wordmark.png",
+    "owner_approved": false
   }
 }

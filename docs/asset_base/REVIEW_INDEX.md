@@ -1,3 +1,12 @@
+# S41 opening wordmark artwork preflight — 2026-10-31T12:34:53.909061+00:00
+
+Verifiedd5genre/core retained. Rootsolewriter through14:10; oneindependenttransparentdistressedbrandassetonly. ExactnativebrandLabel/text/layout/stage/controlbytes andallverifiedgenre artwork protected. Rawalpha/spelling/sourcehash/nativeaspectcontain/4viewA/B andrealMenuinput required. Sourcepending, no artapproval/newAPK.14:50read-only/15:00hardstop.
+
+Next: Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.
+
+
+## Preserved review history
+
 # S41 additional genre artwork verified — 2026-10-31T12:33:08.173724+00:00
 
 Exact game `d5c3810623c9b6978789b33abdd90b2cdb07ade6`: one selectedpaperprint with14originalnativegraphicmotifs andcompactoriginalchoiceindex. Originalgenreorder/copy/controlbytes/models/schema/cast remainunchanged.73+88/import/fourrealnativejourneys/172standardPNGs PASS;5822focusednativechecks/46originals PASS,0ERROR/orphans.324protectedsourcefiles/278runtimepaths verified.164/172c9originalsexact,4genrechanges+4disclosedfadeframes,0unexpected.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/S41.json",
-  "scope": "Additional owner-authorized EXISTING genre artwork/composition and native index continuity only",
+  "scope": "Existing title wordmark artwork ONLY, native brandLabel/stage/layout/controls and all verifiedgenre/core preserved.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop.",
+  "next_action": "Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "completion_gate": {

@@ -951,3 +951,10 @@ Exact game `d5c3810623c9b6978789b33abdd90b2cdb07ade6`: one selectedpaperprint wi
 Failedfocus/scroll implementations andharnessTab/fixtureassumptions retainedBEFOREcorrections. Nativeindex retainedinplace, selectedchoice explicitlyrevealedafterlayout; actualEnter/Spaceonce,14choices/disksave/Back/Continue/Next/resizeallcovered.25originals openedbyindependentreviewer+4rootstandardoriginals; fiveSIMULATEDlenses andremainingartgaps in`/workspace/work/s40/runs/day31-genre-d5c3810-final/visual-review.json`. Fullcloseout `/workspace/work/day31/genre-art-closeout.json`. ArtPARTIAL/ownerfalse; no newAPK/ZIP. Existingprivatev3 remainsc9. Writerreleased 2026-10-31T12:33:08.173724+00:00.
 
 Next: One separately preflighted existing opening-brand artwork pass: independent transparent distressed wordmark only, exact LIVIN THE/DREAM wording with apostrophe, original nativeLabel/layout/stage/controls kept. Actual alpha/source and nativeA/B before retention; no further APK by default.14:50read-only/15:00hardstop.
+
+
+# S41 opening wordmark artwork preflight — 2026-10-31T12:34:53.909061+00:00
+
+Verifiedd5genre/core retained. Rootsolewriter through14:10; oneindependenttransparentdistressedbrandassetonly. ExactnativebrandLabel/text/layout/stage/controlbytes andallverifiedgenre artwork protected. Rawalpha/spelling/sourcehash/nativeaspectcontain/4viewA/B andrealMenuinput required. Sourcepending, no artapproval/newAPK.14:50read-only/15:00hardstop.
+
+Next: Generate/review ONE independent transparent distressed LIVIN THE/DREAM wordmark (with correct apostrophe), then retain only if nativeA/B improves title within unchanged original Label/stage/control geometry; no furtherAPK.
