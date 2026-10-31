@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s46_unified_live_preflight",
+  "status": "s46_verified_unified_local_career_private_v5_writer_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
-  "writer": "S46-unified-live-career-20261031T2005",
-  "last_verified_code_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+  "writer": null,
+  "last_verified_code_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Capture originalGIGS baseline and actual pre-fix practice-save-failure, then implement original live loop/shared presentation with one coordinated writer.",
+  "next_single_action": "Owner installs V5 as an Update without uninstalling, starts with Continue and reviews the unified auditions, practice, shop and hometown-show flow; report concrete phone/artwork feedback in this same thread.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -471,10 +471,18 @@
       "closed_at": "2026-10-31T19:58:39.208791+00:00",
       "publication": "LOCAL only",
       "owner_approved": false
+    },
+    {
+      "session": "S46",
+      "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+      "evidence": "/workspace/work/unify/s46/closeout.json",
+      "closed_at": "2026-10-31T20:53:47.824374+00:00",
+      "publication": "LOCAL source; private selectedscreens/compiledAPK",
+      "owner_approved": false
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Unified current-style career desk and original Gear/current Band/Songbook:303-file LOCAL checkpoint/22PNG review; V4 unchanged",
+  "last_completed_deliverable": "Unified practice/current career+original Gear+hometown live loop;307-file LOCAL checkpoint/32PNG review;ONE private V5/code5 delivered",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -520,7 +528,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T20:05:40.729313+00:00",
+  "last_updated_utc": "2026-10-31T20:53:47.824374+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -528,7 +536,7 @@
   },
   "last_run_summary": "PASS: frozenexact6c1archives/newextractednativeentry andselectedPageasset/canonicaldelivery. Nativephone/emulator/ownerartapproval unclaimed.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
-  "last_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
+  "last_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
   "latest_owner_scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -612,7 +620,7 @@
     "art_acceptance": "rejected",
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
-  "last_improvement_review": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/visual-review.json",
+  "last_improvement_review": "/workspace/work/s40/runs/s46-unified-a9ba178-final/visual-review.json",
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
@@ -661,33 +669,36 @@
     "owner_approved": false
   },
   "current_session": "S46",
-  "last_verified_native_run": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/validation.json",
+  "last_verified_native_run": "/workspace/work/s40/runs/s46-unified-a9ba178-final/validation.json",
   "latest_verified_phase2": {
-    "sprint": "S45",
-    "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
-    "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
+    "sprint": "S46",
+    "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+    "validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
-      "genuine_native_input_save_viewports": 4,
+      "standard_native_profiles": 4,
       "standard_original_pngs": 172,
+      "live_native_assertions": 3715,
+      "live_original_pngs": 32,
+      "career_native_assertions": 3834,
       "career_original_pngs": 36,
-      "stress_original_pngs": 2,
-      "career_assertions": 3823,
-      "bridge_assertions": 278,
-      "stress_assertions": 325,
+      "extra_assertions": 235,
+      "extra_original_pngs": 3,
+      "original_model_assertions": 1969,
+      "protected_original_files": 339,
+      "protected_prior_runtime_files": 300,
+      "runtime_source_paths": 307,
       "engine_error_lines": 0,
-      "orphan_growth": 0,
-      "protected_files": 339,
-      "runtime_source_paths": 303
+      "orphan_growth": 0
     },
     "visual_verdict": "partial",
     "owner_approved": false,
-    "publication": "LOCAL only"
+    "publication": "LOCAL source; private selectedscreens/compiledAPK"
   },
-  "last_sprint": "S45",
-  "next_action": "Capture originalGIGS baseline and actual pre-fix practice-save-failure, then implement original live loop/shared presentation with one coordinated writer.",
+  "last_sprint": "S46",
+  "next_action": "Owner installs V5 as an Update without uninstalling, starts with Continue and reviews the unified auditions, practice, shop and hometown-show flow; report concrete phone/artwork feedback in this same thread.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -695,52 +706,159 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
-    "verified_at": "2026-10-31T19:58:39.208791+00:00",
-    "scope": "Shared current-style components; current-band career desk; exact original Gear buy/assign/service; original Band/Songbook presentation; safe retained practice navigation.",
-    "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
-    "visual_review": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/visual-review.json",
-    "focused_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/focused-validation.json",
-    "source_protection": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/source-protection-audit.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/runtime-source-audit.json",
-    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/protected-checkpoint-comparison.json",
-    "closeout": "/workspace/work/unify/s45/closeout.json",
-    "packaging": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/packaging.json",
+    "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+    "verified_at": "2026-10-31T20:53:47.824374+00:00",
+    "scope": "Unify current practice branding/commit safety and original hometown promoter, booking, preparation, arrival, soundcheck, optional incident, performance and saved-show presentation with the already verified current-style career/shop/Band/Songbook.",
+    "validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/validation.json",
+    "complete_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
+    "visual_review": "/workspace/work/s40/runs/s46-unified-a9ba178-final/visual-review.json",
+    "focused_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/focused-validation.json",
+    "source_protection": "/workspace/work/s40/runs/s46-unified-a9ba178-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s46-unified-a9ba178-final/runtime-source-audit.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s46-unified-a9ba178-final/protected-checkpoint-comparison.json",
+    "closeout": "/workspace/work/unify/s46/closeout.json",
+    "packaging": "/workspace/work/s40/runs/s46-unified-a9ba178-final/packages/packaging.json",
     "project_zip": {
-      "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-      "bytes": 55126737,
-      "sha256": "a7c7211c1329ddeced05ceb4a27deb0db69b21bdef4ed050b48b60274c9e8ce6",
+      "path": "/workspace/work/s40/runs/s46-unified-a9ba178-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+      "bytes": 55151066,
+      "sha256": "1c37df30bd56b5919e562b946738648516be9e8a04aa31a981b47199f227a7d4",
       "zip_crc": "PASS"
     },
     "review_zip": {
-      "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/native-quality-review.zip",
-      "bytes": 9824140,
-      "sha256": "80768da6f104529a918ad35de66cc2ec6deedcf13c2e2fc04f4be91c817f926b",
+      "path": "/workspace/work/s40/runs/s46-unified-a9ba178-final/packages/native-quality-review.zip",
+      "bytes": 15556042,
+      "sha256": "cb0b624d96487e97c6ce58283fe444917fc16c515fdc9380388d04c69ab627cc",
       "zip_crc": "PASS"
     },
-    "package_smoke": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/package-smoke.json",
+    "package_smoke": "/workspace/work/s40/runs/s46-unified-a9ba178-final/packages/package-smoke.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
-      "genuine_native_input_save_viewports": 4,
+      "standard_native_profiles": 4,
       "standard_original_pngs": 172,
+      "live_native_assertions": 3715,
+      "live_original_pngs": 32,
+      "career_native_assertions": 3834,
       "career_original_pngs": 36,
-      "stress_original_pngs": 2,
-      "career_assertions": 3823,
-      "bridge_assertions": 278,
-      "stress_assertions": 325,
+      "extra_assertions": 235,
+      "extra_original_pngs": 3,
+      "original_model_assertions": 1969,
+      "protected_original_files": 339,
+      "protected_prior_runtime_files": 300,
+      "runtime_source_paths": 307,
       "engine_error_lines": 0,
-      "orphan_growth": 0,
-      "protected_files": 339,
-      "runtime_source_paths": 303
+      "orphan_growth": 0
     },
     "visual_verdict": "partial",
     "owner_approved": false,
-    "publication": "LOCAL project/history; no new Page or Android delivery yet",
-    "android": "V4 unchanged; current preview not in APK",
-    "next_action": "Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window."
+    "publication": "Source/history/project/review ZIP LOCAL; selected screenshots/compiled V5 privately delivered",
+    "android": {
+      "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+      "game_version": "0.46.0-playtest",
+      "version_code": 5,
+      "file_id": "1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy",
+      "url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+      "bytes": 98161933,
+      "local_sha256": "a6dd44a57f1dfb947718fb7fdefdc09f1638e519a6f7d5ad70de8c776a19f864",
+      "remote_checksum_available": false,
+      "owner": "chair@lovewelluk.com",
+      "reader": "alimuir654@gmail.com",
+      "private_named_reader_verified": true,
+      "metadata_readback": {
+        "id": "1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy",
+        "title": "BandMaster-Playtest-v5.apk",
+        "mime_type": "application/vnd.android.package-archive",
+        "size": "98161933",
+        "url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": null,
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": "alimuir654",
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": "Chair LoveWell",
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      },
+      "physical_phone_tested": false,
+      "update_without_uninstall": true
+    },
+    "review_pages": [
+      {
+        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+        "sequence": 19,
+        "canonical_readback_verified": true,
+        "existing_blocks_preserved": 88,
+        "total_blocks": 103,
+        "images": [
+          {
+            "key": "practice",
+            "reference": "library-file:fde1_bGliZmlsZV9PV1JObUNaX0FhbmlxRHBYcjE2VXlB_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+            "mime_type": "image/png",
+            "bytes": 289134,
+            "sha256": "1311593e59fdfdbb0be522c285ef268c2a1dcc93132d516ffd9001919d0781cd",
+            "file_access_confirmed": true
+          },
+          {
+            "key": "gear",
+            "reference": "library-file:fde1_bGliZmlsZV8xbGNRbk9selhPV2ZRb1ZDbFlhZWd3_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+            "mime_type": "image/png",
+            "bytes": 302268,
+            "sha256": "146415c18d3a9a503646ea75111f95aa64b5f11ab6b89842c6e8868bb02d5a15",
+            "file_access_confirmed": true
+          },
+          {
+            "key": "live",
+            "reference": "library-file:fde1_bGliZmlsZV96N2N0aW5ZM3pOOF9KUUp5WklmeFNB_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+            "mime_type": "image/png",
+            "bytes": 304699,
+            "sha256": "28833198aca61bec487d344d9f696c61fa6fbf1d5ad970018d6a79860058f3fc",
+            "file_access_confirmed": true
+          },
+          {
+            "key": "record",
+            "reference": "library-file:fde1_bGliZmlsZV96akdhYzREMW9yQ01yY3UxMHpiRnVn_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+            "mime_type": "image/png",
+            "bytes": 315570,
+            "sha256": "1366a6bd1027a1ebf0d2c0407cf7df2d95345a25ff50543335dc873e399fbb7c",
+            "file_access_confirmed": true
+          }
+        ],
+        "rendered_layout_verified": false
+      },
+      {
+        "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "sequence": 10,
+        "canonical_readback_verified": true,
+        "existing_blocks_preserved": 22,
+        "total_blocks": 23,
+        "images": [],
+        "rendered_layout_verified": false
+      }
+    ],
+    "next_action": "Owner installs V5 as an Update without uninstalling, starts with Continue and reviews the unified auditions, practice, shop and hometown-show flow; report concrete phone/artwork feedback in this same thread."
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -764,7 +882,7 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": false,
-  "last_verified_native_run_source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+  "last_verified_native_run_source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
   "latest_material_review": {
     "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
@@ -775,30 +893,39 @@
   },
   "historical_next_single_action_before_0400": "Repair disclosure continuity/fullreactions, nativeverify then source-backed paper/frame visualpass; preservelatestb2647df and checkpoints.",
   "android_owner_package": {
-    "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-    "status": "v3_signed_apk_delivered_private_phone_retest_pending",
-    "owner_reported_v1_install_worked": true,
-    "agent_android_device_tested": false,
-    "updated_apk_phone_tested": false,
-    "build_receipt": "/workspace/work/day31/android/build-c9c67ad-v3/build.json",
-    "update_compatibility": "/workspace/work/day31/android/build-c9c67ad-v3/update-compatibility.json",
-    "private_delivery": {
-      "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
-      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "artifact_path": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
-      "local_sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
-      "size": 67439436,
-      "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
-      "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+    "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e",
+    "game_version": "0.46.0-playtest",
+    "version_code": 5,
+    "file_id": "1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy",
+    "url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+    "bytes": 98161933,
+    "local_sha256": "a6dd44a57f1dfb947718fb7fdefdc09f1638e519a6f7d5ad70de8c776a19f864",
+    "remote_checksum_available": false,
+    "owner": "chair@lovewelluk.com",
+    "reader": "alimuir654@gmail.com",
+    "private_named_reader_verified": true,
+    "metadata_readback": {
+      "id": "1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy",
+      "title": "BandMaster-Playtest-v5.apk",
       "mime_type": "application/vnd.android.package-archive",
+      "size": "98161933",
+      "url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1cd3GlwLcADwS-vFd29OqCcrPNNGwaAmy/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
       "permissions": [
         {
           "type": "user",
           "role": "reader",
           "emailAddress": "alimuir654@gmail.com",
           "domain": null,
-          "displayName": null,
+          "displayName": "alimuir654",
           "allowFileDiscovery": null
         },
         {
@@ -806,88 +933,14 @@
           "role": "owner",
           "emailAddress": "chair@lovewelluk.com",
           "domain": null,
-          "displayName": null,
+          "displayName": "Chair LoveWell",
           "allowFileDiscovery": null
         }
       ],
-      "remote_checksum": "Not exposed by connector; no remotechecksum claim",
-      "phone_v1_owner_install_worked": true,
-      "phone_v3_tested": false,
-      "agent_android_device_tested": false,
-      "readback": {
-        "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
-        "title": "BandMaster-Playtest-v3.apk",
-        "mime_type": "application/vnd.android.package-archive",
-        "size": "67439436",
-        "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
-        "display_url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
-        "file_or_folder": "file",
-        "created_time": null,
-        "modified_time": null,
-        "parent_ids": null,
-        "drive_id": null,
-        "current_user_can_share": null,
-        "has_augmented_permissions": null,
-        "shared": null,
-        "permissions": [
-          {
-            "type": "user",
-            "role": "reader",
-            "emailAddress": "alimuir654@gmail.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          },
-          {
-            "type": "user",
-            "role": "owner",
-            "emailAddress": "chair@lovewelluk.com",
-            "domain": null,
-            "displayName": null,
-            "allowFileDiscovery": null
-          }
-        ],
-        "source_visibility_status": "permission_metadata_available"
-      },
-      "review_page": {
-        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
-        "sequence": 5
-      },
-      "phone_page": {
-        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-        "sequence": 8
-      },
-      "poster_image_upload": {
-        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
-        "reference": "library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec",
-        "file_name": "c27-title-390x844-b5d8379a37ca44de84ce7e8027b7fc4a.png",
-        "mime_type": "image/png",
-        "byte_size": 285966,
-        "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
-        "file_access_confirmed": true,
-        "is_image": true,
-        "markdown": "![BandMaster native opening poster](library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec)",
-        "inserted": false,
-        "next_step": "Read the Page and use edit_page with its fresh guards to insert markdown."
-      }
+      "source_visibility_status": "permission_metadata_available"
     },
-    "apk_checks": {
-      "apk": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
-      "bytes": 67439436,
-      "sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
-      "version_code": 3,
-      "version_name": "0.41.0-playtest",
-      "application_id": "com.bandmaster.ownerplaytest.s40",
-      "abis": [
-        "arm64-v8a",
-        "armeabi-v7a"
-      ],
-      "signature": "PASS",
-      "alignment_16kb": "PASS",
-      "apk_crc": "PASS",
-      "cast_json_byte_identical": true,
-      "original_source_files_unchanged": true
-    }
+    "physical_phone_tested": false,
+    "update_without_uninstall": true
   },
   "historical_last_completed_deliverable_before_s41": "S38 deterministic rehearsals with saved per-member/social/financial/readiness outcomes and real immediate verdict; 61+88+four native pointer/save passes; visual partial",
   "historical_state_pointers_before_s41": {
@@ -1644,5 +1697,196 @@
     "last_completed_deliverable": "Ordered auditions / action-onlyink /14instrumentprints: nativeverified68ed, local297filecheckpoint+28PNGreview,7privateScreens; V4unchanged"
   },
   "historical_production_authorised_before_s45": true,
-  "historical_review_at_before_s45": "2026-10-31T15:00:00Z"
+  "historical_review_at_before_s45": "2026-10-31T15:00:00Z",
+  "prior_s46_verified_pointers": {
+    "last_verified_code_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+    "latest_local_native_checkpoint": {
+      "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+      "verified_at": "2026-10-31T19:58:39.208791+00:00",
+      "scope": "Shared current-style components; current-band career desk; exact original Gear buy/assign/service; original Band/Songbook presentation; safe retained practice navigation.",
+      "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/validation.json",
+      "complete_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
+      "visual_review": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/visual-review.json",
+      "focused_validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/focused-validation.json",
+      "source_protection": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/source-protection-audit.json",
+      "runtime_source_audit": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/runtime-source-audit.json",
+      "protected_checkpoint_comparison": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/protected-checkpoint-comparison.json",
+      "closeout": "/workspace/work/unify/s45/closeout.json",
+      "packaging": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/packaging.json",
+      "project_zip": {
+        "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+        "bytes": 55126737,
+        "sha256": "a7c7211c1329ddeced05ceb4a27deb0db69b21bdef4ed050b48b60274c9e8ce6",
+        "zip_crc": "PASS"
+      },
+      "review_zip": {
+        "path": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/native-quality-review.zip",
+        "bytes": 9824140,
+        "sha256": "80768da6f104529a918ad35de66cc2ec6deedcf13c2e2fc04f4be91c817f926b",
+        "zip_crc": "PASS"
+      },
+      "package_smoke": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/packages/package-smoke.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "clean_import": true,
+        "genuine_native_input_save_viewports": 4,
+        "standard_original_pngs": 172,
+        "career_original_pngs": 36,
+        "stress_original_pngs": 2,
+        "career_assertions": 3823,
+        "bridge_assertions": 278,
+        "stress_assertions": 325,
+        "engine_error_lines": 0,
+        "orphan_growth": 0,
+        "protected_files": 339,
+        "runtime_source_paths": 303
+      },
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "publication": "LOCAL project/history; no new Page or Android delivery yet",
+      "android": "V4 unchanged; current preview not in APK",
+      "next_action": "Scope and prove the existing hometown booking/preparation/live-show loop on the current band and shared components, including save-safe show-day routing; one final Android update only after complete proof within the remaining owner window."
+    },
+    "latest_verified_phase2": {
+      "sprint": "S45",
+      "source_sha": "cca5e9fbd719e029904a716974700414f35a5fac",
+      "validation": "/workspace/work/s40/runs/s45-unified-cca5e9f-final/complete-validation.json",
+      "checks": {
+        "gameplay": 73,
+        "opening": 88,
+        "clean_import": true,
+        "genuine_native_input_save_viewports": 4,
+        "standard_original_pngs": 172,
+        "career_original_pngs": 36,
+        "stress_original_pngs": 2,
+        "career_assertions": 3823,
+        "bridge_assertions": 278,
+        "stress_assertions": 325,
+        "engine_error_lines": 0,
+        "orphan_growth": 0,
+        "protected_files": 339,
+        "runtime_source_paths": 303
+      },
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "publication": "LOCAL only"
+    },
+    "last_completed_deliverable": "Unified current-style career desk and original Gear/current Band/Songbook:303-file LOCAL checkpoint/22PNG review; V4 unchanged"
+  },
+  "previous_android_owner_package_before_v5": {
+    "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "status": "v3_signed_apk_delivered_private_phone_retest_pending",
+    "owner_reported_v1_install_worked": true,
+    "agent_android_device_tested": false,
+    "updated_apk_phone_tested": false,
+    "build_receipt": "/workspace/work/day31/android/build-c9c67ad-v3/build.json",
+    "update_compatibility": "/workspace/work/day31/android/build-c9c67ad-v3/update-compatibility.json",
+    "private_delivery": {
+      "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "artifact_path": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+      "local_sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+      "size": 67439436,
+      "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+      "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+      "mime_type": "application/vnd.android.package-archive",
+      "permissions": [
+        {
+          "type": "user",
+          "role": "reader",
+          "emailAddress": "alimuir654@gmail.com",
+          "domain": null,
+          "displayName": null,
+          "allowFileDiscovery": null
+        },
+        {
+          "type": "user",
+          "role": "owner",
+          "emailAddress": "chair@lovewelluk.com",
+          "domain": null,
+          "displayName": null,
+          "allowFileDiscovery": null
+        }
+      ],
+      "remote_checksum": "Not exposed by connector; no remotechecksum claim",
+      "phone_v1_owner_install_worked": true,
+      "phone_v3_tested": false,
+      "agent_android_device_tested": false,
+      "readback": {
+        "id": "15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y",
+        "title": "BandMaster-Playtest-v3.apk",
+        "mime_type": "application/vnd.android.package-archive",
+        "size": "67439436",
+        "url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/15jMPyK4jH3Llhd0nfov4BJIbXQ1etr1y/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": null,
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      },
+      "review_page": {
+        "url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
+        "sequence": 5
+      },
+      "phone_page": {
+        "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+        "sequence": 8
+      },
+      "poster_image_upload": {
+        "page_id": "page_dd078970782c81918d96b7c70e4e3673",
+        "reference": "library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec",
+        "file_name": "c27-title-390x844-b5d8379a37ca44de84ce7e8027b7fc4a.png",
+        "mime_type": "image/png",
+        "byte_size": 285966,
+        "sha256": "dd609d2f74298f7ae78436a1e014021da0955a5372f528fc65604df9b1f6dd06",
+        "file_access_confirmed": true,
+        "is_image": true,
+        "markdown": "![BandMaster native opening poster](library-file:fde1_bGliZmlsZV90TlVNanJqNFFKSnRDODBKcUZRNGhR_FileDrive_8083ddce5f188191a309aab74a2e7fec)",
+        "inserted": false,
+        "next_step": "Read the Page and use edit_page with its fresh guards to insert markdown."
+      }
+    },
+    "apk_checks": {
+      "apk": "/workspace/work/day31/android/build-c9c67ad-v3/BandMaster-Playtest.apk",
+      "bytes": 67439436,
+      "sha256": "9f230c610715d334edcc767abe0c2b58f665f38ec4bde8001bfbc69aea043f23",
+      "version_code": 3,
+      "version_name": "0.41.0-playtest",
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "signature": "PASS",
+      "alignment_16kb": "PASS",
+      "apk_crc": "PASS",
+      "cast_json_byte_identical": true,
+      "original_source_files_unchanged": true
+    }
+  }
 }
