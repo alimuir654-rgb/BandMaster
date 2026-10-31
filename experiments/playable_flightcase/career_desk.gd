@@ -19,6 +19,8 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const FinanceDesk = preload("res://experiments/playable_flightcase/finance_desk.gd")
+const Offstage = preload("res://experiments/playable_flightcase/offstage_rules.gd")
+const OffstageDesk = preload("res://experiments/playable_flightcase/offstage_desk.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -41,6 +43,9 @@ var live_hire_session := false
 var live_context_id := ""
 var _live_dialog: Control
 var _live_confirm_verb := ""
+var offstage_activity := "watch_gig"
+var offstage_mode := "outing"
+var offstage_choice := "careful"
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -177,11 +182,15 @@ func _render() -> void:
   LiveDesk.render(self,body,compact)
  elif page=="finance":
   FinanceDesk.render(self,body,compact)
+ elif page=="offstage":
+  OffstageDesk.render(self,body,compact)
  else:
   _home_page(body,compact)
  _decision_dock(shell,compact)
  if page=="gigs" and not receipt_open:
   LiveDesk.refresh_plans(self)
+ elif page=="offstage" and not receipt_open:
+  OffstageDesk.refresh_plans(self)
  _scroll.set_deferred("scroll_vertical",_scroll_position)
  if is_instance_valid(_live_dialog):
   move_child(_live_dialog,get_child_count()-1)
@@ -208,7 +217,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -219,7 +228,7 @@ func _navigate(destination: String) -> void:
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
- _pending_focus = "LiveMainAction" if destination=="gigs" else "CareerNav_"+destination
+ _pending_focus = "LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination)
  _render()
 
 func _restore_focus(control_name: String) -> void:
@@ -278,7 +287,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  routes.add_theme_constant_override("h_separation",8)
  routes.add_theme_constant_override("v_separation",8)
  body.add_child(routes)
- for entry in [["FINANCES","finance"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
+ for entry in [["FINANCES","finance"],["LIFE OFFSTAGE","offstage"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
   routes.add_child(_button(str(entry[0])+"  ›","CareerHome_"+str(entry[1]),_navigate.bind(str(entry[1]))))
  # Put the next decisions before the status detail on the phone.
  body.move_child(practice,3)
@@ -496,11 +505,16 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if compact else Control.SIZE_SHRINK_CENTER
  parent.add_child(dock)
  if receipt_open:
-  dock.add_child(_button("BACK TO THE LIVE DESK  ›" if str(receipt.get("kind","gear"))=="live" else "BACK TO THE MUSIC SHOP  ›","CareerReceiptContinueAction",_close_receipt,true))
+  var return_copy: String = "BACK TO THE LIVE DESK  ›" if str(receipt.get("kind","gear"))=="live" else "BACK TO THE MUSIC SHOP  ›"
+  if str(receipt.get("kind","gear"))=="offstage":
+   return_copy = "PREPARE FOR YOUR SHOW  ›" if str(receipt.get("return_page","offstage"))=="gigs" else "BACK TO LIFE OFFSTAGE  ›"
+  dock.add_child(_button(return_copy,"CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
   LiveDesk.dock(self,dock,compact)
  elif page=="finance" and not Finance.is_over(game.career):
   dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
+ elif page=="offstage":
+  OffstageDesk.dock(self,dock,compact)
  elif page=="gear":
   if compact and catalogue_open:
    dock.add_child(_button("BACK TO SELECTED ITEM","GearCloseCatalogueAction",_toggle_catalogue))
@@ -601,8 +615,9 @@ func _finish_receipt() -> void:
 func _receipt_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  var live: bool = str(receipt.get("kind","gear"))=="live"
- _copy(body,"THE LIVE JOURNAL" if live else "THE MUSIC SHOP RECORD",16,true)
- _copy(body,str(receipt.get("title","LIVE TONIGHT")) if live else str(receipt.get("item_name","EQUIPMENT")),25)
+ var offstage: bool = str(receipt.get("kind","gear"))=="offstage"
+ _copy(body,"LIFE OFFSTAGE" if offstage else ("THE LIVE JOURNAL" if live else "THE MUSIC SHOP RECORD"),16,true)
+ _copy(body,str(receipt.get("title","OFFSTAGE")) if offstage else (str(receipt.get("title","LIVE TONIGHT")) if live else str(receipt.get("item_name","EQUIPMENT"))),25)
  _copy(body,"DAY %d → %d   •   £%d → £%d" % [int(receipt.get("day_before",1)),int(receipt.get("day_after",1)),int(receipt.get("cash_before",0)),int(receipt.get("cash_after",0))],16,true)
  var note: Label = Ink.new()
  note.name="CareerReceiptNote"
@@ -611,7 +626,7 @@ func _receipt_page(parent: Node, compact: bool) -> void:
  note.add_theme_color_override("font_color",Color("29241f"))
  if _fresh_receipt:note.visible_characters=0
  body.add_child(note)
- var record: Dictionary = {} if live else Gear.record(game.career,str(receipt.get("item","")))
+ var record: Dictionary = {} if live or offstage else Gear.record(game.career,str(receipt.get("item","")))
  if not record.is_empty():
   var condition: int = int(record.get("condition",-1))
   _copy(body,"CONDITION  /  "+("UNKNOWN" if condition<0 else "%d / 100" % condition),18)
@@ -624,9 +639,10 @@ func _receipt_page(parent: Node, compact: bool) -> void:
 
 func _close_receipt() -> void:
  if busy:return
+ if str(receipt.get("kind","gear"))=="offstage":page=str(receipt.get("return_page","offstage"))
  receipt_open=false
  _fresh_receipt=false
- _pending_focus=LiveDesk.focus_name(self) if page=="gigs" else "GearCatalogueAction"
+ _pending_focus=LiveDesk.focus_name(self) if page=="gigs" else (OffstageDesk.focus_name(self) if page=="offstage" else "GearCatalogueAction")
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
@@ -758,3 +774,78 @@ func _finance_guard() -> bool:
  receipt_open=false
  _render()
  return false
+
+func _select_offstage_activity(activity: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog) or activity not in Offstage.ORDER:return
+ offstage_activity=activity
+ OffstageDesk.refresh_plans(self)
+
+func _select_offstage_response(choice: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ var pending: Array = Offstage.pending(game.career)
+ if pending.is_empty():return
+ for option in Offstage.response_options(game.career,str(pending[0].get("id",""))):
+  if str(option.get("id",""))==choice and choice!="decline":
+   offstage_choice=choice
+   OffstageDesk.refresh_plans(self)
+   return
+
+func _offstage_show(mode: String) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ offstage_mode="invite" if mode=="invite" and not Offstage.pending(game.career).is_empty() else "outing"
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus=OffstageDesk.focus_name(self)
+ _render()
+
+func _commit_offstage(action: String, id: String = "", choice: String = "") -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ if not _finance_guard():return
+ busy=true
+ var before: Dictionary = game.career.duplicate(true)
+ var result: Dictionary
+ if action=="outing":result=Offstage.outing(before,id)
+ elif action=="respond":result=Offstage.respond(before,id,choice)
+ else:result={"ok":false,"message":"Unknown offstage action."}
+ if not bool(result.get("ok",false)):
+  busy=false
+  notice=str(result.get("message","That offstage action is unavailable."))
+  _render()
+  return
+ var accounted: Dictionary = Finance.apply(before,result["state"],str(result.get("finance_action","social:"+action)))
+ if not bool(accounted.get("ok",false)):
+  busy=false
+  notice=str(accounted.get("message","The accounts could not be reconciled."))
+  _render()
+  return
+ game.career=accounted["state"]
+ if not bool(opening_owner.save_draft()):
+  game.career=before
+  busy=false
+  notice="The change could not be saved. Your previous band state is retained."
+  _render()
+  return
+ var after: Dictionary = game.career
+ var pending: Array = Offstage.pending(after)
+ if not pending.is_empty():
+  offstage_mode="invite"
+  offstage_choice="accept" if str(pending[0].get("id",""))==Offstage.PROMOTER else "careful"
+ else:offstage_mode="outing"
+ receipt={"kind":"offstage","verb":action,"title":str(result.get("title","LIFE OFFSTAGE")),"text":str(result.get("message","Saved.")),"return_page":str(result.get("return_page","offstage")),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"changes":[]}
+ for field in ["readiness","morale","tension","reputation","fans","buzz","press"]:
+  if int(before.get(field,0))!=int(after.get(field,0)):
+   receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
+ receipt_open=true
+ _fresh_receipt=true
+ notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ var days: int = int(receipt.day_after)-int(receipt.day_before)
+ var overlay := Beat.new()
+ overlay.heading_copy="LIFE OFFSTAGE"
+ overlay.detail_copy="SAVED  •  %d DAY%s  •  £%d SPENT" % [days,"" if days==1 else "S",int(receipt.cash_before)-int(receipt.cash_after)]
+ overlay.configure("report" if days==0 else "offstage",{"metrics":{"tour_day":{"before":receipt.day_before,"after":receipt.day_after}}},reduced_motion,"flightcase",int(receipt.day_after),int(receipt.cash_after))
+ _overlay=overlay
+ overlay.covered.connect(_present_receipt)
+ overlay.finished.connect(_finish_receipt)
+ add_child(overlay)

@@ -3,7 +3,7 @@ extends RefCounted
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const INCOME := ["Gig fees","Music sales","Merch sales"]
-const OUTGOING := ["Rehearsal","Equipment","Travel","Session cover","Cancellation","Other"]
+const OUTGOING := ["Rehearsal","Equipment","Travel","Session cover","Cancellation","Social","Other"]
 
 static func _copy(host, parent: Node, value: String, name: String = "", points: int = 16, muted: bool = false) -> Label:
  var label: Label = host._copy(parent,value,points,muted)

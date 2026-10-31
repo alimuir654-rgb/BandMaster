@@ -4,7 +4,7 @@ const KEY := "finance_v1"
 const VERSION := 1
 const LIMIT := 14
 const HISTORY_LIMIT := 80
-const CATEGORIES := ["Gig fees","Music sales","Merch sales","Rehearsal","Equipment","Travel","Session cover","Cancellation","Other"]
+const CATEGORIES := ["Gig fees","Music sales","Merch sales","Rehearsal","Equipment","Travel","Session cover","Cancellation","Social","Other"]
 
 static func _whole(value: Variant) -> bool:
  return (value is int or value is float) and float(value)==floor(float(value))
@@ -89,7 +89,9 @@ static func cashflows(before: Dictionary, after: Dictionary, action: String) -> 
     return rows
  var delta: int = finish-start
  var category := "Other"
- if verb in ["tighten","rehearse"]:
+ if delta<0 and action.begins_with("social:"):
+  category = "Social"
+ elif verb in ["tighten","rehearse"]:
   category = "Rehearsal"
  elif verb in ["buy","service","buy_gear"]:
   category = "Equipment"
