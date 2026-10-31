@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "f9cc2154438d861484ecf67e1c918c49682eb786",
-  "claimed_at": "2026-10-31T21:09:23.571723+00:00",
-  "expires_at": "2026-10-31T21:35:00Z",
-  "scope": "Metadata/report/release only, no source/art/engine/ZIP/APK/queue writes. Complete necessary closeout inside unchanged outer21:40 owner window.",
-  "authority": "Owner21:04: add game over after2weeks without money, performance/review/sales consequences for gig access, finance income/outgoing section, social connections/bookings/scout encounters.",
+  "writer": "S48-offstage-connections-20261031T2145",
+  "base_head": "fc3279ae494fd11888783bf0c26afdf2ef5703d5",
+  "claimed_at": "2026-10-31T21:42:31.594012+00:00",
+  "expires_at": "2026-10-31T22:35:00Z",
+  "scope": "Connect original paid offstage activities to one real saved local-show invitation and a later milestone-qualified scout/music-desk introduction, reusing original booking and opportunity resolvers plus Finance and existing Beat/Ink UI. No fake contacts/cast, auto payout, repeat rewards or render-time state.",
+  "authority": "Owner21:35: Continue with the next steps. This prospectively authorises this new bounded social/opportunity implementation following the21:04 requested finance/failure/review/sales/social work; closed S47 deadlines remain history, no schedule/queue extension.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T21:32:50.432716+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Sourcefrozen21:30, necessary metadata-only closeout complete before21:35/outer21:40. No pending helper/GL/source/art/build task or extension.",
+  "note": "New directowner continuation prospectively supersedes CLOSED previousfreeze for this slice. RootONEwriter/ONEGL, helper scratch only, no queue/schedule/publicsource/production changes.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -156,5 +156,10 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "Source frozen at verifiedf093. Artifact/metadata closeout only through21:30, inside unchanged owner21:40 window; no new gameplay/source/art iteration or queue extension.",
-  "source_writer_released_at": "2026-10-31T21:30:00Z"
+  "source_writer_released_at": "2026-10-31T21:30:00Z",
+  "previous_s47_release": {
+    "last_writer": "S47-metadata-closeout-20261031T2131",
+    "released_at": "2026-10-31T21:32:50.432716+00:00",
+    "source_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c"
+  }
 }
