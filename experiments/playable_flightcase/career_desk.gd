@@ -17,6 +17,8 @@ const LiveBrief = preload("res://Scripts/live_night_briefing.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const FinanceDesk = preload("res://experiments/playable_flightcase/finance_desk.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -49,7 +51,7 @@ func _ready() -> void:
 func open_home() -> void:
  if busy or is_instance_valid(_live_dialog):
   return
- page = "home"
+ page = "finance" if Finance.is_over(game.career) else "home"
  receipt_open = false
  catalogue_open = false
  notice = ""
@@ -107,6 +109,9 @@ func _copy(parent: Node, value: String, points: int = 16, muted: bool = false) -
 func _render() -> void:
  if not is_inside_tree():
   return
+ if game!=null and Finance.is_over(game.career):
+  page = "finance"
+  receipt_open = false
  _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
  if not busy and not is_instance_valid(_live_dialog) and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
@@ -143,7 +148,7 @@ func _render() -> void:
   var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
   option.name = "CareerNav_"+destination
   option.set_pressed_no_signal(page==destination and not receipt_open)
-  option.disabled = busy
+  option.disabled = busy or Finance.is_over(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
  _scroll = ScrollContainer.new()
@@ -170,6 +175,8 @@ func _render() -> void:
   _songs_page(body,compact)
  elif page=="gigs":
   LiveDesk.render(self,body,compact)
+ elif page=="finance":
+  FinanceDesk.render(self,body,compact)
  else:
   _home_page(body,compact)
  _decision_dock(shell,compact)
@@ -201,8 +208,10 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance"]:
   return
+ if Finance.is_over(game.career):
+  destination = "finance"
  page = destination
  receipt_open = false
  catalogue_open = false
@@ -269,7 +278,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  routes.add_theme_constant_override("h_separation",8)
  routes.add_theme_constant_override("v_separation",8)
  body.add_child(routes)
- for entry in [["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
+ for entry in [["FINANCES","finance"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
   routes.add_child(_button(str(entry[0])+"  ›","CareerHome_"+str(entry[1]),_navigate.bind(str(entry[1]))))
  # Put the next decisions before the status detail on the phone.
  body.move_child(practice,3)
@@ -490,6 +499,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   dock.add_child(_button("BACK TO THE LIVE DESK  ›" if str(receipt.get("kind","gear"))=="live" else "BACK TO THE MUSIC SHOP  ›","CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
   LiveDesk.dock(self,dock,compact)
+ elif page=="finance" and not Finance.is_over(game.career):
+  dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
  elif page=="gear":
   if compact and catalogue_open:
    dock.add_child(_button("BACK TO SELECTED ITEM","GearCloseCatalogueAction",_toggle_catalogue))
@@ -514,12 +525,15 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  var navigation := HBoxContainer.new()
  navigation.add_theme_constant_override("separation",8)
  dock.add_child(navigation)
- navigation.add_child(_button("‹ PRACTICE","CareerPracticeAction",_practice.bind("")))
+ var practice_action := _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
+ practice_action.disabled = busy or Finance.is_over(game.career)
+ navigation.add_child(practice_action)
  navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
 
 func _commit_gear(verb: String, member_index: int = -1) -> void:
  if busy or receipt_open or game==null or opening_owner==null:
   return
+ if not _finance_guard():return
  busy = true
  var before: Dictionary = game.career.duplicate(true)
  var result: Dictionary = Bridge.gear_action(before,verb,selected_item,member_index)
@@ -528,7 +542,13 @@ func _commit_gear(verb: String, member_index: int = -1) -> void:
   notice=str(result.get("message","Action unavailable."))
   _render()
   return
- game.career = result["state"]
+ var accounted: Dictionary = Finance.apply(before,result["state"],"gear:"+verb)
+ if not bool(accounted.get("ok",false)):
+  busy=false
+  notice=str(accounted.get("message","The accounts could not be reconciled."))
+  _render()
+  return
+ game.career = accounted["state"]
  if not bool(opening_owner.save_draft()):
   game.career=before
   busy=false
@@ -612,6 +632,9 @@ func _close_receipt() -> void:
  _render()
 
 func _practice(activity: String) -> void:
+ if Finance.is_over(game.career):
+  _navigate("finance")
+  return
  if not busy and not is_instance_valid(_live_dialog):practice_requested.emit(activity)
 
 func _menu() -> void:
@@ -671,6 +694,7 @@ func _live_confirmation_completed(accepted: bool) -> void:
 
 func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ if not _finance_guard():return
  busy=true
  var before: Dictionary = game.career.duplicate(true)
  var old_booking: Dictionary = Calendar.pending(before)
@@ -680,7 +704,13 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void
   notice=str(result.get("message","Action unavailable."))
   _render()
   return
- game.career=result["state"]
+ var accounted: Dictionary = Finance.apply(before,result["state"],"live:"+verb)
+ if not bool(accounted.get("ok",false)):
+  busy=false
+  notice=str(accounted.get("message","The accounts could not be reconciled."))
+  _render()
+  return
+ game.career=accounted["state"]
  if not bool(opening_owner.save_draft()):
   game.career=before
   busy=false
@@ -719,3 +749,12 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void
  overlay.covered.connect(_present_receipt)
  overlay.finished.connect(_finish_receipt)
  add_child(overlay)
+
+func _finance_guard() -> bool:
+ var permitted: Dictionary = Finance.guard(game.career)
+ if bool(permitted.get("ok",false)):return true
+ notice=str(permitted.get("message","The band has folded."))
+ page="finance"
+ receipt_open=false
+ _render()
+ return false

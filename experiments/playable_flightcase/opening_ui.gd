@@ -1,4 +1,5 @@
 extends Control
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 ## C27 opening; uses existing authentic flight-case UI and controls.
 const Model = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Recruit = preload("res://experiments/playable_flightcase/ui.gd")
@@ -774,7 +775,7 @@ func _practice() -> void:
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- if LiveRules.show_day(setup.game.career):
+ if Finance.is_over(setup.game.career) or LiveRules.show_day(setup.game.career):
   call_deferred("_open_career_desk")
 
 func _open_career_desk() -> void:
@@ -793,13 +794,19 @@ func _open_career_desk() -> void:
   _career_view = desk
  _career_view.call("open_home")
  _career_view.show()
- if LiveRules.show_day(setup.game.career):
+ if Finance.is_over(setup.game.career):
+  _career_view.call("_navigate","finance")
+  _career_view.call_deferred("_restore_focus","CareerMenuAction")
+ elif LiveRules.show_day(setup.game.career):
   _career_view.call("_navigate","gigs")
   _career_view.call_deferred("_restore_focus","LiveMainAction")
  else:
   _career_view.call_deferred("_restore_focus","CareerNav_home")
 
 func _return_from_career(activity: String = "") -> void:
+ if Finance.is_over(setup.game.career):
+  if is_instance_valid(_career_view):_career_view.call("_navigate","finance")
+  return
  if is_instance_valid(_career_view) and bool(_career_view.get("busy")):
   return
  if is_instance_valid(_career_view):

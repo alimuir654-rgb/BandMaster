@@ -1,4 +1,5 @@
 extends Control
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
@@ -910,6 +911,15 @@ func _refresh_practice_commitment() -> void:
  var cost: Label = find_child("PracticeTimeCost",true,false) as Label
  if summary==null or cost==null:
   return
+ if opening_owner!=null and Finance.is_over(game.career):
+  summary.text = "THE BAND HAS FOLDED"
+  cost.text = "14 completed days without money  •  Final accounts are saved"
+  for control_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+   var final_action: Button = find_child(control_name,true,false) as Button
+   if final_action!=null:
+    final_action.text = "VIEW FINAL ACCOUNTS  ›"
+    final_action.disabled = false
+  return
  if opening_owner!=null and Live.show_day(game.career):
   summary.text = "TONIGHT'S SHOW  •  THE VENUE IS EXPECTING YOU"
   cost.text = "Open the live desk  •  No session will be started"
@@ -1079,6 +1089,10 @@ func _connect() -> void:
 func _commit_session(kind: String) -> void:
  if session_busy:
   return
+ if opening_owner!=null and Finance.is_over(game.career):
+  last_message = "The band has folded. The final accounts are retained."
+  career_requested.emit()
+  return
  if opening_owner!=null and Live.show_day(game.career):
   last_message = "Tonight's show comes first. No session has been started."
   career_requested.emit()
@@ -1101,6 +1115,14 @@ func _commit_session(kind: String) -> void:
   return
  if opening_owner!=null:
   game.career = Live.after_practice(before_snapshot.get("career",{}),game.career)
+  var accounted: Dictionary = Finance.apply(before_snapshot.get("career",{}),game.career,"practice:"+kind)
+  if not bool(accounted.get("ok",false)):
+   game.restore(before_snapshot)
+   session_busy=false
+   last_message=str(accounted.get("message","The accounts could not be reconciled."))
+   _rebuild()
+   return
+  game.career=accounted["state"]
   result["state"] = game.career.duplicate(true)
   if game.career.get("last_rehearsal_outcome",{}) is Dictionary:
    result["outcome"] = game.career.get("last_rehearsal_outcome",{}).duplicate(true)
@@ -1148,6 +1170,9 @@ func _finish_session_presentation() -> void:
    if note.has_meta("fresh_action_note") and note.has_method("begin"):
     note.begin(reduced_motion)
  var next_action: Button = find_child("RecapToggleAction" if recap_expanded else "PracticeMode_"+practice_activity,true,false) as Button
+ if opening_owner!=null and Finance.is_over(game.career):
+  career_requested.emit()
+  return
  if next_action!=null and is_visible_in_tree():
   next_action.grab_focus()
 
