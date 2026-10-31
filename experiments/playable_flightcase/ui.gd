@@ -364,6 +364,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   archive.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
   introduction.add_child(archive)
  var bio := _box()
+ if not mobile:
+  bio.add_theme_constant_override("separation",6)
  introduction.add_child(bio)
  bio.add_child(_ink(str(person.get("town","UK")),16))
  bio.add_child(_ink(str(person.get("personality","Musician")),16,true))
@@ -372,7 +374,10 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  stat_grid.columns = 2 if mobile else 3
  stat_grid.add_theme_constant_override("h_separation",12)
  stat_grid.add_theme_constant_override("v_separation",5)
- body.add_child(stat_grid)
+ if mobile:
+  body.add_child(stat_grid)
+ else:
+  bio.add_child(stat_grid)
  var stats: Array = Base.stats_for(person,role)
  var captions: Array = Base.labels_for(role)
  for i in range(6):
@@ -397,14 +402,15 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
  strength.visible = heard
  friction.visible = heard
- body.add_child(strength)
- body.add_child(friction)
+ var note_host: VBoxContainer = body if mobile else bio
+ note_host.add_child(strength)
+ note_host.add_child(friction)
  if heard:
-  body.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
+  note_host.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
  else:
-  body.add_child(_ink("Meet the musician, then audition to read what they bring to the room.",16,true))
+  note_host.add_child(_ink("Meet the musician, then audition to read what they bring to the room.",16,true))
  if person.has("collaboration"):
-  body.add_child(_ink("RELIABILITY %d/10  •  COLLABORATION %d/10" % [int(person.reliability),int(person.collaboration)],14,true))
+  note_host.add_child(_ink("RELIABILITY %d/10  •  COLLABORATION %d/10" % [int(person.reliability),int(person.collaboration)],14,true))
  if role=="Singer" and onboarding_state!=null and recruited:
   var chosen: bool = str(onboarding_state.lead_vocal_id)==id
   var appoint: Button = _button("✓ LEAD VOCALS" if chosen else "CHOOSE "+str(person.name).to_upper()+" FOR LEAD VOCALS",_choose_vocal.bind(id))
@@ -555,11 +561,18 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
  root_box.add_child(_label("LINEUP REVIEW",20))
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
  body.add_child(_ink("THIS IS YOUR BAND",24))
+ var roster := GridContainer.new()
+ roster.columns = 1 if mobile else mini(3,maxi(1,game.roster.size()))
+ roster.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ roster.add_theme_constant_override("h_separation",20)
+ roster.add_theme_constant_override("v_separation",10)
+ body.add_child(roster)
  for member in game.roster:
-  var row := HBoxContainer.new()
+  var row: BoxContainer = HBoxContainer.new() if mobile else VBoxContainer.new()
+  row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   row.name = "LineupReviewMember_"+str(member.id)
   row.add_theme_constant_override("separation",8)
-  body.add_child(row)
+  roster.add_child(row)
   var path: String = str(member.get("portrait_preview",""))
   if not path.is_empty() and ResourceLoader.exists(path):
    var portrait := TextureRect.new()
@@ -569,6 +582,8 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
    portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
    portrait.custom_minimum_size = Vector2(70,73) if mobile else Vector2(96,100)
    portrait.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+   if not mobile:
+    portrait.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
    portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
    portrait.focus_mode = Control.FOCUS_NONE
    row.add_child(portrait)
@@ -576,16 +591,23 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
   identity.size_flags_vertical = Control.SIZE_SHRINK_CENTER
   identity.add_theme_constant_override("separation",2)
   row.add_child(identity)
-  identity.add_child(_ink(str(member.name),18))
-  identity.add_child(_ink(str(member.get("primary_role","Musician")),14,true))
+  var member_name: Label = _ink(str(member.name),18)
+  var member_role: Label = _ink(str(member.get("primary_role","Musician")),14,true)
+  if not mobile:
+   member_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   member_role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  identity.add_child(member_name)
+  identity.add_child(member_role)
   if onboarding_state!=null and str(onboarding_state.lead_vocal_id)==str(member.id):
    var lead := _ink("LEAD VOCALS",13)
+   if not mobile:
+    lead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
    lead.add_theme_color_override("font_color",Color("376c58"))
    identity.add_child(lead)
   var edit: Button = _button("EDIT",_edit_audition_member.bind(str(member.id)),"tab")
   edit.name = "AuditionEdit_"+str(member.id)
   edit.custom_minimum_size.x = 64
-  edit.size_flags_horizontal = Control.SIZE_SHRINK_END
+  edit.size_flags_horizontal = Control.SIZE_SHRINK_END if mobile else Control.SIZE_SHRINK_CENTER
   edit.size_flags_vertical = Control.SIZE_SHRINK_CENTER
   row.add_child(edit)
  var voice: Button = _button("REVISIT LEAD VOCALS",_show_vocal_choices,"tab")
