@@ -48,15 +48,15 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 205080,
-    "sha256": "a8b2ea5e0e57d8f3353365954abc80eab5b21cc9b49433616c06df0c4fec55d1"
+    "bytes": 207169,
+    "sha256": "33cde0cacbfbc2adf5171b0e69fdf96a6c52496b0832e966f4b1f947ca469389"
   },
   "target": {
-    "locator": "Exact33f390/1280 original recruitment PNGs opened: real Maya, empty roster,200talent, alloriginalcase/cast/meterbytes. No rehearsal-specific or recruitment mockup newly supplied; retain established art direction.",
-    "original_sha256": "a1fdfea28139e1a0fc63521a6abbbe6a0bf3164bb35ed0717fb13de113dac1d1",
+    "locator": "/workspace/work/s40/settings-qa/baseline/20261031T031855Z-routing-corrected/no-draft-390x844/captures/03-sound-after-enter.png",
+    "original_sha256": "4f30d1a6944370129b35666bf45ed2c45e64982daba8fc924a988e0e23591a42",
     "pixels_inspected": true
   },
-  "hypothesis": "Probe currentSettings/Sound native lifecycle and actualAudioServer state first. If confirmedfocus loss/control destruction on same-view toggles, update existingcontrols in place without changing material, gameplay, saves or addingfeatures; preserve initialtitle and allcompletedviews.",
+  "hypothesis": "Confirmedsame-view _render destroysfocused menucontrols: constructexistingSettingspanel once, togglevisibilityinplace, updateactualmute+existingSoundtext/tooltipinplace. Preserveinitialclosedtitle pixels/currentnativeart and allmodel/save behaviors.",
   "controlled_comparison": "Exact7f source title/menu same viewport and same saved-draft state at390x844/720x1280/1280x720/1600x900. Probe freshNoDraft and validDraft settings mouse/Enter/Space/Tab, realAudioServer mute, node/focus/rectangle continuity and game/savebyte invariance. Full73+88/import/4native journey after any confirmedsourcefix; initialtitles and protectedother scenes should match7f originals.",
   "stop_condition": "One coordinated writer on currentbranch until31Oct09:00Europe/London; no implementation after cutoff. Keep originalcast/passive meters, gameplay/save schema and rollback. Two ineffective corrections require changed method or hold. Owner artwork approvalfalse.",
   "protected": [
@@ -82,7 +82,7 @@
   "started_at": "2026-10-30T23:48:38Z",
   "scope_end": "2026-10-31T09:00:00Z",
   "evidence_status": "Exactlocal7f32373+88/import/all4native plus recruitmentlongcopy/economy/realremove proof and extractedpackage launch PASS. Source unpublished; no new remoteCI claimed.",
-  "issues_reviewed_at": "2026-10-31T03:16:04.379270+00:00",
+  "issues_reviewed_at": "2026-10-31T03:21:23.306896+00:00",
   "progress": {
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
     "verified_at": "2026-10-31T01:39:45.903195+00:00",
@@ -497,8 +497,9 @@
     "lease_ends": "2026-10-31T03:55:00Z",
     "source_baseline": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
     "preflight_head": "eb7f4ce7fdd968f19e9bd0d9d1da3433bc72322b",
-    "status": "probe_unconfirmed",
+    "status": "confirmed_focus_loss_before_fix",
     "one_outcome": "Reliable existingSettings/Sound focus/state continuity with originalvisuals and actualmuteeffect.",
-    "limits": "No new persistence/audio feature/dependency, no art swap, no model/save schema changes; stop after2ineffective corrections/change method orhold; no source/art/repo writes at08:50or later."
+    "limits": "No new persistence/audio feature/dependency, no art swap, no model/save schema changes; stop after2ineffective corrections/change method orhold; no source/art/repo writes at08:50or later.",
+    "baseline_probe": "/workspace/work/s40/settings-qa/baseline/20261031T031855Z-routing-corrected/no-draft-390x844/captures/probe-result.json"
   }
 }
