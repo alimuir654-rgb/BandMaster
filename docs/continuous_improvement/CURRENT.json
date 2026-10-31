@@ -11,27 +11,20 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required.",
+  "next_action": "Review readiness and the privately delivered update with the owner. At08:50 remain read-only;09:00hard cutoff unchanged. No further implementation in this lease. Existing200talent budget, leftover-talent-to-cash conversion, genre styling and poster/title requests remain proposals for a separately scoped validated pass. Preserve same test signing key/applicationID and update without uninstalling; assess Android touch/keyboard/Back/Continue only from actual phone feedback.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Direct renewed owner authority through2026-10-31T09:00:00Z; previouslimits historical.",
   "completion_gate": {
     "native_full_input_verified": true,
-    "tested_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-    "verification_kind": "local Godot4.7.2, not remoteCI",
-    "validation": "/workspace/work/s40/runs/resize-bb38882/validation.json",
+    "tested_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+    "verification_kind": "localGodot4.7.2, not remoteCI or Androidruntime",
+    "validation": "/workspace/work/s40/runs/phone-95b2574/validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "primary_runner_pngs": 116,
-      "supplemental_alternate_originals": 4,
-      "retained_native_pngs": 120,
-      "previous_pngs_byte_identical": 112,
-      "new_integrated_modal_pngs_opened": 8,
-      "independent_same_byte_positive_checks": 65,
-      "independent_original_pngs_opened": 7,
-      "failed_baseline_originals_opened": 2,
+      "native_pngs": 120,
       "engine_error_lines": 0,
       "orphan_growth": 0
     },
@@ -66,175 +59,211 @@
     "previous_worker_enabled": false,
     "current_root_must_release_before_handoff": false,
     "no_continuous_execution_claim": true,
-    "root_released_at": "2026-10-31T07:58:01.634742+00:00",
+    "root_released_at": "2026-10-31T08:46:29.830594+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
-    "next_focus": "OwnerphoneAPKfeedback only; no speculative sourcewrites,08:50readonly/09hardcutoff.",
+    "next_focus": "08:50read-only readiness review;09:00hardcutoff; no new sourcequeue.",
     "last_prompt_updated_at": "2026-10-31T08:00:12.247703+00:00",
-    "last_completed_checkpoint_source": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+    "last_completed_checkpoint_source": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
     "final_review_guard": "Wake at08:50or later is read-only final review/report; handles early09:00invocation, hard09:00cutoff unchanged.",
-    "last_completed_focused_qa": "/workspace/work/s40/android/closeout.json"
+    "last_completed_focused_qa": "/workspace/work/s40/runs/phone-95b2574/validation.json"
   },
   "latest_local_checkpoint": {
-    "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-    "validation": "/workspace/work/s40/runs/resize-bb38882/validation.json",
-    "visual_review": "/workspace/work/s40/runs/resize-bb38882/visual-review.json",
+    "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+    "verified_at": "2026-10-31T08:46:29.830594+00:00",
+    "validation": "/workspace/work/s40/runs/phone-95b2574/validation.json",
+    "scope": "Owner08:25phonefeedback UI-only recruitment discoverability repair.",
+    "checks": {
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "real_pointer_keyboard_save_viewports": 4,
+      "native_pngs": 120,
+      "engine_error_lines": 0,
+      "orphan_growth": 0
+    },
+    "source_hashes": [
+      {
+        "path": "experiments/playable_flightcase/ui.gd",
+        "source_ref": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "sha256": "9020925824f87e3a4b05f0d32751f20871697742bc93e260c1a6daed6c3a30d2"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_capture.gd",
+        "source_ref": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "sha256": "646e1d21983353ba077f994ac9a16777f971ee5e7bd1357679753f0f895efd2c"
+      }
+    ],
     "native_packages": {
-      "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
       "project_files": 274,
-      "review_original_pngs": 17,
-      "review_current_integrated_pngs": 8,
-      "review_independent_positive_pngs": 7,
-      "review_failed_baseline_pngs": 2,
       "archives": [
         {
-          "path": "/workspace/work/s40/runs/resize-bb38882/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10668133,
-          "sha256": "5fa57874d393b4f3608eded87d34345e75e2b2c5a6f46c367c2001e3d881d69d",
-          "zip_crc": "PASS"
-        },
-        {
-          "path": "/workspace/work/s40/runs/resize-bb38882/packages/native-quality-review.zip",
-          "bytes": 3692729,
-          "sha256": "c5875fbeb9cb7777bc4bf7b49ecc38b20fbff6efbd427f2c3d005bdf38b3af04",
+          "path": "/workspace/work/s40/runs/phone-95b2574/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10669056,
+          "sha256": "b36bbb54f13304a35f1ed758153a3f4186b82019ddb86c2c115d710d63b7e0d9",
           "zip_crc": "PASS"
         }
       ],
-      "extracted_clean_import_and_native_entry": "PASS",
-      "package_smoke": "/workspace/work/s40/runs/resize-bb38882/packages/package-smoke.json",
-      "publication": "LOCAL only; no public download or remote CI artifact",
+      "publication": "LOCAL only",
       "owner_approved": false,
-      "method": "All input paths and hashes verified before writing; ZIP CRC checked under temporary name then atomically replaced."
+      "extracted_clean_import_and_native_entry": "PASS with explicit Dummy audio; initial host ALSA error preserved",
+      "package_smoke": "/workspace/work/s40/runs/phone-95b2574/packages/package-smoke.json"
     },
-    "android_package": {
-      "completed_at": "2026-10-31T07:58:01.634742+00:00",
-      "status": "signed_apk_delivered_private_device_test_pending",
-      "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-      "export_recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
-      "recipe": "tools/export_owner_android.py",
-      "build_receipt": "/workspace/work/s40/android/build-d0704c0/build.json",
-      "toolchain_evidence": [
-        "/workspace/work/s40/android/toolchain/official-provision-downloads.json",
-        "/workspace/work/s40/android/toolchain/extraction.json"
+    "package_smoke": {
+      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "clean_import": "PASS",
+      "native_entry_dummy_audio": "PASS",
+      "failed_default_audio_log": "/workspace/work/s40/runs/phone-95b2574/packages/native-entry.log",
+      "corrected_log": "/workspace/work/s40/runs/phone-95b2574/packages/native-entry-dummy.log",
+      "pass": true
+    },
+    "visual_review": "/workspace/work/s40/runs/phone-95b2574/visual-review.json",
+    "images_opened_by_render_review": [
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-390x844.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-390x844.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-720x1280.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-720x1280.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1280x720.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1280x720.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_needs_vocals-1600x900.png",
+      "/workspace/work/s40/runs/phone-95b2574/captures/c27-recruit_ready_trio-1600x900.png"
+    ],
+    "render_simulated_lenses": {
+      "phone_player": "SIMULATED: The missing vocal assignment now has a visible first-fold action instead of requiring a separate Singer or a search through the dossier.",
+      "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
+      "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
+      "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
+      "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
+    },
+    "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
+    "source_protection_evidence": {
+      "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "baseline": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "changed_game_paths": [
+        "experiments/playable_flightcase/opening_capture.gd",
+        "experiments/playable_flightcase/ui.gd"
       ],
-      "apk": {
-        "path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
-        "bytes": 65821060,
-        "sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
-        "application_id": "com.bandmaster.ownerplaytest.s40",
-        "version_name": "0.40.0-playtest",
-        "version_code": 1,
-        "minimum_android": "7.0 / API24",
-        "target_sdk": 36,
-        "abis": [
-          "arm64-v8a",
-          "armeabi-v7a"
-        ],
-        "signature": "PASS",
-        "alignment_16kb": "PASS",
-        "cast_json_byte_identical": true,
-        "common_game_source_unchanged": true,
-        "original_project_icon_sha256": "6c80384360a5b269d1054bfb27241258154e2cc8167c522016fdc1820e84e0f8"
-      },
+      "all_model_art_hardware_meter_cast_bytes": "UNCHANGED by complete tracked diff",
+      "save_schema": "UNCHANGED",
+      "budget_cash_genre_poster": "UNCHANGED",
+      "pass": true
+    },
+    "protected_nonrecruit_originals": {
+      "kind": "Read-only independent byte and pixel comparison; no separate file written in this task.",
+      "baseline": "/workspace/work/s40/runs/resize-bb38882/captures",
+      "candidate": "/workspace/work/s40/runs/phone-95b2574/captures",
+      "nonrecruit_originals_compared": 100,
+      "all_byte_identical": true,
+      "all_pixel_identical": true,
+      "missing_or_differing_originals": [],
+      "intentional_recruitment_images_excluded": 20,
+      "result": "Title, practice, results and every other same-named non-recruit screenshot remain unchanged. Four new needs-vocals images supplement the existing recruitment views."
+    },
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "android_package": {
+      "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "status": "v2_signed_apk_delivered_private_phone_retest_pending",
+      "owner_reported_v1_install_worked": true,
+      "owner_reported_at": "2026-10-31T08:25:00Z",
+      "agent_android_device_tested": false,
+      "updated_apk_phone_tested": false,
       "private_delivery": {
-        "id": "1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I",
-        "url": "https://drive.google.com/file/d/1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I/view?usp=drivesdk",
-        "size": 65821060,
-        "mime_type": "application/vnd.android.package-archive",
+        "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+        "recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+        "artifact_path": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+        "local_sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+        "size": 65825156,
+        "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
         "permissions": [
           {
             "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
             "role": "owner",
-            "emailAddress": null,
+            "emailAddress": "chair@lovewelluk.com",
             "domain": null,
             "displayName": null,
             "allowFileDiscovery": null
           }
         ],
-        "local_sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
-        "remote_checksum_available": false,
-        "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-        "artifact_path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
-        "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-        "recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
-        "android_device_tested": false,
-        "physical_phone_tested": false
-      },
-      "checks": [
-        {
-          "step": "test-key",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/test-key.log"
-        },
-        {
-          "step": "import",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/import.log"
-        },
-        {
-          "step": "export",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/export.log"
-        },
-        {
-          "step": "align",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/align.log"
-        },
-        {
-          "step": "sign",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/sign.log"
-        },
-        {
-          "step": "verify-signature",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-signature.log"
-        },
-        {
-          "step": "verify-alignment",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-alignment.log"
-        },
-        {
-          "step": "manifest",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest.log"
-        },
-        {
-          "step": "permissions",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/permissions.log"
-        },
-        {
-          "step": "manifest-tree",
-          "pass": true,
-          "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest-tree.log"
+        "remote_checksum": "Not exposed by connector",
+        "phone_v1_install": "Owner confirmed",
+        "phone_v2_tested": false,
+        "readback": {
+          "id": "1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H",
+          "title": "BandMaster-Playtest-v2.apk",
+          "mime_type": "application/vnd.android.package-archive",
+          "size": "65825156",
+          "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+          "display_url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+          "file_or_folder": "file",
+          "created_time": null,
+          "modified_time": null,
+          "parent_ids": null,
+          "drive_id": null,
+          "current_user_can_share": null,
+          "has_augmented_permissions": null,
+          "shared": null,
+          "permissions": [
+            {
+              "type": "user",
+              "role": "reader",
+              "emailAddress": "alimuir654@gmail.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            },
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": "chair@lovewelluk.com",
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            }
+          ],
+          "source_visibility_status": "permission_metadata_available"
         }
-      ],
-      "known_toolchain_limit": "adb initialization fails on read-only/home/agent/.android; HOME never overridden, no device/emulator run. This is separate from successful nonGradleexport/signing checks.",
-      "signing_key_for_future_updates": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
-      "signing_key_rule": "Private localTESTkey only, neveruploaded/committed; reuse samekey+packageID and incrementversion forfutureupdates, no productionkey access.",
-      "android_device_tested": false,
-      "physical_phone_tested": false,
-      "android_original_pngs_opened": [],
-      "existing_native_pngs_referenced": [
-        "c27-recruit-390x844.png",
-        "c27-recruit-1280x720.png",
-        "c27-rehearsal_outcome-390x844.png",
-        "c27-practice-1280x720.png"
-      ],
-      "native_proof_reused": "/workspace/work/s40/runs/resize-bb38882/validation.json executed05:00, notnewAndroidruntimeproof",
-      "simulated_lenses": {
-        "phone_tester": "SIMULATED: Android7+ ARM32/64 APK and simple private-download/install steps are provided. Installs as BandMaster Playtest with separate applicationID; actualphone installation andtouch remainunverified.",
-        "mobile_accessibility": "SIMULATED: copiedconfig uses390x844 canvas_items/expand portrait, Compatibilityrenderer and touch-to-mouse. Sourcecontrols remainoriginal; virtualkeyboard/caret, AndroidBack andsuspend/resume require firstphonefeedback.",
-        "technical_art": "SIMULATED: exactbb gamefiles/portraits/meters/hardware/modelbytes unchanged. OnlyAndroidproject/exportconfig and unchangedoriginalrooticon are packaginginputs. Existing4native screenshots are desktopproof, notnewAndroidcaptures; positiveownerfeedback isnotblanketartapproval.",
-        "android_engineering": "SIMULATED: officialmatching4.7.2template andSDK36 tools produce signed APK; CRC,16KBalignment,MAIN/LAUNCHERmanifest,24min/36targetSDK,ARMv7+ARM64 andexactcastJSON checksPASS. No storage/internet/camera/micpermission orprivatekey packaged; no emulator/deviceexecution claimed.",
-        "release_review": "SIMULATED:65,821,060byte APK uploaded toowner-privateDrive and readback confirms size/MIME/owneronlypermission; connectoromitsremotechecksum so onlylocalSHA isclaimed. Failurehistory retained andpublicledger syncstillblocked; sourcebb andrecipe d070 remainseparate."
       },
-      "visual_verdict": "partial",
-      "owner_approved": false,
-      "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required."
-    }
+      "build_receipt": "/workspace/work/s40/android/build-phone-v2-e8a8547/build.json",
+      "apk_checks": {
+        "apk": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+        "bytes": 65825156,
+        "sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+        "signature": "PASS",
+        "alignment_16kb": "PASS",
+        "application_id": "com.bandmaster.ownerplaytest.s40",
+        "abis": [
+          "arm64-v8a",
+          "armeabi-v7a"
+        ],
+        "cast_json_byte_identical": true,
+        "original_source_files_unchanged": true
+      }
+    },
+    "simulated_lenses": {
+      "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
+      "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+      "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
+      "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
+      "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
+    },
+    "remaining_gaps": [
+      "UpdatedAPK actualphone behavior awaits owner; agent has no Androiddevice/emulator proof.",
+      "Poster/title,genre styling,200talent balance and leftover-to-cash conversion proposed only.",
+      "Overallart fidelity remainsPARTIAL; owner installation feedback is not blanket artwork acceptance.",
+      "Exact95 isolated274-file sourceZIP CRC/import/nativeentry PASS with explicitDummy audio; initialhostALSA error preserved before correction.",
+      "Public completehistory sync remains blocked pending explicit approval."
+    ],
+    "next_action": "Review readiness and the privately delivered update with the owner. At08:50 remain read-only;09:00hard cutoff unchanged. No further implementation in this lease. Existing200talent budget, leftover-talent-to-cash conversion, genre styling and poster/title requests remain proposals for a separately scoped validated pass. Preserve same test signing key/applicationID and update without uninstalling; assess Android touch/keyboard/Back/Continue only from actual phone feedback."
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -263,6 +292,168 @@
     {
       "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
       "validation": "/workspace/work/s40/runs/recruit-7f323/validation.json"
+    },
+    {
+      "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+      "validation": "/workspace/work/s40/runs/resize-bb38882/validation.json",
+      "visual_review": "/workspace/work/s40/runs/resize-bb38882/visual-review.json",
+      "native_packages": {
+        "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+        "project_files": 274,
+        "review_original_pngs": 17,
+        "review_current_integrated_pngs": 8,
+        "review_independent_positive_pngs": 7,
+        "review_failed_baseline_pngs": 2,
+        "archives": [
+          {
+            "path": "/workspace/work/s40/runs/resize-bb38882/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+            "bytes": 10668133,
+            "sha256": "5fa57874d393b4f3608eded87d34345e75e2b2c5a6f46c367c2001e3d881d69d",
+            "zip_crc": "PASS"
+          },
+          {
+            "path": "/workspace/work/s40/runs/resize-bb38882/packages/native-quality-review.zip",
+            "bytes": 3692729,
+            "sha256": "c5875fbeb9cb7777bc4bf7b49ecc38b20fbff6efbd427f2c3d005bdf38b3af04",
+            "zip_crc": "PASS"
+          }
+        ],
+        "extracted_clean_import_and_native_entry": "PASS",
+        "package_smoke": "/workspace/work/s40/runs/resize-bb38882/packages/package-smoke.json",
+        "publication": "LOCAL only; no public download or remote CI artifact",
+        "owner_approved": false,
+        "method": "All input paths and hashes verified before writing; ZIP CRC checked under temporary name then atomically replaced."
+      },
+      "android_package": {
+        "completed_at": "2026-10-31T07:58:01.634742+00:00",
+        "status": "signed_apk_delivered_private_device_test_pending",
+        "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+        "export_recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
+        "recipe": "tools/export_owner_android.py",
+        "build_receipt": "/workspace/work/s40/android/build-d0704c0/build.json",
+        "toolchain_evidence": [
+          "/workspace/work/s40/android/toolchain/official-provision-downloads.json",
+          "/workspace/work/s40/android/toolchain/extraction.json"
+        ],
+        "apk": {
+          "path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
+          "bytes": 65821060,
+          "sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
+          "application_id": "com.bandmaster.ownerplaytest.s40",
+          "version_name": "0.40.0-playtest",
+          "version_code": 1,
+          "minimum_android": "7.0 / API24",
+          "target_sdk": 36,
+          "abis": [
+            "arm64-v8a",
+            "armeabi-v7a"
+          ],
+          "signature": "PASS",
+          "alignment_16kb": "PASS",
+          "cast_json_byte_identical": true,
+          "common_game_source_unchanged": true,
+          "original_project_icon_sha256": "6c80384360a5b269d1054bfb27241258154e2cc8167c522016fdc1820e84e0f8"
+        },
+        "private_delivery": {
+          "id": "1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I",
+          "url": "https://drive.google.com/file/d/1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I/view?usp=drivesdk",
+          "size": 65821060,
+          "mime_type": "application/vnd.android.package-archive",
+          "permissions": [
+            {
+              "type": "user",
+              "role": "owner",
+              "emailAddress": null,
+              "domain": null,
+              "displayName": null,
+              "allowFileDiscovery": null
+            }
+          ],
+          "local_sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
+          "remote_checksum_available": false,
+          "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+          "artifact_path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
+          "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+          "recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
+          "android_device_tested": false,
+          "physical_phone_tested": false
+        },
+        "checks": [
+          {
+            "step": "test-key",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/test-key.log"
+          },
+          {
+            "step": "import",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/import.log"
+          },
+          {
+            "step": "export",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/export.log"
+          },
+          {
+            "step": "align",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/align.log"
+          },
+          {
+            "step": "sign",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/sign.log"
+          },
+          {
+            "step": "verify-signature",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-signature.log"
+          },
+          {
+            "step": "verify-alignment",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-alignment.log"
+          },
+          {
+            "step": "manifest",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest.log"
+          },
+          {
+            "step": "permissions",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/permissions.log"
+          },
+          {
+            "step": "manifest-tree",
+            "pass": true,
+            "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest-tree.log"
+          }
+        ],
+        "known_toolchain_limit": "adb initialization fails on read-only/home/agent/.android; HOME never overridden, no device/emulator run. This is separate from successful nonGradleexport/signing checks.",
+        "signing_key_for_future_updates": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
+        "signing_key_rule": "Private localTESTkey only, neveruploaded/committed; reuse samekey+packageID and incrementversion forfutureupdates, no productionkey access.",
+        "android_device_tested": false,
+        "physical_phone_tested": false,
+        "android_original_pngs_opened": [],
+        "existing_native_pngs_referenced": [
+          "c27-recruit-390x844.png",
+          "c27-recruit-1280x720.png",
+          "c27-rehearsal_outcome-390x844.png",
+          "c27-practice-1280x720.png"
+        ],
+        "native_proof_reused": "/workspace/work/s40/runs/resize-bb38882/validation.json executed05:00, notnewAndroidruntimeproof",
+        "simulated_lenses": {
+          "phone_tester": "SIMULATED: Android7+ ARM32/64 APK and simple private-download/install steps are provided. Installs as BandMaster Playtest with separate applicationID; actualphone installation andtouch remainunverified.",
+          "mobile_accessibility": "SIMULATED: copiedconfig uses390x844 canvas_items/expand portrait, Compatibilityrenderer and touch-to-mouse. Sourcecontrols remainoriginal; virtualkeyboard/caret, AndroidBack andsuspend/resume require firstphonefeedback.",
+          "technical_art": "SIMULATED: exactbb gamefiles/portraits/meters/hardware/modelbytes unchanged. OnlyAndroidproject/exportconfig and unchangedoriginalrooticon are packaginginputs. Existing4native screenshots are desktopproof, notnewAndroidcaptures; positiveownerfeedback isnotblanketartapproval.",
+          "android_engineering": "SIMULATED: officialmatching4.7.2template andSDK36 tools produce signed APK; CRC,16KBalignment,MAIN/LAUNCHERmanifest,24min/36targetSDK,ARMv7+ARM64 andexactcastJSON checksPASS. No storage/internet/camera/micpermission orprivatekey packaged; no emulator/deviceexecution claimed.",
+          "release_review": "SIMULATED:65,821,060byte APK uploaded toowner-privateDrive and readback confirms size/MIME/owneronlypermission; connectoromitsremotechecksum so onlylocalSHA isclaimed. Failurehistory retained andpublicledger syncstillblocked; sourcebb andrecipe d070 remainseparate."
+        },
+        "visual_verdict": "partial",
+        "owner_approved": false,
+        "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required."
+      }
     }
   ],
   "latest_material_review": {
@@ -488,133 +679,91 @@
     "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview."
   },
   "android_owner_package": {
-    "completed_at": "2026-10-31T07:58:01.634742+00:00",
-    "status": "signed_apk_delivered_private_device_test_pending",
-    "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-    "export_recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
-    "recipe": "tools/export_owner_android.py",
-    "build_receipt": "/workspace/work/s40/android/build-d0704c0/build.json",
-    "toolchain_evidence": [
-      "/workspace/work/s40/android/toolchain/official-provision-downloads.json",
-      "/workspace/work/s40/android/toolchain/extraction.json"
-    ],
-    "apk": {
-      "path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
-      "bytes": 65821060,
-      "sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
-      "application_id": "com.bandmaster.ownerplaytest.s40",
-      "version_name": "0.40.0-playtest",
-      "version_code": 1,
-      "minimum_android": "7.0 / API24",
-      "target_sdk": 36,
-      "abis": [
-        "arm64-v8a",
-        "armeabi-v7a"
-      ],
-      "signature": "PASS",
-      "alignment_16kb": "PASS",
-      "cast_json_byte_identical": true,
-      "common_game_source_unchanged": true,
-      "original_project_icon_sha256": "6c80384360a5b269d1054bfb27241258154e2cc8167c522016fdc1820e84e0f8"
-    },
+    "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "status": "v2_signed_apk_delivered_private_phone_retest_pending",
+    "owner_reported_v1_install_worked": true,
+    "owner_reported_at": "2026-10-31T08:25:00Z",
+    "agent_android_device_tested": false,
+    "updated_apk_phone_tested": false,
     "private_delivery": {
-      "id": "1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I",
-      "url": "https://drive.google.com/file/d/1xligPUlsthetdYxhU2F-NOaPKU7nZ_6I/view?usp=drivesdk",
-      "size": 65821060,
-      "mime_type": "application/vnd.android.package-archive",
+      "game_source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
+      "recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "artifact_path": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+      "local_sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+      "size": 65825156,
+      "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
       "permissions": [
         {
           "type": "user",
+          "role": "reader",
+          "emailAddress": "alimuir654@gmail.com",
+          "domain": null,
+          "displayName": null,
+          "allowFileDiscovery": null
+        },
+        {
+          "type": "user",
           "role": "owner",
-          "emailAddress": null,
+          "emailAddress": "chair@lovewelluk.com",
           "domain": null,
           "displayName": null,
           "allowFileDiscovery": null
         }
       ],
-      "local_sha256": "36fb8a262f8cd23c3f3a60f0c790835c27ec93face98b2791f981a28c647527e",
-      "remote_checksum_available": false,
-      "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-      "artifact_path": "/workspace/work/s40/android/build-d0704c0/BandMaster-Playtest.apk",
-      "game_source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
-      "recipe_sha": "d0704c0986be7f2400df6dce81127639ee91e2e4",
-      "android_device_tested": false,
-      "physical_phone_tested": false
-    },
-    "checks": [
-      {
-        "step": "test-key",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/test-key.log"
-      },
-      {
-        "step": "import",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/import.log"
-      },
-      {
-        "step": "export",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/export.log"
-      },
-      {
-        "step": "align",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/align.log"
-      },
-      {
-        "step": "sign",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/sign.log"
-      },
-      {
-        "step": "verify-signature",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-signature.log"
-      },
-      {
-        "step": "verify-alignment",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/verify-alignment.log"
-      },
-      {
-        "step": "manifest",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest.log"
-      },
-      {
-        "step": "permissions",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/permissions.log"
-      },
-      {
-        "step": "manifest-tree",
-        "pass": true,
-        "log": "/workspace/work/s40/android/build-d0704c0/logs/manifest-tree.log"
+      "remote_checksum": "Not exposed by connector",
+      "phone_v1_install": "Owner confirmed",
+      "phone_v2_tested": false,
+      "readback": {
+        "id": "1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H",
+        "title": "BandMaster-Playtest-v2.apk",
+        "mime_type": "application/vnd.android.package-archive",
+        "size": "65825156",
+        "url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1ImR8qcujHJumcJWg_uxB0-JXX55AAT0H/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": null,
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
       }
-    ],
-    "known_toolchain_limit": "adb initialization fails on read-only/home/agent/.android; HOME never overridden, no device/emulator run. This is separate from successful nonGradleexport/signing checks.",
-    "signing_key_for_future_updates": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
-    "signing_key_rule": "Private localTESTkey only, neveruploaded/committed; reuse samekey+packageID and incrementversion forfutureupdates, no productionkey access.",
-    "android_device_tested": false,
-    "physical_phone_tested": false,
-    "android_original_pngs_opened": [],
-    "existing_native_pngs_referenced": [
-      "c27-recruit-390x844.png",
-      "c27-recruit-1280x720.png",
-      "c27-rehearsal_outcome-390x844.png",
-      "c27-practice-1280x720.png"
-    ],
-    "native_proof_reused": "/workspace/work/s40/runs/resize-bb38882/validation.json executed05:00, notnewAndroidruntimeproof",
-    "simulated_lenses": {
-      "phone_tester": "SIMULATED: Android7+ ARM32/64 APK and simple private-download/install steps are provided. Installs as BandMaster Playtest with separate applicationID; actualphone installation andtouch remainunverified.",
-      "mobile_accessibility": "SIMULATED: copiedconfig uses390x844 canvas_items/expand portrait, Compatibilityrenderer and touch-to-mouse. Sourcecontrols remainoriginal; virtualkeyboard/caret, AndroidBack andsuspend/resume require firstphonefeedback.",
-      "technical_art": "SIMULATED: exactbb gamefiles/portraits/meters/hardware/modelbytes unchanged. OnlyAndroidproject/exportconfig and unchangedoriginalrooticon are packaginginputs. Existing4native screenshots are desktopproof, notnewAndroidcaptures; positiveownerfeedback isnotblanketartapproval.",
-      "android_engineering": "SIMULATED: officialmatching4.7.2template andSDK36 tools produce signed APK; CRC,16KBalignment,MAIN/LAUNCHERmanifest,24min/36targetSDK,ARMv7+ARM64 andexactcastJSON checksPASS. No storage/internet/camera/micpermission orprivatekey packaged; no emulator/deviceexecution claimed.",
-      "release_review": "SIMULATED:65,821,060byte APK uploaded toowner-privateDrive and readback confirms size/MIME/owneronlypermission; connectoromitsremotechecksum so onlylocalSHA isclaimed. Failurehistory retained andpublicledger syncstillblocked; sourcebb andrecipe d070 remainseparate."
     },
-    "visual_verdict": "partial",
-    "owner_approved": false,
-    "next_action": "Owner installs the privately delivered BandMaster Playtest APK and checks touch scrolling, naming/keyboard, Android Back, first practice and close/reopen Continue. Reuse exactbb desktop proof and completedAPKchecks; no speculative game/art edits or repeated tests. Act only on concrete owner/device feedback with one bounded preflight/lease before08:50; at08:50 final read-only review and09:00hardcutoff, no extension. Preserve successful test signing key/appID for any update so uninstall/data loss is not required."
+    "build_receipt": "/workspace/work/s40/android/build-phone-v2-e8a8547/build.json",
+    "apk_checks": {
+      "apk": "/workspace/work/s40/android/build-phone-v2-e8a8547/BandMaster-Playtest.apk",
+      "bytes": 65825156,
+      "sha256": "1eadb81463a4db00ad97b4f8da1f49ea64e9c4fd8778ddeae30d287c5651448f",
+      "signature": "PASS",
+      "alignment_16kb": "PASS",
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cast_json_byte_identical": true,
+      "original_source_files_unchanged": true
+    }
   }
 }

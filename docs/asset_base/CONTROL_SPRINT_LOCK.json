@@ -1,5 +1,5 @@
 {
-  "writer": "S40-phone-ui-feedback-20261031T0834",
+  "writer": null,
   "base_head": "54f9088e7e19a1f06a041921ed250d6bb3595321",
   "claimed_at": "2026-10-31T08:35:13.715710+00:00",
   "expires_at": "2026-10-31T08:48:00Z",
@@ -7,14 +7,14 @@
   "authority": "Direct owner request in current Codex chat30Oct23:46, supersedes expired18:00 and22:03 limits prospectively.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-10-31T08:46:29.830594+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "OwnerAndroidAPK privateDrive delivery complete; sourcebb unchanged. Awaitactualphonefeedback, reuse successfulTESTkey/appID.08:50readonly/09hardcutoff. Publicledger syncblocked.",
+  "note": "PhoneUI checkpoint released before08:48.08:50read-only/09:00hardcutoff. No new implementation or approval extension. Preserve sameTESTkey/appID; ownerphone retest pending.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S40-owner-android-package-20261031T0727",
-  "source_sha": "bb38882b8d9ade1dcd302f5dd578b4db588558ac",
+  "last_writer": "S40-phone-ui-feedback-20261031T0834",
+  "source_sha": "95b2574eed82946a644f1d1f789b87ffbc5e93f5",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
