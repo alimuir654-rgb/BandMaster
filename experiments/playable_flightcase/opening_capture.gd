@@ -131,6 +131,197 @@ func _recap_save_bytes() -> Dictionary:
   state[path] = FileAccess.get_file_as_bytes(path) if FileAccess.file_exists(path) else null
  return state
 
+# Insert into the existing native capture after coordinator authorization.
+# Uses its existing UI/OpeningModel preloads and native input/save helpers.
+class SettingsNoDraftModel extends OpeningModel:
+ func has_valid_draft() -> bool:
+  return false
+
+func _settings_panel(screen: Control) -> Control:
+ var sound: Button = screen.find_child("SoundAction",true,false)
+ if sound==null:
+  return null
+ var ancestor: Node = sound.get_parent()
+ while ancestor!=null and ancestor!=screen:
+  if ancestor is PanelContainer:
+   return ancestor as Control
+  ancestor=ancestor.get_parent()
+ return null
+
+func _settings_targets(screen: Control,w: int,h: int,opened: bool,tag: String) -> void:
+ var bounds := Rect2(0,0,w,h)
+ var action: Button = screen.find_child("SettingsAction",true,false)
+ var sound: Button = screen.find_child("SoundAction",true,false)
+ if action==null or not action.is_visible_in_tree() or action.size.x<44 or action.size.y<44 or not bounds.encloses(action.get_global_rect()):
+  failures.append("S40 "+tag+" Settings target is missing, clipped or smaller than44px")
+ if opened:
+  var panel := _settings_panel(screen)
+  if sound==null or not sound.is_visible_in_tree() or sound.size.x<44 or sound.size.y<44 or not bounds.encloses(sound.get_global_rect()):
+   failures.append("S40 "+tag+" open Sound target is missing, clipped or smaller than44px")
+  if panel==null or not panel.is_visible_in_tree() or not bounds.encloses(panel.get_global_rect()):
+   failures.append("S40 "+tag+" open Settings panel is clipped")
+ elif sound!=null and sound.is_visible_in_tree():
+  failures.append("S40 "+tag+" closed Settings still exposes Sound")
+
+func _settings_view(screen: Control) -> Dictionary:
+ var view: Dictionary = {}
+ for name in ["NewBandAction","ContinueAction","SettingsAction","QuitAction","SoundAction"]:
+  var control: Control = screen.find_child(name,true,false)
+  if control!=null:
+   view[name]={"id":control.get_instance_id(),"rect":control.get_global_rect()}
+ return view
+
+func _settings_same_view(screen: Control,before: Dictionary,tag: String) -> void:
+ for name in before:
+  var control: Control = screen.find_child(name,true,false)
+  if control==null or control.get_instance_id()!=int(before[name].id):
+   failures.append("S40 "+tag+" sound input recreated menu control "+str(name))
+  else:
+   var prior: Rect2 = before[name].rect
+   var current: Rect2 = control.get_global_rect()
+   if not prior.position.is_equal_approx(current.position) or not prior.size.is_equal_approx(current.size):
+    failures.append("S40 "+tag+" sound input moved menu control "+str(name))
+
+func _settings_sound_input(screen,w: int,h: int,mouse: bool,keycode: int,tag: String) -> void:
+ var sound: Button = screen.find_child("SoundAction",true,false)
+ var master: int = AudioServer.get_bus_index("Master")
+ if sound==null or master<0:
+  failures.append("S40 "+tag+" actual Master sound control unavailable")
+  return
+ var before_mute: bool = AudioServer.is_bus_mute(master)
+ var before: Dictionary = _settings_view(screen)
+ var before_state: Dictionary = screen.setup.snapshot()
+ var before_files: Dictionary = _recap_save_bytes()
+ var pressed: Array[int] = [0]
+ var observe: Callable = func(): pressed[0]+=1
+ sound.pressed.connect(observe)
+ if mouse:
+  await click_action(sound)
+ else:
+  # Consecutive keyboard inputs must work without refocusing the button.
+  if not sound.has_focus():
+   failures.append("S40 "+tag+" Sound lost focus before consecutive keyboard input")
+  await _recap_key(keycode)
+ var current: Button = screen.find_child("SoundAction",true,false)
+ var actual_mute: bool = AudioServer.is_bus_mute(master)
+ if pressed[0]!=1 or actual_mute==before_mute or bool(screen.muted)!=actual_mute:
+  failures.append("S40 "+tag+" genuine sound input did not toggle actual Master once")
+ if current==null or current.text!=("MASTER SOUND: MUTED" if actual_mute else "MASTER SOUND: ON") or current.tooltip_text!=current.text or not current.has_focus():
+  failures.append("S40 "+tag+" sound label/focus does not follow actual Master state")
+ _settings_same_view(screen,before,tag)
+ _settings_targets(screen,w,h,true,tag)
+ if is_instance_valid(sound) and sound.pressed.is_connected(observe):
+  sound.pressed.disconnect(observe)
+ if screen.setup.snapshot()!=before_state or _recap_save_bytes()!=before_files:
+  failures.append("S40 "+tag+" sound input changed career or save bytes")
+
+func _check_menu_settings(screen,w: int,h: int,tag: String) -> void:
+ await process_frame
+ await process_frame
+ var before: Dictionary = screen.setup.snapshot()
+ var files: Dictionary = _recap_save_bytes()
+ var orphan_before: int = int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
+ var master: int = AudioServer.get_bus_index("Master")
+ if master<0:
+  failures.append("S40 "+tag+" Master audio bus missing")
+  return
+ var original_mute: bool = AudioServer.is_bus_mute(master)
+ var settings: Button = screen.find_child("SettingsAction",true,false)
+ if settings==null:
+  failures.append("S40 "+tag+" existing Settings action missing")
+  return
+ var settings_id: int = settings.get_instance_id()
+ _settings_targets(screen,w,h,false,tag+" initial")
+ for cycle in range(2):
+  settings=screen.find_child("SettingsAction",true,false)
+  if settings==null:
+   failures.append("S40 "+tag+" Settings action disappeared")
+   break
+  if cycle==0:
+   await click_action(settings)
+  else:
+   settings.grab_focus()
+   await _recap_key(KEY_ENTER)
+  _settings_targets(screen,w,h,true,tag+" opened")
+  var opened_settings: Button = screen.find_child("SettingsAction",true,false)
+  var sound: Button = screen.find_child("SoundAction",true,false)
+  if opened_settings==null or opened_settings.get_instance_id()!=settings_id:
+   failures.append("S40 "+tag+" disclosure recreated Settings action")
+  if sound==null or opened_settings==null:
+   break
+  var focused: Control = root.gui_get_focus_owner()
+  if focused!=opened_settings and focused!=sound:
+   failures.append("S40 "+tag+" opening disclosure lost meaningful focus")
+  opened_settings.grab_focus()
+  if not await _tab_to(sound,12):
+   failures.append("S40 "+tag+" Tab cannot reach visible Sound action")
+  if cycle==0:
+   await _draw_screen("settings_"+tag+"_open",w,h)
+  await _settings_sound_input(screen,w,h,cycle==0,KEY_ENTER,tag+" first input")
+  if cycle==0:
+   await _draw_screen("settings_"+tag+("_muted" if AudioServer.is_bus_mute(master) else "_unmuted"),w,h)
+  await _settings_sound_input(screen,w,h,false,KEY_SPACE,tag+" paired restore")
+  settings=screen.find_child("SettingsAction",true,false)
+  if settings==null:
+   break
+  if not await _tab_to(settings,12):
+   failures.append("S40 "+tag+" Tab cannot return to Settings invoker")
+  if cycle==0:
+   await _recap_key(KEY_ENTER)
+  else:
+   await click_action(settings)
+  _settings_targets(screen,w,h,false,tag+" closed")
+  settings=screen.find_child("SettingsAction",true,false)
+  if settings==null or settings.get_instance_id()!=settings_id or not settings.has_focus():
+   failures.append("S40 "+tag+" closing disclosure replaced/lost its Settings focus")
+ await process_frame
+ await process_frame
+ if int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))>orphan_before:
+  failures.append("S40 "+tag+" repeated settings interaction leaked orphan controls")
+ if screen.setup.snapshot()!=before or _recap_save_bytes()!=files:
+  failures.append("S40 "+tag+" settings changed career/save bytes")
+ if AudioServer.is_bus_mute(master)!=original_mute:
+  failures.append("S40 "+tag+" paired sound inputs failed to restore original mute")
+  AudioServer.set_bus_mute(master,original_mute)
+  screen.muted=original_mute
+ print("S40_SETTINGS_NATIVE ",JSON.stringify({"case":tag,"width":w,"height":h,"original_master_mute":original_mute,"settings_id":settings_id,"cycles":2}))
+
+func _check_no_draft_settings(screen,w: int,h: int) -> void:
+ var files: Dictionary = _recap_save_bytes()
+ var before: Dictionary = screen.setup.snapshot()
+ screen.hide()
+ var fixture=UI.new()
+ fixture.name="SettingsNoDraftFixture"
+ fixture.setup=SettingsNoDraftModel.new()
+ fixture.set_meta("qa_fixture",true)
+ root.add_child(fixture)
+ await process_frame
+ await process_frame
+ await process_frame
+ # A query-only view fixture does not remove the real saved draft. Existing
+ # Kit buttons may receive Tab even while disabled; only activation is gated.
+ var carry: Button = fixture.find_child("ContinueAction",true,false)
+ var new_band: Button = fixture.find_child("NewBandAction",true,false)
+ if carry==null or not carry.disabled:
+  failures.append("S40 no-draft query fixture did not disable Continue")
+ elif new_band!=null:
+  new_band.grab_focus()
+  await _recap_key(KEY_TAB)
+  if carry.has_focus():
+   var disabled_before: Dictionary = fixture.setup.snapshot()
+   var disabled_view: Dictionary = _settings_view(fixture)
+   await _recap_key(KEY_ENTER)
+   if fixture.setup.snapshot()!=disabled_before or not fixture.showing_menu or _recap_save_bytes()!=files:
+    failures.append("S40 disabled Continue Enter activated or mutated a saved band")
+   _settings_same_view(fixture,disabled_view,"disabled Continue Enter")
+ await _check_menu_settings(fixture,w,h,"no_draft_query_fixture")
+ fixture.free()
+ screen.show()
+ await process_frame
+ await process_frame
+ if screen.setup.snapshot()!=before or _recap_save_bytes()!=files:
+  failures.append("S40 no-draft Settings fixture changed real career/save bytes")
+
 func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool) -> void:
  var bounds := Rect2(0,0,w,h)
  var practice_scroll: ScrollContainer = screen.find_child("PracticeScroll",true,false) as ScrollContainer
@@ -721,6 +912,7 @@ func take() -> void:
  screen.showing_menu = true
  screen.call("_render")
  await _draw_screen("title",w,h)
+ await _check_no_draft_settings(screen,w,h)
  var new_action: Button = screen.find_child("NewBandAction",true,false)
  if new_action==null:
   failures.append("New Band button missing")
@@ -1051,6 +1243,9 @@ func take() -> void:
   var before_resume: Dictionary = screen.setup.snapshot()
   screen.call("_home")
   await process_frame
+  if not screen.setup.has_valid_draft():
+   failures.append("S40 actual saved-menu Settings case has no valid draft")
+  await _check_menu_settings(screen,w,h,"saved_draft")
   var continue_button: Button = screen.find_child("ContinueAction",true,false)
   await click_action(continue_button)
   if screen.setup.screen!="play" or screen.setup.snapshot()!=before_resume:

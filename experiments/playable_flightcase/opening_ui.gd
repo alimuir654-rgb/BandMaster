@@ -134,13 +134,16 @@ func _menu() -> void:
  column.add_child(_button("SETTINGS",_toggle_settings,"tab","SettingsAction"))
  if not OS.has_feature("mobile"):
   column.add_child(_button("QUIT",func(): get_tree().quit(),"tab","QuitAction"))
- if settings_open:
-  var settings := Kit.frame(look,"panel")
-  root.add_child(settings)
-  var panel := _column()
-  settings.add_child(panel)
-  panel.add_child(_label("SETTINGS — AUDIO",18))
-  panel.add_child(_button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction"))
+ # A disclosure keeps its native controls alive so keyboard users can act
+ # repeatedly without losing the focused button on every state change.
+ var settings := Kit.frame(look,"panel")
+ settings.name = "MenuSettingsPanel"
+ settings.visible = settings_open
+ root.add_child(settings)
+ var panel := _column()
+ settings.add_child(panel)
+ panel.add_child(_label("SETTINGS — AUDIO",18))
+ panel.add_child(_button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction"))
  if not notice.is_empty():
   root.add_child(_label(notice,14))
  var tail := Control.new()
@@ -181,12 +184,18 @@ func _continue() -> void:
   _render()
 
 func _toggle_settings() -> void:
+ var panel: Control = find_child("MenuSettingsPanel",true,false) as Control
+ if panel==null:
+  return
  settings_open = not settings_open
- _render()
+ panel.visible = settings_open
 func _toggle_sound() -> void:
  muted = not muted
  AudioServer.set_bus_mute(0,muted)
- _render()
+ var action: Button = find_child("SoundAction",true,false) as Button
+ if action!=null:
+  action.text = "MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON"
+  action.tooltip_text = action.text
 func _home() -> void:
  showing_menu = true
  _render()
