@@ -1,3 +1,17 @@
+# S40 recruitment decision checkpoint — 31 October 2026
+
+Exact local source `7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff`: **technical PASS; visual PARTIAL; owner_approved=false**. Local source/projects only; automatic review still blocks complete public development-history sync pending explicit owner approval. Earlier records below are historical.
+
+Delivered: full authored16px strengths/friction and correct talent availability/cost/after state beside existing Recruit/Remove; reserved lead-vocal cost, fifth/sixth fees, insufficient talent and fullband handled using unchanged actualmodels. Phone compact source portrait and six original meter readouts now all fit; wide profile keeps large source portrait beside all6stats. Fixed48px browsearrows give full candidateidentity room; readyphone Recruit/Remove andCompleteLineup share one physical actionrow. Full dossier stays keyboard-scrollable with trueTab/Home/End. Source-art/model/save-schema files unchanged.
+
+Verified:73gameplay +88opening +cleanimport +4complete true-pointer/keyboard/save journeys;8read-only canonical recruitmentcases perview, including Bex/Sam longcopy and readylineup; actualJackremove/refund/re-recruit exactlyonce;0ERROR/orphan growth;96originalPNGs. Actual originals opened: ["c27-recruit-390x844.png", "c27-recruit_long_bex-390x844.png", "c27-recruit_long_sam-390x844.png", "c27-recruit_ready_trio-390x844.png", "c27-recruit-720x1280.png", "c27-recruit_long_bex-720x1280.png", "c27-recruit_long_sam-720x1280.png", "c27-recruit_ready_trio-720x1280.png", "c27-recruit-1280x720.png", "c27-recruit_long_bex-1280x720.png", "c27-recruit_long_sam-1280x720.png", "c27-recruit_ready_trio-1280x720.png", "c27-recruit-1600x900.png", "c27-recruit_long_bex-1600x900.png", "c27-recruit_long_sam-1600x900.png", "c27-recruit_ready_trio-1600x900.png"]. Source-art/protectedmodel byte audit PASS. Importable274-file project and16-original-PNG recruitmentreview ZIP have CRC and cleanextracted import/nativeentry proof in `/workspace/work/s40/runs/recruit-7f323/packages`; no public download/CI artifact claimed.
+
+Rejected attempts retained: firstfullcontext preview hidallphone stats; nextcompactBex clippedstat6 through equallyexpanded browse/name columns. Changed layout method to fixed48pxarrows, not furtherfont/art shrink. UnsupportedPageDown test assumption was classified in actualfocusedGL before using supported Home/End; no PageDownpromise. The first helperpatch filing occurred after its initial correction and is disclosed in append-only chronology.
+
+Next bounded worker: compare one material/frame/icon mismatch on an existing title/menu or recruitment screen against inspected original references at identical native state. Retain a change only if it visibly improves the current source without losing first-fold reading, cast identity, passive-meter/hardware bytes or save/input safety; otherwise validate/package and prepare the09:00review. Rootwriterreleased 2026-10-31T01:39:45.903195+00:00. Existinghourly continuation through09:00London remains;09:00reviewonly.
+
+---
+
 # S40 local checkpoint and benchmark reassessment — 31 October 2026
 
 Exact local tested source `33f86107649bfe43b987bbacc3c29539b1166c8d`: **technical PASS; visual PARTIAL; owner_approved=false**. New source is saved locally and has not been publicly synced. Automatic approval review rejected full public development-history upload; explicit approval remains pending. Historical entries below retain their original chronology.

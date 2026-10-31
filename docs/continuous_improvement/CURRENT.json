@@ -11,20 +11,21 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Current bounded worker implementing recruitment context; nativeproof pending; prior33f remains verified rollback.",
+  "next_action": "Next bounded worker: compare one material/frame/icon mismatch on an existing title/menu or recruitment screen against inspected original references at identical native state. Retain a change only if it visibly improves the current source without losing first-fold reading, cast identity, passive-meter/hardware bytes or save/input safety; otherwise validate/package and prepare the09:00review.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Direct renewed owner authority through2026-10-31T09:00:00Z; previouslimits historical.",
   "completion_gate": {
     "native_full_input_verified": true,
-    "tested_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
-    "verification_kind": "local Godot4.7.2, not remote CI",
-    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "tested_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "verification_kind": "local Godot4.7.2, not remoteCI",
+    "validation": "/workspace/work/s40/runs/recruit-7f323/validation.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 84,
+      "native_pngs": 96,
+      "recruit_context_fixture_cases_per_viewport": 8,
       "orphan_growth": 0,
       "error_lines": 0
     },
@@ -59,70 +60,76 @@
     "previous_worker_enabled": false,
     "current_root_must_release_before_handoff": false,
     "no_continuous_execution_claim": true,
-    "root_released_at": "2026-10-31T00:44:14.815603+00:00",
+    "root_released_at": "2026-10-31T01:39:45.903195+00:00",
     "benchmark_prompt_updated": "2026-10-31T00:45:22.449158+00:00",
-    "next_focus": "Recruitment trade-offs before commitment; then material consistency and review/packaging."
+    "next_focus": "Material/frame/icon consistency only if a concrete nativeA/B gain; latest verified packaging/review before09:00.",
+    "last_prompt_updated_at": "2026-10-31T01:42:09.787372+00:00",
+    "last_completed_checkpoint_source": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff"
   },
   "latest_local_checkpoint": {
-    "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
-    "verified_at": "2026-10-31T00:44:14.815603+00:00",
-    "scope": "Local isolated S40 checkpoint; overnight programme remains active until09:00Europe/London, not merged or publicly published.",
-    "validation": "/workspace/work/s40/runs/practice-33f/validation.json",
+    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "verified_at": "2026-10-31T01:39:45.903195+00:00",
+    "scope": "Bounded01:00recruitment decision-context checkpoint, local isolatedsource only; programme active until09:00Europe/London.",
+    "validation": "/workspace/work/s40/runs/recruit-7f323/validation.json",
+    "visual_review": "/workspace/work/s40/runs/recruit-7f323/visual-review.json",
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "real_pointer_keyboard_save_viewports": 4,
-      "native_pngs": 84,
+      "native_pngs": 96,
+      "recruit_context_fixture_cases_per_viewport": 8,
       "orphan_growth": 0,
       "error_lines": 0
     },
     "images_opened_by_render_review": [
-      "c27-practice-390x844.png",
-      "c27-practice-720x1280.png",
-      "c27-practice-1280x720.png",
-      "c27-practice-1600x900.png",
-      "c27-rehearsal_outcome-390x844.png",
-      "c27-rehearsal_outcome-720x1280.png",
-      "c27-rehearsal_outcome-1280x720.png",
-      "c27-rehearsal_outcome-1600x900.png",
-      "c27-rehearsal_six_members-390x844.png",
-      "c27-rehearsal_six_members_end-390x844.png",
-      "c27-rehearsal_six_members_ledger_end-390x844.png",
-      "c27-rehearsal_six_members-720x1280.png",
-      "c27-rehearsal_six_members_end-720x1280.png",
-      "c27-rehearsal_six_members_ledger_end-720x1280.png"
+      "c27-recruit-390x844.png",
+      "c27-recruit_long_bex-390x844.png",
+      "c27-recruit_long_sam-390x844.png",
+      "c27-recruit_ready_trio-390x844.png",
+      "c27-recruit-720x1280.png",
+      "c27-recruit_long_bex-720x1280.png",
+      "c27-recruit_long_sam-720x1280.png",
+      "c27-recruit_ready_trio-720x1280.png",
+      "c27-recruit-1280x720.png",
+      "c27-recruit_long_bex-1280x720.png",
+      "c27-recruit_long_sam-1280x720.png",
+      "c27-recruit_ready_trio-1280x720.png",
+      "c27-recruit-1600x900.png",
+      "c27-recruit_long_bex-1600x900.png",
+      "c27-recruit_long_sam-1600x900.png",
+      "c27-recruit_ready_trio-1600x900.png"
     ],
     "visual_verdict": "partial",
     "owner_approved": false,
     "packages": {
-      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
       "project_files": 274,
-      "review_original_pngs": 12,
+      "review_original_pngs": 16,
       "archives": [
         {
-          "path": "/workspace/work/s40/runs/practice-33f/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-          "bytes": 10659289,
-          "sha256": "43f039e241c7c8b6dca01e8a4d27686b6aa82bb24446e920124b72164e3ba283",
+          "path": "/workspace/work/s40/runs/recruit-7f323/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 10663724,
+          "sha256": "eaeff22e727e22c5fe68d52409dac6ed65cae3120bb1de4e1becd79c9e0ee057",
           "zip_crc": "PASS"
         },
         {
-          "path": "/workspace/work/s40/runs/practice-33f/packages/native-quality-review.zip",
-          "bytes": 5333564,
-          "sha256": "702233df356b9710bd76ba955f986fd0e6569f825ca3ea7f7d708d96a4e9b7b1",
+          "path": "/workspace/work/s40/runs/recruit-7f323/packages/native-quality-review.zip",
+          "bytes": 7396035,
+          "sha256": "19617dab510100fe4c3c0bf8d5ee758b6aeaf78570ad5b5281c6dd069b73e11a",
           "zip_crc": "PASS"
         }
       ],
       "publication": "local scratch only; no public attachment or remote CI artifact claimed",
       "owner_approved": false,
-      "review_before_smoke_sha256": "4ce32ab2bcbbbeb77c674b0db26a6cc29ac0d32446a18e6dee6eb2651859f6bb",
+      "review_before_smoke_sha256": "36804e050b4604c46f13a8d0eac01a50f9c71cf17fcbc500290327c39a9fe7d0",
       "extracted_clean_import_and_native_entry": "PASS",
-      "package_smoke": "/workspace/work/s40/runs/practice-33f/packages/package-smoke.json"
+      "package_smoke": "/workspace/work/s40/runs/recruit-7f323/packages/package-smoke.json"
     },
     "package_smoke": {
-      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
-      "checked_at": "2026-10-31T00:43:58.470504+00:00",
-      "extracted_project": "/workspace/work/s40/runs/practice-33f/packages/extracted-smoke",
+      "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+      "checked_at": "2026-10-31T01:38:31.622328+00:00",
+      "extracted_project": "/workspace/work/s40/runs/recruit-7f323/packages/extracted-smoke",
       "steps": [
         {
           "step": "clean-import",
@@ -141,7 +148,7 @@
       "production_save_access": false,
       "owner_approved": false
     },
-    "protected_byte_audit": "/workspace/work/s40/protection-audit-20261031.json",
+    "protected_byte_audit": "/workspace/work/s40/protection-audit-recruit-7f323.json",
     "source_hashes": {
       "experiments/playable_flightcase/art/PROVENANCE.json": "d67b1983d4525eb1e8500a0525adef533b8d643b14d7e1cc670ee24b0bccc742",
       "experiments/playable_flightcase/art/icons/LICENSE.txt": "a9ad8248f1cfb5fafb181726b5fac50389f787db04e5cac2f5c1e44910d20d9c",
@@ -149,26 +156,26 @@
       "experiments/playable_flightcase/art/icons/notebook-pen.svg": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
       "experiments/playable_flightcase/art/icons/users.svg": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
       "experiments/playable_flightcase/art/session_paper.png": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
-      "experiments/playable_flightcase/opening_capture.gd": "cd0ac4539aadeb57ec0547614ce104a973f54bbc31600c82cff6710bd099f394",
+      "experiments/playable_flightcase/opening_capture.gd": "db06fea269dbeb986b2d3481c4878ac4b46c08682c948d406421de26d809ad17",
       "experiments/playable_flightcase/rehearsal_press.gd": "fa2d1f210780be7507bf8e92d3211e7b6b50bb2d0837a5686885d2c51addbac8",
       "experiments/playable_flightcase/session_paper.gd": "5c12fa34af301f87b03a1f1fa3d5c4e68d5ae51f78e70d586653f6070a7f3a73",
-      "experiments/playable_flightcase/ui.gd": "248a602595cb7378f6de6d4b23d7c295d646cf055ac0005bb62e59ccdf094241"
+      "experiments/playable_flightcase/ui.gd": "c6fec7f736b660d23bc0e2d96426a2865e3c69185808c242542e0a19d3c2899b"
     },
     "simulated_lenses": {
-      "art_direction": "SIMULATED: layered paper/quiet printed score fields form a coherent music-press object; retain original case hardware and casting. Actual four-view pixels improved; owner-mockup match remains partial.",
-      "technical_art": "SIMULATED: raw generated paper1448x1086 hash/provenance retained, original~230px C25 crops not presented as high-resolution masters; licensed Lucide bytes and source rights retained; unused tolex study held.",
-      "ui_accessibility": "SIMULATED:14px primary reactions/12px numerical readouts,16px canonical next move, accurate Back to Practice,44px fixed session targets. Focus continuity, complete16px quotes and six-member End/Home access work; no real-device touch/screen-reader claim.",
-      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+four real pointer/keyboard/save journeys, zero orphan growth and ERROR lines; Write/ClearAir real clicks match one authoritative model settlement. Original models/save schemas/protected bytes unchanged.",
-      "qa_producer": "SIMULATED: rejected paper and d154 landscape failure retained; corrected exact source verified, packaged and extracted-project smoke checked. Local evidence only, remote sync blocked; art approval false and recruitment decision-context gap is next."
+      "art_direction": "SIMULATED: recruitment now reads identity\u2192six real stats\u2192full authored strengths/friction\u2192talent/action; original analogue material/hardware language is retained. Phone80px casting preview remains honest source usage. Visual PARTIAL, not owner mockup acceptance.",
+      "technical_art": "SIMULATED: all original cast/control/meter/model byte groups match b264; phone meter textures use normal80px native display sizing without raw image edits. No new art generation, enlarged master claims or copied competitor assets.",
+      "ui_accessibility": "SIMULATED: full16px trait/budget copy, six original13px-label/14px-number stats in initial fold at all4sizes,48px browse arrows and shared ready-phone action row. True Tab/Home/End dossier access; no unsupportedPageDown promise or real-device/screen-reader claim.",
+      "godot_engineering": "SIMULATED:73gameplay+88opening+cleanimport+4genuine pointer/keyboard/save journeys;8read-only recruitment economy/longcopy fixtures perviewport; genuine Jackremove/refund/re-recruit once, no model/save-schema changes, zeroERROR/orphan growth.",
+      "qa_producer": "SIMULATED: first phonecontext preview and compactBex failure preserved. Header allocation method changed after2ineffective attempts; final exactsource passes strict all6firstfold. UnsupportedPageDown assumption diagnosed before helper correction; original patch/log chronology disclosed. Packages/CRC/extracted launch local only; public sync still blocked."
     },
     "remaining_gaps": [
-      "Recruitment trade-offs are below fold on phone; compact actual strength/friction context must precede more decoration.",
-      "Full optional ledger and lower writing form intentionally scroll; primary actions remain fixed.",
-      "No owner-approved rehearsal-specific mockup, real-device touch or screen-reader validation.",
-      "Four known native warnings per capture: unsupportedVSync and3existing anchor/size warnings; zeroERROR lines.",
-      "Publication remains blocked by automatic review of full public development-history upload; explicit approval pending."
+      "Overall art fidelity remains partial; this is not commercial certification or owner artwork acceptance.",
+      "Full narrative dossier/lead-vocal choices scroll; all6primary stats and complete decision traits are firstfold.",
+      "Original~230px C25 contact-crop previews remain low-resolution sources, not independent masters.",
+      "Existing nativeVSync/anchor warnings retained; noERROR lines or orphan growth.",
+      "Completepublic ledger/history upload is blocked by automatic approval review; explicit approval remains pending."
     ],
-    "next_action": "Next bounded overnight worker: expose compact actual recruitment strength/friction and affordability beside the existing Recruit action, preserve the full dossier and all six original inert meters, then same-state four-view native/input/save proof. No additional decorative breadth before that decision context is readable."
+    "next_action": "Next bounded worker: compare one material/frame/icon mismatch on an existing title/menu or recruitment screen against inspected original references at identical native state. Retain a change only if it visibly improves the current source without losing first-fold reading, cast identity, passive-meter/hardware bytes or save/input safety; otherwise validate/package and prepare the09:00review."
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -188,5 +195,11 @@
       "No artwork acceptance, isolated proof only, owner_approved false."
     ],
     "art_polish_authorised_until": "2026-10-30T08:00:00Z"
-  }
+  },
+  "local_checkpoint_history": [
+    {
+      "source_sha": "33f86107649bfe43b987bbacc3c29539b1166c8d",
+      "validation": "/workspace/work/s40/runs/practice-33f/validation.json"
+    }
+  ]
 }
