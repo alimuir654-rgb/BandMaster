@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s48_offstage_preflight",
+  "status": "s48_offstage_verified_local_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
-  "writer": "S48-offstage-connections-20261031T2145",
-  "last_verified_code_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
+  "writer": null,
+  "last_verified_code_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Review finance/failure screenshots, then connect one genuine watch-gig outing to a once-only saved promoter introduction in the next bounded development window; remaining review/sales/gig-pressure design is recorded.",
+  "next_single_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK. Hosted screenshot insertion remains blocked pending specific owner approval.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -486,10 +486,18 @@
       "evidence": "/workspace/work/business/s47/closeout.json",
       "closed_at": "2026-10-31T21:32:50.432716+00:00",
       "owner_approved": false
+    },
+    {
+      "session": "S48",
+      "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+      "verified_at": "2026-10-31T22:04:21.070750+00:00",
+      "closeout": "/workspace/work/business/s48/closeout.json",
+      "visual_verdict": "partial",
+      "owner_approved": false
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Local finance/14dayterminal foundation+2privatepreviewScreens;V5unchanged",
+  "last_completed_deliverable": "Saved offstage outings, promoter booking and milestone-qualified scout/local feature; original models/art/schema preserved",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -535,13 +543,13 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-10-31T21:42:31.594012+00:00",
+  "last_updated_utc": "2026-10-31T22:04:21.070750+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "PASS: frozenexact6c1archives/newextractednativeentry andselectedPageasset/canonicaldelivery. Nativephone/emulator/ownerartapproval unclaimed.",
+  "last_run_summary": "S48 exact8d:73+88/import/4standard,299offstage+340finance,4368focusednative/48PNGs incl2actualsavefailure retries;339original/308prior/315runtime;168standardexact+4fadeframes;0ERROR/orphans; hostedpreviewPageeditrejected/notretried.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
   "last_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
   "latest_owner_scope": "Owner21:35: Continue with the next steps. This prospectively authorises this new bounded social/opportunity implementation following the21:04 requested finance/failure/review/sales/social work; closed S47 deadlines remain history, no schedule/queue extension.",
@@ -618,7 +626,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/S41.json",
+    "session": "docs/continuous_improvement/sessions/S48.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -631,15 +639,12 @@
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
-    "session": "S41",
-    "baseline_sha": "fc155a3d3220354c902a9a02ae4385cd62c9e41f",
-    "scope_end": "2026-10-31T12:30:00Z",
-    "authority": "31Oct09:04 owner: Im happy with the plan. Please go ahead. Execute revieweddayplan through15:00Europe/London; noAPK eachchange, atmostone milestonebuild. Directnewauthority supersedes earlierovernightfreeze prospectively only.",
-    "owner_approved": false,
+    "session": "S48",
+    "preflight_sha": "525263698329e14e70ba5be2c0b16c4de2769ad0",
+    "source_verified_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
     "status": "released",
-    "preflight_sha": "81e13e6da817bde95576cfd8d44a661eb03c2326",
-    "source_verified_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
-    "closed_at": "2026-10-31T13:19:46.496525+00:00"
+    "closed_at": "2026-10-31T22:04:21.070750+00:00",
+    "owner_approved": false
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
@@ -699,8 +704,8 @@
     "owner_approved": false,
     "visual_verdict": "partial"
   },
-  "last_sprint": "S47",
-  "next_action": "Build pure offstage command/query model and independent tests, then existing shared desk integration and genuine four-view save-safe encounters.",
+  "last_sprint": "S48",
+  "next_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK. Hosted screenshot insertion remains blocked pending specific owner approval.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -708,33 +713,79 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
-    "verified_at": "2026-10-31T21:32:50.432716+00:00",
-    "scope": "Saved cashflow ledger,14consecutive completed zero-cash-day terminal rule,read-only finalaccounts",
-    "validation": "/workspace/work/s40/runs/s47-finance-f093818-final/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/s47-finance-f093818-final/complete-validation.json",
-    "closeout": "/workspace/work/business/s47/closeout.json",
+    "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+    "verified_at": "2026-10-31T22:03:15.931775+00:00",
+    "technical_pass": true,
     "checks": {
       "gameplay": 73,
       "opening": 88,
       "clean_import": true,
       "standard_native_profiles": 4,
       "standard_original_pngs": 172,
-      "finance_native_assertions": 1988,
-      "finance_original_pngs": 12,
-      "finance_model_assertions": 340,
+      "offstage_model_assertions": 299,
+      "finance_regression_assertions": 340,
+      "offstage_native_assertions": 4368,
+      "offstage_original_pngs": 48,
+      "offstage_core_profiles": 4,
+      "phone_real_failed_save_commands": 2,
       "protected_originals": 339,
-      "protected_prior_runtime": 304,
-      "runtime_source_paths": 311,
+      "protected_prior_runtime": 308,
+      "runtime_source_paths": 315,
+      "standard_pixels_identical": 168,
+      "disclosed_reopen_fade_frames": 4,
+      "unexpected_pixel_changes": 0,
       "engine_error_lines": 0,
       "orphan_growth": 0
     },
-    "visual_verdict": "partial",
+    "validation": "/workspace/work/s40/runs/s48-offstage-8d35cca-final/complete-validation.json",
+    "focused_validation": "/workspace/work/business/s48/focused-validation.json",
+    "visual_review": "/workspace/work/business/s48/visual-review.json",
+    "source_protection": "/workspace/work/business/s48/source-protection-audit.json",
+    "original_pngs_opened_by_root": [
+      "/workspace/work/business/s48/native-a26006e-phone/captures/offstage-watch-preview-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-watch-preview-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-invite-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-wide/captures/offstage-watch-preview-1280x720.png",
+      "/workspace/work/business/s48/native-8d35cca-phone-savefailure/captures/offstage-outing-save-failure-failed-restored-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-scout-invite-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-booked-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-tablet/captures/offstage-promoter-invite-720x1280.png",
+      "/workspace/work/business/s48/native-8d35cca-large/captures/offstage-scout-invite-1600x900.png"
+    ],
+    "simulated_lenses": {
+      "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
+      "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
+      "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
+      "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
+      "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
+    },
+    "remaining": [
+      "Local S47 finance and S48 offstage changes are NOT included in current V5; no new APK or ZIP built. Importable315-source isolated checkpoint is retained in verified runtime.",
+      "Recorded poor-performance/review pressure on future gig eligibility and actual inventory-backed music/merch sales remain unimplemented; existing ordinary booking remains reachable.",
+      "Phone full outing effects and scout response explanation require scrolling; visualPARTIAL/ownerfalse, no physicaldevice/emulator proof.",
+      "Automatic approval review blocked publishing the two S48 screenshots to the existing hosted review Page for missing payload/destination-specific approval; Page remainssequence20. No retry/bypass; await specific owner approval.",
+      "Source/history remain local; public fullledger/learning-history rejection not retried."
+    ],
+    "failure_disclosures": [
+      "266 consumed-scout-event authority defect caught statically before fix; regression nowpasses.",
+      "267 unchanged finance regression rejected wrong freshS48 namespace before models; immutable suite retried in its original strictS47 namespace340PASS.",
+      "268 actual initialphone firstfold context displaced by redundantmodes; remove empty invitationnavigation and verify corrected layout.",
+      "269 automatic approval review rejected hosted screenshot/Page edit; originaluploadstage receipts retained andPage20unchanged; no egress workaround."
+    ],
+    "next_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK. Hosted screenshot insertion remains blocked pending specific owner approval.",
     "owner_approved": false,
-    "android": "V5/a9 unchanged; this finance preview NOT in APK",
-    "packaging": null,
-    "availability": "LOCAL committedsource/evidence;2selectedScreens on existingPage",
-    "next_action": "Review finance/failure screenshots, then connect one genuine watch-gig outing to a once-only saved promoter introduction in the next bounded development window; remaining review/sales/gig-pressure design is recorded."
+    "visual_verdict": "partial",
+    "publication": "LOCAL source/history/checkpoint only. Two screenshot uploads staged with Files access confirmed, but hosted Page insertion rejected; no publicsource or remoteCI claim.",
+    "new_apk_built": false,
+    "new_zip_built": false,
+    "scope": "Original paid offstage outings, durable business contacts, once-only standard local-show booking and milestone-qualified original local-feature interview",
+    "closeout": "/workspace/work/business/s48/closeout.json",
+    "complete_validation": "/workspace/work/s40/runs/s48-offstage-8d35cca-final/complete-validation.json",
+    "android": "Current V5/a9 unchanged; S47 finance and S48 offstage are NOT in APK",
+    "packaging": "No new ZIP; verified315-source isolated project remains local in /workspace/work/s40/runs/s48-offstage-8d35cca-final/runtime",
+    "writer_released_at": "2026-10-31T22:04:21.070750+00:00",
+    "closed_at": "2026-10-31T22:04:21.070750+00:00",
+    "session": "S48"
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",

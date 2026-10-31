@@ -1,6 +1,6 @@
 # Remaining owner requests after the S47 finance foundation
 
-Status: **DESIGN ONLY / UNIMPLEMENTED.** This document does not authorise another build, source iteration, artwork, APK or schedule extension. The finance/14-day foundation has its own root-run evidence and must be assessed separately. Verified V5/a9 remains the rollback. No new sales, review, scout or contact feature is claimed here.
+Status: **Reviews, gig-access pressure and sales remain DESIGN ONLY / UNIMPLEMENTED.** The social-to-booking and scout slice below was subsequently implemented and verified in S48 at `8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164`. Its proof is `/workspace/work/business/s48/closeout.json`; it is local and not included in V5. This design record does not create another queue or schedule extension. The finance/14-day foundation has separate root-run evidence; verified V5/a9 remains the Android rollback.
 
 The first implementation boundary remains one successful original-model result, then the new policy, then one owner save, then presentation. Save failure restores the complete original snapshot, including financial, review, sales, contact and opportunity metadata. No resolver runs inside an animation, render, query or reload.
 
@@ -64,6 +64,8 @@ Acceptance:
 
 ## 4. Social opportunities, contacts and scouts
 
+**Implemented in S48.** The first tracked successful watch-gig outing creates one durable promoter invitation; acceptance uses the original standard local booking, with three preparation days and no immediate fee income. Decline is free. After an accepted promoter introduction, a later successful outing at the existing Local Following milestone (25 fans and 10 reputation) can introduce a scout and the original `first_feature` interview. Persisted event IDs prevent repeat rewards, including legacy-resolved interviews and missing contact display rows. These are explicit milestones, with no random-on-render chance. Actual paid outings, booking, save/Continue and blocked-save/retry paths passed native checks. The following original design and acceptance requirements are retained as history.
+
 First reuse the actual `watch_gig` outing: the current trio spends £15 and one day through `BandSocial.attend`; other costs remain the original model's active-roster calculation. A new pure opportunity policy may inspect the **successful committed outing** and create a source-linked opportunity. A page visit, cancelled choice, unaffordable outing or failed save creates nothing.
 
 Contacts are business-role records linked to existing venues/opportunities, such as a local promoter. A scout is a narrative business contact, **not a new recruitable musician**. No new cast portraits, six-stat musician cards, roles or roster slots are implied. Preserve the canonical cast IDs and existing passive meters.
@@ -86,7 +88,7 @@ Acceptance:
 1. Verify the finance/14-day foundation and read-only final accounts; retain V5 if proof fails.
 2. Review the missing policy tables and the factual review/gate proposal with the owner.
 3. Implement recorded review evidence plus recoverable eligibility, retaining current settlement models.
-4. Implement one genuine social-to-existing-booking opportunity.
+4. **Completed in S48:** one genuine social-to-existing-booking opportunity and the later milestone-qualified original feature interview.
 5. Implement one inventory-backed sales channel only after its price/cost/demand policy is agreed.
 
 Within the owner-authorised scope, routine rates are development tuning and need no separate invented permission gate. Every future slice needs its own committed preflight, independent model arithmetic, actual save-failure/replay checks, four native viewports and inspected originals before packaging. This sequence is a proposal, not a running queue or authority beyond the current owner window.

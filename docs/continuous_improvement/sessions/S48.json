@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S48",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner21:35: Continue with the next steps. This prospectively authorises this new bounded social/opportunity implementation following the21:04 requested finance/failure/review/sales/social work; closed S47 deadlines remain history, no schedule/queue extension.",
   "baseline_sha": "fc3279ae494fd11888783bf0c26afdf2ef5703d5",
@@ -53,8 +53,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 426798,
-    "sha256": "c719fdc7fb518239e492500a8e437cf73bd5d7172186755535f76e0948e1ee89"
+    "bytes": 430678,
+    "sha256": "95a19d284b7ec6d829431693a013d925453c80fb2f4e1465021aa2bbb74dff57"
   },
   "target": {
     "locator": "/workspace/work/business/s47/corrected-phone/captures/finance-populated-390x844.png",
@@ -93,8 +93,52 @@
   "started_at": "2026-10-31T21:42:31.594012+00:00",
   "scope_end": "2026-10-31T22:35:00Z",
   "overall_owner_window_end": "New explicit manual continuation; this scoped slice ends22:35, no automatic extension.",
-  "next_action": "Build pure offstage command/query model and independent tests, then existing shared desk integration and genuine four-view save-safe encounters.",
+  "next_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK. Hosted screenshot insertion remains blocked pending specific owner approval.",
   "research": "S47_REMAINING_GAMEPLAY.md plus read-only source audit of Social,Opportunities,Calendar,LiveRules,Story,Life,Finance and existing career receipt/navigation assumptions.",
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
-  "source_freeze_target": "2026-10-31T22:25:00Z"
+  "source_freeze_target": "2026-10-31T22:25:00Z",
+  "tested_source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+  "candidate_native_verified": true,
+  "source_frozen_at": "2026-10-31T21:54:09Z",
+  "ended_at": "2026-10-31T22:04:21.070750+00:00",
+  "closeout": {
+    "tested_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164",
+    "evidence": [
+      "/workspace/work/business/s48/closeout.json",
+      "/workspace/work/s40/runs/s48-offstage-8d35cca-final/complete-validation.json",
+      "/workspace/work/business/s48/focused-validation.json",
+      "/workspace/work/business/s48/visual-review.json",
+      "/workspace/work/business/s48/source-protection-audit.json",
+      "/workspace/work/business/s48/page-delivery-blocked.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Implement recorded performance/review consequences and recoverable future-gig eligibility using original settled shows in the next separately bounded source slice; no automatic queue or APK. Hosted screenshot insertion remains blocked pending specific owner approval.",
+    "new_issue_review": "All270 events reviewed.266 event authority/267 wrongnamespace/268 firstfold failure/269 hostedapproval rejection retained before correction;270 completed local proof. No gate weakening.",
+    "simulated_lenses": {
+      "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
+      "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
+      "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
+      "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
+      "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
+    },
+    "remaining": [
+      "Local S47 finance and S48 offstage changes are NOT included in current V5; no new APK or ZIP built. Importable315-source isolated checkpoint is retained in verified runtime.",
+      "Recorded poor-performance/review pressure on future gig eligibility and actual inventory-backed music/merch sales remain unimplemented; existing ordinary booking remains reachable.",
+      "Phone full outing effects and scout response explanation require scrolling; visualPARTIAL/ownerfalse, no physicaldevice/emulator proof.",
+      "Automatic approval review blocked publishing the two S48 screenshots to the existing hosted review Page for missing payload/destination-specific approval; Page remainssequence20. No retry/bypass; await specific owner approval.",
+      "Source/history remain local; public fullledger/learning-history rejection not retried."
+    ],
+    "original_pngs_opened": [
+      "/workspace/work/business/s48/native-a26006e-phone/captures/offstage-watch-preview-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-watch-preview-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-invite-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-wide/captures/offstage-watch-preview-1280x720.png",
+      "/workspace/work/business/s48/native-8d35cca-phone-savefailure/captures/offstage-outing-save-failure-failed-restored-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-scout-invite-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-phone/captures/offstage-promoter-booked-390x844.png",
+      "/workspace/work/business/s48/native-8d35cca-tablet/captures/offstage-promoter-invite-720x1280.png",
+      "/workspace/work/business/s48/native-8d35cca-large/captures/offstage-scout-invite-1600x900.png"
+    ],
+    "writer_released_at": "2026-10-31T22:04:21.070750+00:00"
+  }
 }
