@@ -257,3 +257,12 @@ Before the next implementation iteration, append every new failure/recurrence to
 ## 31 October native-image review clarification — BM-34
 
 Repeated heading and ordinal content was interpreted as missing during image review, but the saved PNG regions were pixel-identical. Before changing rendering resources for suspected missing content, compare the original full-resolution pixel regions at the same state and bounds. Check actual ink/alpha pixels as well as node properties. An image-view interpretation alone does not establish a renderer, driver or product defect. Events 223/226/227 are superseded by the raw-pixel correction in event 228; the unsupported fixes were removed while preserving their history.
+
+
+## 1 November meaningful hardware integration — BM-20, BM-17 and BM-36
+
+Source inspection of the original Lab08 controls shows that `set_level()` emits `level_changed` for programmatic hydration as well as player changes. A gameplay host must guard hydration and let value callbacks edit a free draft only; explicit confirmation owns model dispatch/save. Do not connect every fader/rotary change to spending, time, a reward or settlement. Preview and commit need the same bounded policy, with a visibly distinct purpose for each control.
+
+The complete source plates contain baked captions such as CREATIVE FOCUS, MORALE or HYPE LEVEL. Preserve the original bytes and audit the actual rendered wording before assigning a different meaning. Use a measured neutral face/channel region with recorded crop coordinates and native captions, or retain the original honest meaning; do not overlay a contradictory label. Keep the six recruitment PassiveMeter outputs separate and inert.
+
+Existing hardware checks cover programmatic bounds/rendering. They do not establish real touch, drag, keyboard, multitouch, scroll arbitration or resize/hide/release behaviour. Those are required integration proofs before promotion. Missing touch-index/cancel handling is a source-audited risk, not a claimed reproduced device defect. This clarification records inspection and prevention; no hardware/gameplay repair or new native pass is claimed by S50.

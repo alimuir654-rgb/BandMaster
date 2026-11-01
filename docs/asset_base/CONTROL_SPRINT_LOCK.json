@@ -1,5 +1,5 @@
 {
-  "writer": "S50-overnight-art-control-preparation-20261101",
+  "writer": null,
   "base_head": "ce3c4cbbb9adcf3997cea7c456b6896b02c36c65",
   "claimed_at": "2026-11-01T00:06:08.778644+00:00",
   "expires_at": "2026-11-01T00:12:00Z",
@@ -7,14 +7,14 @@
   "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-01T00:08:37.690325+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "Metadata/preparation only; no game/art/GL writes. Nextsourcewriter requires fresh scopedpreflight. Existing soleautomation resumes00:15; no secondqueue.",
+  "note": "S50metadata/preparation released. Existingsolefiniteovernightqueue enabled00:15\u201308:15; nextsourcework needs freshboundedlease/preflight/gate. No game/art/GL/APKwrite byS50.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S49-review-confidence-20261031",
+  "last_writer": "S50-overnight-art-control-preparation-20261101",
   "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
   "previous_checkpoint_release": {
     "writer": null,
@@ -155,8 +155,8 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
-  "source_writer_released_at": "2026-10-31T23:21:39.347569+00:00",
+  "final_closeout_note": "S50preparation closed before00:12lease/00:15firstwake. Latestowner-approvedovernight has08:30all-writefreeze/09:00hardstop; previouscompleteddeadlines historical.",
+  "source_writer_released_at": "2026-11-01T00:08:37.690325+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -194,5 +194,6 @@
     "expires_at": "2026-10-31T23:35:00Z"
   },
   "all_write_freeze": "2026-11-01T08:30:00Z",
-  "hard_stop": "2026-11-01T09:00:00Z"
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension."
 }

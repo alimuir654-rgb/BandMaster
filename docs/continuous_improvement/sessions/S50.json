@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S50",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "baseline_sha": "ce3c4cbbb9adcf3997cea7c456b6896b02c36c65",
@@ -51,12 +51,12 @@
     "BM-19"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "399b09b9aa08082a3a482b5c8bb9ada4b95fab95b9e59f2680a3b80806d9c739",
+    "docs/continuous_improvement/LESSONS.md": "655d5de38765aa856cd2cb6df314de7abb014e728ddec434ff0d5b58602fc633",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 448088,
-    "sha256": "1ff1bc7e4f16111f0820b32231fc19d40fdcb7b66fb569b5f2382405fbf091f1"
+    "bytes": 451260,
+    "sha256": "fb8728eae3af2a2ec98a159c34f088350bbd23884f0493e4703592ffaff04b10"
   },
   "dominant_issue": "BM-41",
   "hypothesis": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
@@ -88,7 +88,7 @@
     "/workspace/BandMaster/Art/Backgrounds/shared/gigs.webp",
     "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png"
   ],
-  "next_action": "Record the source-audited hardware hydration/caption lesson, close preparation and release before00:15; scheduledsourcework then needs freshpreflight.",
+  "next_action": "At00:15read newestapprovedPage/canonical/lessons/allnewissues and liveheads/lease, then scope the phone safe-area/touch/pacing foundation and first-gig baseline in a fresh committed sourcepreflight; no merchslice or stalequeue.",
   "started_at": "2026-11-01T00:06:08.778644+00:00",
   "scope_end": "2026-11-01T00:12:00Z",
   "hard_stop": "2026-11-01T09:00:00Z",
@@ -99,5 +99,48 @@
     "original_sha256": "e23428f1fcf7024a9fab76e9c6bb4ef3b8a1d955c8fab6e1161b2cf49df5aad4",
     "pixels_inspected": true,
     "kind": "Existing flattened stage source actuallyopened for mood/composition; not wholeUIapproval or crew/crowd animation asset."
+  },
+  "lessons_update": "Appended BM-20/BM-17/BM-36 source-audited hardware hydration/caption/proof clarification; preserved prior bytes. Rejected initial patch event282 recorded before this append.",
+  "ended_at": "2026-11-01T00:08:37.690325+00:00",
+  "tested_source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+  "candidate_native_verified": true,
+  "closeout": {
+    "tested_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+    "scope": "Preparation and schedule activation ONLY; latestgameunchanged, no newnative/build proof.",
+    "preflight_sha": "cce6272cc9776a989d98d172ce804fbea506d7d0",
+    "evidence": [
+      "/workspace/work/overnight-20261101/activation.json",
+      "docs/continuous_improvement/S50_OVERNIGHT_FIRST_GIG.md",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/complete-validation.json"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "At00:15read newestapprovedPage/canonical/lessons/allnewissues and liveheads/lease, then scope the phone safe-area/touch/pacing foundation and first-gig baseline in a fresh committed sourcepreflight; no merchslice or stalequeue.",
+    "new_issue_review": "All283events reviewed;281priorhistory preserved.282initialLESSONSpatchcontext rejected with nochange, logged beforedirectappend;283approval/schedule/source-audit review.",
+    "lessons_update": "Appended BM-20/BM-17/BM-36 source-audited hardware hydration/caption/proof clarification; preserved prior bytes. Rejected initial patch event282 recorded before this append.",
+    "checks_executed": [
+      "Scopedpreflight committed and improvement_gate.py check PASS",
+      "Sameexistingautomation enabled/finiteRRULE/prompt/samethread readback; privatePage approved/artwork/lessons/controlsections readback",
+      "Read-only remote compare identical to b2647df",
+      "Git trackedsource clean beforepreflight; currentchangesmetadataonly; originalgame/native/packageevidence reused, notrerun"
+    ],
+    "original_images_opened": [
+      "/workspace/BandMaster/Art/Backgrounds/shared/gigs.webp",
+      "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png"
+    ],
+    "simulated_lenses": {
+      "SIMULATED owner/art director": "Artwork-led scene/reference/nativepixel acceptance and originalcontrol identity are explicit gates; specificopeningpraise retained, no blanketartapproval.",
+      "SIMULATED phone player": "Safearea/touch/scroll/helddaycards lead the implementation; hardwaretouch/cancel proof is required and V5/localversiongap disclosed.",
+      "SIMULATED gameplay designer": "Approach/intensity must have distinct policy; free previews, actualvenue/orderedsetlist and modelledresponse, no inventedtelemetry or duplicatedpayout.",
+      "SIMULATED save reviewer": "ExistingFinance/contacts/reviews/schema and one-save rollback protected; no productionuserdata, key or sourcepublication.",
+      "SIMULATED process reviewer": "Same finiteautomation enabled, formerworker untouched, committedpreflight/gate, source-auditedlessonappend and failedpatch event282 preserved beforecorrection; writerreleased beforefirstwake."
+    },
+    "remaining": [
+      "Phone/safearea/scroll/art-backedfirstgig/hardwareintegration implementation is pending; this is preparation, not a newbuild.",
+      "Rawhardwarebakedlabels and touch-index/cancel/signalhydration needwrapper/nativeproof; no handwritingfontbundled and one reactioncaller uses14px.",
+      "Service reports next_run_time=null despite enabled finiteconfiguration; no scheduleexecution claimed before00:15.",
+      "V5 remains olda9; Finance/Offstage/Reviews local179 notyetonphone. Source/historypublicationblock and actualphone/artreview remain."
+    ],
+    "writer_released_at": "2026-11-01T00:08:37.690325+00:00"
   }
 }
