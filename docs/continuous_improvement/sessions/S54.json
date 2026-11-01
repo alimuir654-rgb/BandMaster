@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "S54",
+  "status": "active",
+  "owner_request": "Approved overnight plan links actual completed original IDs/order into recordings with immutable snapshots; one conditional gear/song-cohesion pilot if core green. Owner prefers gear/song cohesion. S53 core is verified; broader basic instrument inventory/creative gear separation is HELD as unsafe breadth, not claimed complete.",
+  "owner_approved": false,
+  "baseline_sha": "253331a1c3966c6af00484ed303adf5acd2d2d47",
+  "game_baseline_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-13",
+    "BM-15",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+  "stop_condition": "Source target05:10, bounded lease06:20; core proof and package window protected. Two ineffective iterations change method/HOLD. Do not add gear/cast/audio/campaign/transport breadth. All writes freeze08:30; no new breadth after07.",
+  "target": {
+    "locator": "/workspace/work/unify/s45/s46-regression-a9-phone/captures/career-songs-draft-390x844.png",
+    "original_sha256": "140d177292022ad3ad098d9f9ba932d8ee57713ad346c7b61fc6d85892cc004d",
+    "pixels_inspected": true,
+    "kind": "Actual S45/S46 phone Songbook native original, historical typography disclosed; current337-runtime same-state baseline will supplement. Wide samepage and currentS53 paper receipt also opened."
+  },
+  "controlled_comparison": "Original paper/wordmark/hardware remain byte unchanged. Emotion: the band cuts its first real demo; composition: firstfold actual cash/day/cost/trackcount, native numbered actual-order track list on paper, fixed48px record/back; archive keeps original saved credits and snapshots. Same career/content/viewport across dd and candidate at4sizes; only Songs/Recording intentionally change. Original73/88/import/4journeys and new real recording/release/failure/reload/resize/input proof, independent original recording oracle and Finance2day closing schedule; manually ZERO ERROR.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/recording_rules.gd",
+    "experiments/playable_flightcase/recording_desk.gd",
+    "experiments/playable_flightcase/recording_flow_test.gd",
+    "experiments/playable_flightcase/recording_capture.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S54.json",
+    "Independent original Recording.record/release projection oracle; unknowns/legacy/malformed/staleIDs/order/immutability/Finance2day/terminal/booking guards and failedsave fullrollback",
+    "Strict isolated original73+88+import+4native journeys using337 base and explicitcopy/sourceSHA; focused genuine recording/release4sizes, originalPNG visual review and protected-source audit"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68897ba482ea240fdfd36869e4b6105be3a3fa25bfb7d4550dc1e7b90749148e",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 560415,
+    "sha256": "382a87140a5ce43864972a8feeec2b9fdfa2cbb3cf0b0f7d7dbd16bd2818ada7"
+  },
+  "started_at": "2026-11-01T04:24:30.738786+00:00",
+  "scope_end": "2026-11-01T06:20:00Z",
+  "source_freeze_target": "2026-11-01T05:10:00Z",
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "policy": {
+    "record": "2\u20133 unique existing original IDs, selected order; validate full originalcan_record/new-material gate. Call unchanged originalrecord on selectedprojection, preserve actual fullcatalogue/history, fullcount source_count and originalIDformat; additive versionedtrack identity/full snapshots only. No invented IDs for old title-only recordings.",
+    "cash_days": "Original60 paid upfront firstday, exactly2completed days with closing_balances[aftercash,aftercash]. Original25 localrelease1day. Alloutgoing Other, no passive sales/rates. OriginalStory\u2192Calendar.expire\u2192Life order then Finance once; owner.saveonce.",
+    "booking": "No record/release onactualshowday; recording cannot overlap pending bookingday in(today,today+2]. Visible reason/remedy, do not silentlyexpire confirmedshow.",
+    "compatibility": "Keep schema_version1/unknownfields. Existing title-quality recordings read asLEGACYwithoutfabricatedsourceIDs. Present malformed known recording/track data blocks scoped commits immutably; unknown optional extensions preserved. Missing newmetadata neutral.",
+    "input": "Free draft survives rebuild/resize, no model/save from toggles/order/scroll/hide/ack. Busy BEFOREresolver. Diskfail restores fullcareer; repeat/late actions do notduplicate. Record/release explicitnativecommit; durablearchive renders saveddata afterreload.",
+    "art": "Reuse strongest paper, printed16compactfacts, Caveat22savednotes, native48controls. No freshsourceart/font/audio needed. Ownerapprovalfalse/technicaldistinctvisualpartial."
+  },
+  "protected": [
+    "All54originalScripts including3trackedUIDs",
+    "All337runtimeinputs except ownedCareerDesk and4explicitnewownedfiles",
+    "S51safearea/Inkinput/S52heldday/fonts/Settings/S53showmodels/controlart/C25/rawpassivemeters/productionproject/schema1"
+  ],
+  "baseline_evidence": "/workspace/work/overnight-20261101/s53/closeout.json"
+}
