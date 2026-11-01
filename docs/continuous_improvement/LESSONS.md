@@ -128,6 +128,8 @@ S63 extension: measure the longest unbroken word using the actual native Label f
 
 S68 extension: a short numeric status chip must provide its full native text minimum. Inheriting WORD_SMART from the generic paper-label factory while shrinking a GridContainer reduced three panels to their margins and wrapped letters vertically. Nonwrapping printed16 labels restored natural text-plus-padding widths at phone and wide sizes; retain complete values and wrap whole chips if a future supported set does not fit. A naturally fitted tall Details page is valid: verify its full copy and zero-scroll gesture, then resize the same retained view for the original strict overflow/touch proof and restore it before paid actions. Do not add fake padding, shrink text or require overflow where all content is visible.
 
+S71 extension to BM-22: naturally small positive overflow is a third case between a fitted page and a long scroll. Record the actual clip, page and content range. Exercise the available small movement without demanding an impossible 24px change, then resize the same retained view to a genuinely overflowing window and retain the original strict range/drag proof. Restore its original size before paid actions; do not add padding or shrink type to satisfy a fixture.
+
 ### BM-23
 **What went wrong:** Logical-coordinate tap checks missed parent scaling: 44 logical units were not necessarily 44 physical pixels.
 **Prevent:** Measure transformed target bounds in the rendered window. Keep 44px physical minimum targets and sensible body text; regression font floors are not design goals.
@@ -170,6 +172,8 @@ S68 extension: a short numeric status chip must provide its full native text min
 **Prevent:** Validate YAML, fail on relevant logs, bound commands/jobs and inspect the correct native workflow at the exact SHA.
 **Proof:** Required steps, assertions and downloadable artifacts from the correct successful run. Sources: OWNER, DUAL.
 
+S71 extension to BM-30: successful engine execution can precede failed artifact copying when the workspace fills. Persist phase results before copying, preserve partial targets and original captures, and resume only the missing step from the same verified source and required fixture. Reproducible import caches may be cleared only from a precomputed closed-run allowlist with a persisted intent and a bound checked BEFORE deletion; never include source, original images, saves, logs, packages or keys. A cleanup loop's limit checked after mutation does not enforce that limit; disclose the actual completed deletions and stop.
+
 ### BM-31
 **What went wrong:** Templates referenced res://gallery.gd at the wrong project root; standalone success did not prove drop-in reuse.
 **Prevent:** Separate templates from importable scenes and scope module resources. Test in another host without replacing its project.godot.
@@ -179,6 +183,8 @@ S68 extension: a short numeric status chip must provide its full native text min
 **What went wrong:** Overlapping native windows caused pointer-test failures in the harness; emitting signals would have hidden actual input faults.
 **Prevent:** Diagnose window/viewport focus and event routing. Exercise genuine events in the application window, not synthetic signal-only success.
 **Proof:** Pointer/keyboard diagnostics and once-only action assertions. Sources: C20.
+
+S71 extension to BM-24/BM-32: reduced-motion replacement can put a legitimate new acknowledgement exactly beneath the previous action coordinate. Trace the actual GUI receiver and unchanged transaction/save counts before labelling the second input a duplicate-settlement bug. Freeze immutable receiver identity and geometry before dispatch: a pressed callback can free the node, so a later node-null comparison is not reliable evidence that the event was unarmed. Preserve both fresh result inspection and the old-coordinate input proof.
 
 ### BM-33
 **What went wrong:** Blind regex/source injection and stale transformed path assertions broke later integrations.
@@ -207,6 +213,8 @@ S68 extension: calling a geometry assertion immediately after a real Menu/Contin
 **Proof:** Repeated/cancelled actions, insufficient resources, invalid/duplicate titles and prior-state immutability. Sources: V22, ROADMAP, SWEEP.
 
 S69 source-intake clarification: an adapter that already applies Story/milestones and Finance is a completed transaction, not an intermediate campaign result. New interview choices must be composed before those downstream steps, using the original campaign once and truthful fresh campaign/journal/receipt facts. Do not call an already-accounted launch and then add bonuses. This is a source-audited prevention rule for the proposed radio visit, not a claimed implemented or runtime-tested journey.
+
+S71 verified extension: keep unfinished activity metadata outside a fingerprinted demo and outside the canonical completed-campaign flag. Lock the original index as well as ID/fingerprint, revalidate at final wrap, and save each explicit phase with whole-career rollback. Compose answer effects before Story/Finance, record truthful signed capped outcomes, and retain the legacy direct API only when no active visit exists. Exact509 native four-view journeys and the independently reused 48-input model closure verify this radio implementation; presentation/reveal/reload never resolves the activity.
 
 ### BM-37
 **What went wrong:** Campaign simulations passed invariants while exposing unrealistic song throughput and profitable low-risk gig exploits.
