@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S59.json",
+  "session": "docs/continuous_improvement/sessions/S60.json",
   "scope": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s59_show_identity_verified_local",
-  "next_action": "Scope S60 read-only VIEW BAND POSTER from the existing BAND screen using current saved members/order/lead and shared artwork, conservative whole fallback for unavailable mappings; no save/reset/formation. Fresh lease/preflight,15:50 write freeze/16:00 hard stop.",
+  "status": "s60_current_band_poster_preflight",
+  "next_action": "Commit S60 preflight/gate, capture current BAND baseline, implement one read-only current-band print with four-view/input/state/source proof.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3286,7 +3286,7 @@
     }
   ],
   "last_completed_session": "S59",
-  "writer": null,
+  "writer": "S60-current-band-poster-20261101T1310",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3411,7 +3411,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-01T13:05:18.913266+00:00",
+  "updated_at": "2026-11-01T13:10:14.787982+00:00",
   "page_delivery": {
     "status": "V6_APK_prose_saved_readback",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
@@ -3494,7 +3494,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
-  "current_session": "S59",
+  "current_session": "S60",
   "next_single_action": "Scope S60 read-only VIEW BAND POSTER from the existing BAND screen using current saved members/order/lead and shared artwork, conservative whole fallback for unavailable mappings; no save/reset/formation. Fresh lease/preflight,15:50 write freeze/16:00 hard stop.",
   "last_updated_utc": "2026-11-01T13:05:18.913266+00:00"
 }

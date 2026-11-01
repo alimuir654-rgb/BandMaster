@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s59_show_identity_verified_local",
+  "status": "s60_current_band_poster_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
-  "writer": null,
+  "writer": "S60-current-band-poster-20261101T1310",
   "last_verified_code_sha": "c820244935914fcb4d0e90f7a762507a66b23173",
   "baseline": {
     "run_id": 40778019754,
@@ -687,7 +687,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S59",
+  "current_session": "S60",
   "last_verified_native_run": null,
   "latest_verified_phase2": {
     "sprint": "S56",
@@ -721,7 +721,7 @@
     "owner_approved": false
   },
   "last_sprint": "S52",
-  "next_action": "Scope S60 read-only VIEW BAND POSTER from the existing BAND screen using current saved members/order/lead and shared artwork, conservative whole fallback for unavailable mappings; no save/reset/formation. Fresh lease/preflight,15:50 write freeze/16:00 hard stop.",
+  "next_action": "Commit S60 preflight/gate, capture current BAND baseline, implement one read-only current-band print with four-view/input/state/source proof.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1896,7 +1896,7 @@
   "candidate_source_sha": "c820244935914fcb4d0e90f7a762507a66b23173",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_show_identity_art_partial",
-  "updated_at": "2026-11-01T13:05:18.913266+00:00",
+  "updated_at": "2026-11-01T13:10:14.787982+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2089,7 +2089,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "docs/continuous_improvement/sessions/S59.json",
+  "session": "docs/continuous_improvement/sessions/S60.json",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",

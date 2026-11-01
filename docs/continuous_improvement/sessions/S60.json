@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "S60",
+  "status": "active",
+  "owner_request": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
+  "owner_approved": false,
+  "baseline_sha": "2402698c345e46db04abf8970f5173c3c1374eb3",
+  "game_baseline_sha": "c820244935914fcb4d0e90f7a762507a66b23173",
+  "dominant_issue": "BM-16",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "One retained read-only print view makes the verified band identity accessible after Continue. Reuse current canonical members/selected look and shared full-length Press in a neutral career variant, actual safe budget, native Back/focus and conservative whole-text fallback. This improves identity engagement without replaying formation or changing any game/save rule.",
+  "stop_condition": "Root one source writer/GL; source target13:45/proof14:10/lease14:20. Two ineffective attempts change method/HOLD. No new art/fonts/cast/audio/model/save schema or identity editing/reset. If unsafe/unfinished, retain verified c820 for final APK. Global15:50 all-write freeze/16:00 hard stop; ended automation untouched.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-882779e6-7fbc-4e33-9e0d-15b82354f4f4.png",
+    "original_sha256": "726ac846e242dbc4d5484333671c6d4288e899884006bdbf4af78a79f61cfed9",
+    "pixels_inspected": true,
+    "kind": "DESIGN ONLY group-print quality, using already-verified S57 shared assets/native type. Actual current phone milestone and native BAND baseline are source references, not textures."
+  },
+  "controlled_comparison": "Same currentcareer/name/style/member order/lead/window/safearea. Existing BAND baseline gains one native48px view button; all original dossiers/values/meters remain. New view has full actual roster/current lead with no nonexistent extras, uses actual safe remainingbody dimensions, fixedBack and retained modal/focus/scroll state across actual resize/hide/free/reopen. Standard172 images should remain pixel-exact except disclosed Reopen frames; original milestone variants/cast/model/source protection retained. Test numericid vs candidate_id, reorder/changedcurrentmembers/lead,1..6/unknown/duplicate/legacy mappings, longUnicode/style/defaults, real taps/keys/scroll/cancel, busy stale-dispatch guard and full snapshot/file/save/load invariance.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_poster_view.gd",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S60.json",
+    "Root exact4.7.2/Dummy/freshscratchXDG/ONEGL: current BAND baseline, focused real existingband→poster→Back/free/resize/diskContinue across4profiles plus independent current-member data cases",
+    "Strict73/88/import/4genuine standard journeys, actual configuredentry and explicit full Git/runtime/source binding; original native PNG comparisons and independent visual review",
+    "Keep nominal observed metadataHEAD separate from game source, all rawinputs explicit complete copylist; no suite reruns for wrapper-only reporting failures"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "82f2e35fea14e98f151f3ea62d1575b1424536db0ddeeff88777f5606e53889f",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 688814,
+    "sha256": "e8e1bca724ab30ee94d968a4ec34ed88a1a007b844fb605b0ab1068a9d82ded9"
+  },
+  "started_at": "2026-11-01T13:10:14.787982+00:00",
+  "scope_end": "2026-11-01T14:20:00Z",
+  "source_freeze_target": "2026-11-01T13:45:00Z",
+  "all_write_freeze": "2026-11-01T15:50:00Z",
+  "hard_stop": "2026-11-01T16:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "363 prior rawinputs plus ONE band_poster_view.gd =364 expected; no broad directory/art/font additions.",
+  "protection": [
+    "All original models/save/Finance/source54Scripts/art/fonts/C25/atlases/hardware/passivemeters unchanged. No name/formation/identity save calls.",
+    "CareerDesk original handlers/focus/guards remain byte-exact except one BAND button/preload/new separate handlers; busy=true uses existing before/after guard semantics. Clear matching modal slot before close/re-render/focus, forcedhide/free abort silently.",
+    "Shared BandIdentityPress adds only career-neutral mast/footer and missing-lead caption condition; every prior variant/data/layout stays unchanged. Currentmembers authoritative; whole fallback for unmapped data, no old foundingroster substitution."
+  ]
+}
