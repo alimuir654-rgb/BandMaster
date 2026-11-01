@@ -580,3 +580,8 @@ Technical PASS / visual PARTIAL / owner_approved=false. Current73/88/import/4nat
 ## S58 genre presentation — 3deac99c290e3dbfabe16d82deecd4ba97fd9594
 
 Technical PASS/visual PARTIAL/ownerfalse.73/88/import/4native172 +9444 focused60 +actual configured entry; zeroERROR/measured orphan growth.363 sources,164 originals exact/four genre/four transient/zero unexpected. Actual original paths/hashes and five SIMULATED lenses: `/workspace/work/identity-20261101/s58/closeout.json`. V6 excludes these changes; no APK/ZIP/Page pixels. Writer released; next one scoped ShowReplay identity gap.
+
+
+## S59 show identity — c820244935914fcb4d0e90f7a762507a66b23173
+
+Technical PASS/visual PARTIAL/ownerfalse;73/88/import/4standard172 +16495 focused118 +configured entry.363 raw sources,168 originals exact/four Reopen/zero unexpected. MetadataHEAD1296 vs gamec820 explicitly verified, no source mismatch. Actual originals/five SIMULATED lenses/limits/release: `/workspace/work/identity-20261101/s59/closeout.json`. Next S60 read-only current-band poster access; V6 unchanged.
