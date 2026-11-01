@@ -68,7 +68,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  for entry in view.get("metric_rows",[]):
   if entry is Dictionary:
    metrics[str(entry.get("key",""))] = entry
- var tiles := HBoxContainer.new()
+ var tiles: BoxContainer = VBoxContainer.new() if short_landscape else HBoxContainer.new()
  tiles.name = "RecapHeroMetrics"
  tiles.add_theme_constant_override("separation",10 if tall_tablet else (4 if mobile else 10))
  content.add_child(tiles)
@@ -83,22 +83,33 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   tile.focus_mode = Control.FOCUS_NONE
   tile.add_theme_stylebox_override("panel",Paper.scorecard())
   tiles.add_child(tile)
-  var stack := VBoxContainer.new()
-  stack.add_theme_constant_override("separation",1)
+  var stack: BoxContainer = HBoxContainer.new() if short_landscape else VBoxContainer.new()
+  stack.add_theme_constant_override("separation",8 if short_landscape else 1)
   tile.add_child(stack)
+  var metric_copy: BoxContainer = stack
+  if short_landscape:
+   metric_copy = VBoxContainer.new()
+   metric_copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   metric_copy.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+   metric_copy.add_theme_constant_override("separation",1)
+   stack.add_child(metric_copy)
   var cap := ink(str(selector[1]),14 if tall_tablet else 12,true)
   cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  stack.add_child(cap)
+  metric_copy.add_child(cap)
   var change := ink(Recap.signed_change(delta),40 if tall_tablet else (27 if mobile else 34))
   change.name = "RecapHero_"+key
   change.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  if short_landscape:
+   change.autowrap_mode = TextServer.AUTOWRAP_OFF
+   change.size_flags_horizontal = Control.SIZE_SHRINK_END
+   change.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
   var adverse: bool = (key=="tension" and delta>0) or (key!="tension" and delta<0)
   change.add_theme_color_override("font_color",Color("954a42") if adverse else (Color("376c58") if delta!=0 else Color("695c4b")))
   stack.add_child(change)
   var before_after := ink("%d → %d" % [int(item.get("before",0)),int(item.get("after",0))],13 if tall_tablet else 12,true)
   before_after.name = "RecapBeforeAfter_"+key
   before_after.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  stack.add_child(before_after)
+  metric_copy.add_child(before_after)
  var voices: Array = view.get("reactions",[])
  var band_header := HBoxContainer.new()
  band_header.add_theme_constant_override("separation",4)
@@ -172,6 +183,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    var word_break: int = excerpt.rfind(" ")
    short_quote = excerpt.substr(0,word_break if word_break>0 else 31).rstrip(" .,!?")+"…"
   var line: Label = InkNote.new()
+  # A compact photo caption is printed. Full authored reactions below retain
+  # the selected narrative note style; first-fold portraits/morale stay visible.
+  line.set_meta("compact_note_caption",true)
   line.text = display_name+"\n“"+short_quote+"”"
   line.add_theme_font_size_override("font_size",16)
   line.add_theme_color_override("font_color",Color("29241f"))
@@ -204,6 +218,27 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   morale_ink.mouse_filter = Control.MOUSE_FILTER_IGNORE
   morale_ink.focus_mode = Control.FOCUS_NONE
   card.add_child(morale_ink)
+ if short_landscape:
+  # A landscape reading composition, not smaller notes or portraits. The
+  # same score fields sit beside the three primary voices in the first fold.
+  var lane := HBoxContainer.new()
+  lane.name = "RecapLandscapeEvidence"
+  lane.add_theme_constant_override("separation",20)
+  var insertion: int = score.get_index()
+  content.add_child(lane)
+  content.move_child(lane,insertion)
+  var scores := VBoxContainer.new()
+  scores.custom_minimum_size.x = 220
+  scores.add_theme_constant_override("separation",4)
+  lane.add_child(scores)
+  score.reparent(scores)
+  tiles.reparent(scores)
+  var voices_column := VBoxContainer.new()
+  voices_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  voices_column.add_theme_constant_override("separation",4)
+  lane.add_child(voices_column)
+  band_header.reparent(voices_column)
+  gallery.reparent(voices_column)
  if not external_details:
   var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
   breakdown.name = "RecapDetailsToggleAction"
@@ -228,6 +263,8 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    # complete authored reaction available to touch and keyboard readers.
    var full_quote := ink(str(voice.get("name","Musician"))+" — “"+str(voice.get("quote",""))+"”",16)
    full_quote.name = "RecapFullQuote_"+str(voice.get("candidate_id",""))
+   InkNote.NotesStyle.apply(full_quote)
+   full_quote.add_to_group("bandmaster_notes")
    detail.add_child(full_quote)
    detail.add_child(ink(str(voice.get("name","Musician"))+": "+str(voice.get("effects","")),11,true))
  detail.add_child(ink("NEXT MOVE  /  "+str(view.get("next_step","")),11 if mobile else 13))

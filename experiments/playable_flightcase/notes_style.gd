@@ -18,7 +18,7 @@ static func _disable_system(font: Font, visited: Dictionary) -> void:
  for fallback in font.fallbacks:
   _disable_system(fallback,visited)
 
-static func font() -> Font:
+static func font(printed: bool = false) -> Font:
  if _clear==null:
   _clear = ThemeDB.fallback_font.duplicate(true) as Font
   _disable_system(_clear,{})
@@ -33,15 +33,16 @@ static func font() -> Font:
   variation.variation_opentype = {"wght":500.0}
   variation.fallbacks = [_clear]
   _hand = variation
- return _hand if handwritten else _clear
+ return _hand if handwritten and not printed else _clear
 
 static func caption() -> String:
  return "HANDWRITTEN" if handwritten else "CLEAR"
 
 static func apply(note: Label) -> void:
  # Do not change text, visible_characters, reveal epoch, focus or callbacks.
- note.add_theme_font_override("font",font())
- note.add_theme_font_size_override("font_size",22 if handwritten else 16)
+ var compact_caption: bool = note.has_meta("compact_note_caption") and bool(note.get_meta("compact_note_caption"))
+ note.add_theme_font_override("font",font(compact_caption))
+ note.add_theme_font_size_override("font_size",22 if handwritten and not compact_caption else 16)
 
 static func toggle(tree: SceneTree) -> void:
  handwritten = not handwritten

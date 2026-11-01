@@ -941,7 +941,7 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
  if advice.focus_mode!=Control.FOCUS_NONE or advice.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
   failures.append("S40 "+context+" read-only next move steals input")
  var tablet: bool = w>=600 and w<900 and h>w
- var minimum_reaction: int = 16 if tablet else 14
+ var minimum_reaction: int = 16
  var minimum_readout: int = 13 if tablet else 12
  var gallery: ScrollContainer = screen.find_child("RecapMemberGallery",true,false) as ScrollContainer
  for voice in view.get("reactions",[]):
@@ -976,6 +976,11 @@ func _check_recap_clarity(screen: Control,report: Dictionary,members: Array,w: i
       failures.append("S40 "+context+" Casey excerpt cuts a word instead of retaining a whole phrase")
  for key in ["readiness","morale","tension"]:
   var readout: Label = screen.find_child("RecapBeforeAfter_"+key,true,false) as Label
+  var delta_ink: Label = screen.find_child("RecapHero_"+key,true,false) as Label
+  if delta_ink==null or delta_ink.get_line_count()!=1 or scroll==null or not scroll.get_global_rect().encloses(delta_ink.get_global_rect()):
+   failures.append("S52 "+context+" saved numeric delta wraps or is outside initial report: "+key)
+  if readout!=null and not scroll.get_global_rect().encloses(readout.get_global_rect()):
+   failures.append("S52 "+context+" saved before/after is outside initial report: "+key)
   var metric: Dictionary = report.get("metrics",{}).get(key,{})
   var expected: String = "%d → %d" % [int(metric.get("before",0)),int(metric.get("after",0))]
   if readout==null or readout.get_theme_font_size("font_size")<minimum_readout or readout.text!=expected:
