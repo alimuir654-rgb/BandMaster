@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "S69-radio-journey-art-contract-20261101T2147",
   "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
-  "claimed_at": "2026-11-01T21:15:49.061687+00:00",
+  "claimed_at": "2026-11-01T21:47:02.572908+00:00",
   "expires_at": "2026-11-01T22:05:00Z",
-  "scope": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
-  "authority": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
+  "scope": "A coherent studio/presenter scene and a held arrival\u2192question\u2192choice\u2192writtenreaction\u2192nextquestion\u2192wrap sequence can establish context and agency. Define bounded two-question policy and durable checkpoint/once-settlement contract before code. Reuse pattern through existing game later, not an unbounded new dialogue engine.",
+  "authority": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T21:41:21.259547+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -333,8 +333,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "At the next existing22:15 checkpoint, read fresh HEAD/lease/Pages/lessons and scope S69 ONE approved F02\u2192F01 saved-result-to-next-goal loop: image first, two supported factors, actual progress and one free route. No old reward claim or automatic action. Radio repair complete; do not repeat unchanged proof. Finite no-packaging plan ends08:00Nov2; sourcefreeze06:45/final07:15readiness/release07:30/allwrites07:45.",
+  "pending_helpers": true,
+  "next_action": "S69 studio/presenter artwork proposal and two-question durable journey contract; after source/art intake, update existing queue to radio journey first. Current verified476 remains unchanged. No APK/ZIP/productioncode.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -363,7 +363,7 @@
   "source_freeze_target": "2026-11-01T21:40:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "closed_source_frozen_pending_fresh_scope",
+  "source_phase": "metadata_and_scratchart_only",
   "source_frozen_at": "2026-11-01T21:21:46.370645+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -374,7 +374,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S68",
+  "session": "S69",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",

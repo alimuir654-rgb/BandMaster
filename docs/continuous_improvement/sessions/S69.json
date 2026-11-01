@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46",
+    "BM-09",
+    "BM-37",
+    "BM-42"
+  ],
+  "owner_approved": false,
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "a5eb05a496d621d94eac961ca1742b8b0b5ddfc8539197b7e9d5a775c56259e1",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "id": "S69",
+  "status": "active",
+  "owner_request": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
+  "baseline_sha": "673069940fdf73f4670b7cfec0a5489025afdc58",
+  "game_baseline_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+  "dominant_issue": "BM-25",
+  "hypothesis": "A coherent studio/presenter scene and a held arrival\u2192question\u2192choice\u2192writtenreaction\u2192nextquestion\u2192wrap sequence can establish context and agency. Define bounded two-question policy and durable checkpoint/once-settlement contract before code. Reuse pattern through existing game later, not an unbounded new dialogue engine.",
+  "stop_condition": "S69 ART/CONTRACT/METADATA ONLY. ONE scene source call, optionalsecond only concrete defect logged; aftertwoineffective attemptsHOLD/changeMETHOD. No production code/art writes/native/APK/ZIP. Rootrelease22:05 before22:15queue. Global sourcefreeze06:45/final07:15readiness/release07:30/allwrites07:45/hard08:00Nov2 unchanged.",
+  "target": {
+    "locator": "/workspace/work/overnight-20261102/s68/radio-4769216-final-phone/captures/radio-pitch-initial-390x844.png",
+    "original_sha256": "d86d36328ca2c4840baaa6e0638eaa24614d272e15a67b538b3457ee0e5b6aa3",
+    "pixels_inspected": true,
+    "kind": "Actual S68 phone baseline mic illustration, now explicitly A05 revision requested. New source must establish studio/presenter context rather than magnify generic equipment."
+  },
+  "controlled_comparison": "Keep verified379 game inputs/actualmodels/save/rawassets unchanged. CurrentA05mic scene is referenceonly; newindependent studio/presenter is REVIEWPROPOSAL, no generatedUI/native text baked in. Record camera/focal/phonecrop/material/light/provider/rawpath/dimensions/hash, inspect actualoriginal. New version source approval pending; do not claim a native integrated journey or new gameplay proof. Question policy and phase/save cost contract remain proposal until fresh committed production preflight.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/overnight-20261102/s69",
+    "/workspace/generated_images/"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S69.json",
+    "Read actual radio models/hostsave/oldreceipts; no engine/suite rerun for unchanged source.",
+    "Open original generated source, verify real dimensions/hash/provenance; independent art review and A05v2 private selectedimage Page readback only.",
+    "Preserve all owner checkbox state/blockIDs/history/deletion; newA05v2 options unchecked; update SAMEfinitequeue only, no extension/APK/ZIP."
+  ],
+  "started_at": "2026-11-01T21:47:02.572908+00:00",
+  "scope_end": "2026-11-01T22:05:00Z",
+  "source_write_allowed": false,
+  "all_write_freeze": "2026-11-02T07:45:00Z",
+  "hard_stop": "2026-11-02T08:00:00Z",
+  "issue_log_review": {
+    "bytes": 796398,
+    "sha256": "369b80870db6ef1d20c32c5593d34352e83bf64d645e8df88a400ca278176740"
+  }
+}
