@@ -4,6 +4,7 @@ extends RefCounted
 const Game = preload("res://experiments/playable_flightcase/session.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Names = preload("res://experiments/playable_flightcase/name_rules.gd")
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const LOGOS := ["Wordmark","Stamp","Monogram"]
 const PALETTES := ["Amber / Charcoal","White / Ink","Red / Black"]
 const VIBES := ["Unpolished","Nocturnal","Wry","Atmospheric"]
@@ -35,6 +36,7 @@ var logo: String = "Wordmark"
 var palette: String = "Amber / Charcoal"
 var vibe: String = "Unpolished"
 var identity_complete: bool = false
+var identity_style: Dictionary = {}
 
 func begin_new() -> bool:
  game = Game.new()
@@ -52,6 +54,7 @@ func begin_new() -> bool:
  palette = "Amber / Charcoal"
  vibe = "Unpolished"
  identity_complete = false
+ identity_style = {}
  return save_draft()
 
 func set_genre(value: String) -> bool:
@@ -167,8 +170,9 @@ func confirm_lineup() -> Dictionary:
 func start_naming() -> bool:
  if screen != "formed" or not formed_once:
   return false
+ var before: Dictionary = snapshot()
  screen = "name"
- return save_draft()
+ return _save_identity_or_restore(before)
 
 func suggested_names() -> Array:
  return Names.suggestions(game.genre)
@@ -192,19 +196,23 @@ func submit_name(value: String,intent: String) -> Dictionary:
   if name_offer.to_lower()==proposed.to_lower() and name_intent == intent:
    return {"ok":true,"message":"The band hasn't changed its mind.","reactions":name_reactions()}
   return {"ok":false,"message":"You've already proposed a name. Use your one free rethink to change it."}
+ var before: Dictionary = snapshot()
  name_offer = proposed
  name_intent = intent
  change_counter += 1
- save_draft()
+ if not _save_identity_or_restore(before):
+  return {"ok":false,"message":"The name could not be saved. Your idea is still here; try again."}
  return {"ok":true,"message":"The band's given its verdict.","reactions":name_reactions()}
 
 func rethink_name() -> Dictionary:
  if screen != "name" or name_offer.is_empty() or name_revisions>=1:
   return {"ok":false,"message":"Only one rethink is free."}
+ var before: Dictionary = snapshot()
  name_revisions = 1
  name_offer = ""
  change_counter += 1
- save_draft()
+ if not _save_identity_or_restore(before):
+  return {"ok":false,"message":"The rethink could not be saved. Nothing has changed; try again."}
  return {"ok":true,"message":"One more chance to find a name everyone can live with."}
 
 func lock_name() -> Dictionary:
@@ -223,56 +231,75 @@ func lock_name() -> Dictionary:
   consequence = 3
  elif dislikes > comments.size()/2:
   consequence = -2
+ var before: Dictionary = snapshot()
  name_locked = name_offer
  name_delta = consequence
  name_settled = true
  screen = "name_milestone"
  change_counter += 1
- save_draft()
+ if not _save_identity_or_restore(before):
+  return {"ok":false,"message":"The name could not be locked on disk. Nothing has been counted; try again."}
  return {"ok":true,"message":"Band name confirmed.","chemistry_delta":name_delta}
 
 func start_identity() -> bool:
  if screen != "name_milestone" or not name_settled:
   return false
+ var before: Dictionary = snapshot()
  screen = "identity"
- return save_draft()
+ return _save_identity_or_restore(before)
 
 func set_identity(next_logo: String,next_palette: String,next_vibe: String) -> bool:
  if screen != "identity" or not LOGOS.has(next_logo) or not PALETTES.has(next_palette) or not VIBES.has(next_vibe):
   return false
+ var before: Dictionary = snapshot()
  logo = next_logo
  palette = next_palette
  vibe = next_vibe
- return save_draft()
+ return _save_identity_or_restore(before)
 
-func finish_identity() -> Dictionary:
+func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionary:
  if screen != "identity" or identity_complete or not name_settled:
   return {"ok":false,"message":"Complete the name and design first."}
  var vocalist: Dictionary = _lead_person()
  if vocalist.is_empty() or missing_coverage() != "":
   return {"ok":false,"message":"A complete band and one singer are required."}
+ var proposed_style: Dictionary = identity_style.duplicate(true) if style.is_empty() else style.duplicate(true)
+ if not proposed_style.is_empty() and not IdentityStyle.valid(proposed_style):
+  return {"ok":false,"message":"Choose a valid type direction and ink before applying the look."}
+ if not look.is_empty() and (not LOGOS.has(look.get("logo")) or not PALETTES.has(look.get("palette")) or not VIBES.has(look.get("vibe"))):
+  return {"ok":false,"message":"Choose a valid mark and attitude before applying the look."}
+ var before: Dictionary = snapshot()
  var result: Dictionary = game.launch_with_vocals(lead_vocal_id,vocal_scores(vocalist))
  if not bool(result.get("ok",false)):
   return result
+ if not look.is_empty():
+  logo=str(look["logo"])
+  palette=str(look["palette"])
+  vibe=str(look["vibe"])
  game.career["band_name"] = name_locked
  game.career["morale"] = clampi(int(game.career.get("morale",55))+name_delta,0,100)
  game.career["name_chemistry_delta"] = name_delta
  game.career["logo"] = logo
  game.career["palette"] = palette
  game.career["vibe"] = vibe
+ identity_style = proposed_style
+ if not identity_style.is_empty():
+  game.career[IdentityStyle.KEY] = identity_style.duplicate(true)
  # The selected actor's band-member morale is not multiplied by number of UI visits.
  for member in game.career.get("members",[]):
   member["morale"] = clampi(int(member.get("morale",55))+name_delta,0,100)
  identity_complete = true
  screen = "complete"
- save_draft()
+ if not _save_identity_or_restore(before):
+  return {"ok":false,"message":"The band identity could not be saved. Nothing has been counted; your look is still ready to retry."}
  return {"ok":true,"message":"The band identity is locked. Head to your first practice."}
 
 func start_playing() -> bool:
  if screen != "complete" or not identity_complete or game.phase != "play":
   return false
+ var before: Dictionary = snapshot()
  screen = "play"
- return save_draft()
+ return _save_identity_or_restore(before)
 
 func missing_coverage() -> String:
  var roles: Array = Base.coverage(game.roster)
@@ -289,11 +316,14 @@ func missing_coverage() -> String:
  return ", ".join(absent)
 
 func snapshot() -> Dictionary:
- return {"schema_version":1,"screen":screen,"game":game.snapshot(),
+ var result: Dictionary = {"schema_version":1,"screen":screen,"game":game.snapshot(),
   "lead_vocal_id":lead_vocal_id,"formed_once":formed_once,"change_counter":change_counter,
   "name_offer":name_offer,"name_intent":name_intent,"name_revisions":name_revisions,
   "name_locked":name_locked,"name_delta":name_delta,"name_settled":name_settled,
   "logo":logo,"palette":palette,"vibe":vibe,"identity_complete":identity_complete}
+ if not identity_style.is_empty():
+  result[IdentityStyle.KEY] = identity_style.duplicate(true)
+ return result
 
 func restore(value: Dictionary) -> bool:
  if int(value.get("schema_version",0)) != 1:
@@ -337,6 +367,10 @@ func restore(value: Dictionary) -> bool:
  var incoming_logo: String = str(value.get("logo","Wordmark"))
  var incoming_palette: String = str(value.get("palette","Amber / Charcoal"))
  var incoming_vibe: String = str(value.get("vibe","Unpolished"))
+ var incoming_style: Dictionary = {}
+ if value.has(IdentityStyle.KEY):
+  if not IdentityStyle.valid(value[IdentityStyle.KEY]): return false
+  incoming_style=(value[IdentityStyle.KEY] as Dictionary).duplicate(true)
  if not Names.INTENTS.has(intent) or revisions<0 or revisions>1 or offer.length()>36:
   return false
  if not LOGOS.has(incoming_logo) or not PALETTES.has(incoming_palette) or not VIBES.has(incoming_vibe):
@@ -349,6 +383,9 @@ func restore(value: Dictionary) -> bool:
    return false
   if int(candidate.career.get("name_chemistry_delta",999)) != delta:
    return false
+  if candidate.career.has(IdentityStyle.KEY) and not IdentityStyle.valid(candidate.career[IdentityStyle.KEY]): return false
+  if not incoming_style.is_empty() and candidate.career.get(IdentityStyle.KEY,{})!=incoming_style: return false
+  if incoming_style.is_empty() and candidate.career.has(IdentityStyle.KEY): return false
  if proposed in ["genre","recruit","formed","name"] and (settled or complete):
   return false
  game = candidate
@@ -366,15 +403,43 @@ func restore(value: Dictionary) -> bool:
  palette = incoming_palette
  vibe = incoming_vibe
  identity_complete = complete
+ identity_style = incoming_style
  return true
 
+func _rollback_identity(before: Dictionary) -> void:
+ # This is our own validated in-memory snapshot, not untrusted save input.
+ # Restore exact roster numeric types too; Game.restore canonicalises them.
+ var original: Dictionary = before["game"]
+ game.genre=str(original["genre"])
+ game.roster=(original["roster"] as Array).duplicate(true)
+ game.phase=str(original["phase"])
+ game.career=(original["career"] as Dictionary).duplicate(true)
+ for field in ["screen","lead_vocal_id","formed_once","change_counter","name_offer","name_intent","name_revisions","name_locked","name_delta","name_settled","logo","palette","vibe","identity_complete"]:
+  set(field,before[field])
+ identity_style=(before.get(IdentityStyle.KEY,{}) as Dictionary).duplicate(true)
+
+func _save_identity_or_restore(before: Dictionary) -> bool:
+ if save_draft(): return true
+ _rollback_identity(before)
+ return false
+
 func save_draft() -> bool:
- var file := FileAccess.open(SAVE_PATH,FileAccess.WRITE)
+ # The old valid draft remains intact until a complete replacement is ready.
+ var temporary: String = SAVE_PATH+".identity-tmp"
+ var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
  file.store_string(JSON.stringify(snapshot(),"  "))
+ file.flush()
+ var written: bool = file.get_error()==OK
  file.close()
- return true
+ if not written:
+  DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+  return false
+ var replaced: Error = DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary),ProjectSettings.globalize_path(SAVE_PATH))
+ if replaced!=OK:
+  DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+ return replaced==OK
 
 func load_draft() -> bool:
  if not FileAccess.file_exists(SAVE_PATH):

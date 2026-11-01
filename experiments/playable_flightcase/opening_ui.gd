@@ -9,6 +9,8 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
@@ -30,6 +32,8 @@ var look := "flightcase"
 var free_name: String = ""
 var chosen_intent: String = "Raw"
 var response: String = ""
+var identity_draft: Dictionary = {}
+var _identity_committing := false
 var _new_band_dialog: Control
 var _settings_sheet: Control
 var _practice_view: Control
@@ -480,12 +484,15 @@ func _begin_new() -> void:
   _render()
   return
  showing_menu = false
+ identity_draft = {}
+ free_name = ""
  settings_open = false
  notice = ""
  _render()
 
 func _continue() -> void:
  if setup.load_draft():
+  identity_draft = {}
   showing_menu = false
   settings_open = false
   _render()
@@ -649,60 +656,82 @@ func _start_naming() -> void:
   _render()
 
 func _name() -> void:
- var root: VBoxContainer = _make_shell()
+ var root: VBoxContainer=_make_shell()
  root.add_child(_label("02 / NAME THE BAND",24))
- root.add_child(_label("This is about your bandmates' taste, not an objective judgement of your name.",14))
- var body: VBoxContainer = _scroll_body(root)
- body.add_child(_label("THREE IDEAS",18))
- for entry in setup.suggested_names():
-  var suggestion: Dictionary = entry
-  var title: String = str(suggestion["name"])
-  var intent: String = str(suggestion["intent"])
-  var option: Button = _button(title+"  /  "+intent.to_upper(),_submit.bind(title,intent),"tab")
-  option.disabled = not setup.name_offer.is_empty()
-  body.add_child(option)
- body.add_child(_label("OR WRITE YOUR OWN",18))
- var field := LineEdit.new()
- field.name = "FreeBandName"
- field.text = free_name
- field.max_length = 36
- field.custom_minimum_size.y = 48
- field.placeholder_text = "Band name (2–36 characters)"
- field.text_changed.connect(func(v: String): free_name=v)
+ root.add_child(_label("A name your band can stand behind. Their reactions reflect taste, not a score.",16))
+ var body: VBoxContainer=_scroll_body(root)
+ body.add_child(_label("BAND NAME",16))
+ var field:=LineEdit.new()
+ field.name="FreeBandName"
+ field.text=setup.name_offer if not setup.name_offer.is_empty() else free_name
+ field.max_length=36
+ field.custom_minimum_size.y=56
+ field.placeholder_text="Your band name"
+ field.editable=setup.name_offer.is_empty()
+ field.add_theme_font_override("font",IdentityStyle.face(IdentityStyle.defaults()))
+ field.add_theme_font_size_override("font_size",26)
+ field.add_theme_color_override("font_color",Color("24211d"))
+ field.add_theme_color_override("caret_color",Color("884714"))
+ var stock:=StyleBoxTexture.new()
+ stock.texture=IdentityPress.PAPER
+ stock.set_texture_margin_all(8.0)
+ stock.set_content_margin_all(12.0)
+ field.add_theme_stylebox_override("normal",stock)
+ field.add_theme_stylebox_override("read_only",stock)
+ field.text_changed.connect(func(value: String):
+  free_name=value
+  var current: Variant=find_child("NameLiveMark",true,false)
+  if current!=null: current.configure(value if not value.is_empty() else "YOUR BAND","Wordmark",IdentityStyle.defaults(),46 if size.x<720 else 64,true,true)
+  var submit: Button=find_child("NameSubmitAction",true,false) as Button
+  if submit!=null: submit.disabled=value.strip_edges().length()<2)
+ field.text_submitted.connect(func(_value: String):
+  if setup.name_offer.is_empty(): _submit_free())
  body.add_child(field)
- body.add_child(_label("WHAT ARE YOU GOING FOR?",14))
- var intent_grid := GridContainer.new()
- intent_grid.columns = 2
- body.add_child(intent_grid)
- for value in ["Raw","Dark","Playful","Dreamy"]:
-  var tone: String = value
-  var btn: Button = _button(("✓ " if chosen_intent==tone else "")+tone.to_upper(),_set_intent.bind(tone),"tab")
-  btn.disabled = not setup.name_offer.is_empty()
-  intent_grid.add_child(btn)
- var submit: Button = _button("ASK THE BAND",_submit_free,"action","NameSubmitAction")
- submit.disabled = not setup.name_offer.is_empty()
- body.add_child(submit)
- if not response.is_empty():
-  body.add_child(_label(response,14))
- if not setup.name_offer.is_empty():
-  body.add_child(_label("BAND REACTIONS  /  "+setup.name_offer.to_upper(),18))
-  for opinion in setup.name_reactions():
-   var feeling: Dictionary = opinion
-   var card: PanelContainer = Kit.frame(look,"ticket")
+ var proof: PanelContainer=_wide_stage(body,760.0)
+ proof.name="NameLiveProof"
+ var proof_words: VBoxContainer=_column()
+ proof.add_child(proof_words)
+ var live_mark:=BandMark.new()
+ live_mark.name="NameLiveMark"
+ live_mark.configure(field.text if not field.text.is_empty() else "YOUR BAND","Wordmark",IdentityStyle.defaults(),46 if size.x<720 else 64,true,true)
+ proof_words.add_child(live_mark)
+ if setup.name_offer.is_empty():
+  body.add_child(_label("WHAT ARE YOU GOING FOR?",16))
+  var intent_grid:=GridContainer.new()
+  intent_grid.columns=2
+  body.add_child(intent_grid)
+  for raw in ["Raw","Dark","Playful","Dreamy"]:
+   var tone: String=str(raw)
+   intent_grid.add_child(_button(("✓ " if chosen_intent==tone else "")+tone.to_upper(),_set_intent.bind(tone),"tab","NameIntent_"+tone))
+  body.add_child(_label("OR TRY AN IDEA",16))
+  for raw in setup.suggested_names():
+   var entry: Dictionary=raw
+   var title: String=str(entry["name"])
+   var intent: String=str(entry["intent"])
+   body.add_child(_button(title+"  /  "+intent.to_upper(),_submit.bind(title,intent),"tab"))
+ else:
+  body.add_child(_label("WHAT THE BAND THINKS",18))
+  for raw in setup.name_reactions():
+   var feeling: Dictionary=raw
+   var card: PanelContainer=Kit.frame(look,"ticket")
    body.add_child(card)
-   var reaction: Label = InkNote.new()
-   reaction.text = str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"])
-   reaction.add_theme_font_size_override("font_size",16)
+   var reaction: Label=InkNote.new()
+   reaction.text=str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"])
    reaction.add_theme_color_override("font_color",Color("eee8dd"))
    card.add_child(reaction)
-   if _fresh_name_reactions:
-    reaction.call_deferred("begin",reduced_motion)
-  var rethink: Button = _button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
-  rethink.disabled = setup.name_revisions>=1
+   if _fresh_name_reactions: reaction.call_deferred("begin",reduced_motion)
+  var rethink: Button=_button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
+  rethink.disabled=setup.name_revisions>=1
   body.add_child(rethink)
-  body.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
- _fresh_name_reactions = false
+ if not response.is_empty(): body.add_child(_label(response,16))
+ if setup.name_offer.is_empty():
+  var submit: Button=_button("ASK THE BAND",_submit_free,"action","NameSubmitAction")
+  submit.disabled=free_name.strip_edges().length()<2
+  root.add_child(submit)
+ else:
+  root.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
+ root.add_child(_button("BACK TO MENU",_home,"tab","NameBackAction"))
+ _fresh_name_reactions=false
 
 func _set_intent(v: String) -> void:
  chosen_intent = v
@@ -717,7 +746,7 @@ func _submit(title: String,intent: String) -> void:
 func _rethink() -> void:
  var result: Dictionary = setup.rethink_name()
  response = str(result.get("message",""))
- free_name = ""
+ if bool(result.get("ok",false)): free_name = ""
  _render()
 func _lock() -> void:
  var result: Dictionary = setup.lock_name()
@@ -725,124 +754,191 @@ func _lock() -> void:
  _render()
 
 func _milestone_two() -> void:
- var root: VBoxContainer = _make_shell()
- var headroom := Control.new()
- headroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(headroom)
- var card: PanelContainer = _wide_stage(root,700.0)
- card.name = "MilestoneTwoStage"
- var body: VBoxContainer = _column()
- card.add_child(body)
- var eyebrow := _label("MILESTONE 02  /  THE NAME",14)
- eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(eyebrow)
- var heading := _label("THE NAME'S OFFICIAL.",22 if size.x>=720 else 18)
- heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(heading)
- var named_cover: Variant = IdentityPress.new()
- named_cover.name = "NamedMilestonePrint"
- body.add_child(named_cover)
- named_cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"milestone")
- var delta: int = int(setup.name_delta)
- var reaction := _label("+3 band morale: everyone's behind it." if delta==3 else ("−2 band morale: not everyone's convinced." if delta<0 else "Mixed opinions. One band. No morale change."),15)
- reaction.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(reaction)
- var settlement := _label("The name is locked. Its consequence is counted once.",13)
- settlement.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(settlement)
- body.add_child(_button("LOGO & VIBE ›",_start_identity,"action","NameMilestoneNextAction"))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
- var footroom := Control.new()
- footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(footroom)
+ var root: VBoxContainer=_make_shell()
+ var heading: Label=_label("THE NAME'S OFFICIAL.",24)
+ heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ root.add_child(heading)
+ var scroll_body: VBoxContainer=_scroll_body(root)
+ var card: PanelContainer=_wide_stage(scroll_body,760.0)
+ card.name="MilestoneTwoStage"
+ var content: VBoxContainer=_column()
+ card.add_child(content)
+ var cover:=IdentityPress.new()
+ cover.name="NamedMilestonePrint"
+ content.add_child(cover)
+ cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"milestone",setup.identity_style)
+ var delta: int=int(setup.name_delta)
+ var reaction: Label=_label("Everyone's behind it. +3 band morale when you form the band." if delta==3 else ("Not everyone is convinced. −2 band morale when you form the band." if delta<0 else "Mixed opinions. One band. No morale change."),16)
+ reaction.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ scroll_body.add_child(reaction)
+ root.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
+ root.add_child(_button("BACK TO MENU",_home,"tab","NameMilestoneBackAction"))
+
+func _load_identity_draft() -> void:
+ identity_draft={"logo":setup.logo,"palette":setup.palette,"vibe":setup.vibe,"style":IdentityStyle.effective(setup.identity_style)}
+
 func _start_identity() -> void:
  if setup.start_identity():
+  _load_identity_draft()
   _render()
 
 func _identity() -> void:
- var root: VBoxContainer = _make_shell()
- root.add_child(_label("03 / THE LOOK",24))
- root.add_child(_label("Choose a wordmark, palette and attitude. These choices are cosmetic.",14))
- var body: VBoxContainer = _scroll_body(root)
- # An identity is a poster-width mark, not a portrait-card thumbnail.
- # Reuse the verified bounded original flight-case nine-slice panel.
- var preview: PanelContainer = _wide_stage(body,760.0)
- preview.name = "IdentityPreviewStage"
- var content: VBoxContainer = _column()
- preview.add_child(content)
- # Native live ink, selected C25 previews; no prerendered band-specific art.
- var identity_print: Variant = IdentityPress.new()
- identity_print.name = "IdentityPreviewPrint"
- content.add_child(identity_print)
- identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"preview")
- for family in ["logo","palette","vibe"]:
-  body.add_child(_label(family.to_upper(),17))
-  var options: Array = Model.LOGOS if family=="logo" else (Model.PALETTES if family=="palette" else Model.VIBES)
-  var selected: String = setup.logo if family=="logo" else (setup.palette if family=="palette" else setup.vibe)
-  var buttons := GridContainer.new()
-  buttons.columns=2 if size.x<720 else 3
-  body.add_child(buttons)
-  for item in options:
-   var value: String = str(item)
-   buttons.add_child(_button(("✓ " if value==selected else "")+value.to_upper(),_design.bind(family,value),"tab"))
- # The live design choices may scroll on a 1280x720 landscape screen.
- # Keep the decision control in the shell, not in the scrolling choice list.
- if not response.is_empty():
-  body.add_child(_label(response,14))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
- var action_holder := CenterContainer.new()
- action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- root.add_child(action_holder)
- var finish: Button = _button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction")
- finish.tooltip_text = "Save this band identity and continue to the completed lineup."
- finish.custom_minimum_size.x = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
- finish.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
- action_holder.add_child(finish)
+ if identity_draft.is_empty(): _load_identity_draft()
+ var root: VBoxContainer=_make_shell()
+ root.add_child(_label("03 / NAME & LOOK",24))
+ root.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
+ var wide: bool=size.x>=1100.0 and size.x>size.y
+ var workspace: BoxContainer=HBoxContainer.new() if wide else VBoxContainer.new()
+ workspace.name="IdentityWorkspace"
+ workspace.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ workspace.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ workspace.add_theme_constant_override("separation",20)
+ var controls: VBoxContainer=_column()
+ controls.name="IdentityChoices"
+ var proof_holder:=VBoxContainer.new()
+ proof_holder.name="IdentityPreviewStage"
+ proof_holder.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ var proof_width: float=minf(760.0,size.x-(432.0 if wide else (40.0 if size.x<720.0 else 80.0)))
+ proof_holder.custom_minimum_size.x=maxf(280.0,proof_width)
+ var identity_print:=IdentityPress.new()
+ identity_print.name="IdentityPreviewPrint"
+ proof_holder.add_child(identity_print)
+ identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"])
+ var choices_scroll:=ScrollContainer.new()
+ choices_scroll.name="IdentityChoicesScroll"
+ choices_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ choices_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ choices_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ if wide:
+  root.add_child(workspace)
+  choices_scroll.custom_minimum_size.x=340.0
+  choices_scroll.size_flags_horizontal=Control.SIZE_FILL
+  workspace.add_child(choices_scroll)
+  choices_scroll.add_child(controls)
+  workspace.add_child(proof_holder)
+ else:
+  root.add_child(choices_scroll)
+  choices_scroll.add_child(controls)
+  controls.add_child(proof_holder)
+ controls.add_child(_label("TYPE DIRECTION",16))
+ var type_grid:=GridContainer.new()
+ type_grid.columns=2
+ type_grid.add_theme_constant_override("h_separation",8)
+ type_grid.add_theme_constant_override("v_separation",8)
+ controls.add_child(type_grid)
+ var style: Dictionary=identity_draft["style"]
+ for i in range(IdentityStyle.FONTS.size()):
+  var kind: String=str(IdentityStyle.FONTS[i])
+  var chosen: bool=kind==style["font"]
+  var face: Button=_button(("✓ " if chosen else "")+str(IdentityStyle.FONT_LABELS[i]),_identity_choose.bind("font",kind),"tab","IdentityType_"+kind)
+  face.toggle_mode=true
+  face.set_pressed_no_signal(chosen)
+  face.add_theme_font_override("font",IdentityStyle.face({"version":1,"font":kind,"ink":"ivory"}))
+  face.add_theme_font_size_override("font_size",22)
+  face.custom_minimum_size.y=56.0
+  face.tooltip_text=str(IdentityStyle.FONT_LABELS[i])+" type direction. Free preview."
+  type_grid.add_child(face)
+ controls.add_child(_label("INK COLOUR",16))
+ var ink_grid:=GridContainer.new()
+ ink_grid.columns=2
+ ink_grid.add_theme_constant_override("h_separation",8)
+ ink_grid.add_theme_constant_override("v_separation",8)
+ controls.add_child(ink_grid)
+ for i in range(IdentityStyle.INKS.size()):
+  var ink: String=str(IdentityStyle.INKS[i])
+  var chosen: bool=ink==style["ink"]
+  var choice: Button=_button(("✓ " if chosen else "")+str(IdentityStyle.INK_LABELS[i]),_identity_choose.bind("ink",ink),"tab","IdentityInk_"+ink)
+  choice.toggle_mode=true
+  choice.set_pressed_no_signal(chosen)
+  choice.custom_minimum_size.y=48.0
+  choice.add_theme_font_size_override("font_size",16)
+  var swatch:=ColorRect.new()
+  swatch.name="InkSwatch"
+  swatch.color=Color(str(IdentityStyle.INK_HEX[ink]))
+  swatch.position=Vector2(7,10)
+  swatch.size=Vector2(5,28)
+  swatch.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  choice.add_child(swatch)
+  choice.tooltip_text=str(IdentityStyle.INK_LABELS[i])+" ink. Ivory uses a dark paper proof."
+  ink_grid.add_child(choice)
+ controls.add_child(_label("MARK TREATMENT",16))
+ var treatments:=GridContainer.new()
+ treatments.columns=3
+ controls.add_child(treatments)
+ for raw in Model.LOGOS:
+  var treatment: String=str(raw)
+  var b: Button=_button(("✓ " if identity_draft["logo"]==treatment else "")+treatment.to_upper(),_design.bind("logo",treatment),"tab","IdentityLogo_"+treatment)
+  b.add_theme_font_size_override("font_size",14)
+  treatments.add_child(b)
+ controls.add_child(_label("ATTITUDE",16))
+ var vibes:=GridContainer.new()
+ vibes.columns=2
+ controls.add_child(vibes)
+ for raw in Model.VIBES:
+  var value: String=str(raw)
+  var b: Button=_button(("✓ " if identity_draft["vibe"]==value else "")+value.to_upper(),_design.bind("vibe",value),"tab","IdentityVibe_"+value)
+  b.add_theme_font_size_override("font_size",14)
+  vibes.add_child(b)
+ if not response.is_empty(): controls.add_child(_label(response,16))
+ var footer:=VBoxContainer.new()
+ footer.add_theme_constant_override("separation",6)
+ root.add_child(footer)
+ footer.add_child(_button("APPLY LOOK & FORM THE BAND ›",_finish,"action","IdentityFinishAction"))
+ footer.add_child(_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
+
+func _identity_choose(family: String,value: String) -> void:
+ if setup.screen!="identity" or identity_draft.is_empty(): return
+ if family=="font" and not IdentityStyle.FONTS.has(value): return
+ if family=="ink" and not IdentityStyle.INKS.has(value): return
+ if family not in ["font","ink"]: return
+ identity_draft["style"][family]=value
+ _refresh_identity_preview("Identity"+("Type_" if family=="font" else "Ink_")+value)
+
+func _refresh_identity_preview(focus_name: String) -> void:
+ var old_scroll: ScrollContainer=find_child("IdentityChoicesScroll",true,false) as ScrollContainer
+ var scroll_value: int=old_scroll.scroll_vertical if old_scroll!=null else 0
+ _render()
+ var scroll: ScrollContainer=find_child("IdentityChoicesScroll",true,false) as ScrollContainer
+ if scroll!=null: scroll.set_deferred("scroll_vertical",scroll_value)
+ call_deferred("_restore_boundary_focus",focus_name,-1)
+
 func _design(family: String,value: String) -> void:
- var mark: String = value if family=="logo" else setup.logo
- var palette: String = value if family=="palette" else setup.palette
- var vibe: String = value if family=="vibe" else setup.vibe
- setup.set_identity(mark,palette,vibe)
- call_deferred("_render")
+ if identity_draft.is_empty(): _load_identity_draft()
+ if family=="logo" and Model.LOGOS.has(value): identity_draft["logo"]=value
+ elif family=="palette" and Model.PALETTES.has(value): identity_draft["palette"]=value
+ elif family=="vibe" and Model.VIBES.has(value): identity_draft["vibe"]=value
+ else: return
+ _refresh_identity_preview("IdentityLogo_"+value if family=="logo" else "IdentityVibe_"+value)
+
 func _finish() -> void:
- var result: Dictionary = setup.finish_identity()
- response = str(result.get("message",""))
+ if _identity_committing: return
+ _identity_committing=true
+ if identity_draft.is_empty(): _load_identity_draft()
+ var result: Dictionary=setup.finish_identity(identity_draft["style"],identity_draft)
+ _identity_committing=false
+ response=str(result.get("message",""))
  _render()
 
 func _summary() -> void:
- var root: VBoxContainer = _make_shell()
- var summary_title: Label = _label("YOU'VE STARTED SOMETHING",24)
- summary_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- root.add_child(summary_title)
- var body: VBoxContainer = _scroll_body(root)
- var card: PanelContainer = _wide_stage(body,760.0)
- var info: VBoxContainer = _column()
- card.add_child(info)
- var finished_print: Variant = IdentityPress.new()
- finished_print.name = "CompletedBandPrint"
- info.add_child(finished_print)
- finished_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete")
- info.add_child(_label(setup.game.genre+"  /  "+setup.vibe+"  /  "+setup.logo,14))
- var roster_grid := GridContainer.new()
- roster_grid.columns = 2 if size.x >= 840 else 1
- roster_grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- roster_grid.add_theme_constant_override("h_separation",24)
- roster_grid.add_theme_constant_override("v_separation",6)
- info.add_child(roster_grid)
- for p in setup.game.roster:
-  roster_grid.add_child(_label(str(p["name"])+(" — LEAD VOCALS" if str(p["id"])==setup.lead_vocal_id else " — "+str(p.get("primary_role","Musician"))),14))
- info.add_child(_label("TALENT REMAINING  "+str(setup.remaining()),16))
- info.add_child(_label("STARTING MORALE  "+str(setup.game.career.get("morale",55)),16))
- var action_holder := CenterContainer.new()
- action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- body.add_child(action_holder)
- var action_column: VBoxContainer = _column()
- var safe_width: float = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
- action_column.custom_minimum_size.x = safe_width
- action_column.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
- action_holder.add_child(action_column)
- action_column.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
- action_column.add_child(_button("BACK TO MENU",_home,"tab"))
+ var root: VBoxContainer=_make_shell()
+ var heading: Label=_label("YOU'VE STARTED SOMETHING",22)
+ heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ root.add_child(heading)
+ var body: VBoxContainer=_scroll_body(root)
+ var card: PanelContainer=_wide_stage(body,760.0)
+ card.name="ConfirmedIdentityStage"
+ var content: VBoxContainer=_column()
+ card.add_child(content)
+ var cover:=IdentityPress.new()
+ cover.name="CompletedBandPrint"
+ content.add_child(cover)
+ cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete",setup.identity_style)
+ var facts: Label=_label(setup.game.genre+" / "+setup.vibe+"  •  TALENT "+str(setup.remaining())+"  •  MORALE "+str(setup.game.career.get("morale",55)),14)
+ facts.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ body.add_child(facts)
+ # The collectible cover waits for an explicit action. No timer settles again.
+ root.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+ root.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
 func _start_playing() -> void:
  if setup.start_playing():
   _render()

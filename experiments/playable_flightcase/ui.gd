@@ -1,4 +1,6 @@
 extends Control
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 signal lineup_confirmed
 signal back_requested
@@ -144,7 +146,8 @@ func _rebuild() -> void:
   var brand: Control = Shared.brand(52.0 if mobile else 36.0)
   brand.name = "PracticeBrand"
   header.add_child(brand)
-  var band_name: Label = _label(str(game.career.get("band_name","LIVIN' THE DREAM")),18)
+  var band_name := BandMark.new()
+  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),22,true,true)
   band_name.name = "PracticeBandName"
   band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
   band_name.max_lines_visible = 2

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "fonts": [
+    {
+      "family": "Anton",
+      "direction": "block",
+      "file": "experiments/playable_flightcase/fonts/identity/Anton-Regular.ttf",
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "bytes": 170812,
+      "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/anton/Anton-Regular.ttf",
+      "upstream_commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+      "upstream_git_blob": "4d65707db9d8663ccfa99cd28cd3a4e0025be178",
+      "versions": [
+        "Version 2.116; ttfautohint (v1.8.3)"
+      ],
+      "license": "OFL-1.1",
+      "license_file": "experiments/playable_flightcase/fonts/identity/Anton-OFL.txt",
+      "license_sha256": "ee67e6ee22790b7929f1a3769ca2801d565c64b5a9096942c1adf5596de9c9e4",
+      "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/anton/OFL.txt",
+      "copyright": [
+        "Copyright 2020 The Anton Project Authors (https://github.com/googlefonts/AntonFont.git)"
+      ],
+      "transformation": "None; byte-original font and licence. Runtime NotoSC uses weight400, no binary instancing/subsetting.",
+      "status": "S57 independently verified source/licence intake; native appearance pending; owner approval false"
+    },
+    {
+      "family": "BarlowCondensed",
+      "direction": "condensed",
+      "file": "experiments/playable_flightcase/fonts/identity/BarlowCondensed-SemiBold.ttf",
+      "sha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+      "bytes": 109428,
+      "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/barlowcondensed/BarlowCondensed-SemiBold.ttf",
+      "upstream_commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+      "upstream_git_blob": "9df66576492bee4bd0559066825472808fa98adc",
+      "versions": [
+        "Version 1.408"
+      ],
+      "license": "OFL-1.1",
+      "license_file": "experiments/playable_flightcase/fonts/identity/BarlowCondensed-OFL.txt",
+      "license_sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f",
+      "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/barlowcondensed/OFL.txt",
+      "copyright": [
+        "Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)"
+      ],
+      "transformation": "None; byte-original font and licence. Runtime NotoSC uses weight400, no binary instancing/subsetting.",
+      "status": "S57 independently verified source/licence intake; native appearance pending; owner approval false"
+    },
+    {
+      "family": "PermanentMarker",
+      "direction": "handpainted",
+      "file": "experiments/playable_flightcase/fonts/identity/PermanentMarker-Regular.ttf",
+      "sha256": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5",
+      "bytes": 74632,
+      "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/apache/permanentmarker/PermanentMarker-Regular.ttf",
+      "upstream_commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+      "upstream_git_blob": "3218fc5b3d395c3a3fc207fdf17a27bb32af3242",
+      "versions": [
+        "Version 1.001"
+      ],
+      "license": "Apache-2.0",
+      "license_file": "experiments/playable_flightcase/fonts/identity/PermanentMarker-LICENSE.txt",
+      "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/apache/permanentmarker/LICENSE.txt",
+      "copyright": [
+        "Copyright (c) 2010 by Font Diner, Inc. All rights reserved."
+      ],
+      "transformation": "None; byte-original font and licence. Runtime NotoSC uses weight400, no binary instancing/subsetting.",
+      "status": "S57 independently verified source/licence intake; native appearance pending; owner approval false"
+    },
+    {
+      "family": "IBMPlexMono",
+      "direction": "mono",
+      "file": "experiments/playable_flightcase/fonts/identity/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580,
+      "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "upstream_commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+      "upstream_git_blob": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "versions": [
+        "Version 2.3"
+      ],
+      "license": "OFL-1.1",
+      "license_file": "experiments/playable_flightcase/fonts/identity/IBMPlexMono-OFL.txt",
+      "license_sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/ibmplexmono/OFL.txt",
+      "copyright": [
+        "Copyright 2017 IBM Corp. All rights reserved."
+      ],
+      "transformation": "None; byte-original font and licence. Runtime NotoSC uses weight400, no binary instancing/subsetting.",
+      "status": "S57 independently verified source/licence intake; native appearance pending; owner approval false"
+    },
+    {
+      "family": "NotoSansSC",
+      "direction": "fallback_cjk",
+      "file": "experiments/playable_flightcase/fonts/identity/NotoSansSC.ttf",
+      "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "bytes": 17772300,
+      "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf",
+      "upstream_commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+      "upstream_git_blob": "fb0637bafbcd804fe32152370a1225990745b4bc",
+      "versions": [
+        "Version 2.004-H2;hotconv 1.0.118;makeotfexe 2.5.65603"
+      ],
+      "license": "OFL-1.1",
+      "license_file": "experiments/playable_flightcase/fonts/identity/NotoSansSC-OFL.txt",
+      "license_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "license_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/notosanssc/OFL.txt",
+      "copyright": [
+        "(c) 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'."
+      ],
+      "transformation": "None; byte-original font and licence. Runtime NotoSC uses weight400, no binary instancing/subsetting.",
+      "status": "S57 independently verified source/licence intake; native appearance pending; owner approval false"
+    }
+  ],
+  "source_intake_manifest": "/workspace/work/identity-20261101/s57/font-intake/FONT_MANIFEST.json",
+  "source_intake_sha256": "2c514781ed2ca41b66e4747c784b9a70157ce4e7e87d3f5b48f7d8b5ed2ab306",
+  "system_fallback": false,
+  "coverage": "Four faces plus PlexMono, existing DejaVuMono and NotoSC400 explicit fallback. All55 intake codepoints covered; no blanket Unicode/shaping claim.",
+  "original_quarantine": "Barlow/Plex reverified from official pinned source before deliberate S57 promotion; original quarantine and old fonts untouched.",
+  "owner_approved": false
+}

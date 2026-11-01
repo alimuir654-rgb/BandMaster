@@ -26,6 +26,8 @@ const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
 const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_desk.gd")
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -238,7 +240,8 @@ func _header(parent: Node) -> void:
  var words := _box(2)
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(words)
- var name_label: Label = C.label(str(game.career.get("band_name","YOUR BAND")),18)
+ var name_label := BandMark.new()
+ name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),24,true,true)
  name_label.name = "CareerBandName"
  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
  name_label.max_lines_visible = 2

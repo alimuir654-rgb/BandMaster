@@ -1,145 +1,158 @@
 extends VBoxContainer
-## S37: live editorial identity from the selected C25 previews only.
-## C25 contact-sheet crops are NOT independent high-res portrait masters.
-## Presentation-only: no game mutation, controls or save data.
+## Native selected-roster cover. Raw C25 previews remain unchanged.
+## New full-length sources are shared-origin generated layers, not photographs.
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const PAPER = preload("res://components/control_atlas/art/paper_surface.png")
+const Style = preload("res://experiments/playable_flightcase/identity_style.gd")
+const Mark = preload("res://experiments/playable_flightcase/band_mark.gd")
+const CAST_PATH := "res://experiments/playable_flightcase/art/identity/CAST.json"
 var member_ids: Array[String] = []
+var _full_length := false
+var _regions: Dictionary = {}
 
-func _ink(value: String, points: int, subdued: bool = false) -> Label:
- var label: Label = Kit.label(value,"notepaper",points)
- label.add_theme_color_override("font_color",Color("63584d") if subdued else Color("28231e"))
- label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- label.mouse_filter = Control.MOUSE_FILTER_IGNORE
- label.focus_mode = Control.FOCUS_NONE
- return label
+func _ink(value: String, points: int, muted: bool = false, dark: bool = false) -> Label:
+ var result: Label = Kit.label(value,"notepaper",points)
+ result.add_theme_color_override("font_color",Color("c4bdaa") if dark and muted else (Color("f1e9d8") if dark else (Color("655b4e") if muted else Color("28231e"))))
+ result.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+ result.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ result.focus_mode=Control.FOCUS_NONE
+ result.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ return result
 
-func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview") -> void:
+func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview", style: Dictionary = {}) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
  member_ids.clear()
- mouse_filter = Control.MOUSE_FILTER_IGNORE
- focus_mode = Control.FOCUS_NONE
- size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ _regions.clear()
+ mouse_filter=Control.MOUSE_FILTER_IGNORE
+ focus_mode=Control.FOCUS_NONE
+ size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",0)
- var compact: bool = variant=="preview"
- var tiny: bool = viewport_width<480.0
- var narrow: bool = viewport_width<720.0
- var paper := PanelContainer.new()
- paper.name = "IdentityPressPaper"
- paper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
- paper.focus_mode = Control.FOCUS_NONE
- var stock := StyleBoxTexture.new()
- stock.texture = PAPER
+ var compact: bool=variant=="preview"
+ var tiny: bool=viewport_width<480.0
+ var short: bool=get_viewport_rect().size.y<800.0
+ var selected_style: Dictionary=Style.effective(style,palette)
+ var dark: bool=Style.dark_paper(selected_style)
+ var paper:=PanelContainer.new()
+ paper.name="IdentityPressPaper"
+ paper.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ paper.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ paper.focus_mode=Control.FOCUS_NONE
+ var stock:=StyleBoxTexture.new()
+ stock.texture=PAPER
  stock.set_texture_margin_all(8.0)
- stock.set_content_margin_all(6.0 if compact else (9.0 if tiny else 14.0))
+ stock.set_content_margin_all(12.0 if tiny else 18.0)
+ if dark: stock.modulate_color=Color("30352f")
  paper.add_theme_stylebox_override("panel",stock)
  add_child(paper)
- var content := VBoxContainer.new()
- content.add_theme_constant_override("separation",2 if compact else (4 if tiny else 7))
- content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ var content:=VBoxContainer.new()
+ content.add_theme_constant_override("separation",5 if tiny else 7)
+ content.mouse_filter=Control.MOUSE_FILTER_IGNORE
  paper.add_child(content)
- # One truly bounded press masthead. Two shrinkable HBox labels made the
- # right-hand edition wrap one character per line at 390px in native GL.
- var edition_text: String = "FIRST PRESS / 002" if variant=="milestone" else ("BAND PROFILE / 001" if variant=="complete" else "IDENTITY PROOF")
- var mast: Label = _ink("LIVIN' THE DREAM   /   "+edition_text,9 if tiny else 11,true)
- mast.name = "IdentityPressMasthead"
- mast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- mast.autowrap_mode = TextServer.AUTOWRAP_OFF
+ var mast: Label=_ink("YOUR FIRST PRESS" if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF"),12,true,dark)
+ mast.name="IdentityPressMasthead"
  content.add_child(mast)
- var rule := ColorRect.new()
- rule.name = "IdentityPressRule"
- rule.color = Color("756654")
- rule.custom_minimum_size.y = 1.0
- rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
- content.add_child(rule)
- var logo_text: String = band_name.to_upper()
- if logo=="Monogram":
-  logo_text = ""
-  for part in band_name.split(" ",false):
-   if not part.is_empty():
-    logo_text += part.substr(0,1).to_upper()
-  logo_text = logo_text.substr(0,6)
- elif logo=="Stamp":
-  logo_text = "— " + logo_text + " —"
- var mark: Label = _ink(logo_text,23 if tiny else (27 if narrow else 35))
- mark.name = "IdentityLiveMark"
- mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- mark.add_theme_color_override("font_color",Color("764c25") if palette=="Amber / Charcoal" else (Color("332e2b") if palette=="White / Ink" else Color("8b3737")))
+ var mark:=Mark.new()
+ mark.name="IdentityLiveMark"
+ var points: int=(46 if tiny else 62) if compact else (54 if tiny else 72)
+ if short and not compact: points=54
+ mark.configure(band_name,logo,selected_style,points,false,true)
  content.add_child(mark)
- # Monograms must always carry the complete player-entered Unicode name.
- var full: Label = _ink(band_name,10 if tiny else 12,true)
- full.name = "IdentityFullName"
- full.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- full.visible = logo=="Monogram"
+ var full: Label=_ink(band_name,16,false,dark)
+ full.name="IdentityFullName"
+ full.visible=logo=="Monogram"
  content.add_child(full)
- var row := HBoxContainer.new()
- row.name = "IdentitySelectedPortraitRow"
- row.alignment = BoxContainer.ALIGNMENT_CENTER
- row.add_theme_constant_override("separation",3 if tiny else 7)
- row.mouse_filter = Control.MOUSE_FILTER_IGNORE
- content.add_child(row)
- var count: int = mini(roster.size(),6)
- var usable: float = maxf(190.0,minf(610.0,viewport_width-(98.0 if narrow else 158.0)))
- var photo_width: float = minf(44.0 if compact else (70.0 if tiny else 82.0),floorf((usable-float((count-1)*(3 if tiny else 7)))/float(maxi(count,1))))
- var names: PackedStringArray = PackedStringArray()
- var vocalist_name: String = ""
- for person_variant in roster.slice(0,count):
-  var person: Dictionary = person_variant
-  var pid: String = str(person.get("id",""))
-  if pid.is_empty() or member_ids.has(pid):
-   continue
+ var rule:=ColorRect.new()
+ rule.name="IdentityPressRule"
+ rule.color=Style.ink(selected_style)
+ rule.custom_minimum_size.y=1.0
+ rule.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ content.add_child(rule)
+ var entries: Array=[]
+ var names: PackedStringArray=PackedStringArray()
+ var vocalist_name: String=""
+ for raw in roster.slice(0,6):
+  var person: Dictionary=raw
+  var pid: String=str(person.get("id",""))
+  if pid.is_empty() or member_ids.has(pid): continue
   member_ids.append(pid)
-  var display_name: String = str(person.get("name","Musician"))
-  names.append(display_name)
-  if pid==lead_id:
-   vocalist_name = display_name
-  var cell := VBoxContainer.new()
-  cell.name = "IdentityMember_"+pid
-  cell.custom_minimum_size.x = photo_width
-  cell.add_theme_constant_override("separation",1)
-  cell.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  cell.focus_mode = Control.FOCUS_NONE
-  row.add_child(cell)
-  var canonical: Dictionary = Cast.by_id(pid)
-  var source: String = str(canonical.get("portrait_preview",""))
-  if not source.is_empty() and ResourceLoader.exists(source):
-   var texture: Texture2D = load(source) as Texture2D
-   if texture!=null and texture.get_width()>=200 and texture.get_height()>=200:
-    var portrait := TextureRect.new()
-    portrait.name = "IdentityPortrait_"+pid
-    portrait.set_meta("cast_id",pid)
-    portrait.texture = texture
-    portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-    portrait.custom_minimum_size = Vector2(photo_width,photo_width)
-    portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    portrait.focus_mode = Control.FOCUS_NONE
-    portrait.tooltip_text = display_name+(" — lead vocals" if pid==lead_id else " — "+str(person.get("primary_role","Musician")))
-    cell.add_child(portrait)
+  names.append(str(person.get("name","Musician")))
+  entries.append(person)
+  if pid==lead_id: vocalist_name=str(person.get("name",""))
+ var manifest: Dictionary={}
+ if FileAccess.file_exists(CAST_PATH):
+  var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(CAST_PATH))
+  if parsed is Dictionary: manifest=parsed.get("people",{}) as Dictionary
+ _full_length=not entries.is_empty()
+ for person in entries:
+  var entry: Dictionary=manifest.get(str(person["id"]),{})
+  if entry.is_empty() or not ResourceLoader.exists(str(entry.get("texture",""))): _full_length=false
+ var stage:=Control.new()
+ stage.name="IdentitySelectedPortraitRow"
+ stage.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ stage.focus_mode=Control.FOCUS_NONE
+ stage.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ stage.custom_minimum_size.y=(145.0 if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))) if _full_length else (75.0 if compact else 120.0)
+ content.add_child(stage)
+ var views: Array[TextureRect]=[]
+ for person in entries:
+  var pid: String=str(person["id"])
+  var photo:=TextureRect.new()
+  photo.name="IdentityPortrait_"+pid
+  photo.set_meta("cast_id",pid)
+  photo.set_meta("full_length",_full_length)
+  photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+  photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  photo.focus_mode=Control.FOCUS_NONE
+  photo.tooltip_text=str(person.get("name","Musician"))+(" — lead vocals" if pid==lead_id else " — "+str(person.get("primary_role","Musician")))
+  if _full_length:
+   var entry: Dictionary=manifest[pid]
+   var rect: Array=entry["region"]
+   var atlas:=AtlasTexture.new()
+   atlas.atlas=load(str(entry["texture"])) as Texture2D
+   atlas.region=Rect2(float(rect[0]),float(rect[1]),float(rect[2]),float(rect[3]))
+   atlas.filter_clip=true
+   photo.texture=atlas
+   photo.set_meta("source_region",atlas.region)
+   _regions[pid]=entry.duplicate(true)
   else:
-   var missing: Label = _ink("NO PHOTO",9,true)
-   missing.custom_minimum_size = Vector2(photo_width,photo_width)
-   missing.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-   missing.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-   cell.add_child(missing)
-  if not compact:
-   var credit: Label = _ink(display_name,10 if tiny else 11)
-   credit.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-   cell.add_child(credit)
-   if pid==lead_id:
-    var lead: Label = _ink("LEAD",9,true)
-    lead.name = "IdentityLeadVocal"
-    lead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    cell.add_child(lead)
- var footer_text: String = " · ".join(names)+"  /  LEAD: "+vocalist_name if compact else "YOUR SOUND  /  "+palette.to_upper()+"  /  "+vibe.to_upper()
- var footer: Label = _ink(footer_text,9 if tiny else 11,true)
- footer.name = "IdentityPressFooter"
- footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   var original: Dictionary=Cast.by_id(pid)
+   var source: String=str(original.get("portrait_preview",person.get("portrait_preview","")))
+   if not source.is_empty() and ResourceLoader.exists(source): photo.texture=load(source) as Texture2D
+  stage.add_child(photo)
+  views.append(photo)
+ var layout: Callable=func():
+  if not is_instance_valid(stage) or not stage.is_inside_tree(): return
+  var count: int=views.size()
+  if count==0: return
+  var factor: float=0.90 if _full_length else 1.0
+  var natural: float=stage.size.y*(0.46 if _full_length else 1.0)
+  var width: float=minf(natural,stage.size.x/(1.0+float(count-1)*factor))
+  var total: float=width*(1.0+float(count-1)*factor)
+  for i in range(count):
+   views[i].position=Vector2((stage.size.x-total)*0.5+float(i)*width*factor,0)
+   views[i].size=Vector2(width,stage.size.y)
+ stage.resized.connect(layout)
+ layout.call_deferred()
+ var credit: Label=_ink(" · ".join(names).to_upper(),14,true,dark)
+ credit.name="IdentityPressMembers"
+ content.add_child(credit)
+ if not compact:
+  var lead: Label=_ink("LEAD VOCALS  /  "+vocalist_name.to_upper(),12,true,dark)
+  lead.name="IdentityLeadVocal"
+  content.add_child(lead)
+ var footer: Label=_ink("THE BAND IS FORMED." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK."),16,false,dark)
+ footer.name="IdentityPressFooter"
  content.add_child(footer)
 
 func visible_ids() -> Array[String]:
  return member_ids.duplicate()
+
+func uses_full_length() -> bool:
+ return _full_length
+
+func source_regions() -> Dictionary:
+ return _regions.duplicate(true)

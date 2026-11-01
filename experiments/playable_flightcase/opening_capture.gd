@@ -74,7 +74,16 @@ func _check_identity_press(screen: Control, component_name: String, expected_nam
   failures.append("S37 identity press missing source paper: "+component_name)
  for pid in ["cast_jack","cast_zoe","cast_casey"]:
   var photo: TextureRect = proof.find_child("IdentityPortrait_"+pid,true,false) as TextureRect
-  if photo==null or photo.texture==null or photo.texture.get_width()<200 or photo.texture.get_width()>260:
+  var source_ok: bool=photo!=null and photo.texture!=null
+  if source_ok and proof.uses_full_length():
+   var entry: Dictionary=proof.source_regions().get(pid,{})
+   var rect: Array=entry.get("region",[])
+   source_ok=photo.texture is AtlasTexture and rect.size()==4
+   if source_ok:
+    source_ok=photo.texture.region==Rect2(float(rect[0]),float(rect[1]),float(rect[2]),float(rect[3])) and photo.texture.atlas.resource_path==str(entry.get("texture","")) and photo.texture.get_height()>600 and str(photo.get_meta("cast_id",""))==pid
+  elif source_ok:
+   source_ok=photo.texture.get_width()>=200 and photo.texture.get_width()<=260
+  if not source_ok:
    failures.append("S37 portrait source mismatch: "+component_name+" / "+pid)
   elif photo.focus_mode!=Control.FOCUS_NONE or photo.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
    failures.append("S37 portrait takes input: "+component_name+" / "+pid)
@@ -1594,6 +1603,8 @@ func take() -> void:
   else:
    await _draw_screen("identity",w,h)
  if screen.setup.screen=="identity":
+  var before_identity_preview: Dictionary=screen.setup.snapshot()
+  var before_identity_file: String=FileAccess.get_file_as_string(OpeningModel.SAVE_PATH)
   var identity_stage: Control = screen.find_child("IdentityPreviewStage",true,false)
   var expected_identity_width: float = minf(600.0,float(w) - (40.0 if w<720 else 80.0))
   if identity_stage==null or identity_stage.get_global_rect().size.x < expected_identity_width-2.0:
@@ -1606,7 +1617,7 @@ func take() -> void:
     stamp_button=b
     break
   await click_action(stamp_button)
-  if screen.setup.logo!="Stamp":
+  if screen.identity_draft.get("logo","")!="Stamp":
    failures.append("logo selection pointer did not update preview")
   else:
    await _draw_screen("identity_stamp",w,h)
@@ -1614,6 +1625,8 @@ func take() -> void:
    if updated_preview==null or updated_preview.get_global_rect().size.x < expected_identity_width-2.0:
     failures.append("logo choice changed preview geometry")
    _check_identity_press(screen,"IdentityPreviewPrint","Side Street","Stamp")
+   if screen.setup.snapshot()!=before_identity_preview or FileAccess.get_file_as_string(OpeningModel.SAVE_PATH)!=before_identity_file:
+    failures.append("S57 free identity preview mutated model or saved draft")
   var finish_button: Button = screen.find_child("IdentityFinishAction",true,false)
   if finish_button==null or finish_button.get_global_rect().size.y<44.0 or finish_button.get_global_rect().end.y>float(h)-4.0:
    failures.append("S37 identity Finish action below first fold")
