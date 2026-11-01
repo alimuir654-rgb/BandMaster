@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s67_owner_image_pills_preflight",
-  "next_action": "S67 ONE radio-presentation family revision: image-led brief/paidreceipt/savedresponse withapprovedA01wholemicpair, 3inert16pxdelta pills actualafter-before, one short animated summary, full tracks/IDs/before-after/longsavednote behind48pxDetails. Originalmodel/receipts/save/Finance/actions/artbytes unchanged. RecordingDesk ONLYsourceedit,379inputs/378protected/all54Scripts. OptionalprivateownerA05reviewblock selectednativePNG/prose only, no code/history.",
+  "status": "s67_closed_HOLD",
+  "next_action": "S67 HOLD. Future separately scoped repair must give native16px delta pills readable bounded widths at phone and wide sizes, then complete four focused journeys/native art review. No automatic continuation, source edits, APK/ZIP or Page delivery in this closed window.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3279,7 +3279,14 @@
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
-  "latest_unverified_candidate": null,
+  "latest_unverified_candidate": {
+    "source_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+    "status": "HOLD",
+    "native_verified": false,
+    "visual_verdict": "hold",
+    "closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
+    "latest_verified_source": "4bbf6a1baa370858beed081fe1cd17b331dd1e19"
+  },
   "pending_candidate_source_sha": null,
   "historical_held_candidates": [
     {
@@ -3291,7 +3298,7 @@
     }
   ],
   "last_completed_session": "S66",
-  "writer": "S67-owner-image-pills-20261101T2047",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3459,9 +3466,9 @@
     "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
     "closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
-  "candidate_source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
-  "candidate_native_verified": true,
-  "candidate_status": "verified_local_only",
+  "candidate_source_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+  "candidate_native_verified": false,
+  "candidate_status": "HOLD_phone_pill_wrap_regression",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -3661,5 +3668,12 @@
   "implemented_local_feature_slices": {
     "F10": "ONE local-radio pilot; overallfeaturePARTIAL, magazine/socialfuture, ownerresultreviewpending"
   },
-  "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule."
+  "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
+  "released_at": "2026-11-01T21:07:17.805094+00:00",
+  "last_writer": "S67-owner-image-pills-20261101T2047",
+  "source_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
+  "source_phase": "closed_hold_readonly"
 }

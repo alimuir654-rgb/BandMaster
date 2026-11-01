@@ -38,7 +38,7 @@
     "BM-46"
   ],
   "id": "S67",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "baseline_sha": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
@@ -86,9 +86,23 @@
     "Physicaldevice/maximal-title/CLEAR variants remainhonestlimits unlessactuallytested. Sameexistingwriteend/hardstop, no automaticextension."
   ],
   "issue_log_review": {
-    "bytes": 778126,
-    "sha256": "7f00c453962fbe18816e1c0015492ffccd2a0ef2ad87a243f7babc10384f3f65"
+    "bytes": 781939,
+    "sha256": "73f27074904d20635440dcc196c76ff346baf59ee6ff198045a7f57870ce0e5a"
   },
   "original_source_freeze_target": "2026-11-01T20:55:00Z",
-  "bounded_repair_479": "ONEGridhorizontalshrinkproperty foractualwidecapsules, newdemonstratedgapwithinexistingwriteend. No target/endautomaticextension; proof21:07/HOLDifincomplete."
+  "bounded_repair_479": "ONEGridhorizontalshrinkproperty foractualwidecapsules, newdemonstratedgapwithinexistingwriteend. No target/endautomaticextension; proof21:07/HOLDifincomplete.",
+  "closed_at": "2026-11-01T21:07:17.805094+00:00",
+  "tested_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+  "source_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+  "candidate_native_verified": false,
+  "closeout": {
+    "tested_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+    "evidence": [
+      "/workspace/work/radio-visual-20261101/s67/closeout.json",
+      "/workspace/work/radio-visual-20261101/s67/radio-c647e8e-phone/execution.json"
+    ],
+    "visual_verdict": "hold",
+    "next_action": "S67 HOLD. Future separately scoped repair must give native16px delta pills readable bounded widths at phone and wide sizes, then complete four focused journeys/native art review. No automatic continuation, source edits, APK/ZIP or Page delivery in this closed window.",
+    "new_issue_review": "477\u2013481 retained including rejected480 new_issue enum receipt corrected to recurrence;481 explicitly corrects480 noERROR wording. No gate/assertion weakening or failed-source promotion."
+  }
 }
