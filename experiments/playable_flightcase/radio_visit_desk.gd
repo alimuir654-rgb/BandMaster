@@ -74,13 +74,14 @@ static func _brief(host, parent: Node, compact: bool) -> void:
  var selected: Dictionary=_selected(host)
  var completed: bool=bool(selected.get("completed",false))
  var saved: Dictionary=selected.get("saved_response",{})
- var text: String="Visit the student-radio room with this released demo. Two questions, at your pace. £20 and one day only at the final wrap."
+ var text: String="Your demo. Two questions. At your pace."
  if completed:text="This radio campaign is already saved. No interview transcript was recorded." if saved.is_empty() or not saved.has("interview_v1") else "Your student-radio visit is saved. Read the replies and the response whenever you like."
  if not bool(selected.get("ok",false)):text=str(selected.get("message","Choose a saved released demo."))
  var nodes: Dictionary=_scene(host,parent,compact,text,"SAVED RESPONSE" if completed else "BEFORE THE VISIT")
  if not str(host.notice).is_empty():Scene.copy(host,nodes["words"],str(host.notice),"StudioNotice")
  if completed and not saved.is_empty():Scene.pills(host,nodes["words"],saved["before"],saved["after"],false)
  var details: VBoxContainer=_details(host,nodes["body"],selected.get("session",{}),"saved" if completed else "brief")
+ if not completed:Scene.copy(host,details,"Visit the student-radio room with this released demo. Two questions, at your pace. £20 and one day only at the final wrap.","StudioVisitBrief")
  if bool(selected.get("ok",false)):_demo_details(host,details,selected["session"])
  if completed:
   if not saved.is_empty():Scene.copy(host,details,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
@@ -243,7 +244,9 @@ static func perform(host, verb: String, arg: String, cookie: Dictionary) -> void
  else:
   host.recording_mode="archive"
   host._pending_focus="RecordingSelectAction"
- host._scroll_position=0
+ if bool(result.get("changed",false)):
+  host._scroll_position=0
+  if is_instance_valid(host._scroll):host._scroll.scroll_vertical=0
  host._render()
 
 static func receipt(host, parent: Node, compact: bool) -> void:

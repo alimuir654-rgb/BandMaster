@@ -91,8 +91,8 @@
   "started_at": "2026-11-01T22:24:52.446505+00:00",
   "scope_end": "2026-11-02T00:45:00Z",
   "source_freeze_target": "2026-11-01T23:35:00Z",
-  "source_write_allowed": true,
-  "delegated_source_writer": "/root/render_support",
+  "source_write_allowed": false,
+  "delegated_source_writer": null,
   "contract": "docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "issue_log_review": {
     "bytes": 822819,
@@ -104,7 +104,7 @@
     "source_sha256": "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda",
     "scope": "Exactstudio/presenter combinedsource full4:3 only, not finishedgame/animation"
   },
-  "source_phase": "bounded_transcript_copy_firstfold_repair502503",
+  "source_phase": "transcript_guard_shortbrief_frozen_pending_final_proof",
   "repair_paths": [
     "experiments/playable_flightcase/activity_scene.gd",
     "experiments/playable_flightcase/radio_visit_desk.gd"

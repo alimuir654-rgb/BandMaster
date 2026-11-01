@@ -5,7 +5,7 @@ const C = preload("res://experiments/playable_flightcase/career_components.gd")
 
 static func copy(host, parent: Node, text: String, name: String, points: int=16, muted: bool=false) -> Label:
  var label: Label=host._copy(parent,text,points,muted)
- label.name=name
+ if not name.is_empty():label.name=name
  label.mouse_filter=Control.MOUSE_FILTER_IGNORE
  label.focus_mode=Control.FOCUS_NONE
  return label
