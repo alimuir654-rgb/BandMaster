@@ -20,7 +20,7 @@ func _ink(value: String, points: int, muted: bool = false, dark: bool = false) -
  result.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  return result
 
-func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview", style: Dictionary = {}) -> void:
+func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview", style: Dictionary = {}, layout_hint: String = "") -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -33,6 +33,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var compact: bool=variant=="preview"
  var tiny: bool=viewport_width<480.0
  var short: bool=is_inside_tree() and get_viewport_rect().size.y<800.0
+ var hero: bool=layout_hint=="hero"
+ var viewport_height: float=get_viewport_rect().size.y if is_inside_tree() else 844.0
  var selected_style: Dictionary=Style.effective(style,palette)
  var dark: bool=Style.dark_paper(selected_style)
  var paper:=PanelContainer.new()
@@ -58,6 +60,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  mark.name="IdentityLiveMark"
  var points: int=(46 if tiny else 62) if compact else (54 if tiny else 72)
  if short and not compact: points=54
+ if hero: points=62 if viewport_height<700.0 else (72 if short else 84)
  mark.configure(band_name,logo,selected_style,points,false,true)
  content.add_child(mark)
  var full: Label=_ink(band_name,16,false,dark)
@@ -94,7 +97,10 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stage.mouse_filter=Control.MOUSE_FILTER_IGNORE
  stage.focus_mode=Control.FOCUS_NONE
  stage.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- stage.custom_minimum_size.y=(145.0 if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))) if _full_length else (75.0 if compact else 120.0)
+ var body_height: float=(145.0 if tiny else 215.0) if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))
+ if variant=="formation": body_height=210.0 if short else 240.0
+ if hero: body_height=clampf(viewport_height-400.0,240.0,410.0)
+ stage.custom_minimum_size.y=body_height if _full_length else (75.0 if compact else 120.0)
  content.add_child(stage)
  var views: Array[TextureRect]=[]
  for person in entries:
@@ -128,7 +134,9 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   if not is_instance_valid(stage) or not stage.is_inside_tree(): return
   var count: int=views.size()
   if count==0: return
-  var factor: float=0.90 if _full_length else 1.0
+  # Full-length figures share a floor and naturally overlap at the shoulders.
+  # Six isolated card widths would shrink the entire band on a phone.
+  var factor: float=(0.70 if count<=3 else (0.60 if count==4 else (0.50 if count==5 else 0.40))) if _full_length else 1.0
   var natural: float=stage.size.y*(0.46 if _full_length else 1.0)
   var width: float=minf(natural,stage.size.x/(1.0+float(count-1)*factor))
   var total: float=width*(1.0+float(count-1)*factor)

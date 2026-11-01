@@ -104,13 +104,21 @@ func journey57() -> bool:
  if not check57(model.begin_new() and model.set_genre("Post-punk") and model.to_recruit(),"real model prepares isolated original Post-punk opening"): return false
  for pid in ["cast_jack","cast_zoe","cast_casey"]:
   if not check57(bool(model.recruit(pid).get("ok",false)),"real model recruits fixture ID "+pid): return false
- if not check57(bool(model.choose_vocal("cast_jack").get("ok",false)) and bool(model.confirm_lineup().get("ok",false)) and model.start_naming(),"real confirmed trio reaches naming"): return false
+ if not check57(bool(model.choose_vocal("cast_jack").get("ok",false)) and bool(model.confirm_lineup().get("ok",false)),"real confirmed trio reaches first held milestone"): return false
  screen57=UI.new()
  screen57.setup=model
  screen57.showing_menu=false
  screen57.reduced_motion=true
  root.add_child(screen57)
  await settle57()
+ var formation: Variant=named57("BandFormationPoster")
+ check57(formation!=null and formation.visible_ids()==["cast_jack","cast_zoe","cast_casey"],"pre-name cover preserves actual selected trio")
+ var founding_group: Variant=named57("SelectedBandLineup")
+ check57(founding_group!=null and founding_group.uses_full_length(),"pre-name formation uses same actual full-length compositor")
+ for pid in ["cast_jack","cast_zoe","cast_casey"]:
+  check57(named57("LineupPortrait_"+pid)!=null and named57("LineupRole_"+pid)!=null,"pre-name native picture and role match actual selected ID")
+ await shot57("formation-milestone")
+ if not await click57("MilestoneNextAction"): return false
  await shot57("name-editor-empty")
  var field: LineEdit=named57("FreeBandName") as LineEdit
  if not check57(field!=null and field.editable,"actual editable name field"): return false

@@ -134,6 +134,7 @@ func _rebuild() -> void:
  root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
  outer.add_child(root_box)
  var header := HBoxContainer.new()
+ header.custom_minimum_size.y=52.0 if mobile else 36.0
  header.add_theme_constant_override("separation",12)
  if game.phase=="recruit":
   var title := _label("AUDITIONS",26 if not mobile else 21)
@@ -143,11 +144,11 @@ func _rebuild() -> void:
   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   header.add_child(title)
  else:
-  var brand: Control = Shared.brand(52.0 if mobile else 36.0)
+  var brand: Control = Shared.brand(26.0 if mobile else 24.0)
   brand.name = "PracticeBrand"
   header.add_child(brand)
   var band_name := BandMark.new()
-  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),22,true,true)
+  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true)
   band_name.name = "PracticeBandName"
   band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
   band_name.max_lines_visible = 2

@@ -234,14 +234,15 @@ func _render() -> void:
 
 func _header(parent: Node) -> void:
  var row := HBoxContainer.new()
+ row.custom_minimum_size.y=70.0 if size.y<800 and size.x>size.y else 80.0
  row.add_theme_constant_override("separation",12)
  parent.add_child(row)
- row.add_child(C.brand(70.0 if size.y<800 and size.x>size.y else 80.0))
+ row.add_child(C.brand(38.0 if size.y<800 and size.x>size.y else 44.0))
  var words := _box(2)
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(words)
  var name_label := BandMark.new()
- name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),24,true,true)
+ name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if size.y<800 and size.x>size.y else 32,true,true)
  name_label.name = "CareerBandName"
  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
  name_label.max_lines_visible = 2

@@ -1510,7 +1510,16 @@ func take() -> void:
    else:
     for pid in ["cast_jack","cast_zoe","cast_casey"]:
      var photo: TextureRect = group.find_child("LineupPortrait_"+pid,true,false) as TextureRect
-     if photo==null or photo.texture==null or photo.texture.get_width()<200 or photo.texture.get_width()>260:
+     var source_ok: bool=photo!=null and photo.texture!=null
+     if source_ok and group.has_method("uses_full_length") and group.uses_full_length():
+      var region: Dictionary=group.source_regions().get(pid,{})
+      var coordinates: Array=region.get("region",[])
+      source_ok=photo.texture is AtlasTexture and coordinates.size()==4
+      if source_ok:
+       source_ok=photo.texture.region==Rect2(float(coordinates[0]),float(coordinates[1]),float(coordinates[2]),float(coordinates[3])) and photo.texture.atlas.resource_path==str(region.get("texture","")) and photo.texture.get_height()>600 and str(photo.get_meta("cast_id",""))==pid
+     elif source_ok:
+      source_ok=photo.texture.get_width()>=200 and photo.texture.get_width()<=260
+     if not source_ok:
       failures.append("S35 source portrait missing or wrong resolution: "+pid)
      var role_label: Label = group.find_child("LineupRole_"+pid,true,false) as Label
      if role_label==null or role_label.text.is_empty():

@@ -628,27 +628,87 @@ func _on_lineup() -> void:
  _render()
 
 func _formed() -> void:
- var root := _make_shell()
- var headroom := Control.new()
- headroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(headroom)
- var panel: PanelContainer = _wide_stage(root,760.0)
- panel.name = "MilestoneOneStage"
- var column := _column()
- column.add_theme_constant_override("separation",8 if size.x < 480 else 10)
- panel.add_child(column)
- var poster: Variant = BandPoster.new()
- poster.name = "BandFormationPoster"
- column.add_child(poster)
- poster.configure(setup.game.roster,setup.lead_vocal_id,size.x)
- var budget := _label("TALENT %d / 200  •  %d REMAINING" % [200-setup.remaining(),setup.remaining()],13 if size.x<480 else 15)
- budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
- column.add_child(budget)
- column.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
- column.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
- var footroom := Control.new()
- footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
- root.add_child(footroom)
+ _cover_milestone("formation")
+
+func _cover_milestone(kind: String) -> void:
+ var root: VBoxContainer=_make_shell()
+ var wide: bool=size.x>=1000.0 and size.x>size.y
+ var formation: bool=kind=="formation"
+ var complete: bool=kind=="complete"
+ var frame: PanelContainer
+ var signoff: VBoxContainer
+ var holder: VBoxContainer
+ var stage_name: String="MilestoneOneStage" if formation else ("ConfirmedIdentityStage" if complete else "MilestoneTwoStage")
+ if wide:
+  var workspace:=HBoxContainer.new()
+  workspace.name=stage_name
+  workspace.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  workspace.size_flags_vertical=Control.SIZE_EXPAND_FILL
+  workspace.add_theme_constant_override("separation",28)
+  root.add_child(workspace)
+  var centre:=CenterContainer.new()
+  centre.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  centre.size_flags_vertical=Control.SIZE_EXPAND_FILL
+  workspace.add_child(centre)
+  frame=Kit.frame(look,"panel")
+  frame.name="FirstPressCoverFrame"
+  frame.custom_minimum_size.x=clampf(size.y*0.66,380.0,560.0)
+  frame.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
+  frame.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+  centre.add_child(frame)
+  signoff=_column()
+  signoff.custom_minimum_size.x=300.0
+  signoff.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+  signoff.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  workspace.add_child(signoff)
+  var heading: Label=_label("THE FIRST LINEUP." if formation else ("THIS IS YOUR BAND." if complete else "THE NAME'S OFFICIAL."),38)
+  heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+  heading.add_theme_font_override("font",IdentityStyle.face(IdentityStyle.defaults()))
+  signoff.add_child(heading)
+ else:
+  if not formation:
+   var heading: Label=_label("YOU'VE STARTED SOMETHING" if complete else "THE NAME'S OFFICIAL.",22)
+   heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+   root.add_child(heading)
+  holder=_scroll_body(root)
+  frame=_wide_stage(holder,760.0)
+  frame.name=stage_name
+  signoff=root
+ var content: VBoxContainer=_column()
+ content.add_theme_constant_override("separation",0)
+ frame.add_child(content)
+ if formation:
+  var poster:=BandPoster.new()
+  poster.name="BandFormationPoster"
+  content.add_child(poster)
+  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "")
+ else:
+  var poster:=IdentityPress.new()
+  poster.name="CompletedBandPrint" if complete else "NamedMilestonePrint"
+  content.add_child(poster)
+  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "")
+ var fact: String=""
+ if formation:
+  fact="TALENT %d / 200  •  %d REMAINING"%[200-setup.remaining(),setup.remaining()]
+ elif complete:
+  fact=setup.game.genre+" / "+setup.vibe+"\nTALENT "+str(setup.remaining())+"  •  MORALE "+str(setup.game.career.get("morale",55))
+ else:
+  var delta: int=int(setup.name_delta)
+  fact="Everyone's behind it. +3 band morale when you form the band." if delta==3 else ("Not everyone is convinced. −2 band morale when you form the band." if delta<0 else "Mixed opinions. One band. No morale change.")
+ if wide:
+  signoff.add_child(_label("The people are in place. Find the name next." if formation else ("A name, a look and the people behind it. Take it to the rehearsal room." if complete else "Your bandmates have had their say. Choose the look next."),18))
+ var facts: Label=_label(fact,16)
+ facts.horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT if wide else HORIZONTAL_ALIGNMENT_CENTER
+ signoff.add_child(facts)
+ if formation:
+  signoff.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
+  signoff.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
+ elif complete:
+  signoff.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+  signoff.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
+ else:
+  signoff.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
+  signoff.add_child(_button("BACK TO MENU",_home,"tab","NameMilestoneBackAction"))
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
@@ -763,25 +823,7 @@ func _lock() -> void:
  _render()
 
 func _milestone_two() -> void:
- var root: VBoxContainer=_make_shell()
- var heading: Label=_label("THE NAME'S OFFICIAL.",24)
- heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
- root.add_child(heading)
- var scroll_body: VBoxContainer=_scroll_body(root)
- var card: PanelContainer=_wide_stage(scroll_body,760.0)
- card.name="MilestoneTwoStage"
- var content: VBoxContainer=_column()
- card.add_child(content)
- var cover:=IdentityPress.new()
- cover.name="NamedMilestonePrint"
- content.add_child(cover)
- cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"milestone",setup.identity_style)
- var delta: int=int(setup.name_delta)
- var reaction: Label=_label("Everyone's behind it. +3 band morale when you form the band." if delta==3 else ("Not everyone is convinced. −2 band morale when you form the band." if delta<0 else "Mixed opinions. One band. No morale change."),16)
- reaction.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
- scroll_body.add_child(reaction)
- root.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
- root.add_child(_button("BACK TO MENU",_home,"tab","NameMilestoneBackAction"))
+ _cover_milestone("name")
 
 func _load_identity_draft() -> void:
  identity_draft={"logo":setup.logo,"palette":setup.palette,"vibe":setup.vibe,"style":IdentityStyle.effective(setup.identity_style)}
@@ -814,7 +856,15 @@ func _identity() -> void:
  proof_holder.custom_minimum_size.x=maxf(280.0,proof_width)
  var identity_print:=IdentityPress.new()
  identity_print.name="IdentityPreviewPrint"
- proof_holder.add_child(identity_print)
+ if wide:
+  var proof_centre:=CenterContainer.new()
+  proof_centre.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  proof_holder.add_child(proof_centre)
+  identity_print.custom_minimum_size.x=440.0
+  identity_print.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
+  proof_centre.add_child(identity_print)
+ else:
+  proof_holder.add_child(identity_print)
  var choices_scroll:=ScrollContainer.new()
  choices_scroll.follow_focus=true
  choices_scroll.name="IdentityChoicesScroll"
@@ -936,25 +986,8 @@ func _finish() -> void:
  _render()
 
 func _summary() -> void:
- var root: VBoxContainer=_make_shell()
- var heading: Label=_label("YOU'VE STARTED SOMETHING",22)
- heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
- root.add_child(heading)
- var body: VBoxContainer=_scroll_body(root)
- var card: PanelContainer=_wide_stage(body,760.0)
- card.name="ConfirmedIdentityStage"
- var content: VBoxContainer=_column()
- card.add_child(content)
- var cover:=IdentityPress.new()
- cover.name="CompletedBandPrint"
- content.add_child(cover)
- cover.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete",setup.identity_style)
- var facts: Label=_label(setup.game.genre+" / "+setup.vibe+"  •  TALENT "+str(setup.remaining())+"  •  MORALE "+str(setup.game.career.get("morale",55)),14)
- facts.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
- body.add_child(facts)
- # The collectible cover waits for an explicit action. No timer settles again.
- root.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
- root.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
+ _cover_milestone("complete")
+
 func _start_playing() -> void:
  if setup.start_playing():
   _render()
