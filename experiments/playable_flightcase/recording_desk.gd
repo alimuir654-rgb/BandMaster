@@ -271,7 +271,8 @@ static func _radio_metrics(host, parent: Node, before: Dictionary, after: Dictio
  var rows: PackedStringArray=[]
  for field in ["fans","press","buzz"]:
   rows.append("%s  %d → %d" % [field.to_upper(),int(before.get(field,0)),int(after.get(field,0))])
- _copy(host,parent,"\n".join(rows),"PromotionPreview")
+ var compact: bool=host.size.x<840 or host.size.x<host.size.y
+ _copy(host,parent,(rows[0]+"  •  "+rows[1]+"\n"+rows[2]) if compact else "\n".join(rows),"PromotionPreview")
 
 static func _radio(host, parent: Node, compact: bool) -> void:
  var body: VBoxContainer=host._paper(parent,compact)
@@ -284,30 +285,33 @@ static func _radio(host, parent: Node, compact: bool) -> void:
   return
  var session: Dictionary=selected["session"]
  var id: String=str(session.get("id",""))
- _copy(host,body,"DEMO ID / "+id if not id.is_empty() else "LEGACY DEMO / ID NOT RECORDED","PromotionDemoId",16,true)
+ var columns: Array=_columns(host,body,compact)
+ var track_side: Node=columns[0]
+ var response_side: Node=columns[1]
+ _copy(host,track_side,"DEMO ID / "+id if not id.is_empty() else "LEGACY DEMO / ID NOT RECORDED","PromotionDemoId",16,true)
  var tracks: PackedStringArray=[]
  for index in range((session.get("tracks",[]) as Array).size()):
   tracks.append("%d. %s" % [index+1,str(session["tracks"][index].get("title","UNTITLED"))])
- _copy(host,body,"\n".join(tracks) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED","PromotionTracks",20)
- _copy(host,body,"SAVED SONG LINKS" if session.has("song_links_v1") else "LEGACY RECORDING / SONG LINKS NOT RECORDED","PromotionLinks",16,true)
+ _copy(host,track_side,"\n".join(tracks) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED","PromotionTracks",20)
+ _copy(host,track_side,"SAVED SONG LINKS" if session.has("song_links_v1") else "LEGACY RECORDING / SONG LINKS NOT RECORDED","PromotionLinks",16,true)
  if completed:
   var saved: Dictionary=selected["saved_response"]
   if saved.is_empty():
-   _note(body,"This demo's radio campaign was already completed. Its detailed response was not saved with this legacy record.","PromotionSavedNote")
+   _note(response_side,"This demo's radio campaign was already completed. Its detailed response was not saved with this legacy record.","PromotionSavedNote")
   else:
-   _copy(host,body,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
-   _note(body,str(saved["message"]),"PromotionSavedNote")
-   _radio_metrics(host,body,saved["before"],saved["after"])
-  _copy(host,body,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
+   _copy(host,response_side,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
+   _note(response_side,str(saved["message"]),"PromotionSavedNote")
+   _radio_metrics(host,response_side,saved["before"],saved["after"])
+  _copy(host,response_side,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
  else:
-  _copy(host,body,"Send your released demo to local radio and independent DJs. Build a following beyond the stage.","PromotionDescription")
+  _copy(host,response_side,"Send your released demo to local radio and independent DJs.","PromotionDescription")
   var preview: Dictionary=_radio_preview(host)
   if bool(preview.get("ok",false)):
-   _copy(host,body,"PROJECTED RESPONSE","PromotionProjectionHeading",16,true)
-   _radio_metrics(host,body,host.game.career,preview["state"])
-   for change in preview["receipt"]["postchain_changes"]:_copy(host,body,str(change["text"]),"",16,true)
-  else:_copy(host,body,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
-  _note(body,"One released demo. One local-radio pitch. The saved response will remain with this recording.","PromotionIntroNote")
+   _copy(host,response_side,"PROJECTED RESPONSE","PromotionProjectionHeading",16,true)
+   _radio_metrics(host,response_side,host.game.career,preview["state"])
+   for change in preview["receipt"]["postchain_changes"]:_copy(host,response_side,str(change["text"]),"",16,true)
+  else:_copy(host,response_side,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
+  _note(response_side,"One released demo. One local-radio pitch. The saved response will remain with this recording.","PromotionIntroNote")
 
 static func _radio_dock(host, parent: Node) -> void:
  var selected: Dictionary=_radio_selection(host)
