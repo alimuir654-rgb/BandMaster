@@ -134,7 +134,6 @@ func _rebuild() -> void:
  root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
  outer.add_child(root_box)
  var header := HBoxContainer.new()
- header.custom_minimum_size.y=52.0 if mobile else 36.0
  header.add_theme_constant_override("separation",12)
  if game.phase=="recruit":
   var title := _label("AUDITIONS",26 if not mobile else 21)
@@ -144,15 +143,31 @@ func _rebuild() -> void:
   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   header.add_child(title)
  else:
+  # Preserve the original header's layout footprint. Its native name copy
+  # still determines wrapping/height; the selected face only replaces ink.
+  # This keeps auditions and long-name settled reports at their old positions.
+  var old_brand_height: float=52.0 if mobile else 36.0
+  var brand_slot:=Control.new()
+  brand_slot.custom_minimum_size=Vector2(old_brand_height*float(Shared.WORDMARK_CROP.size.x)/float(Shared.WORDMARK_CROP.size.y),old_brand_height)
+  brand_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  header.add_child(brand_slot)
   var brand: Control = Shared.brand(26.0 if mobile else 24.0)
   brand.name = "PracticeBrand"
-  header.add_child(brand)
+  brand_slot.add_child(brand)
+  brand.position.y=(old_brand_height-brand.custom_minimum_size.y)*0.5
+  var name_layout: Label=_label(str(game.career.get("band_name","LIVIN' THE DREAM")),18)
+  name_layout.name="PracticeBandNameLayout"
+  name_layout.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+  name_layout.max_lines_visible=2
+  header.add_child(name_layout)
   var band_name := BandMark.new()
   band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true)
   band_name.name = "PracticeBandName"
   band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
   band_name.max_lines_visible = 2
-  header.add_child(band_name)
+  name_layout.add_child(band_name)
+  band_name.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  name_layout.self_modulate.a=0.0
  var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
  var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  budget.name = "BudgetLabel"
