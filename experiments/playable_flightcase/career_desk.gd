@@ -104,12 +104,17 @@ func _box(gap: int = 8) -> VBoxContainer:
 func _button(text: String, name: String, action: Callable, primary: bool = false) -> Button:
  var result: Button = C.button(text,"flightcase","action" if primary else "tab")
  result.name = name
+ # Preserve native taps while allowing a parent ScrollContainer to cancel
+ # a button press when the same finger becomes a vertical drag.
+ result.mouse_filter = Control.MOUSE_FILTER_PASS
  result.disabled = busy
  result.pressed.connect(action)
  return result
 
 func _paper(parent: Node, compact: bool) -> VBoxContainer:
  var panel := PanelContainer.new()
+ # The paper is decorative; stopping here hides touch drags from the scroll.
+ panel.mouse_filter = Control.MOUSE_FILTER_PASS
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  panel.add_theme_stylebox_override("panel",C.sheet(compact))
  parent.add_child(panel)
