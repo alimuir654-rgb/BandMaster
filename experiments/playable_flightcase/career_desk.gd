@@ -276,25 +276,33 @@ func _restore_focus(control_name: String) -> void:
  var target: Control = find_child(control_name,true,false) as Control
  if target==null:
   return
- # Native focus-follow scroll must use the new container layout. Grabbing
- # focus during the rebuild can scroll against its temporary zero-size rects.
  var generation: int = _render_generation
- var tree: SceneTree = get_tree()
- if tree==null:
-  return
  if is_instance_valid(_scroll) and _scroll.is_ancestor_of(target):
-  await tree.process_frame
-  await tree.process_frame
-  if not is_inside_tree() or generation!=_render_generation or not is_instance_valid(target):
-   return
+  # Bound one-shot callbacks disconnect when this owner is freed. An awaited
+  # instance method can otherwise resume after destruction and log an ERROR.
+  _restore_focus_wait(control_name,generation,2)
+ else:
+  _apply_restored_focus(control_name,generation,false)
+
+func _restore_focus_wait(control_name: String, generation: int, remaining: int) -> void:
+ if not is_inside_tree() or generation!=_render_generation:return
+ if remaining<=0:
+  _apply_restored_focus(control_name,generation,true)
+  return
+ var tree: SceneTree=get_tree()
+ if tree==null:return
+ var callback: Callable=_restore_focus_wait.bind(control_name,generation,remaining-1)
+ if not tree.process_frame.is_connected(callback):tree.process_frame.connect(callback,CONNECT_ONE_SHOT)
+
+func _apply_restored_focus(control_name: String, generation: int, respect_existing: bool) -> void:
+ if not is_inside_tree() or generation!=_render_generation or busy or not is_visible_in_tree():return
+ var target: Control=find_child(control_name,true,false) as Control
+ if target==null:return
+ if respect_existing:
   var current_focus: Control = get_viewport().gui_get_focus_owner()
   if current_focus!=null and current_focus!=target and is_ancestor_of(current_focus):
    _pending_focus = ""
    return
- if not is_inside_tree() or generation!=_render_generation:
-  return
- if busy or not is_visible_in_tree():
-  return
  if target!=null and target.is_visible_in_tree() and target.focus_mode!=Control.FOCUS_NONE:
   target.grab_focus()
   if is_instance_valid(_scroll) and _scroll.is_ancestor_of(target):
