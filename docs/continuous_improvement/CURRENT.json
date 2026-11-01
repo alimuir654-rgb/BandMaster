@@ -2816,11 +2816,10 @@
     }
   ],
   "latest_material_review": {
-    "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
-    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
-    "verdict": "hold",
-    "audit": "/workspace/work/s40/material-review-0200.json",
-    "source_unchanged": true,
+    "source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+    "visual_review": "/workspace/work/s40/runs/s63-visual-career-3ec1154-final/visual-review.json",
+    "artwork_map": "/workspace/work/visual-career-20261101/s63/art-screen-map.json",
+    "verdict": "partial_pending_owner",
     "owner_approved": false
   },
   "latest_focused_native_qa": {
@@ -3562,5 +3561,14 @@
     "closeout": "/workspace/work/identity-20261101/s60/closeout.json",
     "packages": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/packaging.json",
     "phone_release": "V7ARM64 remainscurrentprivatedelivered"
-  }
+  },
+  "historical_material_review_before_S63": {
+    "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
+    "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
+    "verdict": "hold",
+    "audit": "/workspace/work/s40/material-review-0200.json",
+    "source_unchanged": true,
+    "owner_approved": false
+  },
+  "canonical_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00"
 }
