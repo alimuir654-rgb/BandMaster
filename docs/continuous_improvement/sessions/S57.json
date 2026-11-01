@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 649832,
-    "sha256": "194c25029072dba77c222bcbc53500cde5f38e415baba870ec05e5a57e4e09f8"
+    "bytes": 651416,
+    "sha256": "a99ec3772a079a019c4e94bacbfd8ff16889600a4f4de10a06ddc986df694a78"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -123,5 +123,6 @@
   ],
   "aspect_art_correction_398": "Rootactual613wideproofshowsweakfigure/paperproportion; one structuralportraitproof/hero compositionbeforefinalsourceproof. No newart ormodelchanges. Actualroot613headerinspectionafter397preflightcommit/beforerelatedsourcecode disclosed; independent839viewseparate.",
   "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory.",
-  "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets."
+  "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets.",
+  "tall_tablet_correction_406": "Tallportraittabletusesproportionalpeopleheight,clampedtorealmetricbudget; unchangedphone/wide/figures/font/copy/actions."
 }
