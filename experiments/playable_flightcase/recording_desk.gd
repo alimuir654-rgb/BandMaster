@@ -322,6 +322,7 @@ static func _radio_pills(host, parent: Node, before: Dictionary, after: Dictiona
   panel.add_theme_stylebox_override("panel",stock)
   grid.add_child(panel)
   var label: Label=_copy(host,panel,"%s %s%d" % [field.to_upper(),"+" if delta>=0 else "",delta],"PromotionDelta_"+field,16)
+  label.autowrap_mode=TextServer.AUTOWRAP_OFF
   label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
   label.add_theme_color_override("font_color",Color("254d2f") if delta>0 else (Color("843c2c") if delta<0 else Color("625b50")))
   label.mouse_filter=Control.MOUSE_FILTER_IGNORE
