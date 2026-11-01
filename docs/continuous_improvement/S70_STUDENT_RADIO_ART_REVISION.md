@@ -1,0 +1,11 @@
+# Budget student radio artwork revision
+
+The owner's 1 November22:09 radio revision supersedes the S69 professional-room/mature-presenter art direction. Context and the actual checked Revise A05v2 identify RADIO; the chat's a02 reference does not revoke approved A02v2 band-poster art. Preserve all versioned owner decisions.
+
+New A05v3 source proposal: /workspace/generated_images/exec-029c5ca2-2ad3-4aea-8f01-ab481f55c01c.png.1448x1086RGB,2,225,234bytes,SHA256 f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda. One image_gen edit of the previous fictional source, no pixel retouch or transforms. This is a combined fictional room/presenter image, not photography, an independent character rig or an integrated game screen.
+
+Direction: low-budget university/student station, painted block walls, mismatched acoustic patches, chipped cheap table, generic compact second-hand mixer/laptop/cables, and a casually dressed young adult presenter. Keep a full4:3/contain guest-eye-level composition with complete face/headphones/microphone and enough console. Source questions, dialogue, progress, actual metrics/cost and actions remain native outside the image.
+
+The owner explicitly APPROVED A05v3 in this Codex thread at22:16 on1November; board39 records that direct-chat source approval without checking boxes on the owner's behalf. The approved source may be integrated with a fresh production preflight and native composition proof. Prior v1/v2 images and checked revisions stay as history; do not promote the older mature-presenter source. Current game remains verified47692162d7d68e0eca354760734f21d216e3a392; no production/art imports, GL, model tests, source ZIP or APK packaging in S70.
+
+The proposed question/phase/cost/rollback design in S69_RADIO_STUDIO_VISIT.md remains the implementation contract, but its A05v2 artwork reference is historical and overridden here. After S70 releases its bounded artifact lease, use a fresh source session S71 or the actual next free ID. Read current Page/chat approval before integrating new art. The same finite22:15–07:15 queue,07:45writefreeze and08:00Europe/London2November hardstop remain; any wake during the live S70 artifact lease does read-only review instead of competing writes.

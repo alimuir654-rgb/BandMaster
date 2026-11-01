@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s70_budget_radio_art_revision",
+  "status": "s70_budget_radio_art_approved",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Budgetstudentroom with cheapsecondhandequipment and an adult23\u201327presenter will match early-bandcareer better than maturehost/woodlinedprofessionalroom. Preserveguestcamera/full4:3face+mic+desk readability and nativeUI separation.",
-  "writer": "S70-budget-uni-radio-art-20261101T2210",
+  "writer": null,
   "last_verified_code_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "baseline": {
     "run_id": 40778019754,
@@ -771,7 +771,7 @@
     "phone_release_is_this_source": false
   },
   "last_sprint": "S66",
-  "next_action": "S70ARTONLY budgetuni-radio/youngadultpresenter A05v3proposal. Anyconcurrentwake READONLY; sourceimplementationnextfreshS71 afterrelease. NoAPKZIP.",
+  "next_action": "Fresh S71sourcepreflight for ONE two-question student-radio journey using OWNERAPPROVED A05v3 exactf860source and S69_RADIO_STUDIO_VISIT.md +S70art override. Durablelockedphases, heldreactions, original20/1day onlyfinalwrap, samepreview/commit/wholecareerrollback. NoAPKZIP; fixed08:00Nov2end.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2411,13 +2411,13 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": null,
-  "last_writer": "S69-radio-journey-art-contract-20261101T2147",
+  "released_at": "2026-11-01T22:19:57.700556+00:00",
+  "last_writer": "S70-budget-uni-radio-art-20261101T2210",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "closed_metadata_artproposal_only",
+  "source_phase": "closed_art_approved_pending_source_preflight",
   "claimed_at": "2026-11-01T22:10:40.110045+00:00",
   "expires_at": "2026-11-01T22:25:00Z",
   "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
@@ -2498,13 +2498,16 @@
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Direct21:43 radio studio+presenter+meaningfulQ/A journey, sourceGame476unchanged, radio nowfirst. A05v1Revisechecked; A05v2pending.",
   "current_plan_sequence": 4,
-  "current_review_board_sequence": 27,
+  "current_review_board_sequence": 39,
   "radio_studio_art_proposal": {
-    "review_id": "A05v2",
-    "status": "pending_owner",
-    "source": "/workspace/generated_images/exec-1cb53096-e5db-438d-aa16-249ab467fab9.png",
-    "sha256": "86047904689849739358f312a6be396f5150dc3bf06b6ad17ac1e97d1bede51c",
+    "review_id": "A05v3",
+    "status": "owner_approved_exact_source",
+    "owner_approved": true,
+    "source": "/workspace/generated_images/exec-029c5ca2-2ad3-4aea-8f01-ab481f55c01c.png",
+    "sha256": "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda",
     "native_integration": false,
-    "provenance": "/workspace/work/overnight-20261102/s69/art/radio-studio-presenter-proposal.json"
-  }
+    "provenance": "/workspace/work/overnight-20261102/s70/art/radio-studio-presenter-v3-proposal.json"
+  },
+  "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
+  "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md"
 }

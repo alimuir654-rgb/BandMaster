@@ -48,7 +48,7 @@
   },
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
   "id": "S70",
-  "status": "active",
+  "status": "closed",
   "owner_request": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
   "baseline_sha": "49ac7aa5e5deec478e40d16e6855d90b0614ab86",
   "game_baseline_sha": "47692162d7d68e0eca354760734f21d216e3a392",
@@ -84,7 +84,27 @@
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
   "issue_log_review": {
-    "bytes": 801793,
-    "sha256": "fe1b391cc1181d49cbf7fc33d77e988852de437181ab9dcbf5f006ef3e20c50f"
+    "bytes": 803613,
+    "sha256": "e203e6ab71cf8179c3a1d53493fb86d4d3e96d744b29fa41866fc4190f2efd4b"
+  },
+  "closed_at": "2026-11-01T22:19:57.700556+00:00",
+  "tested_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+  "asset_approval": {
+    "review_id": "A05",
+    "version": 3,
+    "owner_approved": true,
+    "source": "Direct owner message: A05v3 is approved",
+    "scope": "Shown budget student-radio studio/presenter source, full4:3; not animation rig or finished game journey."
+  },
+  "closeout": {
+    "tested_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+    "evidence": [
+      "/workspace/work/overnight-20261102/s70/closeout.json",
+      "/workspace/work/overnight-20261102/s70/a05v3-approved-delivery.json",
+      "/workspace/work/overnight-20261102/s70/art/radio-studio-presenter-v3-proposal.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Fresh S71sourcepreflight for ONE two-question student-radio journey using OWNERAPPROVED A05v3 exactf860source and S69_RADIO_STUDIO_VISIT.md +S70art override. Durablelockedphases, heldreactions, original20/1day onlyfinalwrap, samepreview/commit/wholecareerrollback. NoAPKZIP; fixed08:00Nov2end.",
+    "new_issue_review": "490ownerbudget/youngpresenterartrevision andcorrectA05binding;491dominantBM11missingfromcopiedselectedlistgatefailure loggedBEFOREcorrection/noartbeforePASS;492exactsource/directownerapproval/readback. No assertion/source protection weakening."
   }
 }
