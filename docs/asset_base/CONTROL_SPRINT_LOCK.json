@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -190,8 +190,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-01T21:10:00Z",
-  "hard_stop": "2026-11-01T21:15:00Z",
+  "all_write_freeze": "2026-11-02T07:45:00Z",
+  "hard_stop": "2026-11-02T08:00:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+  "candidate_source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -208,7 +208,7 @@
     "scope": "Approved firstgig verticalslice plus actualsoundcheckclaritycorrection, exactnative/art/sourceproof; no production/publicsource/Androidwrites.",
     "expires_at": "2026-11-01T04:25:00Z"
   },
-  "candidate_status": "HOLD_phone_pill_wrap_regression",
+  "candidate_status": "s68_radio_readable_intrinsic_width_verification",
   "updated_at": "2026-11-01T17:28:50.469236+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
@@ -332,8 +332,8 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
-  "pending_helpers": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
   "next_action": "CommitS68 preflight/RUN gate; then ONE RecordingDesk intrinsic-minimum repair, exact source/native proof. Configure existingqueue only for owner-authorised overnight continuation; no APK/ZIP.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
@@ -360,18 +360,16 @@
     "all_write_freeze": "2026-11-01T19:45:00Z",
     "hard_stop": "2026-11-01T20:00:00Z"
   },
-  "source_freeze_target": "2026-11-01T20:59:30Z",
-  "pending_candidate_source_sha": null,
+  "source_freeze_target": "2026-11-01T21:40:00Z",
+  "pending_candidate_source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "latest_unverified_candidate": {
-    "source_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
-    "status": "HOLD",
-    "native_verified": false,
-    "visual_verdict": "hold",
-    "closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
+    "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+    "source_pin": "/workspace/work/overnight-20261102/s68/candidate-radio-readable/source.json",
+    "status": "Source379/protection/model348reusePASS; native proof pending after logged484 discrepancy",
     "latest_verified_source": "4bbf6a1baa370858beed081fe1cd17b331dd1e19"
   },
-  "source_phase": "bounded_radio_repair",
-  "source_frozen_at": "2026-11-01T20:59:19.038076+00:00",
+  "source_phase": "s68_frozen_verification_only",
+  "source_frozen_at": "2026-11-01T21:21:46.370645+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
     "writer": null,
@@ -381,5 +379,27 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S68"
+  "session": "S68",
+  "overnight_flow_art_20261102": {
+    "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
+    "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+    "plan_sequence": 3,
+    "queue_id": "6ae532c5fe9c819190f587a022c54052",
+    "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "is_enabled": true,
+    "timezone": "Europe/London",
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261101T221500\nRRULE:FREQ=HOURLY;UNTIL=20261102T071500Z\nEND:VEVENT",
+    "updated_at": "2026-11-01T21:19:57.406438+00:00",
+    "next_run_time_exposed": null,
+    "source_freeze": "2026-11-02T06:45:00Z",
+    "no_new_breadth_after": "2026-11-02T05:15:00Z",
+    "final_wake_readiness_only": "2026-11-02T07:15:00Z",
+    "writer_release_by": "2026-11-02T07:30:00Z",
+    "all_write_freeze": "2026-11-02T07:45:00Z",
+    "hard_stop": "2026-11-02T08:00:00Z",
+    "apk_or_zip_packaging": false,
+    "no_continuous_compute_claim": true,
+    "existing_single_attachment_confirmed": true
+  },
+  "overnight_integration_freeze": "2026-11-02T06:45:00Z"
 }
