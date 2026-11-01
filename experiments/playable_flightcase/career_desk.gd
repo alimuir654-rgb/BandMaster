@@ -28,6 +28,7 @@ const RecordingDesk = preload("res://experiments/playable_flightcase/recording_d
 const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_desk.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
+const BandPoster = preload("res://experiments/playable_flightcase/band_poster_view.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -49,6 +50,7 @@ var live_approach := "tight"
 var live_hire_session := false
 var live_context_id := ""
 var _live_dialog: Control
+var _band_poster_id := 0
 var _live_confirm_verb := ""
 var _live_confirm_id := ""
 var _live_confirm_phase := ""
@@ -478,6 +480,7 @@ func _road_cases(parent: Node, compact: bool) -> void:
   _copy(body,person+"  •  "+("Condition unknown" if condition<0 else "Condition %d / 100" % condition),14,true)
 
 func _band_page(parent: Node, compact: bool) -> void:
+ parent.add_child(_button("VIEW BAND POSTER","CareerBandPosterAction",_open_band_poster,true))
  var body := _paper(parent,compact)
  _copy(body,"THE PEOPLE IN YOUR BAND",24)
  var dossiers := GridContainer.new()
@@ -524,6 +527,35 @@ func _band_page(parent: Node, compact: bool) -> void:
    meter.name = "CareerMemberStat_"+str(index)+"_"+str(stat[1])
    values.add_child(meter)
  _road_cases(parent,compact)
+
+func _open_band_poster() -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog) or game==null:return
+ busy=true
+ var view:=BandPoster.new()
+ view.configure(game.career,reduced_motion)
+ _live_dialog=view
+ _band_poster_id=view.get_instance_id()
+ view.closed.connect(_band_poster_done.bind(true,_band_poster_id))
+ view.aborted.connect(_band_poster_done.bind(false,_band_poster_id))
+ view.tree_exited.connect(_band_poster_done.bind(false,_band_poster_id))
+ add_child(view)
+
+func _band_poster_done(user_closed: bool, id: int) -> void:
+ if id!=_band_poster_id:return
+ var view: Control=_live_dialog
+ _band_poster_id=0
+ _live_dialog=null
+ busy=false
+ if is_instance_valid(view) and view.is_inside_tree() and not view.is_queued_for_deletion():view.queue_free()
+ if not is_inside_tree() or not is_visible_in_tree():return
+ _pending_focus="CareerBandPosterAction" if user_closed else ""
+ if user_closed:_render()
+ else:call_deferred("_refresh_after_band_poster")
+
+func _refresh_after_band_poster() -> void:
+ if not is_inside_tree() or not is_visible_in_tree() or busy or is_instance_valid(_live_dialog):return
+ _pending_focus=""
+ _render()
 
 func _songs_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)

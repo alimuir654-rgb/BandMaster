@@ -62,6 +62,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  content.mouse_filter=Control.MOUSE_FILTER_IGNORE
  paper.add_child(content)
  var mast: Label=_ink("FIRST PRESS / THE FOUNDING LINEUP" if variant=="formation" else ("YOUR FIRST PRESS" if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF")),12,true,dark)
+ if variant=="career":mast.text="YOUR BAND / CURRENT LINEUP"
  mast.name="IdentityPressMasthead"
  content.add_child(mast)
  var mark:=Mark.new()
@@ -162,9 +163,11 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var lead: Label
  if not compact:
   lead=_ink("LEAD VOCALS  /  "+vocalist_name.to_upper(),12,true,dark)
+  if variant=="career" and vocalist_name.is_empty():lead.text="LEAD VOCAL CREDIT UNAVAILABLE"
   lead.name="IdentityLeadVocal"
   content.add_child(lead)
  var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("THE BAND IS FORMED." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
+ if variant=="career":footer.text="THE LINEUP, AS IT STANDS."
  footer.name="IdentityPressFooter"
  content.add_child(footer)
  if surface_budget.x>0.0 and surface_budget.y>0.0 and _full_length:
