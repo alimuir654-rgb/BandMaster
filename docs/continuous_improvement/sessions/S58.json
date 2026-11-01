@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S58",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "baseline_sha": "cc3baca55581f429c50ec40870d573bcbab82455",
@@ -70,8 +70,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 667439,
-    "sha256": "cbe795511c2d10cb4545d1d37bd8a7393a13a8641e6c92b18044c8c010301d44"
+    "bytes": 669646,
+    "sha256": "75e7c5bd39e5d94426c5e1c8199513a0dc94dcfa791084940654d6de5086d04e"
   },
   "started_at": "2026-11-01T11:49:00.182682+00:00",
   "scope_end": "2026-11-01T13:15:00Z",
@@ -97,5 +97,17 @@
       "viewed_exact_byte_equivalent": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/captures/c27-genre-1280x720.png"
     }
   ],
-  "touch_rescope_415": "Concrete stock96px/product0px drag failure. Only _genre index Button.mouse_filter=PASS is newly allowed; original Kit and _choose/_reveal/_to_recruit/save policy bytes remain protected. Immutable native pointer/key/touch+snapshot/disk assertions before full4profile proof."
+  "touch_rescope_415": "Concrete stock96px/product0px drag failure. Only _genre index Button.mouse_filter=PASS is newly allowed; original Kit and _choose/_reveal/_to_recruit/save policy bytes remain protected. Immutable native pointer/key/touch+snapshot/disk assertions before full4profile proof.",
+  "closed_at": "2026-11-01T12:23:36.575009+00:00",
+  "closeout": {
+    "tested_sha": "3deac99c290e3dbfabe16d82deecd4ba97fd9594",
+    "evidence": [
+      "/workspace/work/identity-20261101/s58/closeout.json",
+      "/workspace/work/s40/runs/s58-genre-3deac99-final/complete-validation.json"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Scope one existing ShowReplay identity carry-through gap with a fresh bounded preflight; preserve actual venue/receipt/held acknowledgement and all model/save semantics. Manual15:50 write freeze/16:00 hard stop unchanged.",
+    "new_issue_review": "All416 events reviewed;413–415 retained before correction. No failed source promoted."
+  }
 }
