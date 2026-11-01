@@ -146,15 +146,44 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   if not is_instance_valid(stage) or not stage.is_inside_tree(): return
   var count: int=views.size()
   if count==0: return
-  # Full-length figures share a floor and naturally overlap at the shoulders.
-  # Six isolated card widths would shrink the entire band on a phone.
-  var factor: float=(0.70 if count<=3 else (0.60 if count==4 else (0.50 if count==5 else 0.40))) if _full_length else 1.0
-  var natural: float=stage.size.y*(0.46 if _full_length else 1.0)
-  var width: float=minf(natural,stage.size.x/(1.0+float(count-1)*factor))
-  var total: float=width*(1.0+float(count-1)*factor)
+  if not _full_length:
+   # Existing contact-portrait fallback keeps its original geometry.
+   var width: float=minf(stage.size.y,stage.size.x/float(count))
+   var total: float=width*float(count)
+   for i in range(count):
+    views[i].position=Vector2((stage.size.x-total)*0.5+float(i)*width,0)
+    views[i].size=Vector2(width,stage.size.y)
+   return
+  # The atlas crops all contain four pixels of measured top/bottom bleed.
+  # Equal-width boxes made narrow figures much taller and centred their feet
+  # lower. Fit the complete group from ONE visible head-to-sole height instead.
+  var ratios: Array[float]=[]
+  var heights: Array[float]=[]
+  var max_full_ratio: float=1.0
+  for view in views:
+   var source: Vector2=view.texture.get_size()
+   var visible_height: float=maxf(1.0,source.y-8.0)
+   ratios.append(source.x/visible_height)
+   heights.append(source.y)
+   max_full_ratio=maxf(max_full_ratio,source.y/visible_height)
+  var overlap: float=0.16 if count<=3 else (0.20 if count==4 else (0.24 if count==5 else 0.28))
+  var extent: float=0.0
   for i in range(count):
-   views[i].position=Vector2((stage.size.x-total)*0.5+float(i)*width*factor,0)
-   views[i].size=Vector2(width,stage.size.y)
+   extent+=ratios[i]
+   if i>0:extent-=overlap*minf(ratios[i-1],ratios[i])
+  var figure_height: float=maxf(0.0,minf(stage.size.y/max_full_ratio,stage.size.x/maxf(0.01,extent)))
+  var max_bleed: float=0.0
+  for source_height in heights:max_bleed=maxf(max_bleed,4.0*figure_height/maxf(1.0,source_height-8.0))
+  var ground: float=stage.size.y-max_bleed
+  var cursor: float=(stage.size.x-figure_height*extent)*0.5
+  for i in range(count):
+   var scale: float=figure_height/maxf(1.0,heights[i]-8.0)
+   var width: float=ratios[i]*figure_height
+   views[i].position=Vector2(cursor,ground-(heights[i]-4.0)*scale)
+   views[i].size=Vector2(width,heights[i]*scale)
+   views[i].set_meta("visible_figure_height",figure_height)
+   views[i].set_meta("ground_line",ground)
+   if i<count-1:cursor+=width-overlap*minf(width,ratios[i+1]*figure_height)
  stage.resized.connect(layout)
  layout.call_deferred()
  var credit: Label=_ink(" · ".join(names).to_upper(),14,true,dark)

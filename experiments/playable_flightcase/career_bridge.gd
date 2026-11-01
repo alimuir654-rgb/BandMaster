@@ -1,7 +1,7 @@
 extends RefCounted
 ## Pure adapter for existing career rules over the current C27 flat career.
 ## No files, scene changes, signals, animations, saves or new gameplay rules.
-const Gear = preload("res://Scripts/gear_shop.gd")
+const Gear = preload("res://experiments/playable_flightcase/gear_catalog.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Story = preload("res://Scripts/career_story.gd")
 const Life = preload("res://Scripts/member_life.gd")

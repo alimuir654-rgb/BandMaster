@@ -14,6 +14,48 @@
       "source": "Art/UI/Icons/notebook-pen.svg",
       "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
       "transformation": "None; existing repository original copied byte-for-byte. Native TextureRect tint only for paper heading."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/sliders-horizontal.svg",
+      "sha256": "6b2d6edc4f458533c15ed9ae6eed9a97fd6bdaf9f6f66e4207d1d32b353e630b",
+      "source": "Art/UI/Icons/sliders-horizontal.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/ticket.svg",
+      "sha256": "9dcabe6f378a765fbb57e2df9530189ff73199b7f2f30cc70b801d131c5adc3a",
+      "source": "Art/UI/Icons/ticket.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/calendar-days.svg",
+      "sha256": "2d7ad8f4a8c0db546c7e055e77f9fd9c959a2884b16a8399e4c4be43a97d0b20",
+      "source": "Art/UI/Icons/calendar-days.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/wallet.svg",
+      "sha256": "64e01d359742592f5c9cb6719140a114de6402d1472ebefd2695c641292801a6",
+      "source": "Art/UI/Icons/wallet.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/heart-handshake.svg",
+      "sha256": "b24372b86f2f81f1c22a37fd161474529547f54900aa19aef38b12162ba3784c",
+      "source": "Art/UI/Icons/heart-handshake.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/guitar.svg",
+      "sha256": "2d8b83bc6d62d9275fad69338624291fc4958f50374ed5d4847d145638a967f8",
+      "source": "Art/UI/Icons/guitar.svg",
+      "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
+      "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
     }
   ],
   "owner_approved": false

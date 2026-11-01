@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source_kind": "IMAGE_GENERATED_RGBA_SHARED_EIGHT_PRODUCT_ATLAS",
+  "raw_source": "/workspace/generated_images/exec-24d065dd-4a21-4f16-b8ee-ee04c57abd9e.png",
+  "raw_sha256": "c3e2cf9735536663dff2d791666e08387db187f8c8def118ece3a7fe246ef3bc",
+  "production_sha256": "c3e2cf9735536663dff2d791666e08387db187f8c8def118ece3a7fe246ef3bc",
+  "dimensions": [
+    1448,
+    1086
+  ],
+  "regions": {
+    "shop_guitar_new": [
+      108,
+      103,
+      184,
+      471
+    ],
+    "shop_bass_new": [
+      445,
+      106,
+      165,
+      467
+    ],
+    "shop_cymbals_new": [
+      729,
+      238,
+      291,
+      337
+    ],
+    "drums": [
+      1076,
+      274,
+      346,
+      293
+    ],
+    "amp": [
+      43,
+      690,
+      303,
+      312
+    ],
+    "mics": [
+      388,
+      720,
+      295,
+      279
+    ],
+    "pedals": [
+      715,
+      770,
+      349,
+      214
+    ],
+    "pa": [
+      1089,
+      727,
+      335,
+      266
+    ]
+  },
+  "method": "Secondsourcebyteoriginal; measuredalpha>8 whole-groupbounds+8pxbleed clampedwithin isolatednonuniformroughcells. RuntimeAtlasTexture only; no image/rasterretouch.",
+  "prior_held_source": "/workspace/generated_images/exec-46ab6f05-aa9a-4010-9908-c9512301aff7.png",
+  "limits": [
+    "Sharedoriginasset, not8independentphotos or brandproducts.",
+    "Rawlow-alphaedgecolour pixels preserved; actualnativepaperpreview required.",
+    "No prices/controls/copy baked intoimage."
+  ],
+  "owner_approved": false
+}

@@ -7,7 +7,7 @@ const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Bridge = preload("res://experiments/playable_flightcase/career_bridge.gd")
 const Beat = preload("res://experiments/playable_flightcase/career_beat.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
-const Gear = preload("res://Scripts/gear_shop.gd")
+const Gear = preload("res://experiments/playable_flightcase/gear_catalog.gd")
 const Songs = preload("res://Scripts/songbook_presentation.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
@@ -372,8 +372,8 @@ func _gear_page(parent: Node, compact: bool) -> void:
   return
  var body := _paper(dossier_parent,compact)
  var index := 0
- for n in range(Gear.ITEMS.size()):
-  if str(Gear.ITEMS[n]["id"])==selected_item:
+ for n in range(Gear.items().size()):
+  if str(Gear.items()[n]["id"])==selected_item:
    index = n
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
@@ -381,7 +381,7 @@ func _gear_page(parent: Node, compact: bool) -> void:
  var previous := _button("‹","GearPreviousAction",_step_item.bind(-1))
  previous.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
  browse.add_child(previous)
- var chooser := _button("%d / %d  •  CATALOGUE" % [index+1,Gear.ITEMS.size()],"GearCatalogueAction",_toggle_catalogue)
+ var chooser := _button("%d / %d  •  CATALOGUE" % [index+1,Gear.items().size()],"GearCatalogueAction",_toggle_catalogue)
  browse.add_child(chooser)
  var following := _button("›","GearNextAction",_step_item.bind(1))
  following.size_flags_horizontal = Control.SIZE_SHRINK_END
@@ -425,7 +425,7 @@ func _catalogue(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  _copy(body,"EQUIPMENT CATALOGUE",21)
  _copy(body,"Choose an item to inspect. No time or money is spent.",14,true)
- for item in Gear.ITEMS:
+ for item in Gear.items():
   var id: String = str(item["id"])
   var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(id)
   var text: String = ("✓ " if id==selected_item else "")+str(item["name"])+("  •  OWNED" if owned else "  •  £%d" % int(item["price"]))
@@ -449,10 +449,10 @@ func _step_item(delta: int) -> void:
  if busy:
   return
  var index := 0
- for n in range(Gear.ITEMS.size()):
-  if str(Gear.ITEMS[n]["id"])==selected_item: index=n
- var next_index := posmod(index+delta,Gear.ITEMS.size())
- selected_item = str(Gear.ITEMS[next_index]["id"])
+ for n in range(Gear.items().size()):
+  if str(Gear.items()[n]["id"])==selected_item: index=n
+ var next_index := posmod(index+delta,Gear.items().size())
+ selected_item = str(Gear.items()[next_index]["id"])
  notice = ""
  _scroll_position = 0
  if is_instance_valid(_scroll): _scroll.scroll_vertical=0
