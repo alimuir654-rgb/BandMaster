@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s63_technical_pass_waiting_owner_feature_art_review",
+  "status": "s64_owner_decisions_and_art_revisions_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
-  "writer": null,
+  "writer": "S64-owner-art-revisions-20261101T1900",
   "last_verified_code_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Owner review the private feature/artwork board, especially F09 live performance, F10 promotion and A01\u2013A04. Record explicit choices, then scope ONE approved next slice. No further source/art/QA/build activity or automatic continuation.",
+  "next_single_action": "A02v2front/non-smiling/variedposes andA03v2icon-style-only reviewproposals; no productionGamechange.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -687,7 +687,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S63",
+  "current_session": "S64",
   "last_verified_native_run": "/workspace/work/s40/runs/s63-visual-career-3ec1154-final/complete-validation.json",
   "latest_verified_phase2": {
     "sprint": "S63",
@@ -697,7 +697,7 @@
     "owner_approved": false
   },
   "last_sprint": "S52",
-  "next_action": "Owner review the private feature/artwork board, especially F09 live performance, F10 promotion and A01\u2013A04. Record explicit choices, then scope ONE approved next slice. No further source/art/QA/build activity or automatic continuation.",
+  "next_action": "A02v2front/non-smiling/variedposes andA03v2icon-style-only reviewproposals; no productionGamechange.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2032,7 +2032,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "docs/continuous_improvement/sessions/S63.json",
+  "session": "docs/continuous_improvement/sessions/S64.json",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-01T19:45:00Z",
   "hard_stop": "2026-11-01T20:00:00Z",
@@ -2145,11 +2145,11 @@
   "owner_review_board": {
     "url": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
     "page_id": "page_b3929162c7b88191acd29e55dc06e779",
-    "sequence_observed": 1,
+    "sequence_observed": 16,
     "features": 10,
     "artwork_blocks": 4,
     "selected_images": 5,
-    "decisions": "PENDING_OWNER",
+    "decisions": "9featuresAPPROVED/F07DEFERRED/A01APPROVED/A04DIRECTION_APPROVED/A02A03REVISE",
     "receipt": "/workspace/work/review-roadmap-20261101/review-record.json",
     "research_log": "/workspace/work/review-roadmap-20261101/research-log.md",
     "no_autoimplementation": true

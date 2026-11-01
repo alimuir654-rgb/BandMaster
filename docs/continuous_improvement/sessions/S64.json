@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "id": "S64",
+  "status": "active",
+  "owner_request": "Ownercompletedprivateboard:ApproveF01\u2013F06,F08\u2013F10;DeferF07;ApproveA01/ApproveA04direction;ReviseA02/A03. Latestdirectposterclarification:charactersfacefront/notsmiling/avoidrepeatedpose. A03asyncchoice:Keep layout and change icon style. This boundedsteprecordsdecisionsandcreatesTWOreview-onlyartrevisions,not9featureimplementations.",
+  "owner_approved": false,
+  "baseline_sha": "69a40b22769317f2ee86b0f800a554a4ed6081ba",
+  "game_baseline_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+  "dominant_issue": "BM-10",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "A02v2one3-personfictionalArjun/Zoe/Marcussharedtransparentfigurestudy:frontfaces/closedmouth/nosmiles/variedarmstances/samecamera/costumes, no UI. A03v2one8-iconivoryboldstampstudywhilekeepingnative8-tilelayout/labels/geometry. Ownerreviewsactualprototypesbeforeproduction. Existing3ecGame/375sourcesfrozen.",
+  "stop_condition": "TWOimage_gen calls total, ONEA02threefigures/ONEA03eighticons, no retriesbydefault; HOLDiftargetsmissed. No source/model/dependency/audio/newcast/APK/ZIP/policyimplementation. ONEGLscratchnativepreviewifassetsready. Releaseby19:30/allwrites19:45/hardstop20 unchanged; no queue/backgroundextension.",
+  "target": {
+    "locator": "/workspace/work/visual-career-20261101/s63/journey-3ec-phone-normal/captures/current-band-poster-390x844.png",
+    "original_sha256": "10d30a9ebc6a422165c872696aa6a8e64b238686e5f6c2ace028c3ae276e8f05",
+    "pixels_inspected": true,
+    "kind": "Actualowner-revisedv1nativeposteranddirectfront/nosmilefeedback; A03v1nativeHomealsoactuallyopened, latestuserkeep-layout/icon-style-only."
+  },
+  "controlled_comparison": "ProtectALL375rawinputs, original18C25/headrefs/fullbodyatlases/fonts/hardware/meters/name/roles/save. NewPNGconcepts/scratchnativeTextureoverridesonly; data/layoutsameascurrentTHELASTBUSfixture. Native32pxnewiconstyleagainstcurrentLucide atsame8positions; selected3posterfrontnosmile/differentarms, no pose/identityapprovalinferred. Version1checkboxes remainownerstates/history; version2hasdistinctpendingreviewlabels.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S64.json",
+    "Readactualrefs/source/provenance beforeONEA02andONEA03generation; rawPNGunchanged/noPythonimageedit. Inspectoriginals, recordHOLDlimits.",
+    "Optionalnativepreview390and1280fromisolated375pinnedruntime, exact4.7.2/Dummy/freshXDG/ONEGL; no fullsuite/ZIP/build whenGameunchanged.",
+    "FreshprivatePageguidance/guards; preservenineapprovedfeatures,F07defer,A01approve,A04directionapprove,A02/A03revision1states. Newversion2decisionlabels, actualimageaccess/digest/canonicalreadback."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "bf8d0b49aaa42eb4804df46fd01e3d78b0fc54dc2898e87c90d40c1b837de8c5",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 750872,
+    "sha256": "68c35e91804eeb22941c5a7b6ea37251f0a14b19a950b46cd62146495b3f33a3"
+  },
+  "started_at": "2026-11-01T18:58:14.295078+00:00",
+  "scope_end": "2026-11-01T19:30:00Z",
+  "source_freeze_target": "2026-11-01T19:15:00Z",
+  "all_write_freeze": "2026-11-01T19:45:00Z",
+  "hard_stop": "2026-11-01T20:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "ALL375currentgameinputsprotected. NOproductionsource/art/manifestchange. Nonshippingreviewconceptsonly.",
+  "protection": [
+    "Current3ecGAME/nativeproofall375frozen; no featureimplementationfromapprovaluntilseparatelyscopedsourcepreflight.",
+    "Do notoverwriteclosedS63artmap/proofs. S64revisionsanddecisionreceiptlinkimmutableS63evidence. Originalresearchsnapshotarchivedoncebeforeupdatingownerdecisionlog.",
+    "Pagecheckboxdecisionspreserved; A04directionapprovalnotfinishedanimation/rig/artclean-alphaapproval. Source/history/sourceZIPLOCAL/publicblockunchanged."
+  ],
+  "new_premium_policy": {
+    "shop_guitar_new": {
+      "name": "NEW ELECTRIC GUITAR",
+      "price": 450,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Guitarist"
+    },
+    "shop_bass_new": {
+      "name": "NEW BASS GUITAR",
+      "price": 500,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Bassist"
+    },
+    "shop_cymbals_new": {
+      "name": "NEW CYMBAL SET",
+      "price": 300,
+      "readiness": 4,
+      "condition": 100,
+      "role": "Drummer"
+    }
+  },
+  "art_fit_method_448": "Stopgeneration after2prompts; measurednonuniformisolatedwholeproductbbox nativecrops frombyteoriginalsource2, actualnativepaperjudgementrequired.",
+  "actual_baseline": "b310import/phone127/wide127 checks0ERROR/orphans,3nativeoriginalseach; reportedtrio/style reconstructed viaactualmodel APIs, notowner-savepossession.",
+  "scratch_paths": {
+    "art_worker": [
+      "/workspace/work/owner-review-revisions-20261101/s64/art-revisions.json",
+      "/workspace/generated_images/*"
+    ],
+    "implementation_worker": [
+      "/workspace/work/owner-review-revisions-20261101/s64/preview_art.gd",
+      "/workspace/work/owner-review-revisions-20261101/s64/preview-provenance.json",
+      "/workspace/work/owner-review-revisions-20261101/s64/runtime",
+      "/workspace/work/owner-review-revisions-20261101/s64/preview-output"
+    ],
+    "research_worker": [
+      "/workspace/work/review-roadmap-20261101/research.json",
+      "/workspace/work/review-roadmap-20261101/research-log.md"
+    ]
+  },
+  "owner_decision_page_sequence": 16
+}
