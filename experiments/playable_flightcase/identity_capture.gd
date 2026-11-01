@@ -61,7 +61,7 @@ func cover57(value: String, expected: Array) -> bool:
 func journey57() -> bool:
  # Honest prepared lineup; the original standard journey tests auditions.
  var model=OpeningModel.new()
- if not check57(model.begin_new() and model.set_genre("Indie") and model.to_recruit(),"real model prepares isolated Indie opening"): return false
+ if not check57(model.begin_new() and model.set_genre("Post-punk") and model.to_recruit(),"real model prepares isolated original Post-punk opening"): return false
  for pid in ["cast_jack","cast_zoe","cast_casey"]:
   if not check57(bool(model.recruit(pid).get("ok",false)),"real model recruits fixture ID "+pid): return false
  if not check57(bool(model.choose_vocal("cast_jack").get("ok",false)) and bool(model.confirm_lineup().get("ok",false)) and model.start_naming(),"real confirmed trio reaches naming"): return false
