@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
-  "claimed_at": "2026-11-01T22:10:40.110045+00:00",
-  "expires_at": "2026-11-01T22:25:00Z",
-  "scope": "Budgetstudentroom with cheapsecondhandequipment and an adult23\u201327presenter will match early-bandcareer better than maturehost/woodlinedprofessionalroom. Preserveguestcamera/full4:3face+mic+desk readability and nativeUI separation.",
-  "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
+  "writer": "S71-student-radio-journey-20261101T2230",
+  "base_head": "f3af6170a3e595a5264e9c1ee50997ecfeb2cd3f",
+  "claimed_at": "2026-11-01T22:24:52.446505+00:00",
+  "expires_at": "2026-11-02T00:45:00Z",
+  "scope": "ONE complete approved student-radio two-question journey, saved phases and once-final settlement; owner-approved A05v3 full4:3 scene.",
+  "authority": "Owner21:43journey +22:09budgetstudio +direct A05v3 is approved; existingfinite08:00Nov2/noAPKplan.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T22:19:57.700556+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -345,7 +345,7 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": null,
+  "delegated_source_writer": "/root/render_support",
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
