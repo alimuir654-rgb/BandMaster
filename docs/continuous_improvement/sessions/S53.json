@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "owner_request": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-27",
+    "BM-28",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46",
+    "BM-07",
+    "BM-18",
+    "BM-19"
+  ],
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+  "id": "S53",
+  "status": "active",
+  "baseline_sha": "b106ac7ac9f6f0d2bfa6f451c27046ae41e911d4",
+  "game_baseline_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+  "dominant_issue": "BM-25",
+  "hypothesis": "Connect the first hometown booking into named local-lift journey, arrival, soundcheck with original tactile approach/intensity controls and real ordered original-song plan, held stage, short honest saved-response replay and durable receipt. One original performance/Review/Finance settlement/save; legacy bookings retain old phase/economy.",
+  "stop_condition": "ONErootwriter/ONEGL; boundedlease ends04:25Z, source target03:35, integration/closeout04:15. Twoineffective attempts changeMETHOD/HOLD. No source/art/newbreadth after07; allwritefreeze08:30/noextension.",
+  "controlled_comparison": "Read actualstagephone/amberstage/originalrotary/faderpixels beforedesign. New sources are independent missingarrival/stageplates only, nativecopy/controls separate. Compare sameactualvenue/band/phase at4sizes, defaults andalteredfreeplans/reducedmotion. Pure independentoriginalCalendar/Promoter/Night/Story/Life/Reviews/Finance oracles +explicitboundedownedpolicies andfullrollback/unknownfields/legacyfixtures. Genuinehardwaremouse/key/indexedtouch/drag/cancel/hide/resize/free/scroll arbitration; fixednon-scrollhardwarehousing, scrollnotes/setlist. Fullstrict73+88/import/4genuinejourneys plusfocusedrealnewflow/show/save/reload proof, exactrawsource/hardwareartprotection. No technical-onlyartPASS.",
+  "target": {
+    "locator": "/workspace/work/business/s49/native-179f336-phone-savefailure/captures/review-save-failure-restored-stage-390x844.png",
+    "original_sha256": "e330a252dc3a89155bd302cc98422e4f1412f3259518b52cf0749c2246db11c0",
+    "pixels_inspected": true,
+    "kind": "Actualprior179nativephoneStageafterfailedsave, stageitselftextonly. e2keepssameLiveDesk source, currentS52UIpaper/typography additionallyviewed lastcheckpoint."
+  },
+  "allowed_paths": [
+    "experiments/playable_flightcase/live_bridge.gd",
+    "experiments/playable_flightcase/live_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/show_flow.gd",
+    "experiments/playable_flightcase/show_hardware.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/show_replay.gd",
+    "experiments/playable_flightcase/show_flow_test.gd",
+    "experiments/playable_flightcase/show_capture.gd",
+    "experiments/playable_flightcase/art/s53_*",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S53.json",
+    "Bounded exact4.7.2 headless independentnewpolicy/state/legacy/unknownfield/phaseid/failedsave originaloracles; original73+88 unchanged",
+    "Actualneutralcrop0/50/100/all27LEDs andrealpointer/key/touchindex/cancel/resize/hide/free/draft-no-save nativeprobe beforewholeintegration",
+    "Strictisolated73+88/import/4genuinejourneys+newfirstgig/failedsave/reload/held/replay/receipt andoriginalnativePNG A/B, ZEROall_error_lines; sourceprotectedraw328baseline"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c354d50cc6dbe0076c92050c6694cc1db85b3eaea46b0708d7299be6241f352",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 506847,
+    "sha256": "61699c1dc8f0f8c4848b9c54f23bcafc1bb674e6d9028b0f56a6cc5c699a4fb8"
+  },
+  "started_at": "2026-11-01T02:30:59.889700+00:00",
+  "scope_end": "2026-11-01T04:25:00Z",
+  "source_freeze_target": "2026-11-01T03:35:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "policies": {
+    "legacy": "Existingunmarkedbookings retainoriginalphase/economy; originalLive.resolve(book) remainslegacycompatible. NewownedUIusesbook_flow marker; nohistoricalupgrade/reset.",
+    "flow": "Optionalbooked_show.show_flow_v1 version1/bookingIDfromvenue+scheduledday/travel_acknowledged/plan_committed/plan; preserveunknownfields. Newdepart ack\u00a30/0days; savedphasecommands oneFinancezero-flow checkpoint each, noagingbroke_days. Purepreview neverFinance/save.",
+    "transport": "OneexplicitLOCAL_LIFT route, noownership/loan/family fiction; originalhometownpay-what-you-can travel up to\u00a35 atsettlement, sessiondrummeroriginal\u00a325 separate.",
+    "intensity": {
+      "0..34_CONTROLLED": {
+        "quality": 4,
+        "successful_extra_fans": -3,
+        "extra_performer_fatigue": 0,
+        "extra_tension": 0
+      },
+      "35..69_STEADY": {
+        "quality": 0,
+        "successful_extra_fans": 0,
+        "extra_performer_fatigue": 3,
+        "extra_tension": 0
+      },
+      "70..100_ALL_OUT": {
+        "quality": -4,
+        "successful_extra_fans": 4,
+        "extra_performer_fatigue": 8,
+        "extra_tension": 3
+      }
+    },
+    "approach": "UnchangedoriginalTight/Crowd/Wild modifierpackages; separatefromintensity. Reliabilityisdeterministicexistingthreshold52margin, notprobability/audiomeasure.",
+    "setlist": "Up to3uniquecompleted song_catalogue.id, actualorder/snapshots. Selectedcountfeedsoriginalmaterialpenalty; restorecanonicalcareer.songs/readiness aftertemporaryoriginalCalendarprojection. Setshapequalitybonus clamp(floor(((openerquality+2*closerquality)/3-50)/20),-2,2),0ifempty; actualauthoredsongquality/orderboundedvisibleinput. No inventedtempo/duration/per-songcrowdtelemetry.",
+    "shoutout": "none0; thankvenue targetsactualsavedvenueID/name, quality-1 and+2fans onlyonsuccesswithselectedoriginals; no inventedtown/backstory/capacity.",
+    "no_originals": "Newmarkedbookings ONLY: cap finalGROSSfee\u00a35 AFTERpromotersettlement inclGUARANTEE; actualtravel/sessionchargesretained, successfulownedreachbonusesrequire>=1selectedoriginal. Disclosebeforebooking/confirmation; neverpayonbooking. Legacyagreedcontractsunchanged.",
+    "settlement": "Projectselectedcount+signedqualitymodifierWITHOUTearlyclamp intooneoriginalCalendarperform; restorecanonicaltotals/readiness. OriginalPromoter settle thenownedfee/fatigue/reach changes BEFOREStory/Life/Reviews; Financeonce/saveonce. Savedreceipt containsactualorderedIDs/snapshots/modifiers/factualcash/day/fee andauthoredboundedresponse. Unknownfutureversion blockedwithvisiblecancelrecovery.",
+    "presentation": "HeldstagebeforeSTART; afteronecommittedsavedperformance,3shortsaved-responsebeats honestmodelledsummary (notrealtimeaudio/attendance), skip/reducedsameinfo, replay/resize/reloadneverresolveagain. Durablelatestreceipt permitsread-onlyreload; optionalencounterheldunlesscorecomplete."
+  },
+  "art_direction": {
+    "emotion": "Smallfirstpubgig, nervous threshold then warm hopeful stage, notarena spectacle.",
+    "composition": "Nativeband/actualvenue/day atheader; originalcase/hardwarefixedhousing, independentlygeneratedarrival/stageplatesaboveorbesidescrollablepapercontext. Soundcheckone180rotary+one100fader fixedoutsideverticalScroll; notes/setlistcanScroll separately;48pxfixedprimary/return.",
+    "sources": "Existingopening_stage for soundcheck strongestprovenance; rootopenedoriginalCREATIVEFOCUS/MORALE fullplates. MeasuredneutralFocus(60,74,310,265) allLEDlayers, vertical(111,84,147,598); originalbytesunchanged, uniformsourcefit/capaxisremap. Optional2genuinelymissingillustrativearrival/stageplateassets, NOtext/logo/frame/UI/castperformerfaces.",
+    "held": "Legacygigs/backstage unverifiedasset-specificrights/logo-like marks, notpromoted. Globalowner_approved=false."
+  },
+  "protected": [
+    "All328currentrawsources outsideexplicitallowlist,54originalScripts/models/schema1/unknownfields",
+    "Originalownerhardware/18C25cast/passivemeter/alloldartbytes/fonts/S52Inkgesture/heldDAY/settings/zero-insets",
+    "Onefullcareerrollbackonsavefail,14completedzero-cashdays/terminalsticky/offstage/reviewconfidence; nopublicsource/main/PR199/prodsaves"
+  ]
+}

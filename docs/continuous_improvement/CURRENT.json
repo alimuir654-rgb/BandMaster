@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S52.json",
+  "session": "docs/continuous_improvement/sessions/S53.json",
   "scope": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s52_held_day_notes_verified_local_closed",
-  "next_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
+  "status": "s53_first_gig_preflight",
+  "next_action": "Connect the first hometown booking into named local-lift journey, arrival, soundcheck with original tactile approach/intensity controls and real ordered original-song plan, held stage, short honest saved-response replay and durable receipt. One original performance/Review/Finance settlement/save; legacy bookings retain old phase/economy.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S52 closed/writer released; first-gig core next. No repeatfonts/QAforactivity.",
   "completion_gate": {
