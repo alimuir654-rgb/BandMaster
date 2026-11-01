@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "S55",
+  "status": "active",
+  "owner_request": "Approved overnight plan permits at most ONE stable milestone Android update and isolated checkpoint; selected compiledAPK private share to alimuir654@gmail.com already authorised. Artifact/metadata only, no source/art/model edits, no publicsource/history publication.",
+  "owner_approved": false,
+  "baseline_sha": "09abcdc480a98b8d8f709f22a3f55221dd5a7702",
+  "game_baseline_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+  "dominant_issue": "BM-32",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-13",
+    "BM-15",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "Build and privately deliver ONE stable code6 APK from frozen verified db61; local curated project/review ZIP and extracted native-entry smoke, full update/permission/source/privacy integrity. No new source/art/QA breadth.",
+  "stop_condition": "One exact verified-source artifact release only. Stop on any integrity/privacy/update mismatch; retain failure before correction. Lease07:50; final08:15readiness only, release08:25, ALLwrites08:30, hardstop09. No new breadth.",
+  "target": {
+    "locator": "/workspace/work/overnight-20261101/s54/recording-archive-facts-phone-normal/captures/recording-archive-released-390x844.png",
+    "original_sha256": "49e77aef7d63bd319590850217de1f24933f6fd8e7e34900283996e94642de2b",
+    "pixels_inspected": true,
+    "kind": "Actual finaldb61 native phone recording archive original opened by root and independent reviewer; source proof retains all4sizes and S53art/hardware."
+  },
+  "controlled_comparison": "Frozen exactdb61 full native/art proof reused; package only341 curated verified sources and explicit original PNGs. AllGit/runtime hashes verified before archivewrite with declared146byte isolatedproject.godot exception; no keys/saves/learninghistory/cache/editorconfiguration. Android project bytes match V5 except versionpreset, same cert/appID/savefolder; update without uninstall or wiping progress. No device/emulator or cloudchecksum claim.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S55.json",
+    "Exact341Git/runtime inventory -> temporary ZIP CRC/content -> atomic release; explicit current original PNG review inventory only",
+    "Fresh manifest extraction/import/configured opening.tscn native entry with Dummy/scratch XDG and ONEGL lock; no unchanged fullsuite rerun",
+    "tools/export_owner_android.py provisioned SDK/template unchanged recipe, same privateTESTkey/appID/savefolder, code6, 16KBalignment/signature/CRC/launcher/noHOME/noextraPermissions/sourcecast/privacy/update checks",
+    "Private compiledAPK upload + named reader alimuir654@gmail.com metadata/ACL readback only; source/history/project ZIP remainLOCAL"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "ae92cade52e640f614ec8d2ce8ac56a88236ad03552d329bdd39eeeeaf380cf0",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 585430,
+    "sha256": "3f6ece1c05fa1b9267c6d7fd04d49984851a137521ec2a799c6ba2aa483cf70b"
+  },
+  "started_at": "2026-11-01T05:42:22.252960+00:00",
+  "scope_end": "2026-11-01T07:50:00Z",
+  "source_freeze_target": "Already frozen db61; no game/art writes authorised",
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "protected": [
+    "Frozen341sourcefiles and exactdb61 history",
+    "All18C25 identities/rawhardware/passivemeter/art/font/model/schema bytes",
+    "Private signing key NEVER uploaded/committed; no keys/saves/history packaged",
+    "Owner V5 update identity/certificate/savefolder and productiondata untouched"
+  ],
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
+  "next_action": "Build and privately deliver ONE stable code6 APK from frozen verified db61; local curated project/review ZIP and extracted native-entry smoke, full update/permission/source/privacy integrity. No new source/art/QA breadth.",
+  "policy": {
+    "source": "Frozen db61 and exact341-file source/runtime manifest; no gameplay/art code edits. Only metadata tracked in this lease.",
+    "package": "One current isolated importable projectZIP and explicit current-original reviewZIP LOCAL only; no keys/saves/history/caches. InventorybeforetempZIPCRC/content/atomicrelease.",
+    "android": "ONE code6 update; same appID/privateTESTkey/certificate/savefolder, sourceprivacy and no extra permissions. Physicalphone test pending.",
+    "delivery": "Selected compiledAPK private namedreader alimuir654@gmail.com only; preserve rollback and existingsharing. No publicsource/learninghistory upload or newPagepixels authority inferred."
+  }
+}
