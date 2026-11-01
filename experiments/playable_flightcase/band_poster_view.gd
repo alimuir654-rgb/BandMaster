@@ -150,7 +150,14 @@ func _valid(epoch: int) -> bool:
  return not _closed and epoch==_epoch and is_inside_tree() and is_visible_in_tree()
 
 func _fit(epoch: int) -> void:
- await RenderingServer.frame_post_draw
+ if not _valid(epoch):return
+ _after_draw(_prepare_fit.bind(epoch))
+
+func _after_draw(callback: Callable) -> void:
+ if not RenderingServer.frame_post_draw.is_connected(callback):
+  RenderingServer.frame_post_draw.connect(callback,CONNECT_ONE_SHOT|CONNECT_DEFERRED)
+
+func _prepare_fit(epoch: int) -> void:
  if not _valid(epoch):return
  if is_instance_valid(_poster):
   var budget: Vector2=_body.size-Vector2(4,4)
@@ -158,18 +165,26 @@ func _fit(epoch: int) -> void:
   _poster.position=Vector2((_body.size.x-cover_width)*0.5,2)
   _poster.size=Vector2(cover_width,maxf(20.0,budget.y))
   _poster.configure(_data["members"],str(_data["lead_id"]),str(_data["name"]),str(_data["logo"]),str(_data["palette"]),str(_data["vibe"]),size.x,"career",_data["style"],"tall",Vector2(cover_width,budget.y))
-  # Let actual native text minima settle. Only the image row gives up space;
-  # names, credits and controls retain their original type sizes.
-  for attempt in range(2):
-   await RenderingServer.frame_post_draw
-   if not _valid(epoch):return
-   var excess: float=_poster.get_combined_minimum_size().y-budget.y
-   if excess<=0.5:break
-   var figures: Control=_poster.find_child("IdentitySelectedPortraitRow",true,false) as Control
-   if figures!=null:figures.custom_minimum_size.y=maxf(64.0,figures.custom_minimum_size.y-excess-1.0)
-  await RenderingServer.frame_post_draw
-  if not _valid(epoch):return
-  var height: float=minf(maxf(20.0,budget.y),_poster.get_combined_minimum_size().y)
+  _after_draw(_settle_fit.bind(epoch,2))
+ else:_after_draw(_finish_fit.bind(epoch))
+
+func _settle_fit(epoch: int, remaining: int) -> void:
+ if not _valid(epoch):return
+ # Actual native text minima settle before the image row gives up space.
+ var excess: float=_poster.get_combined_minimum_size().y-(_body.size.y-4.0)
+ if excess>0.5:
+  var figures: Control=_poster.find_child("IdentitySelectedPortraitRow",true,false) as Control
+  if figures!=null:figures.custom_minimum_size.y=maxf(64.0,figures.custom_minimum_size.y-excess-1.0)
+  if remaining>1:
+   _after_draw(_settle_fit.bind(epoch,remaining-1))
+   return
+ _after_draw(_finish_fit.bind(epoch))
+
+func _finish_fit(epoch: int) -> void:
+ if not _valid(epoch):return
+ if is_instance_valid(_poster):
+  var cover_width: float=_poster.size.x
+  var height: float=minf(maxf(20.0,_body.size.y-4.0),_poster.get_combined_minimum_size().y)
   _poster.size=Vector2(cover_width,height)
   _poster.position=Vector2((_body.size.x-cover_width)*0.5,(_body.size.y-height)*0.5)
   if not _shown and not _reduced:
