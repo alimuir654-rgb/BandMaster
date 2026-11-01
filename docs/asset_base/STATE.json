@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s66_local_radio_pilot_verified_closed",
+  "status": "s67_owner_image_pills_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
-  "writer": null,
+  "writer": "S67-owner-image-pills-20261101T2047",
   "last_verified_code_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Read-only owner review of the completed local-radio pilot. Next source slice: scope approved F09 live-set work from actual show state and production-ready performer artwork; no automatic continuation, newAPK/ZIP or schedule.",
+  "next_single_action": "S67 ONE radio-presentation family revision: image-led brief/paidreceipt/savedresponse withapprovedA01wholemicpair, 3inert16pxdelta pills actualafter-before, one short animated summary, full tracks/IDs/before-after/longsavednote behind48pxDetails. Originalmodel/receipts/save/Finance/actions/artbytes unchanged. RecordingDesk ONLYsourceedit,379inputs/378protected/all54Scripts. OptionalprivateownerA05reviewblock selectednativePNG/prose only, no code/history.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -722,7 +722,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S66",
+  "current_session": "S67",
   "last_verified_native_run": "/workspace/work/s40/runs/s66-radio-4bbf6a1-final",
   "latest_verified_phase2": {
     "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
@@ -771,7 +771,7 @@
     "phone_release_is_this_source": false
   },
   "last_sprint": "S66",
-  "next_action": "Read-only owner review of the completed local-radio pilot. Next source slice: scope approved F09 live-set work from actual show state and production-ready performer artwork; no automatic continuation, newAPK/ZIP or schedule.",
+  "next_action": "S67 ONE radio-presentation family revision: image-led brief/paidreceipt/savedresponse withapprovedA01wholemicpair, 3inert16pxdelta pills actualafter-before, one short animated summary, full tracks/IDs/before-after/longsavednote behind48pxDetails. Originalmodel/receipts/save/Finance/actions/artbytes unchanged. RecordingDesk ONLYsourceedit,379inputs/378protected/all54Scripts. OptionalprivateownerA05reviewblock selectednativePNG/prose only, no code/history.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1919,7 +1919,7 @@
   "candidate_source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_only",
-  "updated_at": "2026-11-01T20:44:37.751507+00:00",
+  "updated_at": "2026-11-01T20:47:44.748770+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2112,7 +2112,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S66",
+  "session": "S67",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-01T21:10:00Z",
   "hard_stop": "2026-11-01T21:15:00Z",
@@ -2402,5 +2402,6 @@
       "closed_at": "2026-10-31T23:21:39.347569+00:00",
       "owner_approved": false
     }
-  }
+  },
+  "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule."
 }

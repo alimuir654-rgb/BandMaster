@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "id": "S67",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
+  "baseline_sha": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
+  "game_baseline_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
+  "dominant_issue": "BM-21",
+  "hypothesis": "S67 ONE radio-presentation family revision: image-led brief/paidreceipt/savedresponse withapprovedA01wholemicpair, 3inert16pxdelta pills actualafter-before, one short animated summary, full tracks/IDs/before-after/longsavednote behind48pxDetails. Originalmodel/receipts/save/Finance/actions/artbytes unchanged. RecordingDesk ONLYsourceedit,379inputs/378protected/all54Scripts. OptionalprivateownerA05reviewblock selectednativePNG/prose only, no code/history.",
+  "stop_condition": "ONERecordingDesk writer release/codefreeze20:55, finalproofby21:07/release21:09/allwrites21:10/hard21:15 UNCHANGED. No newart/model/scoring/receiptdata/gameplay/APK/ZIP/schedule. Twoineffectiveattempts changeMETHOD/HOLD; preserveS66verifiedrollbackifsourceproofcannotcomplete.",
+  "target": {
+    "locator": "/workspace/work/promotion-20261101/s66/radio-4bbf6a1-phone-touch-capable/captures/radio-response-complete-390x844.png",
+    "original_sha256": "31d3ae3f08e91f0f81fdc80163c4629885a2e0e31a65310ca07192de2053bb37",
+    "pixels_inspected": true,
+    "kind": "Ownerexplicitlyrejects textdensityoflatestactualS66native originals. ReuseapprovedA01micpaircurrentlyrootopenedS65micdossier; imageledcomposition/deltapills/Details isNEWownersteering, notoldartapproval."
+  },
+  "controlled_comparison": "Sameactualdemo/trackIDs/state/window/frame/cost/fixedactions asS66. OnlyownedRecordingDesk presentationchanges; no newsourceart. 379priorinputs/378protected/all54Scriptsbyteexact. Fullsavedmessage/state remainsunchanged; visibleCareerReceiptNote intentionallyshortsummarypernewUIcontract andFULLoriginalaccessibleinDetails. Metadatahosthas_meta beforeget_meta; no save/read/resolver fromtoggle, retainselection/focus/resize/lifecycle. Samecurrentnative73/88/import/4standard+adaptedstrongfocused4viewrealinput/savefailure/retry/Menu/fullDetails/pillvalues/imageaspect/inert/font/geometry proof0ERROR; model348literalclosure reusedifunchanged.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/recording_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S67.json",
+    "Pin379source;378priorprotected/all54Scripts/rawfonts/art/metrics/save/models. Strict73+88/import/4standard, current4viewGUI/safearea/touch/Details/shortInk/fullsavedmessage/pillactualdeltas/oncecommit/realfailedsave/retry/reload0ERROR+nativeoriginalreview.",
+    "ReuseS66model348/23literalclosure onlyifunchanged; no modelrerunforpresentation. NewexplicitstrongUIcontract verifiescollapsedfullcopythenDetailsexpansion/fullcontents; no arbitraryassertiondeletion.",
+    "PrivatePageA05selectedactualPNGblockonlyafterreadfreshPage/comments/AgentInstructions; allownercheckedchoices/historyanddeletedA03imagepreserved; newA05startsPENDING, no publicsource/history upload."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "0821c23fc80b3ff2f4a1a5807e9ede9a1c41f3b473421c3948fb057d55941e36",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "started_at": "2026-11-01T20:47:44.748770+00:00",
+  "scope_end": "2026-11-01T21:09:00Z",
+  "source_freeze_target": "2026-11-01T20:55:00Z",
+  "all_write_freeze": "2026-11-01T21:10:00Z",
+  "hard_stop": "2026-11-01T21:15:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "379unchangedcount/1ownedUIedit/378priorprotected/all54Scriptsincl3UIDsexact",
+  "protection": [
+    "OriginalS66PromotionRules/RecordingRules/CareerDesk/Finance/save/rawassetbytesunchanged; newpassivepillsnativeIGNORE/FOCUS_NONE, no meter/controlreplacement.",
+    "ApprovedA01micpair wholecrop388,720,295,279 inexistingGearPress.image(mics), no inventedstudio/airplay/ownership/newassetapproval.",
+    "NativeDETAILS48 free onlyhostUIstate, retainsfulloriginalsavedmessage/actualtracks/ID/sourcefacts/beforeafter. NoreplaySave/Finance/paidaction orhiddenanimatednotebehinddisclosure.",
+    "NewUIcompositionA05ownerapprovalPENDING; specificA01/A02/A03sourceapprovals do notconferwholegameapproval.",
+    "Physicaldevice/maximal-title/CLEAR variants remainhonestlimits unlessactuallytested. Sameexistingwriteend/hardstop, no automaticextension."
+  ],
+  "issue_log_review": {
+    "bytes": 774577,
+    "sha256": "944a35026fd9f0057877e52634d6c4ac30c7678127f4d608b3046f889ff1c64f"
+  }
+}
