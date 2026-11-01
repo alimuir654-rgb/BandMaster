@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
-  "claimed_at": "2026-11-01T19:32:41.945833+00:00",
-  "expires_at": "2026-11-01T19:42:37.206117+00:00",
-  "scope": "TwoexistingUIhooks+twoBYTEEXACTPNGs+oneconciseprovenanceJSON=378curatedinputs. CurrentcareerposterONLYexactunique3-IDArjun/Zoe/Marcusc ohort anyorder usesapprovedfront/nonsmilingposes; allothervariants/rostersstayold. EightHomeiconsuseacceptedatlasatunchanged32px withoriginalfallback; no layout/labels/control/model/save changes.",
-  "authority": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
+  "writer": "S66-radio-pilot-20261101T2015",
+  "base_head": "3908f7c79f551913b8dfd4cb5a82c012c49173ab",
+  "claimed_at": "2026-11-01T20:15:35.590457+00:00",
+  "expires_at": "2026-11-01T21:07:00Z",
+  "scope": "F10 ONE local-radio pilot: existingrecordingarchive\u2192freeexactreleased-demoselection\u2192costed\u00a320/1dayoriginalradio\u2192Storycampaign/Calendar/Life/Financeonce\u2192atomicownersave/wholecareerrollback\u2192heldInkreceiptanddurablecampaignstatus. Newpurepromotion_rules plusownedRecordingDesk/CareerDesk hooks only. No newraster/font/roster/control/economyrates/API/newAPK/ZIP/sourcepublication/schedule.",
+  "authority": "NEWdirectowner1Nov20:10 Continue with next steps, aftercompletedS65closeout/19:45freeze/20hardstop. CHECKauthorityrule prospectivelyauthorisesthisNEWmanualboundedS66F10pilot fromexplicitPage24F10approval; notautomaticextension. F09 needsapprovedinstrumentperformerassets/newpersistedmodel andremainsnextroadmap, no scopeinference.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T19:42:37.206117+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -190,8 +190,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-01T19:45:00Z",
-  "hard_stop": "2026-11-01T20:00:00Z",
+  "all_write_freeze": "2026-11-01T21:10:00Z",
+  "hard_stop": "2026-11-01T21:15:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -332,7 +332,7 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
   "next_action": "Read-only owner review of integrated current lineup/icons; next development slice should scope approved F09/F10 from actual models and current378-source baseline. No automatic continuation, newAPK/ZIP, source/publication or schedule change.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
@@ -350,5 +350,15 @@
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
   },
-  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00"
+  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00",
+  "previous_s65_release": {
+    "writer": null,
+    "last_writer": "S65-approved-art-integration-20261101T1932",
+    "released_at": "2026-11-01T19:42:37.206117+00:00",
+    "source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+    "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
+    "all_write_freeze": "2026-11-01T19:45:00Z",
+    "hard_stop": "2026-11-01T20:00:00Z"
+  },
+  "source_freeze_target": "2026-11-01T20:45:00Z"
 }
