@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 645413,
-    "sha256": "eb6e4ed60beae20a3ef0214fdab7e6419ad9c412200967b951473657499c215d"
+    "bytes": 647263,
+    "sha256": "cd93516b714dd1e7f555274e217bd6ffa6a80e69b8a7ebff2bb7998fa927f5f4"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -103,7 +103,7 @@
     "Production/main/PR199 untouched, source/historylocal, V6APKunchanged; endedautomationdisabled"
   ],
   "native_contract_rescope": "Old S37 hardcoded 200..260px upperbody source-width assumption must become exact fullbody per-ID AtlasTexture/source-region provenance validation while retaining every real identity/lead/passive/focus/fullname/geometry/save assertion. This owner-directed source-art replacement is intentional; no hidden upperbody nodes added to satisfy obsolete test.",
-  "save_contract": "New style previews UIlocal/excluded fromsnapshot. Optional explicit validated identity_style_v1 committed onlywith finish. Preserve strict legacy enums, unknownnestedstyle extensions, oldabsentkey and v1schema. Original taste/revisions/delta and formation/one±morale unchanged. Repair wholeOpening/Game savefailure rollback at name/identity boundary with actual temporary-file error/rename proof; new style also copied whole into career. Do not claim partialwrite atomicity without evidence.",
+  "save_contract": "New style previews UIlocal/excluded fromsnapshot. Optional explicit validated identity_style_v1 committed onlywith finish. Preserve strict legacy enums, unknownnestedstyle extensions, oldabsentkey and v1schema. Original taste/revisions/delta and formation/one\u00b1morale unchanged. Repair wholeOpening/Game savefailure rollback at name/identity boundary with actual temporary-file error/rename proof; new style also copied whole into career. Do not claim partialwrite atomicity without evidence.",
   "prior_manual_request": "NEW direct owner instruction after S56 closeout: Go ahead with the identity work - I want to see that quality level in the game. This authorises a new MANUAL identity implementation in the same thread. Completed overnight schedule/deadlines retained as history; automation stays ended/disabled. No new queue/controller, no merge/publication/production save or additional APK authority inferred.",
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
@@ -122,5 +122,6 @@
     }
   ],
   "aspect_art_correction_398": "Rootactual613wideproofshowsweakfigure/paperproportion; one structuralportraitproof/hero compositionbeforefinalsourceproof. No newart ormodelchanges. Actualroot613headerinspectionafter397preflightcommit/beforerelatedsourcecode disclosed; independent839viewseparate.",
-  "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory."
+  "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory.",
+  "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets."
 }
