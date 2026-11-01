@@ -91,8 +91,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 510265,
-    "sha256": "6cbea2e423af6c0a648788a470aa4e71cf1d4904cf6bbd74fcf5085981eaab83"
+    "bytes": 541218,
+    "sha256": "5244b973d37e574891e47c82451e74f3ec4575fa2c09995a777124c55d76ed59"
   },
   "started_at": "2026-11-01T02:30:59.889700+00:00",
   "scope_end": "2026-11-01T04:25:00Z",
@@ -128,13 +128,15 @@
     "no_originals": "Newmarkedbookings ONLY: cap finalGROSSfee\u00a35 AFTERpromotersettlement inclGUARANTEE; actualtravel/sessionchargesretained, successfulownedreachbonusesrequire>=1selectedoriginal. Disclosebeforebooking/confirmation; neverpayonbooking. Legacyagreedcontractsunchanged.",
     "settlement": "Projectselectedcount+signedqualitymodifierWITHOUTearlyclamp intooneoriginalCalendarperform; restorecanonicaltotals/readiness. OriginalPromoter settle thenownedfee/fatigue/reach changes BEFOREStory/Life/Reviews; Financeonce/saveonce. Savedreceipt containsactualorderedIDs/snapshots/modifiers/factualcash/day/fee andauthoredboundedresponse. Unknownfutureversion blockedwithvisiblecancelrecovery.",
     "presentation": "HeldstagebeforeSTART; afteronecommittedsavedperformance,3shortsaved-responsebeats honestmodelledsummary (notrealtimeaudio/attendance), skip/reducedsameinfo, replay/resize/reloadneverresolveagain. Durablelatestreceipt permitsread-onlyreload; optionalencounterheldunlesscorecomplete.",
-    "modelled_response": "Savedcoarse3-band summary basedauthoritativeoutcome/projection: steady=6/MIXED,positive=9/POSITIVE,strained=3/SUBDUED usingoriginalPassiveMeter; NOpercentage/attendance/audio/real-timeclaim. All3pointstext retainedreducedmotion/replay, sourceeffectsdoneonce."
+    "modelled_response": "Savedcoarse3-band summary basedauthoritativeoutcome/projection: steady=6/MIXED,positive=9/POSITIVE,strained=3/SUBDUED usingoriginalPassiveMeter; NOpercentage/attendance/audio/real-timeclaim. All3pointstext retainedreducedmotion/replay, sourceeffectsdoneonce.",
+    "receipt_readonly_addition": "341: optional effects dict foractualreadiness/morale/tension/reputation/fans before/after/delta fromcanonicalbefore+postReviewafter, strictintegral/bounds/delta checks; optional localexpenses travel_paid=min(actualhometowntravel,beforecash) and actualoriginalhistorysession_fee. Thisisreadonlyversion1receiptmetadata, not newcareersaveversion/economy/resolver. Missingoldoptionalfields notinvented; unknownextensionspreserved. No additionalsettlement/Finance/save."
   },
   "art_direction": {
     "emotion": "Smallfirstpubgig, nervous threshold then warm hopeful stage, notarena spectacle.",
     "composition": "Nativeband/actualvenue/day atheader; originalcase/hardwarefixedhousing, independentlygeneratedarrival/stageplatesaboveorbesidescrollablepapercontext. Soundcheckone180rotary+one100fader fixedoutsideverticalScroll; notes/setlistcanScroll separately;48pxfixedprimary/return.",
     "sources": "Existingopening_stage for soundcheck strongestprovenance; rootopenedoriginalCREATIVEFOCUS/MORALE fullplates. MeasuredneutralFocus(60,74,310,265) allLEDlayers, vertical(111,84,147,598); originalbytesunchanged, uniformsourcefit/capaxisremap. Optional2genuinelymissingillustrativearrival/stageplateassets, NOtext/logo/frame/UI/castperformerfaces.",
-    "held": "Legacygigs/backstage unverifiedasset-specificrights/logo-like marks, notpromoted. Globalowner_approved=false."
+    "held": "Legacygigs/backstage unverifiedasset-specificrights/logo-like marks, notpromoted. Globalowner_approved=false.",
+    "replay_revision": "340: current861technicallygreenphonepreview leavesactualwhole-showresponse belowfold. Changehierarchyonce: fixedstage/actualcash+day/whole-showcoarse response above scrollablefullthreesavedtexts, sameheldack/reducedinfo. Native controls/fonts/art/modelchangesonlyexistingapprovedscope."
   },
   "protected": [
     "All328currentrawsources outsideexplicitallowlist,54originalScripts/models/schema1/unknownfields",
