@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "id": "S63",
+  "status": "active",
+  "owner_request": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
+  "owner_approved": false,
+  "baseline_sha": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
+  "game_baseline_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+  "dominant_issue": "BM-16",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "One coherent visual career revision replaces text-route stack with8labellediconpanel, exposes actualownedgear plusillustrated8-offer shop/3explicitpremiumoffers, and fixes true posterwidth-fit scale/floor defect without changingcastart. Sceneemotion practicalbandworkbench/tactilematerials, nativecontrols/text/prices/status carrymeaning, independentunbrandedproductartonly.",
+  "stop_condition": "ONEroot sourcewriter/GL. Sourcefreeze19:15/proof19:35/release19:40/allwrites19:45/hardstop20. Twoineffectiveattempts changeMETHOD/HOLD. No unrelatedgameplay/gearownershipgift/roster/photo/HOME/saveformat/engine/paid/audio changes. Ifcannotcomplete safely retainverifiedb310 andscope reduction, noautomaticextension.",
+  "target": {
+    "locator": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-normal-390x844.png",
+    "original_sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+    "pixels_inspected": true,
+    "kind": "Currentnativeb310sourceposter actuallyopened plusownerinlineTHELASTBUS1080px reference viewedinchat (no localoriginalSHA available, neverimportastexture); S57CareerHome andS45shop actualoriginals opened/qualified as refs. CurrentexactCareerHome/shop baselinecaptures precedeimplementation."
+  },
+  "controlled_comparison": "Exact samecareer/currentArjunZoeMarcus/lead/name/style/day/cash/savedinventory/window/safearea.8iconroutes preserve destinations/nodeIDs/free browsing; statusoriginalmeters remaininertbelowchoices. Shoplanding actualownedrecordcards+8visualoffers, inspectitem/freecatalogue/previousnext/fixedactualcost/onecommit/receipt. Three newnamespacedSKUs guitar450/+5,bass500/+5,cymbals300/+4; condition100/buy1day usingoriginalgearrecordshape; legacy5rules byteparity/delegation, service25/1day/assignfree, existinggenericlivewear/penalty. No fabricatedpersonalhistory. Postersrawatlasesunchanged; per-sourceaspect widths/commonvisibleheight/sharedsolebaseline, restrainedoverlap.4viewportoriginalA/B+realpointer/key/touch/scroll/save/failedsave/resize/cancel/Continue; full73/88/import/4journeys onlyafterfocusednewcontracts.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/career_bridge.gd",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/gear_catalog.gd",
+    "experiments/playable_flightcase/gear_press.gd",
+    "experiments/playable_flightcase/art/gear_display.png",
+    "experiments/playable_flightcase/art/GEAR_DISPLAY_PROVENANCE.json",
+    "experiments/playable_flightcase/art/icons/SOURCES.json",
+    "experiments/playable_flightcase/art/icons/sliders-horizontal.svg",
+    "experiments/playable_flightcase/art/icons/ticket.svg",
+    "experiments/playable_flightcase/art/icons/calendar-days.svg",
+    "experiments/playable_flightcase/art/icons/wallet.svg",
+    "experiments/playable_flightcase/art/icons/heart-handshake.svg",
+    "experiments/playable_flightcase/art/icons/guitar.svg",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S63.json",
+    "Current364runtime baselineCareerHome/shop/actualownertrio composite beforecode. Exact4.7.2/Dummy/freshXDG/ONEGL scopedS63harness; inspectactualsourceart/referencebeforedesign.",
+    "Independentpremiumcatalog/legacy5parity/condition/role/unknownfield/Finance/savefailure tests then4viewportgenuineicon\u2192ownedgear/inspection/buy/assign/service/receipt/Continue/save journeys and groundedposter geometry+actualoriginalA/B.",
+    "Strict73/88/import/4genuine standard172 with explicitcomplete375rawcopy inventory ifall11additionsintegrated; exactGit/runtime/54originalScripts/protectedrawassets/source/frame pixelcomparison; ownerartPARTIAL untilreview.",
+    "One combinedusefulARM64APK only ifcompleteverifiedcurrentrevisionandtimepermit, separatelyartifactpreflight; no per-changebuild/sourceZIPupload/automaticqueue."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "69244a076e99a18c0c6cac6ffc0a138f2fb5634879109040b9b69bf76075cdc3",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 722835,
+    "sha256": "17cebbcd420103bde0baa1045b0648c74a6312f34e723984bf6abbd7892a5ddb"
+  },
+  "started_at": "2026-11-01T17:28:50.469236+00:00",
+  "scope_end": "2026-11-01T19:40:00Z",
+  "source_freeze_target": "2026-11-01T19:15:00Z",
+  "all_write_freeze": "2026-11-01T19:45:00Z",
+  "hard_stop": "2026-11-01T20:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "364priorraw+3ownedmodules+1generatedproductatlas+1provenance+6byteoriginalISCicons=375expected. Fourpriorsourcepathsallowedmodified; allother360+original54Scripts/rawcast/hardware/paper/fontsprotected.",
+  "protection": [
+    "All54originalScripts/3trackedUIDs unchanged, saveversion1 and unknownfields retained. Newcatalogadapter delegateslegacy5 unchanged; new3explicit authoredprices/readiness/100condition/1day only; no silentgift/historicalownership/gearwritingseparationclaim.",
+    "OriginalGear.record/holder/service/aftershow/readinesspenalty reused fornewrecordshape; onlynewbuy/assign branchwhenOriginalrejectsnewID. ExistingBridgeStory\u2192Calendar\u2192Life andCareerDeskbusy\u2192Finance\u2192atomicSave/wholecareerrollback retained.",
+    "Raw18C25previews/3fullbodyatlases/CASTregiondata/fonts/originalKit/passivemeters/hardware unchanged. Postercompositiononly commonvisibleheight+ground, no recast/imageedit.",
+    "Newproductsource8unbrandedobjects only, no people/fullUI/text/brands, transparentRGBAsharedatlas honestprovenance not8independentphotos. Alllabels/prices/controls native. ReuseISCicons withlicence/SOURCES, no externaldependency."
+  ],
+  "new_premium_policy": {
+    "shop_guitar_new": {
+      "name": "NEW ELECTRIC GUITAR",
+      "price": 450,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Guitarist"
+    },
+    "shop_bass_new": {
+      "name": "NEW BASS GUITAR",
+      "price": 500,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Bassist"
+    },
+    "shop_cymbals_new": {
+      "name": "NEW CYMBAL SET",
+      "price": 300,
+      "readiness": 4,
+      "condition": 100,
+      "role": "Drummer"
+    }
+  }
+}
