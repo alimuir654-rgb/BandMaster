@@ -533,3 +533,16 @@ PASS73gameplay+88opening+cleanimport+4genuine input/save journeys/172originals;4
 Actual original names opened,11rootcurrent originals/independent20new+18byte-reused prior,5SIMULATEDlenses/failures296–315/correction316/remaining: `/workspace/work/overnight-20261101/s52/closeout.json`. Two ineffective firstfold layouts changed method; numeric-wrap technicalPASS rejected by art inspection. Genericfocus ERROR fixed; missedBack wasoversizedQA hitbox, not productBack. CLEAR collapsed filename retained; actualexpandedoriginals provenance recovered. Earlier314 no-original claim corrected316: initialHome0captured before100failure. NativeEnd production-paper0/100 nowPASS.
 
 LESSONS appended; visualPARTIAL/ownerfalse/physicalphonepending. No newAPK/ZIP/Pagepixels/publicsource. V5a9 unchanged;328-file importedruntimeLOCALonly. Writerreleased 2026-11-01T02:08:36.151392+00:00. NextONEaction: Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.
+
+
+## S54 song-to-demo cohesion 2026-11-01T05:39:04.406867+00:00
+
+Exact source `db61d1d9468f4b2babf43e661e4bdd3cdd97a113`: chosen real completed song IDs/order and immutable full writing snapshots now link Songbook to original £60/two-day demo and £25/one-day local release. Compact archive puts actual status/terms/actions before history. Real GUI property-reversal diagnosed owned paper/button STOP; scoped PASS propagation enables native scroll without activation. Original model/art/hardware/passive meters/fonts/schema preserved.
+
+PASS73+88/import/4standard172;3268recording checks/57originals;328independent model and byte-originalV27;932existing-gigphone regression with exact dependency reuse;444same-state baseline.339originals/54trackedScripts/336prior/341raw runtime exact;168standard exact+4disclosed Reopen fade-phase frames,0unexpected. ERROR0, measuredorphans0.
+
+Exact executions/hashes/reuse caveats, original PNG names actually opened and five SIMULATED lenses: `/workspace/work/overnight-20261101/s54/closeout.json`. Failures354–366 retained;367finalreview. LESSONS updated. VisualPARTIAL/ownerfalse/physicalAndroid pending. Broader gear inventory/creative coupling/audio/cast held, no fabricated historical ownership. No S54APK/ZIP/hostedpixels/publicsource yet; V5 rollback retained. Writer released 2026-11-01T05:39:04.406867+00:00.
+
+Next ONE action: Prepare ONE artifact-only overnight milestone: exact341-source isolated project/review ZIP, extracted import/configured-entry smoke, same-ID/key/savefolder Android code6 update and private owner delivery; no additional gameplay/art breadth. Fresh bounded artifact preflight and gate required. All writes stop08:30.
+
+S54 closeout process correction368: prior-record gate correctly rejected S53baseline lacking S54session; fail-fast stopped before commit/build. Actual committed S54preflight ref is used for retry. Source/native proof unchanged; failed invocation retained, no gate weakening.

@@ -1141,3 +1141,16 @@ Validation/source/art/failedhistory and exact opened-original lists: `/workspace
 No S53APK/ZIP/Pagepixels/publicsource/merge. V5/a9 still phonebuild; actual337configuredentryPASS, importedruntimeLOCAL. Single source writer released 2026-11-01T04:13:36.240890+00:00. Allwritefreeze08:30/hardstop09 remain.
 
 NextONEaction: Scope ONE conditional starter-gear/song-cohesion pilot from the approved overnight plan, only after reading latest head/lease/lessons and this completed S53 proof. Prefer separating creative song quality from gear execution with honest basic role access; define complete source/save/UX policy before code. If no coherent safe pilot fits, HOLD and retain/package this checkpoint. No new breadth after07:00.
+
+
+## S54 song-to-demo cohesion 2026-11-01T05:39:04.406867+00:00
+
+Exact source `db61d1d9468f4b2babf43e661e4bdd3cdd97a113`: chosen real completed song IDs/order and immutable full writing snapshots now link Songbook to original £60/two-day demo and £25/one-day local release. Compact archive puts actual status/terms/actions before history. Real GUI property-reversal diagnosed owned paper/button STOP; scoped PASS propagation enables native scroll without activation. Original model/art/hardware/passive meters/fonts/schema preserved.
+
+PASS73+88/import/4standard172;3268recording checks/57originals;328independent model and byte-originalV27;932existing-gigphone regression with exact dependency reuse;444same-state baseline.339originals/54trackedScripts/336prior/341raw runtime exact;168standard exact+4disclosed Reopen fade-phase frames,0unexpected. ERROR0, measuredorphans0.
+
+Exact executions/hashes/reuse caveats, original PNG names actually opened and five SIMULATED lenses: `/workspace/work/overnight-20261101/s54/closeout.json`. Failures354–366 retained;367finalreview. LESSONS updated. VisualPARTIAL/ownerfalse/physicalAndroid pending. Broader gear inventory/creative coupling/audio/cast held, no fabricated historical ownership. No S54APK/ZIP/hostedpixels/publicsource yet; V5 rollback retained. Writer released 2026-11-01T05:39:04.406867+00:00.
+
+Next ONE action: Prepare ONE artifact-only overnight milestone: exact341-source isolated project/review ZIP, extracted import/configured-entry smoke, same-ID/key/savefolder Android code6 update and private owner delivery; no additional gameplay/art breadth. Fresh bounded artifact preflight and gate required. All writes stop08:30.
+
+S54 closeout process correction368: prior-record gate correctly rejected S53baseline lacking S54session; fail-fast stopped before commit/build. Actual committed S54preflight ref is used for retry. Source/native proof unchanged; failed invocation retained, no gate weakening.

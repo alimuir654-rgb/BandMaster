@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S54",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Approved overnight plan links actual completed original IDs/order into recordings with immutable snapshots; one conditional gear/song-cohesion pilot if core green. Owner prefers gear/song cohesion. S53 core is verified; broader basic instrument inventory/creative gear separation is HELD as unsafe breadth, not claimed complete.",
   "owner_approved": false,
   "baseline_sha": "253331a1c3966c6af00484ed303adf5acd2d2d47",
@@ -41,7 +41,7 @@
     "BM-44",
     "BM-45"
   ],
-  "hypothesis": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates. Measured364 requires owned CareerDesk._paper and _button integration properties MOUSE_FILTER_PASS so nativeScrollContainer receives drags. This is a source-proven existing-screen mobileinput correction, no art/skin/model changes.",
+  "hypothesis": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates. Measured364 requires owned CareerDesk._paper and _button integration properties MOUSE_FILTER_PASS so nativeScrollContainer receives drags. This is a source-proven existing-screen mobileinput correction, no art/skin/model changes.",
   "stop_condition": "Source target05:10, bounded lease06:20; core proof and package window protected. Two ineffective iterations change method/HOLD. Do not add gear/cast/audio/campaign/transport breadth. All writes freeze08:30; no new breadth after07.",
   "target": {
     "locator": "/workspace/work/unify/s45/s46-regression-a9-phone/captures/career-songs-draft-390x844.png",
@@ -69,12 +69,12 @@
     "Scoped364ownedPaper/Button causal correction: originalS53 firstgigphone regression, unchangedcalculation/oracles/source bytes reused"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "68897ba482ea240fdfd36869e4b6105be3a3fa25bfb7d4550dc1e7b90749148e",
+    "docs/continuous_improvement/LESSONS.md": "ae92cade52e640f614ec8d2ce8ac56a88236ad03552d329bdd39eeeeaf380cf0",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 580034,
-    "sha256": "1b6c6b6c29c5007f7626f16eb7cbfb708778305d0896a3d69b075c66b04ee316"
+    "bytes": 583874,
+    "sha256": "888af88d268896c0d3c995c8f666202cfd17bae7330c35822e57640401da4701"
   },
   "started_at": "2026-11-01T04:24:30.738786+00:00",
   "scope_end": "2026-11-01T06:20:00Z",
@@ -84,8 +84,8 @@
   "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
   "policy": {
-    "record": "2\u20133 unique existing original IDs, selected order; validate full originalcan_record/new-material gate. Call unchanged originalrecord on selectedprojection, preserve actual fullcatalogue/history, fullcount source_count and originalIDformat; additive versionedtrack identity/full snapshots only. No invented IDs for old title-only recordings.",
-    "cash_days": "Original60 paid upfront firstday, exactly2completed days with closing_balances[aftercash,aftercash]. Original25 localrelease1day. Alloutgoing Other, no passive sales/rates. OriginalStory\u2192Calendar.expire\u2192Life order then Finance once; owner.saveonce.",
+    "record": "2–3 unique existing original IDs, selected order; validate full originalcan_record/new-material gate. Call unchanged originalrecord on selectedprojection, preserve actual fullcatalogue/history, fullcount source_count and originalIDformat; additive versionedtrack identity/full snapshots only. No invented IDs for old title-only recordings.",
+    "cash_days": "Original60 paid upfront firstday, exactly2completed days with closing_balances[aftercash,aftercash]. Original25 localrelease1day. Alloutgoing Other, no passive sales/rates. OriginalStory→Calendar.expire→Life order then Finance once; owner.saveonce.",
     "booking": "No record/release onactualshowday; recording cannot overlap pending bookingday in(today,today+2]. Visible reason/remedy, do not silentlyexpire confirmedshow.",
     "compatibility": "Keep schema_version1/unknownfields. Existing title-quality recordings read asLEGACYwithoutfabricatedsourceIDs. Present malformed known recording/track data blocks scoped commits immutably; unknown optional extensions preserved. Missing newmetadata neutral.",
     "input": "Free draft survives rebuild/resize, no model/save from toggles/order/scroll/hide/ack. Busy BEFOREresolver. Diskfail restores fullcareer; repeat/late actions do notduplicate. Record/release explicitnativecommit; durablearchive renders saveddata afterreload.",
@@ -97,12 +97,12 @@
     "S51safearea/Inkinput/S52heldday/fonts/Settings/S53showmodels/controlart/C25/rawpassivemeters/productionproject/schema1"
   ],
   "baseline_evidence": "/workspace/work/overnight-20261101/s53/closeout.json",
-  "candidate_source_sha": "d3da7d8ed673b09faad40c95ca959a91aa81c8fd",
-  "candidate_native_verified": false,
-  "candidate_status": "full341import-and-focused-native-pending",
+  "candidate_source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+  "candidate_native_verified": true,
+  "candidate_status": "verified_complete",
   "updated_at": "2026-11-01T04:49:50.883481+00:00",
   "art_correction": "361: actual390initial has no ADDbeforefold. Compactselectionfacts only; fullhistoryalreadyinarchive. No art/font/modelchange. NativeinitialADDassert +genuineHome selectedreadingcontext beforefourfinalnative.",
-  "touch_hold": "363 actualvanillapassesbutrecordingpaperfails; TWOattempts\u2192methodchangeactualreceivertrace beforeanyprodpatch. No fullnewsourcepromotion untilphonepathgreen.",
+  "touch_hold": "363 actualvanillapassesbutrecordingpaperfails; TWOattempts→methodchangeactualreceivertrace beforeanyprodpatch. No fullnewsourcepromotion untilphonepathgreen.",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -124,5 +124,184 @@
     "remaining_gap": "366 compactarchive primaryfactsbelowhistory",
     "validation": "/workspace/work/s40/runs/s54-recording-ad30d50-final/validation.json"
   },
-  "archive_rescope": "366 onlyRecordingDesk._session compactfacts/action beforefullhistory andshorterredundantintro; newnativefirstfoldstatusassertions. Models/metadata/schema/art/fonts/controls/signalpolicy unchanged. Sourcefreeze05:25/lease06:20/allwrites08:30 unchanged."
+  "archive_rescope": "366 onlyRecordingDesk._session compactfacts/action beforefullhistory andshorterredundantintro; newnativefirstfoldstatusassertions. Models/metadata/schema/art/fonts/controls/signalpolicy unchanged. Sourcefreeze05:25/lease06:20/allwrites08:30 unchanged.",
+  "closed_at": "2026-11-01T05:39:04.406867+00:00",
+  "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+  "tested_source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+  "native_full_input_verified": true,
+  "validation": "/workspace/work/s40/runs/s54-recording-db61d1d-final/complete-validation.json",
+  "checks": {
+    "gameplay_checks": 73,
+    "opening_checks": 88,
+    "clean_import": true,
+    "standard_native_journeys": 4,
+    "standard_original_pngs": 172,
+    "recording_native_journeys": 4,
+    "recording_native_assertions": 3268,
+    "recording_original_pngs": 57,
+    "independent_recording_model_checks": 328,
+    "byte_original_v27_test_pass": true,
+    "existing_first_gig_phone_regression_assertions": 932,
+    "same_state_songbook_baseline_assertions": 444,
+    "paper_input_diagnostic_assertions": 300,
+    "paper_button_input_diagnostic_assertions": 412,
+    "engine_error_lines": 0,
+    "orphan_growth_where_measured": 0,
+    "protected_original_files": 339,
+    "protected_original_Scripts": 54,
+    "protected_prior_runtime_paths": 336,
+    "runtime_source_paths": 341,
+    "byte_and_pixel_identical_standard_to_dd": 168,
+    "disclosed_ephemeral_reopen_frames": 4,
+    "unexpected_pixel_changes": 0
+  },
+  "visual_verdict": "partial",
+  "remaining": [
+    "Physical Android cutout/navigation/touch/performance and final owner artwork review pending; native/simulated-inset evidence is not device proof.",
+    "Basic per-role instrument access and separation of gear readiness from composition quality are HELD: current ownership/history cannot be reconstructed honestly in this bounded pilot.",
+    "No new audition/music audio, genre cast, loans, acquisition or campaign breadth. No fabricated song IDs for legacy recordings/catalogues; original source-count gate retained.",
+    "Long recording histories intentionally scroll. Saved notes are an authored outcome presentation, not audio playback.",
+    "Current phone V5 excludes S47–S54 until the separate optional final code6 milestone is actually delivered. Source/history/project ZIP remain local; public learning-history publication remains blocked."
+  ],
+  "next_action": "Prepare ONE artifact-only overnight milestone: exact341-source isolated project/review ZIP, extracted import/configured-entry smoke, same-ID/key/savefolder Android code6 update and private owner delivery; no additional gameplay/art breadth. Fresh bounded artifact preflight and gate required. All writes stop08:30.",
+  "closeout": {
+    "tested_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+    "evidence": [
+      "/workspace/work/overnight-20261101/s54/final-proof-summary.json",
+      "/workspace/work/s40/runs/s54-recording-db61d1d-final/complete-validation.json",
+      "/workspace/work/s40/runs/s54-recording-db61d1d-final/focused-validation.json",
+      "/workspace/work/s40/runs/s54-recording-db61d1d-final/source-protection-audit.json",
+      "/workspace/work/s40/runs/s54-recording-db61d1d-final/runtime-source-audit.json",
+      "/workspace/work/s40/runs/s54-recording-db61d1d-final/visual-review.json",
+      "/workspace/work/overnight-20261101/s54/root-final-opened-confirmed.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Prepare ONE artifact-only overnight milestone: exact341-source isolated project/review ZIP, extracted import/configured-entry smoke, same-ID/key/savefolder Android code6 update and private owner delivery; no additional gameplay/art breadth. Fresh bounded artifact preflight and gate required. All writes stop08:30.",
+    "new_issue_review": "All367events reviewed.354–366 failures/intake/harness/art/input history preserved before corrections;367finalreview. New reusable data-only dependency, nested-date validation, touch positive-control/ancestor propagation and compact-action hierarchy lesson added to canonical LESSONS. No gate weakening. Event368 preserves incorrect prior-record baseline invocation and fail-fast boundary; corrected full preflight ref follows without source/gate changes.",
+    "technical_verdict": "pass",
+    "owner_approved": false,
+    "checks": {
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_native_journeys": 4,
+      "standard_original_pngs": 172,
+      "recording_native_journeys": 4,
+      "recording_native_assertions": 3268,
+      "recording_original_pngs": 57,
+      "independent_recording_model_checks": 328,
+      "byte_original_v27_test_pass": true,
+      "existing_first_gig_phone_regression_assertions": 932,
+      "same_state_songbook_baseline_assertions": 444,
+      "paper_input_diagnostic_assertions": 300,
+      "paper_button_input_diagnostic_assertions": 412,
+      "engine_error_lines": 0,
+      "orphan_growth_where_measured": 0,
+      "protected_original_files": 339,
+      "protected_original_Scripts": 54,
+      "protected_prior_runtime_paths": 336,
+      "runtime_source_paths": 341,
+      "byte_and_pixel_identical_standard_to_dd": 168,
+      "disclosed_ephemeral_reopen_frames": 4,
+      "unexpected_pixel_changes": 0
+    },
+    "five_SIMULATED_review_lenses": [
+      {
+        "label": "SIMULATED bandleader",
+        "finding": "Actual completed originals, chosen order and immutable writing snapshots connect songs to a real saved demo; record and release terms are explicit."
+      },
+      {
+        "label": "SIMULATED phone player",
+        "finding": "Compact ADD and archive status/actions precede long history; genuine touch drags from owned paper/text/buttons scroll without committing. Physical Android remains untested."
+      },
+      {
+        "label": "SIMULATED visual director",
+        "finding": "Original paper, native hardware controls, printed facts and saved handwritten prose retain the analogue language. Long dossiers scroll; this is visual PARTIAL, no new art approval."
+      },
+      {
+        "label": "SIMULATED systems reviewer",
+        "finding": "Original recording/release economics and source models remain unchanged; pure projection/commit, durable identities, whole-career failed-save rollback and retry verified."
+      },
+      {
+        "label": "SIMULATED release reviewer",
+        "finding": "Exact341-source runtime, zero ERROR, four real input/save journeys, protected raw assets and explicit reused proof establish a package candidate; no new APK/package has yet been built."
+      }
+    ],
+    "originals_actually_opened_by_root": [
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-archive-facts-phone-normal/captures/recording-saved-receipt-partial-390x844.png",
+        "sha256": "eb6fb7887052351133ad1ff9e23b73c65385f48334e4c1c1f24969794a3236ac",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-db61d1d-tablet/captures/recording-archive-released-720x1280.png",
+        "sha256": "289be9b6626f1b06662ec7ca4bb2753f46fc401ee824a84b20f2ebb3f3da6823",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-db61d1d-wide/captures/recording-selected-order-context-1280x720.png",
+        "sha256": "26f270c85528dc6d3cc2d39b4c855166749b83c3ec42cf76388447893d72ccd0",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-db61d1d-large/captures/recording-archive-released-1600x900.png",
+        "sha256": "819afdab60353e86400f176790ee815ec9a28a18035a330447503e6678577db8",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-archive-facts-phone-normal/captures/recording-archive-unreleased-390x844.png",
+        "sha256": "df79e405f8646aba5a7b5670da5971c5ab7d648985cfdc1de48491e9d4e7017d",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s54/recording-archive-facts-phone-normal/captures/recording-archive-released-390x844.png",
+        "sha256": "49e77aef7d63bd319590850217de1f24933f6fd8e7e34900283996e94642de2b",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/captures/c27-session_beat_ReopenSessionAction-390x844.png",
+        "sha256": "a292577ba37d4a642e48f455fd2c0d7e54f5400ae9da31580598b958b5a24cb7",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true,
+        "note": "Representative same-state animation-phase pair; later settled standard originals exact."
+      },
+      {
+        "path": "/workspace/work/s40/runs/s54-recording-db61d1d-final/captures/c27-session_beat_ReopenSessionAction-390x844.png",
+        "sha256": "6ff58d535148b0b599c43da47e028c216a6417fe2b28bf5c49bfba4f9c1c1964",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true,
+        "note": "Representative same-state animation-phase pair; later settled standard originals exact."
+      }
+    ]
+  }
 }
