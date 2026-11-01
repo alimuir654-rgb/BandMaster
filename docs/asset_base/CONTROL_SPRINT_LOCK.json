@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "444ed31a89e31fc73b3bb33986aa743aa8e419e0",
-  "claimed_at": "2026-10-31T22:43:11.629265+00:00",
-  "expires_at": "2026-10-31T23:35:00Z",
-  "scope": "Turn actual original settled poor/good show flags into once-only saved factual reports; a poor tracked show pauses ONLY guarantee offers until a later actual successful show. STANDARD/GUESTLIST recovery stay under originalchecks; no stars/critic/rating/newcash model.",
-  "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
+  "writer": "S50-overnight-art-control-preparation-20261101",
+  "base_head": "ce3c4cbbb9adcf3997cea7c456b6896b02c36c65",
+  "claimed_at": "2026-11-01T00:06:08.778644+00:00",
+  "expires_at": "2026-11-01T00:12:00Z",
+  "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
+  "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-10-31T23:21:39.347569+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S49 onehour work complete. Source frozen179, originalmodels/art/schema protected, localproject/reviewZIP smokePASS, no newAPK/hostedS49publication. No pendingGL/helper/implementation/queue.",
+  "note": "Metadata/preparation only; no game/art/GL writes. Nextsourcewriter requires fresh scopedpreflight. Existing soleautomation resumes00:15; no secondqueue.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -184,5 +184,15 @@
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
     "released_at": "2026-10-31T22:15:04.985188+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
-  }
+  },
+  "previous_s49_release": {
+    "last_writer": "S49-review-confidence-20261031",
+    "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+    "released_at": "2026-10-31T23:21:39.347569+00:00",
+    "scope": "Turn actual original settled poor/good show flags into once-only saved factual reports; a poor tracked show pauses ONLY guarantee offers until a later actual successful show. STANDARD/GUESTLIST recovery stay under originalchecks; no stars/critic/rating/newcash model.",
+    "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
+    "expires_at": "2026-10-31T23:35:00Z"
+  },
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "hard_stop": "2026-11-01T09:00:00Z"
 }

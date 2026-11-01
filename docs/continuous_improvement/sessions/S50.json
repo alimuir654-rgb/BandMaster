@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "S50",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+  "baseline_sha": "ce3c4cbbb9adcf3997cea7c456b6896b02c36c65",
+  "game_baseline_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-27",
+    "BM-28",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46",
+    "BM-07",
+    "BM-18",
+    "BM-19"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "399b09b9aa08082a3a482b5c8bb9ada4b95fab95b9e59f2680a3b80806d9c739",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 448088,
+    "sha256": "1ff1bc7e4f16111f0820b32231fc19d40fdcb7b66fb569b5f2382405fbf091f1"
+  },
+  "dominant_issue": "BM-41",
+  "hypothesis": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
+  "controlled_comparison": "Metadata/preparation only. Game/art/hardware/model bytes must remain exact179; reuse verifiedS49 evidence without reruns. Root opened actual original sharedstage andS46phonejournal. New first-gig contract is DESIGN ONLY, not deliveredcontrols or approvedart. Baseline/source/path claims trace actualrepo/helperread-onlyaudit.",
+  "stop_condition": "Preparation lease ends2026-11-01T00:12:00Z; release before first00:15scheduledwake. Source/art changes prohibited inS50. Overnightall-writefreeze08:30/hard09:00; final08:15wakecloseoutonly. One writer/GL, no competingqueue/formerworker.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S50.json",
+    "docs/continuous_improvement/S50_OVERNIGHT_FIRST_GIG.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S50.json",
+    "Readback existingautomation finiteEurope/LondonRRULE/enabled/samethread andprivateplanPage; no newtask",
+    "git diff --name-only ce3c4cbbb9adcf3997cea7c456b6896b02c36c65 HEAD; requiremetadataonly, preserve281issueprefix",
+    "Reuse exactS49 native/sourceproof; no newengine/package/APKclaim"
+  ],
+  "protected": [
+    "Allgame/art/runtime/model/save-schema/cast/passivemeter/hardwarebytes",
+    "Existing318-sourceS49verifiedcheckpoint andV5phone rollback",
+    "Existing281append-onlyevents andpublicsource/historypublicationblock"
+  ],
+  "original_pngs_opened": [
+    "/workspace/BandMaster/Art/Backgrounds/shared/gigs.webp",
+    "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png"
+  ],
+  "next_action": "At00:15read latestPage/canonical/lessons/newissues and baselineactualphone/currentcheckpoint, then scope the mobile interaction and presentation foundation before first-gig sourcework.",
+  "started_at": "2026-11-01T00:06:08.778644+00:00",
+  "scope_end": "2026-11-01T00:12:00Z",
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+  "target": {
+    "locator": "/workspace/BandMaster/Art/Backgrounds/shared/gigs.webp",
+    "original_sha256": "e23428f1fcf7024a9fab76e9c6bb4ef3b8a1d955c8fab6e1161b2cf49df5aad4",
+    "pixels_inspected": true,
+    "kind": "Existing flattened stage source actuallyopened for mood/composition; not wholeUIapproval or crew/crowd animation asset."
+  }
+}
