@@ -25,7 +25,9 @@ static func for_root(host: Control) -> Rect2:
  var bounds: Rect2 = host.get_viewport_rect()
  # Explicit native-test sample; no player preference, project override or save.
  # The same physical conversion is used for the fixture and mobile OS sample.
- var sample: Variant = host.get_meta("safe_area_test_sample",null)
+ var sample: Variant = null
+ if host.has_meta("safe_area_test_sample"):
+  sample = host.get_meta("safe_area_test_sample")
  if sample is Dictionary:
   var safe: Variant = sample.get("screen_safe_rect",Rect2())
   var transform: Variant = sample.get("viewport_to_screen",host.get_viewport().get_screen_transform())

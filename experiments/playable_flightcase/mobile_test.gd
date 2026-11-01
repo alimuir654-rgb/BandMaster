@@ -10,6 +10,9 @@ func check(actual: Rect2, expected: Rect2, label: String) -> void:
   failures.append(label+": "+str(actual)+" expected "+str(expected))
 
 func _init() -> void:
+ call_deferred("run")
+
+func run() -> void:
  var full := Rect2(0,0,390,844)
  check(Safe.content_rect(full,Rect2(0,48,390,762),Transform2D.IDENTITY),Rect2(0,48,390,762),"portrait camera and navigation bar")
  var doubled := Transform2D(Vector2(2,0),Vector2(0,2),Vector2(80,120))
@@ -26,5 +29,13 @@ func _init() -> void:
  check(Safe.content_rect(full,Rect2(0,40,390,770),Transform2D(Vector2.ZERO,Vector2.ZERO,Vector2.ZERO)),full,"singular transform fallback")
  check(Safe.content_rect(full,Rect2(0,40,-3,770),Transform2D.IDENTITY),full,"invalid negative safe size fallback")
  check(Safe.content_rect(Rect2(10,20,390,844),Rect2(22,58,352,770),Transform2D.IDENTITY),Rect2(22,58,352,770),"nonzero viewport origin is retained")
+ var host := Control.new()
+ root.add_child(host)
+ check(Safe.for_root(host),host.get_viewport_rect(),"ordinary desktop provider without test metadata")
+ host.set_meta("safe_area_test_sample",{"screen_safe_rect":Rect2(0,40,390,770),"viewport_to_screen":Transform2D.IDENTITY})
+ check(Safe.for_root(host),Safe.content_rect(host.get_viewport_rect(),Rect2(0,40,390,770),Transform2D.IDENTITY),"explicit test sample uses same provider conversion")
+ host.remove_meta("safe_area_test_sample")
+ check(Safe.for_root(host),host.get_viewport_rect(),"removed sample returns to default provider without engine errors")
+ host.free()
  print("S51_MOBILE_MATH_RESULT ",JSON.stringify({"checks":checks,"failures":failures,"pass":failures.is_empty()}))
  quit(0 if failures.is_empty() else 1)
