@@ -1,5 +1,5 @@
 {
-  "writer": "S62-pixel9-apk-package-20261101T1425",
+  "writer": null,
   "base_head": "3934ad1944263eae3f4582d9946ee0f0f07664b3",
   "claimed_at": "2026-11-01T14:27:16.025391+00:00",
   "expires_at": "2026-11-01T15:35:00Z",
@@ -7,8 +7,8 @@
   "authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": "2026-11-01T14:11:13.253502+00:00",
+  "status": "released",
+  "released_at": "2026-11-01T14:38:45.952009+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S61-final-metadata-review-20261101T1411",
+  "last_writer": "S62-pixel9-apk-package-20261101T1425",
   "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "previous_checkpoint_release": {
     "writer": null,
@@ -155,8 +155,8 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "S61technicalartifactPASS/V7LOCALready, privateuploadBLOCKED100MiB. No pendingengine/helper/source work; awaitingactualphonemodelfor separatelyboundedartifactrepair.15:50freeze/16hardstop. No queue/controller/backgroundextension.",
-  "source_writer_released_at": "2026-11-01T14:10:45.232585+00:00",
+  "final_closeout_note": "S62complete: V7ARM64 privateAPKdelivered/readback/PhonePage13, samegameb310. No pending source/art/engine/helper/build work. Nextread-onlyownerphone/artfeedback;15:50freeze/16hardstop/noqueue/extension.",
+  "source_writer_released_at": "2026-11-01T14:38:45.952009+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -169,13 +169,13 @@
   },
   "source_write_allowed": false,
   "last_delivery": {
-    "scope": "ONE selected compiledAPK private named reader; PhonePageprose only, no newpixels/source/history upload",
-    "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
-    "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
-    "receipt": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json",
+    "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+    "receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-    "sequence": 11,
-    "completed_at": "2026-11-01T05:58:39.957744+00:00"
+    "sequence": 13,
+    "completed_at": "2026-11-01T14:38:45.952009+00:00"
   },
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -209,7 +209,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "verified_local_current_band_poster_art_partial",
-  "updated_at": "2026-11-01T14:27:16.025391+00:00",
+  "updated_at": "2026-11-01T14:38:45.952009+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -228,8 +228,8 @@
     "writer": "S54-song-recording-20261101T0425",
     "claimed_at": "2026-11-01T04:24:30.738786+00:00",
     "expires_at": "2026-11-01T06:20:00Z",
-    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
-    "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+    "authority": "Owner explicitly approved the 1 November00:15–09:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
     "released_at": "2026-11-01T05:39:04.406867+00:00"
   },
@@ -271,41 +271,39 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "prepared_android_v7": {
-    "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+    "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
-    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-    "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
-    "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
-    "bytes": 119910540,
     "version_name": "0.60.0-playtest",
     "version_code": 7,
-    "url": null,
-    "remote_file_id": null,
-    "remote_checksum": null,
-    "file_was_uploaded": false,
-    "reader_intended": "alimuir654@gmail.com",
-    "destination_owner_verified": "chair@lovewelluk.com",
-    "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
-    "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
-    "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
-    "phone_model_requested": true,
-    "device_specific_variant_built": false,
-    "universal_ABIs": [
-      "arm64-v8a",
-      "armeabi-v7a"
+    "abis": [
+      "arm64-v8a"
     ],
+    "owner_device": "Pixel 9",
+    "apk_path": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/BandMaster-Playtest-v7-arm64.apk",
+    "bytes": 90554349,
+    "local_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+    "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "delivery_receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
+    "repackage_receipt": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/repackage.json",
+    "update_compatibility": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/update-compatibility.json",
+    "independent_update_privacy_audit": "/workspace/work/identity-20261101/s62/android/update-privacy-audit-v7-arm64.json",
+    "parent_universal_local_only": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/build.json",
+    "remote_checksum": "Not exposed; no claim",
     "physical_phone_tested": false,
-    "physical_update_save_retention_tested": false,
-    "owner_approved": false,
-    "current_download_remains": "V6 db61/code6",
-    "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
-    "evidence": [
-      "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
-      "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
-      "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
-      "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
-    ]
+    "owner_approved": false
+  },
+  "previous_android_delivery_before_v7": {
+    "scope": "ONE selected compiledAPK private named reader; PhonePageprose only, no newpixels/source/history upload",
+    "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+    "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
+    "receipt": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json",
+    "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+    "sequence": 11,
+    "completed_at": "2026-11-01T05:58:39.957744+00:00"
   }
 }

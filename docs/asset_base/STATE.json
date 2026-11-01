@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s62_pixel9_arm64_delivery_preflight",
+  "status": "s62_pixel9_v7_privately_delivered",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
-  "writer": "S62-pixel9-apk-package-20261101T1425",
+  "writer": null,
   "last_verified_code_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "S62Pixel9ARM64 artifactrepair.",
+  "next_single_action": "READ-ONLY owner Pixel9 update/Continue/calendar/poster and artwork feedback. Preserve currentV7/private link and local364-source package; no new art/gameplay/QA/suite/ZIP/build activity. Only concrete ownerfeedback/newsteering justifies separatelybounded repair before15:50writefreeze;16:00 hardstop/no queue/extension.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -514,7 +514,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Calendar/identity/genre/show/current-bandposter implemented/verified, stableuniversalV7preparedLOCAL, privateuploadblockedconnector100MiB; V6currentdownload retained.",
+  "last_completed_deliverable": "V7identity/calendar/genre/show/current-bandposter privatelydelivered asownerPixel9 ARM64update, samegameassets/config/saves/signing, no sourcechanges.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -560,7 +560,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-01T14:10:45.232585+00:00",
+  "last_updated_utc": "2026-11-01T14:38:45.952009+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -721,7 +721,7 @@
     "owner_approved": false
   },
   "last_sprint": "S52",
-  "next_action": "ONE Pixel9ARM64 packagingrepair of verifieduniversalV7, no source/art changes; independentaudit/privatecompileddelivery.",
+  "next_action": "READ-ONLY owner Pixel9 update/Continue/calendar/poster and artwork feedback. Preserve currentV7/private link and local364-source package; no new art/gameplay/QA/suite/ZIP/build activity. Only concrete ownerfeedback/newsteering justifies separatelybounded repair before15:50writefreeze;16:00 hardstop/no queue/extension.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1390,40 +1390,29 @@
       "smoke_engine_error_lines": 0
     },
     "android": {
-      "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+      "status": "private_delivered_physical_phone_pending",
       "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
-      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
-      "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
-      "bytes": 119910540,
       "version_name": "0.60.0-playtest",
       "version_code": 7,
-      "url": null,
-      "remote_file_id": null,
-      "remote_checksum": null,
-      "file_was_uploaded": false,
-      "reader_intended": "alimuir654@gmail.com",
-      "destination_owner_verified": "chair@lovewelluk.com",
-      "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
-      "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
-      "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
-      "phone_model_requested": true,
-      "device_specific_variant_built": false,
-      "universal_ABIs": [
-        "arm64-v8a",
-        "armeabi-v7a"
+      "abis": [
+        "arm64-v8a"
       ],
+      "owner_device": "Pixel 9",
+      "apk_path": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/BandMaster-Playtest-v7-arm64.apk",
+      "bytes": 90554349,
+      "local_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+      "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "save_directory": "BandMasterOwnerPlaytestS40",
+      "delivery_receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
+      "repackage_receipt": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/repackage.json",
+      "update_compatibility": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/update-compatibility.json",
+      "independent_update_privacy_audit": "/workspace/work/identity-20261101/s62/android/update-privacy-audit-v7-arm64.json",
+      "parent_universal_local_only": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/build.json",
+      "remote_checksum": "Not exposed; no claim",
       "physical_phone_tested": false,
-      "physical_update_save_retention_tested": false,
-      "owner_approved": false,
-      "current_download_remains": "V6 db61/code6",
-      "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
-      "evidence": [
-        "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
-        "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
-        "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
-        "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
-      ]
+      "owner_approved": false
     }
   },
   "historical_unverified_phase2_candidate": {
@@ -1459,58 +1448,29 @@
   },
   "historical_next_single_action_before_0400": "Repair disclosure continuity/fullreactions, nativeverify then source-backed paper/frame visualpass; preservelatestb2647df and checkpoints.",
   "android_owner_package": {
-    "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
-    "game_version": "0.54.0-playtest",
-    "version_code": 6,
-    "file_id": "1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh",
-    "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
-    "bytes": 102362955,
-    "local_sha256": "6b1626dc66ad94fe4f4125d88982f8b3017969e9f1428c9129e3ff8b4c41b56d",
-    "remote_checksum_available": false,
-    "owner": "chair@lovewelluk.com",
-    "reader": "alimuir654@gmail.com",
-    "private_named_reader_verified": true,
-    "metadata_readback": {
-      "id": "1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh",
-      "title": "BandMaster-Playtest-v6.apk",
-      "mime_type": "application/vnd.android.package-archive",
-      "size": "102362955",
-      "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
-      "display_url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
-      "file_or_folder": "file",
-      "created_time": null,
-      "modified_time": null,
-      "parent_ids": null,
-      "drive_id": null,
-      "current_user_can_share": null,
-      "has_augmented_permissions": null,
-      "shared": true,
-      "permissions": [
-        {
-          "type": "user",
-          "role": "reader",
-          "emailAddress": "alimuir654@gmail.com",
-          "domain": null,
-          "displayName": null,
-          "allowFileDiscovery": null
-        },
-        {
-          "type": "user",
-          "role": "owner",
-          "emailAddress": "chair@lovewelluk.com",
-          "domain": null,
-          "displayName": null,
-          "allowFileDiscovery": null
-        }
-      ],
-      "source_visibility_status": "permission_metadata_available"
-    },
+    "status": "private_delivered_physical_phone_pending",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "version_name": "0.60.0-playtest",
+    "version_code": 7,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "owner_device": "Pixel 9",
+    "apk_path": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/BandMaster-Playtest-v7-arm64.apk",
+    "bytes": 90554349,
+    "local_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+    "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "delivery_receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
+    "repackage_receipt": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/repackage.json",
+    "update_compatibility": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/update-compatibility.json",
+    "independent_update_privacy_audit": "/workspace/work/identity-20261101/s62/android/update-privacy-audit-v7-arm64.json",
+    "parent_universal_local_only": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/build.json",
+    "remote_checksum": "Not exposed; no claim",
     "physical_phone_tested": false,
-    "update_without_uninstall": true,
-    "build_receipt": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/build.json",
-    "update_compatibility": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/update-compatibility.json",
-    "independent_privacy_audit": "/workspace/work/overnight-20261101/s55/android/update-privacy-audit-v6-launcher-alias.json",
-    "private_delivery": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json"
+    "owner_approved": false
   },
   "historical_last_completed_deliverable_before_s41": "S38 deterministic rehearsals with saved per-member/social/financial/readiness outcomes and real immediate verdict; 61+88+four native pointer/save passes; visual partial",
   "historical_state_pointers_before_s41": {
@@ -2468,9 +2428,9 @@
   },
   "page_delivery": {
     "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-    "sequence": 12,
-    "kind": "statusproseonly/no newpixels",
-    "receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json"
+    "sequence": 13,
+    "kind": "V7privateAPKlink/update/testproseonly/no newpixels",
+    "receipt": "/workspace/work/identity-20261101/s62/android/phone-page-v7-delivered.json"
   },
   "approved_overnight_20261101": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -3162,46 +3122,35 @@
       "smoke_engine_error_lines": 0
     },
     "android": {
-      "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+      "status": "private_delivered_physical_phone_pending",
       "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
-      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-      "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
-      "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
-      "bytes": 119910540,
       "version_name": "0.60.0-playtest",
       "version_code": 7,
-      "url": null,
-      "remote_file_id": null,
-      "remote_checksum": null,
-      "file_was_uploaded": false,
-      "reader_intended": "alimuir654@gmail.com",
-      "destination_owner_verified": "chair@lovewelluk.com",
-      "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
-      "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
-      "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
-      "phone_model_requested": true,
-      "device_specific_variant_built": false,
-      "universal_ABIs": [
-        "arm64-v8a",
-        "armeabi-v7a"
+      "abis": [
+        "arm64-v8a"
       ],
+      "owner_device": "Pixel 9",
+      "apk_path": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/BandMaster-Playtest-v7-arm64.apk",
+      "bytes": 90554349,
+      "local_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+      "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "save_directory": "BandMasterOwnerPlaytestS40",
+      "delivery_receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
+      "repackage_receipt": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/repackage.json",
+      "update_compatibility": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/update-compatibility.json",
+      "independent_update_privacy_audit": "/workspace/work/identity-20261101/s62/android/update-privacy-audit-v7-arm64.json",
+      "parent_universal_local_only": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/build.json",
+      "remote_checksum": "Not exposed; no claim",
       "physical_phone_tested": false,
-      "physical_update_save_retention_tested": false,
-      "owner_approved": false,
-      "current_download_remains": "V6 db61/code6",
-      "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
-      "evidence": [
-        "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
-        "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
-        "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
-        "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
-      ]
+      "owner_approved": false
     }
   },
   "candidate_source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_current_band_poster_art_partial",
-  "updated_at": "2026-11-01T14:27:16.025391+00:00",
+  "updated_at": "2026-11-01T14:38:45.952009+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -3266,7 +3215,7 @@
         "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
         "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
         "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
-        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47–S52, one final useful milestone APK remains conditional on stable core.",
         "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
         "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
       ]
@@ -3399,47 +3348,109 @@
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S61",
+  "last_completed_session": "S62",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
     "last_verified_native_run_is_historical_remote": false
   },
   "prepared_android_v7": {
-    "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+    "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
-    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
-    "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
-    "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
-    "bytes": 119910540,
     "version_name": "0.60.0-playtest",
     "version_code": 7,
-    "url": null,
-    "remote_file_id": null,
-    "remote_checksum": null,
-    "file_was_uploaded": false,
-    "reader_intended": "alimuir654@gmail.com",
-    "destination_owner_verified": "chair@lovewelluk.com",
-    "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
-    "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
-    "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
-    "phone_model_requested": true,
-    "device_specific_variant_built": false,
-    "universal_ABIs": [
-      "arm64-v8a",
-      "armeabi-v7a"
+    "abis": [
+      "arm64-v8a"
     ],
+    "owner_device": "Pixel 9",
+    "apk_path": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/BandMaster-Playtest-v7-arm64.apk",
+    "bytes": 90554349,
+    "local_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+    "url": "https://drive.google.com/file/d/1fxgiZvdXIT_pBz7hrVI0zBOYOFDb9L2Y/view?usp=drivesdk",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "delivery_receipt": "/workspace/work/identity-20261101/s62/android/phone-v7-arm64-delivery.json",
+    "repackage_receipt": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/repackage.json",
+    "update_compatibility": "/workspace/work/identity-20261101/s62/android/build-b310067-v7-arm64/update-compatibility.json",
+    "independent_update_privacy_audit": "/workspace/work/identity-20261101/s62/android/update-privacy-audit-v7-arm64.json",
+    "parent_universal_local_only": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/build.json",
+    "remote_checksum": "Not exposed; no claim",
     "physical_phone_tested": false,
-    "physical_update_save_retention_tested": false,
-    "owner_approved": false,
-    "current_download_remains": "V6 db61/code6",
-    "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
-    "evidence": [
-      "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
-      "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
-      "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
-      "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
-    ]
+    "owner_approved": false
   },
-  "artifact_closeout": "/workspace/work/identity-20261101/s61/closeout.json"
+  "artifact_closeout": "/workspace/work/identity-20261101/s62/closeout.json",
+  "previous_prepared_universal_v7": {
+    "status": "historical_local_ready_upload_sizeblocked",
+    "receipt": "/workspace/work/identity-20261101/s61/android/phone-v7-delivery.json",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "APK_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7"
+  },
+  "artifact_completion_gate": {
+    "status": "PASS_PRIVATE_DELIVERED_PHYSICAL_PENDING",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "APK_sha256": "e83a8bda4bd6381485f990f39277089dee5df3e83ce708e00ee43c6ab8741b08",
+    "bytes": 90554349,
+    "APK_entries": 782,
+    "retained_assets": 684,
+    "retained_non_signature_payloads": 779,
+    "SDK_steps": 8,
+    "independent_SDK_steps": 6,
+    "ERROR_lines": 0,
+    "owner_approved": false
+  },
+  "previous_android_owner_package_before_v7": {
+    "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+    "game_version": "0.54.0-playtest",
+    "version_code": 6,
+    "file_id": "1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh",
+    "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
+    "bytes": 102362955,
+    "local_sha256": "6b1626dc66ad94fe4f4125d88982f8b3017969e9f1428c9129e3ff8b4c41b56d",
+    "remote_checksum_available": false,
+    "owner": "chair@lovewelluk.com",
+    "reader": "alimuir654@gmail.com",
+    "private_named_reader_verified": true,
+    "metadata_readback": {
+      "id": "1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh",
+      "title": "BandMaster-Playtest-v6.apk",
+      "mime_type": "application/vnd.android.package-archive",
+      "size": "102362955",
+      "url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1GL7Y2W5hKHwerl5UGF5OYfMuBmmgIfuh/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": null,
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": true,
+      "permissions": [
+        {
+          "type": "user",
+          "role": "reader",
+          "emailAddress": "alimuir654@gmail.com",
+          "domain": null,
+          "displayName": null,
+          "allowFileDiscovery": null
+        },
+        {
+          "type": "user",
+          "role": "owner",
+          "emailAddress": "chair@lovewelluk.com",
+          "domain": null,
+          "displayName": null,
+          "allowFileDiscovery": null
+        }
+      ],
+      "source_visibility_status": "permission_metadata_available"
+    },
+    "physical_phone_tested": false,
+    "update_without_uninstall": true,
+    "build_receipt": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/build.json",
+    "update_compatibility": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/update-compatibility.json",
+    "independent_privacy_audit": "/workspace/work/overnight-20261101/s55/android/update-privacy-audit-v6-launcher-alias.json",
+    "private_delivery": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json"
+  }
 }
