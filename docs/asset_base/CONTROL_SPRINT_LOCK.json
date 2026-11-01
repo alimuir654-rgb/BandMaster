@@ -311,5 +311,12 @@
     "hard_stop": "2026-11-01T16:00:00Z",
     "released_at": "2026-11-01T14:38:45.952009+00:00",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43"
+  },
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "allowed_paths": [
+      "experiments/playable_flightcase/gear_press.gd"
+    ],
+    "expires_at": "2026-11-01T18:15:00Z"
   }
 }

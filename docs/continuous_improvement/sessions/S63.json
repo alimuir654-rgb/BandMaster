@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 722835,
-    "sha256": "17cebbcd420103bde0baa1045b0648c74a6312f34e723984bf6abbd7892a5ddb"
+    "bytes": 738800,
+    "sha256": "117b07815e91fbf937495bc75f9dd9503464f0999f7b903a41457729da42c927"
   },
   "started_at": "2026-11-01T17:28:50.469236+00:00",
   "scope_end": "2026-11-01T19:40:00Z",
@@ -125,5 +125,15 @@
       "condition": 100,
       "role": "Drummer"
     }
+  },
+  "art_fit_method_448": "Stopgeneration after2prompts; measurednonuniformisolatedwholeproductbbox nativecrops frombyteoriginalsource2, actualnativepaperjudgementrequired.",
+  "actual_baseline": "b310import/phone127/wide127 checks0ERROR/orphans,3nativeoriginalseach; reportedtrio/style reconstructed viaactualmodel APIs, notowner-savepossession.",
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "allowed_paths": [
+      "experiments/playable_flightcase/gear_press.gd"
+    ],
+    "until": "2026-11-01T18:15:00Z",
+    "scope": "Demonstratedcardlongwordtypographyrepair456 only; rootmustnoteditthispath, workerdoesnotcommit/build/GL."
   }
 }
