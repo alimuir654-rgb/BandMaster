@@ -69,8 +69,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 585430,
-    "sha256": "3f6ece1c05fa1b9267c6d7fd04d49984851a137521ec2a799c6ba2aa483cf70b"
+    "bytes": 588677,
+    "sha256": "dd1ce9b3414caf2f5aaaa1075f32643a646a15593ce74954a6d0aebfaa0aa644"
   },
   "started_at": "2026-11-01T05:42:22.252960+00:00",
   "scope_end": "2026-11-01T07:50:00Z",
@@ -92,5 +92,9 @@
     "package": "One current isolated importable projectZIP and explicit current-original reviewZIP LOCAL only; no keys/saves/history/caches. InventorybeforetempZIPCRC/content/atomicrelease.",
     "android": "ONE code6 update; same appID/privateTESTkey/certificate/savefolder, sourceprivacy and no extra permissions. Physicalphone test pending.",
     "delivery": "Selected compiledAPK private namedreader alimuir654@gmail.com only; preserve rollback and existingsharing. No publicsource/learninghistory upload or newPagepixels authority inferred."
+  },
+  "artifact_preparation_failures": {
+    "370": "Static extraction-output guard, no execution; narrow repair authorised after filing.",
+    "371": "Read-only schema/syntax retrieval; child chronology disclosed; no product/engine/key/build effect."
   }
 }
