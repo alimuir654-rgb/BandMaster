@@ -21,6 +21,9 @@ const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd
 const FinanceDesk = preload("res://experiments/playable_flightcase/finance_desk.gd")
 const Offstage = preload("res://experiments/playable_flightcase/offstage_rules.gd")
 const OffstageDesk = preload("res://experiments/playable_flightcase/offstage_desk.gd")
+const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
+const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
+const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -43,6 +46,11 @@ var live_hire_session := false
 var live_context_id := ""
 var _live_dialog: Control
 var _live_confirm_verb := ""
+var _live_confirm_id := ""
+var _live_confirm_phase := ""
+var show_draft: Dictionary = {}
+var show_context_id := ""
+var _show_step_epoch := 0
 var offstage_activity := "watch_gig"
 var offstage_mode := "outing"
 var offstage_choice := "careful"
@@ -68,6 +76,7 @@ func open_home() -> void:
 
 func _visibility_changed() -> void:
  if not is_visible_in_tree():
+  _show_step_epoch+=1
   if is_instance_valid(_overlay):
    _overlay.abort()
    _overlay.queue_free()
@@ -147,6 +156,7 @@ func _render() -> void:
  var nav := HBoxContainer.new()
  nav.name = "CareerNavigation"
  nav.add_theme_constant_override("separation",5)
+ nav.visible = not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open)
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
@@ -156,13 +166,21 @@ func _render() -> void:
   option.disabled = busy or Finance.is_over(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
+ var soundcheck: bool = page=="gigs" and not receipt_open and ShowFlow.managed(game.career) and ShowFlow.phase(game.career)=="soundcheck"
+ var content: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
+ content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ content.add_theme_constant_override("separation",12)
+ shell.add_child(content)
+ if soundcheck:
+  ShowDesk.controls(self,content,compact)
  _scroll = ScrollContainer.new()
  _scroll.name = "CareerScroll"
  _scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  _scroll.follow_focus = true
  _scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  _scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
- shell.add_child(_scroll)
+ _scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ content.add_child(_scroll)
  var inset := MarginContainer.new()
  inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  for side in ["left","right","top","bottom"]:
@@ -616,7 +634,7 @@ func _finish_receipt() -> void:
   _overlay.queue_free()
  _overlay=null
  busy=false
- _pending_focus="CareerReceiptNote"
+ _pending_focus="CareerReceiptContinueAction" if receipt.has("show_receipt") else "CareerReceiptNote"
  _render()
  var note: Label = find_child("CareerReceiptNote",true,false) as Label
  if note!=null and _fresh_receipt:
@@ -624,6 +642,9 @@ func _finish_receipt() -> void:
  _fresh_receipt=false
 
 func _receipt_page(parent: Node, compact: bool) -> void:
+ if receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty():
+  ShowDesk.receipt(self,parent,compact,receipt["show_receipt"])
+  return
  var body := _paper(parent,compact)
  var live: bool = str(receipt.get("kind","gear"))=="live"
  var offstage: bool = str(receipt.get("kind","gear"))=="offstage"
@@ -692,6 +713,9 @@ func _ask_live_confirmation(verb: String) -> void:
  if verb=="perform":
   var venue: Dictionary = Gigs.get_venue(str(booking.get("venue_id","local")))
   dialog.set("body_text","Play tonight's set at %s. The show uses %d day(s). Travel and any hired drummer are charged, then the venue pays its fee. The fee depends on your set and how the show goes." % [str(booking.get("venue","the venue")),int(venue.get("days",1))])
+  if ShowFlow.managed(game.career):
+   var plan: Dictionary=booking.get(ShowFlow.FLOW_KEY,{}).get("plan",{})
+   dialog.set("body_text",str(dialog.get("body_text"))+" %d completed originals are selected." % plan.get("song_ids",[]).size()+(" With none selected the gross fee is capped at £5, including any guarantee." if plan.get("song_ids",[]).is_empty() else ""))
   dialog.set("confirm_text","START THE SHOW")
   dialog.set("cancel_text","NOT YET")
  else:
@@ -701,6 +725,8 @@ func _ask_live_confirmation(verb: String) -> void:
   dialog.set("cancel_text","KEEP BOOKING")
  _live_dialog=dialog
  _live_confirm_verb=verb
+ _live_confirm_id=ShowFlow.booking_id(booking) if ShowFlow.managed(game.career) else ""
+ _live_confirm_phase=ShowFlow.phase(game.career) if ShowFlow.managed(game.career) else ""
  dialog.completed.connect(_live_confirmation_completed)
  add_child(dialog)
  (dialog.get("confirm_button") as Button).name="LiveConfirmAction"
@@ -710,22 +736,31 @@ func _ask_live_confirmation(verb: String) -> void:
 func _live_confirmation_completed(accepted: bool) -> void:
  var dialog: Control = _live_dialog
  var verb: String = _live_confirm_verb
+ var expected_id: String = _live_confirm_id
+ var expected_phase: String = _live_confirm_phase
+ _live_confirm_id=""
+ _live_confirm_phase=""
  _live_dialog=null
  _live_confirm_verb=""
  if is_instance_valid(dialog):dialog.queue_free()
  if accepted:
-  _commit_live(verb)
+  _commit_live(verb,"",false,expected_id,expected_phase)
  else:
   _pending_focus="LiveMainAction"
   call_deferred("_restore_focus",_pending_focus)
 
-func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void:
+func _commit_live(verb: String, choice: String = "", hire: bool = false, expected_id: String = "", expected_phase: String = "") -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
  if not _finance_guard():return
+ if verb=="soundcheck" and _show_gesture_active():return
+ if not expected_id.is_empty() and (expected_id!=ShowFlow.booking_id(Calendar.pending(game.career)) or expected_phase!=ShowFlow.phase(game.career)):
+  notice="The booking has changed. Review the current show before committing."
+  _render()
+  return
  busy=true
  var before: Dictionary = game.career.duplicate(true)
  var old_booking: Dictionary = Calendar.pending(before)
- var result: Dictionary = LiveRules.resolve(before,verb,choice,hire)
+ var result: Dictionary = LiveRules.resolve(before,verb,choice,hire,show_draft.duplicate(true) if verb=="soundcheck" and ShowFlow.managed(before) else {})
  if not bool(result.get("ok",false)):
   busy=false
   notice=str(result.get("message","Action unavailable."))
@@ -744,10 +779,21 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void
   notice="The change could not be saved. Your previous band state is retained."
   _render()
   return
- if verb=="book":
+ if verb in ["book","book_flow"]:
+  show_context_id=""
+  show_draft={}
   live_context_id=""
   live_approach="tight"
  var after: Dictionary = game.career
+ if ShowFlow.managed(before) and verb in ["depart","advance","soundcheck","incident"]:
+  receipt_open=false
+  notice=str(result.get("message","")) if verb=="incident" else ""
+  _scroll_position=0
+  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+  _pending_focus="LiveMainAction"
+  _render()
+  _release_show_step.call_deferred()
+  return
  var booking: Dictionary = Calendar.pending(after)
  var title: String = str((old_booking if not old_booking.is_empty() else booking).get("venue","THE LIVE CIRCUIT"))
  var text: String = str(result.get("message",""))
@@ -761,10 +807,20 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false) -> void
  var prior_entries: Array = before.get("career_journal",[])
  for entry in after.get("career_journal",[]):
   if entry is Dictionary and not prior_entries.has(entry):receipt["journal_entries"].append(entry.duplicate(true))
+ if verb=="perform" and ShowFlow.managed(before):
+  receipt["show_receipt"]=ShowFlow.last_receipt(after)
  receipt_open=true
  _fresh_receipt=true
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ if receipt.has("show_receipt"):
+  var replay := ShowReplay.new()
+  replay.configure(receipt["show_receipt"],reduced_motion)
+  _overlay=replay
+  replay.covered.connect(_present_receipt)
+  replay.finished.connect(_finish_receipt)
+  add_child(replay)
+  return
  var days: int = int(receipt.day_after)-int(receipt.day_before)
  var cash_delta: int = int(receipt.cash_after)-int(receipt.cash_before)
  var money: String = "£%d GAINED" % cash_delta if cash_delta>0 else "£%d SPENT" % -cash_delta
@@ -860,3 +916,79 @@ func _commit_offstage(action: String, id: String = "", choice: String = "") -> v
  overlay.covered.connect(_present_receipt)
  overlay.finished.connect(_finish_receipt)
  add_child(overlay)
+
+func _release_show_step() -> void:
+ # Presentation only; the phase is already saved. No resolver/save here.
+ if not is_inside_tree() or not is_visible_in_tree():
+  busy=false
+  return
+ var epoch: int=_show_step_epoch
+ await get_tree().create_timer(0.15 if not reduced_motion else 0.0).timeout
+ if not is_inside_tree() or epoch!=_show_step_epoch:return
+ busy=false
+ _render()
+
+func _sync_show_draft() -> void:
+ if not ShowFlow.managed(game.career):return
+ var booking: Dictionary=Calendar.pending(game.career)
+ var id: String=ShowFlow.booking_id(booking)
+ if show_context_id==id and not show_draft.is_empty():return
+ show_context_id=id
+ var marker: Dictionary=booking.get(ShowFlow.FLOW_KEY,{})
+ show_draft=marker.get("plan",{}).duplicate(true) if bool(marker.get("plan_committed",false)) else ShowFlow.default_plan(game.career)
+
+func _show_edit(field: String, value: Variant) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog) or ShowFlow.phase(game.career)!="soundcheck":return
+ if field not in ["approach","intensity","shoutout"]:return
+ if field=="shoutout" and _show_gesture_active():
+  ShowDesk.refresh(self)
+  return
+ _sync_show_draft()
+ show_draft[field]=value
+ if field=="shoutout":
+  show_draft["shoutout_venue_id"]=str(Calendar.pending(game.career).get("venue_id","")) if value=="thankvenue" else ""
+  var button: Button=find_child("ShowShoutoutAction",true,false) as Button
+  if button!=null:button.set_pressed_no_signal(value=="thankvenue")
+ ShowDesk.refresh(self)
+
+func _show_song_toggle(id: String) -> void:
+ if _show_gesture_active():return
+ if busy or receipt_open or is_instance_valid(_live_dialog) or ShowFlow.phase(game.career)!="soundcheck":return
+ _sync_show_draft()
+ var ids: Array=show_draft.get("song_ids",[]).duplicate()
+ if ids.has(id):ids.erase(id)
+ elif ids.size()<3:ids.append(id)
+ show_draft["song_ids"]=ids
+ _pending_focus="ShowSong_"+id.replace(":","_")
+ _render()
+
+func _show_song_move(id: String, delta: int) -> void:
+ if _show_gesture_active():return
+ if busy or receipt_open or is_instance_valid(_live_dialog) or ShowFlow.phase(game.career)!="soundcheck":return
+ _sync_show_draft()
+ var ids: Array=show_draft.get("song_ids",[]).duplicate()
+ var index: int=ids.find(id)
+ var destination: int=index+delta
+ if index<0 or destination<0 or destination>=ids.size():return
+ ids.remove_at(index)
+ ids.insert(destination,id)
+ show_draft["song_ids"]=ids
+ _pending_focus=("ShowUp_" if delta<0 else "ShowDown_")+id.replace(":","_")
+ _render()
+
+func _show_last_receipt() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ var data: Dictionary=ShowFlow.last_receipt(game.career)
+ if data.is_empty():return
+ receipt={"kind":"live","show_receipt":data}
+ receipt_open=true
+ _fresh_receipt=false
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _render()
+
+func _show_gesture_active() -> bool:
+ for name in ["ShowApproachControl","ShowIntensityControl"]:
+  var control: Control=find_child(name,true,false) as Control
+  if control!=null and control.has_method("is_gesture_owned") and bool(control.is_gesture_owned()):return true
+ return false

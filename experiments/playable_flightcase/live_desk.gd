@@ -10,6 +10,8 @@ const Night = preload("res://Scripts/gig_night_flow.gd")
 const Brief = preload("res://Scripts/live_night_briefing.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const Reviews = preload("res://experiments/playable_flightcase/review_policy.gd")
+const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
+const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const OFFER_IDS := ["standard","guarantee","guestlist"]
 const APPROACH_IDS := ["tight","wild","crowd"]
 
@@ -38,6 +40,9 @@ static func _sync_context(host, state: Dictionary) -> void:
 
 
 static func render(host, parent: Node, compact: bool) -> void:
+ if ShowDesk.active(host):
+  ShowDesk.render(host,parent,compact)
+  return
  var state: Dictionary = host.game.career
  _sync_context(host,state)
  var booking: Dictionary = Calendar.pending(state)
@@ -71,7 +76,8 @@ static func _unbooked(host, parent: Node, compact: bool, state: Dictionary) -> v
  _notice(host,body)
  host._copy(body,str(venue.get("venue","Hometown show")).to_upper(),26)
  host._copy(body,str(venue.get("city","HOMETOWN"))+"  •  DAY %d" % (int(state.get("tour_day",1))+Calendar.LEAD_DAYS),16)
- host._copy(body,"Booking: £0 now. %d days to prepare." % Calendar.LEAD_DAYS,14,true)
+ host._copy(body,"Booking: £0 now. %d days to prepare." % Calendar.LEAD_DAYS,16,true)
+ host._copy(body,"No originals in the agreed set: at most £5 gross, even on a guarantee. Travel and any session drummer are still charged. Finish originals before soundcheck for a fuller set.",16)
  for id in OFFER_IDS:
   var offer: Dictionary = Promoter.OFFERS[id]
   _toggle(body,str(offer["label"]),"LiveOffer_"+str(id),host._select_live_offer.bind(str(id)),bool(host.busy))
@@ -151,6 +157,8 @@ static func _incident(host, body: Node, state: Dictionary) -> void:
 
 
 static func _last_show(host, parent: Node, compact: bool, state: Dictionary) -> void:
+ if not ShowFlow.last_receipt(state).is_empty():
+  parent.add_child(host._button("READ THE SAVED SHOW NOTES  ›","LiveSavedShowAction",host._show_last_receipt))
  var view: Dictionary = Brief.last_show(state)
  if view.is_empty():
   return
@@ -197,6 +205,9 @@ static func _last_show(host, parent: Node, compact: bool, state: Dictionary) -> 
 
 
 static func dock(host, parent: Node, _compact: bool) -> void:
+ if ShowDesk.active(host):
+  ShowDesk.dock(host,parent,_compact)
+  return
  var state: Dictionary = host.game.career
  _sync_context(host,state)
  var phase: String = str(Night.stage(state).get("phase","none"))
@@ -231,13 +242,16 @@ static func dock(host, parent: Node, _compact: bool) -> void:
    # silently use stale terms after an in-place offer/session selection.
    caption="CONFIRM HOMETOWN BOOKING  ›"
    callback=func() -> void:
-    host._commit_live("book",str(host.live_offer),bool(host.live_hire_session))
+    host._commit_live("book_flow",str(host.live_offer),bool(host.live_hire_session))
  var main: Button = host._button(caption,"LiveMainAction",callback,true)
  parent.add_child(main)
  refresh_plans(host)
 
 
 static func refresh_plans(host) -> void:
+ if ShowDesk.active(host):
+  ShowDesk.refresh(host)
+  return
  var state: Dictionary = host.game.career
  _sync_context(host,state)
  var booking: Dictionary = Calendar.pending(state)

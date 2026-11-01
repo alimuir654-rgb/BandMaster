@@ -1,0 +1,787 @@
+{
+  "source_type": "Two independent image-generated illustrative background plates, not photography/fullUI/castmasters",
+  "art_intake": {
+    "schema_version": 1,
+    "session": "S53",
+    "preflight": "276c032",
+    "scope": "Two genuinely missing independent background plates only. Scratch source generation/intake; no repository/runtime/GL/upload/Page/Drive work.",
+    "generator": "image_gen.imagegen tool; model identifier not supplied",
+    "image_generated": true,
+    "photography": false,
+    "owner_approved": false,
+    "visual_verdict": "PARTIAL_NATIVE_COMPARISON_PENDING",
+    "source_calls": 2,
+    "ineffective_source_iterations": 0,
+    "reference_inputs_to_generation": [],
+    "style_observation_only": "Actually opened existing opening_stage.png and prior native live-stage-warning phone screenshot before generation. New independent images generated from text descriptions; no reference pixels were edited or copied.",
+    "baseline_originals_actually_opened": [
+      {
+        "path": "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+        "sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+        "bytes": 2223640,
+        "dimensions": [
+          1448,
+          1086
+        ],
+        "mode": "RGB",
+        "format": "PNG",
+        "actually_opened_original": true
+      },
+      {
+        "path": "/workspace/work/unify/s46/live-imported-phone/captures/live-stage-warning-390x844.png",
+        "sha256": "ceb080f861e7818652d1cad3d0dbdb7827568748f99197ed4dd85cf7c8e583c1",
+        "bytes": 223289,
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "format": "PNG",
+        "actually_opened_original": true,
+        "alpha_extrema": [
+          255,
+          255
+        ]
+      }
+    ],
+    "assets": [
+      {
+        "id": "first_gig_arrival",
+        "key": "s53_arrival_raw",
+        "observed": "Ordinary red-brown brick backstreet at dusk, wet pavement, older plain off-white van partly cropped left, warm open load-in door and small stage glimpse. No people, readable words, signs, numberplates, logos or UI observed in original pixels.",
+        "limits": "Van artwork is illustrative local-lift context only; no owned vehicle, wealth, family, route or actual venue assertion. Centre crop must retain the doorway and enough van silhouette at the native140px hero.",
+        "prompt": "Create ONE brand-new independent landscape background illustration plate, approximately 16:9, filling the entire canvas edge to edge. This is explicitly IMAGE_GENERATED illustrative artwork with cinematic photoreal-ish material rendering, not a photograph of a real place. Gritty, restrained, warm analogue British grassroots band-life mood; match the feeling of a worn pub stage lit by a single warm amber lamp, dark blacks and tactile brick/metal/wet asphalt. Scene: arrival at an ordinary small British pub back-room venue from a quiet wet backstreet at dusk. Modest red-brown brick buildings, a worn side/back entrance with an inviting warm amber doorway, damp pavement reflecting that light. An older plain unbranded local-lift van, modest off-white or faded blue, partly cropped at the left, parked naturally beside the doorway; convey arriving with borrowed transport without ownership, wealth or family claims. Prefer no people at all. Compose the van and warm doorway as a simple, immediately recognisable middle-height central focal group, with both readable as shapes when reduced to a 140px-tall wide phone hero. Keep major subject information in the central70% width and middle60% height; enough surrounding street to read as a modest place, no excessive empty sky, no close foreground obstruction. Understated nervous threshold, hopeful first small show, grounded scale, believable perspective and restrained subtle grain. No readable words, letters, signs, house numbers, registration characters, logos, badges, brand marks, watermarks, posters, UI, borders, frames or typography anywhere. Keep all van badges and plates out of view or physically blank. No rich luxury venue, arena, giant van fleet, identifiable cast or performers. This is scenery only; no game labels or facts baked into it.",
+        "tool_output_hint": "Generated images are saved to /workspace/generated_images as /workspace/generated_images/exec-b7228eef-f0b9-490b-a380-633dcad2eec8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "raw_original": {
+          "path": "/workspace/generated_images/exec-b7228eef-f0b9-490b-a380-633dcad2eec8.png",
+          "sha256": "d6c313c2602caa8140bd698b41677c49127bae7525882b236d1baa0bf12c50da",
+          "bytes": 2504430,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "format": "PNG",
+          "actually_opened_original": true
+        },
+        "scratch_copy": {
+          "path": "/workspace/work/overnight-20261101/s53/art/first_gig_arrival_raw.png",
+          "sha256": "d6c313c2602caa8140bd698b41677c49127bae7525882b236d1baa0bf12c50da",
+          "bytes": 2504430,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "format": "PNG",
+          "actually_opened_original": false,
+          "byte_identical_to_original": true
+        },
+        "image_generated": true,
+        "transparent_background": false,
+        "source_iteration": 1,
+        "pixel_edits_or_upscaling": false,
+        "owner_approved": false,
+        "native_qa": "PENDING root soleGL"
+      },
+      {
+        "id": "first_gig_stage",
+        "key": "s53_stage_raw",
+        "observed": "Small low-ceiling pub room viewed from stage, plain dark microphone foreground left and wedge monitor right, warm lamps and indistinct anonymous patrons. No replacement onstage performers, readable words/signs, brands or UI observed in original pixels.",
+        "limits": "Soft anonymous crowd is atmosphere only, not an actual attendance, popularity, outcome or approved-cast claim. No identified real person or photography claim. Native140px hero must retain mic/crowd/monitor cues without promoting blurred faces to cast.",
+        "prompt": "Create ONE brand-new independent landscape background illustration plate, approximately 16:9, filling the entire canvas edge to edge. This is explicitly IMAGE_GENERATED illustrative artwork with cinematic photoreal-ish materials, not a photograph of a real venue or real audience. Gritty, restrained, warm analogue British grassroots music mood: deep warm blacks, amber low-ceiling pub lighting, worn timber and ordinary back-room textures, subtle haze and tactile natural grain. View FROM a very small pub back-room stage looking OUT toward a modest loose group of anonymous indistinct patrons, with visible gaps and ordinary room edges; this is a first small gig atmosphere, not a festival, arena, packed hall or wealthy cocktail venue. No identifiable faces: people remain naturally soft, distant and indistinct in shallow depth of field; no replacement band members, no person onstage and no lookalikes of any cast. In the dark near foreground use one believable plain unbranded microphone on a slim stand near the left and a plain dark wedge monitor at lower right, with an ordinary stage edge. Let the little room and warm human presence be the central focal group, recognisable in a 140px-tall wide phone hero. Keep major room/crowd information within central70% width and middle60% height; avoid a huge featureless foreground or a tall empty ceiling. Modest amber lamps, believable pub scale, subtle soft haze only, still lighting, no lasers or strobes. No readable text, letters, signage, numbers, posters, logos, brands, badges, watermarks, UI, borders, frames or typography anywhere. Not a statement of actual attendance, popularity or performance results; scenery plate only with all game facts kept separate.",
+        "tool_output_hint": "Generated images are saved to /workspace/generated_images as /workspace/generated_images/exec-2f600d77-7155-46eb-9155-c95cb9d6822c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "raw_original": {
+          "path": "/workspace/generated_images/exec-2f600d77-7155-46eb-9155-c95cb9d6822c.png",
+          "sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+          "bytes": 1974676,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "format": "PNG",
+          "actually_opened_original": true
+        },
+        "scratch_copy": {
+          "path": "/workspace/work/overnight-20261101/s53/art/first_gig_stage_raw.png",
+          "sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+          "bytes": 1974676,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "format": "PNG",
+          "actually_opened_original": false,
+          "byte_identical_to_original": true
+        },
+        "image_generated": true,
+        "transparent_background": false,
+        "source_iteration": 1,
+        "pixel_edits_or_upscaling": false,
+        "owner_approved": false,
+        "native_qa": "PENDING root soleGL"
+      }
+    ],
+    "five_simulated_lenses": [
+      {
+        "lens": "SIMULATED art director",
+        "finding": "Both sources share deep blacks, warm amber light and worn physical materials with the existing opening stage; arrival and performer-view stage are distinct useful scenes."
+      },
+      {
+        "lens": "SIMULATED production designer",
+        "finding": "Arrival reads as an ordinary load-in threshold with modest transport; stage is a small pub room rather than an arena. No literal ownership or wealth claims are baked into either source."
+      },
+      {
+        "lens": "SIMULATED phone composition reviewer",
+        "finding": "Large van/door and mic/monitor/room shapes support reduction in principle. No resized surrogate or native140px hero was generated here; actual native crop/contrast/reading comparison remains root-owned."
+      },
+      {
+        "lens": "SIMULATED identity/provenance reviewer",
+        "finding": "Arrival has no visible people. Stage patrons are soft anonymous scenery, not approved C25 performers or an attendance model. Images are generated illustrative plates, not photography or third-party licensed real-person assets."
+      },
+      {
+        "lens": "SIMULATED QA/integration reviewer",
+        "finding": "Only original opaque PNGs and byte-identical scratch copies are supplied. No whole-UI screenshot, baked labels, controls or fonts. Root must render actual venue/day copy separately and preserve cast/hardware/meters/saves."
+      }
+    ],
+    "remaining_gaps": [
+      "Actual native140px phone hero readability and centre crop at390, plus720/1280/1600 native comparison have not been run.",
+      "No owner artwork approval or claim of technical/artistic passing from generated source pixels alone.",
+      "No actual venue, transport, audience count, show outcome or real photography assertion."
+    ],
+    "one_next_action": "Root compares these byte-preserved sources in the existing first-gig native screens at four sizes, retaining independent native labels and protected cast/hardware/models.",
+    "created_at_utc": "2026-11-01T02:38:08.753337+00:00"
+  },
+  "hardware_crop": {
+    "schema_version": 1,
+    "recorded_at": "2026-11-01T02:39:22.153957+00:00",
+    "scope": "S53 scratch-only candidate preparation under committed preflight276c032/gatePASS42/316. Root is sole repo/GL writer/runner.",
+    "candidate": {
+      "path": "/workspace/work/overnight-20261101/s53/show_hardware_candidate.gd",
+      "bytes": 9482,
+      "sha256": "f46e11be1ab5c0fb08acd12904ac2a2b4343df9e93a002cf8fc5aa1e0cdea7d6"
+    },
+    "status": "Independent static review complete; NOT parsed/imported/compiled/run. No native/input/device/art approval.",
+    "base_script": {
+      "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/studio_control.gd",
+      "bytes": 8202,
+      "sha256": "33978842d2f73b0652b12454e079d9cecfd8b7fdfdae4ad49b7088bc5e71a253"
+    },
+    "factory_unchanged": {
+      "path": "/workspace/BandMaster/components/control_atlas/kit.gd",
+      "bytes": 9869,
+      "sha256": "d7e3663d6258639ecff3b202f478dc427d990d07baf184db6e7dd73f3f93b62c"
+    },
+    "source_assets_unchanged": [
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_ring_off.png",
+        "bytes": 204414,
+        "sha256": "eddac46220113c772711dd9d37006b2128c752d960c732cdace9ee4decbd284f",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGB"
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/vertical_base.png",
+        "bytes": 354940,
+        "sha256": "694b733f520df1582f6e6114876904304931fbc4ac5be7bfe507e2d564c09e45",
+        "dimensions": [
+          362,
+          708
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          0,
+          0,
+          362,
+          708
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/vertical_cap.png",
+        "bytes": 32204,
+        "sha256": "b6d1e489fdb4514424a7314f2151e993c582d28992030c1b4ba7f52931fd01ec",
+        "dimensions": [
+          113,
+          168
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          0,
+          0,
+          113,
+          168
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/rotary_pointer.png",
+        "bytes": 4253,
+        "sha256": "6121184820d3d389b3150d7ef80a1b48663ad535ae63e9b0de92739e607dc274",
+        "dimensions": [
+          192,
+          192
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          87,
+          3,
+          111,
+          75
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_00.png",
+        "bytes": 1697,
+        "sha256": "45d2786dd410757bb432d0b8c2b5803e1f41d4a80c5914b9fb67f5a642c3586a",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          89,
+          287,
+          109,
+          305
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_01.png",
+        "bytes": 1752,
+        "sha256": "01ce4ab33af2a0b9dc4bb17f492134e5feae53cc77d7957b5f4f39db467984aa",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          78,
+          269,
+          99,
+          285
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_02.png",
+        "bytes": 1701,
+        "sha256": "d79c16f4d3ca92c308ae60b45cf03b6bddc6081a181042d0a76c6bba93b8f286",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          72,
+          254,
+          93,
+          269
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_03.png",
+        "bytes": 1653,
+        "sha256": "b04482898e627b082bfcdc561709899d318085b5210ef0d66f0ba57de366cc18",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          67,
+          236,
+          89,
+          249
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_04.png",
+        "bytes": 1491,
+        "sha256": "49dc223f8eef46a244a2d4dea10d40335efc3eee54b71d3a3b56ea66df81e2be",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          65,
+          217,
+          87,
+          230
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_05.png",
+        "bytes": 1649,
+        "sha256": "cafeb758601e317de3b628b6b37d61f742545a56f3d43bcef8b41b5d1e6e2164",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          66,
+          198,
+          88,
+          210
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_06.png",
+        "bytes": 1711,
+        "sha256": "33d80e066324004c7ca52581a1f4c51ab03ef4539db5de6d3e53207436e28b09",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          69,
+          183,
+          90,
+          197
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_07.png",
+        "bytes": 1783,
+        "sha256": "688efbd2b3a60cd65e55de16d3ff3426c2fd42dc3b1938cb78cf1bf583ef9e0e",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          78,
+          157,
+          99,
+          173
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_08.png",
+        "bytes": 1790,
+        "sha256": "1a45cd563b745dfa1bac08d18a3845bf33b570c716ee7bdd9bae9585138f198f",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          86,
+          141,
+          107,
+          158
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_09.png",
+        "bytes": 1735,
+        "sha256": "f132e75d8e07cd8fec73fec950600328e56111ba78db318bafea8b136dd82070",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          105,
+          118,
+          124,
+          137
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_10.png",
+        "bytes": 1747,
+        "sha256": "3fed34ee833350da28574494cd7412e0bebc8b0f1c44b26edf23b06f4b045448",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          128,
+          99,
+          146,
+          119
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_11.png",
+        "bytes": 1740,
+        "sha256": "2498c30ff72e12a2cc7b069262ddb90f970dad764073c31356203410c7d8564f",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          152,
+          87,
+          168,
+          108
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_12.png",
+        "bytes": 1684,
+        "sha256": "9bbd3e881892c63a8413af69380fb68e5b55e89f1268eff9406e98b9d3724269",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          180,
+          79,
+          194,
+          100
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_13.png",
+        "bytes": 1451,
+        "sha256": "baa4dbee3b0b201588457d2477c47ec9a7587e800f2b874d2b5e061196934b97",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          209,
+          77,
+          221,
+          99
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_14.png",
+        "bytes": 1690,
+        "sha256": "b5cdcc856dc4f763c9d953d72128723ec3bdc5dea0b5b10fe02c9cfae422a36a",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          234,
+          79,
+          247,
+          100
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_15.png",
+        "bytes": 1737,
+        "sha256": "64c8d7c3583f6cc7358567a58fd747cb35737ba90162ebbe899c67cacf916d67",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          260,
+          86,
+          276,
+          107
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_16.png",
+        "bytes": 1750,
+        "sha256": "4d808072d2c89fe58a30758785ececc60685eec771a2daafa005dabe061be36a",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          284,
+          99,
+          302,
+          119
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_17.png",
+        "bytes": 1725,
+        "sha256": "f7133f9a56367a7ed31cd8b2f54aec59658d218e55799b77ce024ea5537d3ece",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          304,
+          116,
+          323,
+          135
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_18.png",
+        "bytes": 1765,
+        "sha256": "49dbee5532656fab3905d2765b418e922241e840bc9304654730dad4f46fb53c",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          322,
+          139,
+          342,
+          156
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_19.png",
+        "bytes": 1760,
+        "sha256": "208d1efae80e77e650749ffb711464654d9a305f2f43674c38cf8d581949d894",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          332,
+          159,
+          353,
+          175
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_20.png",
+        "bytes": 1689,
+        "sha256": "8ce0458c35d7025c76480e328d0145144f499d9430ea3c659020e270f24502eb",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          340,
+          183,
+          361,
+          197
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_21.png",
+        "bytes": 1640,
+        "sha256": "d3db175f73ab44984b61389489df20fa2dd6b456fbc05e25454b2f8d8f8ca564",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          342,
+          198,
+          364,
+          210
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_22.png",
+        "bytes": 1494,
+        "sha256": "aa3af86ab2f675c5c9b21aebb705ebc9fdd2732db26c69a799b34f00be9af549",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          343,
+          217,
+          365,
+          230
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_23.png",
+        "bytes": 1681,
+        "sha256": "fe3fe2c587e71cb3c09940126f29b0f15d948f6ac4c43bfae9ce40f0016dbe5d",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          341,
+          236,
+          363,
+          249
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_24.png",
+        "bytes": 1749,
+        "sha256": "5558f4dfc05177c30db964b552c30b4268ccb2cfa6d04d544a318f256ecd76e8",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          337,
+          254,
+          358,
+          269
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_25.png",
+        "bytes": 1810,
+        "sha256": "402451de23e323950f83da6b2b3aa7d142b959a567d134be3dc5c6b54c00ce53",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          331,
+          269,
+          352,
+          285
+        ]
+      },
+      {
+        "path": "/workspace/BandMaster/components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_26.png",
+        "bytes": 1779,
+        "sha256": "352afb765c6ea9bde9c996bd5c365e5d8a8473fea029d39c53967bef59b4182a",
+        "dimensions": [
+          394,
+          390
+        ],
+        "mode": "RGBA",
+        "alpha_bbox_xyxy": [
+          322,
+          286,
+          342,
+          303
+        ]
+      }
+    ],
+    "provenance": {
+      "intake": "/workspace/work/overnight-20261101/s52/s53-art-hardware-intake.json",
+      "intake_sha256": "79c8a12134b47d4c2acbb1ad24397ed95bb842059a79e9836dd183b7ee1fa2ec",
+      "original_manifest": "components/control_atlas/MANIFEST.json",
+      "original_U04_manifest": "components/control_atlas/provenance/U04_CONTROL_MANIFEST.json",
+      "rights_basis": "Inherited owner-supplied IMAGE-GENERATED Lab08.4 photographed-style control artwork, not manufacturer photography or a new stock licence. No original asset bytes transformed or regenerated. Existing pointer derivation remains historical U04 source.",
+      "owner_approved": false
+    },
+    "public_API": {
+      "configure(role:String, initial:float=50)->bool": "Call BEFORE add_child; accepts approach or intensity only. Returnsfalse for invalid role/inside-tree/disposed use. Does not emit level_changed. Approach min180x180/focus source; intensity min100x190/vertical source.",
+      "hydrate_level(value:float)->void": "Direct guarded bounded/quantised assignment and redraw, zero value callbacks. Invalidates pending pointer gesture so stale release cannot restore or apply an old value.",
+      "set_level(value:float)->void": "Original API/signature. Normalises0/50/100 for approach or rounded0..100 intensity, then calls super.set_level for change-only level_changed(float). No resolver/save.",
+      "level:float": "Inherited current bounded visual/free-draft value. Do not directly assign except controlled pre-tree configuration/hydration.",
+      "level_changed(float)": "Inherited original signal. Host may update free draft/selected wording/preview in place ONLY, including a cancellation rollback. It must NOT rebuild/free the widget, commit, save, spend or advance time from this callback.",
+      "set_read_only(bool)->void": "Use this method for runtime state changes; updates inherited read_only plus native focus/mouse/cursor settings and cancels any owned gesture with free rollback. Direct read_only assignment is supported pre-tree only.",
+      "cancel_gesture()->void": "Clears owned capture and synchronously restores pregesture visual value/free draft ifchanged. Unowned calls emit nothing.",
+      "get_role()->String": "approach or intensity.",
+      "is_gesture_owned()->bool": "Read-only native probe introspection.",
+      "get_visual_rect()->Rect2": "Uniform-fit local destination of the raw source crop; wholeControl retains native target/focus ownership.",
+      "finite_values": "configure rejects nonfinite initial values (returnsfalse); hydrate_level/set_level ignore nonfinite values BEFORE clearing ownership or editing the free draft."
+    },
+    "drawing": {
+      "method": "Override_draw WITHOUT super._draw. Call super._ready only for original layer loading/setup. draw_texture_rect_region uses original source subregions; no intermediate edited image or screen texture.",
+      "approach_crop_xywh": [
+        60,
+        74,
+        310,
+        265
+      ],
+      "approach_centre_after_crop": [
+        155,
+        147
+      ],
+      "all27LEDalpha_within_crop": true,
+      "pointer_conservative_alpha_rotation_radius": 94.2019108086455,
+      "pointer_full_rotation_conservative_bounds_inside_crop": true,
+      "intensity_crop_xywh": [
+        111,
+        84,
+        147,
+        598
+      ],
+      "intensity_axis_x": 84,
+      "intensity_cap_x": 26,
+      "intensity_cap_top_0_to100": [
+        416,
+        6
+      ],
+      "intensity_cap_size": [
+        113,
+        168
+      ],
+      "intensity_cap_inside_source_crop_at_every_level": "x26..139 within0..147; y6..584 within0..598; interpolation remains inside these bounds.",
+      "labels_excluded": "CREATIVE FOCUS,0/100 and MIXER CHANNEL/MORALE/left numeric scale are outside the selected regions. Horizontal cap containing60 is not used.",
+      "uniform_scale": "min(control_width/crop_width,control_height/crop_height), centred with letterboxing; source knobs are not stretched.",
+      "remaining_native_gate": "Actual original art/focus/crop borders/pointer sweep/lighting at0,50,100 and all four viewports must still be opened. Alpha/geometry math is not native or artistic acceptance."
+    },
+    "input_contract": {
+      "housing": "Fixed, NON-SCROLLING decision housing; entire interactiveControl is MOUSE_FILTER_STOP/FOCUS_ALL. Do not embed this same-axis vertical drag in a scrolling form without a new explicit arbitration contract.",
+      "physical_target": "Configured min180x180 or100x190; root proves actual transformed>=48px targets at all sizes.",
+      "pointer": "Deliberate primary press grabs focus and owns a relative vertical drag. No click-to-jump. One touch index owns the gesture; second touch press/release/drag ignored. Raw touch owns mouse-1 emulation; negative/internal-2 and canceled releases cancel; real mouse motion without left mask cancels. Normal owned release updates only free value and clears ownership before callback.",
+      "screen_motion": "Drag uses get_screen_transform for physical distance; fader travel equals its410source-pixel cap travel at uniform rendered scale, with48px minimum screen travel.",
+      "keyboard": "Focused approach arrows one detent; intensity arrows one integer. Home0/End100. Echo/release consumed without value change. Escape cancels owned gesture. Tab is left to native focus routing.",
+      "wheel": "Never adjusts level; mouse_force_pass_scroll_events=true preserves ordinary parent wheel routing. No simultaneous value+scroll change.",
+      "cancel": "Focus exit/window focus exit/hide/resize/scroll-begin/read-only transition/explicit cancel restore pregesteure draft only while ownership existed. Clear ownership BEFORE final synchronous rollback signal.",
+      "teardown": "_exit_tree marks disposed, disconnects window focus callback, then performs any final OWNED synchronous rollback while node stillvalid. No await, tween, timer, call_deferred or late signal exists. Postdisposal input/setters ignored.",
+      "read_only": "PASS/NONE/arrow cursor, no input changes. Runtime flag updates must use set_read_only rather than assigning inherited read_only directly.",
+      "keyboard_takeover": "Arrow/Home/End during an owned drag invalidates it and steps from its pregesture value; stale pointer motion/releases are ignored. Escape contract is press-triggered."
+    },
+    "static_review": {
+      "independent_reviewer": "Child agent font_api_audit, source-only; no engine.",
+      "findings": "No blocking API/type/dispatch fault found. Verified originalcentre/crop subtraction, cap/light remap, child callback replacement, base_ready source-loading and ownership-cleared-before-final-emit teardown. Exact Godot4.7.2 Control API confirms mouse_force_pass_scroll_events(defaulttrue). Both recommended bounded guards applied before delivery; no runtime failure claimed.",
+      "limitations": "Static review does not prove parse/import/runtime/input/device or native pixels. Root will execute clean strict checks on staged exact source.",
+      "bounded_source_review_corrections": [
+        "Handle matching owned canceled ScreenTouch before pressed/released branching, including unusual canceled+pressed flag combination.",
+        "Reject nonfinite public values without altering ownership/draft."
+      ]
+    },
+    "root_required_proofs": [
+      "Strict check-only import/parse with every engineERROR rejected.",
+      "Original source assets hashes and unchanged base/Kit closure.",
+      "Hydration0signals; userdraft changes0 model/save; exactly one confirmation settlement.",
+      "Native touchindex/secondary/canceled and real mouse cancellation with independent emulation branches.",
+      "Focus/Home/End/one-detent keys, outside release, Escape, resize/hide/read-only/focus-loss/free rollback exactly once; stale release after hydrate/reconfigure ignored.",
+      "Source crop and pointer/cap endpoints at all four sizes; no baked caption/number remnants; whole widget physical target>=48px."
+    ],
+    "repo_changed": false,
+    "runtime_changed": false,
+    "engine_executed": false,
+    "original_art_changed": false,
+    "native_approved": false,
+    "owner_approved": false,
+    "next_action": "Root stages this exact reviewed scratch source only after its own review, runs strict parse/import and soleGL native gesture/crop integration proof, then decides promotion."
+  },
+  "owner_approved": false,
+  "raw_font_cast_hardware_art_unchanged": true,
+  "root_integration": {
+    "status": "source_candidate_native_evidence_owner_review_pending",
+    "original_intake_fields": "Nested repo_changed/runtime_changed/engine_executed fields describe the historical scratch intake, not current integration status. Original receipts retained.",
+    "adapter_sha256": "9d87c0d87f048bea557a2bda572d076e6b5fd9ef7b3b7e9d88e536f28af0a071",
+    "neutral_crops_unchanged": true,
+    "source_art_bytes_unchanged": true,
+    "touch_policy": "Qualified GUI press; device+index-owned global touch route, scoped mouse physical-statewatch; all callbacks FREE DRAFT ONLY, no model/save.",
+    "owned_source_changes": [
+      "332 mouse internal-release statewatch",
+      "335 device+index touch ownership",
+      "336 owned-only globaltouch routing"
+    ],
+    "native_proof": [
+      "/workspace/work/overnight-20261101/s53/hardware-ownedinput-phone/execution.json",
+      "/workspace/work/overnight-20261101/s53/hardware-ownedinput-wide/execution.json"
+    ],
+    "bench_checks_each": 253,
+    "engine_errors": 0,
+    "physical_phone_verified": false,
+    "owner_approved": false,
+    "art_verdict": "PARTIAL: independent scene artwork integrated with native controls; specific owner/device acceptance pending."
+  }
+}

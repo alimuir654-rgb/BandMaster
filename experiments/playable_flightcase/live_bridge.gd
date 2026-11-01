@@ -1,6 +1,7 @@
 extends RefCounted
 ## Original hometown live-career rules over the existing C27 career dictionary.
-## Pure adapter: no file IO, scene changes, callbacks, saving or new scoring.
+## Pure adapter: original legacy rules plus explicitly versioned S53 show policy.
+## No file IO, scene changes, callbacks or saving.
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
@@ -10,6 +11,7 @@ const Story = preload("res://Scripts/career_story.gd")
 const Life = preload("res://Scripts/member_life.gd")
 const PracticeSession = preload("res://experiments/playable_flightcase/session.gd")
 const Reviews = preload("res://experiments/playable_flightcase/review_policy.gd")
+const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const LOCAL_VENUE := "local"
 
 static func show_day(state: Dictionary) -> bool:
@@ -77,15 +79,31 @@ static func _new_journal_text(previous: Dictionary, current: Dictionary) -> Arra
    texts.append(text)
  return texts
 
-static func resolve(state: Dictionary, verb: String, choice: String = "", hire: bool = false) -> Dictionary:
+static func resolve(state: Dictionary, verb: String, choice: String = "", hire: bool = false, plan: Dictionary = {}) -> Dictionary:
  if verb in ["advance","perform","cancel","expire"] and not choice.is_empty():
   return {"ok":false,"message":"This live-career action does not accept a choice."}
  var before: Dictionary = state.duplicate(true)
+ if verb=="book_flow":
+  var checked: Dictionary = Flow.validate(before)
+  if not bool(checked.get("ok",false)):
+   return {"ok":false,"message":str(checked.get("message","The show journal cannot be read."))}
+  var booked: Dictionary = resolve(before,"book",choice,hire)
+  if bool(booked.get("ok",false)):
+   booked["state"] = Flow.new_booking(booked["state"])
+   if not Flow.managed(booked["state"]):
+    return {"ok":false,"message":"The new local-show journey could not be prepared. No booking was committed."}
+  return booked
+ if Flow.managed(before) and verb in ["depart","advance","soundcheck","perform"]:
+  var checked: Dictionary = Flow.validate(before)
+  if not bool(checked.get("ok",false)):
+   return {"ok":false,"message":str(checked.get("message","The saved show plan needs attention."))}
  if verb in ["book","perform"]:
   var tracking: Dictionary = Reviews.validate(before)
   if not bool(tracking.get("ok",false)):
    return {"ok":false,"message":str(tracking.get("message","The show record cannot be read safely."))}
  match verb:
+  "depart":
+   return Flow.depart(before)
   "book":
    var eligible: Dictionary = booking_eligibility(before,hire,choice)
    if not bool(eligible.get("ok",false)):
@@ -94,11 +112,15 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
     return {"ok":false,"message":"The session-drummer fallback uses the standard promoter offer."}
    return _post(before,Promoter.book(before,LOCAL_VENUE,choice,hire,Tour.DRIVE))
   "advance":
+   if Flow.managed(before) and Flow.phase(before)!="arrival":
+    return {"ok":false,"message":"Acknowledge the local journey before arriving."}
    if str(Night.stage(before).get("phase","none"))!="arrival":
     return {"ok":false,"message":"Arrival is not the current stage of this booking."}
    # Original arrival navigation does not run the successful-action post-chain.
    return Night.advance(before)
   "soundcheck":
+   if Flow.managed(before):
+    return Flow.soundcheck(before,plan)
    var chosen: Dictionary = Night.choose_set(before,choice)
    if not bool(chosen.get("ok",false)):
     return chosen
@@ -115,10 +137,23 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
   "perform":
    if not bool(Night.stage(before).get("can_play",false)):
     return {"ok":false,"message":"Complete the arrival and soundcheck before going onstage."}
-   var result: Dictionary = Calendar.perform(before)
+   var performance: Dictionary = before
+   var owned: bool = Flow.managed(before)
+   if owned:
+    var prepared: Dictionary = Flow.prepare_performance(before)
+    if not bool(prepared.get("ok",false)):
+     return prepared
+    performance = prepared["state"]
+   var result: Dictionary = Calendar.perform(performance)
    if not bool(result.get("ok",false)):
     return result
-   result["state"] = Night.reset_after_show(Promoter.settle(result["state"],before))
+   var settled: Dictionary = Promoter.settle(result["state"],before)
+   if owned:
+    var adjusted: Dictionary = Flow.after_original_settlement(before,settled)
+    if not bool(adjusted.get("ok",false)):
+     return adjusted
+    settled = adjusted["state"]
+   result["state"] = Night.reset_after_show(settled)
    var terms: Dictionary = before.get("promoter_offer",{})
    var history: Array = result["state"].get("gig_history",[])
    if not terms.is_empty() and not history.is_empty():
@@ -132,6 +167,18 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
    finished["state"] = reviewed["state"]
    if not str(reviewed.get("message","")).is_empty():
     finished["message"] = str(finished.get("message",""))+"\n\n"+str(reviewed["message"])
+   if owned:
+    var final: Dictionary = finished["state"]
+    var row: Dictionary = final["gig_history"].back()
+    finished["message"] = "%s — %s. %d originals. Final gross fee £%d. Cash £%d → £%d; day %d → %d." % [str(booking.get("venue","The show")),"GOOD RECEPTION" if bool(row.get("success",false)) else "A TOUGH NIGHT",int(row.get("originals_played",0)),int(row.get("fee",0)),int(before.get("cash",0)),int(final.get("cash",0)),int(before.get("tour_day",1)),int(final.get("tour_day",1))]
+    if int(row.get("originals_played",0))==0:
+     finished["message"] += " No originals were selected: the final gross fee was limited to £5."
+    if not str(reviewed.get("message","")).is_empty():
+     finished["message"] += "\n\n"+str(reviewed["message"])
+    var recorded: Dictionary = Flow.record(before,finished["state"],str(finished.get("message","")))
+    if not bool(recorded.get("ok",false)):
+     return recorded
+    finished["state"] = recorded["state"]
    return finished
   "cancel":
    return _post(before,Calendar.cancel(before),"booking_cancel")
