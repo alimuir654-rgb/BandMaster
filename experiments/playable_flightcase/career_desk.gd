@@ -24,6 +24,7 @@ const OffstageDesk = preload("res://experiments/playable_flightcase/offstage_des
 const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
+const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -54,6 +55,8 @@ var _show_step_epoch := 0
 var offstage_activity := "watch_gig"
 var offstage_mode := "outing"
 var offstage_choice := "careful"
+var recording_ids: Array = []
+var recording_mode := "select"
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -162,7 +165,7 @@ func _render() -> void:
   var destination: String = str(entry[0])
   var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
   option.name = "CareerNav_"+destination
-  option.set_pressed_no_signal(page==destination and not receipt_open)
+  option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs")) and not receipt_open)
   option.disabled = busy or Finance.is_over(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
@@ -196,6 +199,8 @@ func _render() -> void:
   _band_page(body,compact)
  elif page=="songs":
   _songs_page(body,compact)
+ elif page=="recording":
+  RecordingDesk.render(self,body,compact)
  elif page=="gigs":
   LiveDesk.render(self,body,compact)
  elif page=="finance":
@@ -235,7 +240,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -246,7 +251,7 @@ func _navigate(destination: String) -> void:
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
- _pending_focus = "LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination)
+ _pending_focus = ("RecordingSelectAction" if recording_mode=="archive" else "RecordingMainAction") if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
  _render()
 
 func _restore_focus(control_name: String) -> void:
@@ -537,6 +542,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   var return_copy: String = "BACK TO THE LIVE DESK  ›" if str(receipt.get("kind","gear"))=="live" else "BACK TO THE MUSIC SHOP  ›"
   if str(receipt.get("kind","gear"))=="offstage":
    return_copy = "PREPARE FOR YOUR SHOW  ›" if str(receipt.get("return_page","offstage"))=="gigs" else "BACK TO LIFE OFFSTAGE  ›"
+  elif str(receipt.get("kind","gear"))=="recording":
+   return_copy = "BACK TO YOUR RECORDINGS  ›"
   dock.add_child(_button(return_copy,"CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
   LiveDesk.dock(self,dock,compact)
@@ -544,6 +551,10 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
  elif page=="offstage":
   OffstageDesk.dock(self,dock,compact)
+ elif page=="recording":
+  RecordingDesk.dock(self,dock,compact)
+ elif page=="songs":
+  dock.add_child(_button("CUT A DEMO  ›","CareerRecordingAction",_navigate.bind("recording"),true))
  elif page=="gear":
   if compact and catalogue_open:
    dock.add_child(_button("BACK TO SELECTED ITEM","GearCloseCatalogueAction",_toggle_catalogue))
@@ -642,6 +653,9 @@ func _finish_receipt() -> void:
  _fresh_receipt=false
 
 func _receipt_page(parent: Node, compact: bool) -> void:
+ if str(receipt.get("kind",""))=="recording":
+  RecordingDesk.receipt(self,parent,compact)
+  return
  if receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty():
   ShowDesk.receipt(self,parent,compact,receipt["show_receipt"])
   return
@@ -672,12 +686,36 @@ func _receipt_page(parent: Node, compact: bool) -> void:
 func _close_receipt() -> void:
  if busy:return
  if str(receipt.get("kind","gear"))=="offstage":page=str(receipt.get("return_page","offstage"))
+ elif str(receipt.get("kind","gear"))=="recording":
+  page="recording"
+  recording_mode="archive"
  receipt_open=false
  _fresh_receipt=false
- _pending_focus=LiveDesk.focus_name(self) if page=="gigs" else (OffstageDesk.focus_name(self) if page=="offstage" else "GearCatalogueAction")
+ _pending_focus="RecordingSelectAction" if page=="recording" else (LiveDesk.focus_name(self) if page=="gigs" else (OffstageDesk.focus_name(self) if page=="offstage" else "GearCatalogueAction"))
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
+
+func _recording_present(result: Dictionary, before: Dictionary, verb: String) -> void:
+ # The pure rules and the ONE owner save have already succeeded.
+ var after: Dictionary=game.career
+ receipt={"kind":"recording","verb":verb,"title":"DEMO RECORDED" if verb=="record" else "RELEASED LOCALLY","text":str(result.get("message","Saved.")),"session":result.get("session",{}).duplicate(true),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"changes":[]}
+ for field in ["readiness","fans","press","buzz"]:
+  if int(before.get(field,0))!=int(after.get(field,0)):
+   receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
+ receipt_open=true
+ _fresh_receipt=true
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ var overlay:=Beat.new()
+ overlay.heading_copy="THE DEMO IS ON TAPE" if verb=="record" else "OUT IN THE LOCAL SCENE"
+ var days: int=int(receipt.day_after)-int(receipt.day_before)
+ overlay.detail_copy="SAVED  •  %d DAY%s  •  £%d SPENT" % [days,"" if days==1 else "S",int(receipt.cash_before)-int(receipt.cash_after)]
+ overlay.configure("recording",{"metrics":{"tour_day":{"before":receipt.day_before,"after":receipt.day_after}}},reduced_motion,"flightcase",int(receipt.day_after),int(receipt.cash_after))
+ _overlay=overlay
+ overlay.covered.connect(_present_receipt)
+ overlay.finished.connect(_finish_receipt)
+ add_child(overlay)
 
 func _practice(activity: String) -> void:
  if Finance.is_over(game.career):

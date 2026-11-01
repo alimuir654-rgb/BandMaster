@@ -1,0 +1,312 @@
+extends RefCounted
+## S54 SCRATCH UI helper. Root is sole source writer/engine runner.
+## All browsing/ordering/modes are FREE DRAFT ONLY. Pure previews never apply state.
+const Rules = preload("res://experiments/playable_flightcase/recording_rules.gd")
+const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
+
+static func _key(id: String) -> String:
+ return id.replace(":","_").replace("/","_").replace(" ","_")
+
+static func _copy(host, parent: Node, value: String, name: String="", points: int=16, muted: bool=false) -> Label:
+ var label: Label=host._copy(parent,value,points,muted)
+ if not name.is_empty(): label.name=name
+ return label
+
+static func _note(parent: Node, value: String, name: String="", interactive: bool=false, fresh: bool=false) -> Label:
+ var note: Label=Ink.new()
+ note.text=value
+ note.add_theme_color_override("font_color",Color("29241f"))
+ if not name.is_empty(): note.name=name
+ if not interactive:
+  note.focus_mode=Control.FOCUS_NONE
+  note.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ if fresh: note.visible_characters=0
+ parent.add_child(note)
+ # Existing Ink._ready applies Caveat22/clear16 after caller setup.
+ return note
+
+static func _button(host, parent: Node, value: String, name: String, action: Callable, primary: bool=false, enabled: bool=true) -> Button:
+ var button: Button=host._button(value,name,action,primary)
+ button.disabled=bool(host.busy) or not enabled
+ parent.add_child(button)
+ return button
+
+static func _columns(host, parent: Node, compact: bool) -> Array:
+ if compact: return [parent,parent]
+ var row:=HBoxContainer.new()
+ row.add_theme_constant_override("separation",24)
+ row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ parent.add_child(row)
+ var tracks: VBoxContainer=host._box(12)
+ tracks.size_flags_stretch_ratio=1.4
+ row.add_child(tracks)
+ var facts: VBoxContainer=host._box(10)
+ facts.size_flags_stretch_ratio=1.0
+ row.add_child(facts)
+ return [tracks,facts]
+
+static func _editable(host) -> bool:
+ # Retained static Callables must never read a freed host or own another route.
+ if not is_instance_valid(host): return false
+ if not host.is_inside_tree() or not host.is_visible_in_tree() or str(host.page)!="recording": return false
+ return not bool(host.busy) and not bool(host.receipt_open) and not is_instance_valid(host._live_dialog)
+
+static func _find_song(songs: Array, id: String) -> Dictionary:
+ for raw in songs:
+  if raw is Dictionary and str(raw.get("id",""))==id: return raw
+ return {}
+
+static func render(host, parent: Node, compact: bool) -> void:
+ if str(host.recording_mode)=="archive":
+  _archive(host,parent,compact)
+  return
+ var state: Dictionary=host.game.career
+ var songs: Array=Rules.songs(state)
+ var body: VBoxContainer=host._paper(parent,compact)
+ _copy(host,body,"CUT A DEMO","RecordingHeading",26)
+ _copy(host,body,"%d OF 3 TRACKS SELECTED" % host.recording_ids.size(),"RecordingCount",16)
+ if not str(host.notice).is_empty(): _copy(host,body,str(host.notice),"RecordingNotice")
+ var columns: Array=_columns(host,body,compact)
+ var tracks: Node=columns[0]
+ var facts: Node=columns[1]
+ if songs.is_empty():
+  var raw: Variant=state.get("song_catalogue",[])
+  var message: String="Finish at least two originals in the Songbook before selecting a demo."
+  var valid: Dictionary=Rules.validate(state)
+  if not bool(valid.get("ok",false)):
+   message=str(valid.get("message","The saved song catalogue needs attention before selecting tracks."))
+  elif raw is Array and not raw.is_empty():
+   message="No originals with saved song IDs are available for this track selection. Existing recordings remain in the archive; legacy song details stay in the Songbook."
+  _copy(host,tracks,message,"RecordingNoSelectableSongs")
+ else:
+  _selection(host,tracks,songs)
+ _brief(host,facts,state)
+
+static func _selection(host, parent: Node, songs: Array) -> void:
+ var ids: Array=host.recording_ids
+ _copy(host,parent,"YOUR TRACK ORDER" if not ids.is_empty() else "NO TRACKS SELECTED","RecordingOrderHeading",20)
+ for index in range(ids.size()):
+  var id: String=str(ids[index])
+  var song: Dictionary=_find_song(songs,id)
+  if song.is_empty():
+   _copy(host,parent,"%d. SELECTED TRACK UNAVAILABLE" % (index+1),"RecordingMissing_"+_key(id),20)
+   _button(host,parent,"REMOVE UNAVAILABLE TRACK","RecordingSong_"+_key(id),toggle.bind(host,id))
+  else:
+   _selectable_track(host,parent,song,index,ids.size())
+ var available: Array=[]
+ for song in songs:
+  if not ids.has(str(song["id"])): available.append(song)
+ if not available.is_empty():
+  _copy(host,parent,"AVAILABLE ORIGINALS","RecordingAvailableHeading",20)
+  if ids.size()>=3: _copy(host,parent,"Remove a selected track before adding another.","RecordingSelectionLimit",16,true)
+  for song in available: _selectable_track(host,parent,song,-1,ids.size())
+
+static func _song_facts(host, parent: Node, song: Dictionary, key: String) -> void:
+ var view: Dictionary=Rules.describe_song(song)
+ _copy(host,parent,str(view["credits"]),"RecordingCredits_"+key)
+ _copy(host,parent,"IDEA / "+str(view["origin"])+"\nFORM / "+str(view["arrangement"]),"RecordingCreative_"+key,16,true)
+ _copy(host,parent,str(view["quality"])+"  •  "+str(view["day"]),"RecordingQuality_"+key,16,true)
+ var history: Array=view["notes"]
+ var history_text: String="WRITING HISTORY NOT RECORDED" if history.is_empty() else "WRITING HISTORY\n"+"\n".join(PackedStringArray(history))
+ _copy(host,parent,history_text,"RecordingHistory_"+key,16,true)
+
+static func _selectable_track(host, parent: Node, song: Dictionary, selected_index: int, selected_count: int) -> void:
+ var id: String=str(song["id"])
+ var key: String=_key(id)
+ var block: VBoxContainer=host._box(6)
+ block.name="RecordingTrack_"+key
+ parent.add_child(block)
+ var title: String=("%d. " % (selected_index+1) if selected_index>=0 else "")+str(song["title"])
+ # Full48-character title is a native wrapped label; action captions stay short.
+ _copy(host,block,title,"RecordingTitle_"+key,20)
+ _song_facts(host,block,song,key)
+ var selected: bool=selected_index>=0
+ var select: Button=_button(host,block,"REMOVE FROM DEMO" if selected else "ADD TO DEMO","RecordingSong_"+key,toggle.bind(host,id),false,selected or selected_count<3)
+ select.set_meta("song_id",id)
+ select.toggle_mode=true
+ select.set_pressed_no_signal(selected)
+ if selected:
+  var moves:=HBoxContainer.new()
+  moves.add_theme_constant_override("separation",8)
+  block.add_child(moves)
+  _button(host,moves,"UP","RecordingUp_"+key,move.bind(host,id,-1),false,selected_index>0)
+  _button(host,moves,"DOWN","RecordingDown_"+key,move.bind(host,id,1),false,selected_index<selected_count-1)
+
+static func _brief(host, parent: Node, state: Dictionary) -> void:
+ _copy(host,parent,"THE SESSION BRIEF","RecordingBriefHeading",20)
+ _note(parent,"Your songs, in your order. Put the demo on record.","RecordingIntroNote")
+ _copy(host,parent,"RECORDING / £60 UPFRONT\nTIME / 2 DAYS","RecordingCostFacts")
+ var preview: Dictionary=Rules.preview(state,host.recording_ids.duplicate())
+ if bool(preview.get("ok",false)):
+  var after: Dictionary=preview["state"]
+  _copy(host,parent,"AFTER SESSION / £%d\nDAY %d → %d" % [int(after.get("cash",0)),int(state.get("tour_day",1)),int(after.get("tour_day",1))],"RecordingAfterFacts")
+ else:
+  _copy(host,parent,str(preview.get("message","Choose two or three tracks.")),"RecordingBriefEligibility")
+ _copy(host,parent,"The displayed after-session cash includes the existing daily accounts.","RecordingAccountsNote",16,true)
+ _copy(host,parent,"Demo quality follows the selected songs.","RecordingQualityBasis",16,true)
+
+static func dock(host, parent: Node, _compact: bool) -> void:
+ if str(host.recording_mode)=="archive":
+  _button(host,parent,"CHOOSE TRACKS","RecordingSelectAction",mode.bind(host,"select"),true)
+  _button(host,parent,"BACK TO SONGBOOK","RecordingBackSongsAction",host._navigate.bind("songs"))
+  return
+ var state: Dictionary=host.game.career
+ var preview: Dictionary=Rules.preview(state,host.recording_ids.duplicate())
+ var commitment: String="£60  •  2 DAYS  •  %d TRACKS" % host.recording_ids.size()
+ if bool(preview.get("ok",false)):
+  var after: Dictionary=preview["state"]
+  commitment+="\n£%d → £%d  •  DAY %d → %d" % [int(state.get("cash",0)),int(after.get("cash",0)),int(state.get("tour_day",1)),int(after.get("tour_day",1))]
+ var label: Label=_copy(host,parent,commitment,"RecordingCommitment")
+ label.add_theme_color_override("font_color",Color("efe9da"))
+ if not bool(preview.get("ok",false)):
+  var reason: Label=_copy(host,parent,str(preview.get("message","Choose two or three tracks.")),"RecordingEligibility")
+  reason.add_theme_color_override("font_color",Color("f0c78b"))
+ _button(host,parent,"RECORD SELECTED  •  £60","RecordingMainAction",commit.bind(host,"record"),true,bool(preview.get("ok",false)))
+ var free:=HBoxContainer.new()
+ free.add_theme_constant_override("separation",8)
+ parent.add_child(free)
+ _button(host,free,"ARCHIVE","RecordingArchiveAction",mode.bind(host,"archive"))
+ _button(host,free,"BACK TO SONGBOOK","RecordingBackSongsAction",host._navigate.bind("songs"))
+
+static func _archive(host, parent: Node, compact: bool) -> void:
+ var state: Dictionary=host.game.career
+ var sessions: Array=Rules.sessions(state)
+ var heading: VBoxContainer=host._paper(parent,compact)
+ _copy(host,heading,"YOUR RECORDINGS","RecordingArchiveHeading",26)
+ if not str(host.notice).is_empty(): _copy(host,heading,str(host.notice),"RecordingNotice")
+ _copy(host,heading,"Recorded tracks, credits and local releases.","RecordingArchiveIntroduction",16,true)
+ _copy(host,heading,"Audio playback is not available.","RecordingArchiveAudio",16,true)
+ if sessions.is_empty():
+  var raw: Variant=state.get("recordings",[])
+  var valid: Dictionary=Rules.validate(state)
+  var message: String="No saved demos yet. Choose two or three originals to make one."
+  if not bool(valid.get("ok",false)):
+   message=str(valid.get("message","The saved recording history needs attention before it can be shown."))
+  elif raw is Array and not raw.is_empty():
+   message="The saved recording history needs attention before it can be shown."
+  _copy(host,heading,message,"RecordingArchiveEmpty")
+  return
+ # Rules.sessions is ALL safe raw Dictionary rows in original order, or[].
+ # Thus this index is the ACTUAL archive index, including ID-less legacy rows.
+ for index in range(sessions.size()):
+  var body: VBoxContainer=host._paper(parent,compact)
+  body.name="RecordingSession_"+str(index)
+  _session(host,body,sessions[index],compact,index,true)
+
+static func _session(host, parent: Node, session: Dictionary, compact: bool, index: int, release_action: bool) -> void:
+ var linked: bool=session.get("song_links_v1",null) is Dictionary
+ var heading: String="DEMO • DAY %d" % int(session["day"]) if session.has("day") else "DEMO • DATE NOT RECORDED"
+ _copy(host,parent,heading,"RecordingSessionHeading_"+str(index),22)
+ _copy(host,parent,"SAVED SONG LINKS" if linked else "LEGACY RECORDING • SONG LINKS NOT RECORDED","RecordingLinkStatus_"+str(index),16,true)
+ var columns: Array=_columns(host,parent,compact)
+ var tracks: Node=columns[0]
+ var facts: Node=columns[1]
+ var list: Array=session.get("tracks",[])
+ var snapshots: Array=(session["song_links_v1"] as Dictionary).get("snapshots",[]) if linked else []
+ if list.is_empty(): _copy(host,tracks,"TRACK DETAILS NOT RECORDED","RecordingMissingTracks_"+str(index),16,true)
+ for track_index in range(list.size()):
+  var track: Dictionary=list[track_index]
+  _copy(host,tracks,"%d. %s" % [track_index+1,str(track.get("title","UNTITLED"))],"RecordingSavedTitle_%d_%d" % [index,track_index],20)
+  _copy(host,tracks,"QUALITY %d / 100" % int(track["quality"]) if track.has("quality") else "TRACK QUALITY NOT RECORDED","RecordingSavedQuality_%d_%d" % [index,track_index],16,true)
+  if linked and track_index<snapshots.size():
+   _song_facts(host,tracks,snapshots[track_index],"saved_%d_%d" % [index,track_index])
+  else:
+   _copy(host,tracks,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],16,true)
+ _copy(host,facts,"SESSION QUALITY %d / 100" % int(session["quality"]) if session.has("quality") else "SESSION QUALITY NOT RECORDED","RecordingSavedSessionQuality_"+str(index))
+ if bool(session.get("released",false)):
+  _copy(host,facts,"RELEASED LOCALLY"+(" • DAY %d" % int(session["release_day"]) if session.has("release_day") else ""),"RecordingReleaseStatus_"+str(index))
+  if session.has("fans_gained"): _copy(host,facts,"SAVED RELEASE REACH / +%d FANS" % int(session["fans_gained"]),"RecordingSavedFans_"+str(index))
+ else:
+  _copy(host,facts,"LOCAL RELEASE NOT YET SAVED","RecordingReleaseStatus_"+str(index))
+ if release_action and not bool(session.get("released",false)):
+  var id: String=str(session.get("id",""))
+  var fingerprint: String=Rules.fingerprint(session)
+  var preview: Dictionary=Rules.preview_release(host.game.career,id,fingerprint,index)
+  _copy(host,facts,"LOCAL RELEASE / £25 • 1 DAY","RecordingReleaseTerms_"+str(index))
+  if bool(preview.get("ok",false)):
+   var after: Dictionary=preview["state"]
+   _copy(host,facts,"AFTER RELEASE / £%d\nDAY %d → %d" % [int(after.get("cash",0)),int(host.game.career.get("tour_day",1)),int(after.get("tour_day",1))],"RecordingReleaseAfter_"+str(index))
+  else: _copy(host,facts,str(preview.get("message","This release is unavailable.")),"RecordingReleaseReason_"+str(index))
+  var action: Button=_button(host,facts,"RELEASE LOCALLY  •  £25","RecordingRelease_"+str(index),commit.bind(host,"release",id,fingerprint,index),true,bool(preview.get("ok",false)))
+  action.set_meta("recording_id",id)
+  action.set_meta("recording_index",index)
+  action.set_meta("recording_fingerprint",fingerprint)
+
+static func receipt(host, parent: Node, compact: bool) -> void:
+ var body: VBoxContainer=host._paper(parent,compact)
+ var saved: Dictionary=host.receipt
+ _copy(host,body,"THE RECORDING JOURNAL","RecordingReceiptHeading",16,true)
+ _copy(host,body,str(saved.get("title","DEMO SAVED")),"RecordingReceiptTitle",26)
+ _copy(host,body,"DAY %d → %d\n£%d → £%d" % [int(saved.get("day_before",1)),int(saved.get("day_after",1)),int(saved.get("cash_before",0)),int(saved.get("cash_after",0))],"RecordingReceiptFacts")
+ _note(body,str(saved.get("text","Saved.")),"CareerReceiptNote",true,bool(host._fresh_receipt))
+ for change in saved.get("changes",[]):
+  _copy(host,body,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],"RecordingReceiptChange_"+str(change["label"]))
+ var session: Dictionary=saved.get("session",{})
+ if not session.is_empty(): _session(host,body,session,compact,-1,false)
+ _copy(host,body,"Audio playback is not available.","RecordingReceiptAudio",16,true)
+
+static func _rerender(host, focus: String, reset_scroll: bool=false) -> void:
+ host._pending_focus=focus
+ if reset_scroll:
+  host._scroll_position=0
+  if is_instance_valid(host._scroll): host._scroll.scroll_vertical=0
+ host._render()
+
+static func toggle(host, id: String) -> void:
+ if not _editable(host) or str(host.recording_mode)!="select": return
+ var ids: Array=host.recording_ids.duplicate()
+ if ids.has(id): ids.erase(id)
+ else:
+  if ids.size()>=3 or _find_song(Rules.songs(host.game.career),id).is_empty(): return
+  ids.append(id)
+ host.recording_ids=ids
+ host.notice=""
+ _rerender(host,"RecordingSong_"+_key(id))
+
+static func move(host, id: String, delta: int) -> void:
+ if not _editable(host) or str(host.recording_mode)!="select" or delta not in [-1,1]: return
+ var ids: Array=host.recording_ids.duplicate()
+ var index: int=ids.find(id)
+ var next: int=index+delta
+ if index<0 or next<0 or next>=ids.size(): return
+ ids[index]=ids[next]
+ ids[next]=id
+ host.recording_ids=ids
+ host.notice=""
+ _rerender(host,"RecordingSong_"+_key(id))
+
+static func mode(host, value: String) -> void:
+ if not _editable(host) or value not in ["select","archive"]: return
+ host.recording_mode=value
+ host.notice=""
+ _rerender(host,"RecordingSelectAction" if value=="archive" else "RecordingMainAction",true)
+
+static func commit(host, verb: String, id: String="", expected_fingerprint: String="", expected_index: int=-1) -> void:
+ if not _editable(host): return
+ if host.game==null or host.opening_owner==null: return
+ if verb=="record" and str(host.recording_mode)!="select": return
+ if verb=="release" and str(host.recording_mode)!="archive": return
+ if not bool(host._finance_guard()): return
+ # OWN INPUT BEFORE synchronous pure dispatch; success leaves busy until root Beat.
+ host.busy=true
+ var before: Dictionary=host.game.career.duplicate(true)
+ var candidate: Dictionary=before.duplicate(true)
+ var result: Dictionary
+ if verb=="record": result=Rules.record(candidate,host.recording_ids.duplicate())
+ elif verb=="release": result=Rules.release(candidate,id,expected_fingerprint,expected_index)
+ else: result={"ok":false,"message":"Unknown recording action."}
+ if not bool(result.get("ok",false)) or not result.get("state",null) is Dictionary:
+  host.busy=false
+  host.notice=str(result.get("message","This recording action is unavailable."))
+  host._render()
+  return
+ # Rules already applied Finance exactly once. Never account this again here.
+ host.game.career=result["state"]
+ if not bool(host.opening_owner.save_draft()):
+  host.game.career=before
+  host.busy=false
+  host.notice="The recording change could not be saved. Your previous band state is retained."
+  host._render()
+  return
+ host.notice=""
+ host._recording_present(result,before,verb)
