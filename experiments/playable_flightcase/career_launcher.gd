@@ -2,6 +2,7 @@ extends RefCounted
 ## S63 owned presentation helper. Every tile routes one existing free action.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const ICON_ROOT := "res://experiments/playable_flightcase/art/icons/"
+const APPROVED_REVISIONS := "res://experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
 const ROUTES := [
  {"label":"THE PRACTICE ROOM","destination":"practice","node":"CareerHomePracticeAction","icon":"sliders-horizontal.svg"},
  {"label":"THE LIVE CIRCUIT","destination":"gigs","node":"CareerHomeLiveAction","icon":"ticket.svg"},
@@ -14,6 +15,10 @@ const ROUTES := [
 ]
 
 static func render(host, parent: Node, compact: bool) -> void:
+ var approved_icons: Dictionary={}
+ if FileAccess.file_exists(APPROVED_REVISIONS):
+  var approved: Variant=JSON.parse_string(FileAccess.get_file_as_string(APPROVED_REVISIONS))
+  if approved is Dictionary:approved_icons=approved.get("icons",{})
  var grid := GridContainer.new()
  grid.name = "CareerLauncherGrid"
  grid.columns = 2 if compact else 4
@@ -57,6 +62,18 @@ static func render(host, parent: Node, compact: bool) -> void:
   var path: String = ICON_ROOT+str(entry["icon"])
   if ResourceLoader.exists(path): icon.texture = load(path) as Texture2D
   icon.set_meta("source",path)
+  var replacement: Dictionary=approved_icons.get(destination,{})
+  var atlas_path: String=str(replacement.get("texture",""))
+  var region: Array=replacement.get("region",[])
+  if region.size()==4 and ResourceLoader.exists(atlas_path):
+   var atlas:=AtlasTexture.new()
+   atlas.atlas=load(atlas_path) as Texture2D
+   atlas.region=Rect2(float(region[0]),float(region[1]),float(region[2]),float(region[3]))
+   atlas.filter_clip=true
+   icon.texture=atlas
+   icon.set_meta("source",atlas_path)
+   icon.set_meta("source_region",atlas.region)
+   icon.set_meta("raw_sha256",str(replacement.get("raw_sha256","")))
   contents.add_child(icon)
   var label: Label = C.label(str(entry["label"]),16)
   label.name = "CareerLauncherLabel_"+destination

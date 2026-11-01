@@ -1,0 +1,211 @@
+{
+  "version": 2,
+  "source_type": "Original image_gen artwork; shared-origin three-figure sheet and eight-symbol sheet, not photography or independent portrait masters.",
+  "owner_approval": {
+    "page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
+    "through_sequence": 24,
+    "decisions": [
+      "Approve A02 v2",
+      "Approve A03 v2"
+    ],
+    "specific_assets_only": true
+  },
+  "scope": "Career poster only for exact unique Arjun/Zoe/Marcus trio in any order; all other variants and lineups retain previous artwork. Home changes eight icon textures only; original32px slots, labels and input retained.",
+  "raw_assets": {
+    "A02v2": {
+      "texture": "res://experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "raw_sha256": "9529cb99ee2a696950238540792546d098eabdc0c9a0d66ade74e3359b0292cc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_range": [
+        0,
+        254
+      ]
+    },
+    "A03v2": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "alpha_range": [
+        0,
+        255
+      ]
+    }
+  },
+  "people": {
+    "cast_arjun": {
+      "texture": "res://experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "region": [
+        185,
+        16,
+        362,
+        981
+      ],
+      "raw_sha256": "9529cb99ee2a696950238540792546d098eabdc0c9a0d66ade74e3359b0292cc",
+      "owner_approved": true,
+      "owner_version": "A02v2",
+      "significant_bleed_px": 4,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "cast_zoe": {
+      "texture": "res://experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "region": [
+        609,
+        45,
+        318,
+        951
+      ],
+      "raw_sha256": "9529cb99ee2a696950238540792546d098eabdc0c9a0d66ade74e3359b0292cc",
+      "owner_approved": true,
+      "owner_version": "A02v2",
+      "significant_bleed_px": 4,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "cast_marcus": {
+      "texture": "res://experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "region": [
+        1010,
+        23,
+        418,
+        976
+      ],
+      "raw_sha256": "9529cb99ee2a696950238540792546d098eabdc0c9a0d66ade74e3359b0292cc",
+      "owner_approved": true,
+      "owner_version": "A02v2",
+      "significant_bleed_px": 4,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    }
+  },
+  "icons": {
+    "practice": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        81,
+        76,
+        295,
+        338
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "gigs": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        527,
+        69,
+        291,
+        349
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "calendar": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        954,
+        85,
+        296,
+        326
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "finance": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        1378,
+        111,
+        340,
+        304
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "offstage": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        59,
+        504,
+        333,
+        294
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "gear": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        492,
+        489,
+        366,
+        330
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 18,
+      "independent_master": false
+    },
+    "band": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        921,
+        547,
+        362,
+        237
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    },
+    "songs": {
+      "texture": "res://experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "region": [
+        1395,
+        492,
+        302,
+        320
+      ],
+      "raw_sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "owner_approved": true,
+      "owner_version": "A03v2",
+      "significant_bleed_px": 8,
+      "rim_alpha_gt8": 0,
+      "independent_master": false
+    }
+  },
+  "alpha_note": "Raw PNG bytes retained. A02 alpha0..254 and faint edges; A03 distressed low-alpha noise remains, including18alpha>8 rim pixels on gear region. No clean-alpha claim.",
+  "source_receipt_sha256": "d69de070af60e9c273353b1512ac5d84a1aaf10581f64d93a6b7b31b792a26ba"
+}

@@ -7,6 +7,7 @@ const PAPER = preload("res://components/control_atlas/art/paper_surface.png")
 const Style = preload("res://experiments/playable_flightcase/identity_style.gd")
 const Mark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const CAST_PATH := "res://experiments/playable_flightcase/art/identity/CAST.json"
+const APPROVED_REVISIONS := "res://experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
 var member_ids: Array[String] = []
 var _full_length := false
 var _regions: Dictionary = {}
@@ -98,6 +99,14 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  if FileAccess.file_exists(CAST_PATH):
   var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(CAST_PATH))
   if parsed is Dictionary: manifest=parsed.get("people",{}) as Dictionary
+ # The accepted replacement is one complete current-lineup cohort, never a
+ # partial new/old cast mix or an unreviewed founding/milestone replacement.
+ if variant=="career" and roster.size()==3 and member_ids.size()==3 and member_ids.has("cast_arjun") and member_ids.has("cast_zoe") and member_ids.has("cast_marcus") and FileAccess.file_exists(APPROVED_REVISIONS):
+  var approved: Variant=JSON.parse_string(FileAccess.get_file_as_string(APPROVED_REVISIONS))
+  if approved is Dictionary:
+   var replacements: Dictionary=approved.get("people",{})
+   if replacements.has("cast_arjun") and replacements.has("cast_zoe") and replacements.has("cast_marcus"):
+    manifest.merge(replacements,true)
  _full_length=not entries.is_empty()
  for person in entries:
   var entry: Dictionary=manifest.get(str(person["id"]),{})
