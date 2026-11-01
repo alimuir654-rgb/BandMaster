@@ -90,6 +90,36 @@ static func inventory(host, parent: Node, compact: bool) -> void:
   _copy(host,facts,"CARRIED BY / "+holder_name,16,true,"GearOwnedHolder_"+item_id)
   _copy(host,entry,str(record.get("provenance","History not recorded")),16,true,"GearOwnedProvenance_"+item_id)
 
+static func _fit_catalogue(grid: GridContainer, offers: Array, word_width: float, inset: float) -> void:
+ if not is_instance_valid(grid) or not grid.is_inside_tree() or grid.size.x<=0.0:return
+ # The original housing reserves12px per side. A narrow two-column card
+ # cannot safely contain RECONDITIONED at the original16px font size.
+ var text_minimum: float=ceilf(word_width)+2.0
+ var two_column_inner: float=(grid.size.x-float(grid.get_theme_constant("h_separation")))*0.5-2.0*inset
+ var horizontal: bool=two_column_inner<text_minimum
+ var art_width: float=minf(92.0,maxf(48.0,grid.size.x-2.0*inset-10.0-text_minimum)) if horizontal else 0.0
+ var signature:=Vector2(1.0 if horizontal else 2.0,art_width)
+ if grid.get_meta("offer_layout",Vector2(-1,-1))==signature:return
+ grid.set_meta("offer_layout",signature)
+ grid.columns=1 if horizontal else 2
+ for entry in offers:
+  var tile: Button=entry["tile"]
+  var contents: GridContainer=entry["contents"]
+  var picture: TextureRect=entry["picture"]
+  var facts: VBoxContainer=entry["facts"]
+  var margin: MarginContainer=entry["margin"]
+  contents.columns=2 if horizontal else 1
+  tile.custom_minimum_size.y=140.0 if horizontal else 248.0
+  picture.custom_minimum_size.x=art_width
+  picture.size_flags_horizontal=Control.SIZE_FILL if horizontal else Control.SIZE_EXPAND_FILL
+  facts.custom_minimum_size.x=text_minimum if horizontal else 0.0
+  facts.size_flags_vertical=Control.SIZE_SHRINK_CENTER if horizontal else Control.SIZE_FILL
+  for side in ["left","right"]:margin.add_theme_constant_override("margin_"+side,roundi(inset))
+  for label in [entry["title"],entry["price"]]:
+   (label as Label).horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT if horizontal else HORIZONTAL_ALIGNMENT_CENTER
+  tile.set_meta("offer_horizontal",horizontal)
+  tile.set_meta("safe_word_width",text_minimum)
+
 static func catalogue(host, parent: Node, compact: bool) -> void:
  inventory(host,parent,compact)
  var body: VBoxContainer = host._paper(parent,compact)
@@ -106,6 +136,9 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
  body.add_child(grid)
  var raw_owned: Variant = host.game.career.get("owned_equipment",[])
  var owned: Array = raw_owned if raw_owned is Array else []
+ var offers: Array=[]
+ var longest_word: float=0.0
+ var safe_inset: float=8.0
  for raw in Catalog.items():
   var item: Dictionary = raw
   var item_id: String = str(item.get("id",""))
@@ -126,6 +159,8 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
   tile.set_meta("gear_item_id",item_id)
   tile.set_meta("inspect_only",true)
   tile.pressed.connect(host._choose_item.bind(item_id))
+  var housing: StyleBox=tile.get_theme_stylebox("normal")
+  safe_inset=maxf(safe_inset,maxf(housing.get_content_margin(SIDE_LEFT),housing.get_content_margin(SIDE_RIGHT)))
   grid.add_child(tile)
   var margin := MarginContainer.new()
   margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -133,13 +168,20 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
   for side in ["left","right","top","bottom"]:
    margin.add_theme_constant_override("margin_"+side,8)
   tile.add_child(margin)
-  var contents := VBoxContainer.new()
+  var contents := GridContainer.new()
+  contents.columns=1
   contents.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  contents.add_theme_constant_override("separation",4)
+  contents.add_theme_constant_override("h_separation",10)
+  contents.add_theme_constant_override("v_separation",4)
   margin.add_child(contents)
   var picture: TextureRect = image(item_id,108.0)
   picture.name = "GearOfferArt_"+item_id
   contents.add_child(picture)
+  var facts:=VBoxContainer.new()
+  facts.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  facts.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  facts.add_theme_constant_override("separation",4)
+  contents.add_child(facts)
   var title: Label = C.paper_label(("✓ " if str(host.selected_item)==item_id else "")+name,16)
   title.name = "GearOfferName_"+item_id
   title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -147,7 +189,7 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   title.mouse_filter = Control.MOUSE_FILTER_IGNORE
   title.focus_mode = Control.FOCUS_NONE
-  contents.add_child(title)
+  facts.add_child(title)
   var price: Label = C.paper_label(status,16)
   price.name = "GearOfferStatus_"+item_id
   price.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -155,4 +197,16 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
   price.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   price.mouse_filter = Control.MOUSE_FILTER_IGNORE
   price.focus_mode = Control.FOCUS_NONE
-  contents.add_child(price)
+  facts.add_child(price)
+  for label in [title,price]:
+   var font: Font=(label as Label).get_theme_font("font")
+   var points: int=(label as Label).get_theme_font_size("font_size")
+   for word in (label as Label).text.split(" ",false):
+    longest_word=maxf(longest_word,font.get_string_size(word,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x)
+  offers.append({"tile":tile,"contents":contents,"picture":picture,"facts":facts,"margin":margin,"title":title,"price":price})
+ # No suspended instance method: a freed/replaced catalogue is ignored before
+ # passing any typed node arguments to the responsive layout helper.
+ var fit: Callable=func():
+  if is_instance_valid(grid) and grid.is_inside_tree():_fit_catalogue(grid,offers,longest_word,safe_inset)
+ grid.resized.connect(fit)
+ fit.call_deferred()

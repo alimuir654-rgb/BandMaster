@@ -128,12 +128,14 @@
   },
   "art_fit_method_448": "Stopgeneration after2prompts; measurednonuniformisolatedwholeproductbbox nativecrops frombyteoriginalsource2, actualnativepaperjudgementrequired.",
   "actual_baseline": "b310import/phone127/wide127 checks0ERROR/orphans,3nativeoriginalseach; reportedtrio/style reconstructed viaactualmodel APIs, notowner-savepossession.",
-  "delegated_source_writer": {
+  "last_delegated_source_writer": {
     "agent": "/root/render_support",
     "allowed_paths": [
       "experiments/playable_flightcase/gear_press.gd"
     ],
     "until": "2026-11-01T18:15:00Z",
-    "scope": "Demonstratedcardlongwordtypographyrepair456 only; rootmustnoteditthispath, workerdoesnotcommit/build/GL."
-  }
+    "scope": "Demonstratedcardlongwordtypographyrepair456 only; rootmustnoteditthispath, workerdoesnotcommit/build/GL.",
+    "released_at": "2026-11-01T18:11:01.474348+00:00"
+  },
+  "latest_owner_review_workflow": "Owner18:07 requests thirdresearch/gamedesignworker andprivate featureline/artblock review. NEWresearchfeatures andnewartproposals requireexplicitownerdecision before roadmapimplementation/finalartacceptance. CurrentrequestedS63 code/prototypeproof continues; nofurtherAPKreleaseuntilownerreview. Noqueue/controller."
 }
