@@ -15,6 +15,10 @@ var _closed := false
 var _epoch := 0
 var _shown := false
 var _fade: Tween
+var _fit_phase := 0
+var _draw_serial := 0
+var _consumed_draw := 0
+var _settle_remaining := 0
 var _body: Control
 var _poster: VBoxContainer
 var _scroll: ScrollContainer
@@ -144,18 +148,32 @@ func _queue_fit() -> void:
  if _closed:return
  layout_ready=false
  _epoch+=1
- call_deferred("_fit",_epoch)
+ _fit_phase=1
+ _consumed_draw=_draw_serial
+ if not RenderingServer.frame_post_draw.is_connected(_draw_completed):RenderingServer.frame_post_draw.connect(_draw_completed)
+ set_process(true)
 
 func _valid(epoch: int) -> bool:
  return not _closed and epoch==_epoch and is_inside_tree() and is_visible_in_tree()
 
-func _fit(epoch: int) -> void:
- if not _valid(epoch):return
- _after_draw(_prepare_fit.bind(epoch))
+func _draw_completed() -> void:
+ _draw_serial+=1
 
-func _after_draw(callback: Callable) -> void:
- if not RenderingServer.frame_post_draw.is_connected(callback):
-  RenderingServer.frame_post_draw.connect(callback,CONNECT_ONE_SHOT|CONNECT_DEFERRED)
+func _process(_delta: float) -> void:
+ if _closed or _fit_phase==0 or not is_visible_in_tree():
+  _stop_layout_clock()
+  return
+ if _draw_serial<=_consumed_draw:return
+ _consumed_draw=_draw_serial
+ match _fit_phase:
+  1:_prepare_fit(_epoch)
+  2:_settle_fit(_epoch,_settle_remaining)
+  3:_finish_fit(_epoch)
+
+func _stop_layout_clock() -> void:
+ _fit_phase=0
+ set_process(false)
+ if RenderingServer.frame_post_draw.is_connected(_draw_completed):RenderingServer.frame_post_draw.disconnect(_draw_completed)
 
 func _prepare_fit(epoch: int) -> void:
  if not _valid(epoch):return
@@ -165,8 +183,10 @@ func _prepare_fit(epoch: int) -> void:
   _poster.position=Vector2((_body.size.x-cover_width)*0.5,2)
   _poster.size=Vector2(cover_width,maxf(20.0,budget.y))
   _poster.configure(_data["members"],str(_data["lead_id"]),str(_data["name"]),str(_data["logo"]),str(_data["palette"]),str(_data["vibe"]),size.x,"career",_data["style"],"tall",Vector2(cover_width,budget.y))
-  _after_draw(_settle_fit.bind(epoch,2))
- else:_after_draw(_finish_fit.bind(epoch))
+  if not _valid(epoch):return
+  _settle_remaining=2
+  _fit_phase=2
+ else:_fit_phase=3
 
 func _settle_fit(epoch: int, remaining: int) -> void:
  if not _valid(epoch):return
@@ -176,9 +196,9 @@ func _settle_fit(epoch: int, remaining: int) -> void:
   var figures: Control=_poster.find_child("IdentitySelectedPortraitRow",true,false) as Control
   if figures!=null:figures.custom_minimum_size.y=maxf(64.0,figures.custom_minimum_size.y-excess-1.0)
   if remaining>1:
-   _after_draw(_settle_fit.bind(epoch,remaining-1))
+   _settle_remaining=remaining-1
    return
- _after_draw(_finish_fit.bind(epoch))
+ _fit_phase=3
 
 func _finish_fit(epoch: int) -> void:
  if not _valid(epoch):return
@@ -191,8 +211,10 @@ func _finish_fit(epoch: int) -> void:
    _fade=create_tween()
    _fade.tween_property(_poster,"modulate:a",1.0,0.15)
   else:_poster.modulate.a=1.0
+ if not _valid(epoch):return
  _shown=true
  layout_ready=true
+ _stop_layout_clock()
  _link_focus()
 
 func _take_focus() -> void:
@@ -238,6 +260,7 @@ func _input(event: InputEvent) -> void:
 
 func _cancel_presentation() -> void:
  _epoch+=1
+ _stop_layout_clock()
  if is_instance_valid(_fade):_fade.kill()
  if is_instance_valid(_back):
   _back.disabled=true
