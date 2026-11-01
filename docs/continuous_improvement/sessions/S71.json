@@ -91,12 +91,12 @@
   "started_at": "2026-11-01T22:24:52.446505+00:00",
   "scope_end": "2026-11-02T00:45:00Z",
   "source_freeze_target": "2026-11-01T23:35:00Z",
-  "source_write_allowed": false,
-  "delegated_source_writer": null,
+  "source_write_allowed": true,
+  "delegated_source_writer": "/root/render_support",
   "contract": "docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "issue_log_review": {
-    "bytes": 819229,
-    "sha256": "0f1768b92b922174b5043ef77c39f6a4b2d18c4aeb8076dcaca7ecea983d3684"
+    "bytes": 822819,
+    "sha256": "3b73208e549ba6d14c6b8b068dfde504d08c9233d9ad8b667bf59a120cf39aab"
   },
   "asset_approval": {
     "review_id": "A05v3",
@@ -104,10 +104,10 @@
     "source_sha256": "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda",
     "scope": "Exactstudio/presenter combinedsource full4:3 only, not finishedgame/animation"
   },
-  "source_phase": "index_repaired_candidate_frozen_pending_proof",
+  "source_phase": "bounded_transcript_copy_firstfold_repair502503",
   "repair_paths": [
-    "experiments/playable_flightcase/radio_visit_rules.gd",
-    "experiments/playable_flightcase/promotion_rules.gd"
+    "experiments/playable_flightcase/activity_scene.gd",
+    "experiments/playable_flightcase/radio_visit_desk.gd"
   ],
   "pending_implementation": false
 }
