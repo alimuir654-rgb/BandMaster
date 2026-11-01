@@ -55,7 +55,7 @@
     "pixels_inspected": true,
     "kind": "Generated identity DESIGN reference; actual current native milestone and approved C25 contact sheet also opened. Fullbody details proposed; no identity replacement or approved-master claim."
   },
-  "controlled_comparison": "Identical actual selected roster/lead/name/content/window in4nativeprofiles and focus/selection/motion/resize states. Baseline old native snapshot retained. Verify free draft edits, exact selectedIDs and only one lead, old saves/defaults/unknown styleextensions, Unicode/fontfallback/contrast, failed identity save wholecareer rollback/retry and duplicate finish no reward. Art must separately improve actual native group/masthead, no tinytiles/falsebodymasters.",
+  "controlled_comparison": "Identical actual selected roster/lead/name/content/window in4nativeprofiles and focus/selection/motion/resize states. Baseline old native snapshot retained. Verify free draft edits, exact selectedIDs and only one lead, old saves/defaults/unknown styleextensions, Unicode/fontfallback/contrast, failed identity save wholecareer rollback/retry and duplicate finish no reward. Art must separately improve actual native group/masthead, no tinytiles/falsebodymasters. Extra explicit397: PRE-NAME formation uses no inventedbandname; sameheightPractice/Career headeractualsavedbandmark becomesprimary. Nativeactual3/4/5/6 fullbodycompositions, longnames andunchangedfirstfold/facts/controlgeometryrequired. OriginalBandLineupsource+rawC25/meters/hardware remainunchanged.",
   "allowed_paths": [
     "experiments/playable_flightcase/opening_state.gd",
     "experiments/playable_flightcase/opening_ui.gd",
@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 632938,
-    "sha256": "5a91b3c6b0181b660a89e175b63d6e5196a035a129586e7863ae4a421000e59a"
+    "bytes": 636616,
+    "sha256": "b7d6b215cb5da8ffffebbc9df18a74327f9748de8d0d2001ff0d816b6b119515"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -108,5 +108,17 @@
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
   "rejected_import_390": "08:47automaticfreezeapprovalrejection preserved; no bypass. Ownerexplicitlyoverridesnow through16:00. Originalcommandretryonlyaftercommittedauthority/gate.",
-  "method_change_393": "No blindthirdjourney: isolateactual1/2/3UIrerenders andorphan names first, then narrowcause-basedpreTree/branchallocation repairs; all originalstrictgates remain."
+  "method_change_393": "No blindthirdjourney: isolateactual1/2/3UIrerenders andorphan names first, then narrowcause-basedpreTree/branchallocation repairs; all originalstrictgates remain.",
+  "additional_target_baselines": [
+    {
+      "path": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/captures/c27-milestone1-390x844.png",
+      "sha256": "d02ec4bcf2e731a32930f7b7c730d53bcb1251f6a73923f796fd36f208103b77",
+      "pixels_inspected": true
+    },
+    {
+      "path": "/workspace/work/identity-20261101/s57/native-613c771-phone/captures/identity-practice-header-390x844.png",
+      "sha256": "797f18f1e8e9e9d74c8ab1ff25a28808b08aa8462ed64547210719dd053991e8",
+      "pixels_inspected": true
+    }
+  ]
 }
