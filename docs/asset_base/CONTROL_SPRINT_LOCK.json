@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+  "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -320,5 +320,10 @@
     "expires_at": "2026-11-01T18:15:00Z",
     "released_at": "2026-11-01T18:11:01.473561+00:00",
     "result": "Onlygear_press native measuredword-awarecomposition repair456; nootherproductionpath edited."
+  },
+  "page_write_allowed": {
+    "scope": "Owner18:07onePRIVATEfeature/artreviewPage+selectedPNGblocks only",
+    "new_gameplay_art_allowed": false,
+    "source_history_upload_allowed": false
   }
 }
