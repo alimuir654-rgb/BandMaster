@@ -6,12 +6,15 @@ signal finished
 
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
+const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const STAGE_PATH := "res://experiments/playable_flightcase/art/s53_stage.png"
 const FALLBACK_STAGE_PATH := "res://experiments/playable_flightcase/art/opening_stage.png"
 
 var reduced_motion := false
 var stage_texture_path := STAGE_PATH
 var _receipt: Dictionary = {}
+var _identity: Dictionary = {}
 var _cards: Array[Control] = []
 var _column: VBoxContainer
 var _scroll: ScrollContainer
@@ -27,9 +30,11 @@ var _closed := false
 var _closing := false
 var _aborted := false
 
-func configure(receipt: Dictionary, reduced: bool) -> void:
+func configure(receipt: Dictionary, reduced: bool, identity: Dictionary = {}) -> void:
  # Never retain a mutable caller-owned model/receipt reference.
  _receipt = receipt.duplicate(true)
+ # Current saved appearance is cosmetic context, never settlement history.
+ _identity = identity.duplicate(true)
  reduced_motion = reduced
 
 func _ready() -> void:
@@ -71,9 +76,18 @@ func _ready() -> void:
  headings.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  headings.add_theme_constant_override("separation",4)
  header.add_child(headings)
- var title: Label = C.label("TONIGHT'S SHOW",18)
+ var band_name: String = _text(_identity.get("band_name"),"").strip_edges()
+ var title: Label
+ if not band_name.is_empty():
+  var mark := BandMark.new()
+  mark.configure(band_name,_text(_identity.get("logo"),"Wordmark"),IdentityStyle.effective(_identity.get(IdentityStyle.KEY),_text(_identity.get("palette"),"")),28,true,true)
+  # Reserve two readable lines; only the notes viewport absorbs this growth.
+  mark.custom_minimum_size.y = 56.0
+  title = mark
+ else:
+  title = C.label("TONIGHT'S SHOW",18)
+  title.add_theme_color_override("font_color",Color("f0c78b"))
  title.name = "ShowReplayTitle"
- title.add_theme_color_override("font_color",Color("f0c78b"))
  headings.add_child(title)
  var location: String = _text(_receipt.get("venue"),"SAVED SHOW")
  var city: String = _text(_receipt.get("city"),"")

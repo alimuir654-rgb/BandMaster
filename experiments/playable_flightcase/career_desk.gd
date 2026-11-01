@@ -874,7 +874,7 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false, expecte
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  if receipt.has("show_receipt"):
   var replay := ShowReplay.new()
-  replay.configure(receipt["show_receipt"],reduced_motion)
+  replay.configure(receipt["show_receipt"],reduced_motion,{"band_name":after.get("band_name",""),"logo":after.get("logo","Wordmark"),"palette":after.get("palette",""),IdentityStyle.KEY:after.get(IdentityStyle.KEY,{})})
   _overlay=replay
   replay.covered.connect(_present_receipt)
   replay.finished.connect(_finish_receipt)
