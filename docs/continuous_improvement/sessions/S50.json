@@ -70,7 +70,8 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/LESSONS.md"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S50.json",
@@ -87,7 +88,7 @@
     "/workspace/BandMaster/Art/Backgrounds/shared/gigs.webp",
     "/workspace/work/unify/s46/live-imported-phone/captures/live-result-full-390x844.png"
   ],
-  "next_action": "At00:15read latestPage/canonical/lessons/newissues and baselineactualphone/currentcheckpoint, then scope the mobile interaction and presentation foundation before first-gig sourcework.",
+  "next_action": "Record the source-audited hardware hydration/caption lesson, close preparation and release before00:15; scheduledsourcework then needs freshpreflight.",
   "started_at": "2026-11-01T00:06:08.778644+00:00",
   "scope_end": "2026-11-01T00:12:00Z",
   "hard_stop": "2026-11-01T09:00:00Z",
