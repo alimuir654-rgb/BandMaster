@@ -133,18 +133,34 @@ static func _active_count(state: Dictionary) -> int:
 
 static func _material_warning(parent: Node, count: int) -> void:
  if count==0:
-  var warning: Label = _copy(parent,"UNDERPREPARED / NO COMPLETED ORIGINALS\nThis new booking pays at most £5 gross with no originals selected. Travel and any session drummer are still charged.")
+  var warning: Label = _copy(parent,"UNDERPREPARED / NO ORIGINALS SELECTED\nThis new booking pays at most £5 gross with no originals selected. Travel and any session drummer are still charged.")
   warning.name = "ShowNoOriginalsWarning"
   warning.add_theme_color_override("font_color",Color("943e31"))
 
 static func _setlist(host, body: Node, state: Dictionary) -> void:
  var selected: Array = host.show_draft.get("song_ids",[])
  _copy(body,"THE SETLIST / %d OF 3" % selected.size(),20)
- for song in state.get("song_catalogue",[]):
+ var catalogue: Variant=state.get("song_catalogue",[])
+ if not catalogue is Array:
+  _copy(body,"The completed-song catalogue needs attention before choosing a set.")
+  return
+ var ordered: Array=[]
+ for chosen in selected:
+  for song in catalogue:
+   if song is Dictionary and str(song.get("id",""))==str(chosen):
+    ordered.append(song)
+    break
+ for song in catalogue:
+  if song is Dictionary and not selected.has(str(song.get("id",""))):ordered.append(song)
+ var available_heading := false
+ for song in ordered:
   if not song is Dictionary:continue
   var id: String = str(song.get("id",""))
   if id.is_empty():continue
   var index: int = selected.find(id)
+  if index<0 and not available_heading:
+   _copy(body,"AVAILABLE ORIGINALS",20)
+   available_heading=true
   _copy(body,(str(index+1)+". " if index>=0 else "")+str(song.get("title","UNTITLED")),16)
   var row := HBoxContainer.new()
   row.add_theme_constant_override("separation",6)

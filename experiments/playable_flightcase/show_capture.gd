@@ -200,6 +200,7 @@ func controls_and_setlist() -> bool:
  for id in selected:
   if not await free_action("ShowSong_"+str(id).replace(":","_"),"enter"):return false
  if not verify(desk().get("show_draft").get("song_ids",[]).is_empty() and named("ShowNoOriginalsWarning")!=null,"zero selected originals exposes honest underprepared warning"):return false
+ if not verify((named("ShowNoOriginalsWarning") as Label).text.begins_with("UNDERPREPARED / NO ORIGINALS SELECTED") and model.game.career.song_catalogue.size()==4,"warning distinguishes zero selected from existing completed originals"):return false
  if not await scroll_end() or not await capture("soundcheck-zero-originals"):return false
  var catalogue: Array=model.game.career.song_catalogue
  if not verify(catalogue.size()==4,"actual completed catalogue supplies four IDs, not assumed three"):return false
@@ -213,6 +214,12 @@ func controls_and_setlist() -> bool:
  if not await free_action("ShowDown_"+str(order[0]).replace(":","_"),"space"):return false
  var expected: Array=[order[1],order[0],order[2]]
  if not verify(desk().get("show_draft").get("song_ids")==expected,"real DOWN changes exact selected ID order"):return false
+ await RenderingServer.frame_post_draw
+ var prior_y: float=-INF
+ for chosen in expected:
+  var row: Button=named("ShowSong_"+str(chosen).replace(":","_")) as Button
+  if not verify(row!=null and row.get_global_rect().position.y>prior_y,"native selected rows visibly follow actual play order: "+str(chosen)):return false
+  prior_y=row.get_global_rect().position.y
  if not await free_action("ShowShoutoutAction","enter"):return false
  if not verify(desk().get("show_draft").get("shoutout")=="thankvenue" and desk().get("show_draft").get("shoutout_venue_id")==Calendar.pending(model.game.career).venue_id,"native shout-out names only actual booked venue"):return false
  return await capture("soundcheck-three-originals")
