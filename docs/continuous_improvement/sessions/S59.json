@@ -42,7 +42,7 @@
     "BM-45",
     "BM-46"
   ],
-  "hypothesis": "Replacing the generic ShowReplay title with the same native saved band mark gives the already-settled show the player’s identity. A compact28pt on-dark mark with56px native two-line allocation and actual16pt venue supports long names without new textures or model effects. Generic absent/invalid-name context retains original two-argument behavior and layout.",
+  "hypothesis": "Replacing the generic ShowReplay title with the same native saved band mark gives the already-settled show the player’s identity. A compact28pt on-dark mark with56px minimum and actual native two-line allocation and actual16pt venue supports long names without new textures or model effects. Generic absent/invalid-name context retains original two-argument behavior and layout.",
   "stop_condition": "One root source writer/GL. Lease ends13:45; source target13:10/proof13:35. Two ineffective attempts change method/HOLD. No art/model/economy/save schema/recording/new cast or APK in this slice. Global15:50 all-write freeze/16:00 hard stop; no queue/controller change.",
   "target": {
     "locator": "/workspace/generated_images/exec-882779e6-7fbc-4e33-9e0d-15b82354f4f4.png",
@@ -70,8 +70,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 676076,
-    "sha256": "9b54b94df04302e6ec14f0c74ba6628d5f1dc0957797d146580c1bd6a193450f"
+    "bytes": 680343,
+    "sha256": "124b483ceb947426b6c26745e89d8b0202de3f665ee4e5791801756cdf13908c"
   },
   "started_at": "2026-11-01T12:25:54.868574+00:00",
   "scope_end": "2026-11-01T13:45:00Z",
@@ -84,5 +84,12 @@
     "ShowReplay all timers/input/focus/hide/free/reveal/receipt summary/song order functions remain byte-exact. configure still copies receipt, adds optional deep-copied context only. No identity stored in settlement history.",
     "CareerDesk original busy-before-dispatch, original resolver/Finance/single save/whole-career rollback remain byte-exact except replay.configure arguments after successful save."
   ],
-  "preflight_gate_correction_418": "Dominant BM25 now explicitly selected after reading actual lesson; first gate rejection retained, no source/native action preceded correction."
+  "preflight_gate_correction_418": "Dominant BM25 now explicitly selected after reading actual lesson; first gate rejection retained, no source/native action preceded correction.",
+  "native_metric_contract_422": {
+    "source_unchanged": "c820244935914fcb4d0e90f7a762507a66b23173",
+    "meaning": "56px custom_minimum_size is a minimum, not a forced finalLabel height. Actual61px long-name native minimum is valid if full two-line glyphs,16..28px face, firstfoldfacts/response/ack and120px notes remain safe.",
+    "failed_probe_preserved": "/workspace/work/identity-20261101/s59/replay_identity_probe.gd",
+    "diagnostic": "/workspace/work/identity-20261101/s59/long-layout-diagnostic-c820/captures/result.json",
+    "new_probe": "/workspace/work/identity-20261101/s59/replay_identity_native_min_probe.gd"
+  }
 }
