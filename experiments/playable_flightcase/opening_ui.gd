@@ -1,5 +1,7 @@
 extends Control
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const SafeArea = preload("res://experiments/playable_flightcase/mobile_safe_area.gd")
+const SAFE_BACKDROP = preload("res://components/control_atlas/art/case_surface.png")
 ## C27 opening; uses existing authentic flight-case UI and controls.
 const Model = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Recruit = preload("res://experiments/playable_flightcase/ui.gd")
@@ -31,11 +33,46 @@ var _practice_view: Control
 var _recruit_view: Control
 var _career_view: Control
 var _fresh_name_reactions := false
+var _safe_content_rect := Rect2()
+var _safe_area_poll := 0.0
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ _sync_safe_area()
  get_viewport().size_changed.connect(_on_viewport_resized)
  _render()
+
+func _sync_safe_area() -> bool:
+ var next: Rect2 = SafeArea.for_root(self)
+ if next==_safe_content_rect:
+  return false
+ _safe_content_rect = next
+ offset_left = next.position.x
+ offset_top = next.position.y
+ offset_right = next.end.x-get_viewport_rect().end.x
+ offset_bottom = next.end.y-get_viewport_rect().end.y
+ set_meta("safe_content_rect",next)
+ queue_redraw()
+ return true
+
+func _refresh_safe_area() -> void:
+ if _sync_safe_area():
+  _on_content_boundary_changed()
+
+func _process(delta: float) -> void:
+ # Safe insets can change when system bars return without a viewport resize.
+ if not OS.has_feature("mobile") and not has_meta("safe_area_test_sample"):
+  return
+ _safe_area_poll += delta
+ if _safe_area_poll>=0.25:
+  _safe_area_poll = 0.0
+  _refresh_safe_area()
+
+func _draw() -> void:
+ # Keep the original case material under the notch/navigation area. Meaningful
+ # content and all input remain in the safe rectangle; this bleed is inert.
+ if _safe_content_rect!=get_viewport_rect():
+  draw_texture_rect(SAFE_BACKDROP,Rect2(-position,get_viewport_rect().size),false,Color(0.52,0.57,0.61))
 
 func _erase() -> void:
  for old in get_children():
@@ -50,6 +87,10 @@ func _erase() -> void:
  _career_view = null
 
 func _on_viewport_resized() -> void:
+ _sync_safe_area()
+ _on_content_boundary_changed()
+
+func _on_content_boundary_changed() -> void:
  # The practice view owns its responsive reflow. Keep its pending form values
  # and presentation-only overlay alive instead of replacing the whole host.
  if not showing_menu and ((setup.screen=="play" and is_instance_valid(_practice_view)) or (setup.screen=="recruit" and is_instance_valid(_recruit_view))):

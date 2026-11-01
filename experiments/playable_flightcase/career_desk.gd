@@ -49,7 +49,7 @@ var offstage_choice := "careful"
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- get_viewport().size_changed.connect(_render)
+ resized.connect(_render)
  visibility_changed.connect(_visibility_changed)
  _render()
 

@@ -78,7 +78,7 @@ class PracticePhoneChoices extends VBoxContainer:
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  _hydrate_song_draft()
- get_viewport().size_changed.connect(_rebuild)
+ resized.connect(_rebuild)
  visibility_changed.connect(_on_visibility_changed)
  _rebuild()
 
@@ -120,7 +120,7 @@ func _rebuild() -> void:
   if previous_focus is LineEdit:
    caret = (previous_focus as LineEdit).caret_column
  _clear()
- var size_now: Vector2 = get_viewport_rect().size
+ var size_now: Vector2 = size
  var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
  add_child(Shared.background())
  var outer := MarginContainer.new()
@@ -276,8 +276,8 @@ func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  margin.add_child(center)
  var paper := PanelContainer.new()
  paper.name = "AuditionPaper"
- paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,get_viewport_rect().size.x-(72.0 if mobile else 120.0)))
- paper.add_theme_stylebox_override("panel",Paper.sheet(get_viewport_rect().size.x<600))
+ paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,size.x-(72.0 if mobile else 120.0)))
+ paper.add_theme_stylebox_override("panel",Paper.sheet(size.x<600))
  center.add_child(paper)
  var body := _box()
  body.add_theme_constant_override("separation",10)
@@ -399,7 +399,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   field.add_child(row)
   var meter := Kit.PassiveMeter.new(look,int(stats[i]))
   meter.name = "PassiveMeter"+str(i)
-  if get_viewport_rect().size.x<600:
+  if size.x<600:
    meter.custom_minimum_size.x = 80
   row.add_child(meter)
   var score: Label = _ink(str(int(stats[i])),14)
@@ -678,7 +678,7 @@ func _practice_back() -> void:
   back_requested.emit()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
- var viewport_width: float = get_viewport_rect().size.x
+ var viewport_width: float = size.x
  var phone: bool = viewport_width<600
  var stacked: bool = mobile or viewport_width<1000
  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
@@ -821,7 +821,7 @@ func _writing_workspace(body: VBoxContainer) -> void:
  stage.name = "WritingStageLabel"
  body.add_child(stage)
  var fields := GridContainer.new()
- fields.columns = 2 if get_viewport_rect().size.x>=1000 else 1
+ fields.columns = 2 if size.x>=1000 else 1
  fields.add_theme_constant_override("h_separation",12)
  fields.add_theme_constant_override("v_separation",6)
  body.add_child(fields)
@@ -959,7 +959,7 @@ func _refresh_practice_commitment() -> void:
   cost.text = "Uses 1 day  •  No room fee"
 
 func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
- var viewport_size := get_viewport_rect().size
+ var viewport_size := size
  var tall_tablet: bool = viewport_size.x>=600 and viewport_size.x<900 and viewport_size.y>viewport_size.x
  var short_landscape: bool = viewport_size.x>=900 and viewport_size.y<800
  var scroll := ScrollContainer.new()
@@ -979,7 +979,7 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  var press: Variant = RehearsalPress.new()
  press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true,_new_session_notes and not reduced_motion)
  press.details_toggled.connect(_toggle_recap_details)
- press.custom_minimum_size.x = minf(850.0,maxf(270.0,get_viewport_rect().size.x-(48.0 if mobile else 88.0)))
+ press.custom_minimum_size.x = minf(850.0,maxf(270.0,size.x-(48.0 if mobile else 88.0)))
  center.add_child(press)
  var dock := VBoxContainer.new()
  dock.name = "RecapDecisionDock"

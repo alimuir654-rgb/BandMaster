@@ -49,7 +49,7 @@ func _ready() -> void:
  _card.name = "SessionBeatCard"
  _card.visible = false
  _card.add_theme_constant_override("separation",16)
- _card.custom_minimum_size.x = minf(520.0,maxf(260.0,get_viewport_rect().size.x-48.0))
+ _card.custom_minimum_size.x = minf(520.0,maxf(260.0,size.x-48.0))
  center.add_child(_card)
  var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
  var heading := Kit.label(heading_text,style,26)
@@ -68,14 +68,14 @@ func _ready() -> void:
  _skip.name = "SkipSessionBeatAction"
  _skip.pressed.connect(finish_now)
  _card.add_child(_skip)
- get_viewport().size_changed.connect(_fit_card)
+ resized.connect(_fit_card)
  # Start after add_child has completed; reduced-motion cleanup can then safely
  # remove this node without mutating a parent that is still entering the tree.
  call_deferred("_start")
 
 func _fit_card() -> void:
  if is_instance_valid(_card):
-  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,get_viewport_rect().size.x-48.0))
+  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,size.x-48.0))
 
 func _start() -> void:
  if _closed or not is_inside_tree():

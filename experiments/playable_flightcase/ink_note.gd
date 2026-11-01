@@ -18,10 +18,19 @@ const CHARACTERS_PER_SECOND := 48.0
 const MAX_DURATION_SECONDS := 4.0
 const WRITING_HINT := "Writing saved notes. Tap this note, or focus it and press Enter or Space, to show all."
 const COMPLETE_HINT := "Saved action notes."
+const TAP_SLOP_PIXELS := 12.0
 
 var _revealing := false
 var _motion: Tween
 var _epoch := 0
+var _touch_index := -1
+var _touch_epoch := -1
+var _touch_origin := Vector2.ZERO
+var _touch_dragged := false
+var _mouse_pending := false
+var _mouse_epoch := -1
+var _mouse_origin := Vector2.ZERO
+var _mouse_dragged := false
 
 func _init() -> void:
  add_theme_font_size_override("font_size",16)
@@ -38,6 +47,7 @@ func begin(reduced_motion: bool = false) -> void:
  if not is_inside_tree() or is_queued_for_deletion():
   return
  _epoch += 1
+ _clear_pointer_gesture()
  var current_epoch: int = _epoch
  _kill_tween()
  _revealing = true
@@ -60,6 +70,7 @@ func finish_now() -> void:
  var was_revealing: bool = _revealing
  _epoch += 1
  _revealing = false
+ _clear_pointer_gesture()
  _kill_tween()
  visible_characters = -1
  tooltip_text = COMPLETE_HINT
@@ -85,21 +96,68 @@ func _gui_input(event: InputEvent) -> void:
   accept_event()
   if event.pressed and not event.echo:
    finish_now()
- elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and _revealing:
-  accept_event()
-  if event.pressed:
-   grab_focus()
-   finish_now()
- elif event is InputEventScreenTouch and _revealing:
-  accept_event()
-  if event.pressed:
-   grab_focus()
-   finish_now()
+ elif event is InputEventScreenTouch:
+  if event.pressed and _revealing:
+   if _touch_index<0:
+    _touch_index = event.index
+    _touch_epoch = _epoch
+    _touch_origin = get_screen_transform()*event.position
+    _touch_dragged = false
+    _mouse_pending = false
+   elif event.index!=_touch_index:
+    # A second finger cannot complete the first finger's pending tap.
+    _touch_dragged = true
+  elif not event.pressed and event.index==_touch_index:
+   var complete: bool = _revealing and _touch_epoch==_epoch and not _touch_dragged and not event.canceled and Rect2(Vector2.ZERO,size).has_point(event.position)
+   _clear_pointer_gesture()
+   if complete:
+    grab_focus()
+    finish_now()
+    accept_event()
+  # Down/drag must reach ScrollContainer; deciding on down blocked scrolling.
+ elif event is InputEventScreenDrag and event.index==_touch_index:
+  if (get_screen_transform()*event.position).distance_to(_touch_origin)>TAP_SLOP_PIXELS:
+   _touch_dragged = true
+ elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
+  # Godot's touch-emulated mouse has device -1. The touch path already owns
+  # that gesture; treating it as another click would finish on the same tap.
+  if event.device==-1:
+   return
+  if event.pressed and _revealing:
+   _mouse_pending = true
+   _mouse_epoch = _epoch
+   _mouse_origin = get_screen_transform()*event.position
+   _mouse_dragged = false
+  elif not event.pressed and _mouse_pending:
+   var complete: bool = _revealing and _mouse_epoch==_epoch and not _mouse_dragged and Rect2(Vector2.ZERO,size).has_point(event.position)
+   _clear_pointer_gesture()
+   if complete:
+    grab_focus()
+    finish_now()
+    accept_event()
+ elif event is InputEventMouseMotion and _mouse_pending:
+  if (get_screen_transform()*event.position).distance_to(_mouse_origin)>TAP_SLOP_PIXELS:
+   _mouse_dragged = true
+
+func _clear_pointer_gesture() -> void:
+ _touch_index = -1
+ _touch_epoch = -1
+ _touch_dragged = false
+ _mouse_pending = false
+ _mouse_epoch = -1
+ _mouse_dragged = false
+
+func _notification(what: int) -> void:
+ if what==NOTIFICATION_SCROLL_BEGIN or what==NOTIFICATION_RESIZED:
+  _clear_pointer_gesture()
+ elif what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree():
+  _clear_pointer_gesture()
 
 func _exit_tree() -> void:
  # Teardown never signals successful presentation or dispatches gameplay.
  _epoch += 1
  _revealing = false
+ _clear_pointer_gesture()
  _kill_tween()
  visible_characters = -1
  tooltip_text = COMPLETE_HINT
