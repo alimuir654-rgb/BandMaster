@@ -4,6 +4,7 @@ extends PanelContainer
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const IMAGE_SOURCES := {
  "Indie rock":"genre_indie",
  "Punk":"genre_punk",
@@ -77,6 +78,7 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
  content.add_child(rule)
  var title: Label = _ink(genre.to_upper(),28 if compact else 40,"GenrePressTitle")
+ title.add_theme_font_override("font",IdentityStyle.face(IdentityStyle.defaults()))
  content.add_child(title)
  var image_path: String = "res://experiments/playable_flightcase/art/"+str(IMAGE_SOURCES.get(genre,""))+".png"
  var artwork: Control
@@ -97,6 +99,8 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  artwork.set_meta("motif",str(edition[1]))
  artwork.custom_minimum_size.y = 100 if compact else (220 if wide else 160)
  artwork.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ if wide:
+  artwork.size_flags_vertical = Control.SIZE_EXPAND_FILL
  artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
  artwork.focus_mode = Control.FOCUS_NONE
  content.add_child(artwork)
