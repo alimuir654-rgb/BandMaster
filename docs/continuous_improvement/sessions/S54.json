@@ -73,8 +73,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 577369,
-    "sha256": "1471f88cff25b90679a32e5f86c5b27c289c7b23145c36e1dad61b099fa5393b"
+    "bytes": 580034,
+    "sha256": "1b6c6b6c29c5007f7626f16eb7cbfb708778305d0896a3d69b075c66b04ee316"
   },
   "started_at": "2026-11-01T04:24:30.738786+00:00",
   "scope_end": "2026-11-01T06:20:00Z",
@@ -116,5 +116,13 @@
       "FourcompleteRecordingjourneys+vanillapositivecontrol/Label+Buttondrag+normal/reduced/safeinsets/realSAVEfailure/reload",
       "Strict73/88/import/4standard plusoneexistingS53firstgigphoneintegration; exactsamevisualpixels expected frominput-onlychange"
     ]
-  }
+  },
+  "verified_rollback": {
+    "source_sha": "ad30d500844d17479962e6c6fbd7f471aa6135f4",
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "remaining_gap": "366 compactarchive primaryfactsbelowhistory",
+    "validation": "/workspace/work/s40/runs/s54-recording-ad30d50-final/validation.json"
+  },
+  "archive_rescope": "366 onlyRecordingDesk._session compactfacts/action beforefullhistory andshorterredundantintro; newnativefirstfoldstatusassertions. Models/metadata/schema/art/fonts/controls/signalpolicy unchanged. Sourcefreeze05:25/lease06:20/allwrites08:30 unchanged."
 }
