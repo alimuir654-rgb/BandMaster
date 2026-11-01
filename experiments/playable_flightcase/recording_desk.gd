@@ -300,9 +300,10 @@ static func _radio(host, parent: Node, compact: bool) -> void:
    _radio_metrics(host,body,saved["before"],saved["after"])
   _copy(host,body,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
  else:
-  _copy(host,body,"Send this released recording to regional radio and independent DJs. This is a simulated career action; no broadcast or audio playback is provided.","PromotionDescription")
+  _copy(host,body,"Send your released demo to local radio and independent DJs. Build a following beyond the stage.","PromotionDescription")
   var preview: Dictionary=_radio_preview(host)
   if bool(preview.get("ok",false)):
+   _copy(host,body,"PROJECTED RESPONSE","PromotionProjectionHeading",16,true)
    _radio_metrics(host,body,host.game.career,preview["state"])
    for change in preview["receipt"]["postchain_changes"]:_copy(host,body,str(change["text"]),"",16,true)
   else:_copy(host,body,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
