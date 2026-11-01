@@ -3,6 +3,7 @@ extends RefCounted
 ## All browsing/ordering/modes are FREE DRAFT ONLY. Pure previews never apply state.
 const Rules = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
+const Promotion = preload("res://experiments/playable_flightcase/promotion_rules.gd")
 
 static func _key(id: String) -> String:
  return id.replace(":","_").replace("/","_").replace(" ","_")
@@ -57,6 +58,9 @@ static func _find_song(songs: Array, id: String) -> Dictionary:
  return {}
 
 static func render(host, parent: Node, compact: bool) -> void:
+ if str(host.recording_mode)=="radio":
+  _radio(host,parent,compact)
+  return
  if str(host.recording_mode)=="archive":
   _archive(host,parent,compact)
   return
@@ -148,6 +152,9 @@ static func _brief(host, parent: Node, state: Dictionary) -> void:
  _copy(host,parent,"Demo quality follows the selected songs.","RecordingQualityBasis",16,true)
 
 static func dock(host, parent: Node, _compact: bool) -> void:
+ if str(host.recording_mode)=="radio":
+  _radio_dock(host,parent)
+  return
  if str(host.recording_mode)=="archive":
   _button(host,parent,"CHOOSE TRACKS","RecordingSelectAction",mode.bind(host,"select"),true)
   _button(host,parent,"BACK TO SONGBOOK","RecordingBackSongsAction",host._navigate.bind("songs"))
@@ -237,11 +244,106 @@ static func _session_facts(host, facts: Node, session: Dictionary, index: int, r
   action.set_meta("recording_id",id)
   action.set_meta("recording_index",index)
   action.set_meta("recording_fingerprint",fingerprint)
+ if release_action and bool(session.get("released",false)):
+  var id: String=str(session.get("id",""))
+  var fingerprint: String=Rules.fingerprint(session)
+  var selected: Dictionary=Promotion.selection(host.game.career,id,fingerprint,index)
+  var completed: bool=bool(selected.get("completed",false))
+  _copy(host,facts,"RADIO CAMPAIGN COMPLETE" if completed else "LOCAL RADIO / £20 • 1 DAY","RecordingRadioStatus_"+str(index))
+  var action: Button=_button(host,facts,"SAVED RADIO NOTES" if completed else "LOCAL RADIO  ›","RecordingRadio_"+str(index),open_radio.bind(host,id,fingerprint,index),false,bool(selected.get("ok",false)))
+  action.set_meta("recording_id",id)
+  action.set_meta("recording_index",index)
+  action.set_meta("recording_fingerprint",fingerprint)
+  if not bool(selected.get("ok",false)):_copy(host,facts,str(selected.get("message","Review the saved demo.")),"RecordingRadioReason_"+str(index))
+
+static func focus_name(host) -> String:
+ return "PromotionBackAction" if str(host.recording_mode)=="radio" else ("RecordingSelectAction" if str(host.recording_mode)=="archive" else "RecordingMainAction")
+
+static func _radio_selection(host) -> Dictionary:
+ var chosen: Dictionary=host.promotion_selection
+ return Promotion.selection(host.game.career,str(chosen.get("id","")),str(chosen.get("fingerprint","")),int(chosen.get("index",-1)))
+
+static func _radio_preview(host) -> Dictionary:
+ var chosen: Dictionary=host.promotion_selection
+ return Promotion.preview(host.game.career,str(chosen.get("id","")),str(chosen.get("fingerprint","")),int(chosen.get("index",-1)))
+
+static func _radio_metrics(host, parent: Node, before: Dictionary, after: Dictionary) -> void:
+ var rows: PackedStringArray=[]
+ for field in ["fans","press","buzz"]:
+  rows.append("%s  %d → %d" % [field.to_upper(),int(before.get(field,0)),int(after.get(field,0))])
+ _copy(host,parent,"\n".join(rows),"PromotionPreview")
+
+static func _radio(host, parent: Node, compact: bool) -> void:
+ var body: VBoxContainer=host._paper(parent,compact)
+ var selected: Dictionary=_radio_selection(host)
+ var completed: bool=bool(selected.get("completed",false))
+ _copy(host,body,"SAVED RADIO NOTES" if completed else "LOCAL RADIO","PromotionHeading",26)
+ if not str(host.notice).is_empty():_copy(host,body,str(host.notice),"PromotionNotice")
+ if not bool(selected.get("ok",false)):
+  _copy(host,body,str(selected.get("message","Choose a released demo.")),"PromotionEligibility")
+  return
+ var session: Dictionary=selected["session"]
+ var id: String=str(session.get("id",""))
+ _copy(host,body,"DEMO ID / "+id if not id.is_empty() else "LEGACY DEMO / ID NOT RECORDED","PromotionDemoId",16,true)
+ var tracks: PackedStringArray=[]
+ for index in range((session.get("tracks",[]) as Array).size()):
+  tracks.append("%d. %s" % [index+1,str(session["tracks"][index].get("title","UNTITLED"))])
+ _copy(host,body,"\n".join(tracks) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED","PromotionTracks",20)
+ _copy(host,body,"SAVED SONG LINKS" if session.has("song_links_v1") else "LEGACY RECORDING / SONG LINKS NOT RECORDED","PromotionLinks",16,true)
+ if completed:
+  var saved: Dictionary=selected["saved_response"]
+  if saved.is_empty():
+   _note(body,"This demo's radio campaign was already completed. Its detailed response was not saved with this legacy record.","PromotionSavedNote")
+  else:
+   _copy(host,body,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
+   _note(body,str(saved["message"]),"PromotionSavedNote")
+   _radio_metrics(host,body,saved["before"],saved["after"])
+  _copy(host,body,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
+ else:
+  _copy(host,body,"Send this released recording to regional radio and independent DJs. This is a simulated career action; no broadcast or audio playback is provided.","PromotionDescription")
+  var preview: Dictionary=_radio_preview(host)
+  if bool(preview.get("ok",false)):
+   _radio_metrics(host,body,host.game.career,preview["state"])
+   for change in preview["receipt"]["postchain_changes"]:_copy(host,body,str(change["text"]),"",16,true)
+  else:_copy(host,body,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
+  _note(body,"One released demo. One local-radio pitch. The saved response will remain with this recording.","PromotionIntroNote")
+
+static func _radio_dock(host, parent: Node) -> void:
+ var selected: Dictionary=_radio_selection(host)
+ if bool(selected.get("completed",false)):
+  var free: Label=_copy(host,parent,"SAVED RESPONSE  •  FREE TO READ","PromotionCommitment")
+  free.add_theme_color_override("font_color",Color("efe9da"))
+ else:
+  var preview: Dictionary=_radio_preview(host)
+  var text: String="£20  •  1 DAY"
+  if bool(preview.get("ok",false)):
+   var after: Dictionary=preview["state"]
+   text+="\n£%d → £%d  •  DAY %d → %d" % [int(host.game.career.get("cash",0)),int(after.get("cash",0)),int(host.game.career.get("tour_day",1)),int(after.get("tour_day",1))]
+  var commitment: Label=_copy(host,parent,text,"PromotionCommitment")
+  commitment.add_theme_color_override("font_color",Color("efe9da"))
+  if not bool(preview.get("ok",false)):
+   var reason: Label=_copy(host,parent,str(preview.get("message","Review the selected demo.")),"PromotionEligibility")
+   reason.add_theme_color_override("font_color",Color("f0c78b"))
+  var chosen: Dictionary=host.promotion_selection
+  _button(host,parent,"PITCH LOCAL RADIO  •  £20","PromotionMainAction",commit.bind(host,"radio",str(chosen.get("id","")),str(chosen.get("fingerprint","")),int(chosen.get("index",-1))),true,bool(preview.get("ok",false)))
+ _button(host,parent,"BACK TO RECORDINGS","PromotionBackAction",mode.bind(host,"archive"))
+
+static func open_radio(host, id: String, fingerprint: String, index: int) -> void:
+ if not _editable(host) or str(host.recording_mode)!="archive":return
+ var selected: Dictionary=Promotion.selection(host.game.career,id,fingerprint,index)
+ if not bool(selected.get("ok",false)):
+  host.notice=str(selected.get("message","Choose a saved released demo."))
+  _rerender(host,"RecordingRadio_"+str(index))
+  return
+ host.promotion_selection={"id":id,"fingerprint":fingerprint,"index":index}
+ host.recording_mode="radio"
+ host.notice=""
+ _rerender(host,"PromotionBackAction" if bool(selected["completed"]) else "PromotionMainAction",true)
 
 static func receipt(host, parent: Node, compact: bool) -> void:
  var body: VBoxContainer=host._paper(parent,compact)
  var saved: Dictionary=host.receipt
- _copy(host,body,"THE RECORDING JOURNAL","RecordingReceiptHeading",16,true)
+ _copy(host,body,"THE RADIO RESPONSE" if str(saved.get("verb",""))=="radio" else "THE RECORDING JOURNAL","RecordingReceiptHeading",16,true)
  _copy(host,body,str(saved.get("title","DEMO SAVED")),"RecordingReceiptTitle",26)
  _copy(host,body,"DAY %d → %d\n£%d → £%d" % [int(saved.get("day_before",1)),int(saved.get("day_after",1)),int(saved.get("cash_before",0)),int(saved.get("cash_after",0))],"RecordingReceiptFacts")
  _note(body,str(saved.get("text","Saved.")),"CareerReceiptNote",true,bool(host._fresh_receipt))
@@ -292,6 +394,10 @@ static func commit(host, verb: String, id: String="", expected_fingerprint: Stri
  if host.game==null or host.opening_owner==null: return
  if verb=="record" and str(host.recording_mode)!="select": return
  if verb=="release" and str(host.recording_mode)!="archive": return
+ if verb=="radio":
+  if str(host.recording_mode)!="radio":return
+  var chosen: Dictionary=host.promotion_selection
+  if str(chosen.get("id",""))!=id or str(chosen.get("fingerprint",""))!=expected_fingerprint or int(chosen.get("index",-1))!=expected_index:return
  if not bool(host._finance_guard()): return
  # OWN INPUT BEFORE synchronous pure dispatch; success leaves busy until root Beat.
  host.busy=true
@@ -300,6 +406,7 @@ static func commit(host, verb: String, id: String="", expected_fingerprint: Stri
  var result: Dictionary
  if verb=="record": result=Rules.record(candidate,host.recording_ids.duplicate())
  elif verb=="release": result=Rules.release(candidate,id,expected_fingerprint,expected_index)
+ elif verb=="radio": result=Promotion.launch(candidate,id,expected_fingerprint,expected_index)
  else: result={"ok":false,"message":"Unknown recording action."}
  if not bool(result.get("ok",false)) or not result.get("state",null) is Dictionary:
   host.busy=false

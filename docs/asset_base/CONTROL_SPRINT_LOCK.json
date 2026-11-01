@@ -314,12 +314,14 @@
   },
   "last_delegated_source_writer": {
     "agent": "/root/render_support",
-    "allowed_paths": [
-      "experiments/playable_flightcase/gear_press.gd"
+    "paths": [
+      "experiments/playable_flightcase/promotion_rules.gd",
+      "experiments/playable_flightcase/recording_desk.gd",
+      "experiments/playable_flightcase/career_desk.gd"
     ],
-    "expires_at": "2026-11-01T18:15:00Z",
-    "released_at": "2026-11-01T18:11:01.473561+00:00",
-    "result": "Onlygear_press native measuredword-awarecomposition repair456; nootherproductionpath edited."
+    "expires_at": "2026-11-01T20:35:00Z",
+    "preflight_sha": "5cfb753b609faa674fb16e783f14e7679d0aa63c",
+    "released_at": "2026-11-01T20:20:25.496449+00:00"
   },
   "page_write_allowed": false,
   "scratch_art_concept_allowed": false,

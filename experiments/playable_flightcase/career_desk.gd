@@ -64,6 +64,7 @@ var offstage_mode := "outing"
 var offstage_choice := "careful"
 var recording_ids: Array = []
 var recording_mode := "select"
+var promotion_selection: Dictionary = {}
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -267,7 +268,7 @@ func _navigate(destination: String) -> void:
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
- _pending_focus = ("RecordingSelectAction" if recording_mode=="archive" else "RecordingMainAction") if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
+ _pending_focus = RecordingDesk.focus_name(self) if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
  if destination=="home":
   _pending_focus = "CareerHomePracticeAction"
  if destination=="calendar":
@@ -741,16 +742,20 @@ func _close_receipt() -> void:
 func _recording_present(result: Dictionary, before: Dictionary, verb: String) -> void:
  # The pure rules and the ONE owner save have already succeeded.
  var after: Dictionary=game.career
- receipt={"kind":"recording","verb":verb,"title":"DEMO RECORDED" if verb=="record" else "RELEASED LOCALLY","text":str(result.get("message","Saved.")),"session":result.get("session",{}).duplicate(true),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"changes":[]}
+ receipt={"kind":"recording","verb":verb,"title":"LOCAL RADIO RESPONSE" if verb=="radio" else ("DEMO RECORDED" if verb=="record" else "RELEASED LOCALLY"),"text":str(result.get("message","Saved.")),"session":result.get("session",{}).duplicate(true),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"changes":[]}
  for field in ["readiness","fans","press","buzz"]:
   if int(before.get(field,0))!=int(after.get(field,0)):
    receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
+ if verb=="radio":
+  for field in ["reputation","morale"]:
+   if int(before.get(field,0))!=int(after.get(field,0)):
+    receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(after.get(field,0))})
  receipt_open=true
  _fresh_receipt=true
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  var overlay:=Beat.new()
- overlay.heading_copy="THE DEMO IS ON TAPE" if verb=="record" else "OUT IN THE LOCAL SCENE"
+ overlay.heading_copy="THE LOCAL RADIO RESPONSE" if verb=="radio" else ("THE DEMO IS ON TAPE" if verb=="record" else "OUT IN THE LOCAL SCENE")
  var days: int=int(receipt.day_after)-int(receipt.day_before)
  overlay.detail_copy="SAVED  •  %d DAY%s  •  £%d SPENT" % [days,"" if days==1 else "S",int(receipt.cash_before)-int(receipt.cash_after)]
  overlay.configure("recording",{"metrics":{"tour_day":{"before":receipt.day_before,"after":receipt.day_after}}},reduced_motion,"flightcase",int(receipt.day_after),int(receipt.cash_after))
