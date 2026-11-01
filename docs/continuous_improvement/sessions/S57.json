@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 652750,
-    "sha256": "09cce0c3d85575acfc3799e3ed219484d1ed5d13c9caada6cafee41ba1bc5c5c"
+    "bytes": 654822,
+    "sha256": "8a8d3b8ce270ca5505e655651781ad5938bae1cc86a0e199c4c3a93492eb46be"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -124,5 +124,6 @@
   "aspect_art_correction_398": "Rootactual613wideproofshowsweakfigure/paperproportion; one structuralportraitproof/hero compositionbeforefinalsourceproof. No newart ormodelchanges. Actualroot613headerinspectionafter397preflightcommit/beforerelatedsourcecode disclosed; independent839viewseparate.",
   "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory.",
   "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets.",
-  "tall_tablet_correction_406": "Tallportraittabletusesproportionalpeopleheight,clampedtorealmetricbudget; unchangedphone/wide/figures/font/copy/actions."
+  "tall_tablet_correction_406": "Tallportraittabletusesproportionalpeopleheight,clampedtorealmetricbudget; unchangedphone/wide/figures/font/copy/actions.",
+  "fixed_action_contract_408": "OldS37inside-casewidthconstraintsupersededBYownereditorialfixedactionoutsideprint. RetainmeaningfulmaxRootsafe+physicalviewportwidth/min44/fixedoutsideScroll/noBackoverlap andactualclick/phase/saveproof. ALLrolecreditassertionspreserved;productssemanticGrouprepaired."
 }
