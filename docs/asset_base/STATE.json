@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s52_held_day_notes_verified_local_closed",
+  "status": "s53_first_gig_verified_local_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -11,7 +11,7 @@
   "owner_approval_evidence": null,
   "scope": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "writer": null,
-  "last_verified_code_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+  "last_verified_code_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
+  "next_single_action": "Scope ONE conditional starter-gear/song-cohesion pilot from the approved overnight plan, only after reading latest head/lease/lessons and this completed S53 proof. Prefer separating creative song quality from gear execution with honest basic role access; define complete source/save/UX policy before code. If no coherent safe pilot fits, HOLD and retain/package this checkpoint. No new breadth after07:00.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -502,6 +502,15 @@
       "closeout": "/workspace/work/business/s49/closeout.json",
       "visual_verdict": "partial",
       "owner_approved": false
+    },
+    {
+      "at": "2026-11-01T04:13:36.240890+00:00",
+      "session": "S53",
+      "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+      "status": "native_verified_local_art_partial",
+      "validation": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/complete-validation.json",
+      "closeout": "/workspace/work/overnight-20261101/s53/closeout.json",
+      "owner_approved": false
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
@@ -657,21 +666,10 @@
   },
   "playable_opening_checkpoint": {
     "native_full_input_verified": true,
-    "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
-    "run_id": 40996529020,
-    "artifact_id": 12951901120,
-    "artifact_sha256": "4a1172cf2908c76c0a1aba391607aea04f334f9ca57b57beede76ea6d5b8f11d",
-    "checks": {
-      "c26_gameplay": 52,
-      "opening_model": 88,
-      "four_viewport_native_mouse": 4
-    },
-    "passed_at": "2026-10-30T03:18:03Z",
-    "limitations": [
-      "Custom-name text in native capture is fixture-filled then submitted by real click; model uses true Unicode string.",
-      "No artwork acceptance, isolated proof only, owner_approved false."
-    ],
-    "art_polish_authorised_until": "2026-10-30T08:00:00Z"
+    "tested_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+    "validation": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/complete-validation.json",
+    "visual_verdict": "partial",
+    "owner_approved": false
   },
   "last_verified_opening_run": 41006002295,
   "last_verified_opening_project_artifact": 12954924877,
@@ -794,7 +792,7 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": false,
-  "last_verified_native_run_source_sha": "f093818cc70ba53cb12d65436c516b0c8937bb9c",
+  "last_verified_native_run_source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
   "latest_material_review": {
     "reviewed_at": "2026-10-31T02:05:55.560621+00:00",
     "source_sha": "7f3239b5f6f2c5d47318fb27e2e0a63c8811a5ff",
@@ -1828,5 +1826,60 @@
     "closeout": "/workspace/work/overnight-20261101/closeout.json",
     "game_unchanged": "179f3366917d0aa629b1e79ede2d1f099a06d72f"
   },
-  "last_verified_local_native_source_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a"
+  "last_verified_local_native_source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+  "latest_local_checkpoint": {
+    "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+    "metadata_follows": true,
+    "validation": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/complete-validation.json",
+    "closeout": "/workspace/work/overnight-20261101/s53/closeout.json",
+    "checks": {
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_native_journeys": 4,
+      "standard_original_pngs": 172,
+      "first_gig_native_journeys": 4,
+      "first_gig_assertions": 3696,
+      "first_gig_original_pngs": 64,
+      "independent_model_checks": 500,
+      "original_live_model_checks": 1984,
+      "hardware_checks": 506,
+      "hardware_original_pngs": 8,
+      "same_state_comparison_checks": 184,
+      "same_state_original_pngs": 8,
+      "readonly_phone_context_checks": 27,
+      "readonly_phone_context_pngs": 3,
+      "engine_error_lines": 0,
+      "orphan_growth_where_measured": 0,
+      "orphan_counts_not_recorded_for": [
+        "phone-soundcheck-readable"
+      ],
+      "protected_original_files": 339,
+      "protected_original_Scripts": 54,
+      "protected_prior_runtime": 325,
+      "runtime_source_paths": 337,
+      "byte_identical_standard_to_e2": 168,
+      "disclosed_ephemeral_reopen_frames": 4,
+      "unexpected_pixel_changes": 0
+    },
+    "source_protection": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime-source-audit.json",
+    "focused_validation": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/focused-validation.json",
+    "visual_review": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/visual-review.json",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "source_runtime": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime",
+    "android": "V5/a9 unchanged; S47\u2013S53 LOCAL, no newAPK",
+    "packaging": "Imported337-file isolated runtime and actual configuredentryPASS. No S53ZIP/APK built; finalstablemilestonepackaging later. LOCAL, notpublicdownloads.",
+    "remaining": [
+      "Physical Android camera/navigation/touch/performance verification pending; no device or emulator run.",
+      "Artwork owner approval remains false; flattened stage image and coarse saved response bands are not animated cast/crowd or live audio telemetry.",
+      "Phone soundcheck deliberately scrolls below fixed hardware; no claim that all three selected songs fit one phone fold. Reach preview is a plan modifier, not final net fans.",
+      "Native full paid-show integration uses three selected originals; zero-original gross cap and hired/low-cash variants are independently model tested. Zero-selected warning has actual render/wheel proof, not a claimed zero-song paid native journey.",
+      "Hardware lifecycle bench measures real mouse hide/resize/free and indexed-touch cancel/device isolation; do not extrapolate every modality/lifecycle permutation. Read-only27context utility did NOT measure orphan counters.",
+      "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47\u2013S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
+      "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
+      "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
+    ]
+  }
 }
