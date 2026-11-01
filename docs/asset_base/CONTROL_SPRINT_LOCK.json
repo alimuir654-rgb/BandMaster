@@ -1,5 +1,5 @@
 {
-  "writer": "S57-owner-identity-manual-20261101T0830",
+  "writer": null,
   "base_head": "3b5805f8c8ede19a42fdba29c90f974456a626e3",
   "claimed_at": "2026-11-01T08:32:28.180359+00:00",
   "expires_at": "2026-11-01T12:15:00Z",
@@ -7,8 +7,8 @@
   "authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": "2026-11-01T08:19:48.986348+00:00",
+  "status": "released",
+  "released_at": "2026-11-01T11:43:16.697435+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S56-owner-identity-calendar-20261101T0746",
-  "source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
+  "last_writer": "S57-owner-identity-manual-20261101T0830",
+  "source_sha": "f2fb59d21def3d2fe59c6c2b9574932fc283e748",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -133,7 +133,7 @@
     "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
     "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload."
   },
-  "candidate_native_verified": false,
+  "candidate_native_verified": true,
   "previous_held_s43_release": {
     "last_writer": "S43-owner-audition-engagement-20261031T1615",
     "released_at": "2026-10-31T16:27:28.619647+00:00",
@@ -155,8 +155,8 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "S56calendar exact343/nativeproof complete; identity/fullbodyboard DESIGNONLY, V6db61 unchanged. No pending source/art/GL/helper/build. Nextreadonlyownerreview. Allwrites08:30/hardstop09 unchanged.",
-  "source_writer_released_at": "2026-11-01T08:19:48.986348+00:00",
+  "final_closeout_note": "S57 source/art frozen atf2; all exact native/source/visual evidence complete, no pending GL/helper/source work. Next S58 needs fresh lease/preflight. Owner manual15:50writefreeze/16:00hardstop remains; ended overnight automation untouched.",
+  "source_writer_released_at": "2026-11-01T11:43:16.697435+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONE selected compiledAPK private named reader; PhonePageprose only, no newpixels/source/history upload",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "b5ec8eb87c41c1ad7cae62ad8ca90ca5691aea3f",
+  "candidate_source_sha": "f2fb59d21def3d2fe59c6c2b9574932fc283e748",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -208,8 +208,8 @@
     "scope": "Approved firstgig verticalslice plus actualsoundcheckclaritycorrection, exactnative/art/sourceproof; no production/publicsource/Androidwrites.",
     "expires_at": "2026-11-01T04:25:00Z"
   },
-  "candidate_status": "verified_calendar_identity_design_only",
-  "updated_at": "2026-11-01T09:49:23.385049+00:00",
+  "candidate_status": "verified_local_identity_art_partial",
+  "updated_at": "2026-11-01T11:43:16.697435+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S57",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "baseline_sha": "3b5805f8c8ede19a42fdba29c90f974456a626e3",
@@ -83,12 +83,12 @@
     "Protect raw18C25/hardware/passivemeters/fonts/54Scripts51gd3UID/models except explicitlyowned opening identity boundary; compare unchanged settled nonidentity states"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "8627b3cf56dcd387572066d6f6468535e06ba26d5285d2f684273033ded6684f",
+    "docs/continuous_improvement/LESSONS.md": "2b303fb931fa2b06ab23bcfbe1cc087e079c1f24fc2d1b30b0d4e2db8b1250bc",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 658519,
-    "sha256": "888a8bb67eee0d3b3b6036a840dcdc22e440d820896f896937faa8c53b71a6a7"
+    "bytes": 660780,
+    "sha256": "6a99040338efcf7db319fde09f5dbf7c2094a0deacd005a1fd8cdd95aaca5c5d"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -103,7 +103,7 @@
     "Production/main/PR199 untouched, source/historylocal, V6APKunchanged; endedautomationdisabled"
   ],
   "native_contract_rescope": "Old S37 hardcoded 200..260px upperbody source-width assumption must become exact fullbody per-ID AtlasTexture/source-region provenance validation while retaining every real identity/lead/passive/focus/fullname/geometry/save assertion. This owner-directed source-art replacement is intentional; no hidden upperbody nodes added to satisfy obsolete test.",
-  "save_contract": "New style previews UIlocal/excluded fromsnapshot. Optional explicit validated identity_style_v1 committed onlywith finish. Preserve strict legacy enums, unknownnestedstyle extensions, oldabsentkey and v1schema. Original taste/revisions/delta and formation/one\u00b1morale unchanged. Repair wholeOpening/Game savefailure rollback at name/identity boundary with actual temporary-file error/rename proof; new style also copied whole into career. Do not claim partialwrite atomicity without evidence.",
+  "save_contract": "New style previews UIlocal/excluded fromsnapshot. Optional explicit validated identity_style_v1 committed onlywith finish. Preserve strict legacy enums, unknownnestedstyle extensions, oldabsentkey and v1schema. Original taste/revisions/delta and formation/one±morale unchanged. Repair wholeOpening/Game savefailure rollback at name/identity boundary with actual temporary-file error/rename proof; new style also copied whole into career. Do not claim partialwrite atomicity without evidence.",
   "prior_manual_request": "NEW direct owner instruction after S56 closeout: Go ahead with the identity work - I want to see that quality level in the game. This authorises a new MANUAL identity implementation in the same thread. Completed overnight schedule/deadlines retained as history; automation stays ended/disabled. No new queue/controller, no merge/publication/production save or additional APK authority inferred.",
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
@@ -126,5 +126,17 @@
   "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets.",
   "tall_tablet_correction_406": "Tallportraittabletusesproportionalpeopleheight,clampedtorealmetricbudget; unchangedphone/wide/figures/font/copy/actions.",
   "fixed_action_contract_408": "OldS37inside-casewidthconstraintsupersededBYownereditorialfixedactionoutsideprint. RetainmeaningfulmaxRootsafe+physicalviewportwidth/min44/fixedoutsideScroll/noBackoverlap andactualclick/phase/saveproof. ALLrolecreditassertionspreserved;productssemanticGrouprepaired.",
-  "method_change_409": "Controlled baseline/current native header geometry first; restore exact audition and legacy report allocation before another full recipe. No broad pixel whitelist or body/UI change."
+  "method_change_409": "Controlled baseline/current native header geometry first; restore exact audition and legacy report allocation before another full recipe. No broad pixel whitelist or body/UI change.",
+  "closed_at": "2026-11-01T11:43:16.697435+00:00",
+  "closeout": {
+    "tested_sha": "f2fb59d21def3d2fe59c6c2b9574932fc283e748",
+    "evidence": [
+      "/workspace/work/identity-20261101/s57/closeout.json",
+      "/workspace/work/s40/runs/s57-identity-f2fb59d-final/complete-validation.json"
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Scope S58 existing genre-cover composition from current14 illustrations and verified display font, with fresh preflight; manual15:50writefreeze/16:00hardstop unchanged.",
+    "new_issue_review": "All411 canonical events reviewed; S57 failures384–410 retained before corrections except disclosed earlier retrieval chronology.411 closes verified source; no failed source promotion."
+  }
 }
