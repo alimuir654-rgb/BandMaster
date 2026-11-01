@@ -42,12 +42,12 @@
   ],
   "owner_approved": false,
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "a5eb05a496d621d94eac961ca1742b8b0b5ddfc8539197b7e9d5a775c56259e1",
+    "docs/continuous_improvement/LESSONS.md": "cbd6b058efaef4c561f6ce159de970ddb56c159e2e68b274c9b1e1352a69ece0",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
   "id": "S69",
-  "status": "active",
+  "status": "closed",
   "owner_request": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
   "baseline_sha": "673069940fdf73f4670b7cfec0a5489025afdc58",
   "game_baseline_sha": "47692162d7d68e0eca354760734f21d216e3a392",
@@ -84,7 +84,22 @@
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
   "issue_log_review": {
-    "bytes": 796398,
-    "sha256": "369b80870db6ef1d20c32c5593d34352e83bf64d645e8df88a400ca278176740"
+    "bytes": 798875,
+    "sha256": "60b577e195851b3e7f46f01edbc5efb761497ae49a71b9abf82d6cbeee8313bc"
+  },
+  "closed_at": "2026-11-01T22:02:00.092833+00:00",
+  "tested_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+  "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+  "closeout": {
+    "tested_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+    "evidence": [
+      "/workspace/work/overnight-20261102/s69/closeout.json",
+      "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
+      "/workspace/work/overnight-20261102/s69/art/radio-studio-presenter-proposal.json",
+      "/workspace/work/overnight-20261102/s69/a05v2-review-delivery.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "At the next existing22:15 opportunity, read latest Page/chat A05v2 decision and scope S70 ONE complete two-question radio studio visit. Read S69_RADIO_STUDIO_VISIT.md; pin durable phases/locked answers/preview-policy/final-once cost and full rollback BEFORE code. Studio source proposal remains pending owner; prepare useful model/native review work, do not promote unapproved art or claim source image is implemented gameplay. No APK/ZIP. Global08:00Nov2 hardstop unchanged.",
+    "new_issue_review": "488 new owner radio journey/ReviseA05 authority and source/model intake;489 one raw scene proposal, private review readback, crop limits and no newruntime claim; initial read-key recovery chronology and488 current479 typo corrected to actual476 without rewriting history. Source-audited before-Story/Finance composition lesson added underBM36."
   }
 }

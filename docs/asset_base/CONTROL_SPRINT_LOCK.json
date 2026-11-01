@@ -1,5 +1,5 @@
 {
-  "writer": "S69-radio-journey-art-contract-20261101T2147",
+  "writer": null,
   "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
   "claimed_at": "2026-11-01T21:47:02.572908+00:00",
   "expires_at": "2026-11-01T22:05:00Z",
@@ -7,8 +7,8 @@
   "authority": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-01T22:02:00.092833+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S68-flow-art-activation-radio-repair-20261101T2115",
+  "last_writer": "S69-radio-journey-art-contract-20261101T2147",
   "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "previous_checkpoint_release": {
     "writer": null,
@@ -333,8 +333,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "S69 studio/presenter artwork proposal and two-question durable journey contract; after source/art intake, update existing queue to radio journey first. Current verified476 remains unchanged. No APK/ZIP/productioncode.",
+  "pending_helpers": false,
+  "next_action": "At the next existing22:15 opportunity, read latest Page/chat A05v2 decision and scope S70 ONE complete two-question radio studio visit. Read S69_RADIO_STUDIO_VISIT.md; pin durable phases/locked answers/preview-policy/final-once cost and full rollback BEFORE code. Studio source proposal remains pending owner; prepare useful model/native review work, do not promote unapproved art or claim source image is implemented gameplay. No APK/ZIP. Global08:00Nov2 hardstop unchanged.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -363,7 +363,7 @@
   "source_freeze_target": "2026-11-01T21:40:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "metadata_and_scratchart_only",
+  "source_phase": "closed_metadata_artproposal_only",
   "source_frozen_at": "2026-11-01T21:21:46.370645+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -442,5 +442,19 @@
     "owner_approved": false,
     "packages": null,
     "phone_release_is_this_source": false
+  },
+  "delegated_art_writer": null,
+  "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
+  "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
+  "latest_owner_radio_steering": "Direct21:43 radio studio+presenter+meaningfulQ/A journey, sourceGame476unchanged, radio nowfirst. A05v1Revisechecked; A05v2pending.",
+  "current_plan_sequence": 4,
+  "current_review_board_sequence": 27,
+  "radio_studio_art_proposal": {
+    "review_id": "A05v2",
+    "status": "pending_owner",
+    "source": "/workspace/generated_images/exec-1cb53096-e5db-438d-aa16-249ab467fab9.png",
+    "sha256": "86047904689849739358f312a6be396f5150dc3bf06b6ad17ac1e97d1bede51c",
+    "native_integration": false,
+    "provenance": "/workspace/work/overnight-20261102/s69/art/radio-studio-presenter-proposal.json"
   }
 }

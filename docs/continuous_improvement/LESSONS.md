@@ -206,6 +206,8 @@ S68 extension: calling a geometry assertion immediately after a real Menu/Contin
 **Prevent:** Reuse authoritative pure models; validate before spending; copy preview state; make completion/refund/remove idempotent.
 **Proof:** Repeated/cancelled actions, insufficient resources, invalid/duplicate titles and prior-state immutability. Sources: V22, ROADMAP, SWEEP.
 
+S69 source-intake clarification: an adapter that already applies Story/milestones and Finance is a completed transaction, not an intermediate campaign result. New interview choices must be composed before those downstream steps, using the original campaign once and truthful fresh campaign/journal/receipt facts. Do not call an already-accounted launch and then add bonuses. This is a source-audited prevention rule for the proposed radio visit, not a claimed implemented or runtime-tested journey.
+
 ### BM-37
 **What went wrong:** Campaign simulations passed invariants while exposing unrealistic song throughput and profitable low-risk gig exploits.
 **Prevent:** Separate deterministic execution, balance and player experience. Preserve credible formation, social, writing and rehearsal preparation before gigs.

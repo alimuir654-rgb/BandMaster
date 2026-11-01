@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s69_radio_journey_art_contract_preflight",
-  "next_action": "S69 studio/presenter artwork proposal and two-question durable journey contract; after source/art intake, update existing queue to radio journey first. Current verified476 remains unchanged. No APK/ZIP/productioncode.",
+  "status": "s69_radio_contract_art_review_ready",
+  "next_action": "At the next existing22:15 opportunity, read latest Page/chat A05v2 decision and scope S70 ONE complete two-question radio studio visit. Read S69_RADIO_STUDIO_VISIT.md; pin durable phases/locked answers/preview-policy/final-once cost and full rollback BEFORE code. Studio source proposal remains pending owner; prepare useful model/native review work, do not promote unapproved art or claim source image is implemented gameplay. No APK/ZIP. Global08:00Nov2 hardstop unchanged.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3298,7 +3298,7 @@
     }
   ],
   "last_completed_session": "S66",
-  "writer": "S69-radio-journey-art-contract-20261101T2147",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3669,13 +3669,13 @@
     "F10": "ONE local-radio pilot; overallfeaturePARTIAL, magazine/socialfuture, ownerresultreviewpending"
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": null,
-  "last_writer": "S68-flow-art-activation-radio-repair-20261101T2115",
+  "released_at": "2026-11-01T22:02:00.092833+00:00",
+  "last_writer": "S69-radio-journey-art-contract-20261101T2147",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "metadata_and_scratchart_only",
+  "source_phase": "closed_metadata_artproposal_only",
   "claimed_at": "2026-11-01T21:47:02.572908+00:00",
   "expires_at": "2026-11-01T22:05:00Z",
   "authority": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
@@ -3750,5 +3750,19 @@
     "packages": null,
     "phone_release_is_this_source": false
   },
-  "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json"
+  "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
+  "delegated_art_writer": null,
+  "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
+  "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
+  "latest_owner_radio_steering": "Direct21:43 radio studio+presenter+meaningfulQ/A journey, sourceGame476unchanged, radio nowfirst. A05v1Revisechecked; A05v2pending.",
+  "current_plan_sequence": 4,
+  "current_review_board_sequence": 27,
+  "radio_studio_art_proposal": {
+    "review_id": "A05v2",
+    "status": "pending_owner",
+    "source": "/workspace/generated_images/exec-1cb53096-e5db-438d-aa16-249ab467fab9.png",
+    "sha256": "86047904689849739358f312a6be396f5150dc3bf06b6ad17ac1e97d1bede51c",
+    "native_integration": false,
+    "provenance": "/workspace/work/overnight-20261102/s69/art/radio-studio-presenter-proposal.json"
+  }
 }
