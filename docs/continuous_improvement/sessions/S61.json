@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "S61",
+  "status": "active",
+  "owner_request": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
+  "owner_approved": false,
+  "baseline_sha": "a9632304718b98b1c409fad1367db4cdb3f76780",
+  "game_baseline_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+  "dominant_issue": "BM-30",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "One stable V7 phone update makes the completed calendar, creation-time identity choices, editorial milestones, unified genre/show presentation and current-band poster accessible with existing career/save compatibility. Freeze source and use explicit364-input localpackage, fresh extracted entry, unchanged exportrecipe/samekey/code7, independent privacy/update integrity, namedprivate delivery and PhonePageprose.",
+  "stop_condition": "Artifact/metadata only, no source/art/QA breadth. Source remainsb310. Lease ends15:40, allwritesfreeze15:50, ownerhardstop16. One finalmanual APK only, no automaticextension/controllers. StoponERROR/missinginventory/cert/savefolder/privacy mismatch; no uploadbeforeverification.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-882779e6-7fbc-4e33-9e0d-15b82354f4f4.png",
+    "original_sha256": "726ac846e242dbc4d5484333671c6d4288e899884006bdbf4af78a79f61cfed9",
+    "pixels_inspected": true,
+    "kind": "DESIGN ONLY group-print quality, using already-verified S57 shared assets/native type. Actual current phone milestone and native BAND baseline are source references, not textures."
+  },
+  "controlled_comparison": "No game/source/art changes. Reuse exactb310 complete proof, all364 shippingraw plusunchangedGiticon. Android appID/cert/projectconfig/embeddedproject.binary/savefolder comparedtoV6; code7/versiononly changes. APKassets explainall364 raw/compiled/imports, no secrets/saves/learningledger/editorconfig. Actual owner physicalupdate/save-retention/artacceptance pending.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S61.json",
+    "Frozenprepared strict364 packager --inventory-only then ONE package; fresh protectedmanifest extraction/cleanimport/actualconfiguredopening nativeentry with exact4.7.2/Dummy/freshXDG/ONEGL",
+    "Unchanged e8a8547 exporter same existingTESTkey/code7/version0.60.0-playtest; nine integritysteps emptyERROR; independent current364-source/update/privacy structuralLauncherAlias/permissions/cert/savefolder audit versus existingV6receipts",
+    "PrivatecompiledAPK only namedreader alimuir654@gmail.com; verifyMIME/size/owner/ACLreadback, no remotechecksumclaim. ExistingPhonePageprose V7link/update/teststeps only, no newpixels/sourceZIP/history."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "0e861c6ca80499c21b99ffd1cd840bce8616ed59df20221c3b4f651684216692",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 708889,
+    "sha256": "1455c5b600dfc33d7f97f34fe68753db3615ca9ffa96f687028fbe5e7f04f7b0"
+  },
+  "started_at": "2026-11-01T13:57:46.026827+00:00",
+  "scope_end": "2026-11-01T15:40:00Z",
+  "source_freeze_target": "2026-11-01T13:45:00Z",
+  "all_write_freeze": "2026-11-01T15:50:00Z",
+  "hard_stop": "2026-11-01T16:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "364 frozen sourceinputs,54originalScripts, onlydeclared146byteisolatedentry. 366projectZIPentries; reviewPNGsexplicitcurrentoriginals only. SOURCEZIPLOCAL.",
+  "protection": [
+    "No source/art/model/save/economy/hardware changes. No fullsuite/ZIPrepeats foractivity.",
+    "Same applicationID/certificate/savefolder and existingkey; UPDATEwithoutuninstall/wipe. No keycontent read/upload/commit.",
+    "Source/history/sourceZIPLOCAL, automaticpublicuploadblock preserved. PrivatecompiledAPKonly andPhonePageprose, no additionalpixels."
+  ]
+}
