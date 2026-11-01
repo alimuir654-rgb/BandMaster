@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s61_final_manual_artifact_preflight",
+  "status": "s61_v7_prepared_local_delivery_blocked",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
-  "writer": "S61-manual-presentation-package-20261101T1400",
+  "writer": null,
   "last_verified_code_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "ONE stable V7manualpresentation update.",
+  "next_single_action": "Await owner Android phone model, then if suitable and still before15:50 freeze scope ONE device-specific packaging repair of exactb310/same app/key/code7; otherwise retain ready universalV7LOCAL and V6currentdownload. No source/art changes, blind rebuilds, queue/controller or uploadbypass.16:00 hardstop.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -514,7 +514,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Read-only current-band full-length poster from BAND after Continue, actual currentidentity/wholelegacyfallback; original models/save/art/hardware preserved.",
+  "last_completed_deliverable": "Calendar/identity/genre/show/current-bandposter implemented/verified, stableuniversalV7preparedLOCAL, privateuploadblockedconnector100MiB; V6currentdownload retained.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -560,7 +560,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-01T13:57:15.098319+00:00",
+  "last_updated_utc": "2026-11-01T14:10:45.232585+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -721,7 +721,7 @@
     "owner_approved": false
   },
   "last_sprint": "S52",
-  "next_action": "Execute S61artifact-only localpackage/smoke, code7V7privateupdate afterverification; no source/art changes.",
+  "next_action": "Await owner Android phone model, then if suitable and still before15:50 freeze scope ONE device-specific packaging repair of exactb310/same app/key/code7; otherwise retain ready universalV7LOCAL and V6currentdownload. No source/art changes, blind rebuilds, queue/controller or uploadbypass.16:00 hardstop.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -772,8 +772,659 @@
     "source_binding": "/workspace/work/s40/runs/s60-current-poster-b310067-final/candidate-source-binding.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "packages": null,
-    "android": "V6remainsdb61; manualpresentationLOCAL pending ONEV7."
+    "packages": {
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "project_files": 364,
+      "source_archive_entries": 366,
+      "review_original_pngs": 73,
+      "archives": [
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 77202035,
+          "sha256": "2163c4ed1a5a5b794db259266bca71beb164686d0ac37cf780cc56d6d6238cdb",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/native-quality-review.zip",
+          "bytes": 31291499,
+          "sha256": "f194f49ae6de8928d714edcf67875118229fe5ddb60a4f0a1cb57e96b24088c7",
+          "zip_crc": "PASS"
+        }
+      ],
+      "validation": "/workspace/work/s40/runs/s60-current-poster-b310067-final/validation.json",
+      "source_audit": "/workspace/work/identity-20261101/s60/source-protection-audit.json",
+      "runtime": "/workspace/work/s40/runs/s60-current-poster-b310067-final/runtime",
+      "isolated_project_entry_exception": "Only project.godot uses the exact146-byte tested isolated opening recipe. Original Git hash/blob and actual packaged hash are separately recorded.",
+      "review_pngs": [
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-390x844.png",
+          "archive_path": "original-png/c27-genre-390x844.png",
+          "bytes": 318489,
+          "sha256": "14a6d8251e002164da171833592f17119f24f6bda1e5e41e0a965552b3346905",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-390x844.png",
+          "archive_path": "original-png/c27-identity-390x844.png",
+          "bytes": 239281,
+          "sha256": "ac7c6cbd5107cc437f108e8632910afb4d97ed303049ba0de181571fc4dc414b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-390x844.png",
+          "archive_path": "original-png/c27-identity_stamp-390x844.png",
+          "bytes": 224083,
+          "sha256": "be8107e43b8fb3477f323ea0838cda443f5496e1358e2b8dc228dd5ce6d50eac",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-390x844.png",
+          "archive_path": "original-png/c27-milestone1-390x844.png",
+          "bytes": 257221,
+          "sha256": "68b5b80fb3cc913773768d69d6f586ebc3ec7f6c4de813b694d33aa4afc40fd1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-390x844.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-390x844.png",
+          "bytes": 292577,
+          "sha256": "527cfee4496d81a6627150be2c78a85debe2dfc6219e50e286b3b53beeee46ea",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-390x844.png",
+          "archive_path": "original-png/c27-milestone2-390x844.png",
+          "bytes": 232815,
+          "sha256": "165a9865772913b0c7b9c873b287c19e96b82cd921e48176d8b04c556526e33b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-390x844.png",
+          "archive_path": "original-png/c27-naming-390x844.png",
+          "bytes": 216664,
+          "sha256": "59b697e070eb829388f7837701a5def617d9888192d76304da2134020f507c81",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-390x844.png",
+          "archive_path": "original-png/c27-practice-390x844.png",
+          "bytes": 283578,
+          "sha256": "dda38369d420491d7516108b603be39e647e5debef18204159e7ce0995d7d294",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-390x844.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-390x844.png",
+          "bytes": 294562,
+          "sha256": "ccfe686a8d9a364d52ccb851b098fccdba87b562732ce428ba737b89e86d4405",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-390x844.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+          "bytes": 328217,
+          "sha256": "b8202143065f4a795fbd7d65d934575866b9f06c7c259523a5c2d9e9829b49c0",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-390x844.png",
+          "archive_path": "original-png/c27-title-390x844.png",
+          "bytes": 295616,
+          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-720x1280.png",
+          "archive_path": "original-png/c27-genre-720x1280.png",
+          "bytes": 611158,
+          "sha256": "493dd0ac5ac1b88e133addbc42d64d635f3f9f93dc2a59846790daa4b79a2dd3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-720x1280.png",
+          "archive_path": "original-png/c27-identity-720x1280.png",
+          "bytes": 411216,
+          "sha256": "0db8e07bd28a263fd7982c205b95e9444362bec8c963f4c0ddf2366f3a573557",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-720x1280.png",
+          "archive_path": "original-png/c27-identity_stamp-720x1280.png",
+          "bytes": 423720,
+          "sha256": "0f67d916fe75e8410ee4d5cabf9bb321082b988e45a121be49ae771b09743322",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-720x1280.png",
+          "archive_path": "original-png/c27-milestone1-720x1280.png",
+          "bytes": 637656,
+          "sha256": "c8396fe7699beab52ac2054506b532eccd443a6c25fa590ecec588c611a0b81e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-720x1280.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-720x1280.png",
+          "bytes": 408159,
+          "sha256": "4fa3d8da6852e6f8963d4a837f88766d285c19993924bd334058451b0d04bb67",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-720x1280.png",
+          "archive_path": "original-png/c27-milestone2-720x1280.png",
+          "bytes": 635263,
+          "sha256": "f041019f53b62569db22e8bb8dcad708dfa1a976d8c8d0052cf937704ee86d52",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-720x1280.png",
+          "archive_path": "original-png/c27-naming-720x1280.png",
+          "bytes": 304076,
+          "sha256": "1d62a32503d520b9a39a2c4af0f72fb2efa3af0e7fc20e0ac5c970f55b05fccf",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-720x1280.png",
+          "archive_path": "original-png/c27-practice-720x1280.png",
+          "bytes": 560256,
+          "sha256": "d6a84ebcbbb08bb6167f079714c769db10e5d0a424c10df7a556217f9f58ae1d",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-720x1280.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-720x1280.png",
+          "bytes": 464490,
+          "sha256": "c80f07ea3e1c655944c4008e4fef355c8fb4dcfc5f366d1d856196d19706695c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-720x1280.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-720x1280.png",
+          "bytes": 567642,
+          "sha256": "8b1a5d8886f645f77747e698e447a4d39eb52043ce3686be22a05cf6b677859a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-720x1280.png",
+          "archive_path": "original-png/c27-title-720x1280.png",
+          "bytes": 641239,
+          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1280x720.png",
+          "archive_path": "original-png/c27-genre-1280x720.png",
+          "bytes": 887088,
+          "sha256": "87c2d172e3c762dd9a22e52efd5ae6c736a74a7883eb0e252170f8f81d166ae1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1280x720.png",
+          "archive_path": "original-png/c27-identity-1280x720.png",
+          "bytes": 417201,
+          "sha256": "df0a28f68d26a288635910801c2cda8d78e0557bcd7d4621317a3cf2ac1bc2af",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1280x720.png",
+          "archive_path": "original-png/c27-identity_stamp-1280x720.png",
+          "bytes": 417212,
+          "sha256": "fa416b84bf823013d6a655320681bbc9a1cf7da613a9ed9a2524ba918fd22efb",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1280x720.png",
+          "archive_path": "original-png/c27-milestone1-1280x720.png",
+          "bytes": 393901,
+          "sha256": "de4bb1aecdd5d05981f8878ba70c844fc05ca71654f911239d1fa67c3679bd2d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1280x720.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1280x720.png",
+          "bytes": 427849,
+          "sha256": "c3c2dd230db2b83492f9346c05eb559fe7b4c2eaa44c76ec877d988c7c0e0d28",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1280x720.png",
+          "archive_path": "original-png/c27-milestone2-1280x720.png",
+          "bytes": 421090,
+          "sha256": "3e4f42a7f5d9f91c10e783fe546dc70dc9fbe32394510dd470c50c7a0204ec95",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1280x720.png",
+          "archive_path": "original-png/c27-naming-1280x720.png",
+          "bytes": 279899,
+          "sha256": "e1afd3dfce8f2039ab2d8ded496d5a4d1c392f3c7797213a6dfa43cc48b0bef1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1280x720.png",
+          "archive_path": "original-png/c27-practice-1280x720.png",
+          "bytes": 478887,
+          "sha256": "c3f2ee1aa570f8b3f2ac193434b36b581044ce66a64eaf885157d894f0734f81",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1280x720.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1280x720.png",
+          "bytes": 510766,
+          "sha256": "8f54da7e22cfcbd86111aeacefe5abe4b685f22b1a24f704ec8fb79835238c9f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1280x720.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+          "bytes": 550121,
+          "sha256": "e2135d040e472c2995a9df3528fdf0706f1c4648c7691ad9f86667e00d398f64",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1280x720.png",
+          "archive_path": "original-png/c27-title-1280x720.png",
+          "bytes": 732792,
+          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1600x900.png",
+          "archive_path": "original-png/c27-genre-1600x900.png",
+          "bytes": 1399305,
+          "sha256": "50d1f70d4a6ea1a019e0ed62936796f2fa3f1787579b91d12a2f09ed969cfb5d",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1600x900.png",
+          "archive_path": "original-png/c27-identity-1600x900.png",
+          "bytes": 579849,
+          "sha256": "04870b0d71670284d1899c2d3ee34a312fd48cf2923a0f28bcd2b7c405215510",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1600x900.png",
+          "archive_path": "original-png/c27-identity_stamp-1600x900.png",
+          "bytes": 579876,
+          "sha256": "6327c5a52912a297f08bf9370e94f289cd45ca596ea40ec26683f62699c9838e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1600x900.png",
+          "archive_path": "original-png/c27-milestone1-1600x900.png",
+          "bytes": 556944,
+          "sha256": "548ae503e71160db282854455b3bff251db3e27c5694654db38585d812034b75",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1600x900.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1600x900.png",
+          "bytes": 490390,
+          "sha256": "b4dd1dc49e82d57335c115a464530f3d5e409c8069577b0e4393100a3a435ba6",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1600x900.png",
+          "archive_path": "original-png/c27-milestone2-1600x900.png",
+          "bytes": 551921,
+          "sha256": "f3dca710ddb9ea7b6a5b76c77812156ece76663cd03ecc85f55a2e85dab56c83",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1600x900.png",
+          "archive_path": "original-png/c27-naming-1600x900.png",
+          "bytes": 355441,
+          "sha256": "c00dbba219d6a4dd21aaa9e4441219a2599aa16b3930cdf132b209f9f8181f0a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1600x900.png",
+          "archive_path": "original-png/c27-practice-1600x900.png",
+          "bytes": 614114,
+          "sha256": "4f19c9799ee6d18bdef34ca74207abe637f3045b3ad3f279008a29b07428529f",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1600x900.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1600x900.png",
+          "bytes": 594847,
+          "sha256": "9e098bd766660b42ce415ac580805ddca47f1144be926287db04784feb83a508",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1600x900.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1600x900.png",
+          "bytes": 632944,
+          "sha256": "c21bca7b61704b78ad85debe7e9f67b11fea0693fc0b83503948b60191194817",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1600x900.png",
+          "archive_path": "original-png/c27-title-1600x900.png",
+          "bytes": 796850,
+          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-normal-390x844.png",
+          "archive_path": "original-png/current-poster-normal-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-reduced-390x844.png",
+          "archive_path": "original-png/current-poster-reduced-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-normal-720x1280.png",
+          "archive_path": "original-png/current-poster-normal-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-reduced-720x1280.png",
+          "archive_path": "original-png/current-poster-reduced-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-normal-1280x720.png",
+          "archive_path": "original-png/current-poster-normal-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-reduced-1280x720.png",
+          "archive_path": "original-png/current-poster-reduced-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-normal-1600x900.png",
+          "archive_path": "original-png/current-poster-normal-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-reduced-1600x900.png",
+          "archive_path": "original-png/current-poster-reduced-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-band-with-poster-access-390x844.png",
+          "archive_path": "original-png/current-band-with-poster-access-390x844.png",
+          "bytes": 269349,
+          "sha256": "7f8965aa3af85653555b034d078911f2c37d9f0ee758354363c138d8250e200f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/poster-simulated-safe-insets-390x844.png",
+          "archive_path": "original-png/poster-simulated-safe-insets-390x844.png",
+          "bytes": 330932,
+          "sha256": "c7339cb842fd8f40360ba8c308bcac82004df36374b082f485212bcb3350c39e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-six-current-unicode-monogram-390x844.png",
+          "archive_path": "original-png/component-study-six-current-unicode-monogram-390x844.png",
+          "bytes": 288779,
+          "sha256": "4db61acba7ea8d05ae5d81b5dd2a8e19738ab41aa7db3cec334250f1772310ce",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "archive_path": "original-png/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "bytes": 138117,
+          "sha256": "b90548d30829c2d30c3e58f1093a83abae67ac712b95c2aa7c05e08e46476efb",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/unbooked-390x844.png",
+          "archive_path": "original-png/unbooked-390x844.png",
+          "bytes": 282530,
+          "sha256": "aaa1a6027413170ed813dfb16a3ef0c2176b99f30f7f091bf1b14f8686cb3de3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/booked-preparation-390x844.png",
+          "archive_path": "original-png/booked-preparation-390x844.png",
+          "bytes": 261359,
+          "sha256": "a7df73a6f08fc1c3718ecda7c1167596a94398d0fd037c948bd6860466b714ae",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/local-lift-390x844.png",
+          "archive_path": "original-png/local-lift-390x844.png",
+          "bytes": 347231,
+          "sha256": "e2e95c560c759bbccdc2274077c5c0c670d0300070e5aaeea394c69b13c19b86",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/arrival-390x844.png",
+          "archive_path": "original-png/arrival-390x844.png",
+          "bytes": 355426,
+          "sha256": "7df152cbb28d19fdb619b6e3bc567fd3a8f84ef650cb79b96fd06280346bae34",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-zero-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-zero-originals-390x844.png",
+          "bytes": 281453,
+          "sha256": "8a43b8c929513c7bb63114dfab8134d45afe7539a48313d23bf908de2a9bdd7d",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-three-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-three-originals-390x844.png",
+          "bytes": 275914,
+          "sha256": "79547d57ec1376734ecdb49153017f48ca285ba9899e6e03288a06e5fb4367dc",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/held-stage-390x844.png",
+          "archive_path": "original-png/held-stage-390x844.png",
+          "bytes": 322359,
+          "sha256": "c158dd82a523fbde16568a1cd832b289c331c8600b863e0d6ddc72a513bf2703",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-held-resized-1280x720.png",
+          "archive_path": "original-png/stage-held-resized-1280x720.png",
+          "bytes": 639882,
+          "sha256": "8477a2b46738541bb7ed3cb7f8bcb6dcf88453c2b0ba7484ffa6e9b5c26dc544",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-final-warning-390x844.png",
+          "archive_path": "original-png/stage-final-warning-390x844.png",
+          "bytes": 227500,
+          "sha256": "61a56fd3dc2bc852ab6500a434dba3a1b45acf44c445bf02fb2cb17bcfdd6651",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-normal-held-390x844.png",
+          "archive_path": "original-png/replay-normal-held-390x844.png",
+          "bytes": 252141,
+          "sha256": "ea45dc9c8280988614352d94795d79e0868dbae9cbbe6f5078e369fd08ae8a6f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-held-resized-1280x720.png",
+          "archive_path": "original-png/replay-held-resized-1280x720.png",
+          "bytes": 318885,
+          "sha256": "a8850f863b53b2fcf3eb5a1ffadcfef8d8a20a483cbb538da7dc3d277fb1f224",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-initial-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-initial-390x844.png",
+          "bytes": 284465,
+          "sha256": "a8807756b0ba92404733f5e113f93899629f24838fcdca40b4abb4b514caf387",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-390x844.png",
+          "bytes": 300320,
+          "sha256": "b0884da91b1d849a1c6eadcceeac0461eaedac8465129b73066ff0a75d0a0164",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-held-390x844.png",
+          "archive_path": "original-png/replay-reduced-held-390x844.png",
+          "bytes": 257168,
+          "sha256": "0beaa668788dd9fbacd941e19c4a175c178a16c37ebf24a27922927f7b719480",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-initial-390x844.png",
+          "archive_path": "original-png/durable-show-reread-initial-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-390x844.png",
+          "archive_path": "original-png/durable-show-reread-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-identity-context-390x844.png",
+          "archive_path": "original-png/replay-reduced-identity-context-390x844.png",
+          "bytes": 254150,
+          "sha256": "d13f096570d6b1eece9578ad41c4bb224c2d0f2ef995f40f1257614379afbbf6",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "publication": "LOCAL only; no upload/publication performed",
+      "owner_approved": false,
+      "visual_verdict": "partial",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/package-smoke.json",
+      "method": "All exactGit/audited-runtime/explicitPNG inputs inventoried before writes; both temporaryZIPs CRC/content checked, then atomically replaced. Never recurses into imported runtime metadata.",
+      "smoke_engine_error_lines": 0
+    },
+    "android": {
+      "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+      "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+      "bytes": 119910540,
+      "version_name": "0.60.0-playtest",
+      "version_code": 7,
+      "url": null,
+      "remote_file_id": null,
+      "remote_checksum": null,
+      "file_was_uploaded": false,
+      "reader_intended": "alimuir654@gmail.com",
+      "destination_owner_verified": "chair@lovewelluk.com",
+      "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+      "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+      "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+      "phone_model_requested": true,
+      "device_specific_variant_built": false,
+      "universal_ABIs": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "physical_phone_tested": false,
+      "physical_update_save_retention_tested": false,
+      "owner_approved": false,
+      "current_download_remains": "V6 db61/code6",
+      "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+      "evidence": [
+        "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+        "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+        "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+        "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+      ]
+    }
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -1816,13 +2467,10 @@
     }
   },
   "page_delivery": {
-    "status": "V6_APK_prose_saved_readback",
-    "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
-    "sequence": 11,
-    "receipt": "/workspace/work/overnight-20261101/s55/phone-page-delivery.json",
-    "new_pixels": false,
-    "old_gallery_unchanged": true,
-    "rendered_preview_inspected": false
+    "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+    "sequence": 12,
+    "kind": "statusproseonly/no newpixels",
+    "receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json"
   },
   "approved_overnight_20261101": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -1896,13 +2544,664 @@
     "source_binding": "/workspace/work/s40/runs/s60-current-poster-b310067-final/candidate-source-binding.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "packages": null,
-    "android": "V6remainsdb61; manualpresentationLOCAL pending ONEV7."
+    "packages": {
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "project_files": 364,
+      "source_archive_entries": 366,
+      "review_original_pngs": 73,
+      "archives": [
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 77202035,
+          "sha256": "2163c4ed1a5a5b794db259266bca71beb164686d0ac37cf780cc56d6d6238cdb",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/native-quality-review.zip",
+          "bytes": 31291499,
+          "sha256": "f194f49ae6de8928d714edcf67875118229fe5ddb60a4f0a1cb57e96b24088c7",
+          "zip_crc": "PASS"
+        }
+      ],
+      "validation": "/workspace/work/s40/runs/s60-current-poster-b310067-final/validation.json",
+      "source_audit": "/workspace/work/identity-20261101/s60/source-protection-audit.json",
+      "runtime": "/workspace/work/s40/runs/s60-current-poster-b310067-final/runtime",
+      "isolated_project_entry_exception": "Only project.godot uses the exact146-byte tested isolated opening recipe. Original Git hash/blob and actual packaged hash are separately recorded.",
+      "review_pngs": [
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-390x844.png",
+          "archive_path": "original-png/c27-genre-390x844.png",
+          "bytes": 318489,
+          "sha256": "14a6d8251e002164da171833592f17119f24f6bda1e5e41e0a965552b3346905",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-390x844.png",
+          "archive_path": "original-png/c27-identity-390x844.png",
+          "bytes": 239281,
+          "sha256": "ac7c6cbd5107cc437f108e8632910afb4d97ed303049ba0de181571fc4dc414b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-390x844.png",
+          "archive_path": "original-png/c27-identity_stamp-390x844.png",
+          "bytes": 224083,
+          "sha256": "be8107e43b8fb3477f323ea0838cda443f5496e1358e2b8dc228dd5ce6d50eac",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-390x844.png",
+          "archive_path": "original-png/c27-milestone1-390x844.png",
+          "bytes": 257221,
+          "sha256": "68b5b80fb3cc913773768d69d6f586ebc3ec7f6c4de813b694d33aa4afc40fd1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-390x844.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-390x844.png",
+          "bytes": 292577,
+          "sha256": "527cfee4496d81a6627150be2c78a85debe2dfc6219e50e286b3b53beeee46ea",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-390x844.png",
+          "archive_path": "original-png/c27-milestone2-390x844.png",
+          "bytes": 232815,
+          "sha256": "165a9865772913b0c7b9c873b287c19e96b82cd921e48176d8b04c556526e33b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-390x844.png",
+          "archive_path": "original-png/c27-naming-390x844.png",
+          "bytes": 216664,
+          "sha256": "59b697e070eb829388f7837701a5def617d9888192d76304da2134020f507c81",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-390x844.png",
+          "archive_path": "original-png/c27-practice-390x844.png",
+          "bytes": 283578,
+          "sha256": "dda38369d420491d7516108b603be39e647e5debef18204159e7ce0995d7d294",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-390x844.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-390x844.png",
+          "bytes": 294562,
+          "sha256": "ccfe686a8d9a364d52ccb851b098fccdba87b562732ce428ba737b89e86d4405",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-390x844.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+          "bytes": 328217,
+          "sha256": "b8202143065f4a795fbd7d65d934575866b9f06c7c259523a5c2d9e9829b49c0",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-390x844.png",
+          "archive_path": "original-png/c27-title-390x844.png",
+          "bytes": 295616,
+          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-720x1280.png",
+          "archive_path": "original-png/c27-genre-720x1280.png",
+          "bytes": 611158,
+          "sha256": "493dd0ac5ac1b88e133addbc42d64d635f3f9f93dc2a59846790daa4b79a2dd3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-720x1280.png",
+          "archive_path": "original-png/c27-identity-720x1280.png",
+          "bytes": 411216,
+          "sha256": "0db8e07bd28a263fd7982c205b95e9444362bec8c963f4c0ddf2366f3a573557",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-720x1280.png",
+          "archive_path": "original-png/c27-identity_stamp-720x1280.png",
+          "bytes": 423720,
+          "sha256": "0f67d916fe75e8410ee4d5cabf9bb321082b988e45a121be49ae771b09743322",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-720x1280.png",
+          "archive_path": "original-png/c27-milestone1-720x1280.png",
+          "bytes": 637656,
+          "sha256": "c8396fe7699beab52ac2054506b532eccd443a6c25fa590ecec588c611a0b81e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-720x1280.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-720x1280.png",
+          "bytes": 408159,
+          "sha256": "4fa3d8da6852e6f8963d4a837f88766d285c19993924bd334058451b0d04bb67",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-720x1280.png",
+          "archive_path": "original-png/c27-milestone2-720x1280.png",
+          "bytes": 635263,
+          "sha256": "f041019f53b62569db22e8bb8dcad708dfa1a976d8c8d0052cf937704ee86d52",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-720x1280.png",
+          "archive_path": "original-png/c27-naming-720x1280.png",
+          "bytes": 304076,
+          "sha256": "1d62a32503d520b9a39a2c4af0f72fb2efa3af0e7fc20e0ac5c970f55b05fccf",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-720x1280.png",
+          "archive_path": "original-png/c27-practice-720x1280.png",
+          "bytes": 560256,
+          "sha256": "d6a84ebcbbb08bb6167f079714c769db10e5d0a424c10df7a556217f9f58ae1d",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-720x1280.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-720x1280.png",
+          "bytes": 464490,
+          "sha256": "c80f07ea3e1c655944c4008e4fef355c8fb4dcfc5f366d1d856196d19706695c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-720x1280.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-720x1280.png",
+          "bytes": 567642,
+          "sha256": "8b1a5d8886f645f77747e698e447a4d39eb52043ce3686be22a05cf6b677859a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-720x1280.png",
+          "archive_path": "original-png/c27-title-720x1280.png",
+          "bytes": 641239,
+          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1280x720.png",
+          "archive_path": "original-png/c27-genre-1280x720.png",
+          "bytes": 887088,
+          "sha256": "87c2d172e3c762dd9a22e52efd5ae6c736a74a7883eb0e252170f8f81d166ae1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1280x720.png",
+          "archive_path": "original-png/c27-identity-1280x720.png",
+          "bytes": 417201,
+          "sha256": "df0a28f68d26a288635910801c2cda8d78e0557bcd7d4621317a3cf2ac1bc2af",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1280x720.png",
+          "archive_path": "original-png/c27-identity_stamp-1280x720.png",
+          "bytes": 417212,
+          "sha256": "fa416b84bf823013d6a655320681bbc9a1cf7da613a9ed9a2524ba918fd22efb",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1280x720.png",
+          "archive_path": "original-png/c27-milestone1-1280x720.png",
+          "bytes": 393901,
+          "sha256": "de4bb1aecdd5d05981f8878ba70c844fc05ca71654f911239d1fa67c3679bd2d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1280x720.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1280x720.png",
+          "bytes": 427849,
+          "sha256": "c3c2dd230db2b83492f9346c05eb559fe7b4c2eaa44c76ec877d988c7c0e0d28",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1280x720.png",
+          "archive_path": "original-png/c27-milestone2-1280x720.png",
+          "bytes": 421090,
+          "sha256": "3e4f42a7f5d9f91c10e783fe546dc70dc9fbe32394510dd470c50c7a0204ec95",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1280x720.png",
+          "archive_path": "original-png/c27-naming-1280x720.png",
+          "bytes": 279899,
+          "sha256": "e1afd3dfce8f2039ab2d8ded496d5a4d1c392f3c7797213a6dfa43cc48b0bef1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1280x720.png",
+          "archive_path": "original-png/c27-practice-1280x720.png",
+          "bytes": 478887,
+          "sha256": "c3f2ee1aa570f8b3f2ac193434b36b581044ce66a64eaf885157d894f0734f81",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1280x720.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1280x720.png",
+          "bytes": 510766,
+          "sha256": "8f54da7e22cfcbd86111aeacefe5abe4b685f22b1a24f704ec8fb79835238c9f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1280x720.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+          "bytes": 550121,
+          "sha256": "e2135d040e472c2995a9df3528fdf0706f1c4648c7691ad9f86667e00d398f64",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1280x720.png",
+          "archive_path": "original-png/c27-title-1280x720.png",
+          "bytes": 732792,
+          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1600x900.png",
+          "archive_path": "original-png/c27-genre-1600x900.png",
+          "bytes": 1399305,
+          "sha256": "50d1f70d4a6ea1a019e0ed62936796f2fa3f1787579b91d12a2f09ed969cfb5d",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1600x900.png",
+          "archive_path": "original-png/c27-identity-1600x900.png",
+          "bytes": 579849,
+          "sha256": "04870b0d71670284d1899c2d3ee34a312fd48cf2923a0f28bcd2b7c405215510",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1600x900.png",
+          "archive_path": "original-png/c27-identity_stamp-1600x900.png",
+          "bytes": 579876,
+          "sha256": "6327c5a52912a297f08bf9370e94f289cd45ca596ea40ec26683f62699c9838e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1600x900.png",
+          "archive_path": "original-png/c27-milestone1-1600x900.png",
+          "bytes": 556944,
+          "sha256": "548ae503e71160db282854455b3bff251db3e27c5694654db38585d812034b75",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1600x900.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1600x900.png",
+          "bytes": 490390,
+          "sha256": "b4dd1dc49e82d57335c115a464530f3d5e409c8069577b0e4393100a3a435ba6",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1600x900.png",
+          "archive_path": "original-png/c27-milestone2-1600x900.png",
+          "bytes": 551921,
+          "sha256": "f3dca710ddb9ea7b6a5b76c77812156ece76663cd03ecc85f55a2e85dab56c83",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1600x900.png",
+          "archive_path": "original-png/c27-naming-1600x900.png",
+          "bytes": 355441,
+          "sha256": "c00dbba219d6a4dd21aaa9e4441219a2599aa16b3930cdf132b209f9f8181f0a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1600x900.png",
+          "archive_path": "original-png/c27-practice-1600x900.png",
+          "bytes": 614114,
+          "sha256": "4f19c9799ee6d18bdef34ca74207abe637f3045b3ad3f279008a29b07428529f",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1600x900.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1600x900.png",
+          "bytes": 594847,
+          "sha256": "9e098bd766660b42ce415ac580805ddca47f1144be926287db04784feb83a508",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1600x900.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1600x900.png",
+          "bytes": 632944,
+          "sha256": "c21bca7b61704b78ad85debe7e9f67b11fea0693fc0b83503948b60191194817",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1600x900.png",
+          "archive_path": "original-png/c27-title-1600x900.png",
+          "bytes": 796850,
+          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-normal-390x844.png",
+          "archive_path": "original-png/current-poster-normal-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-reduced-390x844.png",
+          "archive_path": "original-png/current-poster-reduced-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-normal-720x1280.png",
+          "archive_path": "original-png/current-poster-normal-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-reduced-720x1280.png",
+          "archive_path": "original-png/current-poster-reduced-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-normal-1280x720.png",
+          "archive_path": "original-png/current-poster-normal-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-reduced-1280x720.png",
+          "archive_path": "original-png/current-poster-reduced-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-normal-1600x900.png",
+          "archive_path": "original-png/current-poster-normal-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-reduced-1600x900.png",
+          "archive_path": "original-png/current-poster-reduced-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-band-with-poster-access-390x844.png",
+          "archive_path": "original-png/current-band-with-poster-access-390x844.png",
+          "bytes": 269349,
+          "sha256": "7f8965aa3af85653555b034d078911f2c37d9f0ee758354363c138d8250e200f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/poster-simulated-safe-insets-390x844.png",
+          "archive_path": "original-png/poster-simulated-safe-insets-390x844.png",
+          "bytes": 330932,
+          "sha256": "c7339cb842fd8f40360ba8c308bcac82004df36374b082f485212bcb3350c39e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-six-current-unicode-monogram-390x844.png",
+          "archive_path": "original-png/component-study-six-current-unicode-monogram-390x844.png",
+          "bytes": 288779,
+          "sha256": "4db61acba7ea8d05ae5d81b5dd2a8e19738ab41aa7db3cec334250f1772310ce",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "archive_path": "original-png/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "bytes": 138117,
+          "sha256": "b90548d30829c2d30c3e58f1093a83abae67ac712b95c2aa7c05e08e46476efb",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/unbooked-390x844.png",
+          "archive_path": "original-png/unbooked-390x844.png",
+          "bytes": 282530,
+          "sha256": "aaa1a6027413170ed813dfb16a3ef0c2176b99f30f7f091bf1b14f8686cb3de3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/booked-preparation-390x844.png",
+          "archive_path": "original-png/booked-preparation-390x844.png",
+          "bytes": 261359,
+          "sha256": "a7df73a6f08fc1c3718ecda7c1167596a94398d0fd037c948bd6860466b714ae",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/local-lift-390x844.png",
+          "archive_path": "original-png/local-lift-390x844.png",
+          "bytes": 347231,
+          "sha256": "e2e95c560c759bbccdc2274077c5c0c670d0300070e5aaeea394c69b13c19b86",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/arrival-390x844.png",
+          "archive_path": "original-png/arrival-390x844.png",
+          "bytes": 355426,
+          "sha256": "7df152cbb28d19fdb619b6e3bc567fd3a8f84ef650cb79b96fd06280346bae34",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-zero-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-zero-originals-390x844.png",
+          "bytes": 281453,
+          "sha256": "8a43b8c929513c7bb63114dfab8134d45afe7539a48313d23bf908de2a9bdd7d",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-three-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-three-originals-390x844.png",
+          "bytes": 275914,
+          "sha256": "79547d57ec1376734ecdb49153017f48ca285ba9899e6e03288a06e5fb4367dc",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/held-stage-390x844.png",
+          "archive_path": "original-png/held-stage-390x844.png",
+          "bytes": 322359,
+          "sha256": "c158dd82a523fbde16568a1cd832b289c331c8600b863e0d6ddc72a513bf2703",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-held-resized-1280x720.png",
+          "archive_path": "original-png/stage-held-resized-1280x720.png",
+          "bytes": 639882,
+          "sha256": "8477a2b46738541bb7ed3cb7f8bcb6dcf88453c2b0ba7484ffa6e9b5c26dc544",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-final-warning-390x844.png",
+          "archive_path": "original-png/stage-final-warning-390x844.png",
+          "bytes": 227500,
+          "sha256": "61a56fd3dc2bc852ab6500a434dba3a1b45acf44c445bf02fb2cb17bcfdd6651",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-normal-held-390x844.png",
+          "archive_path": "original-png/replay-normal-held-390x844.png",
+          "bytes": 252141,
+          "sha256": "ea45dc9c8280988614352d94795d79e0868dbae9cbbe6f5078e369fd08ae8a6f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-held-resized-1280x720.png",
+          "archive_path": "original-png/replay-held-resized-1280x720.png",
+          "bytes": 318885,
+          "sha256": "a8850f863b53b2fcf3eb5a1ffadcfef8d8a20a483cbb538da7dc3d277fb1f224",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-initial-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-initial-390x844.png",
+          "bytes": 284465,
+          "sha256": "a8807756b0ba92404733f5e113f93899629f24838fcdca40b4abb4b514caf387",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-390x844.png",
+          "bytes": 300320,
+          "sha256": "b0884da91b1d849a1c6eadcceeac0461eaedac8465129b73066ff0a75d0a0164",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-held-390x844.png",
+          "archive_path": "original-png/replay-reduced-held-390x844.png",
+          "bytes": 257168,
+          "sha256": "0beaa668788dd9fbacd941e19c4a175c178a16c37ebf24a27922927f7b719480",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-initial-390x844.png",
+          "archive_path": "original-png/durable-show-reread-initial-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-390x844.png",
+          "archive_path": "original-png/durable-show-reread-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-identity-context-390x844.png",
+          "archive_path": "original-png/replay-reduced-identity-context-390x844.png",
+          "bytes": 254150,
+          "sha256": "d13f096570d6b1eece9578ad41c4bb224c2d0f2ef995f40f1257614379afbbf6",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "publication": "LOCAL only; no upload/publication performed",
+      "owner_approved": false,
+      "visual_verdict": "partial",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/package-smoke.json",
+      "method": "All exactGit/audited-runtime/explicitPNG inputs inventoried before writes; both temporaryZIPs CRC/content checked, then atomically replaced. Never recurses into imported runtime metadata.",
+      "smoke_engine_error_lines": 0
+    },
+    "android": {
+      "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+      "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+      "bytes": 119910540,
+      "version_name": "0.60.0-playtest",
+      "version_code": 7,
+      "url": null,
+      "remote_file_id": null,
+      "remote_checksum": null,
+      "file_was_uploaded": false,
+      "reader_intended": "alimuir654@gmail.com",
+      "destination_owner_verified": "chair@lovewelluk.com",
+      "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+      "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+      "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+      "phone_model_requested": true,
+      "device_specific_variant_built": false,
+      "universal_ABIs": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "physical_phone_tested": false,
+      "physical_update_save_retention_tested": false,
+      "owner_approved": false,
+      "current_download_remains": "V6 db61/code6",
+      "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+      "evidence": [
+        "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+        "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+        "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+        "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+      ]
+    }
   },
   "candidate_source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_current_band_poster_art_partial",
-  "updated_at": "2026-11-01T13:57:46.026827+00:00",
+  "updated_at": "2026-11-01T14:10:45.232585+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -1967,7 +3266,7 @@
         "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
         "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
         "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
-        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47–S52, one final useful milestone APK remains conditional on stable core.",
         "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
         "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
       ]
@@ -2100,10 +3399,47 @@
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S60",
+  "last_completed_session": "S61",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
     "last_verified_native_run_is_historical_remote": false
-  }
+  },
+  "prepared_android_v7": {
+    "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+    "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+    "bytes": 119910540,
+    "version_name": "0.60.0-playtest",
+    "version_code": 7,
+    "url": null,
+    "remote_file_id": null,
+    "remote_checksum": null,
+    "file_was_uploaded": false,
+    "reader_intended": "alimuir654@gmail.com",
+    "destination_owner_verified": "chair@lovewelluk.com",
+    "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+    "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+    "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+    "phone_model_requested": true,
+    "device_specific_variant_built": false,
+    "universal_ABIs": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "physical_phone_tested": false,
+    "physical_update_save_retention_tested": false,
+    "owner_approved": false,
+    "current_download_remains": "V6 db61/code6",
+    "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+    "evidence": [
+      "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+      "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+      "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+      "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+    ]
+  },
+  "artifact_closeout": "/workspace/work/identity-20261101/s61/closeout.json"
 }

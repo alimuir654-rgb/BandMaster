@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s61_final_manual_artifact_preflight",
-  "next_action": "Execute S61artifact-only localpackage/smoke, code7V7privateupdate afterverification; no source/art changes.",
+  "status": "s61_v7_prepared_local_delivery_blocked",
+  "next_action": "Await owner Android phone model, then if suitable and still before15:50 freeze scope ONE device-specific packaging repair of exactb310/same app/key/code7; otherwise retain ready universalV7LOCAL and V6currentdownload. No source/art changes, blind rebuilds, queue/controller or uploadbypass.16:00 hardstop.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -132,8 +132,659 @@
     "source_binding": "/workspace/work/s40/runs/s60-current-poster-b310067-final/candidate-source-binding.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "packages": null,
-    "android": "V6remainsdb61; manualpresentationLOCAL pending ONEV7."
+    "packages": {
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "project_files": 364,
+      "source_archive_entries": 366,
+      "review_original_pngs": 73,
+      "archives": [
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/livin-the-dream-isolated-godot-4.7.2.zip",
+          "bytes": 77202035,
+          "sha256": "2163c4ed1a5a5b794db259266bca71beb164686d0ac37cf780cc56d6d6238cdb",
+          "zip_crc": "PASS"
+        },
+        {
+          "path": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/native-quality-review.zip",
+          "bytes": 31291499,
+          "sha256": "f194f49ae6de8928d714edcf67875118229fe5ddb60a4f0a1cb57e96b24088c7",
+          "zip_crc": "PASS"
+        }
+      ],
+      "validation": "/workspace/work/s40/runs/s60-current-poster-b310067-final/validation.json",
+      "source_audit": "/workspace/work/identity-20261101/s60/source-protection-audit.json",
+      "runtime": "/workspace/work/s40/runs/s60-current-poster-b310067-final/runtime",
+      "isolated_project_entry_exception": "Only project.godot uses the exact146-byte tested isolated opening recipe. Original Git hash/blob and actual packaged hash are separately recorded.",
+      "review_pngs": [
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-390x844.png",
+          "archive_path": "original-png/c27-genre-390x844.png",
+          "bytes": 318489,
+          "sha256": "14a6d8251e002164da171833592f17119f24f6bda1e5e41e0a965552b3346905",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-390x844.png",
+          "archive_path": "original-png/c27-identity-390x844.png",
+          "bytes": 239281,
+          "sha256": "ac7c6cbd5107cc437f108e8632910afb4d97ed303049ba0de181571fc4dc414b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-390x844.png",
+          "archive_path": "original-png/c27-identity_stamp-390x844.png",
+          "bytes": 224083,
+          "sha256": "be8107e43b8fb3477f323ea0838cda443f5496e1358e2b8dc228dd5ce6d50eac",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-390x844.png",
+          "archive_path": "original-png/c27-milestone1-390x844.png",
+          "bytes": 257221,
+          "sha256": "68b5b80fb3cc913773768d69d6f586ebc3ec7f6c4de813b694d33aa4afc40fd1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-390x844.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-390x844.png",
+          "bytes": 292577,
+          "sha256": "527cfee4496d81a6627150be2c78a85debe2dfc6219e50e286b3b53beeee46ea",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-390x844.png",
+          "archive_path": "original-png/c27-milestone2-390x844.png",
+          "bytes": 232815,
+          "sha256": "165a9865772913b0c7b9c873b287c19e96b82cd921e48176d8b04c556526e33b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-390x844.png",
+          "archive_path": "original-png/c27-naming-390x844.png",
+          "bytes": 216664,
+          "sha256": "59b697e070eb829388f7837701a5def617d9888192d76304da2134020f507c81",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-390x844.png",
+          "archive_path": "original-png/c27-practice-390x844.png",
+          "bytes": 283578,
+          "sha256": "dda38369d420491d7516108b603be39e647e5debef18204159e7ce0995d7d294",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-390x844.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-390x844.png",
+          "bytes": 294562,
+          "sha256": "ccfe686a8d9a364d52ccb851b098fccdba87b562732ce428ba737b89e86d4405",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-390x844.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-390x844.png",
+          "bytes": 328217,
+          "sha256": "b8202143065f4a795fbd7d65d934575866b9f06c7c259523a5c2d9e9829b49c0",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-390x844.png",
+          "archive_path": "original-png/c27-title-390x844.png",
+          "bytes": 295616,
+          "sha256": "b6b3ca51bb7726ef1d73d5a37e5fbc14b63d1b964d98901b6895a07db1a8b431",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-720x1280.png",
+          "archive_path": "original-png/c27-genre-720x1280.png",
+          "bytes": 611158,
+          "sha256": "493dd0ac5ac1b88e133addbc42d64d635f3f9f93dc2a59846790daa4b79a2dd3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-720x1280.png",
+          "archive_path": "original-png/c27-identity-720x1280.png",
+          "bytes": 411216,
+          "sha256": "0db8e07bd28a263fd7982c205b95e9444362bec8c963f4c0ddf2366f3a573557",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-720x1280.png",
+          "archive_path": "original-png/c27-identity_stamp-720x1280.png",
+          "bytes": 423720,
+          "sha256": "0f67d916fe75e8410ee4d5cabf9bb321082b988e45a121be49ae771b09743322",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-720x1280.png",
+          "archive_path": "original-png/c27-milestone1-720x1280.png",
+          "bytes": 637656,
+          "sha256": "c8396fe7699beab52ac2054506b532eccd443a6c25fa590ecec588c611a0b81e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-720x1280.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-720x1280.png",
+          "bytes": 408159,
+          "sha256": "4fa3d8da6852e6f8963d4a837f88766d285c19993924bd334058451b0d04bb67",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-720x1280.png",
+          "archive_path": "original-png/c27-milestone2-720x1280.png",
+          "bytes": 635263,
+          "sha256": "f041019f53b62569db22e8bb8dcad708dfa1a976d8c8d0052cf937704ee86d52",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-720x1280.png",
+          "archive_path": "original-png/c27-naming-720x1280.png",
+          "bytes": 304076,
+          "sha256": "1d62a32503d520b9a39a2c4af0f72fb2efa3af0e7fc20e0ac5c970f55b05fccf",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-720x1280.png",
+          "archive_path": "original-png/c27-practice-720x1280.png",
+          "bytes": 560256,
+          "sha256": "d6a84ebcbbb08bb6167f079714c769db10e5d0a424c10df7a556217f9f58ae1d",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-720x1280.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-720x1280.png",
+          "bytes": 464490,
+          "sha256": "c80f07ea3e1c655944c4008e4fef355c8fb4dcfc5f366d1d856196d19706695c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-720x1280.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-720x1280.png",
+          "bytes": 567642,
+          "sha256": "8b1a5d8886f645f77747e698e447a4d39eb52043ce3686be22a05cf6b677859a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-720x1280.png",
+          "archive_path": "original-png/c27-title-720x1280.png",
+          "bytes": 641239,
+          "sha256": "a4a0c4a1083f7f2c5a471acb422a4d88a5f32afdbcc500343c2812c062811dde",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1280x720.png",
+          "archive_path": "original-png/c27-genre-1280x720.png",
+          "bytes": 887088,
+          "sha256": "87c2d172e3c762dd9a22e52efd5ae6c736a74a7883eb0e252170f8f81d166ae1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1280x720.png",
+          "archive_path": "original-png/c27-identity-1280x720.png",
+          "bytes": 417201,
+          "sha256": "df0a28f68d26a288635910801c2cda8d78e0557bcd7d4621317a3cf2ac1bc2af",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1280x720.png",
+          "archive_path": "original-png/c27-identity_stamp-1280x720.png",
+          "bytes": 417212,
+          "sha256": "fa416b84bf823013d6a655320681bbc9a1cf7da613a9ed9a2524ba918fd22efb",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1280x720.png",
+          "archive_path": "original-png/c27-milestone1-1280x720.png",
+          "bytes": 393901,
+          "sha256": "de4bb1aecdd5d05981f8878ba70c844fc05ca71654f911239d1fa67c3679bd2d",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1280x720.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1280x720.png",
+          "bytes": 427849,
+          "sha256": "c3c2dd230db2b83492f9346c05eb559fe7b4c2eaa44c76ec877d988c7c0e0d28",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1280x720.png",
+          "archive_path": "original-png/c27-milestone2-1280x720.png",
+          "bytes": 421090,
+          "sha256": "3e4f42a7f5d9f91c10e783fe546dc70dc9fbe32394510dd470c50c7a0204ec95",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1280x720.png",
+          "archive_path": "original-png/c27-naming-1280x720.png",
+          "bytes": 279899,
+          "sha256": "e1afd3dfce8f2039ab2d8ded496d5a4d1c392f3c7797213a6dfa43cc48b0bef1",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1280x720.png",
+          "archive_path": "original-png/c27-practice-1280x720.png",
+          "bytes": 478887,
+          "sha256": "c3f2ee1aa570f8b3f2ac193434b36b581044ce66a64eaf885157d894f0734f81",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1280x720.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1280x720.png",
+          "bytes": 510766,
+          "sha256": "8f54da7e22cfcbd86111aeacefe5abe4b685f22b1a24f704ec8fb79835238c9f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1280x720.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1280x720.png",
+          "bytes": 550121,
+          "sha256": "e2135d040e472c2995a9df3528fdf0706f1c4648c7691ad9f86667e00d398f64",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1280x720.png",
+          "archive_path": "original-png/c27-title-1280x720.png",
+          "bytes": 732792,
+          "sha256": "8fe0d6521c5169e20f88b58bbd15a7694b3b6d7d0352b33b45e26dbe5f871bd3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-genre-1600x900.png",
+          "archive_path": "original-png/c27-genre-1600x900.png",
+          "bytes": 1399305,
+          "sha256": "50d1f70d4a6ea1a019e0ed62936796f2fa3f1787579b91d12a2f09ed969cfb5d",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity-1600x900.png",
+          "archive_path": "original-png/c27-identity-1600x900.png",
+          "bytes": 579849,
+          "sha256": "04870b0d71670284d1899c2d3ee34a312fd48cf2923a0f28bcd2b7c405215510",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-identity_stamp-1600x900.png",
+          "archive_path": "original-png/c27-identity_stamp-1600x900.png",
+          "bytes": 579876,
+          "sha256": "6327c5a52912a297f08bf9370e94f289cd45ca596ea40ec26683f62699c9838e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1-1600x900.png",
+          "archive_path": "original-png/c27-milestone1-1600x900.png",
+          "bytes": 556944,
+          "sha256": "548ae503e71160db282854455b3bff251db3e27c5694654db38585d812034b75",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone1_6members_visual-1600x900.png",
+          "archive_path": "original-png/c27-milestone1_6members_visual-1600x900.png",
+          "bytes": 490390,
+          "sha256": "b4dd1dc49e82d57335c115a464530f3d5e409c8069577b0e4393100a3a435ba6",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-milestone2-1600x900.png",
+          "archive_path": "original-png/c27-milestone2-1600x900.png",
+          "bytes": 551921,
+          "sha256": "f3dca710ddb9ea7b6a5b76c77812156ece76663cd03ecc85f55a2e85dab56c83",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-naming-1600x900.png",
+          "archive_path": "original-png/c27-naming-1600x900.png",
+          "bytes": 355441,
+          "sha256": "c00dbba219d6a4dd21aaa9e4441219a2599aa16b3930cdf132b209f9f8181f0a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-practice-1600x900.png",
+          "archive_path": "original-png/c27-practice-1600x900.png",
+          "bytes": 614114,
+          "sha256": "4f19c9799ee6d18bdef34ca74207abe637f3045b3ad3f279008a29b07428529f",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-recruit_ready_trio-1600x900.png",
+          "archive_path": "original-png/c27-recruit_ready_trio-1600x900.png",
+          "bytes": 594847,
+          "sha256": "9e098bd766660b42ce415ac580805ddca47f1144be926287db04784feb83a508",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-rehearsal_outcome-1600x900.png",
+          "archive_path": "original-png/c27-rehearsal_outcome-1600x900.png",
+          "bytes": 632944,
+          "sha256": "c21bca7b61704b78ad85debe7e9f67b11fea0693fc0b83503948b60191194817",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/s40/runs/s60-current-poster-b310067-final/captures/c27-title-1600x900.png",
+          "archive_path": "original-png/c27-title-1600x900.png",
+          "bytes": 796850,
+          "sha256": "6df4f887c889263204985c84cba66532c288b09b39a9372ef525a26b9f342ccc",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-normal-390x844.png",
+          "archive_path": "original-png/current-poster-normal-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-poster-reduced-390x844.png",
+          "archive_path": "original-png/current-poster-reduced-390x844.png",
+          "bytes": 340779,
+          "sha256": "345497f0da8ce2cce9db49f0950e2ffb2c83752f1b6c66fb8203625007bc1340",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-normal-720x1280.png",
+          "archive_path": "original-png/current-poster-normal-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-tablet/captures/current-poster-reduced-720x1280.png",
+          "archive_path": "original-png/current-poster-reduced-720x1280.png",
+          "bytes": 589744,
+          "sha256": "03d153b808b0b2df11431015702cc1aa087812d529e7354396e62182633a2f11",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-normal-1280x720.png",
+          "archive_path": "original-png/current-poster-normal-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-wide/captures/current-poster-reduced-1280x720.png",
+          "archive_path": "original-png/current-poster-reduced-1280x720.png",
+          "bytes": 381171,
+          "sha256": "c2792e4f7ccd0fb247fcd602f4fc7402d3d52c7955da41422bab7429b622a319",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-normal-1600x900.png",
+          "archive_path": "original-png/current-poster-normal-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-large/captures/current-poster-reduced-1600x900.png",
+          "archive_path": "original-png/current-poster-reduced-1600x900.png",
+          "bytes": 559039,
+          "sha256": "1e723600d35a34ff0b9ff82f375dfb04be06558c2774c4e3359c0ff01152a202",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/current-band-with-poster-access-390x844.png",
+          "archive_path": "original-png/current-band-with-poster-access-390x844.png",
+          "bytes": 269349,
+          "sha256": "7f8965aa3af85653555b034d078911f2c37d9f0ee758354363c138d8250e200f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/poster-simulated-safe-insets-390x844.png",
+          "archive_path": "original-png/poster-simulated-safe-insets-390x844.png",
+          "bytes": 330932,
+          "sha256": "c7339cb842fd8f40360ba8c308bcac82004df36374b082f485212bcb3350c39e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-six-current-unicode-monogram-390x844.png",
+          "archive_path": "original-png/component-study-six-current-unicode-monogram-390x844.png",
+          "bytes": 288779,
+          "sha256": "4db61acba7ea8d05ae5d81b5dd2a8e19738ab41aa7db3cec334250f1772310ce",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/poster-b310-phone/captures/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "archive_path": "original-png/component-study-legacy-unknown-whole-fallback-390x844.png",
+          "bytes": 138117,
+          "sha256": "b90548d30829c2d30c3e58f1093a83abae67ac712b95c2aa7c05e08e46476efb",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/unbooked-390x844.png",
+          "archive_path": "original-png/unbooked-390x844.png",
+          "bytes": 282530,
+          "sha256": "aaa1a6027413170ed813dfb16a3ef0c2176b99f30f7f091bf1b14f8686cb3de3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/booked-preparation-390x844.png",
+          "archive_path": "original-png/booked-preparation-390x844.png",
+          "bytes": 261359,
+          "sha256": "a7df73a6f08fc1c3718ecda7c1167596a94398d0fd037c948bd6860466b714ae",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/local-lift-390x844.png",
+          "archive_path": "original-png/local-lift-390x844.png",
+          "bytes": 347231,
+          "sha256": "e2e95c560c759bbccdc2274077c5c0c670d0300070e5aaeea394c69b13c19b86",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/arrival-390x844.png",
+          "archive_path": "original-png/arrival-390x844.png",
+          "bytes": 355426,
+          "sha256": "7df152cbb28d19fdb619b6e3bc567fd3a8f84ef650cb79b96fd06280346bae34",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-zero-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-zero-originals-390x844.png",
+          "bytes": 281453,
+          "sha256": "8a43b8c929513c7bb63114dfab8134d45afe7539a48313d23bf908de2a9bdd7d",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/soundcheck-three-originals-390x844.png",
+          "archive_path": "original-png/soundcheck-three-originals-390x844.png",
+          "bytes": 275914,
+          "sha256": "79547d57ec1376734ecdb49153017f48ca285ba9899e6e03288a06e5fb4367dc",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/held-stage-390x844.png",
+          "archive_path": "original-png/held-stage-390x844.png",
+          "bytes": 322359,
+          "sha256": "c158dd82a523fbde16568a1cd832b289c331c8600b863e0d6ddc72a513bf2703",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-held-resized-1280x720.png",
+          "archive_path": "original-png/stage-held-resized-1280x720.png",
+          "bytes": 639882,
+          "sha256": "8477a2b46738541bb7ed3cb7f8bcb6dcf88453c2b0ba7484ffa6e9b5c26dc544",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/stage-final-warning-390x844.png",
+          "archive_path": "original-png/stage-final-warning-390x844.png",
+          "bytes": 227500,
+          "sha256": "61a56fd3dc2bc852ab6500a434dba3a1b45acf44c445bf02fb2cb17bcfdd6651",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-normal-held-390x844.png",
+          "archive_path": "original-png/replay-normal-held-390x844.png",
+          "bytes": 252141,
+          "sha256": "ea45dc9c8280988614352d94795d79e0868dbae9cbbe6f5078e369fd08ae8a6f",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-held-resized-1280x720.png",
+          "archive_path": "original-png/replay-held-resized-1280x720.png",
+          "bytes": 318885,
+          "sha256": "a8850f863b53b2fcf3eb5a1ffadcfef8d8a20a483cbb538da7dc3d277fb1f224",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-initial-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-initial-390x844.png",
+          "bytes": 284465,
+          "sha256": "a8807756b0ba92404733f5e113f93899629f24838fcdca40b4abb4b514caf387",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/saved-show-receipt-390x844.png",
+          "archive_path": "original-png/saved-show-receipt-390x844.png",
+          "bytes": 300320,
+          "sha256": "b0884da91b1d849a1c6eadcceeac0461eaedac8465129b73066ff0a75d0a0164",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-held-390x844.png",
+          "archive_path": "original-png/replay-reduced-held-390x844.png",
+          "bytes": 257168,
+          "sha256": "0beaa668788dd9fbacd941e19c4a175c178a16c37ebf24a27922927f7b719480",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-initial-390x844.png",
+          "archive_path": "original-png/durable-show-reread-initial-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/durable-show-reread-390x844.png",
+          "archive_path": "original-png/durable-show-reread-390x844.png",
+          "bytes": 294682,
+          "sha256": "82362eeb819d5ad1ab02655fb787d91bc6fe0c8da36f9fabb9fd4ac88a284b9b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "source_path": "/workspace/work/identity-20261101/s60/prior-gig-b310-phone/captures/replay-reduced-identity-context-390x844.png",
+          "archive_path": "original-png/replay-reduced-identity-context-390x844.png",
+          "bytes": 254150,
+          "sha256": "d13f096570d6b1eece9578ad41c4bb224c2d0f2ef995f40f1257614379afbbf6",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "publication": "LOCAL only; no upload/publication performed",
+      "owner_approved": false,
+      "visual_verdict": "partial",
+      "extracted_clean_import_and_native_entry": "PASS",
+      "package_smoke": "/workspace/work/identity-20261101/s61/checkpoint-b310067/packages/package-smoke.json",
+      "method": "All exactGit/audited-runtime/explicitPNG inputs inventoried before writes; both temporaryZIPs CRC/content checked, then atomically replaced. Never recurses into imported runtime metadata.",
+      "smoke_engine_error_lines": 0
+    },
+    "android": {
+      "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+      "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+      "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+      "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+      "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+      "bytes": 119910540,
+      "version_name": "0.60.0-playtest",
+      "version_code": 7,
+      "url": null,
+      "remote_file_id": null,
+      "remote_checksum": null,
+      "file_was_uploaded": false,
+      "reader_intended": "alimuir654@gmail.com",
+      "destination_owner_verified": "chair@lovewelluk.com",
+      "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+      "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+      "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+      "phone_model_requested": true,
+      "device_specific_variant_built": false,
+      "universal_ABIs": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "physical_phone_tested": false,
+      "physical_update_save_retention_tested": false,
+      "owner_approved": false,
+      "current_download_remains": "V6 db61/code6",
+      "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+      "evidence": [
+        "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+        "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+        "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+        "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+      ]
+    }
   },
   "publication": "Local changes only; automatic approval review blocked public full-ledger/history sync; explicit approval pending.",
   "historical_opening_completion_gate": {
@@ -391,7 +1042,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -509,7 +1160,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -660,7 +1311,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -858,7 +1509,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2624,7 +3275,7 @@
       "simulated_lenses": {
         "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
         "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
-        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
+        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/£0 does not age or rescue zero-cash count.",
         "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
         "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
       },
@@ -2702,14 +3353,14 @@
       "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
       "visual_verdict": "partial",
       "owner_approved": false,
-      "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47–S51 source LOCAL, no newAPK",
       "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
       "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
       "remaining": [
         "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
         "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
         "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
-        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47–S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
         "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
       ],
       "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
@@ -2763,7 +3414,7 @@
       "visual_verdict": "partial",
       "owner_approved": false,
       "source_runtime": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime",
-      "android": "V5/a9 unchanged; S47\u2013S53 LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47–S53 LOCAL, no newAPK",
       "packaging": "Imported337-file isolated runtime and actual configuredentryPASS. No S53ZIP/APK built; finalstablemilestonepackaging later. LOCAL, notpublicdownloads.",
       "remaining": [
         "Physical Android camera/navigation/touch/performance verification pending; no device or emulator run.",
@@ -2771,7 +3422,7 @@
         "Phone soundcheck deliberately scrolls below fixed hardware; no claim that all three selected songs fit one phone fold. Reach preview is a plan modifier, not final net fans.",
         "Native full paid-show integration uses three selected originals; zero-original gross cap and hired/low-cash variants are independently model tested. Zero-selected warning has actual render/wheel proof, not a claimed zero-song paid native journey.",
         "Hardware lifecycle bench measures real mouse hide/resize/free and indexed-touch cancel/device isolation; do not extrapolate every modality/lifecycle permutation. Read-only27context utility did NOT measure orphan counters.",
-        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47\u2013S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
+        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47–S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
         "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
         "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
       ]
@@ -2889,8 +3540,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2908,7 +3559,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -3291,8 +3942,8 @@
       "protected_inputs_unchanged": 339
     }
   ],
-  "last_completed_session": "S60",
-  "writer": "S61-manual-presentation-package-20261101T1400",
+  "last_completed_session": "S61",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3417,7 +4068,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-01T13:57:46.026827+00:00",
+  "updated_at": "2026-11-01T14:10:45.232585+00:00",
   "page_delivery": {
     "status": "V6_APK_prose_saved_readback",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
@@ -3501,6 +4152,43 @@
   "all_write_freeze": "2026-11-01T15:50:00Z",
   "hard_stop": "2026-11-01T16:00:00Z",
   "current_session": "S61",
-  "next_single_action": "ONE stable V7manualpresentation update.",
-  "last_updated_utc": "2026-11-01T13:57:15.098319+00:00"
+  "next_single_action": "Await owner Android phone model, then if suitable and still before15:50 freeze scope ONE device-specific packaging repair of exactb310/same app/key/code7; otherwise retain ready universalV7LOCAL and V6currentdownload. No source/art changes, blind rebuilds, queue/controller or uploadbypass.16:00 hardstop.",
+  "last_updated_utc": "2026-11-01T14:10:45.232585+00:00",
+  "prepared_android_v7": {
+    "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+    "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+    "bytes": 119910540,
+    "version_name": "0.60.0-playtest",
+    "version_code": 7,
+    "url": null,
+    "remote_file_id": null,
+    "remote_checksum": null,
+    "file_was_uploaded": false,
+    "reader_intended": "alimuir654@gmail.com",
+    "destination_owner_verified": "chair@lovewelluk.com",
+    "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+    "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+    "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+    "phone_model_requested": true,
+    "device_specific_variant_built": false,
+    "universal_ABIs": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "physical_phone_tested": false,
+    "physical_update_save_retention_tested": false,
+    "owner_approved": false,
+    "current_download_remains": "V6 db61/code6",
+    "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+    "evidence": [
+      "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+      "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+      "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+      "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+    ]
+  },
+  "artifact_closeout": "/workspace/work/identity-20261101/s61/closeout.json"
 }

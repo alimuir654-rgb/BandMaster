@@ -1,14 +1,14 @@
 {
-  "writer": "S61-manual-presentation-package-20261101T1400",
+  "writer": null,
   "base_head": "a9632304718b98b1c409fad1367db4cdb3f76780",
   "claimed_at": "2026-11-01T13:57:46.026827+00:00",
-  "expires_at": "2026-11-01T15:40:00Z",
-  "scope": "One stable V7 phone update makes the completed calendar, creation-time identity choices, editorial milestones, unified genre/show presentation and current-band poster accessible with existing career/save compatibility. Freeze source and use explicit364-input localpackage, fresh extracted entry, unchanged exportrecipe/samekey/code7, independent privacy/update integrity, namedprivate delivery and PhonePageprose.",
+  "expires_at": "2026-11-01T14:15:00Z",
+  "scope": "Correct one artifactsummary count before finalmetadatacommit; no source/art/build/engine/externalwrites.",
   "authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": "2026-11-01T13:57:15.098319+00:00",
+  "status": "released",
+  "released_at": "2026-11-01T14:11:13.253502+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S60-current-band-poster-20261101T1310",
+  "last_writer": "S61-final-metadata-review-20261101T1411",
   "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
   "previous_checkpoint_release": {
     "writer": null,
@@ -155,8 +155,8 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "S60complete/sourceFROZEN. NextS61artifact-only freshpreflight;15:50freeze/16hardstop.",
-  "source_writer_released_at": "2026-11-01T13:57:15.098319+00:00",
+  "final_closeout_note": "S61technicalartifactPASS/V7LOCALready, privateuploadBLOCKED100MiB. No pendingengine/helper/source work; awaitingactualphonemodelfor separatelyboundedartifactrepair.15:50freeze/16hardstop. No queue/controller/backgroundextension.",
+  "source_writer_released_at": "2026-11-01T14:10:45.232585+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -209,7 +209,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "verified_local_current_band_poster_art_partial",
-  "updated_at": "2026-11-01T13:57:46.026827+00:00",
+  "updated_at": "2026-11-01T14:11:13.253502+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -271,5 +271,41 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": true
+  "artifact_write_allowed": false,
+  "prepared_android_v7": {
+    "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
+    "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+    "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
+    "apk_path": "/workspace/work/identity-20261101/s61/android/build-b310067-v7/BandMaster-Playtest.apk",
+    "local_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7",
+    "bytes": 119910540,
+    "version_name": "0.60.0-playtest",
+    "version_code": 7,
+    "url": null,
+    "remote_file_id": null,
+    "remote_checksum": null,
+    "file_was_uploaded": false,
+    "reader_intended": "alimuir654@gmail.com",
+    "destination_owner_verified": "chair@lovewelluk.com",
+    "destination_folder_verified": "0AAaVL64Kv2tDUk9PVA",
+    "ownership_rejection_resolved_by_current_profile_root_acl_V6_parent": true,
+    "current_blocker": "Connector pre-action413 limit104857600B; actual119910540B. NofileID/newupload/share.",
+    "phone_model_requested": true,
+    "device_specific_variant_built": false,
+    "universal_ABIs": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "physical_phone_tested": false,
+    "physical_update_save_retention_tested": false,
+    "owner_approved": false,
+    "current_download_remains": "V6 db61/code6",
+    "phone_page_status_receipt": "/workspace/work/identity-20261101/s61/android/phone-page-v7-pending-delivery.json",
+    "evidence": [
+      "/workspace/work/identity-20261101/s61/android/delivery-blocked-receipts.json",
+      "/workspace/work/identity-20261101/s61/android/destination-ownership-evidence.json",
+      "/workspace/work/identity-20261101/s61/android/delivery-size-study.json",
+      "/workspace/work/identity-20261101/s61/android/update-privacy-audit-v7.json"
+    ]
+  }
 }
