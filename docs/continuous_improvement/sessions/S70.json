@@ -38,7 +38,8 @@
     "BM-46",
     "BM-09",
     "BM-37",
-    "BM-42"
+    "BM-42",
+    "BM-11"
   ],
   "owner_approved": false,
   "reviewed_documents": {
@@ -83,7 +84,7 @@
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
   "issue_log_review": {
-    "bytes": 800666,
-    "sha256": "f099ee117951b1b38970f51414c40feb24c6c3784621ed965b7965d2a5f7842a"
+    "bytes": 801793,
+    "sha256": "fe1b391cc1181d49cbf7fc33d77e988852de437181ab9dcbf5f006ef3e20c50f"
   }
 }
