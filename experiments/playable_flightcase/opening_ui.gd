@@ -95,7 +95,28 @@ func _on_content_boundary_changed() -> void:
  # and presentation-only overlay alive instead of replacing the whole host.
  if not showing_menu and ((setup.screen=="play" and is_instance_valid(_practice_view)) or (setup.screen=="recruit" and is_instance_valid(_recruit_view))):
   return
+ var focused: Control = get_viewport().gui_get_focus_owner()
+ var semantic_name := ""
+ var caret := -1
+ if not is_instance_valid(_new_band_dialog) and is_instance_valid(focused) and is_ancestor_of(focused):
+  semantic_name = str(focused.name)
+  if focused is LineEdit:
+   caret = (focused as LineEdit).caret_column
  _render()
+ if not semantic_name.is_empty():
+  call_deferred("_restore_boundary_focus",semantic_name,caret)
+
+func _restore_boundary_focus(semantic_name: String, caret: int = -1) -> void:
+ if not is_inside_tree() or is_instance_valid(_new_band_dialog):
+  return
+ var current: Control = find_child(semantic_name,true,false) as Control
+ if current==null or not current.is_visible_in_tree() or current.focus_mode==Control.FOCUS_NONE:
+  return
+ if current is Button and (current as Button).disabled:
+  return
+ current.grab_focus()
+ if current is LineEdit and caret>=0:
+  (current as LineEdit).caret_column = mini(caret,(current as LineEdit).text.length())
 
 func _label(s: String,size: int = 16) -> Label:
  return Shared.label(s,size,look)

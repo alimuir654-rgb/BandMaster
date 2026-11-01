@@ -119,9 +119,14 @@ func _gui_input(event: InputEvent) -> void:
   if (get_screen_transform()*event.position).distance_to(_touch_origin)>TAP_SLOP_PIXELS:
    _touch_dragged = true
  elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-  # Godot's touch-emulated mouse has device -1. The touch path already owns
-  # that gesture; treating it as another click would finish on the same tap.
-  if event.device==-1:
+  # Touch-emulated mouse (-1) belongs to the touch path. Internal releases
+  # (-2, e.g. lost window focus) cancel capture; neither is a deliberate tap.
+  if event.device<0:
+   if event.device!=-1:
+    _clear_pointer_gesture()
+   return
+  if event.canceled:
+   _clear_pointer_gesture()
    return
   if event.pressed and _revealing:
    _mouse_pending = true
