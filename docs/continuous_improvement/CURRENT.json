@@ -2830,10 +2830,10 @@
     "owner_approved": false
   },
   "latest_focused_native_qa": {
-    "source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
-    "validation": "/workspace/work/s40/runs/s63-visual-career-3ec1154-final/focused-validation.json",
-    "checks": 6708,
-    "originals": 106,
+    "source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+    "validation": "/workspace/work/s40/runs/s65-approved-art-66e5bd0-final/focused-validation.json",
+    "checks": 6536,
+    "originals": 102,
     "orphans_where_measured": 0
   },
   "previous_focused_native_qa": {
@@ -3581,7 +3581,7 @@
     "source_unchanged": true,
     "owner_approved": false
   },
-  "canonical_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
+  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00",
   "approved_feature_scopes": [
     "F01",
     "F02",
@@ -3601,5 +3601,14 @@
     "closed_at": "2026-11-01T19:24:59.824767+00:00",
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
+  },
+  "historical_aliases_before_s65_final_audit": {
+    "latest_focused_native_qa": {
+      "source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+      "validation": "/workspace/work/s40/runs/s63-visual-career-3ec1154-final/focused-validation.json",
+      "checks": 6708,
+      "originals": 106,
+      "orphans_where_measured": 0
+    }
   }
 }

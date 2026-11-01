@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+  "candidate_source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -346,5 +346,9 @@
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
   "delegated_source_writer": null,
-  "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json"
+  "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
+  "historical_aliases_before_s65_final_audit": {
+    "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
+  },
+  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00"
 }

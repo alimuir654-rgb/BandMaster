@@ -514,7 +514,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "V7identity/calendar/genre/show/current-bandposter privatelydelivered asownerPixel9 ARM64update, samegameassets/config/saves/signing, no sourcechanges.",
+  "last_completed_deliverable": "S65approvedA02v2current-trio careerposter +A03v2same-layout8icons locallyintegrated/verified. NoAPK/ZIP; existingphoneV7b310separate.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -566,9 +566,9 @@
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
+  "last_run_summary": "Exact66e378-source approved-art integration:73/88/import/4standard172+6536focused102/nativeentryPASS0ERROR/orphans; specificv2sourceartapproved/globalvisualpartial, phoneV7b310unchanged.",
   "last_packaged_at": "2026-11-01T05:58:39.957744+00:00",
-  "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
+  "last_validation": "/workspace/work/s40/runs/s65-approved-art-66e5bd0-final/complete-validation.json",
   "latest_owner_scope": "NEW17:18manualicon/visualgear/posererevision,18:00twoindependentworkers,18:07thirdresearchworker+feature/artownerapprovalboard,18:20liveperformer/setlist/vibe/promotion proposals. Source3ecprototypecomplete; newfeatures/artdirectionpendingowner. Source/historylocal; privatePageonlyselectedreviewimages/proposalprose. No newqueue/automaticextension.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -2222,7 +2222,7 @@
     "owner_approved": false
   },
   "historical_last_verified_opening_project_artifact_before_S63": 12954924877,
-  "canonical_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
+  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00",
   "approved_feature_scopes": [
     "F01",
     "F02",
@@ -2243,5 +2243,10 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "closed_at": "2026-11-01T19:42:37.206117+00:00"
+  "closed_at": "2026-11-01T19:42:37.206117+00:00",
+  "historical_aliases_before_s65_final_audit": {
+    "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
+    "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
+    "last_completed_deliverable": "V7identity/calendar/genre/show/current-bandposter privatelydelivered asownerPixel9 ARM64update, samegameassets/config/saves/signing, no sourcechanges."
+  }
 }
