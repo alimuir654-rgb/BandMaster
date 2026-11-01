@@ -118,7 +118,7 @@ static func launch(state: Dictionary, id: String, expected_fingerprint: String, 
  var accounted: Dictionary=Finance.apply(state,after,"promotion:radio",[{"direction":"outgoing","category":"Other","amount":20}],[int(after["cash"])])
  if not bool(accounted.get("ok",false)):return _fail(state,str(accounted.get("message","The radio accounts could not be reconciled.")))
  after=accounted["state"]
- var message: String=str(original.get("message","Local-radio campaign complete."))
+ var message: String="The local-radio campaign brought %d new listeners to the band. Press +%d; buzz +%d." % [int(after.get("fans",0))-int(state.get("fans",0)),int(after.get("press",0))-int(state.get("press",0)),int(after.get("buzz",0))-int(state.get("buzz",0))]
  for change in postchain:message+="\n"+str(change["text"])
  var receipt: Dictionary={"version":1,"demo_id":str(selected["id"]),"session_index":index,"source_fingerprint":expected_fingerprint,"message":message,"before":_metrics(state),"after":_metrics(after),"postchain_changes":postchain.duplicate(true)}
  var session: Dictionary=after["recordings"][index]
