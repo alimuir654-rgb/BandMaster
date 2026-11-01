@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S67",
-  "scope": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
+  "session": "S68",
+  "scope": "Inherited paper_label WORD_SMART leaves only narrow native minimum in SHRINK_BEGIN grid. Make actual fixed numeric capsule labels nonwrapping so measured native font supplies useful intrinsic minimum, preserving natural compact total width at phone/wide; do not shrink font or restore wide bars.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s67_closed_HOLD",
-  "next_action": "S67 HOLD. Future separately scoped repair must give native16px delta pills readable bounded widths at phone and wide sizes, then complete four focused journeys/native art review. No automatic continuation, source edits, APK/ZIP or Page delivery in this closed window.",
+  "status": "s68_radio_repair_preflight",
+  "next_action": "CommitS68 preflight/RUN gate; then ONE RecordingDesk intrinsic-minimum repair, exact source/native proof. Configure existingqueue only for owner-authorised overnight continuation; no APK/ZIP.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3298,7 +3298,7 @@
     }
   ],
   "last_completed_session": "S66",
-  "writer": null,
+  "writer": "S68-flow-art-activation-radio-repair-20261101T2115",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3669,11 +3669,15 @@
     "F10": "ONE local-radio pilot; overallfeaturePARTIAL, magazine/socialfuture, ownerresultreviewpending"
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-01T21:07:17.805094+00:00",
+  "released_at": null,
   "last_writer": "S67-owner-image-pills-20261101T2047",
-  "source_write_allowed": false,
-  "pending_implementation": false,
+  "source_write_allowed": true,
+  "pending_implementation": true,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "closed_hold_readonly"
+  "source_phase": "bounded_radio_repair",
+  "claimed_at": "2026-11-01T21:15:49.061687+00:00",
+  "expires_at": "2026-11-01T22:05:00Z",
+  "authority": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
+  "delegated_source_writer": null
 }

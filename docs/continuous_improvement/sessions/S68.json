@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "id": "S68",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
+  "baseline_sha": "384d74de8c6597c2bb4200255d772b60aee6481d",
+  "game_baseline_sha": "c647e8e743e17598b450f06def101cf4b1dec505",
+  "dominant_issue": "BM-22",
+  "hypothesis": "Inherited paper_label WORD_SMART leaves only narrow native minimum in SHRINK_BEGIN grid. Make actual fixed numeric capsule labels nonwrapping so measured native font supplies useful intrinsic minimum, preserving natural compact total width at phone/wide; do not shrink font or restore wide bars.",
+  "stop_condition": "S68 one bounded label-layout repair; codefreeze21:40/rootrelease22:05. Reproduce and log failure before next correction; after two ineffective attempts change method/HOLD. Overnight no newbreadthafter05:15/sourcefreeze06:45/final07:15readinessonly/release07:30/allwrites07:45/hard08:00Nov2. No APK/ZIP packaging.",
+  "target": {
+    "locator": "/workspace/work/radio-visual-20261101/s67/radio-c647e8e-phone/captures/FIRST-FAILURE-390x844.png",
+    "original_sha256": "89a8bb656c4e99a76808915bbf8b30c4a49c881ebf1488849a004689105c3910",
+    "pixels_inspected": true,
+    "kind": "Actual S67 current phone failure opened alongside earlier readable088phone preview; owner image-led/delta-pill steering remains target."
+  },
+  "controlled_comparison": "Same actual THELASTBUS demo/song IDs/state/cash/day/art/physical viewport asS67; exact same sealed e7fe probe and assertions. One ownedlabelproperty only; source379/378priorprotected/all54Scripts, model348literalclosure unchanged. Prove actual readable pills compactphone/wide/resize/Details/once-save/failure/retry/reload, then73/88/import/4native172 +actualoriginalreview. No observer/test weakening.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/recording_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S67.json",
+    "Pin379source;378priorprotected/all54Scripts/rawfonts/art/metrics/save/models. Strict73+88/import/4standard, current4viewGUI/safearea/touch/Details/shortInk/fullsavedmessage/pillactualdeltas/oncecommit/realfailedsave/retry/reload0ERROR+nativeoriginalreview.",
+    "ReuseS66model348/23literalclosure onlyifunchanged; no modelrerunforpresentation. NewexplicitstrongUIcontract verifiescollapsedfullcopythenDetailsexpansion/fullcontents; no arbitraryassertiondeletion.",
+    "PrivatePageA05selectedactualPNGblockonlyafterreadfreshPage/comments/AgentInstructions; allownercheckedchoices/historyanddeletedA03imagepreserved; newA05startsPENDING, no publicsource/history upload."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "0821c23fc80b3ff2f4a1a5807e9ede9a1c41f3b473421c3948fb057d55941e36",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "started_at": "2026-11-01T21:15:49.061687+00:00",
+  "scope_end": "2026-11-01T22:05:00Z",
+  "source_freeze_target": "2026-11-01T21:40:00Z",
+  "all_write_freeze": "2026-11-02T07:45:00Z",
+  "hard_stop": "2026-11-02T08:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "379unchangedcount/1ownedUIedit/378priorprotected/all54Scriptsincl3UIDsexact",
+  "protection": [
+    "OriginalS66PromotionRules/RecordingRules/CareerDesk/Finance/save/rawassetbytesunchanged; newpassivepillsnativeIGNORE/FOCUS_NONE, no meter/controlreplacement.",
+    "ApprovedA01micpair wholecrop388,720,295,279 inexistingGearPress.image(mics), no inventedstudio/airplay/ownership/newassetapproval.",
+    "NativeDETAILS48 free onlyhostUIstate, retainsfulloriginalsavedmessage/actualtracks/ID/sourcefacts/beforeafter. NoreplaySave/Finance/paidaction orhiddenanimatednotebehinddisclosure.",
+    "NewUIcompositionA05ownerapprovalPENDING; specificA01/A02/A03sourceapprovals do notconferwholegameapproval.",
+    "Physicaldevice/maximal-title/CLEAR variants remainhonestlimits unlessactuallytested. Sameexistingwriteend/hardstop, no automaticextension."
+  ],
+  "issue_log_review": {
+    "bytes": 783879,
+    "sha256": "27253396e9deee1a46d623b273efafe06402daf52cc40eb1dcaa7f3d17ffda9c"
+  },
+  "verified_rollback_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19"
+}

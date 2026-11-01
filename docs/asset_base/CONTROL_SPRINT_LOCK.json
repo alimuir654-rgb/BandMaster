@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "S68-flow-art-activation-radio-repair-20261101T2115",
   "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
-  "claimed_at": "2026-11-01T20:47:44.748770+00:00",
-  "expires_at": "2026-11-01T21:09:00Z",
-  "scope": "S67 ONE radio-presentation family revision: image-led brief/paidreceipt/savedresponse withapprovedA01wholemicpair, 3inert16pxdelta pills actualafter-before, one short animated summary, full tracks/IDs/before-after/longsavednote behind48pxDetails. Originalmodel/receipts/save/Finance/actions/artbytes unchanged. RecordingDesk ONLYsourceedit,379inputs/378protected/all54Scripts. OptionalprivateownerA05reviewblock selectednativePNG/prose only, no code/history.",
-  "authority": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
+  "claimed_at": "2026-11-01T21:15:49.061687+00:00",
+  "expires_at": "2026-11-01T22:05:00Z",
+  "scope": "Inherited paper_label WORD_SMART leaves only narrow native minimum in SHRINK_BEGIN grid. Make actual fixed numeric capsule labels nonwrapping so measured native font supplies useful intrinsic minimum, preserving natural compact total width at phone/wide; do not shrink font or restore wide bars.",
+  "authority": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T21:07:17.805094+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -332,9 +332,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
-  "next_action": "S67 HOLD. Future separately scoped repair must give native16px delta pills readable bounded widths at phone and wide sizes, then complete four focused journeys/native art review. No automatic continuation, source edits, APK/ZIP or Page delivery in this closed window.",
+  "next_action": "CommitS68 preflight/RUN gate; then ONE RecordingDesk intrinsic-minimum repair, exact source/native proof. Configure existingqueue only for owner-authorised overnight continuation; no APK/ZIP.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -370,7 +370,7 @@
     "closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
     "latest_verified_source": "4bbf6a1baa370858beed081fe1cd17b331dd1e19"
   },
-  "source_phase": "closed_hold_readonly",
+  "source_phase": "bounded_radio_repair",
   "source_frozen_at": "2026-11-01T20:59:19.038076+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -380,5 +380,6 @@
     "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
-  "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json"
+  "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
+  "session": "S68"
 }
