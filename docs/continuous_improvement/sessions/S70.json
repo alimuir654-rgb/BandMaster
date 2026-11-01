@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46",
+    "BM-09",
+    "BM-37",
+    "BM-42"
+  ],
+  "owner_approved": false,
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "cbd6b058efaef4c561f6ce159de970ddb56c159e2e68b274c9b1e1352a69ece0",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "id": "S70",
+  "status": "active",
+  "owner_request": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
+  "baseline_sha": "49ac7aa5e5deec478e40d16e6855d90b0614ab86",
+  "game_baseline_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+  "dominant_issue": "BM-11",
+  "hypothesis": "Budgetstudentroom with cheapsecondhandequipment and an adult23\u201327presenter will match early-bandcareer better than maturehost/woodlinedprofessionalroom. Preserveguestcamera/full4:3face+mic+desk readability and nativeUI separation.",
+  "stop_condition": "ART/METADATAONLY. Oneimagegenedit ofactualoldsource, maximum2calls iffirstdefectloggedBEFOREcorrection. SourceGame476and379inputsuntouched. Releaseby22:25; existing22:15wake READONLYifleaseactive. NoAPKZIP/GL/code/suite activity; global07:45writes/08:00end unchanged.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-1cb53096-e5db-438d-aa16-249ab467fab9.png",
+    "original_sha256": "86047904689849739358f312a6be396f5150dc3bf06b6ad17ac1e97d1bede51c",
+    "pixels_inspected": true,
+    "kind": "Owner-revisedA05v2currentstudio+olderpresenter; explicitbudgetuni/youngadultdirection."
+  },
+  "controlled_comparison": "KeeprawA05v2sourceandhistory. Useimagegenedit withactualreference, alterpresenterage/stationbudgetfeel whilepreservingguesteyelevel/full4:3focalgroup. No sharedC25castidentity/source modifications. Recordnewrawpath/hash/dimensions/provenance/originalopened/fiveSIMULATEDlenses; newv3pendingowner. No nativegameclaim or engineproof; current476 testsnotrerun.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/overnight-20261102/s70",
+    "/workspace/generated_images/"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S70.json",
+    "Openactualold/newsource; verifyartbrief/focalfull4:3/rawprovenance, no game/runtime changes.",
+    "PrivateA05v3Pageaccess/MIME/size/hash/canonicalrefreadback; preserveallownerchoices/history/approvedposter."
+  ],
+  "started_at": "2026-11-01T22:10:40.110045+00:00",
+  "scope_end": "2026-11-01T22:25:00Z",
+  "source_write_allowed": false,
+  "all_write_freeze": "2026-11-02T07:45:00Z",
+  "hard_stop": "2026-11-02T08:00:00Z",
+  "issue_log_review": {
+    "bytes": 800666,
+    "sha256": "f099ee117951b1b38970f51414c40feb24c6c3784621ed965b7965d2a5f7842a"
+  }
+}

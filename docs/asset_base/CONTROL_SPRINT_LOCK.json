@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "S70-budget-uni-radio-art-20261101T2210",
   "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
-  "claimed_at": "2026-11-01T21:47:02.572908+00:00",
-  "expires_at": "2026-11-01T22:05:00Z",
-  "scope": "A coherent studio/presenter scene and a held arrival\u2192question\u2192choice\u2192writtenreaction\u2192nextquestion\u2192wrap sequence can establish context and agency. Define bounded two-question policy and durable checkpoint/once-settlement contract before code. Reuse pattern through existing game later, not an unbounded new dialogue engine.",
-  "authority": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
+  "claimed_at": "2026-11-01T22:10:40.110045+00:00",
+  "expires_at": "2026-11-01T22:25:00Z",
+  "scope": "Budgetstudentroom with cheapsecondhandequipment and an adult23\u201327presenter will match early-bandcareer better than maturehost/woodlinedprofessionalroom. Preserveguestcamera/full4:3face+mic+desk readability and nativeUI separation.",
+  "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T22:02:00.092833+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -333,8 +333,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "At the next existing22:15 opportunity, read latest Page/chat A05v2 decision and scope S70 ONE complete two-question radio studio visit. Read S69_RADIO_STUDIO_VISIT.md; pin durable phases/locked answers/preview-policy/final-once cost and full rollback BEFORE code. Studio source proposal remains pending owner; prepare useful model/native review work, do not promote unapproved art or claim source image is implemented gameplay. No APK/ZIP. Global08:00Nov2 hardstop unchanged.",
+  "pending_helpers": true,
+  "next_action": "S70ARTONLY budgetuni-radio/youngadultpresenter A05v3proposal. Anyconcurrentwake READONLY; sourceimplementationnextfreshS71 afterrelease. NoAPKZIP.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -374,7 +374,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S69",
+  "session": "S70",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",

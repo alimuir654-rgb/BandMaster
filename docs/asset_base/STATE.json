@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s69_radio_contract_art_review_ready",
+  "status": "s70_budget_radio_art_revision",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "A coherent studio/presenter scene and a held arrival\u2192question\u2192choice\u2192writtenreaction\u2192nextquestion\u2192wrap sequence can establish context and agency. Define bounded two-question policy and durable checkpoint/once-settlement contract before code. Reuse pattern through existing game later, not an unbounded new dialogue engine.",
-  "writer": null,
+  "scope": "Budgetstudentroom with cheapsecondhandequipment and an adult23\u201327presenter will match early-bandcareer better than maturehost/woodlinedprofessionalroom. Preserveguestcamera/full4:3face+mic+desk readability and nativeUI separation.",
+  "writer": "S70-budget-uni-radio-art-20261101T2210",
   "last_verified_code_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "baseline": {
     "run_id": 40778019754,
@@ -771,7 +771,7 @@
     "phone_release_is_this_source": false
   },
   "last_sprint": "S66",
-  "next_action": "At the next existing22:15 opportunity, read latest Page/chat A05v2 decision and scope S70 ONE complete two-question radio studio visit. Read S69_RADIO_STUDIO_VISIT.md; pin durable phases/locked answers/preview-policy/final-once cost and full rollback BEFORE code. Studio source proposal remains pending owner; prepare useful model/native review work, do not promote unapproved art or claim source image is implemented gameplay. No APK/ZIP. Global08:00Nov2 hardstop unchanged.",
+  "next_action": "S70ARTONLY budgetuni-radio/youngadultpresenter A05v3proposal. Anyconcurrentwake READONLY; sourceimplementationnextfreshS71 afterrelease. NoAPKZIP.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2119,7 +2119,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S69",
+  "session": "S70",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
@@ -2411,16 +2411,16 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-01T22:02:00.092833+00:00",
+  "released_at": null,
   "last_writer": "S69-radio-journey-art-contract-20261101T2147",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_metadata_artproposal_only",
-  "claimed_at": "2026-11-01T21:47:02.572908+00:00",
-  "expires_at": "2026-11-01T22:05:00Z",
-  "authority": "NEW direct owner21:43Nov1: radio session should show a studio and radio presenter, a set of questions/answers that impact result, a player-paced journey rather than instant Q&A, and a recurring pattern through the game. Board26 explicitly checks Revise A05. This supersedes the previously queued F02/F01 priority prospectively; existing finite08:00Nov2 end and NO APK/ZIP packaging remain.",
+  "claimed_at": "2026-11-01T22:10:40.110045+00:00",
+  "expires_at": "2026-11-01T22:25:00Z",
+  "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
