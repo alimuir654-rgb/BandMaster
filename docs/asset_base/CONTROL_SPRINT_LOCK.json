@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "09abcdc480a98b8d8f709f22a3f55221dd5a7702",
-  "claimed_at": "2026-11-01T05:42:22.252960+00:00",
-  "expires_at": "2026-11-01T07:50:00Z",
-  "scope": "Build and privately deliver ONE stable code6 APK from frozen verified db61; local curated project/review ZIP and extracted native-entry smoke, full update/permission/source/privacy integrity. No new source/art/QA breadth.",
-  "authority": "Approved overnight plan permits at most ONE stable milestone Android update and isolated checkpoint; selected compiledAPK private share to alimuir654@gmail.com already authorised. Artifact/metadata only, no source/art/model edits, no publicsource/history publication.",
+  "writer": "S56-owner-identity-calendar-20261101T0746",
+  "base_head": "81c0f8833ef1bb0f0c67108e08605997d4b6fd1b",
+  "claimed_at": "2026-11-01T07:50:51.074154+00:00",
+  "expires_at": "2026-11-01T08:20:00Z",
+  "scope": "Make existing saved game days/bookings visible in a free read-only calendar, and prepare one cohesive identity/poster design concept from the owner reference plus original C25 identities. No fake real dates/appointments, body-master claims, fixed generated cast shipped into arbitrary roster, or new gameplay/save schema. Broader logo/font/fullbody rollout is a separate future source phase.",
+  "authority": "Owner07:46 asks calendar, improved name/logo colors/fonts and coherent celebratory editorial milestones with bandname top and selected full-length musicians; attached monochrome band reference. This NEWsteering authorises this bounded calendar/source and identity DESIGNconcept pass prospectively; original08:30allwritefreeze/noautomaticextension retained.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
-  "released_at": "2026-11-01T05:58:39.957744+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -156,7 +156,7 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "S51/S52/S53/S54implementation and ONE stableV6 milestone complete; all source/art frozen, packagesLOCAL/APKprivatelydelivered. No pending implementation/GL/helpers/build. Nextread-only ownerphone/artfeedback/readiness, no newbreadth after07/allwrites08:30/hardstop09.",
-  "source_writer_released_at": "2026-11-01T05:58:39.957744+00:00",
+  "source_writer_released_at": null,
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONE selected compiledAPK private named reader; PhonePageprose only, no newpixels/source/history upload",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
@@ -209,7 +209,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "verified_complete",
-  "updated_at": "2026-11-01T05:58:39.957744+00:00",
+  "updated_at": "2026-11-01T07:50:51.074154+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",

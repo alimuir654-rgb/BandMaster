@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "id": "S56",
+  "status": "active",
+  "owner_request": "Owner07:46 asks calendar, improved name/logo colors/fonts and coherent celebratory editorial milestones with bandname top and selected full-length musicians; attached monochrome band reference. This NEWsteering authorises this bounded calendar/source and identity DESIGNconcept pass prospectively; original08:30allwritefreeze/noautomaticextension retained.",
+  "owner_approved": false,
+  "baseline_sha": "81c0f8833ef1bb0f0c67108e08605997d4b6fd1b",
+  "game_baseline_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-13",
+    "BM-15",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "Make existing saved game days/bookings visible in a free read-only calendar, and prepare one cohesive identity/poster design concept from the owner reference plus original C25 identities. No fake real dates/appointments, body-master claims, fixed generated cast shipped into arbitrary roster, or new gameplay/save schema. Broader logo/font/fullbody rollout is a separate future source phase.",
+  "stop_condition": "Sourcefreeze08:03, proof/closeouttarget08:20, releaseby08:25, ALLwrites08:30. Hold code if full73/88/import/4native+focusedread-onlycalendar cannot complete. No furtherAPK/automaticextension. Two ineffective attempts change method/HOLD.",
+  "target": {
+    "locator": "/workspace/work/s40/runs/s54-recording-db61d1d-final/captures/c27-milestone2-1280x720.png",
+    "original_sha256": "781ca536c64c16efe02cd4bba7e7b785f4a64d9b5746cd35c045742127009bfa",
+    "pixels_inspected": true,
+    "kind": "Actual current milestone2 wide original opened by root; current failure is tiny separate upperbodytiles. Ownerattachedmonochrome groupimage viewed inchat, not available as localbinary; no invented hash/rights/masterclaim."
+  },
+  "controlled_comparison": "Calendar uses actual ordinal DAYand one pending show plus separately labelled recent saved notes, existingpaper/native16copy/48controls/scroll/fixedBack. Root snapshot/model/save/filebytes unchanged byopen/scroll/resize/reload/navigation. No renderexpiry or inferred appointmentdates. Identityconcept DESIGNONLY: large bandname/cohesive full-lengthlineup/restrained palette; original upperbodyC25assets remain unchanged and fullbodylikeness needs owner review before production.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/calendar_desk.gd",
+    "experiments/playable_flightcase/calendar_capture.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S56.json",
+    "Strict73gameplay/88opening/cleanimport/4genuinejourneys exactcandidate using341base+explicitcalendarcopies",
+    "Fourfocusedgenuinecalendaropen/scroll/keyboard/resize/safeinsets/Back/Menu/diskContinue and snapshot/save/load invariance; empty/pending/due/overdue/invalidlegacyday presentations",
+    "ExactGit/runtime/protectedsourceaudit and originalnativePNGinspection; technicalPASS separatevisualPARTIAL/ownerfalse; conceptnever runtimeUI"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "a0f8a90bc475a4428f144fd760120daac4339d5290c469c043c41f6ac26083e3",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 595569,
+    "sha256": "2edafaab1cb4e2450f678039d0f2e1ef0bb3e27d44e181b738f83436b869035a"
+  },
+  "started_at": "2026-11-01T07:50:51.074154+00:00",
+  "scope_end": "2026-11-01T08:20:00Z",
+  "source_freeze_target": "2026-11-01T08:03:00Z",
+  "all_write_freeze": "2026-11-01T08:30:00Z",
+  "hard_stop": "2026-11-01T09:00:00Z",
+  "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "protected": [
+    "Original18C25/rawhardware/passivemeters/fonts/art/model/schema bytes",
+    "ExistingS51safearea/S52notesandheldDAY/S53shows/S54recordingtransactions",
+    "V6APK/sourcepackage unchanged; no production saves or publicsource/history writes"
+  ],
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
+  "next_action": "Implement one read-only calendar from original saved data; prepare identity/poster concept, then exactnativeproof and closeout before08:30. No additionalAPK.",
+  "visual_verdict": "partial",
+  "policy": {
+    "calendar": "OrdinalDAY, no epoch/weekdays invented. One actualbooked_show.day marker; career_journal separatelylabelled SavedNotes. No Tour.timeline guidance presented asappointments or cancellation/expiry calls onrender. UIvalidation handles malformed known fields without mutations.",
+    "identity": "Newownerreference drives DESIGNconcept; approved C25 upperbodycrops are not fullbodymasters. No runtimecast/bodyreplacement in this source slice. Morefont/color/nativeidentityrollout scoped afterartreview, not claimed implemented.",
+    "limits": "Onlycalendar source/integration plusconcept/brief withinremainingwindow. Original08:30allwritefreeze and09hardstop, no automaticcontinuation/newqueue."
+  }
+}
