@@ -39,7 +39,14 @@ func prepare_calendar_case(tag: String) -> bool:
  if not await activate("ContinueAction","enter") or not unchanged(saved,"actual saved-calendar Continue "+tag,1) or not await wait_practice():return false
  if named("RecapToggleAction")!=null:
   if not await free_action("RecapToggleAction") or not await wait_practice():return false
- if not await free_action("CareerDeskAction") or not await free_action("CareerHome_calendar","pointer"):return false
+ # On a due/overdue show day the existing RootUI already opens the live desk
+ # after Continue. Navigate its real DESK control rather than targeting the
+ # hidden practice button; this is fixture routing, not a product bypass.
+ if desk()!=null and desk().is_visible_in_tree():
+  if not await free_action("CareerNav_home"):return false
+ elif not await free_action("CareerDeskAction"):
+  return false
+ if not await free_action("CareerHome_calendar","pointer"):return false
  return verify(str(desk().get("page"))=="calendar" and desk().get("game")==model.game,"real Home CALENDAR opens actual same-game calendar: "+tag)
 
 func calendar_facts(expected_status: String) -> bool:
