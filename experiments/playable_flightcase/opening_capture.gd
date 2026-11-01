@@ -1659,10 +1659,23 @@ func take() -> void:
   # A bounded source-backed identity stage must also bound its associated
   # real progression button at phone, portrait tablet and desktop sizes.
   var practice_button: Button = screen.find_child("StartPlayAction",true,false)
-  if practice_button != null:
-   var permitted_width: float = minf(780.0,float(w) - (40.0 if w < 720 else 80.0))
-   if practice_button.get_global_rect().size.x > permitted_width + 1.0 or practice_button.get_global_rect().end.y>float(h)-4.0:
-    failures.append("S37 completed First Practice action clipped or wider than case")
+  if practice_button==null:
+   failures.append("S37 completed First Practice action missing")
+  else:
+   # S57's held editorial print has FIXED actions outside the print case.
+   # Require the real physical/safe bounds, not its superseded case width.
+   var action_rect: Rect2=practice_button.get_global_rect()
+   var safe_rect: Rect2=screen.get_global_rect().intersection(Rect2(0,0,w,h))
+   if not safe_rect.encloses(action_rect) or action_rect.size.x<44.0 or action_rect.size.y<44.0:
+    failures.append("S37 completed First Practice action clipped or outside physical safe area")
+   var ancestor: Node=practice_button.get_parent()
+   while ancestor!=null and ancestor!=screen:
+    if ancestor is ScrollContainer:
+     failures.append("S57 completed First Practice action scrolls with the poster")
+    ancestor=ancestor.get_parent()
+   var menu_action: Button=screen.find_child("CompletedMenuAction",true,false) as Button
+   if menu_action==null or not safe_rect.encloses(menu_action.get_global_rect()) or action_rect.intersects(menu_action.get_global_rect()):
+    failures.append("S57 fixed First Practice and Menu actions overlap or leave safe area")
   await click_action(practice_button)
   if screen.setup.screen!="play" or screen.setup.game.phase!="play":
    failures.append("real First Practice click did not hand off gameplay")

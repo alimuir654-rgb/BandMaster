@@ -50,7 +50,10 @@ func configure(roster: Array, lead_id: String, viewport_width: float, layout_hin
  headline.name="BandPosterHeadline"
  var lead: Label=cover.find_child("IdentityLeadVocal",true,false) as Label
  lead.name="LineupLeadVocal"
- add_child(row)
+ # Credits are part of the real selected-lineup component, below its paper.
+ # Keep the same visible four-pixel separation and native labels.
+ cover.add_theme_constant_override("separation",4)
+ cover.add_child(row)
  for person in roster.slice(0,6):
   var pid: String=str(person.get("id",""))
   var image: TextureRect=cover.find_child("IdentityPortrait_"+pid,true,false) as TextureRect
