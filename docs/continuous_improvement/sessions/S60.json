@@ -74,8 +74,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 696379,
-    "sha256": "411049fff2710b90d44d9c2e6ffec93fb26a9141384636c05677c80b5b517122"
+    "bytes": 698133,
+    "sha256": "d8c662c95c255bdbaf19bfd661694622e992e250297cef219101e6452d2de139"
   },
   "started_at": "2026-11-01T13:10:14.787982+00:00",
   "scope_end": "2026-11-01T14:20:00Z",
@@ -94,5 +94,6 @@
     "cause": "Instance-owned await resumes after ownerfree at CareerDesk286; actual phone/wide ERROR preserved.",
     "allow": "Only _restore_focus waiting implementation plus new internal one-shot callbacks; same twoframe/generation/currentfocus/busy/visibility/target/scroll behavior, no model/dispatch change.",
     "method": "Auto-disconnected bound process_frame callbacks instead of suspended instance methods; duplicate callbacks coalesced. No extra wait in immutable firstlook."
-  }
+  },
+  "owned_layout_lifecycle_432": "Same429 bound one-shot method applied to owned BandPosterView postdraw stages; no suspended instance awaits, same epoch/native-budget/2correction-pass/fade/user/data contract."
 }
