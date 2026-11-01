@@ -40,6 +40,14 @@ func shot57(label: String) -> void:
    check57(safe.encloses(rect) and rect.size.x>=44.0 and rect.size.y>=44.0,"fixed physical action inside safe content: "+name)
   elif name=="FirstPressCoverFrame":
    check57(safe.encloses(rect),"whole hero frame inside actual safe content")
+ for value in ["MilestoneOneStage","MilestoneTwoStage","ConfirmedIdentityStage"]:
+  var surround: Control=named57(value)
+  if surround==null or not surround.is_visible_in_tree(): continue
+  var ancestor: Node=surround.get_parent()
+  while ancestor!=null and not ancestor is ScrollContainer:
+   ancestor=ancestor.get_parent()
+  if ancestor is ScrollContainer:
+   check57((ancestor as ScrollContainer).get_global_rect().encloses(surround.get_global_rect()),"whole portrait metal surround inside actual initial scroll viewport: "+value)
  geometry57.append(measured)
  var path: String=output57+"/"+label+"-%dx%d.png"%[width57,height57]
  var picture: Image=root.get_texture().get_image()

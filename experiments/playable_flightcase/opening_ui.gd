@@ -682,16 +682,15 @@ func _cover_milestone(kind: String) -> void:
   var frame_skin: StyleBox=frame.get_theme_stylebox("panel")
   surface_budget.x=frame.custom_minimum_size.x-frame_skin.get_content_margin(SIDE_LEFT)-frame_skin.get_content_margin(SIDE_RIGHT)
   surface_budget.y=size.y-72.0-frame_skin.get_content_margin(SIDE_TOP)-frame_skin.get_content_margin(SIDE_BOTTOM)-12.0
+ var poster: Control
  if formation:
-  var poster:=BandPoster.new()
+  poster=BandPoster.new()
   poster.name="BandFormationPoster"
   content.add_child(poster)
-  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "",surface_budget)
  else:
-  var poster:=IdentityPress.new()
+  poster=IdentityPress.new()
   poster.name="CompletedBandPrint" if complete else "NamedMilestonePrint"
   content.add_child(poster)
-  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "",surface_budget)
  var fact: String=""
  if formation:
   fact="TALENT %d / 200  •  %d REMAINING"%[200-setup.remaining(),setup.remaining()]
@@ -714,6 +713,26 @@ func _cover_milestone(kind: String) -> void:
  else:
   signoff.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
   signoff.add_child(_button("BACK TO MENU",_home,"tab","NameMilestoneBackAction"))
+ if not wide:
+  # Budget the real remaining scroll viewport, including wrapped sign-off
+  # copy and the unchanged physical actions. Only the people row flexes.
+  var shell: MarginContainer=root.get_parent() as MarginContainer
+  var available_width: float=size.x-shell.get_theme_constant("margin_left")-shell.get_theme_constant("margin_right")
+  var available_height: float=size.y-shell.get_theme_constant("margin_top")-shell.get_theme_constant("margin_bottom")
+  available_height-=float(maxi(0,root.get_child_count()-1)*root.get_theme_constant("separation"))
+  for sibling in root.get_children():
+   if sibling==holder.get_parent(): continue
+   if sibling is Label:
+    available_height-=IdentityPress.printed_height(sibling,available_width)
+   elif sibling is Control:
+    available_height-=sibling.get_combined_minimum_size().y
+  var frame_skin: StyleBox=frame.get_theme_stylebox("panel")
+  surface_budget.x=frame.custom_minimum_size.x-frame_skin.get_content_margin(SIDE_LEFT)-frame_skin.get_content_margin(SIDE_RIGHT)
+  surface_budget.y=maxf(1.0,floorf(available_height-frame_skin.get_content_margin(SIDE_TOP)-frame_skin.get_content_margin(SIDE_BOTTOM)-2.0))
+ if formation:
+  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "",surface_budget)
+ else:
+  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "",surface_budget)
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
