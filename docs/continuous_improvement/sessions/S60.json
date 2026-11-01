@@ -74,8 +74,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 691298,
-    "sha256": "c1a7eb36372e0b0d232d136a13d224488d27a851619ba0db956faf4f85d85d22"
+    "bytes": 694987,
+    "sha256": "45392f0ad47f4204341e6329e86db654157aa41915473fd238a4bb71feb4ef27"
   },
   "started_at": "2026-11-01T13:10:14.787982+00:00",
   "scope_end": "2026-11-01T14:20:00Z",
@@ -86,7 +86,13 @@
   "source_inventory": "363 prior rawinputs plus ONE band_poster_view.gd =364 expected; no broad directory/art/font additions.",
   "protection": [
     "All original models/save/Finance/source54Scripts/art/fonts/C25/atlases/hardware/passivemeters unchanged. No name/formation/identity save calls.",
-    "CareerDesk original handlers/focus/guards remain byte-exact except one BAND button/preload/new separate handlers; busy=true uses existing before/after guard semantics. Clear matching modal slot before close/re-render/focus, forcedhide/free abort silently.",
+    "CareerDesk original model handlers remain byte-exact; owned BAND route and explicit429 focus-wait lifecycle repair allowed, original guards/semantics retained. Clear matching modal slot before close/re-render/focus, forcedhide/free abort silently.",
     "Shared BandIdentityPress adds only career-neutral mast/footer and missing-lead caption condition; every prior variant/data/layout stays unchanged. Currentmembers authoritative; whole fallback for unmapped data, no old foundingroster substitution."
-  ]
+  ],
+  "focus_lifecycle_rescope_429": {
+    "held_source": "d1f506bec4c9569b6790a357693c5eca0f022fd3",
+    "cause": "Instance-owned await resumes after ownerfree at CareerDesk286; actual phone/wide ERROR preserved.",
+    "allow": "Only _restore_focus waiting implementation plus new internal one-shot callbacks; same twoframe/generation/currentfocus/busy/visibility/target/scroll behavior, no model/dispatch change.",
+    "method": "Auto-disconnected bound process_frame callbacks instead of suspended instance methods; duplicate callbacks coalesced. No extra wait in immutable firstlook."
+  }
 }
