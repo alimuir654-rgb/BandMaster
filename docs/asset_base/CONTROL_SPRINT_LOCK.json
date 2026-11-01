@@ -1,13 +1,13 @@
 {
-  "writer": null,
-  "base_head": "a9632304718b98b1c409fad1367db4cdb3f76780",
-  "claimed_at": "2026-11-01T13:57:46.026827+00:00",
-  "expires_at": "2026-11-01T14:15:00Z",
-  "scope": "Correct one artifactsummary count before finalmetadatacommit; no source/art/build/engine/externalwrites.",
+  "writer": "S62-pixel9-apk-package-20261101T1425",
+  "base_head": "3934ad1944263eae3f4582d9946ee0f0f07664b3",
+  "claimed_at": "2026-11-01T14:27:16.025391+00:00",
+  "expires_at": "2026-11-01T15:35:00Z",
+  "scope": "Create ONE ARM64-only Pixel9 APK by conservative packaging of verified universalV7: drop exactly two unused ARMv7 engine libraries, regenerate v1/v2signatures withsamekey and officialzipalign/apksigner. Require every other uncompressed entry byte (ALLgameassets/compiledsource/fonts/art/manifest/Androidsettings/project.binary/ARM64engine/classes) identical to successful universal parent except exact3signaturefiles. Estimated90.6MB fits104857600Bconnectorcap.",
   "authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
+  "status": "claimed",
   "released_at": "2026-11-01T14:11:13.253502+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -209,7 +209,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "verified_local_current_band_poster_art_partial",
-  "updated_at": "2026-11-01T14:11:13.253502+00:00",
+  "updated_at": "2026-11-01T14:27:16.025391+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -271,7 +271,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "prepared_android_v7": {
     "status": "LOCAL_READY_PRIVATE_UPLOAD_BLOCKED_SIZE",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
