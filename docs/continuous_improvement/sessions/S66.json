@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S66",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "NEWdirectowner1Nov20:10 Continue with next steps, aftercompletedS65closeout/19:45freeze/20hardstop. CHECKauthorityrule prospectivelyauthorisesthisNEWmanualboundedS66F10pilot fromexplicitPage24F10approval; notautomaticextension. F09 needsapprovedinstrumentperformerassets/newpersistedmodel andremainsnextroadmap, no scopeinference.",
   "baseline_sha": "3908f7c79f551913b8dfd4cb5a82c012c49173ab",
@@ -70,7 +70,7 @@
     "All54originalScripts incl3trackedUIDs and376priorruntimeprotected; samePNGcomparison/relevantoriginalsopen/fiveSIMULATEDlenses; noAPK/ZIP/repeatunchangedtestsaftermetadata."
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "bf8d0b49aaa42eb4804df46fd01e3d78b0fc54dc2898e87c90d40c1b837de8c5",
+    "docs/continuous_improvement/LESSONS.md": "0821c23fc80b3ff2f4a1a5807e9ede9a1c41f3b473421c3948fb057d55941e36",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "started_at": "2026-11-01T20:15:35.590457+00:00",
@@ -91,7 +91,21 @@
     "CurrentPage24/7images/commentsnone; preserveownerdeletedA03v2nativepreview. No Pagewritesauthorisedforthissourceslice."
   ],
   "issue_log_review": {
-    "bytes": 767085,
-    "sha256": "6e4d45f8f747a83dc5716a3dc07dac1c576d0c24315c396573ad0cd95c11bcc0"
+    "bytes": 772534,
+    "sha256": "e2b2ed2c98d53a0c9f812a1b6f2a6823840dd59067a50b907159a33c199df772"
+  },
+  "closed_at": "2026-11-01T20:44:37.751507+00:00",
+  "tested_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
+  "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
+  "closeout": {
+    "tested_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
+    "evidence": [
+      "/workspace/work/promotion-20261101/s66/closeout.json",
+      "/workspace/work/s40/runs/s66-radio-4bbf6a1-final/complete-validation.json",
+      "/workspace/work/s40/runs/s66-radio-4bbf6a1-final/visual-review.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Read-only owner review of the completed local-radio pilot. Next source slice: scope approved F09 live-set work from actual show state and production-ready performer artwork; no automatic continuation, newAPK/ZIP or schedule.",
+    "new_issue_review": "469\u2013475retained; voice/cap/firstfoldsourcecorrectionsloggedfirst, twofailedQAattemptsheld/changedmethod/causalfixtureproof, allcurrentnativeERROR0.476finalreview, no gate/assertionweakening."
   }
 }

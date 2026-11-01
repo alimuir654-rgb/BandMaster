@@ -1,14 +1,14 @@
 {
-  "writer": "S66-radio-pilot-20261101T2015",
+  "writer": null,
   "base_head": "3908f7c79f551913b8dfd4cb5a82c012c49173ab",
   "claimed_at": "2026-11-01T20:15:35.590457+00:00",
-  "expires_at": "2026-11-01T21:07:00Z",
+  "expires_at": "2026-11-01T20:44:37.751507+00:00",
   "scope": "F10 ONE local-radio pilot: existingrecordingarchive\u2192freeexactreleased-demoselection\u2192costed\u00a320/1dayoriginalradio\u2192Storycampaign/Calendar/Life/Financeonce\u2192atomicownersave/wholecareerrollback\u2192heldInkreceiptanddurablecampaignstatus. Newpurepromotion_rules plusownedRecordingDesk/CareerDesk hooks only. No newraster/font/roster/control/economyrates/API/newAPK/ZIP/sourcepublication/schedule.",
   "authority": "NEWdirectowner1Nov20:10 Continue with next steps, aftercompletedS65closeout/19:45freeze/20hardstop. CHECKauthorityrule prospectivelyauthorisesthisNEWmanualboundedS66F10pilot fromexplicitPage24F10approval; notautomaticextension. F09 needsapprovedinstrumentperformerassets/newpersistedmodel andremainsnextroadmap, no scopeinference.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-01T20:44:37.751507+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S65-approved-art-integration-20261101T1932",
-  "source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+  "last_writer": "S66-radio-pilot-20261101T2015",
+  "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+  "candidate_source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -208,7 +208,7 @@
     "scope": "Approved firstgig verticalslice plus actualsoundcheckclaritycorrection, exactnative/art/sourceproof; no production/publicsource/Androidwrites.",
     "expires_at": "2026-11-01T04:25:00Z"
   },
-  "candidate_status": "verified_local_current_band_poster_art_partial",
+  "candidate_status": "verified_local_only",
   "updated_at": "2026-11-01T17:28:50.469236+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
@@ -334,9 +334,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": false,
-  "next_action": "Read-only owner review of integrated current lineup/icons; next development slice should scope approved F09/F10 from actual models and current378-source baseline. No automatic continuation, newAPK/ZIP, source/publication or schedule change.",
+  "next_action": "Read-only owner review of the completed local-radio pilot. Next source slice: scope approved F09 live-set work from actual show state and production-ready performer artwork; no automatic continuation, newAPK/ZIP or schedule.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -352,7 +352,7 @@
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
   },
-  "canonical_pointer_audit_at": "2026-11-01T19:43:39.138029+00:00",
+  "canonical_pointer_audit_at": "2026-11-01T20:44:37.751507+00:00",
   "previous_s65_release": {
     "writer": null,
     "last_writer": "S65-approved-art-integration-20261101T1932",
@@ -362,5 +362,10 @@
     "all_write_freeze": "2026-11-01T19:45:00Z",
     "hard_stop": "2026-11-01T20:00:00Z"
   },
-  "source_freeze_target": "2026-11-01T20:45:00Z"
+  "source_freeze_target": "2026-11-01T20:45:00Z",
+  "pending_candidate_source_sha": null,
+  "latest_unverified_candidate": null,
+  "source_phase": "closed",
+  "source_frozen_at": "2026-11-01T20:35:24.753192+00:00",
+  "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
 }
