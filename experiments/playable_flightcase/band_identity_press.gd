@@ -109,6 +109,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var body_height: float=(145.0 if tiny else 215.0) if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))
  if variant=="formation": body_height=210.0 if short else 240.0
  if hero: body_height=clampf(viewport_height-400.0,180.0,410.0)
+ if layout_hint=="tall" and surface_budget.y>0.0:
+  body_height=clampf(surface_budget.y*0.70,300.0,600.0)
  stage.custom_minimum_size.y=body_height if _full_length else (75.0 if compact else 120.0)
  content.add_child(stage)
  var views: Array[TextureRect]=[]

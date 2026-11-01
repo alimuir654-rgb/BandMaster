@@ -635,6 +635,7 @@ func _cover_milestone(kind: String) -> void:
  var wide: bool=size.x>=1000.0 and size.x>size.y
  var formation: bool=kind=="formation"
  var complete: bool=kind=="complete"
+ var composition: String="hero" if wide else ("tall" if size.x>=600.0 and size.y>=1000.0 else "")
  var frame: PanelContainer
  var signoff: VBoxContainer
  var holder: VBoxContainer
@@ -730,9 +731,9 @@ func _cover_milestone(kind: String) -> void:
   surface_budget.x=frame.custom_minimum_size.x-frame_skin.get_content_margin(SIDE_LEFT)-frame_skin.get_content_margin(SIDE_RIGHT)
   surface_budget.y=maxf(1.0,floorf(available_height-frame_skin.get_content_margin(SIDE_TOP)-frame_skin.get_content_margin(SIDE_BOTTOM)-2.0))
  if formation:
-  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "",surface_budget)
+  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,composition,surface_budget)
  else:
-  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "",surface_budget)
+  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),composition,surface_budget)
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
