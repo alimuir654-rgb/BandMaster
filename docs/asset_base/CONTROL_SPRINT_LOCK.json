@@ -1,5 +1,5 @@
 {
-  "writer": "S63-visual-career-owner-revision-20261101T1730",
+  "writer": null,
   "base_head": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
   "claimed_at": "2026-11-01T17:28:50.469236+00:00",
   "expires_at": "2026-11-01T19:40:00Z",
@@ -8,7 +8,7 @@
   "owner_approved": false,
   "previous_closed_session": "S39",
   "status": "claimed",
-  "released_at": "2026-11-01T14:38:45.952009+00:00",
+  "released_at": "2026-11-01T18:44:43.334913+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -321,17 +321,18 @@
     "released_at": "2026-11-01T18:11:01.473561+00:00",
     "result": "Onlygear_press native measuredword-awarecomposition repair456; nootherproductionpath edited."
   },
-  "page_write_allowed": {
-    "scope": "Owner18:07onePRIVATEfeature/artreviewPage+selectedPNGblocks only",
-    "new_gameplay_art_allowed": false,
-    "source_history_upload_allowed": false
+  "page_write_allowed": false,
+  "scratch_art_concept_allowed": false,
+  "previous_s63_release": {
+    "writer": "S63-visual-career-owner-revision-20261101T1730",
+    "claimed_at": "2026-11-01T17:28:50.469236+00:00",
+    "expires_at": "2026-11-01T19:40:00Z",
+    "source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+    "released_at": "2026-11-01T18:44:43.334913+00:00",
+    "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
+    "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "scratch_art_concept_allowed": {
-    "worker": "/root/visual_contract",
-    "limit": "ONEimage_gencall before18:40; no retriesbydefault",
-    "outputs": "Toolgenerated/workspace/generated_images/* + /workspace/work/review-roadmap-20261101/live-performer-concept.json + existingart-screen-map.json only",
-    "refs": "ActualexistingC25Arjunheadpreview andcorrectfullbodyregion/currentnativeposter, viewbeforeediting",
-    "quality_gate": "Guitarheldbelievably/fictionalidentity recognisable/noextra fingers/brands/fullUI; ownerPENDING, no productionintegration",
-    "freeze": "No game/source/artrepo writes; allnewconceptreviewonly. Existing19:45allwrite/20hardstop boundsunchanged"
-  }
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "next_action": "Owner review the private feature/artwork board, especially F09 live performance, F10 promotion and A01\u2013A04. Record explicit choices, then scope ONE approved next slice. No further source/art/QA/build activity or automatic continuation."
 }

@@ -124,6 +124,8 @@ Read this and CHECK_BEFORE_WORK.md before every task. Review all new ISSUES.json
 **Prevent:** Bound long content, reserve safe insets and use scrolling where needed. Test long names/text and physical readability, not only node rectangles.
 **Proof:** Long-copy, narrow-width, larger-text and live-resize captures with visible actions. Sources: SWEEP, C21, UX.
 
+S63 extension: measure the longest unbroken word using the actual native Label font and size, then subtract the real button housing margins from the available card width. RECONDITIONED needed131px at16px, while the narrow two-column card had116px of clear housing width. Child containers do not automatically enlarge a Button's minimum. Change a narrow gallery to horizontal art/text rows when the full word cannot fit; preserve type size, complete names and native prices. Guard deferred responsive layout against freed/out-of-tree owners and keep the fit idempotent. The repaired lower drum card was then captured through genuine Tab navigation, with full-word, housing, input and save guards.
+
 ### BM-23
 **What went wrong:** Logical-coordinate tap checks missed parent scaling: 44 logical units were not necessarily 44 physical pixels.
 **Prevent:** Measure transformed target bounds in the rendered window. Keep 44px physical minimum targets and sensible body text; regression font floors are not design goals.
@@ -180,6 +182,8 @@ Read this and CHECK_BEFORE_WORK.md before every task. Review all new ISSUES.json
 **What went wrong:** Blind regex/source injection and stale transformed path assertions broke later integrations.
 **Prevent:** Read current source. Prefer stable functions/configuration and precise patches. Distinguish an obsolete assertion from a product failure with evidence; never weaken checks to get green.
 **Proof:** Negative tests, clean import and preserved relevant regressions. Sources: C08, C15, C20.
+
+S63 extension: a genuine touch fling can leave scroll and target geometry moving after release. A fixed eight-draw settlement window is not a quiescence proof. Preserve the failed probe and observe actual integer/fractional scroll values and target/clip rectangles across completed draws, with a finite deadline and unchanged clip/input/save assertions. Current wide proof observed55 changes before154ms stationary; the observer never cancelled motion or assigned scroll. The earlier failure's inertia explanation remains inferred because the card composition changed separately before the new run; do not turn that hypothesis into a proven product or engine defect.
 
 ### BM-34
 **What went wrong:** Old successful runs, untested HEAD and publication commits could be confused; a pull-request-only wrapper missed push runs.
