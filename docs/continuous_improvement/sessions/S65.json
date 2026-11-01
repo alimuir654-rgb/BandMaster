@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "id": "S65",
+  "status": "active",
+  "owner_request": "NEWownerPage24explicitAPPROVEA02v2/APPROVEA03v2 aftercompletedboard andfront/non-smiling/variedpose+same-layout/new-icon instructions. IntegrateONLYtheseacceptedassets intoactuallocalgame, no furthergeneration/newfeatures/APK. Newapprovalprospectivelyauthorisesthisboundedassetintegrationafterearlierself-set19:15target;19:45ALLwritefreeze/20hardstopunchanged.",
+  "owner_approved": false,
+  "baseline_sha": "da2c371e198553bc9938cb8c5706a9ece64def4f",
+  "game_baseline_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-07",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-13",
+    "BM-14",
+    "BM-15",
+    "BM-16",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "TwoexistingUIhooks+twoBYTEEXACTPNGs+oneconciseprovenanceJSON=378curatedinputs. CurrentcareerposterONLYexactunique3-IDArjun/Zoe/Marcusc ohort anyorder usesapprovedfront/nonsmilingposes; allothervariants/rostersstayold. EightHomeiconsuseacceptedatlasatunchanged32px withoriginalfallback; no layout/labels/control/model/save changes.",
+  "stop_condition": "ONEdelegatedsourcewriter5paths, finishcode/releaseby19:36; rootexactsourceverificationdeadline19:42/release19:43/ALLwrites19:45/hard20. IfcannotfinishproofHOLDcandidateandretain3eclatestverified, no errorsmasked/no APK/ZIP/generation/breadth. SourcecutofffreshlyscopedafterNEWownerassetapproval; no automaticendextension.",
+  "target": {
+    "locator": "/workspace/work/owner-review-revisions-20261101/s64/preview-output/A02-v2/captures/review-only-A02-v2-poster-390x844.png",
+    "original_sha256": "66d77a4adfb0720d88255d6a7d79c516bd20ed69ecb398e8adb1d6d84c3afaef",
+    "pixels_inspected": true,
+    "kind": "ExactownerAPPROVEDA02v2nativepreview+approvedA03v2nativeiconac778...; bothrootopened andcheckedPage24."
+  },
+  "controlled_comparison": "Currentexact3ec375runtime/protected54Scripts/allrawcast/fonts/hardware/meters. ONLYcareerposterapprovedtrioassetandHomeicontextures change, existingframe/geometry/data/slots preserved. RAWPNG hashes9529cb.../8b5ecb... exact. Allother373priorinputs unchanged; modelpureproof17componentclosure reusable. New378exactnative73/88/import/4standard +meaningfulcurrenttrio/icon/save/input focusedproof, ZEROERROR, source/protection/pixel/nativeentry guards. No gamefeature/code outside2UIhooks.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+    "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+    "experiments/playable_flightcase/art/owner_approved_revisions_v2.json",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S65.json",
+    "Exact378source3newassets, protected373/54Scripts andalloriginalrawassets; full73/88/import/4native exactcandidate, focusedgenuinecurrent3trio/icon/economy/failedsave/readback, manuallyZEROERROR.",
+    "Actualnativeoriginalcomparison; productionGodotPNGimportmayfixlowalphaRGB, disclosewithoutretouch/assertionweakening.",
+    "No unnecessaryZIP/APK/build/rerunaftermetadata. Holdunverifiedcandidateifproofcannotcompletebefore19:42."
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "bf8d0b49aaa42eb4804df46fd01e3d78b0fc54dc2898e87c90d40c1b837de8c5",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 754667,
+    "sha256": "b693f272cd5c72f76a074e9e1783ac8ef894fdb2c281d59f26dd8bf673a8f55e"
+  },
+  "started_at": "2026-11-01T19:32:41.945833+00:00",
+  "scope_end": "2026-11-01T19:43:00Z",
+  "source_freeze_target": "2026-11-01T19:36:00Z",
+  "all_write_freeze": "2026-11-01T19:45:00Z",
+  "hard_stop": "2026-11-01T20:00:00Z",
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "source_inventory": "375prior+3newassets=378,2priorownedUIedits/373protected,original54Scripts/3UIDs exact.",
+  "protection": [
+    "No originalart/cast/model/save/hardware/font/dependency/engine changes.",
+    "Exactcareertrio only; no blanketothercast/formationredo or newfeatureimplementation.",
+    "OwnerdeletedonePageimage: preservedeletion, no reupload/recreation. Pagecurrent24/7images andallpriorchoicespreserved.",
+    "Oneknownread-onlyretrievalmistakebyhelper(rootCHECK/LESSONSpathsabsent); actualAGENTSprovidescorrectdocs/continuous_improvement paths, no source/testfailure. GOcorrectretrievalbeforeedit."
+  ],
+  "new_premium_policy": {
+    "shop_guitar_new": {
+      "name": "NEW ELECTRIC GUITAR",
+      "price": 450,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Guitarist"
+    },
+    "shop_bass_new": {
+      "name": "NEW BASS GUITAR",
+      "price": 500,
+      "readiness": 5,
+      "condition": 100,
+      "role": "Bassist"
+    },
+    "shop_cymbals_new": {
+      "name": "NEW CYMBAL SET",
+      "price": 300,
+      "readiness": 4,
+      "condition": 100,
+      "role": "Drummer"
+    }
+  },
+  "art_fit_method_448": "Stopgeneration after2prompts; measurednonuniformisolatedwholeproductbbox nativecrops frombyteoriginalsource2, actualnativepaperjudgementrequired.",
+  "actual_baseline": "b310import/phone127/wide127 checks0ERROR/orphans,3nativeoriginalseach; reportedtrio/style reconstructed viaactualmodel APIs, notowner-savepossession.",
+  "owner_decision_page_sequence": 24,
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "paths": [
+      "experiments/playable_flightcase/band_identity_press.gd",
+      "experiments/playable_flightcase/career_launcher.gd",
+      "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
+    ],
+    "expires_at": "2026-11-01T19:36:00Z"
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "writer": null,
+  "writer": "S65-approved-art-integration-20261101T1932",
   "base_head": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
-  "claimed_at": "2026-11-01T18:58:14.295078+00:00",
-  "expires_at": null,
-  "scope": "A02v2one3-personfictionalArjun/Zoe/Marcussharedtransparentfigurestudy:frontfaces/closedmouth/nosmiles/variedarmstances/samecamera/costumes, no UI. A03v2one8-iconivoryboldstampstudywhilekeepingnative8-tilelayout/labels/geometry. Ownerreviewsactualprototypesbeforeproduction. Existing3ecGame/375sourcesfrozen.",
+  "claimed_at": "2026-11-01T19:32:41.945833+00:00",
+  "expires_at": "2026-11-01T19:43:00Z",
+  "scope": "TwoexistingUIhooks+twoBYTEEXACTPNGs+oneconciseprovenanceJSON=378curatedinputs. CurrentcareerposterONLYexactunique3-IDArjun/Zoe/Marcusc ohort anyorder usesapprovedfront/nonsmilingposes; allothervariants/rostersstayold. EightHomeiconsuseacceptedatlasatunchanged32px withoriginalfallback; no layout/labels/control/model/save changes.",
   "authority": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
   "owner_approved": false,
   "previous_closed_session": "S39",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -344,5 +344,16 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
+  },
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "paths": [
+      "experiments/playable_flightcase/band_identity_press.gd",
+      "experiments/playable_flightcase/career_launcher.gd",
+      "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
+    ],
+    "expires_at": "2026-11-01T19:36:00Z"
   }
 }

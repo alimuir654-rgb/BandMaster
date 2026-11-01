@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s64_art_v2_review_ready_owner_decisions_recorded",
+  "status": "s65_approved_art_integration_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
-  "writer": null,
+  "writer": "S65-approved-art-integration-20261101T1932",
   "last_verified_code_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Owner review A02 v2 and A03 v2 on the existing private board; preserve approved F01\u2013F06/F08\u2013F10, deferred F07, approved A01 and A04 direction. Then choose ONE approved bounded source slice, prioritising F09/F10. No further generation/source/test/build activity or automatic extension.",
+  "next_single_action": "IntegrateexactapprovedA02v2/A03v2, verifyby19:42orHOLD;noothercode/build.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -687,7 +687,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S64",
+  "current_session": "S65",
   "last_verified_native_run": "/workspace/work/s40/runs/s63-visual-career-3ec1154-final/complete-validation.json",
   "latest_verified_phase2": {
     "sprint": "S63",
@@ -697,7 +697,7 @@
     "owner_approved": false
   },
   "last_sprint": "S52",
-  "next_action": "Owner review A02 v2 and A03 v2 on the existing private board; preserve approved F01\u2013F06/F08\u2013F10, deferred F07, approved A01 and A04 direction. Then choose ONE approved bounded source slice, prioritising F09/F10. No further generation/source/test/build activity or automatic extension.",
+  "next_action": "IntegrateexactapprovedA02v2/A03v2, verifyby19:42orHOLD;noothercode/build.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2034,7 +2034,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "docs/continuous_improvement/sessions/S64.json",
+  "session": "docs/continuous_improvement/sessions/S65.json",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-01T19:45:00Z",
   "hard_stop": "2026-11-01T20:00:00Z",
