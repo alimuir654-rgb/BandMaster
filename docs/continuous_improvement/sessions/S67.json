@@ -73,7 +73,7 @@
   },
   "started_at": "2026-11-01T20:47:44.748770+00:00",
   "scope_end": "2026-11-01T21:09:00Z",
-  "source_freeze_target": "2026-11-01T20:55:00Z",
+  "source_freeze_target": "2026-11-01T20:59:30Z",
   "all_write_freeze": "2026-11-01T21:10:00Z",
   "hard_stop": "2026-11-01T21:15:00Z",
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
@@ -86,7 +86,9 @@
     "Physicaldevice/maximal-title/CLEAR variants remainhonestlimits unlessactuallytested. Sameexistingwriteend/hardstop, no automaticextension."
   ],
   "issue_log_review": {
-    "bytes": 774577,
-    "sha256": "944a35026fd9f0057877e52634d6c4ac30c7678127f4d608b3046f889ff1c64f"
-  }
+    "bytes": 778126,
+    "sha256": "7f00c453962fbe18816e1c0015492ffccd2a0ef2ad87a243f7babc10384f3f65"
+  },
+  "original_source_freeze_target": "2026-11-01T20:55:00Z",
+  "bounded_repair_479": "ONEGridhorizontalshrinkproperty foractualwidecapsules, newdemonstratedgapwithinexistingwriteend. No target/endautomaticextension; proof21:07/HOLDifincomplete."
 }
