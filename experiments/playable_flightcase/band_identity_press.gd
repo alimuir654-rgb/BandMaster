@@ -32,7 +32,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  add_theme_constant_override("separation",0)
  var compact: bool=variant=="preview"
  var tiny: bool=viewport_width<480.0
- var short: bool=get_viewport_rect().size.y<800.0
+ var short: bool=is_inside_tree() and get_viewport_rect().size.y<800.0
  var selected_style: Dictionary=Style.effective(style,palette)
  var dark: bool=Style.dark_paper(selected_style)
  var paper:=PanelContainer.new()

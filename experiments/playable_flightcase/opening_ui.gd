@@ -500,6 +500,7 @@ func _begin_new() -> void:
 func _continue() -> void:
  if setup.load_draft():
   identity_draft = {}
+  response = ""
   showing_menu = false
   settings_open = false
   _render()
@@ -787,6 +788,7 @@ func _load_identity_draft() -> void:
 
 func _start_identity() -> void:
  if setup.start_identity():
+  response=""
   _load_identity_draft()
   _render()
 
@@ -796,11 +798,13 @@ func _identity() -> void:
  root.add_child(_label("03 / NAME & LOOK",24))
  root.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
  var wide: bool=size.x>=1100.0 and size.x>size.y
- var workspace: BoxContainer=HBoxContainer.new() if wide else VBoxContainer.new()
- workspace.name="IdentityWorkspace"
- workspace.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- workspace.size_flags_vertical=Control.SIZE_EXPAND_FILL
- workspace.add_theme_constant_override("separation",20)
+ var workspace: HBoxContainer
+ if wide:
+  workspace=HBoxContainer.new()
+  workspace.name="IdentityWorkspace"
+  workspace.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  workspace.size_flags_vertical=Control.SIZE_EXPAND_FILL
+  workspace.add_theme_constant_override("separation",20)
  var controls: VBoxContainer=_column()
  controls.name="IdentityChoices"
  var proof_holder:=VBoxContainer.new()
@@ -811,7 +815,6 @@ func _identity() -> void:
  var identity_print:=IdentityPress.new()
  identity_print.name="IdentityPreviewPrint"
  proof_holder.add_child(identity_print)
- identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"])
  var choices_scroll:=ScrollContainer.new()
  choices_scroll.follow_focus=true
  choices_scroll.name="IdentityChoicesScroll"
@@ -829,6 +832,7 @@ func _identity() -> void:
   root.add_child(choices_scroll)
   choices_scroll.add_child(controls)
   controls.add_child(proof_holder)
+ identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"])
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2
@@ -888,10 +892,13 @@ func _identity() -> void:
   var b: Button=_identity_button(("✓ " if identity_draft["vibe"]==value else "")+value.to_upper(),_design.bind("vibe",value),"tab","IdentityVibe_"+value)
   b.add_theme_font_size_override("font_size",14)
   vibes.add_child(b)
- if not response.is_empty(): controls.add_child(_label(response,16))
  var footer:=VBoxContainer.new()
  footer.add_theme_constant_override("separation",6)
  root.add_child(footer)
+ if not response.is_empty():
+  var commit_notice: Label=_label(response,16)
+  commit_notice.name="IdentityCommitNotice"
+  footer.add_child(commit_notice)
  footer.add_child(_identity_button("APPLY LOOK & FORM THE BAND ›",_finish,"action","IdentityFinishAction"))
  footer.add_child(_identity_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
 

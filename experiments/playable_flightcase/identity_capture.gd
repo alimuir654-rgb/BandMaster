@@ -9,6 +9,7 @@ var screen57
 var width57 := 390
 var height57 := 844
 var orphan57 := 0
+var touch_trace57: Array=[]
 
 func check57(condition: bool, message: String) -> bool:
  checks57+=1
@@ -56,6 +57,45 @@ func cover57(value: String, expected: Array) -> bool:
    check57(str(photo.get_meta("cast_id",""))==str(pid) and photo.mouse_filter==Control.MOUSE_FILTER_IGNORE and photo.focus_mode==Control.FOCUS_NONE,"actual source ID and inert portrait semantics")
  var mark: Label=cover.find_child("IdentityLiveMark",true,false) as Label
  check57(mark!=null and str(mark.get("full_name"))==screen57.setup.name_locked,"full original band name retained by shared native mark")
+ return failures.is_empty()
+
+func touch_scroll57(target_name: String) -> bool:
+ var scroll: ScrollContainer=named57("IdentityChoicesScroll") as ScrollContainer
+ var target: Control=named57(target_name)
+ if not check57(scroll!=null and target!=null and scroll.follow_focus,"real focus-following editor scroll and touch target"): return false
+ scroll.ensure_control_visible(target)
+ await settle57()
+ var before: Dictionary=guard57()
+ var draft: Dictionary=screen57.identity_draft.duplicate(true)
+ var previous_mouse: bool=Input.emulate_mouse_from_touch
+ var previous_touch: bool=Input.emulate_touch_from_mouse
+ Input.emulate_mouse_from_touch=true
+ Input.emulate_touch_from_mouse=true
+ if not DisplayServer.is_touchscreen_available():
+  Input.emulate_mouse_from_touch=previous_mouse;Input.emulate_touch_from_mouse=previous_touch
+  return check57(false,"existing native touch-emulation positive capability")
+ var point: Vector2=target.get_global_rect().get_center()
+ var down:=InputEventScreenTouch.new()
+ down.window_id=root.get_window_id();down.index=0;down.position=point;down.pressed=true
+ Input.parse_input_event(down);await process_frame
+ var start: int=scroll.scroll_vertical
+ var samples: Array=[]
+ for step in range(6):
+  var delta:=Vector2(0,-16);point+=delta
+  var drag:=InputEventScreenDrag.new()
+  drag.window_id=root.get_window_id();drag.index=0;drag.position=point
+  drag.relative=delta;drag.screen_relative=delta;drag.velocity=delta*60;drag.screen_velocity=delta*60
+  Input.parse_input_event(drag);await process_frame;samples.append(scroll.scroll_vertical)
+ var finish: int=scroll.scroll_vertical
+ var up:=InputEventScreenTouch.new()
+ up.window_id=root.get_window_id();up.index=0;up.position=point;up.pressed=false
+ Input.parse_input_event(up)
+ await create_timer(0.35).timeout
+ Input.emulate_mouse_from_touch=previous_mouse;Input.emulate_touch_from_mouse=previous_touch
+ touch_trace57.append({"target":target_name,"after_press":start,"samples":samples,"after_drag":finish,"physical_device":false})
+ check57(finish>start+24,"actual native drag from "+target_name+" scrolls the production editor")
+ check57(screen57.identity_draft==draft,"native scrolling never activates a type choice")
+ unchanged57(before,"actual editor touch gesture")
  return failures.is_empty()
 
 func journey57() -> bool:
@@ -109,6 +149,8 @@ func journey57() -> bool:
   unchanged57(before,"free ink preview")
   if ink in ["ivory","cobalt"]: await shot57("identity-ink-"+str(ink))
  if not await click57("IdentityType_blockprint") or not await click57("IdentityInk_charcoal") or not await click57("IdentityLogo_Stamp"): return false
+ if width57<480:
+  if not await touch_scroll57("IdentityPressMasthead") or not await touch_scroll57("IdentityType_condensed"): return false
  unchanged57(before,"all native previews before Apply")
  var draft: Dictionary=screen57.identity_draft.duplicate(true)
  DisplayServer.window_set_size(Vector2i(height57,width57))
@@ -124,6 +166,8 @@ func journey57() -> bool:
  if not check57(DirAccess.make_dir_recursive_absolute(temporary)==OK,"actual isolated temp-directory failure fixture"): return false
  if not await click57("IdentityFinishAction"): return false
  check57(model.screen=="identity" and screen57.identity_draft==draft,"failed Save leaves editor and retained draft ready to retry")
+ var notice: Label=named57("IdentityCommitNotice") as Label
+ check57(notice!=null and notice.is_visible_in_tree() and Rect2(Vector2.ZERO,Vector2(root.size)).encloses(notice.get_global_rect()) and notice.get_theme_font_size("font_size")>=16,"actual save error is readable beside fixed retry controls")
  unchanged57(before,"real failed identity save")
  await shot57("identity-save-failure")
  check57(DirAccess.remove_absolute(temporary)==OK,"remove only owned empty temp-directory fixture")
@@ -166,7 +210,7 @@ func take() -> void:
  await settle57()
  var after: int=int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
  check57(after<=orphan57,"no orphan growth after native journey cleanup")
- var result: Dictionary={"pass":okay and failures.is_empty(),"checks":checks57,"errors":failures,"originals":images57,"orphan_before":orphan57,"orphan_after":after,"physical_phone":false,"fixture":"Real model-prepared trio, then actual native typing/pointer/resize/save-failure/retry/held/Continue"}
+ var result: Dictionary={"pass":okay and failures.is_empty(),"checks":checks57,"errors":failures,"originals":images57,"orphan_before":orphan57,"orphan_after":after,"touch_trace":touch_trace57,"physical_phone":false,"fixture":"Real model-prepared trio, then actual native typing/pointer/touch/resize/save-failure/retry/held/Continue"}
  var file:=FileAccess.open(output57+"/result.json",FileAccess.WRITE)
  file.store_string(JSON.stringify(result,"  "));file.close()
  print("S57_IDENTITY_NATIVE_RESULT ",JSON.stringify(result))
