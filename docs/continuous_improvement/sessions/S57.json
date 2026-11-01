@@ -73,7 +73,8 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/opening_capture.gd"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S57.json",
@@ -86,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 614940,
-    "sha256": "7cc5436b91445ca33cfdb2cb388c4089de3d87edc75991be7e96ad965ebfefa7"
+    "bytes": 616521,
+    "sha256": "0efad96872dde79c5f69b22ebe47d0714c32e9a56adeab5408b91a916a573a69"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T11:15:00Z",
@@ -100,5 +101,7 @@
     "Original18 C25 PNG/JSON bytes and character identities, raw hardware/passivemeters/oldfonts/art",
     "Original deterministic game/economy/finance/show/recording/core saves; saveversion1 and unknown careerfields",
     "Production/main/PR199 untouched, source/historylocal, V6APKunchanged; endedautomationdisabled"
-  ]
+  ],
+  "native_contract_rescope": "Old S37 hardcoded 200..260px upperbody source-width assumption must become exact fullbody per-ID AtlasTexture/source-region provenance validation while retaining every real identity/lead/passive/focus/fullname/geometry/save assertion. This owner-directed source-art replacement is intentional; no hidden upperbody nodes added to satisfy obsolete test.",
+  "save_contract": "New style previews UIlocal/excluded fromsnapshot. Optional explicit validated identity_style_v1 committed onlywith finish. Preserve strict legacy enums, unknownnestedstyle extensions, oldabsentkey and v1schema. Original taste/revisions/delta and formation/one±morale unchanged. Repair wholeOpening/Game savefailure rollback at name/identity boundary with actual temporary-file error/rename proof; new style also copied whole into career. Do not claim partialwrite atomicity without evidence."
 }
