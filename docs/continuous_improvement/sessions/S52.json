@@ -77,7 +77,8 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/ui.gd"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S52.json",
@@ -98,7 +99,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 472642,
-    "sha256": "5ffbffe5a81a20b97f86096b8cd5cff7c97cc75198613534c97919d44a2e1c87"
-  }
+    "bytes": 477545,
+    "sha256": "41e80ced4a674ba6bb66c2869717d885476c8ceb5ceb1496e3e0a2c566f52ec4"
+  },
+  "rescope": "Event299: explicit ownerhide cleanup animate=false call only in ui.gd; source before corrected native replay."
 }
