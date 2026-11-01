@@ -56,6 +56,7 @@ static func validate(state: Dictionary) -> Dictionary:
  if int(state.get("tour_day",1))!=int(visit["started_day"]) or int(state.get("cash",0))!=int(visit["started_cash"]):return {"ok":false,"message":"The band's day or cash changed during this visit. Cancel the unfinished visit before another commitment."}
  var selected: Dictionary=Promotion.selection(state,visit["demo_id"],fingerprint,int(visit["demo_index"]))
  if not bool(selected.get("ok",false)) or bool(selected.get("completed",false)):return {"ok":false,"message":str(selected.get("message","The selected recording is unavailable.")) if not bool(selected.get("ok",false)) else "This recording's radio campaign has already completed."}
+ if int(selected["index"])!=int(visit["demo_index"]):return {"ok":false,"message":"The recording moved within the archive during this visit. Cancel the unfinished visit before selecting it again."}
  return {"ok":true,"message":""}
 
 static func begin(state: Dictionary, id: String, fingerprint: String, index: int=-1) -> Dictionary:

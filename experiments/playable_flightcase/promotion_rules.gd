@@ -138,6 +138,7 @@ static func launch(state: Dictionary, id: String, expected_fingerprint: String, 
   if not bool(interview_policy.get("ok",false)):return _fail(state,str(interview_policy.get("message","Resume the radio visit.")))
  var selected: Dictionary=selection(state,id,expected_fingerprint,expected_index)
  if not bool(selected.get("ok",false)):return _fail(state,str(selected.get("message","Choose a demo.")))
+ if not interview_policy.is_empty() and int(selected["index"])!=expected_index:return _fail(state,"The recording moved within the archive during this visit. Cancel the unfinished visit before selecting it again.")
  if bool(selected["completed"]):return _fail(state,"This demo's local-radio campaign is already complete. Read its saved notes freely.")
  var guard: Dictionary=Finance.guard(state)
  if not bool(guard.get("ok",false)):return _fail(state,str(guard.get("message","The band cannot commit another day.")))
