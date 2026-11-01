@@ -52,6 +52,7 @@
   "controlled_comparison": "Identical actual selected genre/copy/window/safearea/background/paper and settled reading position. Compare f2 native baseline.14 actual selections, same retained buttons/Enter then Space/focus/reveal/wheel/resize/Next/Back/disk reload; genuine touch drag in index with no accidental selection/save. Title no ellipsis or shrinking, actual bundled face, facts16/14 preserved. Phone index >=180px with28/24 insets, footer48px+fullysafe, no horizontal overflow. If new face changes phone firstfold, measure and retain usable allocation; no masking. Wide actual contained ink must visibly grow, not just empty rect.",
   "allowed_paths": [
     "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
     "docs/continuous_improvement/**",
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
@@ -69,8 +70,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 665532,
-    "sha256": "f41e3fd7334ce314b19821b6b71cada0efb8d6512770db56cdc1cab325dc21fa"
+    "bytes": 667439,
+    "sha256": "cbe795511c2d10cb4545d1d37bd8a7393a13a8641e6c92b18044c8c010301d44"
   },
   "started_at": "2026-11-01T11:49:00.182682+00:00",
   "scope_end": "2026-11-01T13:15:00Z",
@@ -95,5 +96,6 @@
       "sha256": "8aa1203883e2d3d7614977f33c84a08520f88214b28322fcad3c96e6a267b3dc",
       "viewed_exact_byte_equivalent": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/captures/c27-genre-1280x720.png"
     }
-  ]
+  ],
+  "touch_rescope_415": "Concrete stock96px/product0px drag failure. Only _genre index Button.mouse_filter=PASS is newly allowed; original Kit and _choose/_reveal/_to_recruit/save policy bytes remain protected. Immutable native pointer/key/touch+snapshot/disk assertions before full4profile proof."
 }
