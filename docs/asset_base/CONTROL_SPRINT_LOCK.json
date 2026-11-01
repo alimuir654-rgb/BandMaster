@@ -1,14 +1,14 @@
 {
-  "writer": "S64-owner-art-revisions-20261101T1900",
+  "writer": null,
   "base_head": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
   "claimed_at": "2026-11-01T18:58:14.295078+00:00",
-  "expires_at": "2026-11-01T19:30:00Z",
+  "expires_at": null,
   "scope": "A02v2one3-personfictionalArjun/Zoe/Marcussharedtransparentfigurestudy:frontfaces/closedmouth/nosmiles/variedarmstances/samecamera/costumes, no UI. A03v2one8-iconivoryboldstampstudywhilekeepingnative8-tilelayout/labels/geometry. Ownerreviewsactualprototypesbeforeproduction. Existing3ecGame/375sourcesfrozen.",
   "authority": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
   "owner_approved": false,
   "previous_closed_session": "S39",
   "status": "claimed",
-  "released_at": "2026-11-01T18:44:43.334913+00:00",
+  "released_at": "2026-11-01T19:24:59.824767+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -271,7 +271,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -321,7 +321,7 @@
     "released_at": "2026-11-01T18:11:01.473561+00:00",
     "result": "Onlygear_press native measuredword-awarecomposition repair456; nootherproductionpath edited."
   },
-  "page_write_allowed": "ExistingprivateownerreviewboardONLY; preserveownercheckboxes/versionhistory",
+  "page_write_allowed": false,
   "scratch_art_concept_allowed": false,
   "previous_s63_release": {
     "writer": "S63-visual-career-owner-revision-20261101T1730",
@@ -333,8 +333,16 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "Owner review the private feature/artwork board, especially F09 live performance, F10 promotion and A01\u2013A04. Record explicit choices, then scope ONE approved next slice. No further source/art/QA/build activity or automatic continuation.",
+  "pending_helpers": false,
+  "next_action": "Owner review A02 v2 and A03 v2 on the existing private board; preserve approved F01\u2013F06/F08\u2013F10, deferred F07, approved A01 and A04 direction. Then choose ONE approved bounded source slice, prioritising F09/F10. No further generation/source/test/build activity or automatic extension.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
-  "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass"
+  "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
+  "previous_s64_release": {
+    "writer": "S64-owner-art-revisions-20261101T1900",
+    "claimed_at": "2026-11-01T18:58:14.295078+00:00",
+    "expires_at": "2026-11-01T19:30:00Z",
+    "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
+    "released_at": "2026-11-01T19:24:59.824767+00:00",
+    "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
+  }
 }
