@@ -1,13 +1,13 @@
 {
-  "writer": null,
-  "base_head": "81c0f8833ef1bb0f0c67108e08605997d4b6fd1b",
-  "claimed_at": "2026-11-01T07:50:51.074154+00:00",
-  "expires_at": "2026-11-01T08:24:00Z",
-  "scope": "S56source/art FROZEN. Onlyinflight proof aggregation, actualconfigured-entry validation and metadata closeout/release by08:24; original08:30allwritefreeze/09hardstop unchanged.",
-  "authority": "Owner07:46 asks calendar, improved name/logo colors/fonts and coherent celebratory editorial milestones with bandname top and selected full-length musicians; attached monochrome band reference. This NEWsteering authorises this bounded calendar/source and identity DESIGNconcept pass prospectively; original08:30allwritefreeze/noautomaticextension retained.",
+  "writer": "S57-owner-identity-manual-20261101T0830",
+  "base_head": "3b5805f8c8ede19a42fdba29c90f974456a626e3",
+  "claimed_at": "2026-11-01T08:32:28.180359+00:00",
+  "expires_at": "2026-11-01T11:15:00Z",
+  "scope": "One shared native band-mark renderer with4 licensed type directions/8 contrast-aware inks, free retained draft previews and atomic once-only identity confirmation, actual selected-ID group composed from new identity-referenced full-length source layers, and held named milestone. Large type, coherent group camera/floor/light, original paper/hardware and native readable controls give the concept quality in the game. Original taste/morale rules, all prior gameplay/economy/saveversion remain intact.",
+  "authority": "NEW direct owner instruction after S56 closeout: Go ahead with the identity work - I want to see that quality level in the game. This authorises a new MANUAL identity implementation in the same thread. Completed overnight schedule/deadlines retained as history; automation stays ended/disabled. No new queue/controller, no merge/publication/production save or additional APK authority inferred.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
+  "status": "claimed",
   "released_at": "2026-11-01T08:19:48.986348+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONE selected compiledAPK private named reader; PhonePageprose only, no newpixels/source/history upload",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
@@ -190,8 +190,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-01T08:30:00Z",
-  "hard_stop": "2026-11-01T09:00:00Z",
+  "all_write_freeze": "2026-11-01T11:15:00Z",
+  "hard_stop": "2026-11-01T11:15:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -209,7 +209,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "verified_calendar_identity_design_only",
-  "updated_at": "2026-11-01T08:19:48.986348+00:00",
+  "updated_at": "2026-11-01T08:32:28.180359+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -262,5 +262,13 @@
     "authority": "Owner07:46 asks calendar, improved name/logo colors/fonts and coherent celebratory editorial milestones with bandname top and selected full-length musicians; attached monochrome band reference. This NEWsteering authorises this bounded calendar/source and identity DESIGNconcept pass prospectively; original08:30allwritefreeze/noautomaticextension retained.",
     "source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
     "released_at": "2026-11-01T08:19:48.986348+00:00"
-  }
+  },
+  "previous_completed_overnight_window": {
+    "all_write_freeze": "2026-11-01T08:30:00Z",
+    "hard_stop": "2026-11-01T09:00:00Z",
+    "source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
+    "released_at": "2026-11-01T08:19:48.986348+00:00",
+    "automation_ended": true
+  },
+  "manual_self_bounded": true
 }
