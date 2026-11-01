@@ -8,6 +8,42 @@ const Life = preload("res://Scripts/member_life.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const RECEIPT_KEY := "receipt_v1"
 const METRICS := ["cash","tour_day","fans","press","buzz","reputation","morale"]
+const VISIT_KEY := "radio_visit_v1"
+const QUESTIONS := {
+ "focus":{"text":"What should listeners remember about this record?","choices":{"craft":{"text":"The songwriting and the details in our songs.","hint":"Emphasise craft: more press, less buzz.","fans":0,"press":3,"buzz":-2},"live_energy":{"text":"The energy we want our band to carry.","hint":"Emphasise energy: more buzz, less press.","fans":0,"press":-2,"buzz":3}}},
+ "invitation":{"text":"What would you ask a new listener to do next?","choices":{"invite":{"text":"Bring a friend and give our band a listen.","hint":"A wider invitation: more fans, less press.","fans":2,"press":-2,"buzz":0},"critical_craft":{"text":"Listen closely and judge the craft of the record.","hint":"A closer listen: more press, fewer fans.","fans":-1,"press":2,"buzz":0}}}
+}
+
+static func visit_locked(state: Dictionary) -> bool:
+ if not state.has(VISIT_KEY):return false
+ var wrapper: Variant=state[VISIT_KEY]
+ if not wrapper is Dictionary or not _whole(wrapper.get("version",0),1) or int(wrapper["version"])!=1 or not _whole(wrapper.get("seq",-1)) or not wrapper.get("active") is Dictionary:return true
+ return not (wrapper["active"] as Dictionary).is_empty()
+
+static func _interview(state: Dictionary, id: String, fingerprint: String, index: int, context: Dictionary) -> Dictionary:
+ if not visit_locked(state) or context.is_empty():return _bad("Resume or cancel the active radio visit before another commitment.")
+ var wrapper: Variant=state.get(VISIT_KEY)
+ if not wrapper is Dictionary or not _whole(wrapper.get("version",0),1) or int(wrapper["version"])!=1 or not _whole(wrapper.get("seq",-1),1):return _bad("The saved radio visit needs validation.")
+ var visit: Variant=wrapper.get("active")
+ if not visit is Dictionary:return _bad("The saved radio visit needs validation.")
+ if visit.get("id")!=context.get("visit_id") or visit.get("phase")!="wrap_ready" or not _whole(visit.get("revision",-1)) or int(visit["revision"])!=6 or visit["revision"]!=context.get("expected_revision"):return _bad("This radio visit changed. Resume its current phase.")
+ if visit.get("id")!="radio-visit:%d:%s" % [int(wrapper["seq"]),fingerprint.left(12)] or visit.get("demo_id")!=id or visit.get("source_fingerprint")!=fingerprint or visit.get("demo_index")!=index:return _bad("The radio visit no longer identifies this exact demo.")
+ for key in ["policy_version","content_version"]:
+  if not _whole(visit.get(key,0),1) or int(visit[key])!=1:return _bad("This radio visit uses an unsupported policy or question version.")
+ if visit.get("presenter_id")!="student_presenter_v1" or visit.get("question_ids")!=["focus","invitation"]:return _bad("This radio visit's questions need validation.")
+ if not _whole(visit.get("started_day",0),1) or not _whole(visit.get("started_cash",-1)) or int(visit["started_day"])!=int(state.get("tour_day",1)) or int(visit["started_cash"])!=int(state.get("cash",0)):return _bad("The band's day or cash changed during this visit. Cancel it before making another commitment.")
+ var answers: Variant=visit.get("answers")
+ if not answers is Dictionary:return _bad("The saved interview answers need validation.")
+ var vector: Dictionary={"fans":0,"press":0,"buzz":0}
+ var transcript: Array=[]
+ for question_id in ["focus","invitation"]:
+  var choices: Dictionary=QUESTIONS[question_id]["choices"]
+  var answer_id: Variant=answers.get(question_id)
+  if not answer_id is String or not choices.has(answer_id):return _bad("Finish both radio questions before wrapping up.")
+  var choice: Dictionary=choices[answer_id]
+  for field in vector:vector[field]+=int(choice[field])
+  transcript.append({"question_id":question_id,"question":QUESTIONS[question_id]["text"],"answer_id":answer_id,"answer":choice["text"],"hint":choice["hint"]})
+ return {"ok":true,"vector":vector,"transcript":{"version":1,"visit_id":visit["id"],"presenter_id":visit["presenter_id"],"policy_version":1,"content_version":1,"source_fingerprint":fingerprint,"questions":transcript,"combined_vector":vector.duplicate(true)}}
 
 static func _whole(value: Variant, minimum: int=0) -> bool:
  return (value is int or value is float) and is_finite(float(value)) and float(value)==floor(float(value)) and float(value)>=float(minimum) and float(value)<=2147483647.0
@@ -92,7 +128,14 @@ static func _metrics(state: Dictionary) -> Dictionary:
 static func preview(state: Dictionary, id: String, expected_fingerprint: String, expected_index: int=-1) -> Dictionary:
  return launch(state,id,expected_fingerprint,expected_index)
 
-static func launch(state: Dictionary, id: String, expected_fingerprint: String, expected_index: int=-1) -> Dictionary:
+static func launch(state: Dictionary, id: String, expected_fingerprint: String, expected_index: int=-1, interview: Dictionary={}) -> Dictionary:
+ var safe: Dictionary=validate(state)
+ if not bool(safe.get("ok",false)):return _fail(state,str(safe.get("message","The saved campaign state needs validation.")))
+ if not interview.is_empty() and int(state.get("tour_day",1))>=2147483647:return _fail(state,"The radio visit would exceed the supported career-day range.")
+ var interview_policy: Dictionary={}
+ if visit_locked(state) or not interview.is_empty():
+  interview_policy=_interview(state,id,expected_fingerprint,expected_index,interview)
+  if not bool(interview_policy.get("ok",false)):return _fail(state,str(interview_policy.get("message","Resume the radio visit.")))
  var selected: Dictionary=selection(state,id,expected_fingerprint,expected_index)
  if not bool(selected.get("ok",false)):return _fail(state,str(selected.get("message","Choose a demo.")))
  if bool(selected["completed"]):return _fail(state,"This demo's local-radio campaign is already complete. Read its saved notes freely.")
@@ -103,7 +146,20 @@ static func launch(state: Dictionary, id: String, expected_fingerprint: String, 
  var index: int=int(selected["index"])
  var original: Dictionary=Original.launch(state,index,"radio")
  if not bool(original.get("ok",false)):return _fail(state,str(original.get("message","This radio pitch is unavailable.")))
- var after: Dictionary=Life.refresh(Calendar.expire(Story.observe(state,original["state"],"campaign")))
+ var raw: Dictionary=original["state"]
+ if not interview_policy.is_empty():
+  var vector: Dictionary=interview_policy["vector"]
+  var fans: int=int(raw.get("fans",0))+int(vector["fans"])
+  if fans<0 or fans>2147483647:return _fail(state,"The interview outcome exceeds the supported audience range.")
+  raw["fans"]=fans
+  raw["press"]=clampi(int(raw.get("press",0))+int(vector["press"]),0,100)
+  raw["buzz"]=clampi(int(raw.get("buzz",0))+int(vector["buzz"]),0,100)
+  raw["recordings"][index]["campaigns"]["radio"]["fans"]=fans-int(state.get("fans",0))
+  var journal: Array=raw.get("career_journal",[])
+  if not journal.is_empty():
+   var fresh: Dictionary=journal[journal.size()-1]
+   fresh["text"]="The band discussed its released demo with the student-radio presenter. %d new listeners found the band." % (fans-int(state.get("fans",0)))
+ var after: Dictionary=Life.refresh(Calendar.expire(Story.observe(state,raw,"campaign")))
  var postchain: Array=[]
  for field in ["reputation","morale"]:
   if int(state.get(field,0))!=int(after.get(field,0)):
@@ -119,8 +175,10 @@ static func launch(state: Dictionary, id: String, expected_fingerprint: String, 
  if not bool(accounted.get("ok",false)):return _fail(state,str(accounted.get("message","The radio accounts could not be reconciled.")))
  after=accounted["state"]
  var message: String="The local-radio campaign brought %d new listeners to the band. Press +%d; buzz +%d." % [int(after.get("fans",0))-int(state.get("fans",0)),int(after.get("press",0))-int(state.get("press",0)),int(after.get("buzz",0))-int(state.get("buzz",0))]
+ if not interview_policy.is_empty():message="The student-radio visit brought %d new listeners to the band. Press %+d; buzz %+d." % [int(after.get("fans",0))-int(state.get("fans",0)),int(after.get("press",0))-int(state.get("press",0)),int(after.get("buzz",0))-int(state.get("buzz",0))]
  for change in postchain:message+="\n"+str(change["text"])
  var receipt: Dictionary={"version":1,"demo_id":str(selected["id"]),"session_index":index,"source_fingerprint":expected_fingerprint,"message":message,"before":_metrics(state),"after":_metrics(after),"postchain_changes":postchain.duplicate(true)}
+ if not interview_policy.is_empty():receipt["interview_v1"]=interview_policy["transcript"].duplicate(true)
  var session: Dictionary=after["recordings"][index]
  var campaigns: Dictionary=session["campaigns"]
  var radio: Dictionary=campaigns["radio"]

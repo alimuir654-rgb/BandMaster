@@ -25,6 +25,8 @@ const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
+const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
+const RadioDesk = preload("res://experiments/playable_flightcase/radio_visit_desk.gd")
 const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_desk.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
@@ -76,6 +78,9 @@ func open_home() -> void:
  if busy or is_instance_valid(_live_dialog):
   return
  page = "finance" if Finance.is_over(game.career) else "home"
+ if not Finance.is_over(game.career) and RadioVisit.locked(game.career):
+  page="recording"
+  recording_mode="visit"
  receipt_open = false
  catalogue_open = false
  notice = ""
@@ -142,6 +147,10 @@ func _render() -> void:
  if game!=null and Finance.is_over(game.career):
   page = "finance"
   receipt_open = false
+ elif game!=null and RadioVisit.locked(game.career):
+  page="recording"
+  recording_mode="visit"
+  receipt_open=false
  _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
  if not busy and not is_instance_valid(_live_dialog) and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
@@ -172,14 +181,14 @@ func _render() -> void:
  var nav := HBoxContainer.new()
  nav.name = "CareerNavigation"
  nav.add_theme_constant_override("separation",5)
- nav.visible = page!="home" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open)
+ nav.visible = page!="home" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
   var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
   option.name = "CareerNav_"+destination
   option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs") or (page=="calendar" and destination=="home")) and not receipt_open)
-  option.disabled = busy or Finance.is_over(game.career)
+  option.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
  var soundcheck: bool = page=="gigs" and not receipt_open and ShowFlow.managed(game.career) and ShowFlow.phase(game.career)=="soundcheck"
@@ -261,6 +270,9 @@ func _navigate(destination: String) -> void:
   return
  if Finance.is_over(game.career):
   destination = "finance"
+ elif RadioVisit.locked(game.career):
+  destination="recording"
+  recording_mode="visit"
  page = destination
  receipt_open = false
  catalogue_open = destination=="gear"
@@ -589,6 +601,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   OffstageDesk.dock(self,dock,compact)
  elif page=="recording":
   RecordingDesk.dock(self,dock,compact)
+ elif page=="finance" and RadioVisit.locked(game.career):
+  RadioDesk.recovery_dock(self,dock)
  elif page=="calendar":
   var calendar_live := _button("OPEN THE LIVE DESK  ›","CareerCalendarLiveAction",_navigate.bind("gigs"))
   var calendar_view: Dictionary = CalendarDesk.summary(game.career)
@@ -620,10 +634,11 @@ func _decision_dock(parent: Node, compact: bool) -> void:
    elif owned and int(Gear.record(game.career,selected_item).get("condition",-1))>=100:
     dock.add_child(C.label("Already in excellent condition.",14))
  var navigation := HBoxContainer.new()
+ navigation.visible=not (page=="recording" and RadioVisit.locked(game.career))
  navigation.add_theme_constant_override("separation",8)
  dock.add_child(navigation)
  var practice_action := _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
- practice_action.disabled = busy or Finance.is_over(game.career)
+ practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
  navigation.add_child(practice_action)
  navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
 
@@ -765,6 +780,9 @@ func _recording_present(result: Dictionary, before: Dictionary, verb: String) ->
  add_child(overlay)
 
 func _practice(activity: String) -> void:
+ if RadioVisit.locked(game.career):
+  _navigate("recording")
+  return
  if Finance.is_over(game.career):
   _navigate("finance")
   return
@@ -919,6 +937,13 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false, expecte
  add_child(overlay)
 
 func _finance_guard() -> bool:
+ if RadioVisit.locked(game.career):
+  notice="Resume or cancel the unfinished radio visit before another commitment."
+  page="finance" if Finance.is_over(game.career) else "recording"
+  recording_mode="visit"
+  receipt_open=false
+  _render()
+  return false
  var permitted: Dictionary = Finance.guard(game.career)
  if bool(permitted.get("ok",false)):return true
  notice=str(permitted.get("message","The band has folded."))

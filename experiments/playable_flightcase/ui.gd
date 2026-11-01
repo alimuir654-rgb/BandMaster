@@ -2,6 +2,7 @@ extends Control
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
@@ -1110,6 +1111,10 @@ func _connect() -> void:
 
 func _commit_session(kind: String) -> void:
  if session_busy:
+  return
+ if opening_owner!=null and RadioVisit.locked(game.career):
+  last_message="Resume or cancel the saved radio visit before another session."
+  career_requested.emit()
   return
  if opening_owner!=null and Finance.is_over(game.career):
   last_message = "The band has folded. The final accounts are retained."

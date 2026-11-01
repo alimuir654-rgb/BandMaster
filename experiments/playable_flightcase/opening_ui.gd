@@ -1,5 +1,6 @@
 extends Control
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const SafeArea = preload("res://experiments/playable_flightcase/mobile_safe_area.gd")
 const SAFE_BACKDROP = preload("res://components/control_atlas/art/case_surface.png")
 ## C27 opening; uses existing authentic flight-case UI and controls.
@@ -1037,7 +1038,7 @@ func _practice() -> void:
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- if Finance.is_over(setup.game.career) or LiveRules.show_day(setup.game.career):
+ if Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career):
   call_deferred("_open_career_desk")
 
 func _open_career_desk() -> void:
@@ -1059,6 +1060,9 @@ func _open_career_desk() -> void:
  if Finance.is_over(setup.game.career):
   _career_view.call("_navigate","finance")
   _career_view.call_deferred("_restore_focus","CareerMenuAction")
+ elif RadioVisit.locked(setup.game.career):
+  _career_view.call("_navigate","recording")
+  _career_view.call_deferred("_restore_focus","StudioNote")
  elif LiveRules.show_day(setup.game.career):
   _career_view.call("_navigate","gigs")
   _career_view.call_deferred("_restore_focus","LiveMainAction")
@@ -1068,6 +1072,9 @@ func _open_career_desk() -> void:
 func _return_from_career(activity: String = "") -> void:
  if Finance.is_over(setup.game.career):
   if is_instance_valid(_career_view):_career_view.call("_navigate","finance")
+  return
+ if RadioVisit.locked(setup.game.career):
+  if is_instance_valid(_career_view):_career_view.call("_navigate","recording")
   return
  if is_instance_valid(_career_view) and bool(_career_view.get("busy")):
   return

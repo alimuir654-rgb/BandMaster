@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "review_id": "A05v3",
+  "owner_approved_source": true,
+  "approval": "Direct owner message 1 November2026: A05v3 is approved; recorded private review board through sequence39.",
+  "source_type": "One original image_gen edit: combined fictional student-radio room and young adult presenter, not photography or separate character rig.",
+  "texture": "res://experiments/playable_flightcase/art/radio_student_studio_v3.png",
+  "raw_sha256": "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda",
+  "dimensions": [
+    1448,
+    1086
+  ],
+  "mode": "RGB",
+  "raw_bytes": 2225234,
+  "transforms": "Byte-original PNG; native full4:3 aspect contain. No raster edits/crops/retouch.",
+  "scope": "Studio/presenter source only. All dialogue, questions, answers, costs, progress and outcome remain native; no audio/telemetry/airplay claim or blanket finished-game approval."
+}
