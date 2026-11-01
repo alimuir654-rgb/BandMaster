@@ -203,12 +203,28 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
+  "candidate_source_sha": "5168da6b888e438bfbe374015eee608fa46b9f83",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
     "released_at": "2026-11-01T04:13:36.240890+00:00",
     "scope": "Approved firstgig verticalslice plus actualsoundcheckclaritycorrection, exactnative/art/sourceproof; no production/publicsource/Androidwrites.",
     "expires_at": "2026-11-01T04:25:00Z"
+  },
+  "candidate_status": "phone-paper-button-input-hold-rescoped364",
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
+  "touch_rescope": {
+    "at": "2026-11-01T05:06:01.065383+00:00",
+    "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
+    "cause_proof": "/workspace/work/overnight-20261101/s54/button-input-diagnostic-5168/execution.json",
+    "changes": [
+      "CareerDesk._paper: nativePanelContainer.mouse_filter=PASS",
+      "CareerDesk._button: originalnativeButton.mouse_filter=PASS"
+    ],
+    "protect": "RawKit/control/hardware/art/meter/Ink/model/save bytes unchanged. Modalshade/inputblocker separate. Buttonrelease semantics andoneSave tested withrealdrag/click/keys.",
+    "checks": [
+      "FourcompleteRecordingjourneys+vanillapositivecontrol/Label+Buttondrag+normal/reduced/safeinsets/realSAVEfailure/reload",
+      "Strict73/88/import/4standard plusoneexistingS53firstgigphoneintegration; exactsamevisualpixels expected frominput-onlychange"
+    ]
   }
 }

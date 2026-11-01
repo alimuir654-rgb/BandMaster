@@ -41,7 +41,7 @@
     "BM-44",
     "BM-45"
   ],
-  "hypothesis": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+  "hypothesis": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates. Measured364 requires owned CareerDesk._paper and _button integration properties MOUSE_FILTER_PASS so nativeScrollContainer receives drags. This is a source-proven existing-screen mobileinput correction, no art/skin/model changes.",
   "stop_condition": "Source target05:10, bounded lease06:20; core proof and package window protected. Two ineffective iterations change method/HOLD. Do not add gear/cast/audio/campaign/transport breadth. All writes freeze08:30; no new breadth after07.",
   "target": {
     "locator": "/workspace/work/unify/s45/s46-regression-a9-phone/captures/career-songs-draft-390x844.png",
@@ -65,19 +65,20 @@
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S54.json",
     "Independent original Recording.record/release projection oracle; unknowns/legacy/malformed/staleIDs/order/immutability/Finance2day/terminal/booking guards and failedsave fullrollback",
-    "Strict isolated original73+88+import+4native journeys using337 base and explicitcopy/sourceSHA; focused genuine recording/release4sizes, originalPNG visual review and protected-source audit"
+    "Strict isolated original73+88+import+4native journeys using337 base and explicitcopy/sourceSHA; focused genuine recording/release4sizes, originalPNG visual review and protected-source audit",
+    "Scoped364ownedPaper/Button causal correction: originalS53 firstgigphone regression, unchangedcalculation/oracles/source bytes reused"
   ],
   "reviewed_documents": {
     "docs/continuous_improvement/LESSONS.md": "68897ba482ea240fdfd36869e4b6105be3a3fa25bfb7d4550dc1e7b90749148e",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 571700,
-    "sha256": "7f22aaab2a2e7c44efa32408e6a8617d9a0739fff1104c6e3a9b7868b629796b"
+    "bytes": 577369,
+    "sha256": "1471f88cff25b90679a32e5f86c5b27c289c7b23145c36e1dad61b099fa5393b"
   },
   "started_at": "2026-11-01T04:24:30.738786+00:00",
   "scope_end": "2026-11-01T06:20:00Z",
-  "source_freeze_target": "2026-11-01T05:10:00Z",
+  "source_freeze_target": "2026-11-01T05:25:00Z",
   "all_write_freeze": "2026-11-01T08:30:00Z",
   "hard_stop": "2026-11-01T09:00:00Z",
   "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -100,5 +101,20 @@
   "candidate_native_verified": false,
   "candidate_status": "full341import-and-focused-native-pending",
   "updated_at": "2026-11-01T04:49:50.883481+00:00",
-  "art_correction": "361: actual390initial has no ADDbeforefold. Compactselectionfacts only; fullhistoryalreadyinarchive. No art/font/modelchange. NativeinitialADDassert +genuineHome selectedreadingcontext beforefourfinalnative."
+  "art_correction": "361: actual390initial has no ADDbeforefold. Compactselectionfacts only; fullhistoryalreadyinarchive. No art/font/modelchange. NativeinitialADDassert +genuineHome selectedreadingcontext beforefourfinalnative.",
+  "touch_hold": "363 actualvanillapassesbutrecordingpaperfails; TWOattempts\u2192methodchangeactualreceivertrace beforeanyprodpatch. No fullnewsourcepromotion untilphonepathgreen.",
+  "touch_rescope": {
+    "at": "2026-11-01T05:06:01.065383+00:00",
+    "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
+    "cause_proof": "/workspace/work/overnight-20261101/s54/button-input-diagnostic-5168/execution.json",
+    "changes": [
+      "CareerDesk._paper: nativePanelContainer.mouse_filter=PASS",
+      "CareerDesk._button: originalnativeButton.mouse_filter=PASS"
+    ],
+    "protect": "RawKit/control/hardware/art/meter/Ink/model/save bytes unchanged. Modalshade/inputblocker separate. Buttonrelease semantics andoneSave tested withrealdrag/click/keys.",
+    "checks": [
+      "FourcompleteRecordingjourneys+vanillapositivecontrol/Label+Buttondrag+normal/reduced/safeinsets/realSAVEfailure/reload",
+      "Strict73/88/import/4standard plusoneexistingS53firstgigphoneintegration; exactsamevisualpixels expected frominput-onlychange"
+    ]
+  }
 }

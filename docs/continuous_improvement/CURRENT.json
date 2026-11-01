@@ -3253,7 +3253,12 @@
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
-  "latest_unverified_candidate": null,
+  "latest_unverified_candidate": {
+    "source_sha": "d3da7d8ed673b09faad40c95ca959a91aa81c8fd",
+    "session": "S54",
+    "evidence": "/workspace/work/overnight-20261101/s54/candidate-d3da7d8",
+    "native_full_verified": false
+  },
   "pending_candidate_source_sha": null,
   "historical_held_candidates": [
     {
@@ -3390,7 +3395,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-01T04:24:30.738786+00:00",
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
   "page_delivery": {
     "status": "owner_approved_saved_and_readback",
     "page_url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
@@ -3439,5 +3444,22 @@
     "source_frozen_at": "2026-11-01T03:40:20Z",
     "evidence": "/workspace/work/overnight-20261101/s53",
     "released_at": "2026-11-01T04:13:36.240890+00:00"
+  },
+  "candidate_source_sha": "5168da6b888e438bfbe374015eee608fa46b9f83",
+  "candidate_native_verified": false,
+  "candidate_status": "phone-paper-button-input-hold-rescoped364",
+  "touch_rescope": {
+    "at": "2026-11-01T05:06:01.065383+00:00",
+    "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
+    "cause_proof": "/workspace/work/overnight-20261101/s54/button-input-diagnostic-5168/execution.json",
+    "changes": [
+      "CareerDesk._paper: nativePanelContainer.mouse_filter=PASS",
+      "CareerDesk._button: originalnativeButton.mouse_filter=PASS"
+    ],
+    "protect": "RawKit/control/hardware/art/meter/Ink/model/save bytes unchanged. Modalshade/inputblocker separate. Buttonrelease semantics andoneSave tested withrealdrag/click/keys.",
+    "checks": [
+      "FourcompleteRecordingjourneys+vanillapositivecontrol/Label+Buttondrag+normal/reduced/safeinsets/realSAVEfailure/reload",
+      "Strict73/88/import/4standard plusoneexistingS53firstgigphoneintegration; exactsamevisualpixels expected frominput-onlychange"
+    ]
   }
 }

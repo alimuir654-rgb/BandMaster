@@ -1881,5 +1881,23 @@
       "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
       "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
     ]
+  },
+  "candidate_source_sha": "5168da6b888e438bfbe374015eee608fa46b9f83",
+  "candidate_native_verified": false,
+  "candidate_status": "phone-paper-button-input-hold-rescoped364",
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
+  "touch_rescope": {
+    "at": "2026-11-01T05:06:01.065383+00:00",
+    "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
+    "cause_proof": "/workspace/work/overnight-20261101/s54/button-input-diagnostic-5168/execution.json",
+    "changes": [
+      "CareerDesk._paper: nativePanelContainer.mouse_filter=PASS",
+      "CareerDesk._button: originalnativeButton.mouse_filter=PASS"
+    ],
+    "protect": "RawKit/control/hardware/art/meter/Ink/model/save bytes unchanged. Modalshade/inputblocker separate. Buttonrelease semantics andoneSave tested withrealdrag/click/keys.",
+    "checks": [
+      "FourcompleteRecordingjourneys+vanillapositivecontrol/Label+Buttondrag+normal/reduced/safeinsets/realSAVEfailure/reload",
+      "Strict73/88/import/4standard plusoneexistingS53firstgigphoneintegration; exactsamevisualpixels expected frominput-onlychange"
+    ]
   }
 }
