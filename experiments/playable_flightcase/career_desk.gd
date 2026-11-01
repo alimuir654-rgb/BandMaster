@@ -29,6 +29,8 @@ const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_des
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_poster_view.gd")
+const Launcher = preload("res://experiments/playable_flightcase/career_launcher.gd")
+const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -169,7 +171,7 @@ func _render() -> void:
  var nav := HBoxContainer.new()
  nav.name = "CareerNavigation"
  nav.add_theme_constant_override("separation",5)
- nav.visible = not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open)
+ nav.visible = page!="home" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open)
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
@@ -260,12 +262,14 @@ func _navigate(destination: String) -> void:
   destination = "finance"
  page = destination
  receipt_open = false
- catalogue_open = false
+ catalogue_open = destination=="gear"
  notice = ""
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
  _pending_focus = ("RecordingSelectAction" if recording_mode=="archive" else "RecordingMainAction") if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
+ if destination=="home":
+  _pending_focus = "CareerHomePracticeAction"
  if destination=="calendar":
   _pending_focus = "CareerCalendarBackAction"
  _render()
@@ -313,7 +317,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  _copy(body,"YOUR CAREER DESK",26)
  _copy(body,str(game.genre).to_upper()+"  /  "+str(game.career.get("vibe","Unpolished")),14,true)
- _copy(body,"Plan the next move. Your band, songs and equipment stay together.",16)
+ Launcher.render(self,body,compact)
  var grid := GridContainer.new()
  grid.columns = 1 if compact else 2
  grid.add_theme_constant_override("h_separation",20)
@@ -336,21 +340,6 @@ func _home_page(parent: Node, compact: bool) -> void:
    caption.name = "CareerTensionMeaning"
    block.add_child(caption)
  _copy(body,"%d FINISHED ORIGINALS  •  %d FANS" % [int(game.career.get("songs",0)),int(game.career.get("fans",0))],16)
- var practice := _button("THE PRACTICE ROOM  ›","CareerHomePracticeAction",_practice.bind(""),true)
- body.add_child(practice)
- var live := _button("THE LIVE CIRCUIT  ›","CareerHomeLiveAction",_navigate.bind("gigs"),true)
- body.add_child(live)
- var routes := GridContainer.new()
- routes.columns = 1 if size.x<560 else (2 if compact else 3)
- routes.add_theme_constant_override("h_separation",8)
- routes.add_theme_constant_override("v_separation",8)
- body.add_child(routes)
- for entry in [["CALENDAR","calendar"],["FINANCES","finance"],["LIFE OFFSTAGE","offstage"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
-  routes.add_child(_button(str(entry[0])+"  ›","CareerHome_"+str(entry[1]),_navigate.bind(str(entry[1]))))
- # Put the next decisions before the status detail on the phone.
- body.move_child(practice,3)
- body.move_child(live,4)
- body.move_child(routes,5)
 
 func _gear_page(parent: Node, compact: bool) -> void:
  if Gear.item_for(selected_item).is_empty():
@@ -366,7 +355,20 @@ func _gear_page(parent: Node, compact: bool) -> void:
   dossier_parent = _box()
   (dossier_parent as Control).size_flags_stretch_ratio = 2.0
   columns.add_child(dossier_parent)
-  _catalogue(list,compact)
+  # The wide shelf scrolls independently, so a long illustrated stock list
+  # does not push the selected item's price and photograph out of view.
+  var shelf := ScrollContainer.new()
+  shelf.name = "GearShelfScroll"
+  shelf.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+  shelf.follow_focus = true
+  shelf.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  shelf.size_flags_vertical = Control.SIZE_EXPAND_FILL
+  shelf.custom_minimum_size.y = clampf(size.y-300.0,260.0,640.0)
+  shelf.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
+  list.add_child(shelf)
+  var shelf_body := _box()
+  shelf.add_child(shelf_body)
+  _catalogue(shelf_body,compact)
  if compact and catalogue_open:
   _catalogue(parent,compact)
   return
@@ -387,6 +389,7 @@ func _gear_page(parent: Node, compact: bool) -> void:
  following.size_flags_horizontal = Control.SIZE_SHRINK_END
  browse.add_child(following)
  var item: Dictionary = Gear.item_for(selected_item)
+ body.add_child(GearPress.image(selected_item,128.0 if compact else 180.0))
  var title := _copy(body,str(item["name"]),24)
  title.name = "GearItemTitle"
  _copy(body,str(item["type"]),13,true)
@@ -414,7 +417,7 @@ func _gear_page(parent: Node, compact: bool) -> void:
   if not any_available:
    _copy(body,"No other compatible active musician is available for this item.",14,true)
  else:
-  _copy(body,"SECOND-HAND CONDITION  /  %d / 100" % int(item["condition"]),16)
+  _copy(body,("NEW CONDITION" if str(item.get("stock",""))=="NEW" else "SECOND-HAND CONDITION")+"  /  %d / 100" % int(item["condition"]),16)
   _copy(body,"Choose your purchase when ready. Browsing is free.",14,true)
  if not notice.is_empty():
   _copy(body,notice,16)
@@ -422,17 +425,7 @@ func _gear_page(parent: Node, compact: bool) -> void:
   _road_cases(dossier_parent,compact)
 
 func _catalogue(parent: Node, compact: bool) -> void:
- var body := _paper(parent,compact)
- _copy(body,"EQUIPMENT CATALOGUE",21)
- _copy(body,"Choose an item to inspect. No time or money is spent.",14,true)
- for item in Gear.items():
-  var id: String = str(item["id"])
-  var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(id)
-  var text: String = ("✓ " if id==selected_item else "")+str(item["name"])+("  •  OWNED" if owned else "  •  £%d" % int(item["price"]))
-  var action := _button(text,"GearChoice_"+id,_choose_item.bind(id))
-  action.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-  action.tooltip_text = str(item["name"])+" — "+str(item["description"])
-  body.add_child(action)
+ GearPress.catalogue(self,parent,compact)
 
 func _choose_item(id: String) -> void:
  if busy or Gear.item_for(id).is_empty():
@@ -442,7 +435,7 @@ func _choose_item(id: String) -> void:
  notice = ""
  _scroll_position = 0
  if is_instance_valid(_scroll): _scroll.scroll_vertical = 0
- _pending_focus = "GearCatalogueAction" if size.x<840 or size.x<size.y else "GearChoice_"+id
+ _pending_focus = "GearCatalogueAction"
  _render()
 
 func _step_item(delta: int) -> void:
@@ -473,19 +466,7 @@ func _toggle_catalogue() -> void:
  _render()
 
 func _road_cases(parent: Node, compact: bool) -> void:
- var body := _paper(parent,compact)
- _copy(body,"THE ROAD CASE",21)
- var owned: Array = game.career.get("owned_equipment",[])
- if owned.is_empty():
-  _copy(body,"No shop purchases yet. The band's personal instruments are not tracked here.",16,true)
- for id in owned:
-  var record: Dictionary = Gear.record(game.career,str(id))
-  var holder: int = Gear.holder_index(game.career,record)
-  var members: Array = game.career.get("members",[])
-  var person: String = str(members[holder].get("name","Musician")) if holder>=0 else "Shared case"
-  var condition: int = int(record.get("condition",-1))
-  _copy(body,str(Gear.item_for(str(id)).get("name",id)),16)
-  _copy(body,person+"  •  "+("Condition unknown" if condition<0 else "Condition %d / 100" % condition),14,true)
+ GearPress.inventory(self,parent,compact)
 
 func _band_page(parent: Node, compact: bool) -> void:
  parent.add_child(_button("VIEW BAND POSTER","CareerBandPosterAction",_open_band_poster,true))
@@ -618,7 +599,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   dock.add_child(_button("CUT A DEMO  ›","CareerRecordingAction",_navigate.bind("recording"),true))
  elif page=="gear":
   if compact and catalogue_open:
-   dock.add_child(_button("BACK TO SELECTED ITEM","GearCloseCatalogueAction",_toggle_catalogue))
+   dock.add_child(_button("BACK TO THE CAREER DESK","GearCloseCatalogueAction",_navigate.bind("home")))
   else:
    var item: Dictionary = Gear.item_for(selected_item)
    var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(selected_item)
