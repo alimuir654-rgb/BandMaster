@@ -561,6 +561,8 @@ func _genre() -> void:
  for item in Base.genres():
   var name: String = str(item)
   var button: Button = _button(("✓  " if setup.game.genre == name else "") + name.to_upper(),_choose_genre.bind(name),"tab","Genre_"+name.replace(" ","_").replace("/","_"))
+  # Keep genuine button taps; let a swipe reach the owning native index.
+  button.mouse_filter = Control.MOUSE_FILTER_PASS
   button.toggle_mode = true
   button.button_pressed = setup.game.genre == name
   button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
