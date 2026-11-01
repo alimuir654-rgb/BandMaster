@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "people": {
+    "cast_jack": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        84,
+        24,
+        239,
+        685
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Jack",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_jack.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_maya": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        436,
+        30,
+        226,
+        680
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Maya",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_maya.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_ellis": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        781,
+        29,
+        225,
+        683
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Ellis",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ellis.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_zoe": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        104,
+        738,
+        212,
+        679
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Zoe",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_dan": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        440,
+        729,
+        235,
+        679
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Dan",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_dan.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_ryan": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_01.png",
+      "region": [
+        756,
+        731,
+        248,
+        685
+      ],
+      "raw_sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "name": "Ryan",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ryan.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; all alpha>8 figure pixels included with4px bleed; no new raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_lily": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        43,
+        31,
+        244,
+        711
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Lily",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_lily.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_marcus": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        356,
+        26,
+        268,
+        715
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Marcus",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_ben": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        708,
+        24,
+        282,
+        719
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Ben",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_ben.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review. Original visible arm tattoos are approximated generated detail, not an exact tattoo/body master.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_freya": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        59,
+        782,
+        241,
+        713
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Freya",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_freya.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_arjun": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        387,
+        781,
+        298,
+        716
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Arjun",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_nina": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_02.png",
+      "region": [
+        759,
+        793,
+        235,
+        705
+      ],
+      "raw_sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "name": "Nina",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_nina.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Complete hair/head and full soles visible; measured alpha>8 figure includes4pxbleed, uncropped; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region; no alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_tom": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        68,
+        19,
+        258,
+        726
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Tom",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_tom.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_casey": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        401,
+        49,
+        211,
+        697
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Casey",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_casey.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_hannah": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        707,
+        62,
+        264,
+        692
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Hannah",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_hannah.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_oscar": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        45,
+        759,
+        258,
+        744
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Oscar",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_oscar.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_bex": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        351,
+        778,
+        263,
+        726
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Bex",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_bex.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review. Original visible upper-arm tattoos are approximate generated detail, not exact ink/body master.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    },
+    "cast_sam": {
+      "texture": "res://experiments/playable_flightcase/art/identity/cast_03.png",
+      "region": [
+        725,
+        760,
+        268,
+        741
+      ],
+      "raw_sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "name": "Sam",
+      "original_preview": "res://Art/References/ApprovedCast20261029/previews/cast_sam.png",
+      "likeness": "Recognizable original face/hair/upper clothing; body/lower clothing/pose proposed, pending owner review.",
+      "clip": "Full head/hair and complete soles visible; measured actual body component includes4pxbleed, not assumed rowcrop; no raw-image crop/edit.",
+      "neighbor": "Exactly one meaningful component in region and zero alpha>8 on outer crop rim; no neighboring body.",
+      "owner_approved": false,
+      "independent_master": false
+    }
+  },
+  "source_type": "Independent image-generated fictional full-length extensions of original C25 references; shared six-person source sheets, not independent per-person masters or photographs.",
+  "owner_approved": false
+}

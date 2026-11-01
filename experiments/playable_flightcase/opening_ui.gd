@@ -140,6 +140,13 @@ func _button(s: String,fn: Callable,family: String = "action",name: String = "")
  b.pressed.connect(fn)
  return b
 
+func _identity_button(s: String,fn: Callable,family: String = "action",name: String = "") -> Button:
+ var result: Button=_button(s,fn,family,name)
+ # This owned editor scrolls. Preserve genuine taps and let a drag propagate
+ # to its ScrollContainer, leaving the original Kit resource unchanged.
+ result.mouse_filter=Control.MOUSE_FILTER_PASS
+ return result
+
 func _column() -> VBoxContainer:
  var v := VBoxContainer.new()
  v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -644,6 +651,7 @@ func _formed() -> void:
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
+ scroll.follow_focus=true
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(scroll)
@@ -702,13 +710,13 @@ func _name() -> void:
   body.add_child(intent_grid)
   for raw in ["Raw","Dark","Playful","Dreamy"]:
    var tone: String=str(raw)
-   intent_grid.add_child(_button(("✓ " if chosen_intent==tone else "")+tone.to_upper(),_set_intent.bind(tone),"tab","NameIntent_"+tone))
+   intent_grid.add_child(_identity_button(("✓ " if chosen_intent==tone else "")+tone.to_upper(),_set_intent.bind(tone),"tab","NameIntent_"+tone))
   body.add_child(_label("OR TRY AN IDEA",16))
   for raw in setup.suggested_names():
    var entry: Dictionary=raw
    var title: String=str(entry["name"])
    var intent: String=str(entry["intent"])
-   body.add_child(_button(title+"  /  "+intent.to_upper(),_submit.bind(title,intent),"tab"))
+   body.add_child(_identity_button(title+"  /  "+intent.to_upper(),_submit.bind(title,intent),"tab"))
  else:
   body.add_child(_label("WHAT THE BAND THINKS",18))
   for raw in setup.name_reactions():
@@ -720,17 +728,17 @@ func _name() -> void:
    reaction.add_theme_color_override("font_color",Color("eee8dd"))
    card.add_child(reaction)
    if _fresh_name_reactions: reaction.call_deferred("begin",reduced_motion)
-  var rethink: Button=_button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
+  var rethink: Button=_identity_button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
   rethink.disabled=setup.name_revisions>=1
   body.add_child(rethink)
  if not response.is_empty(): body.add_child(_label(response,16))
  if setup.name_offer.is_empty():
-  var submit: Button=_button("ASK THE BAND",_submit_free,"action","NameSubmitAction")
+  var submit: Button=_identity_button("ASK THE BAND",_submit_free,"action","NameSubmitAction")
   submit.disabled=free_name.strip_edges().length()<2
   root.add_child(submit)
  else:
-  root.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
- root.add_child(_button("BACK TO MENU",_home,"tab","NameBackAction"))
+  root.add_child(_identity_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
+ root.add_child(_identity_button("BACK TO MENU",_home,"tab","NameBackAction"))
  _fresh_name_reactions=false
 
 func _set_intent(v: String) -> void:
@@ -805,6 +813,7 @@ func _identity() -> void:
  proof_holder.add_child(identity_print)
  identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"])
  var choices_scroll:=ScrollContainer.new()
+ choices_scroll.follow_focus=true
  choices_scroll.name="IdentityChoicesScroll"
  choices_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
  choices_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
@@ -830,7 +839,7 @@ func _identity() -> void:
  for i in range(IdentityStyle.FONTS.size()):
   var kind: String=str(IdentityStyle.FONTS[i])
   var chosen: bool=kind==style["font"]
-  var face: Button=_button(("✓ " if chosen else "")+str(IdentityStyle.FONT_LABELS[i]),_identity_choose.bind("font",kind),"tab","IdentityType_"+kind)
+  var face: Button=_identity_button(("✓ " if chosen else "")+str(IdentityStyle.FONT_LABELS[i]),_identity_choose.bind("font",kind),"tab","IdentityType_"+kind)
   face.toggle_mode=true
   face.set_pressed_no_signal(chosen)
   face.add_theme_font_override("font",IdentityStyle.face({"version":1,"font":kind,"ink":"ivory"}))
@@ -847,7 +856,7 @@ func _identity() -> void:
  for i in range(IdentityStyle.INKS.size()):
   var ink: String=str(IdentityStyle.INKS[i])
   var chosen: bool=ink==style["ink"]
-  var choice: Button=_button(("✓ " if chosen else "")+str(IdentityStyle.INK_LABELS[i]),_identity_choose.bind("ink",ink),"tab","IdentityInk_"+ink)
+  var choice: Button=_identity_button(("✓ " if chosen else "")+str(IdentityStyle.INK_LABELS[i]),_identity_choose.bind("ink",ink),"tab","IdentityInk_"+ink)
   choice.toggle_mode=true
   choice.set_pressed_no_signal(chosen)
   choice.custom_minimum_size.y=48.0
@@ -867,7 +876,7 @@ func _identity() -> void:
  controls.add_child(treatments)
  for raw in Model.LOGOS:
   var treatment: String=str(raw)
-  var b: Button=_button(("✓ " if identity_draft["logo"]==treatment else "")+treatment.to_upper(),_design.bind("logo",treatment),"tab","IdentityLogo_"+treatment)
+  var b: Button=_identity_button(("✓ " if identity_draft["logo"]==treatment else "")+treatment.to_upper(),_design.bind("logo",treatment),"tab","IdentityLogo_"+treatment)
   b.add_theme_font_size_override("font_size",14)
   treatments.add_child(b)
  controls.add_child(_label("ATTITUDE",16))
@@ -876,15 +885,15 @@ func _identity() -> void:
  controls.add_child(vibes)
  for raw in Model.VIBES:
   var value: String=str(raw)
-  var b: Button=_button(("✓ " if identity_draft["vibe"]==value else "")+value.to_upper(),_design.bind("vibe",value),"tab","IdentityVibe_"+value)
+  var b: Button=_identity_button(("✓ " if identity_draft["vibe"]==value else "")+value.to_upper(),_design.bind("vibe",value),"tab","IdentityVibe_"+value)
   b.add_theme_font_size_override("font_size",14)
   vibes.add_child(b)
  if not response.is_empty(): controls.add_child(_label(response,16))
  var footer:=VBoxContainer.new()
  footer.add_theme_constant_override("separation",6)
  root.add_child(footer)
- footer.add_child(_button("APPLY LOOK & FORM THE BAND ›",_finish,"action","IdentityFinishAction"))
- footer.add_child(_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
+ footer.add_child(_identity_button("APPLY LOOK & FORM THE BAND ›",_finish,"action","IdentityFinishAction"))
+ footer.add_child(_identity_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
 
 func _identity_choose(family: String,value: String) -> void:
  if setup.screen!="identity" or identity_draft.is_empty(): return

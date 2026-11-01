@@ -46,7 +46,9 @@ static func face(value: Dictionary) -> Font:
  var loaded: FontFile = load(str(FONT_FILES[kind])) as FontFile
  var font: FontFile = loaded.duplicate() as FontFile if loaded!=null else null
  if font==null: return ThemeDB.fallback_font
- var fallback: FontFile = load("res://experiments/playable_flightcase/fonts/DejaVuSansMono.ttf") as FontFile
+ var original_fallback: FontFile = load("res://experiments/playable_flightcase/fonts/DejaVuSansMono.ttf") as FontFile
+ var fallback: FontFile = original_fallback.duplicate() as FontFile if original_fallback!=null else null
+ if fallback!=null: fallback.allow_system_fallback=false
  var chain: Array[Font] = []
  var extra: Array[Font] = []
  if fallback!=null: extra.append(fallback)

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "provider": "image_gen",
+  "source_type": "Image-generated fictional character extensions",
+  "source_sheets": [
+    {
+      "rawpath": "/workspace/generated_images/exec-90b0cc5c-a739-4f47-9539-8f8525d7e917.png",
+      "sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "width": 1086,
+      "height": 1448,
+      "mode": "RGBA",
+      "bytes": 1336003,
+      "alpha_range": [
+        0,
+        255
+      ],
+      "zero_alpha_pixels": 958129,
+      "caveat": "Requested20–35px gridperimeter notfullymet; minimum9px atDan top. Rootaccepted actualmeasured4pxsafeperimeter. Faintalpha1–2 oncropouterrim remains.",
+      "file": "experiments/playable_flightcase/art/identity/cast_01.png",
+      "byte_identical_raw": true
+    },
+    {
+      "rawpath": "/workspace/generated_images/exec-d4240811-7b3d-4a77-8a05-88a0cd2f389f.png",
+      "sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 2151640,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "zero_alpha_pixels": 870618,
+      "caveat": "Rawalpha max254; neverclaimopaque. Arjun4pxregion crossesnominalgridby2px only intoemptygap. Faintalpha1–2 reaches outercropedge. Newbodies/poses/clothes andsource-visible tattoos needownerreview.",
+      "file": "experiments/playable_flightcase/art/identity/cast_02.png",
+      "byte_identical_raw": true
+    },
+    {
+      "rawpath": "/workspace/generated_images/exec-2166a29e-d8b1-4e70-9e92-78510cc729c9.png",
+      "sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 2118235,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "zero_alpha_pixels": 869761,
+      "caveat": "Rawalpha max254, notfullyopaque. Oscar/Sam headsstart763/764 above nominalrow768; actualmeasuredregions are isolated andsafe. Faintalpha1–3 touchesoutercropedge.",
+      "file": "experiments/playable_flightcase/art/identity/cast_03.png",
+      "byte_identical_raw": true
+    }
+  ],
+  "reference": "Art/References/ApprovedCast20261029/approved_cast_reference.png",
+  "reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+  "reference_crops": "All18 original C25 previews actually viewed, original bytes untouched. Existing original contact sheet + up to4 original per-ID crops used as generation references.",
+  "original_regions_receipt": "/workspace/work/identity-20261101/s57/art-study/source-regions.json",
+  "receipt_sha256": "c2deac03955198705f62ae9f5074ac9332bf874c132685930635a08960006657",
+  "raw_transformation": "NONE. Whole raw PNGs copied byte-identical; native AtlasTexture regions use actual alpha>8 body bbox+4px. No Python raster edit, alpha cleanup, resizing, silhouette extraction or baked UI.",
+  "region_contract": "All18 exactcanonicalIDs/one measured body/no significant alpha>8 rim or neighbor. Root independently checked each bounds/rim; source artist meaningful connectedcomponents receipts retained.",
+  "excluded": {
+    "path": "/workspace/generated_images/exec-34662a5a-1a00-47d1-b996-0301f469dab7.png",
+    "sha256": "11fc201dbfd8a1d1a558b69711357e8203fd4ec5ca25d8f394c79101d278ae84",
+    "reason": "Original6-column composition mergesEllis/Zoe/Dan/Ryan; HELD, neveruseasruntimeatlas.",
+    "review_receipt": "/workspace/work/identity-20261101/s57/art-study/sheet-01-attempt-01-review.json"
+  },
+  "limits": [
+    "New bodies/poses/lower clothing are proposed extensions of approved original upper-body identities, not original full-body masters.",
+    "Visible existing shirt graphics/tattoo details are generated approximations; owner likeness review remains outstanding.",
+    "Two sheets maxalpha254, so do notclaimfullyopaque. Faintalpha1–3 canreachouterregionrim.",
+    "Nominalgrid placement undershoots requestedgenerousmargins; Arjunregion crossesemptycellboundary2px and Oscar/Sam headsbeginabove nominalrowboundary. Only measuredregionsarevalid.",
+    "No repo/source/GL/native/tests/commits or copiedproductionassets bythisagent. Root handles integration/provenance/runtime review."
+  ],
+  "rights_basis": "Owner-directed image generation and explicit identity implementation request. No real-photography/model-release/exclusive rights claim. New bodies/lower clothing/poses and source-visible ink are proposals; likeness and all artwork still require owner review.",
+  "owner_approved": false,
+  "independent_master_claim": false
+}
