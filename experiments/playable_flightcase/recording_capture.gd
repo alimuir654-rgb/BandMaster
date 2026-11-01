@@ -246,6 +246,8 @@ func recording_commit() -> bool:
  trace.append({"verb":"record","input":"Enter plus blocked rapid pointer","before":before.snapshot.game.career,"after":model.game.career.duplicate(true),"save_delta":model.saves-int(before.saves),"song_ids":ids,"session":session})
  if not await finish_receipt("recording-saved-receipt"):return false
  if not verify(rules.sessions(model.game.career).size()==1 and rules.sessions(model.game.career)[0]==session,"native archive reads exact durable session"):return false
+ if width==390:
+  if not verify(inside(named("RecordingReleaseStatus_0")) and inside(named("RecordingReleaseTerms_0")) and inside(named("RecordingRelease_0")),"phone archive exposes actual unreleased status/terms/48px release BEFORE full writing history in first fold"):return false
  return await capture("recording-archive-unreleased")
 
 func release_commit() -> bool:
@@ -263,6 +265,8 @@ func release_commit() -> bool:
  if released!=null:
   var after: Dictionary=guard()
   if not verify(released.disabled,"already-released native action cannot settle again") or not await activate("RecordingRelease_0","pointer",true) or not unchanged(after,"disabled repeated release"):return false
+ if width==390:
+  if not verify(inside(named("RecordingReleaseStatus_0")) and inside(named("RecordingSavedFans_0")),"phone archive shows actual saved release day and reach before long track history"):return false
  return await capture("recording-archive-released")
 
 func reload_archive() -> bool:

@@ -176,7 +176,7 @@ static func _archive(host, parent: Node, compact: bool) -> void:
  var heading: VBoxContainer=host._paper(parent,compact)
  _copy(host,heading,"YOUR RECORDINGS","RecordingArchiveHeading",26)
  if not str(host.notice).is_empty(): _copy(host,heading,str(host.notice),"RecordingNotice")
- _copy(host,heading,"Recorded tracks, credits and local releases.","RecordingArchiveIntroduction",16,true)
+ _copy(host,heading,"Saved tracks and local releases.","RecordingArchiveIntroduction",16,true)
  _copy(host,heading,"Audio playback is not available.","RecordingArchiveAudio",16,true)
  if sessions.is_empty():
   var raw: Variant=state.get("recordings",[])
@@ -200,6 +200,7 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
  var heading: String="DEMO • DAY %d" % int(session["day"]) if session.has("day") else "DEMO • DATE NOT RECORDED"
  _copy(host,parent,heading,"RecordingSessionHeading_"+str(index),22)
  _copy(host,parent,"SAVED SONG LINKS" if linked else "LEGACY RECORDING • SONG LINKS NOT RECORDED","RecordingLinkStatus_"+str(index),16,true)
+ if compact:_session_facts(host,parent,session,index,release_action)
  var columns: Array=_columns(host,parent,compact)
  var tracks: Node=columns[0]
  var facts: Node=columns[1]
@@ -214,6 +215,9 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
    _song_facts(host,tracks,snapshots[track_index],"saved_%d_%d" % [index,track_index])
   else:
    _copy(host,tracks,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],16,true)
+ if not compact:_session_facts(host,facts,session,index,release_action)
+
+static func _session_facts(host, facts: Node, session: Dictionary, index: int, release_action: bool) -> void:
  _copy(host,facts,"SESSION QUALITY %d / 100" % int(session["quality"]) if session.has("quality") else "SESSION QUALITY NOT RECORDED","RecordingSavedSessionQuality_"+str(index))
  if bool(session.get("released",false)):
   _copy(host,facts,"RELEASED LOCALLY"+(" • DAY %d" % int(session["release_day"]) if session.has("release_day") else ""),"RecordingReleaseStatus_"+str(index))
