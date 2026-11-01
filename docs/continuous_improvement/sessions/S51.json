@@ -47,7 +47,7 @@
     "BM-19"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "655d5de38765aa856cd2cb6df314de7abb014e728ddec434ff0d5b58602fc633",
+    "docs/continuous_improvement/LESSONS.md": "5997564b0b3e07c465ce13ec3a1eac9a89a715049ab31358fcf2f8b9c457d0b3",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "game_baseline_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
@@ -55,12 +55,12 @@
   "all_write_freeze": "2026-11-01T08:30:00Z",
   "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
   "id": "S51",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "766ad58070b91fa0f3d22a3a9006cbede0ba9b43",
   "dominant_issue": "BM-23",
   "issue_log_review": {
-    "bytes": 451260,
-    "sha256": "fb8728eae3af2a2ec98a159c34f088350bbd23884f0493e4703592ffaff04b10"
+    "bytes": 470794,
+    "sha256": "88f031de19deab4e9344b8c98b98b7e99b84175925f8f596f0c22b09bbfc78cf"
   },
   "hypothesis": "Use one OS-safe viewport content boundary and touch tap-versus-drag arbitration so existing native art/text/fixedactions remain clear of cutouts and revealing notes allow real scrolling. Preserve sourceart/model/schema and desktop zero-inset pixels.",
   "controlled_comparison": "First reproduce actual native note-press/drag failure on exact179 using immutable independentprobe and actualcurrentoriginals. Pure physicalscreen-to-viewport-safeRect conversion with transformedwindow/stretchedorigin or invalidsamples; native simulatedtop/bottom/sideinsets at4viewports, actualsemanticcontrols/modal/transition bounds, identity/focus/scroll/save invariants. Compare zero-inset exactcontent/window to179 and inset/contentstate to explicitsafeRect; no fontsize/art shrink or fakehardware addition. Pacing/handwriting are nextboundedwork, not silentlybundled.",
@@ -101,5 +101,124 @@
   "scope_end": "2026-11-01T01:25:00Z",
   "source_freeze_target": "2026-11-01T01:00:00Z",
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
-  "next_action": "File encounteredsource-inventory lookupfailure before correction, then reproduce revealing-note gesture on exact179 and implement one shared safe-area/input foundation with nativeevidence."
+  "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
+  "original_protection_exception": {
+    "path": "experiments/playable_flightcase/session_transition.gd",
+    "authority": "S51committedpreflight0f815e3 and approvedsafe-area childlayout scope",
+    "baseline_sha256": "d48c60a0f776480bc8d79d0d5b77bc42c0e610f5642b44f4d813929ce570b9b1",
+    "candidate_sha256": "17c7fc3ac1ee613808558af0bd83ba75d7f4b85cee165875a099560265118bb3",
+    "exact_expected_fullfile_sha256": "17c7fc3ac1ee613808558af0bd83ba75d7f4b85cee165875a099560265118bb3",
+    "expected_substitutions": {
+      "get_viewport_rect().size.x -> size.x": 2,
+      "viewport.size_changed -> resized for _fit_card": 1
+    },
+    "entire_expected_file_matches": true,
+    "timing/input/model/callback_bytes_unchanged": true,
+    "diff": "/workspace/work/overnight-20261101/s51/transition-layout-only.diff"
+  },
+  "lessons_update": "Appended source/native-proven defaultmetadata/strictERROR/nativeTouch-positivecontrol/cancel guidance against BM26/BM30/BM32; allpriorlessonbytes retained.",
+  "ended_at": "2026-11-01T00:52:26.536260+00:00",
+  "tested_source_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+  "candidate_native_verified": true,
+  "source_frozen_at": "2026-11-01T00:37:58Z",
+  "closeout": {
+    "session": "S51",
+    "scope": "Mobile safecontent and revealing-note input foundation only",
+    "tested_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+    "preflight_sha": "0f815e3e34e6e2a30a2b36d05d03a24fcfe2ba51",
+    "source_frozen_at": "2026-11-01T00:37:58Z",
+    "ended_at": "2026-11-01T00:52:26.536260+00:00",
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "evidence": [
+      "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
+      "/workspace/work/overnight-20261101/s51/focused-validation-c58f580.json",
+      "/workspace/work/overnight-20261101/s51/source-protection-c58f580.json",
+      "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime-source-audit.json",
+      "/workspace/work/s40/runs/s51-mobile-c58f580-final/protected-checkpoint-comparison.json",
+      "/workspace/work/overnight-20261101/s51/visual-review-c58f580-agent.json"
+    ],
+    "checks": {
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_original_pngs": 172,
+      "focused_native_assertions": 2694,
+      "focused_original_pngs": 82,
+      "independent_mobile_math_checks": 15,
+      "engine_error_lines": 0,
+      "orphan_growth": 0,
+      "protected_original_files": 338,
+      "protected_original_Scripts": 54,
+      "protected_prior_runtime": 312,
+      "runtime_source_paths": 320,
+      "byte_identical_standard_originals": 168,
+      "disclosed_ephemeral_reopen_frames": 4,
+      "unexpected_pixel_changes": 0
+    },
+    "original_transition_exception": {
+      "path": "experiments/playable_flightcase/session_transition.gd",
+      "authority": "S51committedpreflight0f815e3 and approvedsafe-area childlayout scope",
+      "baseline_sha256": "d48c60a0f776480bc8d79d0d5b77bc42c0e610f5642b44f4d813929ce570b9b1",
+      "candidate_sha256": "17c7fc3ac1ee613808558af0bd83ba75d7f4b85cee165875a099560265118bb3",
+      "exact_expected_fullfile_sha256": "17c7fc3ac1ee613808558af0bd83ba75d7f4b85cee165875a099560265118bb3",
+      "expected_substitutions": {
+        "get_viewport_rect().size.x -> size.x": 2,
+        "viewport.size_changed -> resized for _fit_card": 1
+      },
+      "entire_expected_file_matches": true,
+      "timing/input/model/callback_bytes_unchanged": true,
+      "diff": "/workspace/work/overnight-20261101/s51/transition-layout-only.diff"
+    },
+    "original_pngs_opened": [
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/captures/c27-practice-390x844.png",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/captures/c27-title-390x844.png",
+      "/workspace/work/overnight-20261101/s51/baseline-note-valid/captures/01-note-before-touch-390x844.png",
+      "/workspace/work/overnight-20261101/s51/baseline-note-valid/captures/FIRST-FAILURE-390x844.png",
+      "/workspace/work/overnight-20261101/s51/note-dfd3020-phone/captures/02-note-after-native-drag-390x844.png",
+      "/workspace/work/s40/runs/s49-reviews-179f336-final/captures/c27-practice-1280x720.png",
+      "/workspace/work/overnight-20261101/s51/insets-dfd3020-phone/captures/FIRST-FAILURE-390x844.png",
+      "/workspace/work/s40/runs/s51-mobile-1a8df2a-final/captures/c27-rehearsal_full_reactions-390x844.png",
+      "/workspace/work/overnight-20261101/s51/insets-1a8df2a-1280x720/captures/safe-live-desk-1280x720.png",
+      "/workspace/work/overnight-20261101/s51/insets-1a8df2a-720x1280/captures/safe-practice-720x1280.png",
+      "/workspace/work/overnight-20261101/s51/production-note-c58f580-1280x720/captures/safe-production-note-full-390x844.png",
+      "/workspace/work/overnight-20261101/s51/production-note-c58f580-390x844/captures/safe-production-note-full-1280x720.png",
+      "/workspace/work/overnight-20261101/s51/insets-c58f580-390x844/captures/safe-practice-390x844.png",
+      "/workspace/work/overnight-20261101/s51/insets-c58f580-1600x900/captures/safe-finances-1600x900.png"
+    ],
+    "simulated_lenses": {
+      "SIMULATED phone player": "One OSsafecontent boundary mapsphysicalscreen throughviewporttransform once, preservesdesignedpadding and48pxactions; native touchdragscrolls96px while notecontinues, shorttapfinishesonrelease. Simulatedinsets/engineinput, notphysicalAndroidproof.",
+      "SIMULATED art director": "168/172zero-inset originals byte/pixelidentical;4knownreopenfadeframesonly. Existingwordmark/cast/paper/hardware preserved; complete16pxsavedreason inspectedphone/wide withfixedContinue. VisualPARTIAL; font/pacing/firstgigartwork stillnext.",
+      "SIMULATED keyboard/lifecycle reviewer": "CurrentSettingssemanticfocus survivesinset-onlyreflow; retainedoverwrite/modal andrunningtransition surviveactual390\u21941280resize. Cancel/internalmouse/secondarytouch/staleepoch/freeheld do notskiporcommit. No generalaccessibility/actualOSfocuslossclaim.",
+      "SIMULATED save/economy reviewer": "ActualClearAir/Finance/originaloracle resolvesandsavesonce; reflow/Skip/cancel/Continue leaveall5savepaths/fullsnapshot unchanged. Source54originalScripts/models/schema/unknownfields retained. S49failed-saveproof reused, no newS51failed-saveinjectionclaim.",
+      "SIMULATED process reviewer": "Committedpreflight beforecode/gate42lessons. Allnewfailuresloggedbeforecorrection, strongtestsneverweakened; default28ERRORcaughtdespiterunnergreen andprematurecommentarycorrected. StrictrunnernowrejectsanyERROR; failedhistory/rawPNGsretained. No sourcepublication/APK/ZIPrerunforactivity."
+    },
+    "failure_disclosures": [
+      "284guessedprotectionreceiptfilename; correctedafteractualinventory.",
+      "285ownerreportedcamera/contentgap +observedfixedmargin source; no agentdeviceclaim.",
+      "286firstnativeCLIusedwrong--outform; guardrefusedbeforenativefixture, sameprobe retained.",
+      "287actual179touchPRESSfinishednote andblockedscroll; plainLabelpositivecontrol96px vsInk0, correctedreleasearbitration.",
+      "288phonefixtureinsufficientscrollrangeattalltablet; changedtoadaptivefixture withoutweakeningrange/geometryassertions.",
+      "289same-viewportinsetreflowlostSettingsfocus; semanticfocusrestoredafterlayout.",
+      "290realcanceledmouseeventcompletednote; explicitcanceled/internalrelease nowcancelsgesture, freshclickusable.",
+      "291legacy339manifestincludesexplicitlyscopedtransitionfile; failedauditkept;338byteexact+1fullfile-three-layout-substitutionexception provesunchangedtiming/input/model.",
+      "292standardrunnergreenmasked28defaultmissingmetaERROR;1aHELD, earlyzeroERRORcommentarycorrected;has_meta guard/defaultproviderchecks andstrictrunneradded.",
+      "293reconnect/unknownjobhandle observed;294laterexactpathguard explainspossibleinitialpostmathabort, causalattributioncorrectedwithoutrewriting293.",
+      "294focusedruntimelocationguardrejectedS40pathbeforeengine; keptguardstrict,materialized/imported320S51rawsources, resumedonlymissingfocusedruns."
+    ],
+    "new_issue_review": "All295events reviewed.284\u2013294failures/observations preserved BEFOREcorrections;295finalcurrentproof.292prematurezeroERRORclaim corrected,293causaluncertainty corrected294.",
+    "lessons_update": "Appended source/native-proven defaultmetadata/strictERROR/nativeTouch-positivecontrol/cancel guidance against BM26/BM30/BM32; allpriorlessonbytes retained.",
+    "remaining": [
+      "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
+      "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
+      "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
+      "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+      "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
+    ],
+    "source_package": "No S51ZIPbuilt; reusecurrentimported320-filemanifest runtime asnextsourcebaseline; finalmilestonepackaginglater.",
+    "android": "V5unchanged; no newdevice/emulatortest",
+    "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
+    "writer_released_at": "2026-11-01T00:52:26.536260+00:00"
+  }
 }

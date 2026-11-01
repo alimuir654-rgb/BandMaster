@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s50_approved_overnight_ready",
+  "status": "s51_mobile_safe_content_verified_local_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -11,7 +11,7 @@
   "owner_approval_evidence": null,
   "scope": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "writer": null,
-  "last_verified_code_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
+  "last_verified_code_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "At00:15read newestapprovedPage/canonical/lessons/allnewissues and liveheads/lease, then scope the phone safe-area/touch/pacing foundation and first-gig baseline in a fresh committed sourcepreflight; no merchslice or stalequeue.",
+  "next_single_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -505,7 +505,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "Saved factual show reports, recoverableGUARANTEE offers, focus/reflow/resize-safe currentlive planning and latestisolatedproject checkpoint",
+  "last_completed_deliverable": "One OSsafecontent boundary and scroll-friendly/cancel-safe savednote input;320-file LOCALnativecheckpoint,no newAPK.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -551,15 +551,15 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-01T00:08:37.690325+00:00",
+  "last_updated_utc": "2026-11-01T00:52:26.536260+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "S49 exact179:73+88/import/4standard172originals;507review+1984original live;5028focusednative/49originals inclactualpaidshowfailedsave+retry.339original/54Scripts/312prior/318runtime preserved.168standardexact+4disclosedfadeframes.0ERROR/orphans.318sourceZIP/49reviewPNGZIP freshmanifest/import/configuredentryPASS. V5unchanged; no newpublication.",
+  "last_run_summary": "S51exactc58:73+88/import/4standard172originals;2694focusednative/82originals+15math.338originalbyteexact+1explicittransitionlayout/54Scripts/312prior/320runtime.168standardexact+4reopenfadeframes. ZEROERROR/orphans; no newAPK/ZIP/publication.",
   "last_packaged_at": "2026-10-29T14:15:02.922Z",
-  "last_validation": "/workspace/work/s40/runs/s46-unified-a9ba178-final/complete-validation.json",
+  "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
   "latest_owner_scope": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -634,7 +634,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/S49.json",
+    "session": "docs/continuous_improvement/sessions/S51.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -643,7 +643,7 @@
     "art_acceptance": "rejected",
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
-  "last_improvement_review": "/workspace/work/s40/runs/s46-unified-a9ba178-final/visual-review.json",
+  "last_improvement_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Historical overnightfreeze completed09:00; new approveddayplan through15:00, finalread-only14:50.",
   "last_scoped_preflight": {
@@ -689,7 +689,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S50",
+  "current_session": "S51",
   "last_verified_native_run": "/workspace/work/s40/runs/s47-finance-f093818-final/validation.json",
   "latest_verified_phase2": {
     "sprint": "S47",
@@ -713,8 +713,8 @@
     "owner_approved": false,
     "visual_verdict": "partial"
   },
-  "last_sprint": "S50",
-  "next_action": "At00:15read newestapprovedPage/canonical/lessons/allnewissues and liveheads/lease, then scope the phone safe-area/touch/pacing foundation and first-gig baseline in a fresh committed sourcepreflight; no merchslice or stalequeue.",
+  "last_sprint": "S51",
+  "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -722,67 +722,47 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "179f3366917d0aa629b1e79ede2d1f099a06d72f",
-    "verified_at": "2026-10-31T23:21:39.347569+00:00",
-    "scope": "Factual once-only show reports and recoverableGUARANTEE pressure; ordinary hometown recovery and originalsettlement preserved",
-    "validation": "/workspace/work/s40/runs/s49-reviews-179f336-final/validation.json",
-    "complete_validation": "/workspace/work/s40/runs/s49-reviews-179f336-final/complete-validation.json",
-    "closeout": "/workspace/work/business/s49/closeout.json",
+    "source_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+    "metadata_follows": true,
+    "validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
+    "closeout": "/workspace/work/overnight-20261101/s51/closeout.json",
     "checks": {
-      "gameplay": 73,
-      "opening": 88,
+      "gameplay_checks": 73,
+      "opening_checks": 88,
       "clean_import": true,
-      "standard_native_profiles": 4,
       "standard_original_pngs": 172,
-      "review_model_assertions": 507,
-      "original_live_model_assertions": 1984,
-      "focused_native_assertions": 5028,
-      "core_native_assertions": 4522,
-      "actual_phone_failed_save_assertions": 506,
-      "focused_original_pngs": 49,
-      "core_native_profiles": 4,
-      "actual_paid_show_save_failure_and_retry_cases": 1,
-      "protected_originals": 339,
+      "focused_native_assertions": 2694,
+      "focused_original_pngs": 82,
+      "independent_mobile_math_checks": 15,
+      "engine_error_lines": 0,
+      "orphan_growth": 0,
+      "protected_original_files": 338,
       "protected_original_Scripts": 54,
       "protected_prior_runtime": 312,
-      "runtime_source_paths": 318,
+      "runtime_source_paths": 320,
       "byte_identical_standard_originals": 168,
-      "disclosed_reopen_fade_frames": 4,
-      "unexpected_pixel_changes": 0,
-      "engine_error_lines": 0,
-      "orphan_growth": 0
+      "disclosed_ephemeral_reopen_frames": 4,
+      "unexpected_pixel_changes": 0
     },
-    "source_protection": "/workspace/work/business/s49/source-protection-final.json",
-    "focused_validation": "/workspace/work/business/s49/focused-validation.json",
-    "visual_review": "/workspace/work/business/s49/visual-review179f336.json",
+    "source_protection": "/workspace/work/overnight-20261101/s51/source-protection-c58f580.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime-source-audit.json",
+    "focused_validation": "/workspace/work/overnight-20261101/s51/focused-validation-c58f580.json",
+    "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "android": "Current V5/a9 unchanged; S47finance/S48offstage/S49reviews are local and NOT in APK",
-    "packaging": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/packaging.json",
-    "artifacts": [
-      {
-        "path": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/livin-the-dream-isolated-godot-4.7.2.zip",
-        "bytes": 55197918,
-        "sha256": "983ec1f50117376462bd2915d29a9df68d7d94bb2a843731dcdc455fd909d67c",
-        "zip_crc": "PASS"
-      },
-      {
-        "path": "/workspace/work/s40/runs/s49-reviews-179f336-final/packages/livin-the-dream-s49-original-review.zip",
-        "bytes": 21150741,
-        "sha256": "0dd24d5111a5905a9558c1f17f0dd2f8a889d882bbc70d34a90f03318b117993",
-        "zip_crc": "PASS"
-      }
-    ],
-    "extracted_native_entry_pass": true,
+    "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
+    "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
+    "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
     "remaining": [
-      "New S47finance/S48offstage/S49show-report work remains LOCAL and is not included in currentV5. No newAPK or hostedS49screenshots were published.",
-      "Only hometown GUARANTEE terms are restricted; broader regionalvenue access, actualmusic/merch sales, vanrepair/touring and future sales-basedgates remain unimplemented. Merch proposal in S49_MERCH_NEXT_SLICE.md is DESIGN ONLY.",
-      "Long reports require scroll onphone/shortlandscape; desktopparagraphlines are long. OverallvisualPARTIAL/ownerfalse; physicalphone and hostedPage renderedlayout unverified.",
-      "Source/history and both newZIPs remain local. Originalpublicfullledger/learning-history publication rejection remains; no retry/bypass/newapproval inferred."
+      "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
+      "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
+      "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
+      "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+      "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
     ],
-    "next_action": "Implement one real inventory-backed merchandise sale with explicit production/stock/price/frozen-demand and grossFinance records, using newshowID and one-save rollback; proposedtable is designonly, no automatic queue.",
-    "publication": "Source/history/318-source project ZIP/49-originalPNG review ZIP LOCAL only; existingPage21has only previously approvedS48images, no newS49publication",
-    "writer_released_at": "2026-10-31T23:21:39.347569+00:00"
+    "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
+    "publication": "LOCAL source/runtime/evidence; no newPageimages/sourceupload",
+    "writer_released_at": "2026-11-01T00:52:26.536260+00:00"
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -1544,6 +1524,13 @@
       "native_verified": false,
       "closeout": "/workspace/work/day31/s43/held-closeout.json",
       "protected_inputs_unchanged": 339
+    },
+    {
+      "source_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+      "session": "S51",
+      "native_full_verified": false,
+      "held_prior_candidate": "1a8df2af7a33f6b1760b643616fdd43e7aa95e84",
+      "held_reason": "event292 defaultmetadataguard"
     }
   ],
   "prior_s45_verified_pointers": {
