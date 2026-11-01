@@ -89,6 +89,42 @@ func song_key(id: String) -> String:
 func draft_ids() -> Array:
  return desk().get("recording_ids").duplicate()
 
+func initial_recording_fold() -> bool:
+ if width!=390:return true
+ var first: Button=named("RecordingSong_original_1") as Button
+ var scroll: ScrollContainer=named("CareerScroll") as ScrollContainer
+ # No Tab, scroll, ensure-visible or input before this FIRST-FOLD measurement.
+ if not verify(first!=null and scroll!=null and scroll.scroll_vertical==0,"initial phone recording plan starts at top with actual first original"):return false
+ return await settled(first) and verify(inside(first) and first.size.x>=48 and first.size.y>=48,"initial phone first ADD is wholly inside every clip at physical48")
+
+func selected_order_context() -> bool:
+ var before: Dictionary=guard()
+ var scroll: ScrollContainer=named("CareerScroll") as ScrollContainer
+ if not verify(scroll!=null,"selected-order context uses actual CareerScroll"):return false
+ var bar: VScrollBar=scroll.get_v_scroll_bar()
+ if bar.is_visible_in_tree() and bar.max_value>bar.page:
+  for attempt in range(64):
+   if bar.has_focus():break
+   await key(KEY_TAB)
+  if not verify(bar.has_focus() and Rect2(Vector2.ZERO,Vector2(root.size)).encloses(bar.get_global_rect()) and scroll.get_global_rect().encloses(bar.get_global_rect()),"genuine Tab reaches actual selected-order scrollbar chrome"):return false
+  await key(KEY_HOME)
+  if not verify(bar.has_focus() and scroll.scroll_vertical==0,"genuine Home restores selected-order context at zero"):return false
+ else:
+  if not verify(scroll.scroll_vertical==0,"nonoverflowing selected-order context already starts at zero"):return false
+ await frames(3)
+ await RenderingServer.frame_post_draw
+ var prior_y: float=-INF
+ var selected: Array=draft_ids()
+ var facts: Array=[]
+ for index in range(selected.size()):
+  var title: Label=named("RecordingTitle_"+song_key(str(selected[index]))) as Label
+  if not verify(title!=null and title.text.begins_with("%d. " % [index+1]) and title.get_global_rect().position.y>prior_y,"actual native titles follow exact selected draft order: "+str(selected[index])):return false
+  prior_y=title.get_global_rect().position.y
+  facts.append({"id":selected[index],"label_text":title.text,"global_rect":str(title.get_global_rect()),"inside":inside(title)})
+ if not verify(not selected.is_empty() and inside(named("RecordingTitle_"+song_key(str(selected[0])))),"first selected title is actually visible in restored context"):return false
+ trace.append({"case":"actual selected order after native Tab/Home","scroll_vertical":scroll.scroll_vertical,"draft_ids":selected,"native_titles":facts})
+ return await capture("recording-selected-order-context") and unchanged(before,"real Tab/Home selected-order context")
+
 func select_and_resize() -> bool:
  var before: Dictionary=guard()
  var catalogue: Array=rules.songs(model.game.career)
@@ -130,7 +166,7 @@ func select_and_resize() -> bool:
   if not check_fixed_layout() or not unchanged(before,"engine safe-inset fixture, not physical-device verification") or not await capture("recording-plan-safe-insets"):return false
   screen.remove_meta("safe_area_test_sample");screen.call("_refresh_safe_area");await frames(5)
   if not unchanged(before,"safe inset reset") or not await settled(named("RecordingMainAction")):return false
- return true
+ return await selected_order_context()
 
 func native_touch(id: String) -> bool:
  var button: Button=named(id) as Button
@@ -268,7 +304,8 @@ func legacy_archive_fixture() -> bool:
 func journey() -> bool:
  if not await continue_saved_owner():return false
  if baseline_only:return await capture("baseline-songbook")
- if not await open_recording() or not await capture("recording-empty-plan"):return false
+ if not await capture("current-songbook"):return false
+ if not await open_recording() or not await initial_recording_fold() or not await capture("recording-empty-plan"):return false
  if not await select_and_resize() or not await recording_commit() or not await release_commit() or not await reload_archive():return false
  return await legacy_archive_fixture()
 

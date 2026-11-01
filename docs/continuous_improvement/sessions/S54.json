@@ -72,8 +72,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 569668,
-    "sha256": "bdac04bf85f7db7df7224389b8ef773ebc1fa024244f7a7a726210c81d332eae"
+    "bytes": 571700,
+    "sha256": "7f22aaab2a2e7c44efa32408e6a8617d9a0739fff1104c6e3a9b7868b629796b"
   },
   "started_at": "2026-11-01T04:24:30.738786+00:00",
   "scope_end": "2026-11-01T06:20:00Z",
@@ -95,5 +95,10 @@
     "All337runtimeinputs except ownedCareerDesk and4explicitnewownedfiles",
     "S51safearea/Inkinput/S52heldday/fonts/Settings/S53showmodels/controlart/C25/rawpassivemeters/productionproject/schema1"
   ],
-  "baseline_evidence": "/workspace/work/overnight-20261101/s53/closeout.json"
+  "baseline_evidence": "/workspace/work/overnight-20261101/s53/closeout.json",
+  "candidate_source_sha": "d3da7d8ed673b09faad40c95ca959a91aa81c8fd",
+  "candidate_native_verified": false,
+  "candidate_status": "full341import-and-focused-native-pending",
+  "updated_at": "2026-11-01T04:49:50.883481+00:00",
+  "art_correction": "361: actual390initial has no ADDbeforefold. Compactselectionfacts only; fullhistoryalreadyinarchive. No art/font/modelchange. NativeinitialADDassert +genuineHome selectedreadingcontext beforefourfinalnative."
 }

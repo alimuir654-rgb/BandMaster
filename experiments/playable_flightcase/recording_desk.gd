@@ -84,7 +84,7 @@ static func render(host, parent: Node, compact: bool) -> void:
 
 static func _selection(host, parent: Node, songs: Array) -> void:
  var ids: Array=host.recording_ids
- _copy(host,parent,"YOUR TRACK ORDER" if not ids.is_empty() else "NO TRACKS SELECTED","RecordingOrderHeading",20)
+ if not ids.is_empty():_copy(host,parent,"YOUR TRACK ORDER","RecordingOrderHeading",20)
  for index in range(ids.size()):
   var id: String=str(ids[index])
   var song: Dictionary=_find_song(songs,id)
@@ -119,7 +119,9 @@ static func _selectable_track(host, parent: Node, song: Dictionary, selected_ind
  var title: String=("%d. " % (selected_index+1) if selected_index>=0 else "")+str(song["title"])
  # Full48-character title is a native wrapped label; action captions stay short.
  _copy(host,block,title,"RecordingTitle_"+key,20)
- _song_facts(host,block,song,key)
+ var facts: Dictionary=Rules.describe_song(song)
+ _copy(host,block,str(facts["credits"]),"RecordingCredits_"+key)
+ _copy(host,block,str(facts["arrangement"])+"  •  "+str(facts["quality"]),"RecordingSelectFacts_"+key,16,true)
  var selected: bool=selected_index>=0
  var select: Button=_button(host,block,"REMOVE FROM DEMO" if selected else "ADD TO DEMO","RecordingSong_"+key,toggle.bind(host,id),false,selected or selected_count<3)
  select.set_meta("song_id",id)
