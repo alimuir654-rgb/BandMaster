@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S65",
-  "status": "active",
+  "status": "closed",
   "owner_request": "NEWownerPage24explicitAPPROVEA02v2/APPROVEA03v2 aftercompletedboard andfront/non-smiling/variedpose+same-layout/new-icon instructions. IntegrateONLYtheseacceptedassets intoactuallocalgame, no furthergeneration/newfeatures/APK. Newapprovalprospectivelyauthorisesthisboundedassetintegrationafterearlierself-set19:15target;19:45ALLwritefreeze/20hardstopunchanged.",
   "owner_approved": false,
   "baseline_sha": "da2c371e198553bc9938cb8c5706a9ece64def4f",
@@ -76,8 +76,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 754667,
-    "sha256": "b693f272cd5c72f76a074e9e1783ac8ef894fdb2c281d59f26dd8bf673a8f55e"
+    "bytes": 757647,
+    "sha256": "33617b10958ed12ec11f5d0476348a0a6fb05278b46b99eb522f2e5760761bfc"
   },
   "started_at": "2026-11-01T19:32:41.945833+00:00",
   "scope_end": "2026-11-01T19:43:00Z",
@@ -118,15 +118,19 @@
   "art_fit_method_448": "Stopgeneration after2prompts; measurednonuniformisolatedwholeproductbbox nativecrops frombyteoriginalsource2, actualnativepaperjudgementrequired.",
   "actual_baseline": "b310import/phone127/wide127 checks0ERROR/orphans,3nativeoriginalseach; reportedtrio/style reconstructed viaactualmodel APIs, notowner-savepossession.",
   "owner_decision_page_sequence": 24,
-  "delegated_source_writer": {
-    "agent": "/root/render_support",
-    "paths": [
-      "experiments/playable_flightcase/band_identity_press.gd",
-      "experiments/playable_flightcase/career_launcher.gd",
-      "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
-      "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
-      "experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
+  "delegated_source_writer": null,
+  "closed_at": "2026-11-01T19:42:37.206117+00:00",
+  "tested_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+  "source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+  "closeout": {
+    "tested_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
+    "evidence": [
+      "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
+      "/workspace/work/s40/runs/s65-approved-art-66e5bd0-final/complete-validation.json",
+      "/workspace/work/s40/runs/s65-approved-art-66e5bd0-final/visual-review.json"
     ],
-    "expires_at": "2026-11-01T19:36:00Z"
+    "visual_verdict": "partial",
+    "next_action": "Read-only owner review of integrated current lineup/icons; next development slice should scope approved F09/F10 from actual models and current378-source baseline. No automatic continuation, newAPK/ZIP, source/publication or schedule change.",
+    "new_issue_review": "465preflight/466finalreview/467metadataenumfailureloggedBEFOREcorrection; no source/nativefailure. Actualschemaenumfixedtogatepartial; no source/tests/assertionsweakened."
   }
 }

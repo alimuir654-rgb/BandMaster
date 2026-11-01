@@ -1,14 +1,14 @@
 {
-  "writer": "S65-approved-art-integration-20261101T1932",
+  "writer": null,
   "base_head": "257c85302b4139c1c2ab3467dcd73f66022b4c86",
   "claimed_at": "2026-11-01T19:32:41.945833+00:00",
-  "expires_at": "2026-11-01T19:43:00Z",
+  "expires_at": "2026-11-01T19:42:37.206117+00:00",
   "scope": "TwoexistingUIhooks+twoBYTEEXACTPNGs+oneconciseprovenanceJSON=378curatedinputs. CurrentcareerposterONLYexactunique3-IDArjun/Zoe/Marcusc ohort anyorder usesapprovedfront/nonsmilingposes; allothervariants/rostersstayold. EightHomeiconsuseacceptedatlasatunchanged32px withoriginalfallback; no layout/labels/control/model/save changes.",
   "authority": "NEW directownerrequest Sunday1Nov17:18: Change the career desk to a paneloficons; overhaulgear screenvisual/showactualownedgear/newexpensiveguitars,bass,cymbals; posterposeslookweird, attachedTHELASTBUSArjun/Zoe/Marcusphone screenshot. This is a new MANUAL same-thread specified revision AFTER completed16:00window, prospectivelyauthorised by newinstruction underCHECKauthorityrule; notautomaticextension/schedule/queue. Originalsource/publication/save/cast/hardware boundariespersist. Rootselfboundsnewsource19:15/allwrites19:45/hardstop20:00.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": "2026-11-01T19:24:59.824767+00:00",
+  "status": "released",
+  "released_at": "2026-11-01T19:42:37.206117+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S62-pixel9-apk-package-20261101T1425",
-  "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
+  "last_writer": "S65-approved-art-integration-20261101T1932",
+  "source_sha": "66e5bd00499ebbbc84a5ed9e750d9bfb125ad7d2",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -334,7 +334,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": false,
-  "next_action": "Owner review A02 v2 and A03 v2 on the existing private board; preserve approved F01\u2013F06/F08\u2013F10, deferred F07, approved A01 and A04 direction. Then choose ONE approved bounded source slice, prioritising F09/F10. No further generation/source/test/build activity or automatic extension.",
+  "next_action": "Read-only owner review of integrated current lineup/icons; next development slice should scope approved F09/F10 from actual models and current378-source baseline. No automatic continuation, newAPK/ZIP, source/publication or schedule change.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -345,15 +345,6 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": {
-    "agent": "/root/render_support",
-    "paths": [
-      "experiments/playable_flightcase/band_identity_press.gd",
-      "experiments/playable_flightcase/career_launcher.gd",
-      "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
-      "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
-      "experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
-    ],
-    "expires_at": "2026-11-01T19:36:00Z"
-  }
+  "delegated_source_writer": null,
+  "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json"
 }
