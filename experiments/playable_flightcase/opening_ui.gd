@@ -12,6 +12,8 @@ const IdentityPress = preload("res://experiments/playable_flightcase/band_identi
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
+const SettingsSheet = preload("res://experiments/playable_flightcase/settings_sheet.gd")
+const NotesStyle = preload("res://experiments/playable_flightcase/notes_style.gd")
 const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
 const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
@@ -29,6 +31,7 @@ var free_name: String = ""
 var chosen_intent: String = "Raw"
 var response: String = ""
 var _new_band_dialog: Control
+var _settings_sheet: Control
 var _practice_view: Control
 var _recruit_view: Control
 var _career_view: Control
@@ -80,6 +83,11 @@ func _erase() -> void:
   # original dialog in-tree preserves its focus and once-only callback.
   if is_instance_valid(_new_band_dialog) and old==_new_band_dialog:
    continue
+  if is_instance_valid(_settings_sheet) and old==_settings_sheet:
+   if showing_menu:
+    continue
+   _settings_sheet = null
+   settings_open = false
   remove_child(old)
   old.queue_free()
  _practice_view = null
@@ -372,19 +380,18 @@ func _menu() -> void:
  if not OS.has_feature("mobile"):
   actions.add_child(_button("QUIT",func(): get_tree().quit(),"tab","QuitAction"))
 
- # This frame/control subtree is created once for this menu view. Its visibility
- # and hero size change in place; Sound/Motion still update their own labels.
- var settings: PanelContainer = Kit.frame(look,"panel")
- settings.name = "MenuSettingsPanel"
- settings.visible = settings_open
- actions.add_child(settings)
- var setting_column := _column()
- settings.add_child(setting_column)
- setting_column.add_child(_label("SETTINGS",18))
- var sound: Button = _button("MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON",_toggle_sound,"tab","SoundAction")
- setting_column.add_child(sound)
- var motion: Button = _button("TRANSITIONS: OFF" if reduced_motion else "TRANSITIONS: ON",_toggle_motion,"tab","MotionAction")
- setting_column.add_child(motion)
+ # Settings is one retained original-frame sheet. Adding note preferences must
+ # not squeeze the liked poster or hide the no-draft reason on a phone.
+ if not is_instance_valid(_settings_sheet):
+  _settings_sheet = SettingsSheet.new()
+  _settings_sheet.look = look
+  _settings_sheet.sound_requested.connect(_toggle_sound)
+  _settings_sheet.motion_requested.connect(_toggle_motion)
+  _settings_sheet.notes_style_requested.connect(_toggle_notes_style)
+  _settings_sheet.closed.connect(_settings_closed)
+  add_child(_settings_sheet)
+ _settings_sheet.set_preferences(muted,reduced_motion,NotesStyle.caption())
+ move_child(_settings_sheet,get_child_count()-1)
  if not notice.is_empty():
   actions.add_child(_label(notice,14))
 
@@ -417,20 +424,32 @@ func _opening_poster_fit_hero() -> void:
   available = usable-chrome-16.0
  else:
   var tall_tablet: bool = size.x>=600.0 and size.y>size.x
-  requested = (340.0 if settings_open else 500.0) if tall_tablet else (196.0 if settings_open else 330.0)
+  requested = 500.0 if tall_tablet else 330.0
   available = usable-chrome-12.0-actions.get_combined_minimum_size().y
  # Never hide copy or shrink fonts to claim a fit. If an untested viewport has
  # less than copy_floor available, the native bounds check must expose that.
  hero.custom_minimum_size.y = maxf(copy_floor,minf(requested,available))
 
 func _toggle_settings() -> void:
- var panel: Control = find_child("MenuSettingsPanel",true,false) as Control
- if panel==null:
+ if not is_instance_valid(_settings_sheet):
   return
- settings_open = not settings_open
- panel.visible = settings_open
- _opening_poster_fit_hero()
- call_deferred("_opening_poster_fit_hero")
+ if settings_open:
+  _settings_sheet.close_sheet()
+ else:
+  settings_open = true
+  _settings_sheet.open_sheet(find_child("SettingsAction",true,false) as Control)
+
+func _settings_closed() -> void:
+ settings_open = false
+ if showing_menu:
+  var invoker: Control = find_child("SettingsAction",true,false) as Control
+  if invoker!=null:
+   invoker.grab_focus()
+
+func _toggle_notes_style() -> void:
+ NotesStyle.toggle(get_tree())
+ if is_instance_valid(_settings_sheet):
+  _settings_sheet.set_preferences(muted,reduced_motion,NotesStyle.caption())
 
 func _new_band() -> void:
  if is_instance_valid(_new_band_dialog):

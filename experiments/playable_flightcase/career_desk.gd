@@ -276,7 +276,18 @@ func _home_page(parent: Node, compact: bool) -> void:
   var block := _box(2)
   grid.add_child(block)
   _copy(block,str(entry[0]),13,true)
-  block.add_child(C.meter(int(game.career.get(str(entry[1]),0)),"notepaper"))
+  var value: int = int(game.career.get(str(entry[1]),0))
+  var reading: HBoxContainer = C.meter(value,"notepaper")
+  block.add_child(reading)
+  if str(entry[1])=="tension":
+   # Tension is the one status where less is better. Keep the original meter
+   # art/value inert and truthful; encode the meaning in native ink and copy.
+   var number: Label = reading.get_node("CareerMeterValue") as Label
+   number.add_theme_color_override("font_color",Color("326346") if value<35 else (Color("805817") if value<65 else Color("943e31")))
+   var meaning: String = "CALM" if value<35 else ("ON EDGE" if value<65 else "HIGH TENSION")
+   var caption: Label = C.paper_label(meaning+" • lower means calmer",16)
+   caption.name = "CareerTensionMeaning"
+   block.add_child(caption)
  _copy(body,"%d FINISHED ORIGINALS  •  %d FANS" % [int(game.career.get("songs",0)),int(game.career.get("fans",0))],16)
  var practice := _button("THE PRACTICE ROOM  ›","CareerHomePracticeAction",_practice.bind(""),true)
  body.add_child(practice)

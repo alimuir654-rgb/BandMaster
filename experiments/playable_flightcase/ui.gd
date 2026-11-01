@@ -1181,7 +1181,7 @@ func _finish_session_presentation() -> void:
 
 func _on_visibility_changed() -> void:
  if not is_visible_in_tree() and is_instance_valid(_session_overlay):
-  _session_overlay.finish_now()
+  _session_overlay.finish_now(false)
 
 func _exit_tree() -> void:
  if is_instance_valid(_session_overlay):

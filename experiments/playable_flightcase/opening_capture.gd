@@ -142,6 +142,15 @@ func _wait_session_presentation(action_name: String) -> void:
    await _draw_screen("session_beat_"+action_name,root.size.x,root.size.y)
    break
   await process_frame
+ if is_instance_valid(overlay) and str(overlay.get("focus_kind"))=="day":
+  # DAY is deliberately player-held. Use real native input here rather than
+  # click_action(), which would recursively enter this same wait helper.
+  var acknowledge: Button = overlay.find_child("SkipSessionBeatAction",true,false) as Button
+  var viewport_bounds := Rect2(Vector2.ZERO,Vector2(root.size))
+  if acknowledge==null or not acknowledge.is_visible_in_tree() or not acknowledge.has_focus() or acknowledge.size.x<48 or acknowledge.size.y<48 or not viewport_bounds.encloses(acknowledge.get_global_rect()):
+   failures.append("S52 held DAY lacks a visible focused48px native acknowledgment: "+action_name)
+  else:
+   await _recap_key(KEY_ENTER)
  for frame in range(150):
   if not is_instance_valid(overlay):
    break
@@ -212,7 +221,7 @@ func _settings_targets(screen: Control,w: int,h: int,opened: bool,tag: String) -
 
 func _settings_view(screen: Control) -> Dictionary:
  var view: Dictionary = {}
- for name in ["NewBandAction","ContinueAction","SettingsAction","QuitAction","SoundAction","MotionAction"]:
+ for name in ["NewBandAction","ContinueAction","SettingsAction","QuitAction","SoundAction","MotionAction","NotesStyleAction","SettingsBackAction"]:
   var control: Control = screen.find_child(name,true,false)
   if control!=null:
    view[name]={"id":control.get_instance_id(),"rect":control.get_global_rect()}
@@ -322,15 +331,26 @@ func _check_menu_settings(screen,w: int,h: int,tag: String) -> void:
    if bool(screen.reduced_motion)!=prior_motion or not motion.has_focus():
     failures.append("S41 "+tag+" immediate Space failed to restore Motion without retarget")
    _settings_same_view(screen,motion_view,tag+" motion keyboard")
-  settings=screen.find_child("SettingsAction",true,false)
-  if settings==null:
-   break
-  if not await _tab_to(settings,12):
-   failures.append("S40 "+tag+" Tab cannot return to Settings invoker")
-  if cycle==0:
-   await _recap_key(KEY_ENTER)
+  var notes_style: Button = screen.find_child("NotesStyleAction",true,false)
+  if notes_style==null or notes_style.size.y<48 or not Rect2(0,0,w,h).encloses(notes_style.get_global_rect()):
+   failures.append("S52 "+tag+" missing/clipped48px note style choice")
   else:
-   await click_action(settings)
+   var initial_notes: String = notes_style.text
+   var notes_view: Dictionary = _settings_view(screen)
+   await click_action(notes_style)
+   if notes_style.text==initial_notes or not notes_style.has_focus():
+    failures.append("S52 "+tag+" real note style toggle failed in place")
+   await _recap_key(KEY_SPACE)
+   if notes_style.text!=initial_notes or not notes_style.has_focus():
+    failures.append("S52 "+tag+" paired note style input failed to restore")
+   _settings_same_view(screen,notes_view,tag+" note style keyboard")
+  var back: Button = screen.find_child("SettingsBackAction",true,false)
+  if back==null or not await _tab_to(back,12):
+   failures.append("S52 "+tag+" modal Tab cannot reach Back")
+  if cycle==0:
+   await _recap_key(KEY_ESCAPE)
+  elif back!=null:
+   await click_action(back)
   _settings_targets(screen,w,h,false,tag+" closed")
   settings=screen.find_child("SettingsAction",true,false)
   if settings==null or settings.get_instance_id()!=settings_id or not settings.has_focus():
@@ -688,7 +708,7 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  if strength.text!="STRENGTH  •  "+str(person.get("strength","Still developing")) or friction.text!="FRICTION  •  "+str(person.get("friction","Unknown")):
   failures.append("S43 "+tag+" complete authored audition notes changed or were truncated")
  for note in [strength,friction]:
-  if note.get_theme_font_size("font_size")!=16 or note.visible!=heard or not note.has_method("is_revealing") or note.visible_characters_behavior!=TextServer.VC_CHARS_AFTER_SHAPING:
+  if note.get_theme_font_size("font_size")!=(22 if UI.NotesStyle.handwritten else 16) or note.visible!=heard or not note.has_method("is_revealing") or note.visible_characters_behavior!=TextServer.VC_CHARS_AFTER_SHAPING:
    failures.append("S43 "+tag+" original 16px authored note/reveal guard changed: "+str(note.name))
   if heard and (note.get_global_rect().position.x<profile.get_global_rect().position.x or note.get_global_rect().end.x>profile.get_global_rect().end.x):
    failures.append("S43 "+tag+" audition note escapes readable dossier width: "+str(note.name))

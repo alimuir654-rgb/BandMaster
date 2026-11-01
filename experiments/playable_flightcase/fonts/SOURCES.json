@@ -1,0 +1,354 @@
+{
+  "scope": "Presentation-only handwritten narrative notes; original fonts byte-identical, no font transformation; native printed headings/buttons/numbers/branding remain original.",
+  "caveat": {
+    "schema_version": 1,
+    "scope": "S51 scratch source intake for ONE official handwritten-family candidate; no repo/runtime/source/GL edit or native visual approval",
+    "intake_utc": "2026-11-01T00:16:13.463215+00:00",
+    "candidate": "Caveat",
+    "family_category": "HANDWRITING, as declared by official GoogleFonts METADATA.pb",
+    "repository": "https://github.com/google/fonts",
+    "pinned_repository_revision": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+    "pinned_family_tree_url": "https://github.com/google/fonts/tree/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/caveat",
+    "revision_resolution_command": "git ls-remote https://github.com/google/fonts.git refs/heads/main",
+    "revision_resolution_observed_utc": "2026-11-01T00:15:12.966702+00:00",
+    "declared_upstream_source": {
+      "repository": "https://github.com/googlefonts/caveat",
+      "commit": "59745e818ef7973e11e70cb1358d0e902b56c5fc",
+      "source_file": "fonts/variable/Caveat[wght].ttf",
+      "evidence": "Downloaded official METADATA.pb source stanza. This upstream repository was not separately cloned or downloaded; the actual intake is pinned to the GoogleFonts distribution commit."
+    },
+    "downloaded_original_files": [
+      {
+        "path": "/workspace/work/overnight-20261101/s51/font-study/OFL.txt",
+        "upstream_path": "ofl/caveat/OFL.txt",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/caveat/OFL.txt",
+        "bytes": 4385,
+        "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s51/font-study/METADATA.pb",
+        "upstream_path": "ofl/caveat/METADATA.pb",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/caveat/METADATA.pb",
+        "bytes": 1029,
+        "sha256": "038342ea08d3f09e11b7f08cfd1e1d556b4f56a48269b0909395aa6fecd4c4f7"
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s51/font-study/DESCRIPTION.en_us.html",
+        "upstream_path": "ofl/caveat/DESCRIPTION.en_us.html",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/caveat/DESCRIPTION.en_us.html",
+        "bytes": 815,
+        "sha256": "126e3d28a4271a3b15c600e45ebcfe425999718b47f9819c61950366d690a7ac"
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s51/font-study/Caveat[wght].ttf",
+        "upstream_path": "ofl/caveat/Caveat[wght].ttf",
+        "source_url": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/caveat/Caveat%5Bwght%5D.ttf",
+        "bytes": 403648,
+        "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988"
+      }
+    ],
+    "font_identity_from_actual_name_table": {
+      "copyright": [
+        "Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat)"
+      ],
+      "family": [
+        "Caveat"
+      ],
+      "subfamily": [
+        "Regular"
+      ],
+      "full_name": [
+        "Caveat Regular"
+      ],
+      "version": [
+        "Version 2.000"
+      ],
+      "postscript_name": [
+        "Caveat-Regular"
+      ],
+      "manufacturer": [
+        "Pablo Impallari"
+      ],
+      "designer": [
+        "Pablo Impallari"
+      ],
+      "vendor_url": [
+        "http://www.impallari.com"
+      ],
+      "designer_url": [
+        "http://www.impallari.com"
+      ],
+      "license": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL"
+      ],
+      "license_url": [
+        "http://scripts.sil.org/OFL"
+      ]
+    },
+    "font_format": "Original unmodified TrueType variable font with a wght axis",
+    "axes": [
+      {
+        "tag": "wght",
+        "minimum": 400.0,
+        "default": 400.0,
+        "maximum": 700.0
+      }
+    ],
+    "unicode_cmap_entry_count": 753,
+    "actual_glyph_coverage": [
+      {
+        "character": "\u00a3",
+        "codepoint": "U+00A3",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "sterling"
+      },
+      {
+        "character": "\u2192",
+        "codepoint": "U+2192",
+        "present_in_best_unicode_cmap": false,
+        "glyph_name": null
+      },
+      {
+        "character": "\u2022",
+        "codepoint": "U+2022",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "bullet"
+      },
+      {
+        "character": "\u2014",
+        "codepoint": "U+2014",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "emdash"
+      },
+      {
+        "character": "'",
+        "codepoint": "U+0027",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "quotesingle"
+      },
+      {
+        "character": "\u2019",
+        "codepoint": "U+2019",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "quoteright"
+      },
+      {
+        "character": "\u2018",
+        "codepoint": "U+2018",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "quoteleft"
+      },
+      {
+        "character": "\u201c",
+        "codepoint": "U+201C",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "quotedblleft"
+      },
+      {
+        "character": "\u201d",
+        "codepoint": "U+201D",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "quotedblright"
+      },
+      {
+        "character": "\u2026",
+        "codepoint": "U+2026",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "ellipsis"
+      },
+      {
+        "character": "\u2713",
+        "codepoint": "U+2713",
+        "present_in_best_unicode_cmap": false,
+        "glyph_name": null
+      },
+      {
+        "character": "\u2212",
+        "codepoint": "U+2212",
+        "present_in_best_unicode_cmap": true,
+        "glyph_name": "minus"
+      }
+    ],
+    "ascii_printable_missing": [],
+    "metrics": {
+      "units_per_em": 1000,
+      "ascender": 960,
+      "descender": -300,
+      "line_gap": 0,
+      "os2_x_height": 400,
+      "os2_cap_height": 610
+    },
+    "license": {
+      "spdx": "OFL-1.1",
+      "full_original_text_path": "/workspace/work/overnight-20261101/s51/font-study/OFL.txt",
+      "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b",
+      "copyright": "Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat)",
+      "exact_license_declaration": "This Font Software is licensed under the SIL Open Font License, Version 1.1.",
+      "original_header_declares_reserved_font_name": false,
+      "redistribution_summary": "OFL1.1 permits use and embedding/bundling with software. Keep the copyright notice and OFL text with redistributed font copies. Font software itself must retain OFL; the licence does not require application code to use OFL. The font must not be sold by itself. Modified-font naming and endorsement conditions still apply; no font modification or renaming was performed.",
+      "is_full_text_verified_read": true
+    },
+    "source_metadata_assessment": {
+      "designer_declared": "Impallari Type; actual font name table identifies Pablo Impallari",
+      "official_description": "Designed for both short annotations and body text; OpenType variation alternates provide a handwritten feel.",
+      "declared_subsets": [
+        "cyrillic",
+        "cyrillic-ext",
+        "latin",
+        "latin-ext",
+        "menu"
+      ],
+      "assessment_limit": "Metadata and glyph mapping verify provenance/coverage, not native size, shaping, weight, fallback or artistic quality."
+    },
+    "network_access": {
+      "skill_read": "skill://plugin_connector_1p_c5b7d5df5d7081918f2c4be5a633ed5d/cloud-environment-runtime/SKILL.md",
+      "networking_reference_read": true,
+      "executor_policy_read": "/etc/codex/network-policy.json",
+      "current_policy": "restricted; enforced; observations_current true",
+      "destinations_used": [
+        "github.com",
+        "raw.githubusercontent.com"
+      ],
+      "destinations_explicitly_allowed_by_current_policy": true,
+      "vpn_configured": false,
+      "method": "Inherited proxy and CA trust retained. git ls-remote for the pin; curl with TLS verification enabled, HTTPS-only redirect/protocol limits and bounded30s per download. Additional sandbox network access used; no policy bypass, credential inspection, paid service, dependency installation or proxy override."
+    },
+    "integration_risks_and_constraints": [
+      "Native readability has NOT been tested at16px or any other size. The source is a candidate only. Use at least16px; evaluate18\u201320px for actual short notes before selecting a size/weight.",
+      "U+2192 RIGHTWARDS ARROW and U+2713 CHECK MARK are absent. Keep printed deltas, receipts totals and choice ticks in the existing clear font. If narrative copy contains these glyphs, preserve copy and provide a verified explicit fallback; do not silently change punctuation.",
+      "A variable font requires actual Godot import and native weight/shaping proof. Do not assume native400,500 or600 produces the desired result from source metadata alone.",
+      "Apply a handwritten face to intended narrative notes only. Existing InkNote member reactions in rehearsal_press.gd override16px default to14px outside tall-tablet mode and must be included in a future scoped font-floor fix.",
+      "Clear-font option must restore the existing inherited native font for notes without changing saved authored copy or gameplay. The current app has no clear-font setting.",
+      "Preserve the existing original RGBA printed wordmark and all controls/numeric tables/meters/cast/hardware. The wordmark is artwork, not this font."
+    ],
+    "repo_changed": false,
+    "runtime_changed": false,
+    "native_gl_executed": false,
+    "font_binary_modified": false,
+    "native_visual_approved": false,
+    "owner_approved": false,
+    "next_action": "Root decides whether to include the source in a fresh scoped S51 preflight and native pilot after focused core validation. No source promotion is performed by this intake."
+  },
+  "explicit_glyph_fallback": {
+    "schema_version": 1,
+    "scope": "S52 event297 source-backed explicit symbols fallback; scratch intake only; original font bytes unchanged",
+    "recorded_at": "2026-11-01T01:25:17.631795+00:00",
+    "source_type": "Installed Debian fonts-dejavu-core package file; explicitly copied and later loaded by path, not OS/system fallback lookup",
+    "installed_package": "fonts-dejavu-core 2.37-8",
+    "installed_source_path": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+    "original_font": {
+      "path": "/workspace/work/overnight-20261101/s52/font-study/explicit-symbols/DejaVuSansMono.ttf",
+      "bytes": 343140,
+      "sha256": "54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8",
+      "byte_identical_to_installed_source": true,
+      "modified": false
+    },
+    "upstream_source_url": "https://dejavu-fonts.github.io/",
+    "upstream_repository_reference": "https://github.com/dejavu-fonts/dejavu-fonts",
+    "pin_kind": "Actual installed Debian package version2.37-8 + exact binary hash; no claim of separately fetched pinned upstream Git commit",
+    "names": {
+      "0": [
+        "Copyright (c) 2003 by Bitstream, Inc. All Rights Reserved.\nDejaVu changes are in public domain\n"
+      ],
+      "1": [
+        "DejaVu Sans Mono"
+      ],
+      "2": [
+        "Book"
+      ],
+      "4": [
+        "DejaVu Sans Mono"
+      ],
+      "5": [
+        "Version 2.37"
+      ],
+      "6": [
+        "DejaVuSansMono"
+      ],
+      "13": [
+        "Fonts are (c) Bitstream (see below). DejaVu changes are in public domain.\n\nBitstream Vera Fonts Copyright\n------------------------------\n\nCopyright (c) 2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc.\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of the fonts accompanying this license (\"Fonts\") and associated documentation files (the \"Font Software\"), to reproduce and distribute the Font Software, including without limitation the rights to use, copy, merge, publish, distribute, and/or sell copies of the Font Software, and to permit persons to whom the Font Software is furnished to do so, subject to the following conditions:\n\nThe above copyright and trademark notices and this permission notice shall be included in all copies of one or more of the Font Software typefaces.\n\nThe Font Software may be modified, altered, or added to, and in particular the designs of glyphs or characters in the Fonts may be modified and additional glyphs or  or characters may be added to the Fonts, only if the fonts are renamed to names not containing either the words \"Bitstream\" or the word \"Vera\".\n\nThis License becomes null and void to the extent applicable to Fonts or Font Software that has been modified and is distributed under the \"Bitstream Vera\" names.\n\nThe Font Software may be sold as part of a larger software package but no copy of one or more of the Font Software typefaces may be sold by itself.\n\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL BITSTREAM OR THE GNOME FOUNDATION BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.\n\nExcept as contained in this notice, the names of Gnome, the Gnome Foundation, and Bitstream Inc., shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Font Software without prior written authorization from the Gnome Foundation or Bitstream Inc., respectively. For further information, contact: fonts at gnome dot org. \n"
+      ],
+      "14": [
+        "http://dejavu.sourceforge.net/wiki/index.php/License"
+      ]
+    },
+    "license": {
+      "name": "Bitstream Vera licence; DejaVu changes public domain",
+      "font_license_file": "/workspace/work/overnight-20261101/s52/font-study/explicit-symbols/LICENSE-DejaVu.txt",
+      "font_license_sha256": "6f57fb3cc4e1d62de5ce0ee6444e6ca45eb8a35aaf0bf70a694f9cc133c5881d",
+      "full_package_provenance_file": "/workspace/work/overnight-20261101/s52/font-study/explicit-symbols/DEBIAN-copyright.txt",
+      "package_provenance_sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "font_notice": "Copyright (c)2003 by Bitstream, Inc. All Rights Reserved. Bitstream Vera is a trademark of Bitstream, Inc. DejaVu changes are in public domain.",
+      "redistribution_conditions": "Keep copyright/trademark/permission notices. Font can be bundled in larger software but not sold alone. Modified fonts must be renamed to names not containing Bitstream or Vera; this intake leaves font entirely unchanged. Debian packaging GPL section applies to debian/*, not this unchanged upstream TTF."
+    },
+    "actual_glyph_coverage": {
+      "U+2192": {
+        "character": "\u2192",
+        "glyph": "arrowright",
+        "present": true,
+        "recorded_outline_operations": 11,
+        "advance_width": 1233
+      },
+      "U+2713": {
+        "character": "\u2713",
+        "glyph": "uni2713",
+        "present": true,
+        "recorded_outline_operations": 16,
+        "advance_width": 1233
+      }
+    },
+    "fonttools_version": "4.61.1",
+    "original_probe": {
+      "path": "/workspace/work/overnight-20261101/s52/font-study/notes_font_ab_probe.gd",
+      "sha256": "48ed0dc6300ecde67f1c6375cf96969e3320308bb14a92a447ca4221c3775842",
+      "preserved": true
+    },
+    "next_probe_chain": "Caveat FontFile/variation -> cloned embedded native OpenSans -> explicit byte-identical DejaVu Sans Mono; every FontFile allow_system_fallback=false",
+    "original_native_checks": "Keep exact arrow/check assertions on native_font; explicit fallback chain must make them pass without OS lookup or character replacement. Add direct glyph-source coverage and original-font SHA checks.",
+    "native_executed_by_intake_agent": false,
+    "repo_or_runtime_changed": false,
+    "font_visual_approved": false,
+    "owner_approved": false,
+    "new_probe": {
+      "path": "/workspace/work/overnight-20261101/s52/font-study/notes_font_ab_probe_explicit_symbols.gd",
+      "sha256": "4cce4f0d8dd1c337b91673b39b4c714b5814d2de12d8b21d6c1c04cfadaa444e",
+      "original_native_arrow_tick_assertions_preserved_verbatim": true,
+      "extra_checks": [
+        "explicit font SHA256",
+        "direct arrow/check coverage",
+        "source loading",
+        "all OS fallback disabled"
+      ],
+      "compiled_or_run": false
+    }
+  },
+  "native_trial": {
+    "clear16": "/workspace/work/overnight-20261101/s52/font-explicit-clear16-phone/execution.json",
+    "caveat20": "/workspace/work/overnight-20261101/s52/font-explicit-caveat20-phone/execution.json",
+    "caveat22": "/workspace/work/overnight-20261101/s52/font-explicit-caveat22-phone/execution.json",
+    "selected": 22,
+    "owner_approved": false
+  },
+  "files": [
+    {
+      "path": "DejaVuSansMono.ttf",
+      "sha256": "54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8"
+    },
+    {
+      "path": "DEBIAN-DejaVu-copyright.txt",
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9"
+    },
+    {
+      "path": "LICENSE-DejaVu.txt",
+      "sha256": "6f57fb3cc4e1d62de5ce0ee6444e6ca45eb8a35aaf0bf70a694f9cc133c5881d"
+    },
+    {
+      "path": "Caveat.ttf",
+      "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988"
+    },
+    {
+      "path": "OFL-Caveat.txt",
+      "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+    }
+  ]
+}

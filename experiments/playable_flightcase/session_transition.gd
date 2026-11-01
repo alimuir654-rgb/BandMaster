@@ -5,6 +5,7 @@ signal covered
 signal finished
 
 const Kit = preload("res://components/control_atlas/kit.gd")
+const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 var reduced_motion := false
 var style := "flightcase"
 var focus_kind := "tighten"
@@ -17,6 +18,9 @@ var _skip: Button
 var _motion: Tween
 var _has_covered := false
 var _closed := false
+var _closing := false
+var _day_layout: VBoxContainer
+var _day_paper: PanelContainer
 
 func configure(kind: String, report: Dictionary, reduce: bool, look: String, current_day: int = 0, current_cash: int = -1) -> void:
  focus_kind = kind
@@ -50,9 +54,29 @@ func _ready() -> void:
  _card.visible = false
  _card.add_theme_constant_override("separation",16)
  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,size.x-48.0))
- center.add_child(_card)
+ if focus_kind=="day":
+  var material: TextureRect = Shared.background()
+  material.name = "DayCaseMaterial"
+  add_child(material)
+  move_child(material,0)
+  _day_layout = VBoxContainer.new()
+  _day_layout.name = "DayDocument"
+  _day_layout.add_theme_constant_override("separation",24)
+  center.add_child(_day_layout)
+  var identity: Control = Shared.brand(80.0)
+  identity.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  _day_layout.add_child(identity)
+  _day_paper = PanelContainer.new()
+  _day_paper.name = "DayPaper"
+  _day_paper.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  _day_paper.add_theme_stylebox_override("panel",Shared.sheet(size.x<600.0))
+  _day_layout.add_child(_day_paper)
+  _day_paper.add_child(_card)
+  _fit_card()
+ else:
+  center.add_child(_card)
  var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
- var heading := Kit.label(heading_text,style,26)
+ var heading := Kit.label(heading_text,"notepaper" if focus_kind=="day" else style,36 if focus_kind=="day" else 26)
  heading.name = "SessionBeatTitle"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -62,8 +86,13 @@ func _ready() -> void:
  day.name = "SessionBeatDay"
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  day.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
- day.add_theme_color_override("font_color",Color("f0c78b"))
+ day.add_theme_color_override("font_color",Color("40372d") if focus_kind=="day" else Color("f0c78b"))
  _card.add_child(day)
+ if focus_kind=="day":
+  var prompt: Label = Shared.paper_label("A new day with the band.\nTake a breath, then choose what comes next.",16)
+  prompt.name = "DayReadingPrompt"
+  prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  _card.add_child(prompt)
  _skip = Kit.button("PLAN THE DAY  ›" if focus_kind=="day" else ("SHOW SAVED NOTES  ›" if focus_kind=="report" else "SHOW THE RESULTS  ›"),style,"tab")
  _skip.name = "SkipSessionBeatAction"
  _skip.pressed.connect(finish_now)
@@ -75,10 +104,26 @@ func _ready() -> void:
 
 func _fit_card() -> void:
  if is_instance_valid(_card):
-  _card.custom_minimum_size.x = minf(520.0,maxf(260.0,size.x-48.0))
+  if is_instance_valid(_day_paper):
+   var width: float = minf(560.0,maxf(220.0,size.x-48.0))
+   _day_paper.custom_minimum_size.x = width
+   _card.custom_minimum_size.x = width-_day_paper.get_theme_stylebox("panel").get_minimum_size().x
+  else:
+   _card.custom_minimum_size.x = minf(520.0,maxf(260.0,size.x-48.0))
 
 func _start() -> void:
  if _closed or not is_inside_tree():
+  return
+ if focus_kind=="day":
+  # A day boundary is a reading pause. Reduced motion removes the fade,
+  # never the information or the separate player's acknowledgement.
+  if reduced_motion:
+   _shade.color.a = 0.82
+   _cover()
+  else:
+   _motion = create_tween()
+   _motion.tween_property(_shade,"color:a",0.82,0.15)
+   _motion.tween_callback(_cover)
   return
  if reduced_motion:
   finish_now()
@@ -99,12 +144,23 @@ func _cover() -> void:
  if is_instance_valid(_skip) and is_visible_in_tree():
   _skip.grab_focus()
 
-func finish_now() -> void:
- if _closed:
+func finish_now(animate: bool = true) -> void:
+ if _closed or (_closing and animate):
   return
  if is_instance_valid(_motion):
   _motion.kill()
  _cover()
+ if focus_kind=="day" and animate and not reduced_motion and is_visible_in_tree():
+  _closing = true
+  _motion = create_tween()
+  _motion.tween_property(self,"modulate:a",0.0,0.20)
+  _motion.tween_callback(_finish)
+  return
+ _finish()
+
+func _finish() -> void:
+ if _closed:
+  return
  _closed = true
  finished.emit()
 
@@ -119,7 +175,7 @@ func _exit_tree() -> void:
  abort()
 
 func _input(event: InputEvent) -> void:
- if _closed or not is_visible_in_tree():
+ if _closed or _closing or not is_visible_in_tree():
   return
  if event is InputEventKey:
   # Consume repeated acceptance keys instead of forwarding the same key to a

@@ -14,6 +14,8 @@ extends Label
 signal started
 signal finished
 
+const NotesStyle = preload("res://experiments/playable_flightcase/notes_style.gd")
+
 const CHARACTERS_PER_SECOND := 48.0
 const MAX_DURATION_SECONDS := 4.0
 const WRITING_HINT := "Writing saved notes. Tap this note, or focus it and press Enter or Space, to show all."
@@ -42,6 +44,12 @@ func _init() -> void:
  mouse_filter = Control.MOUSE_FILTER_PASS
  focus_mode = Control.FOCUS_ALL
  tooltip_text = COMPLETE_HINT
+
+func _ready() -> void:
+ # Caller colours/text are already assigned. Enforce the legible note style
+ # after caller overrides; preserve the c58 reveal and gesture implementation.
+ add_to_group("bandmaster_notes")
+ NotesStyle.apply(self)
 
 func begin(reduced_motion: bool = false) -> void:
  if not is_inside_tree() or is_queued_for_deletion():

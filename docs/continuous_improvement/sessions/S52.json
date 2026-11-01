@@ -99,8 +99,9 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 477545,
-    "sha256": "41e80ced4a674ba6bb66c2869717d885476c8ceb5ceb1496e3e0a2c566f52ec4"
+    "bytes": 482390,
+    "sha256": "8ca1b55104c56822f4b8c6ab768030743f76d32b51f83067d4b22c2ef010f2c9"
   },
-  "rescope": "Event299: explicit ownerhide cleanup animate=false call only in ui.gd; source before corrected native replay."
+  "rescope": "Event299: explicit ownerhide cleanup animate=false call only in ui.gd; source before corrected native replay.",
+  "font_native_ab": "Actual samec58career/window/copy:clear16/Caveat20/Caveat22 with explicitDejaVu symbols fallback allPASS glyph/state; openedreason3plusactualtraits/reaction22. Select22notes-only; printedcontrols/numbers/headers unchanged."
 }

@@ -173,7 +173,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    short_quote = excerpt.substr(0,word_break if word_break>0 else 31).rstrip(" .,!?")+"…"
   var line: Label = InkNote.new()
   line.text = display_name+"\n“"+short_quote+"”"
-  line.add_theme_font_size_override("font_size",16 if tall_tablet else 14)
+  line.add_theme_font_size_override("font_size",16)
   line.add_theme_color_override("font_color",Color("29241f"))
   if fresh_notes:
    line.visible_characters = 0
