@@ -299,6 +299,7 @@ static func _radio_pills(host, parent: Node, before: Dictionary, after: Dictiona
  var grid:=GridContainer.new()
  grid.name="PromotionDeltaPills"
  grid.columns=3
+ grid.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
  grid.add_theme_constant_override("h_separation",6)
  grid.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(grid)
