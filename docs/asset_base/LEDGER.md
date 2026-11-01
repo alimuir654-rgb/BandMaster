@@ -1241,3 +1241,8 @@ Exact local game `4bbf6a1baa370858beed081fe1cd17b331dd1e19`: existing recording 
 
 
 S67 closed HOLD 2026-11-01T21:07:17.805094+00:00: candidate `c647e8e743e17598b450f06def101cf4b1dec505` standard73/88/import/4native172 PASS but focusedphone440 FAILED; actual capsules wrap vertically, two assertion ERROR lines, no whole-journey completion. Prior088phone1882PASS is limited preview only; latest verified remains `4bbf6a1baa370858beed081fe1cd17b331dd1e19`. 379 curated/378 protected/all54 original Scripts retained. No APK/ZIP/A05 Page delivery; no owner approval. Exact closeout: `/workspace/work/radio-visual-20261101/s67/closeout.json`. Writer released; no automatic continuation.
+
+
+### S68 — verified radio pills and finite flow/artwork continuation
+
+2026-11-01T21:41:21.259547+00:00: Exact game `47692162d7d68e0eca354760734f21d216e3a392` resolves S67 vertical chips through native intrinsic label width. Standard73/88/import/four genuine journeys172 +7313focused/76originals, configuredopening PASS0ERROR/orphans;379curated/378protected/all54Scripts(3UIDs),348modelchecks reused exact23dependencies.168standard originals exact+4declared Reopenfade; no unexpected differences. Independent17final originals/root12actuallyopened; five SIMULATED lenses, visualPARTIAL/ownerfalse, large-screen sparsity remains. A05Page25 has two native phone/wide images/newunchecked choices; all owner decisions/history/deletion preserved. No APK/ZIP/art generation. New finite SAMEqueue22:15–07:15 UK through08:00Nov2; no newbreadth05:15/sourcefreeze06:45/release07:30/allwrites07:45. Closeout `/workspace/work/overnight-20261102/s68/closeout.json`. Writer released. NEXT: ONE scoped F02→F01 saved-result/next-goal loop.

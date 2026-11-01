@@ -126,6 +126,8 @@ Read this and CHECK_BEFORE_WORK.md before every task. Review all new ISSUES.json
 
 S63 extension: measure the longest unbroken word using the actual native Label font and size, then subtract the real button housing margins from the available card width. RECONDITIONED needed131px at16px, while the narrow two-column card had116px of clear housing width. Child containers do not automatically enlarge a Button's minimum. Change a narrow gallery to horizontal art/text rows when the full word cannot fit; preserve type size, complete names and native prices. Guard deferred responsive layout against freed/out-of-tree owners and keep the fit idempotent. The repaired lower drum card was then captured through genuine Tab navigation, with full-word, housing, input and save guards.
 
+S68 extension: a short numeric status chip must provide its full native text minimum. Inheriting WORD_SMART from the generic paper-label factory while shrinking a GridContainer reduced three panels to their margins and wrapped letters vertically. Nonwrapping printed16 labels restored natural text-plus-padding widths at phone and wide sizes; retain complete values and wrap whole chips if a future supported set does not fit. A naturally fitted tall Details page is valid: verify its full copy and zero-scroll gesture, then resize the same retained view for the original strict overflow/touch proof and restore it before paid actions. Do not add fake padding, shrink text or require overflow where all content is visible.
+
 ### BM-23
 **What went wrong:** Logical-coordinate tap checks missed parent scaling: 44 logical units were not necessarily 44 physical pixels.
 **Prevent:** Measure transformed target bounds in the rendered window. Keep 44px physical minimum targets and sensible body text; regression font floors are not design goals.
@@ -184,6 +186,8 @@ S63 extension: measure the longest unbroken word using the actual native Label f
 **Proof:** Negative tests, clean import and preserved relevant regressions. Sources: C08, C15, C20.
 
 S63 extension: a genuine touch fling can leave scroll and target geometry moving after release. A fixed eight-draw settlement window is not a quiescence proof. Preserve the failed probe and observe actual integer/fractional scroll values and target/clip rectangles across completed draws, with a finite deadline and unchanged clip/input/save assertions. Current wide proof observed55 changes before154ms stationary; the observer never cancelled motion or assigned scroll. The earlier failure's inertia explanation remains inferred because the card composition changed separately before the new run; do not turn that hypothesis into a proven product or engine defect.
+
+S68 extension: calling a geometry assertion immediately after a real Menu/Continue view rebuild can inspect live nodes before any native allocation. The same product showed a 0×0 scroll clip and margin-only pill panels before drawing, then identical valid geometry at two completed draws. Record the initial rectangles and bounded postdraw samples, reacquire current targets and retain every original clipping/value/paid/save assertion. A later failure PNG already waits for draw and cannot establish the earlier assertion geometry by itself.
 
 ### BM-34
 **What went wrong:** Old successful runs, untested HEAD and publication commits could be confused; a pull-request-only wrapper missed push runs.

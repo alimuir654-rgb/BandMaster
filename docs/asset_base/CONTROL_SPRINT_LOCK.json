@@ -1,14 +1,14 @@
 {
-  "writer": "S68-flow-art-activation-radio-repair-20261101T2115",
+  "writer": null,
   "base_head": "91372efb83a73bc6a502ff4023476c532bcfc5ce",
   "claimed_at": "2026-11-01T21:15:49.061687+00:00",
   "expires_at": "2026-11-01T22:05:00Z",
-  "scope": "Inherited paper_label WORD_SMART leaves only narrow native minimum in SHRINK_BEGIN grid. Make actual fixed numeric capsule labels nonwrapping so measured native font supplies useful intrinsic minimum, preserving natural compact total width at phone/wide; do not shrink font or restore wide bars.",
+  "scope": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
   "authority": "NEW direct owner 1 November21:12: Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus. This prospectively authorises a finite continuation through08:00Europe/London2November, superseding the completed21:10/21:15window only for this plan. No APK/ZIP packaging, second queue or unapproved features/art.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-01T21:41:21.259547+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S67-owner-image-pills-20261101T2047",
-  "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
+  "last_writer": "S68-flow-art-activation-radio-repair-20261101T2115",
+  "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -133,7 +133,7 @@
     "source_sha": "6c1f50d8c63deedaa678ff543fc6b85e4d767a33",
     "scope": "ONE explicitly requested Android V4 from frozen verified6c1. Artifact/metadata/private APK delivery only; no game/art/source edits, schedule extension or publicsource/history upload."
   },
-  "candidate_native_verified": false,
+  "candidate_native_verified": true,
   "previous_held_s43_release": {
     "last_writer": "S43-owner-audition-engagement-20261031T1615",
     "released_at": "2026-10-31T16:27:28.619647+00:00",
@@ -208,7 +208,7 @@
     "scope": "Approved firstgig verticalslice plus actualsoundcheckclaritycorrection, exactnative/art/sourceproof; no production/publicsource/Androidwrites.",
     "expires_at": "2026-11-01T04:25:00Z"
   },
-  "candidate_status": "s68_radio_readable_intrinsic_width_verification",
+  "candidate_status": "verified_visual_partial_A05_pending_owner",
   "updated_at": "2026-11-01T17:28:50.469236+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
@@ -333,8 +333,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "CommitS68 preflight/RUN gate; then ONE RecordingDesk intrinsic-minimum repair, exact source/native proof. Configure existingqueue only for owner-authorised overnight continuation; no APK/ZIP.",
+  "pending_helpers": false,
+  "next_action": "At the next existing22:15 checkpoint, read fresh HEAD/lease/Pages/lessons and scope S69 ONE approved F02\u2192F01 saved-result-to-next-goal loop: image first, two supported factors, actual progress and one free route. No old reward claim or automatic action. Radio repair complete; do not repeat unchanged proof. Finite no-packaging plan ends08:00Nov2; sourcefreeze06:45/final07:15readiness/release07:30/allwrites07:45.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -350,7 +350,7 @@
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
   },
-  "canonical_pointer_audit_at": "2026-11-01T20:44:37.751507+00:00",
+  "canonical_pointer_audit_at": "2026-11-01T21:41:21.259547+00:00",
   "previous_s65_release": {
     "writer": null,
     "last_writer": "S65-approved-art-integration-20261101T1932",
@@ -361,14 +361,9 @@
     "hard_stop": "2026-11-01T20:00:00Z"
   },
   "source_freeze_target": "2026-11-01T21:40:00Z",
-  "pending_candidate_source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
-  "latest_unverified_candidate": {
-    "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
-    "source_pin": "/workspace/work/overnight-20261102/s68/candidate-radio-readable/source.json",
-    "status": "Source379/protection/model348reusePASS; native proof pending after logged484 discrepancy",
-    "latest_verified_source": "4bbf6a1baa370858beed081fe1cd17b331dd1e19"
-  },
-  "source_phase": "s68_frozen_verification_only",
+  "pending_candidate_source_sha": null,
+  "latest_unverified_candidate": null,
+  "source_phase": "closed_source_frozen_pending_fresh_scope",
   "source_frozen_at": "2026-11-01T21:21:46.370645+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -401,5 +396,51 @@
     "no_continuous_compute_claim": true,
     "existing_single_attachment_confirmed": true
   },
-  "overnight_integration_freeze": "2026-11-02T06:45:00Z"
+  "overnight_integration_freeze": "2026-11-02T06:45:00Z",
+  "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
+  "latest_local_checkpoint": {
+    "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+    "validation": "/workspace/work/s40/runs/s68-radio-4769216-final/complete-validation.json",
+    "closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
+    "checks": {
+      "pass": true,
+      "source_sha": "47692162d7d68e0eca354760734f21d216e3a392",
+      "validation": "/workspace/work/s40/runs/s68-radio-4769216-final/validation.json",
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "native_standard_journeys": 4,
+      "standard_originals": 172,
+      "focused_native_checks": 7313,
+      "focused_originals": 76,
+      "independent_model_checks_reused": 348,
+      "model_dependency_closure": 23,
+      "model_reuse": "/workspace/work/overnight-20261102/s68/model-reuse-4769216.json",
+      "model_orphans_measured": false,
+      "runtime_source_count": 379,
+      "protected_prior_paths": 378,
+      "original_Scripts": 54,
+      "engine_error_lines": 0,
+      "orphan_growth_where_measured": 0,
+      "configured_entry": "/workspace/work/s40/runs/s68-radio-4769216-final/project-entry.json",
+      "source_protection": "/workspace/work/s40/runs/s68-radio-4769216-final/source-protection-audit.json",
+      "runtime_source_audit": "/workspace/work/s40/runs/s68-radio-4769216-final/runtime-source-audit.json",
+      "focused_validation": "/workspace/work/s40/runs/s68-radio-4769216-final/focused-validation.json",
+      "pixel_comparison": "/workspace/work/s40/runs/s68-radio-4769216-final/protected-checkpoint-comparison.json",
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "no_new_source_zip_or_apk": true,
+      "completed_at": "2026-11-01T21:33:31.586595+00:00"
+    },
+    "source_protection": "/workspace/work/s40/runs/s68-radio-4769216-final/source-protection-audit.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s68-radio-4769216-final/runtime-source-audit.json",
+    "focused_validation": "/workspace/work/s40/runs/s68-radio-4769216-final/focused-validation.json",
+    "visual_review": "/workspace/work/s40/runs/s68-radio-4769216-final/visual-review.json",
+    "protected_checkpoint_comparison": "/workspace/work/s40/runs/s68-radio-4769216-final/protected-checkpoint-comparison.json",
+    "source_runtime": "/workspace/work/s40/runs/s68-radio-4769216-final/runtime",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "packages": null,
+    "phone_release_is_this_source": false
+  }
 }
