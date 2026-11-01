@@ -10,29 +10,38 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s52_preflight_held_day_notes",
-  "next_action": "Make the saved action/day boundary a deliberate tactile paper moment: DAY waits for acknowledgement in normal and reduced motion, optional legible handwriting only on narrative notes with clear alternative, truthful low-good tension captions while original art/model/save/input stays intact.",
+  "status": "s52_held_day_notes_verified_local_closed",
+  "next_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
-  "conditional_polish": "S51closed andwriterreleased; S52needsfreshboundedpreflight. Daypacing/fonts/tension/firstgigdesk notclaimedcomplete.",
+  "conditional_polish": "S52 closed/writer released; first-gig core next. No repeatfonts/QAforactivity.",
   "completion_gate": {
     "native_full_input_verified": true,
-    "tested_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
-    "validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
+    "tested_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+    "validation": "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/complete-validation.json",
     "checks": {
       "gameplay_checks": 73,
       "opening_checks": 88,
       "clean_import": true,
+      "standard_native_journeys": 4,
       "standard_original_pngs": 172,
-      "focused_native_assertions": 2694,
-      "focused_original_pngs": 82,
-      "independent_mobile_math_checks": 15,
+      "numbered_focused_assertions": 4939,
+      "focused_original_pngs": 56,
+      "focused_runs": 14,
+      "extra_clear_mode_checks": "Original canonical firstfold and expanded-ledger keyboard assertions retained; no counter invented",
       "engine_error_lines": 0,
-      "orphan_growth": 0,
+      "orphan_growth_where_measured": 0,
+      "orphan_counts_not_recorded_for": [
+        "clear-e2c3dce-phone",
+        "clear-e2c3dce-wide",
+        "home-end-e2c3dce-phone",
+        "home-end-e2c3dce-wide"
+      ],
       "protected_original_files": 338,
       "protected_original_Scripts": 54,
-      "protected_prior_runtime": 312,
-      "runtime_source_paths": 320,
-      "byte_identical_standard_originals": 168,
+      "protected_prior_runtime": 313,
+      "runtime_source_paths": 328,
+      "byte_identical_standard_to_c58": 100,
+      "intentional_changed_standard": 68,
       "disclosed_ephemeral_reopen_frames": 4,
       "unexpected_pixel_changes": 0
     },
@@ -2931,7 +2940,7 @@
     "physical_phone_tested": false,
     "update_without_uninstall": true
   },
-  "previous_session": "S47",
+  "previous_session": "docs/continuous_improvement/sessions/S51.json",
   "day31_authority": {
     "approved_at": "2026-10-31T09:08:46.114986+00:00",
     "through": "2026-10-31T15:00:00Z",
@@ -2945,7 +2954,7 @@
     "page_sequence": 18,
     "selected_screenshots": 7,
     "artifact_visibility": "LOCALproject/reviewZIP; privatePageScreens",
-    "apk": "ExistingV4unchanged; previewNOTinAPK",
+    "apk": "V5/code5/sourcea9 unchanged; S47\u2013S52 LOCAL, no newAPK",
     "latest_local_project": "/workspace/work/s40/runs/s46-unified-a9ba178-final/packages/packaging.json",
     "latest_preview_delivery": "V5/code5 privately delivered, current4 native screenshots inserted and read back; phone test pending.",
     "android": {
@@ -3052,7 +3061,10 @@
         "images": [],
         "rendered_layout_verified": false
       }
-    ]
+    ],
+    "latest_source_runtime": "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/runtime",
+    "latest_source_checkpoint": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+    "source_checkpoint_packaging": "No S52 ZIP; verified328-file isolated imported runtime only. Prior sourceZIPs are rollbacks."
   },
   "approved_day_schedule": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -3189,7 +3201,7 @@
       "protected_inputs_unchanged": 339
     }
   ],
-  "last_completed_session": "S47",
+  "last_completed_session": "S52",
   "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
@@ -3315,7 +3327,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-10-31T23:21:39.347569+00:00",
+  "updated_at": "2026-11-01T02:08:36.151392+00:00",
   "page_delivery": {
     "status": "owner_approved_saved_and_readback",
     "page_url": "https://chatgpt.com/space/page_dd078970782c81918d96b7c70e4e3673",
@@ -3346,10 +3358,10 @@
     "activation_receipt": "/workspace/work/overnight-20261101/activation.json",
     "closeout": "/workspace/work/overnight-20261101/closeout.json",
     "next_run_time_exposed": false,
-    "last_completed_checkpoint_source": "c58f5806545c801f316ae19b1202f100a1d78f84",
-    "last_completed_session": "S51",
-    "last_closeout": "/workspace/work/overnight-20261101/s51/closeout.json",
-    "root_released_at": "2026-11-01T00:52:26.536260+00:00"
+    "last_completed_checkpoint_source": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+    "last_completed_session": "S52",
+    "last_closeout": "/workspace/work/overnight-20261101/s52/closeout.json",
+    "root_released_at": "2026-11-01T02:08:36.151392+00:00"
   },
   "last_source_slice": {
     "session": "S51",

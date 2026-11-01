@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s51_mobile_safe_content_verified_local_closed",
+  "status": "s52_held_day_notes_verified_local_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "opening_journey",
-  "next_single_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
+  "next_single_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -551,7 +551,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-01T00:52:26.536260+00:00",
+  "last_updated_utc": "2026-11-01T02:08:36.151392+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -689,7 +689,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S51",
+  "current_session": "S52",
   "last_verified_native_run": "/workspace/work/s40/runs/s47-finance-f093818-final/validation.json",
   "latest_verified_phase2": {
     "sprint": "S47",
@@ -713,8 +713,8 @@
     "owner_approved": false,
     "visual_verdict": "partial"
   },
-  "last_sprint": "S51",
-  "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
+  "last_sprint": "S52",
+  "next_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -722,47 +722,55 @@
     "owner_approved": false
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
+    "source_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
     "metadata_follows": true,
-    "validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
-    "closeout": "/workspace/work/overnight-20261101/s51/closeout.json",
+    "validation": "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/complete-validation.json",
+    "closeout": "/workspace/work/overnight-20261101/s52/closeout.json",
     "checks": {
       "gameplay_checks": 73,
       "opening_checks": 88,
       "clean_import": true,
+      "standard_native_journeys": 4,
       "standard_original_pngs": 172,
-      "focused_native_assertions": 2694,
-      "focused_original_pngs": 82,
-      "independent_mobile_math_checks": 15,
+      "numbered_focused_assertions": 4939,
+      "focused_original_pngs": 56,
+      "focused_runs": 14,
+      "extra_clear_mode_checks": "Original canonical firstfold and expanded-ledger keyboard assertions retained; no counter invented",
       "engine_error_lines": 0,
-      "orphan_growth": 0,
+      "orphan_growth_where_measured": 0,
+      "orphan_counts_not_recorded_for": [
+        "clear-e2c3dce-phone",
+        "clear-e2c3dce-wide",
+        "home-end-e2c3dce-phone",
+        "home-end-e2c3dce-wide"
+      ],
       "protected_original_files": 338,
       "protected_original_Scripts": 54,
-      "protected_prior_runtime": 312,
-      "runtime_source_paths": 320,
-      "byte_identical_standard_originals": 168,
+      "protected_prior_runtime": 313,
+      "runtime_source_paths": 328,
+      "byte_identical_standard_to_c58": 100,
+      "intentional_changed_standard": 68,
       "disclosed_ephemeral_reopen_frames": 4,
       "unexpected_pixel_changes": 0
     },
-    "source_protection": "/workspace/work/overnight-20261101/s51/source-protection-c58f580.json",
-    "runtime_source_audit": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime-source-audit.json",
-    "focused_validation": "/workspace/work/overnight-20261101/s51/focused-validation-c58f580.json",
-    "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
+    "source_protection": "/workspace/work/overnight-20261101/s52/source-protection-e2c3dce.json",
+    "runtime_source_audit": "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/runtime-source-audit.json",
+    "focused_validation": "/workspace/work/overnight-20261101/s52/focused-validation-e2c3dce.json",
+    "visual_review": "/workspace/work/overnight-20261101/s52/visual-review-e2c3dce-agent.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
-    "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
-    "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
+    "source_runtime": "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/runtime",
+    "android": "V5/code5/sourcea9 unchanged; no device/emulator test/newAPK",
+    "packaging": "No S52 ZIP built. Current328-file clean-imported isolated runtime is the next verified source baseline. Package/native-entry smoke later before milestone claim.",
     "remaining": [
-      "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
-      "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
-      "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
-      "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
-      "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
-    ],
-    "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
-    "publication": "LOCAL source/runtime/evidence; no newPageimages/sourceupload",
-    "writer_released_at": "2026-11-01T00:52:26.536260+00:00"
+      "Physical Android camera/navigation/touch verification pending; native engine events and simulated insets are not device/emulator proof.",
+      "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
+      "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
+      "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
+      "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+      "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
+      "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
+    ]
   },
   "historical_unverified_phase2_candidate": {
     "sprint": "S40",
@@ -1819,5 +1827,6 @@
     "hard_stop": "2026-11-01T09:00:00Z",
     "closeout": "/workspace/work/overnight-20261101/closeout.json",
     "game_unchanged": "179f3366917d0aa629b1e79ede2d1f099a06d72f"
-  }
+  },
+  "last_verified_local_native_source_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a"
 }

@@ -50,7 +50,7 @@
   "all_write_freeze": "2026-11-01T08:30:00Z",
   "plan_url": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
   "id": "S52",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "bb653ea235542d2d879a7be6f96092c5fb1ff6ce",
   "game_baseline_sha": "c58f5806545c801f316ae19b1202f100a1d78f84",
   "dominant_issue": "BM-25",
@@ -95,14 +95,123 @@
   "source_freeze_target": "2026-11-01T01:55:00Z",
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "5997564b0b3e07c465ce13ec3a1eac9a89a715049ab31358fcf2f8b9c457d0b3",
+    "docs/continuous_improvement/LESSONS.md": "2c354d50cc6dbe0076c92050c6694cc1db85b3eaea46b0708d7299be6241f352",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 497057,
-    "sha256": "615cdf16ca47785ebfcb87efea7d3e8e986880015dd20ce4c9e4753ad69dc8c1"
+    "bytes": 506847,
+    "sha256": "61699c1dc8f0f8c4848b9c54f23bcafc1bb674e6d9028b0f56a6cc5c699a4fb8"
   },
   "rescope": "Event299: explicit ownerhide cleanup animate=false call only in ui.gd; source before corrected native replay.",
   "font_native_ab": "Actual samec58career/window/copy:clear16/Caveat20/Caveat22 with explicitDejaVu symbols fallback allPASS glyph/state; openedreason3plusactualtraits/reaction22. Select22notes-only; printedcontrols/numbers/headers unchanged.",
-  "method_change_306": "After2ineffective compositions, structuralshort-landscapeevidencelane: nativecompactscorecardleft/originalportraitgalleryright. Same16/22fonts/portraits; nofurthershrink. Holdifnotmeaningful."
+  "method_change_306": "After2ineffective compositions, structuralshort-landscapeevidencelane: nativecompactscorecardleft/originalportraitgalleryright. Same16/22fonts/portraits; nofurthershrink. Holdifnotmeaningful.",
+  "ended_at": "2026-11-01T02:08:36.151392+00:00",
+  "tested_source_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+  "candidate_native_verified": true,
+  "closeout": {
+    "session": "S52",
+    "scope": "Deliberate saved-note/day-close presentation and truthful tension semantics only",
+    "tested_sha": "e2c3dce4c9dd706a9ec22ad5ad76333f9ee9781a",
+    "preflight_sha": "cf7f8fc016faba16f5641e511a42059c22d08737",
+    "source_frozen_at": "2026-11-01T01:49:20Z",
+    "ended_at": "2026-11-01T02:08:36.151392+00:00",
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "evidence": [
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/complete-validation.json",
+      "/workspace/work/overnight-20261101/s52/focused-validation-e2c3dce.json",
+      "/workspace/work/overnight-20261101/s52/source-protection-e2c3dce.json",
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/runtime-source-audit.json",
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/protected-checkpoint-comparison.json",
+      "/workspace/work/overnight-20261101/s52/visual-review-e2c3dce-agent.json",
+      "/workspace/work/overnight-20261101/s52/clear-expanded-originals-provenance.json"
+    ],
+    "checks": {
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_native_journeys": 4,
+      "standard_original_pngs": 172,
+      "numbered_focused_assertions": 4939,
+      "focused_original_pngs": 56,
+      "focused_runs": 14,
+      "extra_clear_mode_checks": "Original canonical firstfold and expanded-ledger keyboard assertions retained; no counter invented",
+      "engine_error_lines": 0,
+      "orphan_growth_where_measured": 0,
+      "orphan_counts_not_recorded_for": [
+        "clear-e2c3dce-phone",
+        "clear-e2c3dce-wide",
+        "home-end-e2c3dce-phone",
+        "home-end-e2c3dce-wide"
+      ],
+      "protected_original_files": 338,
+      "protected_original_Scripts": 54,
+      "protected_prior_runtime": 313,
+      "runtime_source_paths": 328,
+      "byte_identical_standard_to_c58": 100,
+      "intentional_changed_standard": 68,
+      "disclosed_ephemeral_reopen_frames": 4,
+      "unexpected_pixel_changes": 0
+    },
+    "original_pngs_actually_opened_by_root": [
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/captures/c27-rehearsal_outcome-390x844.png",
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/captures/c27-rehearsal_outcome-1280x720.png",
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/captures/c27-session_beat_RecapToggleAction-720x1280.png",
+      "/workspace/work/s40/runs/s52-notes-day-e2c3dce-final/captures/c27-settings_saved_draft_open-1600x900.png",
+      "/workspace/work/overnight-20261101/s52/clear-e2c3dce-phone/captures/clear-initial-primary.png",
+      "/workspace/work/overnight-20261101/s52/clear-e2c3dce-phone/captures/clear-expanded-reactions-390x844.png",
+      "/workspace/work/overnight-20261101/s52/tension-e2c3dce-phone/captures/tension-0-390x844.png",
+      "/workspace/work/overnight-20261101/s52/tension-e2c3dce-phone/captures/tension-100-390x844.png",
+      "/workspace/work/overnight-20261101/s52/held-e2c3dce-wide/captures/day-reduced-held-1280x720.png",
+      "/workspace/work/overnight-20261101/s52/home-end-e2c3dce-phone/captures/career-home-tension-0-390x844.png",
+      "/workspace/work/overnight-20261101/s52/home-end-e2c3dce-phone/captures/career-home-tension-100-390x844.png"
+    ],
+    "independent_visual_review": "/workspace/work/overnight-20261101/s52/visual-review-e2c3dce-agent.json",
+    "simulated_lenses": {
+      "SIMULATED phone player": "Held actual DAY/cash card and separate48px acknowledgement persist in normal/reduced motion. Actual touch-drag still scrolls while notes reveal; taps finish on release. Clear option readable; Android owner check pending.",
+      "SIMULATED art director": "Original paper/wordmark/hardware reused, licensed Caveat22 prose separated from native16 photo captions; short landscape evidence lane keeps all numeric values/voices/morale initially visible. 100 baseline originals exact,68 intentional,4 disclosed fade frames. Actual paper low/high tension and expanded CLEAR originals inspected; overall PARTIAL, no owner approval.",
+      "SIMULATED keyboard/lifecycle reviewer": "Real Tab/ShiftTab/arrows confined in Settings; Sound/Motion/Notes paired input retained nodes/rects, actual Master toggled; simulated-inset/real390\u21941280 resize kept sheet. Generic non-Button focus safe; hide clears day busy immediately, free aborts without late success.",
+      "SIMULATED save/economy reviewer": "One actual ClearAir with original Game\u2192Live\u2192Finance oracle saves once, all DAY acknowledgement/idle/reopen/resize inputs preserve exact state/bytes. 73+88 and4 genuine standard journeys pass. Original models/schema/unknownfields protected; old Finance/Offstage/Reviews proofs reused unchanged, no new model claim.",
+      "SIMULATED process reviewer": "Committed scoped preflightcf7f8fc before code, UI-hide rescope97eeae4 before edit, gates42lessons. Failed fonts/firstfold/lifecycle/fixture/audit history retained before corrections with disclosed late rootpath filing. Two ineffective compositions changed method, art rejected a technical-pass numeric wrap. Strict runners reject every ERROR. No source publication/APK churn or continuous-compute claim."
+    },
+    "remaining": [
+      "Physical Android camera/navigation/touch verification pending; native engine events and simulated insets are not device/emulator proof.",
+      "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
+      "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
+      "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
+      "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+      "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
+      "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
+    ],
+    "source_package": "No S52 ZIP built. Current328-file clean-imported isolated runtime is the next verified source baseline. Package/native-entry smoke later before milestone claim.",
+    "android": "V5/code5/sourcea9 unchanged; no device/emulator test/newAPK",
+    "lessons_update": "Appended reusable BM13/22/24/25/26/34 guidance for explicit glyph fallback, typography roles/numeric natural width, held-day reduced-motion semantics, hide cleanup, typed focus matching, QA hitbox/receiver tracing and actual evidence-state/timestamp provenance.",
+    "new_issue_review": "All315 existing events read; 296\u2013315 retained failures/reviews. Final316 corrects earlier314 no-original claim: initial Home run actually captured0 thenfailed100; diagnostic later0 failed too. No raw history rewritten.",
+    "failure_disclosures": [
+      "296 unrun probe inheriteddeadline/staticpath guesses; correctedimmutable probe after append.",
+      "297 embeddednative font lacked arrow/tick with OSfallbackdisabled; explicit licensed DejaVu chain verified.",
+      "298 actual c58 DAY auto-dismiss; normal/reduced reading contract repaired.",
+      "299 first DAY fade stranded hide busy briefly; immediate animate=false owner-hide cleanup.",
+      "300 scratchSettings directionalneighbors incomplete, fixed before integration.",
+      "301 furtherrootpath/shortSHA retrieval failures, late rootgroupfiling chronology disclosed.",
+      "302 thirdpartyoriginal licence whitespace stopped sourcecommit; later dependentcall stopped beforeengine. Preserve licencesbyteexact/scopedcheck and chain failfast.",
+      "303/306 font22 compactcaptionfirstfold failed twice; changed to native16 captions/full22prose plus structural landscape evidence lane, no further shrink.",
+      "304 audit dropped3tracked UID Script rows; exact54pathset restored, all original hashes retained.",
+      "305 unrun Settings probe coroutine await omission; immutable corrected/check-only compiler verified.",
+      "307 numericwrap artFAIL despite oldtechnicalPASS, original retained; native natural-width/single-line/bounds checks strengthened.",
+      "308 phone bottomsheet covers all backgroundactions; actual wide exposed route required and blocked, unavailablephonecase disclosed.",
+      "309 actual TypedArray.find(Label) engineERROR; safeidentityloop sourcefix and strict finalfullreplay.",
+      "310/311 missed Back traced to1629px QA note hitbox; width-before-tree fixture correction, no production Back repair.",
+      "312/313 misnamed collapsed CLEAR image and wrong directorymtime-as-creation assumption; actual expanded originals recovered using verified filesystem birthtime.",
+      "314/315 early Home ensure capture partialfailure; actual End afterpostdraw shows0/100 on productionpaper, deferredlayout cause inferred, not invented productdefect."
+    ],
+    "next_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth.",
+    "writer_released_at": "2026-11-01T02:08:36.151392+00:00",
+    "read_only_S53_preparation": [
+      "/workspace/work/overnight-20261101/s52/s53-contract-prep.md",
+      "/workspace/work/overnight-20261101/s52/s53-art-hardware-intake.json"
+    ]
+  },
+  "next_action": "Scope S53 ONE art-backed first-gig journey/performance desk from actual booking and named venue: saved phases and once-only settlement, completed song IDs/order, meaningful original neutral-cropped approach/intensity controls with explicit policy before integration. Read S52/s53-contract-prep.md and s53-art-hardware-intake.json, then fresh bounded lease/committed preflight/gate. No merch/audio/cast breadth."
 }
