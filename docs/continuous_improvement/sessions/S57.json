@@ -87,12 +87,12 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 654822,
-    "sha256": "8a8d3b8ce270ca5505e655651781ad5938bae1cc86a0e199c4c3a93492eb46be"
+    "bytes": 656870,
+    "sha256": "2c31754c452c20f799ad08ecc847811977f9cd1be863a8938d7205ec5077e560"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
-  "source_freeze_target": "2026-11-01T11:30:00Z",
+  "source_freeze_target": "2026-11-01T11:45:00Z",
   "manual_lease_self_bounded": true,
   "schedule_change": false,
   "visual_verdict": "partial",
@@ -125,5 +125,6 @@
   "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory.",
   "portrait_frame_correction_403": "BudgetactualportraitRootfixedsiblings/nativefonts/separation andoriginalFrameinsets beforeconfiguringimage row; assertwholemetalframeinactualscrollviewport atdefault/insets.",
   "tall_tablet_correction_406": "Tallportraittabletusesproportionalpeopleheight,clampedtorealmetricbudget; unchangedphone/wide/figures/font/copy/actions.",
-  "fixed_action_contract_408": "OldS37inside-casewidthconstraintsupersededBYownereditorialfixedactionoutsideprint. RetainmeaningfulmaxRootsafe+physicalviewportwidth/min44/fixedoutsideScroll/noBackoverlap andactualclick/phase/saveproof. ALLrolecreditassertionspreserved;productssemanticGrouprepaired."
+  "fixed_action_contract_408": "OldS37inside-casewidthconstraintsupersededBYownereditorialfixedactionoutsideprint. RetainmeaningfulmaxRootsafe+physicalviewportwidth/min44/fixedoutsideScroll/noBackoverlap andactualclick/phase/saveproof. ALLrolecreditassertionspreserved;productssemanticGrouprepaired.",
+  "method_change_409": "Controlled baseline/current native header geometry first; restore exact audition and legacy report allocation before another full recipe. No broad pixel whitelist or body/UI change."
 }
