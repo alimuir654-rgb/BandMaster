@@ -173,7 +173,13 @@ func _input(event: InputEvent) -> void:
   var buttons: Array[Button] = _buttons()
   if buttons.is_empty():return
   var focused: Control = get_viewport().gui_get_focus_owner()
-  var index: int = buttons.find(focused)
+  # Focus can temporarily belong to another Control during host lifecycle
+  # changes. TypedArray[Button].find(Label) itself raises an engine error.
+  var index: int = -1
+  for candidate in range(buttons.size()):
+   if buttons[candidate]==focused:
+    index = candidate
+    break
   index = posmod(index+(-1 if event.shift_pressed else 1),buttons.size()) if index>=0 else (buttons.size()-1 if event.shift_pressed else 0)
   buttons[index].grab_focus()
   if _options_scroll.is_ancestor_of(buttons[index]):_options_scroll.ensure_control_visible(buttons[index])
