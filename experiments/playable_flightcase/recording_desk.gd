@@ -4,6 +4,7 @@ extends RefCounted
 const Rules = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Promotion = preload("res://experiments/playable_flightcase/promotion_rules.gd")
+const GearArt = preload("res://experiments/playable_flightcase/gear_press.gd")
 
 static func _key(id: String) -> String:
  return id.replace(":","_").replace("/","_").replace(" ","_")
@@ -274,6 +275,91 @@ static func _radio_metrics(host, parent: Node, before: Dictionary, after: Dictio
  var compact: bool=host.size.x<840 or host.size.x<host.size.y
  _copy(host,parent,(rows[0]+"  •  "+rows[1]+"\n"+rows[2]) if compact else "\n".join(rows),"PromotionPreview")
 
+static func _radio_summary(before: Dictionary, after: Dictionary) -> String:
+ return "%d new listeners found your band." % (int(after.get("fans",0))-int(before.get("fans",0)))
+
+static func _radio_hero(host, parent: Node, compact: bool, summary: String, fresh: bool=false) -> void:
+ var row:=HBoxContainer.new()
+ row.name="PromotionHero"
+ row.add_theme_constant_override("separation",12)
+ row.mouse_filter=Control.MOUSE_FILTER_PASS
+ parent.add_child(row)
+ var picture: TextureRect=GearArt.image("mics",128.0 if compact else 160.0)
+ picture.name="PromotionHeroArt"
+ picture.custom_minimum_size.x=128.0 if compact else 180.0
+ picture.size_flags_horizontal=Control.SIZE_FILL
+ row.add_child(picture)
+ var words: VBoxContainer=host._box(4)
+ words.size_flags_vertical=Control.SIZE_SHRINK_CENTER
+ row.add_child(words)
+ _note(words,summary,"CareerReceiptNote" if fresh else "PromotionSummaryNote",fresh,fresh and bool(host._fresh_receipt))
+
+static func _radio_pills(host, parent: Node, before: Dictionary, after: Dictionary, projected: bool) -> void:
+ _copy(host,parent,"PROJECTED RESPONSE" if projected else "SAVED RESPONSE","PromotionProjectionHeading",16,true)
+ var grid:=GridContainer.new()
+ grid.name="PromotionDeltaPills"
+ grid.columns=3
+ grid.add_theme_constant_override("h_separation",6)
+ grid.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ parent.add_child(grid)
+ for field in ["fans","press","buzz"]:
+  var delta: int=int(after.get(field,0))-int(before.get(field,0))
+  var panel:=PanelContainer.new()
+  panel.name="PromotionPill_"+field
+  panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  panel.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  panel.focus_mode=Control.FOCUS_NONE
+  var stock:=StyleBoxFlat.new()
+  stock.bg_color=Color("e0e9d9") if delta>0 else (Color("efddd7") if delta<0 else Color("e9e2d5"))
+  stock.border_color=Color("819777") if delta>0 else (Color("b98171") if delta<0 else Color("aaa08f"))
+  stock.set_border_width_all(1)
+  stock.set_corner_radius_all(8)
+  stock.content_margin_left=6.0
+  stock.content_margin_right=6.0
+  stock.content_margin_top=7.0
+  stock.content_margin_bottom=7.0
+  panel.add_theme_stylebox_override("panel",stock)
+  grid.add_child(panel)
+  var label: Label=_copy(host,panel,"%s %s%d" % [field.to_upper(),"+" if delta>=0 else "",delta],"PromotionDelta_"+field,16)
+  label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+  label.add_theme_color_override("font_color",Color("254d2f") if delta>0 else (Color("843c2c") if delta<0 else Color("625b50")))
+  label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  label.focus_mode=Control.FOCUS_NONE
+  label.set_meta("field",field)
+  label.set_meta("before",int(before.get(field,0)))
+  label.set_meta("after",int(after.get(field,0)))
+  label.set_meta("delta",delta)
+
+static func _toggle_radio_details(host, body: Control, key: String, receipt_context: bool) -> void:
+ if not is_instance_valid(host) or not is_instance_valid(body):return
+ if not body.is_inside_tree():return
+ var button: Button=body.get_parent().get_node_or_null("PromotionDetailsAction") as Button
+ if button==null:return
+ if not host.is_inside_tree() or not host.is_visible_in_tree() or bool(host.busy) or is_instance_valid(host._live_dialog):return
+ if str(host.page)!="recording":return
+ if receipt_context:
+  if not bool(host.receipt_open) or str(host.receipt.get("verb",""))!="radio":return
+ elif bool(host.receipt_open) or str(host.recording_mode)!="radio":return
+ body.visible=not body.visible
+ host.set_meta(key,body.visible)
+ button.text="HIDE DETAILS" if body.visible else "DETAILS  ›"
+ button.set_pressed_no_signal(body.visible)
+
+static func _radio_details(host, parent: Node, session: Dictionary, context: String) -> VBoxContainer:
+ var key: String="radio_details_"+context+"_"+Rules.fingerprint(session)
+ var opened: bool=bool(host.get_meta(key)) if host.has_meta(key) else false
+ var body: VBoxContainer=host._box(10)
+ body.name="PromotionDetailsBody"
+ body.mouse_filter=Control.MOUSE_FILTER_PASS
+ body.visible=opened
+ # No page rerender, model resolver, save, focus replacement or hidden-note
+ # animation: the native48px disclosure changes this one existing container.
+ var button: Button=_button(host,parent,"HIDE DETAILS" if opened else "DETAILS  ›","PromotionDetailsAction",_toggle_radio_details.bind(host,body,key,context=="receipt"))
+ button.toggle_mode=true
+ button.set_pressed_no_signal(opened)
+ parent.add_child(body)
+ return body
+
 static func _radio(host, parent: Node, compact: bool) -> void:
  var body: VBoxContainer=host._paper(parent,compact)
  var selected: Dictionary=_radio_selection(host)
@@ -284,34 +370,36 @@ static func _radio(host, parent: Node, compact: bool) -> void:
   _copy(host,body,str(selected.get("message","Choose a released demo.")),"PromotionEligibility")
   return
  var session: Dictionary=selected["session"]
+ var saved: Dictionary=selected["saved_response"] if completed else {}
+ var preview: Dictionary={} if completed else _radio_preview(host)
+ var summary: String="A released demo, ready for new listeners."
+ if completed:summary=_radio_summary(saved["before"],saved["after"]) if not saved.is_empty() else "Already pitched. No detailed response was saved."
+ _radio_hero(host,body,compact,summary)
+ if completed and not saved.is_empty():_radio_pills(host,body,saved["before"],saved["after"],false)
+ elif not completed and bool(preview.get("ok",false)):_radio_pills(host,body,host.game.career,preview["state"],true)
+ elif not completed:_copy(host,body,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
+ var details: VBoxContainer=_radio_details(host,body,session,"saved" if completed else "brief")
  var id: String=str(session.get("id",""))
- var columns: Array=_columns(host,body,compact)
- var track_side: Node=columns[0]
- var response_side: Node=columns[1]
- _copy(host,track_side,"DEMO ID / "+id if not id.is_empty() else "LEGACY DEMO / ID NOT RECORDED","PromotionDemoId",16,true)
+ _copy(host,details,"DEMO ID / "+id if not id.is_empty() else "LEGACY DEMO / ID NOT RECORDED","PromotionDemoId",16,true)
  var tracks: PackedStringArray=[]
  for index in range((session.get("tracks",[]) as Array).size()):
   tracks.append("%d. %s" % [index+1,str(session["tracks"][index].get("title","UNTITLED"))])
- _copy(host,track_side,"\n".join(tracks) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED","PromotionTracks",20)
- _copy(host,track_side,"SAVED SONG LINKS" if session.has("song_links_v1") else "LEGACY RECORDING / SONG LINKS NOT RECORDED","PromotionLinks",16,true)
+ _copy(host,details,"\n".join(tracks) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED","PromotionTracks",20)
+ _copy(host,details,"SAVED SONG LINKS" if session.has("song_links_v1") else "LEGACY RECORDING / SONG LINKS NOT RECORDED","PromotionLinks",16,true)
  if completed:
-  var saved: Dictionary=selected["saved_response"]
   if saved.is_empty():
-   _note(response_side,"This demo's radio campaign was already completed. Its detailed response was not saved with this legacy record.","PromotionSavedNote")
+   _note(details,"This demo's radio campaign was already completed. Its detailed response was not saved with this legacy record.","PromotionSavedNote")
   else:
-   _copy(host,response_side,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
-   _note(response_side,str(saved["message"]),"PromotionSavedNote")
-   _radio_metrics(host,response_side,saved["before"],saved["after"])
-  _copy(host,response_side,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
+   _copy(host,details,"SAVED DAY %d → %d  •  £%d → £%d" % [int(saved["before"]["tour_day"]),int(saved["after"]["tour_day"]),int(saved["before"]["cash"]),int(saved["after"]["cash"])],"PromotionSavedFacts")
+   _note(details,str(saved["message"]),"PromotionSavedNote")
+   _radio_metrics(host,details,saved["before"],saved["after"])
+  _copy(host,details,"Reading this response is free. The campaign will not run again.","PromotionReadOnly",16,true)
  else:
-  _copy(host,response_side,"Send your released demo to local radio and independent DJs.","PromotionDescription")
-  var preview: Dictionary=_radio_preview(host)
+  _copy(host,details,"Send your released demo to local radio and independent DJs.","PromotionDescription")
   if bool(preview.get("ok",false)):
-   _copy(host,response_side,"PROJECTED RESPONSE","PromotionProjectionHeading",16,true)
-   _radio_metrics(host,response_side,host.game.career,preview["state"])
-   for change in preview["receipt"]["postchain_changes"]:_copy(host,response_side,str(change["text"]),"",16,true)
-  else:_copy(host,response_side,str(preview.get("message","This pitch is unavailable.")),"PromotionBodyEligibility")
-  _note(response_side,"One released demo. One local-radio pitch. The saved response will remain with this recording.","PromotionIntroNote")
+   _radio_metrics(host,details,host.game.career,preview["state"])
+   for change in preview["receipt"]["postchain_changes"]:_copy(host,details,str(change["text"]),"",16,true)
+  _note(details,"One released demo. One local-radio pitch. The saved response will remain with this recording.","PromotionIntroNote")
 
 static func _radio_dock(host, parent: Node) -> void:
  var selected: Dictionary=_radio_selection(host)
@@ -345,7 +433,31 @@ static func open_radio(host, id: String, fingerprint: String, index: int) -> voi
  host.notice=""
  _rerender(host,"PromotionBackAction" if bool(selected["completed"]) else "PromotionMainAction",true)
 
+static func _radio_receipt(host, parent: Node, compact: bool) -> void:
+ var body: VBoxContainer=host._paper(parent,compact)
+ var saved: Dictionary=host.receipt
+ var session: Dictionary=saved.get("session",{})
+ var campaigns: Dictionary=session.get("campaigns",{})
+ var radio: Dictionary=campaigns.get("radio",{})
+ var response: Dictionary=radio.get("receipt_v1",{})
+ _copy(host,body,"RADIO RESPONSE","PromotionHeading",26)
+ var summary: String=_radio_summary(response["before"],response["after"]) if not response.is_empty() else "Your local-radio pitch is saved."
+ _radio_hero(host,body,compact,summary,true)
+ if not response.is_empty():_radio_pills(host,body,response["before"],response["after"],false)
+ var details: VBoxContainer=_radio_details(host,body,session,"receipt")
+ _copy(host,details,"THE RADIO RESPONSE","RecordingReceiptHeading",16,true)
+ _copy(host,details,str(saved.get("title","LOCAL RADIO RESPONSE")),"RecordingReceiptTitle",26)
+ _copy(host,details,"DAY %d → %d\n£%d → £%d" % [int(saved.get("day_before",1)),int(saved.get("day_after",1)),int(saved.get("cash_before",0)),int(saved.get("cash_after",0))],"RecordingReceiptFacts")
+ _note(details,str(saved.get("text","Saved.")),"PromotionFullResponse")
+ for change in saved.get("changes",[]):
+  _copy(host,details,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],"RecordingReceiptChange_"+str(change["label"]))
+ if not session.is_empty():_session(host,details,session,compact,-1,false)
+ _copy(host,details,"Audio playback is not available.","RecordingReceiptAudio",16,true)
+
 static func receipt(host, parent: Node, compact: bool) -> void:
+ if str(host.receipt.get("verb",""))=="radio":
+  _radio_receipt(host,parent,compact)
+  return
  var body: VBoxContainer=host._paper(parent,compact)
  var saved: Dictionary=host.receipt
  _copy(host,body,"THE RADIO RESPONSE" if str(saved.get("verb",""))=="radio" else "THE RECORDING JOURNAL","RecordingReceiptHeading",16,true)

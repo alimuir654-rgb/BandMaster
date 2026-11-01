@@ -315,13 +315,11 @@
   "last_delegated_source_writer": {
     "agent": "/root/render_support",
     "paths": [
-      "experiments/playable_flightcase/promotion_rules.gd",
-      "experiments/playable_flightcase/recording_desk.gd",
-      "experiments/playable_flightcase/career_desk.gd"
+      "experiments/playable_flightcase/recording_desk.gd"
     ],
-    "expires_at": "2026-11-01T20:35:00Z",
-    "preflight_sha": "5cfb753b609faa674fb16e783f14e7679d0aa63c",
-    "released_at": "2026-11-01T20:20:25.496449+00:00"
+    "expires_at": "2026-11-01T20:55:00Z",
+    "preflight_sha": "73653e086d922f3287561bb23f539a72be8095a0",
+    "released_at": "2026-11-01T20:50:48.302125+00:00"
   },
   "page_write_allowed": "SelectedA05nativecompositionPNGs/prose/privateownerreview ONLY aftercurrentproof",
   "scratch_art_concept_allowed": false,
