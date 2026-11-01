@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 740723,
-    "sha256": "75f56627c48ed3b050a44ef93e32fc51ff0db7146fe079fb9fbf22ff7b279de5"
+    "bytes": 743987,
+    "sha256": "b9f08dd550d88189b10dce0ebb8a88a36e9fb98ae1ef81c2f12fcaebc60d72ef"
   },
   "started_at": "2026-11-01T17:28:50.469236+00:00",
   "scope_end": "2026-11-01T19:40:00Z",
@@ -146,5 +146,13 @@
     "scope": "8orlessresearchfeatureproposals+3existingrequestedvisualprototypeartblocks; selectedrawproductPNG/nativein-gamePNGs only; no source/history/projectZIP",
     "decision_gate": "AllNEWproposalsPENDING_OWNER; preservecheckboxstates andIDs/versionbindings; approvedfeaturesfeedreadyroadmapwithinsessionauthority, neverautomaticnewcontroller",
     "artifact_hold": "No newAPK/publicsourcependingownerreview"
+  },
+  "scratch_art_scope": {
+    "worker": "/root/visual_contract",
+    "limit": "ONEimage_gencall before18:40; no retriesbydefault",
+    "outputs": "Toolgenerated/workspace/generated_images/* + /workspace/work/review-roadmap-20261101/live-performer-concept.json + existingart-screen-map.json only",
+    "refs": "ActualexistingC25Arjunheadpreview andcorrectfullbodyregion/currentnativeposter, viewbeforeediting",
+    "quality_gate": "Guitarheldbelievably/fictionalidentity recognisable/noextra fingers/brands/fullUI; ownerPENDING, no productionintegration",
+    "freeze": "No game/source/artrepo writes; allnewconceptreviewonly. Existing19:45allwrite/20hardstop boundsunchanged"
   }
 }

@@ -325,5 +325,13 @@
     "scope": "Owner18:07onePRIVATEfeature/artreviewPage+selectedPNGblocks only",
     "new_gameplay_art_allowed": false,
     "source_history_upload_allowed": false
+  },
+  "scratch_art_concept_allowed": {
+    "worker": "/root/visual_contract",
+    "limit": "ONEimage_gencall before18:40; no retriesbydefault",
+    "outputs": "Toolgenerated/workspace/generated_images/* + /workspace/work/review-roadmap-20261101/live-performer-concept.json + existingart-screen-map.json only",
+    "refs": "ActualexistingC25Arjunheadpreview andcorrectfullbodyregion/currentnativeposter, viewbeforeediting",
+    "quality_gate": "Guitarheldbelievably/fictionalidentity recognisable/noextra fingers/brands/fullUI; ownerPENDING, no productionintegration",
+    "freeze": "No game/source/artrepo writes; allnewconceptreviewonly. Existing19:45allwrite/20hardstop boundsunchanged"
   }
 }
