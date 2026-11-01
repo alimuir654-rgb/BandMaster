@@ -677,16 +677,21 @@ func _cover_milestone(kind: String) -> void:
  var content: VBoxContainer=_column()
  content.add_theme_constant_override("separation",0)
  frame.add_child(content)
+ var surface_budget:=Vector2.ZERO
+ if wide:
+  var frame_skin: StyleBox=frame.get_theme_stylebox("panel")
+  surface_budget.x=frame.custom_minimum_size.x-frame_skin.get_content_margin(SIDE_LEFT)-frame_skin.get_content_margin(SIDE_RIGHT)
+  surface_budget.y=size.y-72.0-frame_skin.get_content_margin(SIDE_TOP)-frame_skin.get_content_margin(SIDE_BOTTOM)-12.0
  if formation:
   var poster:=BandPoster.new()
   poster.name="BandFormationPoster"
   content.add_child(poster)
-  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "")
+  poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,"hero" if wide else "",surface_budget)
  else:
   var poster:=IdentityPress.new()
   poster.name="CompletedBandPrint" if complete else "NamedMilestonePrint"
   content.add_child(poster)
-  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "")
+  poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),"hero" if wide else "",surface_budget)
  var fact: String=""
  if formation:
   fact="TALENT %d / 200  •  %d REMAINING"%[200-setup.remaining(),setup.remaining()]
@@ -882,7 +887,16 @@ func _identity() -> void:
   root.add_child(choices_scroll)
   choices_scroll.add_child(controls)
   controls.add_child(proof_holder)
- identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"])
+ var proof_budget:=Vector2.ZERO
+ if wide:
+  var notice_height: float=0.0
+  if not response.is_empty():
+   var measuring_notice: Label=_label(response,16)
+   notice_height=IdentityPress.printed_height(measuring_notice,size.x-72.0)+6.0
+   measuring_notice.free()
+  # Actual shell: 72margins +33title +23caption +36gaps +102footer.
+  proof_budget=Vector2(440.0,maxf(120.0,size.y-266.0-notice_height))
+ identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"],"",proof_budget)
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2

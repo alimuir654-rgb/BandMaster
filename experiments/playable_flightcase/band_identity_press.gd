@@ -11,6 +11,14 @@ var member_ids: Array[String] = []
 var _full_length := false
 var _regions: Dictionary = {}
 
+static func printed_height(label: Label, width: float) -> float:
+ var font: Font=label.get_theme_font("font")
+ var points: int=label.get_theme_font_size("font_size")
+ var flags: int=TextServer.BREAK_MANDATORY|TextServer.BREAK_WORD_BOUND|TextServer.BREAK_ADAPTIVE
+ var measure: Vector2=font.get_multiline_string_size(label.text,HORIZONTAL_ALIGNMENT_CENTER,maxf(20.0,width),points,-1,flags)
+ var lines: int=maxi(1,roundi(measure.y/maxf(1.0,font.get_height(points))))
+ return ceilf(measure.y)+float(maxi(0,lines-1)*label.get_theme_constant("line_spacing"))
+
 func _ink(value: String, points: int, muted: bool = false, dark: bool = false) -> Label:
  var result: Label = Kit.label(value,"notepaper",points)
  result.add_theme_color_override("font_color",Color("c4bdaa") if dark and muted else (Color("f1e9d8") if dark else (Color("655b4e") if muted else Color("28231e"))))
@@ -20,7 +28,7 @@ func _ink(value: String, points: int, muted: bool = false, dark: bool = false) -
  result.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  return result
 
-func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview", style: Dictionary = {}, layout_hint: String = "") -> void:
+func configure(roster: Array, lead_id: String, band_name: String, logo: String, palette: String, vibe: String, viewport_width: float, variant: String = "preview", style: Dictionary = {}, layout_hint: String = "", surface_budget: Vector2 = Vector2.ZERO) -> void:
  for old in get_children():
   remove_child(old)
   old.queue_free()
@@ -53,7 +61,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  content.add_theme_constant_override("separation",5 if tiny else 7)
  content.mouse_filter=Control.MOUSE_FILTER_IGNORE
  paper.add_child(content)
- var mast: Label=_ink("YOUR FIRST PRESS" if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF"),12,true,dark)
+ var mast: Label=_ink("FIRST PRESS / THE FOUNDING LINEUP" if variant=="formation" else ("YOUR FIRST PRESS" if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF")),12,true,dark)
  mast.name="IdentityPressMasthead"
  content.add_child(mast)
  var mark:=Mark.new()
@@ -64,6 +72,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  mark.configure(band_name,logo,selected_style,points,false,true)
  content.add_child(mark)
  var full: Label=_ink(band_name,16,false,dark)
+ full.add_theme_font_override("font",Style.face({"version":1,"font":"mono","ink":selected_style["ink"]}))
  full.name="IdentityFullName"
  full.visible=logo=="Monogram"
  content.add_child(full)
@@ -99,7 +108,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stage.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var body_height: float=(145.0 if tiny else 215.0) if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))
  if variant=="formation": body_height=210.0 if short else 240.0
- if hero: body_height=clampf(viewport_height-400.0,240.0,410.0)
+ if hero: body_height=clampf(viewport_height-400.0,180.0,410.0)
  stage.custom_minimum_size.y=body_height if _full_length else (75.0 if compact else 120.0)
  content.add_child(stage)
  var views: Array[TextureRect]=[]
@@ -148,13 +157,30 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var credit: Label=_ink(" · ".join(names).to_upper(),14,true,dark)
  credit.name="IdentityPressMembers"
  content.add_child(credit)
+ var lead: Label
  if not compact:
-  var lead: Label=_ink("LEAD VOCALS  /  "+vocalist_name.to_upper(),12,true,dark)
+  lead=_ink("LEAD VOCALS  /  "+vocalist_name.to_upper(),12,true,dark)
   lead.name="IdentityLeadVocal"
   content.add_child(lead)
- var footer: Label=_ink("THE BAND IS FORMED." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK."),16,false,dark)
+ var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("THE BAND IS FORMED." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
  footer.name="IdentityPressFooter"
  content.add_child(footer)
+ if surface_budget.x>0.0 and surface_budget.y>0.0 and _full_length:
+  # Native text/copy keeps its size. The image row uses the exact remainder
+  # after paper margins, real font wrapping and visible-child separation.
+  var inner_width: float=maxf(20.0,surface_budget.x-stock.get_content_margin(SIDE_LEFT)-stock.get_content_margin(SIDE_RIGHT))
+  var fixed_height: float=stock.get_content_margin(SIDE_TOP)+stock.get_content_margin(SIDE_BOTTOM)+printed_height(mast,inner_width)+ceilf(mark.custom_minimum_size.y)+1.0+printed_height(credit,inner_width)+printed_height(footer,inner_width)
+  var visible_count: int=6
+  if logo=="Monogram":
+   fixed_height+=printed_height(full,inner_width)
+   visible_count+=1
+  if lead!=null:
+   fixed_height+=printed_height(lead,inner_width)
+   visible_count+=1
+  fixed_height+=float((visible_count-1)*content.get_theme_constant("separation"))
+  var desired: float=body_height
+  if compact and viewport_width>=1100.0: desired=350.0
+  stage.custom_minimum_size.y=maxf(64.0,minf(desired,floorf(surface_budget.y-fixed_height)))
 
 func visible_ids() -> Array[String]:
  return member_ids.duplicate()

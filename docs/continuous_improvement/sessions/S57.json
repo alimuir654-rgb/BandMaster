@@ -87,8 +87,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 639405,
-    "sha256": "ad87f35557b05001238f9ab5041f1f2593470b8dc62cb4fc4a8bb2ed823dd87e"
+    "bytes": 645413,
+    "sha256": "eb6e4ed60beae20a3ef0214fdab7e6419ad9c412200967b951473657499c215d"
   },
   "started_at": "2026-11-01T08:32:28.180359+00:00",
   "scope_end": "2026-11-01T12:15:00Z",
@@ -121,5 +121,6 @@
       "pixels_inspected": true
     }
   ],
-  "aspect_art_correction_398": "Rootactual613wideproofshowsweakfigure/paperproportion; one structuralportraitproof/hero compositionbeforefinalsourceproof. No newart ormodelchanges. Actualroot613headerinspectionafter397preflightcommit/beforerelatedsourcecode disclosed; independent839viewseparate."
+  "aspect_art_correction_398": "Rootactual613wideproofshowsweakfigure/paperproportion; one structuralportraitproof/hero compositionbeforefinalsourceproof. No newart ormodelchanges. Actualroot613headerinspectionafter397preflightcommit/beforerelatedsourcecode disclosed; independent839viewseparate.",
+  "frame_budget_correction_401": "Actual695pxframe>648available. Reuseexactframeinsets/Rootlocalsize/nativewrappedfontmetrics, flexpeople rowonly; preservedcopy/fonts/fixedactions, countandcutoutproofmandatory."
 }

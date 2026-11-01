@@ -10,6 +10,9 @@ var width57 := 390
 var height57 := 844
 var orphan57 := 0
 var touch_trace57: Array=[]
+var geometry57: Array=[]
+var band57 := "Side Street"
+var normal57 := false
 
 func check57(condition: bool, message: String) -> bool:
  checks57+=1
@@ -26,6 +29,18 @@ func named57(value: String) -> Control:
 
 func shot57(label: String) -> void:
  await settle57()
+ var safe: Rect2=screen57.get_global_rect()
+ var measured: Dictionary={"label":label,"safe":[safe.position.x,safe.position.y,safe.size.x,safe.size.y],"nodes":{}}
+ for name in ["FirstPressCoverFrame","IdentityPressPaper","BandPosterPaper","IdentityLiveMark","BandPosterHeadline","MilestoneNextAction","NameSubmitAction","NameLockAction","NameMilestoneNextAction","IdentityFinishAction","IdentityBackAction","StartPlayAction","CompletedMenuAction","PracticeBackAction","CareerMenuAction"]:
+  var node: Control=named57(name)
+  if node==null or not node.is_visible_in_tree(): continue
+  var rect: Rect2=node.get_global_rect()
+  measured.nodes[name]=[rect.position.x,rect.position.y,rect.size.x,rect.size.y]
+  if node is Button:
+   check57(safe.encloses(rect) and rect.size.x>=44.0 and rect.size.y>=44.0,"fixed physical action inside safe content: "+name)
+  elif name=="FirstPressCoverFrame":
+   check57(safe.encloses(rect),"whole hero frame inside actual safe content")
+ geometry57.append(measured)
  var path: String=output57+"/"+label+"-%dx%d.png"%[width57,height57]
  var picture: Image=root.get_texture().get_image()
  if check57(picture!=null and not picture.is_empty(),"actual native postdraw image exists"):
@@ -37,6 +52,20 @@ func guard57() -> Dictionary:
 
 func unchanged57(before: Dictionary, label: String) -> bool:
  return check57(screen57.setup.snapshot()==before.model and FileAccess.get_file_as_bytes(OpeningModel.SAVE_PATH)==before.file,label+" leaves model/disk unchanged")
+
+func insets57(label: String) -> void:
+ if width57 not in [390,1280]: return
+ var before: Dictionary=guard57()
+ var draft: Dictionary=screen57.identity_draft.duplicate(true)
+ screen57.set_meta("safe_area_test_sample",{"screen_safe_rect":Rect2(0,28,width57,height57-52),"viewport_to_screen":Transform2D.IDENTITY})
+ screen57.call("_refresh_safe_area")
+ await settle57()
+ await shot57(label+"-safe-insets")
+ check57(screen57.identity_draft==draft,"28/24 engine-inset sample preserves pending look")
+ unchanged57(before,"camera/navigation inset-only reflow")
+ screen57.remove_meta("safe_area_test_sample")
+ screen57.call("_refresh_safe_area")
+ await settle57()
 
 func click57(value: String) -> bool:
  var button: Button=named57(value) as Button
@@ -108,7 +137,7 @@ func journey57() -> bool:
  screen57=UI.new()
  screen57.setup=model
  screen57.showing_menu=false
- screen57.reduced_motion=true
+ screen57.reduced_motion=not normal57
  root.add_child(screen57)
  await settle57()
  var formation: Variant=named57("BandFormationPoster")
@@ -118,15 +147,16 @@ func journey57() -> bool:
  for pid in ["cast_jack","cast_zoe","cast_casey"]:
   check57(named57("LineupPortrait_"+pid)!=null and named57("LineupRole_"+pid)!=null,"pre-name native picture and role match actual selected ID")
  await shot57("formation-milestone")
+ await insets57("formation")
  if not await click57("MilestoneNextAction"): return false
  await shot57("name-editor-empty")
  var field: LineEdit=named57("FreeBandName") as LineEdit
  if not check57(field!=null and field.editable,"actual editable name field"): return false
  field.grab_focus()
- for index in range("Side Street".length()):
+ for index in range(band57.length()):
   var down:=InputEventKey.new()
   down.pressed=true
-  down.unicode="Side Street".unicode_at(index)
+  down.unicode=band57.unicode_at(index)
   Input.parse_input_event(down)
   await process_frame
   var up:=InputEventKey.new()
@@ -135,9 +165,9 @@ func journey57() -> bool:
   Input.parse_input_event(up)
   await process_frame
  await settle57()
- if not check57(field.text=="Side Street" and screen57.free_name=="Side Street","native engine typing updates retained draft"): return false
+ if not check57(field.text==band57 and screen57.free_name==band57,"native engine typing updates retained draft"): return false
  var live: Label=named57("NameLiveMark") as Label
- check57(live!=null and str(live.get("full_name"))=="Side Street","typing updates actual shared mark without navigation")
+ check57(live!=null and str(live.get("full_name"))==band57,"typing updates actual shared mark without navigation")
  await shot57("name-editor-live")
  if not await click57("NameSubmitAction") or not await click57("NameLockAction"): return false
  if not check57(model.screen=="name_milestone","native name confirmation reaches held acknowledgement"): return false
@@ -145,6 +175,7 @@ func journey57() -> bool:
  if not await click57("NameMilestoneNextAction"): return false
  if not cover57("IdentityPreviewPrint",["cast_jack","cast_zoe","cast_casey"]): return false
  await shot57("identity-initial")
+ await insets57("identity")
  var before: Dictionary=guard57()
  for kind in Style57.FONTS:
   if not await click57("IdentityType_"+str(kind)): return false
@@ -156,6 +187,25 @@ func journey57() -> bool:
   check57(screen57.identity_draft.style.ink==ink,"real ink choice latched")
   unchanged57(before,"free ink preview")
   if ink in ["ivory","cobalt"]: await shot57("identity-ink-"+str(ink))
+ # The real Tab path leaves the final ink and reveals the treatment row.
+ await _recap_key(KEY_TAB)
+ await settle57()
+ var focused: Control=root.gui_get_focus_owner()
+ check57(focused!=null and str(focused.name)=="IdentityLogo_Wordmark","actual Tab advances from final ink to visible treatment")
+ if focused!=null:
+  check57((named57("IdentityChoicesScroll") as ScrollContainer).get_global_rect().encloses(focused.get_global_rect()),"follow-focus reveals the actual keyboard destination")
+ await _recap_key(KEY_SPACE)
+ await settle57()
+ unchanged57(before,"native keyboard treatment preview")
+ for treatment in ["Monogram","Wordmark","Stamp"]:
+  if not await click57("IdentityLogo_"+treatment): return false
+  check57(str(screen57.identity_draft.logo)==treatment,"real native treatment preview")
+  unchanged57(before,"free native treatment preview")
+  if treatment=="Monogram":
+   var full: Label=named57("IdentityFullName") as Label
+   check57(full!=null and full.visible and full.text==band57 and full.get_theme_font_size("font_size")>=16,"Monogram keeps the complete original name legible")
+   await shot57("identity-monogram")
+   await insets57("identity-monogram")
  if not await click57("IdentityType_blockprint") or not await click57("IdentityInk_charcoal") or not await click57("IdentityLogo_Stamp"): return false
  if width57<480:
   if not await touch_scroll57("IdentityPressMasthead") or not await touch_scroll57("IdentityType_condensed"): return false
@@ -184,18 +234,28 @@ func journey57() -> bool:
  if not cover57("CompletedBandPrint",["cast_jack","cast_zoe","cast_casey"]): return false
  var committed: Dictionary=guard57()
  await shot57("identity-confirmed-poster")
+ await insets57("confirmed-poster")
  await create_timer(1.2).timeout
  unchanged57(committed,"held milestone idle")
  if not await click57("StartPlayAction"): return false
  if not check57(model.screen=="play","native held poster Continue reaches real practice"): return false
  var header: Label=named57("PracticeBandName") as Label
- check57(header!=null and str(header.get("full_name"))=="Side Street","same shared band mark reaches actual practice header")
+ check57(header!=null and str(header.get("full_name"))==band57,"same shared band mark reaches actual practice header")
  await shot57("identity-practice-header")
  if not await click57("PracticeBackAction"): return false
  var saved: Dictionary=guard57()
  if not await click57("ContinueAction"): return false
  check57(screen57.setup.identity_style==draft.style and screen57.setup.game.career.get(Style57.KEY,{})==draft.style,"actual disk Continue restores committed style")
  unchanged57(saved,"native Menu/Continue")
+ var before_career: Dictionary=guard57()
+ if not await click57("CareerDeskAction"): return false
+ var career_header: Label=named57("CareerBandName") as Label
+ check57(career_header!=null and str(career_header.get("full_name"))==band57,"actual career header uses the same saved band mark")
+ await shot57("identity-career-header")
+ if not await click57("CareerHome_calendar"): return false
+ await shot57("identity-calendar-header")
+ if not await click57("CareerCalendarBackAction"): return false
+ unchanged57(before_career,"native career/calendar free routes")
  return failures.is_empty()
 
 func take() -> void:
@@ -204,6 +264,8 @@ func take() -> void:
   elif argument.begins_with("--size="):
    var parts: PackedStringArray=argument.substr(7).split("x")
    width57=int(parts[0]);height57=int(parts[1])
+  elif argument.begins_with("--band-name="): band57=argument.substr(12)
+  elif argument=="--motion=normal": normal57=true
  if not output57.begins_with("/workspace/work/identity-20261101/s57/"):
   print("S57 unsafe output guard");quit(2);return
  if not ProjectSettings.globalize_path("user://").begins_with("/workspace/work/identity-20261101/s57/"):
@@ -218,7 +280,7 @@ func take() -> void:
  await settle57()
  var after: int=int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
  check57(after<=orphan57,"no orphan growth after native journey cleanup")
- var result: Dictionary={"pass":okay and failures.is_empty(),"checks":checks57,"errors":failures,"originals":images57,"orphan_before":orphan57,"orphan_after":after,"touch_trace":touch_trace57,"physical_phone":false,"fixture":"Real model-prepared trio, then actual native typing/pointer/touch/resize/save-failure/retry/held/Continue"}
+ var result: Dictionary={"pass":okay and failures.is_empty(),"checks":checks57,"errors":failures,"originals":images57,"orphan_before":orphan57,"orphan_after":after,"touch_trace":touch_trace57,"geometry":geometry57,"band_name":band57,"normal_motion":normal57,"physical_phone":false,"fixture":"Real model-prepared trio, then actual native typing/pointer/touch/keyboard/resize/safearea/save-failure/retry/held/Continue/career/calendar"}
  var file:=FileAccess.open(output57+"/result.json",FileAccess.WRITE)
  file.store_string(JSON.stringify(result,"  "));file.close()
  print("S57_IDENTITY_NATIVE_RESULT ",JSON.stringify(result))
