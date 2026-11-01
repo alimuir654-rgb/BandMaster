@@ -47,6 +47,11 @@ func prepare_calendar_case(tag: String) -> bool:
  elif not await free_action("CareerDeskAction"):
   return false
  if not await free_action("CareerHome_calendar","pointer"):return false
+ # Fast process-frame input helpers can return while the new ScrollContainer
+ # still has zero bounds. Measure only after actual GUI layout/draw; preserve
+ # the original full first-fold assertions rather than accepting partial ink.
+ if not await settled(named("CareerCalendarBackAction")):return false
+ await RenderingServer.frame_post_draw
  return verify(str(desk().get("page"))=="calendar" and desk().get("game")==model.game,"real Home CALENDAR opens actual same-game calendar: "+tag)
 
 func calendar_facts(expected_status: String) -> bool:
