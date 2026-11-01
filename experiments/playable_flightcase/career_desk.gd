@@ -25,6 +25,7 @@ const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
+const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_desk.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -170,7 +171,7 @@ func _render() -> void:
   var destination: String = str(entry[0])
   var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
   option.name = "CareerNav_"+destination
-  option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs")) and not receipt_open)
+  option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs") or (page=="calendar" and destination=="home")) and not receipt_open)
   option.disabled = busy or Finance.is_over(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
@@ -206,6 +207,8 @@ func _render() -> void:
   _songs_page(body,compact)
  elif page=="recording":
   RecordingDesk.render(self,body,compact)
+ elif page=="calendar":
+  CalendarDesk.render(self,body,compact)
  elif page=="gigs":
   LiveDesk.render(self,body,compact)
  elif page=="finance":
@@ -245,7 +248,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -257,6 +260,8 @@ func _navigate(destination: String) -> void:
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
  _pending_focus = ("RecordingSelectAction" if recording_mode=="archive" else "RecordingMainAction") if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
+ if destination=="calendar":
+  _pending_focus = "CareerCalendarBackAction"
  _render()
 
 func _restore_focus(control_name: String) -> void:
@@ -326,7 +331,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  routes.add_theme_constant_override("h_separation",8)
  routes.add_theme_constant_override("v_separation",8)
  body.add_child(routes)
- for entry in [["FINANCES","finance"],["LIFE OFFSTAGE","offstage"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
+ for entry in [["CALENDAR","calendar"],["FINANCES","finance"],["LIFE OFFSTAGE","offstage"],["THE MUSIC SHOP","gear"],["MEET YOUR BAND","band"],["YOUR SONGBOOK","songs"]]:
   routes.add_child(_button(str(entry[0])+"  ›","CareerHome_"+str(entry[1]),_navigate.bind(str(entry[1]))))
  # Put the next decisions before the status detail on the phone.
  body.move_child(practice,3)
@@ -558,6 +563,13 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   OffstageDesk.dock(self,dock,compact)
  elif page=="recording":
   RecordingDesk.dock(self,dock,compact)
+ elif page=="calendar":
+  var calendar_live := _button("OPEN THE LIVE DESK  ›","CareerCalendarLiveAction",_navigate.bind("gigs"))
+  var calendar_view: Dictionary = CalendarDesk.summary(game.career)
+  var calendar_booking: Dictionary = calendar_view["booking"]
+  calendar_live.disabled = busy or not bool(calendar_view["today_valid"]) or (bool(calendar_booking["present"]) and not bool(calendar_booking["valid"]))
+  dock.add_child(calendar_live)
+  dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerCalendarBackAction",_navigate.bind("home"),true))
  elif page=="songs":
   dock.add_child(_button("CUT A DEMO  ›","CareerRecordingAction",_navigate.bind("recording"),true))
  elif page=="gear":
