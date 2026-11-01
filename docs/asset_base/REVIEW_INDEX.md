@@ -585,3 +585,8 @@ Technical PASS/visual PARTIAL/ownerfalse.73/88/import/4native172 +9444 focused60
 ## S59 show identity — c820244935914fcb4d0e90f7a762507a66b23173
 
 Technical PASS/visual PARTIAL/ownerfalse;73/88/import/4standard172 +16495 focused118 +configured entry.363 raw sources,168 originals exact/four Reopen/zero unexpected. MetadataHEAD1296 vs gamec820 explicitly verified, no source mismatch. Actual originals/five SIMULATED lenses/limits/release: `/workspace/work/identity-20261101/s59/closeout.json`. Next S60 read-only current-band poster access; V6 unchanged.
+
+
+## S60 current-band poster — 2026-11-01T13:57:15.098319+00:00
+
+Verified LOCAL `b310067ce8d29c1e081a32292174a644d6c81a43`. BAND→VIEWBANDPOSTER uses actual current members/order/lead/name/savedlook, sharedfull-length Press, conservativeWHOLEfallback, retainedsafe/focus/resize/free; no model/save/formation.73/88/import/4standard172 +5264currentfocused69originals +configuredentry,0ERROR/measuredorphans(data-onlyunmeasured).364rawGit/runtime;361priorunchanged/2edits/1new;54Scripts intact.168standardexact+4disclosedReopen/0unexpected. Root7current/2baseline originals+independent41opened,5SIMULATEDlenses,visualPARTIAL/ownerfalse. Failed429/433held;434METHODchange, LESSONS updated. Exactevidence/limits: `/workspace/work/identity-20261101/s60/closeout.json`. Writerreleased/sourcefrozen. NextONE:S61finalV7artifact/privatecompiledAPK;sourceZIPLOCAL.15:50writefreeze/16hardstop.
