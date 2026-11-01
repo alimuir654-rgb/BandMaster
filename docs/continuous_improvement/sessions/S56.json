@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S56",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Owner07:46 asks calendar, improved name/logo colors/fonts and coherent celebratory editorial milestones with bandname top and selected full-length musicians; attached monochrome band reference. This NEWsteering authorises this bounded calendar/source and identity DESIGNconcept pass prospectively; original08:30allwritefreeze/noautomaticextension retained.",
   "owner_approved": false,
   "baseline_sha": "81c0f8833ef1bb0f0c67108e08605997d4b6fd1b",
@@ -67,15 +67,15 @@
     "ExactGit/runtime/protectedsourceaudit and originalnativePNGinspection; technicalPASS separatevisualPARTIAL/ownerfalse; conceptnever runtimeUI"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "a0f8a90bc475a4428f144fd760120daac4339d5290c469c043c41f6ac26083e3",
+    "docs/continuous_improvement/LESSONS.md": "8627b3cf56dcd387572066d6f6468535e06ba26d5285d2f684273033ded6684f",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 601946,
-    "sha256": "c143cc2b38a3e72068ecc1b2dc772d472fae24c95e1ddc1d63450288886e4299"
+    "bytes": 609376,
+    "sha256": "3983b90d65cd39160ca4147d4d2055336a0bf52f899f14a0092f571400962179"
   },
   "started_at": "2026-11-01T07:50:51.074154+00:00",
-  "scope_end": "2026-11-01T08:20:00Z",
+  "scope_end": "2026-11-01T08:24:00Z",
   "source_freeze_target": "2026-11-01T08:03:00Z",
   "all_write_freeze": "2026-11-01T08:30:00Z",
   "hard_stop": "2026-11-01T09:00:00Z",
@@ -87,12 +87,158 @@
     "V6APK/sourcepackage unchanged; no production saves or publicsource/history writes"
   ],
   "updated_at": "2026-11-01T04:49:50.883481+00:00",
-  "next_action": "Implement one read-only calendar from original saved data; prepare identity/poster concept, then exactnativeproof and closeout before08:30. No additionalAPK.",
+  "next_action": "READ-ONLY owner review of the identity concept/full-length likeness and phone V6. Calendar e4 is verified LOCAL source, not in V6. Next implementation phase remains shared name/logo renderer, properly licensed persisted font/colour options and selected-roster full-length milestone art; no automatic continuation beyond original08:30writefreeze/09hardstop. No more source/art/build or repeat tests for activity.",
   "visual_verdict": "partial",
   "policy": {
     "calendar": "OrdinalDAY, no epoch/weekdays invented. One actualbooked_show.day marker; career_journal separatelylabelled SavedNotes. No Tour.timeline guidance presented asappointments or cancellation/expiry calls onrender. UIvalidation handles malformed known fields without mutations.",
     "identity": "Newownerreference drives DESIGNconcept; approved C25 upperbodycrops are not fullbodymasters. No runtimecast/bodyreplacement in this source slice. Morefont/color/nativeidentityrollout scoped afterartreview, not claimed implemented.",
     "limits": "Onlycalendar source/integration plusconcept/brief withinremainingwindow. Original08:30allwritefreeze and09hardstop, no automaticcontinuation/newqueue."
   },
-  "method_change_377": "Aftertwoineffectivephoneprobeiterations, inspectactualnativeoverduePNG/rectangles/scroll/focus; no blindretry. a838 sourceheld untilfullproof;08:30freezeunchanged."
+  "method_change_377": "Aftertwoineffectivephoneprobeiterations, inspectactualnativeoverduePNG/rectangles/scroll/focus; no blindretry. a838 sourceheld untilfullproof;08:30freezeunchanged.",
+  "full_mixed_run_hold_380": "Sevenstandardsteps actualPASSbutmixed342host; sourceclaimHELD. ChangeMETHOD343completepinmaterialisation beforecorrectedrun; sourceUIunchanged/freeze08:30.",
+  "metadata_only_closeout_bound": {
+    "at": "2026-11-01T08:16:33.324942+00:00",
+    "prior_target": "08:20",
+    "release_by": "08:24",
+    "source_art_frozen": true,
+    "reason": "Finish corrected fullsource proof aggregation/closeout within ownerrelease08:25/allwrite08:30, no new source/art slice or windowextension."
+  },
+  "closed_at": "2026-11-01T08:19:48.986348+00:00",
+  "source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
+  "tested_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
+  "checks": {
+    "gameplay_checks": 73,
+    "opening_checks": 88,
+    "clean_import": true,
+    "standard_native_journeys": 4,
+    "standard_original_pngs": 172,
+    "calendar_native_journeys": 4,
+    "calendar_assertions": 3197,
+    "calendar_original_pngs": 36,
+    "additional_calendar_live_link_phone_assertions": 202,
+    "additional_live_link_original_pngs": 1,
+    "engine_error_lines": 0,
+    "orphan_growth_where_measured": 0,
+    "protected_original_files": 339,
+    "protected_prior_runtime_paths": 340,
+    "protected_Scripts_total": 54,
+    "protected_gd_scripts": 51,
+    "protected_tracked_UIDs": 3,
+    "runtime_source_paths": 343,
+    "standard_byte_and_pixel_identical": 168,
+    "disclosed_Reopen_fade_frames": 4,
+    "unexpected_pixel_differences": 0,
+    "actual_configured_native_entry": true
+  },
+  "remaining": [
+    "Name/logo runtime still has original3treatments/3palettes/no font picker. Fourtype/eightink directions are DESIGNconcepts, not installed/licensed newfaces.",
+    "Full-length band art is newly proposed, not existing approvedC25 masters. Current18approvedsources remain upperbody230px-ish contacts. SampleJack/Zoe/Casey group must not represent arbitraryrosters; exactlikeness/body/clothing needs review and identity-faithful reusablemasters before selected3–6member composition.",
+    "Identitysave failure/rollback and sharedmark carry-through require a future separatelyverified sourcephase; source-intake risks are not claimed reproducedphonebugs.",
+    "Calendar uses ordinal career days; no campaign startdate/weekdays, new scheduling or automatic cancellation/expiry. Verylarge/longlegacy data beyondactualfixtures is not a complete devicecoverageclaim.",
+    "PhysicalAndroid/camera/navigation/performance/ownerartreview pending. V6 remains db61 and doesNOTcontain Calendar or newidentitytools/fullbodyart.",
+    "New343-file importedisolatedruntimeLOCAL only; no newZIP/APK/hostedpixels/publicsource. Old341project/63review ZIP andV6 retained. Publicfullproject/history upload remains blocked by earlierautomaticapprovalreview; no retry/bypass."
+  ],
+  "closeout": {
+    "tested_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
+    "evidence": [
+      "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
+      "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/focused-validation.json",
+      "/workspace/work/overnight-20261101/s56/source-protection-audit.json",
+      "/workspace/work/overnight-20261101/s56/runtime-source-audit.json",
+      "/workspace/work/overnight-20261101/s56/standard-png-comparison-exact.json",
+      "/workspace/work/overnight-20261101/s56/visual-review.json",
+      "/workspace/work/overnight-20261101/s56/identity-concept-provenance.json",
+      "/workspace/work/overnight-20261101/s56/configured-entry-e4eaebc/execution.json",
+      "/workspace/BandMaster/docs/continuous_improvement/S56_IDENTITY_CALENDAR_BRIEF.md"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "READ-ONLY owner review of the identity concept/full-length likeness and phone V6. Calendar e4 is verified LOCAL source, not in V6. Next implementation phase remains shared name/logo renderer, properly licensed persisted font/colour options and selected-roster full-length milestone art; no automatic continuation beyond original08:30writefreeze/09hardstop. No more source/art/build or repeat tests for activity.",
+    "new_issue_review": "All382eventsreviewed.374newownerpreflight;375guessedreadonlypath;376actualdueRootrouting;377secondprobe→changedmethod;378zero-layout→postdrawdiagnostic;379Script54totalcount;380wrong --copy argparse leadingmixedruntime, correctedcomplete343base/singlecopylist beforefullproof. Allfailedhistory preserved, no assertion/gate weakening.381typedmetadata staticfinding;382finalreview.",
+    "technical_verdict": "pass",
+    "owner_approved": false,
+    "checks": {
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_native_journeys": 4,
+      "standard_original_pngs": 172,
+      "calendar_native_journeys": 4,
+      "calendar_assertions": 3197,
+      "calendar_original_pngs": 36,
+      "additional_calendar_live_link_phone_assertions": 202,
+      "additional_live_link_original_pngs": 1,
+      "engine_error_lines": 0,
+      "orphan_growth_where_measured": 0,
+      "protected_original_files": 339,
+      "protected_prior_runtime_paths": 340,
+      "protected_Scripts_total": 54,
+      "protected_gd_scripts": 51,
+      "protected_tracked_UIDs": 3,
+      "runtime_source_paths": 343,
+      "standard_byte_and_pixel_identical": 168,
+      "disclosed_Reopen_fade_frames": 4,
+      "unexpected_pixel_differences": 0,
+      "actual_configured_native_entry": true
+    },
+    "five_SIMULATED_review_lenses": [
+      {
+        "label": "SIMULATED bandleader",
+        "finding": "Calendar shows actual ordinal today, one real pending venue/date and separately labelled saved notes. It creates no appointments, time, money or rewards."
+      },
+      {
+        "label": "SIMULATED phone player",
+        "finding": "Native16+ copy, passive day cells, fixed48px routes, realtouch96px, resize/insets/Back/Menu/Continue and actualLive-link navigation pass without state/save changes. PhysicalAndroid for this newsource remains untested."
+      },
+      {
+        "label": "SIMULATED art director",
+        "finding": "Currentcalendar retains analogue paper and legibility. Newdesignboard proposes large name/full-length band and8inks/4type directions; newbodies/likeness/tee graphic andivorycontrast remain provisional, not productionassets or approval."
+      },
+      {
+        "label": "SIMULATED systems reviewer",
+        "finding": "343exactinputs,340prior and339originals preserved, including54Scripts=51gd+3UIDs; models/schema/rawcast/hardware/fonts/meters unchanged. All actualcalendar operations are read-only."
+      },
+      {
+        "label": "SIMULATED release reviewer",
+        "finding": "Correctedexact343run73/88/import/fournative and3197focused+202link checks pass. Mixed-run wrongsource and prelayout/harness failures retained. V6db61/privateAPK and S55packages unchanged; no newAPK/ZIP/Pagepixels."
+      }
+    ],
+    "root_originals_actually_opened": [
+      {
+        "path": "/workspace/work/overnight-20261101/s56/calendar-e4eaebc-phone/captures/calendar-booked-390x844.png",
+        "sha256": "2aa2fe5b1eaecfe48ce2f5cab414b9311dc19720d792905177f93f2979797b38",
+        "dimensions": [
+          390,
+          844
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s56/calendar-e4eaebc-720x1280/captures/calendar-booked-720x1280.png",
+        "sha256": "30181b3e7cc7b9d43e51e69c2079a8c0ecfac4d091f846f04ba740f4ef8ea86c",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s56/calendar-e4eaebc-1280x720/captures/calendar-booked-1280x720.png",
+        "sha256": "27ed2a17547e14878d6689eccaf649f9f08e2b340119f1580a5fd5aa851bbf42",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "actually_opened_by_root": true
+      },
+      {
+        "path": "/workspace/work/overnight-20261101/s56/calendar-e4eaebc-1600x900/captures/calendar-booked-1600x900.png",
+        "sha256": "ae200f7f492c4a9ebb61162c9870bd5a9ba52bc4504d95494061c450a72d5ff2",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "actually_opened_by_root": true
+      }
+    ]
+  }
 }
