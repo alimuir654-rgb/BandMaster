@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-13",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "7cf97b792396c6d088611a8a415fb5a93fd976316285cedd022cbf9794ebda3c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-morning-20261102/s77/standard/s77-uncertainty-d7d819e-final/captures/c27-practice-390x844.png",
+    "original_sha256": "dda38369d420491d7516108b603be39e647e5debef18204159e7ce0995d7d294",
+    "pixels_inspected": true,
+    "kind": "Existing source-honest practice room layout and nativecontrols; new conflict reuses this composition/actualmemberportrait, no artgeneration. OwnerF11 behavioural target grounded S77 corecontract."
+  },
+  "id": "S78",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
+  "baseline_sha": "17423001f63cc2fb3c4ca02d3ee9ea9b75e1eee4",
+  "game_baseline_sha": "d7d819e145128251677a456c578fa499dad2ab37",
+  "dominant_issue": "BM-36",
+  "hypothesis": "Explicit player-recorded outsidebandcommitments produce actual day/EVENING rehearsalclashes; context/history andactualattendance shape savedconsequences without revealedoutcomemath. Legacyunknown/allattend unchanged. One playableprofile\u2192conflict\u2192rehearsal\u2192durableresultloop, sameappAPK.",
+  "stop_condition": "ONEpilot only; no rawScripts/C25/art/economy/wage breadth. Twoineffectiveattempts changemethod/HOLD. Source target12:50; writerleaseends13:30; taskcloseout13:45 bounded. Ifpilotcannotbecomplete keepverifiedbaseline and reporthold, never shipbroken core.",
+  "controlled_comparison": "Legacy unknown and allattend originalSession transaction exact; contrasted recordedclash/history/bandpreparation contexts yield earnedconsequences, absentmembers neverpractice; atomic save/rollback/retry/reopen/priority/stale/futurestate. Four nativeviewports/current73/88/import4standard; APKappID/cert/savefolder/permission/fullinventory verified versusV7.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/situation_core.gd",
+    "experiments/playable_flightcase/situation_practice.gd",
+    "experiments/playable_flightcase/situation_desk.gd",
+    "experiments/playable_flightcase/work_conflict_view.gd",
+    "experiments/playable_flightcase/session.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s78-20261102"
+  ],
+  "issue_log_review": {
+    "bytes": 938436,
+    "sha256": "ae2a38884bdbdc29d25b97b75c9429e40103ce368dff1a0f286d8c80ca884bec"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S78.json",
+    "Pure original allattend/unknown baseline, contextcontrast/attendance/commitment/revision/duplicate/wholecareer rollback tests",
+    "Strict Godot4.7.2 original73/88/cleanimport/fourstandard +focused4nativeprofile/clash/rehearsal/savedreview journeys",
+    "OneARM64v8APK sameV7appID/certificate/projectbinary/savefolder,API24/36,16KB/CRC/no permissions/privateACLreadback"
+  ],
+  "started_at": "2026-11-02T11:57:45.145269+00:00",
+  "scope_end": "2026-11-02T13:30:00Z",
+  "task_hard_stop": "2026-11-02T13:45:00Z",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "current_plan_sequence": 11,
+  "current_review_board_sequence": 96,
+  "authority": {
+    "F11": "Direct ownerapproved +board96ApproveF11checked",
+    "APK": "Directowner buildanAPKafterthenextchanges",
+    "deadline": "Newdirectrequest foronecompletepilot+APK replacesexpiredmorningcutoffprospectively; no newtimer/queue."
+  },
+  "storage": {
+    "workspace_free_bytes": 8568832,
+    "scratch_root": "/tmp/bandmaster-s78-20261102",
+    "no_deletions": true,
+    "all_builds_logs_PNGs_APK_private_caches": "/tmp separatefilesystem",
+    "workspace_reserve_bytes": 4194304
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "complete_local_verified_visual_partial",
+  "status": "claimed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "Ownernewcoreprinciple;7UIonly concealprecommitoutcomemath, models/post-resultfacts/costsunchanged.",
-  "writer": null,
+  "scope": "Explicit player-recorded outsidebandcommitments produce actual day/EVENING rehearsalclashes; context/history andactualattendance shape savedconsequences without revealedoutcomemath. Legacyunknown/allattend unchanged. One playableprofile\u2192conflict\u2192rehearsal\u2192durableresultloop, sameappAPK.",
+  "writer": "S78-F11-work-rehearsal-pilot-20261102T1155",
   "last_verified_code_sha": "d7d819e145128251677a456c578fa499dad2ab37",
   "baseline": {
     "run_id": 40778019754,
@@ -744,7 +744,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S77",
+  "current_session": "S78",
   "last_verified_native_run": "/workspace/work/morning-20261102/s77",
   "latest_verified_phase2": {
     "source_sha": "d7d819e145128251677a456c578fa499dad2ab37",
@@ -2188,7 +2188,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S77",
+  "session": "S78",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-02T11:50:00Z",
   "hard_stop": "2026-11-02T12:00:00Z",
@@ -2493,13 +2493,13 @@
   "released_at": "2026-11-02T11:36:50.120601+00:00",
   "last_writer": "S77-decision-uncertainty-20261102T1054",
   "source_write_allowed": false,
-  "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "complete_frozen_read_only",
-  "claimed_at": "2026-11-02T10:52:33.672249+00:00",
-  "expires_at": "2026-11-02T11:40:00Z",
-  "authority": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
+  "source_phase": "preflight_contract_only",
+  "claimed_at": "2026-11-02T11:57:45.145269+00:00",
+  "expires_at": "2026-11-02T13:30:00Z",
+  "authority": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
@@ -2730,7 +2730,7 @@
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "d7d819e145128251677a456c578fa499dad2ab37",
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
-  "base_head": "ba002020dd7ec7f10dfa3816dd43d7ef4168ceb0",
+  "base_head": "17423001f63cc2fb3c4ca02d3ee9ea9b75e1eee4",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
   "latest_emergent_core_proposal": {
     "document": "docs/continuous_improvement/S77_EMERGENT_DECISION_CORE.md",
@@ -2739,5 +2739,10 @@
     "first_pilot": "Recorded job shift versus requested rehearsal; actual attendance and context/history-sensitive consequences",
     "bio_facts_authored": false,
     "owner_decisions_pending": true
+  },
+  "s78_authority": {
+    "F11": "Direct ownerapproved +board96ApproveF11checked",
+    "APK": "Directowner buildanAPKafterthenextchanges",
+    "deadline": "Newdirectrequest foronecompletepilot+APK replacesexpiredmorningcutoffprospectively; no newtimer/queue."
   }
 }
