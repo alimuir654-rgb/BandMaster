@@ -6,6 +6,7 @@
     "BM-06",
     "BM-13",
     "BM-14",
+    "BM-21",
     "BM-22",
     "BM-24",
     "BM-25",
@@ -31,7 +32,7 @@
   "owner_request": "Ownerauthoriseddevelopmentto12:00London2Nov; approvedF06ONEoriginalrehearsalconversationaftercompletedS75. No additionalroutinepermission/newart/APKZIP/queue.",
   "baseline_sha": "326be35126301b0a7ece92586923e44cd240bbb4",
   "game_baseline_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
-  "dominant_issue": "BM-36",
+  "dominant_issue": "BM-21",
   "hypothesis": "One existing deterministic bandmate case withactualportraits, heldvoices, visibleoriginaltradeoffs anddurableonce-onlyconsequence makesbandrelationshipsplayable withoutnewart/economics/dialogueengine.",
   "stop_condition": "Holdunsafe/postsettlementreplay/newpolicy/sourceoutside3paths. No inventedpair/history/nominaldeltaassavedfact. TwoineffectiveattemptschangeMETHOD/HOLDcase. Sourcecut11:15/repair11:30/allwrites11:50/hard12.",
   "reviewed_documents": {
@@ -39,8 +40,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 909458,
-    "sha256": "1a5843b39723f6872fbf0948e08ed3c5c16ca9b7916725a6cd695d531d4ae805"
+    "bytes": 910802,
+    "sha256": "ebacbbd886d7ad392170f364e92e2fe4fac90b04fed42bcf8f002c9e1c86b611"
   },
   "target": {
     "locator": "/tmp/bandmaster-morning-20261102/s75/focus-focus-64a9c67-tall-v4/captures/02-focus-chooser-initial-720x1280.png",
@@ -101,12 +102,12 @@
   "hard_stop": "2026-11-02T12:00:00Z",
   "current_plan_sequence": 9,
   "current_review_board_sequence": 71,
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
-  "source_phase": "delegated_decision_fold_only",
-  "candidate_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237",
+  "source_phase": "repaired_candidate_frozen_native_verification",
+  "candidate_sha": "cc717e754b5ed8f7b838c8fa0b120eba9eb28b02",
   "previous_implementation_allowlist": [
     "experiments/playable_flightcase/band_moment_rules.gd",
     "experiments/playable_flightcase/band_moment_desk.gd",
@@ -119,5 +120,7 @@
   ],
   "presentation_repair_contract": "/workspace/BandMaster/docs/continuous_improvement/S76_DECISION_FOLD_REPAIR.md",
   "repair_baseline_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237",
-  "owner_decision_readback": "A05v3 approval now checked onboard71 aswellasprior directchat; preserve57choices/19checked and20oldimages."
+  "owner_decision_readback": "A05v3 approval now checked onboard71 aswellasprior directchat; preserve57choices/19checked and20oldimages.",
+  "original_transaction_dominant_issue": "BM-36",
+  "lesson_reconciliation_event": "S76-20261102-560; after UIcommit, before repaired nativeproof, no retroactive beforeedit claim"
 }

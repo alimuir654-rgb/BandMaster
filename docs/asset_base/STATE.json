@@ -2455,11 +2455,11 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-02T09:23:57.942187+00:00",
   "last_writer": "S75-owner-goal-focus-20261102T0845",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "delegated_decision_fold_only",
+  "source_phase": "repaired_candidate_frozen_native_verification",
   "claimed_at": "2026-11-02T09:33:23.460835+00:00",
   "expires_at": "2026-11-02T11:40:00Z",
   "authority": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
@@ -2727,5 +2727,5 @@
   },
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237"
+  "candidate_sha": "cc717e754b5ed8f7b838c8fa0b120eba9eb28b02"
 }
