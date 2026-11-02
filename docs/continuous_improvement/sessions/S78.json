@@ -64,8 +64,8 @@
     "/tmp/bandmaster-s78-20261102"
   ],
   "issue_log_review": {
-    "bytes": 956671,
-    "sha256": "b29a94c0ff6b896d96f19555d44fe3b7884775cf95ce34902d35e5d10794e884"
+    "bytes": 959148,
+    "sha256": "33595fbe791917c3c928e495e6bcfd9f67b092c393d3885f61568ca496995146"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S78.json",
@@ -78,8 +78,8 @@
   "task_hard_stop": "2026-11-02T13:45:00Z",
   "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "current_plan_sequence": 11,
   "current_review_board_sequence": 96,
   "authority": {
@@ -94,7 +94,7 @@
     "all_builds_logs_PNGs_APK_private_caches": "/tmp separatefilesystem",
     "workspace_reserve_bytes": 4194304
   },
-  "source_phase": "candidate_frozen_for_exact_proof",
+  "source_phase": "verified_source_frozen_artifact_only",
   "delegated_source_writer": {
     "agent": "/root/render_support",
     "paths": [
@@ -122,5 +122,28 @@
       "cause_event": 594,
       "baseline_game": "9f9e2293dfc0d77f4b4a2d699e1ccaf732a3d419"
     }
-  ]
+  ],
+  "candidate_source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "pending_candidate_source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "candidate_native_verified": true,
+  "candidate_status": "verified_local_visual_partial",
+  "candidate_run": "/tmp/bandmaster-s78-20261102/complete-validation.json",
+  "candidate_model": "/tmp/bandmaster-s78-20261102/proof-model-5cc32e3-v1/execution.json",
+  "candidate_focus_run": "/tmp/bandmaster-s78-20261102/focused-validation.json",
+  "updated_at": "2026-11-02T12:18:00.824392+00:00",
+  "artifact_write_allowed": true,
+  "s78_android_scope": {
+    "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+    "version_code": 8,
+    "version_name": "0.78.0-playtest",
+    "ABIs": [
+      "arm64-v8a"
+    ],
+    "same_V7_identity_key_save_directory": true,
+    "no_project_ZIP": true,
+    "private_selected_APK_only": true,
+    "no_source_history_upload": true,
+    "destination_named_reader": "alimuir654@gmail.com"
+  }
 }

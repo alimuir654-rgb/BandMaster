@@ -1992,10 +1992,10 @@
     "phone_release_is_this_source": false,
     "packages": null
   },
-  "candidate_source_sha": "d7d819e145128251677a456c578fa499dad2ab37",
+  "candidate_source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_visual_partial",
-  "updated_at": "2026-11-02T11:36:50.120601+00:00",
+  "updated_at": "2026-11-02T12:18:00.820401+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2192,7 +2192,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-02T11:50:00Z",
   "hard_stop": "2026-11-02T12:00:00Z",
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
   "last_completed_session": "S77",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
@@ -2493,10 +2493,10 @@
   "released_at": "2026-11-02T11:36:50.120601+00:00",
   "last_writer": "S77-decision-uncertainty-20261102T1054",
   "source_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "candidate_frozen_for_exact_proof",
+  "source_phase": "verified_source_frozen_artifact_only",
   "claimed_at": "2026-11-02T11:57:45.145269+00:00",
   "expires_at": "2026-11-02T13:30:00Z",
   "authority": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
@@ -2605,9 +2605,9 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "candidate_run": "/workspace/work/morning-20261102/s77/complete-validation.json",
-  "candidate_model": "/workspace/work/morning-20261102/s77/model-reuse.json",
-  "candidate_focus_run": "/workspace/work/morning-20261102/s77/focused-validation.json",
+  "candidate_run": "/tmp/bandmaster-s78-20261102/complete-validation.json",
+  "candidate_model": "/tmp/bandmaster-s78-20261102/proof-model-5cc32e3-v1/execution.json",
+  "candidate_focus_run": "/tmp/bandmaster-s78-20261102/focused-validation.json",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
   "delivery_status": "V7Pixel9unchanged; S71/S72sourceLOCAL/boardcurrentgameimages; S73artHELD/no newpixels or approvalrequest.",
   "completion_gate": {
@@ -2646,7 +2646,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S74",
@@ -2741,7 +2741,7 @@
   },
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": "d7d819e145128251677a456c578fa499dad2ab37",
+  "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
   "base_head": "17423001f63cc2fb3c4ca02d3ee9ea9b75e1eee4",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
@@ -2757,5 +2757,18 @@
     "F11": "Direct ownerapproved +board96ApproveF11checked",
     "APK": "Directowner buildanAPKafterthenextchanges",
     "deadline": "Newdirectrequest foronecompletepilot+APK replacesexpiredmorningcutoffprospectively; no newtimer/queue."
+  },
+  "s78_android_scope": {
+    "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+    "version_code": 8,
+    "version_name": "0.78.0-playtest",
+    "ABIs": [
+      "arm64-v8a"
+    ],
+    "same_V7_identity_key_save_directory": true,
+    "no_project_ZIP": true,
+    "private_selected_APK_only": true,
+    "no_source_history_upload": true,
+    "destination_named_reader": "alimuir654@gmail.com"
   }
 }
