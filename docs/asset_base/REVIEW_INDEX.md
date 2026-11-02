@@ -674,3 +674,8 @@ Exact `3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4`: root13current+4baseline origin
 ### S76 native bandmate conversation review
 
 `cc717e754b5ed8f7b838c8fa0b120eba9eb28b02`: root10current+7baseline+1failedoriginals; independent11current+4baseline. Measuredphone/wide decisionpillsbelowfold was repaired withcompactoriginalportraits/optionsfirst/nativeDetails; firstthreevoices/resultunchanged,28otherphaseRGBAexact. Current52uniquePNGs/6767focused/4viewjourneys; genuinephone6writes and2independentoriginalchoices, other3modelsetupdisclosed. FiveSIMULATEDlenses, visualPARTIAL/ownerfalse/physicalPixel9/maxnames/CLEAR16pending. Proof `/workspace/work/morning-20261102/s76/complete-validation.json`, root/agentvisualreviews andcontrolled-comparison.json. Currentprivateboard72 has3newnativephonecaptures; old20images/57choices19checked preserved, plan10. V7unchanged/noAPKZIP.
+
+
+## S77 — uncertainty presentation / F11 proposal
+
+Current game: `d7d819e145128251677a456c578fa499dad2ab37`; technical PASS, visual PARTIAL, owner_approved=false. Evidence `/workspace/work/morning-20261102/s77/{complete-validation,focused-validation,controlled-comparison,source-protection-audit,runtime-source-audit,visual-review-root,visual-review-agent,review-delivery,closeout}.json`. Controlled comparison explicitly maps three QA song-label strings; raw cross-checkpoint hashes differ. 201 unique focused PNGs from202 capture writes; earlier overwritten radio frame is unavailable. F11 core/jobs simulation is proposed, not implemented; five review lenses are SIMULATED. Existing V7 excludes this source; physical phone pending.
