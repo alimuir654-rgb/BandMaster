@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Read-only ordinal career calendar. No resolver, expiry, IO or save calls.
 const FUTURE_DAYS := 14
 const RECENT_NOTES := 5
@@ -65,7 +66,29 @@ static func summary(career: Dictionary) -> Dictionary:
     else:issues.append("A saved note has unreadable "+field+"; only its readable fields are shown.")
    notes.append(entry)
    if notes.size()>=RECENT_NOTES:break
- return {"today":today,"today_valid":today_valid,"booking":booking,"days":days,"notes":notes,"issues":issues}
+ var result: Dictionary={"today":today,"today_valid":today_valid,"booking":booking,"days":days,"notes":notes,"issues":issues}
+ if Booking.modern(career):
+  var trip: Dictionary={"present":true,"valid":false}
+  var valid: Dictionary=Booking.validate(career)
+  if not bool(valid.get("ok",false)) or not today_valid:
+   issues.append(str(valid.get("message","The saved trip needs validation.")))
+   booking["valid"]=false
+   booking["status"]="invalid"
+   for row in days:row["booking"]=false
+  else:
+   var t: Dictionary=Booking.terms(career)
+   var start: int=int(t["day"]);var count: int=int(t["tariff"]["duration"]);var next: int=int(t["next_available_day"])
+   trip={"present":true,"valid":true,"start_day":start,"last_reserved_day":start+count-1,"next_available_day":next,"duration":count,"travel_plan":str(t["travel_plan"])}
+   var horizon: int=mini(Booking.MAX_DAY,today+FUTURE_DAYS)
+   var upcoming: bool=start>=today
+   if upcoming:horizon=maxi(horizon,next)
+   var extended: Array=[]
+   for number in range(today,horizon+1):
+    extended.append({"day":number,"today":number==today,"booking":number==start,"trip_start":upcoming and number==start,"trip_reserved":upcoming and number>start and number<next,"next_available":upcoming and number==next})
+   result["days"]=extended
+   trip["extended"]=horizon>mini(Booking.MAX_DAY,today+FUTURE_DAYS)
+  result["trip"]=trip
+ return result
 
 static func _copy(owner, parent: Node, text: String, node_name: String="", points: int=16, muted: bool=false) -> Label:
  var label: Label=owner._copy(parent,text,points,muted)
@@ -103,6 +126,10 @@ static func render(owner, parent: Node, compact: bool) -> void:
   if status=="upcoming":date+="  /  %d DAY%s AWAY" % [int(booking["days_until"]),"" if int(booking["days_until"])==1 else "S"]
   _copy(owner,booked,date,"CalendarBookingDay")
   if status=="overdue":_copy(owner,booked,"This saved booking is overdue. Viewing it does not cancel or settle it.","CalendarOverdueNote",16,true)
+ var trip: Dictionary=data.get("trip",{})
+ if bool(trip.get("valid",false)):
+  _copy(owner,booked,"%d CAREER DAYS RESERVED" % int(trip["duration"]),"CalendarTripSpan")
+  _copy(owner,booked,"NEXT AVAILABLE DAY %d · PLANNED" % int(trip["next_available_day"]),"CalendarTripNextDay")
  var grid: GridContainer=GridContainer.new()
  grid.name="CalendarDays"
  grid.columns=3 if compact else 7
@@ -115,11 +142,15 @@ static func render(owner, parent: Node, compact: bool) -> void:
   var row: Dictionary=raw
   var words: String="DAY %d" % int(row["day"])
   if bool(row["today"]):words+="\nTODAY"
-  if bool(row["booking"]):words+="\nSHOW"
+  if bool(row.get("trip_start",false)):words+="\nSHOW / TRIP START"
+  elif bool(row["booking"]):words+="\nSHOW"
+  elif bool(row.get("trip_reserved",false)):words+="\nRESERVED TRIP"
+  elif bool(row.get("next_available",false)):words+="\nNEXT AVAILABLE / PLANNED"
   var day: Label=_copy(owner,grid,words,"CalendarDay_"+str(row["day"]),16,not bool(row["today"]) and not bool(row["booking"]))
   day.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   day.custom_minimum_size.y=48
- _copy(owner,body,"Today and the next 14 career days. Only the actual saved show booking is marked; other days have no appointment recorded here.","CalendarGridNote",16,true)
+  for flag in ["trip_start","trip_reserved","next_available"]:day.set_meta(flag,bool(row.get(flag,false)))
+ _copy(owner,body,"Your next fortnight, including the full booked trip." if bool(trip.get("extended",false)) else ("Today and the next 14 career days. Your actual show and agreed trip span are marked." if bool(trip.get("valid",false)) else "Today and the next 14 career days. Only the actual saved show booking is marked; other days have no appointment recorded here."),"CalendarGridNote",16,true)
  if not data["issues"].is_empty():
   var warnings: VBoxContainer=owner._paper(parent,compact)
   warnings.name="CalendarValidation"

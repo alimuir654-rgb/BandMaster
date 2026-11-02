@@ -1,5 +1,6 @@
 extends RefCounted
 ## Native journey composition. Explicit owner callbacks alone mutate/save state.
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
 const Scene = preload("res://experiments/playable_flightcase/gig_journey_scene.gd")
@@ -44,7 +45,7 @@ static func _text(phase: String, state: Dictionary, visit: Dictionary, actor: Di
  var history: Dictionary=actor.get("history",{})
  match phase:
   "begin","set_out":return "%s tonight. Just us and that room. Cases in, then we're off." % venue
-  "travel":return "The lift takes us across town. Next stop: the load-in door."
+  "travel":return ("The agreed trip takes us to %s. Next stop: the load-in door." % str(Calendar.pending(state).get("city","the venue"))) if Booking.modern(state) else "The lift takes us across town. Next stop: the load-in door."
   "arrival":return "That's our door. Let's get the gear in before we think about the set."
   "load_in":return "Set up where we can see each other. We start together."
   "soundcheck":
@@ -80,20 +81,23 @@ static func render(host, parent: Node, compact: bool) -> void:
  var source: Dictionary=Cast.by_id(str(actor.get("candidate_id","")))
  var image_path: String=ROAD if phase=="travel" else (ARRIVAL if phase in ["begin","set_out","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM))
  var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
+ var short: bool=host.size.x>host.size.y and host.size.y<800
  var scene=Scene.new()
- scene.configure({"title":str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),host.size.x>host.size.y and host.size.y<800)
+ scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
  parent.add_child(scene)
  host._journey_fresh=false
+ var context: Node=scene.context_column if short else parent
  if not str(host.notice).is_empty():parent.add_child(C.label(str(host.notice),16))
  if phase=="soundcheck":
   host._sync_show_draft()
-  ShowDesk.journey_soundcheck(host,parent,state)
+  ShowDesk.controls(host,context,compact)
+  ShowDesk.journey_soundcheck(host,context,state)
  elif phase in ["performing","choice","reaction","after_set","pack_up","wrap_ready"]:
   var set_title: Label=C.label("TONIGHT'S SET",16)
   set_title.name="JourneySetlistHeading"
-  parent.add_child(set_title)
+  context.add_child(set_title)
   var songs: Array=visit.get("plan",{}).get("song_snapshots",[])
-  if songs.is_empty():parent.add_child(C.label("No originals selected · a short set",16))
+  if songs.is_empty():context.add_child(C.label("No originals selected · a short set",16))
   for index in range(songs.size()):
    var row: RichTextLabel=RichTextLabel.new()
    row.name="JourneySong_%d" % index
@@ -105,12 +109,12 @@ static func render(host, parent: Node, compact: bool) -> void:
    var title: String=str(songs[index].get("title","Original")).replace("[","［").replace("]","］")
    row.text=("[s]"+str(index+1)+". "+title+"[/s]  ✓") if index<int(visit.get("cursor",0)) else ("▶ " if index==int(visit.get("cursor",0)) and phase=="performing" else "")+str(index+1)+". "+title
    row.set_meta("completed",index<int(visit.get("cursor",0)))
-   parent.add_child(row)
+   context.add_child(row)
   var meter: HBoxContainer=C.meter(int(visit.get("vibe",40)),"flightcase")
   meter.name="JourneyVibeMeter"
   meter.set_meta("kind","modelled_live_room")
-  parent.add_child(C.label("ROOM VIBE · current modelled response",16))
-  parent.add_child(meter)
+  context.add_child(C.label("ROOM VIBE",16))
+  context.add_child(meter)
 
 static func _button(host,parent: Node,text: String,name: String,action: String,expected: Dictionary,payload: Dictionary = {}) -> Button:
  var button: Button=host._button(text,name,host._commit_journey.bind(action,expected.duplicate(true),payload.duplicate(true),int(host._render_generation)),true)
@@ -140,7 +144,13 @@ static func dock(host, parent: Node, _compact: bool) -> void:
   var action: Button=_button(host,parent,"SAVE TONIGHT'S SHOW PLAN  ›","JourneyMainAction","soundcheck",token)
   action.disabled=bool(host.busy) or not bool(checked.get("ok",false))
  elif phase=="wrap_ready":
-  parent.add_child(C.label("Settle the original show costs · 1 career day",16))
+  var days: int=int(Booking.terms(state).get("tariff",{}).get("duration",1))
+  if Booking.modern(state):
+   var tariff: Dictionary=Booking.terms(state)["tariff"]
+   var transport: int=mini(int(tariff["travel"]),int(state.get("cash",0))) if Calendar.pending(state).get("venue_id")=="local" else int(tariff["travel"])
+   var cost: int=transport+int(tariff["accommodation"])+(25 if Booking.terms(state)["session_drummer"] else 0)
+   parent.add_child(C.label("£%d costs at settlement · %d career day(s)" % [cost,days],16))
+  else:parent.add_child(C.label("Settle the original show costs · 1 career day",16))
   _button(host,parent,"WRAP THE NIGHT & HEAD HOME  ›","JourneyWrapAction","wrap",token)
  else:
   var names: Dictionary={"set_out":"SET OUT  ›","travel":"ARRIVE AT THE VENUE  ›","arrival":"CARRY THE GEAR IN  ›","load_in":"START SOUNDCHECK  ›","backstage":"READY TO GO ON  ›","stage_entrance":"START THE SET  ›","reaction":"BACK TO THE SET  ›","after_set":"PACK UP TOGETHER  ›","pack_up":"BACK TO THE LIFT  ›"}

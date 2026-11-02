@@ -210,14 +210,15 @@ static func booking_handoff(state: Dictionary, event_id: String = PROMOTER) -> D
 static func attach_booking_acceptance(before: Dictionary, candidate: Dictionary, origin: Dictionary) -> Dictionary:
  var current: Dictionary=booking_handoff(before,str(origin.get("event_id","")))
  if not bool(current.get("ok",false)):return current
- if origin!=current["origin"] or candidate.get(KEY)!=before.get(KEY):return _failure(before,"The promoter introduction changed. Review it again.")
+ if Booking.fingerprint(origin)!=Booking.fingerprint(current["origin"]) or Booking.fingerprint(candidate.get(KEY))!=Booking.fingerprint(before.get(KEY)):return _failure(before,"The promoter introduction changed. Review it again.")
  var checked: Dictionary=Booking.validate(candidate)
  if not bool(checked.get("ok",false)) or not Booking.modern(candidate):return _failure(before,"The introduction needs a valid newly saved agreement.")
+ if not Calendar.pending(before).is_empty() or int(Booking.memory(candidate)["sequence"])!=int(Booking.memory(before)["sequence"])+1:return _failure(before,"This introduction requires one newly created booking.")
  var t: Dictionary=Booking.terms(candidate)
  if t["venue_snapshot"]["id"]!="local" or t["offer_id"]!="standard":return _failure(before,"This introduction belongs only to the Lantern Room's standard offer.")
  var after: Dictionary=candidate.duplicate(true)
  var data: Dictionary=after[KEY].duplicate(true)
- var event: Dictionary=origin["event"].duplicate(true)
+ var event: Dictionary=data["events"][origin["event_id"]].duplicate(true)
  event["status"]="accepted"
  event["choice"]="accept"
  event["accepted_day"]=int(after.get("tour_day",1))
@@ -228,4 +229,4 @@ static func attach_booking_acceptance(before: Dictionary, candidate: Dictionary,
  data["events"][origin["event_id"]]=event
  after[KEY]=data
  _journal(after,"s82:promoter-accept:"+str(t["commitment_id"]),str(event.get("title","A LOCAL PROMOTER")),"Accepted the Lantern Room introduction for DAY %d. The actual booking and trip are saved together." % int(t["day"]))
- return {"ok":true,"state":after,"message":"Promoter introduction accepted with the saved booking."}
+ return {"ok":true,"state":after,"message":"Promoter introduction accepted with the saved booking.","finance_action":"social:promoter_accept"}

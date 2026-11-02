@@ -5,6 +5,7 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 var note: Label
 var image_view: TextureRect
+var context_column: VBoxContainer
 var _motion: Tween
 var _reduced := false
 var _fresh := false
@@ -22,20 +23,40 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  var title: Label=C.label(str(data.get("title","TONIGHT")),22)
  title.name="JourneySceneTitle"
  add_child(title)
+ var composition: BoxContainer=HBoxContainer.new() if short else VBoxContainer.new()
+ composition.name="JourneySceneSplit" if short else "JourneySceneStack"
+ composition.add_theme_constant_override("separation",16 if short else 6)
+ composition.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ add_child(composition)
+ var art_column: VBoxContainer=VBoxContainer.new()
+ art_column.name="JourneyArtColumn"
+ art_column.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN if short else Control.SIZE_EXPAND_FILL
+ art_column.add_theme_constant_override("separation",6)
+ composition.add_child(art_column)
+ context_column=VBoxContainer.new()
+ context_column.name="JourneySceneContext"
+ context_column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ context_column.add_theme_constant_override("separation",8)
+ composition.add_child(context_column)
  var frame: PanelContainer=Kit.frame("flightcase","inset")
  frame.name="JourneyImageFrame"
  frame.mouse_filter=Control.MOUSE_FILTER_IGNORE
- add_child(frame)
+ art_column.add_child(frame)
  image_view=TextureRect.new()
  image_view.name="JourneyPlaceImage"
  image_view.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  image_view.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
- var image_height: float=160 if short else clampf(available*0.52,165,255)
+ var image_height: float=210 if short else clampf(available*0.52,165,255)
  image_view.custom_minimum_size=Vector2(0,0 if _travel else image_height)
  image_view.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  image_view.mouse_filter=Control.MOUSE_FILTER_IGNORE
  var path: String=str(data.get("image",""))
  if not path.is_empty() and ResourceLoader.exists(path):image_view.texture=load(path)
+ if short and image_view.texture!=null:
+  var aspect: float=float(image_view.texture.get_width())/float(image_view.texture.get_height())
+  frame.custom_minimum_size.x=minf(available*0.46,image_height*aspect)
+  image_height=frame.custom_minimum_size.x/aspect
+  image_view.custom_minimum_size.y=0 if _travel else image_height
  image_view.set_meta("source",path)
  image_view.set_meta("source_sha256",str(data.get("source_sha256","")))
  image_view.set_meta("full_source_contained",true)
@@ -58,11 +79,11 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  var caption: Label=C.label(str(data.get("caption","")),16)
  caption.name="JourneyPlaceCaption"
  caption.add_theme_color_override("font_color",Color("f0c78b"))
- add_child(caption)
+ art_column.add_child(caption)
  var voice: HBoxContainer=HBoxContainer.new()
  voice.name="JourneyBandVoice"
  voice.add_theme_constant_override("separation",10)
- add_child(voice)
+ context_column.add_child(voice)
  var portrait_path: String=str(data.get("portrait",""))
  if not portrait_path.is_empty() and ResourceLoader.exists(portrait_path):
   var portrait: TextureRect=TextureRect.new()
@@ -89,7 +110,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
   var skip: Button=C.button("SKIP TRANSITION","flightcase","tab")
   skip.name="JourneySkipTransitionAction"
   skip.pressed.connect(settle)
-  add_child(skip)
+  context_column.add_child(skip)
  call_deferred("_begin")
 
 func _begin() -> void:

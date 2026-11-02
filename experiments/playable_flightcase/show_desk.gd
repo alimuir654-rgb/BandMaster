@@ -1,6 +1,8 @@
 extends RefCounted
 ## One new-booking journey over the original hometown models and real artwork.
 ## All callbacks edit host draft or invoke ONE explicit host transaction.
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const BookingDesk = preload("res://experiments/playable_flightcase/gig_booking_desk.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
@@ -48,6 +50,9 @@ static func _copy(parent: Node, value: String, points: int = 16, muted: bool = f
 
 static func render(host, parent: Node, compact: bool) -> void:
  var state: Dictionary = host.game.career
+ if Booking.modern(state):
+  BookingDesk.render_agreement(host,parent,compact,state)
+  return
  var booking: Dictionary = Calendar.pending(state)
  var current: String = Flow.phase(state)
  var body: VBoxContainer = host._paper(parent,compact)
@@ -242,6 +247,9 @@ static func refresh(host) -> void:
 
 static func dock(host, parent: Node, _compact: bool) -> void:
  var state: Dictionary=host.game.career
+ if Booking.modern(state):
+  BookingDesk.agreement_dock(host,parent,state)
+  return
  var booking: Dictionary=Calendar.pending(state)
  var current: String=Flow.phase(state)
  var id: String=Flow.booking_id(booking)
@@ -305,6 +313,7 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  var expenses: Variant=data.get("expenses")
  if expenses is Dictionary:
   var cost_line: Label=_copy(details,"FEE £%d · TRAVEL £%d · SESSION £%d" % [int(data.get("settled_fee",0)),int(expenses.get("travel_paid",0)),int(expenses.get("session_paid",0))])
+  if data.get("version")==2:cost_line.text="FEE £%d · TRANSPORT £%d · ROOM £%d · SESSION £%d" % [int(data.get("settled_fee",0)),int(expenses.get("travel_paid",0)),int(expenses.get("accommodation_paid",0)),int(expenses.get("session_paid",0))]
   cost_line.name="ShowReceiptExpenses"
  else:
   _copy(details,"GROSS FEE £%d · EARLIER COST DETAIL NOT RECORDED" % int(data.get("settled_fee",0)))

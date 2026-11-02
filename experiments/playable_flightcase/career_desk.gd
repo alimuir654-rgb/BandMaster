@@ -24,6 +24,8 @@ const OffstageDesk = preload("res://experiments/playable_flightcase/offstage_des
 const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const BookingDesk = preload("res://experiments/playable_flightcase/gig_booking_desk.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
 const JourneyDesk = preload("res://experiments/playable_flightcase/gig_journey_desk.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
@@ -83,6 +85,10 @@ var show_draft: Dictionary = {}
 var show_context_id := ""
 var _show_step_epoch := 0
 var _journey_fresh := false
+var booking_draft: Dictionary={}
+var booking_expected: Dictionary={}
+var booking_origin: Dictionary={}
+var booking_step := "rooms"
 var offstage_activity := "watch_gig"
 var offstage_mode := "outing"
 var offstage_choice := "careful"
@@ -178,7 +184,7 @@ func _render() -> void:
   page="recording"
   recording_mode="visit"
   receipt_open=false
- elif game!=null and Journey.locked(game.career):
+ elif game!=null and (Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))) and page not in ["calendar","finance","band","songs"]:
   page="gigs"
   receipt_open=false
  _render_generation += 1
@@ -227,7 +233,7 @@ func _render() -> void:
  content.size_flags_vertical = Control.SIZE_EXPAND_FILL
  content.add_theme_constant_override("separation",12)
  shell.add_child(content)
- if soundcheck and not (journey and compact):
+ if soundcheck and not journey:
   ShowDesk.controls(self,content,compact)
  _scroll = ScrollContainer.new()
  _scroll.name = "CareerScroll"
@@ -237,8 +243,6 @@ func _render() -> void:
  _scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  _scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  content.add_child(_scroll)
- if soundcheck and journey and compact:
-  ShowDesk.controls(self,content,compact)
  var inset := MarginContainer.new()
  inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  for side in ["left","right","top","bottom"]:
@@ -266,6 +270,7 @@ func _render() -> void:
   CalendarDesk.render(self,body,compact)
  elif page=="gigs":
   if journey:JourneyDesk.render(self,body,compact)
+  elif BookingDesk.active(self):BookingDesk.render(self,body,compact)
   else:LiveDesk.render(self,body,compact)
  elif page=="finance":
   FinanceDesk.render(self,body,compact)
@@ -297,10 +302,10 @@ func _header(parent: Node) -> void:
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(words)
  var name_label := BandMark.new()
- name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if size.y<800 and size.x>size.y else 32,true,true,JourneyDesk.active(self) and not receipt_open)
+ name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if size.y<800 and size.x>size.y else 32,true,true,(JourneyDesk.active(self) or (page=="gigs" and (BookingDesk.active(self) or Booking.modern(game.career)))) and not receipt_open)
  name_label.name = "CareerBandName"
  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
- name_label.max_lines_visible = 1 if JourneyDesk.active(self) and not receipt_open else 2
+ name_label.max_lines_visible = 1 if (JourneyDesk.active(self) or (page=="gigs" and (BookingDesk.active(self) or Booking.modern(game.career)))) and not receipt_open else 2
  words.add_child(name_label)
  var funds: Label = C.label("DAY %d  •  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  funds.name = "CareerDayCash"
@@ -314,7 +319,7 @@ func _navigate(destination: String) -> void:
  elif RadioVisit.locked(game.career):
   destination="recording"
   recording_mode="visit"
- elif Journey.locked(game.career):
+ elif (Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))) and destination not in ["calendar","finance","band","songs"]:
   destination="gigs"
  if destination!="goal_focus":
   _focus_picker_open=false
@@ -380,6 +385,10 @@ func _home_page(parent: Node, compact: bool) -> void:
  _copy(body,"YOUR CAREER DESK",26)
  _copy(body,str(game.genre).to_upper()+"  /  "+str(game.career.get("vibe","Unpolished")),14,true)
  DirectionCard.goal(self,body,compact)
+ if Booking.modern(game.career) and bool(Booking.validate(game.career).get("ok",false)):
+  var agreement: Dictionary=Booking.terms(game.career)
+  var line: Label=_copy(body,"%s · DAY %d · %d career day(s) reserved · next available DAY %d" % [agreement["venue_snapshot"]["venue"],int(agreement["day"]),int(agreement["tariff"]["duration"]),int(agreement["next_available_day"])],16)
+  line.name="CareerSavedShowAgreement"
  Launcher.render(self,body,compact)
  var grid := GridContainer.new()
  grid.columns = 1 if compact else 2
@@ -708,6 +717,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   dock.add_child(_button(return_copy,"CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
   if JourneyDesk.active(self):JourneyDesk.dock(self,dock,compact)
+  elif BookingDesk.active(self):BookingDesk.dock(self,dock)
   else:LiveDesk.dock(self,dock,compact)
  elif page=="finance" and not Finance.is_over(game.career):
   dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
@@ -760,7 +770,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  var goal: Dictionary=_goal_direction() if (page=="home" and not receipt_open) or (receipt_open and receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty()) else {}
  var guided: bool=bool(goal.get("ok",false)) and not str(goal.get("route","")).is_empty()
  var practice_action: Button=_button(str(goal["route_label"]),"CareerGoalPreparationAction",_goal_preparation.bind(str(goal["route"]))) if guided else _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
- practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career) or Journey.locked(game.career)
+ practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career) or Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))
  navigation.add_child(practice_action)
  navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
 
@@ -1232,6 +1242,13 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false, expecte
  add_child(overlay)
 
 func _finance_guard() -> bool:
+ var commitment: Dictionary=Booking.guard_commitment(game.career,"career",0)
+ if not bool(commitment.get("ok",false)):
+  notice=str(commitment["message"])
+  page="gigs"
+  receipt_open=false
+  _render()
+  return false
  if Journey.locked(game.career):
   notice="Finish or cancel tonight's saved booking before another commitment."
   page="gigs"
@@ -1278,6 +1295,14 @@ func _offstage_show(mode: String) -> void:
 
 func _commit_offstage(action: String, id: String = "", choice: String = "") -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ if action=="respond" and id==Offstage.PROMOTER and choice=="accept":
+  var handoff: Dictionary=Offstage.booking_handoff(game.career,id)
+  if not bool(handoff.get("ok",false)):
+   notice=str(handoff.get("message","The introduction changed."))
+   _render()
+   return
+  _open_booking(handoff["origin"])
+  return
  if not _finance_guard():return
  busy=true
  var before: Dictionary = game.career.duplicate(true)
@@ -1445,6 +1470,9 @@ func _journey_danger(button: Button) -> void:
   button.add_theme_color_override(state,Color("ee8d80"))
 
 func _ask_journey_options(expected: Dictionary, generation: int) -> void:
+ if Booking.modern(game.career):
+  _ask_booking_options(Booking.expected(game.career),generation,expected)
+  return
  if not is_inside_tree() or not is_visible_in_tree() or page!="gigs":return
  if busy or receipt_open or is_instance_valid(_live_dialog) or generation!=_render_generation:return
  if _journey_finish_words():return
@@ -1527,7 +1555,7 @@ func _commit_journey(action: String, expected: Dictionary, payload: Dictionary =
   return
  var candidate: Dictionary=result["state"]
  if not finance_action.is_empty():
-  var accounted: Dictionary=Finance.apply(before,candidate,finance_action)
+  var accounted: Dictionary=Finance.apply(before,candidate,finance_action,result.get("flows",[]),result.get("closing_balances",[]))
   if not bool(accounted.get("ok",false)):
    busy=false
    notice=str(accounted.get("message","The show accounts could not be reconciled."))
@@ -1600,3 +1628,266 @@ func _release_journey_input(generation: int) -> void:
   if action!=null:action.disabled=not bool(ShowFlow.check_plan(game.career,show_draft).get("ok",false))
  if is_visible_in_tree() and not _pending_focus.is_empty():
   call_deferred("_journey_restore_focus",_pending_focus,generation)
+
+
+func _booking_session_needed() -> bool:
+ var count: int=0;var drummer: bool=false
+ for member in game.career.get("members",[]):
+  if member is Dictionary and str(member.get("life_status","active"))=="active":
+   count+=1
+   if str(member.get("role","")).to_lower().contains("drum"):drummer=true
+ return not (count>=2 and drummer)
+
+func _sync_booking_draft() -> void:
+ if not booking_draft.is_empty():return
+ booking_expected=Booking.expected(game.career)
+ var options: Dictionary=Booking.options(game.career)
+ booking_draft={"venue_id":"local","day":int(options.get("first_day",0)),"offer_id":"standard","travel_plan":"drive_home","session_drummer":_booking_session_needed()}
+ booking_step="rooms"
+
+func _open_booking(origin: Dictionary = {}) -> void:
+ if busy or receipt_open or is_instance_valid(_live_dialog):return
+ booking_draft={}
+ booking_expected={}
+ booking_origin=origin.duplicate(true)
+ _sync_booking_draft()
+ page="gigs"
+ notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingVenue_local"
+ _render()
+
+func _booking_input_ready(generation: int) -> bool:
+ return is_inside_tree() and is_visible_in_tree() and page=="gigs" and not receipt_open and not busy and not is_instance_valid(_live_dialog) and generation==_render_generation
+
+func _booking_select(field: String,value: Variant,expected: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation) or expected!=booking_expected:return
+ if expected!=Booking.expected(game.career):
+  notice="The band changed. Review current rooms and dates."
+  _render()
+  return
+ if field not in ["venue_id","day","offer_id","travel_plan","session_drummer"]:return
+ if field=="venue_id" and (not value is String or not Booking.VENUES.has(value)):return
+ if field=="day" and (not Booking.whole(value,1) or int(value)<int(game.career.get("tour_day",1))+3 or int(value)>int(game.career.get("tour_day",1))+14):return
+ if field=="offer_id" and value not in ["standard","guarantee","guestlist"]:return
+ if field=="travel_plan" and value not in ["drive_home","overnight"]:return
+ if field=="session_drummer" and not value is bool:return
+ booking_draft[field]=value
+ if field=="venue_id":
+  booking_draft["travel_plan"]="drive_home"
+  booking_step="date"
+ if booking_draft["venue_id"]!="local" or booking_draft["offer_id"]!="standard":booking_origin={}
+ notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingDay_%d" % int(booking_draft["day"]) if booking_step=="date" else "BookingReviewAction"
+ _render()
+
+func _booking_go(step: String,generation: int) -> void:
+ if not _booking_input_ready(generation) or step not in ["trip","review"]:return
+ var prepared: Dictionary=LiveRules.prepare_booking(game.career,booking_draft,booking_expected)
+ if not bool(prepared.get("ok",false)):
+  notice=str(prepared.get("message","Review the agreement."))
+  _render()
+  return
+ booking_step=step
+ notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingTrip_"+str(booking_draft["travel_plan"]) if step=="trip" else "BookingCommitAction"
+ _render()
+
+func _booking_back(generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ if booking_step=="rooms":
+  _navigate("offstage" if not booking_origin.is_empty() else "home")
+  return
+ booking_step=str({"date":"rooms","trip":"date","review":"trip"}.get(booking_step,"rooms"))
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _render()
+
+func _ask_booking_commit(generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ var prepared: Dictionary=LiveRules.prepare_booking(game.career,booking_draft,booking_expected)
+ if not bool(prepared.get("ok",false)):
+  notice=str(prepared.get("message","Review the agreement."))
+  _render()
+  return
+ var q: Dictionary=prepared["quote"]
+ var dialog: Control=Kit.dialog("CONFIRM THIS SHOW?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
+ dialog.name="BookingConfirmDialog"
+ dialog.set("confirm_text","BOOK THE SHOW")
+ dialog.set("cancel_text","KEEP EDITING")
+ var request: Dictionary=booking_draft.duplicate(true)
+ var expected: Dictionary=booking_expected.duplicate(true)
+ var origin: Dictionary=booking_origin.duplicate(true)
+ _live_dialog=dialog
+ dialog.completed.connect(func(accepted: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if accepted:_commit_booking(request,expected,origin,generation)
+  else:call_deferred("_journey_restore_focus","BookingCommitAction",generation))
+ add_child(dialog)
+ (dialog.get("confirm_button") as Button).name="BookingConfirmAction"
+ (dialog.get("cancel_button") as Button).name="BookingKeepEditingAction"
+ dialog.call("open_modal")
+
+func _commit_booking(request: Dictionary,expected: Dictionary,origin: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ busy=true
+ var before: Dictionary=game.career.duplicate(true)
+ if not origin.is_empty():
+  var handoff: Dictionary=Offstage.booking_handoff(before,str(origin.get("event_id","")))
+  if not bool(handoff.get("ok",false)) or Booking.fingerprint(origin)!=Booking.fingerprint(handoff.get("origin")):
+   busy=false
+   notice="The promoter introduction changed. Review it again before booking."
+   _render()
+   return
+ var finance_action: String="live:book"
+ var result: Dictionary=LiveRules.book_selected(before,request,expected)
+ if bool(result.get("ok",false)) and not origin.is_empty():
+  var attached: Dictionary=Offstage.attach_booking_acceptance(before,result["state"],origin)
+  if bool(attached.get("ok",false)):
+   result["state"]=attached["state"]
+   finance_action=str(attached["finance_action"])
+  else:result=attached
+ if not bool(result.get("ok",false)):
+  busy=false
+  notice=str(result.get("message","The booking was retained for review."))
+  _render()
+  return
+ var accounted: Dictionary=Finance.apply(before,result["state"],finance_action)
+ if not bool(accounted.get("ok",false)):
+  busy=false
+  notice=str(accounted.get("message","The booking accounts could not be saved."))
+  _render()
+  return
+ game.career=accounted["state"]
+ if not bool(opening_owner.save_draft()):
+  game.career=before
+  busy=false
+  notice="The booking could not be saved. The previous band and pending introduction are retained. Try again."
+  _render()
+  return
+ booking_draft={}
+ booking_expected={}
+ booking_origin={}
+ busy=false
+ notice="BOOKING SAVED · "+str(result.get("message",""))
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingPrepareAction"
+ _render()
+
+func _ask_booking_options(expected: Dictionary,generation: int,journey_expected: Dictionary = {}) -> void:
+ if not _booking_input_ready(generation) or expected!=Booking.expected(game.career):return
+ if _journey_finish_words():return
+ var quote: Dictionary=LiveRules.cancellation_quote(game.career,expected,journey_expected)
+ if not bool(quote.get("ok",false)):
+  notice=str(quote.get("message","Review the current show agreement."))
+  _render()
+  return
+ var dialog: Control=Kit.dialog("SHOW OPTIONS","Your place in the show is saved. Cancelling ends this booking and has consequences for the band.","flightcase")
+ dialog.name="JourneyShowOptionsDialog"
+ dialog.set("confirm_text","CANCEL THIS SHOW")
+ dialog.set("cancel_text","BACK TO SHOW")
+ _live_dialog=dialog
+ dialog.completed.connect(func(cancel_requested: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if cancel_requested:_ask_booking_cancel(expected,journey_expected,generation)
+  else:call_deferred("_journey_restore_focus","JourneyShowOptionsAction",generation))
+ add_child(dialog)
+ var danger: Button=dialog.get("confirm_button") as Button
+ danger.name="JourneyCancelBookingOption"
+ _journey_danger(danger)
+ (dialog.get("cancel_button") as Button).name="JourneyShowOptionsCloseAction"
+ dialog.call("open_modal")
+
+func _ask_booking_cancel(expected: Dictionary,journey_expected: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ var quote: Dictionary=LiveRules.cancellation_quote(game.career,expected,journey_expected)
+ if not bool(quote.get("ok",false)):
+  notice=str(quote.get("message","The saved show changed."))
+  _render()
+  return
+ var t: Dictionary=Booking.terms(game.career)
+ var dialog: Control=Kit.dialog("CANCEL THIS SHOW?","%s · DAY %d. Cancelling now pays £%d from your current cash and uses %d career day(s). You will not play or receive the show fee. The promoter and band will remember this commitment. Unpaid quoted costs are waived; no debt is created." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
+ dialog.name="JourneyConfirmDialog"
+ dialog.set("confirm_text","CANCEL SHOW")
+ dialog.set("cancel_text","KEEP BOOKING")
+ _live_dialog=dialog
+ dialog.completed.connect(func(accepted: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if accepted:_commit_booking_terminal("cancel",expected,journey_expected,generation)
+  else:call_deferred("_journey_restore_focus","JourneyShowOptionsAction",generation))
+ add_child(dialog)
+ var danger: Button=dialog.get("confirm_button") as Button
+ danger.name="JourneyConfirmCancelAction"
+ _journey_danger(danger)
+ (dialog.get("cancel_button") as Button).name="JourneyKeepBookingAction"
+ dialog.call("open_modal")
+
+func _commit_booking_terminal(action: String,expected: Dictionary,journey_expected: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation) or action not in ["cancel","expire"]:return
+ busy=true
+ var before: Dictionary=game.career.duplicate(true)
+ var result: Dictionary=LiveRules.cancel_selected(before,expected,journey_expected) if action=="cancel" else LiveRules.expire_selected(before,expected)
+ if not bool(result.get("ok",false)):
+  busy=false
+  notice=str(result.get("message","The saved agreement could not be closed."))
+  _render()
+  return
+ var accounted: Dictionary=Finance.apply(before,result["state"],"live:cancel" if action=="cancel" else "live:expire",result.get("flows",[]),result.get("closing_balances",[]))
+ if not bool(accounted.get("ok",false)):
+  busy=false
+  notice=str(accounted.get("message","The closing accounts need review."))
+  _render()
+  return
+ game.career=accounted["state"]
+ if not bool(opening_owner.save_draft()):
+  game.career=before
+  busy=false
+  notice="The closed booking could not be saved. Your whole previous band and night are retained. Try again."
+  _render()
+  return
+ receipt={"kind":"live","verb":action,"title":"BOOKING CANCELLED" if action=="cancel" else "MISSED COMMITMENT","text":str(result.get("message","The booking is closed.")),"day_before":int(before["tour_day"]),"day_after":int(game.career["tour_day"]),"cash_before":int(before["cash"]),"cash_after":int(game.career["cash"]),"terminal_receipt":result.get("terminal_receipt",{}),"changes":[]}
+ for field in ["reputation","morale"]:
+  if int(before.get(field,0))!=int(game.career.get(field,0)):receipt["changes"].append({"label":field.to_upper(),"before":int(before.get(field,0)),"after":int(game.career.get(field,0))})
+ receipt_open=true
+ _fresh_receipt=false
+ busy=false
+ notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="CareerReceiptContinueAction"
+ _render()
+
+
+func _ask_booking_missed(expected: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ var quote: Dictionary=Booking.expire_quote(game.career,expected)
+ if not bool(quote.get("ok",false)):
+  notice=str(quote.get("message","The missed agreement changed."))
+  _render()
+  return
+ var t: Dictionary=Booking.terms(game.career)
+ var dialog: Control=Kit.dialog("CLOSE THE MISSED BOOKING?","%s on DAY %d was missed. Closing this commitment now pays £%d from current cash and uses %d career day(s). No show fee is received. The promoter and band will remember this commitment." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
+ dialog.name="BookingMissedConfirmDialog"
+ dialog.set("confirm_text","CLOSE BOOKING")
+ dialog.set("cancel_text","REVIEW AGAIN")
+ _live_dialog=dialog
+ dialog.completed.connect(func(accepted: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if accepted:_commit_booking_terminal("expire",expected,{},generation)
+  else:call_deferred("_journey_restore_focus","BookingAcknowledgeMissedAction",generation))
+ add_child(dialog)
+ var danger: Button=dialog.get("confirm_button") as Button
+ danger.name="BookingMissedConfirmAction"
+ _journey_danger(danger)
+ (dialog.get("cancel_button") as Button).name="BookingKeepMissedAction"
+ dialog.call("open_modal")
