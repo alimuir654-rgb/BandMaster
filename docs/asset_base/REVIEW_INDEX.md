@@ -684,3 +684,8 @@ Current game: `d7d819e145128251677a456c578fa499dad2ab37`; technical PASS, visual
 ## S78 — current F11 pilot and V8 feedback checkpoint
 
 Current game `5cc32e30051fc20490340031b2ee7456b5262844`; native/AndroidtechnicalPASS, visualPARTIAL, owner_approved=false. Evidence `/tmp/bandmaster-s78-20261102/{complete-validation,focused-validation,standard-comparison,source-protection-audit,runtime-source-audit,visual-review-root,review-delivery,closeout}.json`; Android audit/delivery inits `android` subdirectory. Seven finalnative originals actuallyopened; five lenses SIMULATED.22unique focused PNGs,168rawRGBA-exactstandard frames plus4Reopen fades. The new privateV8 matches this game; olderV7retained. Physicalphone/installation/save retention pending; source/history local.
+
+
+## S79 — band experience direction
+
+`docs/continuous_improvement/S79_BAND_EXPERIENCE_BRIEF.md` is the next-development brief. Ownerexperiencebar NOTMET; documentaryreviewverified, futureexperiencevisualHOLD. Existing393-sourceV8 proof remainsS78 and isnotrerun. ActualV8recruit/practiceoriginalsopened; allfivefuture-reviewlenses SIMULATED. Pagespreservation `/tmp/bandmaster-s79-20261102/review-delivery.json`.
