@@ -31,8 +31,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 925871,
-    "sha256": "71612dca8114caf66f12a93c6394a1f6615c34a408fd750a1b6631a6aecaffbd"
+    "bytes": 927176,
+    "sha256": "fbf84ed5ec3fe47278dcd0146335f4b5347688211b019845edcb2019f757e5fd"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S76.json",
@@ -84,18 +84,25 @@
   "source_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "all_write_freeze": "2026-11-02T11:50:00Z",
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "art_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
   "current_plan_sequence": 10,
   "current_review_board_sequence": 91,
-  "source_phase": "frozen_uncertainty_candidate_verification",
+  "source_phase": "corrective_Details_intent_only",
   "candidate_sha": "5f884a7884a73059f39be60c235bb884c0fdcbbd",
   "latest_owner_emergence_steering": {
     "received": "2026-11-02T11:00:00Z",
     "requirement": "Sharedgameplayemergentsituation/consequencecore; characters/tension/momentum/externalpressure/dayjobs/familysupportinbios. Existingtriggersalreadyconditionalbutfixedresponsesnotfullcompliance.",
     "current_scope": "FinishS77uncertaintyUI; additionallywriteactual-source-groundedcore/bio/pilotcontractDESIGNONLY. No newengine/economy/jobs castfacts/runtimecoreimplementedclaim.",
     "future_pilot": "Recordeddayjobcommitment versusplannedrehearsal; actualattendance/pressure/history-sensitiveconsequences, once/rollback/unknownlegacycontract."
+  },
+  "corrective_scope": {
+    "event": "S77-20261102-573",
+    "baseline": "5f884a7884a73059f39be60c235bb884c0fdcbbd",
+    "only_source": "experiments/playable_flightcase/band_moment_desk.gd",
+    "change": "Replaceoriginaloption.textinprecommitDetailswithsameintentcopyasmainchoices; heardquotes/model/postsavedoutcomesexact.",
+    "stop": "2026-11-02T11:30:00Z"
   }
 }

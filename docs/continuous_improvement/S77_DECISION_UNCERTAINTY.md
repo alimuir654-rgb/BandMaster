@@ -11,3 +11,7 @@ RootwillpersistprincipleinAGENTS+ARCHITECTURE andexistingplan/reviewboard/resear
 ## Latest owner steering: emergence
 
 Owneradds: situationsarise fromgameplay; impactsflowthroughcharacters/tension/momentum/externalpressures/dayjobs/familysupport, recordedinbios. S77also deliversaREAD-ONLYSOURCEGROUNDED design/pilotcontract beforehandoff. Current7UIimplementationremainsfrozen; no newruntimecore/jobs/wealthfacts/model/economycodeinS77. AGENTS/ARCHITECTURE gainthiscross-gameprinciple. Existingstate-sensitive triggerswithfixedvectorsareacknowledgedaspartial, notfull emergentimplementation. No automatic deadlineextension.
+
+## Corrective Details wording — event573
+
+ActuallyopenedphoneDetailsstillusedsaved-outcomedescriptions asprecommitcopy. ONEband_moment_desklineonly: bothprecommitoptiondetailsusetheexactsameintentcopyasmainchoices, originalheardquotes/model/postsaveoutcomemessageuntouched. QAreadsfullintentcopyandheardquotes/noleak scans; pureoriginaloraclesunchanged. Corrective11:30/sourcebandwidthnoextension.
