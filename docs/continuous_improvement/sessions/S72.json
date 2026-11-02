@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S72",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Complete ONE approved F02→F01 savedresult-to-realgoal/preparation connection in finite owner flow/art run. NoAPKZIP.",
   "baseline_sha": "1a7585cbcf46c1abee9658d2062137b3fcbcf1eb",
@@ -48,12 +48,12 @@
   "hypothesis": "Stage-first saved receipt with actual signedpills/two saved model inputs plus compact real chapter cue and useful free navigation connects outcome to next decision without new gameplay/save state or replacing approved iconlayout.",
   "stop_condition": "ONE coherent slice orHOLD. Two ineffective attempts changeMETHOD/HOLD. No rewardclaim/schema/model/art generation, no new breadth after05:15, sourceintegrationfreeze06:45, allwrites07:45/hard08:00. Lease02:30; sourcefreeze target01:40.",
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "63c551a89e9df05ebf01ad68b2a9eb4b54235b02e23d1ad03f4079296e097f52",
+    "docs/continuous_improvement/LESSONS.md": "00938ab50e8842997c612499499d72ac9dbdc2cdaf0b2f87c06e753104f40379",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 851008,
-    "sha256": "fc9dbe036259e437241863eff9a9da583806468736490478863fd01f6664e2e7"
+    "bytes": 861109,
+    "sha256": "062fa3bb6323de3126d4641a3431d3a997324c0feb0227d6efccacf4adbd68fc"
   },
   "target": {
     "locator": "/workspace/work/overnight-20261101/s53/show-dd59bb8-phone/captures/saved-show-receipt-initial-390x844.png",
@@ -89,10 +89,10 @@
   ],
   "started_at": "2026-11-02T00:28:33.404345+00:00",
   "scope_end": "2026-11-02T02:30:00Z",
-  "source_freeze_target": "2026-11-02T01:40:00Z",
+  "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
   "source_write_allowed": false,
   "delegated_source_writer": null,
-  "source_phase": "caption_repair_frozen_pending_exact_proof",
+  "source_phase": "closed_exact_native_verified_visual_partial",
   "pending_implementation": false,
   "storage_policy": {
     "workspace_available_bytes_observed": 349122560,
@@ -103,15 +103,29 @@
   "contract": "docs/continuous_improvement/S72_RESULT_TO_GOAL.md",
   "baseline_intake": "/workspace/work/overnight-20261102/s72/baseline-intake.json",
   "source_frozen_at": "2026-11-02T01:11:04.668444+00:00",
-  "candidate_source_sha": "d74bd3bd51bbf12af77ba90901dcb2ea1a841fe0",
-  "candidate_native_verified": false,
-  "candidate_status": "D74_technical_pass_visual_HELD_mood_wrap",
-  "candidate_run": "/workspace/work/overnight-20261102/s72/candidate-d74bd3b/source.json",
+  "candidate_source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "candidate_native_verified": true,
+  "candidate_status": "verified_visual_partial",
+  "candidate_run": "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/complete-validation.json",
   "candidate_model": "/workspace/work/overnight-20261102/s72/model-d74bd3b/execution.json",
-  "candidate_focus_run": null,
-  "pending_helpers": true,
+  "candidate_focus_run": "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/focused-validation.json",
+  "pending_helpers": false,
   "repair_paths": [
     "experiments/playable_flightcase/show_desk.gd"
   ],
-  "repair_contract": "517ONLYnative16moodLabelnaturalnonwrapwidth/SHRINK_BEGIN; originalMeteruntouched. SourceallowedONLYrepairpath; initial4pathbroadscopefrozen."
+  "repair_contract": "517ONLYnative16moodLabelnaturalnonwrapwidth/SHRINK_BEGIN; originalMeteruntouched. SourceallowedONLYrepairpath; initial4pathbroadscopefrozen.",
+  "closed_at": "2026-11-02T01:47:24.509698+00:00",
+  "tested_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "closeout": {
+    "tested_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+    "evidence": [
+      "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/complete-validation.json",
+      "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/visual-review.json",
+      "/workspace/work/overnight-20261102/s72/review-delivery.json",
+      "/workspace/work/overnight-20261102/s72/queue-readback.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Fresh scoped S73 (or actual next free session), ART/CONTRACT ONLY: reconcile actual latest A04 source/board reference, correct ONE Arjun guitar headstock/performance layer and prove an audience-facing native composition for owner review. New art version PENDING OWNER; no animation/other-musician approval. F09 gameplay HOLD until complete additive saved song-cursor/choice policy before original Story/Reviews/Finance and approved art gates. No new breadth05:15, integration06:45, final readiness07:15, release07:30/allwrites07:45/hardstop08:00Nov2; no APK/ZIP.",
+    "new_issue_review": "512–521 failures/reviews preserved before correction: path/API inventory, finite original-validator guard, local-editor permission omission, pre-engine adapter/QA reviews, actual D74 Details caption-wrap art HOLD, incorrect header-absence interpretation retracted, same-source phone scrollbar key-focus failure and timing-preserving diagnostic. Changed actual-wheel method passed all4 samee740 journeys. Source3e3 current native6179/41 and standard73/88/import/4 PASS. Models1064/1702 explicitly REUSED via9/48 byte closures; no current model rerun. Final review522 and actual originals retained."
+  }
 }
