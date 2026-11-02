@@ -163,18 +163,14 @@ static func _decision(host, body: VBoxContainer, data: Dictionary, compact: bool
  _people(host,portraits,data["participants"],compact,80.0)
  var options: VBoxContainer=host._box(4)
  layout.add_child(options)
- var default_trust: bool=false
  for choice in ["listen","keep"]:
   var option: Dictionary={}
   for raw in incident["choices"]:
    if raw["id"]==choice:option=raw
   _copy(host,options,str(option.get("label","")),"BandMomentChoiceLabel_"+choice)
+  _copy(host,options,"Make room for both musicians to explain their ideas." if choice=="listen" else "Keep the rehearsal on its current schedule.","BandMomentChoiceIntent_"+choice,16,true)
   var preview: Dictionary=Rules.preview(host.game.career,str(incident["id"]),choice,str(data["fingerprint"]))
-  if bool(preview["ok"]):
-   _pills(host,options,preview["receipt"],"BandMomentPreview_"+choice,false)
-   default_trust=default_trust or not bool(preview["receipt"]["trust_recorded_before"])
-  else:_copy(host,options,str(preview["message"]),"BandMomentEligibility_"+choice)
- if default_trust:_copy(host,body,"Trust: original model default.","BandMomentDecisionTrustDefault",16,true)
+  if not bool(preview["ok"]):_copy(host,options,str(preview["message"]),"BandMomentEligibility_"+choice)
  if not str(host.notice).is_empty():_copy(host,body,str(host.notice),"BandMomentNotice")
  var details: VBoxContainer=host._box(8)
  details.name="BandMomentDecisionDetailsBody"
@@ -188,7 +184,6 @@ static func _decision(host, body: VBoxContainer, data: Dictionary, compact: bool
  _note(details,"Both voices have been heard. How will the band handle its next rehearsal?","BandMomentNote")
  for position in ["first","second"]:_copy(host,details,str(incident[position])+": “"+str(incident[position+"_line"])+"”","BandMomentDecisionQuote_"+position,16,true)
  for option in incident["choices"]:_copy(host,details,str(option["text"]),"BandMomentChoiceText_"+str(option["id"]),16,true)
- if default_trust:_copy(host,details,"Trust starts from the original model default; no earlier relationship measurement was saved.","BandMomentDecisionTrustExplanation",16,true)
 
 static func _decision_details(host, body: Control) -> void:
  if not is_instance_valid(host) or not is_instance_valid(body) or not body.is_inside_tree() or not host.is_visible_in_tree() or bool(host.busy) or is_instance_valid(host._live_dialog):return

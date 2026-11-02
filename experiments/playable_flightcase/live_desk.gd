@@ -77,7 +77,7 @@ static func _unbooked(host, parent: Node, compact: bool, state: Dictionary) -> v
  host._copy(body,str(venue.get("venue","Hometown show")).to_upper(),26)
  host._copy(body,str(venue.get("city","HOMETOWN"))+"  •  DAY %d" % (int(state.get("tour_day",1))+Calendar.LEAD_DAYS),16)
  host._copy(body,"Booking: £0 now. %d days to prepare." % Calendar.LEAD_DAYS,16,true)
- host._copy(body,"No originals in the agreed set: at most £5 gross, even on a guarantee. Travel and any session drummer are still charged. Finish originals before soundcheck for a fuller set.",16)
+ host._copy(body,"A set without your own originals may bring a disappointing payout, even on a guarantee. Travel and any session drummer still cost money.",16)
  for id in OFFER_IDS:
   var offer: Dictionary = Promoter.OFFERS[id]
   _toggle(body,str(offer["label"]),"LiveOffer_"+str(id),host._select_live_offer.bind(str(id)),bool(host.busy))
@@ -86,7 +86,7 @@ static func _unbooked(host, parent: Node, compact: bool, state: Dictionary) -> v
  var eligibility: Dictionary = Live.booking_eligibility(state,false)
  if not bool(eligibility.get("normal_ready",false)) and int(eligibility.get("active",0))>=1:
   _toggle(body,"SESSION DRUMMER  •  £25","LiveSessionDrummerAction",host._toggle_live_session,bool(host.busy))
-  var session_hint: Label = host._copy(body,"Paid at the performance; quality −8. Standard offer only. This player does not join your band.",14,true)
+  var session_hint: Label = host._copy(body,"Paid at the performance. Standard offer only. This player does not join your band.",14,true)
   session_hint.name="LiveSessionHint"
  var lineup: Label = host._copy(body,"",16)
  lineup.name="LiveEligibility"
@@ -123,7 +123,7 @@ static func _booked(host, parent: Node, compact: bool, state: Dictionary, bookin
     _toggle(body,str(approach["label"]),"LiveApproach_"+str(id),host._select_live_approach.bind(str(id)),bool(host.busy))
    var description: Label = host._copy(body,"",16)
    description.name="LiveApproachDescription"
-   host._copy(body,"These are modifiers, not a final quality prediction. Fan bonuses require a successful show; originals, chemistry and equipment also matter.",14,true)
+   host._copy(body,"Choose how you want the band to approach the room. You'll learn how it lands onstage.",14,true)
    _incident(host,body,state)
   else:
    _set_status(host,body,state)
@@ -152,7 +152,7 @@ static func _incident(host, body: Node, state: Dictionary) -> void:
   var id: String = str(option.get("id",""))
   var action: Button = host._button(str(option.get("label","Respond")),"LiveIncident_"+id,host._commit_live.bind("incident",id))
   body.add_child(action)
-  host._copy(body,"READINESS %+d  •  MORALE %+d  •  FATIGUE %+d" % [int(option.get("readiness",0)),int(option.get("morale",0)),int(option.get("fatigue",0))],14,true)
+  host._copy(body,str(option.get("text","")),14,true)
  # The original incident is OPTIONAL. It must never disable LiveMainAction.
 
 
@@ -311,8 +311,7 @@ static func refresh_plans(host) -> void:
     button.disabled=bool(host.busy)
   var description: Label = host.find_child("LiveApproachDescription",true,false) as Label
   if description!=null:
-   var approach: Dictionary = Gigs.APPROACHES[str(host.live_approach)]
-   description.text="MODIFIERS  /  QUALITY %+d  •  FAN BONUS %+d  •  TENSION %+d" % [int(approach["quality"]),int(approach["fan_bonus"]),int(approach["tension"])]
+   description.text=str({"tight":"Keep the arrangements controlled and familiar.","wild":"Lean into a louder, less restrained performance.","crowd":"Make room to engage with the audience."}.get(str(host.live_approach),"Choose your approach to the room."))
   if main!=null:
    main.disabled=bool(host.busy)
   if commitment!=null:

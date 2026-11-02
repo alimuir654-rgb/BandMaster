@@ -22,3 +22,7 @@ All paths are case-sensitive on Linux CI. The scripts currently own substantial 
 - Add reproducible tests for mechanics and save schema before major refactors.
 - Keep player control active between occasional story decisions.
 - External AI is not required for emergence: start with deterministic triggers, parametric templates and seeded RNG.
+
+## Decision presentation policy
+
+Choices preserve uncertainty: explain in-world actions and stakes, while keeping nonfinancial outcome math, odds and hidden gates internal. Do not reveal a stat-direction answer key through tooltips, disclosures or confirmations. Explicit prices/time and actual state remain readable; saved consequences may be reported after commitment. Presentation hides forecasts without changing the deterministic resolver, eligibility, costs, save format or once-only settlement. Owner direction: 2 November 2026, superseding pre-choice delta previews.

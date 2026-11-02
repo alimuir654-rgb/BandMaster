@@ -108,7 +108,7 @@ static func render(host, parent: Node, compact: bool) -> void:
    shout.set_pressed_no_signal(str(host.show_draft.get("shoutout","none"))=="thankvenue")
    shout.pressed.connect(func():host._show_edit("shoutout","none" if str(host.show_draft.get("shoutout","none"))=="thankvenue" else "thankvenue"))
    body.add_child(shout)
-   _copy(prose,"Thanking this actual venue takes a beat: quality -1, with +2 extra fans after a successful set of originals. It is optional.")
+   _copy(prose,"Thanking the venue is optional. Decide how you want to address the room.")
    var incident: Dictionary = Backstage.incident(state)
    if not incident.is_empty():
     _copy(prose,"BACKSTAGE / "+str(incident.get("name","A bandmate")),20)
@@ -135,7 +135,7 @@ static func _active_count(state: Dictionary) -> int:
 
 static func _material_warning(parent: Node, count: int) -> void:
  if count==0:
-  var warning: Label = _copy(parent,"UNDERPREPARED / NO ORIGINALS SELECTED\nThis new booking pays at most £5 gross with no originals selected. Travel and any session drummer are still charged.")
+  var warning: Label = _copy(parent,"NO ORIGINALS SELECTED\nA set without your own material may bring a disappointing payout. Travel and any session drummer still cost money.")
   warning.name = "ShowNoOriginalsWarning"
   warning.add_theme_color_override("font_color",Color("943e31"))
 
@@ -230,10 +230,8 @@ static func refresh(host) -> void:
   intensity.text="CONTROLLED" if level<35 else ("STEADY" if level<70 else "ALL-OUT")
  if preview!=null:
   if bool(checked.get("ok",false)):
-   var projection: Dictionary=checked["projection"]
-   var approach_rules: Dictionary=Gigs.APPROACHES.get(str(draft.get("approach","tight")),Gigs.APPROACHES["tight"])
-   preview.text="QUALITY %+d · REACH %+d\nFATIGUE +%d · TENSION %+d" % [int(projection["quality_modifier"])+int(approach_rules["quality"]),int(projection["successful_extra_fans"])+int(approach_rules["fan_bonus"]),int(projection["extra_fatigue"]),int(projection["extra_tension"])+int(approach_rules["tension"])]
-   preview.tooltip_text="Added plan modifiers. Fan reach needs a successful original set; fatigue applies to each active performer. Reliability is the deterministic margin to the original quality threshold, not a probability or audio reading."
+   preview.text="Your show plan is ready to save. How it lands will be decided onstage."
+   preview.tooltip_text=""
   else:preview.text=str(checked.get("message","Choose a valid show plan."))
  var commitment: Label=host.find_child("LiveCommitment",true,false) as Label
  var main: Button=host.find_child("LiveMainAction",true,false) as Button

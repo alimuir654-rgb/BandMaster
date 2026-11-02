@@ -50,7 +50,8 @@ static func render(host, parent: Node, compact: bool) -> void:
  var token: String=str(visit.get("id",""))+":"+str(visit.get("revision",""))
  var fresh: bool=host.has_meta("radio_reveal_pending") and str(host.get_meta("radio_reveal_pending"))==token
  if fresh:host.remove_meta("radio_reveal_pending")
- var nodes: Dictionary=_scene(host,parent,compact,str(data["text"]),"VISIT %d / 7" % (int(data["progress"])+1) if bool(data["ok"]) else "SAVED VISIT HELD","StudioNote",bool(data["ok"]),fresh)
+ var prose: String="Both replies are saved. Wrap up the visit when you're ready." if bool(data["can_finish"]) else str(data["text"])
+ var nodes: Dictionary=_scene(host,parent,compact,prose,"VISIT %d / 7" % (int(data["progress"])+1) if bool(data["ok"]) else "SAVED VISIT HELD","StudioNote",bool(data["ok"]),fresh)
  if bool(data["ok"]) and not visit.is_empty():
   var selected: Dictionary=Promotion.selection(host.game.career,str(visit["demo_id"]),str(visit["source_fingerprint"]),int(visit["demo_index"]))
   if bool(selected.get("ok",false)):
@@ -64,11 +65,9 @@ static func render(host, parent: Node, compact: bool) -> void:
    _demo_details(host,details,session)
  if not str(host.notice).is_empty():Scene.copy(host,nodes["words"],str(host.notice),"StudioNotice")
  if fresh:(nodes["note"] as Label).call_deferred("begin",bool(host.reduced_motion))
- for choice in data["choices"]:Scene.copy(host,nodes["words"],str(choice["hint"]),"StudioHint_"+str(choice["id"]),16,true)
  if bool(data["can_finish"]):
   var preview: Dictionary=Flow.preview_finish(host.game.career,str(visit["id"]),int(visit["revision"]))
-  if bool(preview.get("ok",false)):Scene.pills(host,nodes["words"],host.game.career,preview["state"],true)
-  else:Scene.copy(host,nodes["words"],str(preview.get("message","The visit cannot be wrapped up.")),"StudioEligibility")
+  if not bool(preview.get("ok",false)):Scene.copy(host,nodes["words"],str(preview.get("message","The visit cannot be wrapped up.")),"StudioEligibility")
 
 static func _brief(host, parent: Node, compact: bool) -> void:
  var selected: Dictionary=_selected(host)
@@ -158,7 +157,7 @@ static func dock(host, parent: Node, compact: bool) -> void:
    for choice in data["choices"]:
     var caption: String={"craft":"THE SONGWRITING","live_energy":"THE BAND'S ENERGY","invite":"BRING A FRIEND","critical_craft":"LISTEN CLOSELY"}[str(choice["id"])]
     var button: Button=_button(host,choices,caption,"StudioChoice_"+str(choice["id"]),"answer",str(choice["id"]),true)
-    button.tooltip_text=str(choice["text"])+" "+str(choice["hint"])
+    button.tooltip_text=str(choice["text"])
   elif bool(data["can_finish"]):
    var preview: Dictionary=Flow.preview_finish(host.game.career,str(visit["id"]),int(visit["revision"]))
    _button(host,parent,"WRAP UP  •  £20 / 1 DAY","StudioFinishAction","finish","",true,bool(preview.get("ok",false)))

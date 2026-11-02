@@ -702,7 +702,7 @@ func _cover_milestone(kind: String) -> void:
   fact=setup.game.genre+" / "+setup.vibe+"\nTALENT "+str(setup.remaining())+"  •  MORALE "+str(setup.game.career.get("morale",55))
  else:
   var delta: int=int(setup.name_delta)
-  fact="Everyone's behind it. +3 band morale when you form the band." if delta==3 else ("Not everyone is convinced. −2 band morale when you form the band." if delta<0 else "Mixed opinions. One band. No morale change.")
+  fact="Everyone's behind it. The band is ready to make it theirs." if delta==3 else ("Not everyone is convinced. You can feel some hesitation." if delta<0 else "Mixed opinions. The name gives the band something to discuss.")
  if wide:
   signoff.add_child(_label("The people are in place. Find the name next." if formation else ("A name, a look and the people behind it. Take it to the rehearsal room." if complete else "Your bandmates have had their say. Choose the look next."),18))
  var facts: Label=_label(fact,16)

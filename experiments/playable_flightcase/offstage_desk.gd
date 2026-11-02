@@ -6,6 +6,7 @@ const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Social = preload("res://Scripts/band_social.gd")
+const Opportunities = preload("res://Scripts/career_opportunities.gd")
 
 static func focus_name(_host) -> String:
  return "OffstageMainAction"
@@ -72,7 +73,7 @@ static func _outing(host, body: Node, state: Dictionary) -> void:
  _copy(host,body,"","OffstageActivityEffects")
  _copy(host,body,"","OffstageEligibility")
  _copy(host,body,"Each outing takes one day and charges only for active bandmates. Selecting a plan is free; the bottom action commits and saves it.","OffstageOutingNote",16,true)
- _copy(host,body,"A qualifying watch-gig outing creates one saved local promoter introduction. After accepting that introduction, reaching 25 fans and 10 reputation can bring a music-scout introduction at your next outing. These are career milestones, not random encounters.","OffstageMilestoneNote",16,true)
+ _copy(host,body,"Getting to know the local music scene can lead to introductions as the band's story develops.","OffstageMilestoneNote",16,true)
 
 static func _invitation(host, body: Node, state: Dictionary, invitation: Dictionary) -> void:
  var id: String = str(invitation.get("id",""))
@@ -145,9 +146,11 @@ static func refresh_plans(host) -> void:
     option.set_pressed_no_signal(str(row.get("id",""))==str(selected.get("id","")))
     option.disabled=bool(host.busy)
   var description: Label = host.find_child("OffstageActivityDescription",true,false) as Label
-  if description!=null:description.text="%s  /  %d ACTIVE BANDMATES\n%s" % [str(selected.get("title","OUTING")),int(selected.get("active",0)),str(selected.get("description",""))]
+  if description!=null:description.text="%s  /  %d ACTIVE BANDMATES\n%s" % [str(selected.get("title","OUTING")),int(selected.get("active",0)),str(Social.ACTIVITIES.get(str(selected.get("id","")),{}).get("text",""))]
   var effects: Label = host.find_child("OffstageActivityEffects",true,false) as Label
-  if effects!=null:effects.text=str(selected.get("effects",""))
+  if effects!=null:
+   effects.text=""
+   effects.visible=false
  else:
   for row in Rules.response_options(state,str(pending[0].get("id",""))):
    var option: Button = host.find_child("OffstageResponse_"+str(row.get("id","")),true,false) as Button
@@ -155,7 +158,11 @@ static func refresh_plans(host) -> void:
     option.set_pressed_no_signal(str(row.get("id",""))==str(selected.get("id","")))
     option.disabled=bool(host.busy)
   var description: Label = host.find_child("OffstageResponseDescription",true,false) as Label
-  if description!=null:description.text=str(selected.get("description",""))
+  if description!=null:
+   description.text=str(selected.get("description",""))
+   if str(pending[0].get("id",""))==Rules.SCOUT:
+    for rule in Opportunities.get_event("first_feature").get("choices",[]):
+     if str(rule.get("id",""))==str(selected.get("id","")):description.text=str(rule.get("text",""))
  var eligibility: Label = host.find_child("OffstageEligibility",true,false) as Label
  if eligibility!=null:
   eligibility.text=str(selected.get("reason","")) if not bool(selected.get("enabled",false)) else ("Ready to accept the selected response." if mode=="invite" else "Ready to save this outing.")

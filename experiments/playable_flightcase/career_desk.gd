@@ -436,7 +436,7 @@ func _gear_page(parent: Node, compact: bool) -> void:
  _copy(body,str(item["type"]),13,true)
  _copy(body,str(item["description"]),16)
  var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(selected_item)
- _copy(body,("OWNED EQUIPMENT  •  SERVICE £%d / 1 DAY" % Gear.SERVICE_COST) if owned else ("£%d ASKING PRICE  •  +%d READINESS ON PURCHASE" % [int(item["price"]),int(item["readiness"])]),14,true)
+ _copy(body,("OWNED EQUIPMENT  •  SERVICE £%d / 1 DAY" % Gear.SERVICE_COST) if owned else ("£%d ASKING PRICE" % int(item["price"])),14,true)
  if owned:
   var record: Dictionary = Gear.record(game.career,selected_item)
   var condition: int = int(record.get("condition",-1))
@@ -1024,12 +1024,12 @@ func _ask_live_confirmation(verb: String) -> void:
   dialog.set("body_text","Play tonight's set at %s. The show uses %d day(s). Travel and any hired drummer are charged, then the venue pays its fee. The fee depends on your set and how the show goes." % [str(booking.get("venue","the venue")),int(venue.get("days",1))])
   if ShowFlow.managed(game.career):
    var plan: Dictionary=booking.get(ShowFlow.FLOW_KEY,{}).get("plan",{})
-   dialog.set("body_text",str(dialog.get("body_text"))+" %d completed originals are selected." % plan.get("song_ids",[]).size()+(" With none selected the gross fee is capped at £5, including any guarantee." if plan.get("song_ids",[]).is_empty() else ""))
+   dialog.set("body_text",str(dialog.get("body_text"))+" %d completed originals are selected." % plan.get("song_ids",[]).size()+(" Without your own material, the payout may be disappointing even under a guarantee." if plan.get("song_ids",[]).is_empty() else ""))
   dialog.set("confirm_text","START THE SHOW")
   dialog.set("cancel_text","NOT YET")
  else:
   var charge: int = mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
-  dialog.set("body_text","Cancel %s? The cancellation costs £%d and up to 3 reputation. No day is used." % [str(booking.get("venue","this booking")),charge])
+  dialog.set("body_text","Cancel %s? The cancellation costs £%d and may damage the promoter's confidence in the band. No day is used." % [str(booking.get("venue","this booking")),charge])
   dialog.set("confirm_text","CANCEL BOOKING")
   dialog.set("cancel_text","KEEP BOOKING")
  _live_dialog=dialog
