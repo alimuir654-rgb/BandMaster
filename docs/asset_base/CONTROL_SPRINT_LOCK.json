@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -200,7 +200,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -332,7 +332,7 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": true,
   "next_action": "Owner reviews privately delivered screenshots. Read-only phone/art feedback and exact-checkpoint readiness; no automatic game/art/engine/APK/queue continuation. Verified3e3 and heldS73 unchanged.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
@@ -345,17 +345,7 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": {
-    "agent": "/root/render_support",
-    "paths": [
-      "experiments/playable_flightcase/goal_focus_rules.gd",
-      "experiments/playable_flightcase/career_direction.gd",
-      "experiments/playable_flightcase/direction_card.gd",
-      "experiments/playable_flightcase/career_desk.gd"
-    ],
-    "expires_at": "2026-11-02T10:00:00Z",
-    "contract": "/workspace/BandMaster/docs/continuous_improvement/S75_OWNER_SELECTED_FOCUS.md"
-  },
+  "delegated_source_writer": null,
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
@@ -371,10 +361,10 @@
     "hard_stop": "2026-11-01T20:00:00Z"
   },
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
   "latest_unverified_candidate": null,
-  "source_phase": "delegated_F01_source",
-  "source_frozen_at": "2026-11-02T01:11:04.668444+00:00",
+  "source_phase": "frozen_candidate_under_verification",
+  "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
     "writer": null,
@@ -470,7 +460,7 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 7,
+  "current_plan_sequence": 8,
   "current_review_board_sequence": 49,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",

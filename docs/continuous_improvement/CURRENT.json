@@ -3302,7 +3302,7 @@
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
   "latest_unverified_candidate": null,
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
   "historical_held_candidates": [
     {
       "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
@@ -3489,7 +3489,7 @@
     "source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
     "closeout": "/workspace/work/overnight-20261102/s72/closeout.json"
   },
-  "candidate_source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
   "candidate_native_verified": true,
   "candidate_status": "verified_visual_partial_native_owner_review_pending",
   "touch_rescope": {
@@ -3702,7 +3702,7 @@
   "pending_implementation": false,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "preflight_no_source_yet",
+  "source_phase": "frozen_candidate_under_verification",
   "claimed_at": "2026-11-02T08:45:11.052620+00:00",
   "expires_at": "2026-11-02T10:30:00Z",
   "authority": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
@@ -3729,7 +3729,7 @@
     "existing_single_attachment_confirmed": true,
     "queue_receipt": "/workspace/work/overnight-20261102/s73/queue-readback.json"
   },
-  "source_frozen_at": "2026-11-02T01:11:04.668444+00:00",
+  "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "previous_s68_verified_checkpoint": {
@@ -3783,7 +3783,7 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 7,
+  "current_plan_sequence": 8,
   "current_review_board_sequence": 49,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",

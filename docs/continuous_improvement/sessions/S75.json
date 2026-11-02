@@ -35,12 +35,12 @@
   "hypothesis": "One explicit free owner-selected focus with actual progress and existing preparation routing gives player agency while preserving chapter claims/rewards and whole-career save safety.",
   "stop_condition": "Reject source/art/schema/economics changes outside4ownedfiles. Preserve malformedfuture wrappers, no auto chapterclaim/reward, no partial rollback. Two ineffective attempts change method/HOLD affected slice; scope bounded10:30 and owner12:00.",
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "74fb2d5fd97bfad09e606787e34d5233af4ca5516b7a52b155b4b1f4f0168412",
+    "docs/continuous_improvement/LESSONS.md": "7cf97b792396c6d088611a8a415fb5a93fd976316285cedd022cbf9794ebda3c",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 879837,
-    "sha256": "dc28002e923516bb731f482a32608378ae2150a4b88308e6491587828802e6e0"
+    "bytes": 893622,
+    "sha256": "5b4dab300cf6bf6e42c3dc1dad3fe658ebcd1fa2403edc826d567f6f5bba975a"
   },
   "target": {
     "locator": "/workspace/work/overnight-20261102/s72/goal-3e3ea50-phone-wheel-final/captures/controlled-home-390x844.png",
@@ -62,7 +62,9 @@
   ],
   "scratch_allowed_paths": [
     "/workspace/work/morning-20261102/s75",
-    "/tmp/bandmaster-morning-20261102/s75"
+    "/tmp/bandmaster-morning-20261102/s75",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S75.json",
@@ -75,13 +77,18 @@
   "hard_stop": "2026-11-02T12:00:00Z",
   "contract": "/workspace/BandMaster/docs/continuous_improvement/S75_OWNER_SELECTED_FOCUS.md",
   "protected_scripts": 54,
-  "source_phase": "delegated_F01_source",
-  "source_write_allowed": true,
+  "source_phase": "frozen_candidate_under_verification",
+  "source_write_allowed": false,
   "art_write_allowed": false,
   "pending_helpers": true,
-  "pending_implementation": true,
-  "current_plan_sequence": 7,
+  "pending_implementation": false,
+  "current_plan_sequence": 8,
   "current_review_board_sequence": 49,
   "no_apk_zip": true,
-  "storage_clarification": "Observedst_dev workspace27/tmp34: copy immutable exactinputs ONCE toapproved /tmp pool withbefore/afterhash audit, hardlink onlywithin/tmp; no EXDEVattempt/workspacecopies/deletion. All mutablecacheprivate."
+  "storage_clarification": "Observedst_dev workspace27/tmp34: copy immutable exactinputs ONCE toapproved /tmp pool withbefore/afterhash audit, hardlink onlywithin/tmp; no EXDEVattempt/workspacecopies/deletion. All mutablecacheprivate.",
+  "native_readiness": "DISPLAY99/Xorg21.1.16/exclusiveflockverified; Mesa verification from firstactualnativeGodotstartup, glxinfounavailable/no dependencyinstallation.",
+  "delegated_source_writer": null,
+  "candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
+  "pending_candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
+  "source_frozen_at": "2026-11-02T08:53:20.199995+00:00"
 }
