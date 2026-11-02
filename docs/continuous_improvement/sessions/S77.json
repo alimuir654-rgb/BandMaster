@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-13",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "7cf97b792396c6d088611a8a415fb5a93fd976316285cedd022cbf9794ebda3c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 915149,
+    "sha256": "22194320259b188ee2fada2b64bbd4c7d7479b652bf8361f312afe79a8f15d36"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S76.json",
+    "Pureoriginalpairbothchoices/fullpostchainFinance+receiptvalidation/10-inputfocusproofreusebinding",
+    "Original73gameplay88opening/import4standard withstrictEMPTYERRORs andoneGL",
+    "Nativeall4realheldconversation/2independentchoicebranches/savefailure/retry/reload/guards/scroll/nativeoriginal4viewreview"
+  ],
+  "id": "S77",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner2Nov10:48: do not expose underlyingdecisionmetrics; playersassesslikelyoutcomes, coreprinciplethroughout. This replaces earlierprecommitpilldirection. Existingnoonmanualwindow/noAPKZIP.",
+  "baseline_sha": "ba002020dd7ec7f10dfa3816dd43d7ef4168ceb0",
+  "game_baseline_sha": "cc717e754b5ed8f7b838c8fa0b120eba9eb28b02",
+  "dominant_issue": "BM-21",
+  "hypothesis": "Usein-worldsituations/dialogue/actionsbeforecommit, hideexactnonfinancialoutcomevectors/odds/modelthresholds inlabels/Details/tooltips; preserveexplicitprice/dayterms andactualsavedpost-resultpills. Models/economics/save unchanged.",
+  "stop_condition": "No rawScripts/art/modelchanges/newbreadth. Newsource11:15/corrections11:30/allwrites11:50/hard12;twoineffectiveattemptschangeMETHOD/HOLD.",
+  "target": {
+    "locator": "/workspace/work/morning-20261102/s76/review/band-conversation-decision-phone.png",
+    "original_sha256": "35ba89209618dea3e9efd36e1b2821ea79f7752ce559341d3594d9047b208d17",
+    "pixels_inspected": true,
+    "kind": "Actuallyopenednumericchoicepreviewownerhasnowrejected; newtargetisownerexplicitqualitativechoices, existingportraits/nativepaper/fonts unchanged."
+  },
+  "controlled_comparison": "Exactsamecareer/phase/all4viewports versuscc717; precommitmathabsentincludingDetails/tooltips; actualpost-savefulltypedcareer/receiptidentical. ExistingBandS76/radioS71journeyprobesadaptONLYnewUIcontract, retainonce/save/rollback/oracle.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_moment_desk.gd",
+    "experiments/playable_flightcase/radio_visit_desk.gd",
+    "experiments/playable_flightcase/live_desk.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/offstage_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/morning-20261102/s77",
+    "/tmp/bandmaster-morning-20261102/s77",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "started_at": "2026-11-02T10:52:33.672249+00:00",
+  "scope_end": "2026-11-02T11:40:00Z",
+  "hard_stop": "2026-11-02T12:00:00Z",
+  "source_freeze": "2026-11-02T11:15:00Z",
+  "all_source_corrections_stop": "2026-11-02T11:30:00Z",
+  "all_write_freeze": "2026-11-02T11:50:00Z",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "current_plan_sequence": 10,
+  "current_review_board_sequence": 91
+}

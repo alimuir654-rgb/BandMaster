@@ -1,13 +1,13 @@
 {
-  "writer": null,
-  "base_head": "326be35126301b0a7ece92586923e44cd240bbb4",
-  "claimed_at": "2026-11-02T09:33:23.460835+00:00",
+  "writer": "S77-decision-uncertainty-20261102T1054",
+  "base_head": "ba002020dd7ec7f10dfa3816dd43d7ef4168ceb0",
+  "claimed_at": "2026-11-02T10:52:33.672249+00:00",
   "expires_at": "2026-11-02T11:40:00Z",
-  "scope": "ONE F06 original rehearsal_resentment conversation, originalrules/postchain, actualpairportraits, once-onlysavedconsequence; no newart/APKZIP/queue.",
+  "scope": "Ownernewcoreprinciple;7UIonly concealprecommitoutcomemath, models/post-resultfacts/costsunchanged.",
   "authority": "Owner2Nov: next steps; work to mid-day today. F06approvedscope; explicitnoonmanualwindow.",
   "owner_approved": false,
   "previous_closed_session": "S76",
-  "status": "released",
+  "status": "claimed",
   "released_at": "2026-11-02T10:22:31.827772+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "ONEselectedcompiledARM64APK private toverifiednamedreader; PhonePageproseonly, no newpixels/source/history upload",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -331,9 +331,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "Read-only owner native-screen/phone/art feedback and exact-checkpoint readiness. F01 focus and ONE F06originalconversation are complete; do not manufacture more QA/art/gameplay. New steering or demonstratedexisting-screendefect gets separatelyscopedlease beforemanual11:30repair/11:50write/12:00hardstop. F09/art remainheld; noAPKZIP/queueextension.",
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "next_action": "S77 uncertaintyUI implementation/proof; same noonwindow/noAPKZIP/queue.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -344,7 +344,19 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": null,
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "allowed_paths": [
+      "experiments/playable_flightcase/band_moment_desk.gd",
+      "experiments/playable_flightcase/radio_visit_desk.gd",
+      "experiments/playable_flightcase/live_desk.gd",
+      "experiments/playable_flightcase/show_desk.gd",
+      "experiments/playable_flightcase/offstage_desk.gd",
+      "experiments/playable_flightcase/career_desk.gd",
+      "experiments/playable_flightcase/opening_ui.gd"
+    ],
+    "expires_at": "2026-11-02T11:15:00Z"
+  },
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
@@ -362,7 +374,7 @@
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "complete_frozen_read_only",
+  "source_phase": "delegated_UI_uncertainty_only",
   "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -373,7 +385,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S76",
+  "session": "S77",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -494,7 +506,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "cc717e754b5ed8f7b838c8fa0b120eba9eb28b02",
-  "current_session": "S76",
+  "current_session": "S77",
   "closed_at": "2026-11-02T10:22:31.827772+00:00",
   "last_updated_utc": "2026-11-02T10:22:31.827772+00:00",
   "last_validation": "/workspace/work/morning-20261102/s76/complete-validation.json",
