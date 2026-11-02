@@ -37,16 +37,16 @@ static func resolve(state: Dictionary, attendee_indices: Array) -> Dictionary:
    if not Core._integer(person.get(field,50 if field!="fatigue" else 0)):return {"ok":false,"message":"A musician's rehearsal values are not readable."}
   var risk: Variant=person.get("rehearsal_risk",{})
   if not risk is Dictionary or not Core._integer(risk.get("missed_preparation",0)):return {"ok":false,"message":"A musician's preparation record is not readable."}
-  var trait: String=str(person.get("trait","")).to_lower()
-  var effect: Array=traits.get(trait,[0,0])
+  var performer_trait: String=str(person.get("trait","")).to_lower()
+  var effect: Array=traits.get(performer_trait,[0,0])
   extra_readiness+=int(effect[0])
   stress+=int(effect[1])
   person.fatigue=clampi(int(person.get("fatigue",0))+6,0,100)
   person.skill=clampi(int(person.get("skill",50))+2,0,100)
   person.morale=clampi(int(person.get("morale",50))-1,0,100)
   var mood: int=0
-  if trait in ["perfectionist","control freak","reliable"]:mood=3
-  elif trait in ["restless","chaos","unreliable"]:mood=-3
+  if performer_trait in ["perfectionist","control freak","reliable"]:mood=3
+  elif performer_trait in ["restless","chaos","unreliable"]:mood=-3
   person.morale=clampi(int(person.get("morale",55))+mood,0,100)
   missed+=int(risk.get("missed_preparation",0))
  next.readiness=clampi(int(next.readiness)+extra_readiness,0,100)
