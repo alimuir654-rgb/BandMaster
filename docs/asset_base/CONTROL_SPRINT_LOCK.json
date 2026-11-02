@@ -1,13 +1,13 @@
 {
-  "writer": null,
-  "base_head": "6a0793a13d9e514429cb6d246173bb3e33db6d35",
-  "claimed_at": "2026-11-02T08:43:19.258130+00:00",
-  "expires_at": "2026-11-02T10:30:00Z",
-  "scope": "New owner-authorised manual development window to12:00 London. F01 player-chosen focus first; ONE source writer, original models/art protected. No APK/ZIP/queue extension.",
-  "authority": "Owner: Ok, what are the next steps then? You can work to mid-day today.",
+  "writer": "S76-original-bandmate-conversation-20261102T0930",
+  "base_head": "326be35126301b0a7ece92586923e44cd240bbb4",
+  "claimed_at": "2026-11-02T09:33:23.460835+00:00",
+  "expires_at": "2026-11-02T11:40:00Z",
+  "scope": "ONE F06 original rehearsal_resentment conversation, originalrules/postchain, actualpairportraits, once-onlysavedconsequence; no newart/APKZIP/queue.",
+  "authority": "Owner2Nov: next steps; work to mid-day today. F06approvedscope; explicitnoonmanualwindow.",
   "owner_approved": false,
   "previous_closed_session": "S39",
-  "status": "released",
+  "status": "claimed",
   "released_at": "2026-11-02T09:23:57.942187+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -333,7 +333,7 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "next_action": "Fresh S76 preflight/lease for ONE original rehearsal_resentment bandmate conversation, real eligible pair/unchanged original choices/one-day Story-Calendar-Life-Finance-save once, existing portraits; original art/F09 HOLD remains separate. Noon manual stop; no APKZIP/queue extension.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
@@ -374,7 +374,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S75",
+  "session": "S76",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",

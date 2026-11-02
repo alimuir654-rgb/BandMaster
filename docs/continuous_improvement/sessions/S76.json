@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-13",
+    "BM-14",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S76",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Ownerauthoriseddevelopmentto12:00London2Nov; approvedF06ONEoriginalrehearsalconversationaftercompletedS75. No additionalroutinepermission/newart/APKZIP/queue.",
+  "baseline_sha": "326be35126301b0a7ece92586923e44cd240bbb4",
+  "game_baseline_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
+  "dominant_issue": "BM-36",
+  "hypothesis": "One existing deterministic bandmate case withactualportraits, heldvoices, visibleoriginaltradeoffs anddurableonce-onlyconsequence makesbandrelationshipsplayable withoutnewart/economics/dialogueengine.",
+  "stop_condition": "Holdunsafe/postsettlementreplay/newpolicy/sourceoutside3paths. No inventedpair/history/nominaldeltaassavedfact. TwoineffectiveattemptschangeMETHOD/HOLDcase. Sourcecut11:15/repair11:30/allwrites11:50/hard12.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "7cf97b792396c6d088611a8a415fb5a93fd976316285cedd022cbf9794ebda3c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 895701,
+    "sha256": "249732b03734606b2c4ed421b1d9a19c53cce010bf0f269581e71709f2882605"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-morning-20261102/s75/focus-focus-64a9c67-tall-v4/captures/02-focus-chooser-initial-720x1280.png",
+    "original_sha256": "f75eb0ef76effbf9e2ccaabc8c2abcdb53b84c8e38eb99debceb05348d2e99ad",
+    "pixels_inspected": true,
+    "kind": "Actuallyopenedcurrentnativefamily/paper/stamp/native16pills target; F06hasnoapproveddedicatedfullscreenmockup. OriginalC25contactportrait3referencesalsoactuallyopened. No newart."
+  },
+  "cast_references": [
+    {
+      "id": "cast_zoe",
+      "path": "res://Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "sha256": "0645525447b8160f08d8b33b333f95797a8ce0e77d446702699fb422a0853cdc",
+      "actually_opened": true,
+      "source_kind": "approvedC25contactcropnotmaster"
+    },
+    {
+      "id": "cast_marcus",
+      "path": "res://Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "sha256": "fd8837224b05e22a888e1795b2d2b7f294b02bbc6143115ac950fcfa6a230798",
+      "actually_opened": true,
+      "source_kind": "approvedC25contactcropnotmaster"
+    },
+    {
+      "id": "cast_arjun",
+      "path": "res://Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "sha256": "7b3b7ae2b40248eaa24963e631f756932fdefaf997085e11fe0f2c273f846939",
+      "actually_opened": true,
+      "source_kind": "approvedC25contactcropnotmaster"
+    }
+  ],
+  "controlled_comparison": "Samecareer/pair/pre-choicefixture originalDrama+StoryCalendarLifeFinance oracle vsadapter; originalcurrentbanddossier/portraitbytes andnative4sizes. Newreceiptaloneexcludedforlegacyoraclecomparison, allactualfactsindependentlychecked. Source54Scripts/art exact.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_moment_rules.gd",
+    "experiments/playable_flightcase/band_moment_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/morning-20261102/s76",
+    "/tmp/bandmaster-morning-20261102/s76",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S76.json",
+    "Pureoriginalpairbothchoices/fullpostchainFinance+receiptvalidation/10-inputfocusproofreusebinding",
+    "Original73gameplay88opening/import4standard withstrictEMPTYERRORs andoneGL",
+    "Nativeall4realheldconversation/2independentchoicebranches/savefailure/retry/reload/guards/scroll/nativeoriginal4viewreview"
+  ],
+  "contract": "/workspace/BandMaster/docs/continuous_improvement/S76_BANDMATE_CONVERSATION.md",
+  "started_at": "2026-11-02T09:33:23.460835+00:00",
+  "scope_end": "2026-11-02T11:40:00Z",
+  "source_freeze": "2026-11-02T11:15:00Z",
+  "all_source_corrections_stop": "2026-11-02T11:30:00Z",
+  "all_write_freeze": "2026-11-02T11:50:00Z",
+  "hard_stop": "2026-11-02T12:00:00Z",
+  "current_plan_sequence": 9,
+  "current_review_board_sequence": 50,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "source_phase": "preflight_before_source"
+}
