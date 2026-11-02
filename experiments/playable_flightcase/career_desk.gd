@@ -35,7 +35,15 @@ const Launcher = preload("res://experiments/playable_flightcase/career_launcher.
 const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
 const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
+const GoalFocus = preload("res://experiments/playable_flightcase/goal_focus_rules.gd")
 var game
+var _focus_picker_open := false
+var _focus_draft := ""
+var _focus_expected: Dictionary = {}
+var _focus_picker_epoch := 0
+var _focus_owner_id := 0
+var _focus_return_page := "home"
+var _focus_return_receipt := false
 var opening_owner
 var reduced_motion := false
 var page := "home"
@@ -81,6 +89,8 @@ func _ready() -> void:
 func open_home() -> void:
  if busy or is_instance_valid(_live_dialog):
   return
+ _focus_picker_open=false
+ _focus_picker_epoch+=1
  page = "finance" if Finance.is_over(game.career) else "home"
  if not Finance.is_over(game.career) and RadioVisit.locked(game.career):
   page="recording"
@@ -228,6 +238,8 @@ func _render() -> void:
   _songs_page(body,compact)
  elif page=="recording":
   RecordingDesk.render(self,body,compact)
+ elif page=="goal_focus":
+  DirectionCard.chooser(self,body,compact)
  elif page=="calendar":
   CalendarDesk.render(self,body,compact)
  elif page=="gigs":
@@ -271,13 +283,16 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
  elif RadioVisit.locked(game.career):
   destination="recording"
   recording_mode="visit"
+ if destination!="goal_focus":
+  _focus_picker_open=false
+  _focus_picker_epoch+=1
  page = destination
  receipt_open = false
  goal_notice = ""
@@ -608,6 +623,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   OffstageDesk.dock(self,dock,compact)
  elif page=="recording":
   RecordingDesk.dock(self,dock,compact)
+ elif page=="goal_focus":
+  DirectionCard.chooser_dock(self,dock)
  elif page=="finance" and RadioVisit.locked(game.career):
   RadioDesk.recovery_dock(self,dock)
  elif page=="calendar":
@@ -813,6 +830,106 @@ func _goal_direction() -> Dictionary:
   view["route_label"]="OPEN LIVE DESK"
   view["route_hint"]="YOUR BOOKING COMES FIRST"
  return view
+
+func _goal_focus_priority() -> bool:
+ if Finance.is_over(game.career):
+  _navigate("finance")
+  return false
+ if RadioVisit.locked(game.career):
+  _navigate("recording")
+  return false
+ var booking: Dictionary=Direction.booking_guard(game.career)
+ if not bool(booking["ok"]):
+  goal_notice=str(booking["message"])
+  _render()
+  return false
+ if bool(booking["due"]):
+  _navigate("gigs")
+  return false
+ return true
+
+func _goal_focus_open(expected_generation: int) -> void:
+ if not is_inside_tree() or not is_visible_in_tree() or busy or is_instance_valid(_live_dialog) or game==null or opening_owner==null or expected_generation!=_render_generation:return
+ var relevant: bool=(page=="home" and not receipt_open) or (receipt_open and receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty())
+ if not relevant or not _goal_focus_priority():return
+ _focus_return_page=page
+ _focus_return_receipt=receipt_open
+ _focus_expected=game.career.duplicate(true)
+ _focus_owner_id=get_instance_id()
+ _focus_picker_epoch+=1
+ _focus_picker_open=true
+ var selected: Dictionary=GoalFocus.validate(game.career)
+ var suggested: Dictionary=Direction.current(game.career)
+ _focus_draft=str(selected.get("chapter_id",""))
+ if _focus_draft.is_empty() and bool(suggested.get("ok",false)) and not bool(suggested.get("done",false)):_focus_draft=str(suggested.get("id",""))
+ page="goal_focus"
+ receipt_open=false
+ goal_notice=""
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="GoalFocusChoice_"+_focus_draft if not _focus_draft.is_empty() else "GoalFocusBackAction"
+ _render()
+
+func _goal_focus_context(epoch: int, generation: int) -> bool:
+ return is_inside_tree() and is_visible_in_tree() and not busy and not is_instance_valid(_live_dialog) and game!=null and opening_owner!=null and page=="goal_focus" and not receipt_open and _focus_picker_open and epoch==_focus_picker_epoch and generation==_render_generation and get_instance_id()==_focus_owner_id
+
+func _goal_focus_select(id: String, epoch: int, generation: int) -> void:
+ if not _goal_focus_context(epoch,generation) or not _goal_focus_priority():return
+ if game.career!=_focus_expected:
+  goal_notice="The band changed while you were choosing. Go back and open the chooser again."
+  _render()
+  return
+ var preview: Dictionary=GoalFocus.choose(game.career,id)
+ if not bool(preview["ok"]):
+  goal_notice=str(preview["message"])
+  _render()
+  return
+ _focus_draft=id
+ goal_notice=""
+ _pending_focus="GoalFocusChoice_"+id
+ _render()
+
+func _goal_focus_close() -> void:
+ _focus_picker_open=false
+ _focus_picker_epoch+=1
+ page=_focus_return_page
+ receipt_open=_focus_return_receipt
+ _pending_focus="GoalFocusOpenAction"
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _render()
+
+func _goal_focus_back(epoch: int, generation: int) -> void:
+ if not _goal_focus_context(epoch,generation):return
+ if not _goal_focus_priority():return
+ _goal_focus_close()
+
+func _goal_focus_commit(clear: bool, epoch: int, generation: int) -> void:
+ if not _goal_focus_context(epoch,generation) or not _goal_focus_priority():return
+ if game.career!=_focus_expected:
+  goal_notice="The band changed while you were choosing. Go back and open the chooser again."
+  _render()
+  return
+ busy=true
+ var before: Dictionary=game.career.duplicate(true)
+ var result: Dictionary=GoalFocus.clear(before) if clear else GoalFocus.choose(before,_focus_draft)
+ if not bool(result["ok"]):
+  busy=false
+  goal_notice=str(result["message"])
+  _render()
+  return
+ if bool(result["changed"]):
+  game.career=result["state"]
+  if not bool(opening_owner.save_draft()):
+   game.career=before
+   busy=false
+   goal_notice="Your focus could not be saved. The previous band state is retained; you can retry."
+   _pending_focus="GoalFocusClearAction" if clear else "GoalFocusCommitAction"
+   _render()
+   return
+ busy=false
+ goal_notice=str(result["message"])
+ _goal_focus_close()
 
 func _goal_preparation(expected_route: String) -> void:
  # This is free navigation, not a preparation resolver or a chapter claim.

@@ -3,6 +3,7 @@ extends RefCounted
 ## No actions, chapter claims, rewards, IO, state writes or presentation callbacks.
 const Chapters = preload("res://Scripts/career_chapters.gd")
 const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
+const Focus = preload("res://experiments/playable_flightcase/goal_focus_rules.gd")
 const MAXIMUM := 2147483647
 const V1_ORIGINALS_MODIFIERS := [-22,-10,-4,2]
 const LABELS := {"songs":"Originals","rehearse":"Rehearsals","gigs":"Shows","fans":"Fans","readiness":"Readiness","day":"Days"}
@@ -26,6 +27,10 @@ static func current(state: Dictionary) -> Dictionary:
  if state.has("action_counters"):
   if not state["action_counters"] is Dictionary:return _held("The saved preparation history needs validation.")
   if state["action_counters"].has("rehearse") and not _whole(state["action_counters"]["rehearse"]):return _held("The saved rehearsal count needs validation.")
+ if state.has(Focus.KEY):
+  var focus: Dictionary=Focus.validate(state)
+  if not bool(focus["ok"]):return _held(str(focus["message"]))
+  if bool(focus["pinned"]):return _focused(state,str(focus["chapter_id"]))
  var original: Dictionary=Chapters.progress(state)
  var result: Dictionary={"ok":true,"message":"","id":str(original.get("id","")),"title":str(original.get("title","NEXT BAND GOAL")),"description":str(original.get("description","")),"done":bool(original.get("done",false)),"ready":bool(original.get("ready",false)),"requirements":[],"route":"","route_label":"","route_hint":""}
  for raw in original.get("requirements",[]):
@@ -37,6 +42,22 @@ static func current(state: Dictionary) -> Dictionary:
  var route: String=str(result["route"])
  result["route_label"]=str(ROUTE_LABELS.get(route,""))
  result["route_hint"]=str(ROUTE_HINTS.get(route,""))
+ return result
+
+static func _focused(state: Dictionary, id: String) -> Dictionary:
+ var manual: Dictionary=Focus.view(state,id)
+ if not bool(manual["ok"]):return _held(str(manual["message"]))
+ var result: Dictionary={"ok":true,"message":"","id":id,"title":str(manual["title"]),"description":str(manual["description"]),"done":bool(manual["claimed"]),"ready":bool(manual["ready"]),"requirements":[],"route":"","route_label":"","route_hint":"","pinned":true,"claimed":bool(manual["claimed"])}
+ for raw in manual["requirements"]:
+  var key: String=str(raw["key"])
+  var row: Dictionary={"key":key,"label":str(LABELS.get(key,key.capitalize())),"current":int(raw["current"]),"target":int(raw["target"]),"recorded":bool(raw["recorded"])}
+  result["requirements"].append(row)
+  if str(result["route"]).is_empty() and (not bool(row["recorded"]) or int(row["current"])<int(row["target"])):result["route"]=str(ROUTES.get(key,""))
+ if bool(result["ready"]) or bool(result["claimed"]):result["route"]=""
+ var route: String=str(result["route"])
+ result["route_label"]=str(ROUTE_LABELS.get(route,""))
+ result["route_hint"]=str(ROUTE_HINTS.get(route,""))
+ if bool(result["claimed"]):result["description"]="This focused chapter is already completed. Change focus or return to the suggested goal whenever you choose."
  return result
 
 static func booking_guard(state: Dictionary) -> Dictionary:
