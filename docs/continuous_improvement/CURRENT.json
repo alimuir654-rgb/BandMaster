@@ -11,13 +11,13 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "claimed",
-  "next_action": "Fresh S81 scoped preflight for ONE coherent LanternRoom gig journey. Adopt reviewed legacy-phase mapping/idlessparticipant keys/zeroFinance checkpoints/seam beforeStoryReviewsFinance; preserve-all storage relocation onlyunderexactreviewedcontract. New road art proposal and A06 Nia reuse remainowner-gated. Same48hourworker endsNov4 21:24:35London.",
+  "next_action": "Start fresh S82 preflight now for the reviewed v3 venue/date/calendar/travel/cancellation contract (30815a9c08eaeeee1a4ed8a10d7af122b5e8213d332784fcbd47475d51a94eb5). Include the demonstrated phone/wide gig-family layout limits; preserve old agreements, S81 active phases, original 54 Scripts and once-only accounting. Same finite 48-hour queue/thread, end 4 Nov 21:24:35 London.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
     "native_full_input_verified": true,
-    "tested_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-    "validation": "/tmp/bandmaster-s78-20261102/complete-validation.json",
+    "tested_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+    "validation": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/complete-validation.json",
     "visual_verdict": "partial",
     "owner_approved": false
   },
@@ -2795,19 +2795,20 @@
     }
   ],
   "latest_material_review": {
-    "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+    "source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "root": "/tmp/bandmaster-s78-20261102/visual-review-root.json",
-    "originals_actually_opened": 7
+    "root": "/tmp/bandmaster-s81-20261102/visual-review-root.json",
+    "independent": "/tmp/bandmaster-s81-20261102/review/visual-independent/visual-review.json",
+    "root_current_originals_opened": 14,
+    "independent_current_originals_opened": 23
   },
   "latest_focused_native_qa": {
-    "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-    "receipt": "/tmp/bandmaster-s78-20261102/focused-validation.json",
-    "checks": 3391,
-    "originals": 22,
+    "source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+    "receipt": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/focused-validation.json",
+    "checks": 7899,
+    "originals": 76,
     "whole_journeys": 4,
-    "additional_independent_phone_plan_branch": true,
     "all_error_lines": []
   },
   "previous_focused_native_qa": {
@@ -3269,7 +3270,7 @@
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
   "latest_unverified_candidate": null,
-  "pending_candidate_source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
+  "pending_candidate_source_sha": null,
   "historical_held_candidates": [
     {
       "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
@@ -3287,8 +3288,8 @@
       "successor_repair_verified": "47692162d7d68e0eca354760734f21d216e3a392"
     }
   ],
-  "last_completed_session": "S80",
-  "writer": "S81-gig-journey-20261102T2135",
+  "last_completed_session": "S81",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3456,7 +3457,7 @@
     "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
     "closeout": "/tmp/bandmaster-s78-20261102/closeout.json"
   },
-  "candidate_source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
+  "candidate_source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
   "candidate_native_verified": true,
   "candidate_status": "verified_local_visual_partial",
   "touch_rescope": {
@@ -3540,15 +3541,15 @@
   "owner_review_board": {
     "url": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
     "page_id": "page_b3929162c7b88191acd29e55dc06e779",
-    "sequence_observed": 117,
+    "sequence_observed": 118,
     "features": 11,
     "artwork_blocks": 5,
-    "selected_images": 32,
-    "decisions": "All66choices/22checkedpreserved; completeddecisions/artworkarchivedcollapsed, nooutstandingdecisionsboard117; A04directionONLY/productionHOLD.",
+    "selected_images": 35,
+    "decisions": "All66choices/22checked preserved. Completed approvals/art/version history collapsed; no outstanding decision. A07 specifically approved; overall visual partial.",
     "receipt": "/tmp/bandmaster-s79-20261102/review-delivery.json",
     "research_log": "/workspace/work/review-roadmap-20261101/research-log.md",
     "no_autoimplementation": true,
-    "sequence": 117,
+    "sequence": 118,
     "specific_art_approvals": {
       "A02v2": "APPROVED",
       "A03v2": "APPROVED",
@@ -3560,7 +3561,7 @@
     "checked_choices": 22,
     "prior_choice_blocks_preserved": 60,
     "checked_choice_blocks_preserved": 20,
-    "latest_delivery": "/tmp/bandmaster-s81-20261102/approval-area-a07-archive.json",
+    "latest_delivery": "/tmp/bandmaster-s81-20261102/review-delivery.json",
     "F11": "APPROVED; firstpilotdelivered; overallfeaturePARTIAL"
   },
   "previous_local_checkpoint_before_S63": {
@@ -3666,11 +3667,11 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": null,
   "last_writer": "S80-phone-quality-20261102T2040",
-  "source_write_allowed": true,
-  "pending_implementation": true,
+  "source_write_allowed": false,
+  "pending_implementation": false,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "scoped_scene_lifecycle_repair635",
+  "source_phase": "verified_core_visual_partial",
   "claimed_at": "2026-11-02T21:33:33.933754+00:00",
   "expires_at": "2026-11-02T23:45:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
@@ -3751,8 +3752,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 16,
-  "current_review_board_sequence": 117,
+  "current_plan_sequence": 17,
+  "current_review_board_sequence": 118,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -3899,7 +3900,7 @@
   },
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
+  "candidate_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
   "base_head": "c97e1d5164a4d8d265725855af4ed04fea8a6965",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
@@ -4006,7 +4007,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": true,
-  "source_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
+  "source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
   "latest_local_native_checkpoint": {
     "source_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
     "validation": "/tmp/bandmaster-s80-20261102/complete-validation.json",
@@ -4213,8 +4214,8 @@
   },
   "approval_area": {
     "active_decision": null,
-    "completed_decisions": "nativecollapsedarchive/humanstatespreserved",
-    "board_sequence": 117,
+    "completed_decisions": "Native collapsed archive; all human states and history preserved",
+    "board_sequence": 118,
     "receipt": "/tmp/bandmaster-s81-20261102/approval-area-cleanup.json",
     "latest_owner_decision": "A07v1APPROVED/archived117"
   },
@@ -4225,14 +4226,21 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "last_verified_game_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
+  "last_verified_game_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
   "current_candidate": {
-    "source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
-    "runtime": "/tmp/bandmaster-s81-20261102/candidate-gig-v3-a07/runtime",
-    "manifest": "/tmp/bandmaster-s81-20261102/candidate-gig-v3-a07/source.json",
-    "clean_import_pass": true,
-    "all_error_lines": [],
-    "native_status": "HELD7d: initial-layoutkillsmotion; Sceneonlyrepairscoped635",
-    "curated_inputs": 399
-  }
+    "source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+    "runtime": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/runtime",
+    "manifest": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/source.json",
+    "technical_pass": true,
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "curated_inputs": 399,
+    "validation": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/complete-validation.json"
+  },
+  "last_verified_code_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+  "last_verified_component_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+  "last_verified_native_run_source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+  "last_verified_local_native_source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+  "source_writer_released_at": "2026-11-02T23:02:01.586293+00:00",
+  "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json"
 }

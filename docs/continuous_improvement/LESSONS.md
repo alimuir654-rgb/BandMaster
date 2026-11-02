@@ -186,6 +186,8 @@ S71 extension to BM-30: successful engine execution can precede failed artifact 
 
 S71 extension to BM-24/BM-32: reduced-motion replacement can put a legitimate new acknowledgement exactly beneath the previous action coordinate. Trace the actual GUI receiver and unchanged transaction/save counts before labelling the second input a duplicate-settlement bug. Freeze immutable receiver identity and geometry before dispatch: a pressed callback can free the node, so a later node-null comparison is not reliable evidence that the event was unarmed. Preserve both fresh result inspection and the old-coordinate input proof.
 
+S81 extension: a busy view rebuild can create disabled navigation controls that stay disabled after only the semantic actions are released. Restore permitted Menu/options explicitly, retain invalid soundcheck guards, and recheck modal ownership at every deferred focus step. Initial Container layout is also a resize notification: finite scene motion must begin after completed native geometry, while Skip before that boundary cancels its pending start and later real resize/teardown restores identity without replay. Never attach settlement to presentation callbacks.
+
 ### BM-33
 **What went wrong:** Blind regex/source injection and stale transformed path assertions broke later integrations.
 **Prevent:** Read current source. Prefer stable functions/configuration and precise patches. Distinguish an obsolete assertion from a product failure with evidence; never weaken checks to get green.
@@ -196,6 +198,10 @@ S63 extension: a genuine touch fling can leave scroll and target geometry moving
 S68 extension: calling a geometry assertion immediately after a real Menu/Continue view rebuild can inspect live nodes before any native allocation. The same product showed a 0×0 scroll clip and margin-only pill panels before drawing, then identical valid geometry at two completed draws. Record the initial rectangles and bounded postdraw samples, reacquire current targets and retain every original clipping/value/paid/save assertion. A later failure PNG already waits for draw and cannot establish the earlier assertion geometry by itself.
 
 S78 pixel-comparison prevention: compare complete raw RGBA bytes for equality before interpreting any difference box. RGBA Image.getbbox can default to alpha-only semantics; opaque images can have changed RGB while the alpha difference is zero. Calculate RGB and alpha bounds separately and retain the failed classifier. This is a comparison guard, not an artistic score.
+
+S81 extension: arm passive native-draw observation BEFORE the input that starts a short animation; a later observer can miss its whole lifetime. Retain the full timeline on failure, including scene identity, geometry and tween state. An early zero-motion timeline can distinguish a real lifecycle fault from late sampling. After Menu/Continue, inspect whether the retained practice pane is a saved recap or editor and acknowledge its actual free control before requesting editor-only navigation. Do not fix product code or weaken whole-journey checks to satisfy a wrong pane assumption.
+
+S81 surface reuse: native font-size checks do not prove contrast. A helper that draws paper ink needs its matching paper surface when reused in a dark journey. Inspect actual original PNGs before acceptance. Publication captures should expose complete held words and settled images through real player input; keep diagnostic failure captures raw.
 
 ### BM-34
 **What went wrong:** Old successful runs, untested HEAD and publication commits could be confused; a pull-request-only wrapper missed push runs.

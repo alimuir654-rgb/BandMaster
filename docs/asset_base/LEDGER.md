@@ -1306,3 +1306,12 @@ Owner repeats that instant actions and shallow audition/songwriting interactions
 ## S80 — phone quality repair and 48-hour extension
 
 Verified game `5022c9515e295a6604280c0034016c6b9b9396bf`: four owned UI files; original saved outcomes/economy/art bytes preserved. 73/88/import/four standard journeys,1930focused/four genuine writingflows44PNGs+36read-onlybrowse2PNGs; allERRORempty/nativeorphan0.394curated/389priorprotected54Scripts3UID.112standardRGBAexact60scopedchanges0unexpected.116modelchecksREUSED23inputs/currentexecution0. Board100adds4native images/A06pendingreusechoices, preservingall60oldchoices20checked27images; plan15sameworker48h throughNov4 21:24:35London. VisualPARTIAL/ownerfalse/physicalphonepending/V8unchanged. Closeout `/tmp/bandmaster-s80-20261102/closeout.json`; writerreleased. NextfreshS81completegigjourney; noartapprovalinferred.
+
+
+## S81 local gig core and approval area closeout
+
+Source `61d99a5fc777eecdbf4fcc99551b4bf52c6b485a`: technical PASS, visual PARTIAL, owner false. Saved set-out/travel/load-in/soundcheck/backstage/set/after-set/pack-up/final-wrap journey; explicit actual song completions and one contextual live intent; metadata phases spend zero cash/day/Finance, one final original settlement, whole-career save rollback/retry. A07 approved exact road plate integrated; A04 playing art remains held.
+
+73 gameplay/88 opening/import/four standard journeys and 7899 focused checks/four genuine gig nights PASS. 172 canonical standard PNGs (168 RGBA exact,4 disclosed Reopen fades),176 retained;76 focused originals. Current ERROR lists empty, measured native orphan growth0. 2942 pure checks REUSED through34 exact inputs; current model executions0 and model orphans not measured.399 curated/391 protected/all54 original Scripts and3 tracked UIDs exact.
+
+Root opened14 current originals; independent23; five lenses SIMULATED. Phone hardware density, wide framing, scrolling and missing playing musicians remain. Board118/Plan17:66choices/22checked/all32oldimages preserved,3 new native images; completed decisions collapsed. V8 unchanged, no new APK/ZIP/source upload. Proof `/tmp/bandmaster-s81-20261102/proof-final-61d99a5/complete-validation.json`; closeout `/tmp/bandmaster-s81-20261102/closeout.json`. Writer and GL released 2026-11-02T23:02:01.586293+00:00. Next: fresh S82 joined venue/date/calendar/travel/cancellation scope.

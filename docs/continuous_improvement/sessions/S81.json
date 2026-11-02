@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S81",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner: queue/goahead, resourceconstraintlifted, maxoutnext48hours. ONE complete source-grounded gigjourney now, approval-gated missingroadart; preserveoldmodels/saves/cast.",
   "baseline_sha": "c97e1d5164a4d8d265725855af4ed04fea8a6965",
@@ -59,27 +59,27 @@
     "/workspace/generated_images (new unique proposal file only; never edit prior sources)"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "8ad64923fbdc5cb0b4a604e11ccb9a8169d17a0742cccb6b356412a5552cb775",
+    "docs/continuous_improvement/LESSONS.md": "5445f63bf508f337342a4f710190bec921dec4ad4e26ba9f6c74a203c581e562",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1007911,
-    "sha256": "c79e41ae5fd0f72b84fb1e4f75985c692171a5ca2512e29e47cab512296fb7d3"
+    "bytes": 1013522,
+    "sha256": "fb210cff790fcee34f7f46265f9120990ccc2bb94128d965c3bff3d1918db50e"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S81.json",
     "Puremodel legacy/noactive/futurewrapper/0..3songs/contextbounds/stale/savepolicy proofs; exact candidate73/88/import/4standard+4genuinegigjourneys/actualinput/whole-savefailure/retry/resume/4viewnativeoriginals/EMPTYERRORs"
   ],
-  "source_write_allowed": true,
-  "art_write_allowed": true,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
   "art_scope": "A07v1 specificownerAPPROVED exactraw1b12... bytecopy to scopedproductionpath;399sourcecuration; allotherartdecisionsunchanged.",
   "source_contract": "docs/continuous_improvement/S81_GIG_JOURNEY_CONTRACT.md",
   "source_contract_sha256": "b20abd462cf12963d8e9fb739b9f08a583563e3200b4a52ce6dc9962959f6e54",
-  "current_plan_sequence": 16,
-  "current_review_board_sequence": 117,
+  "current_plan_sequence": 17,
+  "current_review_board_sequence": 118,
   "started_at": "2026-11-02T21:33:33.933754+00:00",
   "scope_end": "2026-11-02T23:45:00Z",
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": false,
   "storage_contract": {
     "kind": "preserve-ALL relocation, not purge",
@@ -102,6 +102,148 @@
     "reason": "Workspace2MB cannot safely accept newimagegenoutput orsourceexpansion. Copyallcachebytestotmp, verifyexacttree, switchoriginalpathtosymlink, reclaimonlyverifiedderivedcachephysicalcopy; no rawsource/art/PNG/log/receipt/historydeleted."
   },
   "owner_scope_update": "HiddenredcancellationoptionsandMenu lifecyclefix within2existingUIpaths; source-groundedS82booking/calendar/traveloverhaulqueuedbeforeupdatedgigrelease. ApprovedA07roadplateintegrationandguardedmodalfocuscorrection beforeexactnativeproof.",
-  "candidate_source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
-  "current_correction": "ShowDesk.journey_soundcheck-onlymatchingpapersurface637; existing_setlist/hardware/actions/modelsunchanged."
+  "candidate_source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+  "current_correction": "ShowDesk.journey_soundcheck-onlymatchingpapersurface637; existing_setlist/hardware/actions/modelsunchanged.",
+  "closed_at": "2026-11-02T23:02:01.586293+00:00",
+  "closeout": {
+    "session": "S81",
+    "tested_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+    "evidence": [
+      "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/complete-validation.json",
+      "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/focused-validation.json",
+      "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/standard-comparison.json",
+      "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/controlled-comparison.json",
+      "/tmp/bandmaster-s81-20261102/review/final-proof/source61d-readonly-audit/source-protection-audit.json",
+      "/tmp/bandmaster-s81-20261102/review/final-proof/source61d-readonly-audit/runtime-source-audit.json",
+      "/tmp/bandmaster-s81-20261102/visual-review-root.json",
+      "/tmp/bandmaster-s81-20261102/review/visual-independent/visual-review.json",
+      "/tmp/bandmaster-s81-20261102/review-delivery.json"
+    ],
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "new_issue_review": "All S81 events through640 reviewed. Failed source/harness/parse/observer/recap/contrast receipts remain immutable; final source resolves Menu release, guarded modal focus, real initial-layout motion and matching setlist surface. Opaque event IDs are read as strings. Known phone density, wide framing, static scenes and missing performers remain material quality limits in639, not hidden by technical PASS. Earlier tests are never attributed to the final source unless explicitly reused through exact inputs.",
+    "next_action": "Start fresh S82 preflight now for the reviewed v3 venue/date/calendar/travel/cancellation contract (30815a9c08eaeeee1a4ed8a10d7af122b5e8213d332784fcbd47475d51a94eb5). Include the demonstrated phone/wide gig-family layout limits; preserve old agreements, S81 active phases, original 54 Scripts and once-only accounting. Same finite 48-hour queue/thread, end 4 Nov 21:24:35 London.",
+    "checks_summary": {
+      "pass": true,
+      "technical_pass": true,
+      "source_sha": "61d99a5fc777eecdbf4fcc99551b4bf52c6b485a",
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "standard_journeys": 4,
+      "standard_validation": "/tmp/bandmaster-s81-20261102/standard/s81-gig-61d99a5-final/validation.json",
+      "standard_canonical_originals": 172,
+      "standard_unique_PNGs_retained": 176,
+      "standard_RGBA_exact": 168,
+      "standard_disclosed_Reopen_fades": 4,
+      "standard_unexpected_differences": 0,
+      "focused_validation": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/focused-validation.json",
+      "focused_checks": 7899,
+      "focused_unique_PNGs": 76,
+      "focused_journeys": 4,
+      "pure_model_reuse": "/tmp/bandmaster-s81-20261102/review/final-proof/source61d-readonly-audit/model-reuse.json",
+      "pure_model_checks_reused": 2942,
+      "pure_model_executed_source_sha": "fac4754ca037d789a5edb1d50a36a8fe19595e9f",
+      "pure_model_byte_exact_transitive_inputs": 34,
+      "pure_model_current_executions": 0,
+      "pure_model_orphans_measured": false,
+      "all_error_lines": [],
+      "measured_native_orphan_growth": 0,
+      "source_count": 399,
+      "raw_Git_sources": 398,
+      "isolated_project_entry_bytes": 146,
+      "protected_prior_paths": 391,
+      "original_Scripts": 54,
+      "original_tracked_UIDs": 3,
+      "configured_entry": "/tmp/bandmaster-s81-20261102/configured-entry-61d99a5-final/execution.json",
+      "runtime_source_audit": "/tmp/bandmaster-s81-20261102/review/final-proof/source61d-readonly-audit/runtime-source-audit.json",
+      "source_protection_audit": "/tmp/bandmaster-s81-20261102/review/final-proof/source61d-readonly-audit/source-protection-audit.json",
+      "standard_comparison": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/standard-comparison.json",
+      "controlled_comparison": "/tmp/bandmaster-s81-20261102/proof-final-61d99a5/controlled-comparison.json",
+      "runtime": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/runtime",
+      "runtime_manifest": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/source.json",
+      "visual_verdict": "partial",
+      "visual_review": "/tmp/bandmaster-s81-20261102/visual-review-root.json",
+      "owner_approved": false,
+      "physical_device": false,
+      "new_APK": false,
+      "receipts_read_not_rerun": true,
+      "read_at": "2026-11-02T22:56:54.975640+00:00",
+      "notes": [
+        "Technical success does not approve the entire lived-band experience or artwork",
+        "A07 exact approved combined still; no driving/playing-animation claim",
+        "A04 performance art/animation remains held",
+        "No model orphan measurement or current model execution",
+        "Owner-requested S82 booking/calendar/travel overhaul remains separately queued"
+      ]
+    },
+    "root_current_originals_actually_opened": [
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/05-initial-soundcheck-setlist-before-hardware-focus-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/06-agreed-soundcheck-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/14-after-set-all-songs-crossed-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-tall-61d-final/captures/05-initial-soundcheck-setlist-before-hardware-focus-720x1280.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-wide-61d-final/captures/12-earned-live-choice-1280x720.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-desktop-61d-final/captures/14-after-set-all-songs-crossed-1600x900.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/04-travel-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/12-earned-live-choice-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-phone-61d-final/captures/18-saved-show-result-next-goal-390x844.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-wide-61d-final/captures/04-travel-1280x720.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-wide-61d-final/captures/18-saved-show-result-next-goal-1280x720.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-desktop-61d-final/captures/05-initial-soundcheck-setlist-before-hardware-focus-1600x900.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-tall-61d-final/captures/14-after-set-all-songs-crossed-720x1280.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-desktop-61d-final/captures/18-saved-show-result-next-goal-1600x900.png"
+    ],
+    "independent_current_originals_opened": 23,
+    "five_simulated_lenses": [
+      {
+        "lens": "SIMULATED new player",
+        "finding": "Place and band voice give more context, but repeated phase actions and static stage scenes still feel like a pilot."
+      },
+      {
+        "lens": "SIMULATED returning player",
+        "finding": "Saved cursor and pause/resume preserve the night's intent and prevent duplicate settlement."
+      },
+      {
+        "lens": "SIMULATED accessibility review",
+        "finding": "Native readable text, reduced-information parity and fixed actions are supported; constrained phone body needs improvement."
+      },
+      {
+        "lens": "SIMULATED art direction",
+        "finding": "Approved travel illustration fits the warm venue family; wide framing and missing performers limit immersion."
+      },
+      {
+        "lens": "SIMULATED game-system review",
+        "finding": "Real saved song completions and a contextual live intent occur before once-only settlement; this is not measured audio or attendance."
+      }
+    ],
+    "remaining": [
+      "Phone soundcheck hardware occupies much of the fixed viewport; set-list rows require body scrolling.",
+      "At 1280x720, initial choice/after-set views hide most song rows and the vibe meter below the fold.",
+      "Wide scene frames contain a small central image with excess black space.",
+      "Performance musicians/playing animation and backstage-specific artwork remain incomplete; A04 production HOLD remains.",
+      "Physical Pixel 9, maximal names and clear-font gig mode have not been visually reviewed."
+    ],
+    "source_runtime": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/runtime",
+    "runtime_manifest": "/tmp/bandmaster-s81-20261102/candidate-gig-final-61d99a5/source.json",
+    "A07": "APPROVED exact combined travel still; raw1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec",
+    "A04": "Direction only; performer production HOLD remains",
+    "Page_plan_sequence": 17,
+    "Page_board_sequence": 118,
+    "choices_preserved": 66,
+    "checked_choices_preserved": 22,
+    "prior_images_preserved": 32,
+    "new_selected_native_images": 3,
+    "total_board_images": 35,
+    "completed_decisions_collapsed": true,
+    "rendered_Page_claim": false,
+    "all_source_helpers_released": true,
+    "GL_released": true,
+    "physical_device": false,
+    "new_APK": false,
+    "queue_id": "6ae532c5fe9c819190f587a022c54052",
+    "finite_end": "2026-11-04T21:24:35+00:00",
+    "closed_at": "2026-11-02T23:02:01.586293+00:00",
+    "writer_released_at": "2026-11-02T23:02:01.586293+00:00"
+  }
 }
