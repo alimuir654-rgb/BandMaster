@@ -63,8 +63,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1002374,
-    "sha256": "23d3263d8099bd9a29980fa8c7b297ec37b4ca2ef6bff52dafe49da6709ea03e"
+    "bytes": 1004136,
+    "sha256": "6ab621df8c4693c65c3b3d557ddbde02f0c73b38d0e1bde9bb17b6575e2f4b90"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S81.json",
@@ -74,12 +74,12 @@
   "art_write_allowed": true,
   "art_scope": "A07v1 specificownerAPPROVED exactraw1b12... bytecopy to scopedproductionpath;399sourcecuration; allotherartdecisionsunchanged.",
   "source_contract": "docs/continuous_improvement/S81_GIG_JOURNEY_CONTRACT.md",
-  "source_contract_sha256": "a63cb38d017d84b5c511a9e4383d6940596e1d567f3e2a50256de6f8cae3c72e",
+  "source_contract_sha256": "d1d17bd03e57b41657a06fd6da5eb602c85a761b904aabfe830032ac1d4089be",
   "current_plan_sequence": 16,
   "current_review_board_sequence": 117,
   "started_at": "2026-11-02T21:33:33.933754+00:00",
   "scope_end": "2026-11-02T23:45:00Z",
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
   "storage_contract": {
     "kind": "preserve-ALL relocation, not purge",
@@ -102,5 +102,6 @@
     "reason": "Workspace2MB cannot safely accept newimagegenoutput orsourceexpansion. Copyallcachebytestotmp, verifyexacttree, switchoriginalpathtosymlink, reclaimonlyverifiedderivedcachephysicalcopy; no rawsource/art/PNG/log/receipt/historydeleted."
   },
   "owner_scope_update": "HiddenredcancellationoptionsandMenu lifecyclefix within2existingUIpaths; source-groundedS82booking/calendar/traveloverhaulqueuedbeforeupdatedgigrelease. ApprovedA07roadplateintegrationandguardedmodalfocuscorrection beforeexactnativeproof.",
-  "candidate_source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68"
+  "candidate_source_sha": "7d5f426a08f926c6a1ab18d1925a9a5790735a68",
+  "current_correction": "Scene-onlyinitial-layout-versus-realresize motionlifecycle635; strictunchangedearlyprobe."
 }

@@ -2507,11 +2507,11 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": null,
   "last_writer": "S80-phone-quality-20261102T2040",
-  "source_write_allowed": false,
-  "pending_implementation": false,
+  "source_write_allowed": true,
+  "pending_implementation": true,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "source_frozen_native_proof_in_progress",
+  "source_phase": "scoped_scene_lifecycle_repair635",
   "claimed_at": "2026-11-02T21:33:33.933754+00:00",
   "expires_at": "2026-11-02T23:45:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
@@ -2877,7 +2877,7 @@
     "manifest": "/tmp/bandmaster-s81-20261102/candidate-gig-v3-a07/source.json",
     "clean_import_pass": true,
     "all_error_lines": [],
-    "native_status": "IN_PROGRESS_NOT_PROMOTED",
+    "native_status": "HELD7d: initial-layoutkillsmotion; Sceneonlyrepairscoped635",
     "curated_inputs": 399
   }
 }
