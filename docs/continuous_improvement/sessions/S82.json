@@ -85,11 +85,11 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1015250,
-    "sha256": "f4bc41a13f32b6f51f31cb6cf78eea083d3acef984152d5dc645a23159a03995"
+    "bytes": 1016996,
+    "sha256": "f9a78a9d8dce133a8d0a253184ff734d6da77d8080579baca12955b03e83610d"
   },
   "source_contract": "docs/continuous_improvement/S82_GIG_BOOKING_JOURNEY.md",
-  "source_contract_sha256": "337826b390ceb4f67f6ccd2a2f90879884efed185b62676e0ef78e25fd10dee0",
+  "source_contract_sha256": "7f4354f1c71166a009b47198b99342c3fdae4b5f91cde9a67916910670ad0274",
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S82.json",
     "Root strict acyclic preload/legacy/new-policy pure proof; exact401 source73/88/import/four standard journeys plus four actual booking-to-result loops, real input/failed-save/retry/reopen/four-view native inspection/EMPTYERRORs. Reexecute changed model closures rather than false reuse."
@@ -108,5 +108,9 @@
     "experiments/playable_flightcase/gig_booking_rules.gd",
     "experiments/playable_flightcase/gig_booking_desk.gd"
   ],
-  "protected": "All original54 Scripts including3trackedUID/raw18C25/sourceart/fonts/hardware6inertmeters/savev1 unknown fields/legacyS71radio/S78work/S81v1night/Finance14completedzero/resetpositive/stickyterminal/once guards."
+  "protected": "All original54 Scripts including3trackedUID/raw18C25/sourceart/fonts/hardware6inertmeters/savev1 unknown fields/legacyS71radio/S78work/S81v1night/Finance14completedzero/resetpositive/stickyterminal/once guards.",
+  "protected_guard_leaves": {
+    "experiments/playable_flightcase/finance_policy.gd": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26",
+    "experiments/playable_flightcase/review_policy.gd": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+  }
 }
