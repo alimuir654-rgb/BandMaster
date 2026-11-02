@@ -64,8 +64,8 @@
     "/tmp/bandmaster-s78-20261102"
   ],
   "issue_log_review": {
-    "bytes": 938436,
-    "sha256": "ae2a38884bdbdc29d25b97b75c9429e40103ce368dff1a0f286d8c80ca884bec"
+    "bytes": 952030,
+    "sha256": "9ba41103aaf37268a5048aabe2aa70b342e275d2864b7b3f3feeda6ea2c52ebd"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S78.json",
@@ -93,5 +93,26 @@
     "no_deletions": true,
     "all_builds_logs_PNGs_APK_private_caches": "/tmp separatefilesystem",
     "workspace_reserve_bytes": 4194304
+  },
+  "source_phase": "candidate_frozen_for_exact_proof",
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "paths": [
+      "situation_core.gd",
+      "situation_practice.gd",
+      "situation_desk.gd",
+      "work_conflict_view.gd",
+      "session.gd",
+      "ui.gd",
+      "career_desk.gd"
+    ],
+    "released": true,
+    "preflight": "f4a2168ca3ed0ee7f3c9133aadd199fd8a35d8ac"
+  },
+  "corrective_scope": {
+    "source": "experiments/playable_flightcase/situation_practice.gd",
+    "change": "Rename reserved local trait to performer_trait, preserve literalkey/formula",
+    "cause_event": 594,
+    "baseline_game": "9f9e2293dfc0d77f4b4a2d699e1ccaf732a3d419"
   }
 }

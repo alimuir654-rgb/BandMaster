@@ -343,7 +343,20 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": null,
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "paths": [
+      "situation_core.gd",
+      "situation_practice.gd",
+      "situation_desk.gd",
+      "work_conflict_view.gd",
+      "session.gd",
+      "ui.gd",
+      "career_desk.gd"
+    ],
+    "released": true,
+    "preflight": "f4a2168ca3ed0ee7f3c9133aadd199fd8a35d8ac"
+  },
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
@@ -361,7 +374,7 @@
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "preflight_contract_only",
+  "source_phase": "candidate_frozen_for_exact_proof",
   "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {

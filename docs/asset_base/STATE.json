@@ -2496,11 +2496,24 @@
   "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "preflight_contract_only",
+  "source_phase": "candidate_frozen_for_exact_proof",
   "claimed_at": "2026-11-02T11:57:45.145269+00:00",
   "expires_at": "2026-11-02T13:30:00Z",
   "authority": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
-  "delegated_source_writer": null,
+  "delegated_source_writer": {
+    "agent": "/root/render_support",
+    "paths": [
+      "situation_core.gd",
+      "situation_practice.gd",
+      "situation_desk.gd",
+      "work_conflict_view.gd",
+      "session.gd",
+      "ui.gd",
+      "career_desk.gd"
+    ],
+    "released": true,
+    "preflight": "f4a2168ca3ed0ee7f3c9133aadd199fd8a35d8ac"
+  },
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
