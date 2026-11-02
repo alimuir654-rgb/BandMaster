@@ -162,3 +162,10 @@ Only JourneyDesk/Scene source may integrate the plate; CareerDesk additionally g
 ## Motion lifecycle repair after actual early native failure635
 
 Same7d source has zero displacement and invalid Tween from the FIRST fresh geometry-ready draw through205draws. The early observer rules out late sampling. Narrow repair ONLY gig_journey_scene.gd: distinguish initial layout from an actual resize after presentation starts. Begin the SAME bounded0.8s finite camera Tween after first completed geometry; do not lengthen duration to satisfy QA. Keep held Ink semantics. Explicit Skip/settle before pending start must cancel that future motion; actual resize after start and teardown restore exact identity without replay. No timer/resize/reveal callback may save, advance, resolve or affect gameplay. Sealed early passive observer and all old nonzero/bounds/identity/whole-state tests remain unchanged. Prior failed7d/probe artifacts remain immutable.
+
+
+## Native contrast correction637
+
+Actualroot+independentphonePNGproves paper-ink setlist labels on a dark new journey body. Narrow source repair ONLY ShowDesk.journey_soundcheck: use the existing host._paper(parent,compact) surface for the existing setlist content, keeping legacy_setlist/defaultpaperlabels and all song/hardware/actions/model unchanged. No font shrink, new artwork, broadpalette rewrite or gameplay changes. Native four-view final review must actually inspect the setlist heading/titles on this matching surface.
+
+For final selected review captures, use genuine native Skip/first-input word completion when available to expose the FULL held words and settle the presentation, asserting whole owner/files/counters unchanged. Keep all early finite-motion measurement, reveal-only input checks, rollback/once/legacy and wholejourney minima. Do not assign visible_characters/scroll/directsignals to manufacture screenshots. All earlier transient captures/failures remain disclosedimmutablehistory.
