@@ -31,8 +31,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 915149,
-    "sha256": "22194320259b188ee2fada2b64bbd4c7d7479b652bf8361f312afe79a8f15d36"
+    "bytes": 917258,
+    "sha256": "3d6149b62333c9fbabaa6c2acd7ba5b1f6a0c993926838910923e7f44229ab5d"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S76.json",
@@ -84,10 +84,18 @@
   "source_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "all_write_freeze": "2026-11-02T11:50:00Z",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
   "current_plan_sequence": 10,
-  "current_review_board_sequence": 91
+  "current_review_board_sequence": 91,
+  "source_phase": "frozen_uncertainty_candidate_verification",
+  "candidate_sha": "5f884a7884a73059f39be60c235bb884c0fdcbbd",
+  "latest_owner_emergence_steering": {
+    "received": "2026-11-02T11:00:00Z",
+    "requirement": "Sharedgameplayemergentsituation/consequencecore; characters/tension/momentum/externalpressure/dayjobs/familysupportinbios. Existingtriggersalreadyconditionalbutfixedresponsesnotfullcompliance.",
+    "current_scope": "FinishS77uncertaintyUI; additionallywriteactual-source-groundedcore/bio/pilotcontractDESIGNONLY. No newengine/economy/jobs castfacts/runtimecoreimplementedclaim.",
+    "future_pilot": "Recordeddayjobcommitment versusplannedrehearsal; actualattendance/pressure/history-sensitiveconsequences, once/rollback/unknownlegacycontract."
+  }
 }
