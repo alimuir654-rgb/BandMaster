@@ -145,3 +145,8 @@ Use frozen RAW career readiness, not effective projection readiness, in the movi
 ## Root reachable first-song context threshold
 
 With neutral40 and one completed song step capped±6, the only mid-set choice sees34..46. Use moment room-vibe threshold42 (starting to warm) for +2 versus−2, superseding the unreachable55 example. Keep it internal; provide witnessed room/band response, not the threshold or effect answer key. Test both reachable branches independently.
+
+
+## Owner scheduling/cancellation steering — 2 November evening
+
+The updated release must also address venue selection, booking dates/calendar and travel alignment, with gig day the focus. S82 source-grounded scheduling contract is being prepared; the one-venue S81 model is a core milestone rather than the whole requested release. Immediately remove prominent Cancel from the journey dock: put it behind SHOW OPTIONS, use a red cancellation action and guarded confirmation, keep pause/Menu accessible. Serious timing/commitment-dependent consequences require the fresh S82 policy/compatibility contract before changing economic math; do not add an arbitrary penalty to the frozen S81 model. No milestoneAPK claim that this scheduling request is already complete.

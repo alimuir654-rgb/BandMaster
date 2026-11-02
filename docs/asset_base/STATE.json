@@ -2590,7 +2590,7 @@
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
   "current_plan_sequence": 15,
-  "current_review_board_sequence": 100,
+  "current_review_board_sequence": 111,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2843,5 +2843,13 @@
   },
   "finite_end": "2026-11-04T21:24:35+00:00",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
-  "art_pending_A06": "C05Niareuse; shownonboard100; pendingownerapprovalbeforeAPK"
+  "art_pending_A06": false,
+  "A06_v1_owner_decision": {
+    "decision": "approved_for_reuse",
+    "source": "owner_checkbox",
+    "board_observed_sequence": 109,
+    "block_id": "e2a832e6-6119-4b0e-a60d-96d16e98f510",
+    "raw_sha256": "dd44205c4225e8ec4b0f8782237a15277fc7b1372549bd9b5d80581277b2ef12",
+    "scope": "ExistingC05pairedpreviewreuse,notindependentmaster/rig/newidentity"
+  }
 }
