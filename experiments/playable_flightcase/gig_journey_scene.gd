@@ -9,6 +9,8 @@ var _motion: Tween
 var _reduced := false
 var _fresh := false
 var _travel := false
+var _motion_started := false
+var _presentation_cancelled := false
 
 func configure(data: Dictionary, reduced: bool, available: float, short: bool = false) -> void:
  _reduced=reduced
@@ -91,10 +93,23 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  call_deferred("_begin")
 
 func _begin() -> void:
- if not is_inside_tree():return
+ if not is_inside_tree() or _presentation_cancelled:return
  if is_instance_valid(note) and _fresh:note.call("begin",_reduced)
  if _reduced or not _fresh:return
  image_view.modulate.a=0.25
+ # Container sorting is not a player resize. Start only after a completed
+ # native draw has supplied the full image geometry, rather than racing it.
+ if not RenderingServer.frame_post_draw.is_connected(_start_motion_after_geometry):
+  RenderingServer.frame_post_draw.connect(_start_motion_after_geometry)
+
+func _start_motion_after_geometry() -> void:
+ if _presentation_cancelled or not is_inside_tree() or not is_visible_in_tree():
+  _settle_motion()
+  return
+ if not is_instance_valid(image_view) or image_view.size.x<=0.0 or image_view.size.y<=0.0:return
+ if RenderingServer.frame_post_draw.is_connected(_start_motion_after_geometry):
+  RenderingServer.frame_post_draw.disconnect(_start_motion_after_geometry)
+ _motion_started=true
  _motion=create_tween()
  _motion.tween_property(image_view,"modulate:a",1.0,0.24)
  if _travel:
@@ -104,6 +119,9 @@ func _begin() -> void:
   _motion.tween_property(image_view,"position",Vector2.ZERO,0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _settle_motion() -> void:
+ _presentation_cancelled=true
+ if RenderingServer.frame_post_draw.is_connected(_start_motion_after_geometry):
+  RenderingServer.frame_post_draw.disconnect(_start_motion_after_geometry)
  if _motion!=null and _motion.is_valid():_motion.kill()
  _motion=null
  if is_instance_valid(image_view):
@@ -118,7 +136,7 @@ func settle() -> void:
  if is_instance_valid(note):note.call("finish_now")
 
 func _notification(what: int) -> void:
- if what==NOTIFICATION_RESIZED:_settle_motion()
+ if what==NOTIFICATION_RESIZED and _motion_started:_settle_motion()
 
 func finish_words() -> bool:
  if is_instance_valid(note) and bool(note.call("is_revealing")):
