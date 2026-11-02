@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "23e0dd2c39784e691f7b3d2432c878c8ccd67c34616cc1e85f61f8afd8021e9b",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "id": "S79",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner2Nov evening: experience still disconnected instantbutton/screens; needs travellingvan, arrival/soundcheck/backstage/stage/performance/aftershow/packup, and stronger auditions/songwriting. Record a concrete joined-up experience brief and next development priority; no broad implementation or new APK implied by this feedback capture.",
+  "baseline_sha": "14dbf413e32c43bcb1bf3f7a6517cbc27ab669d0",
+  "game_baseline_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "dominant_issue": "BM-39",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44"
+  ],
+  "hypothesis": "Design entire meaningfulbandexperiences withplace/characterinteraction/continuity andaftermath; scene transitions support actionratherthan merely addingwaitsorContinuecards. One completegigjourney isnextimplementationunit; auditions/songwriting followtheprovenpattern.",
+  "stop_condition": "ART/DESIGN/METADATAONLY, game/APK/sourceassets unchanged; no engine/tests/generation/build/queue. Finishthisboundedfeedbackbriefby19:20Europe/London, noautomaticimplementation.",
+  "target": {
+    "locator": "/tmp/bandmaster-s78-20261102/standard/s78-work-5cc32e3-final/captures/c27-recruit-390x844.png",
+    "original_sha256": "5b723abbccb683baafbcd3a6f6a142372a5b08204c58c4329d3771e47f02f110",
+    "pixels_inspected": true,
+    "kind": "ActualcurrentV8auditionbaseline opened withpracticeoriginal; ownerstatesexperience target; no claimfuturemotionhasbeenrendered."
+  },
+  "controlled_comparison": "Readactualshow/audition/practice transaction andphase APIs; distinguishcurrentstaging/postsettlementreplay fromproposedjourney. Preserveallhuman60choices20checked/27boardimages/AgentInstructions/versionhistory; confirm393gameinputshashesandV8unchanged without rerunningengine/APKchecks.",
+  "allowed_paths": [
+    "AGENTS.md",
+    "docs/continuous_improvement/S79_BAND_EXPERIENCE_BRIEF.md",
+    "docs/continuous_improvement/sessions/S79.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s79-20261102"
+  ],
+  "issue_log_review": {
+    "bytes": 961393,
+    "sha256": "c5e412f3f79328a092ba6a716747ddec5e15312a2d4e9c45ad5033a10e910e57"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S79.json",
+    "ReadbackpreservationofPages/choices/history andGameinputbytecomparison; noengine/build/tests forunchangedsource"
+  ],
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "started_at": "2026-11-02T19:06:22.679594+00:00",
+  "scope_end": "2026-11-02T19:20:00Z",
+  "current_plan_sequence": 12,
+  "current_review_board_sequence": 97
+}

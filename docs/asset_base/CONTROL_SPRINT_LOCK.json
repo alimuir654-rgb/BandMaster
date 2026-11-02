@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "S79-experience-feedback-brief-20261102T1905",
   "base_head": "17423001f63cc2fb3c4ca02d3ee9ea9b75e1eee4",
-  "claimed_at": "2026-11-02T11:57:45.145269+00:00",
-  "expires_at": "2026-11-02T13:30:00Z",
-  "scope": "Explicit player-recorded outsidebandcommitments produce actual day/EVENING rehearsalclashes; context/history andactualattendance shape savedconsequences without revealedoutcomemath. Legacyunknown/allattend unchanged. One playableprofile\u2192conflict\u2192rehearsal\u2192durableresultloop, sameappAPK.",
+  "claimed_at": "2026-11-02T19:06:22.679594+00:00",
+  "expires_at": "2026-11-02T19:20:00Z",
+  "scope": "Ownerfeedback/design/metadataonly; no game/art/APK/enginechanges",
   "authority": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
   "owner_approved": false,
   "previous_closed_session": "S77",
-  "status": "complete_verified_private_V8_delivered_visual_partial",
+  "status": "claimed",
   "released_at": "2026-11-02T12:31:16.561322+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -370,7 +370,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S78",
+  "session": "S79",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
