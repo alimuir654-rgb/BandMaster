@@ -1,0 +1,148 @@
+extends RefCounted
+## Native journey composition. Explicit owner callbacks alone mutate/save state.
+const C = preload("res://experiments/playable_flightcase/career_components.gd")
+const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
+const Scene = preload("res://experiments/playable_flightcase/gig_journey_scene.gd")
+const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Cast = preload("res://experiments/character_cast/catalogue.gd")
+const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
+const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
+const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
+const ROOM := "res://experiments/playable_flightcase/art/opening_stage.png"
+const CROWD := "res://experiments/playable_flightcase/art/s53_stage.png"
+const TITLES := {"begin":"THE BAND'S NIGHT","set_out":"MEET THE LIFT","travel":"ACROSS TOWN","arrival":"THE LOAD-IN DOOR","load_in":"CARRY IT INSIDE","soundcheck":"FIND THE ROOM","backstage":"A MOMENT WITH THE BAND","stage_entrance":"INTO THE LIGHT","performing":"THE SET","choice":"READ THE ROOM","reaction":"LET IT LAND","after_set":"THE LAST NOTE","pack_up":"PACKING UP","wrap_ready":"BACK TO THE LIFT"}
+
+static func active(host) -> bool:
+ return host.game!=null and (Journey.locked(host.game.career) or Journey.eligible(host.game.career))
+
+static func _voice(state: Dictionary, view: Dictionary) -> Dictionary:
+ var visit: Dictionary=view.get("active",{})
+ var actor: Dictionary=visit.get("context",{}).get("actor",{})
+ if not actor.is_empty():return actor
+ var phase: String=str(view.get("phase",""))
+ var people: Array=[]
+ for index in range(state.get("members",[]).size()):
+  var person: Dictionary=state["members"][index]
+  if str(person.get("life_status","active"))=="active":people.append({"slot":index,"candidate_id":str(person.get("candidate_id","")),"name":str(person.get("name","Bandmate")),"role":str(person.get("role","Musician")),"fatigue":int(person.get("fatigue",0)),"pressure":0})
+ if phase=="soundcheck":
+  for id in ["cast_marcus","cast_bex"]:
+   for person in people:
+    if person["candidate_id"]==id:return person
+ if phase=="load_in":
+  for person in people:
+   if str(person["role"]).to_lower() in ["drums","drummer"]:return person
+ return people[0] if not people.is_empty() else {"name":"THE BAND","candidate_id":"","fatigue":0,"pressure":0}
+
+static func _text(phase: String, state: Dictionary, visit: Dictionary, actor: Dictionary) -> String:
+ var venue: String=str(Calendar.pending(state).get("venue","the room"))
+ var songs: Array=visit.get("plan",{}).get("song_snapshots",[])
+ var cursor: int=int(visit.get("cursor",0))
+ var next_song: String=str(songs[cursor].get("title","the next one")) if cursor<songs.size() else "the next one"
+ var history: Dictionary=actor.get("history",{})
+ match phase:
+  "begin","set_out":return "%s tonight. Just us and that room. Cases in, then we're off." % venue
+  "travel":return "The lift takes us across town. Next stop: the load-in door."
+  "arrival":return "That's our door. Let's get the gear in before we think about the set."
+  "load_in":return "Set up where we can see each other. We start together."
+  "soundcheck":
+   if actor.get("candidate_id")=="cast_marcus":return "Let's get the order straight before we walk out."
+   if actor.get("candidate_id")=="cast_bex":return "Show me the order. I want to know where these songs are going."
+   return "Let's agree the songs and the way we want to play them. This is still our soundcheck."
+  "backstage":
+   if int(actor.get("fatigue",0))>=50:return "I could use a breath before we go out. Stay with me."
+   if bool(actor.get("recorded_history",false)) and int(history.get("excluded",0))>0:return "I've been out of the room for some of this. Tell me the plan before we go on."
+   if bool(actor.get("recorded_history",false)) and int(history.get("kept",0))>0:return "We got that rehearsal in. Let's trust what we worked on."
+   if actor.get("candidate_id") in ["cast_maya","cast_nina"] and not songs.is_empty():return "%s. Right. I want that in my head before we go." % str(songs[0].get("title","Our first song"))
+   return "We've got our set. A breath, then we go on together."
+  "stage_entrance":return "We're here now. Give me the count-in."
+  "performing":
+   if songs.is_empty():return "No originals in tonight's set. Stay together and keep this short."
+   return "%s. Stay with me, then look up at the room." % next_song
+  "choice":return ("The room feels a little warmer. A breath, or straight into %s?" if int(visit.get("vibe",40))>=42 else "I can't read this room yet. A breath, or straight into %s?") % next_song
+  "reaction":return ("A breath, then %s. I'm with you." if visit.get("intent")=="moment" else "Straight into %s, then. Keep an eye on me.") % next_song
+  "after_set":return "That was the last one. Let it land before we start packing." if not songs.is_empty() else "That's the short set. Let's get everything back to the lift."
+  "pack_up":return "Gear away first. We can talk about %s on the way back." % str(songs[-1].get("title","tonight")) if not songs.is_empty() else "Gear away first. We can talk about tonight on the way back."
+  "wrap_ready":return "The gear is back at the lift. Let's settle the night and head home."
+ return "The saved night is here when you're ready."
+
+static func render(host, parent: Node, compact: bool) -> void:
+ var state: Dictionary=host.game.career
+ var view: Dictionary=Journey.view(state)
+ if not bool(view.get("ok",false)):
+  parent.add_child(C.label(str(view.get("message","This saved night needs attention.")),18))
+  return
+ var phase: String=str(view["phase"])
+ var visit: Dictionary=view["active"]
+ var actor: Dictionary=_voice(state,view)
+ var source: Dictionary=Cast.by_id(str(actor.get("candidate_id","")))
+ var image_path: String=ARRIVAL if phase in ["begin","set_out","travel","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM)
+ var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
+ var scene=Scene.new()
+ scene.configure({"title":str(TITLES.get(phase,"TONIGHT")),"image":image_path,"caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),host.size.x>host.size.y and host.size.y<800)
+ parent.add_child(scene)
+ host._journey_fresh=false
+ if not str(host.notice).is_empty():parent.add_child(C.label(str(host.notice),16))
+ if phase=="soundcheck":
+  host._sync_show_draft()
+  ShowDesk.journey_soundcheck(host,parent,state)
+ elif phase in ["performing","choice","reaction","after_set","pack_up","wrap_ready"]:
+  var set_title: Label=C.label("TONIGHT'S SET",16)
+  set_title.name="JourneySetlistHeading"
+  parent.add_child(set_title)
+  var songs: Array=visit.get("plan",{}).get("song_snapshots",[])
+  if songs.is_empty():parent.add_child(C.label("No originals selected · a short set",16))
+  for index in range(songs.size()):
+   var row: RichTextLabel=RichTextLabel.new()
+   row.name="JourneySong_%d" % index
+   row.bbcode_enabled=true
+   row.fit_content=true
+   row.scroll_active=false
+   row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   row.add_theme_font_size_override("normal_font_size",16)
+   var title: String=str(songs[index].get("title","Original")).replace("[","［").replace("]","］")
+   row.text=("[s]"+str(index+1)+". "+title+"[/s]  ✓") if index<int(visit.get("cursor",0)) else ("▶ " if index==int(visit.get("cursor",0)) and phase=="performing" else "")+str(index+1)+". "+title
+   row.set_meta("completed",index<int(visit.get("cursor",0)))
+   parent.add_child(row)
+  var meter: HBoxContainer=C.meter(int(visit.get("vibe",40)),"flightcase")
+  meter.name="JourneyVibeMeter"
+  meter.set_meta("kind","modelled_live_room")
+  parent.add_child(C.label("ROOM VIBE · current modelled response",16))
+  parent.add_child(meter)
+
+static func _button(host,parent: Node,text: String,name: String,action: String,expected: Dictionary,payload: Dictionary = {}) -> Button:
+ var button: Button=host._button(text,name,host._commit_journey.bind(action,expected.duplicate(true),payload.duplicate(true),int(host._render_generation)),true)
+ parent.add_child(button)
+ return button
+
+static func dock(host, parent: Node, _compact: bool) -> void:
+ var state: Dictionary=host.game.career
+ var view: Dictionary=Journey.view(state)
+ if not bool(view.get("ok",false)):
+  parent.add_child(C.label("Your saved night has been retained. Return to the menu to use a compatible build.",16))
+  return
+ var visit: Dictionary=view["active"]
+ var phase: String=str(view["phase"])
+ var token: Dictionary=view["expected"]
+ if phase=="begin":
+  _button(host,parent,"MEET THE BAND  ›","JourneyMainAction","begin",{}, {"booking_id":Flow.booking_id(Calendar.pending(state))})
+ elif phase=="choice":
+  _button(host,parent,"GIVE THE ROOM A MOMENT","JourneyChoiceMomentAction","choice",token,{"intent":"moment"})
+  _button(host,parent,"KEEP THE SET MOVING","JourneyChoiceMovingAction","choice",token,{"intent":"moving"})
+ elif phase=="performing":
+  var ids: Array=visit.get("plan",{}).get("song_ids",[])
+  if ids.is_empty():_button(host,parent,"END THE SHORT SET  ›","JourneyMainAction","end_short_set",token)
+  else:_button(host,parent,"FINISH SONG  ›","JourneyFinishSongAction","finish_song",token,{"song_id":ids[int(visit["cursor"])],"cursor":int(visit["cursor"])})
+ elif phase=="soundcheck":
+  var checked: Dictionary=Flow.check_plan(state,host.show_draft)
+  var action: Button=_button(host,parent,"SAVE TONIGHT'S SHOW PLAN  ›","JourneyMainAction","soundcheck",token)
+  action.disabled=bool(host.busy) or not bool(checked.get("ok",false))
+ elif phase=="wrap_ready":
+  parent.add_child(C.label("Settle the original show costs · 1 career day",16))
+  _button(host,parent,"WRAP THE NIGHT & HEAD HOME  ›","JourneyWrapAction","wrap",token)
+ else:
+  var names: Dictionary={"set_out":"SET OUT  ›","travel":"ARRIVE AT THE VENUE  ›","arrival":"CARRY THE GEAR IN  ›","load_in":"START SOUNDCHECK  ›","backstage":"READY TO GO ON  ›","stage_entrance":"START THE SET  ›","reaction":"BACK TO THE SET  ›","after_set":"PACK UP TOGETHER  ›","pack_up":"BACK TO THE LIFT  ›"}
+  _button(host,parent,str(names.get(phase,"CONTINUE  ›")),"JourneyMainAction","advance",token)
+ if not visit.is_empty():
+  var cancel: Button=host._button("CANCEL BOOKING","JourneyCancelAction",host._ask_journey_cancel.bind(token.duplicate(true),int(host._render_generation)))
+  parent.add_child(cancel)

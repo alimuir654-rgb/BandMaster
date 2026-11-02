@@ -235,6 +235,7 @@ static func refresh(host) -> void:
   else:preview.text=str(checked.get("message","Choose a valid show plan."))
  var commitment: Label=host.find_child("LiveCommitment",true,false) as Label
  var main: Button=host.find_child("LiveMainAction",true,false) as Button
+ if main==null:main=host.find_child("JourneyMainAction",true,false) as Button
  if Flow.phase(host.game.career)=="soundcheck":
   if commitment!=null:commitment.text="%d ORIGINALS · £0 / 0 DAYS TO SAVE PLAN" % draft.get("song_ids",[]).size()
   if main!=null:main.disabled=bool(host.busy) or not bool(checked.get("ok",false))
@@ -340,3 +341,20 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
   _copy(details,str(point.get("text","")))
   response_index+=1
  _copy(details,"Saved modelled summary: three illustrative bands, no attendance or microphone measurement.",16,true)
+
+
+static func journey_soundcheck(host, parent: Node, state: Dictionary) -> void:
+ # Existing controls, completed-song ordering and optional original incident.
+ # Only the owning journey controller commits the plan and checkpoints.
+ _setlist(host,parent,state)
+ var shout: Button=C.button("THANK "+str(Calendar.pending(state).get("venue","THE VENUE")).to_upper(),"flightcase","tab",true)
+ shout.name="ShowShoutoutAction"
+ shout.set_pressed_no_signal(str(host.show_draft.get("shoutout","none"))=="thankvenue")
+ shout.pressed.connect(func():host._show_edit("shoutout","none" if str(host.show_draft.get("shoutout","none"))=="thankvenue" else "thankvenue"))
+ parent.add_child(shout)
+ var incident: Dictionary=Backstage.incident(state)
+ if not incident.is_empty():
+  parent.add_child(C.label(str(incident.get("name","A bandmate"))+" · BEFORE THE SET",20))
+  for option in incident.get("options",[]):
+   var button: Button=host._button(str(option.get("label","Respond")),"JourneyIncident_"+str(option.get("id","")),host._commit_journey.bind("incident",host._journey_expected(),{"choice":str(option.get("id",""))},int(host._render_generation)))
+   parent.add_child(button)

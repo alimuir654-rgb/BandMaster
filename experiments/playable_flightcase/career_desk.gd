@@ -24,6 +24,8 @@ const OffstageDesk = preload("res://experiments/playable_flightcase/offstage_des
 const ShowFlow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd")
+const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
+const JourneyDesk = preload("res://experiments/playable_flightcase/gig_journey_desk.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const RadioDesk = preload("res://experiments/playable_flightcase/radio_visit_desk.gd")
@@ -80,6 +82,7 @@ var _live_confirm_phase := ""
 var show_draft: Dictionary = {}
 var show_context_id := ""
 var _show_step_epoch := 0
+var _journey_fresh := false
 var offstage_activity := "watch_gig"
 var offstage_mode := "outing"
 var offstage_choice := "careful"
@@ -175,6 +178,9 @@ func _render() -> void:
   page="recording"
   recording_mode="visit"
   receipt_open=false
+ elif game!=null and Journey.locked(game.career):
+  page="gigs"
+  receipt_open=false
  _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
  if not busy and not is_instance_valid(_live_dialog) and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
@@ -215,12 +221,13 @@ func _render() -> void:
   option.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
   option.pressed.connect(_navigate.bind(destination))
   nav.add_child(option)
- var soundcheck: bool = page=="gigs" and not receipt_open and ShowFlow.managed(game.career) and ShowFlow.phase(game.career)=="soundcheck"
+ var journey: bool=page=="gigs" and not receipt_open and JourneyDesk.active(self)
+ var soundcheck: bool = page=="gigs" and not receipt_open and ShowFlow.managed(game.career) and ShowFlow.phase(game.career)=="soundcheck" and (not journey or str(Journey.active(game.career).get("phase",""))=="soundcheck")
  var content: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
  content.size_flags_vertical = Control.SIZE_EXPAND_FILL
  content.add_theme_constant_override("separation",12)
  shell.add_child(content)
- if soundcheck:
+ if soundcheck and not (journey and compact):
   ShowDesk.controls(self,content,compact)
  _scroll = ScrollContainer.new()
  _scroll.name = "CareerScroll"
@@ -230,6 +237,8 @@ func _render() -> void:
  _scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  _scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  content.add_child(_scroll)
+ if soundcheck and journey and compact:
+  ShowDesk.controls(self,content,compact)
  var inset := MarginContainer.new()
  inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  for side in ["left","right","top","bottom"]:
@@ -256,7 +265,8 @@ func _render() -> void:
  elif page=="calendar":
   CalendarDesk.render(self,body,compact)
  elif page=="gigs":
-  LiveDesk.render(self,body,compact)
+  if journey:JourneyDesk.render(self,body,compact)
+  else:LiveDesk.render(self,body,compact)
  elif page=="finance":
   FinanceDesk.render(self,body,compact)
  elif page=="offstage":
@@ -286,10 +296,10 @@ func _header(parent: Node) -> void:
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(words)
  var name_label := BandMark.new()
- name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if size.y<800 and size.x>size.y else 32,true,true)
+ name_label.configure(str(game.career.get("band_name","YOUR BAND")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if size.y<800 and size.x>size.y else 32,true,true,JourneyDesk.active(self) and not receipt_open)
  name_label.name = "CareerBandName"
  name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
- name_label.max_lines_visible = 2
+ name_label.max_lines_visible = 1 if JourneyDesk.active(self) and not receipt_open else 2
  words.add_child(name_label)
  var funds: Label = C.label("DAY %d  •  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  funds.name = "CareerDayCash"
@@ -303,6 +313,8 @@ func _navigate(destination: String) -> void:
  elif RadioVisit.locked(game.career):
   destination="recording"
   recording_mode="visit"
+ elif Journey.locked(game.career):
+  destination="gigs"
  if destination!="goal_focus":
   _focus_picker_open=false
   _focus_picker_epoch+=1
@@ -315,6 +327,8 @@ func _navigate(destination: String) -> void:
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
  _pending_focus = RecordingDesk.focus_name(self) if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
+ if destination=="gigs" and JourneyDesk.active(self):
+  _pending_focus="JourneyHeldNote"
  if destination=="home":
   _pending_focus = "CareerHomePracticeAction"
  if destination=="calendar":
@@ -692,7 +706,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
    return_copy="BACK TO YOUR BAND  ›"
   dock.add_child(_button(return_copy,"CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
-  LiveDesk.dock(self,dock,compact)
+  if JourneyDesk.active(self):JourneyDesk.dock(self,dock,compact)
+  else:LiveDesk.dock(self,dock,compact)
  elif page=="finance" and not Finance.is_over(game.career):
   dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
  elif page=="offstage":
@@ -744,7 +759,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  var goal: Dictionary=_goal_direction() if (page=="home" and not receipt_open) or (receipt_open and receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty()) else {}
  var guided: bool=bool(goal.get("ok",false)) and not str(goal.get("route","")).is_empty()
  var practice_action: Button=_button(str(goal["route_label"]),"CareerGoalPreparationAction",_goal_preparation.bind(str(goal["route"]))) if guided else _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
- practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
+ practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career) or Journey.locked(game.career)
  navigation.add_child(practice_action)
  navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
 
@@ -907,6 +922,9 @@ func _recording_present(result: Dictionary, before: Dictionary, verb: String) ->
  add_child(overlay)
 
 func _practice(activity: String) -> void:
+ if Journey.locked(game.career):
+  _navigate("gigs")
+  return
  if RadioVisit.locked(game.career):
   _navigate("recording")
   return
@@ -1213,6 +1231,12 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false, expecte
  add_child(overlay)
 
 func _finance_guard() -> bool:
+ if Journey.locked(game.career):
+  notice="Finish or cancel tonight's saved booking before another commitment."
+  page="gigs"
+  receipt_open=false
+  _render()
+  return false
  if RadioVisit.locked(game.career):
   notice="Resume or cancel the unfinished radio visit before another commitment."
   page="finance" if Finance.is_over(game.career) else "recording"
@@ -1379,3 +1403,143 @@ func _show_gesture_active() -> bool:
   var control: Control=find_child(name,true,false) as Control
   if control!=null and control.has_method("is_gesture_owned") and bool(control.is_gesture_owned()):return true
  return false
+
+
+func _journey_expected() -> Dictionary:
+ return Journey.expected(game.career)
+
+func _journey_finish_words() -> bool:
+ var scene: Control=find_child("GigJourneyPlace",true,false) as Control
+ return scene!=null and bool(scene.call("finish_words"))
+
+func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
+ if not is_inside_tree() or not is_visible_in_tree() or page!="gigs":return
+ if busy or receipt_open or is_instance_valid(_live_dialog) or generation!=_render_generation:return
+ if _journey_finish_words():return
+ var checked: Dictionary=Journey._owned(game.career,expected)
+ if not bool(checked.get("ok",false)):return
+ var fee: int=mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
+ var dialog: Control=Kit.dialog("CANCEL THIS BOOKING?","Cancelling ends this saved night. The original cancellation fee is £%d. No career day is used." % fee,"flightcase")
+ dialog.name="JourneyConfirmDialog"
+ dialog.set("confirm_text","CANCEL BOOKING")
+ dialog.set("cancel_text","KEEP BOOKING")
+ _live_dialog=dialog
+ var pinned: Dictionary=expected.duplicate(true)
+ dialog.completed.connect(func(accepted: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if accepted:_commit_journey("cancel",pinned,{},generation)
+  else:call_deferred("_restore_focus","JourneyMainAction"))
+ add_child(dialog)
+ (dialog.get("confirm_button") as Button).name="JourneyConfirmCancelAction"
+ (dialog.get("cancel_button") as Button).name="JourneyKeepBookingAction"
+ dialog.call("open_modal")
+
+func _commit_journey(action: String, expected: Dictionary, payload: Dictionary = {}, generation: int = -1) -> void:
+ if not is_inside_tree() or not is_visible_in_tree() or page!="gigs":return
+ if busy or receipt_open or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ if generation>=0 and generation!=_render_generation:return
+ if _journey_finish_words():return
+ if action=="soundcheck" and _show_gesture_active():return
+ var permitted: Dictionary=Finance.guard(game.career)
+ if not bool(permitted.get("ok",false)) or RadioVisit.locked(game.career):return
+ # This is the only journey dispatcher. Busy is set before model or save.
+ busy=true
+ var before: Dictionary=game.career.duplicate(true)
+ var result: Dictionary
+ var finance_action: String=""
+ match action:
+  "begin":result=Journey.begin(before,str(payload.get("booking_id","")))
+  "wrap":
+   result=LiveRules.wrap_journey(before,expected)
+   finance_action="live:perform"
+  "cancel":
+   result=LiveRules.cancel_journey(before,expected)
+   finance_action="live:cancel"
+  "incident":
+   result=LiveRules.journey_incident(before,expected,str(payload.get("choice","")))
+   finance_action="live:incident"
+  _:result=Journey.checkpoint(before,action,expected,show_draft.duplicate(true) if action=="soundcheck" else payload)
+ if not bool(result.get("ok",false)):
+  busy=false
+  notice=str(result.get("message","The saved night could not advance."))
+  _render()
+  return
+ if not bool(result.get("changed",true)):
+  busy=false
+  return
+ var candidate: Dictionary=result["state"]
+ if not finance_action.is_empty():
+  var accounted: Dictionary=Finance.apply(before,candidate,finance_action)
+  if not bool(accounted.get("ok",false)):
+   busy=false
+   notice=str(accounted.get("message","The show accounts could not be reconciled."))
+   _render()
+   return
+  candidate=accounted["state"]
+  if action=="incident":
+   # The original incident keeps its accounting contract. Pin its completed
+   # finance metadata too, instead of holding a pre-accounting fingerprint.
+   var rebased: Dictionary=Journey.rebase_owned_action(before,candidate,expected)
+   if not bool(rebased.get("ok",false)):
+    busy=false
+    notice=str(rebased.get("message","The saved soundcheck changed."))
+    _render()
+    return
+   candidate=rebased["state"]
+ game.career=candidate
+ if not bool(opening_owner.save_draft()):
+  # Only career was installed. Restoring its WHOLE deep copy also restores
+  # the phase, cursor, finance, promises and every unknown career field.
+  game.career=before
+  busy=false
+  notice="The night could not be saved. Your whole previous band state is retained. Try again."
+  _render()
+  return
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ notice=""
+ page="gigs"
+ if action=="wrap":
+  var saved: Dictionary=ShowFlow.last_receipt(game.career)
+  receipt={"kind":"live","verb":"perform","show_receipt":saved,"title":str(saved.get("venue","THE SHOW")),"day_before":int(before.get("tour_day",1)),"day_after":int(game.career.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(game.career.get("cash",0))}
+  receipt_open=true
+  _fresh_receipt=false
+  show_receipt_details_open=false
+  # The set has already been lived. Never replay or settle it a second time.
+  busy=false
+  _pending_focus="CareerReceiptContinueAction"
+  _render()
+  return
+ if action=="cancel":
+  receipt_open=false
+  busy=false
+  notice=str(result.get("message","The booking was cancelled."))
+  _pending_focus="CareerHome_gigs"
+  _render()
+  return
+ _journey_fresh=true
+ _pending_focus="JourneyHeldNote"
+ # Hold duplicate input through one native frame after replacing the scene.
+ # This callback only releases presentation busy; it never saves/resolves.
+ _render()
+ _release_journey_input.call_deferred(_render_generation)
+
+func _release_journey_input(generation: int) -> void:
+ if not is_inside_tree():return
+ await get_tree().process_frame
+ if not is_inside_tree():return
+ if generation!=_render_generation:
+  _release_journey_input.call_deferred(_render_generation)
+  return
+ busy=false
+ for name in ["JourneyMainAction","JourneyFinishSongAction","JourneyChoiceMomentAction","JourneyChoiceMovingAction","JourneyWrapAction","JourneyCancelAction"]:
+  var control: Button=find_child(name,true,false) as Button
+  if control!=null:control.disabled=false
+ for node in find_children("JourneyIncident_*","Button",true,false):
+  (node as Button).disabled=false
+ if str(Journey.active(game.career).get("phase",""))=="soundcheck":
+  var action: Button=find_child("JourneyMainAction",true,false) as Button
+  if action!=null:action.disabled=not bool(ShowFlow.check_plan(game.career,show_draft).get("ok",false))
+ if is_visible_in_tree() and not _pending_focus.is_empty():
+  call_deferred("_restore_focus",_pending_focus)
