@@ -151,15 +151,14 @@ func _rebuild() -> void:
   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
   header.add_child(title)
  else:
-  # Preserve the original header's layout footprint. Its native name copy
-  # still determines wrapping/height; the selected face only replaces ink.
-  # This keeps auditions and long-name settled reports at their old positions.
+  # Reserve the displayed artwork's actual width, keeping the established
+  # header height. The previous wider empty slot crowded short band names.
   var old_brand_height: float=52.0 if mobile else 36.0
+  var brand: Control = Shared.brand(26.0 if mobile else 24.0)
   var brand_slot:=Control.new()
-  brand_slot.custom_minimum_size=Vector2(old_brand_height*float(Shared.WORDMARK_CROP.size.x)/float(Shared.WORDMARK_CROP.size.y),old_brand_height)
+  brand_slot.custom_minimum_size=Vector2(brand.custom_minimum_size.x,old_brand_height)
   brand_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE
   header.add_child(brand_slot)
-  var brand: Control = Shared.brand(26.0 if mobile else 24.0)
   brand.name = "PracticeBrand"
   brand_slot.add_child(brand)
   brand.position.y=(old_brand_height-brand.custom_minimum_size.y)*0.5
