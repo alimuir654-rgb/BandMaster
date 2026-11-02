@@ -341,7 +341,7 @@ static func cancel_original(state: Dictionary, token: Dictionary, validated_depa
  if not bool(original.get("ok",false)):return original
  return _terminal(state,original["state"],quote,"cancelled")
 
-static func expire_original(state: Dictionary, token: Dictionary) -> Dictionary:
+static func expire_quote(state: Dictionary, token: Dictionary) -> Dictionary:
  var financial: Dictionary=Finance.guard(state)
  if not bool(financial.get("ok",false)):return financial
  var valid: Dictionary=validate(state)
@@ -357,6 +357,13 @@ static func expire_original(state: Dictionary, token: Dictionary) -> Dictionary:
  var quoted: int=maxi(25,ceili(3.0*float(fee)/4.0)) if band==2 else maxi(25,fee)
  if int(state["tour_day"])>MAX_DAY-[7,14][band-2]:return _bad("The missed agreement exceeds the supported career-day range.")
  var quote: Dictionary={"base_band":2,"effective_band":band,"fee_paid":mini(int(state.get("cash",0)),quoted),"travel_paid":0,"total_paid":mini(int(state.get("cash",0)),quoted),"waived":maxi(0,quoted-int(state.get("cash",0))),"reputation_loss":8 if band==2 else 10,"morale_loss":6,"days":0,"blocked_until_day":int(state["tour_day"])+[7,14][band-2]}
+ quote["ok"]=true
+ return quote
+
+
+static func expire_original(state: Dictionary, token: Dictionary) -> Dictionary:
+ var quote: Dictionary=expire_quote(state,token)
+ if not bool(quote.get("ok",false)):return quote
  return _terminal(state,Calendar.expire(state),quote,"missed")
 
 static func complete(before: Dictionary, after: Dictionary) -> Dictionary:
