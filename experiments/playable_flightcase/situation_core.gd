@@ -93,7 +93,7 @@ static func _put(state: Dictionary, core: Dictionary, message: String) -> Dictio
  return {"ok":true,"changed":true,"state":next,"message":message}
 
 static func set_context(state: Dictionary, id: String, kind: String, expected: Dictionary = {}) -> Dictionary:
- var commitment: Dictionary=Booking.guard_metadata(state)
+ var commitment: Dictionary=Booking.guard_commitment(state,"recorded_context",0)
  if not bool(commitment.get("ok",false)):return _fail(str(commitment["message"]))
  var checked: Dictionary=validate(state)
  if not checked.ok:return checked
@@ -139,7 +139,7 @@ static func inspect_rehearsal(state: Dictionary) -> Dictionary:
  return {"ok":true,"day":day,"conflict":not absent.is_empty(),"attendee_indices":attendees,"absent":absent,"plan":plan,"plan_status":status,"fingerprint":JSON.stringify(state).sha256_text(),"core_revision":int(checked.core.revision)}
 
 static func reschedule(state: Dictionary, expected: Dictionary = {}) -> Dictionary:
- var commitment: Dictionary=Booking.guard_metadata(state)
+ var commitment: Dictionary=Booking.guard_commitment(state,"recorded_context",0)
  if not bool(commitment.get("ok",false)):return _fail(str(commitment["message"]))
  var inspected: Dictionary=inspect_rehearsal(state)
  if not inspected.ok:return inspected

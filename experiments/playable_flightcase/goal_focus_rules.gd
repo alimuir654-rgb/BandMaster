@@ -63,7 +63,7 @@ static func _result(state: Dictionary, ok: bool, message: String, changed: bool=
  return {"ok":ok,"state":state.duplicate(true),"message":message,"changed":changed,"chapter_id":str(selected.get("chapter_id",""))}
 
 static func choose(state: Dictionary, chapter_id: String) -> Dictionary:
- var commitment: Dictionary=Booking.guard_metadata(state)
+ var commitment: Dictionary=Booking.guard_commitment(state,"goal_focus",0)
  if not bool(commitment.get("ok",false)):return _result(state,false,str(commitment["message"]))
  var valid: Dictionary=validate(state)
  if not bool(valid["ok"]):return _result(state,false,str(valid["message"]))
@@ -80,7 +80,7 @@ static func change(state: Dictionary, chapter_id: String) -> Dictionary:
  return choose(state,chapter_id)
 
 static func clear(state: Dictionary) -> Dictionary:
- var commitment: Dictionary=Booking.guard_metadata(state)
+ var commitment: Dictionary=Booking.guard_commitment(state,"goal_focus",0)
  if not bool(commitment.get("ok",false)):return _result(state,false,str(commitment["message"]))
  var valid: Dictionary=validate(state)
  if not bool(valid["ok"]):return _result(state,false,str(valid["message"]))
