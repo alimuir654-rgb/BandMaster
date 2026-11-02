@@ -172,7 +172,7 @@ func _rebuild() -> void:
   band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true)
   band_name.name = "PracticeBandName"
   band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-  band_name.max_lines_visible = 2
+  band_name.max_lines_visible = 1
   name_layout.add_child(band_name)
   band_name.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
   name_layout.self_modulate.a=0.0
@@ -978,8 +978,10 @@ func _refresh_practice_commitment() -> void:
   cost.text = "Uses 1 day  •  No room fee"
   var validation: Label = find_child("WritingValidation",true,false) as Label
   if validation!=null:
+   var empty_title: bool = song_title.strip_edges().is_empty()
    validation.visible = not bool(preview.get("ok",false))
-   validation.text = str(preview.get("message","Choose a title and session leader."))
+   validation.text = "3–48 characters" if empty_title else str(preview.get("message","Choose a title and session leader."))
+   validation.add_theme_color_override("font_color",Color("695c4b") if empty_title else Color("954a42"))
   var write: Button = find_child("WriteAction",true,false) as Button
   if write!=null:
    write.text = "WRITE SESSION %d OF 3" % [clampi(int(game.career.get("song_draft_progress",0)),0,2)+1]

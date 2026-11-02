@@ -40,17 +40,17 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  rule.custom_minimum_size.y = 2.0
  rule.mouse_filter = Control.MOUSE_FILTER_IGNORE
  content.add_child(rule)
- var heading := ink(str(view.get("receipt","SAVED SESSION NOTES")),16 if tall_tablet else 14,true)
+ var heading := ink(str(view.get("receipt","SAVED SESSION NOTES")),16,true)
  heading.name = "RecapDayReceipt"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(heading)
- var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),36 if short_landscape else (42 if tall_tablet else (30 if mobile else 40)))
+ var verdict := ink(str(view.get("verdict","SESSION COMPLETE")).to_upper(),28 if short_landscape else (32 if tall_tablet else (26 if mobile else 32)))
  verdict.name = "RecapVerdict"
  verdict.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(verdict)
  var why: Label = InkNote.new()
  why.name = "RecapReasonNote"
- why.text = str(view.get("reason",""))
+ why.text = str(view.get("summary",view.get("reason","")))
  why.add_theme_font_size_override("font_size",16)
  why.add_theme_color_override("font_color",Color("695c4b"))
  if fresh_notes:
@@ -61,14 +61,14 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   why.mouse_filter = Control.MOUSE_FILTER_IGNORE
  why.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(why)
- var score := ink("THE SCORECARD",14 if tall_tablet else (11 if mobile else 12),true)
+ var score := ink("SAVED CHANGES",16,true)
  score.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(score)
  var metrics: Dictionary = {}
  for entry in view.get("metric_rows",[]):
   if entry is Dictionary:
    metrics[str(entry.get("key",""))] = entry
- var tiles: BoxContainer = VBoxContainer.new() if short_landscape else HBoxContainer.new()
+ var tiles: BoxContainer = HBoxContainer.new()
  tiles.name = "RecapHeroMetrics"
  tiles.add_theme_constant_override("separation",10 if tall_tablet else (4 if mobile else 10))
  content.add_child(tiles)
@@ -83,26 +83,18 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   tile.focus_mode = Control.FOCUS_NONE
   tile.add_theme_stylebox_override("panel",Paper.scorecard())
   tiles.add_child(tile)
-  var stack: BoxContainer = HBoxContainer.new() if short_landscape else VBoxContainer.new()
+  var stack: BoxContainer = VBoxContainer.new()
   stack.add_theme_constant_override("separation",8 if short_landscape else 1)
   tile.add_child(stack)
   var metric_copy: BoxContainer = stack
-  if short_landscape:
-   metric_copy = VBoxContainer.new()
-   metric_copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-   metric_copy.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-   metric_copy.add_theme_constant_override("separation",1)
-   stack.add_child(metric_copy)
-  var cap := ink(str(selector[1]),14 if tall_tablet else 12,true)
+  var cap := ink(str(selector[1]).capitalize(),16,true)
+  cap.autowrap_mode = TextServer.AUTOWRAP_OFF
   cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   metric_copy.add_child(cap)
-  var change := ink(Recap.signed_change(delta),40 if tall_tablet else (27 if mobile else 34))
+  var change := ink(Recap.signed_change(delta),20)
   change.name = "RecapHero_"+key
   change.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-  if short_landscape:
-   change.autowrap_mode = TextServer.AUTOWRAP_OFF
-   change.size_flags_horizontal = Control.SIZE_SHRINK_END
-   change.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+  change.autowrap_mode = TextServer.AUTOWRAP_OFF
   var adverse: bool = (key=="tension" and delta>0) or (key!="tension" and delta<0)
   change.add_theme_color_override("font_color",Color("954a42") if adverse else (Color("376c58") if delta!=0 else Color("695c4b")))
   stack.add_child(change)
@@ -138,7 +130,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  gallery.follow_focus = true
  gallery.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
  gallery.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
- gallery.custom_minimum_size.y = 280 if tall_tablet else 230
+ gallery.custom_minimum_size.y = 250 if tall_tablet else 210
  # The existing scrollbar is the keyboard route to offscreen bandmates.
  # Godot skips it in focus traversal when the entire roster already fits.
  gallery.get_h_scroll_bar().focus_mode = Control.FOCUS_ALL
@@ -161,6 +153,10 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   strip.add_child(card)
   var source: Dictionary = Cast.by_id(person_id)
   var photo_path: String = str(source.get("portrait_preview",""))
+  # This is the existing canonical legacy preview, not a substitute C25 face.
+  # Other unknown identities retain an honest absent-photo state.
+  if person_id=="nia_griffiths" and photo_path.is_empty():
+   photo_path="res://experiments/art_material/portrait_preview/nia_griffiths_512x690.webp"
   if not photo_path.is_empty() and ResourceLoader.exists(photo_path):
    var photo := TextureRect.new()
    photo.name = "RecapPortrait_"+person_id
@@ -203,7 +199,8 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    if individual is Dictionary and str(individual.get("candidate_id",""))==person_id:
     personal_morale = int(individual.get("changes",{}).get("morale",{}).get("delta",0))
     break
-  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),14 if tall_tablet else 12,true)
+  var morale_badge := ink("MORALE "+Recap.signed_change(personal_morale),16,true)
+  morale_badge.autowrap_mode = TextServer.AUTOWRAP_OFF
   morale_badge.name = "RecapMood_"+person_id
   morale_badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   morale_badge.add_theme_color_override("font_color",Color("954a42") if personal_morale<0 else (Color("376c58") if personal_morale>0 else Color("695c4b")))
@@ -218,27 +215,17 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   morale_ink.mouse_filter = Control.MOUSE_FILTER_IGNORE
   morale_ink.focus_mode = Control.FOCUS_NONE
   card.add_child(morale_ink)
- if short_landscape:
-  # A landscape reading composition, not smaller notes or portraits. The
-  # same score fields sit beside the three primary voices in the first fold.
-  var lane := HBoxContainer.new()
-  lane.name = "RecapLandscapeEvidence"
-  lane.add_theme_constant_override("separation",20)
-  var insertion: int = score.get_index()
-  content.add_child(lane)
-  content.move_child(lane,insertion)
-  var scores := VBoxContainer.new()
-  scores.custom_minimum_size.x = 220
-  scores.add_theme_constant_override("separation",4)
-  lane.add_child(scores)
-  score.reparent(scores)
-  tiles.reparent(scores)
-  var voices_column := VBoxContainer.new()
-  voices_column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  voices_column.add_theme_constant_override("separation",4)
-  lane.add_child(voices_column)
-  band_header.reparent(voices_column)
-  gallery.reparent(voices_column)
+ # People lead the report. All three recorded deltas and their exact before/
+ # after values follow as compact fields; the full record remains in Details.
+ var people_at: int = why.get_index()
+ content.move_child(band_header,people_at)
+ content.move_child(gallery,people_at+1)
+ var room_copy: String = str(view.get("room_context",""))
+ if not room_copy.is_empty():
+  var room := ink(room_copy,16,true)
+  room.name="RecapRoomContext"
+  content.add_child(room)
+  content.move_child(room,people_at+2)
  if not external_details:
   var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
   breakdown.name = "RecapDetailsToggleAction"
@@ -250,7 +237,13 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  detail.add_theme_constant_override("separation",3)
  detail.visible = expanded_details
  content.add_child(detail)
- detail.add_child(ink("COMPLETE SESSION LEDGER",12))
+ detail.add_child(ink("COMPLETE SESSION LEDGER",16))
+ var recorded_context := ink("This is the saved session record. The header shows your current day and cash.",16,true)
+ recorded_context.name="RecapRecordedContext"
+ detail.add_child(recorded_context)
+ var full_reason := ink(str(view.get("reason","")),16)
+ full_reason.name="RecapFullReason"
+ detail.add_child(full_reason)
  for item in view.get("metric_rows",[]):
   if item is Dictionary:
    var number := ink(str(item.get("text","")),12 if mobile else 13)
