@@ -51,7 +51,8 @@
     "experiments/playable_flightcase/gig_journey_scene.gd",
     "experiments/playable_flightcase/live_bridge.gd",
     "experiments/playable_flightcase/career_desk.gd",
-    "experiments/playable_flightcase/show_desk.gd"
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/art/a07_road_travel_v1.png"
   ],
   "scratch_allowed_paths": [
     "/tmp/bandmaster-s81-20261102",
@@ -62,8 +63,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 997273,
-    "sha256": "de7dec9a53dda4cd24e8117f66b6dc15c8805cb058ff3cb32ce556d6c1e4d938"
+    "bytes": 1000773,
+    "sha256": "471cdd903cbb670d2a443a58f677b77689a7368519c18c7bcecd3b2d461d352c"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S81.json",
@@ -71,11 +72,11 @@
   ],
   "source_write_allowed": true,
   "art_write_allowed": true,
-  "art_scope": "Scratch road/travel proposal only, PENDINGOWNER. No productionassetwrite/integrationbeforeexplicitapproval/rescope. A04HOLD/A06pending preserved.",
+  "art_scope": "A07v1 specificownerAPPROVED exactraw1b12... bytecopy to scopedproductionpath;399sourcecuration; allotherartdecisionsunchanged.",
   "source_contract": "docs/continuous_improvement/S81_GIG_JOURNEY_CONTRACT.md",
-  "source_contract_sha256": "c18ea9019862382a59ecc3f8f93efb30f77eff3af129c000056b64668b580502",
-  "current_plan_sequence": 15,
-  "current_review_board_sequence": 100,
+  "source_contract_sha256": "a63cb38d017d84b5c511a9e4383d6940596e1d567f3e2a50256de6f8cae3c72e",
+  "current_plan_sequence": 16,
+  "current_review_board_sequence": 116,
   "started_at": "2026-11-02T21:33:33.933754+00:00",
   "scope_end": "2026-11-02T23:45:00Z",
   "pending_implementation": true,
@@ -100,5 +101,5 @@
     "global_FD_proof": "limited/procdenied; rootacceptsclosedS68lease+actualnobody-running-S68commandline under one-writer policy, doesnotclaimexhaustiveFDproof",
     "reason": "Workspace2MB cannot safely accept newimagegenoutput orsourceexpansion. Copyallcachebytestotmp, verifyexacttree, switchoriginalpathtosymlink, reclaimonlyverifiedderivedcachephysicalcopy; no rawsource/art/PNG/log/receipt/historydeleted."
   },
-  "owner_scope_update": "HiddenredcancellationoptionsandMenu lifecyclefix within2existingUIpaths; source-groundedS82booking/calendar/traveloverhaulqueuedbeforeupdatedgigrelease."
+  "owner_scope_update": "HiddenredcancellationoptionsandMenu lifecyclefix within2existingUIpaths; source-groundedS82booking/calendar/traveloverhaulqueuedbeforeupdatedgigrelease. ApprovedA07roadplateintegrationandguardedmodalfocuscorrection beforeexactnativeproof."
 }
