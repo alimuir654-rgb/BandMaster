@@ -1,0 +1,41 @@
+# S72 — a saved show points to the next useful decision
+
+Owner-authorised F02/F01 scope under the existing finite flow/art run. Baseline GAME `509b031f23bbbdbda4ee90e7dffd942a10671516`, metadata `1a7585cbcf46c1abee9658d2062137b3fcbcf1eb`. ONE image-led saved-show/real-goal connection; no new chapter reward, persistent pin, gameplay policy, save key or artwork. Existing V7 is unchanged. Lease ends02:30; all global freezes/end remain unchanged.
+
+## Existing gap and art direction
+
+Root opened original S53 stage source and historical native phone/wide receipts, plus S65 Home. ShowDesk/ShowFlow/stage are byte-exact at current509; whole CareerDesk differs, so fresh509 native baselines are required before source edits. Current receipt places five effect lines and financial facts above its image; wide barely exposes the scene. Home has the approved two-/four-column icon panel but no useful next-goal cue.
+
+Reuse the existing1672×941 generated `s53_stage.png` (8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02). Warm pub light, worn stage foreground, microphone left/monitor right, looking FROMstage toward indistinct patrons. This is verified existing runtime scenery, not specifically owner-approved art, attendance evidence, an onstage cast or a rig. No new source generation. Preserve all raw art/fonts/hardware/passive meters.
+
+Receipt: actual venue → stage-led scene → concise saved outcome/five signed pills → two saved model inputs → compact actual chapter cue. On wide screens put scene left and summary/goal right; on phone stack them. Preserve full narrative, exact day/cash/fee/optional costs, all effects, ordered songs and saved response/meter blocks in Details. All new primary labels/values at least native16. TENSION positive is red/bad, negative green/good; positive fans/reputation/morale/readiness green, negatives red, zeros neutral. No interpretation of green as owner acceptance.
+
+Home: keep the original approved icon textures, grid columns, tile layout and routes. Add one compact goal title/progress cue, with its useful route in the retained fixed dock. No second large image and no duplicated result ledger. Natural body scrolling is allowed; do not shrink fonts/hide information to claim fit.
+
+## Read-only data and APIs
+
+Owned `career_direction.gd` derives current goal from protected `Scripts/career_chapters.gd::progress(state)`. Validate consumed present types/finite whole metrics first: claimed chapters/action counters dictionaries, gig history array, songs/fans/readiness/day/rehearse numeric values. Missing values retain the original defaults. Malformed present data produces a held cue with no guessed zero/reset/save. Do not mutate input or call `claim()`.
+
+The first unclaimed goal remains the first unclaimed goal, including ready goals. Render actual capped requirement current/target values with clear labels (originals, rehearsals, shows, fans, readiness, days). Ready means REQUIREMENTS MET; do not skip it, imply an awarded reward, or add claim UI. All-claimed/done displays the protected original status without inventing another goal.
+
+Select at most one route for the first unmet requirement: songs→existing create pane; rehearse/readiness→existing tighten pane; gigs/fans→existing live desk; day→read-only calendar. Missing song is considered before rehearsal in find_sound. Navigation is free; actual rehearsal is original £15/one day, writing retains three existing sessions per completed original. No action runs on render/resize/reveal/Details/reload.
+
+Saved factors use the validated saved receipt, never today's changed band: `originals_played` with `projection.originals_modifier`, and `projection.intensity_band` with `intensity_quality`. Label them saved inputs to the model, not sole causes of success/failure. Missing/legacy/invalid receipts get no fabricated factors. `ShowFlow.last_receipt` already validates and returns a deep copy. Preserve original ShowFlow/model bytes.
+
+Owned `direction_card.gd` provides the shared native cue/pill presentation. CareerDesk alone owns navigation. New callback checks busy/modal BEFORE dispatch, then Finance terminal → active radio → due or overdue actual booking → current goal route. A pending booking with day≤today routes to existing live recovery/show desk; no cancellation/expiry/settlement occurs. Malformed booking/goal data holds the new cue. Re-derive and compare expected route at click to reject stale callbacks. Existing practice pane and pending song title/setup are retained through current `_practice`/`_return_from_career`; no OpeningUI changes are scoped. Existing unrelated routes remain intact.
+
+Receipt acknowledgement remains a free close/back action; the goal route replaces only the relevant generic Practice dock action on Home/owned show receipt. Keep Menu/Back available. Navigation and goal reading do not write disk, advance time, settle a show, claim a chapter or award cash/reputation. Failed original practice save restores whole career and therefore unchanged derived progress. This is a read-only current-goal cue, not full persistent goal pinning.
+
+## Source/production boundary
+
+Allowlist: two owned new modules plus narrow `career_desk.gd`/`show_desk.gd` hooks. No original Scripts edits, UI/practice/OpeningUI/session/save/schema/model/asset edits. Root coordinates ONE production writer; helpers scoped scratch/read-only, root sole GL. Committed preflight/gate first, fresh509 baseline opened next, then explicit implementation delegation/contract binding. Any wider source need requires rescope before edits.
+
+Storage is constrained. No deletion planned. Explicit byte-verified immutable PNG/WebP/TTF resources may be hardlinked into isolated runtimes; never overwrite linked resources. Code/JSON/import sidecars copy normally. Each fresh isolated `.godot` may be a declared private symlink ONLY into `/tmp/bandmaster-s72-cache`; runtime/source/script/output/XDG guards and raw-byte manifests stay strict. No shared mutable import cache, no production/default user data. Keep original images/logs/receipts/raw inputs persistent. Audit original runner derivative, preserve exact73/88/import/four native ordering and all error assertions.
+
+## Proof / failure conditions
+
+Capture baseline and candidate at identical full typed career/snapshot and four sizes390×844,720×1280,1280×720,1600×900. Baseline receipt fixture may use explicit original-model setup but must not be described as genuine played input. New focused journey uses genuine current formation/practice/goal navigation/show receipt and actual committed action; compare original model/Finance/save oracle, failure rollback/retry, chapter progress update, reload and current saved factors unchanged after later band edits. Test read-only input immutability/default/malformed/ready/legacy/negative-tension pills, stale callback, busy/modal, due/overdue/terminal/active-radio guards.
+
+Native Home intentionally hides generic CareerNavigation. QA must prove the actual fixed dock/launcher/actions and call inherited visible-nav assertions only for applicable screens; this contract change is made BEFORE tests are authored. Details can fit, have small positive overflow or scroll fully: measure actual range and use a real constrained resize for strict drag proof, not fake padding/type shrink. Restore original viewport before paid flow. Real mouse/key/indexed-touch/scroll, reduced equal information, hide/free/resize, empty all_error_lines, measured orphan counts and actual original PNG review are required. Engine assertions alone do not prove art quality or physical Pixel9.
+
+Changed integrated UI requires exact source73 gameplay/88 opening/clean import/four genuine standard journeys, source384+2/protected382/all54 original Scripts including3trackedUIDs, same-state native A/B and configured opening. Reuse unchanged independent gameplay/model proof only through an explicit dependency byte closure. Two ineffective corrective attempts mean change method or HOLD. Close exact source/checks/images actually opened, five SIMULATED lenses, visualPARTIAL/ownerfalse unless specifically accepted, canonical state/release and ONE next action. No APK/ZIP or public source/history publication.
