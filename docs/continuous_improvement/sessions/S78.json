@@ -64,8 +64,8 @@
     "/tmp/bandmaster-s78-20261102"
   ],
   "issue_log_review": {
-    "bytes": 952030,
-    "sha256": "9ba41103aaf37268a5048aabe2aa70b342e275d2864b7b3f3feeda6ea2c52ebd"
+    "bytes": 956671,
+    "sha256": "b29a94c0ff6b896d96f19555d44fe3b7884775cf95ce34902d35e5d10794e884"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S78.json",
@@ -111,8 +111,16 @@
   },
   "corrective_scope": {
     "source": "experiments/playable_flightcase/situation_practice.gd",
-    "change": "Rename reserved local trait to performer_trait, preserve literalkey/formula",
-    "cause_event": 594,
-    "baseline_game": "9f9e2293dfc0d77f4b4a2d699e1ccaf732a3d419"
-  }
+    "change": "Three new dictionary counter-key writes use explicit String indexing instead of StringName-producing dot assignment; no economic/formula change",
+    "cause_event": 598,
+    "baseline_game": "26833675cfcd871ef55aff0cd543c8cfe35d3ebd"
+  },
+  "corrective_history": [
+    {
+      "source": "experiments/playable_flightcase/situation_practice.gd",
+      "change": "Rename reserved local trait to performer_trait, preserve literalkey/formula",
+      "cause_event": 594,
+      "baseline_game": "9f9e2293dfc0d77f4b4a2d699e1ccaf732a3d419"
+    }
+  ]
 }
