@@ -1,20 +1,20 @@
 {
-  "writer": null,
-  "base_head": "c97e1d5164a4d8d265725855af4ed04fea8a6965",
-  "claimed_at": "2026-11-02T21:33:33.933754+00:00",
-  "expires_at": "2026-11-02T23:45:00Z",
-  "scope": "ONEcompletegigjourney perrootadoptedS81contract, pendingroadartproposal, exactpreserve-alloneclosedderivedcache relocation.",
-  "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
+  "writer": "S82-joined-booking-calendar-travel-20261102T2305",
+  "base_head": "bbced9bb7c72e57e589d5f0210d59056a504e12c",
+  "claimed_at": "2026-11-02T23:09:59.160736+00:00",
+  "expires_at": "2026-11-03T02:30:00Z",
+  "scope": "S82 one joined venue/date/calendar/travel/cancellation gig family plus demonstrated native composition limits; no new art.",
+  "authority": "Latest direct owner booking request and48hour extension",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
-  "released_at": "2026-11-02T23:02:01.586293+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
     "reason": "S39 session closed and STATE writer null; expired at14:25; successor only after expiry"
   },
-  "note": "S81 complete technical PASS / visual PARTIAL. Approved A07 integrated; core safe saved journey verified. S82 booking/calendar/travel/cancellation is next, not implemented by S81.",
+  "note": "Verified baseline remains61d. S82 proposed contract now root adopted; no S82 game code yet.",
   "previous_s40_release": {
     "released_at": "2026-10-30T15:17:00Z",
     "status": "released",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": {
     "scope": "One selected compiledAPK privately shared to verifiednamedreader; PhonePageguide+two currentnativeboardPNGs only. No source/history upload.",
     "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
@@ -328,8 +328,8 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
   "next_action": "Start fresh S82 preflight now for the reviewed v3 venue/date/calendar/travel/cancellation contract (30815a9c08eaeeee1a4ed8a10d7af122b5e8213d332784fcbd47475d51a94eb5). Include the demonstrated phone/wide gig-family layout limits; preserve old agreements, S81 active phases, original 54 Scripts and once-only accounting. Same finite 48-hour queue/thread, end 4 Nov 21:24:35 London.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
@@ -341,7 +341,7 @@
     "released_at": "2026-11-01T19:24:59.824767+00:00",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "delegated_source_writer": null,
+  "delegated_source_writer": "/root/s81_gig_writer",
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
     "candidate_source_sha": "3ec115477a75860ecb361c5bd41dc6eca9f9e917"
@@ -370,7 +370,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S81",
+  "session": "S82",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -521,7 +521,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-  "current_session": "S81",
+  "current_session": "S82",
   "closed_at": "2026-11-02T12:31:16.561322+00:00",
   "last_updated_utc": "2026-11-02T19:10:21.914333+00:00",
   "last_validation": "/tmp/bandmaster-s78-20261102/complete-validation.json",
@@ -865,5 +865,6 @@
     "no_queue_change": true
   },
   "finite_end": "2026-11-04T21:24:35+00:00",
-  "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json"
+  "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
+  "session_path": "docs/continuous_improvement/sessions/S82.json"
 }
