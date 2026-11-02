@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "00938ab50e8842997c612499499d72ac9dbdc2cdaf0b2f87c06e753104f40379",
+    "docs/continuous_improvement/LESSONS.md": "74fb2d5fd97bfad09e606787e34d5233af4ca5516b7a52b155b4b1f4f0168412",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
   "id": "S73",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "ONE A04 required headstock/nativeedge correction and nativecomposition/contract proposal under existing finite flow/art run; no gameplay integration/APKZIP.",
   "baseline_sha": "3bb86b6edea074738f67c0e89b6fce0658b92374",
@@ -57,8 +57,8 @@
   "hypothesis": "Correct exact existing A04 Arjun source as independent transparent layer, preserving identity/pose and removing only branded headstock; same-source native A/B on audience-facing original stage at four windows reveals actual edges/grounding without implementing live gameplay.",
   "stop_condition": "ART/CONTRACT ONLY. One bounded corrected source+nativecomparison orHOLD; two ineffective attempts changeMETHOD/HOLD. Never promote unapproved art or claim animation/per-song gameplay. Lease02:40; finite hardstop08 unchanged.",
   "issue_log_review": {
-    "bytes": 863512,
-    "sha256": "67958a37e3656bb1abb92652a9ffa42d67b72af6d7e4c8da3eaceafc58f850b0"
+    "bytes": 869566,
+    "sha256": "1d800ffca3fb9e9636c8402feb87cc5353f3fc1189333ea003af0e655497245b"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-b047e88d-808e-4e32-88cc-c315d4af1d5f.png",
@@ -91,18 +91,34 @@
   "started_at": "2026-11-02T01:52:59.216615+00:00",
   "scope_end": "2026-11-02T02:40:00Z",
   "source_write_allowed": false,
-  "art_write_allowed": "ONE scratch imagegen edit, no repository asset promotion",
+  "art_write_allowed": false,
   "delegated_source_writer": null,
-  "delegated_art_writer": "/root/s73_artist",
-  "source_phase": "art_contract_preflight",
+  "delegated_art_writer": null,
+  "source_phase": "closed_art_hold_game_unchanged",
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "contract": "docs/continuous_improvement/S73_PERFORMANCE_ART.md",
   "storage_policy": {
     "workspace_free_bytes": 37076992,
     "persistent_budget_bytes": 20000000,
-    "method": "No deletion. Reuse S72 immutable hardlink/private/tmp importcache method with S73 scoped derivative and exact386source hashes. Rawproposal2\u20134MB+captures8MB+code/receiptsbudget; stopbeforepersistentheadroom10MB. Art source loadeddirectly from pinned scratchpaths, no source-tree import/promotion.",
+    "method": "No deletion. Reuse S72 immutable hardlink/private/tmp importcache method with S73 scoped derivative and exact386source hashes. Rawproposal2–4MB+captures8MB+code/receiptsbudget; stopbeforepersistentheadroom10MB. Art source loadeddirectly from pinned scratchpaths, no source-tree import/promotion.",
     "mutable_paths": "LexicalS73fresh.godot/XDG symlink only to UNIQUE canonical/tmp/bandmaster-s73-cache subpaths, strictfreshness/sourceassociation, actualresolvedmanifest; no production/shared data."
   },
-  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL."
+  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL.",
+  "closed_at": "2026-11-02T02:28:04.417747+00:00",
+  "tested_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "closeout": {
+    "tested_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+    "evidence": [
+      "/workspace/work/overnight-20261102/s73/art-validation.json",
+      "/workspace/work/overnight-20261102/s73/visual-review-root.json",
+      "/workspace/work/overnight-20261102/s73/visual-review-agent.json",
+      "/workspace/work/overnight-20261102/s73/art/a04_v2_provenance.json",
+      "/workspace/work/overnight-20261102/s73/review-delivery.json",
+      "/workspace/work/overnight-20261102/s73/queue-readback.json"
+    ],
+    "visual_verdict": "hold",
+    "next_action": "READ-ONLY owner phone/art feedback and exact-checkpoint readiness. S71 radio/S72 result→goal core are complete locally; S73 attempted headstock correction is HOLD. No new gameplay/art/QA/suite/import/cache cleanup or packaging for activity. Only NEW owner steering or a concrete demonstrated existing-screen defect permits fresh bounded repair before freezes. Known headstock failure needs genuinely changed reviewed editing method, never another same-method prompt/mask. F09 gameplay stays held on art and complete saved cursor/choice/pre-StoryFinance policy. Same no-new-breadth05:15/integration06:45/finalreadiness07:15/release07:30/allwrites07:45/hard08:00Nov2, no APKZIP.",
+    "new_issue_review": "523 guessedarchitecturepath and524 opaqueeventIDnumericparser recurrences logged before corrections.525 firstv1viewer exactRect2string equality failed only0.0001px actor/0.0000018pxsole floats; ae5 uses bounded typed numerical actor/sole deltas<=.001nativewindowpx, everyotherkey exact, all4staticjourneys PASS.526 one imagegenheadstockedit stillmark+broadrerender: artist/root/independentactualraw HOLD, no v2native/promotion/secondgeneration. Allhistory/originals preserved;527 finalreview. Game3e3/all386inputs unchanged, sourcegameproof reused notrerun."
+  }
 }

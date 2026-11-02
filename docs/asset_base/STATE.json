@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "s73_art_contract_intake",
+  "status": "s73_art_held_game_checkpoint_ready",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "ONE A04v2 independent headstock correction/nativecomposition proposal; no game integration.",
-  "writer": "S73-performance-art-contract-20261102T0150",
+  "scope": "S71/S72verifiedcore retained; S73staticperformanceartstudy/failedheadstockeditHOLD, no gamechanges.",
+  "writer": null,
   "last_verified_code_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Fresh scoped S73 (or actual next free session), ART/CONTRACT ONLY: reconcile actual latest A04 source/board reference, correct ONE Arjun guitar headstock/performance layer and prove an audience-facing native composition for owner review. New art version PENDING OWNER; no animation/other-musician approval. F09 gameplay HOLD until complete additive saved song-cursor/choice policy before original Story/Reviews/Finance and approved art gates. No new breadth05:15, integration06:45, final readiness07:15, release07:30/allwrites07:45/hardstop08:00Nov2; no APK/ZIP.",
+  "next_single_action": "READ-ONLY owner phone/art feedback and exact-checkpoint readiness. S71 radio/S72 result→goal core are complete locally; S73 attempted headstock correction is HOLD. No new gameplay/art/QA/suite/import/cache cleanup or packaging for activity. Only NEW owner steering or a concrete demonstrated existing-screen defect permits fresh bounded repair before freezes. Known headstock failure needs genuinely changed reviewed editing method, never another same-method prompt/mask. F09 gameplay stays held on art and complete saved cursor/choice/pre-StoryFinance policy. Same no-new-breadth05:15/integration06:45/finalreadiness07:15/release07:30/allwrites07:45/hard08:00Nov2, no APKZIP.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -514,7 +514,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "S72 saved-show image/pills/two saved factors\u2192read-only goal progress/free preparation route.",
+  "last_completed_deliverable": "S73 controlledv1nativeartstudy/onefailededit recordedHOLD; no headstockcorrection/gameintegration completion.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -560,13 +560,13 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-02T01:47:24.509698+00:00",
+  "last_updated_utc": "2026-11-02T02:28:04.417747+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "Exact3e3:73/88/import/4standard172 +6179focused41; direction1064/radio1702 reused via9/48inputs; zero currentERROR/measuredorphans, visualPARTIAL.",
+  "last_run_summary": "S73static346/4journeys/5originals/0currentERROR/orphans,386unchangedgameinputs. Failed4370artHOLD/no v2native; S72gameproof retained, no suites repeated.",
   "last_packaged_at": "2026-11-01T05:58:39.957744+00:00",
   "last_validation": "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/complete-validation.json",
   "latest_owner_scope": "NEW17:18manualicon/visualgear/posererevision,18:00twoindependentworkers,18:07thirdresearchworker+feature/artownerapprovalboard,18:20liveperformer/setlist/vibe/promotion proposals. Source3ecprototypecomplete; newfeatures/artdirectionpendingowner. Source/historylocal; privatePageonlyselectedreviewimages/proposalprose. No newqueue/automaticextension.",
@@ -643,7 +643,7 @@
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
     "issues": "docs/continuous_improvement/ISSUES.jsonl",
-    "session": "docs/continuous_improvement/sessions/S72.json",
+    "session": "docs/continuous_improvement/sessions/S73.json",
     "owner_approved": false
   },
   "c21_owner_visual_rejection": {
@@ -792,8 +792,8 @@
     "packages": null,
     "phone_release_is_this_source": false
   },
-  "last_sprint": "S72",
-  "next_action": "Committed S73artcontract/gate; native v1 baseline then ONE imagegen edit/fourview A/B proposal orHOLD.",
+  "last_sprint": "S73",
+  "next_action": "READ-ONLY owner phone/art feedback and exact-checkpoint readiness. S71 radio/S72 result→goal core are complete locally; S73 attempted headstock correction is HOLD. No new gameplay/art/QA/suite/import/cache cleanup or packaging for activity. Only NEW owner steering or a concrete demonstrated existing-screen defect permits fresh bounded repair before freezes. Known headstock failure needs genuinely changed reviewed editing method, never another same-method prompt/mask. F09 gameplay stays held on art and complete saved cursor/choice/pre-StoryFinance policy. Same no-new-breadth05:15/integration06:45/finalreadiness07:15/release07:30/allwrites07:45/hard08:00Nov2, no APKZIP.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1971,7 +1971,7 @@
   "candidate_source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
   "candidate_native_verified": true,
   "candidate_status": "verified_visual_partial_native_owner_review_pending",
-  "updated_at": "2026-11-02T01:47:24.509698+00:00",
+  "updated_at": "2026-11-02T02:28:04.417747+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2036,7 +2036,7 @@
         "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
         "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
         "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
-        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47–S52, one final useful milestone APK remains conditional on stable core.",
         "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
         "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
       ]
@@ -2169,7 +2169,7 @@
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S72",
+  "last_completed_session": "S73",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2277,15 +2277,15 @@
   "owner_review_board": {
     "url": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
     "page_id": "page_b3929162c7b88191acd29e55dc06e779",
-    "sequence_observed": 41,
+    "sequence_observed": 42,
     "features": 10,
     "artwork_blocks": 4,
     "selected_images": 17,
-    "decisions": "Prior feature/artwork decisions preserved; A05v3 exact source approved by chat; S71 native screens awaiting owner review.",
-    "receipt": "/workspace/work/overnight-20261102/s72/review-delivery.json",
+    "decisions": "Allownerdecisions preserved. A04directiononly; S73attemptinternallyHELD/notownerrejection; no newimage/choice/approvalrequest.",
+    "receipt": "/workspace/work/overnight-20261102/s73/review-delivery.json",
     "research_log": "/workspace/work/review-roadmap-20261101/research-log.md",
     "no_autoimplementation": true,
-    "sequence": 41,
+    "sequence": 42,
     "specific_art_approvals": {
       "A02v2": "APPROVED",
       "A03v2": "APPROVED"
@@ -2344,7 +2344,7 @@
     "owner_approved": false
   },
   "historical_last_verified_opening_project_artifact_before_S63": 12954924877,
-  "canonical_pointer_audit_at": "2026-11-02T01:47:24.509698+00:00",
+  "canonical_pointer_audit_at": "2026-11-02T02:28:04.417747+00:00",
   "approved_feature_scopes": [
     "F01",
     "F02",
@@ -2365,7 +2365,7 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "closed_at": "2026-11-02T01:47:24.509698+00:00",
+  "closed_at": "2026-11-02T02:28:04.417747+00:00",
   "historical_aliases_before_s65_final_audit": {
     "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
     "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
@@ -2460,13 +2460,13 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-02T01:47:24.509698+00:00",
-  "last_writer": "S72-saved-result-next-goal-20261102T0040",
+  "released_at": "2026-11-02T02:28:04.417747+00:00",
+  "last_writer": "S73-performance-art-contract-20261102T0150",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "art_contract_preflight",
+  "source_phase": "closed_art_hold_game_unchanged",
   "claimed_at": "2026-11-02T01:52:59.216615+00:00",
   "expires_at": "2026-11-02T02:40:00Z",
   "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
@@ -2474,13 +2474,13 @@
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
-    "plan_sequence": 6,
+    "plan_sequence": 7,
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
     "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
     "is_enabled": true,
     "timezone": "Europe/London",
     "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261101T221500\nRRULE:FREQ=HOURLY;UNTIL=20261102T071500Z\nEND:VEVENT",
-    "updated_at": "2026-11-02T01:47:24.509698+00:00",
+    "updated_at": "2026-11-02T02:28:04.417747+00:00",
     "next_run_time_exposed": null,
     "source_freeze": "2026-11-02T06:45:00Z",
     "no_new_breadth_after": "2026-11-02T05:15:00Z",
@@ -2491,7 +2491,7 @@
     "apk_or_zip_packaging": false,
     "no_continuous_compute_claim": true,
     "existing_single_attachment_confirmed": true,
-    "queue_receipt": "/workspace/work/overnight-20261102/s72/queue-readback.json"
+    "queue_receipt": "/workspace/work/overnight-20261102/s73/queue-readback.json"
   },
   "source_frozen_at": "2026-11-02T01:11:04.668444+00:00",
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
@@ -2543,12 +2543,12 @@
     "phone_release_is_this_source": false
   },
   "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
-  "delegated_art_writer": "/root/s73_artist",
+  "delegated_art_writer": null,
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 6,
-  "current_review_board_sequence": 41,
+  "current_plan_sequence": 7,
+  "current_review_board_sequence": 42,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2566,7 +2566,7 @@
   "candidate_model": "/workspace/work/overnight-20261102/s72/model/direction-reuse-3e3ea50.json",
   "candidate_focus_run": "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/focused-validation.json",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
-  "delivery_status": "V7 Pixel9 unchanged; S72 source LOCAL with3 new private native review images; physical phone pending.",
+  "delivery_status": "V7Pixel9unchanged; S71/S72sourceLOCAL/boardcurrentgameimages; S73artHELD/no newpixels or approvalrequest.",
   "completion_gate": {
     "native_full_input_verified": true,
     "tested_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
@@ -2617,5 +2617,32 @@
     "owner_approved": false
   },
   "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
-  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL."
+  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL.",
+  "art_write_allowed": false,
+  "art_frozen_at": "2026-11-02T02:28:04.417747+00:00",
+  "s73_closeout": "/workspace/work/overnight-20261102/s73/closeout.json",
+  "last_art_slice": {
+    "session": "S73",
+    "status": "hold",
+    "game_source_unchanged": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+    "closeout": "/workspace/work/overnight-20261102/s73/closeout.json",
+    "validation": "/workspace/work/overnight-20261102/s73/art-validation.json",
+    "visual_review": "/workspace/work/overnight-20261102/s73/visual-review-root.json",
+    "attempted_source_sha256": "4370ac1f881a6294023228786f3dfb617c243ed926a483ade53a9ef63e00b7f1",
+    "production_integration": false,
+    "new_owner_decision_requested": false,
+    "owner_approved": false
+  },
+  "latest_art_attempt_review": {
+    "session": "S73",
+    "status": "hold",
+    "game_source_unchanged": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+    "closeout": "/workspace/work/overnight-20261102/s73/closeout.json",
+    "validation": "/workspace/work/overnight-20261102/s73/art-validation.json",
+    "visual_review": "/workspace/work/overnight-20261102/s73/visual-review-root.json",
+    "attempted_source_sha256": "4370ac1f881a6294023228786f3dfb617c243ed926a483ade53a9ef63e00b7f1",
+    "production_integration": false,
+    "new_owner_decision_requested": false,
+    "owner_approved": false
+  }
 }
