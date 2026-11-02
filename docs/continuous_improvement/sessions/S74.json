@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "S74",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Give owner latest screenshot pack. New direct delivery request only, no overnight source/art/QA/APK/queue extension.",
+  "baseline_sha": "ba2bfdc61a23a911e528140bff9f7791479a814b",
+  "game_baseline_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-13",
+    "BM-14",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-34",
+  "hypothesis": "A small downloadablePNG-only reviewZIP from existingverifiedcapture receipts, explicit source/date labels, strict allowlisted content and private namedowneraccess gives latest available screens without source/history exposure or rerendering.",
+  "stop_condition": "Screenshotdelivery only; never include source/history/saves/keys/rawart/heldS73/falsecurrent radio captures. No engine/test/APK/projectZIP/queuecalls. Hold any source/ACL mismatch; bounded artifactlease09:05.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "74fb2d5fd97bfad09e606787e34d5233af4ca5516b7a52b155b4b1f4f0168412",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 870886,
+    "sha256": "e2a69f63572aa2a01bdac6d5639a953b02ce3f9d6e6f5c81573484f8e1e35af0"
+  },
+  "target": {
+    "locator": "/workspace/work/overnight-20261102/s72/goal-3e3ea50-phone-wheel-final/captures/controlled-home-390x844.png",
+    "original_sha256": "893b17db8c57877a615903858c42d44691f8010f1de2ddc123c350d2f6bac46a",
+    "pixels_inspected": true,
+    "kind": "Already actually opened original by root and private ownerPage capture; latest source3e3. New pack reuses bytes only."
+  },
+  "controlled_comparison": "No new rendering. Every selectedPNG bound to actual existingcapture/source receipts and bytehash. Prior509radio captures in separately labelled folder/source note. ArchiveCRC/exactmembers/bytes/no forbiddenextensions; remoteMIME/size/ACL readback.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/screenshot-delivery-20261102",
+    "/tmp/bandmaster-screenshot-delivery-20261102"
+  ],
+  "native_exclusive_lock": "/workspace/work/unify/native-gl.lock",
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S74.json",
+    "ExistingPNG source pin/hash/receipt selection; no newengine or suites",
+    "Build explicitallowlist PNGs+shortREADME only; tempZIPCRC/content/byteaudit then atomicrelease",
+    "CurrentDriveprofile/destinationmetadata/privateACL; uploadselectedscreenshotZIPonly/readbacksharing/no remotechecksumclaim"
+  ],
+  "started_at": "2026-11-02T08:28:17.142808+00:00",
+  "scope_end": "2026-11-02T09:05:00Z",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "source_phase": "screenshot_artifact_only",
+  "storage_policy": "Persistentworkspace~21MBfree; construct ZIP under explicit/tmp taskdir to preserveheadroom, selectedPNGs remainexistingworkspaceoriginals. No copies/cleanup/deletion of originals. Persist only small receipts/manifest inworkspace."
+}
