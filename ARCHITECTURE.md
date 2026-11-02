@@ -26,3 +26,7 @@ All paths are case-sensitive on Linux CI. The scripts currently own substantial 
 ## Decision presentation policy
 
 Choices preserve uncertainty: explain in-world actions and stakes, while keeping nonfinancial outcome math, odds and hidden gates internal. Do not reveal a stat-direction answer key through tooltips, disclosures or confirmations. Explicit prices/time and actual state remain readable; saved consequences may be reported after commitment. Presentation hides forecasts without changing the deterministic resolver, eligibility, costs, save format or once-only settlement. Owner direction: 2 November 2026, superseding pre-choice delta previews.
+
+## Proposed shared situation core
+
+State-derived pressure → earned situation with actual participants → player intent → context-sensitive consequence mechanisms → durable facts/promises → updated gameplay state. Coordinate the existing drama/life/story/calendar systems, preserving their transaction boundaries. Biography job/support context and planned commitments must be explicit, versioned and save-safe; no retroactive invented history. The current trigger systems are conditional but many consequence vectors remain fixed. First pilot: a recorded work commitment clashes with rehearsal, with actual attendance, preparation and relationship history influencing the result. See docs/continuous_improvement/S77_EMERGENT_DECISION_CORE.md for source facts, data/API contract, accounting boundaries and acceptance. Proposal only, no new engine/runtime AI dependency.
