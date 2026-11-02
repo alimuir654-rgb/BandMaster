@@ -52,8 +52,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 841582,
-    "sha256": "0c0315962e9b483ee525e12c6205378c1205e34d95a8392e15abb21cc28154f4"
+    "bytes": 844772,
+    "sha256": "3168eb570e35c13e4e957bf08a9b46fc4ed1a67e034db2252c4c816b7599a0d0"
   },
   "target": {
     "locator": "/workspace/work/overnight-20261101/s53/show-dd59bb8-phone/captures/saved-show-receipt-initial-390x844.png",
@@ -90,15 +90,16 @@
   "started_at": "2026-11-02T00:28:33.404345+00:00",
   "scope_end": "2026-11-02T02:30:00Z",
   "source_freeze_target": "2026-11-02T01:40:00Z",
-  "source_write_allowed": false,
-  "delegated_source_writer": null,
-  "source_phase": "preflight_baseline_intake_only",
-  "pending_implementation": false,
+  "source_write_allowed": true,
+  "delegated_source_writer": "/root/s72_source",
+  "source_phase": "scoped_implementation",
+  "pending_implementation": true,
   "storage_policy": {
     "workspace_available_bytes_observed": 349122560,
     "temporary_available_bytes_observed": 9361268736,
     "method": "No deletion. Explicit immutablePNG/WebP/TTF hardlinks only with bytechecks; never overwritelinkedraw inputs. Code/JSON/importsidecars copied normally. Each fresh private.godot cache mayresolveONLYunder/tmp/bandmaster-s72-cache; runtime/source/output/XDG remain scopedS72 or standardrun root. Strictguard/sourceaudit unchanged.",
     "budget": "Keeprawsources/captures/logs/receipts persistent inworkspace; large reproducibleprivateengineimportcache ontmp. Precomputeallowlist/bounds before any futurecleanup; no cleanup planned."
   },
-  "contract": "docs/continuous_improvement/S72_RESULT_TO_GOAL.md"
+  "contract": "docs/continuous_improvement/S72_RESULT_TO_GOAL.md",
+  "baseline_intake": "/workspace/work/overnight-20261102/s72/baseline-intake.json"
 }
