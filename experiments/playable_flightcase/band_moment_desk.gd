@@ -84,7 +84,7 @@ static func _reset_scroll(host) -> void:
  host._scroll_position=0
  if is_instance_valid(host._scroll):host._scroll.scroll_vertical=0
 
-static func _people(host, parent: Node, people: Array, compact: bool) -> void:
+static func _people(host, parent: Node, people: Array, compact: bool, portrait_bound: float=0.0) -> void:
  var row:=HBoxContainer.new()
  row.name="BandMomentPeople"
  row.add_theme_constant_override("separation",12)
@@ -105,7 +105,7 @@ static func _people(host, parent: Node, people: Array, compact: bool) -> void:
    photo.texture=texture
    photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
    photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-   var bound: float=120.0 if compact else 160.0
+   var bound: float=portrait_bound if portrait_bound>0.0 else (120.0 if compact else 160.0)
    photo.custom_minimum_size=Vector2(minf(bound,texture.get_width()),minf(bound,texture.get_height()))
    photo.size_flags_horizontal=Control.SIZE_SHRINK_CENTER
    photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -116,7 +116,7 @@ static func _people(host, parent: Node, people: Array, compact: bool) -> void:
    box.add_child(photo)
   var name: Label=_copy(host,box,str(person.get("name","Musician")),"BandMomentName_"+position)
   name.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-  name.custom_minimum_size.x=120.0 if compact else 160.0
+  name.custom_minimum_size.x=portrait_bound if portrait_bound>0.0 else (120.0 if compact else 160.0)
 
 static func render(host, parent: Node, compact: bool) -> void:
  var context: Dictionary=host.band_moment_context
@@ -129,6 +129,9 @@ static func render(host, parent: Node, compact: bool) -> void:
   _copy(host,body,"Open the current rehearsal conversation from your band page.","BandMomentUnavailable")
   return
  var incident: Dictionary=data["case"]
+ if str(host.band_moment_phase)=="choices":
+  _decision(host,body,data,compact)
+  return
  _copy(host,body,str(incident["title"]),"BandMomentHeading",22)
  _people(host,body,data["participants"],compact)
  var phase: String=str(host.band_moment_phase)
@@ -144,19 +147,58 @@ static func render(host, parent: Node, compact: bool) -> void:
  context["reveal"]=false
  if fresh:note.call_deferred("begin",bool(host.reduced_motion))
  if not str(host.notice).is_empty():_copy(host,body,str(host.notice),"BandMomentNotice")
- if phase=="choices":
-  for position in ["first","second"]:_copy(host,body,str(incident[position])+": “"+str(incident[position+"_line"])+"”","BandMomentDecisionQuote_"+position,16,true)
-  for choice in ["listen","keep"]:
-   var preview: Dictionary=Rules.preview(host.game.career,str(incident["id"]),choice,str(data["fingerprint"]))
-   var option: Dictionary={}
-   for raw in incident["choices"]:
-    if raw["id"]==choice:option=raw
-   _copy(host,body,str(option.get("label","")),"BandMomentChoiceLabel_"+choice)
-   _copy(host,body,str(option.get("text","")),"BandMomentChoiceText_"+choice,16,true)
-   if bool(preview["ok"]):_pills(host,body,preview["receipt"],"BandMomentPreview_"+choice)
-   else:_copy(host,body,str(preview["message"]),"BandMomentEligibility_"+choice)
 
-static func _pills(host, parent: Node, saved: Dictionary, prefix: String) -> void:
+static func _decision(host, body: VBoxContainer, data: Dictionary, compact: bool) -> void:
+ var incident: Dictionary=data["case"]
+ var context: Dictionary=host.band_moment_context
+ context["reveal"]=false
+ body.add_theme_constant_override("separation",4)
+ _copy(host,body,"YOUR DECISION","BandMomentDecisionHeading",16,true)
+ var layout: Container=VBoxContainer.new() if compact else HBoxContainer.new()
+ layout.add_theme_constant_override("separation",6 if compact else 20)
+ body.add_child(layout)
+ var portraits: VBoxContainer=host._box(0)
+ portraits.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+ layout.add_child(portraits)
+ _people(host,portraits,data["participants"],compact,80.0)
+ var options: VBoxContainer=host._box(4)
+ layout.add_child(options)
+ var default_trust: bool=false
+ for choice in ["listen","keep"]:
+  var option: Dictionary={}
+  for raw in incident["choices"]:
+   if raw["id"]==choice:option=raw
+  _copy(host,options,str(option.get("label","")),"BandMomentChoiceLabel_"+choice)
+  var preview: Dictionary=Rules.preview(host.game.career,str(incident["id"]),choice,str(data["fingerprint"]))
+  if bool(preview["ok"]):
+   _pills(host,options,preview["receipt"],"BandMomentPreview_"+choice,false)
+   default_trust=default_trust or not bool(preview["receipt"]["trust_recorded_before"])
+  else:_copy(host,options,str(preview["message"]),"BandMomentEligibility_"+choice)
+ if default_trust:_copy(host,body,"Trust: original model default.","BandMomentDecisionTrustDefault",16,true)
+ if not str(host.notice).is_empty():_copy(host,body,str(host.notice),"BandMomentNotice")
+ var details: VBoxContainer=host._box(8)
+ details.name="BandMomentDecisionDetailsBody"
+ details.visible=bool(context.get("decision_details",false))
+ var disclosure: Button=host._button("HIDE DETAILS" if details.visible else "DETAILS  ›","BandMomentDecisionDetailsAction",_decision_details.bind(host,details))
+ body.add_child(disclosure)
+ body.add_child(details)
+ _copy(host,details,str(incident["title"]),"BandMomentHeading",22)
+ _copy(host,details,"YOUR DECISION","BandMomentPhase",16,true)
+ _copy(host,details,"IN THE REHEARSAL ROOM","BandMomentSpeaker")
+ _note(details,"Both voices have been heard. How will the band handle its next rehearsal?","BandMomentNote")
+ for position in ["first","second"]:_copy(host,details,str(incident[position])+": “"+str(incident[position+"_line"])+"”","BandMomentDecisionQuote_"+position,16,true)
+ for option in incident["choices"]:_copy(host,details,str(option["text"]),"BandMomentChoiceText_"+str(option["id"]),16,true)
+ if default_trust:_copy(host,details,"Trust starts from the original model default; no earlier relationship measurement was saved.","BandMomentDecisionTrustExplanation",16,true)
+
+static func _decision_details(host, body: Control) -> void:
+ if not is_instance_valid(host) or not is_instance_valid(body) or not body.is_inside_tree() or not host.is_visible_in_tree() or bool(host.busy) or is_instance_valid(host._live_dialog):return
+ if str(host.page)!="band_moment" or bool(host.receipt_open) or str(host.band_moment_phase)!="choices" or bool(host.band_moment_context.get("replay",false)):return
+ body.visible=not body.visible
+ host.band_moment_context["decision_details"]=body.visible
+ var button: Button=body.get_parent().get_node_or_null("BandMomentDecisionDetailsAction") as Button
+ if button!=null:button.text="HIDE DETAILS" if body.visible else "DETAILS  ›"
+
+static func _pills(host, parent: Node, saved: Dictionary, prefix: String, show_default: bool=true) -> void:
  var row:=HFlowContainer.new()
  row.name=prefix+"Pills"
  row.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -171,7 +213,7 @@ static func _pills(host, parent: Node, saved: Dictionary, prefix: String) -> voi
   label.set_meta("before",before)
   label.set_meta("after",after)
   label.set_meta("delta",delta)
- if not bool(saved["trust_recorded_before"]):_copy(host,parent,"Trust starts from the original model default; no earlier relationship measurement was saved.",prefix+"TrustDefault",16,true)
+ if show_default and not bool(saved["trust_recorded_before"]):_copy(host,parent,"Trust starts from the original model default; no earlier relationship measurement was saved.",prefix+"TrustDefault",16,true)
 
 static func dock(host, parent: Node) -> void:
  var context: Dictionary=host.band_moment_context
@@ -222,7 +264,7 @@ static func act(host, verb: String, choice: String, cookie: Dictionary) -> void:
   host.band_moment_phase=PHASES[index+1]
   host.band_moment_epoch+=1
   context["reveal"]=true
-  host._pending_focus="BandMomentNote"
+  host._pending_focus="BandMomentChoice_listen" if str(host.band_moment_phase)=="choices" else "BandMomentNote"
   _reset_scroll(host)
   host._render()
   return
