@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## One original pair case, with pure accounting and saved factual presentation.
 const Drama = preload("res://Scripts/band_drama.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -117,6 +118,8 @@ static func preview(state: Dictionary, case_id: String, choice_id: String, expec
  return resolve(state,case_id,choice_id,expected_fingerprint)
 
 static func resolve(state: Dictionary, case_id: String, choice_id: String, expected_fingerprint: String) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"band_conversation",1)
+ if not bool(commitment.get("ok",false)):return _fail(state,str(commitment["message"]))
  var selected: Dictionary=current(state)
  if not bool(selected["ok"]):return _fail(state,str(selected["message"]))
  if not bool(selected["available"]) or str(selected["case"]["id"])!=case_id or expected_fingerprint.is_empty() or selected["fingerprint"]!=expected_fingerprint:return _fail(state,"This band conversation changed. Open the current case again.")

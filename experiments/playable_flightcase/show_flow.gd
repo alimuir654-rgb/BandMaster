@@ -1,5 +1,6 @@
 extends RefCounted
 ## Owned S53 local-show policy. No LiveBridge dependency, file IO or saving.
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
 const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
@@ -29,6 +30,31 @@ static func _fail(state: Dictionary, message: String) -> Dictionary:
 static func managed(state: Dictionary) -> bool:
  var raw: Variant = state.get("booked_show",{})
  return raw is Dictionary and raw.has(FLOW_KEY)
+
+static func version_of(state: Dictionary) -> int:
+ var booking: Dictionary=Calendar.pending(state)
+ var raw: Variant=booking.get(FLOW_KEY,{})
+ return int(raw.get("version",0)) if raw is Dictionary and Booking.whole(raw.get("version",0)) else 0
+
+static func _route(booking: Dictionary) -> String:
+ return "ORIGINAL:%s:%s" % [str(booking.get("venue_id","")),str(booking.get("travel_plan",""))]
+
+static func receipt_v2_valid(receipt: Variant) -> bool:
+ if not receipt is Dictionary or receipt.get("version")!=2 or not Booking.finite_tree(receipt) or not Booking.terms_valid(receipt.get(Booking.TERMS)):return false
+ var t: Dictionary=receipt[Booking.TERMS]
+ if receipt.get("commitment_id")!=t["commitment_id"] or receipt.get("venue_id")!=t["venue_snapshot"]["id"] or receipt.get("venue")!=t["venue_snapshot"]["venue"] or receipt.get("city")!=t["venue_snapshot"]["city"]:return false
+ if receipt.get("scheduled_day")!=t["day"] or receipt.get("completed_day")!=t["next_available_day"] or receipt.get("trip_days")!=t["tariff"]["duration"]:return false
+ if not _pinned_plan_valid(receipt.get("plan")) or not _projection_valid(receipt.get("projection")) or not receipt.get("expenses") is Dictionary:return false
+ var plan: Dictionary=receipt["plan"];var projection: Dictionary=receipt["projection"]
+ var count: int=plan["song_ids"].size()
+ if projection["selected_count"]!=count or receipt.get("originals_played")!=count or projection["intensity_value"]!=plan["intensity"] or projection["originals_modifier"]!=[-22,-10,-4,2][count]:return false
+ var expenses: Dictionary=receipt["expenses"]
+ for key in ["travel_paid","accommodation_paid","session_paid"]:
+  if not Booking.whole(expenses.get(key)):return false
+ if not Booking.whole(receipt.get("cash_before")) or not Booking.whole(receipt.get("cash_after")) or not Booking.whole(receipt.get("settled_fee")):return false
+ var expected_travel: int=mini(int(t["tariff"]["travel"]),int(receipt["cash_before"])) if receipt["venue_id"]=="local" else int(t["tariff"]["travel"])
+ if expenses["travel_paid"]!=expected_travel or expenses["accommodation_paid"]!=t["tariff"]["accommodation"] or expenses["session_paid"]!=(25 if t["session_drummer"] else 0):return false
+ return int(receipt["cash_after"])==int(receipt["cash_before"])+int(receipt["settled_fee"])-int(expenses["travel_paid"])-int(expenses["accommodation_paid"])-int(expenses["session_paid"])
 
 static func booking_id(booking: Dictionary) -> String:
  if not booking.get("venue_id") is String or str(booking["venue_id"]).is_empty() or not _number(booking.get("day",0),1):return ""
@@ -79,7 +105,7 @@ static func _draft_structure(booking: Dictionary, draft: Dictionary) -> Dictiona
   if not id is String or str(id).is_empty() or seen.has(id):return _bad("Each selected original must have a unique completed-song ID.")
   seen[id]=true
  if not draft.get("shoutout") is String or draft["shoutout"] not in ["none","thankvenue"] or not draft.get("shoutout_venue_id") is String:return _bad("Choose a valid venue acknowledgment.")
- if draft["shoutout"]=="thankvenue" and (str(booking.get("venue_id",""))!="local" or draft["shoutout_venue_id"]!=str(booking.get("venue_id",""))):return _bad("The acknowledgment must name this actual booked venue.")
+ if draft["shoutout"]=="thankvenue" and ((not booking.has(Booking.TERMS) and str(booking.get("venue_id",""))!="local") or draft["shoutout_venue_id"]!=str(booking.get("venue_id",""))):return _bad("The acknowledgment must name this actual booked venue.")
  if draft.has("song_snapshots"):
   if not draft["song_snapshots"] is Array:return _bad("Selected-song snapshots must be an array when supplied.")
   for song in draft["song_snapshots"]:
@@ -107,8 +133,24 @@ static func _receipt_facts_valid(receipt: Dictionary) -> bool:
   if int(expenses["travel_paid"])!=mini(int(venue["travel"]),int(receipt["cash_before"])):return false
  return true
 
+static func _validate_records_v2(state: Dictionary) -> Dictionary:
+ var raw: Variant=state.get(RECORDS_KEY)
+ if not raw is Dictionary or raw.get("version")!=2 or not raw.get("records") is Array:return _bad("The saved regional show receipts need validation.")
+ var shadow: Dictionary=state.duplicate(true)
+ shadow[RECORDS_KEY]["version"]=1
+ for index in range(raw["records"].size()):
+  var row: Variant=raw["records"][index]
+  if not row is Dictionary:return _bad("A saved show receipt is invalid.")
+  if row.get("version")==2:
+   if not receipt_v2_valid(row):return _bad("A saved regional show receipt has invalid agreement facts.")
+   shadow[RECORDS_KEY]["records"][index]["version"]=1
+   shadow[RECORDS_KEY]["records"][index].erase("expenses")
+  elif row.get("version")!=1:return _bad("A saved show receipt requires a compatible version.")
+ return _validate_records(shadow)
+
 static func _validate_records(state: Dictionary) -> Dictionary:
  if not state.has(RECORDS_KEY):return {"ok":true,"message":""}
+ if state[RECORDS_KEY] is Dictionary and state[RECORDS_KEY].get("version")==2:return _validate_records_v2(state)
  var raw: Variant = state[RECORDS_KEY]
  if not raw is Dictionary or not _number(raw.get("version",0),1,1) or not _number(raw.get("seq",-1)) or not raw.get("seen_ids") is Dictionary or not raw.get("records") is Array or raw["records"].size()>RECORD_LIMIT:return _bad("The saved show receipt metadata needs validation.")
  var seq: int = int(raw["seq"])
@@ -149,7 +191,13 @@ static func validate(state: Dictionary) -> Dictionary:
  var booking: Dictionary = state["booked_show"]
  var raw: Variant = booking[FLOW_KEY]
  var id: String = booking_id(booking)
- if id.is_empty() or str(booking.get("venue_id",""))!="local" or not raw is Dictionary or not _number(raw.get("version",0),1,1) or raw.get("booking_id")!=id or raw.get("route")!=ROUTE or raw.get("transport_mode")!="local_lift":return _bad("This saved local-show journey needs validation; the original cancellation remains available.")
+ if raw is Dictionary and raw.get("version")==2:
+  var agreement: Dictionary=Booking.validate(state)
+  if not bool(agreement.get("ok",false)):return agreement
+  if not Booking.modern(state) or id.is_empty() or raw.get("booking_id")!=id or raw.get("route")!=_route(booking) or raw.get("transport_mode")!=booking.get("travel_plan"):return _bad("The saved room and trip do not match their agreement.")
+ else:
+  if Booking.modern(state):return _bad("A new booking needs its known regional journey version.")
+  if id.is_empty() or str(booking.get("venue_id",""))!="local" or not raw is Dictionary or not _number(raw.get("version",0),1,1) or raw.get("booking_id")!=id or raw.get("route")!=ROUTE or raw.get("transport_mode")!="local_lift":return _bad("This saved local-show journey needs validation; the original cancellation remains available.")
  if not raw.get("travel_acknowledged") is bool or not raw.get("plan_committed") is bool or not raw.get("plan") is Dictionary:return _bad("The saved show journey progress is invalid.")
  # Saved defaults are not a committed set. Catalogue trimming during later
  # writing must not prevent the player from choosing a replacement plan.
@@ -191,8 +239,11 @@ static func default_plan(state: Dictionary) -> Dictionary:
 static func new_booking(state: Dictionary) -> Dictionary:
  var after: Dictionary = state.duplicate(true)
  var booking: Dictionary = Calendar.pending(after)
- if booking.is_empty() or booking.has(FLOW_KEY) or booking_id(booking).is_empty() or str(booking.get("venue_id",""))!="local":return after
- booking[FLOW_KEY]={"version":VERSION,"booking_id":booking_id(booking),"route":ROUTE,"transport_mode":"local_lift","travel_acknowledged":false,"plan_committed":false,"plan":default_plan(after)}
+ if booking.is_empty() or booking.has(FLOW_KEY) or booking_id(booking).is_empty() or (not Booking.modern(after) and str(booking.get("venue_id",""))!="local"):return after
+ if Booking.modern(after):
+  if not bool(Booking.validate(after).get("ok",false)):return state.duplicate(true)
+  booking[FLOW_KEY]={"version":2,"booking_id":booking_id(booking),"route":_route(booking),"transport_mode":str(booking["travel_plan"]),"travel_acknowledged":false,"plan_committed":false,"plan":default_plan(after)}
+ else:booking[FLOW_KEY]={"version":VERSION,"booking_id":booking_id(booking),"route":ROUTE,"transport_mode":"local_lift","travel_acknowledged":false,"plan_committed":false,"plan":default_plan(after)}
  after["booked_show"]=booking
  return after
 
@@ -201,8 +252,9 @@ static func depart(state: Dictionary) -> Dictionary:
  if not bool(valid.get("ok",false)):return _fail(state,str(valid["message"]))
  if not managed(state) or phase(state)!="travel":return _fail(state,"This local journey is not awaiting departure.")
  var after: Dictionary = state.duplicate(true)
- after["booked_show"][FLOW_KEY]["transport_mode"]="local_lift"
+ after["booked_show"][FLOW_KEY]["transport_mode"]=str(after["booked_show"]["travel_plan"]) if version_of(state)==2 else "local_lift"
  after["booked_show"][FLOW_KEY]["travel_acknowledged"]=true
+ if version_of(state)==2:return {"ok":true,"state":after,"message":"The agreed trip to %s is under way. Costs and career days settle when the night is wrapped." % str(after["booked_show"].get("city","the venue"))}
  return {"ok":true,"state":after,"message":"The local lift reaches "+str(after["booked_show"].get("venue","the venue"))+". No money or day has been spent; travel settles with the show."}
 
 static func _normal_plan(state: Dictionary, draft: Dictionary) -> Dictionary:
@@ -212,7 +264,7 @@ static func _normal_plan(state: Dictionary, draft: Dictionary) -> Dictionary:
  var raw_ids: Variant = draft.get("song_ids")
  if not raw_ids is Array or raw_ids.size()>3:return _bad("Choose up to three unique completed originals.")
  if not draft.get("shoutout") is String or draft["shoutout"] not in ["none","thankvenue"] or not draft.get("shoutout_venue_id") is String:return _bad("Choose a valid venue acknowledgment.")
- if draft["shoutout"]=="thankvenue" and (str(booking.get("venue_id",""))!="local" or draft["shoutout_venue_id"]!=str(booking.get("venue_id",""))):return _bad("The acknowledgment must name this actual booked venue.")
+ if draft["shoutout"]=="thankvenue" and ((not booking.has(Booking.TERMS) and str(booking.get("venue_id",""))!="local") or draft["shoutout_venue_id"]!=str(booking.get("venue_id",""))):return _bad("The acknowledgment must name this actual booked venue.")
  var catalogue: Variant = state.get("song_catalogue",[])
  if not catalogue is Array:return _bad("The completed-song catalogue cannot be read safely.")
  var ids: Array = []
@@ -334,7 +386,7 @@ static func after_original_settlement(before: Dictionary, after: Dictionary) -> 
  var id: String = str(before["booked_show"][FLOW_KEY]["booking_id"])
  var prior: Variant = show.get(RESULT_KEY)
  if prior!=null:
-  if prior is Dictionary and _number(prior.get("version",0),1,1) and prior.get("booking_id")==id and prior.get("plan")==prepared["plan"] and _projection_matches(prior.get("projection"),prepared["projection"]) and _number(prior.get("fee_before_cap",-1)) and prior.get("fee_after_cap")==show.get("fee"):return {"ok":true,"state":after.duplicate(true),"message":""}
+  if prior is Dictionary and prior.get("version")==version_of(before) and prior.get("booking_id")==id and prior.get("plan")==prepared["plan"] and _projection_matches(prior.get("projection"),prepared["projection"]) and _number(prior.get("fee_before_cap",-1)) and prior.get("fee_after_cap")==show.get("fee"):return {"ok":true,"state":after.duplicate(true),"message":""}
   return _fail(before,"The saved owned show policy marker is invalid.")
  var plan: Dictionary = prepared["plan"]
  var projection: Dictionary = prepared["projection"]
@@ -360,7 +412,7 @@ static func after_original_settlement(before: Dictionary, after: Dictionary) -> 
   var identity: String = str(original_members[i].get("candidate_id",original_members[i].get("id",original_members[i].get("name",""))))
   if str(members[i].get("candidate_id",members[i].get("id",members[i].get("name",""))))!=identity:return _fail(before,"The performer identities changed during settlement.")
   if str(original_members[i].get("life_status","active"))=="active":members[i]["fatigue"]=clampi(int(members[i].get("fatigue",0))+int(projection["extra_fatigue"]),0,100)
- row[RESULT_KEY]={"version":VERSION,"booking_id":id,"plan":plan.duplicate(true),"projection":projection.duplicate(true),"fee_before_cap":old_fee,"fee_after_cap":fee}
+ row[RESULT_KEY]={"version":version_of(before),"booking_id":id,"plan":plan.duplicate(true),"projection":projection.duplicate(true),"fee_before_cap":old_fee,"fee_after_cap":fee}
  return {"ok":true,"state":result,"plan":plan,"projection":projection,"message":"No originals selected: the final gross fee is capped at £5." if int(projection["selected_count"])==0 else ""}
 
 static func _responses(receipt: Dictionary) -> Array:
@@ -396,7 +448,7 @@ static func record(before: Dictionary, after: Dictionary, msg: String) -> Dictio
  if not bool(fresh.get("ok",false)):return _fail(before,str(fresh["message"]))
  var show: Dictionary = fresh["show"]
  var applied: Variant = show.get(RESULT_KEY)
- if not applied is Dictionary or applied.get("booking_id")!=id or not _number(applied.get("version",0),1,1):return _fail(before,"The completed show is missing its owned policy result.")
+ if not applied is Dictionary or applied.get("booking_id")!=id or applied.get("version")!=version_of(before):return _fail(before,"The completed show is missing its owned policy result.")
  var raw_plan: Variant = applied.get("plan")
  var raw_projection: Variant = applied.get("projection")
  if not _pinned_plan_valid(raw_plan) or not _projection_valid(raw_projection):return _fail(before,"The completed show plan or projection cannot be read safely.")
@@ -405,7 +457,7 @@ static func record(before: Dictionary, after: Dictionary, msg: String) -> Dictio
  if not _projection_matches(projection,_projection(before,plan)):return _fail(before,"The completed show projection does not match its saved inputs.")
  var booking: Dictionary = Calendar.pending(before)
  var seq: int = int(data["seq"])+1
- var receipt: Dictionary = {"version":VERSION,"id":id,"booking_id":id,"seq":seq,"venue_id":str(booking["venue_id"]),"venue":str(show.get("venue",booking.get("venue",""))),"city":str(show.get("city",booking.get("city",""))),"scheduled_day":int(booking["day"]),"completed_day":int(show["day"]),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"settled_fee":int(show["fee"]),"success":bool(show["success"]),"originals_played":int(show.get("originals_played",0)),"plan":plan,"projection":projection,"message":msg}
+ var receipt: Dictionary = {"version":version_of(before),"id":id,"booking_id":id,"seq":seq,"venue_id":str(booking["venue_id"]),"venue":str(show.get("venue",booking.get("venue",""))),"city":str(show.get("city",booking.get("city",""))),"scheduled_day":int(booking["day"]),"completed_day":int(show["day"]),"day_before":int(before.get("tour_day",1)),"day_after":int(after.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(after.get("cash",0)),"settled_fee":int(show["fee"]),"success":bool(show["success"]),"originals_played":int(show.get("originals_played",0)),"plan":plan,"projection":projection,"message":msg}
  var effects: Dictionary = {}
  for field in ["readiness","morale","tension","reputation","fans"]:
   var maximum: int = 100 if field!="fans" else 2147483647
@@ -417,9 +469,17 @@ static func record(before: Dictionary, after: Dictionary, msg: String) -> Dictio
   var current: int = int(after.get(field,0))
   effects[field]={"before":previous,"after":current,"delta":current-previous}
  var venue: Dictionary = Gigs.get_venue(str(booking["venue_id"]))
- if str(booking["venue_id"])!="local" or not _number(before.get("cash",-1)) or venue.is_empty() or not _number(venue.get("travel",-1)) or not _number(show.get("session_fee",-1)):return _fail(before,"The original local-show expenses cannot be recorded safely.")
+ if (version_of(before)==1 and str(booking["venue_id"])!="local") or not _number(before.get("cash",-1)) or venue.is_empty() or not _number(venue.get("travel",-1)) or not _number(show.get("session_fee",-1)):return _fail(before,"The original show expenses cannot be recorded safely.")
  receipt["effects"]=effects
  receipt["expenses"]={"travel_paid":mini(int(venue["travel"]),int(before["cash"])),"session_paid":int(show["session_fee"])}
+ if version_of(before)==2:
+  var t: Dictionary=Booking.terms(before)
+  receipt["commitment_id"]=t["commitment_id"]
+  receipt[Booking.TERMS]=t
+  receipt["trip_days"]=int(t["tariff"]["duration"])
+  receipt["expenses"]["travel_paid"]=mini(int(venue["travel"]),int(before["cash"])) if str(booking["venue_id"])=="local" else int(venue["travel"])
+  receipt["expenses"]["accommodation_paid"]=int(t["tariff"]["accommodation"])
+  data["version"]=2
  receipt["responses"]=_responses(receipt)
  data["seq"]=seq
  data["seen_ids"][id]=seq

@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## ONE original local-radio campaign. Pure copied state: no files or UI.
 const Recording = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Original = preload("res://Scripts/release_campaigns.gd")
@@ -129,6 +130,8 @@ static func preview(state: Dictionary, id: String, expected_fingerprint: String,
  return launch(state,id,expected_fingerprint,expected_index)
 
 static func launch(state: Dictionary, id: String, expected_fingerprint: String, expected_index: int=-1, interview: Dictionary={}) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"promotion",1)
+ if not bool(commitment.get("ok",false)):return _fail(state,str(commitment["message"]))
  var safe: Dictionary=validate(state)
  if not bool(safe.get("ok",false)):return _fail(state,str(safe.get("message","The saved campaign state needs validation.")))
  if not interview.is_empty() and int(state.get("tour_day",1))>=2147483647:return _fail(state,"The radio visit would exceed the supported career-day range.")

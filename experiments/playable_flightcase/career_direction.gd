@@ -70,7 +70,10 @@ static func booking_guard(state: Dictionary) -> Dictionary:
  return {"ok":true,"due":int(booking["day"])<=int(state.get("tour_day",1)),"message":""}
 
 static func factors(saved: Variant) -> Array:
- if not saved is Dictionary or not _whole(saved.get("version"),1,1):return []
+ if not saved is Dictionary:return []
+ if saved.get("version")==2:
+  if not Flow.receipt_v2_valid(saved):return []
+ elif not _whole(saved.get("version"),1,1):return []
  if not saved.get("id") is String or str(saved["id"]).is_empty() or saved.get("booking_id")!=saved["id"]:return []
  if not _whole(saved.get("originals_played"),0,3):return []
  var projection: Variant=saved.get("projection")

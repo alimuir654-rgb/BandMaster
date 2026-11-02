@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Pure adapter for existing career rules over the current C27 flat career.
 ## No files, scene changes, signals, animations, saves or new gameplay rules.
 const Gear = preload("res://experiments/playable_flightcase/gear_catalog.gd")
@@ -61,6 +62,8 @@ static func _assignment_state(state: Dictionary, item: String, member: int) -> D
  return projected
 
 static func gear_action(state: Dictionary, verb: String, item: String, member: int = -1) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"gear",0 if verb=="assign" else 1)
+ if not bool(commitment.get("ok",false)):return commitment
  if show_day(state):
   return {"ok":false,"message":"Tonight's gig comes first. Finish the show before another activity."}
  var before: Dictionary = state.duplicate(true)

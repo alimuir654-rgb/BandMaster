@@ -1,6 +1,7 @@
 extends RefCounted
 ## Saved, zero-turn checkpoints for one managed local night. Pure; no LiveBridge,
 ## Finance transaction, IO, clocks, tween or scene dependency.
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Policy = preload("res://experiments/playable_flightcase/gig_performance_policy.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
@@ -29,7 +30,7 @@ static func active(state: Dictionary) -> Dictionary:
 static func locked(state: Dictionary) -> bool:
  if not state.has(KEY):return false
  var raw: Variant=state[KEY]
- return not raw is Dictionary or raw.get("version")!=VERSION or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary or not raw["active"].is_empty()
+ return not raw is Dictionary or raw.get("version") not in [1,2] or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary or not raw["active"].is_empty()
 
 static func expected(state: Dictionary) -> Dictionary:
  var visit: Dictionary=active(state)
@@ -42,7 +43,7 @@ static func _result(state: Dictionary, message: String = "", changed: bool = fal
  return {"ok":true,"state":state.duplicate(true),"message":message,"changed":changed,"noop":not changed,"active":active(state)}
 
 static func eligible(state: Dictionary) -> bool:
- return Flow.managed(state) and str(Calendar.pending(state).get("venue_id",""))=="local" and int(Calendar.pending(state).get("day",-1))==int(state.get("tour_day",0))
+ return Flow.managed(state) and (Flow.version_of(state)==2 or str(Calendar.pending(state).get("venue_id",""))=="local") and int(Calendar.pending(state).get("day",-1))==int(state.get("tour_day",0))
 
 static func _source_guard(state: Dictionary) -> Dictionary:
  var valid: Dictionary=Finance.guard(state)
@@ -58,15 +59,25 @@ static func _source_guard(state: Dictionary) -> Dictionary:
 static func validate(state: Dictionary) -> Dictionary:
  if not state.has(KEY):return {"ok":true,"exists":false,"active":{}}
  var raw: Variant=state[KEY]
- if not raw is Dictionary or raw.get("version")!=VERSION or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary:return _bad("This saved gig journey needs a compatible version. Its data has been retained.")
+ if not raw is Dictionary or raw.get("version") not in [1,2] or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary:return _bad("This saved gig journey needs a compatible version. Its data has been retained.")
  var visit: Dictionary=raw["active"]
  if visit.is_empty():return {"ok":true,"exists":true,"active":{}}
  var guarded: Dictionary=_source_guard(state)
  if not bool(guarded.get("ok",false)):return guarded
- if not Policy.whole(raw["sequence"],1) or not Policy.whole(visit.get("revision"),0) or visit.get("version")!=VERSION or visit.get("policy_version")!=1 or visit.get("content_version")!=1:return _bad("The saved gig checkpoint is incomplete.")
+ if not Policy.whole(raw["sequence"],1) or not Policy.whole(visit.get("revision"),0) or visit.get("version")!=raw["version"] or visit.get("policy_version")!=1 or visit.get("content_version")!=1:return _bad("The saved gig checkpoint is incomplete.")
  for key in ["id","booking_id","phase","source_hash","intent"]:
   if not visit.get(key) is String:return _bad("The saved gig checkpoint has unreadable text.")
  var booking: Dictionary=Calendar.pending(state)
+ if int(raw["version"])!=Flow.version_of(state):return _bad("The saved gig and booking versions disagree.")
+ if int(raw["version"])==2:
+  var agreement: Dictionary=Booking.validate(state)
+  if not bool(agreement.get("ok",false)):return agreement
+  var t: Dictionary=Booking.terms(state)
+  if visit.get("commitment_id")!=t.get("commitment_id") or not visit.get("departure_committed") is bool or not Booking.whole(visit.get("departure_liability")):return _bad("The saved trip is missing its agreed commitment.")
+  var departed: bool=str(visit["phase"])!="set_out"
+  var liability: int=int(t["tariff"]["travel"])+int(t["tariff"]["accommodation"])
+  if booking["venue_id"]=="local":liability=mini(liability,int(state.get("cash",0)))
+  if visit["departure_committed"]!=departed or int(visit["departure_liability"])!=(liability if departed else 0):return _bad("The saved departure liability does not match the actual trip.")
  var booking_id: String=Flow.booking_id(booking)
  if visit["booking_id"]!=booking_id or visit["id"]!="gig-journey:%d:%s" % [int(raw["sequence"]),booking_id] or not PHASES.has(visit["phase"]):return _bad("This checkpoint no longer matches tonight's booking.")
  if visit["source_hash"]!=fingerprint(state):return _bad("The band or booking changed after this checkpoint. The saved night has been held.")
@@ -131,7 +142,15 @@ static func begin(state: Dictionary, expected_booking_id: String = "") -> Dictio
  var wrapper: Dictionary=_wrapper(state)
  if int(wrapper["sequence"])>=2147483646:return _bad("The saved night sequence has reached its supported limit.")
  wrapper["sequence"]=int(wrapper["sequence"])+1
- var visit: Dictionary={"version":VERSION,"id":"gig-journey:%d:%s" % [int(wrapper["sequence"]),id],"booking_id":id,"phase":str(mapped[stage]),"revision":0,"policy_version":1,"content_version":1,"art_version":"existing_s53_plates","source_hash":"","started_day":int(state.get("tour_day",1)),"started_cash":int(state.get("cash",0)),"participants":state.get("members",[]).duplicate(true),"plan":{},"context":{},"cursor":0,"completed_ids":[],"feedback":[],"vibe":40,"intent":"","last_input":""}
+ var visit: Dictionary={"version":Flow.version_of(state),"id":"gig-journey:%d:%s" % [int(wrapper["sequence"]),id],"booking_id":id,"phase":str(mapped[stage]),"revision":0,"policy_version":1,"content_version":1,"art_version":"existing_s53_plates","source_hash":"","started_day":int(state.get("tour_day",1)),"started_cash":int(state.get("cash",0)),"participants":state.get("members",[]).duplicate(true),"plan":{},"context":{},"cursor":0,"completed_ids":[],"feedback":[],"vibe":40,"intent":"","last_input":""}
+ if Flow.version_of(state)==2:
+  wrapper["version"]=2
+  var t: Dictionary=Booking.terms(state)
+  visit["commitment_id"]=t["commitment_id"]
+  visit["departure_committed"]=stage!="travel"
+  var liability: int=int(t["tariff"]["travel"])+int(t["tariff"]["accommodation"])
+  visit["departure_liability"]=(mini(liability,int(state["cash"])) if booking["venue_id"]=="local" else liability) if stage!="travel" else 0
+ elif wrapper["version"]!=1:return _bad("A legacy night cannot be placed in a newer journey wrapper.")
  if stage=="stage":
   var frozen: Dictionary=_freeze(state,visit)
   if not bool(frozen.get("ok",false)):return frozen
@@ -169,6 +188,11 @@ static func checkpoint(state: Dictionary, action: String, token: Dictionary, pay
    var departed: Dictionary=Flow.depart(after)
    if not bool(departed.get("ok",false)):return departed
    after=departed["state"]
+   if visit["version"]==2:
+    var t: Dictionary=Booking.terms(after)
+    var liability: int=int(t["tariff"]["travel"])+int(t["tariff"]["accommodation"])
+    visit["departure_committed"]=true
+    visit["departure_liability"]=mini(liability,int(after["cash"])) if after["booked_show"]["venue_id"]=="local" else liability
    next="travel"
   elif phase=="load_in":
    var entered: Dictionary=Night.advance(after)
@@ -241,7 +265,7 @@ static func complete(after: Dictionary, visit: Dictionary, actual_effects: Dicti
  if active(state)!=visit:return _bad("The journey checkpoint changed during show settlement.")
  var receipt: Dictionary=Flow.last_receipt(state)
  if receipt.is_empty() or receipt.get("booking_id")!=visit["booking_id"]:return _bad("The original show receipt is missing after settlement.")
- var extension: Dictionary={"version":VERSION,"journey_id":visit["id"],"content_version":1,"policy_version":1,"completed_ids":visit["completed_ids"].duplicate(),"plan":visit["plan"].duplicate(true),"feedback":visit["feedback"].duplicate(true),"vibe":int(visit["vibe"]),"intent":str(visit["intent"]),"context":visit["context"].duplicate(true),"actual_policy_effects":actual_effects.duplicate(true),"kind":"modelled_live_journey"}
+ var extension: Dictionary={"version":int(visit["version"]),"journey_id":visit["id"],"content_version":1,"policy_version":1,"completed_ids":visit["completed_ids"].duplicate(),"plan":visit["plan"].duplicate(true),"feedback":visit["feedback"].duplicate(true),"vibe":int(visit["vibe"]),"intent":str(visit["intent"]),"context":visit["context"].duplicate(true),"actual_policy_effects":actual_effects.duplicate(true),"kind":"modelled_live_journey"}
  var records: Dictionary=state[Flow.RECORDS_KEY].duplicate(true)
  var rows: Array=records["records"].duplicate(true)
  rows[-1]["journey_v1"]=extension

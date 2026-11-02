@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Owned, optional career facts. No personal money or canonical biographies are inferred.
 const KEY := "situation_core_v1"
 const KINDS := ["unknown","day_job","family_supported","flexible"]
@@ -92,6 +93,8 @@ static func _put(state: Dictionary, core: Dictionary, message: String) -> Dictio
  return {"ok":true,"changed":true,"state":next,"message":message}
 
 static func set_context(state: Dictionary, id: String, kind: String, expected: Dictionary = {}) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_metadata(state)
+ if not bool(commitment.get("ok",false)):return _fail(str(commitment["message"]))
  var checked: Dictionary=validate(state)
  if not checked.ok:return checked
  if not _compare(state,expected):return _fail("The band changed. Reopen this musician's context before saving.")
@@ -136,6 +139,8 @@ static func inspect_rehearsal(state: Dictionary) -> Dictionary:
  return {"ok":true,"day":day,"conflict":not absent.is_empty(),"attendee_indices":attendees,"absent":absent,"plan":plan,"plan_status":status,"fingerprint":JSON.stringify(state).sha256_text(),"core_revision":int(checked.core.revision)}
 
 static func reschedule(state: Dictionary, expected: Dictionary = {}) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_metadata(state)
+ if not bool(commitment.get("ok",false)):return _fail(str(commitment["message"]))
  var inspected: Dictionary=inspect_rehearsal(state)
  if not inspected.ok:return inspected
  if not _compare(state,expected):return _fail("The band changed. Review this rehearsal again.")

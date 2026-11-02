@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Owned selected-song recording adapter. Pure: no IO, UI, callbacks or saving.
 ## Original recording/release, story, expiry, life and Finance own consequences.
 const Original = preload("res://Scripts/recording_career.gd")
@@ -156,6 +157,8 @@ static func _selection(state: Dictionary, ids: Array) -> Dictionary:
   selected.append(matches[0].duplicate(true));seen[id]=true
  return {"ok":true,"songs":selected,"message":""}
 static func _guard(state: Dictionary, recording: bool) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"recording",2 if recording else 1)
+ if not bool(commitment.get("ok",false)):return commitment
  var valid: Dictionary=validate(state)
  if not bool(valid.get("ok",false)):return valid
  valid=Finance.guard(state)

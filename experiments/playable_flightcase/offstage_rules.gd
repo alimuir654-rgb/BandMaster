@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Pure social/business adapter. Original models resolve all money/day/stat rules.
 const Social = preload("res://Scripts/band_social.gd")
 const Story = preload("res://Scripts/career_story.gd")
@@ -24,6 +25,8 @@ static func _failure(state: Dictionary, message: String) -> Dictionary:
  return {"ok":false,"state":state.duplicate(true),"message":message,"title":"OFFSTAGE","return_page":"offstage","finance_action":""}
 
 static func _guard(state: Dictionary) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"offstage",0)
+ if not bool(commitment.get("ok",false)):return commitment
  var finance: Dictionary = Finance.guard(state)
  if not bool(finance.get("ok",false)):return finance
  if Live.show_day(state):
@@ -126,6 +129,8 @@ static func _encounter(data: Dictionary, state: Dictionary, id: String, activity
  _journal(state,"s48:met:"+id,title,str(event["description"]))
 
 static func outing(state: Dictionary, activity: String) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(state,"offstage",1)
+ if not bool(commitment.get("ok",false)):return _failure(state,str(commitment["message"]))
  var permitted: Dictionary = _guard(state)
  if not bool(permitted.get("ok",false)):return _failure(state,str(permitted["message"]))
  var original: Dictionary = Social.attend(state,activity)
@@ -191,3 +196,36 @@ static func respond(state: Dictionary, id: String, choice: String) -> Dictionary
  after[KEY]=data
  _journal(after,"s48:response:"+id,str(event["title"]),message)
  return {"ok":true,"state":after,"message":message,"title":str(event["title"]),"return_page":return_page,"finance_action":finance_action}
+
+
+static func booking_handoff(state: Dictionary, event_id: String = PROMOTER) -> Dictionary:
+ var guard: Dictionary=Booking.guard_commitment(state,"promoter_introduction",0)
+ if not bool(guard.get("ok",false)):return guard
+ var raw: Variant=state.get(KEY)
+ if not raw is Dictionary or raw.get("version")!=1 or not raw.get("events") is Dictionary or not raw.get("contacts") is Dictionary:return _failure(state,"The saved introduction needs a compatible version.")
+ var event: Variant=raw["events"].get(event_id)
+ if event_id!=PROMOTER or not event is Dictionary or event.get("id")!=event_id or event.get("status")!="pending" or not event.get("source_id") is String or str(event["source_id"]).is_empty() or not Booking.whole(event.get("source_day"),1) or not Booking.whole(event.get("source_counter")) or not event.get("source_action") is String:return _failure(state,"This promoter introduction is no longer current.")
+ return {"ok":true,"origin":{"event_id":event_id,"source_hash":Booking.fingerprint(state),"event":event.duplicate(true),"social_snapshot":raw.duplicate(true)},"request":{"venue_id":"local","offer_id":"standard","session_drummer":false,"travel_plan":"drive_home","day":int(state.get("tour_day",1))+3}}
+
+static func attach_booking_acceptance(before: Dictionary, candidate: Dictionary, origin: Dictionary) -> Dictionary:
+ var current: Dictionary=booking_handoff(before,str(origin.get("event_id","")))
+ if not bool(current.get("ok",false)):return current
+ if origin!=current["origin"] or candidate.get(KEY)!=before.get(KEY):return _failure(before,"The promoter introduction changed. Review it again.")
+ var checked: Dictionary=Booking.validate(candidate)
+ if not bool(checked.get("ok",false)) or not Booking.modern(candidate):return _failure(before,"The introduction needs a valid newly saved agreement.")
+ var t: Dictionary=Booking.terms(candidate)
+ if t["venue_snapshot"]["id"]!="local" or t["offer_id"]!="standard":return _failure(before,"This introduction belongs only to the Lantern Room's standard offer.")
+ var after: Dictionary=candidate.duplicate(true)
+ var data: Dictionary=after[KEY].duplicate(true)
+ var event: Dictionary=origin["event"].duplicate(true)
+ event["status"]="accepted"
+ event["choice"]="accept"
+ event["accepted_day"]=int(after.get("tour_day",1))
+ event["resolved_day"]=int(after.get("tour_day",1))
+ event["accepted_booking"]=Calendar.pending(after)
+ event["booking_day"]=int(t["day"])
+ event["commitment_id"]=t["commitment_id"]
+ data["events"][origin["event_id"]]=event
+ after[KEY]=data
+ _journal(after,"s82:promoter-accept:"+str(t["commitment_id"]),str(event.get("title","A LOCAL PROMOTER")),"Accepted the Lantern Room introduction for DAY %d. The actual booking and trip are saved together." % int(t["day"]))
+ return {"ok":true,"state":after,"message":"Promoter introduction accepted with the saved booking."}

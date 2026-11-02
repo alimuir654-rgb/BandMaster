@@ -2,6 +2,8 @@ extends RefCounted
 ## Original hometown live-career rules over the existing C27 career dictionary.
 ## Pure adapter: original legacy rules plus explicitly versioned S53 show policy.
 ## No file IO, scene changes, callbacks or saving.
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Night = preload("res://Scripts/gig_night_flow.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
@@ -19,6 +21,7 @@ const LOCAL_VENUE := "local"
 
 static func show_day(state: Dictionary) -> bool:
  var booking: Dictionary = Calendar.pending(state)
+ if Booking.modern(state):return not bool(Booking.validate(state).get("ok",false)) or int(booking.get("day",-1))<=int(state.get("tour_day",0))
  return not booking.is_empty() and int(booking.get("day",-1))==int(state.get("tour_day",0))
 
 static func booking_eligibility(state: Dictionary, hire: bool = false, offer_id: String = "standard") -> Dictionary:
@@ -86,6 +89,7 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
  if verb in ["advance","perform","cancel","expire"] and not choice.is_empty():
   return {"ok":false,"message":"This live-career action does not accept a choice."}
  var before: Dictionary = state.duplicate(true)
+ if state.has(Booking.KEY) or Booking.modern(state):return {"ok":false,"message":"Use this saved agreement's current booking and show controls."}
  if state.has(Journey.KEY):
   var journey_checked: Dictionary=Journey.validate(state)
   if not bool(journey_checked.get("ok",false)) or Journey.locked(state):
@@ -157,6 +161,8 @@ static func resolve(state: Dictionary, verb: String, choice: String = "", hire: 
    return {"ok":false,"message":"Unknown live-career action."}
 
 static func after_practice(before: Dictionary, after: Dictionary) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(before,"practice",maxi(0,int(after.get("tour_day",1))-int(before.get("tour_day",1))))
+ if not bool(commitment.get("ok",false)):return before.duplicate(true)
  # Preserve the entire verified non-live practice contract byte-for-byte in
  # value. Merely opening live screens must not activate unrelated post-rules.
  if Calendar.pending(before).is_empty():
@@ -260,6 +266,12 @@ static func _perform(before: Dictionary, journey: Dictionary = {}) -> Dictionary
   finished["state"]=contextual["state"]
   finished["journey_receipt"]=completed["receipt"]
   finished["finance_action"]="live:perform"
+ if Booking.modern(before):
+  var commitment: Dictionary=Booking.complete(before,finished["state"])
+  if not bool(commitment.get("ok",false)):return commitment
+  finished["state"]=commitment["state"]
+  finished["closing_balances"]=Booking.trip_closes(before,finished["state"])
+  if finished["closing_balances"].size()!=int(Booking.terms(before)["tariff"]["duration"]):return {"ok":false,"message":"The trip's closing accounts do not match its agreed duration."}
  return finished
 
 static func wrap_journey(state: Dictionary, expected: Dictionary) -> Dictionary:
@@ -268,6 +280,7 @@ static func wrap_journey(state: Dictionary, expected: Dictionary) -> Dictionary:
  return _perform(state.duplicate(true),checked["active"])
 
 static func cancel_journey(state: Dictionary, expected: Dictionary) -> Dictionary:
+ if Booking.modern(state):return cancel_selected(state,Booking.expected(state),expected)
  var checked: Dictionary=Journey._owned(state,expected)
  if not bool(checked.get("ok",false)):return checked
  var result: Dictionary=_post(state,Calendar.cancel(state.duplicate(true)),"booking_cancel")
@@ -287,3 +300,53 @@ static func journey_incident(state: Dictionary, expected: Dictionary, choice: St
  rebased["message"]=str(result.get("message","The band responded."))
  rebased["finance_action"]="live:incident"
  return rebased
+
+
+static func prepare_booking(state: Dictionary, request: Dictionary, expected: Dictionary) -> Dictionary:
+ return Booking.prepare(state,request,expected)
+
+static func book_selected(state: Dictionary, request: Dictionary, expected: Dictionary) -> Dictionary:
+ var valid: Dictionary=Flow.validate(state)
+ if not bool(valid.get("ok",false)):return valid
+ var result: Dictionary=Booking.book(state,request,expected)
+ if not bool(result.get("ok",false)):return result
+ result["state"]=Flow.new_booking(result["state"])
+ valid=Flow.validate(result["state"])
+ if not bool(valid.get("ok",false)) or Flow.version_of(result["state"])!=2:return {"ok":false,"message":"The new show journey could not be prepared."}
+ return _post(state,result)
+
+static func cancellation_quote(state: Dictionary, expected: Dictionary, journey_expected: Dictionary = {}) -> Dictionary:
+ var valid: Dictionary=Flow.validate(state)
+ if not bool(valid.get("ok",false)):return valid
+ if Journey.locked(state):
+  valid=Journey._owned(state,journey_expected)
+  if not bool(valid.get("ok",false)):return valid
+ else:
+  valid=Booking.guard_metadata(state)
+  if not bool(valid.get("ok",false)):return valid
+ var proof: Dictionary=Booking.departure(state)
+ if not bool(proof.get("ok",false)):return proof
+ return Booking.cancel_quote(state,expected,proof)
+
+static func cancel_selected(state: Dictionary, expected: Dictionary, journey_expected: Dictionary = {}) -> Dictionary:
+ var quote: Dictionary=cancellation_quote(state,expected,journey_expected)
+ if not bool(quote.get("ok",false)):return quote
+ var result: Dictionary=Booking.cancel_original(state,expected,quote["departure"])
+ if not bool(result.get("ok",false)):return result
+ if state.has(Journey.KEY):result["state"]=Journey.clear_cancelled(result["state"])
+ result=_post(state,result,"booking_cancel")
+ if int(result["state"].get("tour_day",1))>int(state.get("tour_day",1)):
+  var context: Dictionary=Core.after_action(state,result["state"])
+  if not bool(context.get("ok",false)):return context
+  result["state"]=context["state"]
+ result["finance_action"]="live:cancel"
+ return result
+
+static func expire_selected(state: Dictionary, expected: Dictionary) -> Dictionary:
+ var valid: Dictionary=Flow.validate(state)
+ if not bool(valid.get("ok",false)):return valid
+ var result: Dictionary=Booking.expire_original(state,expected)
+ if not bool(result.get("ok",false)):return result
+ result=_post(state,result,"booking_missed")
+ result["finance_action"]="live:expire"
+ return result

@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## C26 isolated gameplay: reuse genuine recruitment, songwriting, rehearsal rules.
 ## This code never touches production career saves or replaces catalogue identities.
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
@@ -213,18 +214,24 @@ func _record_practice(result: Dictionary,focus: String) -> Dictionary:
  return result
 
 func write_session(idea: String,form: String,title: String,leader_index: int) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not bool(commitment.get("ok",false)):return commitment
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = _apply_risk(Practice.compose(career,idea,form,title,leader_index),"create")
  return _record_practice(result,"create")
 
 func rehearse() -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not bool(commitment.get("ok",false)):return commitment
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = _apply_risk(Practice.resolve(career,"tighten"),"tighten")
  return _record_practice(result,"tighten")
 
 func rehearse_attending(indices: Array) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not bool(commitment.get("ok",false)):return commitment
  if phase!="play":return {"ok":false,"message":"Recruit a viable band first."}
  var inspected: Dictionary=Situation.inspect_rehearsal(career)
  if not inspected.ok:return inspected
@@ -271,6 +278,8 @@ func rehearse_attending(indices: Array) -> Dictionary:
  return result
 
 func clear_air() -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not bool(commitment.get("ok",false)):return commitment
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = Practice.resolve(career,"connect")

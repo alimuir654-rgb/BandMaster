@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Durable free checkpoints around ONE original paid radio settlement.
 const Promotion = preload("res://experiments/playable_flightcase/promotion_rules.gd")
 const Recording = preload("res://experiments/playable_flightcase/recording_rules.gd")
@@ -66,6 +67,8 @@ static func begin(state: Dictionary, id: String, fingerprint: String, index: int
  if not existing.is_empty():
   if existing["demo_id"]!=id or existing["source_fingerprint"]!=fingerprint or (id.is_empty() and int(existing["demo_index"])!=index):return _result(state,false,"Another radio visit is unfinished. Resume or cancel it first.")
   return _result(state,true,"The saved radio visit is ready to resume.")
+ var commitment: Dictionary=Booking.guard_commitment(state,"radio_begin",1)
+ if not bool(commitment.get("ok",false)):return _result(state,false,str(commitment["message"]))
  if int(state.get("tour_day",1))>=2147483647:return _result(state,false,"The radio visit would exceed the supported career-day range.")
  var preview: Dictionary=Promotion.preview(state,id,fingerprint,index)
  if not bool(preview.get("ok",false)):return _result(state,false,str(preview.get("message","This visit cannot begin.")))

@@ -1,4 +1,5 @@
 extends RefCounted
+const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## A free player preference. Never claims chapters or changes gameplay values.
 const Chapters = preload("res://Scripts/career_chapters.gd")
 const KEY := "career_focus_v1"
@@ -62,6 +63,8 @@ static func _result(state: Dictionary, ok: bool, message: String, changed: bool=
  return {"ok":ok,"state":state.duplicate(true),"message":message,"changed":changed,"chapter_id":str(selected.get("chapter_id",""))}
 
 static func choose(state: Dictionary, chapter_id: String) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_metadata(state)
+ if not bool(commitment.get("ok",false)):return _result(state,false,str(commitment["message"]))
  var valid: Dictionary=validate(state)
  if not bool(valid["ok"]):return _result(state,false,str(valid["message"]))
  if definition(chapter_id).is_empty():return _result(state,false,"Choose one of the existing band goals.")
@@ -77,6 +80,8 @@ static func change(state: Dictionary, chapter_id: String) -> Dictionary:
  return choose(state,chapter_id)
 
 static func clear(state: Dictionary) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_metadata(state)
+ if not bool(commitment.get("ok",false)):return _result(state,false,str(commitment["message"]))
  var valid: Dictionary=validate(state)
  if not bool(valid["ok"]):return _result(state,false,str(valid["message"]))
  if not bool(valid["pinned"]):return _result(state,true,"The suggested goal is already active.")
