@@ -2440,15 +2440,15 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": null,
   "last_writer": "S71-student-radio-journey-20261101T2230",
-  "source_write_allowed": true,
-  "pending_implementation": true,
+  "source_write_allowed": false,
+  "pending_implementation": false,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "scoped_Details_caption_repair",
+  "source_phase": "caption_repair_frozen_pending_exact_proof",
   "claimed_at": "2026-11-02T00:28:33.404345+00:00",
   "expires_at": "2026-11-02T02:30:00Z",
   "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
-  "delegated_source_writer": "/root/s72_source",
+  "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -2471,7 +2471,7 @@
     "existing_single_attachment_confirmed": true,
     "queue_receipt": "/workspace/work/overnight-20261102/s71/queue-readback.json"
   },
-  "source_frozen_at": "2026-11-02T00:52:58.840659+00:00",
+  "source_frozen_at": "2026-11-02T01:11:04.668444+00:00",
   "source_freeze_target": "2026-11-01T22:49:46Z",
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "previous_s68_verified_checkpoint": {

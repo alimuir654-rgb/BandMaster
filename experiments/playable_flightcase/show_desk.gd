@@ -325,12 +325,20 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  _copy(details,"GROSS FEE £%d · %d ORIGINALS" % [int(data.get("settled_fee",0)),int(data.get("originals_played",0))])
  for index in range(data.get("plan",{}).get("song_snapshots",[]).size()):
   _copy(details,"%d. %s" % [index+1,str(data["plan"]["song_snapshots"][index].get("title",""))])
+ var response_index := 0
  for point in data.get("responses",[]):
   _copy(details,str(point.get("title","SAVED RESPONSE")),20)
   var row := HBoxContainer.new()
+  row.name="ShowResponseRow_%d" % response_index
   row.add_theme_constant_override("separation",8)
   details.add_child(row)
   row.add_child(Kit.PassiveMeter.new("notepaper",int(point.get("meter_score",6))))
-  row.add_child(C.paper_label(str(point.get("mood","steady")).to_upper(),16))
+  var mood: Label=C.paper_label(str(point.get("mood","steady")).to_upper(),16)
+  mood.name="ShowResponseMood_%d" % response_index
+  mood.autowrap_mode=TextServer.AUTOWRAP_OFF
+  mood.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+  mood.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+  row.add_child(mood)
   _copy(details,str(point.get("text","")))
+  response_index+=1
  _copy(details,"Saved modelled summary: three illustrative bands, no attendance or microphone measurement.",16,true)
