@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "S81",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner: queue/goahead, resourceconstraintlifted, maxoutnext48hours. ONE complete source-grounded gigjourney now, approval-gated missingroadart; preserveoldmodels/saves/cast.",
+  "baseline_sha": "c97e1d5164a4d8d265725855af4ed04fea8a6965",
+  "game_baseline_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
+  "dominant_issue": "BM-39",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-21",
+    "BM-22",
+    "BM-26",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44"
+  ],
+  "hypothesis": "A saved complete bandnight withplace/travel/actualsoundcheck/contextualbandresponse/explicitfinishedsongcursor/vibe/oneearnedintent/afterset/packup/finalwrap createscoherence; source-backedmotion supportsmoment ratherthanmoreinstantbuttons. Metadata checkpoints0Finance; finaloriginalsettlementonce.",
+  "stop_condition": "One managedLanternRoom pilot, no unrelatedeconomy/jobs/gear/cast/deps. Original54Scripts/rawart protected; no unapprovedroad/performance/Nia promotion. Twoineffectiveattempts changeMETHOD/HOLD. Currentleaseends23:45Nov2, verifiedsliceorHOLD;48hfinalNov4 21:24:35.",
+  "target": {
+    "locator": "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+    "original_sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+    "pixels_inspected": true,
+    "kind": "Actual audience-facing stage andarrival/reversecrowd originals opened byroot; ownerexperiencebrief isgoal. HistoricalS53nativearrival/soundcheck references arehistorical, notnewcurrentnativeproof."
+  },
+  "controlled_comparison": "Preserve all other394-base inputs except3scopedownedadapters; fournewownedmodules. Comparelegacy no-active originalmodel/whole typedstateexact, actualshowcash/day/fees/success/projection unchangedwithnewjourney exceptdeclaredboundednonfinancialpolicy+optionalmetadata. Exactsame savedbooking/plan/snapshots; native4viewrealjourneyinput/failure/retry/reload, no replayssoldaslive.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S81_GIG_JOURNEY_CONTRACT.md",
+    "docs/continuous_improvement/sessions/S81.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/LESSONS.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/gig_journey.gd",
+    "experiments/playable_flightcase/gig_performance_policy.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/gig_journey_scene.gd",
+    "experiments/playable_flightcase/live_bridge.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/show_desk.gd"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s81-20261102",
+    "/workspace/generated_images (new unique proposal file only; never edit prior sources)"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "8ad64923fbdc5cb0b4a604e11ccb9a8169d17a0742cccb6b356412a5552cb775",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 980398,
+    "sha256": "ca971fd4868ce06736eb5166ee6c881be0b4aee1d0ccc2cb4c572b98f0b5c133"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S81.json",
+    "Puremodel legacy/noactive/futurewrapper/0..3songs/contextbounds/stale/savepolicy proofs; exact candidate73/88/import/4standard+4genuinegigjourneys/actualinput/whole-savefailure/retry/resume/4viewnativeoriginals/EMPTYERRORs"
+  ],
+  "source_write_allowed": true,
+  "art_write_allowed": true,
+  "art_scope": "Scratch road/travel proposal only, PENDINGOWNER. No productionassetwrite/integrationbeforeexplicitapproval/rescope. A04HOLD/A06pending preserved.",
+  "source_contract": "docs/continuous_improvement/S81_GIG_JOURNEY_CONTRACT.md",
+  "source_contract_sha256": "9687a1fa5a10b504030cf783ce4af0f749513a8d362d6c92be956dbb17817e8e",
+  "current_plan_sequence": 15,
+  "current_review_board_sequence": 100,
+  "started_at": "2026-11-02T21:33:33.933754+00:00",
+  "scope_end": "2026-11-02T23:45:00Z",
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "storage_contract": {
+    "kind": "preserve-ALL relocation, not purge",
+    "proposal": "/tmp/bandmaster-s81-20261102/art-inventory/storage-relocation-proposal.json",
+    "proposal_sha256": "8961480f69cbfeece6db2e775326c8d75d5600709aa13ffea6f9b87b8e31eb61",
+    "exact_source": "/workspace/work/s40/runs/s68-radio-4769216-final/runtime/.godot",
+    "exact_destination": "/tmp/bandmaster-s81-20261102/preserved-cache/s68-radio-4769216-final-godot",
+    "maximum_paths": 1,
+    "maximum_files": 450,
+    "maximum_bytes": 83886080,
+    "expected_files": 405,
+    "expected_bytes": 63541263,
+    "filelist": "/tmp/bandmaster-s81-20261102/art-inventory/s68-closed-cache-filelist.json",
+    "filelist_sha256": "7b1faa7cad2fb1c44b020d1c2e75f5200a73413af4884082ada0bc745eecfad1",
+    "check_bound_BEFORE_mutation": true,
+    "preserve_all_bytes_modes_mtime": true,
+    "preserve_original_path_symlink": true,
+    "historical379rawinputs_verify_before_after": true,
+    "global_FD_proof": "limited/procdenied; rootacceptsclosedS68lease+actualnobody-running-S68commandline under one-writer policy, doesnotclaimexhaustiveFDproof",
+    "reason": "Workspace2MB cannot safely accept newimagegenoutput orsourceexpansion. Copyallcachebytestotmp, verifyexacttree, switchoriginalpathtosymlink, reclaimonlyverifiedderivedcachephysicalcopy; no rawsource/art/PNG/log/receipt/historydeleted."
+  }
+}

@@ -1,3 +1,9 @@
+# Current 48-hour authority — supersedes completed shorter windows
+
+Owner2Nov21:24: “Max out the next48hours.” Sameworker48hourlyopportunities22:15Nov2–21:15Nov4; finalhardstop21:24:35LondonNov4. No newbreadth19:45Nov4/source-artfreeze20:15/final21:15readiness/allwrites21:20. QualityS80verifiedsource5022; nextcompletegigS81, auditions/songwritingthenapprovedcoherence. If owner-onlyartgateblocks, progressnextapprovedactionablework. PrivateAPKmeaningfulverifiedmilestones; humanartapprovalgatesstay.
+
+## Earlier S80 four-opportunity plan — historical
+
 # S80 execution queue — 2 November evening
 
 Owner: “Ok, queue up the next changes and go ahead.” This authorises execution after the completed historical morning freezes.
