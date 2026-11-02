@@ -31,8 +31,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 935686,
-    "sha256": "b5c8e207931253275ab61ad5e616f27d64cc45cf7b55b7e5540ff574d86ab820"
+    "bytes": 937254,
+    "sha256": "139697e838d9dbf39cbb4bdb6939f8cf3b810ceade797380323c69e20fa4ee64"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S77.json",
@@ -126,7 +126,7 @@
       "/workspace/work/morning-20261102/s77/controlled-comparison.json"
     ],
     "next_action": "Read-only owner review of current native screenshots and F11 proposedsharedsituationcore/job-shift-versus-rehearsal contract. Core/bios/attendance/personalaccounting unimplemented; noautomaticnewwork/queue/Android. Noonhardstop and11:50allwrites unchanged.",
-    "new_issue_review": "563\u2013576 retained: readpath/store guards, staticQAcontracts/reverseguards, changedrealbody-scrollmethod, managednavigationcontext, pre-radiofailurecoverage, semanticDetailsforecastcorrection, uniquecapturecounts, boundedentrytimeoutretry, milestone2comparisonclassification. No model/assertionweakening. 577\u2013578 raw fixture-title mismatch and wrong optional trace key caught before closeout; failed receipts retained; mandatory actual keys and disclosed three-string mapping replace unsupported raw-identity claim. 579 final review records proof, comparison qualifications and proposal-versus-implementation status.",
+    "new_issue_review": "563\u2013576 retained: readpath/store guards, staticQAcontracts/reverseguards, changedrealbody-scrollmethod, managednavigationcontext, pre-radiofailurecoverage, semanticDetailsforecastcorrection, uniquecapturecounts, boundedentrytimeoutretry, milestone2comparisonclassification. No model/assertionweakening. 577\u2013578 raw fixture-title mismatch and wrong optional trace key caught before closeout; failed receipts retained; mandatory actual keys and disclosed three-string mapping replace unsupported raw-identity claim. 579 final review records proof, comparison qualifications and proposal-versus-implementation status. 580 readiness caught stale CONTROL embedded checkpoint/validation/Page aliases; metadata-only reconciliation preserves writerrelease and all historicalqueue/Androidobjects.",
     "checks": {
       "source_sha": "d7d819e145128251677a456c578fa499dad2ab37",
       "gameplay_checks": 73,
@@ -201,11 +201,11 @@
     "controlled_comparison": "/workspace/work/morning-20261102/s77/controlled-comparison.json",
     "raw_crosscheckpoint_snapshot_identical": false,
     "controlled_comparison_qualification": "S76/S77 earned two songs with different session-label titles. Three explicit title/reason strings mapped; otherwise actual career outcomes equal in four views. Raw hashes differ across checkpoints; within each checkpoint saved/reread hashes equal.",
-    "final_issue_event": 579,
+    "final_issue_event": 580,
     "record_gate": {
       "status": "pass",
       "lessons_reviewed": 24,
-      "issue_events": 579
+      "issue_events": 580
     }
   }
 }
