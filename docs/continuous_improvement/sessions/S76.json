@@ -39,8 +39,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 895701,
-    "sha256": "249732b03734606b2c4ed421b1d9a19c53cce010bf0f269581e71709f2882605"
+    "bytes": 909458,
+    "sha256": "1a5843b39723f6872fbf0948e08ed3c5c16ca9b7916725a6cd695d531d4ae805"
   },
   "target": {
     "locator": "/tmp/bandmaster-morning-20261102/s75/focus-focus-64a9c67-tall-v4/captures/02-focus-chooser-initial-720x1280.png",
@@ -73,9 +73,7 @@
   ],
   "controlled_comparison": "Samecareer/pair/pre-choicefixture originalDrama+StoryCalendarLifeFinance oracle vsadapter; originalcurrentbanddossier/portraitbytes andnative4sizes. Newreceiptaloneexcludedforlegacyoraclecomparison, allactualfactsindependentlychecked. Source54Scripts/art exact.",
   "allowed_paths": [
-    "experiments/playable_flightcase/band_moment_rules.gd",
     "experiments/playable_flightcase/band_moment_desk.gd",
-    "experiments/playable_flightcase/career_desk.gd",
     "docs/continuous_improvement/**",
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
@@ -102,10 +100,24 @@
   "all_write_freeze": "2026-11-02T11:50:00Z",
   "hard_stop": "2026-11-02T12:00:00Z",
   "current_plan_sequence": 9,
-  "current_review_board_sequence": 50,
+  "current_review_board_sequence": 71,
   "source_write_allowed": true,
   "art_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
-  "source_phase": "delegated_F06_source"
+  "source_phase": "delegated_decision_fold_only",
+  "candidate_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237",
+  "previous_implementation_allowlist": [
+    "experiments/playable_flightcase/band_moment_rules.gd",
+    "experiments/playable_flightcase/band_moment_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "presentation_repair_contract": "/workspace/BandMaster/docs/continuous_improvement/S76_DECISION_FOLD_REPAIR.md",
+  "repair_baseline_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237",
+  "owner_decision_readback": "A05v3 approval now checked onboard71 aswellasprior directchat; preserve57choices/19checked and20oldimages."
 }

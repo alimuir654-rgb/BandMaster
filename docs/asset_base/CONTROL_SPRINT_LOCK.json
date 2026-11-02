@@ -156,7 +156,7 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "S62complete: V7ARM64 privateAPKdelivered/readback/PhonePage13, samegameb310. No pending source/art/engine/helper/build work. Nextread-onlyownerphone/artfeedback;15:50freeze/16hardstop/noqueue/extension.",
-  "source_writer_released_at": "2026-11-01T14:38:45.952009+00:00",
+  "source_writer_released_at": "2026-11-02T09:49:26.472961+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -190,8 +190,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-02T07:45:00Z",
-  "hard_stop": "2026-11-02T08:00:00Z",
+  "all_write_freeze": "2026-11-02T11:50:00Z",
+  "hard_stop": "2026-11-02T12:00:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -315,11 +315,12 @@
   "last_delegated_source_writer": {
     "agent": "/root/render_support",
     "paths": [
-      "experiments/playable_flightcase/recording_desk.gd"
+      "experiments/playable_flightcase/band_moment_rules.gd",
+      "experiments/playable_flightcase/band_moment_desk.gd",
+      "experiments/playable_flightcase/career_desk.gd"
     ],
-    "expires_at": "2026-11-01T20:55:00Z",
-    "preflight_sha": "73653e086d922f3287561bb23f539a72be8095a0",
-    "released_at": "2026-11-01T20:50:48.302125+00:00"
+    "expires_at": "2026-11-02T10:35:00Z",
+    "contract": "docs/continuous_improvement/S76_BANDMATE_CONVERSATION.md"
   },
   "page_write_allowed": "SelectedA05nativecompositionPNGs/prose/privateownerreview ONLY aftercurrentproof",
   "scratch_art_concept_allowed": false,
@@ -334,7 +335,7 @@
   },
   "pending_implementation": true,
   "pending_helpers": true,
-  "next_action": "Fresh S76 preflight/lease for ONE original rehearsal_resentment bandmate conversation, real eligible pair/unchanged original choices/one-day Story-Calendar-Life-Finance-save once, existing portraits; original art/F09 HOLD remains separate. Noon manual stop; no APKZIP/queue extension.",
+  "next_action": "FinishONEoriginalF06rehearsalconversation3ownedfiles, thenexactsourceproof/native4viewreview. Noonmanualhardstop; unchangedfinitequeue/noAPKZIP/noartretry.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -347,13 +348,11 @@
   },
   "delegated_source_writer": {
     "agent": "/root/render_support",
-    "paths": [
-      "experiments/playable_flightcase/band_moment_rules.gd",
-      "experiments/playable_flightcase/band_moment_desk.gd",
-      "experiments/playable_flightcase/career_desk.gd"
+    "allowed_paths": [
+      "experiments/playable_flightcase/band_moment_desk.gd"
     ],
-    "expires_at": "2026-11-02T10:35:00Z",
-    "contract": "docs/continuous_improvement/S76_BANDMATE_CONVERSATION.md"
+    "scope": "S76event559decisionfoldONLY",
+    "expires_at": "2026-11-02T10:35:00Z"
   },
   "s65_closeout": "/workspace/work/approved-art-integration-20261101/s65/closeout.json",
   "historical_aliases_before_s65_final_audit": {
@@ -372,7 +371,7 @@
   "source_freeze_target": "2026-11-02T01:11:04.668444+00:00",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "delegated_F06_source",
+  "source_phase": "delegated_decision_fold_only",
   "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -526,5 +525,13 @@
     "source_changed": false,
     "new_engine_tests": 0
   },
-  "s75_closeout": "/workspace/work/morning-20261102/s75/closeout.json"
+  "s75_closeout": "/workspace/work/morning-20261102/s75/closeout.json",
+  "completed_overnight_deadlines_20261102": {
+    "all_write_freeze": "2026-11-02T07:45:00Z",
+    "hard_stop": "2026-11-02T08:00:00Z",
+    "note": "Historicalcompletedovernightrun; samefinitequeue unchanged. Newmanualownerwindow supersedesonlyprospectively."
+  },
+  "new_breadth_freeze": "2026-11-02T11:15:00Z",
+  "all_source_corrections_stop": "2026-11-02T11:30:00Z",
+  "candidate_sha": "f602ef7fe8c1c14b09020cd83d98afbe2bb56237"
 }

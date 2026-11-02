@@ -1,0 +1,11 @@
+# S76 measured decision-fold repair
+
+Baseline f602ef7fe8c1c14b09020cd83d98afbe2bb56237; current pure609/standard73+88/import/fourjourneys/phone1758 andwide1156 technicallyPASS. Root and independent actuallyopened phone decision03: zero choicepills ininitialfold while bothcommitbuttonsaccessible. This violates ownerless-text/actualpills/art-led priority. Event559 records BEFOREcorrection.
+
+ONE sourcewriter render_support; ONLY experiments/playable_flightcase/band_moment_desk.gd. PreserveRules/Career/all389otherinputbytes/originalcosts/save/accounting. Decisionphase ONLY: existingtwoactualportraits compact <=88nativepx ifneeded; originalchoice labels (native16), eachactualfour-pilleffectrow BEFORE repeatedcopy. Both4pillsets MUSTvisible inactual390x844 topfold abovefixeddock. No fontshrink. Put repeatedgenericprompt, bothalready-heardquotes and fulloriginalchoicewording incollapsednativeDetails; actualpointertoggle providescompletecopy, free/no phase/save effects. Originalintro/first/second/receipt/replayunchanged. Defaulttrustdisclosure retainedonce concise, fullreceiptdefaultcopyunchanged. Existingfixedchoicebuttons andone-dayterms unchanged. Choicephase doesn'tneed repeatedInkreading; threeoriginalheldphases preservefinishthenContinue.
+
+QAadaptation preservesphase/completecopy/fulloracle/savefail/once/typedguards. Choice-specifictest opensactualDetails bynativeinput, verifiesallfulloriginalquotes/explanations, closes/resetsactualscroll, provesBOTHchoice labels+8actual16pills insidebodyabovefixedcontrols beforedecision. CaptureuniqueinitialfoldANDDetails. Otherphases unchanged. No testweakening/removaloforiginalinformation.
+
+Same-state/pair/identical typedfixture+actual finalchoices againstheldf602 baseline. Fullnew73/88/import/fourgenuinejourneys required for changedintegratedUI; previouspure609mayREUSEonlythroughall41byte-exacttransitiveinputs; doNOTrerunmodelorunrelatedsuitesforactivity. All4currentnativeoriginals/realinput/reload/savefailure/0ERROR/protectedinputs; root+independentpixelreview, fiveSIMULATEDlenses/ownerfalse/Pixel9pending.
+
+No newart/APKZIP/queue/sourcehistoryupload. Originalnoonboundaries unchanged; sourcecorrectivecut11:30/allwrites11:50/hard12. Hold iftwoineffectivemethods orbothpillsetsunreadableatnative16.
