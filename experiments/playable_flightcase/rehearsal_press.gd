@@ -68,7 +68,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  for entry in view.get("metric_rows",[]):
   if entry is Dictionary:
    metrics[str(entry.get("key",""))] = entry
- var tiles: BoxContainer = HBoxContainer.new()
+ var tiles: BoxContainer = VBoxContainer.new() if short_landscape else HBoxContainer.new()
  tiles.name = "RecapHeroMetrics"
  tiles.add_theme_constant_override("separation",10 if tall_tablet else (4 if mobile else 10))
  content.add_child(tiles)
@@ -83,10 +83,15 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   tile.focus_mode = Control.FOCUS_NONE
   tile.add_theme_stylebox_override("panel",Paper.scorecard())
   tiles.add_child(tile)
-  var stack: BoxContainer = VBoxContainer.new()
+  var stack: BoxContainer = HBoxContainer.new() if short_landscape else VBoxContainer.new()
   stack.add_theme_constant_override("separation",8 if short_landscape else 1)
   tile.add_child(stack)
   var metric_copy: BoxContainer = stack
+  if short_landscape:
+   metric_copy=VBoxContainer.new()
+   metric_copy.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+   metric_copy.add_theme_constant_override("separation",1)
+   stack.add_child(metric_copy)
   var cap := ink(str(selector[1]).capitalize(),16,true)
   cap.autowrap_mode = TextServer.AUTOWRAP_OFF
   cap.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -95,6 +100,9 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   change.name = "RecapHero_"+key
   change.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   change.autowrap_mode = TextServer.AUTOWRAP_OFF
+  if short_landscape:
+   change.size_flags_horizontal=Control.SIZE_SHRINK_END
+   change.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
   var adverse: bool = (key=="tension" and delta>0) or (key!="tension" and delta<0)
   change.add_theme_color_override("font_color",Color("954a42") if adverse else (Color("376c58") if delta!=0 else Color("695c4b")))
   stack.add_child(change)
@@ -220,12 +228,34 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var people_at: int = why.get_index()
  content.move_child(band_header,people_at)
  content.move_child(gallery,people_at+1)
+ if short_landscape:
+  # The short-wide viewport needs a reading spread: bandmates lead on the
+  # left, with all recorded deltas alongside rather than below the fold.
+  var lane:=HBoxContainer.new()
+  lane.name="RecapLandscapeEvidence"
+  lane.add_theme_constant_override("separation",20)
+  content.add_child(lane)
+  content.move_child(lane,people_at)
+  var people:=VBoxContainer.new()
+  people.name="RecapLandscapePeople"
+  people.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  people.add_theme_constant_override("separation",4)
+  lane.add_child(people)
+  band_header.reparent(people)
+  gallery.reparent(people)
+  var saved:=VBoxContainer.new()
+  saved.name="RecapLandscapeSavedChanges"
+  saved.custom_minimum_size.x=220
+  saved.add_theme_constant_override("separation",4)
+  lane.add_child(saved)
+  score.reparent(saved)
+  tiles.reparent(saved)
  var room_copy: String = str(view.get("room_context",""))
  if not room_copy.is_empty():
   var room := ink(room_copy,16,true)
   room.name="RecapRoomContext"
   content.add_child(room)
-  content.move_child(room,people_at+2)
+  content.move_child(room,people_at+1 if short_landscape else people_at+2)
  if not external_details:
   var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
   breakdown.name = "RecapDetailsToggleAction"
