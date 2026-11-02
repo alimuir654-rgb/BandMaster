@@ -393,3 +393,10 @@ Native Rect2 string serialization is not an exact resize contract. S73's real wi
 Raw var_to_bytes of a Dictionary includes insertion order. S75's actual Continue retained every typed value, file byte, save/load count and gameplay-call count, yet its raw snapshot hash changed when sorted JSON rebuilt nine dictionary orders. Preserve the failed run and diagnose each conjunct before changing the check. Hash a recursively type-tagged canonical dictionary ordering while retaining every key/value, scalar type and array order; do not use JSON serialization to erase numeric types or ignore fields. Keep full snapshot equality, typed-value deltas and independent file/counter guards.
 
 A native band mark may deliberately decorate its displayed text. BandMark retains full_name and produces Label.text through IdentityStyle.mark_text. Verify the exact saved name and its approved decorated text separately, with actual font/bounds/day/cash checks. Comparing decorated text directly to the raw name creates a false header failure; it does not justify editing correct product artwork or branding.
+
+
+## 2 November compact headers and gallery chrome — BM-05, BM-21, BM-22 and BM-32
+
+A one-line count can conceal an ellipsized ordinary name. Measure the complete decorated string in its actual native font against the real allocated width, and reserve the displayed brand width rather than an obsolete larger slot. Make changed fitting explicitly opt-in at the intended caller: a shared compact flag also controls naming and identity previews. Protected raw-RGBA comparisons caught that unintended spread.
+
+Character-first reports need a short-landscape reading spread and the original longest six-member case. Keep complete reasons in Details instead of shrinking type to pack duplicate explanation, voices and saved values into one fold. Native scrollbar chrome lies outside its ScrollContainer content clip; a content-node visibility helper cannot prove the scrollbar itself visible. Test its measured chrome rect and actual pointer/key receiver, then separately require the content portrait to be inside every clip.

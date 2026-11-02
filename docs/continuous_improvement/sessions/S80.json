@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S80",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner2Nov20:30 queue next changes and go ahead; latest actual phone screenshots show concrete quality/consistency failures. Repair demonstrated rehearsal/writing family first; queue complete gig then audition/songwriting, finite same worker.",
   "baseline_sha": "08bf1f8fc99dc44b692832a52f5407cbb74eb53a",
@@ -53,7 +53,7 @@
     "path": "experiments/art_material/portrait_preview/nia_griffiths_512x690.webp",
     "sha256": "dd44205c4225e8ec4b0f8782237a15277fc7b1372549bd9b5d80581277b2ef12",
     "pixels_inspected": true,
-    "status": "existing canonical legacy preview, unchangedbytes; not a new art proposal",
+    "status": "ExistingC05pairedAIpreview, correctlegacyidentitybutNOTspecificallyownerapproved. LocalnativecandidateforA06PENDINGOWNERreuse; noAPKpromotionuntilspecificapproval.",
     "curated_count_expected": 394
   },
   "protected_paths": [
@@ -65,23 +65,236 @@
     "all other game/model/art/save files except four owned UI paths"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "23e0dd2c39784e691f7b3d2432c878c8ccd67c34616cc1e85f61f8afd8021e9b",
+    "docs/continuous_improvement/LESSONS.md": "8ad64923fbdc5cb0b4a604e11ccb9a8169d17a0742cccb6b356412a5552cb775",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 975751,
-    "sha256": "60c00bc5d45aacd633588aec6a8478412dda5302d1c4ab63a600b1a5dba77d50"
+    "bytes": 980398,
+    "sha256": "ca971fd4868ce06736eb5166ee6c881be0b4aee1d0ccc2cb4c572b98f0b5c133"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S80.json",
     "Exact394inputs strict import/73gameplay/88opening/4standard journeys; focusedquality/input/failure/reload/4view native originals; protected393baseline minus4 owned edits byteexact"
   ],
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "started_at": "2026-11-02T20:36:18.325481+00:00",
   "scope_end": "2026-11-02T21:45:00Z",
-  "current_plan_sequence": 13,
-  "current_review_board_sequence": 98
+  "current_plan_sequence": 15,
+  "current_review_board_sequence": 100,
+  "art_proposal": "A06 existingNia512previewreuse, startsPENDINGOWNER/unchecked, notnewgeneratedidentity.",
+  "closed_at": "2026-11-02T21:30:11.592212+00:00",
+  "closeout": {
+    "session": "S80",
+    "tested_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
+    "evidence": [
+      "/tmp/bandmaster-s80-20261102/complete-validation.json",
+      "/tmp/bandmaster-s80-20261102/focused-validation.json",
+      "/tmp/bandmaster-s80-20261102/controlled-comparison-5022c95.json",
+      "/tmp/bandmaster-s80-20261102/source-protection-audit.json",
+      "/tmp/bandmaster-s80-20261102/runtime-source-audit.json",
+      "/tmp/bandmaster-s80-20261102/standard-comparison-5022c95.json",
+      "/tmp/bandmaster-s80-20261102/review-delivery.json",
+      "/tmp/bandmaster-s80-20261102/closeout-prep/visual-review-agent-5022.json"
+    ],
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Fresh S81 scoped preflight for ONE coherent LanternRoom gig journey. Adopt reviewed legacy-phase mapping/idlessparticipant keys/zeroFinance checkpoints/seam beforeStoryReviewsFinance; preserve-all storage relocation onlyunderexactreviewedcontract. New road art proposal and A06 Nia reuse remainowner-gated. Same48hourworker endsNov4 21:24:35London.",
+    "new_issue_review": "Existing S80 failures603\u2013613 remain historical. Final source5022 passes current strict73/88/import/four standard journeys,1930 main focused checks plus36 read-only legacy browse checks. Full controlled career snapshots equal the baseline;112 standard originals are raw-RGBA exact and60 intended practice/report-family changes have0 unexplained differences. Source protection389 prior paths/all54 original Scripts/3UIDs. The earlier false generic Tab content-clip assumption remains preserved; the corrected real pointer browse changes no source or save. No new failure found by this helper.",
+    "checks_summary": {
+      "gameplay": 73,
+      "opening": 88,
+      "standard_journeys": 4,
+      "standard_canonical_PNGs": 172,
+      "standard_retained_unique_PNGs": 176,
+      "standard_RGBA_exact": 112,
+      "standard_expected_changed": 60,
+      "standard_unexplained": 0,
+      "main_focused_checks": 1930,
+      "main_focused_journeys": 4,
+      "main_focused_unique_PNGs": 44,
+      "auxiliary_read_only_checks": 36,
+      "auxiliary_unique_PNGs": 2,
+      "current_model_executions": 0,
+      "model_checks_reused": 116,
+      "model_transitive_inputs_exact": 23,
+      "curated_sources": 394,
+      "raw_Git_sources": 393,
+      "prior_protected_paths": 389,
+      "original_Scripts": 54,
+      "tracked_original_UIDs": 3,
+      "all_error_lines": [],
+      "measured_native_orphan_growth": 0
+    },
+    "actual_originals_opened_by_this_helper": [
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-quality-phone-5022/captures/07-saved-writing-session-3-390x844.png",
+        "sha256": "a753ac15bf9e2184229200f5dd4ee73cee9d3ddfe6f5c3d74e5ead595740b6a7",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-quality-tall-5022/captures/07-saved-writing-session-3-720x1280.png",
+        "sha256": "6ae225e3da3134d7f81742682cc9864d3fc30c88dc8655cc06b015b5af1d24d0",
+        "dimensions": [
+          720,
+          1280
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-quality-wide-5022/captures/07-saved-writing-session-3-1280x720.png",
+        "sha256": "e322c79de181871aa7db0bd52e38409504eb544d199ceccbc41db127b94dc8c1",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-quality-desktop-5022/captures/07-saved-writing-session-3-1600x900.png",
+        "sha256": "7060b359722996914cbd22c6bca9795fe9ed6a3b0989400bd39efac6547f5536",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-quality-phone-5022/captures/09-fresh-next-song-neutral-guidance-390x844.png",
+        "sha256": "acdc2d3dbf5c057c0b51f7c594eae1f417f945a5b52971ab902c0c0a62cb6680",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-legacy-nia-phone-pointer-5022/captures/02-canonical-nia-visible-390x844.png",
+        "sha256": "5e045afe6ace6c7ec51dd6004585ffac485e31bc1f2ab4a1a8e51cc8213a519c",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/standard/s80-quality-5022c95-final/captures/c27-rehearsal_six_members-390x844.png",
+        "sha256": "a3669d51c43c3505f74d694e7ce5f08f4ce62433a5184b84ed9c79b417942d3a",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "current_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/workspace/BandMaster/experiments/art_material/portrait_preview/nia_griffiths_512x690.webp",
+        "sha256": "dd44205c4225e8ec4b0f8782237a15277fc7b1372549bd9b5d80581277b2ef12",
+        "dimensions": [
+          512,
+          690
+        ],
+        "mode": "RGB",
+        "kind": "existing_raw_Nia_preview",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-baseline-quality-phone-v2/captures/07-saved-writing-session-3-390x844.png",
+        "sha256": "a390a667fb761121ef61141fa84fa8eda18ec2ec3be1b778df69bde1f6c2cfd8",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      },
+      {
+        "path": "/tmp/bandmaster-s80-20261102/proof-baseline-quality-phone-v2/captures/09-fresh-next-song-neutral-guidance-390x844.png",
+        "sha256": "7461806da466c1fd4ecf70b616a35186656de75c1ad6d7446a0c0604268d3b61",
+        "dimensions": [
+          390,
+          844
+        ],
+        "mode": "RGBA",
+        "kind": "baseline_native",
+        "actually_opened": true,
+        "inspection_method": "functions.view_image followed by visual inspection of the original pixels"
+      }
+    ],
+    "five_simulated_lenses": {
+      "player": "SIMULATED: It is easier to see the actual band response and follow the result without a repeated red initial warning. This does not supply the missing lived activity journey.",
+      "visual": "SIMULATED: Compact metrics and landscape composition improve hierarchy, while tall-screen empty space and gallery browsing remain visible weaknesses.",
+      "narrative": "SIMULATED: Personal response and group strain can coexist without a fabricated specific dispute. The captions remain limited authored summaries.",
+      "systems": "SIMULATED: Saved outcomes, costs and chronology remain exact against the original fixture; real input, failed-save rollback, retry and reload evidence are distinct from visual acceptance.",
+      "art_provenance": "SIMULATED: Existing canonical preview reuse resolves the local missing-face candidate, but source identity does not confer owner approval or master/rig status."
+    },
+    "remaining": [
+      "The tall report still has substantial black space above the centred paper; this family remains visually partial.",
+      "Nia and later bandmates require horizontal gallery browsing on phone, tall and short-wide layouts. The pointer browse was proved separately.",
+      "Several short reaction captions are ellipsized; the full saved reactions remain in Details.",
+      "The songwriting interaction is still the existing three-session process. This repair does not complete the requested lived songwriting or gig journey.",
+      "Nia is an existing C05 paired AI preview, not an independent high-resolution master or specifically owner-approved artwork. A06 reuse remains PENDING OWNER before APK or production promotion.",
+      "The new source has not been physically tested on Pixel9 and is not packaged into a new APK by this helper.",
+      "Ordinary tested name readability does not constitute visual acceptance for maximal names, every font or every device."
+    ],
+    "canonical_release_performed_by_this_helper": false,
+    "Page_or_queue_changes_by_this_helper": 0,
+    "new_APK": false,
+    "new_engine_runs": 0,
+    "artifact_stage": "Scratch closeout-prep only; parent/root owns promotion, canonical edits and release.",
+    "closed_at": "2026-11-02T21:30:11.592212+00:00",
+    "Page_plan_sequence": 15,
+    "Page_board_sequence": 100,
+    "choices_prior_preserved": 60,
+    "checked_prior_preserved": 20,
+    "images_prior_preserved": 27,
+    "new_native_PNGs": 4,
+    "choices_now": 63,
+    "checked_now": 20,
+    "images_now": 31,
+    "queue_id": "6ae532c5fe9c819190f587a022c54052",
+    "finite_end": "2026-11-04T21:24:35+00:00",
+    "queue_hours": 48,
+    "all_source_helpers_released": true,
+    "pending_implementation": false,
+    "root_current_originals_actually_opened": [
+      "/tmp/bandmaster-s80-20261102/proof-quality-phone-5022/captures/07-saved-writing-session-3-390x844.png",
+      "/tmp/bandmaster-s80-20261102/proof-quality-phone-5022/captures/09-fresh-next-song-neutral-guidance-390x844.png",
+      "/tmp/bandmaster-s80-20261102/proof-quality-wide-5022/captures/07-saved-writing-session-3-1280x720.png",
+      "/tmp/bandmaster-s80-20261102/proof-quality-tall-5022/captures/07-saved-writing-session-3-720x1280.png",
+      "/tmp/bandmaster-s80-20261102/proof-quality-desktop-5022/captures/07-saved-writing-session-3-1600x900.png",
+      "/tmp/bandmaster-s80-20261102/proof-legacy-nia-phone-pointer-5022/captures/02-canonical-nia-visible-390x844.png",
+      "/tmp/bandmaster-s80-20261102/standard/s80-quality-5022c95-final/captures/c27-rehearsal_six_members-390x844.png"
+    ]
+  }
 }

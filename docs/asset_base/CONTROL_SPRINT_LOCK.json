@@ -1,5 +1,5 @@
 {
-  "writer": "S80-phone-quality-20261102T2040",
+  "writer": null,
   "base_head": "08bf1f8fc99dc44b692832a52f5407cbb74eb53a",
   "claimed_at": "2026-11-02T20:36:18.325481+00:00",
   "expires_at": "2026-11-02T21:45:00Z",
@@ -7,8 +7,8 @@
   "authority": "Owner2Nov20:30 queue next changes and go ahead; latest screenshotqualityfeedback. Finite same-worker extension through01:00Nov3.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-02T21:30:11.592212+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S79-experience-feedback-brief-20261102T1905",
-  "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "last_writer": "S80-phone-quality-20261102T2040",
+  "source_sha": "5022c9515e295a6604280c0034016c6b9b9396bf",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -330,7 +330,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": false,
-  "next_action": "Next implementation should deliver ONE coherent gig experience from setting out to packing up, starting with a reviewed camera/art/source and full saved-phase/per-song/settlement contract. Audition and songwriting encounters follow that proven pattern. CurrentV8 remains the physical-feedback build; no automatic build/art/source/queue work.",
+  "next_action": "Fresh S81 scoped preflight for ONE coherent LanternRoom gig journey. Adopt reviewed legacy-phase mapping/idlessparticipant keys/zeroFinance checkpoints/seam beforeStoryReviewsFinance; preserve-all storage relocation onlyunderexactreviewedcontract. New road art proposal and A06 Nia reuse remainowner-gated. Same48hourworker endsNov4 21:24:35London.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -370,7 +370,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S79",
+  "session": "S80",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -469,7 +469,7 @@
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
   "last_completed_session": "S79",
-  "closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
+  "closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "candidate_run": "/tmp/bandmaster-s78-20261102/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s78-20261102/proof-model-5cc32e3-v1/execution.json",
   "candidate_focus_run": "/tmp/bandmaster-s78-20261102/focused-validation.json",
@@ -521,7 +521,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-  "current_session": "S79",
+  "current_session": "S80",
   "closed_at": "2026-11-02T12:31:16.561322+00:00",
   "last_updated_utc": "2026-11-02T19:10:21.914333+00:00",
   "last_validation": "/tmp/bandmaster-s78-20261102/complete-validation.json",
@@ -864,5 +864,6 @@
     "closed_at": "2026-11-02T19:10:21.914333+00:00",
     "no_new_build": true,
     "no_queue_change": true
-  }
+  },
+  "finite_end": "2026-11-04T21:24:35+00:00"
 }
