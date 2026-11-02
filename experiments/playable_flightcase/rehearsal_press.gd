@@ -51,9 +51,13 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var why: Label = InkNote.new()
  why.name = "RecapReasonNote"
  why.text = str(view.get("summary",view.get("reason","")))
+ # Only writing needs this recognisable song fragment in the hero. Other
+ # sessions already have their verdict and band response; their complete
+ # saved reason remains in RecapFullReason inside Details.
+ why.visible = str(view.get("focus",""))=="create"
  why.add_theme_font_size_override("font_size",16)
  why.add_theme_color_override("font_color",Color("695c4b"))
- if fresh_notes:
+ if fresh_notes and why.visible:
   why.visible_characters = 0
   why.set_meta("fresh_action_note",true)
  else:
