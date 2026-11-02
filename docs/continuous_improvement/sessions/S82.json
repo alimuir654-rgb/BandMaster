@@ -85,11 +85,11 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1018213,
-    "sha256": "826ab5e3faa1d5b79dec4fd439066d8b07f883691323602b4ae9094aaee213f1"
+    "bytes": 1019746,
+    "sha256": "20726a63c75ea932d525ef5812f79f5a5437395941f0a3ac71d520374d1f4b02"
   },
   "source_contract": "docs/continuous_improvement/S82_GIG_BOOKING_JOURNEY.md",
-  "source_contract_sha256": "7f4354f1c71166a009b47198b99342c3fdae4b5f91cde9a67916910670ad0274",
+  "source_contract_sha256": "969593dbb33ca82fc381be7a475849fb8ec870caf1e177c50621974a3d38d2d2",
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S82.json",
     "Root strict acyclic preload/legacy/new-policy pure proof; exact401 source73/88/import/four standard journeys plus four actual booking-to-result loops, real input/failed-save/retry/reopen/four-view native inspection/EMPTYERRORs. Reexecute changed model closures rather than false reuse."
