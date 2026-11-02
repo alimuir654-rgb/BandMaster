@@ -195,6 +195,8 @@ S63 extension: a genuine touch fling can leave scroll and target geometry moving
 
 S68 extension: calling a geometry assertion immediately after a real Menu/Continue view rebuild can inspect live nodes before any native allocation. The same product showed a 0×0 scroll clip and margin-only pill panels before drawing, then identical valid geometry at two completed draws. Record the initial rectangles and bounded postdraw samples, reacquire current targets and retain every original clipping/value/paid/save assertion. A later failure PNG already waits for draw and cannot establish the earlier assertion geometry by itself.
 
+S78 pixel-comparison prevention: compare complete raw RGBA bytes for equality before interpreting any difference box. RGBA Image.getbbox can default to alpha-only semantics; opaque images can have changed RGB while the alpha difference is zero. Calculate RGB and alpha bounds separately and retain the failed classifier. This is a comparison guard, not an artistic score.
+
 ### BM-34
 **What went wrong:** Old successful runs, untested HEAD and publication commits could be confused; a pull-request-only wrapper missed push runs.
 **Prevent:** Query by exact SHA/event. Distinguish tested source, published module and documentation commits. Download/hash artifacts before claiming pixel inspection.
@@ -206,6 +208,8 @@ S68 extension: calling a geometry assertion immediately after a real Menu/Contin
 **What went wrong:** Early reload failures and coexisting intro/career loops risked broken handoff or destructive migration.
 **Prevent:** Preserve schema and old-save fixtures; use additive idempotent handoff. Never reset saves to hide bugs or let isolated proofs mutate production user:// data.
 **Proof:** New/legacy/mid-action save-load round trips and no duplicate introductory reward. Sources: STATE, V22, OWNER.
+
+S78 save-type prevention: new persisted Dictionary keys must use explicit String indexing. Dot assignment can introduce StringName keys that compare by value but change type after JSON reload. The owned attendance adapter was corrected at three counter writes; retain strict whole-typed owner reread rather than normalising away a product defect. Unknown biography context remains unknown until explicitly recorded; personal finances stay separate from shared band cash.
 
 ### BM-36
 **What went wrong:** Booking, performance, recruitment and writing could spend before validation, settle twice or diverge between preview and commit.

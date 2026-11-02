@@ -27,7 +27,7 @@
     "BM-45"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "7cf97b792396c6d088611a8a415fb5a93fd976316285cedd022cbf9794ebda3c",
+    "docs/continuous_improvement/LESSONS.md": "23e0dd2c39784e691f7b3d2432c878c8ccd67c34616cc1e85f61f8afd8021e9b",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "target": {
@@ -37,7 +37,7 @@
     "kind": "Existing source-honest practice room layout and nativecontrols; new conflict reuses this composition/actualmemberportrait, no artgeneration. OwnerF11 behavioural target grounded S77 corecontract."
   },
   "id": "S78",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner2Nov11:55: F11approved; continue nextstages, limitedweeklyallocation; wanttestablebuild/detailedfeedbacknextweek; buildAPKafterchanges. ONE completework/rehearsal pilot +privatePixel9APK, no broadroadmap/art/newqueue. Newdirectrequest prospectivelysupersedes completedS77sourcefreeze/noAPK/noonwindow for thisfinitepass.",
   "baseline_sha": "17423001f63cc2fb3c4ca02d3ee9ea9b75e1eee4",
@@ -64,8 +64,8 @@
     "/tmp/bandmaster-s78-20261102"
   ],
   "issue_log_review": {
-    "bytes": 959148,
-    "sha256": "33595fbe791917c3c928e495e6bcfd9f67b092c393d3885f61568ca496995146"
+    "bytes": 961393,
+    "sha256": "c5e412f3f79328a092ba6a716747ddec5e15312a2d4e9c45ad5033a10e910e57"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S78.json",
@@ -80,8 +80,8 @@
   "art_write_allowed": false,
   "pending_implementation": false,
   "pending_helpers": false,
-  "current_plan_sequence": 11,
-  "current_review_board_sequence": 96,
+  "current_plan_sequence": 12,
+  "current_review_board_sequence": 97,
   "authority": {
     "F11": "Direct ownerapproved +board96ApproveF11checked",
     "APK": "Directowner buildanAPKafterthenextchanges",
@@ -94,7 +94,7 @@
     "all_builds_logs_PNGs_APK_private_caches": "/tmp separatefilesystem",
     "workspace_reserve_bytes": 4194304
   },
-  "source_phase": "verified_source_frozen_artifact_only",
+  "source_phase": "complete_frozen_read_only",
   "delegated_source_writer": {
     "agent": "/root/render_support",
     "paths": [
@@ -132,7 +132,7 @@
   "candidate_model": "/tmp/bandmaster-s78-20261102/proof-model-5cc32e3-v1/execution.json",
   "candidate_focus_run": "/tmp/bandmaster-s78-20261102/focused-validation.json",
   "updated_at": "2026-11-02T12:18:00.824392+00:00",
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "s78_android_scope": {
     "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
     "version_code": 8,
@@ -145,5 +145,214 @@
     "private_selected_APK_only": true,
     "no_source_history_upload": true,
     "destination_named_reader": "alimuir654@gmail.com"
-  }
+  },
+  "closed_at": "2026-11-02T12:31:16.561322+00:00",
+  "closeout": {
+    "session": "S78",
+    "tested_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+    "evidence": [
+      "/tmp/bandmaster-s78-20261102/complete-validation.json",
+      "/tmp/bandmaster-s78-20261102/focused-validation.json",
+      "/tmp/bandmaster-s78-20261102/source-protection-audit.json",
+      "/tmp/bandmaster-s78-20261102/runtime-source-audit.json",
+      "/tmp/bandmaster-s78-20261102/standard-comparison.json",
+      "/tmp/bandmaster-s78-20261102/visual-review-root.json",
+      "/tmp/bandmaster-s78-20261102/android/update-privacy-audit-v8.json",
+      "/tmp/bandmaster-s78-20261102/android/phone-v8-delivery.json",
+      "/tmp/bandmaster-s78-20261102/review-delivery.json"
+    ],
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Owner installs privately delivered V8 as an UPDATE without uninstalling/wiping, tests the work/rehearsal pilot and current radio/goals, then records detailed feedback for nextweek in PhonePage14 or this same chat. No further automatic feature/art/build/queue work.",
+    "new_issue_review": "581\u2013592 intake/static/API/schema/contract defects logged before correction.593/594 initial parser failure held and diagnosed reserved trait identifier; 595/596 malformed StringName QA fixture preserved/corrected without source validation weakening.597/598 actual typed-save defect fixed THREE persisted counter-key writes after committed preflight.599 QA Home route reconciled via real Band navigation.600 rawRGBA comparison corrected with initial classifier preserved.601 final exact-source/private-delivery review. No failed source promoted, no assertion weakening.",
+    "checks": {
+      "pass": true,
+      "source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "standard_journeys": 4,
+      "standard_validation": "/tmp/bandmaster-s78-20261102/standard/s78-work-5cc32e3-final/validation.json",
+      "standard_canonical_originals": 172,
+      "standard_unique_PNGs_retained": 176,
+      "standard_RGBA_exact": 168,
+      "disclosed_Reopen_fades": 4,
+      "focused_validation": "/tmp/bandmaster-s78-20261102/focused-validation.json",
+      "focused_checks": 3391,
+      "focused_unique_PNGs": 22,
+      "focused_journeys": 4,
+      "phone_additional_controlled_plan_journey": true,
+      "pure_model_execution": "/tmp/bandmaster-s78-20261102/proof-model-5cc32e3-v1/execution.json",
+      "pure_model_checks": 116,
+      "pure_model_current_execution": true,
+      "pure_model_orphans_measured": false,
+      "all_error_lines": [],
+      "measured_native_orphan_growth": 0,
+      "source_count": 393,
+      "raw_Git_sources": 392,
+      "isolated_project_entry_bytes": 146,
+      "protected_prior_paths": 386,
+      "original_Scripts": 54,
+      "original_tracked_UIDs": 3,
+      "configured_entry": "/tmp/bandmaster-s78-20261102/configured-entry-final/execution.json",
+      "runtime_source_audit": "/tmp/bandmaster-s78-20261102/runtime-source-audit.json",
+      "source_protection_audit": "/tmp/bandmaster-s78-20261102/source-protection-audit.json",
+      "standard_comparison": "/tmp/bandmaster-s78-20261102/standard-comparison.json",
+      "runtime": "/tmp/bandmaster-s78-20261102/candidate-work-save-fixed-v3/runtime",
+      "runtime_manifest": "/tmp/bandmaster-s78-20261102/candidate-work-save-fixed-v3/source.json",
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "physical_device": false
+    },
+    "owner_authority": "Direct F11approval + explicit BuildanAPKafterthenextchanges, one finite pass after completedmorningwindow.",
+    "initial_preflight": "f4a2168ca3ed0ee7f3c9133aadd199fd8a35d8ac",
+    "parser_correction_preflight": "0eedb1fe47150a7da48c593a0eec12baafe4da21",
+    "save_correction_preflight": "31109933d4ba5df77270e988b004ed3f3c2cb22a",
+    "held_candidates": [
+      "9f9e2293dfc0d77f4b4a2d699e1ccaf732a3d419",
+      "26833675cfcd871ef55aff0cd543c8cfe35d3ebd"
+    ],
+    "source_paths_changed": [
+      "experiments/playable_flightcase/situation_core.gd",
+      "experiments/playable_flightcase/situation_practice.gd",
+      "experiments/playable_flightcase/situation_desk.gd",
+      "experiments/playable_flightcase/work_conflict_view.gd",
+      "experiments/playable_flightcase/session.gd",
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/career_desk.gd"
+    ],
+    "five_simulated_lenses": {
+      "player": "SIMULATED: affected musician, actual shift day and public room/time commitments appear before intent; no outcome answer key.",
+      "narrative": "SIMULATED: work and agreement memory creates this conflict; wider existing event migration remains future work.",
+      "readability_art": "SIMULATED: original portrait/paper/hardware retained; larger conflict layouts remain sparse, phone profile capture starts at a scrolled reading position and its biography needs further scrolling.",
+      "systems": "SIMULATED: actual attendance and contrasting exclusion/booking context verified; original unknown/all-attending transaction and whole typed save rollback/reread retained.",
+      "release": "SIMULATED: exact source and one private same-identity APK verified; installation, physical cutout/touch/save retention and human quality review remain pending."
+    },
+    "remaining": [
+      "Physical Pixel9 installation/update/save retention, touch and cutout review pending.",
+      "First pilot uses player-recorded circumstances; starting jobs across the cast are not automatically authored. Personal wages/rent/support transfers are not simulated.",
+      "Wider momentum/external-pressure models and migration of other fixed-vector events remain roadmap work.",
+      "Large/tall conflict view is sparse; profile/body/biography requires scrolling. Maximal names and every presentation preference were not visually inspected.",
+      "F09 live-song cursor/playing animation and A04 performer artwork remain held; no new performer art or audio.",
+      "No rendered Page/browser preview claim; authorized file refs/MIME/bytes/digests and Markdown/readback preserved.",
+      "Public full source/history upload remains blocked and was not retried; project/history stay local."
+    ],
+    "F11_scope": "ONE playable context/attendance/agreements work-rehearsal pilot; overallfeaturePARTIAL",
+    "new_source_art": false,
+    "APK": {
+      "status": "PRIVATE_DELIVERED_PHYSICAL_PHONE_PENDING",
+      "game_source_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+      "version_name": "0.78.0-playtest",
+      "version_code": 8,
+      "owner_device": "Pixel 9",
+      "ABIs": [
+        "arm64-v8a"
+      ],
+      "apk_path": "/tmp/bandmaster-s78-20261102/android/build-5cc32e3-v8-arm64/BandMaster-Playtest.apk",
+      "bytes": 95098905,
+      "local_sha256": "df639ec632a5a233f7bf75d285c047dac08a8e57a8ee4887fbd54d7a90b665e3",
+      "id": "1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz",
+      "url": "https://drive.google.com/file/d/1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz/view?usp=drivesdk",
+      "upload_receipt": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "accepted_input": "file_uri",
+          "success": true,
+          "id": "1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz",
+          "title": "BandMaster-Playtest-v8-arm64.apk",
+          "file_name": "BandMaster-Playtest-v8-arm64.apk",
+          "mime_type": "application/vnd.android.package-archive",
+          "url": "https://drive.google.com/file/d/1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz/view?usp=drivesdk",
+          "parent_id": "0AAaVL64Kv2tDUk9PVA",
+          "structuredContent": {
+            "accepted_input": "file_uri",
+            "success": true,
+            "id": "1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz",
+            "title": "BandMaster-Playtest-v8-arm64.apk",
+            "file_name": "BandMaster-Playtest-v8-arm64.apk",
+            "mime_type": "application/vnd.android.package-archive",
+            "url": "https://drive.google.com/file/d/1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz/view?usp=drivesdk",
+            "parent_id": "0AAaVL64Kv2tDUk9PVA"
+          }
+        },
+        "isError": false
+      },
+      "share_receipt": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Action completed."
+          }
+        ],
+        "structuredContent": {
+          "success": true
+        },
+        "isError": false
+      },
+      "readback": {
+        "id": "1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz",
+        "title": "BandMaster-Playtest-v8-arm64.apk",
+        "mime_type": "application/vnd.android.package-archive",
+        "size": "95098905",
+        "url": "https://drive.google.com/file/d/1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1xSY-8FD0TvNhkSaBsLoCrgtdro8Z7ANz/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "0AAaVL64Kv2tDUk9PVA"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": "alimuir654",
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": "Chair LoveWell",
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      },
+      "remote_checksum": "Not exposed by connector; no remote checksum claimed",
+      "phone_page": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+      "phone_page_sequence": 14,
+      "same_application_id_certificate_save_settings_as_V7": true,
+      "physical_upgrade_save_retention_tested": false,
+      "no_source_history_project_ZIP_uploaded": true
+    },
+    "APK_audit": "/tmp/bandmaster-s78-20261102/android/update-privacy-audit-v8.json",
+    "compiled_code_potentially_recoverable": true,
+    "owner_approval_of_F11_scope": true,
+    "physical_phone_approved": false,
+    "review_board_sequence": 97,
+    "plan_sequence": 12,
+    "phone_page_sequence": 14,
+    "final_issue_event": 601,
+    "gate": {
+      "status": "pass",
+      "lessons": 24,
+      "issue_events": 601
+    },
+    "completed_at": "2026-11-02T12:31:16.561322+00:00"
+  },
+  "current_phone_page_sequence": 14
 }

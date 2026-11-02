@@ -679,3 +679,8 @@ Exact `3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4`: root13current+4baseline origin
 ## S77 — uncertainty presentation / F11 proposal
 
 Current game: `d7d819e145128251677a456c578fa499dad2ab37`; technical PASS, visual PARTIAL, owner_approved=false. Evidence `/workspace/work/morning-20261102/s77/{complete-validation,focused-validation,controlled-comparison,source-protection-audit,runtime-source-audit,visual-review-root,visual-review-agent,review-delivery,closeout}.json`. Controlled comparison explicitly maps three QA song-label strings; raw cross-checkpoint hashes differ. 201 unique focused PNGs from202 capture writes; earlier overwritten radio frame is unavailable. F11 core/jobs simulation is proposed, not implemented; five review lenses are SIMULATED. Existing V7 excludes this source; physical phone pending.
+
+
+## S78 — current F11 pilot and V8 feedback checkpoint
+
+Current game `5cc32e30051fc20490340031b2ee7456b5262844`; native/AndroidtechnicalPASS, visualPARTIAL, owner_approved=false. Evidence `/tmp/bandmaster-s78-20261102/{complete-validation,focused-validation,standard-comparison,source-protection-audit,runtime-source-audit,visual-review-root,review-delivery,closeout}.json`; Android audit/delivery inits `android` subdirectory. Seven finalnative originals actuallyopened; five lenses SIMULATED.22unique focused PNGs,168rawRGBA-exactstandard frames plus4Reopen fades. The new privateV8 matches this game; olderV7retained. Physicalphone/installation/save retention pending; source/history local.
