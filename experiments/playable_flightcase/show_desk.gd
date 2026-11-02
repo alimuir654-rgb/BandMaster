@@ -346,7 +346,11 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
 static func journey_soundcheck(host, parent: Node, state: Dictionary) -> void:
  # Existing controls, completed-song ordering and optional original incident.
  # Only the owning journey controller commits the plan and checkpoints.
- _setlist(host,parent,state)
+ # The existing setlist uses paper ink, so retain its matching paper surface.
+ var compact: bool=host.size.x<840 or host.size.x<host.size.y
+ var paper: VBoxContainer=host._paper(parent,compact)
+ paper.name="JourneySoundcheckPaper"
+ _setlist(host,paper,state)
  var shout: Button=C.button("THANK "+str(Calendar.pending(state).get("venue","THE VENUE")).to_upper(),"flightcase","tab",true)
  shout.name="ShowShoutoutAction"
  shout.set_pressed_no_signal(str(host.show_draft.get("shoutout","none"))=="thankvenue")
