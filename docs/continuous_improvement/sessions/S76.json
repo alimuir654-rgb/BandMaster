@@ -103,9 +103,9 @@
   "hard_stop": "2026-11-02T12:00:00Z",
   "current_plan_sequence": 9,
   "current_review_board_sequence": 50,
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "art_write_allowed": false,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": true,
-  "source_phase": "preflight_before_source"
+  "source_phase": "delegated_F06_source"
 }
