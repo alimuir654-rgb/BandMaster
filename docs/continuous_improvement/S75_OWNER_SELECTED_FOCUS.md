@@ -19,3 +19,5 @@ Proof: original73gameplay+88opening/import/fourstandardjourneys once after sourc
 Sprint target10:15 with bounded lease10:30. Entire manual window source/newbreadthfreeze11:15, finalverified defect repairs only to11:30, closeout/writefreeze11:50, noon HARDSTOP. No idle waiting/continuous compute claims.
 
 Independent contract clarification BEFORE source: future/ready focus uses trusted definitions without faking claimed history. If selected chapter becomes claimed, show completed history and no route; never reopen/claim again or auto-select another. Missing legacy metric/history may be displayed as NOT RECORDED on manual focus rather than invented0; fresh action_counters={} is known0. Present malformed fields held, original automatic S72 defaults stay unchanged. Clear label explicitly returns to suggested goal.
+
+Storage clarification before new proof: /workspace and /tmp are distinct devices. Exact immutable inputs are copied once into approved /tmp S75pool, source hashes audited before/after, hardlinked ONLY within /tmp. No cross-device hardlink attempt, deletion or altered sourcebytes.

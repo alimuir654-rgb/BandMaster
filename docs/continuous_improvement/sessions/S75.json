@@ -39,8 +39,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 878754,
-    "sha256": "7c28bc6a2ecd7148c3d147a29fdf670609aaf5419ad998c950b7ea3feb573d57"
+    "bytes": 879837,
+    "sha256": "dc28002e923516bb731f482a32608378ae2150a4b88308e6491587828802e6e0"
   },
   "target": {
     "locator": "/workspace/work/overnight-20261102/s72/goal-3e3ea50-phone-wheel-final/captures/controlled-home-390x844.png",
@@ -82,5 +82,6 @@
   "pending_implementation": true,
   "current_plan_sequence": 7,
   "current_review_board_sequence": 49,
-  "no_apk_zip": true
+  "no_apk_zip": true,
+  "storage_clarification": "Observedst_dev workspace27/tmp34: copy immutable exactinputs ONCE toapproved /tmp pool withbefore/afterhash audit, hardlink onlywithin/tmp; no EXDEVattempt/workspacecopies/deletion. All mutablecacheprivate."
 }
