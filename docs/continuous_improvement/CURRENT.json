@@ -3700,7 +3700,7 @@
   "last_writer": "S72-saved-result-next-goal-20261102T0040",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "art_contract_preflight",
   "claimed_at": "2026-11-02T01:52:59.216615+00:00",
@@ -3779,7 +3779,7 @@
     "phone_release_is_this_source": false
   },
   "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
-  "delegated_art_writer": null,
+  "delegated_art_writer": "/root/s73_artist",
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
@@ -3806,5 +3806,6 @@
   "last_completed_deliverable": "S72 saved-show image/pills/two saved factors\u2192read-only goal progress/free preparation route.",
   "last_run_summary": "Exact3e3:73/88/import/4standard172 +6179focused41; direction1064/radio1702 reused via9/48inputs; zero currentERROR/measuredorphans, visualPARTIAL.",
   "last_validation": "/workspace/work/s40/runs/s72-next-goal-3e3ea50-final/complete-validation.json",
-  "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json"
+  "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
+  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL."
 }

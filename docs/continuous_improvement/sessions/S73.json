@@ -57,8 +57,8 @@
   "hypothesis": "Correct exact existing A04 Arjun source as independent transparent layer, preserving identity/pose and removing only branded headstock; same-source native A/B on audience-facing original stage at four windows reveals actual edges/grounding without implementing live gameplay.",
   "stop_condition": "ART/CONTRACT ONLY. One bounded corrected source+nativecomparison orHOLD; two ineffective attempts changeMETHOD/HOLD. Never promote unapproved art or claim animation/per-song gameplay. Lease02:40; finite hardstop08 unchanged.",
   "issue_log_review": {
-    "bytes": 862286,
-    "sha256": "2114beb009d8ef1579c0a4b19e776d65217e23d4720603bd426b770c7a918838"
+    "bytes": 863512,
+    "sha256": "67958a37e3656bb1abb92652a9ffa42d67b72af6d7e4c8da3eaceafc58f850b0"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-b047e88d-808e-4e32-88cc-c315d4af1d5f.png",
@@ -69,7 +69,7 @@
     "stage_sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
     "specific_source_art_owner_approved": false
   },
-  "controlled_comparison": "Create v1 nativecomposition BEFORE editingart; then v2 same camera/stage/sourcecoordinate placement/native labels/scale/floor/window390x844,720x1280,1280x720,1600x900. Actualfocus/key/resize proposalviewer only, not game. Allart/controls separate.",
+  "controlled_comparison": "Create v1 nativecomposition BEFORE editingart; then v2 same camera/stage/sourcecoordinate placement/native labels/scale/floor/window390x844,720x1280,1280x720,1600x900. Actualfocus/key/resize proposalviewer only, not game. Allart/controls separate. StagecovercropBOTTOMCENTER mayretainfloor; fullperformercontained. ExplicitcontractscopeupdatedBEFOREengine/art.",
   "allowed_paths": [
     "docs/continuous_improvement/**",
     "docs/asset_base/STATE.json",
@@ -93,14 +93,16 @@
   "source_write_allowed": false,
   "art_write_allowed": "ONE scratch imagegen edit, no repository asset promotion",
   "delegated_source_writer": null,
-  "delegated_art_writer": null,
+  "delegated_art_writer": "/root/s73_artist",
   "source_phase": "art_contract_preflight",
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "contract": "docs/continuous_improvement/S73_PERFORMANCE_ART.md",
   "storage_policy": {
     "workspace_free_bytes": 37076992,
     "persistent_budget_bytes": 20000000,
-    "method": "No deletion. Reuse S72 immutable hardlink/private/tmp importcache method with S73 scoped derivative and exact386source hashes. Rawproposal2\u20134MB+captures8MB+code/receiptsbudget; stopbeforepersistentheadroom10MB. Art source loadeddirectly from pinned scratchpaths, no source-tree import/promotion."
-  }
+    "method": "No deletion. Reuse S72 immutable hardlink/private/tmp importcache method with S73 scoped derivative and exact386source hashes. Rawproposal2\u20134MB+captures8MB+code/receiptsbudget; stopbeforepersistentheadroom10MB. Art source loadeddirectly from pinned scratchpaths, no source-tree import/promotion.",
+    "mutable_paths": "LexicalS73fresh.godot/XDG symlink only to UNIQUE canonical/tmp/bandmaster-s73-cache subpaths, strictfreshness/sourceassociation, actualresolvedmanifest; no production/shared data."
+  },
+  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL."
 }

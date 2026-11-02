@@ -19,3 +19,10 @@ Existing Night has arrival/soundcheck/stage and whole-show settlement; ShowRepla
 ## Protection and closeout
 
 No production source/art/schema/economy/save change. Protect all386current curated inputs/all54originalScripts including3UIDs/cast/fonts/hardware/meters. No new full suites for unchanged source; no APKZIP. One source/art writer and oneGL under fresh bounded lease; local editor sockets need proper networkpermission, Dummy/fresh XDG/private cache. No arbitrary cache deletion. Closeout pins raw/current hashes, actual original paths opened, five SIMULATED lenses, native/owner verdict separately, Page preservation and ONE nextaction.
+
+
+### Explicit native storage and crop scope
+
+Stage may use a focal-safe cover crop, bottom-centred to retain the foreground floor; only the independent performer must remain wholly contained. Record the real source crop and complete headstock/hair/soles rect. v1/v2 share identical normalized camera/floor/scale/window. This does not change the radio full4:3contain contract.
+
+Fresh mutable .godot and XDG trees may use lexical S73 symlinks ONLY to unique fresh /tmp/bandmaster-s73-cache paths with canonical-prefix/S73 ownership checks. Persist raw inputs/proposals/PNGs/logs/manifests/results under S73. No shared mutable caches, production data, arbitrary path guard loosening or deletion. Record both lexical/resolved identities and exact immutable source hashes.

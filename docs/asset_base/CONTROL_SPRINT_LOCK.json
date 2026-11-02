@@ -455,7 +455,7 @@
     "packages": null,
     "phone_release_is_this_source": false
   },
-  "delegated_art_writer": null,
+  "delegated_art_writer": "/root/s73_artist",
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Direct21:43 radio studio+presenter+meaningfulQ/A journey, sourceGame476unchanged, radio nowfirst. A05v1Revisechecked; A05v2pending.",
@@ -483,5 +483,6 @@
     "released_at": "2026-11-02T01:47:24.509698+00:00",
     "closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
     "source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4"
-  }
+  },
+  "art_delegation": "S73 scratch art/provenance ONLY; root will signal afterv1nativebaseline. Pipeline/QAauthor their explicitly separate scratchscripts, rootsoleGL."
 }
