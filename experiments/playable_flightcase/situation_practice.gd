@@ -25,7 +25,7 @@ static func resolve(state: Dictionary, attendee_indices: Array) -> Dictionary:
   next[key]=clampi(int(next.get(key,0))+int(Actions.ACTIONS.rehearse.get(key,0)),0,upper)
  next.action_count=int(state.get("action_count",0))+1
  var counters: Dictionary=next.get("action_counters",{}).duplicate(true)
- counters.rehearse=int(counters.get("rehearse",0))+1
+ counters["rehearse"]=int(counters.get("rehearse",0))+1
  next.action_counters=counters
  var extra_readiness: int=0
  var stress: int=0
@@ -53,8 +53,8 @@ static func resolve(state: Dictionary, attendee_indices: Array) -> Dictionary:
  next.tension=clampi(int(next.tension)+int(float(stress)/float(attendee_indices.size())),0,100)
  next.readiness=clampi(int(next.readiness)-missed,0,100)
  var work: Dictionary=next.get("band_work_counters",{}).duplicate(true)
- work.rehearse=int(work.get("rehearse",0))+1
- next.band_work_counters=work
+ work["rehearse"]=int(work.get("rehearse",0))+1
+ next["band_work_counters"]=work
  var journal: Array=next.get("career_journal",[]).duplicate(true)
  if int(work.rehearse)==1:journal.append({"id":"work:rehearse","day":int(next.tour_day),"title":"IN THE REHEARSAL ROOM","text":"The attending musicians begin finding their sound together.","kind":"band"})
  var message: String="The available musicians work through the live set. The missing players have not practised."
