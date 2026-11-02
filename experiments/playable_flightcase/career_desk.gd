@@ -33,6 +33,8 @@ const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_poster_view.gd")
 const Launcher = preload("res://experiments/playable_flightcase/career_launcher.gd")
 const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
+const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
+const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
 var game
 var opening_owner
 var reduced_motion := false
@@ -67,6 +69,8 @@ var offstage_choice := "careful"
 var recording_ids: Array = []
 var recording_mode := "select"
 var promotion_selection: Dictionary = {}
+var show_receipt_details_open := false
+var goal_notice := ""
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
@@ -82,6 +86,7 @@ func open_home() -> void:
   page="recording"
   recording_mode="visit"
  receipt_open = false
+ goal_notice = ""
  catalogue_open = false
  notice = ""
  _scroll_position = 0
@@ -275,6 +280,7 @@ func _navigate(destination: String) -> void:
   recording_mode="visit"
  page = destination
  receipt_open = false
+ goal_notice = ""
  catalogue_open = destination=="gear"
  notice = ""
  _scroll_position = 0
@@ -330,6 +336,7 @@ func _home_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  _copy(body,"YOUR CAREER DESK",26)
  _copy(body,str(game.genre).to_upper()+"  /  "+str(game.career.get("vibe","Unpolished")),14,true)
+ DirectionCard.goal(self,body,compact)
  Launcher.render(self,body,compact)
  var grid := GridContainer.new()
  grid.columns = 1 if compact else 2
@@ -637,7 +644,9 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  navigation.visible=not (page=="recording" and RadioVisit.locked(game.career))
  navigation.add_theme_constant_override("separation",8)
  dock.add_child(navigation)
- var practice_action := _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
+ var goal: Dictionary=_goal_direction() if (page=="home" and not receipt_open) or (receipt_open and receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty()) else {}
+ var guided: bool=bool(goal.get("ok",false)) and not str(goal.get("route","")).is_empty()
+ var practice_action: Button=_button(str(goal["route_label"]),"CareerGoalPreparationAction",_goal_preparation.bind(str(goal["route"]))) if guided else _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
  practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
  navigation.add_child(practice_action)
  navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
@@ -743,6 +752,7 @@ func _receipt_page(parent: Node, compact: bool) -> void:
 
 func _close_receipt() -> void:
  if busy:return
+ show_receipt_details_open=false
  if str(receipt.get("kind","gear"))=="offstage":page=str(receipt.get("return_page","offstage"))
  elif str(receipt.get("kind","gear"))=="recording":
   page="recording"
@@ -787,6 +797,54 @@ func _practice(activity: String) -> void:
   _navigate("finance")
   return
  if not busy and not is_instance_valid(_live_dialog):practice_requested.emit(activity)
+
+func _goal_direction() -> Dictionary:
+ var view: Dictionary=Direction.current(game.career)
+ if not bool(view["ok"]):return view
+ var booking: Dictionary=Direction.booking_guard(game.career)
+ if not bool(booking["ok"]):
+  view["ok"]=false
+  view["message"]=str(booking["message"])
+  view["route"]=""
+  view["route_label"]=""
+  view["route_hint"]=""
+ elif bool(booking["due"]):
+  view["route"]="gigs"
+  view["route_label"]="OPEN LIVE DESK"
+  view["route_hint"]="YOUR BOOKING COMES FIRST"
+ return view
+
+func _goal_preparation(expected_route: String) -> void:
+ # This is free navigation, not a preparation resolver or a chapter claim.
+ if busy or is_instance_valid(_live_dialog) or game==null:return
+ if Finance.is_over(game.career):
+  _navigate("finance")
+  return
+ if RadioVisit.locked(game.career):
+  _navigate("recording")
+  return
+ var booking: Dictionary=Direction.booking_guard(game.career)
+ if not bool(booking["ok"]):
+  goal_notice=str(booking["message"])
+  _render()
+  return
+ if bool(booking["due"]):
+  _navigate("gigs")
+  return
+ var view: Dictionary=Direction.current(game.career)
+ if not bool(view["ok"]) or str(view["route"]).is_empty() or expected_route!=str(view["route"]):
+  goal_notice="The next step changed. Review the current goal."
+  _render()
+  return
+ goal_notice=""
+ if expected_route in ["create","tighten"]:_practice(expected_route)
+ elif expected_route in ["gigs","calendar"]:_navigate(expected_route)
+
+func _toggle_show_details() -> void:
+ if busy or is_instance_valid(_live_dialog) or not receipt_open or not receipt.get("show_receipt") is Dictionary or receipt["show_receipt"].is_empty():return
+ show_receipt_details_open=not show_receipt_details_open
+ _pending_focus="ShowReceiptDetailsAction"
+ _render()
 
 func _menu() -> void:
  if not busy and not is_instance_valid(_live_dialog):menu_requested.emit()
@@ -911,6 +969,7 @@ func _commit_live(verb: String, choice: String = "", hire: bool = false, expecte
  for entry in after.get("career_journal",[]):
   if entry is Dictionary and not prior_entries.has(entry):receipt["journal_entries"].append(entry.duplicate(true))
  if verb=="perform" and ShowFlow.managed(before):
+  show_receipt_details_open=false
   receipt["show_receipt"]=ShowFlow.last_receipt(after)
  receipt_open=true
  _fresh_receipt=true
@@ -1090,6 +1149,7 @@ func _show_last_receipt() -> void:
  if busy or is_instance_valid(_live_dialog):return
  var data: Dictionary=ShowFlow.last_receipt(game.career)
  if data.is_empty():return
+ show_receipt_details_open=false
  receipt={"kind":"live","show_receipt":data}
  receipt_open=true
  _fresh_receipt=false

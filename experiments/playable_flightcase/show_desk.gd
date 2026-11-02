@@ -10,6 +10,8 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
+const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
+const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
 const STAGE := "res://experiments/playable_flightcase/art/s53_stage.png"
 const ROOM := "res://experiments/playable_flightcase/art/opening_stage.png"
@@ -265,36 +267,70 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  var body: VBoxContainer=host._paper(parent,compact)
  _copy(body,"THE SHOW IS IN THE BOOKS",16,true)
  _copy(body,str(data.get("venue","YOUR SHOW")),26)
- _copy(body,"DAY %d → %d  /  £%d → £%d" % [int(data.get("day_before",0)),int(data.get("day_after",0)),int(data.get("cash_before",0)),int(data.get("cash_after",0))])
+ var scene: Container=VBoxContainer.new() if compact else HBoxContainer.new()
+ scene.name="ShowReceiptScene"
+ scene.mouse_filter=Control.MOUSE_FILTER_PASS
+ scene.add_theme_constant_override("separation",12)
+ body.add_child(scene)
+ var art_width: float=maxf(100.0,host.size.x-96.0) if compact else maxf(200.0,minf(620.0,(host.size.x-120.0)*0.46))
+ hero(scene,STAGE,150.0 if compact else 210.0,art_width)
+ var words: VBoxContainer=host._box(8)
+ words.name="ShowReceiptSummary"
+ scene.add_child(words)
+ var note: Label=Ink.new()
+ note.name="CareerReceiptNote"
+ note.text="Your show is saved."
+ note.add_theme_color_override("font_color",Color("29241f"))
+ if bool(host._fresh_receipt):note.visible_characters=0
+ words.add_child(note)
+ var cash_delta: int=int(data.get("cash_after",0))-int(data.get("cash_before",0))
+ _copy(words,"GROSS FEE £%d · CASH %s£%d" % [int(data.get("settled_fee",0)),"+" if cash_delta>=0 else "-",absi(cash_delta)],16,true)
+ DirectionCard.pills(words,data.get("effects"))
+ var factors: Array=Direction.factors(data)
+ if not factors.is_empty():
+  _copy(words,"FROM YOUR SAVED SET",16,true)
+  for factor in factors:
+   var line: Label=_copy(words,str(factor["text"]))
+   line.name="ShowFactor_"+str(factor["kind"])
+ DirectionCard.goal(host,words,compact)
+ var disclosure: Button=host._button("HIDE DETAILS" if bool(host.show_receipt_details_open) else "DETAILS  ›","ShowReceiptDetailsAction",host._toggle_show_details)
+ body.add_child(disclosure)
+ var details:=VBoxContainer.new()
+ details.name="ShowReceiptDetails"
+ details.mouse_filter=Control.MOUSE_FILTER_PASS
+ details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ details.add_theme_constant_override("separation",8)
+ details.visible=bool(host.show_receipt_details_open)
+ body.add_child(details)
+ _copy(details,"DAY %d → %d  /  £%d → £%d" % [int(data.get("day_before",0)),int(data.get("day_after",0)),int(data.get("cash_before",0)),int(data.get("cash_after",0))])
  var expenses: Variant=data.get("expenses")
  if expenses is Dictionary:
-  var cost_line: Label=_copy(body,"FEE £%d · TRAVEL £%d · SESSION £%d" % [int(data.get("settled_fee",0)),int(expenses.get("travel_paid",0)),int(expenses.get("session_paid",0))])
+  var cost_line: Label=_copy(details,"FEE £%d · TRAVEL £%d · SESSION £%d" % [int(data.get("settled_fee",0)),int(expenses.get("travel_paid",0)),int(expenses.get("session_paid",0))])
   cost_line.name="ShowReceiptExpenses"
  else:
-  _copy(body,"GROSS FEE £%d · EARLIER COST DETAIL NOT RECORDED" % int(data.get("settled_fee",0)))
+  _copy(details,"GROSS FEE £%d · EARLIER COST DETAIL NOT RECORDED" % int(data.get("settled_fee",0)))
  var effects: Variant=data.get("effects")
  if effects is Dictionary:
   for field in ["fans","reputation","morale","tension","readiness"]:
    var change: Variant=effects.get(field)
    if change is Dictionary:
-    var line: Label=_copy(body,"%s  %d → %d  (%+d)" % [str(field).to_upper(),int(change.get("before",0)),int(change.get("after",0)),int(change.get("delta",0))])
-    line.name="ShowOutcome_"+str(field)
- hero(body,STAGE,150.0 if compact else 210.0,maxf(100.0,host.size.x-96.0))
- var note: Label=Ink.new()
- note.name="CareerReceiptNote"
- note.text=str(data.get("message","The completed show is saved."))
- note.add_theme_color_override("font_color",Color("29241f"))
- body.add_child(note)
- if bool(host._fresh_receipt):note.visible_characters=0
- _copy(body,"GROSS FEE £%d · %d ORIGINALS" % [int(data.get("settled_fee",0)),int(data.get("originals_played",0))])
+    var line: Label=_copy(details,"%s  %d → %d  (%+d)" % [str(field).to_upper(),int(change.get("before",0)),int(change.get("after",0)),int(change.get("delta",0))])
+    line.name="ShowOutcomeDetail_"+str(field)
+ var narrative: Label=Ink.new()
+ narrative.name="ShowReceiptFullNarrative"
+ narrative.text=str(data.get("message","The completed show is saved."))
+ narrative.visible_characters=-1
+ narrative.add_theme_color_override("font_color",Color("29241f"))
+ details.add_child(narrative)
+ _copy(details,"GROSS FEE £%d · %d ORIGINALS" % [int(data.get("settled_fee",0)),int(data.get("originals_played",0))])
  for index in range(data.get("plan",{}).get("song_snapshots",[]).size()):
-  _copy(body,"%d. %s" % [index+1,str(data["plan"]["song_snapshots"][index].get("title",""))])
+  _copy(details,"%d. %s" % [index+1,str(data["plan"]["song_snapshots"][index].get("title",""))])
  for point in data.get("responses",[]):
-  _copy(body,str(point.get("title","SAVED RESPONSE")),20)
+  _copy(details,str(point.get("title","SAVED RESPONSE")),20)
   var row := HBoxContainer.new()
   row.add_theme_constant_override("separation",8)
-  body.add_child(row)
+  details.add_child(row)
   row.add_child(Kit.PassiveMeter.new("notepaper",int(point.get("meter_score",6))))
   row.add_child(C.paper_label(str(point.get("mood","steady")).to_upper(),16))
-  _copy(body,str(point.get("text","")))
- _copy(body,"Saved modelled summary: three illustrative bands, no attendance or microphone measurement.",16,true)
+  _copy(details,str(point.get("text","")))
+ _copy(details,"Saved modelled summary: three illustrative bands, no attendance or microphone measurement.",16,true)
