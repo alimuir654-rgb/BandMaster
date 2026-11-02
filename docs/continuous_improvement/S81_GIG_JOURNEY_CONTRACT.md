@@ -140,3 +140,8 @@ Independent review showed that full-set quality_estimate contains unplayed close
 The one live pacing intent appears ONLY with N≥2 originals, after cursor1 while another original remains. N0 uses honest whole-short-set completion; N1 completes that one original without invented continuation or mid-set bonus. No live-intent effects when no intent exists.
 
 Use frozen RAW career readiness, not effective projection readiness, in the moving-choice formula. Historical pressure = clamp(recordedBroken + recordedExcluded − recordedKept,0,3), after valid Core defaults; describe it as remembered rehearsal history rather than a causal claim about unrecorded relationships/jobs. Missing valid agreement rows use zero counters; invalid/future Core HOLD. Symmetric finalfanrounding remains sign(diff)*floor(abs(diff)/2), capped±3. No policy changes fees/cash/day/success/reputation/readiness or originalprojection.
+
+
+## Root reachable first-song context threshold
+
+With neutral40 and one completed song step capped±6, the only mid-set choice sees34..46. Use moment room-vibe threshold42 (starting to warm) for +2 versus−2, superseding the unreachable55 example. Keep it internal; provide witnessed room/band response, not the threshold or effect answer key. Test both reachable branches independently.
