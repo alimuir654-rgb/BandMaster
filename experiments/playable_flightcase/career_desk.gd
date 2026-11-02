@@ -1412,6 +1412,35 @@ func _journey_finish_words() -> bool:
  var scene: Control=find_child("GigJourneyPlace",true,false) as Control
  return scene!=null and bool(scene.call("finish_words"))
 
+func _journey_danger(button: Button) -> void:
+ # Destructive action colour; no outcome forecasts or answer-key colours.
+ for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:
+  button.add_theme_color_override(state,Color("ee8d80"))
+
+func _ask_journey_options(expected: Dictionary, generation: int) -> void:
+ if not is_inside_tree() or not is_visible_in_tree() or page!="gigs":return
+ if busy or receipt_open or is_instance_valid(_live_dialog) or generation!=_render_generation:return
+ if _journey_finish_words():return
+ var checked: Dictionary=Journey._owned(game.career,expected)
+ if not bool(checked.get("ok",false)):return
+ var dialog: Control=Kit.dialog("SHOW OPTIONS","Your place in tonight's show is saved. Return to the show to carry on. Cancelling the booking ends this night and has consequences for the band.","flightcase")
+ dialog.name="JourneyShowOptionsDialog"
+ dialog.set("confirm_text","CANCEL BOOKING")
+ dialog.set("cancel_text","BACK TO SHOW")
+ _live_dialog=dialog
+ var pinned: Dictionary=expected.duplicate(true)
+ dialog.completed.connect(func(cancel_requested: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if cancel_requested:_ask_journey_cancel(pinned,generation)
+  else:call_deferred("_restore_focus","JourneyShowOptionsAction"))
+ add_child(dialog)
+ var danger: Button=dialog.get("confirm_button") as Button
+ danger.name="JourneyCancelBookingOption"
+ _journey_danger(danger)
+ (dialog.get("cancel_button") as Button).name="JourneyShowOptionsCloseAction"
+ dialog.call("open_modal")
+
 func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
  if not is_inside_tree() or not is_visible_in_tree() or page!="gigs":return
  if busy or receipt_open or is_instance_valid(_live_dialog) or generation!=_render_generation:return
@@ -1419,9 +1448,9 @@ func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
  var checked: Dictionary=Journey._owned(game.career,expected)
  if not bool(checked.get("ok",false)):return
  var fee: int=mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
- var dialog: Control=Kit.dialog("CANCEL THIS BOOKING?","Cancelling ends this saved night. The original cancellation fee is £%d. No career day is used." % fee,"flightcase")
+ var dialog: Control=Kit.dialog("CANCEL TONIGHT'S BOOKING?","This ends tonight's saved show. You will not play or receive the show fee. Cancelling costs £%d and damages the promoter's confidence in the band. The booking and your progress through this night will be closed. No career day is used." % fee,"flightcase")
  dialog.name="JourneyConfirmDialog"
- dialog.set("confirm_text","CANCEL BOOKING")
+ dialog.set("confirm_text","CANCEL SHOW")
  dialog.set("cancel_text","KEEP BOOKING")
  _live_dialog=dialog
  var pinned: Dictionary=expected.duplicate(true)
@@ -1429,9 +1458,10 @@ func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
   _live_dialog=null
   if is_instance_valid(dialog):dialog.queue_free()
   if accepted:_commit_journey("cancel",pinned,{},generation)
-  else:call_deferred("_restore_focus","JourneyMainAction"))
+  else:call_deferred("_restore_focus","JourneyShowOptionsAction"))
  add_child(dialog)
  (dialog.get("confirm_button") as Button).name="JourneyConfirmCancelAction"
+ _journey_danger(dialog.get("confirm_button") as Button)
  (dialog.get("cancel_button") as Button).name="JourneyKeepBookingAction"
  dialog.call("open_modal")
 
@@ -1533,7 +1563,7 @@ func _release_journey_input(generation: int) -> void:
   _release_journey_input.call_deferred(_render_generation)
   return
  busy=false
- for name in ["JourneyMainAction","JourneyFinishSongAction","JourneyChoiceMomentAction","JourneyChoiceMovingAction","JourneyWrapAction","JourneyCancelAction"]:
+ for name in ["JourneyMainAction","JourneyFinishSongAction","JourneyChoiceMomentAction","JourneyChoiceMovingAction","JourneyWrapAction","JourneyShowOptionsAction","CareerMenuAction"]:
   var control: Button=find_child(name,true,false) as Button
   if control!=null:control.disabled=false
  for node in find_children("JourneyIncident_*","Button",true,false):

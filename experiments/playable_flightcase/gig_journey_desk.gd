@@ -144,5 +144,5 @@ static func dock(host, parent: Node, _compact: bool) -> void:
   var names: Dictionary={"set_out":"SET OUT  ›","travel":"ARRIVE AT THE VENUE  ›","arrival":"CARRY THE GEAR IN  ›","load_in":"START SOUNDCHECK  ›","backstage":"READY TO GO ON  ›","stage_entrance":"START THE SET  ›","reaction":"BACK TO THE SET  ›","after_set":"PACK UP TOGETHER  ›","pack_up":"BACK TO THE LIFT  ›"}
   _button(host,parent,str(names.get(phase,"CONTINUE  ›")),"JourneyMainAction","advance",token)
  if not visit.is_empty():
-  var cancel: Button=host._button("CANCEL BOOKING","JourneyCancelAction",host._ask_journey_cancel.bind(token.duplicate(true),int(host._render_generation)))
-  parent.add_child(cancel)
+  var options: Button=host._button("SHOW OPTIONS","JourneyShowOptionsAction",host._ask_journey_options.bind(token.duplicate(true),int(host._render_generation)))
+  parent.add_child(options)
