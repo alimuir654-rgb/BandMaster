@@ -8,10 +8,12 @@ var image_view: TextureRect
 var _motion: Tween
 var _reduced := false
 var _fresh := false
+var _travel := false
 
 func configure(data: Dictionary, reduced: bool, available: float, short: bool = false) -> void:
  _reduced=reduced
  _fresh=bool(data.get("fresh",false))
+ _travel=bool(data.get("travel",false))
  name="GigJourneyPlace"
  size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",6)
@@ -26,12 +28,31 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  image_view.name="JourneyPlaceImage"
  image_view.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  image_view.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
- image_view.custom_minimum_size=Vector2(0,160 if short else clampf(available*0.52,165,255))
+ var image_height: float=160 if short else clampf(available*0.52,165,255)
+ image_view.custom_minimum_size=Vector2(0,0 if _travel else image_height)
  image_view.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  image_view.mouse_filter=Control.MOUSE_FILTER_IGNORE
  var path: String=str(data.get("image",""))
  if not path.is_empty() and ResourceLoader.exists(path):image_view.texture=load(path)
- frame.add_child(image_view)
+ image_view.set_meta("source",path)
+ image_view.set_meta("source_sha256",str(data.get("source_sha256","")))
+ image_view.set_meta("full_source_contained",true)
+ if _travel:
+  # Reserve honest camera padding; translate the whole contained plate only.
+  # The image never zooms, rotates, crops or becomes extracted vehicle layers.
+  var padding: MarginContainer=MarginContainer.new()
+  padding.name="JourneyCameraPadding"
+  for edge in ["left","top","right","bottom"]:padding.add_theme_constant_override("margin_"+edge,2)
+  frame.add_child(padding)
+  var camera: Control=Control.new()
+  camera.name="JourneyCameraPad"
+  camera.custom_minimum_size.y=image_height
+  camera.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  camera.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  padding.add_child(camera)
+  camera.add_child(image_view)
+  image_view.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ else:frame.add_child(image_view)
  var caption: Label=C.label(str(data.get("caption","")),16)
  caption.name="JourneyPlaceCaption"
  caption.add_theme_color_override("font_color",Color("f0c78b"))
@@ -76,12 +97,28 @@ func _begin() -> void:
  image_view.modulate.a=0.25
  _motion=create_tween()
  _motion.tween_property(image_view,"modulate:a",1.0,0.24)
+ if _travel:
+  var native_scale: Vector2=image_view.get_global_transform_with_canvas().get_scale().abs()
+  var drift: Vector2=Vector2(1.25/maxf(1.0,native_scale.x),-0.75/maxf(1.0,native_scale.y))
+  _motion.parallel().tween_property(image_view,"position",drift,0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+  _motion.tween_property(image_view,"position",Vector2.ZERO,0.4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func settle() -> void:
+func _settle_motion() -> void:
  if _motion!=null and _motion.is_valid():_motion.kill()
  _motion=null
- if is_instance_valid(image_view):image_view.modulate.a=1.0
+ if is_instance_valid(image_view):
+  image_view.modulate.a=1.0
+  if _travel:
+   image_view.position=Vector2.ZERO
+   image_view.scale=Vector2.ONE
+   image_view.rotation=0.0
+
+func settle() -> void:
+ _settle_motion()
  if is_instance_valid(note):note.call("finish_now")
+
+func _notification(what: int) -> void:
+ if what==NOTIFICATION_RESIZED:_settle_motion()
 
 func finish_words() -> bool:
  if is_instance_valid(note) and bool(note.call("is_revealing")):
@@ -90,5 +127,4 @@ func finish_words() -> bool:
  return false
 
 func _exit_tree() -> void:
- if _motion!=null and _motion.is_valid():_motion.kill()
- _motion=null
+ _settle_motion()

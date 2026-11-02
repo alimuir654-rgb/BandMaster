@@ -9,6 +9,8 @@ const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
+const ROAD := "res://experiments/playable_flightcase/art/a07_road_travel_v1.png"
+const ROAD_SHA := "1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec"
 const ROOM := "res://experiments/playable_flightcase/art/opening_stage.png"
 const CROWD := "res://experiments/playable_flightcase/art/s53_stage.png"
 const TITLES := {"begin":"THE BAND'S NIGHT","set_out":"MEET THE LIFT","travel":"ACROSS TOWN","arrival":"THE LOAD-IN DOOR","load_in":"CARRY IT INSIDE","soundcheck":"FIND THE ROOM","backstage":"A MOMENT WITH THE BAND","stage_entrance":"INTO THE LIGHT","performing":"THE SET","choice":"READ THE ROOM","reaction":"LET IT LAND","after_set":"THE LAST NOTE","pack_up":"PACKING UP","wrap_ready":"BACK TO THE LIFT"}
@@ -76,10 +78,10 @@ static func render(host, parent: Node, compact: bool) -> void:
  var visit: Dictionary=view["active"]
  var actor: Dictionary=_voice(state,view)
  var source: Dictionary=Cast.by_id(str(actor.get("candidate_id","")))
- var image_path: String=ARRIVAL if phase in ["begin","set_out","travel","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM)
+ var image_path: String=ROAD if phase=="travel" else (ARRIVAL if phase in ["begin","set_out","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM))
  var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
  var scene=Scene.new()
- scene.configure({"title":str(TITLES.get(phase,"TONIGHT")),"image":image_path,"caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),host.size.x>host.size.y and host.size.y<800)
+ scene.configure({"title":str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),host.size.x>host.size.y and host.size.y<800)
  parent.add_child(scene)
  host._journey_fresh=false
  if not str(host.notice).is_empty():parent.add_child(C.label(str(host.notice),16))

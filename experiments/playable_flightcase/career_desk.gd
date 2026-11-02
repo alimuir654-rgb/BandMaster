@@ -284,7 +284,8 @@ func _render() -> void:
  elif is_instance_valid(_overlay):
   move_child(_overlay,get_child_count()-1)
  elif not busy and is_visible_in_tree() and not _pending_focus.is_empty():
-  call_deferred("_restore_focus",_pending_focus)
+  if page=="gigs" and not receipt_open and JourneyDesk.active(self):call_deferred("_journey_restore_focus",_pending_focus,_render_generation)
+  else:call_deferred("_restore_focus",_pending_focus)
 
 func _header(parent: Node) -> void:
  var row := HBoxContainer.new()
@@ -1405,6 +1406,32 @@ func _show_gesture_active() -> bool:
  return false
 
 
+func _journey_focus_ready(generation: int) -> bool:
+ return is_inside_tree() and is_visible_in_tree() and page=="gigs" and not receipt_open and generation==_render_generation and not busy and not is_instance_valid(_live_dialog)
+
+func _journey_restore_focus(control_name: String, generation: int) -> void:
+ # A safe modal dismissal may be followed immediately by another modal.
+ # Recheck ownership before deferring AND immediately before touching focus.
+ if not _journey_focus_ready(generation):return
+ _journey_restore_focus_wait(control_name,generation,2)
+
+func _journey_restore_focus_wait(control_name: String, generation: int, remaining: int) -> void:
+ if not _journey_focus_ready(generation):return
+ if remaining>0:
+  var callback: Callable=_journey_restore_focus_wait.bind(control_name,generation,remaining-1)
+  if not get_tree().process_frame.is_connected(callback):get_tree().process_frame.connect(callback,CONNECT_ONE_SHOT)
+  return
+ var target: Control=find_child(control_name,true,false) as Control
+ if target==null or not target.is_visible_in_tree() or target.focus_mode==Control.FOCUS_NONE or (target is BaseButton and target.disabled):return
+ var current: Control=get_viewport().gui_get_focus_owner()
+ if current!=null and current!=target and is_ancestor_of(current):
+  _pending_focus=""
+  return
+ if not _journey_focus_ready(generation):return
+ target.grab_focus()
+ if is_instance_valid(_scroll) and _scroll.is_ancestor_of(target):_scroll.ensure_control_visible(target)
+ _pending_focus=""
+
 func _journey_expected() -> Dictionary:
  return Journey.expected(game.career)
 
@@ -1433,7 +1460,7 @@ func _ask_journey_options(expected: Dictionary, generation: int) -> void:
   _live_dialog=null
   if is_instance_valid(dialog):dialog.queue_free()
   if cancel_requested:_ask_journey_cancel(pinned,generation)
-  else:call_deferred("_restore_focus","JourneyShowOptionsAction"))
+  else:call_deferred("_journey_restore_focus","JourneyShowOptionsAction",generation))
  add_child(dialog)
  var danger: Button=dialog.get("confirm_button") as Button
  danger.name="JourneyCancelBookingOption"
@@ -1458,7 +1485,7 @@ func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
   _live_dialog=null
   if is_instance_valid(dialog):dialog.queue_free()
   if accepted:_commit_journey("cancel",pinned,{},generation)
-  else:call_deferred("_restore_focus","JourneyShowOptionsAction"))
+  else:call_deferred("_journey_restore_focus","JourneyShowOptionsAction",generation))
  add_child(dialog)
  (dialog.get("confirm_button") as Button).name="JourneyConfirmCancelAction"
  _journey_danger(dialog.get("confirm_button") as Button)
@@ -1572,4 +1599,4 @@ func _release_journey_input(generation: int) -> void:
   var action: Button=find_child("JourneyMainAction",true,false) as Button
   if action!=null:action.disabled=not bool(ShowFlow.check_plan(game.career,show_draft).get("ok",false))
  if is_visible_in_tree() and not _pending_focus.is_empty():
-  call_deferred("_restore_focus",_pending_focus)
+  call_deferred("_journey_restore_focus",_pending_focus,generation)
