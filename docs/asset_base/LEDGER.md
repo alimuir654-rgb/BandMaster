@@ -1276,3 +1276,8 @@ S67 closed HOLD 2026-11-01T21:07:17.805094+00:00: candidate `c647e8e743e17598b45
 ### S74 — requested screenshot pack privately delivered
 
 2026-11-02T08:35:05.110441+00:00: New direct owner delivery request only. Existing22PNG+README,8,015,686B/23ZIPentries; CRC/exactallowlist/originalbytes/receiptpins and independent review PASS.19current3e3+3prior509radio labelled; desktop-engine/fixture caveats retained. Private namedreaderACL/MIME/size readback; no public/domain grant/remotechecksum claim. Game `3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4`, source/art/GL/Pages/APK/finitequeue unchanged. Events528–531 retained. Closeout `/workspace/work/screenshot-delivery-20261102/closeout.json`; artifact writer released.
+
+
+### S75 — owner-selected band focus complete locally
+
+2026-11-02T09:23:57.942187+00:00: Exact `64a9c671ce303a36cd505f9543c54da3b44b9986`; four ownedfiles only, freepersistentchoose/change/clear, actualprogress/NOTRECORDEDlegacy, originalclaims/rewards unchanged. Current446pure/2950focused17originals/4realflows+73/88/import/4standard172canonical(+4retainedresizealternates); zero currentERROR/measuredgrowth0.387sources/all54originalScripts3UIDs exact. FourmatchedHome-onlybaselineviews separately304checks, headerRGBAexact;168standardexact+4fade/0unexpected. Phone/shortwide hasmore belowfold, visualPARTIAL/ownerfalse/Pixel9pending. Failures532–547 retained/corrected;548review. Board50adds3selectedPNGs/20total while57choices18checked/alloldblocks preserved; plan9 noonwindow. NoAPKZIP/queue/publicsource publication. Closeout `/workspace/work/morning-20261102/s75/closeout.json`; writerreleased. NextfreshS76 originalrehearsaldisagreement.

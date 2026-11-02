@@ -664,3 +664,8 @@ Exact `3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4`: root13current+4baseline origin
 ### S74 screenshot pack — existing native originals
 
 22PNG private archive: https://drive.google.com/file/d/1vtebYcPN1qNH4zwMNoMhFkCtJdGWiscK/view?usp=drivesdk.19current3e3 plus3latestavailable509radio captures separately labelled; originalpixels unchanged, no S73heldart. Independent curator opened22originals; root openedHomeoriginal. Archive independentPASS. NativevisualPARTIAL/ownerfalse/physicalPixel9pending. No newrender/gameQA/source changes. Index `/workspace/work/screenshot-delivery-20261102/packaging.json`; delivery `/workspace/work/screenshot-delivery-20261102/private-delivery.json`.
+
+
+### S75 native focus review
+
+`64a9c671ce303a36cd505f9543c54da3b44b9986`: root9current+2matchedbaseline+2failedoriginals andpriorS72target actuallyopened; independent17current+4matchedbaseline. FiveSIMULATEDlenses, visualPARTIAL/ownerfalse. Playerchoose/change/clearactualgoal verified, preserved8icons/approvedstamps, addedactionpushesmorecontentbelowfold onphone/shortwide. Capturechooserinitial ispostscroll/Tabreading; no entryfold/missingheading claim. Fullproof `/workspace/work/morning-20261102/s75/complete-validation.json`; currentprivateboard50. Source/engine failures andcorrectedQAprobes retained; no human/physicalphoneapproval.

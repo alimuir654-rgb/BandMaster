@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S75",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
   "baseline_sha": "6a0793a13d9e514429cb6d246173bb3e33db6d35",
@@ -39,8 +39,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 893622,
-    "sha256": "5b4dab300cf6bf6e42c3dc1dad3fe658ebcd1fa2403edc826d567f6f5bba975a"
+    "bytes": 895701,
+    "sha256": "249732b03734606b2c4ed421b1d9a19c53cce010bf0f269581e71709f2882605"
   },
   "target": {
     "locator": "/workspace/work/overnight-20261102/s72/goal-3e3ea50-phone-wheel-final/captures/controlled-home-390x844.png",
@@ -80,7 +80,7 @@
   "source_phase": "frozen_candidate_under_verification",
   "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "pending_implementation": false,
   "current_plan_sequence": 8,
   "current_review_board_sequence": 49,
@@ -90,5 +90,90 @@
   "delegated_source_writer": null,
   "candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
   "pending_candidate_source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
-  "source_frozen_at": "2026-11-02T08:53:20.199995+00:00"
+  "source_frozen_at": "2026-11-02T08:53:20.199995+00:00",
+  "closed_at": "2026-11-02T09:23:57.942187+00:00",
+  "closeout": {
+    "tested_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
+    "evidence": [
+      "/workspace/work/morning-20261102/s75/complete-validation.json",
+      "/workspace/work/morning-20261102/s75/controlled-comparison.json",
+      "/workspace/work/morning-20261102/s75/runtime-source-audit.json",
+      "/workspace/work/morning-20261102/s75/visual-review-root.json",
+      "/workspace/work/morning-20261102/s75/visual-review-agent.json",
+      "/workspace/work/morning-20261102/s75/review-delivery.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Fresh S76 preflight/lease for ONE original rehearsal_resentment bandmate conversation, real eligible pair/unchanged original choices/one-day Story-Calendar-Life-Finance-save once, existing portraits; original art/F09 HOLD remains separate. Noon manual stop; no APKZIP/queue extension.",
+    "new_issue_review": "532\u2013542 intake/static authoring findings retained before corrections.543 exactPNGset assumption corrected to172canonical+4retainedresizealternates.544/545 actualContinue rawDictionaryorderhash diagnosed then canonicalized without droppingtypes/values.546 loggerfailure retained;547 decoratedmark oracle corrected, originalgameheader unchanged.548 finalreview. Sourcecode changed4ownedfiles; publication/APK/queue unchanged.",
+    "session": "S75",
+    "closed_at": "2026-11-02T09:23:57.942187+00:00",
+    "writer_released_at": "2026-11-02T09:23:57.942187+00:00",
+    "technical_verdict": "pass",
+    "owner_approved": false,
+    "source_files_changed": [
+      "experiments/playable_flightcase/goal_focus_rules.gd",
+      "experiments/playable_flightcase/career_direction.gd",
+      "experiments/playable_flightcase/direction_card.gd",
+      "experiments/playable_flightcase/career_desk.gd"
+    ],
+    "checks": {
+      "pass": true,
+      "source_sha": "64a9c671ce303a36cd505f9543c54da3b44b9986",
+      "standard_validation": "/tmp/bandmaster-morning-20261102/s75/standard/s75-focus-64a9c67-v1/validation.json",
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "clean_import": true,
+      "standard_journeys": 4,
+      "standard_canonical_originals": 172,
+      "standard_unique_pngs_retained": 176,
+      "additional_native_resize_alternates": 4,
+      "focused_validation": "/workspace/work/morning-20261102/s75/focused-validation.json",
+      "focused_checks": 2950,
+      "focused_unique_originals": 17,
+      "focused_whole_journeys": 4,
+      "current_pure_model_checks": 446,
+      "model_execution": "/tmp/bandmaster-morning-20261102/s75/model-64a9c67-v1/execution.json",
+      "model_binding": "/workspace/work/morning-20261102/s75/model/current-execution-binding.json",
+      "model_orphans_measured": false,
+      "configured_entry": "/tmp/bandmaster-morning-20261102/s75/entry-64a9c67-v1/execution.json",
+      "source_count": 387,
+      "original_Scripts": 54,
+      "original_tracked_UIDs": 3,
+      "source_audit": "/tmp/bandmaster-morning-20261102/s75/candidate-focus-64a9c67-v1/source-audit.json",
+      "runtime_manifest": "/tmp/bandmaster-morning-20261102/s75/candidate-focus-64a9c67-v1/source.json",
+      "runtime": "/tmp/bandmaster-morning-20261102/s75/candidate-focus-64a9c67-v1/runtime",
+      "canonical_comparison": "/workspace/work/morning-20261102/s75/standard-comparison.json",
+      "all_error_lines": [],
+      "measured_native_orphan_growth": 0,
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "physical_phone_tested": false,
+      "new_apk_or_zip": false,
+      "evidence_storage": "Alloriginals/logs/fullreceipts retained in scoped/tmp S75 (8GB free); smallbinding/aggregate receipts and selectedreviewPNGs persistentworkspace, no deletion.",
+      "controlled_comparison": "/workspace/work/morning-20261102/s75/controlled-comparison.json",
+      "visual_review_agent": "/workspace/work/morning-20261102/s75/visual-review-agent.json",
+      "review_delivery": "/workspace/work/morning-20261102/s75/review-delivery.json",
+      "baseline_composition_only_views": 4,
+      "baseline_composition_checks": 304,
+      "baseline_composition_excluded_from_focus_journey_counts": true
+    },
+    "root_visual_review": "/workspace/work/morning-20261102/s75/visual-review-root.json",
+    "independent_visual_review": "/workspace/work/morning-20261102/s75/visual-review-agent.json",
+    "remaining": [
+      "New action pushes more phone/short-wide content below fold; scrolling retained and fixed route available.",
+      "Chooserinitialcapture is afteractualscroll/Tabreadings, notentryfirstfold.",
+      "PhysicalPixel9/maximal-name variants/owner native acceptance pending.",
+      "F06 next draft only; F09/performerart held.",
+      "InstalledV7 unchanged; source/history/projectZIP remainlocal and publicsource block unchanged."
+    ],
+    "source_publication_changed": false,
+    "apk_or_zip_built": false,
+    "queue_changed": false,
+    "current_plan_sequence": 9,
+    "current_review_board_sequence": 50,
+    "research_files": [
+      "/workspace/work/review-roadmap-20261101/research.json",
+      "/workspace/work/review-roadmap-20261101/research-log.md"
+    ]
+  }
 }
