@@ -4,6 +4,8 @@ extends RefCounted
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Practice = preload("res://Scripts/practice_room.gd")
+const SituationPractice = preload("res://experiments/playable_flightcase/situation_practice.gd")
+const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const SAVE_PATH := "user://c26_playable_sandbox.json"
 var genre: String = ""
 var roster: Array = []
@@ -221,6 +223,52 @@ func rehearse() -> Dictionary:
   return {"ok":false,"message":"Recruit a viable band first."}
  var result: Dictionary = _apply_risk(Practice.resolve(career,"tighten"),"tighten")
  return _record_practice(result,"tighten")
+
+func rehearse_attending(indices: Array) -> Dictionary:
+ if phase!="play":return {"ok":false,"message":"Recruit a viable band first."}
+ var inspected: Dictionary=Situation.inspect_rehearsal(career)
+ if not inspected.ok:return inspected
+ if indices!=inspected.attendee_indices:return {"ok":false,"message":"Attendance changed. Review the current rehearsal again."}
+ if inspected.plan_status=="future":return {"ok":false,"message":"The saved rehearsal is on DAY %d EVENING. No room has been booked early." % int(inspected.plan.day)}
+ var before: Dictionary=career.duplicate(true)
+ var active: Array=[]
+ for index in range(career.get("members",[]).size()):
+  if str(career.members[index].get("life_status","active"))=="active":active.append(index)
+ var result: Dictionary
+ if indices==active:
+  # Exact legacy control, including original chemistry, risk and report.
+  result=rehearse()
+  if not result.get("ok",false):return result
+  var completed: Dictionary=Situation.after_action(before,career,indices,true)
+  if not completed.ok:career=before;return completed
+  career=completed.state.duplicate(true)
+  if completed.has("attendance"):
+   career.last_rehearsal_outcome["attendance"]=completed.attendance.duplicate(true)
+   if not str(completed.message).is_empty():
+    career.last_rehearsal_outcome.reason=str(career.last_rehearsal_outcome.reason)+" "+str(completed.message)
+    result.message=str(result.message)+" "+str(completed.message)
+  result.state=career.duplicate(true)
+  result.outcome=career.last_rehearsal_outcome.duplicate(true)
+  return result
+ result=SituationPractice.resolve(career,indices)
+ if not result.get("ok",false):return result
+ var completed: Dictionary=Situation.after_action(before,result.state,indices,true)
+ if not completed.ok:return completed
+ result.state=completed.state
+ result.message=str(result.message)+" "+str(completed.message)
+ result=_record_practice(result,"tighten")
+ if not result.get("ok",false):return result
+ var voices: Array=[]
+ for index in indices:
+  # _record_practice walks the same complete Dictionary roster in order.
+  # Empty legacy candidate IDs must never alias another musician's changes.
+  voices.append(result.outcome.member_changes[index].duplicate(true))
+ result.outcome.member_changes=voices
+ result.outcome["attendance"]=completed.get("attendance",{}).duplicate(true)
+ result.outcome.source="attendance-aware owned rehearsal; canonical members and life_status retained"
+ career.last_rehearsal_outcome=result.outcome.duplicate(true)
+ result.state=career.duplicate(true)
+ return result
 
 func clear_air() -> Dictionary:
  if phase != "play":

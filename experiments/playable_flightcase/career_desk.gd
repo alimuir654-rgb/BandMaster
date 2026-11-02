@@ -37,7 +37,12 @@ const Direction = preload("res://experiments/playable_flightcase/career_directio
 const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
 const GoalFocus = preload("res://experiments/playable_flightcase/goal_focus_rules.gd")
 const BandMoment = preload("res://experiments/playable_flightcase/band_moment_desk.gd")
+const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const SituationDesk = preload("res://experiments/playable_flightcase/situation_desk.gd")
 var game
+var situation_member_id := ""
+var situation_kind := "unknown"
+var situation_expected: Dictionary = {}
 var band_moment_context: Dictionary = {}
 var band_moment_phase := "intro"
 var band_moment_epoch := 0
@@ -240,6 +245,8 @@ func _render() -> void:
   _band_page(body,compact)
  elif page=="band_moment":
   BandMoment.render(self,body,compact)
+ elif page=="situation":
+  SituationDesk.render(self,body,compact)
  elif page=="songs":
   _songs_page(body,compact)
  elif page=="recording":
@@ -289,7 +296,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment","situation"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -511,6 +518,7 @@ func _road_cases(parent: Node, compact: bool) -> void:
 
 func _band_page(parent: Node, compact: bool) -> void:
  BandMoment.entries(self,parent)
+ parent.add_child(_button("LIFE OUTSIDE THE BAND","CareerSituationAction",_open_situation))
  parent.add_child(_button("VIEW BAND POSTER","CareerBandPosterAction",_open_band_poster,true))
  var body := _paper(parent,compact)
  _copy(body,"THE PEOPLE IN YOUR BAND",24)
@@ -558,6 +566,65 @@ func _band_page(parent: Node, compact: bool) -> void:
    meter.name = "CareerMemberStat_"+str(index)+"_"+str(stat[1])
    values.add_child(meter)
  _road_cases(parent,compact)
+
+func _open_situation() -> void:
+ if busy or is_instance_valid(_live_dialog) or game==null:return
+ if Finance.is_over(game.career) or RadioVisit.locked(game.career):
+  _navigate("home")
+  return
+ var checked: Dictionary=Situation.validate(game.career)
+ if not checked.ok:
+  notice=str(checked.message)
+  _render()
+  return
+ var rows: Array=Situation.members(game.career)
+ var id: String=""
+ for row in rows:
+  if row.editable:id=str(row.id);break
+ if id.is_empty():
+  notice="Outside-band context cannot be attributed without a stable musician identity. The existing biography is retained."
+  _render()
+  return
+ _navigate("situation")
+ _situation_pick_member(id)
+
+func _situation_pick_member(id: String) -> void:
+ if busy or page!="situation" or is_instance_valid(_live_dialog):return
+ for row in Situation.members(game.career):
+  if row.id==id and row.editable:
+   situation_member_id=id
+   situation_kind=str(row.kind)
+   situation_expected=game.career.duplicate(true)
+   notice=""
+   _pending_focus="SituationMember_"+id
+   _render()
+   return
+
+func _situation_pick_kind(kind: String) -> void:
+ if busy or page!="situation" or not kind in Situation.KINDS:return
+ situation_kind=kind
+ _pending_focus="SituationContext_"+kind
+ _render()
+
+func _situation_save() -> void:
+ if busy or page!="situation" or is_instance_valid(_live_dialog) or game==null or not is_inside_tree() or not is_visible_in_tree():return
+ if Finance.is_over(game.career) or RadioVisit.locked(game.career) or Bridge.show_day(game.career):
+  notice="Finish the current show or visit before recording a new availability agreement."
+  _render()
+  return
+ busy=true
+ var before: Dictionary=game.snapshot().duplicate(true)
+ var result: Dictionary=Situation.set_context(game.career,situation_member_id,situation_kind,situation_expected)
+ if result.get("ok",false) and result.get("changed",false):
+  game.career=result.state.duplicate(true)
+  if not bool(opening_owner.save_draft()):
+   game.restore(before)
+   result={"ok":false,"message":"The context could not be saved. The whole previous career and pending choices are retained; you can retry."}
+ busy=false
+ notice=str(result.get("message","The context could not be saved."))
+ if result.get("ok",false):situation_expected=game.career.duplicate(true)
+ _pending_focus="SituationSaveContextAction"
+ _render()
 
 func _open_band_poster() -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog) or game==null:return
@@ -636,6 +703,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   DirectionCard.chooser_dock(self,dock)
  elif page=="band_moment":
   BandMoment.dock(self,dock)
+ elif page=="situation":
+  SituationDesk.dock(self,dock)
  elif page=="finance" and RadioVisit.locked(game.career):
   RadioDesk.recovery_dock(self,dock)
  elif page=="calendar":

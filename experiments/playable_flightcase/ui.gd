@@ -3,6 +3,8 @@ const IdentityStyle = preload("res://experiments/playable_flightcase/identity_st
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
+const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
@@ -45,6 +47,9 @@ var look := "flightcase"
 var reduced_motion := false
 var session_busy := false
 var _session_overlay: Control
+var _work_dialog: Control
+var _work_expected: Dictionary = {}
+var _work_epoch := 0
 var practice_activity := "create"
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
@@ -88,6 +93,8 @@ func _ready() -> void:
 func _clear() -> void:
  for child in get_children():
   if is_instance_valid(_session_overlay) and child==_session_overlay:
+   continue
+  if is_instance_valid(_work_dialog) and child==_work_dialog:
    continue
   remove_child(child)
   child.queue_free()
@@ -918,6 +925,17 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
  body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
  body.add_child(_ink(str(rule.get("description","")),16,true))
  body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
+ var situation: Dictionary=Situation.inspect_rehearsal(game.career)
+ if situation.ok and not situation.plan.is_empty():
+  var planned: Label=_ink("AGREED REHEARSAL • DAY %d EVENING • %s" % [int(situation.plan.day),str(situation.plan_status).to_upper()],16)
+  planned.name="SituationPracticePlan"
+  body.add_child(planned)
+ if kind=="tighten" and situation.ok and situation.conflict:
+  var names: Array=[]
+  for person in situation.absent:names.append(str(person.name))
+  var shift: Label=_ink("EVENING WORK SHIFT • "+", ".join(names)+". Review attendance before booking the room.",16,true)
+  shift.name="SituationPracticeClash"
+  body.add_child(shift)
  var gap := Control.new()
  gap.custom_minimum_size.y = 8
  body.add_child(gap)
@@ -1109,7 +1127,7 @@ func _rehearse() -> void:
 func _connect() -> void:
  _commit_session("connect")
 
-func _commit_session(kind: String) -> void:
+func _commit_session(kind: String, expected: Dictionary = {}) -> void:
  if session_busy:
   return
  if opening_owner!=null and RadioVisit.locked(game.career):
@@ -1124,6 +1142,23 @@ func _commit_session(kind: String) -> void:
   last_message = "Tonight's show comes first. No session has been started."
   career_requested.emit()
   return
+ var situation: Dictionary=Situation.inspect_rehearsal(game.career)
+ if not situation.ok:
+  last_message=str(situation.message)
+  _rebuild()
+  return
+ if not expected.is_empty() and game.snapshot()!=expected:
+  last_message="The band changed. Review the rehearsal again."
+  _rebuild()
+  return
+ if kind=="tighten":
+  if situation.plan_status=="future":
+   last_message="Your rehearsal is agreed for DAY %d EVENING. No day or room fee has been used." % int(situation.plan.day)
+   _rebuild()
+   return
+  if situation.conflict and expected.is_empty():
+   _open_work_conflict(situation)
+   return
  # Set before the synchronous resolver: rapid pointer/key events cannot queue
  # another legitimate day while this committed result is being presented.
  session_busy = true
@@ -1132,7 +1167,7 @@ func _commit_session(kind: String) -> void:
  if kind=="create":
   result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  elif kind=="tighten":
-  result = game.rehearse()
+  result = game.rehearse_attending(situation.attendee_indices)
  else:
   result = game.clear_air()
  if not bool(result.get("ok",false)):
@@ -1140,6 +1175,15 @@ func _commit_session(kind: String) -> void:
   session_busy = false
   _rebuild()
   return
+ if kind!="tighten":
+  var tracked: Dictionary=Situation.after_action(before_snapshot.get("career",{}),game.career)
+  if not tracked.ok:
+   game.restore(before_snapshot)
+   session_busy=false
+   last_message=str(tracked.message)
+   _rebuild()
+   return
+  game.career=tracked.state
  if opening_owner!=null:
   game.career = Live.after_practice(before_snapshot.get("career",{}),game.career)
   var accounted: Dictionary = Finance.apply(before_snapshot.get("career",{}),game.career,"practice:"+kind)
@@ -1166,6 +1210,67 @@ func _commit_session(kind: String) -> void:
  if kind=="create" and int(game.career.get("song_draft_progress",0))==0:
   _hydrate_song_draft()
  _begin_session_presentation(kind,result.get("outcome",{}))
+
+func _open_work_conflict(view: Dictionary, notice: String = "") -> void:
+ if is_instance_valid(_work_dialog):return
+ _work_epoch+=1
+ _work_expected=game.snapshot().duplicate(true)
+ session_busy=true
+ var copy: Dictionary=view.duplicate(true)
+ copy["notice"]=notice
+ var dialog:=WorkConflict.new()
+ dialog.configure(game.career,copy)
+ _work_dialog=dialog
+ dialog.chosen.connect(_work_choice.bind(_work_epoch))
+ dialog.cancelled.connect(_work_back.bind(_work_epoch))
+ add_child(dialog)
+
+func _close_work_conflict() -> void:
+ var dialog: Control=_work_dialog
+ _work_dialog=null
+ _work_epoch+=1
+ session_busy=false
+ if is_instance_valid(dialog):dialog.queue_free()
+
+func _work_back(epoch: int) -> void:
+ if epoch!=_work_epoch:return
+ _close_work_conflict()
+ _work_expected={}
+ _rebuild()
+
+func _work_choice(intent: String, epoch: int) -> void:
+ if epoch!=_work_epoch or not is_instance_valid(_work_dialog) or not is_visible_in_tree():return
+ var before: Dictionary=_work_expected.duplicate(true)
+ if game.snapshot()!=before:
+  _close_work_conflict()
+  last_message="The band changed. Review the current rehearsal again."
+  _rebuild()
+  return
+ if opening_owner!=null and (RadioVisit.locked(game.career) or Finance.is_over(game.career) or Live.show_day(game.career)):
+  _close_work_conflict()
+  career_requested.emit()
+  return
+ if intent=="proceed":
+  _close_work_conflict()
+  _commit_session("tighten",before)
+  return
+ if intent!="reschedule":return
+ var result: Dictionary=Situation.reschedule(game.career,before.career)
+ if result.get("ok",false):
+  game.career=result.state.duplicate(true)
+  var saved: bool=bool(opening_owner.save_draft()) if opening_owner!=null else game.save_sandbox()
+  if not saved:
+   game.restore(before)
+   result={"ok":false,"message":"The rehearsal plan could not be saved. Your previous career and choices are retained."}
+ var message: String=str(result.get("message","The rehearsal could not be planned."))
+ _close_work_conflict()
+ if not result.get("ok",false):
+  var current: Dictionary=Situation.inspect_rehearsal(game.career)
+  if current.ok:_open_work_conflict(current,message)
+ else:
+  _work_expected={}
+  last_message=message
+  _rebuild()
 
 func _begin_session_presentation(kind: String, report: Dictionary) -> void:
  # Navigation/reopening uses the same presentation layer, with no resolver or
@@ -1204,10 +1309,16 @@ func _finish_session_presentation() -> void:
   next_action.grab_focus()
 
 func _on_visibility_changed() -> void:
+ if not is_visible_in_tree() and is_instance_valid(_work_dialog):
+  _close_work_conflict()
+  _work_expected={}
  if not is_visible_in_tree() and is_instance_valid(_session_overlay):
   _session_overlay.finish_now(false)
 
 func _exit_tree() -> void:
+ _work_epoch+=1
+ if is_instance_valid(_work_dialog):_work_dialog.queue_free()
+ _work_dialog=null
  if is_instance_valid(_session_overlay):
   _session_overlay.abort()
  session_busy = false
