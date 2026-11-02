@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "S75",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
+  "baseline_sha": "6a0793a13d9e514429cb6d246173bb3e33db6d35",
+  "game_baseline_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-13",
+    "BM-14",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-35",
+  "hypothesis": "One explicit free owner-selected focus with actual progress and existing preparation routing gives player agency while preserving chapter claims/rewards and whole-career save safety.",
+  "stop_condition": "Reject source/art/schema/economics changes outside4ownedfiles. Preserve malformedfuture wrappers, no auto chapterclaim/reward, no partial rollback. Two ineffective attempts change method/HOLD affected slice; scope bounded10:30 and owner12:00.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "74fb2d5fd97bfad09e606787e34d5233af4ca5516b7a52b155b4b1f4f0168412",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 878754,
+    "sha256": "7c28bc6a2ecd7148c3d147a29fdf670609aaf5419ad998c950b7ea3feb573d57"
+  },
+  "target": {
+    "locator": "/workspace/work/overnight-20261102/s72/goal-3e3ea50-phone-wheel-final/captures/controlled-home-390x844.png",
+    "original_sha256": "893b17db8c57877a615903858c42d44691f8010f1de2ddc123c350d2f6bac46a",
+    "pixels_inspected": true,
+    "kind": "Actual S72original opened at start; currentfirst-unclaimed suggestion lacks player choice."
+  },
+  "controlled_comparison": "Same selectedband/source/viewport/background/currentgoal baseline. New focuschooser native controls/pills only. Original models/art/checkpoint comparison; no costs/rewards/day/Finance changes; all4native windows.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/goal_focus_rules.gd",
+    "experiments/playable_flightcase/career_direction.gd",
+    "experiments/playable_flightcase/direction_card.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/morning-20261102/s75",
+    "/tmp/bandmaster-morning-20261102/s75"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S75.json",
+    "Exact original73/88/import/4standard +realinput focussed4viewproof and strict empty ERROR lists",
+    "Pure focuspolicy/bothwrapper and fullcareerrollback/durable owner-save native proofs",
+    "Original source/art/hash audit; actual native PNG inspection + independent review"
+  ],
+  "started_at": "2026-11-02T08:45:11.052620+00:00",
+  "scope_end": "2026-11-02T10:30:00Z",
+  "hard_stop": "2026-11-02T12:00:00Z",
+  "contract": "/workspace/BandMaster/docs/continuous_improvement/S75_OWNER_SELECTED_FOCUS.md",
+  "protected_scripts": 54,
+  "source_phase": "preflight_committed_before_source",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": false,
+  "current_plan_sequence": 7,
+  "current_review_board_sequence": 49,
+  "no_apk_zip": true
+}

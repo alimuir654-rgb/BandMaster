@@ -1,0 +1,19 @@
+# S75 — owner-selected career focus
+
+New owner authority 2November08:41: work until12:00 Europe/London. This manual window supersedes completed overnight freezes prospectively; no queue restart, APK/ZIP, merge or new asset approval.
+
+F01 ONE complete slice: choose/change/clear a goal, persist actual progress, route freely to existing preparation. Existing original chapter claim state/rewards remain untouched. Suggested goal still uses original Chapters.progress; manually chosen goal derives trusted CHAPTERS definition and original _metric after finite/type validation. Never fake claimed state to select a chapter. Ready/claimed pinned goals remain visibly pinned without reward, auto-claim or automatic advancement.
+
+Optional career_focus_v1 OUTSIDE demo/campaign fingerprint: version1/chapter_id; empty chapter_id means automatic suggestion. Absent wrapper preserves old behavior. Known wrapper unknown fields survive choose/change/clear; future/malformed wrapper is held and never overwritten. Clear valid pin retains wrapper extensions with empty chapter_id, never resets unrelated data. Same selection or clear-already-auto is no-op/no save. Pure focus model returns duplicated career; never Finance/Story/Calendar/resolver invocation or date/cash/stat change. Schema remains1.
+
+Native chooser uses existing paper/control/font assets and actual chapter-progress pills, no rawart/new icons/full-UItexture. Home and saved-show goal show chosen focus; retain approved eight-icon layout and fixed primary navigation. Separate choose-focus opens free chooser; commit labelled clearly as free/zero days; Back/cancel/render/resize/scroll never saves. Keep body scroll and16px text.
+
+Host owns transaction: busy BEFORE dispatch; capture expected fullcareer+focus when picker opens and revalidate unchanged snapshot/host identity+epoch before write. Terminal then active radio then due/overdue show take priority, including at commit; no stale hidden controls or menu clicks may pin. Pending songwriting/practice setup untouched. On save failure restore WHOLE prior career, keep chooser retryable and draft choice; retry saves once. Duplicate invocation no extra save. Actual owner save API is opening_owner.save_draft.
+
+Protected all original54Scripts, raw C25/art/fonts/hardware/meters, models/economics/Finance/radio and once-only guards. ONE delegated source writer may edit only4 listed owned files; root coordinates metadata/runtime/QA and ONE GL. No artist runs or renderer writes to protected models.
+
+Storage: workspace~20MB free. No cleanup/purge. New candidate and all original proof captures/logs under explicit /tmp/bandmaster-morning-20261102/s75; mutable caches freshprivate, immutable assets hardlink+hash before/after. Small manifests and selected owner PNGs only persist /workspace/work/morning-20261102/s75, cap12MB. Keep ALL new failed proof originals under scoped /tmp root, no overwrites; each phasefilename unique. Reuse exact S72base386/146byteentry exception, source audit before GL; nextcount387 only declared new source.
+
+Proof: original73gameplay+88opening/import/fourstandardjourneys once after source sealed, focused real mouse/key/touch chooser/commit/cancel/same/noop/failedsave/retry/durableMenuContinue/reopen, zero cost/day/sideeffects, originalChapterstate exact, unknown fields+malformedfuture/stale/busy/modal/due/terminal/radio cases and actual4view originalPNG review. Pure model tests separate, no broad suite for activity. If failed twice change method/HOLD affected slice; do NOT turn it into blanket stop of authorised window. Next independent candidate F06 one original case after exact scope review.
+
+Sprint target10:15 with bounded lease10:30. Entire manual window source/newbreadthfreeze11:15, finalverified defect repairs only to11:30, closeout/writefreeze11:50, noon HARDSTOP. No idle waiting/continuous compute claims.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S74",
+  "session": "S75",
   "scope": "New direct screenshot delivery only; overnight plan complete/game3e3 unchanged; no new game/art/QA/APK/queue.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "s74_screenshot_pack_privately_delivered",
-  "next_action": "Owner reviews privately delivered screenshots. Read-only phone/art feedback and exact-checkpoint readiness; no automatic game/art/engine/APK/queue continuation. Verified3e3 and heldS73 unchanged.",
+  "status": "s75_owner_selected_focus_preflight",
+  "next_action": "Implement/prove ONE F01 player-selected goal focus after committed preflight/gate; independent F06 fallback scope next. Noon manual hardstop; noAPKZIP/no queue changes.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3321,7 +3321,7 @@
     }
   ],
   "last_completed_session": "S74",
-  "writer": null,
+  "writer": "S75-owner-goal-focus-20261102T0845",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3529,7 +3529,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-02T07:45:00Z",
   "hard_stop": "2026-11-02T08:00:00Z",
-  "current_session": "S74",
+  "current_session": "S75",
   "next_single_action": "Owner reviews privately delivered screenshots. Read-only phone/art feedback and exact-checkpoint readiness; no automatic game/art/engine/APK/queue continuation. Verified3e3 and heldS73 unchanged.",
   "last_updated_utc": "2026-11-02T08:35:05.110441+00:00",
   "prepared_android_v7": {
@@ -3700,12 +3700,12 @@
   "last_writer": "S74-requested-screenshot-delivery-20261102T0824",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "frozen_no_implementation_pending",
-  "claimed_at": "2026-11-02T08:28:17.142808+00:00",
-  "expires_at": "2026-11-02T09:05:00Z",
-  "authority": "NEW direct owner22:09Nov1: Revise a02. It should be an entry level radio station, like budget uni radio, with a young cool presenter. Context and actual board37 checkedReviseA05v2 identify the RADIO scene/A05v2, not approvedA02v2 bandposter. Preserve A02poster approval/history and revise radio asA05v3. Existing08:00Nov2/noAPK plan unchanged.",
+  "source_phase": "preflight_no_source_yet",
+  "claimed_at": "2026-11-02T08:45:11.052620+00:00",
+  "expires_at": "2026-11-02T10:30:00Z",
+  "authority": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
@@ -3851,5 +3851,13 @@
     "owner_approved": false,
     "source_changed": false,
     "new_engine_tests": 0
+  },
+  "current_manual_window": {
+    "date": "2026-11-02",
+    "hard_stop": "2026-11-02T12:00:00Z",
+    "source_freeze": "2026-11-02T11:15:00Z",
+    "all_write_freeze": "2026-11-02T11:50:00Z",
+    "authority": "Owner2Nov: Ok, what are the next steps then? You can work to mid-day today. F01 approved scope first; manual12:00 hardstop, no APKZIP/queue extension.",
+    "queue_changed": false
   }
 }
