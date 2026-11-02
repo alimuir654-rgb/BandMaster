@@ -131,3 +131,12 @@ HOLD if full transaction seam/rollback is incomplete, art camera/identity is fab
 * Initial visible vibe is neutral40 until real explicit song completion. Extra fans use symmetric truncated half of final-vs-neutral vibe difference, capped±3. All policy bounds, original fees/success/readiness/projection stay as specified.
 * New road art is a separately pending proposal. Existing three plates can support an honest art-incomplete native prototype; do not claim moving vehicle/playing animation from camera motion. A06 Nia reuse stays owner-gated.
 * Owner latest48h extension ends21:24:35London4Nov; completed prior01:00 boundary is historical. One source writer/GL. Source/art integration freezes20:15Nov4; no newbreadth19:45, final21:15readinessonly/allwrites21:20.
+
+
+## Root prefix-independence amendment — supersedes earlier example formulas
+
+Independent review showed that full-set quality_estimate contains unplayed closer quality and must not determine the visible first-song feedback. Initial vibe is neutral40. For each actually completed original, step = clamp(floor((thatSong.quality−50)/15) + floor((frozenRawReadiness−50)/15) − floor(max(0,frozenIntensity−frozenRawReadiness)/20),−6,+6). Only completed song snapshots and frozen raw preparation/intensity enter that step; never full-set quality/set-shape/unknown future songs. Original full projection remains pinned and unchanged for original final show settlement. Test prefix independence against different unplayed closer qualities.
+
+The one live pacing intent appears ONLY with N≥2 originals, after cursor1 while another original remains. N0 uses honest whole-short-set completion; N1 completes that one original without invented continuation or mid-set bonus. No live-intent effects when no intent exists.
+
+Use frozen RAW career readiness, not effective projection readiness, in the moving-choice formula. Historical pressure = clamp(recordedBroken + recordedExcluded − recordedKept,0,3), after valid Core defaults; describe it as remembered rehearsal history rather than a causal claim about unrecorded relationships/jobs. Missing valid agreement rows use zero counters; invalid/future Core HOLD. Symmetric finalfanrounding remains sign(diff)*floor(abs(diff)/2), capped±3. No policy changes fees/cash/day/success/reputation/readiness or originalprojection.
