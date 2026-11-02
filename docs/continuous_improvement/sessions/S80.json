@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "S80",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner2Nov20:30 queue next changes and go ahead; latest actual phone screenshots show concrete quality/consistency failures. Repair demonstrated rehearsal/writing family first; queue complete gig then audition/songwriting, finite same worker.",
+  "baseline_sha": "08bf1f8fc99dc44b692832a52f5407cbb74eb53a",
+  "game_baseline_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
+  "dominant_issue": "BM-22",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-21",
+    "BM-22",
+    "BM-26",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44"
+  ],
+  "hypothesis": "Bound compact header wordmark to one line, neutral pristine title guidance, canonical Nia photo, saved-day/cash labels and character-first compact actual-result report with supported nonduplicated reactions resolve demonstrated quality defects while retaining all underlying saved outcomes.",
+  "stop_condition": "One presentation family only, original logic/save/art bytes protected; no new gig/audition/writing mechanics in S80. Two ineffective corrections change method/HOLD. Lease release by21:45Z; scheduled wake sees live lease/read-only. All finite extension writes stop01:00Nov3.",
+  "target": {
+    "locator": "/tmp/bandmaster-s78-20261102/standard/s78-work-5cc32e3-final/captures/c27-practice-390x844.png",
+    "original_sha256": "dda38369d420491d7516108b603be39e647e5debef18204159e7ce0995d7d294",
+    "pixels_inspected": true,
+    "kind": "Actual V8 native original opened; owner supplied physical phone screenshots are qualitative defect target. Canonical Nia512x690 original opened separately, not generated replacement."
+  },
+  "controlled_comparison": "Use same saved-report values/members and THE BOZOS selected compact mark, same native viewport/background, compare before/after393 baseline and candidate. Actual output values must remain exact; current header and recorded old balances explicitly distinct. Open390x844/720x1280/1280x720/1600x900 originals, meaningful pointer/key/touch/savefailure/retry/reload plus standard73/88/import/four journeys. New curated input is existing unchanged canonical Nia image only; no generation.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_mark.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/rehearsal_press.gd",
+    "experiments/playable_flightcase/rehearsal_recap.gd",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/sessions/S80.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/LESSONS.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s80-20261102"
+  ],
+  "reused_asset_intake": {
+    "path": "experiments/art_material/portrait_preview/nia_griffiths_512x690.webp",
+    "sha256": "dd44205c4225e8ec4b0f8782237a15277fc7b1372549bd9b5d80581277b2ef12",
+    "pixels_inspected": true,
+    "status": "existing canonical legacy preview, unchangedbytes; not a new art proposal",
+    "curated_count_expected": 394
+  },
+  "protected_paths": [
+    "Scripts/**",
+    "experiments/character_cast/**",
+    "experiments/art_material/**",
+    "components/**",
+    "project.godot",
+    "all other game/model/art/save files except four owned UI paths"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "23e0dd2c39784e691f7b3d2432c878c8ccd67c34616cc1e85f61f8afd8021e9b",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 964594,
+    "sha256": "de9bc8e7fa0ec81e4c50085440f983588d3ce5a255d4becbd620070c0bfe6a2a"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S80.json",
+    "Exact394inputs strict import/73gameplay/88opening/4standard journeys; focusedquality/input/failure/reload/4view native originals; protected393baseline minus4 owned edits byteexact"
+  ],
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "started_at": "2026-11-02T20:36:18.325481+00:00",
+  "scope_end": "2026-11-02T21:45:00Z",
+  "current_plan_sequence": 13,
+  "current_review_board_sequence": 98
+}
