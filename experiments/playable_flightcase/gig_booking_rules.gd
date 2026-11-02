@@ -26,8 +26,15 @@ static func finite_tree(value: Variant) -> bool:
  return true
 
 static func _context_guard(state: Dictionary) -> Dictionary:
- for field in ["tour_day","cash","reputation","fans","morale","tension","readiness","van_health","songs"]:
-  if not whole(state.get(field,1 if field=="tour_day" else 0),1 if field=="tour_day" else 0,100 if field in ["morale","tension","readiness","van_health","reputation"] else MAX_DAY):return _bad("The saved band's preparation or accounts need validation.")
+ if not whole(state.get("tour_day"),1) or not whole(state.get("cash")):return _bad("The saved career day or cash needs validation.")
+ for field in ["reputation","fans","morale","tension","readiness","van_health","songs"]:
+  if not whole(state.get(field,0),0,100 if field in ["morale","tension","readiness","van_health","reputation"] else MAX_DAY):return _bad("The saved band's preparation or accounts need validation.")
+ var members: Variant=state.get("members")
+ if not members is Array:return _bad("The saved band line-up needs validation.")
+ for person in members:
+  if not person is Dictionary:return _bad("A saved band member cannot be read safely.")
+  for field in ["fatigue","morale","loyalty","skill","available_day"]:
+   if person.has(field) and not whole(person[field],0,MAX_DAY if field=="available_day" else 100):return _bad("A saved band member's condition needs validation.")
  var songs: Variant=state.get("song_catalogue",[])
  if not songs is Array:return _bad("The finished-song catalogue cannot be read.")
  for song in songs:
@@ -89,6 +96,14 @@ static func terms_valid(raw: Variant) -> bool:
  return whole(raw.get("next_available_day"),1) and int(raw["next_available_day"])==int(raw["day"])+int(cost["duration"])
 
 static func validate(state: Dictionary) -> Dictionary:
+ # Structural dispatch only: no Flow import/backedge. A missing terms wrapper
+ # cannot make a regional/future owned booking become a cheap legacy action.
+ var show_marker: Variant=state.get("booked_show",{})
+ if show_marker is Dictionary and show_marker.has("show_flow_v1"):
+  var marker: Variant=show_marker["show_flow_v1"]
+  if not marker is Dictionary or not whole(marker.get("version"),1,2):return _bad("The saved show journey requires a compatible agreement version.")
+  if marker["version"]==2 and not show_marker.has(TERMS):return _bad("The regional show is missing its saved booking terms. Its data is retained.")
+  if marker["version"]==1 and show_marker.has(TERMS):return _bad("The saved booking terms and journey version disagree.")
  if state.has(KEY):
   var raw: Variant=state[KEY]
   if not raw is Dictionary or raw.get("version")!=1 or not whole(raw.get("sequence")) or not raw.get("seen_slots") is Dictionary or not raw.get("records") is Array or raw["records"].size()>80 or not raw.get("venues") is Dictionary:return _bad("The saved booking commitments need a compatible version. Their data is retained.")
@@ -276,6 +291,8 @@ static func departure(state: Dictionary) -> Dictionary:
  return {"ok":true,"departed":visit["departure_committed"],"liability":int(visit["departure_liability"]),"journey_id":str(visit.get("id","")),"revision":int(visit.get("revision",-1))}
 
 static func cancel_quote(state: Dictionary, token: Dictionary, validated_departure: Dictionary = {}) -> Dictionary:
+ var context: Dictionary=_context_guard(state)
+ if not bool(context.get("ok",false)):return context
  var finance: Dictionary=Finance.guard(state)
  if not bool(finance.get("ok",false)):return finance
  for field in ["reputation","morale"]:
@@ -342,6 +359,8 @@ static func cancel_original(state: Dictionary, token: Dictionary, validated_depa
  return _terminal(state,original["state"],quote,"cancelled")
 
 static func expire_quote(state: Dictionary, token: Dictionary) -> Dictionary:
+ var context: Dictionary=_context_guard(state)
+ if not bool(context.get("ok",false)):return context
  var financial: Dictionary=Finance.guard(state)
  if not bool(financial.get("ok",false)):return financial
  var valid: Dictionary=validate(state)

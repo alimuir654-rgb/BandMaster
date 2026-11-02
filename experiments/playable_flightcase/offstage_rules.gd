@@ -80,7 +80,7 @@ static func response_options(state: Dictionary, id: String) -> Array:
  if id==PROMOTER:
   var eligibility: Dictionary = Live.booking_eligibility(state,false)
   var booking_reason: String = reason if not reason.is_empty() else str(eligibility.get("message",""))
-  rows.append({"id":"accept","label":"BOOK THE LOCAL SHOW","description":"Accept the original STANDARD promoter offer. £0 now; no day passes. The show is three days away. Travel is charged at performance.","cost":0,"days":0,"enabled":reason.is_empty() and bool(eligibility.get("ok",false)),"reason":booking_reason})
+  rows.append({"id":"accept","label":"REVIEW THE LOCAL SHOW","description":"Choose the date and trip in the shared booking form. Opening it or going back costs nothing and leaves this introduction pending.","cost":0,"days":0,"enabled":reason.is_empty() and bool(eligibility.get("ok",false)),"reason":booking_reason})
  elif id==SCOUT:
   var completed: Variant = state.get("opportunities_resolved",{})
   var resolved: bool = completed is Dictionary and completed.has("first_feature")

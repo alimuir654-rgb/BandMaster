@@ -85,8 +85,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1021503,
-    "sha256": "153a93c4463828d44b6c7182984ac0235a008cf96b416e183307faa74201c631"
+    "bytes": 1029469,
+    "sha256": "35c2bd9d912f746a60a67a3e5151d9fcdad20f1395c149f06f37955c8801bf04"
   },
   "source_contract": "docs/continuous_improvement/S82_GIG_BOOKING_JOURNEY.md",
   "source_contract_sha256": "969593dbb33ca82fc381be7a475849fb8ec870caf1e177c50621974a3d38d2d2",
