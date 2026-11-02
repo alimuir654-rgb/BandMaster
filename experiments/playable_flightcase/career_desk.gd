@@ -36,7 +36,11 @@ const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
 const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
 const GoalFocus = preload("res://experiments/playable_flightcase/goal_focus_rules.gd")
+const BandMoment = preload("res://experiments/playable_flightcase/band_moment_desk.gd")
 var game
+var band_moment_context: Dictionary = {}
+var band_moment_phase := "intro"
+var band_moment_epoch := 0
 var _focus_picker_open := false
 var _focus_draft := ""
 var _focus_expected: Dictionary = {}
@@ -196,7 +200,7 @@ func _render() -> void:
  var nav := HBoxContainer.new()
  nav.name = "CareerNavigation"
  nav.add_theme_constant_override("separation",5)
- nav.visible = page!="home" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
+ nav.visible = page!="home" and page!="band_moment" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
@@ -234,6 +238,8 @@ func _render() -> void:
   _gear_page(body,compact)
  elif page=="band":
   _band_page(body,compact)
+ elif page=="band_moment":
+  BandMoment.render(self,body,compact)
  elif page=="songs":
   _songs_page(body,compact)
  elif page=="recording":
@@ -283,7 +289,7 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -504,6 +510,7 @@ func _road_cases(parent: Node, compact: bool) -> void:
  GearPress.inventory(self,parent,compact)
 
 func _band_page(parent: Node, compact: bool) -> void:
+ BandMoment.entries(self,parent)
  parent.add_child(_button("VIEW BAND POSTER","CareerBandPosterAction",_open_band_poster,true))
  var body := _paper(parent,compact)
  _copy(body,"THE PEOPLE IN YOUR BAND",24)
@@ -614,6 +621,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
    return_copy = "PREPARE FOR YOUR SHOW  ›" if str(receipt.get("return_page","offstage"))=="gigs" else "BACK TO LIFE OFFSTAGE  ›"
   elif str(receipt.get("kind","gear"))=="recording":
    return_copy = "BACK TO YOUR RECORDINGS  ›"
+  elif str(receipt.get("kind","gear"))=="band_moment":
+   return_copy="BACK TO YOUR BAND  ›"
   dock.add_child(_button(return_copy,"CareerReceiptContinueAction",_close_receipt,true))
  elif page=="gigs":
   LiveDesk.dock(self,dock,compact)
@@ -625,6 +634,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   RecordingDesk.dock(self,dock,compact)
  elif page=="goal_focus":
   DirectionCard.chooser_dock(self,dock)
+ elif page=="band_moment":
+  BandMoment.dock(self,dock)
  elif page=="finance" and RadioVisit.locked(game.career):
   RadioDesk.recovery_dock(self,dock)
  elif page=="calendar":
@@ -737,6 +748,9 @@ func _finish_receipt() -> void:
  _fresh_receipt=false
 
 func _receipt_page(parent: Node, compact: bool) -> void:
+ if str(receipt.get("kind",""))=="band_moment":
+  BandMoment.receipt(self,parent,compact)
+  return
  if str(receipt.get("kind",""))=="recording":
   RecordingDesk.receipt(self,parent,compact)
   return
@@ -771,15 +785,32 @@ func _close_receipt() -> void:
  if busy:return
  show_receipt_details_open=false
  if str(receipt.get("kind","gear"))=="offstage":page=str(receipt.get("return_page","offstage"))
+ elif str(receipt.get("kind","gear"))=="band_moment":page="band"
  elif str(receipt.get("kind","gear"))=="recording":
   page="recording"
   recording_mode="archive"
  receipt_open=false
  _fresh_receipt=false
- _pending_focus="RecordingSelectAction" if page=="recording" else (LiveDesk.focus_name(self) if page=="gigs" else (OffstageDesk.focus_name(self) if page=="offstage" else "GearCatalogueAction"))
+ _pending_focus="BandMomentSavedAction" if page=="band" and str(receipt.get("kind",""))=="band_moment" else ("RecordingSelectAction" if page=="recording" else (LiveDesk.focus_name(self) if page=="gigs" else (OffstageDesk.focus_name(self) if page=="offstage" else "GearCatalogueAction")))
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
+
+func _band_moment_present(result: Dictionary, before: Dictionary) -> void:
+ receipt={"kind":"band_moment","title":str(result.get("moment",{}).get("title","REHEARSAL CONVERSATION")),"text":str(result.get("message","Saved.")),"moment":result["moment"].duplicate(true),"day_before":int(before.get("tour_day",1)),"day_after":int(game.career.get("tour_day",1)),"cash_before":int(before.get("cash",0)),"cash_after":int(game.career.get("cash",0))}
+ receipt_open=true
+ _fresh_receipt=true
+ band_moment_context["details"]=false
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ var overlay:=Beat.new()
+ overlay.heading_copy="THE NEXT REHEARSAL"
+ overlay.detail_copy="DECISION SAVED  •  1 DAY  •  NO DIRECT CASH COST"
+ overlay.configure("gear",{"metrics":{"tour_day":{"before":receipt.day_before,"after":receipt.day_after}}},reduced_motion,"flightcase",int(receipt.day_after),int(receipt.cash_after))
+ _overlay=overlay
+ overlay.covered.connect(_present_receipt)
+ overlay.finished.connect(_finish_receipt)
+ add_child(overlay)
 
 func _recording_present(result: Dictionary, before: Dictionary, verb: String) -> void:
  # The pure rules and the ONE owner save have already succeeded.
