@@ -168,7 +168,7 @@ func _rebuild() -> void:
   name_layout.max_lines_visible=2
   header.add_child(name_layout)
   var band_name := BandMark.new()
-  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true)
+  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true,true)
   band_name.name = "PracticeBandName"
   band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
   band_name.max_lines_visible = 1

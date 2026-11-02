@@ -6,20 +6,20 @@ var treatment := "Wordmark"
 var identity_style: Dictionary = {}
 var _max_points := 70
 var _min_points := 22
-var _compact := false
+var _single_line := false
 
-func configure(value: String, logo: String, style: Dictionary, points: int = 70, on_dark: bool = false, compact: bool = false) -> void:
+func configure(value: String, logo: String, style: Dictionary, points: int = 70, on_dark: bool = false, compact: bool = false, single_line: bool = false) -> void:
  full_name=value
  treatment=logo
  identity_style=style.duplicate(true)
  text=Style.mark_text(value,logo)
  _max_points=points
  _min_points=16 if compact else 22
- _compact=compact
+ _single_line=compact and single_line
  horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  vertical_alignment=VERTICAL_ALIGNMENT_CENTER
- autowrap_mode=TextServer.AUTOWRAP_OFF if compact else TextServer.AUTOWRAP_WORD_SMART
- if compact:
+ autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD_SMART
+ if _single_line:
   text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   max_lines_visible=1
   tooltip_text=value
@@ -38,7 +38,9 @@ func _fit() -> void:
  var font: Font=get_theme_font("font")
  var chosen: int=_max_points
  var available: float=maxf(custom_minimum_size.y,22.0)
- if _compact:
+ if _single_line:
+  # Practice headers explicitly opt into a single line; naming/identity
+  # previews and posters retain their original multiline fitting method.
   # Measure the decorated mark as one line. Word wrapping can otherwise
   # approve a lone closing stamp dash on a second line. Keep the minimum
   # readable size; only genuinely longer names use the native ellipsis.
