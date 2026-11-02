@@ -183,7 +183,7 @@ static func _decision(host, body: VBoxContainer, data: Dictionary, compact: bool
  _copy(host,details,"IN THE REHEARSAL ROOM","BandMomentSpeaker")
  _note(details,"Both voices have been heard. How will the band handle its next rehearsal?","BandMomentNote")
  for position in ["first","second"]:_copy(host,details,str(incident[position])+": “"+str(incident[position+"_line"])+"”","BandMomentDecisionQuote_"+position,16,true)
- for option in incident["choices"]:_copy(host,details,str(option["text"]),"BandMomentChoiceText_"+str(option["id"]),16,true)
+ for option in incident["choices"]:_copy(host,details,"Make room for both musicians to explain their ideas." if option["id"]=="listen" else "Keep the rehearsal on its current schedule.","BandMomentChoiceText_"+str(option["id"]),16,true)
 
 static func _decision_details(host, body: Control) -> void:
  if not is_instance_valid(host) or not is_instance_valid(body) or not body.is_inside_tree() or not host.is_visible_in_tree() or bool(host.busy) or is_instance_valid(host._live_dialog):return
