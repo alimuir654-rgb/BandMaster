@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S89",
+  "session": "S90",
   "scope": "S87 approved AU01 source/listening study ONLY; closed owner revision/evidence HOLD, no shipping implementation",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "released",
-  "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+  "status": "active",
+  "next_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3297,7 +3297,7 @@
     }
   ],
   "last_completed_session": "S89",
-  "writer": null,
+  "writer": "/root",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3422,7 +3422,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-03T16:33:12.919963+00:00",
+  "updated_at": "2026-11-03T16:51:24.374831+00:00",
   "page_delivery": {
     "status": "V6_APK_prose_saved_readback",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
@@ -3508,8 +3508,8 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
-  "current_session": "S89",
-  "next_single_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+  "current_session": "S90",
+  "next_single_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
@@ -3681,11 +3681,11 @@
   "last_writer": "S89-audio-art-layout-briefs-20261103T1625",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S89_BRIEFS_COMPLETE_PRODUCTION_HOLD",
+  "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
   "claimed_at": "2026-11-03T11:10:26.616803+00:00",
-  "expires_at": "2026-11-03T18:00:00Z",
+  "expires_at": "2026-11-03T18:10:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -4514,11 +4514,9 @@
   },
   "latest_metadata_deliverable": "S89 audiofeasibility/artmethod/UX02predesign complete; primary-sourceandindependentreviews, Plan29Board153. No productionassets/code/engines.",
   "root_lease": {
-    "id": "S89-audio-art-layout-briefs-20261103T1625",
-    "writer": null,
-    "expires_at": "2026-11-03T18:00:00Z",
-    "status": "released",
-    "released_at": "2026-11-03T16:33:12.919963+00:00"
+    "id": "S90-native-baseline-20261103T1652",
+    "writer": "/root",
+    "expires_at": "2026-11-03T18:10:00Z"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {

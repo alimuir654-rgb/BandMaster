@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-09",
+    "BM-14",
+    "BM-15",
+    "BM-25",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "target": {
+    "locator": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png",
+    "original_sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+    "pixels_inspected": true,
+    "kind": "Actually opened existing raw crowd-view art; not current native layout proof. Missing current native originals explicit HOLD pending fresh validation."
+  },
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "id": "S90",
+  "status": "active",
+  "owner_request": "Owner Continuewithnextsteps: nativebaseline review usingexistingdisplaysetup without changingXorg/config/installingpackages.",
+  "baseline_sha": "b2b0b4c9ea1fe08dd4f6566414b17bd801ab9647",
+  "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "dominant_issue": "BM-34",
+  "hypothesis": "Starting the installed Xorgwrapper with existingdummyconfig unchanged may restore nativeDISPLAY99 and permit exactsource UX02baselineinspection without anynewdependencies/settingschange.",
+  "stop_condition": "HOLD wrapperpolicyrefusal/readinessfailure/ERROR/inputchange/storage/competingowner; no flag/config/security/dependency bypass orheadlesspixelclaim, no UIrepairinthisscope.",
+  "controlled_comparison": "Same frozenS88recovered408source/privatecache; configuredentrythenonlyfreshnativephone/shortwidebaseline. Noimport/model/standard/activityreruns; sourcehashall408/config/wrapper/driverbeforeafter. ProposedUX02notimplemented.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S90_NATIVE_BASELINE_REVIEW.md",
+    "docs/continuous_improvement/sessions/S90.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s90-native-baseline-20261103/",
+    "/workspace/work/s88-recovery-20261103/runtime/s90_baseline_probe.gd",
+    "/workspace/work/s88-recovery-20261103/private-import-cache/"
+  ],
+  "issue_log_review": {
+    "bytes": 1287988,
+    "sha256": "b9d0ce5a2e9b82ed086a9a5ed2cd70b8a5148051f6efce5171eee06662d7f65e"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S90.json",
+    "Root reviewedexistingXorgwrapper/config startup beforedefault5frameMesaentry andsealednonshippingUX02baseline; exact408/config/protection/ERROR/save/input/storagechecks."
+  ],
+  "root_lease": {
+    "id": "S90-native-baseline-20261103T1652",
+    "writer": "/root",
+    "expires_at": "2026-11-03T18:10:00Z"
+  },
+  "started_at": "2026-11-03T16:51:24.374831+00:00",
+  "scope_end": "2026-11-03T18:10:00Z",
+  "queue_task": "UX02 nativebaseline review prerequisite",
+  "reviewer": "/root/native_baseline_probe scopedQA/readonlysource; rootengines",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": false,
+  "storage_plan": {
+    "new_aggregate_bytes": 33554432,
+    "existing_S88_cache_cap": 100663296,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "newcacheallocation": false
+  },
+  "next_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready."
+}

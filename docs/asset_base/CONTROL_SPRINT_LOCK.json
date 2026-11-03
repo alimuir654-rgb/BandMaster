@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "/root",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T11:10:26.616803+00:00",
-  "expires_at": "2026-11-03T18:00:00Z",
+  "expires_at": "2026-11-03T18:10:00Z",
   "scope": "S87 approved AU01 source/listening study ONLY; closed owner revision/evidence HOLD, no shipping implementation",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
+  "status": "active",
   "released_at": "2026-11-03T16:33:12.919963+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T16:33:12.919963+00:00",
+  "updated_at": "2026-11-03T16:51:24.374831+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+  "pending_helpers": true,
+  "next_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -353,7 +353,7 @@
   "source_freeze_target": "2026-11-04T20:15:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "S89_BRIEFS_COMPLETE_PRODUCTION_HOLD",
+  "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
   "source_frozen_at": "2026-11-03T08:48:44Z",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S89",
+  "session": "S90",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -508,7 +508,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-  "current_session": "S89",
+  "current_session": "S90",
   "closed_at": "2026-11-03T16:33:12.919963+00:00",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "last_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -525,7 +525,7 @@
     "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
   },
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
-  "next_single_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+  "next_single_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
   "s78_authority": {
     "F11": "Direct ownerapproved +board96ApproveF11checked",
@@ -1163,11 +1163,9 @@
   },
   "latest_metadata_deliverable": "S89 audiofeasibility/artmethod/UX02predesign complete; primary-sourceandindependentreviews, Plan29Board153. No productionassets/code/engines.",
   "root_lease": {
-    "id": "S89-audio-art-layout-briefs-20261103T1625",
-    "writer": null,
-    "expires_at": "2026-11-03T18:00:00Z",
-    "status": "released",
-    "released_at": "2026-11-03T16:33:12.919963+00:00"
+    "id": "S90-native-baseline-20261103T1652",
+    "writer": "/root",
+    "expires_at": "2026-11-03T18:10:00Z"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {
