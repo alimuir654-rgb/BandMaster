@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "indie-rhythm-tone-study",
+  "use_case": "audition",
+  "style": "indie",
+  "backend": "ace_step_1_5",
+  "study": "AU01",
+  "instruments": [{"id": "electric_guitar", "role": "rhythm"}],
+  "duration_seconds": 4,
+  "tail_seconds": 0.6,
+  "source_duration_seconds": 10,
+  "source_format": {"sample_rate": 48000, "channels": 2, "sample_width_bytes": 2},
+  "output_format": {"sample_rate": 44100, "channels": 1, "sample_width_bytes": 2},
+  "review_mode": "derived",
+  "requires_isolation": true,
+  "arrangement": "A short natural improvised D-to-G chord change, credible voicings/string attacks and up/downstroke dynamics. Release the last stroke early enough for its decay to finish INSIDE four seconds. Tone/feel prototype, not the full four-bar audition.",
+  "musicianship": {
+    "technique": "Modest, physically credible rhythm-player voicings; no virtuoso lead performance.",
+    "timing": "Consistent basic pulse and believable strum timing.",
+    "originality": "Small improvised variation within the agreed progression.",
+    "feel": "Relaxed rhythmic dynamics, close electric/small-room sound.",
+    "versatility": "Keep to this one requested rhythm role; no invented broader ability.",
+    "presence": "Restrained delivery appropriate to the audition room."
+  },
+  "extensions": {"authoring_only": true, "listening_acceptance": false}
+}

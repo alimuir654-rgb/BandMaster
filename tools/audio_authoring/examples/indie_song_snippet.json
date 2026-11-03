@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "indie-ensemble-snippet-proposal",
+  "use_case": "song_snippet",
+  "style": "indie",
+  "backend": "ace_step_1_5",
+  "study": "PROPOSED_INDIE_ENSEMBLE_STUDY",
+  "instruments": [
+    {"id": "electric_guitar", "role": "rhythm"},
+    {"id": "electric_guitar", "role": "answer figures"},
+    {"id": "bass_guitar", "role": "bass"},
+    {"id": "drums", "role": "kit"}
+  ],
+  "duration_seconds": 30,
+  "tail_seconds": 2,
+  "output_format": {"sample_rate": 48000, "channels": 2, "sample_width_bytes": 2},
+  "review_mode": "same_asset",
+  "requires_isolation": false,
+  "arrangement": "Instrumental indie ensemble verse-to-chorus excerpt. Preserve a coherent harmonic progression, modest human phrasing, supporting bass and a restrained kit. Final decay inside the complete thirty-second asset. This is a proposed authoring request, not an authorised render or adopted study budget.",
+  "extensions": {"future_use_case_example": true}
+}

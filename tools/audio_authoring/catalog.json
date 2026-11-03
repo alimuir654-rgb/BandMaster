@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "styles": {
+    "indie": {
+      "label": "Indie proof profile",
+      "guidance": [
+        "Use the selected band's style; a character need not have a personal genre.",
+        "Natural instrument phrasing and physically credible attacks, voicings and decay.",
+        "For rhythm guitar: improvised chord changes, varied up/down strokes, modest consistent phrasing.",
+        "Close electric / restrained small-room presentation; no implication that static art is playing."
+      ]
+    }
+  },
+  "backends": {
+    "ace_step_1_5": {
+      "label": "ACE-Step 1.5 research candidate — not installed or adopted",
+      "min_seconds": 10,
+      "max_seconds": 600,
+      "isolation": "unverified",
+      "instrument_control": "prompt_only_unverified",
+      "runtime_available": false,
+      "capability_clearance": "unverified",
+      "rights_clearance": "unverified",
+      "cost_clearance": "unverified",
+      "provenance": {
+        "code_commit": "ca1e85fe9430179831e6bc6be790c332190a3866",
+        "code_terms": "MIT",
+        "model_terms": "Provider model card labels MIT and states commercial output use",
+        "particular_output_rights": "Not established by code/model labels alone",
+        "research": "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md"
+      }
+    }
+  },
+  "studies": {
+    "AU01": {
+      "adopted": true,
+      "scope": "Existing Jack audition source/listening study; plan approved, v1 revision requested",
+      "max_files": 5,
+      "max_seconds": "36.5",
+      "max_bytes": 4194304,
+      "charged": {"files": 4, "seconds": "32.097392", "bytes": 2950158},
+      "charged_availability": "Historical charged inventory; original local source/renders lost, selected Drive review files survive. Not recovered local WAV receipts.",
+      "use_cases": ["audition", "instrument_clip"],
+      "instruments": ["electric_guitar"],
+      "review_format": {"max_sample_rate": 48000, "channels": 1, "sample_width_bytes": 2},
+      "voices_allowed": false,
+      "header_reserve_bytes_per_file": 4096
+    }
+  }
+}
