@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "Render source-matched two variants, verify decoded levels/fulltail/provenance/source invariants, bounded independentreview; preserve approval and closeout. Game integration separate freshsourcecontract.",
+  "status": "released",
+  "next_action": "Fresh bounded playback-source contract/native predesign for validated revealed audition material using prepared three-material mapping; record new-variant listening status explicitly, preserve original accepted cue and all v1history. No APK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3261,8 +3261,8 @@
       "successor_repair_verified": "47692162d7d68e0eca354760734f21d216e3a392"
     }
   ],
-  "last_completed_session": "S93",
-  "writer": "/root",
+  "last_completed_session": "S94",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3271,7 +3271,7 @@
     "finite_existing_thread": true
   },
   "previous_closed_at": "2026-10-31T19:58:39.208791+00:00",
-  "closed_at": "2026-11-03T18:55:18.307534+00:00",
+  "closed_at": "2026-11-03T19:10:17.771521+00:00",
   "previous_android_owner_package_before_v5": {
     "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
     "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
@@ -3642,7 +3642,7 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T18:55:18.307534+00:00",
+  "released_at": "2026-11-03T19:10:17.771521+00:00",
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
   "source_write_allowed": true,
   "pending_implementation": false,
@@ -5906,5 +5906,257 @@
     "old_v1_revision_unchanged": true,
     "Ali_reader_grant_new_cue": "directemail request, succeeded/readback owner+Ali only",
     "scope": "Accepts shown new sound; proceednextaudio steps, no paid/APK/wholeGame acceptance implied"
+  },
+  "s94_closeout": {
+    "tested_sha": "b9189d3da40c61a7055b0a8db27354a6f88ac882",
+    "renderer_code_sha": "0149c3d074d0a0f87e2b87dfd61d276706b06a37",
+    "shipping_game_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+    "evidence": {
+      "owner_acceptance": "/workspace/work/s94-audition-audio-20261103/owner-approval.json",
+      "source_matched_scores_and_renders": "/workspace/work/s94-audition-audio-20261103/render-summary.json",
+      "raw_exit_wrapper": "/workspace/work/s94-audition-audio-20261103/root-execution.log",
+      "source_and_WAV_validation": "/workspace/work/s94-audition-audio-20261103/validation.json",
+      "independent_review": "/workspace/work/s94-audition-audio-20261103/independent-review.json",
+      "material_manifest": "/workspace/work/s94-audition-audio-20261103/material-map.json",
+      "private_delivery": "/workspace/work/s94-audition-audio-20261103/private-delivery.json",
+      "Pages_preservation": "/workspace/work/s94-audition-audio-20261103/page-status-audit.json"
+    },
+    "visual_verdict": "hold",
+    "status": "SOURCE_MATCHED_AUDITION_AUDIO_MATERIAL_READY_FOR_LISTENING_AND_PLAYBACK_CONTRACT",
+    "technical_pass": true,
+    "first_cue_owner_listening_acceptance": true,
+    "new_variants_owner_listening_acceptance": false,
+    "original_v1_owner_revision_retained": true,
+    "Game_integration": false,
+    "actual_new_variants": [
+      {
+        "variant": "space_for_voice",
+        "review": "/workspace/work/s94-audition-audio-20261103/BandMaster-space-for-voice-study.wav",
+        "sha256": "c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45",
+        "container_bytes": 2304078,
+        "decoded": {
+          "input_i": "-23.00",
+          "input_tp": "-7.91",
+          "input_lra": "11.80",
+          "input_thresh": "-33.59",
+          "output_i": "-24.22",
+          "output_tp": "-10.14",
+          "output_lra": "8.20",
+          "output_thresh": "-34.52",
+          "normalization_type": "dynamic",
+          "target_offset": "1.22"
+        },
+        "raw_child_exits": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "score_sha256": "77ec72076b762069068311324c669c5538d84856112b5b805418485f45a70f1c",
+        "semantics": {
+          "bars": [
+            [],
+            [
+              "G"
+            ],
+            [],
+            [
+              "D"
+            ]
+          ],
+          "rests": "No attacks in bars1/3; short natural sampler/room release after bar2 is retained, not falsely called digitalzero."
+        }
+      },
+      {
+        "variant": "own_part",
+        "review": "/workspace/work/s94-audition-audio-20261103/BandMaster-own-part-study.wav",
+        "sha256": "16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265",
+        "container_bytes": 2304078,
+        "decoded": {
+          "input_i": "-23.10",
+          "input_tp": "-6.93",
+          "input_lra": "11.00",
+          "input_thresh": "-33.89",
+          "output_i": "-23.13",
+          "output_tp": "-6.38",
+          "output_lra": "10.30",
+          "output_thresh": "-33.74",
+          "normalization_type": "dynamic",
+          "target_offset": "0.13"
+        },
+        "raw_child_exits": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "score_sha256": "6ec7b9f8775528ca93263ff7d96bcaa841c873fe468a65377bedd1b18c1075a2",
+        "semantics": {
+          "bars": [
+            [
+              "D"
+            ],
+            [
+              "B",
+              "A",
+              "G"
+            ],
+            [
+              "A"
+            ],
+            [
+              "F#",
+              "E",
+              "D"
+            ]
+          ],
+          "actual_answer_MIDI": [
+            [
+              59,
+              57,
+              55
+            ],
+            [
+              66,
+              64,
+              62
+            ]
+          ],
+          "physical_strings": "BAG on Gstring frets4/2/0; F#E highE frets2/0, finalD Bstring fret3."
+        }
+      }
+    ],
+    "executions": {
+      "new_sampler_renders": 2,
+      "FFmpeg_measure_convert_decode": 6,
+      "raw_child_exits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Godot_APK": 0,
+      "new_source_acquisition_or_dependencies": 0,
+      "unchanged_tests_rerun": 0
+    },
+    "new_storage": {
+      "reviews": [
+        {
+          "path": "/workspace/work/s94-audition-audio-20261103/BandMaster-space-for-voice-study.wav",
+          "container_bytes": 2304078,
+          "sha256": "c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45",
+          "frames": 576000,
+          "sample_rate": 48000,
+          "channels": 2,
+          "sample_width_bytes": 2,
+          "duration_seconds": 12.0,
+          "duration_exact": "12",
+          "sample_peak_dbfs": -7.912667780450042,
+          "rms_dbfs": -28.441010837216915,
+          "silent": false,
+          "true_peak_measured": false,
+          "LUFS_measured": false,
+          "rights_assessed": false,
+          "listening_acceptance": false,
+          "source_stability_checked": true
+        },
+        {
+          "path": "/workspace/work/s94-audition-audio-20261103/BandMaster-own-part-study.wav",
+          "container_bytes": 2304078,
+          "sha256": "16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265",
+          "frames": 576000,
+          "sample_rate": 48000,
+          "channels": 2,
+          "sample_width_bytes": 2,
+          "duration_seconds": 12.0,
+          "duration_exact": "12",
+          "sample_peak_dbfs": -6.937281388466152,
+          "rms_dbfs": -27.385685579076945,
+          "silent": false,
+          "true_peak_measured": false,
+          "LUFS_measured": false,
+          "rights_assessed": false,
+          "listening_acceptance": false,
+          "source_stability_checked": true
+        }
+      ],
+      "shipping407_exact": true,
+      "original54Scripts_unchanged": true,
+      "new_raw_room_review_WAVs": 6,
+      "new_audio_bytes": 18432332,
+      "error_lines": {
+        "own_part-render.log": [],
+        "own_part-convert.log": [],
+        "space_for_voice-measure.log": [],
+        "space_for_voice-decoded.log": [],
+        "space_for_voice-render.log": [],
+        "root-execution.log": [],
+        "own_part-measure.log": [],
+        "own_part-decoded.log": [],
+        "space_for_voice-convert.log": []
+      },
+      "allocated_bytes": 18526208,
+      "workspace_free_bytes": 1598091264,
+      "original_accepted_cue_unchanged": true,
+      "Game_native_APK_executions": 0,
+      "listening_acceptance_new_variants": false
+    },
+    "privacy": {
+      "selected_two_WAVs_only": true,
+      "owners": [
+        "chair@lovewelluk.com"
+      ],
+      "readers": [
+        "alimuir654@gmail.com"
+      ],
+      "permissions_verified": true,
+      "folder_domain_public_broadening": false,
+      "source_raw_recipe_history_uploaded": false,
+      "remote_checksum_available": false
+    },
+    "new_issue_review": {
+      "through_event": "S94-20261103-831",
+      "finding": "Actual missing guessed paths logged before correction. Real entry/settings/source bars and viewkeys opened; no renderer/material/source or delivery errors."
+    },
+    "next_action": "Fresh bounded playback-source contract/native predesign for validated revealed audition material using prepared three-material mapping; record new-variant listening status explicitly, preserve original accepted cue and all v1history. No APK.",
+    "images_opened": [
+      "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+      "/workspace/work/s91-performance-context-20261103/runs/standard-phone-v1/c27-audition_jack_tryout-390x844.png"
+    ],
+    "five_simulated_lenses": [
+      {
+        "lens": "SIMULATED arranger",
+        "finding": "Rest/G/rest/D and D/BAG/A/F#ED map literal existing content, modest playable strings, no arbitrary new song or vocal."
+      },
+      {
+        "lens": "SIMULATED audio engineer",
+        "finding": "Two12second complete48kstereo16PCM reviews with raw/room retained; actualsampler/FFmpegexits0/endvoices0/decodedlevels/headers/hashes pass. Space rest is attack-free with natural room release, not claimed digitalzero."
+      },
+      {
+        "lens": "SIMULATED game designer",
+        "finding": "Source and state unchanged; material-map is authoring-only. No future-choice preview or fabricated character skill grade."
+      },
+      {
+        "lens": "SIMULATED accessibility/control reviewer",
+        "finding": "Concrete future PlayStop/Mastermute/interruption/teardown/silentfallback/zero-owner-effects contract, no new native/UI proof claimed."
+      },
+      {
+        "lens": "SIMULATED returning owner",
+        "finding": "Direct Thisisgood.Proceed accepts shown originalcue; exacttwo newprivate matching variants delivered with current user email access, no unrequested folder/publicsharing. New variants not called accepted."
+      }
+    ],
+    "material_gaps": [
+      "Gameplayback notimplemented; fresh source/native contract/predesign/proof required.",
+      "New two variants not listened/accepted by owner yet; mathematical/source review is not audioquality acceptance.",
+      "Only indie electricguitar proved; other instruments/fullband/styles remainfuture tooling trials.",
+      "No deviceaudibility, synchronisedplaying art or hidden skillcalibration claim.",
+      "Old missingTMP originals/oracles remain unavailable and closed."
+    ],
+    "closed_at": "2026-11-03T19:10:17.771521+00:00",
+    "source_artifact_helpers_GL_released": true
   }
 }
