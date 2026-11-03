@@ -76,11 +76,11 @@
     "docs/continuous_improvement/LESSONS.md": "43e16fc970f78b5c3ba01f3d82c7082ae0a82380839aab1ebbc7b05d808904b5"
   },
   "issue_log_review": {
-    "bytes": 1089255,
-    "sha256": "620cb2332987590b21f4976434be1215db10fb934d3e14376fcba2401dc8d3a2"
+    "bytes": 1093839,
+    "sha256": "37ae84ee139f375dec8d38210a03e733a03455b00407fb028fa41cab9b5a1453"
   },
   "source_contract": "docs/continuous_improvement/S83_AUDITION_ENCOUNTER.md",
-  "source_contract_sha256": "3630170500ed0ebd923ab241785fc14e0c54d006080491ab3bd9dd73c8a94314",
+  "source_contract_sha256": "572038b1064fce47c2c498079db721518671c41fbfae88f0461dd2335a2be186",
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S83.json",
     "Root exact405 source changed pure/model/earlynative2review/final73gameplay88openingimport4standard+4genuine auditions+input/failure/retry/reload/4viewactualpixels/EMPTYERRORs. No APK."
@@ -141,5 +141,19 @@
     "viewports": 2,
     "requests": 2,
     "genuine_complete_openings": 0
+  },
+  "save_boundary_amendment": {
+    "events": [
+      "S83-20261103-684",
+      "S83-20261103-685"
+    ],
+    "allowed_source_path": "experiments/playable_flightcase/opening_state.gd",
+    "hypothesis": "Busy reset refusal plus wrapper-present-only fullprecision serialization preserves whole transaction and exact accepted fractions, legacy absent-wrapper encoding unchanged.",
+    "required_checks": [
+      "actual reentrant begin_new savehook refusal at metadata andinvite",
+      "actual owner fractional save/reload and resumed validfingerprint",
+      "original absent-wrapper independent625legacyoracle",
+      "whole failedsave memory/file rollback"
+    ]
   }
 }
