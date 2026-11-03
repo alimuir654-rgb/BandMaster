@@ -117,6 +117,8 @@
     "reference": "/workspace/work/s99-feedback-20261103/review/independent-review.json",
     "actual_source_f236_original_opens": 22,
     "new_native_opens": 0,
-    "contract_sha256": "4329c983b56b92e660a749a303a03bc735dca1fb64467b80635bf42d0410c4dc"
-  }
+    "contract_sha256": "4329c983b56b92e660a749a303a03bc735dca1fb64467b80635bf42d0410c4dc",
+    "replay_followup": "Root adopted as direct usability/compare requirement; reviewer notified before UI implementation."
+  },
+  "completed_comparison_replay": "Explicit original-only replay on validated completed candidate notes, exact selected ID/heard receipt/version/context; no save/autoplay. Same existing UI path/player."
 }
