@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Rootfinal643 exact408import/73/88/import/4standard+4actual3sessionnativeflows/final4viewvisualreview. Model9128at443byteclosureaudit; noAPK.",
+  "next_action": "Root732 single-fresh-runtime exact73/88/import/fourstandard plus fourfull3sessionnative flows; actualbyte-identicalPNGattestations/changedoriginals, fullfailurefeedback/rollback/retry. Hard800MiB/floor600. NoAPK.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -351,8 +351,8 @@
     "hard_stop": "2026-11-01T20:00:00Z"
   },
   "source_freeze_target": "2026-11-04T20:15:00Z",
-  "pending_candidate_source_sha": "643428718c569ffc0535738c6954d0c3492402a7",
-  "latest_unverified_candidate": "643428718c569ffc0535738c6954d0c3492402a7",
+  "pending_candidate_source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "latest_unverified_candidate": "a8a8956396b8d7615e528feacfb914c65facfc4d",
   "source_phase": "final408_import_standard_and_focused_proof",
   "source_frozen_at": "2026-11-03T04:20:26.725188+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
@@ -811,7 +811,7 @@
   "contract_review_pending": false,
   "scope_end": "2026-11-03T06:15:00Z",
   "latest_external_read_status": "FreshlatestwakePlan22/Board130/commentsSUCCESS; previous700expiredreadretained.",
-  "delegated_source_writer_status": "paused_frozen_final_awaiting_root_proof",
+  "delegated_source_writer_status": "paused_frozen_730_repair_awaiting_root_732_proof",
   "s84_in_progress_evidence": {
     "model_source_sha": "443fee24f42dbc287c3188555ad774142a491700",
     "model_import": "/tmp/bandmaster-s84-20261103/candidate-workbench-443fee2-model-v1/import.json",
@@ -824,5 +824,14 @@
     "early_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
     "early_visual_status": "pending actual native phone/shortwide",
     "final_release_verified": false
+  },
+  "s84_current_proof_status": {
+    "verified_game": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
+    "pending_source": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+    "standard643": "7nativePASS but originalwrapperSTORAGEHOLD93.2266>88, immutable; supplementary96reviewpending",
+    "phone643": "430QAoracleargsint-vs-JSONfloat; wholeGame/result exacttyped, notproductfailure",
+    "source730": "Visiblepaidfailurefeedback+same-text editorpreservation corrected, notyetnativeverified",
+    "proof732": "Changedstorageproofmethod reviewed/committedc025ce59db9b672b5fd23fbb41df885954019815; scratchtoolingpendingbeforeengine",
+    "at": "2026-11-03T04:54:21.579615+00:00"
   }
 }

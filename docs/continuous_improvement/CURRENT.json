@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "claimed",
-  "next_action": "Rootfinal643 exact408import/73/88/import/4standard+4actual3sessionnativeflows/final4viewvisualreview. Model9128at443byteclosureaudit; noAPK.",
+  "next_action": "Root732 single-fresh-runtime exact73/88/import/fourstandard plus fourfull3sessionnative flows; actualbyte-identicalPNGattestations/changedoriginals, fullfailurefeedback/rollback/retry. Hard800MiB/floor600. NoAPK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3253,8 +3253,8 @@
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
-  "latest_unverified_candidate": "643428718c569ffc0535738c6954d0c3492402a7",
-  "pending_candidate_source_sha": "643428718c569ffc0535738c6954d0c3492402a7",
+  "latest_unverified_candidate": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "pending_candidate_source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
   "historical_held_candidates": [
     {
       "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
@@ -4163,7 +4163,7 @@
   "delegated_contract_reviewer": "/root/s81_contract_safety",
   "contract_review_pending": false,
   "latest_external_read_status": "FreshlatestwakePlan22/Board130/commentsSUCCESS; previous700expiredreadretained.",
-  "delegated_source_writer_status": "paused_frozen_final_awaiting_root_proof",
+  "delegated_source_writer_status": "paused_frozen_730_repair_awaiting_root_732_proof",
   "s84_in_progress_evidence": {
     "model_source_sha": "443fee24f42dbc287c3188555ad774142a491700",
     "model_import": "/tmp/bandmaster-s84-20261103/candidate-workbench-443fee2-model-v1/import.json",
@@ -4176,5 +4176,14 @@
     "early_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
     "early_visual_status": "pending actual native phone/shortwide",
     "final_release_verified": false
+  },
+  "s84_current_proof_status": {
+    "verified_game": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
+    "pending_source": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+    "standard643": "7nativePASS but originalwrapperSTORAGEHOLD93.2266>88, immutable; supplementary96reviewpending",
+    "phone643": "430QAoracleargsint-vs-JSONfloat; wholeGame/result exacttyped, notproductfailure",
+    "source730": "Visiblepaidfailurefeedback+same-text editorpreservation corrected, notyetnativeverified",
+    "proof732": "Changedstorageproofmethod reviewed/committedc025ce59db9b672b5fd23fbb41df885954019815; scratchtoolingpendingbeforeengine",
+    "at": "2026-11-03T04:54:21.575747+00:00"
   }
 }
