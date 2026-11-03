@@ -1,13 +1,13 @@
 {
-  "writer": null,
-  "base_head": "40e5266cf4e273bf39ff13dd804c4162d94dbe50",
-  "claimed_at": "2026-11-03T07:01:03.686347+00:00",
-  "expires_at": "2026-11-03T07:55:00Z",
-  "scope": "Owner-requested process/work-queue and bounded audio proposal ONLY; shippingGamea8unchanged/no APK.",
-  "authority": "Direct owner3Nov process/worklist update and limitedaudio plan FOR REVIEW, inside unchanged48hour authority; no audio acquisition or implementation yet.",
+  "writer": "/root",
+  "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
+  "claimed_at": "2026-11-03T08:30:08.014907+00:00",
+  "expires_at": "2026-11-03T11:15:00Z",
+  "scope": "UX01 phone soundcheck working space;2presentationleaves only",
+  "authority": "Owner48h quality/lived-band authority +3Nov operational controls/layout; S85 directs UX01next. Noaudio/APK.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
+  "status": "active",
   "released_at": "2026-11-03T07:29:42.645331+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -220,8 +220,8 @@
     "writer": "S54-song-recording-20261101T0425",
     "claimed_at": "2026-11-01T04:24:30.738786+00:00",
     "expires_at": "2026-11-01T06:20:00Z",
-    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
-    "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+    "authority": "Owner explicitly approved the 1 November00:15–09:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
     "released_at": "2026-11-01T05:39:04.406867+00:00"
   },
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "After actual S85 root release, fresh S86 (or actual next free) UX01 phone soundcheck/set-list space contract and current-baseline confirmation; UX02 only if inseparable. Preserve all original booking/economy/saves/hardware. Fresh bounded storage/preflight/gate and early phone/shortwide before exact final proof. AU01 audio remains pending owner; no acquisition/generation/privateaudio delivery/integration until its explicit gates. Continue other approved work without waiting for audio.",
+  "pending_helpers": true,
+  "next_action": "Currenta8 nativebaseline then delegated2leaf implementation/earlyphonewide/exactproof. Audio/APKheld.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S85",
+  "session": "S86",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -501,7 +501,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-  "current_session": "S85",
+  "current_session": "S86",
   "closed_at": "2026-11-03T00:51:20.374306+00:00",
   "last_updated_utc": "2026-11-03T07:29:42.645331+00:00",
   "last_validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json",
@@ -1051,17 +1051,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": false,
-        "markdown": "- [ ] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [ ] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -1105,5 +1105,6 @@
     "Page_plan": 24,
     "Page_board": 132,
     "audio": "AU01v1PENDING"
-  }
+  },
+  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830"
 }

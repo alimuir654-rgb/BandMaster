@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "id": "S86",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner48h quality/lived-band authority +3Nov operational controls/layout; S85 directs UX01next. Noaudio/APK.",
+  "baseline_sha": "b25343ea43061e55f16af0343fbb6ee67aefe302",
+  "game_baseline_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "Compact contained portrait context and task-first set list with accessible unchanged fullhardware improves choose/order/approach before soleexplicitplancommit; pairedlandscape preserved.",
+  "stop_condition": "HOLD inaccessiblecontext/fontshrink/unsafeinput/saveonce regression/budget174MiB/floor600MiB; two ineffectiveattempts changemethod. No APK/audio/newart.",
+  "target": {
+    "locator": "/tmp/bandmaster-s82-20261102/proof-booking-phone-625-v4-final/captures/11-initial-soundcheck-setlist-before-hardware-focus-390x844.png",
+    "original_sha256": "3ba28deeb95ce4f82c986903fde7ab73023dc5f3cad3ead266029185a729567a",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Same native booking/content/order/state/framebounds/viewport currenta8 vs candidate; independent early390/1280 then exactfourview/wholejourneys; only2presentationleaves.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
+    "docs/continuous_improvement/sessions/S86.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/gig_journey_scene.gd"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s86-20261103",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1218954,
+    "sha256": "46a53365c9026239b5d6fe4ae68fed02de81cbb738f9a7a24ebfcd756bf0a395"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
+    "Root sourcebound408baseline/candidate materialization/import/earlyphonewide then73/88/fourstandard/fourfocusedgigjourneys; runners seal beforeexecution."
+  ],
+  "source_write_allowed": true,
+  "source_paths": [
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/gig_journey_scene.gd"
+  ],
+  "art_write_allowed": false,
+  "audio_implementation_allowed": false,
+  "APK_work": "HELD",
+  "source_contract": "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
+  "source_contract_sha256": "9fa12292c2511c35d49b5c5d76cad7ecc1f55a8f1c871415d0a6ca28dd78a359",
+  "source_writer": "/root/s86_contract_safety",
+  "reviewer": "/root/s86_visual_review",
+  "qa": "/root/s86_native_qa",
+  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830",
+  "scope_end": "2026-11-03T11:15:00Z",
+  "started_at": "2026-11-03T08:30:08.014907+00:00",
+  "queue_task": "UX01",
+  "UX02": "not adopted",
+  "player_goal": "Choose/order finished originals, set approach/intensity and explicitly save plan",
+  "player_start": "booked room soundcheck",
+  "player_end": "savedplan/backstage then originalgigwrap once",
+  "commitment_point": "existing JourneyMainAction soundchecktransaction",
+  "interruptions": [
+    "sections/scroll",
+    "ownedhardwaregesture",
+    "resize",
+    "Menu/resume",
+    "reload",
+    "failedsave/retry"
+  ],
+  "predesign": "/tmp/bandmaster-s86-20261103/predesign.json",
+  "current_a8_baseline_confirmation": "PENDING before source",
+  "current_plan_sequence": 24,
+  "current_review_board_sequence": 132,
+  "storage_plan": {
+    "fresh_tmp_free": 816627712,
+    "minimum_free_floor": 629145600,
+    "aggregate_incremental_cap": 182452224,
+    "private_cache_count": 2,
+    "private_cache_cap": 71303168,
+    "PNG_cap": 20971520,
+    "source_copies_cap": 5242880,
+    "QA_receipts_logs_cap": 7340032,
+    "failure_closeout_reserve": 6291456,
+    "no_deletion": true,
+    "no_mutable_cache_sharing": true
+  },
+  "protected": [
+    "406othercurated/all54originalScripts3UID/Kit/hardware/art/fonts/owner/models/saves",
+    "all6S84immutableoraclealiases/oldruntimes",
+    "humancheckboxes/stableIDs/versions/archive/deletedA03absence",
+    "V9/APKhold/solequeue/thread/finiteend"
+  ],
+  "pending_implementation": true,
+  "pending_helpers": true
+}
