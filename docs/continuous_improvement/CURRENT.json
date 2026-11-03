@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "claimed",
-  "next_action": "Correct logged699 frozen407 core counterexamples, then exact candidate import/current models. Complete native editor and early phone/shortwide visual gate before capture/final proof. APK held.",
+  "next_action": "Root exact early408 phone/shortwide native editor/revision/dirty-exit visual gate BEFORE capture adaptation/final integration. Core443 model9056 PASS6executions plus849S83nativeIO; last full verified GAMEb608. No APK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3253,8 +3253,8 @@
     "closeout": "/workspace/work/day31/android/phone-v4-closeout.json"
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
-  "latest_unverified_candidate": "b9035c23582420c54e4e857950e2fed63a1f3665",
-  "pending_candidate_source_sha": "b9035c23582420c54e4e857950e2fed63a1f3665",
+  "latest_unverified_candidate": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
+  "pending_candidate_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
   "historical_held_candidates": [
     {
       "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
@@ -3398,7 +3398,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-03T03:24:55.400451+00:00",
+  "updated_at": "2026-11-03T03:36:50.128253+00:00",
   "page_delivery": {
     "status": "V6_APK_prose_saved_readback",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
@@ -3445,9 +3445,9 @@
     "protected_prior_paths": 381,
     "complete_validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json"
   },
-  "candidate_source_sha": "b9035c23582420c54e4e857950e2fed63a1f3665",
+  "candidate_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
   "candidate_native_verified": false,
-  "candidate_status": "static_hold_before_first_S84_import",
+  "candidate_status": "early408_UI_frozen_native_review_pending",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -3485,8 +3485,8 @@
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
   "current_session": "S84",
-  "next_single_action": "Root executes corrected407 import/models while sole writer completes notebook UI; no S84 verified result yet.",
-  "last_updated_utc": "2026-11-03T03:24:55.400451+00:00",
+  "next_single_action": "Actual early phone/shortwide notebook review, repair only evidenced defects before final proof.",
+  "last_updated_utc": "2026-11-03T03:36:50.128253+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -3659,7 +3659,7 @@
   "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "model407_static_corrections_699",
+  "source_phase": "early408_import_and_first_native_gate",
   "claimed_at": "2026-11-03T02:31:04.346813+00:00",
   "expires_at": "2026-11-03T06:15:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
@@ -4162,5 +4162,19 @@
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": "/root/s81_contract_safety",
   "contract_review_pending": false,
-  "latest_external_read_status": "Fresh Page reads700 expired/forbidden; last successful Plan22/Board130 retained; no Page edits attempted."
+  "latest_external_read_status": "Fresh Page reads700 expired/forbidden; last successful Plan22/Board130 retained; no Page edits attempted.",
+  "delegated_source_writer_status": "paused_awaiting_root_early_gate",
+  "s84_in_progress_evidence": {
+    "model_source_sha": "443fee24f42dbc287c3188555ad774142a491700",
+    "model_import": "/tmp/bandmaster-s84-20261103/candidate-workbench-443fee2-model-v1/import.json",
+    "workbench_current895": "/tmp/bandmaster-s84-20261103/qa/pure/candidate-workbench-443fee2-model-v2/execution.json",
+    "preservation_current8161_five_executions": "/tmp/bandmaster-s84-20261103/qa/preservation_v2/proof-workbench-443fee2-preservation-v2/complete-validation.json",
+    "separate_b608_reference181": "/tmp/bandmaster-s84-20261103/qa/pure/baseline-b608-original-song-v2/execution.json",
+    "phase443_S83_native_IO_regression849": "/tmp/bandmaster-s84-20261103/preserved-audition-s84-privatewriter-phone-443fee2-v1/execution.json",
+    "failed_runs_retained": true,
+    "model_orphans_measured": false,
+    "early_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
+    "early_visual_status": "pending actual native phone/shortwide",
+    "final_release_verified": false
+  }
 }

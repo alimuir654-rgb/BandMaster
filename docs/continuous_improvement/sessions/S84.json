@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1124921,
-    "sha256": "097c1f4f157e80d24d307fe3a21f72569b6237a8e8afe98365d3c9c3287c97b2"
+    "bytes": 1137419,
+    "sha256": "c3f278972b859afc3381563c5a3940ed781d7203af77a08daa39b4f5fc18a8ad"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -135,5 +135,18 @@
     ]
   },
   "implementation_adopted_at": "2026-11-03T03:05:49.720824+00:00",
-  "latest_external_read_status": "Fresh read700 forbidden/expired; last successful same-turn Plan22/Board130 retained."
+  "latest_external_read_status": "Fresh read700 forbidden/expired; last successful same-turn Plan22/Board130 retained.",
+  "in_progress_evidence": {
+    "model_source_sha": "443fee24f42dbc287c3188555ad774142a491700",
+    "model_import": "/tmp/bandmaster-s84-20261103/candidate-workbench-443fee2-model-v1/import.json",
+    "workbench_current895": "/tmp/bandmaster-s84-20261103/qa/pure/candidate-workbench-443fee2-model-v2/execution.json",
+    "preservation_current8161_five_executions": "/tmp/bandmaster-s84-20261103/qa/preservation_v2/proof-workbench-443fee2-preservation-v2/complete-validation.json",
+    "separate_b608_reference181": "/tmp/bandmaster-s84-20261103/qa/pure/baseline-b608-original-song-v2/execution.json",
+    "phase443_S83_native_IO_regression849": "/tmp/bandmaster-s84-20261103/preserved-audition-s84-privatewriter-phone-443fee2-v1/execution.json",
+    "failed_runs_retained": true,
+    "model_orphans_measured": false,
+    "early_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
+    "early_visual_status": "pending actual native phone/shortwide",
+    "final_release_verified": false
+  }
 }
