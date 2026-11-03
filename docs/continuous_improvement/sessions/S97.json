@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1339646,
-    "sha256": "d5fafb19681dac60b241b8354308a846cde77a0c69a0b042417c033934874363"
+    "bytes": 1343138,
+    "sha256": "1cd5d0e38c326ff61b8b3ba8a886038f9db9d78e7cf1445f4e47cdbaa6135362"
   },
   "baseline_sha": "0039145cb3d0983f974f649aa8d59497762689f0",
   "game_baseline_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
@@ -86,7 +86,13 @@
     "whole_scope_margin_above_floor": 10506240,
     "external_repo_and_primaryGit_growth_reserve_within_work_bytes": 2097152,
     "cache_contract": "ONE freshprivatecache afterfinal414source commit; no changed source/import correction assumption. If secondcache needed stop/prospectivefunding, no purge/sharemutablecache. Detection notOSquota.",
-    "PNG_contract": "All216standard steps genuinelyexecute and freshlyencodepostdraw. If currentencodedSHA+family+dims EXACTmatch verifiedactualretainedS96physicalPNG withsource/receiptSHA, write referenceevent only; otherwise preserveNEWphysicalPNG. Count separately. Focusedothercapturesbuffer-onlydiagnostic no pixelwitness claim, twoPNGs perrun.20MiBglobalcap BEFOREwrite; aggregate/floorbeforeeachengine. Preservealloldraw/audio/PNG/log/history."
+    "PNG_contract": "All216standard steps genuinelyexecute and freshlyencodepostdraw. If currentencodedSHA+family+dims EXACTmatch verifiedactualretainedS96physicalPNG withsource/receiptSHA, write referenceevent only; otherwise preserveNEWphysicalPNG. Count separately. Focusedothercapturesbuffer-onlydiagnostic no pixelwitness claim, twoPNGs perrun.20MiBglobalcap BEFOREwrite; aggregate/floorbeforeeachengine. Preservealloldraw/audio/PNG/log/history.",
+    "current_native_shader_pool": {
+      "path": "/workspace/work/s97-approved-variants-20261103/candidate-v1/private-import-cache/native-shader-pool",
+      "funding": "Within existing72MiBcachecap/196MiBaggregate, no capincrease. Currentimportcache70,537,216B leaves4,960,256B within72MiB for one~1MiB current-native compiler pool.",
+      "scope": "OnlynewS97case user shader_cache directories symlink to this newempty samecandidate privatepool. Alluserdatasaves/logs remain freshprivatepercase. Rootoneflock sequential exact5b08source. Existingearlycases/oldS95/S96caches untouched; no copying or sharing oldsource mutable importcaches.",
+      "why": "Avoid up to~8MiB duplicate compiledCanvasShader caches while proving8branch scenarios+4standard. Completeallocationfloors andPNGquota unchanged."
+    }
   },
   "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
   "independent_predesign": {
@@ -129,5 +135,6 @@
   "new_owner_variations_acceptance": {
     "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
-  }
+  },
+  "storage_amendment_at": "2026-11-03T21:09:59.642019+00:00"
 }
