@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1187801,
-    "sha256": "9f82195b4d31713b9db4158a9d207048c2cc9c753f9400f3e4c96ccee3cdf486"
+    "bytes": 1190896,
+    "sha256": "58709289cb42020409f7424347346e7d3f6805d7b3f9a6da6a740a3999c90758"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -290,5 +290,11 @@
     "new_source_or_cache": false,
     "native19_raw6": true,
     "unchanged_source": "a8a8956396b8d7615e528feacfb914c65facfc4d"
+  },
+  "proof_method746": {
+    "path": "/tmp/bandmaster-s84-20261103/review/storage746.json",
+    "sha256": "19db8b629fafe7a4f9c1f6fcaca55992abc27bdc249de757d3a0e598bedd12b0",
+    "no_new_source_cache_import": true,
+    "three_prefix_REUSED_four_missing_views": true
   }
 }
