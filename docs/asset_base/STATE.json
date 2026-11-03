@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "active",
+  "status": "released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "ONEownerrequestedV10APKfromverifiedS97; no shippingcodechanges",
-  "writer": "S98-owner-apk-v10-20261103T2205",
+  "scope": "ONEownerrequestedV10buildCOMPLETE; privateuploadapprovalHOLD; Game/art unchanged",
+  "writer": null,
   "last_verified_code_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Fresh bounded UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW from414row source-final.json; fund complete durable scope from actual capacity first. No presumed defect/economy rebuild, unchanged-suite/closedmilestone reruns or APK work.",
+  "next_single_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -560,7 +560,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-03T21:42:43.840827+00:00",
+  "last_updated_utc": "2026-11-03T22:14:32.529160+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -653,8 +653,8 @@
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
   "last_improvement_review": {
-    "event": "S97-20261103-858",
-    "closed_record_gate": "PASS858 terminalmetadataonly",
+    "event": "S98-20261103-860",
+    "closed_record_gate": "PASS860 afterfinalgate",
     "artistic_approval": false
   },
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S97",
-  "next_action": "Write bounded scratch directmanifest exporter/audit, copy414rows+expliciticon/platformoverride toTMP, import/export/sign ONE V10 then exactprivateAPK delivery.",
+  "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1927,7 +1927,7 @@
   "candidate_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "candidate_native_verified": true,
   "candidate_status": "verified",
-  "updated_at": "2026-11-03T21:42:43.840827+00:00",
+  "updated_at": "2026-11-03T22:14:32.529160+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2125,7 +2125,7 @@
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S97",
+  "last_completed_session": "S98",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2327,7 +2327,7 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "closed_at": "2026-11-03T21:42:43.840827+00:00",
+  "closed_at": "2026-11-03T22:14:32.529160+00:00",
   "historical_aliases_before_s65_final_audit": {
     "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
     "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
@@ -2426,13 +2426,13 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": null,
-  "last_writer": "S97-approved-audition-variants-20261103T2058",
+  "released_at": "2026-11-03T22:14:32.529160+00:00",
+  "last_writer": "S98-owner-apk-v10-20261103T2205",
   "source_write_allowed": false,
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S97 complete verified/released",
+  "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T23:30:00Z",
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
@@ -2513,8 +2513,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 35,
-  "current_review_board_sequence": 159,
+  "current_plan_sequence": 36,
+  "current_review_board_sequence": 160,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2569,7 +2569,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -2736,10 +2736,10 @@
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
   "last_artifact_slice": {
-    "session": "S82",
-    "kind": "ONEprivateARM64V9APK",
-    "source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
-    "receipt": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json"
+    "session": "S98",
+    "kind": "ONEARM64V10BUILT_AUDITED_LOCAL_DELIVERYHOLD",
+    "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "receipt": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json"
   },
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "s79_closeout": "/tmp/bandmaster-s79-20261102/closeout.json",
@@ -2802,14 +2802,27 @@
     "finite_end": "2026-11-04T21:24:35Z"
   },
   "current_delivery_policy": {
-    "status": "ONE_V10_APK_DIRECT_OWNER_AUTHORISED",
+    "status": "V10_BUILT_AUDITED_UPLOAD_APPROVAL_HOLD",
     "owner_instruction": "Great. Go ahead with an apk build.",
     "recorded_at": "2026-11-03T22:05:46.139987+00:00",
     "automatic_milestone_APK": false,
     "scope": "ThisoneV10only; futureAPKhelduntilfreshdirectrequest",
-    "existing_phone_build": "V9/code9/source625 remainscurrentuntilauditedV10delivery",
+    "existing_phone_build": "V9 source625 remainscurrentdeliveredAPK; V10built butnotuploaded/delivered.",
     "same_finite_queue": "6ae532c5fe9c819190f587a022c54052",
-    "finite_end": "2026-11-04T21:24:35+00:00"
+    "finite_end": "2026-11-04T21:24:35+00:00",
+    "build_authority_used": true,
+    "resume_APK_requires_fresh_owner_request": true,
+    "pending_private_upload_approval": {
+      "file": "BandMaster-Playtest-v10-arm64.apk",
+      "bytes": 99338695,
+      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+      "account": "chair@lovewelluk.com",
+      "folder_id": "0AAaVL64Kv2tDUk9PVA",
+      "folder_name": "My Drive",
+      "additional_sharing": false,
+      "question_pending": true,
+      "automatic_review_rejection_record": "/workspace/work/s98-owner-apk-v10-20261103/upload-rejection.json"
+    }
   },
   "last_source_writer_release": "2026-11-03T21:42:43.840827+00:00",
   "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
@@ -3056,13 +3069,14 @@
     "no_new_Game_art_audio_APK": true,
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
-  "latest_metadata_deliverable": "S97 approved variants source-bound closeout",
+  "latest_metadata_deliverable": "S98 V10 built/audited; privateupload approvalHOLD",
   "root_lease": {
     "id": "S98-owner-apk-v10-20261103T2205",
-    "writer": "/root",
-    "expires_at": "2026-11-03T23:30:00Z"
+    "writer": null,
+    "expires_at": "2026-11-03T23:30:00Z",
+    "released_at": "2026-11-03T22:14:32.529160+00:00"
   },
-  "source_implementation_status": "S97 COMPLETE/no pendingimplementation",
+  "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -3504,7 +3518,7 @@
     }
   },
   "historical_owner_scope_before_S86": "NEW17:18manualicon/visualgear/posererevision,18:00twoindependentworkers,18:07thirdresearchworker+feature/artownerapprovalboard,18:20liveperformer/setlist/vibe/promotion proposals. Source3ecprototypecomplete; newfeatures/artdirectionpendingowner. Source/historylocal; privatePageonlyselectedreviewimages/proposalprose. No newqueue/automaticextension.",
-  "final_closeout_note": "S97 both approved adjustments playable viaunchangedplayer/UI;8complete3498checks/73/88/import/4standard. OverallPARTIAL/ownerfalse/deviceaudio untested. Allsource/artifact/helper/GL released.",
+  "final_closeout_note": "S98 V10build9steps/strictsource-update-privacy PASS, no deviceclaim. Uploadautoreviewrejected; no remotedelivery. Rootwriterreleased; awaitspecificprivateDriveapproval, no rebuild.",
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -3555,7 +3569,7 @@
     "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
     "missing_evidence_still_HOLD": true
   },
-  "source_artifact_GL_released": false,
+  "source_artifact_GL_released": true,
   "s87_closeout": {
     "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "preflight_sha": "e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1",
@@ -4962,7 +4976,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "/root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -4998,5 +5012,37 @@
     "source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
     "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
     "released_at": "2026-11-03T21:42:43.840827+00:00"
+  },
+  "s98_build_ready": {
+    "receipt": "/workspace/work/s98-owner-apk-v10-20261103/build.json",
+    "audit": "/workspace/work/s98-owner-apk-v10-20261103/update-privacy-audit-v10.json",
+    "bytes": 99338695,
+    "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+    "delivery": "UPLOAD_AUTOREVIEW_HOLD_PENDING_EXPLICIT_DESTINATION_APPROVAL"
+  },
+  "s98_closeout": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json",
+  "latest_owner_APK_build": {
+    "status": "BUILT_AUDITED_LOCAL_DELIVERY_APPROVAL_HOLD",
+    "game_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "version_name": "0.97.0-playtest",
+    "version_code": 10,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+    "abis": [
+      "arm64-v8a"
+    ],
+    "requested_permissions": [],
+    "bytes": 99338695,
+    "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+    "apk_path": "/tmp/bandmaster-s98-apk-20261103/BandMaster-Playtest-v10-arm64.apk",
+    "build_receipt": "/workspace/work/s98-owner-apk-v10-20261103/build.json",
+    "audit": "/workspace/work/s98-owner-apk-v10-20261103/update-privacy-audit-v10.json",
+    "closeout": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json",
+    "upload_status": "AUTOMATIC_APPROVAL_REJECTED_PENDING_EXPLICIT_DESTINATION_APPROVAL",
+    "file_id": null,
+    "url": null,
+    "physical_phone_tested": false,
+    "physical_upgrade_save_retention_tested": false
   }
 }
