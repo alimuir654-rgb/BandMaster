@@ -66,8 +66,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1247491,
-    "sha256": "ae417556b8704bbb7edfb03982958acd96395fb139f39ba8ff2bbe416ef5b394"
+    "bytes": 1249221,
+    "sha256": "b9fae5444fdb75f4ac88e0771242ff25aa08abcc2ff3a8c17afb7c2644b6a86e"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -110,15 +110,17 @@
   "storage_plan": {
     "fresh_tmp_free": 816627712,
     "minimum_free_floor": 629145600,
-    "aggregate_incremental_cap": 182452224,
+    "aggregate_incremental_cap": 198180864,
     "private_cache_count": 2,
     "private_cache_cap": 73924608,
-    "PNG_cap": 12582912,
+    "PNG_cap": 20971520,
     "source_copies_cap": 6291456,
-    "QA_receipts_logs_cap": 12582912,
+    "QA_receipts_logs_cap": 14680064,
     "failure_closeout_reserve": 3145728,
     "no_deletion": true,
-    "no_mutable_cache_sharing": true
+    "no_mutable_cache_sharing": true,
+    "archive_file_counted_in_baseline_cache": "/workspace/work/s86-cache-preserved-20261103/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+    "minimum_workspace_free": 12582912
   },
   "protected": [
     "406othercurated/all54originalScripts3UID/Kit/hardware/art/fonts/owner/models/saves",
@@ -162,7 +164,7 @@
     "desktop": "2reduced"
   },
   "storage_relocation_782": {
-    "status": "ADOPTED_PREFLIGHT_NO_MUTATION_YET",
+    "status": "VERIFIED_PRESERVE_ALL_RELOCATION_COMPLETE_BASELINE_CLOSED",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
     "proposal_sha256": "a025185025986cc80215d9d8810429e2f0641f01ba3c91042f731163a924f4a5",
     "independent_review": "/tmp/bandmaster-s86-20261103/review/relocation-independent-review.json",
@@ -194,7 +196,11 @@
     "minimum_workspace_free": 12582912,
     "actual_reclaim_mandatory": true,
     "source_parent_fsync_required": true,
-    "rollback_immediate_phase_only": true
+    "rollback_immediate_phase_only": true,
+    "receipt": "/tmp/bandmaster-s86-20261103/storage-relocation.json",
+    "receipt_sha256": "c775eece350da26840a6c74ee247f3fb71cd153706025ced305e0e91c6aff3ee",
+    "actual_reclaim_bytes": 13283328,
+    "metadata_exception": "Original derived-cache entry now symlink/newinode-device-ctime atarchive; all original bytes/mode/mtime/owner retained. Bothparent directoriesfsynced. No raw/source/art/PNG/log/receipt/save/historydeleted."
   },
   "storage_plan_AFTER_verified_relocation": {
     "fresh_tmp_free": 816627712,
@@ -210,5 +216,32 @@
     "no_mutable_cache_sharing": true,
     "archive_file_counted_in_baseline_cache": "/workspace/work/s86-cache-preserved-20261103/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
     "minimum_workspace_free": 12582912
+  },
+  "storage_plan_before_782_relocation": {
+    "fresh_tmp_free": 816627712,
+    "minimum_free_floor": 629145600,
+    "aggregate_incremental_cap": 182452224,
+    "private_cache_count": 2,
+    "private_cache_cap": 73924608,
+    "PNG_cap": 12582912,
+    "source_copies_cap": 6291456,
+    "QA_receipts_logs_cap": 12582912,
+    "failure_closeout_reserve": 3145728,
+    "no_deletion": true,
+    "no_mutable_cache_sharing": true
+  },
+  "baseline_archive_physical_file": {
+    "path": "/workspace/work/s86-cache-preserved-20261103/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+    "sha256": "41be7db40f1e9396ac68d57331c373ac6aaee0916e74e49d81084cf69970660d",
+    "bytes": 13290643,
+    "allocated": 13291520,
+    "mode": 420,
+    "uid": 1000,
+    "gid": 1000,
+    "inode": 1360612,
+    "device": 27,
+    "nlink": 1,
+    "mtime_ns": 1793694985367584480,
+    "ctime_ns": 1793699534727734580
   }
 }
