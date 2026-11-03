@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "S85",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner3Nov: Fold in suggested process improvements; concrete artwork and controls/layout queues; bounded audio plan FOR REVIEW. Audio acquisition/generation/integration not approved by this planning request. Existing finite48h and APK hold unchanged.",
+  "baseline_sha": "40e5266cf4e273bf39ff13dd804c4162d94dbe50",
+  "game_baseline_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-09",
+    "BM-10",
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-25",
+    "BM-33",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "One existing canonical execution queue with named roles, evidence-linked tasks and bounded work-in-progress makes review findings drive the next source changes; one separately capped audio pilot proposal gives a concrete owner decision without soundtrack scope creep.",
+  "stop_condition": "No new source/art/audio/engine/APK/download/package/schedule/controller work. Preserve all decisions/history. If actual queue/evidence/source cannot support a claim, mark audit/proposal/blocked, not implemented or artistically approved.",
+  "target": {
+    "locator": "/tmp/bandmaster-s84-20261103/focused-v4/a8a-phone-three-session-v7/captures/01-same-song-leaf-seeded-390x844.png",
+    "original_sha256": "c5b61e3f4dd2e48f7faea440777571a3473e538c050e2f5aaeab60c15d647e7c",
+    "pixels_inspected": true,
+    "kind": "Actual current native phone original re-opened for this planning task; no new native capture/layout implementation claimed."
+  },
+  "controlled_comparison": "Reconcile current distributed S80 queue/asset shortlist/S73/S81 art inventory and S80-84 exact visual evidence against one updated operational queue. Record actual audio file/API inventory and a hard maximum pilot budget. Preserve exact Game shipping407Git+146Bentry inputs, ownercheckboxes/oldimages/AgentInstructions/collapsed archive; no native reruns for planning.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+    "docs/continuous_improvement/LESSONS.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/sessions/S85.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s85-process-20261103",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "9119b085c0df86ce5c49a097ced62d1223722434c049e9ecf13b56d200ef2721",
+    "docs/continuous_improvement/LESSONS.md": "4b9074bb09568d50a0b461301a04f693a3af941f519df78faa0a97e9a65c637d"
+  },
+  "issue_log_review": {
+    "bytes": 1210109,
+    "sha256": "177efc2baa3f6a4f9ba31af32d0c7447adedc85b4b735152757c68009096f60c"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S85.json",
+    "Static source/rights/provenance inventory; independent plan/queue review; exact 407 curated Git input comparison to verifieda8; Page readback/hash/checkbox/image/archive preservation; no Godot/APK/audio execution."
+  ],
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "new_art_generation_allowed": false,
+  "audio_implementation_allowed": false,
+  "audio_asset_acquisition_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "started_at": "2026-11-03T07:01:03.686347+00:00",
+  "scope_end": "2026-11-03T07:55:00Z",
+  "root_lease": "S85-quality-queues-audio-plan-20261103T0700",
+  "current_plan_sequence": 23,
+  "current_review_board_sequence": 131,
+  "storage_plan": {
+    "planning_only_cap_bytes": 8388608,
+    "minimum_tmp_free_floor": 629145600,
+    "no_new_cache_engine_audio_files": true,
+    "no_cleanup": true
+  },
+  "protected": [
+    "All game/source/raw art/fonts/hardware/save files",
+    "54 originalScripts3UID/18C25/6inertmeters/schema1unknowns/legacy once guards",
+    "All owner decisions/stableIDs/art versions/history and47 prior board images",
+    "V9/APK hold/sole queue/thread/finiteNov4 end"
+  ]
+}

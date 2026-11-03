@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S84",
-  "scope": "S84 one saved lyric workbench: adopted eight-path source implementation, early visual gate and exact proof; no APK.",
+  "session": "S85",
+  "scope": "Owner-requested process/work-queue and bounded audio proposal ONLY; shippingGamea8unchanged/no APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "released",
-  "next_action": "AfteractualS84rootrelease, freshS85(oractualnextfree)ONEZoe/Bassistwrittenaudition. ReadS85proposal+safetyreviewasproposals; adoptcomplete7pathcontract/predesign/storage/rollback/profilecompatibility/legacycaptureroute BEFOREcode. PreserveJackandoriginaltalent; noS84reruns/APK/newartforactivity.",
+  "status": "claimed",
+  "next_action": "Make artwork and controls/layout queues operational; present limited audio pilot for owner review. S85 scratch audition proposal remains historical proposal; next actual audition uses fresh S86 or nextfree preflight.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3290,7 +3290,7 @@
     }
   ],
   "last_completed_session": "S83",
-  "writer": null,
+  "writer": "S85-quality-queues-audio-plan-20261103T0700",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3501,7 +3501,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
-  "current_session": "S84",
+  "current_session": "S85",
   "next_single_action": "Execute finalexactsource proof; repaironlydemonstrateddefects, lastfullverifiedGAMEb608 remains.",
   "last_updated_utc": "2026-11-03T06:49:14.519386+00:00",
   "prepared_android_v7": {
@@ -3670,15 +3670,15 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T06:49:14.519386+00:00",
+  "released_at": null,
   "last_writer": "S84-song-fragment-contract-20261103T0231",
   "source_write_allowed": true,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "final408_import_standard_and_focused_proof",
-  "claimed_at": "2026-11-03T02:31:04.346813+00:00",
-  "expires_at": "2026-11-03T06:45:00Z",
+  "claimed_at": "2026-11-03T07:01:03.686347+00:00",
+  "expires_at": "2026-11-03T07:55:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -4127,7 +4127,7 @@
     "no_new_build": true,
     "no_queue_change": true
   },
-  "session_path": "docs/continuous_improvement/sessions/S84.json",
+  "session_path": "docs/continuous_improvement/sessions/S85.json",
   "finite_end": "2026-11-04T21:24:35+00:00",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "art_pending_A06": false,
@@ -4166,7 +4166,7 @@
   "last_verified_local_native_source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
   "source_writer_released_at": "2026-11-03T06:49:14.519386+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "scope_end": "2026-11-03T07:00:00Z",
+  "scope_end": "2026-11-03T07:55:00Z",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
@@ -4375,5 +4375,11 @@
     "all_APK_work_HELD": true,
     "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
     "at": "2026-11-03T06:49:14.519386+00:00"
+  },
+  "latest_direct_owner_steering": {
+    "at": "2026-11-03T07:01:03.686347+00:00",
+    "request": "Owner3Nov: Fold in suggested process improvements; concrete artwork and controls/layout queues; bounded audio plan FOR REVIEW. Audio acquisition/generation/integration not approved by this planning request. Existing finite48h and APK hold unchanged.",
+    "audio_status": "PLAN_FOR_REVIEW_ONLY",
+    "APK_hold_unchanged": true
   }
 }
