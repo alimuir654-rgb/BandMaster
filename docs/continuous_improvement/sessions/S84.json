@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1158186,
-    "sha256": "4dda86984099108058b2dbbda45721876c11f7bcdd3332a065d9bc14b4534439"
+    "bytes": 1167697,
+    "sha256": "772800f45137b44b0e171f84940199b84a1be636f6a4a6652ed693369b6eabc3"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -265,5 +265,18 @@
     "independent_review": "/tmp/bandmaster-s84-20261103/review/early-b94/visual-review.json",
     "owner_approved": false,
     "physical_OSIME_pending": true
+  },
+  "source_correction730": {
+    "observed_source": "643428718c569ffc0535738c6954d0c3492402a7",
+    "issue": "S84-20261103-730",
+    "allowed_paths": [
+      "experiments/playable_flightcase/ui.gd",
+      "experiments/playable_flightcase/song_workbench_desk.gd"
+    ],
+    "hypothesis": "Pass managed writing failure into existing Desk notice after refresh; preserve identical editor text rather than resetting native text state. No owner/model/economy/content change.",
+    "required_proof": "Actual native failed paid save visibly reports unsaved/retry; exact whole-owner rollback and same editor words/caret/selection; current source four3session flows plus exact73/88/import/fourstandard.",
+    "new_import_allocation_allowed": false,
+    "storage_hold": "Fresh source will require reviewed one-runtime/capture-attestation method within existing800MiB/floor600 before any allocation. Existing643failedproof retained.",
+    "at": "2026-11-03T04:46:25.578399+00:00"
   }
 }
