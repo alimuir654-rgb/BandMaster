@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "indie-multisample-guitar-review",
+  "use_case": "audition",
+  "style": "indie",
+  "backend": "local_sfz",
+  "study": "OWNER_REVIEW_20261103",
+  "instruments": [
+    {
+      "id": "electric_guitar",
+      "role": "rhythm"
+    }
+  ],
+  "duration_seconds": 12,
+  "tail_seconds": 2.4,
+  "source_duration_seconds": 12,
+  "source_format": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "sample_width_bytes": 3
+  },
+  "output_format": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "sample_width_bytes": 2
+  },
+  "review_mode": "derived",
+  "requires_isolation": true,
+  "arrangement": "Original4bar D/G/A/D100BPM natural rhythm-guitar cue, physically playable frettings and ordered down/upstrokes.12seconds INCLUDING2.4secondrelease tail. Sample-based SFZ virtualinstrument, notliveJack/AI/acceptedperformance.",
+  "musicianship": {
+    "technique": "Modest, physically credible rhythm-player voicings; no virtuoso lead performance.",
+    "timing": "Consistent basic pulse and believable strum timing.",
+    "originality": "Small improvised variation within the agreed progression.",
+    "feel": "Relaxed rhythmic dynamics, close electric/small-room sound.",
+    "versatility": "Keep to this one requested rhythm role; no invented broader ability.",
+    "presence": "Restrained delivery appropriate to the audition room."
+  },
+  "extensions": {
+    "authoring_only": true,
+    "listening_acceptance": false,
+    "score_schema": "tools.audio_authoring.sample_renderer version1",
+    "style_proof": "indieonly",
+    "samples": "FreshCC0 BlackAndGreen pinnedb3b3249 multisample subset; all source/raw/derived retained locally."
+  }
+}

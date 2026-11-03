@@ -12,9 +12,66 @@ from unittest.mock import patch
 
 from tools.audio_authoring import core
 from tools.audio_authoring.__main__ import main
+from tools.audio_authoring.sample_renderer import validate_score, events_for_track, verify_sources
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLES = ROOT / "tools/audio_authoring/examples"
+
+
+class SampleScoreTests(unittest.TestCase):
+    def score(self):
+        return {'schema_version':1,'id':'test-score','style':'indie','sample_rate':48000,
+                'duration_seconds':12,'tail_seconds':2.4,'rights_receipt':'reviewed.json',
+                'authoring_authority':'Explicit local study',
+                'tracks':[{'id':'guitar','instrument':'electric_guitar','role':'rhythm',
+                           'sfz':'subset.sfz','sfz_sha256':'a'*64,
+                           'source_manifest':'sources.json','source_manifest_sha256':'b'*64,
+                           'voices':2,'gain':.1,'notes':[
+                               {'at':0,'off':.5,'pitch':50,'velocity':70,'voice':0},
+                               {'at':.5,'off':1,'pitch':57,'velocity':60,'voice':0},
+                               {'at':0,'off':1,'pitch':62,'velocity':80,'voice':1}]}]}
+
+    def test_same_string_overlap_refused_but_independent_strings_can_ring(self):
+        score=self.score(); validate_score(score)
+        score['tracks'][0]['notes'][1]['at']=.4
+        with self.assertRaisesRegex(core.AuthoringError,'Overlapping'): validate_score(score)
+
+    def test_off_precedes_retrigger_at_exact_sample_and_keeps_stroke_offsets(self):
+        events=events_for_track(validate_score(self.score())['tracks'][0],48000)
+        same=[e for e in events if e[0]==24000]
+        self.assertEqual([e[1] for e in same],[0,1])
+        self.assertEqual([e[3] for e in same],[50,57])
+
+    def test_tail_and_invalid_midi_or_nonfinite_score_are_rejected(self):
+        mutations=[('off',11),('at',float('nan')),('pitch',128),('voice',2),('velocity',True)]
+        for key,value in mutations:
+            score=self.score();score['tracks'][0]['notes'][0][key]=value
+            with self.subTest(key=key),self.assertRaises(core.AuthoringError):validate_score(score)
+        score=self.score();score['tracks'][0]['gain']=float('inf')
+        with self.assertRaises(core.AuthoringError):validate_score(score)
+
+    def test_instrument_and_style_interface_is_data_not_guitar_hardcoding(self):
+        score=self.score();score['style']='future_jazz';score['tracks'][0]['instrument']='bass'
+        score['tracks'][0]['role']='bassline';self.assertEqual(validate_score(score)['style'],'future_jazz')
+        # Representable is not evidence that this instrument or style has been heard.
+
+    def test_source_hash_and_undeclared_sfz_sample_are_refused(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td);(root/'instrument').mkdir();sample=root/'instrument/note.wav';sample.write_bytes(pcm())
+            sfz=root/'instrument/subset.sfz';sfz.write_text('<region>\nsample=note.wav\nkey=60\n')
+            manifest=root/'sources.json';manifest.write_text(json.dumps({'complete':True,'license':'CC0-1.0','rows':[
+                {'path':'note.wav','bytes':sample.stat().st_size,'sha256':hashlib.sha256(sample.read_bytes()).hexdigest()}]}))
+            track=self.score()['tracks'][0]
+            track.update(sfz=str(sfz),source_manifest=str(manifest),
+                         sfz_sha256=hashlib.sha256(sfz.read_bytes()).hexdigest(),
+                         source_manifest_sha256=hashlib.sha256(manifest.read_bytes()).hexdigest())
+            self.assertEqual(verify_sources(track)['files'],1)
+            sample.write_bytes(pcm((0,1,2)))
+            with self.assertRaisesRegex(core.AuthoringError,'sample changed'):verify_sources(track)
+            sample.write_bytes(pcm());sfz.write_text('<region>\nsample=missing.wav\n')
+            track['sfz_sha256']=hashlib.sha256(sfz.read_bytes()).hexdigest()
+            with self.assertRaises((core.AuthoringError,FileNotFoundError)):verify_sources(track)
 
 
 def pcm(samples=(0, -32768, 16384), *, width=2, rate=8000):

@@ -1,8 +1,8 @@
-# Offline audio authoring foundation
+# Offline audio authoring
 
 A nonshipping, Python standard-library tool for planning and checking audio studies. It supports **instrument clips, auditions and full ensemble song snippets** through the same request contract. Indie is the initial style profile; style guidance and backend/study descriptors live in JSON rather than guitar-specific code.
 
-This first version **does not generate, edit, play, upload or integrate audio**. There is no render command, executable backend, network client, model download or new dependency. It is useful now for validating briefs, finding capability/rights/cost/budget blockers and inspecting real PCM WAVs. A backend integration is a separate next step.
+S92 introduced standard-library planning and inspection. S93 adds an **explicit local SFZ renderer** using recorded instrument multisamples and an isolated optional audio environment. Planning still cannot launch a backend. The tool does not acquire samples/models, call a service, play/upload files or integrate with Godot. Current musical proof is electric guitar in indie; other instruments and styles remain unproved.
 
 From the repository root:
 
@@ -15,7 +15,7 @@ python3 -m tools.audio_authoring audit /absolute/path/to/bundle.json
 python3 -m unittest discover -s tests -p test_audio_authoring.py
 ```
 
-A valid `plan` exits zero even when it reports `status: hold`; it is an offline report. Always read `holds` and `generation_allowed` (always false in this version). Invalid/unsupported input exits two with a JSON error. No field or clearance label can enable execution.
+A valid `plan` exits zero even when it reports `status: hold`; it remains an offline report. `generation_allowed` stays false: changing catalog clearance fields never executes a renderer. The separate explicit `render-local` command requires an adopted source/study contract and exact reviewed local assets.
 
 ## Requests and styles
 
@@ -33,7 +33,7 @@ A later renderer can consume validated requests and produce a manifest of actual
 
 ## Budgets and provenance
 
-Tool schema flexibility does not broaden an adopted asset study. The AU01 profile retains **four charged files / 32.097392 seconds / 2,950,158 bytes**, against **five files / 36.5 seconds / 4 MiB**. Historical local originals remain unavailable; the charged inventory is not a claim that they have been recovered. The old listening examples remain review history.
+The historical AU01 profile retains **four charged files / 32.097392 seconds / 2,950,158 bytes**, against its former **five files / 36.5 seconds / 4 MiB**. The owner directly waived these limits for the new listening experiment and approved new dependencies. `OWNER_REVIEW_20261103` records the separate adopted scope and durable storage allocation. Historical local originals remain unavailable; new sample acquisition is not recovery of contemporaneous originals. Earlier examples remain review history.
 
 The audition example plans a ten-second source and a separate four-second review. It correctly reports six total charged files and 46.097392 seconds, as well as format/capability/clearance blockers. The full-song example is representable but reports an unadopted study contract. A larger study needs a prospective scope/budget decision; this tool does not make it.
 
@@ -62,4 +62,20 @@ Inspection streams uncompressed **integer PCM WAV** (8/16/24/32-bit) in chunks a
 
 RMS is not LUFS. Sample peak is not decoded true peak. Inspection is not a listening/device/rights check and never normalises, trims, resamples or silently downmixes a file. Tests use tiny in-memory structural PCM fixtures, not generated musical/listening assets.
 
-Next integration work: choose a practical cleared renderer, verify its actual raw format and instrument/style behaviour, adopt a complete study budget, then produce one bounded musical prototype for owner listening. Playback in the game remains a separate integration contract with Play/Stop/mute/interruption/silent fallback and zero gameplay/save/Finance/day effects.
+Playback in the game remains a separate integration contract after owner listening acceptance, with Play/Stop/mute/interruption/silent fallback and zero gameplay/save/Finance/day effects.
+
+## Explicit sample rendering
+
+Install `requirements-review.txt` in a dedicated CPython3.12/Linux x86_64 environment with existing NumPy, using `pip --require-hashes --no-deps --only-binary=:all:`. Wheel hashes are platform-specific. Pedalboard is GPL3; pysfizz is BSD2 and wraps sfizz. These are local authoring tools, not Game dependencies. Their licenses do not license instrument samples.
+
+```sh
+/path/to/isolated/venv/bin/python -m tools.audio_authoring render-local /absolute/path/to/score.json --output-dir /absolute/path/to/new-take
+```
+
+A version1 score declares ID/style, 44100/48000Hz, whole duration and reserved tail, explicit authoring authority and rights-receipt path, plus tracks. Each track declares instrument/role IDs, local self-contained SFZ path/hash, acquisition-manifest path/hash, independent voice count, gain and notes (`at`, `off`, MIDI `pitch`, `velocity`, `voice`). Independent voices can represent individual guitar strings. Incompatible overlapping notes on one voice are refused. Events retain sample offsets, note-off precedes a same-sample retrigger, and samplers stay alive across the score to retain alternate-take sequencing.
+
+The current adapter checks a complete CC0 source inventory before and after rendering, hashes every sample and refuses includes/macros/undeclared SFZ samples. Other license classes or complex banks need a reviewed adapter change. It retains `raw.wav`, restrained `room.wav` and `render.json`, refusing existing take directories, clipped/nonfinite output, active voices at the end or an insufficiently decayed final200ms. It never trims away a source or tail. Measure decoded loudness/true peak separately before delivery; these checks cannot determine musical realism.
+
+S93 uses a fresh Black And Green Guitars CC0 subset pinned to `b3b3249d37dc977a1a297bd2dc053e6d9b6b805c`:13 recorded MIDI pitches, three velocity layers,130 distinct WAVs /156 SFZ regions. The quiet layer repeats two distinct alternate takes over four sequence slots; medium/loud layers have four distinct takes. Numeric MIDI mapping governs pitch rather than filename octave labels. This replaces the rejected single-note repitch method. D/G/A/D phrasing uses playable fingerings and ordered up/down strokes. It is a sample-based virtual guitar, not a live musician or an accepted Jack performance.
+
+New instruments can use other local SFZ tracks and explicit voice layouts; ensembles can contain multiple tracks in one aligned score. Style descriptors stay data. This interface permits those later experiments without claiming their audio quality has already been proved. A new character/performance variant needs an audible source-grounded listening comparison, separate from composition quality. Do not infer hidden skills, best choices or Game effects from authoring data.

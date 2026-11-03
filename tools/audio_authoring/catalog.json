@@ -13,7 +13,7 @@
   },
   "backends": {
     "ace_step_1_5": {
-      "label": "ACE-Step 1.5 research candidate — not installed or adopted",
+      "label": "ACE-Step 1.5 research candidate \u2014 not installed or adopted",
       "min_seconds": 10,
       "max_seconds": 600,
       "isolation": "unverified",
@@ -29,22 +29,73 @@
         "particular_output_rights": "Not established by code/model labels alone",
         "research": "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md"
       }
+    },
+    "local_sfz": {
+      "label": "Explicit local SFZ sample-based renderer; current proof indie electricguitar only",
+      "min_seconds": 0,
+      "max_seconds": 120,
+      "runtime_available": true,
+      "isolation": "verified",
+      "capability_clearance": "cleared",
+      "rights_clearance": "per_exact_instrument_receipt",
+      "cost_clearance": "cleared",
+      "provenance": {
+        "method": "pysfizz0.1.3+Pedalboard0.9.26 isolatedoffline",
+        "note": "Generic track interface is not proof of other sampled instruments/styles or automatic execution"
+      }
     }
   },
   "studies": {
     "AU01": {
       "adopted": true,
-      "scope": "Existing Jack audition source/listening study; plan approved, v1 revision requested",
+      "scope": "Existing Jack audition source/listening study; plan approved, v1 revision requested; historical caps retained, directownerwaiver applies to new OWNER_REVIEW_20261103 study",
       "max_files": 5,
       "max_seconds": "36.5",
       "max_bytes": 4194304,
-      "charged": {"files": 4, "seconds": "32.097392", "bytes": 2950158},
+      "charged": {
+        "files": 4,
+        "seconds": "32.097392",
+        "bytes": 2950158
+      },
       "charged_availability": "Historical charged inventory; original local source/renders lost, selected Drive review files survive. Not recovered local WAV receipts.",
-      "use_cases": ["audition", "instrument_clip"],
-      "instruments": ["electric_guitar"],
-      "review_format": {"max_sample_rate": 48000, "channels": 1, "sample_width_bytes": 2},
+      "use_cases": [
+        "audition",
+        "instrument_clip"
+      ],
+      "instruments": [
+        "electric_guitar"
+      ],
+      "review_format": {
+        "max_sample_rate": 48000,
+        "channels": 1,
+        "sample_width_bytes": 2
+      },
       "voices_allowed": false,
       "header_reserve_bytes_per_file": 4096
+    },
+    "OWNER_REVIEW_20261103": {
+      "adopted": true,
+      "scope": "S93 directowner newdepsapproved/oldclipcapswaived for selected listeningreview; bounded128MiB durable audioallocation, noGameintegration",
+      "max_files": 1000,
+      "max_seconds": 86400,
+      "max_bytes": 134217728,
+      "charged": {},
+      "use_cases": [
+        "instrument_clip",
+        "audition",
+        "song_snippet"
+      ],
+      "instruments": [
+        "electric_guitar"
+      ],
+      "review_format": {
+        "max_sample_rate": 48000,
+        "channels": 2,
+        "sample_width_bytes": 2
+      },
+      "voices_allowed": false,
+      "header_reserve_bytes_per_file": 4096,
+      "note": "Large file/time ceilings are authoring guardrails under owner clipcap waiver, not productionassetlimits; actual complete sample/raw/derived inventory still required."
     }
   }
 }
