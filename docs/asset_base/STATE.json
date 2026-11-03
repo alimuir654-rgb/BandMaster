@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "released",
+  "status": "active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "S93 actual generated guitar review; newdepsapproved/oldcapswaived, noGameaudiointegration",
-  "writer": null,
+  "scope": "S94 two matching audition material renders; noGame/native/APK",
+  "writer": "/root",
   "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "baseline": {
     "run_id": 40778019754,
@@ -732,7 +732,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S93",
+  "current_session": "S94",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "Owner listening review of the actual new sample-based indie cue before any Game audio integration; preserve originalv1REVISION history. Existing approved UX03 whole-task review remains independently actionable under fresh scope.",
+  "next_action": "Render source-matched two variants, verify decoded levels/fulltail/provenance/source invariants, bounded independentreview; preserve approval and closeout. Game integration separate freshsourcecontract.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2159,7 +2159,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S93",
+  "session": "S94",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
@@ -4516,5 +4516,15 @@
     "evidence": "Directowner requests before researchattachment; these override stale no-newdeps/cap statements only.",
     "shipping_game_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
     "new_audio_integration": false
+  },
+  "latest_audio_owner_acceptance": {
+    "direct_owner_text": "This is good. Proceed",
+    "accepted_payload": "S93 sampled12secondguitarstudy",
+    "file_id": "1nDKBiZD6Ke9nO-hF9bx-21bkYS60VmvR",
+    "sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
+    "listening_acceptance": true,
+    "old_v1_revision_unchanged": true,
+    "Ali_reader_grant_new_cue": "directemail request, succeeded/readback owner+Ali only",
+    "scope": "Accepts shown new sound; proceednextaudio steps, no paid/APK/wholeGame acceptance implied"
   }
 }

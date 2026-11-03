@@ -1,0 +1,5 @@
+# S94 source-matched audition material
+
+Direct owner accepts actual S93 sampled guitar sound and says Proceed. Preserve exact accepted first cue and original v1 REVISION history. Produce TWO actual variants matching existing audition_content.gd: space leaves bars1/3 empty and uses G/D in2/4; own lightD/A support plus literal B-A-G/F#-E-D gap answers. No vocal audio, hidden grade or playing-art claim. Existing sampler13recordedpitches cover these notes; no new acquisition/dependency. Same100BPM/fourbars/12seconds including2.4tail, measured levels, raw preserved.
+
+Root renderer only. New32MiB durable allocation plus unchanged read-only S93source/deps,600MiB workspacefloor. Commit/gate before any assets. Actual exact note/rest scheduling and decodedFFmpeg checks, source/originalcuehash protection, bounded independent method/output review. No Gamecode/native/APK execution in this prerequisite scope. Owner acceptance is specific S93 sound, not broader art/Jack/game claims. Integration follows fresh sourcecontract after material readiness. Existing solequeue/thread/finiteNov4end unchanged.

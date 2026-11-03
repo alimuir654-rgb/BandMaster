@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "S94",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Directowner Thisisgood.Proceed accepts new sampled guitar cue b0c6c196 /file1nDKBiZ and authorises next audio steps. Newdepsapproved/oldcapswaived. Preserve v1REVISION history.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1319459,
+    "sha256": "9554fcb7021e6fe13ebf48f0a41a90c4f835351d22938a95491fdce10eeb6a08"
+  },
+  "baseline_sha": "5ffe04dd064a6766d4fc9cbf276b3edc3baaa4cd",
+  "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+  "target": {
+    "locator": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+    "original_sha256": "25794133433acf658b8120b8a6da455837497763f6f428fb2b9e428df6a1ae62",
+    "pixels_inspected": true,
+    "kind": "Actually reopened currentGame room/contact-art native reference for futureaudio alignment; NONVISUAL tooling isnotjudged bypixels, no audioquality/playingclaim. Functionalcontract S92document/S89brief separately."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Source-matched rest-G-rest-D and D/BAG/A/F#ED cues using approved real multisample tone can make audition playback faithful to existing revealed written parts. Produce actual two variants before Game integration; no unrelated fullband/otherstyle breadth.",
+  "controlled_comparison": "Same13pitches/130CC0sources/sampler/DSP/100BPM/12sec complete duration; compare only material arrangements to existing audition_content.gd. Retain first acceptedcue unchanged. No newsource samples/deps/engines/Gamecode.",
+  "stop_condition": "HOLD actualdependencylicense/cost/storage/networkpolicyfailure, sourceGamechange, generationerrors/unboundedallocation, clipping/invalidWAV/rightsuncertainty; no paid/newservice/key/proxybypass/defaultvenv/globalinstall or fakeAI/human/audioqualityclaim. Ownerlisteningbeforeintegration.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S94.json",
+    "docs/continuous_improvement/S94_AUDITION_AUDIO.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s94-audition-audio-20261103/"
+  ],
+  "validation_commands": [
+    "Gate committed S94 before assets",
+    "Existing pinnedlocal render-local CLI; new durable rawexit wrappers",
+    "Actual source-rest/answer/time validation, decodedFFmpeg LUFS/truepeak/fulltails/source/outputhashes; no Godot/APK/unchangedtests"
+  ],
+  "root_lease": {
+    "id": "S94-audition-material-audio-20261103T1905",
+    "writer": "/root",
+    "expires_at": "2026-11-03T20:00:00Z"
+  },
+  "started_at": "2026-11-03T19:02:23.972830+00:00",
+  "scope_end": "2026-11-03T20:00:00Z",
+  "queue_task": "AU01 matching audition material prerequisites",
+  "reviewer": "game_design_research source/rights/backendreview; rootonlyimplementation/render/delivery",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "new_aggregate_cap_bytes": 33554432,
+    "shared_source_dependency_root": "/workspace/work/s93-audio-review-20261103 unchanged/read-only",
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600
+  },
+  "next_action": "Render source-matched two variants, verify decoded levels/fulltail/provenance/source invariants, bounded independentreview; preserve approval and closeout. Game integration separate freshsourcecontract.",
+  "research_attachment": {
+    "path": "/workspace/attachments/b2cd8a9c-bf12-4708-9cb5-abe8d86af758/BandMaster_Audio_Codex_Brief-1.md",
+    "sha256": "496eba77cecf0b9335054f3e05f4f7553db6bf574614fda1176ed9d302888329",
+    "authority": "Reference recommendations guide method; proposed Godot manager/MVP is not a direct instruction to integrate before listening acceptance."
+  }
+}
