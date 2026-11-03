@@ -8,7 +8,7 @@
   "owner_approved": false,
   "previous_closed_session": "S79",
   "status": "claimed",
-  "released_at": "2026-11-03T00:51:20.374306+00:00",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -156,7 +156,7 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "S82 exact625 and private V9 verified/delivered. Source/artifact/Page/GL writers released; next fresh scoped audition before songwriting. All current ERROR empty; visual PARTIAL/owner false/physical pending.",
-  "source_writer_released_at": "2026-11-03T00:51:20.374306+00:00",
+  "source_writer_released_at": null,
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -220,8 +220,8 @@
     "writer": "S54-song-recording-20261101T0425",
     "claimed_at": "2026-11-01T04:24:30.738786+00:00",
     "expires_at": "2026-11-01T06:20:00Z",
-    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
-    "authority": "Owner explicitly approved the 1 November00:15–09:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+    "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
     "released_at": "2026-11-01T05:39:04.406867+00:00"
   },
@@ -324,7 +324,7 @@
   },
   "pending_implementation": true,
   "pending_helpers": true,
-  "next_action": "Commit/gate S83 preflight before sole delegated sourcewriter; earlynative layout review before finalproof.",
+  "next_action": "Finish sole-writer S83 capture integration and root exact model/save/standard/focused four-view proof; early composition679 cleared, overall visualPARTIAL, no APK.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -351,7 +351,7 @@
     "hard_stop": "2026-11-01T20:00:00Z"
   },
   "source_freeze_target": "2026-11-04T20:15:00+00:00",
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "4def9978a0231239127c575c3091c82ec568553f",
   "latest_unverified_candidate": null,
   "source_phase": "closed_verified",
   "source_frozen_at": "2026-11-03T00:51:20.374306+00:00",
@@ -771,23 +771,24 @@
   "last_verified_native_run_source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
   "latest_unverified_phase2_candidate": null,
   "current_candidate": {
-    "source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
-    "status": "verified_closed"
+    "source_sha": "4def9978a0231239127c575c3091c82ec568553f",
+    "status": "unverified_active_S83_final_capture_and_model_proof_pending",
+    "last_verified_game_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
   },
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
-  "source_implementation_pending": false,
+  "source_implementation_pending": true,
   "active_development_run": {
     "authority": "Owner Max out next48hours",
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
     "same_thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "status": "active_finite_opportunities_current_source_released",
+    "status": "active_S83_root_and_source_writer_not_released",
     "no_new_breadth": "2026-11-04T19:45:00+00:00",
     "integration_freeze": "2026-11-04T20:15:00+00:00",
     "final_readiness_wake": "2026-11-04T21:15:00+00:00",
     "all_writes_release_by": "2026-11-04T21:20:00+00:00",
     "hard_stop": "2026-11-04T21:24:35+00:00",
     "automatic_extension": false,
-    "next_action": "Fresh scoped S83 (or actual next free ID) substantive audition: inspect/adopt /tmp/bandmaster-s83-20261103/contract, define whole-opening invitation rollback and full encounter checkpoint contract, preserve original TALENT recruiting/cast/unknown context and uncertainty. Commit/gate before code; source-backed role-specific exercise and requested adjustment, not extra Continue cards. If a specific owner-only art gate blocks that meaningful slice, record it and progress approved saved-song development. Same finite queue/thread/end."
+    "next_action": "Finish sole-writer S83 capture integration and root exact model/save/standard/focused four-view proof; early composition679 cleared, overall visualPARTIAL, no APK."
   },
   "last_source_writer_release": "2026-11-03T00:51:20.374306+00:00",
   "current_delivery_policy": {
