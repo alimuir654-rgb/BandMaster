@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "S92",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "DIRECT owner3Nov: makeastartonaudiotooling; openflexibleforindividualinstruments,fullsongsnippets,auditions; indieinitialproof, differentstylescriticallater. This authorises nonshippingtoolingimplementation, notpaidservices/newdeps/modeldownloads/runtimeAI/newmusicalassets or ownerlisteningacceptance.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1305499,
+    "sha256": "7786dbfba9f0a039779824d148117cd0d0832c7558885a7b4e0127304a5cbf38"
+  },
+  "baseline_sha": "97954c4d6ceb262cc08fb04acfa7b014255a9009",
+  "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+  "target": {
+    "locator": "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
+    "original_sha256": "c31d17b56da457f7c633a4d6fafb35920845f0a1877ba604d5388ab0d782b6e4",
+    "pixels_inspected": false,
+    "kind": "Nonvisual authoring-tool contract; no visual/native/audioqualityclaim. S89 research actualsources plus owner newtoolingdirection."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Separate request/usecase/styleprofile/backendcapabilities/clearance/budget and WAVinspection permits reusable audiosource work without hardcodingJack/guitar/4s or enabling unclearedgeneration. Indieprofilefirst, customlocalJSONstyleslater.",
+  "controlled_comparison": "SameAU01historicalcharged4files32.097392s2950158B under5/36.5s4MiB; plan10sraw+4sreview mustHOLD withoutdeletion/capbypass. Toolcanrepresentlongermultiinstrument/song requests with explicitdifferentstudycontract, notsilentlyrescope. WAVinspection reports actualcompletefilebytes/frames,tailsincluded; RMSsamplepeak notLUFS/truepeak/listening.",
+  "stop_condition": "HOLD accidentalnetwork/subprocess/generator/dependencyexecution, musicalaudioassetoutput, hiddennumericplayerkeys/incorrectrights/costclaims, capdoublecount/rawdeletion, shippinginputchange, unsupportedfutureversions or inabilitytoverifytool. No arbitrarystoragecleanup/sourceupload.",
+  "allowed_paths": [
+    "tools/audio_authoring/__init__.py",
+    "tools/audio_authoring/__main__.py",
+    "tools/audio_authoring/core.py",
+    "tools/audio_authoring/catalog.json",
+    "tools/audio_authoring/README.md",
+    "tools/audio_authoring/examples/indie_audition.json",
+    "tools/audio_authoring/examples/indie_song_snippet.json",
+    "tests/test_audio_authoring.py",
+    "docs/continuous_improvement/S92_AUDIO_AUTHORING_TOOLING.md",
+    "docs/continuous_improvement/sessions/S92.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s92-audio-tooling-20261103/"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S92.json",
+    "python3 -m unittest discover -s tests -p test_audio_authoring.py",
+    "python3 -m tools.audio_authoring plan tools/audio_authoring/examples/indie_audition.json",
+    "python3 -m tools.audio_authoring plan tools/audio_authoring/examples/indie_song_snippet.json",
+    "Root exactshipping408beforeafter closure, AST/no network-execution implementation review, primaryGit/config/evidencepreservation; no unchangedGodot/engine/APK/audio-generation runs."
+  ],
+  "root_lease": {
+    "id": "S92-flexible-audio-tooling-20261103T1748",
+    "writer": "/root",
+    "expires_at": "2026-11-03T19:00:00Z"
+  },
+  "started_at": "2026-11-03T17:48:44.998970+00:00",
+  "scope_end": "2026-11-03T19:00:00Z",
+  "queue_task": "AU01 audio-authoring tooling foundation, distinctfromnewlisteningassets",
+  "reviewer": "/root/game_design_research boundedarchitecture/sourcecriteria; root soleimplementation; independentfinaltoolreview beforecloseout",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "new_aggregate_cap_bytes": 8388608,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "new_audio_assets": 0,
+    "test_audio": "OnlytinyinmemoryPCM/WAVstructures; no musical/render/listeningfiles or oldhistorydeletion.",
+    "critical_evidence": "workspaceonly; primaryGitobjects, noTMPobjects"
+  },
+  "next_action": "Build stdlib nonshipping local audio request/planning/WAVinspection framework with extensible style/backend contracts, no executable generator/paid/deps/assets. Validate input/rights-cost-capability/cap arithmetic and realinmemoryWAV edgecases."
+}
