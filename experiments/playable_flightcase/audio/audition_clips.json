@@ -11,6 +11,24 @@
       "owner_listening_accepted": true,
       "source_PCM_sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
       "rights": "CC0 sampled instrument + original authored arrangement; S93 rights receipt local"
+    },
+    "jack_four_bars_space_for_voice_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_space_for_voice_v2.ogg",
+      "sha256": "fbccd6cf003d15c5d29a2990b1ef01c75536b74908b892bcfb7ffb20d1c7eab9",
+      "style": "Indie rock",
+      "instrument": "electric_guitar",
+      "owner_listening_accepted": true,
+      "source_PCM_sha256": "c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45",
+      "rights": "CC0 sampled instrument + original authored arrangement; S93/S94 rights receipts local"
+    },
+    "jack_four_bars_own_part_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_own_part_v2.ogg",
+      "sha256": "e977e6b2aec17de3f920d8032c07147cd6603bf6d7b2eaf40746de0985deea2a",
+      "style": "Indie rock",
+      "instrument": "electric_guitar",
+      "owner_listening_accepted": true,
+      "source_PCM_sha256": "16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265",
+      "rights": "CC0 sampled instrument + original authored arrangement; S93/S94 rights receipts local"
     }
   },
   "content_version": "s83_jack_written_v1"
