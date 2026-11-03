@@ -551,6 +551,14 @@ func _audition_changed(result: Dictionary) -> void:
   var id: String=str(result.get("candidate_id",onboarding_state.audition_view().get("candidate_id","")))
   auditioned[id]=bool(onboarding_state.audition_view(id).get("heard",false))
   audition_note_id=id if auditioned[id] else ""
+  var content: Script=Profiles.content(id)
+  if content!=null:
+   role=content.ROLE
+   var choices: Array=game.choices(role)
+   for index in range(choices.size()):
+    if str(choices[index].id)==id:
+     selected_index=index
+     break
  _rebuild()
 
 func _reveal_audition_note() -> void:
