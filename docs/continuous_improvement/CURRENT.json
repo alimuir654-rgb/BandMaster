@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "S90",
-  "scope": "S87 approved AU01 source/listening study ONLY; closed owner revision/evidence HOLD, no shipping implementation",
+  "scope": "S90 unchanged-source native readiness and UX02 baseline review complete; P2 phone set-position repair needs fresh source contract",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
+  "status": "released",
+  "next_action": "Fresh bounded UX02 presentation-only contract/preflight/gate for phone action-adjacent saved set position (phase-correct current/next ordinal and completed count; title only with full readable fit). Protect existing voice/neutral actions/full order, UX01, art/hardware/booking/economy/models/owner/save. Independently review predesign, early important phone/shortwide states, then required exact final fourview/wholejourney and relevant regression/input/failure/retry/reload/source proofs. Fund full durable runtime/cache/evidence budget first; no automatic Xorg/config/dependency change or APK work.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3297,7 +3297,7 @@
     }
   ],
   "last_completed_session": "S89",
-  "writer": "/root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3422,7 +3422,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-03T16:51:24.374831+00:00",
+  "updated_at": "2026-11-03T17:03:07.018606+00:00",
   "page_delivery": {
     "status": "V6_APK_prose_saved_readback",
     "page_url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
@@ -3677,8 +3677,8 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T16:33:12.919963+00:00",
-  "last_writer": "S89-audio-art-layout-briefs-20261103T1625",
+  "released_at": "2026-11-03T17:03:07.018606+00:00",
+  "last_writer": "S90-native-baseline-20261103T1652",
   "source_write_allowed": false,
   "pending_implementation": false,
   "pending_helpers": true,
@@ -4412,7 +4412,7 @@
   },
   "visual_verdict": "partial",
   "s84_closeout": "/tmp/bandmaster-s84-20261103/closeout.json",
-  "note": "Newest S87 disposition overrides prior pending-plan/listening paragraphs. No new audio accepted; all writers released.",
+  "note": "Latest S90 baseline supersedes older native-display blocker only; shippingGame3d2, AU01revision/art/APK holds and missinghistoricalevidence unchanged.",
   "latest_s84_release": {
     "writer": null,
     "source_writer": null,
@@ -4515,8 +4515,9 @@
   "latest_metadata_deliverable": "S89 audiofeasibility/artmethod/UX02predesign complete; primary-sourceandindependentreviews, Plan29Board153. No productionassets/code/engines.",
   "root_lease": {
     "id": "S90-native-baseline-20261103T1652",
-    "writer": "/root",
-    "expires_at": "2026-11-03T18:10:00Z"
+    "writer": null,
+    "expires_at": "2026-11-03T18:10:00Z",
+    "released_at": "2026-11-03T17:03:07.018606+00:00"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {
@@ -5252,6 +5253,256 @@
       "Historical TMP receipts remain unavailable; recoveredS88copy is fresh evidence only"
     ],
     "closed_at": "2026-11-03T16:33:12.919963+00:00",
+    "source_artifact_helpers_GL_released": true
+  },
+  "s90_closeout": {
+    "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "preflight_sha": "9da05ab351ae3f89c1200afdfae34889a3a3d3df",
+    "status": "NATIVE_READINESS_AND_UX02_BASELINE_REVIEW_COMPLETE",
+    "evidence": {
+      "configured_entry": "/workspace/work/s90-native-baseline-20261103/configured-entry-v1/execution.json",
+      "phone": "/workspace/work/s90-native-baseline-20261103/phone-v1/execution.json",
+      "wide": "/workspace/work/s90-native-baseline-20261103/wide-v1/execution.json",
+      "source_storage_configuration_audit": "/workspace/work/s90-native-baseline-20261103/final-source-storage-audit.json",
+      "independent_review": "/workspace/work/s90-native-baseline-20261103/qa/independent-ux02-baseline-review-v1.json",
+      "independent_review_sha256": "a862d09e2793f7dc434531050d3c626268d7e4b3be8138bf8aa587fa37fde769",
+      "page_readback": "/workspace/work/s90-native-baseline-20261103/page-readback.json",
+      "display_start": "/workspace/work/s90-native-baseline-20261103/display-start-v1/execution.json",
+      "display_stop": "/workspace/work/s90-native-baseline-20261103/display-stop.json"
+    },
+    "technical_verdict": "Scoped default-entry and two native baseline journeys PASS; not full shipping/fourview/wholegig acceptance",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "next_action": "Fresh bounded UX02 presentation-only contract/preflight/gate for phone action-adjacent saved set position (phase-correct current/next ordinal and completed count; title only with full readable fit). Protect existing voice/neutral actions/full order, UX01, art/hardware/booking/economy/models/owner/save. Independently review predesign, early important phone/shortwide states, then required exact final fourview/wholejourney and relevant regression/input/failure/retry/reload/source proofs. Fund full durable runtime/cache/evidence budget first; no automatic Xorg/config/dependency change or APK work.",
+    "new_issue_review": {
+      "through_event": "S90-20261103-809",
+      "807": "Readonly guessed entry path retained; actual manifest used thereafter",
+      "808": "Xorg launcher ERROR retained separately; all three actual engine logs ERRORempty; VSync warning disclosed",
+      "809": "Native P2 phone set-position hierarchy finding; voice already names current/next and both neutral choices usable"
+    },
+    "executions": {
+      "configured_default_no_script_frames": 5,
+      "native_baseline_profiles": 2,
+      "phone_checks": 291,
+      "wide_checks": 267,
+      "total_focused_checks": 558,
+      "fresh_native_original_PNGs": 8,
+      "raw_engine_exits": [
+        0,
+        0,
+        0
+      ],
+      "current_73_88_standard_import_model_executions": 0,
+      "final_wraps": 0,
+      "Game_source_changes": 0,
+      "art_audio_APK_changes": 0
+    },
+    "actual_images_opened_root": [
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-performing.png",
+        "sha256": "8aeb6d8a90376f50e9d0ca89804603a2cafa82ebcfdbb85bb4128d1b4b35855f",
+        "bytes": 283175,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-choice.png",
+        "sha256": "ee87b944494c9f13e6617b619e833af542d9c1f2c95f6c503af9cbd486e78bc0",
+        "bytes": 299952,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-reaction.png",
+        "sha256": "a22b18fb3e4acd3d62e0120118fb6391efddb3acb0bbd42bebc6d2e6470f7136",
+        "bytes": 285733,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-after_set.png",
+        "sha256": "58658ba43db3d731feb0f3a78add55d9e69bab67660ab15b4660b35ae4f13962",
+        "bytes": 273488,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-performing.png",
+        "sha256": "de29684601804717b8268832771cca8887c2ea5ac8540acebf63cf91f8a7a18b",
+        "bytes": 392005,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-choice.png",
+        "sha256": "e4694d3415608232ba1659555d010e25e690e9af76a7a1e890461db37b83154d",
+        "bytes": 421290,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-reaction.png",
+        "sha256": "d7c5a31f24d908eeeb135c727eb583b58dd075e866e5427be850cd22b5040677",
+        "bytes": 390614,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-after_set.png",
+        "sha256": "8c6ee29b8adbe45eac0104fe37d5258832b0273e8e5d87d9dc4e31c30f3ad09c",
+        "bytes": 351907,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      }
+    ],
+    "actual_images_opened_independent": [
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-performing.png",
+        "sha256": "8aeb6d8a90376f50e9d0ca89804603a2cafa82ebcfdbb85bb4128d1b4b35855f",
+        "bytes": 283175,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-choice.png",
+        "sha256": "ee87b944494c9f13e6617b619e833af542d9c1f2c95f6c503af9cbd486e78bc0",
+        "bytes": 299952,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-reaction.png",
+        "sha256": "a22b18fb3e4acd3d62e0120118fb6391efddb3acb0bbd42bebc6d2e6470f7136",
+        "bytes": 285733,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-after_set.png",
+        "sha256": "58658ba43db3d731feb0f3a78add55d9e69bab67660ab15b4660b35ae4f13962",
+        "bytes": 273488,
+        "width": 390,
+        "height": 844,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-performing.png",
+        "sha256": "de29684601804717b8268832771cca8887c2ea5ac8540acebf63cf91f8a7a18b",
+        "bytes": 392005,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-choice.png",
+        "sha256": "e4694d3415608232ba1659555d010e25e690e9af76a7a1e890461db37b83154d",
+        "bytes": 421290,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-reaction.png",
+        "sha256": "d7c5a31f24d908eeeb135c727eb583b58dd075e866e5427be850cd22b5040677",
+        "bytes": 390614,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      },
+      {
+        "path": "/workspace/work/s90-native-baseline-20261103/wide-v1/wide-after_set.png",
+        "sha256": "8c6ee29b8adbe45eac0104fe37d5258832b0273e8e5d87d9dc4e31c30f3ad09c",
+        "bytes": 351907,
+        "width": 1280,
+        "height": 720,
+        "actually_opened_with": "tools.view_image",
+        "historical_reconstruction": false
+      }
+    ],
+    "independent_role_disclosure": "Reviewer separate from root executor, also authored frozen QA; no human/user test",
+    "five_simulated_lenses": [
+      {
+        "lens": "SIMULATED first-time band manager",
+        "assessment": "Voice makes the present decision understandable, but initial phone screen does not reveal how far the saved set has progressed. A small ordinal/completed summary helps orientation without teaching a best choice."
+      },
+      {
+        "lens": "SIMULATED returning interrupted player",
+        "assessment": "Saved state and next title survive actual owner reload after native checkpoints; action-adjacent phase-correct position would reduce rereading/scrolling on return. The baseline probe is not an interruption OS/device test."
+      },
+      {
+        "lens": "SIMULATED small-screen readability/accessibility reviewer",
+        "assessment": "Native controls are48px, neutral actions visible, note full. Long title is retained at16px in setlist but largely below fold. Avoid shrinking text or stealing so much body height that note comprehension regresses. Physical touch/screen-reader testing remains absent."
+      },
+      {
+        "lens": "SIMULATED working musician",
+        "assessment": "Set order/completed prefix are meaningful observable facts. Label next song atchoice/reaction rather than implying already performed; static stage/contact portrait does not demonstrate musicians playing or skill."
+      },
+      {
+        "lens": "SIMULATED implementation/state-safety reviewer",
+        "assessment": "Summary can read already validated plan/cursor without new schema or model mutations. Preserve original button callbacks, save boundaries and finalwrap policy; no economy/booking rebuild justified."
+      }
+    ],
+    "fixture_disclosures": [
+      "Direct CareerDesk presentation fixture, not an initial-menu journey.",
+      "Original viable five-member recruit/launch; explicit experienced qualification reputation30/fans200/van100/readiness70 before booking, not naturally earned progression.",
+      "Two songs created by six original write_session calls, including literal48-character bracket/Unicode title; original rehearsal days and Finance boundaries.",
+      "Original pure selected local booking and validated owner identity fixture saved only in fresh private XDG.",
+      "Every displayed journey checkpoint uses complete native inputs and actual owner save/reload; no final wrap.",
+      "phone normal motion with native Space to finish held words; wide reduced motion; fresh current PNGs, not reconstructed historical originals."
+    ],
+    "finding": "Phone initial set progress belowfold; current/next voice fully visible and both original neutral48px choices visible/enabled. Wide all setrows visible. P2 orientation repair, not inaccessible action/missing nextname.",
+    "configuration": "Existing installed Xorg wrapper/config/dummy driver pins exact; no config/security/binary/driver/package changes. Temporary root-owned PID5372 stopped; socket removed; lock released. Managed remote desktop not enabled.",
+    "storage": {
+      "S90_bytes": 11796480,
+      "S88_plus_S90_bytes": 183664640,
+      "cache_bytes": 69971968,
+      "free_bytes": {
+        "/workspace": 2055430144,
+        "/tmp": 9441234944
+      }
+    },
+    "storage_limits": "S90<=32MiB, combined<=288MiB, existingprivatecache<=96MiB, workspace/TMPfree>=600MiB; accounting detects use, not OS quota",
+    "source_protection": "408runtime inputs unchanged; primary shipping Git delta0; original54Scripts incl3UID exact; no new critical TMPGitobjects",
+    "nonshipping": "350 declared runtime extras inventoried, including generated UID/import sidecars and uniquelynamed QA symlink; excluded from408. Existing untracked primary sidecars retained/unstaged, not shipping promotion.",
+    "material_gaps": [
+      "Only2native viewport profiles, normal phone/reducedwide; not4views and not physicalPixel9/IME/OSinterruption proof.",
+      "Onlyone original viable5member setup with disclosed experienced qualification and a direct identity/CareerDesk fixture; not naturally earned progression or4whole opening journeys.",
+      "Exactly2original songs and one moving choice exercised; no zero/1/3song native cases, alternate moment branch, stale/future/failure injection or finalwrap settlement in this baseline.",
+      "Fresh source recovery/current8PNGs do not restore missing historical S83/S84/S86/S87 proofs or contemporaneous original witnesses.",
+      "TechnicalPASS558checks does not establish owner acceptance or overall visual internal_pass; audio/art/material gaps remain.",
+      "No fresh failure injection, moment branch or empty/1/3song cases in this bounded baseline; no settlement/finalwrap.",
+      "Historical missing TMP receipts/oracle aliases remain unavailable/permanentlyclosed.",
+      "No revised audio, playing artwork, physicalPixel9/IME/audioquality/ownerlistening evidence."
+    ],
+    "audio": "AU01planapproved/v1OWNER_REVISION. Candidate/tool/rights/10sminimum versus oldcap unresolved; no generation/dependencies/paidcalls/integration.",
+    "APK": "Held until fresh direct request; V9/source625 unchanged",
+    "closed_at": "2026-11-03T17:03:07.018606+00:00",
     "source_artifact_helpers_GL_released": true
   }
 }
