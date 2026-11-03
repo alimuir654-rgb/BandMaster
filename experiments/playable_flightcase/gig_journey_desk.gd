@@ -82,16 +82,35 @@ static func render(host, parent: Node, compact: bool) -> void:
  var image_path: String=ROAD if phase=="travel" else (ARRIVAL if phase in ["begin","set_out","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM))
  var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
  var short: bool=host.size.x>host.size.y and host.size.y<800
+ var paired: bool=host.size.x>host.size.y and host.size.x>=1180
  var scene=Scene.new()
- scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh)},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
+ scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh),"side_by_side":paired},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
  parent.add_child(scene)
  host._journey_fresh=false
- var context: Node=scene.context_column if short else parent
+ var context: Node=scene.context_column if short or paired else parent
  if not str(host.notice).is_empty():parent.add_child(C.label(str(host.notice),16))
  if phase=="soundcheck":
   host._sync_show_draft()
-  ShowDesk.controls(host,context,compact)
-  ShowDesk.journey_soundcheck(host,context,state)
+  var hardware_parent: Node=context
+  var set_parent: Node=context
+  if paired:
+   var workbench: HBoxContainer=HBoxContainer.new()
+   workbench.name="JourneySoundcheckColumns"
+   workbench.add_theme_constant_override("separation",16)
+   workbench.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+   context.add_child(workbench)
+   var hardware_column: VBoxContainer=VBoxContainer.new()
+   hardware_column.name="JourneyHardwareColumn"
+   hardware_column.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+   workbench.add_child(hardware_column)
+   var set_column: VBoxContainer=VBoxContainer.new()
+   set_column.name="JourneySetColumn"
+   set_column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+   workbench.add_child(set_column)
+   hardware_parent=hardware_column
+   set_parent=set_column
+  ShowDesk.controls(host,hardware_parent,compact)
+  ShowDesk.journey_soundcheck(host,set_parent,state)
  elif phase in ["performing","choice","reaction","after_set","pack_up","wrap_ready"]:
   var set_title: Label=C.label("TONIGHT'S SET",16)
   set_title.name="JourneySetlistHeading"

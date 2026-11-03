@@ -17,20 +17,21 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  _reduced=reduced
  _fresh=bool(data.get("fresh",false))
  _travel=bool(data.get("travel",false))
+ var side_by_side: bool=short or bool(data.get("side_by_side",false))
  name="GigJourneyPlace"
  size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",6)
  var title: Label=C.label(str(data.get("title","TONIGHT")),22)
  title.name="JourneySceneTitle"
  add_child(title)
- var composition: BoxContainer=HBoxContainer.new() if short else VBoxContainer.new()
- composition.name="JourneySceneSplit" if short else "JourneySceneStack"
- composition.add_theme_constant_override("separation",16 if short else 6)
+ var composition: BoxContainer=HBoxContainer.new() if side_by_side else VBoxContainer.new()
+ composition.name="JourneySceneSplit" if side_by_side else "JourneySceneStack"
+ composition.add_theme_constant_override("separation",16 if side_by_side else 6)
  composition.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_child(composition)
  var art_column: VBoxContainer=VBoxContainer.new()
  art_column.name="JourneyArtColumn"
- art_column.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN if short else Control.SIZE_EXPAND_FILL
+ art_column.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN if side_by_side else Control.SIZE_EXPAND_FILL
  art_column.add_theme_constant_override("separation",6)
  composition.add_child(art_column)
  context_column=VBoxContainer.new()
@@ -52,7 +53,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  image_view.mouse_filter=Control.MOUSE_FILTER_IGNORE
  var path: String=str(data.get("image",""))
  if not path.is_empty() and ResourceLoader.exists(path):image_view.texture=load(path)
- if short and image_view.texture!=null:
+ if side_by_side and image_view.texture!=null:
   var aspect: float=float(image_view.texture.get_width())/float(image_view.texture.get_height())
   frame.custom_minimum_size.x=minf(available*0.46,image_height*aspect)
   image_height=frame.custom_minimum_size.x/aspect
@@ -110,7 +111,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
   var skip: Button=C.button("SKIP TRANSITION","flightcase","tab")
   skip.name="JourneySkipTransitionAction"
   skip.pressed.connect(settle)
-  context_column.add_child(skip)
+  (art_column if side_by_side else context_column).add_child(skip)
  call_deferred("_begin")
 
 func _begin() -> void:
