@@ -72,10 +72,30 @@ static func _source_ok(opening: Dictionary) -> bool:
  if _source_hash(opening).is_empty() or not state.get("members") is Array or not state.get("song_catalogue") is Array or not state.get("current_song_draft") is Dictionary:return false
  if not _whole(state.get("tour_day"),1) or not _whole(state.get("cash")) or not _whole(state.get("songs")) or not _whole(state.get("song_draft_progress"),0,2):return false
  if state.members.size()>6:return false
+ # Only known fields consumed by the original writing pipeline are checked;
+ # unrelated/unknown career extensions are not parsed or replaced.
+ for field in ["readiness","morale","tension","buzz","press"]:
+  if state.has(field) and not _whole(state[field],0,100):return false
+ for field in ["gear","fans"]:
+  if state.has(field) and not _whole(state[field],0,100000):return false
+ if state.has("action_count") and not _whole(state.action_count,0,LIMIT-1):return false
+ for field in ["action_counters","band_work_counters","relationships","opportunities_seen"]:
+  if state.has(field) and not state[field] is Dictionary:return false
+ for field in ["rest","song_draft","songwrite"]:
+  if state.get("action_counters",{}).has(field) and not _whole(state.action_counters[field],0,LIMIT-1):return false
+ if state.get("band_work_counters",{}).has("songwrite") and not _whole(state.band_work_counters.songwrite,0,LIMIT-1):return false
+ if state.has("career_journal") and not state.career_journal is Array:return false
+ for a in range(state.members.size()):
+  for b in range(a+1,state.members.size()):
+   var key: String="%d_%d" % [a,b]
+   if state.get("relationships",{}).has(key) and not _whole(state.relationships[key],0,100):return false
  for person in state.members:
   if not person is Dictionary:return false
   for field in ["skill","loyalty","morale","fatigue"]:
    if person.has(field) and not _whole(person[field],0,100):return false
+  if person.has("rehearsal_risk"):
+   if not person.rehearsal_risk is Dictionary:return false
+   if person.rehearsal_risk.has("creative_friction") and not _whole(person.rehearsal_risk.creative_friction,0,LIMIT-1):return false
  for row in state.song_catalogue:
   if not row is Dictionary:return false
  if not state.current_song_draft.get("sessions",[]) is Array:return false
@@ -183,6 +203,16 @@ static func _paid_ok(value: Variant) -> bool:
   if not _whole(row.get("cash_before")) or not _whole(row.get("cash_after")) or not _material_ok(row.get("fragment_snapshot")) or not row.get("trial_id") is String:return false
  return not _hash(value).is_empty()
 
+static func _closed_project_ok(value: Variant,id: String,paid_count: int) -> bool:
+ if not value is Dictionary or value.get("id")!=id or not value.get("binding") is Dictionary or not value.get("target") is Dictionary:return false
+ if not _whole(value.binding.get("progress"),0,2) or not _whole(value.binding.get("original_song_sequence")) or not value.binding.get("canonical_draft") is Dictionary or value.binding.get("canonical_draft_fingerprint")!=_hash(value.binding.canonical_draft):return false
+ if not _fragment_ok(value.get("fragment"),id) or not value.get("prior_fragment") is Dictionary or not _material_ok(value.get("authored_alternate")) or not _trial_ok(value.get("last_trial"),id):return false
+ if not value.prior_fragment.is_empty() and not _fragment_ok(value.prior_fragment,id):return false
+ if not _paid_ok(value.get("paid_receipts")) or value.paid_receipts.size()!=paid_count or not value.get("feedback_history") is Array or value.feedback_history.size()>3:return false
+ for trial in value.feedback_history:
+  if not _trial_ok(trial,id) or trial.is_empty():return false
+ return value.target.get("title") is String and _ref_ok(value.target.get("leader_ref")) and _ref_ok(value.target.get("respondent_ref"),true) and not _hash(value).is_empty()
+
 static func _closed_ok(value: Variant,sequence: int) -> bool:
  if not value is Dictionary:return false
  if value.is_empty():return true
@@ -190,6 +220,7 @@ static func _closed_ok(value: Variant,sequence: int) -> bool:
  if value.id!="workbench:%d" % int(value.sequence) or not _fragment_ok(value.get("fragment"),value.id) or not _paid_ok(value.get("paid_receipts")):return false
  if value.result=="archived" and value.get("reason") not in ["user_archive","switch_route","source_review"]:return false
  if value.result=="finished" and value.paid_receipts.size()!=3:return false
+ if not _closed_project_ok(value.get("project_snapshot"),value.id,value.paid_receipts.size()):return false
  return not _hash(value).is_empty()
 
 static func validate(opening: Dictionary) -> Dictionary:
@@ -257,7 +288,10 @@ static func _binding_ok(state: Dictionary,project: Dictionary) -> bool:
 static func _participants_ok(state: Dictionary,target: Dictionary) -> bool:
  var leader: Dictionary=target.leader_ref
  var index: int=int(leader.slot)
- if index>=state.members.size() or state.members[index].get("life_status","active")!="active" or not _same(_ref(state,index),leader):return false
+ if index>=state.members.size() or state.members[index].get("life_status","active")!="active":return false
+ var current: Dictionary=_ref(state,index)
+ for field in ["slot","member_id","candidate_id","name","role","bio_sha256"]:
+  if not _same(current.get(field),leader.get(field)):return false
  var live:=_target(state,str(target.title),index)
  return live.get("ok",false) and _target_same(live.target,target)
 
@@ -339,7 +373,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  if int(wrapper.revision)>=LIMIT-1:return _mutation(opening,false,"The bounded sketch history is full.")
  if action=="archive":
   if not _keys(payload,["reason"]) or payload.reason not in ["user_archive","switch_route","source_review"]:return _mutation(opening,false,"Choose why to close this saved sketch.")
-  wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"archived","reason":payload.reason,"fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true)}
+  wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"archived","reason":payload.reason,"fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"project_snapshot":project.duplicate(true)}
   wrapper.project={};wrapper.revision=int(wrapper.revision)+1
   return _put(opening,wrapper,"Sketch archived. The original song and completed days are unchanged.")
  if _priority(opening)!="workbench" or not _binding_ok(_career(opening),project):return _mutation(opening,false,"The current show, radio, final accounts or changed draft needs attention first. The words are retained.")
@@ -442,7 +476,7 @@ static func complete_original(before: Dictionary,after_original: Dictionary,prep
 
 static func _extension_ok(value: Variant) -> bool:
  if not value is Dictionary or value.get("version")!=1 or not value.get("project_id") is String or not _fragment_ok(value.get("fragment"),str(value.project_id)) or not _paid_ok(value.get("paid_receipts")):return false
- return value.paid_receipts.size()==3 and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
+ return value.paid_receipts.size()==3 and _closed_project_ok(value.get("project_snapshot"),str(value.project_id),3) and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
 
 static func _finished_ref(index: int,song: Dictionary) -> Dictionary:
  var extension: Dictionary=song[FRAGMENT_KEY]
@@ -486,10 +520,10 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
  var next:=after_accounting.duplicate(true)
  if int(completion.stage)==2:
   var index: int=int(completion.appended_index)
-  var extension: Dictionary={"version":1,"project_id":project.id,"content_version":project.content_version,"policy_version":POLICY,"fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"contributions":project.feedback_history.duplicate(true)}
+  var extension: Dictionary={"version":1,"project_id":project.id,"content_version":project.content_version,"policy_version":POLICY,"fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"contributions":project.feedback_history.duplicate(true),"project_snapshot":project.duplicate(true)}
   next.game.career.song_catalogue[index][FRAGMENT_KEY]=Canon._freeze_candidate(extension)
   var reference:=_finished_ref(index,next.game.career.song_catalogue[index])
-  wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"finished","fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"finished_ref":reference}
+  wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"finished","fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"finished_ref":reference,"project_snapshot":project.duplicate(true)}
   wrapper.project={}
  else:wrapper.project=project
  next.game.career[KEY]=Canon._freeze_candidate(wrapper)

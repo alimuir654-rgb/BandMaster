@@ -644,38 +644,48 @@ func begin_workbench_commit(expected: Dictionary) -> Dictionary:
   return fail
  _workbench_serial+=1
  var ticket: String="workbench-tx:%d" % _workbench_serial
- _workbench_transaction={"id":ticket,"before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{}}
+ _workbench_transaction={"id":ticket,"before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{},"phase":"prepared"}
  return {"ok":true,"changed":false,"message":"","transaction_id":ticket,"prepared":prepared.prepared.duplicate(true),"before_game":(before.game as Dictionary).duplicate(true)}
 
 func _workbench_ticket(ticket: String) -> bool:
  return _audition_busy and not ticket.is_empty() and _workbench_transaction.get("id")==ticket
 
-func abort_workbench_commit(transaction_id: String,message: String) -> Dictionary:
- if not _workbench_ticket(transaction_id):return _workbench_result(false,false,"That saved-session ticket is no longer active.")
+func _abort_workbench_owned(message: String) -> Dictionary:
+ # Only this owner may clean up its retained in-flight snapshot. Public
+ # reentrant finish/abort calls cannot interrupt the actual writer.
  _rollback_identity(_workbench_transaction.before)
  _workbench_transaction={}
  _audition_busy=false
  return _workbench_result(false,false,message)
 
+func abort_workbench_commit(transaction_id: String,message: String) -> Dictionary:
+ if not _workbench_ticket(transaction_id):return _workbench_result(false,false,"That saved-session ticket is no longer active.")
+ if _workbench_transaction.get("phase") in ["sealing","saving"]:return _workbench_result(false,false,"This session is already being saved.")
+ return _abort_workbench_owned(message)
+
 func complete_workbench_original(transaction_id: String,original_result: Dictionary) -> Dictionary:
  if not _workbench_ticket(transaction_id):return {"ok":false,"changed":false,"message":"That saved-session ticket is no longer active."}
- if not _workbench_transaction.completion.is_empty():return {"ok":false,"changed":false,"message":"The original session has already been checked."}
+ if _workbench_transaction.get("phase")!="prepared" or not _workbench_transaction.completion.is_empty():return {"ok":false,"changed":false,"message":"The original session has already been checked."}
  var completed:=Workbench.complete_original(_workbench_transaction.before,snapshot(),_workbench_transaction.prepared,original_result)
  if not completed.ok:
   var failed:=abort_workbench_commit(transaction_id,completed.message)
   return {"ok":false,"changed":false,"message":failed.message}
  _workbench_transaction.completion=completed.completion.duplicate(true)
  _workbench_transaction.original_result=original_result.duplicate(true)
+ _workbench_transaction.phase="original_checked"
  return {"ok":true,"changed":false,"message":""}
 
 func finish_workbench_commit(transaction_id: String) -> Dictionary:
  if not _workbench_ticket(transaction_id):return _workbench_result(false,false,"That saved-session ticket is no longer active.")
- if _workbench_transaction.completion.is_empty():return abort_workbench_commit(transaction_id,"The original session has not been checked; nothing was saved.")
+ if _workbench_transaction.get("phase") in ["sealing","saving"]:return _workbench_result(false,false,"This session is already being saved.")
+ if _workbench_transaction.completion.is_empty():return _abort_workbench_owned("The original session has not been checked; nothing was saved.")
+ _workbench_transaction.phase="sealing"
  var before: Dictionary=_workbench_transaction.before
  var sealed:=Workbench.seal_paid(before,snapshot(),_workbench_transaction.prepared,_workbench_transaction.completion,_workbench_transaction.original_result)
- if not sealed.ok:return abort_workbench_commit(transaction_id,sealed.message)
+ if not sealed.ok:return _abort_workbench_owned(sealed.message)
  game.career=(sealed.state.game.career as Dictionary).duplicate(true)
- if not _save_draft_owned():return abort_workbench_commit(transaction_id,"The session could not be saved. Your whole previous band and words are retained; try again.")
+ _workbench_transaction.phase="saving"
+ if not _save_draft_owned():return _abort_workbench_owned("The session could not be saved. Your whole previous band and words are retained; try again.")
  var original: Dictionary=_workbench_transaction.original_result.duplicate(true)
  original.state=game.career.duplicate(true)
  if game.career.get("last_rehearsal_outcome") is Dictionary:original.outcome=game.career.last_rehearsal_outcome.duplicate(true)
