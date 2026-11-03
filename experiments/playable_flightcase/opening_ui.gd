@@ -17,6 +17,7 @@ const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 const SettingsSheet = preload("res://experiments/playable_flightcase/settings_sheet.gd")
+const AudioPreferences = preload("res://experiments/playable_flightcase/audio_preferences.gd")
 const NotesStyle = preload("res://experiments/playable_flightcase/notes_style.gd")
 const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
 const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
@@ -28,6 +29,7 @@ var setup = Model.new()
 var showing_menu := true
 var settings_open := false
 var muted := false
+var audio_preference_status := ""
 var reduced_motion := false
 var notice := ""
 var look := "flightcase"
@@ -46,6 +48,10 @@ var _safe_content_rect := Rect2()
 var _safe_area_poll := 0.0
 
 func _ready() -> void:
+ var audio_choice: Dictionary=AudioPreferences.read_settings()
+ muted=bool(audio_choice["muted"])
+ audio_preference_status=str(audio_choice["message"])
+ AudioServer.set_bus_mute(0,muted)
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  _sync_safe_area()
  get_viewport().size_changed.connect(_on_viewport_resized)
@@ -415,7 +421,7 @@ func _menu() -> void:
  carry.disabled = not setup.has_valid_draft()
  carry.tooltip_text = "No valid band draft to resume." if carry.disabled else "Resume your unfinished band."
  pair.add_child(carry)
- pair.add_child(_button("SETTINGS",_toggle_settings,"tab","SettingsAction"))
+ pair.add_child(_button("SETTINGS / AUDIO",_toggle_settings,"tab","SettingsAction"))
  if carry.disabled:
   var reason := _label("Continue unlocks when a band draft has been saved.",13)
   reason.name = "OpeningContinueReason"
@@ -435,6 +441,7 @@ func _menu() -> void:
   _settings_sheet.closed.connect(_settings_closed)
   add_child(_settings_sheet)
  _settings_sheet.set_preferences(muted,reduced_motion,NotesStyle.caption())
+ _settings_sheet.set_audio_status(audio_preference_status)
  move_child(_settings_sheet,get_child_count()-1)
  if not notice.is_empty():
   actions.add_child(_label(notice,14))
@@ -544,9 +551,13 @@ func _continue() -> void:
 func _toggle_sound() -> void:
  muted = not muted
  AudioServer.set_bus_mute(0,muted)
+ var saved: Dictionary=AudioPreferences.write_muted(muted)
+ audio_preference_status=str(saved["message"])
+ if is_instance_valid(_settings_sheet):
+  _settings_sheet.set_audio_status(audio_preference_status)
  var action: Button = find_child("SoundAction",true,false) as Button
  if action!=null:
-  action.text = "MASTER SOUND: MUTED" if muted else "MASTER SOUND: ON"
+  action.text = "MASTER SOUND: OFF" if muted else "MASTER SOUND: ON"
   action.tooltip_text = action.text
 func _toggle_motion() -> void:
  reduced_motion = not reduced_motion

@@ -164,7 +164,7 @@ func _build() -> void:
  spacer.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  tools.add_child(spacer)
  if not _view.get("held",false) and phase in ["response","decision"]:
-  _prior_toggle=_quiet_button("FIRST TRY","AuditionPriorToggle",_toggle_prior)
+  _prior_toggle=_quiet_button("VIEW ORIGINAL PART","AuditionPriorToggle",_toggle_prior)
   tools.add_child(_prior_toggle)
  work.add_child(tools)
  if not _view.get("held",false) and not arrival:
@@ -178,6 +178,9 @@ func _build() -> void:
   notes.add_theme_constant_override("separation",6)
   paper.add_child(notes)
   notes.add_child(C.paper_label("A FOUR-BAR REHEARSAL SKETCH",18))
+  var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
+  version_label.name="AuditionCurrentVersion"
+  notes.add_child(version_label)
   notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. Guitar: Jack’s part."))
   _audio=AudioPart.new()
   _audio.configure(_audio_context)
@@ -209,7 +212,15 @@ func _build() -> void:
  actions.add_theme_constant_override("separation",6)
  add_child(actions)
  if not _view.get("held",false):
-  if phase=="arrival":actions.add_child(_button("TRY THE PART","AuditionStartTryout",_act.bind("start_tryout","")))
+  var steps: Dictionary={"arrival":"1 / 4 · MEET JACK","tryout":"2 / 4 · HEAR THE FIRST PART","response":"3 / 4 · COMPARE THE ADJUSTMENT","decision":"4 / 4 · INVITE OR PASS"}
+  var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask Jack to try one change.","response":"Compare the original if useful, then review the invitation.","decision":"Read about Jack before choosing. Inviting costs the talent shown."}
+  var progress:=_label(str(steps.get(phase,"AUDITION")),14)
+  progress.name="AuditionProgress"
+  actions.add_child(progress)
+  var guidance:=_label(str(hints.get(phase,"")),14)
+  guidance.name="AuditionNextStep"
+  actions.add_child(guidance)
+  if phase=="arrival":actions.add_child(_button("START AUDITION","AuditionStartTryout",_act.bind("start_tryout","")))
   elif phase=="tryout":
    var requests:=GridContainer.new()
    requests.name="AuditionRequests"
@@ -219,7 +230,7 @@ func _build() -> void:
    requests.add_child(_button("Give the vocal more room","AuditionRequestSpace",_act.bind("request","space_for_voice")))
    requests.add_child(_button("Show me an idea of your own","AuditionRequestOwn",_act.bind("request","own_part")))
    actions.add_child(requests)
-  elif phase=="response":actions.add_child(_button("CONSIDER THE INVITATION","AuditionReview",_act.bind("review","")))
+  elif phase=="response":actions.add_child(_button("NEXT: INVITE OR PASS","AuditionReview",_act.bind("review","")))
   elif phase=="decision":
    var price: int=Base.incremental_cost(owner_state.game.roster,owner_state.game.person_by_id("cast_jack"))
    actions.add_child(_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]))
@@ -230,11 +241,14 @@ func _build() -> void:
    actions.add_child(_button("PASS FOR NOW","AuditionPass",_act.bind("pass","")))
  var exits:=HBoxContainer.new()
  exits.add_theme_constant_override("separation",8)
- if _view.get("ok",false) and _view.get("active",false):exits.add_child(_button("CLOSE AUDITION","AuditionAbort",_act.bind("abort","")))
- exits.add_child(_button("MENU","AuditionMenu",_menu))
+ if _view.get("ok",false) and _view.get("active",false):exits.add_child(_button("END AUDITION","AuditionAbort",_act.bind("abort","")))
+ exits.add_child(_button("PAUSE / MENU","AuditionMenu",_menu))
  actions.add_child(exits)
 
 func _fill_board() -> void:
+ var current_version: Label=find_child("AuditionCurrentVersion",true,false) as Label
+ if current_version!=null:
+  current_version.text="ORIGINAL PART" if _show_prior or _view.get("phase")=="tryout" else "ADJUSTED PART"
  for old in _board.get_children():
   if old is Button:_buttons.erase(old)
   _board.remove_child(old)
@@ -271,7 +285,7 @@ func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
  if is_instance_valid(_audio):_audio.set_clip(Content.material_id("" if _show_prior else str(_view.get("request",""))))
- _prior_toggle.text="ADJUSTED TRY" if _show_prior else "FIRST TRY"
+ _prior_toggle.text="VIEW ADJUSTED PART" if _show_prior else "VIEW ORIGINAL PART"
  _fill_board()
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what Jack changed."
 
@@ -282,6 +296,8 @@ func _finish_voice() -> bool:
  if is_instance_valid(_voice) and _voice.call("is_revealing"):
   if is_instance_valid(_audio):_audio.stop()
   _voice.call("finish_now")
+  var guidance: Label=find_child("AuditionNextStep",true,false) as Label
+  if guidance!=null:guidance.text="Words revealed. Choose the action again to continue."
   return true
  return false
 

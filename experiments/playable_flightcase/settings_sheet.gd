@@ -18,6 +18,8 @@ var _options_scroll: ScrollContainer
 var _options: VBoxContainer
 var _column: VBoxContainer
 var _title: Label
+var _audio_status: Label
+var _audio_status_text := ""
 var _previous_focus: WeakRef
 var _fit_pending := false
 var _muted := false
@@ -57,6 +59,12 @@ func _ready() -> void:
  sound_button.name = "SoundAction"
  sound_button.pressed.connect(func():sound_requested.emit())
  _options.add_child(sound_button)
+ _audio_status = Kit.label(_audio_status_text,look,14)
+ _audio_status.name = "SettingsAudioStatus"
+ _audio_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ _audio_status.custom_minimum_size.y = 44
+ _audio_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ _options.add_child(_audio_status)
  motion_button = Kit.button("",look,"tab")
  motion_button.name = "MotionAction"
  motion_button.pressed.connect(func():motion_requested.emit())
@@ -65,7 +73,7 @@ func _ready() -> void:
  notes_button.name = "NotesStyleAction"
  notes_button.pressed.connect(func():notes_style_requested.emit())
  _options.add_child(notes_button)
- var scope: Label = Kit.label("Sound, transitions and note style apply to this play session.",look,14)
+ var scope: Label = Kit.label("Audio is remembered on this device. Transitions and note style apply to this play session.",look,14)
  scope.name = "SettingsSessionScope"
  scope.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  scope.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -86,7 +94,7 @@ func set_preferences(sound_muted: bool, motion_reduced: bool, notes_caption: Str
  _reduced_motion = motion_reduced
  _notes_caption = notes_caption
  if not is_instance_valid(sound_button):return
- sound_button.text = "MASTER SOUND: MUTED" if _muted else "MASTER SOUND: ON"
+ sound_button.text = "MASTER SOUND: OFF" if _muted else "MASTER SOUND: ON"
  sound_button.tooltip_text = sound_button.text
  motion_button.text = "TRANSITIONS: OFF" if _reduced_motion else "TRANSITIONS: ON"
  motion_button.tooltip_text = "Off shows the same results immediately in this play session."
@@ -96,6 +104,10 @@ func set_preferences(sound_muted: bool, motion_reduced: bool, notes_caption: Str
  notes_button.tooltip_text = notes_button.text
  _link_focus()
  _queue_fit()
+
+func set_audio_status(message: String) -> void:
+ _audio_status_text = message
+ if is_instance_valid(_audio_status):_audio_status.text = message
 
 func _buttons() -> Array[Button]:
  var result: Array[Button] = []
