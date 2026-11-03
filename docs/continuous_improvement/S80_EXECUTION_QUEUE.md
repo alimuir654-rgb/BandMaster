@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game source: `5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2` (S97 BOTH owner-approved adjusted audition clips integrated; S95 original and S96 optional Indie genre preview retained).414curated/413Git+146Bentry, cleanfinalsourceprivateimport/73/88/4standard and8completeauditions3498checks verified. Scopedplayback internal_pass; overallvisualPARTIAL/ownerfalse/deviceaudio untested. S98V10/code10/source5b08 privatelyDELIVERED afterfreshdirectupload+Alireaderapproval; exactfileowner+AliACLverified. V9retained; physicalinstall/audio/saveretentionunverified. FutureautomaticAPKheld. MissinghistoricalTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
+Current verified game source: `f2361e352be0a6c2fa2680cb20b6edff3879c890` (S99 clearer audition stages/comparison/next actions and remembered device audio On/Off). Exact415 curated rows,73/88/clean private import/4standards plus3665 full focused checks; all20Godot raw0/ERRORempty. Scoped internal_pass, overall visualPARTIAL/ownerfalse. Three new Indie full-band/splash/Arjun clips now directly ownerACCEPTED. No new APK; delivered V10 remainsS97/5b08/privateowner+Ali. Same sole queue/thread/finite4Nov21:24:35Londonend; missing historicalTMP evidence unavailable/closed.
 
 ## Ownership and work in progress
 
@@ -18,7 +18,7 @@ These are bounded delegated roles, not continuously running services. Root activ
 
 ## Next shipping priority
 
-**UX02 CLOSED S91; original audition playback S95, optional Indie genre preview S96 and BOTH approved variations S97 are COMPLETE.** Next is UX03 booking/calendar/due-day departure WHOLE-TASK REVIEW under fresh bounded contract/storage/committedpreflight. Review actualcurrentphone/shortwide journey; no presumeddefect or booking/economyrebuild. No closedmilestone/unchanged-suite reruns foractivity.
+**Latest direct owner feedback takes priority.** S99 first presentation/audio-settings slice verified; broader task in progress. Next fresh scoped S100 integrates approved full-band Indie example, splash cadence and Arjun guitar audition alongside Jack, with additive authored work/outside-commitment context before invitation. Preserve approved biographies, Jack content/audio/history, real costs and atomic save guards; hidden skill numbers stay private. Further bass/drum comparisons follow under fresh scopes. UX03 whole booking/calendar/due-day review remains behind this feedback; no presumed economy rebuild. User requests overnight plan after this task and no updated APK yet.
 
 ## Artwork worklist
 

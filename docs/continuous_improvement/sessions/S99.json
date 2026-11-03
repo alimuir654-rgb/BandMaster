@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S99",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner accepts auditionprocess butrequests clearerdriving, morecandidateperformances, personaljobs/commitments, fullbandgenreexamples, comparativevisualreview, feelgoodsplashcue, audioon/off. Adoptentirefeedback inS80; implementbounded settings+orientation first, prepareexactexpandedcast/audio contracts. V10unchanged/no newAPK.",
   "baseline_sha": "745102cebb1157572796f24df13fde75760c0f7d",
@@ -30,8 +30,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1372690,
-    "sha256": "629a9faf2e236269822226b5824ed9c6da3c48c6557320ea40310577068d186a"
+    "bytes": 1374034,
+    "sha256": "40b7c55e436b12f198bc284086a309f31c913747eedf8518bc397a51d6b846b1"
   },
   "target": {
     "locator": "/workspace/work/s97-approved-variants-20261103/runs/final-phone-own-v3/captures/adjusted-playing-own_part-390x844.png",
@@ -69,17 +69,13 @@
     "PrimaryPentiment/Wildermyth/FM comparisonsactualreferences andsourcegroundedcast/jobdifferenceplan; no copyingUIart/hiddenstats/bestchoicegrade",
     "Wholeownerfeedbackandexactpendingacceptance/dependencyboundaries reconciledintoS80/Pages/currentcanonical/release; samequeue/thread/finiteend."
   ],
-  "root_lease": {
-    "id": "S99-feedback-settings-orientation-20261103T2250",
-    "writer": "/root",
-    "expires_at": "2026-11-04T01:00:00Z"
-  },
+  "root_lease": null,
   "started_at": "2026-11-03T22:48:55.182986+00:00",
   "scope_end": "2026-11-04T01:00:00Z",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "queue_task": "OwnerV10feedback: clearerexperience/Audio foundation +adoptwholeexpansionroadmap",
   "reviewer": "foundation_tests independentpredesign/early/final actualpixels+scratchQA; game_design_research read-onlycast/audiofeasibility; rootonlysource/engine",
   "storage_plan": {
@@ -104,7 +100,7 @@
       "prospective_remaining_receipt_tail_bytes": 181448
     }
   },
-  "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening.",
+  "next_action": "Fresh scoped S100: integrate three exact approved clips, canonical Arjun saved audition beside Jack, and additive authored work/commitment context. Preserve Jack history and original atomic save/economy guards. No updated APK. Overnight plan after verified completion.",
   "audio_review_amendment": {
     "kind": "Selected offline source/listening pilots ONLY; no shippingaudiointegration",
     "approved_resources": [
@@ -139,5 +135,125 @@
     "independent_source_review": "game_design_research primarypinnedCC0licences/authorpages/12Gitentries read inthread, no acquiredaudioheardclaim",
     "next": "Authorrootfrozenacquisition+scores+samplerresources; helpernoncompeting scratchonly; rootCPUrender afterexactsourcechecks. Rendererproofnotmusicalcredibility."
   },
-  "latest_direct_owner_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json"
+  "latest_direct_owner_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
+  "tested_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
+  "closeout": {
+    "session": "S99",
+    "tested_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
+    "technical_pass": true,
+    "visual_verdict": "partial",
+    "scoped_audio_preferences_audition_guidance": "internal_pass",
+    "owner_approved": false,
+    "closed_at": "2026-11-03T23:17:38.360381+00:00",
+    "evidence": {
+      "source": "/workspace/work/s99-feedback-20261103/source-final.json",
+      "protection": "/workspace/work/s99-feedback-20261103/source-storage-protection-final.json",
+      "logs": "/workspace/work/s99-feedback-20261103/accepted-log-audit.json",
+      "RGBA": "/workspace/work/s99-feedback-20261103/standard-RGBA-comparison.json",
+      "root_actual_opens": "/workspace/work/s99-feedback-20261103/root-actual-opens.json",
+      "independent_final": "/workspace/work/s99-feedback-20261103/review/independent-review.json",
+      "audio_review": "/workspace/work/s99-feedback-20261103/audio-review-summary.json",
+      "direct_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
+      "display_stop": "/workspace/work/s99-feedback-20261103/display-stop.json",
+      "new_context_draft": "/workspace/work/s99-feedback-20261103/candidate-context-draft.json",
+      "comparative_visual_review": "/workspace/work/s99-feedback-20261103/visual-comparison.md"
+    },
+    "actual_Godot_executions": 20,
+    "all_Godot_rawexit0_ERRORempty": true,
+    "source_corrective_iterations": 0,
+    "standard_physical_PNGs": 232,
+    "canonical_families": 216,
+    "RGBA_counts": {
+      "exact": 160,
+      "scoped_audition": 16,
+      "scoped_settings": 24,
+      "scoped_menu_audio_label": 12,
+      "known_Reopen_fade": 4,
+      "unexpected": 0
+    },
+    "physical_PNGs_total": 262,
+    "focused": {
+      "full_preference_checks": 1916,
+      "four_complete_owned_audition_checks": 1749,
+      "combined_full_checks": 3665,
+      "early_separate_partial_checks": 760,
+      "actual_FS_audition_failure_retries": 8,
+      "actual_original_talent_invites": 4,
+      "preferences": "Four actual tmp-directory write failures, deliberate off/on retry; preference file sole new user:// exception. RootUI destroyed/recreated reads disk; not OS-process/phone restart. Zero Game/owner save effects.",
+      "audition_fixtures": "Original public begin_new/set_genre/to_recruit then native audition/actions/invite; not four whole initial menus.",
+      "natural_original_audio_completion": "phone only"
+    },
+    "source": {
+      "count": 415,
+      "Git": 414,
+      "bytes": 96601115,
+      "digest": "a8b5e6ed610e0032dac452062606b6a4a5d1616014d766e54b3148d1eafa27a9",
+      "manifest_sha256": "30a239beeb4b61b572b1b9d1cd1913fa00a1e2df94200af1028d387ba79cf7e2",
+      "copy_only_manifest_rows": true,
+      "runtime_extras_excluded": 358,
+      "protected_prior_rows": 411
+    },
+    "root_actual_original_opens": 18,
+    "independent_actual_original_opens": 22,
+    "independent_predesign_retained_opens": 9,
+    "independent_review_sha256": "2877c3d4e73f8107d9b79ea429d1d96ec4511d5351eed7660bbf68d6023c688c",
+    "audio": {
+      "selected_clips": 3,
+      "owner_listening": "ACCEPTED_DIRECT_ALL_THREE",
+      "game_integration": false,
+      "sampler_outer_raw_exits": "UNAVAILABLE; completed report/output hashes verified, no invented exit or rerender.",
+      "actual_FFmpeg_rawexit0": 17,
+      "rendered_WAV_including_failed_v1_seconds": 92,
+      "rendered_WAV_bytes": 23232576,
+      "no_new_upload_or_sharing": true
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "new_player": "Phase/next-action/reveal-only guidance clear.",
+      "musician": "Original/adjusted material preserved; new audio not yet integrated.",
+      "returning_player": "Original checkpoints/talent/history unchanged.",
+      "accessibility": "48px keyboard/focus/body-scroll controls and remembered On/Off.",
+      "art_direction": "Existing type/paper/flightcase language; static people/tall-wide sparsity remain."
+    },
+    "material_gaps": [
+      "Broader feedback in progress: Arjun/candidate expansion, personal context, full-band genre/splash integration next scoped source task.",
+      "Phone speaker/headphone, physical OS interruptions/IME/install/save retention untested.",
+      "Phone paper/shortwide failure voice use normal body scroll; essential actions/error/public talent readable.",
+      "External primary design references consulted; detailed external pixels/playing those games not claimed.",
+      "No new APK; V10 remains S97 source."
+    ],
+    "new_issue_review": {
+      "events": [
+        "S99-20261103-863",
+        "S99-20261103-864",
+        "S99-20261103-865",
+        "S99-20261103-866",
+        "S99-20261103-867",
+        "S99-20261103-868",
+        "S99-20261103-869"
+      ],
+      "failed_attempts_retained": true,
+      "durable_subcap": "Observed867128B exceeded512KiB; prospectively funded1MiB within unchanged4MiB aggregate, no deletion/backdating.",
+      "unexecuted_closeout_script": "869 preserved; corrected script syntax-compiled before run."
+    },
+    "next_action": "Fresh scoped S100: integrate three exact approved clips, canonical Arjun saved audition beside Jack, and additive authored work/commitment context. Preserve Jack history and original atomic save/economy guards. No updated APK. Overnight plan after verified completion.",
+    "source_artifact_helpers_GL_released": true,
+    "display": "30452 stopped/socketgone/configpins exact; defunct entry retained.",
+    "overnight_plan": "User requests after broader feedback task; not yet drawn."
+  },
+  "closed_at": "2026-11-03T23:17:38.360381+00:00",
+  "player_task": {
+    "goal": "Understand/complete Jack audition and control remembered sound",
+    "start": "Original recruiting setup/title settings",
+    "end": "Original invitation once/persisted audio choice",
+    "commitment": "Original talent invite; preferences separate",
+    "interruptions": [
+      "Menu",
+      "resize",
+      "hide/focus",
+      "failed writes",
+      "typed reload",
+      "mute"
+    ],
+    "disposition": "Scoped complete; broader feedback next S100"
+  }
 }

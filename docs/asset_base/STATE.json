@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "active",
+  "status": "S99_complete_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S99V10feedback firstpresentationAudio/phaseclarity +wholefeedbackadoption",
-  "writer": "S99-feedback-settings-orientation-20261103T2250",
-  "last_verified_code_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "writer": null,
+  "last_verified_code_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S97",
-  "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening.",
+  "next_action": "Fresh scoped S100: integrate three exact approved clips, canonical Arjun saved audition beside Jack, and additive authored work/commitment context. Preserve Jack history and original atomic save/economy guards. No updated APK. Overnight plan after verified completion.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1901,19 +1901,18 @@
   },
   "last_verified_local_native_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "latest_local_checkpoint": {
-    "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-    "complete_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
-    "manifest": "/workspace/work/s97-approved-variants-20261103/candidate-v1/source-final.json",
-    "runtime": "/workspace/work/s97-approved-variants-20261103/candidate-v1/runtime",
-    "source_protection": "/workspace/work/s97-approved-variants-20261103/source-storage-protection-final.json",
-    "logs": "/workspace/work/s97-approved-variants-20261103/accepted-log-audit.json",
-    "standard_RGBA": "/workspace/work/s97-approved-variants-20261103/standard-RGBA-comparison.json",
-    "final_visual": "/workspace/work/s97-approved-variants-20261103/review/final-v1.json",
+    "source_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
+    "complete_validation": "/workspace/work/s99-feedback-20261103/closeout.json",
+    "manifest": "/workspace/work/s99-feedback-20261103/source-final.json",
+    "runtime": "/tmp/bandmaster-s99-feedback-20261103/runtime",
+    "source_protection": "/workspace/work/s99-feedback-20261103/source-storage-protection-final.json",
+    "logs": "/workspace/work/s99-feedback-20261103/accepted-log-audit.json",
+    "standard_RGBA": "/workspace/work/s99-feedback-20261103/standard-RGBA-comparison.json",
+    "final_visual": "/workspace/work/s99-feedback-20261103/review/independent-review.json",
     "visual_verdict": "partial",
-    "scoped_audition_variants": "internal_pass",
     "owner_approved": false,
     "current_phone_APK_is_this_source": false,
-    "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
+    "phone_source_unchanged": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2"
   },
   "candidate_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "candidate_native_verified": true,
@@ -1983,7 +1982,7 @@
         "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
         "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
         "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
-        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47–S52, one final useful milestone APK remains conditional on stable core.",
+        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
         "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
         "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
       ]
@@ -2419,7 +2418,7 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": null,
   "last_writer": "S98-owner-apk-v10-20261103T2205",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
@@ -2525,11 +2524,11 @@
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
   "delivery_status": "PrivateV9/source625 remains current phone APK; unchanged/excludesS83/S84/S86/audio. Three selected source-study-v1 WAVs privately accessible to owner chair@lovewelluk.com and named reader alimuir654@gmail.com only, owner requests quality revision. No new accepted audio/integration/APK work.",
   "completion_gate": {
-    "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "tested_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
     "technical_pass": true,
     "visual_verdict": "partial",
     "owner_approved": false,
-    "validation": "/workspace/work/s97-approved-variants-20261103/closeout.json"
+    "validation": "/workspace/work/s99-feedback-20261103/closeout.json"
   },
   "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
   "art_delegation": null,
@@ -2999,17 +2998,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -3057,11 +3056,7 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S98 V10 privateAPKdelivered owner+Ali; physicalphonepending",
-  "root_lease": {
-    "id": "S99-feedback-settings-orientation-20261103T2250",
-    "writer": "/root",
-    "expires_at": "2026-11-04T01:00:00Z"
-  },
+  "root_lease": null,
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -3513,17 +3508,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -4962,7 +4957,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "/root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5158,7 +5153,9 @@
   },
   "latest_owner_playtest_feedback": {
     "path": "/workspace/work/s99-feedback-20261103/owner-feedback.json",
-    "original_audition_process": "DIRECTPOSITIVE",
-    "V10userfeedback": "newscopeprioritised, notwholeGame/art/deviceclaim"
+    "original_audition_process": "DIRECT_POSITIVE",
+    "latest_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
+    "no_updated_APK": true,
+    "overnight_plan_after_current_task": true
   }
 }
