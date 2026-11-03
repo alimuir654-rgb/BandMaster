@@ -5,6 +5,8 @@ const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
 const AuditionDesk = preload("res://experiments/playable_flightcase/audition_desk.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
+const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbench_desk.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
@@ -55,6 +57,10 @@ var _work_dialog: Control
 var _work_expected: Dictionary = {}
 var _work_epoch := 0
 var practice_activity := "create"
+var _workbench_desk
+var _workbench_finished := false
+var _workbench_finished_ref: Dictionary={}
+
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
 # contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
@@ -95,7 +101,13 @@ func _ready() -> void:
  _rebuild()
 
 func _clear() -> void:
+ # Keep this exact native editor/caret/local buffer during responsive reflow.
+ if is_instance_valid(_workbench_desk) and _workbench_desk.get_parent()!=self:
+  _workbench_desk.get_parent().remove_child(_workbench_desk)
+  add_child(_workbench_desk)
+  _workbench_desk.hide()
  for child in get_children():
+  if is_instance_valid(_workbench_desk) and child==_workbench_desk:continue
   if is_instance_valid(_session_overlay) and child==_session_overlay:
    continue
   if is_instance_valid(_work_dialog) and child==_work_dialog:
@@ -206,7 +218,8 @@ func _rebuild() -> void:
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
- if encounter_chrome:status.free()
+ var workbench_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and bool(opening_owner.workbench_view().get("active",false))
+ if encounter_chrome or workbench_chrome:status.free()
  else:root_box.add_child(status)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
@@ -700,13 +713,19 @@ func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
 func _select_practice_activity(kind: String) -> void:
  if session_busy or kind not in ["create","tighten","connect"]:
   return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():
+  _workbench_desk.request_exit("practice:"+kind)
+  return
+ _workbench_finished=false
+ _workbench_finished_ref={}
  practice_activity = kind
  _rebuild()
  call_deferred("_restore_practice_focus","PracticeMode_"+kind)
 
 func _practice_back() -> void:
- if not session_busy:
-  back_requested.emit()
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("menu")
+ else:back_requested.emit()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = size.x
@@ -724,6 +743,23 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
  modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect"][index])))
  root_box.add_child(modes)
+ if _workbench_finished:
+  _finished_workbench_page(root_box)
+  return
+ if opening_owner!=null and practice_activity=="create":
+  var notebook: Dictionary=opening_owner.workbench_view()
+  if notebook.get("active",false) or (notebook.get("exists",false) and notebook.get("held",false)):
+   if not is_instance_valid(_workbench_desk):
+    _workbench_desk=WorkbenchDesk.new()
+    _workbench_desk.configure(opening_owner,reduced_motion)
+    _workbench_desk.write_requested.connect(_write_workbench)
+    _workbench_desk.exit_ready.connect(_workbench_exit)
+    _workbench_desk.closed.connect(func():recap_expanded=false;_rebuild())
+   elif _workbench_desk.get_parent()!=null:_workbench_desk.get_parent().remove_child(_workbench_desk)
+   root_box.add_child(_workbench_desk)
+   _workbench_desk.show()
+   _workbench_desk.refresh_saved(_workbench_desk.has_local_edits())
+   return
  var scroll := ScrollContainer.new()
  scroll.name = "PracticeScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -766,6 +802,10 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  info.add_child(_label("THE BAND",19))
  for person in game.career.get("members",[]):
   info.add_child(_label("%s  •  %s   morale %d" % [str(person.get("name","")),str(person.get("role","")),int(person.get("morale",0))],16))
+ if opening_owner!=null and not Workbench.finished(opening_owner.snapshot()).items.is_empty():
+  var sketches: Button=_button("FINISHED LYRIC SKETCHES",_open_finished_workbench,"tab")
+  sketches.name="WorkbenchFinishedAction"
+  info.add_child(sketches)
  info.add_child(_label("YOUR ORIGINALS",18))
  if game.career.get("song_catalogue",[]).is_empty():
   info.add_child(_label("No finished originals yet. Three writing sessions will complete your first song.",16))
@@ -818,8 +858,9 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  _refresh_practice_commitment()
 
 func _open_career() -> void:
- if not session_busy:
-  career_requested.emit()
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("career")
+ else:career_requested.emit()
 
 func _writing_notes(info: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
@@ -987,8 +1028,11 @@ func _refresh_practice_commitment() -> void:
    validation.text = "3–48 characters" if empty_title else str(preview.get("message","Choose a title and session leader."))
    validation.add_theme_color_override("font_color",Color("695c4b") if empty_title else Color("954a42"))
   var write: Button = find_child("WriteAction",true,false) as Button
+  if write==null:write=find_child("WorkbenchBeginAction",true,false) as Button
   if write!=null:
-   write.text = "WRITE SESSION %d OF 3" % [clampi(int(game.career.get("song_draft_progress",0)),0,2)+1]
+   var start_pilot: bool=opening_owner!=null and idea_index==1 and form_index==0 and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty()
+   write.text = "OPEN LYRIC SKETCH · FREE" if start_pilot else "WRITE SESSION %d OF 3" % [clampi(int(game.career.get("song_draft_progress",0)),0,2)+1]
+   write.name="WorkbenchBeginAction" if start_pilot else "WriteAction"
    write.disabled = not bool(preview.get("ok",false))
  elif practice_activity=="tighten":
   summary.text = "Readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
@@ -1118,7 +1162,63 @@ func _launch() -> void:
   last_message = str(game.launch()["message"])
   _rebuild()
 func _write() -> void:
+ if opening_owner!=null and idea_index==1 and form_index==0 and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  _begin_workbench()
+  return
  _commit_session("create")
+
+func _begin_workbench() -> void:
+ if session_busy or opening_owner==null:return
+ var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected())
+ last_message=str(result.message)
+ if result.get("ok",false):recap_expanded=false
+ _rebuild()
+
+func _write_workbench(expected: Dictionary) -> void:
+ _commit_session("create",{},{"expected":expected})
+
+func _workbench_exit(destination: String) -> void:
+ if session_busy:return
+ if destination=="menu":back_requested.emit()
+ elif destination=="career":career_requested.emit()
+ elif destination=="load":_load_original()
+ elif destination=="finished":_workbench_finished=true;_workbench_finished_ref={};_rebuild()
+ elif destination.begins_with("practice:"):
+  var kind: String=destination.trim_prefix("practice:")
+  if kind in ["create","tighten","connect"]:_workbench_finished=false;_workbench_finished_ref={};practice_activity=kind;_rebuild()
+
+func _open_finished_workbench() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("finished")
+ else:_workbench_finished=true;_workbench_finished_ref={};_rebuild()
+
+func _finished_workbench_page(root_box: VBoxContainer) -> void:
+ var scroll:=ScrollContainer.new()
+ scroll.name="WorkbenchFinishedList"
+ scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ root_box.add_child(scroll)
+ var body:=_box()
+ body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ scroll.add_child(body)
+ body.add_child(_label("SAVED LYRIC SKETCHES",22))
+ if not _workbench_finished_ref.is_empty():
+  var selected: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+  if selected.ok:
+   var fragment: Dictionary=selected.fragment.fragment
+   var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
+   words.name="WorkbenchFinishedText"
+   body.add_child(words)
+   body.add_child(_label("The words saved with this finished original.",16))
+  else:body.add_child(_label(selected.message,16))
+ for item in Workbench.finished(opening_owner.snapshot()).items:
+  var reference: Dictionary=item.reference.duplicate(true)
+  var action: Button=_button(str(item.title),func():_workbench_finished_ref=reference;_rebuild(),"tab")
+  action.name="WorkbenchFinished_%d" % int(reference.catalogue_index)
+  body.add_child(action)
+ var back: Button=_button("BACK TO WRITING",func():_workbench_finished=false;_workbench_finished_ref={};_rebuild(),"tab")
+ back.name="WorkbenchFinishedBack"
+ root_box.add_child(back)
 func _outcome_line(result: Dictionary) -> String:
  if not bool(result.get("ok",false)) or not result.has("outcome"):
   return str(result.get("message",""))
@@ -1135,7 +1235,7 @@ func _rehearse() -> void:
 func _connect() -> void:
  _commit_session("connect")
 
-func _commit_session(kind: String, expected: Dictionary = {}) -> void:
+func _commit_session(kind: String, expected: Dictionary = {}, workbench_request: Dictionary = {}) -> void:
  if session_busy:
   return
  if opening_owner!=null and RadioVisit.locked(game.career):
@@ -1171,22 +1271,48 @@ func _commit_session(kind: String, expected: Dictionary = {}) -> void:
  # another legitimate day while this committed result is being presented.
  session_busy = true
  var before_snapshot: Dictionary = game.snapshot().duplicate(true)
+ var workbench_ticket := ""
+ var prepared: Dictionary={}
+ if not workbench_request.is_empty():
+  if kind!="create" or opening_owner==null or not Workbench._keys(workbench_request,["expected"]) or not workbench_request.get("expected") is Dictionary:
+   session_busy=false
+   return
+  var acquired: Dictionary=opening_owner.begin_workbench_commit(workbench_request.expected)
+  if not acquired.ok:
+   session_busy=false
+   last_message=acquired.message
+   _rebuild()
+   return
+  workbench_ticket=acquired.transaction_id
+  prepared=acquired.prepared
+  before_snapshot=acquired.before_game
  var result: Dictionary
- if kind=="create":
+ if not workbench_ticket.is_empty():
+  result=game.write_session_prepared(str(prepared.args.idea),str(prepared.args.form),str(prepared.args.title),int(prepared.args.leader_index),prepared)
+ elif kind=="create":
   result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  elif kind=="tighten":
   result = game.rehearse_attending(situation.attendee_indices)
  else:
   result = game.clear_air()
  if not bool(result.get("ok",false)):
+  if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(result.get("message","The writing session could not start.")))
   last_message = _outcome_line(result)
   session_busy = false
   _rebuild()
   return
+ if not workbench_ticket.is_empty():
+  var checked_original: Dictionary=opening_owner.complete_workbench_original(workbench_ticket,result)
+  if not checked_original.ok:
+   session_busy=false
+   last_message=checked_original.message
+   _rebuild()
+   return
  if kind!="tighten":
   var tracked: Dictionary=Situation.after_action(before_snapshot.get("career",{}),game.career)
   if not tracked.ok:
-   game.restore(before_snapshot)
+   if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(tracked.message))
+   else:game.restore(before_snapshot)
    session_busy=false
    last_message=str(tracked.message)
    _rebuild()
@@ -1196,7 +1322,8 @@ func _commit_session(kind: String, expected: Dictionary = {}) -> void:
   game.career = Live.after_practice(before_snapshot.get("career",{}),game.career)
   var accounted: Dictionary = Finance.apply(before_snapshot.get("career",{}),game.career,"practice:"+kind)
   if not bool(accounted.get("ok",false)):
-   game.restore(before_snapshot)
+   if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(accounted.get("message","The accounts could not be reconciled.")))
+   else:game.restore(before_snapshot)
    session_busy=false
    last_message=str(accounted.get("message","The accounts could not be reconciled."))
    _rebuild()
@@ -1205,7 +1332,15 @@ func _commit_session(kind: String, expected: Dictionary = {}) -> void:
   result["state"] = game.career.duplicate(true)
   if game.career.get("last_rehearsal_outcome",{}) is Dictionary:
    result["outcome"] = game.career.get("last_rehearsal_outcome",{}).duplicate(true)
-  if not bool(opening_owner.save_draft()):
+  if not workbench_ticket.is_empty():
+   var sealed: Dictionary=opening_owner.finish_workbench_commit(workbench_ticket)
+   if not sealed.ok:
+    session_busy=false
+    last_message=sealed.message
+    _rebuild()
+    return
+   result=sealed.result
+  elif not bool(opening_owner.save_draft()):
    game.restore(before_snapshot)
    session_busy = false
    last_message = "The session could not be saved. Your previous band state and pending choices are retained."
@@ -1338,8 +1473,13 @@ func _save() -> void:
  last_message = "Sandbox saved." if okay else "Sandbox save failed."
  _rebuild()
 func _load() -> void:
- if session_busy:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():
+  _workbench_desk.request_exit("load")
   return
+ _load_original()
+
+func _load_original() -> void:
  var okay: bool = bool(opening_owner.load_draft()) if opening_owner != null else game.load_sandbox()
  if okay and opening_owner != null:
   game = opening_owner.game

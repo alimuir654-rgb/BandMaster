@@ -1,5 +1,6 @@
 extends Control
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const SafeArea = preload("res://experiments/playable_flightcase/mobile_safe_area.gd")
 const SAFE_BACKDROP = preload("res://components/control_atlas/art/case_surface.png")
@@ -195,6 +196,8 @@ func _render() -> void:
   _menu()
  elif bool(setup.audition_view().get("held",false)):
   _audition_hold()
+ elif Workbench.preplay_held(setup.snapshot()):
+  _workbench_preplay_hold()
  elif setup.screen == "genre":
   _genre()
  elif setup.screen == "recruit":
@@ -218,6 +221,17 @@ func _render() -> void:
  # menu for input as well as drawing, without triggering exit-tree hooks.
  if is_instance_valid(_new_band_dialog):
   move_child(_new_band_dialog,get_child_count()-1)
+
+func _workbench_preplay_hold() -> void:
+ var root:=_make_shell()
+ root.name="WorkbenchPreplayHeldShell"
+ root.add_child(_label("SAVED LYRIC SKETCH HELD",22))
+ root.add_child(_label("This saved opening contains lyric metadata from a career. Its source is retained; ordinary formation cannot replace it. Return to the menu for compatible review or an explicitly confirmed new band.",16))
+ root.add_child(_button("BACK TO MENU",_home,"action","WorkbenchPreplayMenu"))
+
+func _workbench_priority() -> String:
+ if not setup.game.career.has(Workbench.KEY):return ""
+ return str(setup.workbench_view().get("priority","review"))
 
 func _audition_hold() -> void:
  var root:=_make_shell()
@@ -1052,12 +1066,16 @@ func _practice() -> void:
  panel.game = setup.game
  panel.opening_owner = setup
  panel.reduced_motion = reduced_motion
+ var sketch: Dictionary=setup.workbench_view()
+ if sketch.get("active",false) or (sketch.get("exists",false) and sketch.get("held",false)):
+  panel.practice_activity="create"
+  panel.recap_expanded=false
  panel.back_requested.connect(_home)
  panel.career_requested.connect(_open_career_desk)
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
- if Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career):
+ if Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":
   call_deferred("_open_career_desk")
 
 func _open_career_desk() -> void:
@@ -1082,7 +1100,7 @@ func _open_career_desk() -> void:
  elif RadioVisit.locked(setup.game.career):
   _career_view.call("_navigate","recording")
   _career_view.call_deferred("_restore_focus","StudioNote")
- elif LiveRules.show_day(setup.game.career):
+ elif LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":
   _career_view.call("_navigate","gigs")
   _career_view.call_deferred("_restore_focus","LiveMainAction")
  else:
@@ -1094,6 +1112,9 @@ func _return_from_career(activity: String = "") -> void:
   return
  if RadioVisit.locked(setup.game.career):
   if is_instance_valid(_career_view):_career_view.call("_navigate","recording")
+  return
+ if _workbench_priority()=="show":
+  if is_instance_valid(_career_view):_career_view.call("_navigate","gigs")
   return
  if is_instance_valid(_career_view) and bool(_career_view.get("busy")):
   return
