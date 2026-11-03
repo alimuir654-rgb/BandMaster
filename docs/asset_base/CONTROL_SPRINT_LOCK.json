@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "S84-song-fragment-contract-20261103T0231",
   "base_head": "336a17952649502a7fd44411999812d7e170da1f",
-  "claimed_at": "2026-11-03T01:19:46.588127+00:00",
-  "expires_at": "2026-11-03T04:15:00Z",
-  "scope": "ONE substantive Jack audition and atomic opening invitation; early controls/layout gate; NO APK.",
+  "claimed_at": "2026-11-03T02:31:04.346813+00:00",
+  "expires_at": "2026-11-03T03:30:00Z",
+  "scope": "S84 saved-song workbench contract/pre-design ONLY; source/art/engine authority pending committed reviewed amendment.",
   "authority": "Latest direct owner booking request and48hour extension",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
-  "released_at": "2026-11-03T02:23:59.007622+00:00",
+  "status": "claimed",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "After actualS83root/source/helper/GLrelease, fresh scoped S84(or actualnextfree) saved-song creative fragment contract; read /tmp/bandmaster-s84-prep-20261103/S84_SONG_FRAGMENT_PROPOSAL.md as proposal, define full additive/paid-session/rollback/legacy contracts before source. No APK.",
+  "pending_helpers": true,
+  "next_action": "Complete reviewed additive saved-fragment/paid-session/whole-owner rollback/content contract and source allowlist, commit/gate BEFORE implementation. No APK.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S83",
+  "session": "S84",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -482,7 +482,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
-  "current_session": "S83",
+  "current_session": "S84",
   "closed_at": "2026-11-03T00:51:20.374306+00:00",
   "last_updated_utc": "2026-11-03T00:51:20.374306+00:00",
   "last_validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json",
@@ -767,7 +767,7 @@
   },
   "finite_end": "2026-11-04T21:24:35+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "session_path": "docs/continuous_improvement/sessions/S83.json",
+  "session_path": "docs/continuous_improvement/sessions/S84.json",
   "last_verified_code_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "last_verified_game_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "last_verified_local_native_source_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
@@ -784,14 +784,14 @@
     "authority": "Owner Max out next48hours",
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
     "same_thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "status": "active_finite_opportunities_current_source_released",
+    "status": "active_S84_contract_root_not_released",
     "no_new_breadth": "2026-11-04T19:45:00+00:00",
     "integration_freeze": "2026-11-04T20:15:00+00:00",
     "final_readiness_wake": "2026-11-04T21:15:00+00:00",
     "all_writes_release_by": "2026-11-04T21:20:00+00:00",
     "hard_stop": "2026-11-04T21:24:35+00:00",
     "automatic_extension": false,
-    "next_action": "After actualS83root/source/helper/GLrelease, fresh scoped S84(or actualnextfree) saved-song creative fragment contract; read /tmp/bandmaster-s84-prep-20261103/S84_SONG_FRAGMENT_PROPOSAL.md as proposal, define full additive/paid-session/rollback/legacy contracts before source. No APK."
+    "next_action": "Complete reviewed additive saved-fragment/paid-session/whole-owner rollback/content contract and source allowlist, commit/gate BEFORE implementation. No APK."
   },
   "last_source_writer_release": "2026-11-03T02:23:59.007622+00:00",
   "current_delivery_policy": {
@@ -806,5 +806,7 @@
     "finite_end": "2026-11-04T21:24:35+00:00"
   },
   "tested_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
-  "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json"
+  "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
+  "delegated_contract_reviewer": "/root/s81_contract_safety",
+  "contract_review_pending": true
 }

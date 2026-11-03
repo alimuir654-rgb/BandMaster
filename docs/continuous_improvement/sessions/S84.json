@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "id": "S84",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue authorised lived-band work after closed S83: richer saved-song development; no APK. Initial contract review only, source authority requires reviewed amendment/gate.",
+  "baseline_sha": "a8b920f3dde190e900a9759cfbb2627aeec237a0",
+  "game_baseline_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
+  "dominant_issue": "BM-39",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-09",
+    "BM-10",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "A real editable lyric fragment and literal revision history, source-supported actual member response and same-song durable continuity provide creative substance; review complete contract before code.",
+  "stop_condition": "Contract/pre-design only until exact additive state/paid transaction/content and source allowlist adopted+committed+gated. No game/art/engine work under this initial preflight. Root planning lease ends03:30; no automatic extension or extra queue.",
+  "target": {
+    "locator": "/tmp/bandmaster-s83-20261103/standard/s83-audition-b608-standard-final-v1/captures/c27-practice_mode_create_day1-390x844.png",
+    "original_sha256": "dd8e33dfde00768fa59cf41b697ff5f7cf20f2690bf7a91a69d827e2c8b76db6",
+    "pixels_inspected": true,
+    "kind": "Actual latest b608 phone and1280wide writing form opened byroot; verbal owner experience target and independent material-led predesign gates."
+  },
+  "controlled_comparison": "First define original pipeline equivalence: Game costs/days/quality/counters/IDs and immutable old snapshots remain exact outside declared additive fragment metadata; future early phone/wide actual editor/revision then exactfourview/original73/88/import4standard/focused three-session failure/retry/reload. No execution claimed at contract phase.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
+    "docs/continuous_improvement/sessions/S84.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/LESSONS.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s84-20261103",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "9119b085c0df86ce5c49a097ced62d1223722434c049e9ecf13b56d200ef2721",
+    "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
+  },
+  "issue_log_review": {
+    "bytes": 1099333,
+    "sha256": "68ba4a7f4788ccec3998c4cfe02fb8f435e706776dc7ff01b240fa972c294b6f"
+  },
+  "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
+  "source_contract_sha256": "5e60107d5a8ec3b3aef6b90c58e6bfa49f01f04e7af35ddb111092125feaa09f",
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S84.json",
+    "Contract phase only: no game edits, art generation or engines. Fresh reviewed committed amendment required before implementation."
+  ],
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "new_art_generation_allowed": false,
+  "contract_review_pending": true,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "delegated_source_writer": null,
+  "delegated_contract_reviewer": "/root/s81_contract_safety",
+  "pre_design_review": "/tmp/bandmaster-s84-20261103/review/pre-design/pre-design-review.json",
+  "pre_design_review_sha256": "8091029b4929125841561265b3f8b048694bc7d85e9c394040fc4253ddc3fe1b",
+  "started_at": "2026-11-03T02:31:04.346813+00:00",
+  "scope_end": "2026-11-03T03:30:00Z",
+  "root_lease": "S84-song-fragment-contract-20261103T0231",
+  "current_plan_sequence": 21,
+  "current_review_board_sequence": 129,
+  "storage_plan": {
+    "tmp_free": 1645412352,
+    "minimum_free_floor": 629145600,
+    "no_purge": true,
+    "engine_storage_plan_pending": true
+  },
+  "protected": "All54originalScripts3UID/cast/rawart/fonts/hardware/sixpassivemeters/S71radio/S72goals/S78work/S82booking-gig/S83audition/legacycosts/schema1unknowns/V9source625. No main/PR199/prod/paid/runtimeAI/newdeps/engineupgrade/sourcehistoryupload."
+}
