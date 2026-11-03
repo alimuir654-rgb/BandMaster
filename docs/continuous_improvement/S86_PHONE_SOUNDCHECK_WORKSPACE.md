@@ -4,7 +4,7 @@ Complete task: choose/order tonight’s completed originals, set original approa
 
 ## Bounded layout
 
-Portrait soundcheck: compact source-contained room and actual speaker context; set list first; clearly labelled accessible section retains full-size original approach hardware. Current draft approach/intensity readable. Transient section/focus/appropriate scroll survives local set rebuilds, scoped by booking/phase, never persisted to Game/opening. Refuse section switch during owned hardware gesture; retain original hide/resize/hydration/cancel semantics. Paired landscape remains hardware beside set. Explicit soundcheck-only compact scene opt-in; no other phase changes. No font/hardware/target shrink/new art/identity/camera claims.
+Portrait soundcheck: compact source-contained room and actual speaker context; set list first, followed by full-size original approach hardware in the SAME existing CareerScroll. No tabs, disclosure, new section state or host metadata. Existing owner scroll/focus restoration across set edits remains authoritative. Preserve original hardware hide/resize/hydration/cancel semantics and original gesture guards. Paired landscape remains hardware beside set. Current draft approach/intensity and complete hardware remain accessible by ordinary scroll; do not hide them behind new navigation. Explicit soundcheck-only compact scene opt-in; no other phase changes. No font/hardware/target shrink/new art/identity/camera claims.
 
 Exactly two shipping leaves: gig_journey_desk.gd and gig_journey_scene.gd. All406 other curated rows protected, original54Scripts3UID/Kit/hardware/art/fonts/owner/models/saves unchanged. Extra paths require committed rescope/gate first.
 
