@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "content_source": "res://experiments/playable_flightcase/audition_content.gd",
+  "content_sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e",
+  "materials": {
+    "jack_four_bars_original_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_original_v2.ogg",
+      "sha256": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+      "style": "Indie rock",
+      "instrument": "electric_guitar",
+      "owner_listening_accepted": true,
+      "source_PCM_sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
+      "rights": "CC0 sampled instrument + original authored arrangement; S93 rights receipt local"
+    }
+  }
+}

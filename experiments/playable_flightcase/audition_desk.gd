@@ -5,6 +5,8 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
+const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
+const Content = preload("res://experiments/playable_flightcase/audition_content.gd")
 signal changed(result: Dictionary)
 signal menu_requested
 var owner_state
@@ -21,6 +23,7 @@ var _notice: Label
 var _bio: VBoxContainer
 var _show_prior := false
 var _busy := false
+var _audio
 var _buttons: Array[Button]=[]
 
 func _ready() -> void:
@@ -176,6 +179,10 @@ func _build() -> void:
   paper.add_child(notes)
   notes.add_child(C.paper_label("A FOUR-BAR REHEARSAL SKETCH",18))
   notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. Guitar: Jack’s part."))
+  _audio=AudioPart.new()
+  _audio.configure(_audio_context)
+  notes.add_child(_audio)
+  _audio.set_material(Content.material_id(str(_view.get("request",""))))
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
   _board.columns=4 if wide else 2
@@ -263,6 +270,7 @@ func _inspect(index: int) -> void:
 func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
+ if is_instance_valid(_audio):_audio.set_material(Content.material_id("" if _show_prior else str(_view.get("request",""))))
  _prior_toggle.text="ADJUSTED TRY" if _show_prior else "FIRST TRY"
  _fill_board()
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what Jack changed."
@@ -277,6 +285,7 @@ func _finish_voice() -> bool:
  return false
 
 func _set_busy(value: bool) -> void:
+ if value and is_instance_valid(_audio):_audio.stop()
  _busy=value
  for button in _buttons:
   if is_instance_valid(button):button.disabled=value or not bool(button.get_meta("permitted",true))
@@ -302,4 +311,12 @@ func _returned(result: Dictionary) -> void:
  _notice.visible=true
 
 func _menu() -> void:
+ if is_instance_valid(_audio):_audio.stop()
  if not _busy:menu_requested.emit()
+
+func _audio_context() -> Dictionary:
+ var live: Dictionary=owner_state.audition_view()
+ var allowed: bool=not _busy and live.get("ok",false) and live.get("active",false) and not live.get("held",false) and live.get("phase","") in ["tryout","response","decision"] and owner_state.game.genre=="Indie rock"
+ for key in ["id","revision","phase","request"]:
+  allowed=allowed and live.get(key)==_view.get(key)
+ return {"allowed":allowed,"material_id":Content.material_id("" if _show_prior else str(live.get("request","")))}
