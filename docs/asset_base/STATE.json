@@ -9,7 +9,7 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "S84 saved-song workbench contract/pre-design ONLY; source/art/engine authority pending committed reviewed amendment.",
+  "scope": "S84 one saved lyric workbench: adopted eight-path source implementation, early visual gate and exact proof; no APK.",
   "writer": "S84-song-fragment-contract-20261103T0231",
   "last_verified_code_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "baseline": {
@@ -743,7 +743,7 @@
     }
   },
   "last_sprint": "S79",
-  "next_action": "Complete reviewed additive saved-fragment/paid-session/whole-owner rollback/content contract and source allowlist, commit/gate BEFORE implementation. No APK.",
+  "next_action": "Sole writer implements pure owner/guard checkpoint, then native editable leaf; root executes meaningful model/earlyphone+shortwide gate before full integration/proof. Sourceb608 remains last verified; no S84 candidate yet.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2413,14 +2413,14 @@
   "released_at": null,
   "last_writer": "S83-substantive-audition-20261103T0125",
   "source_write_allowed": true,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified",
   "claimed_at": "2026-11-03T02:31:04.346813+00:00",
-  "expires_at": "2026-11-03T03:30:00Z",
+  "expires_at": "2026-11-03T06:15:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
-  "delegated_source_writer": null,
+  "delegated_source_writer": "/root/s81_contract_safety",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -2772,7 +2772,7 @@
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "scope_end": "2026-11-03T02:30:00Z",
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
-  "source_implementation_pending": false,
+  "source_implementation_pending": true,
   "active_development_run": {
     "authority": "Owner Max out next48hours",
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
@@ -2801,5 +2801,5 @@
   "tested_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": "/root/s81_contract_safety",
-  "contract_review_pending": true
+  "contract_review_pending": false
 }

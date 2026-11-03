@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "S84",
-  "scope": "S84 saved-song workbench contract/pre-design ONLY; source/art/engine authority pending committed reviewed amendment.",
+  "scope": "S84 one saved lyric workbench: adopted eight-path source implementation, early visual gate and exact proof; no APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "claimed",
-  "next_action": "Complete reviewed additive saved-fragment/paid-session/whole-owner rollback/content contract and source allowlist, commit/gate BEFORE implementation. No APK.",
+  "next_action": "Sole writer implements pure owner/guard checkpoint, then native editable leaf; root executes meaningful model/earlyphone+shortwide gate before full integration/proof. Sourceb608 remains last verified; no S84 candidate yet.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3656,14 +3656,14 @@
   "released_at": null,
   "last_writer": "S83-substantive-audition-20261103T0125",
   "source_write_allowed": true,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified",
   "claimed_at": "2026-11-03T02:31:04.346813+00:00",
-  "expires_at": "2026-11-03T03:30:00Z",
+  "expires_at": "2026-11-03T06:15:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
-  "delegated_source_writer": null,
+  "delegated_source_writer": "/root/s81_contract_safety",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -4132,7 +4132,7 @@
   "scope_end": "2026-11-03T02:30:00Z",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
-  "source_implementation_pending": false,
+  "source_implementation_pending": true,
   "active_development_run": {
     "authority": "Owner Max out next48hours",
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
@@ -4161,5 +4161,5 @@
   "tested_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": "/root/s81_contract_safety",
-  "contract_review_pending": true
+  "contract_review_pending": false
 }
