@@ -66,8 +66,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1249221,
-    "sha256": "b9fae5444fdb75f4ac88e0771242ff25aa08abcc2ff3a8c17afb7c2644b6a86e"
+    "bytes": 1250916,
+    "sha256": "82f5cb621c3f31ad6c56a03e5f885806e9066b7eb552d9bc77f51090961843ca"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -245,5 +245,16 @@
     "mtime_ns": 1793694985367584480,
     "ctime_ns": 1793699534727734580
   },
-  "archive_aware_guard_sha256": "4eb64d7e072d88c6a1d769f3009ce32f675d143302aa249718647f17254063cc"
+  "archive_aware_guard_sha256": "4eb64d7e072d88c6a1d769f3009ce32f675d143302aa249718647f17254063cc",
+  "auxiliary_long_title_contract785": {
+    "scope": "one readonlyauxlongset-titlepilot, notfifthfullgig",
+    "actual_title_length": 48,
+    "original_creation": "three originalGame.write_session calls beforebooking/journey, notsnapshotrewrite",
+    "maximum_new_PNGs": 2,
+    "maximum_PNG_bytes": 1048576,
+    "maximum_additional_QA_bytes": 524288,
+    "new_cache_or_source": false,
+    "execution_condition": "remainingcore+closeoutfunded/independentstaticreview/rootonlyengine",
+    "status": "authoring_pending_noexecution"
+  }
 }
