@@ -301,6 +301,8 @@ func refresh_saved(preserve_local: bool=false) -> void:
  _view=owner_state.workbench_view()
  _expected=owner_state.workbench_expected()
  if not is_instance_valid(_text):return
+ var history: Button=find_child("WorkbenchHistory",true,false) as Button
+ if history!=null:history.visible=not Rules.finished(owner_state.snapshot()).items.is_empty()
  if not preserve_local:
   var payload:=_saved_payload()
   if not payload.is_empty():
