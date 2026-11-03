@@ -39,3 +39,8 @@ Splash attempt is process-lifetime static, consumed before any deferred start ev
 ## Completed comparison replay refinement before UI implementation
 
 After a validated completed hearing, the candidate's ordinary notes page may explicitly replay that already-revealed ORIGINAL only, so the owner can compare Jack and Arjun after each saved audition. Generic existing player, candidate-specific accepted manifest set before Ready. Context validates exact currently selected candidate, current same-content completed receipt, no active/held audition and Indie genre; navigation/rebuild disposes it. No autoplay/adjusted unheard clip/save. Whole-owner snapshot/file/save-attempt guard and replay/mute/context tests required. This adds no paths or budget beyond the committed16shippingpaths.
+
+
+## Prospective final candidate funding
+
+Event876 preserves initial82c585424source/cache/import/73/88/model532 and pre-native resumed-candidate UI finding. Before secondsource/cache allocation, rebalance existing768MiBTMP: source210000000/cache210000000/PNG150994944/work234311424B, aggregate805306368 unchanged. Fresh final candidate copies only424curated rows, own empty private cache, no mutation or sharing of initial runtime/cache. Workspace3MiB/600MiBfloors unchanged. Puremodel532 reused only through exact source closure; finalUI source gets actual cleanimport/73/88/4standard/nativeproof.

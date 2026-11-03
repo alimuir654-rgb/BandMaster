@@ -30,8 +30,8 @@
   "game_baseline_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1380019,
-    "sha256": "b2369a0402ce6d4112c78672355ab8376c3ea678567bca3d47aa9ac34af8ed92"
+    "bytes": 1383298,
+    "sha256": "77db94595e2a303c90a72fad89d57feb1151e15da5cc461dd67cbe9d682089a9"
   },
   "target": {
     "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
@@ -97,17 +97,18 @@
   "storage_plan": {
     "TMP_root": "/tmp/bandmaster-s100-feedback-integration-20261103",
     "TMP_aggregate_cap_bytes": 805306368,
-    "source_cap_bytes": 105000000,
-    "private_cache_cap_bytes": 125829120,
+    "source_cap_bytes": 210000000,
+    "private_cache_cap_bytes": 210000000,
     "PNG_cap_bytes": 150994944,
-    "work_failure_closeout_reserve_bytes": 423482304,
+    "work_failure_closeout_reserve_bytes": 234311424,
     "workspace_new_aggregate_cap_bytes": 3145728,
     "workspace_initial_free_bytes": 633458688,
     "durable_receipts_cap_bytes": 786432,
     "workspace_floor_bytes": 629145600,
     "TMP_floor_bytes": 629145600,
     "no_cleanup": true,
-    "no_TMP_criticalGit": true
+    "no_TMP_criticalGit": true,
+    "prospective_rebalance_event": "S100-20261103-876; same805306368B aggregate, preservesinitial424source/cache and fundssecond final runtime/cache"
   },
   "audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
   "next_action": "Implement exact declared16shippingpaths after committed preflight/gate; helper frozen model/native QA in separate scratch only.",
