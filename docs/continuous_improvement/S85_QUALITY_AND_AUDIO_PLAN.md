@@ -1,5 +1,9 @@
 # Quality worklists and a limited audio pilot
 
+**Current decision — approved on3November2026.** The owner checked Approve AU01v1 and said: “Audio plan approved. Hopefully it can align with artwork presentation.” This authorises only the bounded cleared-source/listening study and selected private excerpts. Listening acceptance and fresh integration preflight remain required. S87 source study is governed by `S87_AUDITION_AUDIO_SOURCE_STUDY.md`; Game remains verified3d2, no playback integration or APK work. The original proposal below is retained as history; its pending-status paragraphs no longer describe the plan decision. Original approved bytes are pinned by SHA2563fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a and retained locally.
+
+**Listening outcome — revision requested.** Owner wants natural improvised strumming/chord progressions matched to band style and character instrument skill, preferably generated. V1 remains review history, not accepted audio. Plan28/Board152 record the direct decision; no checkbox was changed for the owner. See current S87 disposition and the single execution worklist. Original approved proposal bytes remain in Git history; the prior TMP copy is unavailable after observed storage loss.
+
 Owner request, 3 November 2026: make the process improvements operational, give artwork and controls/layout roles concrete worklists, and prepare limited audio **for review**. Process/worklist changes are authorised now. Audio acquisition, creation and game integration remain unapproved proposals. Verified game stays `a8a8956396b8d7615e528feacfb914c65facfc4d`; no shipping code, art, audio or APK changed in this planning session.
 
 ## Operating agreement

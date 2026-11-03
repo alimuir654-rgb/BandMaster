@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game: `a8a8956396b8d7615e528feacfb914c65facfc4d` (S84). Technical PASS / visual PARTIAL / owner acceptance pending. V9 remains source625 and excludes S83/S84. **All APK work is held** until a fresh direct owner request. Same queue `6ae532c5fe9c819190f587a022c54052`, same thread and 4 November21:24:35 London end; no new controller, task automation or automatic extension.
+Current verified game source: `3d2b5ed2c93280b9717ab56496ae5ec2134cfb12` (S86); prior local TMP proof currently unavailable after observed loss in S87. Technical PASS / visual PARTIAL / owner acceptance pending. V9 remains source625 and excludes S83/S84/S86/audio. **All APK work is held** until a fresh direct owner request. Same queue `6ae532c5fe9c819190f587a022c54052`, same thread and 4 November21:24:35 London end; no new controller, task automation or automatic extension.
 
 ## Ownership and work in progress
 
@@ -12,7 +12,7 @@ Current verified game: `a8a8956396b8d7615e528feacfb914c65facfc4d` (S84). Technic
 | Game implementation | Existing `s81_contract_safety`, only when delegated | The exact shipping-source paths in the active contract | Never edit another worker's paths or integrate unapproved assets. |
 | Artwork sourcing and method review | Existing `foundation_tests` helper, under an explicit art scope | Asset brief, reuse/source/rights search, changed-method review, scratch production handoff | ONE asset job/version at a time. No automatic generation from this queue. |
 | Controls and layout review | Existing `s81_visual_review` | The UX list below, evidence-backed findings and independent correction review | ONE complete player task under active review; no competing source edits. |
-| Audio source and scope | Existing `game_design_research` | AU01 source/provenance/listening brief once its plan is approved | AU01 is PENDING OWNER; inventory/planning only until then. |
+| Audio source and scope | Existing `game_design_research` | AU01 source/provenance/listening brief once its plan is approved | AU01v1 PLAN APPROVED3Nov; bounded cleared-source/listening study, no integration before listening acceptance. |
 
 These are bounded delegated roles, not continuously running services. Root activates available helpers at useful checkpoints. Source/art/audio acquisition or production always needs the appropriate fresh scoped preflight; a queue row alone is not a production lease. Independent reviews may run in noncompeting scratch paths while the source writer works. Helpers never open another Godot window.
 
@@ -55,12 +55,14 @@ Evidence anchors: S82 `/tmp/bandmaster-s82-20261102/proof-final-625e644/visual-r
 
 ## Audio worklist
 
-**AU01v1 is a PLAN FOR OWNER REVIEW, not implemented or approved audio.** Full specification is in `S85_QUALITY_AND_AUDIO_PLAN.md`. One Jack audition-room source/listening study: at most5 clips/36.5seconds total/4MiB source PCM, at most1MiB future compressed audio payload and2 simultaneous playback streams. No spoken/sung voices, soundtrack, indefinite loop, generic musician bleeps, gig set simulation or new dependencies.
+**AU01 plan APPROVED; source study v1 REVISION REQUESTED by direct owner listening feedback.** Preserve the approved plan and all three earlier private clips/checkbox IDs. No playback integration is approved. Owner wants improvised strumming and chord progressions matching music style and character skill, preferably generated. Do not repeat the single-note assembly method.
 
-1. Owner reviews the bounded plan. Until approval, inventory/proposal only: no clips acquired/generated or integrated.
-2. Once approved under a fresh source budget, clear and prepare the exact original guitar part plus its two supported requested variants, one short room texture and one handling cue. Source and listening review precede shipping-code integration.
-3. If credible matching musical sources or rights are unavailable, HOLD the musical pilot and present the blocker; do not substitute stock loops/bleeps or silently expand into a music library. Other approved source/layout work continues.
-4. Only after the cleared listening study is accepted: a fresh integration contract for explicit phase-appropriate Play/Stop, Master mute, interruption/teardown, equal information, silent fallback and zero gameplay/save/Finance effects. No APK without a new request.
+1. Audio planner: prepare one changed-method source/listening brief, actual selected band genre plus internal instrument-skill calibration. Jack has no personal genre field; do not infer one. Complexity, timing, consistency and feel should sound credible for the actual role; reliability/collaboration are not playing-skill substitutes. No numeric hidden-score/best-choice labels to players.
+2. Verify a credible rights-cleared generation capability first; none is established in currently exposed tools. No paid service/new dependency/runtime AI, generic bleeps or stock-loop shortcut. One <=4s tone/feel prototype including tail can fit retained4files/32.097392s inside max5/36.5s/4MiB. Full replacement set requires prospective cap rescope; no deleting prior history to manufacture budget.
+3. Match small rehearsal-room/static electric-guitar art: natural physical chord changes, string attacks, restrained room and human phrasing. Listening quality and actual instrument credibility need owner acceptance; measurements or Dummy tests cannot establish them. Fresh scoped committed preflight/gate before any new assets.
+4. Only after listening acceptance: fresh integration contract for already-revealed material/Play/Stop/Master mute/interruption/teardown/silent fallback, <=1MiB compressed/max2streams, zero Game/save/Finance/day/phase/invite effects. No APK without a new direct request.
+
+**Evidence/storage readiness:** historical S83–S87 TMP originals/caches/oracles/receipts unexpectedly missing; cause unknown. No reproduction may be called an original. Shipping Git3d2 unchanged and three private review WAVs survive with owner+named Ali reader only. Current workspace metadata remains uncommitted because its12MiB floor cannot fund new full blobs. Do not commit critical objects into the volatile TMP alternate or rerun closed targets. Read durable S87 closeout, then adopt a reviewed preservation/recovery contract before new source/native assets; no arbitrary purge or assumed new-cache permission. Other approved UX/art method preparation remains useful without engines/assets.
 
 ## Ready and done rules
 
@@ -109,3 +111,6 @@ Core principles: uncertainty before decisions; state-earned situations and durab
 S80 quality, S81 gig, S82 joined scheduling and S83 Jack audition are verified local slices. Current game `b6089a1f8570d3c634981ced9c1191fc1594ef89`; latest handoff `/tmp/bandmaster-s83-20261103/closeout.json`. The older01:00 stop above is historical and superseded only by the owner's finite48-hour authority through4Nov21:24:35London. Preserve the existing sole queue/thread. APK work is held until a fresh direct request; V9 remains625.
 
 Next actionable work after actual release is a fresh scoped saved-song fragment workbench, following `/tmp/bandmaster-s84-prep-20261103/S84_SONG_FRAGMENT_PROPOSAL.md` as a proposal only. Adopt full additive checkpoint/three-session/rollback/unknown/legacy contracts and reviewed authored material before implementation. Continue actual-member development and revision, not extra selector/Continue cards. Preserve original3session costs, IDs, quality, immutable recording/show snapshots, uncertainty and priorities. No new breadth4Nov19:45, integration freeze20:15, final21:15 readiness, all writes/release21:20, hard stop21:24:35.
+
+
+**Storage update after direct owner authorisation:** 27 old local APK files deleted, actual2,231,967,744B reclaimed. Disk capacity and ordinary primaryGit metadata commit are now funded; previous capacity/TMPalternate instructions above are historical. Missing prior TMP evidence remains HOLD. No new Game/audio/art/engine/APK production. Cleanup receipt `/workspace/work/s87-audio-closeout-20261103/owner-approved-apk-cleanup.json`.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S87",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Direct owner3Nov: Audio plan approved. Hopefully it can align with artwork presentation. AU01v1 plan approval permits cleared source/listening study; no integration approval.",
   "baseline_sha": "9896e1cf45e37aef26ee58cf8c02267fa04ab21a",
@@ -53,7 +53,10 @@
     "/tmp/bandmaster-s87-audio-20261103/",
     "/workspace/BandMaster/.git/objects/info/alternates",
     "/workspace/work/review-roadmap-20261101/research.json",
-    "/workspace/work/review-roadmap-20261101/research-log.md"
+    "/workspace/work/review-roadmap-20261101/research-log.md",
+    "/workspace/work/s87-audio-closeout-20261103/owner-delivery-recovery.json",
+    "/workspace/work/s87-audio-closeout-20261103/closeout.json",
+    "/workspace/work/s87-audio-closeout-20261103/TMP-loss-observation.json"
   ],
   "reviewed_documents": {
     "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
@@ -61,8 +64,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1257335,
-    "sha256": "996653a9ada28255592af632a4289fd046319417463a175727e6933799e509de"
+    "bytes": 1278369,
+    "sha256": "3d1d0476c9ea4f3b1b4d03aa77bb9d02167cbaab980c136011238faa5c28a985"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S87.json",
@@ -78,7 +81,7 @@
   "scope_end": "2026-11-03T12:45:00Z",
   "queue_task": "AU01v1 approved source/listening study",
   "source_contract": "docs/continuous_improvement/S87_AUDITION_AUDIO_SOURCE_STUDY.md",
-  "source_contract_sha256": "9b89992a4fe309c20991a2f76f4f576475f606abd6264904b4f44dec1f8da7d4",
+  "source_contract_sha256": "71c849e9c75b59c6e53f7a751d3d250abd6e308b16ea69ca776a35a43170f66d",
   "approved_plan_original_path": "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
   "approved_plan_original_sha256": "3fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a",
   "owner_decision": {
@@ -103,11 +106,162 @@
     "failure_closeout_reserve": 2621440,
     "no_native_cache_allocation": true
   },
-  "storage_metadata_phase": "PROPOSAL until committedpreflight/independentreview; no Gitstorage mutation yet",
-  "audio_files_acquired": 0,
+  "storage_metadata_phase": "CAPACITY_CLEARED; ordinary durable primaryGit metadata commit now funded; no TMP newobjects",
+  "audio_files_acquired": 4,
   "source_generation_started": false,
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "Commit preflight/gate; reviewed preserve-all newGitblob phase, then record canonicalapproval/retrievalfinding before any audioacquisition. Independent rights+art checks, bounded rawsource inspection and three musical listeningstudies only.",
-  "storage_static_review": "IndependentHOLD normalgitaddduplicate assumption; adoptedexactOIDcacheinfo plus throwawayproof BEFOREproductionalternates mutation. No storage implementation yet."
+  "pending_helpers": false,
+  "next_action": "Fresh bounded S88 source/evidence recovery preflight, followed by UX02 performance-context native review. Audio requires verified generation capability/rights and owner revised listening; no APK work.",
+  "storage_static_review": "IndependentHOLD normalgitaddduplicate assumption; adoptedexactOIDcacheinfo plus throwawayproof BEFOREproductionalternates mutation. No storage implementation yet.",
+  "current_plan_sequence": 28,
+  "current_review_board_sequence": 152,
+  "source_inspection": "/tmp/bandmaster-s87-audio-20261103/source-inspection.json",
+  "rights_metadata_pins": "/tmp/bandmaster-s87-audio-20261103/rights-metadata-pins.json",
+  "approved_original_plan_retained": "/tmp/bandmaster-s87-audio-20261103/approved-AU01v1-original-plan.md",
+  "Git_blob_storage_dependency": {
+    "status": "CAPACITY_CLEARED_BY_EXPLICIT_OWNER_APK_DELETION",
+    "receipt": "/workspace/work/s87-audio-closeout-20261103/owner-approved-apk-cleanup.json",
+    "deleted_old_local_APKs": 27,
+    "physical_bytes_reclaimed": 2231967744,
+    "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
+    "missing_evidence_still_HOLD": true
+  },
+  "private_audio_reader_authorisation": {
+    "recipient": "alimuir654@gmail.com",
+    "direct_owner_quote": "Give access to alimuir654@gmail.com",
+    "payload": "Onlythree selectedWAV reviewexcerpts",
+    "permission": "reader",
+    "public_or_domain": false
+  },
+  "evidence_availability": "HOLD prior TMP originals missing; durable recovery record clearly post-loss; private3WAVs survive; ownerv1REVISION",
+  "metadata_recovery_rescope797": "Onlythree small durable LOCAL metadata recovery records after observedTMP loss; no source/assets/restoration/rerun authorised bythis rescope. FinalGitmetadata commitHOLD ifworkspacefloororvolatileobjectstore safetyfails.",
+  "closed_at": "2026-11-03T12:09:39.705130+00:00",
+  "closeout": {
+    "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "preflight_sha": "e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1",
+    "status": "CLOSED_PRIVATE_DELIVERY_COMPLETE_AUDIO_REVISION_LOCAL_EVIDENCE_HOLD_STORAGE_CLEARED",
+    "recorded_at": "2026-11-03T12:09:39.705130+00:00",
+    "evidence": {
+      "durable_recovery": "/workspace/work/s87-audio-closeout-20261103/owner-delivery-recovery.json",
+      "TMP_loss_observation": "/workspace/work/s87-audio-closeout-20261103/TMP-loss-observation.json",
+      "private_board": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
+      "board_sequence": 152,
+      "plan_sequence": 28,
+      "private_files_direct_reader": "alimuir654@gmail.com",
+      "private_files_owner": "chair@lovewelluk.com",
+      "remote_original_checksums_exposed": false,
+      "old_TMP_receipts_available": false,
+      "no_reconstruction_as_original": true
+    },
+    "visual_verdict": "hold",
+    "audio_listening_verdict": "owner_revision_requested",
+    "owner_approved": false,
+    "owner_plan_approved": true,
+    "shipping_source_change": false,
+    "Game_engine_model_APK_executions": 0,
+    "source_metrics_historical_tool_attested_only": {
+      "raw_plus_renders_files": 4,
+      "seconds": 32.09739229024943,
+      "bytes_containers": 2950158,
+      "three_review_files_seconds_each": 9.8,
+      "file_format": "mono16PCM44100",
+      "decoded_LUFS": [
+        -23.0,
+        -22.99,
+        -23.0
+      ],
+      "decoded_true_peak_dBTP": [
+        -6.3,
+        -6.28,
+        -7.24
+      ],
+      "measurement_ERROR_lines": []
+    },
+    "actual_image_opens": "Earlier S87 root1 and art reviewer2 S83 phone/shortwide originals were opened before TMP loss. No new images opened in closeout; no surviving local original claim.",
+    "simulated_lenses": {
+      "music_direction": "SIMULATED: owner rejects single-note assembly; natural strumming/voicings/phrasing next.",
+      "art_alignment": "SIMULATED: close electric sound fits small warm room/contact guitar; static art is not playing/lipsync evidence.",
+      "player_uncertainty": "SIMULATED: instrument skill internal production rubric, no numeric hidden stat grade/best-choice key.",
+      "engineering_QA": "SIMULATED: quantitative historical processing cannot establish musical realism; evidence availability HOLD after TMP loss.",
+      "production_rights": "SIMULATED: cleared source history retained in Git/tool outputs/private files; generation capability/cost/rights and durable evidence must be established before new assets."
+    },
+    "owner_revision": {
+      "status": "REVISION_REQUESTED_BY_OWNER",
+      "at": "2026-11-03T12:09:39.705130+00:00",
+      "direct_quote": "The audio files aren't great. I would go for some improvised strumming and chord progressions in line with the music style. We will need to grade them against the characters skill levels. Might be best to generate rather than source.",
+      "plan_approval_retained": true,
+      "listening_acceptance": false,
+      "integration_approved": false,
+      "method": "Natural improvised strumming/chord changes; generation preferred, capability/rights/cost not yet verified. Do not repeat one-note resampling as convincing guitarist.",
+      "skill_calibration": "Actual instrument Technique/Timing/Originality/Feel/Versatility/Presence guide internal complexity, rhythm, consistency and phrasing; no automatic random-mistake formula or reliability/collaboration proxy. No exact hidden-score/best-choice labels to player.",
+      "style": "Use actual selected band genre. Jack has no personal genre field; Indie rock may be explicitly labelled as a study fixture, never inferred biography.",
+      "small_next_slice": "At most one <=4s mono close-electric tone/feel prototype INCLUDING tail; historic4files32.097392s retained, fifth4s would total36.097392s, not a full four-bar scene. Full replacement set requires prospective cap rescope; do not delete prior versions to manufacture budget.",
+      "source_pins": {
+        "Data/CharacterCast/approved_cast_2026-10-29.json": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4",
+        "Scripts/formation_catalogue.gd": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d",
+        "experiments/playable_flightcase/audition_content.gd": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+      },
+      "independent_readonly_reviewer": "/root/au01_revision_review",
+      "available_tools": "No dedicated audio generator found. Generic Figma/Weave model execution spends credits and no suitable named audio model/rights established; not executed. No new paid services/dependencies permitted."
+    },
+    "storage_hold": {
+      "status": "CAPACITY_CLEARED_BY_EXPLICIT_OWNER_APK_DELETION",
+      "receipt": "/workspace/work/s87-audio-closeout-20261103/owner-approved-apk-cleanup.json",
+      "deleted_old_local_APKs": 27,
+      "physical_bytes_reclaimed": 2231967744,
+      "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
+      "missing_evidence_still_HOLD": true
+    },
+    "new_issue_review": {
+      "through_event": "S87-20261103-801",
+      "events_790_800_reviewed": true,
+      "failure_history_retained": true,
+      "independent_review": "Changed-method/caps/owner revision clear; stale current aliases found/logged799; unexecuted helper syntax failure800 retained before correction",
+      "queue_readback": "Same sole ID/title/thread/schedule/enabled; replacement prompt exact",
+      "owner_authorised_cleanup_verified": true
+    },
+    "next_action": "Fresh bounded S88 source/evidence recovery preflight, followed by UX02 performance-context native review. Audio requires verified generation capability/rights and owner revised listening; no APK work.",
+    "all_writers_released_at": "2026-11-03T12:09:39.705130+00:00",
+    "global_hardstop_unchanged": "2026-11-04T21:24:35Z",
+    "APK": "HELD until fresh direct request",
+    "final_record_gate": {
+      "record_gate": "pass",
+      "session": "S87",
+      "status": "closed",
+      "lessons_reviewed": 19,
+      "issue_events": 800,
+      "artistic_approval": false,
+      "command": "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S87.json --before e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1 --require-prior-record"
+    },
+    "metadata_commit_status": "READY_FOR_DURABLE_PRIMARY_GIT_COMMIT",
+    "storage_hold_historical_before_owner_APK_cleanup": {
+      "status": "METADATA_COMMIT_HOLD",
+      "cause": "Observed loss of historical /tmp BandMaster trees; unknown cause. Do not store new critical Git objects in volatile TMP. Existing HEAD e2f primary objects intact; no new TMP blobs had been committed. Empty same alternate recreated; connectivity-only Git fsck passed.",
+      "workspace_floor": 12582912,
+      "commit_not_attempted": "Current workspace margin cannot fund new full ISSUES/state blobs above reserve. Pending metadata is durable uncommitted worktree; no reset/gc/prune/repack/deletion/remote source upload.",
+      "missing_local_evidence": "S83/S84/S86/S87 previous TMP source/runtime/cache/PNG/RAW/WAV/recipe/spec/receipts absent. Current availability HOLD; previous executed tool-attested history is not newly retained local proof.",
+      "observation": "/workspace/work/s87-audio-closeout-20261103/TMP-loss-observation.json"
+    }
+  },
+  "closeout_path": "/workspace/work/s87-audio-closeout-20261103/closeout.json",
+  "owner_revision": {
+    "status": "REVISION_REQUESTED_BY_OWNER",
+    "at": "2026-11-03T12:09:39.705130+00:00",
+    "direct_quote": "The audio files aren't great. I would go for some improvised strumming and chord progressions in line with the music style. We will need to grade them against the characters skill levels. Might be best to generate rather than source.",
+    "plan_approval_retained": true,
+    "listening_acceptance": false,
+    "integration_approved": false,
+    "method": "Natural improvised strumming/chord changes; generation preferred, capability/rights/cost not yet verified. Do not repeat one-note resampling as convincing guitarist.",
+    "skill_calibration": "Actual instrument Technique/Timing/Originality/Feel/Versatility/Presence guide internal complexity, rhythm, consistency and phrasing; no automatic random-mistake formula or reliability/collaboration proxy. No exact hidden-score/best-choice labels to player.",
+    "style": "Use actual selected band genre. Jack has no personal genre field; Indie rock may be explicitly labelled as a study fixture, never inferred biography.",
+    "small_next_slice": "At most one <=4s mono close-electric tone/feel prototype INCLUDING tail; historic4files32.097392s retained, fifth4s would total36.097392s, not a full four-bar scene. Full replacement set requires prospective cap rescope; do not delete prior versions to manufacture budget.",
+    "source_pins": {
+      "Data/CharacterCast/approved_cast_2026-10-29.json": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4",
+      "Scripts/formation_catalogue.gd": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d",
+      "experiments/playable_flightcase/audition_content.gd": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    "independent_readonly_reviewer": "/root/au01_revision_review",
+    "available_tools": "No dedicated audio generator found. Generic Figma/Weave model execution spends credits and no suitable named audio model/rights established; not executed. No new paid services/dependencies permitted."
+  },
+  "final_alias_review799": "Independent review clear after explicit preservation/correction of next_single_action/latest_external_read_status/delivery_status; unexecuted syntax failure800 retained; no engine or sourcechange"
 }

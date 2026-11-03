@@ -2,6 +2,20 @@
 
 AU01v1 plan approved directly by the owner on3November2026: “Audio plan approved. Hopefully it can align with artwork presentation.” Current board148 independently has the original Approve AU01v1 checkbox checked. This authorises a bounded cleared-source/listening study and only selected private excerpts. It does not approve unheard sound, playback integration, new art, new dependencies or APK work. Verified Game stays3d2b5ed2c93280b9717ab56496ae5ec2134cfb12.
 
+## S87 final disposition — owner revision and evidence HOLD
+
+The approved plan remains approved. Owner listened to v1 on 3 November and requested **revision**: natural improvised strumming and chord progressions matching music style and character skill, preferably generated. V1 is not accepted for integration. Its three private files remain review history with direct reader access for alimuir654@gmail.com. Plan28/Board152 record the direct decision without changing human checkboxes; all prior images/IDs remain.
+
+The recorded-note assembly method is closed. Next brief: one convincing close-electric strumming tone/feel prototype, natural up/down stroke dynamics, physical chord voicings/changes and modest rhythm-player consistency fitting the current small room/contact art. Use actual selected band genre; Jack has no personal genre field. The actual instrument skill vector informs internal production complexity/timing/feel/versatility, not public numeric grades or unrelated reliability/collaboration. Avoid arbitrary random mistakes and model rebalancing. Before any new assets, establish a credible rights-cleared generator/cost contract; no suitable dedicated generator is currently exposed. Generic credit-spending model execution is not authorised. No new services/dependencies or repeat bleeps/single-note assembly passed as performance.
+
+Historic strict accounting includes retained RAW+three renders: 4files/32.097392s. One <=4second prototype including tail would fit a fifth file/36.097392s; it is a tone/feel test, not a replacement full audition. A replacement set needs prospective numerical rescope and fresh committed production preflight/gate. No new audio was generated during this revision review.
+
+**Evidence availability HOLD:** prior BandMaster /tmp roots unexpectedly disappeared; cause unknown. Earlier measured processing/source checks are tool-attested execution history; original RAW/recipe/spec/WAV/log/native receipts are now unavailable locally. Drive review files and workspace Git survive. Do not reconstruct then label files contemporaneous originals, run closed targets, or infer current local-proof availability. See durable `/workspace/work/s87-audio-closeout-20261103/closeout.json` and its post-loss observation/recovery record.
+
+**Git metadata commit HOLD:** no new critical Git objects may be stored in volatile /tmp after this observation. Existing primary HEAD e2f is connected and no TMP new blobs had been committed. Empty alternate remains, no original object deleted. Workspace reserve cannot fund final metadata commit; leave scoped durable worktree changes uncommitted until a reviewed preservation/storage contract. The original preflight method below is historical and its permanent-TMP assumption is invalidated. Release S87 writers; no Game/art/audio integration/engine/APK change.
+
+## Original committed S87 implementation contract — historical
+
 ## One room and three examples
 
 Match the actual warm rehearsal room and Jack electric-guitar contact reference. Use one recorded electric-guitar sample source consistently; close mono sound, restrained reflected room, no crowd/drums/voices/soundtrack. No playing animation, portrait lip-sync or claim Jack recorded/owns the sampled instrument. Start with three musical examples; optional room/handling slots stay unused unless a later fresh scoped need fits every cap.
@@ -25,3 +39,6 @@ Workspace is only~0.5MiB above its floor. A separate metadata Gitblob preservati
 ## Gates and closeout
 
 Rootmetadata/audio study only; independent source/rights and art alignment reviewers use readonly metadata before acquisition. A licensed source binary is not cleared merely by a website statement. Bound playback source study to the actual written bar events; owner listening remains pending. No Game/save/Finance/phase changes, Godot, APK, art generation, controller or schedule creation. Shipping408curated and54originalScripts3UID/assets/Kit protected. Record source/delivery truth and release lease by12:45London3November; global4November21:24:35 end unchanged.
+
+
+**Storage update after direct owner authorisation:** 27 old local APK files deleted, actual2,231,967,744B reclaimed. Disk capacity and ordinary primaryGit metadata commit are now funded; previous capacity/TMPalternate instructions above are historical. Missing prior TMP evidence remains HOLD. No new Game/audio/art/engine/APK production. Cleanup receipt `/workspace/work/s87-audio-closeout-20261103/owner-approved-apk-cleanup.json`.
