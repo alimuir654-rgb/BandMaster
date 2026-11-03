@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game source: `25bac73f252747d0b5b213af3756e5de757e791d` (S96 optional starting-genre Indie guitar preview; S95 original audition playback retained).412curated source/cleanprivateimport/73/88/4standard plus4focused genre journeys2296checks verified. Scoped genre-preview internal pass; overall visualPARTIAL/ownerfalse. V9 remains source625 and ALL APK work stays held. Missing oldTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
+Current verified game source: `5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2` (S97 BOTH owner-approved adjusted audition clips integrated; S95 original and S96 optional Indie genre preview retained).414curated/413Git+146Bentry, cleanfinalsourceprivateimport/73/88/4standard and8completeauditions3498checks verified. Scopedplayback internal_pass; overallvisualPARTIAL/ownerfalse/deviceaudio untested. V9 source625 unchanged/ALLAPKheld. MissinghistoricalTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
 
 ## Ownership and work in progress
 
@@ -18,7 +18,7 @@ These are bounded delegated roles, not continuously running services. Root activ
 
 ## Next shipping priority
 
-**UX02 is CLOSED S91; S95 audition playback and S96 optional Indie genre preview are complete.** Direct owner now says “Variations approved”: both exact S94 Leave space and Answer between lines recordings are listening ACCEPTED. Next is one fresh bounded integration contract for those two revealed audition arrangements, protecting every owner/model/save boundary and first proving storage funding. UX03 booking/calendar/due-day departure remains independently authorised whole-task REVIEW after that; no presumed defect or economy rebuild. No closed-work or unchanged-suite reruns for activity.
+**UX02 CLOSED S91; original audition playback S95, optional Indie genre preview S96 and BOTH approved variations S97 are COMPLETE.** Next is UX03 booking/calendar/due-day departure WHOLE-TASK REVIEW under fresh bounded contract/storage/committedpreflight. Review actualcurrentphone/shortwide journey; no presumeddefect or booking/economyrebuild. No closedmilestone/unchanged-suite reruns foractivity.
 
 ## Artwork worklist
 
@@ -55,14 +55,14 @@ Evidence anchors: S82 `/tmp/bandmaster-s82-20261102/proof-final-625e644/visual-r
 
 ## Audio worklist
 
-**AU01 plan APPROVED; rejected original v1 remains REVISION history. S93 original tone and BOTH S94 variations are listening ACCEPTED.** S95 original-only audition playback and S96 optional Indie genre preview are complete. The two newly accepted arrangements are not yet integrated in25bac; current adjusted material retains its written equivalent. No unchosen-branch preview.
+**AU01 plan APPROVED; rejected original v1 remains REVISION history. S93 original tone and BOTH S94 variations are listening ACCEPTED and integrated (S95 original/S97 adjustments).** Only selected revealed requested material plays, with FIRSTTRY original comparison. S96 optional Indie genre example remains original-only. Writtenequivalent retained, no unchosenpreview/autoplay/owner-saveeffects.
 
 1. Changed-method sampled Indie guitar tooling and source/listening study completed S93/S94. Flexible authoring interfaces represent instruments/styles/song snippets; other instruments/full songs/styles are not proved by this one-guitar pilot. Actual selected band genre applies; Jack has no personal genre. No hidden numeric/best-choice or musicianship-by-reliability grade.
 2. Owner approves new dependencies and waived old review audio caps. Existing isolated pysfizz0.1.3/Pedalboard0.9.26 plus pinned CC0 multisamples remain local offline authoring. No new generation/acquisition/dependency/payment/runtimeAI in S95/S96. Preserve all raw/derived/history; prior private exact-file grants remain owner+namedAli only, no blanketfuture/public/folder access.
 3. Direct owner “Variations approved” during S96 accepts exact Leave space SHA c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45 and Answer between lines SHA16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265. Durable acceptance /workspace/work/s96-genre-preview-20261103/owner-variations-approval.json; no checkbox changed or new UI/art approval inferred.
-4. NEXT: fresh scoped source/storage/committedpreflight/gate for exact approved adjusted audition material, explicit PlayStop/mute/interruption/teardown/silentfallback and zeroGame/save/Finance/day/phase/invite effects. Current genre preview deliberately uses the accepted original only and other13genres honestly have no example. No autoplay or APK.
+4. S97 COMPLETE: both exact approved adjusted clips integrated on5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2. PlayStop/mute/interruption/teardown/silentfallback and zeroGame/save/Finance/day/phase/invite effects proved. Genre preview still uses accepted original only; other13genres retain noexample. Next UX03 whole-task REVIEW with fresh contract/budget. No autoplay or APK.
 
-**Current evidence/storage readiness:** S96 durable closeout and authoritative412row source-final.json under /workspace/work/s96-genre-preview-20261103/. Source96,229,468B; own fresh cache70,139,904B, aggregate about315MB under448MiB, PNG111,479,581B under128MiB, workspace about846MB free above600MiBfloor. These are observations, not funding for another whole runtime/cache/proof. Check actual and prospectively fund next complete scope; no arbitrary deletion, old-proof recovery claim, volatile criticalGit objects or new cache assumption. S96 root-owned Xorg20263 stopped/socketgone/configpins unchanged/GL released.
+**Current evidence/storage readiness:** S97 durablecloseout and authoritative414row source-final.json under /workspace/work/s97-approved-variants-20261103/. Source96,596,333B; protected411priorrows exact; runtime360nonshippingextras excluded. Complete196MiBaggregate contract/source100000000/cache72000000/PNG16000000/work17520896B,600MiBfloor. Initialworkestimateoverrun854/prospective854855rebalances retained. Terminalaudit conservativelyglobalfree delta~203.5MB/root~199.2MB/free~641.7MB; check fresh—remainingcapacity does NOT fund anotherwhole runtime/cache/proof. No arbitrarycleanup/newcache assumption/TMPcriticalobjects. OwnXorg23909stopped/socketgone/configpinsunchanged/GLreleased.
 
 ## Ready and done rules
 

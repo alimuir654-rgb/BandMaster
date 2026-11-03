@@ -22,3 +22,8 @@ The original8MiB work/reserve estimate was exceeded by privateQA/log/Mesa/XDG/re
 
 
 Terminalfunding855: afterallnativecaptures complete, transfer2,000,000BunusedPNGfunding towork/reserve: source100,000,000/cache72,000,000/PNG16,000,000/work17,520,896B=196MiB unchanged. ActualPNG15,855,616B, nofurthernativecaptures. Conservativeglobalfree∆202,686,464B used, outside-root attributionunclaimed;600MiBfloor intact. Terminalaudits/Pages/queue/Git only.
+
+
+## Verified closeout 2026-11-03T21:42:43.840827+00:00
+
+Game `5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2`; only3productionasset/registry paths. Both approved adjustments are playable aftermatchingrequest withFIRSTTRYoriginal comparison. Full durablecloseout `/workspace/work/s97-approved-variants-20261103/closeout.json`:18accepted/20actualGodot,8complete3498checks,16FSfailure-retries/8originaltalentinvites,73/88/finalsourcecleanimport/4standard232events216families220refs12newphysical;204RGBAexact8scope4fade0unexpected.414rows/protected411/360runtimeextrasexcluded. Root9actualopens, independent16final+2early+4retainedpredesign. OverallPARTIAL/ownerfalse/fiveexplicitSIMULATEDlenses, physicalaudio/APKuntested. Allfailures848–857 retained; firstSPACEencoderexit inferred, initialworkestimateoverrun andprospectiverebalance disclosed. Plan35/Board159 statusonly72choices23checked50images. Xorg23909stopped/GLreleased; canonicalwritersreleased. Next Fresh bounded UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW from414row source-final.json; fund complete durable scope from actual capacity first. No presumed defect/economy rebuild, unchanged-suite/closedmilestone reruns or APK work.
