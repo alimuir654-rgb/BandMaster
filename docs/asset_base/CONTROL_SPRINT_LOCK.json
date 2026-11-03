@@ -1,5 +1,5 @@
 {
-  "writer": "/root",
+  "writer": null,
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T21:00:00Z",
@@ -7,8 +7,8 @@
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "active",
-  "released_at": "2026-11-03T19:10:17.771521+00:00",
+  "status": "released",
+  "released_at": "2026-11-03T20:00:52.041351+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -44,7 +44,7 @@
     }
   },
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
-  "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T18:55:18.307534+00:00",
+  "updated_at": "2026-11-03T20:00:52.041351+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Commitgate then one component/manifest/clip/desk; earlyphonewide/finalfourview+standard+focused zeroowner proof.",
+  "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -390,21 +390,19 @@
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
   "latest_local_checkpoint": {
-    "source_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
-    "complete_validation": "/workspace/work/s91-performance-context-20261103/complete-validation.json",
-    "manifest": "/workspace/work/s91-performance-context-20261103/candidate-v1/source-final.json",
-    "runtime": "/workspace/work/s91-performance-context-20261103/candidate-v1/runtime",
-    "source_protection": "/workspace/work/s91-performance-context-20261103/source-storage-protection-v2.json",
-    "logs": "/workspace/work/s91-performance-context-20261103/accepted-log-audit.json",
-    "standard": "/workspace/work/s91-performance-context-20261103/standard-summary.json",
-    "full_gigs": "/workspace/work/s91-performance-context-20261103/final-journey-summary.json",
-    "early": "/workspace/work/s91-performance-context-20261103/review/early-v1.json",
-    "final_visual": "/workspace/work/s91-performance-context-20261103/review/final-v1.json",
-    "display_stop": "/workspace/work/s91-performance-context-20261103/display-stop.json",
+    "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+    "complete_validation": "/workspace/work/s95-audio-playback-20261103/closeout.json",
+    "manifest": "/workspace/work/s95-audio-playback-20261103/candidate-v1/source-final.json",
+    "runtime": "/workspace/work/s95-audio-playback-20261103/candidate-v1/runtime",
+    "source_protection": "/workspace/work/s95-audio-playback-20261103/source-storage-protection-final.json",
+    "logs": "/workspace/work/s95-audio-playback-20261103/accepted-log-audit.json",
+    "standard_RGBA": "/workspace/work/s95-audio-playback-20261103/standard-RGBA-comparison.json",
+    "final_visual": "/workspace/work/s95-audio-playback-20261103/review/final-v1.json",
+    "final_binding": "/workspace/work/s95-audio-playback-20261103/review/final-receipt-binding.json",
     "visual_verdict": "partial",
-    "scoped_UX02": "internal_pass",
+    "scoped_playback": "internal_pass",
     "owner_approved": false,
-    "phone_release_is_this_source": false,
+    "current_phone_APK_is_this_source": false,
     "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
   },
   "delegated_art_writer": null,
@@ -426,7 +424,7 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S94",
+  "last_completed_session": "S95",
   "closeout": "/workspace/work/s89-briefs-20261103/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
@@ -475,7 +473,7 @@
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "current_session": "S95",
-  "closed_at": "2026-11-03T19:10:17.771521+00:00",
+  "closed_at": "2026-11-03T20:00:52.041351+00:00",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "last_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "last_run_summary": "Four whole gigs12621checks/14failedsave retries/16reloads; current73/88/import/4standard and separate48title1359 pass;16acceptedERRORempty/nativeorphangrowth0.9128pureREUSED/0currentmodels.",
@@ -826,7 +824,7 @@
   "finite_end": "2026-11-04T21:24:35+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "session_path": "docs/continuous_improvement/sessions/S87.json",
-  "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "last_verified_code_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
   "last_verified_game_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "last_verified_local_native_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "last_verified_native_run_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -2796,6 +2794,230 @@
       "Old missingTMP originals/oracles remain unavailable and closed."
     ],
     "closed_at": "2026-11-03T19:10:17.771521+00:00",
+    "source_artifact_helpers_GL_released": true
+  },
+  "previous_local_checkpoint_before_S95": {
+    "source_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+    "complete_validation": "/workspace/work/s91-performance-context-20261103/complete-validation.json",
+    "manifest": "/workspace/work/s91-performance-context-20261103/candidate-v1/source-final.json",
+    "runtime": "/workspace/work/s91-performance-context-20261103/candidate-v1/runtime",
+    "source_protection": "/workspace/work/s91-performance-context-20261103/source-storage-protection-v2.json",
+    "logs": "/workspace/work/s91-performance-context-20261103/accepted-log-audit.json",
+    "standard": "/workspace/work/s91-performance-context-20261103/standard-summary.json",
+    "full_gigs": "/workspace/work/s91-performance-context-20261103/final-journey-summary.json",
+    "early": "/workspace/work/s91-performance-context-20261103/review/early-v1.json",
+    "final_visual": "/workspace/work/s91-performance-context-20261103/review/final-v1.json",
+    "display_stop": "/workspace/work/s91-performance-context-20261103/display-stop.json",
+    "visual_verdict": "partial",
+    "scoped_UX02": "internal_pass",
+    "owner_approved": false,
+    "phone_release_is_this_source": false,
+    "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
+  },
+  "s95_closeout": {
+    "tested_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+    "preflight_sha": "0abbca7abb84173d9e0040ea1e1d4add7ad70cc7",
+    "final_cache_rescope_sha": "cb8a262752e52af094a149e778a3c8fb30a47942",
+    "previous_shipping_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+    "status": "ACCEPTED_ORIGINAL_AUDITION_PLAYBACK_PILOT_COMPLETE",
+    "evidence": {
+      "manifest": "/workspace/work/s95-audio-playback-20261103/candidate-v1/source-final.json",
+      "source_protection": "/workspace/work/s95-audio-playback-20261103/source-storage-protection-final.json",
+      "accepted_logs": "/workspace/work/s95-audio-playback-20261103/accepted-log-audit.json",
+      "standard_RGBA": "/workspace/work/s95-audio-playback-20261103/standard-RGBA-comparison.json",
+      "clean_import_closure": "/workspace/work/s95-audio-playback-20261103/clean-import-cache-closure.json",
+      "early_review": "/workspace/work/s95-audio-playback-20261103/review/early-v2.json",
+      "final_review": "/workspace/work/s95-audio-playback-20261103/review/final-v1.json",
+      "final_binding": "/workspace/work/s95-audio-playback-20261103/review/final-receipt-binding.json",
+      "compressed_audio_decoded": "/workspace/work/s95-audio-playback-20261103/ogg-decoded.json",
+      "display_stop": "/workspace/work/s95-audio-playback-20261103/display/stop.json",
+      "Pages_preservation": "/workspace/work/s95-audio-playback-20261103/page-status-audit.json"
+    },
+    "visual_verdict": "partial",
+    "scoped_playback_visual_verdict": "internal_pass",
+    "owner_approved": false,
+    "accepted_original_sound": true,
+    "pending_adjusted_variants": true,
+    "technical_pass": true,
+    "implementation": "Onlyoneexistingpresentationleaf plusgenericplayer/manifest/146971BcompressedOGG; accepted originalmaterial only, Indierockselectedband. Noautoload/owner/model/schema/original54/Game/content/save/Finance changes. PlayStop,Mastermute,focus/hide/menu/resize/action/free/invalidation stop; noautoplay/unmuteResume/futurebranchpreview; visibleNOAUDIO/SOUNDMUTED fallback withfullwrittenpart.",
+    "validation": {
+      "current_gameplay_checks": 73,
+      "current_opening_checks": 88,
+      "clean_final_source_import_rawexit": 0,
+      "clean_import_empty_new_private_cache": true,
+      "old_development_cache_retained_byte_exact": true,
+      "imported_old_new402_byte_exact": true,
+      "native_proof_reuse_closure": "Nativeexecutions usedretaineddevelopmentcache withsamefinal9045source; freshfinalimport afterward hasall402importedartifacts byteexact/source411exact. Thisis explicitreuse, not a secondnativeexecution.",
+      "standard_journeys": 4,
+      "standard_physical_PNGs": 216,
+      "standard_RGBA": {
+        "exact": 200,
+        "scoped_audition": 12,
+        "reopen_fade": 4,
+        "unexpected": 0
+      },
+      "standard_orphan_growth": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "focused_four_complete_auditions_checks": 1571,
+      "focused_checks_by_case": {
+        "final-phone-v4": 395,
+        "final-tall-v5": 392,
+        "final-wide-v5": 392,
+        "final-desktop-v5": 392
+      },
+      "focused_orphan_growth": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "focused_real_failed_save_retries": 8,
+      "focused_completed_original_talent_invites": 4,
+      "focused_typed_reload_and_duplicate_guard": true,
+      "natural12sec_completion_once": "phone-v4",
+      "actual_current_node_input": "Pointer/keyboard andpositivecontrollednative touch-drags onenabled/disabledPlayStop; sourcecodedgestureemulation/windowID/screenvectors, not physicaldevice.",
+      "QA_derivatives": "Phonefullv4; other3fullv5 addsMasterMutedcapture only plusauxmode; corefullassertionssame, actualmetadata invites/rollback/retry/invariantguardsretained.",
+      "early_cases": {
+        "phone": 224,
+        "wide": 224
+      },
+      "separate_touch_diagnostic_checks": 58,
+      "separate_partial_mute_phone_checks": 98,
+      "configured_default_no_script_frames": 5,
+      "configured_default_saves": 0,
+      "accepted_current_logs": 16,
+      "accepted_current_ERROR_lines": [],
+      "all_actual_Godot_executions_this_session": 25,
+      "models_reexecution": "Onlyrequiredcurrent73/88; no unchanged9128modelruns/gigs foractivity.",
+      "decoded_OGG_LUFS": -23.06,
+      "decoded_OGG_truepeak_dBTP": -7.81
+    },
+    "source_storage": {
+      "source411_current_exact": true,
+      "rawGit410_plus146Bentry": true,
+      "protected_baseline407_exact": true,
+      "original54Scripts_including3UID_exact": true,
+      "Game_model_save_content_art_fonts_hardware_unchanged": true,
+      "source_final": "/workspace/work/s95-audio-playback-20261103/candidate-v1/source-final.json",
+      "source_final_sha256": "fc3b37e57a5a1f5d45a8ecf3079edabfebf51f43826519ed86858730becaa28d",
+      "source_bytes": 96226453,
+      "allocated_bytes": 421457920,
+      "PNG_evidence_bytes": 118885853,
+      "workspace_free_bytes": 1167089664,
+      "aggregate_cap": 536870912,
+      "floor": 629145600,
+      "sidecars_excluded": 356,
+      "oldfontarchive_SHA": "41be7db40f1e9396ac68d57331c373ac6aaee0916e74e49d81084cf69970660d"
+    },
+    "root_actual_originals_opened": [
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/early-phone-v1/captures/original-playing-390x844.png",
+        "sha256": "95cb429d301877575a227b66c20bd978ecb89a69cd1362c6c3f1514eef96ec44",
+        "held_failed_QA": true
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/early-phone-v1/captures/response-written-fallback-390x844.png",
+        "sha256": "7bc3aa70f256e4d24edb690edcca7fd6cd1bc1eb882c41e8de1eddc3d7ed6af4",
+        "held_failed_QA": true
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/early-phone-v2/captures/original-playing-390x844.png",
+        "sha256": "1d16c43a3efc63af282f1a3ef6c781a617e600ffe9135281d4f22355217ef337",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/early-phone-v2/captures/response-written-fallback-390x844.png",
+        "sha256": "dc81ca91086e3273d294a330058295ee4390f84f2316d78e12293925c07330cc",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/early-wide-v2/captures/original-playing-1280x720.png",
+        "sha256": "01bfa1960e02b295513f7f690cad9c1b90f25003826b9e166f946477dfa18c5d",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/final-phone-v4/captures/fourth-bar-inspected-390x844.png",
+        "sha256": "c7428ca7febd93fa58d0ac1359ea00bc2f5e51fe1dfa444591e453e6c6236033",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/final-phone-v4/captures/invitation-save-failed-390x844.png",
+        "sha256": "218f4ff8ec66c8adb01f7348d217aa1688323de78d27ca94f560839504dd85b8",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/final-tall-v5/captures/master-muted-720x1280.png",
+        "sha256": "2c77a2d9d26a3244c75791bcca7f6e352e3545c2fb18ed75d8917cd02311bc1d",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/muted-phone-v5/captures/master-muted-390x844.png",
+        "sha256": "b3b651e87f8e71c591bcbfbb14231cdb9fedf71e6c561c7ffb5673cf9ecda5ac",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/final-desktop-v5/captures/original-playing-1600x900.png",
+        "sha256": "6b723f54dcf5585f0f178544af8c99670573d12c62e4b59b52d5711dbb6c82d0",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s95-audio-playback-20261103/runs/final-wide-v5/captures/original-playing-1280x720.png",
+        "sha256": "2a2aa10aab624da1bd59cb5b54b58415bccc23715da9d79167d5ae02f5e0c46d",
+        "held_failed_QA": false
+      },
+      {
+        "path": "/workspace/work/s91-performance-context-20261103/runs/standard-phone-v1/c27-audition_jack_tryout-390x844.png",
+        "sha256": "f496edf6a4d60e7778e405973d509fe47a1013a1fdcbb585bd8320924f9db6ae",
+        "baseline": true
+      },
+      {
+        "path": "/workspace/work/s91-performance-context-20261103/runs/standard-wide-v1/c27-audition_jack_tryout-1280x720.png",
+        "sha256": "c6fff814ed86bc3e57e5514013025124299d30e4c087c2efc73633dc61b623a3",
+        "baseline": true
+      }
+    ],
+    "independent_actual_final_originals_opened": 17,
+    "independent_actual_early_originals_opened": 10,
+    "five_explicit_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED auditioning player",
+        "finding": "Can explicitlyhearapprovedfirstpart,stop/read/replayFIRSTTRY afteradjustment. Pendingadjustmentwrittenequivalent andvisibleNOAUDIOhonest; nochoicepreview/bestgrade."
+      },
+      {
+        "lens": "SIMULATED mobile/accessibility reviewer",
+        "finding": "Fullvoice and48pxtargets/readablemutelabel; actualphoneBar4+inspector reachablebyordinaryscroll. Failurestates bodymayclip voice whileerror/price/actions stayreadable. No physicalIME/deviceclaim."
+      },
+      {
+        "lens": "SIMULATED gameplay/save reviewer",
+        "finding": "Playbacktypedwholeowner/file/saveattempt invariants hold; originalpaidtalentinvite failure/retry/reload/duplicate guard preserved withrealnative actions. No animation/audio settlement."
+      },
+      {
+        "lens": "SIMULATED audio/engine reviewer",
+        "finding": "OneofflineOGG stream, decodedlevels/realstream/mute/finish/interruption/lifetime tested; Dummy isnot audiblespeaker/device evidence. Genericregistry/callback reusable, othercontexts/assets notadopted."
+      },
+      {
+        "lens": "SIMULATED returning owner/art reviewer",
+        "finding": "Accepted originalsound isused, originalrejectedv1/history/checkboxes/art remain; staticroom/contact art notanimating. Broad visualPARTIAL/sparsewide/tall, no newownerartacceptance."
+      }
+    ],
+    "material_gaps": [
+      "Physicalphone/audio-device/OSfocusinterruption andAPKresourcepackaging untested; ALLAPKworkheld/currentV9source625unchanged.",
+      "OnlyacceptedoriginalIndierockJackpartisplayable; twoadjustedvariants stilllisteningpending andnotcurated. Otherinstrument/fullsong/styles notproved bythispilot.",
+      "Phone lowerbars/inspector requireordinarybody scroll; failurebodyvoicecanpartlyclip abovefixedactions, sourcefullwrittenmaterial remains accessible. Tall/desktop sparse/static people.",
+      "Malformedfuturemanifesttypes andfuturecontentbindingoutsidefrozencuratedprofile notproved; newassets needexactsource/rights/approval contract.",
+      "Originalpreflighttargetinheritednonauditionlocator error840 retained; actualpredesign/early/finalauditionreferences used, currentmetadata corrected withoutbackdating initialrecord.",
+      "HistoricalmissingTMPproofs/oracles remain unavailable/permanentlyclosed; none reconstructed."
+    ],
+    "new_issue_review": {
+      "through_event": "S95-20261103-840",
+      "history": "832nativeCanvasItemmethodcollision held/fixed;833importedresourceportability;834touchpropagation/idleworkstaticriskfixed;835unexecutedQAtypedlocal;836unexecutedoutputdirectorycontract;837actualtouchpositivecontrolfailure+midrevealPNGs held/changeS51method;838visiblemobileavailabilitylabels;839actualresizeidentityQAassumption correctedwithstrongerdisposal/ownerzero;840inheritedtargetpointercorrected/notbackdated."
+    },
+    "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
+    "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   }
 }
