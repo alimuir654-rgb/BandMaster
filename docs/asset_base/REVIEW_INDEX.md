@@ -799,3 +799,9 @@ VERIFIEDsource `9045cec015219c65046e77f156ecb7d3ff9a0f05`, preflight0abbca7abb84
 
 ## S96 genre preview preflight — 2026-11-03T20:13:23.786842+00:00
 Direct owner request, one optional accepted Indie guitar example on genre selection. Root sole writer, independent predesign CLEAR with explicit two-call owner-context/configurable-caption refinement; source/gate pending. Budget448MiB/floors600MiB, no APK/othergenre assets. See sessions/S96.json.
+
+
+## S96 verified closeout — 2026-11-03T20:33:38.625812+00:00
+Source `25bac73f252747d0b5b213af3756e5de757e791d`: optional Indie genre example complete.412rows/411Git+146Bentry/96,229,468B;408priorprotected/all54originalScripts3UID/acceptedOGG exact.14actualGodot rawexits0/ERRORempty;73/88/cleanprivateimport/4standard216freshPNGs(208RGBAexact+4scopedgenre+4knownReopenfade),4focusedgenrejourneys2296checks/all14choices/nativepointer-key-touch/mute/navigation/resize/typedowner-savezero/orphans0. Separateearly201/200. Scopedinternalpass/overallvisualPARTIAL/ownerfalse; root10opens/independent17final+8early. Physicalaudio/device/APKuntested. BothS94variations nowdirectownerACCEPTED, not yetintegrated; originalv1historyretained. OwnXorg20263stopped/configpins unchanged/socketgone/GLreleased. Plan34/Board158 statusonly72choices23checked50images/otherblocks exact. Durablecloseout /workspace/work/s96-genre-preview-20261103/closeout.json.
+
+Next: Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.

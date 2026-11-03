@@ -1,5 +1,5 @@
 {
-  "writer": "S96-genre-preview-20261103T2020",
+  "writer": null,
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T22:00:00Z",
@@ -7,8 +7,8 @@
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "active",
-  "released_at": "2026-11-03T20:00:52.041351+00:00",
+  "status": "released",
+  "released_at": "2026-11-03T20:33:38.625812+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -44,7 +44,7 @@
     }
   },
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
-  "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+  "source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -192,7 +192,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "candidate_source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "next_action": "Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -353,8 +353,8 @@
   "source_freeze_target": "2026-11-04T20:15:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
-  "source_frozen_at": "2026-11-03T08:48:44Z",
+  "source_phase": "S96_OPTIONAL_INDIE_GENRE_PREVIEW_COMPLETE",
+  "source_frozen_at": "2026-11-03T20:33:38.625812+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
     "writer": null,
@@ -390,17 +390,16 @@
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
   "latest_local_checkpoint": {
-    "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
-    "complete_validation": "/workspace/work/s95-audio-playback-20261103/closeout.json",
-    "manifest": "/workspace/work/s95-audio-playback-20261103/candidate-v1/source-final.json",
-    "runtime": "/workspace/work/s95-audio-playback-20261103/candidate-v1/runtime",
-    "source_protection": "/workspace/work/s95-audio-playback-20261103/source-storage-protection-final.json",
-    "logs": "/workspace/work/s95-audio-playback-20261103/accepted-log-audit.json",
-    "standard_RGBA": "/workspace/work/s95-audio-playback-20261103/standard-RGBA-comparison.json",
-    "final_visual": "/workspace/work/s95-audio-playback-20261103/review/final-v1.json",
-    "final_binding": "/workspace/work/s95-audio-playback-20261103/review/final-receipt-binding.json",
+    "source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
+    "complete_validation": "/workspace/work/s96-genre-preview-20261103/closeout.json",
+    "manifest": "/workspace/work/s96-genre-preview-20261103/candidate-v1/source-final.json",
+    "runtime": "/workspace/work/s96-genre-preview-20261103/candidate-v1/runtime",
+    "source_protection": "/workspace/work/s96-genre-preview-20261103/source-storage-protection-final.json",
+    "logs": "/workspace/work/s96-genre-preview-20261103/accepted-log-audit.json",
+    "standard_RGBA": "/workspace/work/s96-genre-preview-20261103/standard-RGBA-comparison.json",
+    "final_visual": "/workspace/work/s96-genre-preview-20261103/review/final-v1.json",
     "visual_verdict": "partial",
-    "scoped_playback": "internal_pass",
+    "scoped_genre_preview": "internal_pass",
     "owner_approved": false,
     "current_phone_APK_is_this_source": false,
     "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
@@ -409,8 +408,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 29,
-  "current_review_board_sequence": 153,
+  "current_plan_sequence": 34,
+  "current_review_board_sequence": 158,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -424,7 +423,7 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S95",
+  "last_completed_session": "S96",
   "closeout": "/workspace/work/s89-briefs-20261103/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
@@ -3020,5 +3019,11 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "/root"
+  "root_writer": null,
+  "active_sprint": null,
+  "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
+  "s96_new_owner_variations_acceptance": {
+    "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
+    "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
+  }
 }

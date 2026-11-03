@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "active",
+  "status": "released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S95 accepted original audition playback only",
-  "writer": "S96-genre-preview-20261103T2020",
+  "writer": null,
   "last_verified_code_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
   "baseline": {
     "run_id": 40778019754,
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
+  "next_action": "Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1946,22 +1946,21 @@
   },
   "last_verified_local_native_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "latest_local_checkpoint": {
-    "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
-    "complete_validation": "/workspace/work/s95-audio-playback-20261103/closeout.json",
-    "manifest": "/workspace/work/s95-audio-playback-20261103/candidate-v1/source-final.json",
-    "runtime": "/workspace/work/s95-audio-playback-20261103/candidate-v1/runtime",
-    "source_protection": "/workspace/work/s95-audio-playback-20261103/source-storage-protection-final.json",
-    "logs": "/workspace/work/s95-audio-playback-20261103/accepted-log-audit.json",
-    "standard_RGBA": "/workspace/work/s95-audio-playback-20261103/standard-RGBA-comparison.json",
-    "final_visual": "/workspace/work/s95-audio-playback-20261103/review/final-v1.json",
-    "final_binding": "/workspace/work/s95-audio-playback-20261103/review/final-receipt-binding.json",
+    "source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
+    "complete_validation": "/workspace/work/s96-genre-preview-20261103/closeout.json",
+    "manifest": "/workspace/work/s96-genre-preview-20261103/candidate-v1/source-final.json",
+    "runtime": "/workspace/work/s96-genre-preview-20261103/candidate-v1/runtime",
+    "source_protection": "/workspace/work/s96-genre-preview-20261103/source-storage-protection-final.json",
+    "logs": "/workspace/work/s96-genre-preview-20261103/accepted-log-audit.json",
+    "standard_RGBA": "/workspace/work/s96-genre-preview-20261103/standard-RGBA-comparison.json",
+    "final_visual": "/workspace/work/s96-genre-preview-20261103/review/final-v1.json",
     "visual_verdict": "partial",
-    "scoped_playback": "internal_pass",
+    "scoped_genre_preview": "internal_pass",
     "owner_approved": false,
     "current_phone_APK_is_this_source": false,
     "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
   },
-  "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "candidate_source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
   "candidate_native_verified": true,
   "candidate_status": "S86_verified_local_released",
   "updated_at": "2026-11-03T20:00:52.041351+00:00",
@@ -2162,7 +2161,7 @@
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S95",
+  "last_completed_session": "S96",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2463,13 +2462,13 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T20:00:52.041351+00:00",
+  "released_at": "2026-11-03T20:33:38.625812+00:00",
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
-  "source_write_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "source_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
+  "source_phase": "S96_OPTIONAL_INDIE_GENRE_PREVIEW_COMPLETE",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T22:00:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
@@ -2496,7 +2495,7 @@
     "existing_single_attachment_confirmed": true,
     "queue_receipt": "/workspace/work/overnight-20261102/s73/queue-readback.json"
   },
-  "source_frozen_at": "2026-11-03T08:48:44Z",
+  "source_frozen_at": "2026-11-03T20:33:38.625812+00:00",
   "source_freeze_target": "2026-11-04T20:15:00Z",
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "previous_s68_verified_checkpoint": {
@@ -2550,8 +2549,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 29,
-  "current_review_board_sequence": 153,
+  "current_plan_sequence": 34,
+  "current_review_board_sequence": 158,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2606,7 +2605,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -2768,7 +2767,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": true,
-  "source_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+  "source_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": "/workspace/work/s89-briefs-20261103/closeout.json",
@@ -5001,5 +5000,11 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "/root"
+  "root_writer": null,
+  "active_sprint": null,
+  "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
+  "s96_new_owner_variations_acceptance": {
+    "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
+    "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
+  }
 }

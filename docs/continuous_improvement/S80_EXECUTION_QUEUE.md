@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game source: `9045cec015219c65046e77f156ecb7d3ff9a0f05` (S95 accepted original audition playback).411curatedsource/cleanprivateimport/73/88/4standard/fourwholeauditionjourneys verified; scopedplaybackinternalpass/overallvisualPARTIAL/ownerfalse. V9 remains source625 and ALL APK work stays held. Older lostTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
+Current verified game source: `25bac73f252747d0b5b213af3756e5de757e791d` (S96 optional starting-genre Indie guitar preview; S95 original audition playback retained).412curated source/cleanprivateimport/73/88/4standard plus4focused genre journeys2296checks verified. Scoped genre-preview internal pass; overall visualPARTIAL/ownerfalse. V9 remains source625 and ALL APK work stays held. Missing oldTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
 
 ## Ownership and work in progress
 
@@ -18,7 +18,7 @@ These are bounded delegated roles, not continuously running services. Root activ
 
 ## Next shipping priority
 
-**UX02 is CLOSED S91; S95 accepted original audition playback is complete.** Next independently authorised task is UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW underfreshscope/current411source/nativeevidence/budget. No presumeddefect or automaticbooking/economyrebuild. Newaudioadjustments awaitactualownerlistening; originaltone accepted and integrated. Do not rerunclosedwork foractivity.
+**UX02 is CLOSED S91; S95 audition playback and S96 optional Indie genre preview are complete.** Direct owner now says “Variations approved”: both exact S94 Leave space and Answer between lines recordings are listening ACCEPTED. Next is one fresh bounded integration contract for those two revealed audition arrangements, protecting every owner/model/save boundary and first proving storage funding. UX03 booking/calendar/due-day departure remains independently authorised whole-task REVIEW after that; no presumed defect or economy rebuild. No closed-work or unchanged-suite reruns for activity.
 
 ## Artwork worklist
 
@@ -55,14 +55,14 @@ Evidence anchors: S82 `/tmp/bandmaster-s82-20261102/proof-final-625e644/visual-r
 
 ## Audio worklist
 
-**AU01 plan APPROVED; originalv1REVISION retained. New S93 originaltone ACCEPTED and S95 ORIGINAL-only playback complete.** S94twoadjustedarrangements remainprivateLISTENING PENDING/unintegrated. Playeralwaysretainswrittenequivalent anddoesnotpreviewunchosenbranches.
+**AU01 plan APPROVED; rejected original v1 remains REVISION history. S93 original tone and BOTH S94 variations are listening ACCEPTED.** S95 original-only audition playback and S96 optional Indie genre preview are complete. The two newly accepted arrangements are not yet integrated in25bac; current adjusted material retains its written equivalent. No unchosen-branch preview.
 
-1. Changed-method brief and actual sampled indie guitar listening experiment COMPLETE S93; use actual selected band style and source-grounded instrument skill only for later character calibration. Jack has no personal genre field. No hidden numeric/best-choice grade or reliability/collaboration substitution.
-2. Latest direct owner APPROVES NEW DEPENDENCIES and WAIVES former review audio caps. Isolated pysfizz0.1.3/Pedalboard0.9.26 and pinned CC0 real multisamples now underpin one actual12second D/G/A/D cue, not single-note repitching. Actual130source WAVs+raw+room+review retained/accounted; no paidservice/runtimeAI/modeldownload or missing-original reconstruction. Previous v1 clips/history preserved. New selected review is owneronly, no additional Ali grant.
-3. New cue matches the restrained electric/small-room brief through recorded pitches/layers/alternate takes and playable voicings/ordered strokes. Actual decoded -23.00LUFS/-7.86dBTP is technical evidence, not musical credibility/listening acceptance. Owner feedback on actual new sound remains required.
-4. Only after actual listening acceptance: fresh Game playback integration contract/budget for revealed material, Play/Stop/mute/interruption/teardown/silentfallback and zero Game/save/Finance/day/phase/invite effects. Flexibleoffline tooling does not implement the attached proposed Godot MVP. APK remains held.
+1. Changed-method sampled Indie guitar tooling and source/listening study completed S93/S94. Flexible authoring interfaces represent instruments/styles/song snippets; other instruments/full songs/styles are not proved by this one-guitar pilot. Actual selected band genre applies; Jack has no personal genre. No hidden numeric/best-choice or musicianship-by-reliability grade.
+2. Owner approves new dependencies and waived old review audio caps. Existing isolated pysfizz0.1.3/Pedalboard0.9.26 plus pinned CC0 multisamples remain local offline authoring. No new generation/acquisition/dependency/payment/runtimeAI in S95/S96. Preserve all raw/derived/history; prior private exact-file grants remain owner+namedAli only, no blanketfuture/public/folder access.
+3. Direct owner “Variations approved” during S96 accepts exact Leave space SHA c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45 and Answer between lines SHA16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265. Durable acceptance /workspace/work/s96-genre-preview-20261103/owner-variations-approval.json; no checkbox changed or new UI/art approval inferred.
+4. NEXT: fresh scoped source/storage/committedpreflight/gate for exact approved adjusted audition material, explicit PlayStop/mute/interruption/teardown/silentfallback and zeroGame/save/Finance/day/phase/invite effects. Current genre preview deliberately uses the accepted original only and other13genres honestly have no example. No autoplay or APK.
 
-**Current evidence/storage readiness:** S88 durable source recovery/import and S91 source/native proof survive in /workspace; shipping source0ec verified. S87 metadata safely committed in primaryGit after owner-authorised oldAPKcleanup. S93~103MiB aggregate/512MiB funded, audio65,414,450B/128MiB; actual workspace~1.5GiB free above600MiB floor. Check fresh before allocations. HistoricalS83–S87 TMP originals/oracles remain unavailable/permanentlyclosed, causeunknown; never reconstruct as original receipts or store criticalGit objects in TMP. No arbitrarycleanup/new cacheallocation assumed.
+**Current evidence/storage readiness:** S96 durable closeout and authoritative412row source-final.json under /workspace/work/s96-genre-preview-20261103/. Source96,229,468B; own fresh cache70,139,904B, aggregate about315MB under448MiB, PNG111,479,581B under128MiB, workspace about846MB free above600MiBfloor. These are observations, not funding for another whole runtime/cache/proof. Check actual and prospectively fund next complete scope; no arbitrary deletion, old-proof recovery claim, volatile criticalGit objects or new cache assumption. S96 root-owned Xorg20263 stopped/socketgone/configpins unchanged/GL released.
 
 ## Ready and done rules
 
@@ -167,3 +167,12 @@ VERIFIEDsource `9045cec015219c65046e77f156ecb7d3ff9a0f05`, preflight0abbca7abb84
 
 ## S96 genre preview preflight — 2026-11-03T20:13:23.786842+00:00
 Direct owner request, one optional accepted Indie guitar example on genre selection. Root sole writer, independent predesign CLEAR with explicit two-call owner-context/configurable-caption refinement; source/gate pending. Budget448MiB/floors600MiB, no APK/othergenre assets. See sessions/S96.json.
+
+
+Direct owner update during S96: “Variations approved.” Both exact S94 Leave space and Answer between lines reviewfiles now listening accepted; original rejected v1 remains history. Current S96 genre scope remains accepted original only; next fresh source contract integrates the two approved audition variants. Durable acceptance receipt: /workspace/work/s96-genre-preview-20261103/owner-variations-approval.json.
+
+
+## S96 verified closeout — 2026-11-03T20:33:38.625812+00:00
+Source `25bac73f252747d0b5b213af3756e5de757e791d`: optional Indie genre example complete.412rows/411Git+146Bentry/96,229,468B;408priorprotected/all54originalScripts3UID/acceptedOGG exact.14actualGodot rawexits0/ERRORempty;73/88/cleanprivateimport/4standard216freshPNGs(208RGBAexact+4scopedgenre+4knownReopenfade),4focusedgenrejourneys2296checks/all14choices/nativepointer-key-touch/mute/navigation/resize/typedowner-savezero/orphans0. Separateearly201/200. Scopedinternalpass/overallvisualPARTIAL/ownerfalse; root10opens/independent17final+8early. Physicalaudio/device/APKuntested. BothS94variations nowdirectownerACCEPTED, not yetintegrated; originalv1historyretained. OwnXorg20263stopped/configpins unchanged/socketgone/GLreleased. Plan34/Board158 statusonly72choices23checked50images/otherblocks exact. Durablecloseout /workspace/work/s96-genre-preview-20261103/closeout.json.
+
+Next: Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.

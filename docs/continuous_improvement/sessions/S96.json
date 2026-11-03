@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S96",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Could we have an audio example during the genre selection at the start of the game. Direct current request authorises optional Indie preview using accepted original only.",
   "lesson_ids": [
@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1332970,
-    "sha256": "4ff04205fb870fa97492bb3f1c420f8102be24b1c7ca28aa2dbca5b24db77f9f"
+    "bytes": 1339646,
+    "sha256": "d5fafb19681dac60b241b8354308a846cde77a0c69a0b042417c033934874363"
   },
   "baseline_sha": "b8261eb65e6f8c1b2379c6f3b97a723295a6eb8c",
   "game_baseline_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
@@ -70,10 +70,10 @@
   "scope_end": "2026-11-03T22:00:00Z",
   "queue_task": "Direct owner genre-selection optional audio preview",
   "reviewer": "game_design_research independent predesign/early/final; foundation_tests scratch QA; root alone engines",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_helpers": true,
-  "pending_implementation": true,
+  "pending_helpers": false,
+  "pending_implementation": false,
   "storage_plan": {
     "aggregate_cap_bytes": 469762048,
     "source_cap_bytes": 104857600,
@@ -85,7 +85,7 @@
     "current_free_bytes": 1165991936,
     "cache_contract": "Fund complete fresh private development cache plus separate final clean cache if corrections require it. Preserve all previous caches/evidence, no duplicate audio asset. Detection not OS quota."
   },
-  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
+  "next_action": "Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.",
   "independent_predesign": {
     "path": "/workspace/work/s96-genre-preview-20261103/review/predesign.json",
     "sha256": "ed5e107b8b58312e0ca8bb82cc37fdef81c9fbc1bed95d5222f3b16737e171cb",
@@ -111,5 +111,359 @@
       "typedowner/files/saveattempt0 for audio",
       "no model/schema/Finance changes"
     ]
+  },
+  "new_direct_owner_approval": {
+    "recorded_at": "2026-11-03T20:20:36.067419+00:00",
+    "source": "Direct owner message in current thread: Variations approved",
+    "accepted": [
+      {
+        "name": "Leave space",
+        "drive_file_id": "1dX7qwwYADTi0lDvUJE5MUgnx4FIgslza",
+        "PCM_sha256": "c731ca3257baedc2e9d9cf5af885fa54d47a1828dbbf11813d4bb781b359ff45"
+      },
+      {
+        "name": "Answer between lines",
+        "drive_file_id": "1yA8Ix3YnbHl9hHHs34u5kIvuXk-oTzb-",
+        "PCM_sha256": "16b8462935576b32155f74506595798e477c1555a374bbd04e25d9b780387265"
+      }
+    ],
+    "meaning": "Listening acceptance for exact two S94 reviewfiles. No UI/art approval, APK or public/broaderaccess inferred. Integration follows fresh scoped source contract after active S96."
+  },
+  "closed_at": "2026-11-03T20:33:38.625812+00:00",
+  "closeout": {
+    "status": "OPTIONAL_INDIE_GENRE_PREVIEW_COMPLETE",
+    "tested_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
+    "preflight_sha": "e8872b7eaf11257502a567590fcb390ee03a28fc",
+    "previous_verified_shipping_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+    "closed_at": "2026-11-03T20:33:38.625812+00:00",
+    "evidence": {
+      "source_manifest": {
+        "path": "/workspace/work/s96-genre-preview-20261103/candidate-v1/source-final.json",
+        "sha256": "9b58be72cc6e045561e315d2e0564e166194677460a2fbf22769a0e521ee2ef2"
+      },
+      "source_protection": {
+        "path": "/workspace/work/s96-genre-preview-20261103/source-storage-protection-final.json",
+        "sha256": "44b39b2f12027d087f9b20b3104cacdbaaa24eb68e91846b1926ef7ac3668094"
+      },
+      "logs": {
+        "path": "/workspace/work/s96-genre-preview-20261103/accepted-log-audit.json",
+        "sha256": "c8e6e77df8c6cbb5b6a359c9009f7b39070ec126fb8ae3fad169d783c05a8f14"
+      },
+      "standard_RGBA": {
+        "path": "/workspace/work/s96-genre-preview-20261103/standard-RGBA-comparison.json",
+        "sha256": "b17f2c4d4be567b87cd8fa42dcab95d9eb56c50d6da73b91d085a6291bd2b889"
+      },
+      "predesign": {
+        "path": "/workspace/work/s96-genre-preview-20261103/review/predesign.json",
+        "sha256": "ed5e107b8b58312e0ca8bb82cc37fdef81c9fbc1bed95d5222f3b16737e171cb"
+      },
+      "early_review": {
+        "path": "/workspace/work/s96-genre-preview-20261103/review/early-v1.json",
+        "sha256": "16caa450b82c6a0b1d30b32c0138c8710ce826b9be9e5a006902cbecf255a1ad"
+      },
+      "final_review": {
+        "path": "/workspace/work/s96-genre-preview-20261103/review/final-v1.json",
+        "sha256": "15b7f9c490376811caa3c28c79766bec1d535642ab5c7cf7687c8f895cf8acb4"
+      },
+      "final_thread_binding": {
+        "path": "/workspace/work/s96-genre-preview-20261103/review/final-thread-binding.json",
+        "sha256": "2e4086ca54198cc74d2a3162788a85d754aa30694403ad6494e69c43b4766290"
+      },
+      "new_owner_variations_acceptance": {
+        "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
+        "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
+      },
+      "Pages": {
+        "path": "/workspace/work/s96-genre-preview-20261103/page-status-audit.json",
+        "sha256": "2b7edfeccd0e6430a3e8d4107a1b6d02783162312881e97ffc47e52d8ebe4dbd"
+      },
+      "display_stop": {
+        "path": "/workspace/work/s96-genre-preview-20261103/display/stop.json",
+        "sha256": "fc259ba0ff53bab548fe16d6840b3ac7080472a34fa97b9c01cb72833c81a7ca"
+      },
+      "root_opened": {
+        "path": "/workspace/work/s96-genre-preview-20261103/root-opened-v1.json",
+        "sha256": "83ef88ed06c8ac5f9b66902d4d8f983e10caaa30b725cd2c59e5bbe46059c31f"
+      },
+      "QAearly": {
+        "path": "/workspace/work/s96-genre-preview-20261103/qa/provenance.json",
+        "sha256": "d612b6f3bb9303dbb7e51867990ca94ed8ef9dc9bcb6395c0ef3c063d5788d2f"
+      },
+      "QAfull": {
+        "path": "/workspace/work/s96-genre-preview-20261103/qa/provenance-v2.json",
+        "sha256": "f67f6b59d041a2d426aea67586c3f202ff66918067755b80e6eb1d6deab9cb9d"
+      }
+    },
+    "visual_verdict": "partial",
+    "scoped_genre_preview_verdict": "internal_pass",
+    "owner_approved": false,
+    "original_and_both_variations_listening_accepted": true,
+    "adjusted_variants_integrated_in_this_source": false,
+    "technical_pass": true,
+    "implementation": "Three existing presentation leaves (GenrePress, two existing opening_ui configure callsites, configurable generic audio captions preserving audition defaults) plus one JSON registry. Existing exact accepted OGG reused, no new audio/render/acquisition/dependency/model/owner/save/schema/Finance/art/APK. One optional native48px PlayExample/Stop+Indie guitar caption. Other13 actual genres honestly unavailable; all14 original choices preserved. Read-only owner selectedgenre/screen context, no autoplay; current lifecycle stop and native input proved.",
+    "validation": {
+      "current_gameplay_checks": 73,
+      "current_opening_checks": 88,
+      "clean_private_source_import_rawexit": 0,
+      "initial_import_is_final_source": true,
+      "source_corrective_iterations": 0,
+      "standard_journeys": 4,
+      "standard_fresh_physical_PNGs": 216,
+      "standard_RGBA": {
+        "exact": 208,
+        "scoped_genre": 4,
+        "known_Reopen_fade": 4,
+        "UNEXPECTED": 0
+      },
+      "focused_complete_genre_preview_journeys": 4,
+      "focused_checks": {
+        "phone": 616,
+        "tall": 560,
+        "wide": 560,
+        "desktop": 560
+      },
+      "focused_total": 2296,
+      "focused_orphan_growth": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "original_legal_save_attempts_each": [
+        19,
+        19,
+        19,
+        19
+      ],
+      "all14_actual_genre_selections_and_typed_reload_each": true,
+      "free_audio_typedwholeowner_files_saveattempt_effects": 0,
+      "native_input": "actual pointer/Enter/Space/Tab/ShiftTab; controlled native ScreenTouch/Drag with bothruntimeemulationflags/windowID/vectors, plainLabelpositivecontrol and actualgenreindex swipe no pressed/save",
+      "lifecycle": "actual oldplayer disposed on genre switch, both-direction resize, hide/show/Menu/Continue/recruitment; controlled focusout and screen/genre context fixtures explicitly restored before wholeowner guards; Mastermute stops/no unmuteauto resume",
+      "phone_only": "actual12sec naturalcompletion; missingasset/missingmanifest silentfallback and nativePlayStop audition-default compatibility fixture, NOT wholeaudition replay",
+      "early_checks_separate": {
+        "phone": 201,
+        "wide": 200
+      },
+      "final_focused_physical_PNGs": 24,
+      "early_physical_PNGs": 8,
+      "all_new_physical_PNGs": 248,
+      "actual_Godot_executions": 14,
+      "accepted_engine_ERROR_lines": [],
+      "warnings": "Native VSync unsupported warning; eachstandard also three anchor-size override warnings retained. No blanket all-log-clean claim.",
+      "configured_default_no_script_frames": 5,
+      "configured_default_save_candidates": [],
+      "models_9128_current_executions": 0,
+      "new_whole_audition_gig_executions": 0,
+      "no_device_or_audible_output_claim": true
+    },
+    "source_storage": {
+      "source_count": 412,
+      "shipping_git_count": 411,
+      "new_paths": [
+        "experiments/playable_flightcase/audio/genre_examples.json"
+      ],
+      "changed_prior_paths": [
+        "experiments/playable_flightcase/audition_audio.gd",
+        "experiments/playable_flightcase/genre_press.gd",
+        "experiments/playable_flightcase/opening_ui.gd"
+      ],
+      "protected_prior_exact": 408,
+      "all54_originalScripts3UID_exact": true,
+      "OGG_unchanged": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+      "tested_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
+      "current_source412_exact": true,
+      "shippingGit411_exact": true,
+      "worktree_shipping412_exact": true,
+      "sidecar_extras_count": 355,
+      "private_cache_symlink_exact": true,
+      "private_cache_bytes": 70139904,
+      "source_bytes": 96229468,
+      "aggregate_physical_bytes": 314486784,
+      "evidence_PNG_bytes": 111479581,
+      "workspace_free_bytes": 846610432,
+      "preserved_font_archive_sha256": "41be7db40f1e9396ac68d57331c373ac6aaee0916e74e49d81084cf69970660d",
+      "Game_models_schema_owners_unchanged": true,
+      "source_closed_at_import_sha": "25bac73f252747d0b5b213af3756e5de757e791d"
+    },
+    "root_actual_opens": {
+      "baseline_originals": [
+        {
+          "path": "/workspace/work/s95-audio-playback-20261103/runs/standard-phone-final/c27-genre-390x844.png",
+          "sha256": "14a6d8251e002164da171833592f17119f24f6bda1e5e41e0a965552b3346905"
+        },
+        {
+          "path": "/workspace/work/s95-audio-playback-20261103/runs/standard-wide-final/c27-genre-1280x720.png",
+          "sha256": "87c2d172e3c762dd9a22e52efd5ae6c736a74a7883eb0e252170f8f81d166ae1"
+        }
+      ],
+      "early_originals": [
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/early-phone-v2/captures/genre-indie-playing-390x844.png",
+          "sha256": "382dbb1328d7508a06ed972e98b4a63dbcebfcaca9355ce294712809ee8af698"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/early-phone-v2/captures/genre-punk-unavailable-390x844.png",
+          "sha256": "7c9eea57f33707d7dffa1384a60fddd591a50dcb923d9e21ff97e8ce42ce8c27"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/early-wide-v1/captures/genre-indie-playing-1280x720.png",
+          "sha256": "92af919507f98fbb277165d204e3d1a31458235d996a47771ce4875685a142c8"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/early-wide-v1/captures/genre-punk-unavailable-1280x720.png",
+          "sha256": "1a8cecc527c6513627dda15ae4fdc7bb11b7e436985deb9a06f0c4555f7184b0"
+        }
+      ],
+      "no_device_audibility_claim": true,
+      "final_originals": [
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-master-muted-390x844.png",
+          "sha256": "f8f086a4fec4d0fb6a4bb40d692d65f4cf162da65968364d32938f6b7741db70"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/final-tall-v2/captures/genre-indie-playing-720x1280.png",
+          "sha256": "ccb4f52f07963af6ffba49647f6d5ff48916efaeb36cc04c2f6a9b02dd2d4dc2"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/final-wide-v2/captures/genre-resized-stopped-390x844.png",
+          "sha256": "641a719ef454898831327ad8abdbbd1596041fd09e925c23e5efdb43a72eb398"
+        },
+        {
+          "path": "/workspace/work/s96-genre-preview-20261103/runs/final-desktop-v2/captures/genre-indie-playing-1600x900.png",
+          "sha256": "4773cee70c3dcf7e54881a5f6e47f868e2e20672666731ceac6a4e9b59d1e10a"
+        }
+      ]
+    },
+    "independent_actual_final_originals_opened": {
+      "phone-genre-indie-playing": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-indie-playing-390x844.png",
+        "sha256": "382dbb1328d7508a06ed972e98b4a63dbcebfcaca9355ce294712809ee8af698"
+      },
+      "phone-genre-master-muted": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-master-muted-390x844.png",
+        "sha256": "f8f086a4fec4d0fb6a4bb40d692d65f4cf162da65968364d32938f6b7741db70"
+      },
+      "phone-genre-punk-unavailable": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-punk-unavailable-390x844.png",
+        "sha256": "7c9eea57f33707d7dffa1384a60fddd591a50dcb923d9e21ff97e8ce42ce8c27"
+      },
+      "phone-genre-to-recruit": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-to-recruit-390x844.png",
+        "sha256": "f92ba2c927369702e203348bfadf70d93441ba51076f1dcd7dd97877e4e11a00"
+      },
+      "tall-genre-indie-playing": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-tall-v2/captures/genre-indie-playing-720x1280.png",
+        "sha256": "ccb4f52f07963af6ffba49647f6d5ff48916efaeb36cc04c2f6a9b02dd2d4dc2"
+      },
+      "tall-genre-master-muted": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-tall-v2/captures/genre-master-muted-720x1280.png",
+        "sha256": "a288b6479f7c3cf3e2433fa94f8b427042ddec0910e73608274b00db261d206a"
+      },
+      "tall-genre-punk-unavailable": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-tall-v2/captures/genre-punk-unavailable-720x1280.png",
+        "sha256": "7fd7c6f4f0ce39c8a3a581441fac99ad0ee921f90bdbd0208591dd680b676f03"
+      },
+      "tall-genre-to-recruit": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-tall-v2/captures/genre-to-recruit-720x1280.png",
+        "sha256": "aa3211320796e2091867d3306f0b591ac7e85a84c974842902c87f63ed8043f4"
+      },
+      "wide-genre-indie-playing": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-wide-v2/captures/genre-indie-playing-1280x720.png",
+        "sha256": "92af919507f98fbb277165d204e3d1a31458235d996a47771ce4875685a142c8"
+      },
+      "wide-genre-master-muted": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-wide-v2/captures/genre-master-muted-1280x720.png",
+        "sha256": "ff522478e7bd30eac28a8b799f4cedde6171aa9687b2e0f2a2ba3935d4174cc8"
+      },
+      "wide-genre-punk-unavailable": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-wide-v2/captures/genre-punk-unavailable-1280x720.png",
+        "sha256": "1a8cecc527c6513627dda15ae4fdc7bb11b7e436985deb9a06f0c4555f7184b0"
+      },
+      "wide-genre-to-recruit": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-wide-v2/captures/genre-to-recruit-1280x720.png",
+        "sha256": "3b00b8dc1cc353be5e972dcd334b0654b2576a87f6a8b5eeaa7b51836656d51e"
+      },
+      "desktop-genre-indie-playing": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-desktop-v2/captures/genre-indie-playing-1600x900.png",
+        "sha256": "4773cee70c3dcf7e54881a5f6e47f868e2e20672666731ceac6a4e9b59d1e10a"
+      },
+      "desktop-genre-master-muted": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-desktop-v2/captures/genre-master-muted-1600x900.png",
+        "sha256": "c5a2074fe690cbb0e0a1b578c4669ad2136a1f1006c799db32748f1bc9ce883c"
+      },
+      "desktop-genre-punk-unavailable": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-desktop-v2/captures/genre-punk-unavailable-1600x900.png",
+        "sha256": "be1f8a4f349be1abc75d1e8c44a062532ba763e58766d46e39ec7411136f739c"
+      },
+      "desktop-genre-to-recruit": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-desktop-v2/captures/genre-to-recruit-1600x900.png",
+        "sha256": "f5fa9e192f308783e5dba250a271036808e2a53645df7f6c7bcbfa5cbc074891"
+      },
+      "phone-to-wide-resized-stopped": {
+        "path": "/workspace/work/s96-genre-preview-20261103/runs/final-phone-v2/captures/genre-resized-stopped-1280x720.png",
+        "sha256": "4b48d5febfd39f1f7313a8d9f8b987384d547601febee2eaacd2695cc0a6e5b0"
+      }
+    },
+    "independent_early_opens": 8,
+    "five_explicit_SIMULATED_lenses": [
+      "New player: example is separate from choosing and advancing; unavailable styles explained.",
+      "Mobile UX: useful index/footer retained; offscreen reachability comes from input proof.",
+      "Art/music: original screenprints/paper preserved; single guitar is not allstyle/fullband coverage; static recruitment keeps visualPARTIAL.",
+      "Accessibility: muted/written fallback readable; physical device/assistive checks separate.",
+      "QA/save:2296 assertions separate free zeroeffects from legitimate original saves; controlled/phone-only tests limited honestly."
+    ],
+    "material_gaps": [
+      "Only Indie guitar example exists, not fullband/fullsong or13otherstyles. No Jackskillgrade or static-art playing claim.",
+      "Physicalphone/speaker/headphone/OSfocus/IME/APKpackaging untested; Dummy proves state/routing/timing only. V9/source625unchanged and allAPKheld.",
+      "Phone initial5rows needsnormal listscroll forremainingchoices; actualall14 touch/key reachability proven. Static/sparse recruitment and widebuttons remain overallvisualPARTIAL.",
+      "Missingasset/manifest tested onphone, not arbitrary malformedfuturemanifesttypes or every control-drag permutation.",
+      "Both exactS94variants now approved by owner but not yetintegrated in this scope; written adjusted sketch retained until freshcontract.",
+      "OriginalmissingTMPproofs/oracles remain unavailable/permanentlyclosed; no contemporaneous restoration claim.",
+      "Currentabout846MBfree isnot a funded next runtime/cache/proof; no arbitrarycleanup assumed."
+    ],
+    "new_issue_review": {
+      "through_event": "S96-20261103-847",
+      "history": "841guessedsourcepath/missingnewsession read;842singleflock refused overlappingdisplay beforelaunch;843auditexpectedpathordering;844rootwrapper shadowedresolution beforeengine;845reviewserialization20KiBguard (report retains twooversizeattempthistory);846nullableimportresult report assembly;847verifiedresolution. Allpreserved, no productsource correction or failedGodotexecution."
+    },
+    "next_action": "Fresh bounded source/storage/COMMITTED preflight+gate to integrate both exact owner-approved S94 Leave space and Answer between lines audition arrangements, preserving source412/owners/models/save/Finance and silence for unchosen material. Check actual funding first; no APK. UX03 remains independent next quality review, not a presumed rebuild.",
+    "source_artifact_helpers_GL_released": true,
+    "Pages": {
+      "pages": [
+        {
+          "page_id": "page_75c8ccd784e08191825d48c2f382454d",
+          "sequence": 34,
+          "block_count": 104,
+          "same_ids_and_order": true,
+          "all_other_blocks_exact": true,
+          "status_exact": true,
+          "choices": 0,
+          "checked": 0,
+          "images": 0,
+          "no_browser_render_claim": true
+        },
+        {
+          "page_id": "page_b3929162c7b88191acd29e55dc06e779",
+          "sequence": 158,
+          "block_count": 308,
+          "same_ids_and_order": true,
+          "all_other_blocks_exact": true,
+          "status_exact": true,
+          "choices": 72,
+          "checked": 23,
+          "images": 50,
+          "no_browser_render_claim": true
+        }
+      ],
+      "owner_checkbox_writes": 0,
+      "preservation": "Only two existing status paragraphs changed. AgentInstructions/archive/deleted-A03 absence preserved by exact nonstatus block equality."
+    },
+    "display": {
+      "own_server_pid": 20263,
+      "stopped_by_SIGTERM": true,
+      "socket_gone": true,
+      "configuration_changes": [],
+      "GL_lock_available": true,
+      "launcher_retained": "/workspace/work/s96-genre-preview-20261103/display/launcher.log"
+    }
   }
 }
