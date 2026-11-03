@@ -3661,7 +3661,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "final408_import_standard_and_focused_proof",
   "claimed_at": "2026-11-03T02:31:04.346813+00:00",
-  "expires_at": "2026-11-03T06:15:00Z",
+  "expires_at": "2026-11-03T06:45:00Z",
   "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London.",
   "delegated_source_writer": "/root/s81_contract_safety",
   "overnight_flow_art_20261102": {
@@ -4129,7 +4129,7 @@
   "last_verified_local_native_source_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "source_writer_released_at": "2026-11-03T02:23:59.007622+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "scope_end": "2026-11-03T06:15:00Z",
+  "scope_end": "2026-11-03T06:45:00Z",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
@@ -4185,5 +4185,12 @@
     "source730": "Visiblepaidfailurefeedback+same-text editorpreservation corrected, notyetnativeverified",
     "proof732": "Changedstorageproofmethod reviewed/committedc025ce59db9b672b5fd23fbb41df885954019815; scratchtoolingpendingbeforeengine",
     "at": "2026-11-03T04:54:21.575747+00:00"
+  },
+  "s84_lease_renewal749": {
+    "prospective_at": "2026-11-03T06:00:38.971405+00:00",
+    "previous_expiry": "2026-11-03T06:15:00Z",
+    "new_expiry": "2026-11-03T06:45:00Z",
+    "reason": "Finishunchanged-sourceverification/visualreviewafterboundedstorageHOLD; nonewGame/artbreadth",
+    "finite48h_end_unchanged": "2026-11-04T21:24:35+00:00"
   }
 }

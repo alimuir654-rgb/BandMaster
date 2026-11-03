@@ -35,7 +35,7 @@
     "BM-45"
   ],
   "hypothesis": "One persistent editable lyric leaf, actual roster-bound contribution/locked note and literal A/B/refrain revision over original three sessions provides recognisable same-song authorship, without new scoring/economy or fake semantic understanding.",
-  "stop_condition": "ONE new Lyric/VerseChorus pilot and eight owned paths. Pure model checkpoint then actual earlyphone/shortwide review before fullcapture proof. HOLD on text/identity/ownership/uncertainty/data/immutable-snapshot defect; two ineffective attempts change method. No code outside allowlist/newart/engine/deps/APK. Scope ends06:15Nov3; no automatic global extension.",
+  "stop_condition": "ONE new Lyric/VerseChorus pilot and eight owned paths. Pure model checkpoint then actual earlyphone/shortwide review before fullcapture proof. HOLD on text/identity/ownership/uncertainty/data/immutable-snapshot defect; two ineffective attempts change method. No code outside allowlist/newart/engine/deps/APK. Scope ends06:45Nov3; no automatic global extension.",
   "target": {
     "locator": "/tmp/bandmaster-s83-20261103/standard/s83-audition-b608-standard-final-v1/captures/c27-practice_mode_create_day1-390x844.png",
     "original_sha256": "dd8e33dfde00768fa59cf41b697ff5f7cf20f2690bf7a91a69d827e2c8b76db6",
@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1194143,
-    "sha256": "4a44f7a006573bd7fc3c82cfcb01688fb43d2adb19f8f9428d5ae65b4729e073"
+    "bytes": 1195803,
+    "sha256": "c21b1dd327da849a926647cc830f602e8cf6d22f5e1b579ea3248599055575a3"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -94,7 +94,7 @@
   "pre_design_review": "/tmp/bandmaster-s84-20261103/review/pre-design/pre-design-review.json",
   "pre_design_review_sha256": "8091029b4929125841561265b3f8b048694bc7d85e9c394040fc4253ddc3fe1b",
   "started_at": "2026-11-03T02:31:04.346813+00:00",
-  "scope_end": "2026-11-03T06:15:00Z",
+  "scope_end": "2026-11-03T06:45:00Z",
   "root_lease": "S84-song-fragment-contract-20261103T0231",
   "current_plan_sequence": 22,
   "current_review_board_sequence": 130,
@@ -304,5 +304,11 @@
     "known_repeats": 4,
     "phone_engine_rerun_allowed": false,
     "resume_remaining_native_views": 3
+  },
+  "proof_desktop_recovery749": {
+    "path": "/tmp/bandmaster-s84-20261103/review/storage749.json",
+    "sha256": "d1be1bdae9dd32fca56e4715334f58e11de68bbc9711675e23ef1d9b451d512b",
+    "no_new_source_cache_import": true,
+    "prefix6_REUSED_failed_desktop_only": true
   }
 }

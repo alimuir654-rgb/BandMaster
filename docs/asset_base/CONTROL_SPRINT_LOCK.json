@@ -2,7 +2,7 @@
   "writer": "S84-song-fragment-contract-20261103T0231",
   "base_head": "336a17952649502a7fd44411999812d7e170da1f",
   "claimed_at": "2026-11-03T02:31:04.346813+00:00",
-  "expires_at": "2026-11-03T06:15:00Z",
+  "expires_at": "2026-11-03T06:45:00Z",
   "scope": "S84 one saved lyric workbench: adopted eight-path source implementation, early visual gate and exact proof; no APK.",
   "authority": "Latest direct owner booking request and48hour extension",
   "owner_approved": false,
@@ -809,7 +809,7 @@
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": "/root/s81_contract_safety",
   "contract_review_pending": false,
-  "scope_end": "2026-11-03T06:15:00Z",
+  "scope_end": "2026-11-03T06:45:00Z",
   "latest_external_read_status": "FreshlatestwakePlan22/Board130/commentsSUCCESS; previous700expiredreadretained.",
   "delegated_source_writer_status": "paused_frozen_730_repair_awaiting_root_732_proof",
   "s84_in_progress_evidence": {
@@ -833,5 +833,12 @@
     "source730": "Visiblepaidfailurefeedback+same-text editorpreservation corrected, notyetnativeverified",
     "proof732": "Changedstorageproofmethod reviewed/committedc025ce59db9b672b5fd23fbb41df885954019815; scratchtoolingpendingbeforeengine",
     "at": "2026-11-03T04:54:21.579615+00:00"
+  },
+  "s84_lease_renewal749": {
+    "prospective_at": "2026-11-03T06:00:38.971405+00:00",
+    "previous_expiry": "2026-11-03T06:15:00Z",
+    "new_expiry": "2026-11-03T06:45:00Z",
+    "reason": "Finishunchanged-sourceverification/visualreviewafterboundedstorageHOLD; nonewGame/artbreadth",
+    "finite48h_end_unchanged": "2026-11-04T21:24:35+00:00"
   }
 }
