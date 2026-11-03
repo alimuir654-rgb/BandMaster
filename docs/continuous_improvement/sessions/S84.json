@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1167697,
-    "sha256": "772800f45137b44b0e171f84940199b84a1be636f6a4a6652ed693369b6eabc3"
+    "bytes": 1170870,
+    "sha256": "34b418909cbd28ced6bb89c4746bb11eb935f13fd7af9aab11ec0ae08134bbd4"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -278,5 +278,10 @@
     "new_import_allocation_allowed": false,
     "storage_hold": "Fresh source will require reviewed one-runtime/capture-attestation method within existing800MiB/floor600 before any allocation. Existing643failedproof retained.",
     "at": "2026-11-03T04:46:25.578399+00:00"
+  },
+  "proof_method732": {
+    "path": "/tmp/bandmaster-s84-20261103/review/storage732.json",
+    "sha256": "63658cde402eb9d28d42aad2d2a92e811fbdfcf6f27086cb3559894c28f2feb9",
+    "native_acceptance_pending": true
   }
 }
