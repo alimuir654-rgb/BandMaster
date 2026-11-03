@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "id": "S96",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Could we have an audio example during the genre selection at the start of the game. Direct current request authorises optional Indie preview using accepted original only.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1332970,
+    "sha256": "4ff04205fb870fa97492bb3f1c420f8102be24b1c7ca28aa2dbca5b24db77f9f"
+  },
+  "baseline_sha": "b8261eb65e6f8c1b2379c6f3b97a723295a6eb8c",
+  "game_baseline_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
+  "target": {
+    "locator": "/workspace/work/s95-audio-playback-20261103/runs/standard-phone-final/c27-genre-390x844.png",
+    "original_sha256": "14a6d8251e002164da171833592f17119f24f6bda1e5e41e0a965552b3346905",
+    "pixels_inspected": true,
+    "kind": "Actual retained S95 native genre phone baseline, opened before this preflight; wide baseline opened independently."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "One explicitly labelled Indie guitar example with separate Play/Stop helps hear the starting style while preserving all14 choices and original commitment.",
+  "controlled_comparison": "S95 genre baseline same content/viewports vs one optional caption+48px controls inside unchanged paper. Other13 genres honest unavailable. Preserve all art/type/index/focus/footer.",
+  "stop_condition": "HOLD any clipping/inaccessible choices/owner-save-effects/autoplay/stale-context playback/ERROR/protectedsourcechange. Keep accepted original and pending variants separate. Two ineffective attempts change method.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/audition_audio.gd",
+    "experiments/playable_flightcase/audio/genre_examples.json",
+    "docs/continuous_improvement/sessions/S96.json",
+    "docs/continuous_improvement/S96_GENRE_AUDIO_PREVIEW.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s96-genre-preview-20261103/"
+  ],
+  "validation_commands": [
+    "Preflight commit + improvement_gate BEFORE source/assets",
+    "Actual73/88/freshprivateimport/4standard + earlyphone390/shortwide1280 before final four-profile whole genre-preview journey",
+    "Genuine pointer/key/touch,14 choices/focus/scroll/advance/Menu/Continue/resize/mute/focus/missing/finish; wholetypedowner/save counters/files zero audio effects; original genre commits once",
+    "Sharedplayer audition default compatibility; 412source/protected408/original54/source/art/fonts/hardware/OGG pins; EMPTY acceptedERROR, actual fourview PNG review"
+  ],
+  "root_lease": {
+    "id": "S96-genre-preview-20261103T2020",
+    "writer": "/root",
+    "expires_at": "2026-11-03T22:00:00Z"
+  },
+  "started_at": "2026-11-03T20:13:23.786842+00:00",
+  "scope_end": "2026-11-03T22:00:00Z",
+  "queue_task": "Direct owner genre-selection optional audio preview",
+  "reviewer": "game_design_research independent predesign/early/final; foundation_tests scratch QA; root alone engines",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "aggregate_cap_bytes": 469762048,
+    "source_cap_bytes": 104857600,
+    "cache_cap_bytes": 201326592,
+    "PNG_cap_bytes": 134217728,
+    "work_and_reserve_bytes": 29360128,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "current_free_bytes": 1165991936,
+    "cache_contract": "Fund complete fresh private development cache plus separate final clean cache if corrections require it. Preserve all previous caches/evidence, no duplicate audio asset. Detection not OS quota."
+  },
+  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
+  "independent_predesign": {
+    "path": "/workspace/work/s96-genre-preview-20261103/review/predesign.json",
+    "sha256": "ed5e107b8b58312e0ca8bb82cc37fdef81c9fbc1bed95d5222f3b16737e171cb",
+    "verdict": "CLEAR conditions adopted",
+    "scope_refinement": "Initial root preflight explicitly includes opening_ui two calls passing existing owner to read-only context, and configurable generic captions/hints preserving audition defaults. No new owner/model state."
+  },
+  "player_task": {
+    "goal": "Hear optional example while choosing starting genre",
+    "start": "Original new-band genre screen",
+    "end": "Original Find your people recruitment or Menu",
+    "commitment": "Original set_genre/to_recruit only; audio never selects or saves",
+    "interruptions": [
+      "change genre",
+      "mute/focus loss",
+      "resize",
+      "Menu/Continue",
+      "hide/free/missing"
+    ],
+    "acceptance": [
+      "all14 choices reachable with no type/target/art shrink",
+      "no autoplay or unsupportedgenre cue",
+      "explicit caption and48pxPlayStop",
+      "typedowner/files/saveattempt0 for audio",
+      "no model/schema/Finance changes"
+    ]
+  }
+}

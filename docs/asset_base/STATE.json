@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "released",
+  "status": "active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S95 accepted original audition playback only",
-  "writer": null,
+  "writer": "S96-genre-preview-20261103T2020",
   "last_verified_code_sha": "9045cec015219c65046e77f156ecb7d3ff9a0f05",
   "baseline": {
     "run_id": 40778019754,
@@ -732,7 +732,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S95",
+  "current_session": "S96",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
+  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2157,7 +2157,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S95",
+  "session": "S96",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
@@ -2466,12 +2466,12 @@
   "released_at": "2026-11-03T20:00:52.041351+00:00",
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
   "source_write_allowed": true,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
-  "expires_at": "2026-11-03T21:00:00Z",
+  "expires_at": "2026-11-03T22:00:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2606,7 +2606,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -5000,5 +5000,6 @@
     "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
-  }
+  },
+  "root_writer": "/root"
 }

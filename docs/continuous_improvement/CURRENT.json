@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S95",
+  "session": "S96",
   "scope": "S95 accepted original audition playback only",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "released",
-  "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
+  "status": "active",
+  "next_action": "Implement scoped optional preview then early phone/shortwide review before full four-view/regression proof.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3260,7 +3260,7 @@
     }
   ],
   "last_completed_session": "S95",
-  "writer": null,
+  "writer": "S96-genre-preview-20261103T2020",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3471,7 +3471,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
-  "current_session": "S95",
+  "current_session": "S96",
   "next_single_action": "Commit/gate beforestart; pininstalledXorg/config, oneboundedexistingconfiglaunch, rootdefaultentrythenbaselineprobe onlyifready.",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "prepared_android_v7": {
@@ -3643,12 +3643,12 @@
   "released_at": "2026-11-03T20:00:52.041351+00:00",
   "last_writer": "S92-flexible-audio-tooling-20261103T1748",
   "source_write_allowed": true,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S90_EXISTING_DISPLAY_NATIVE_BASELINE_ONLY",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
-  "expires_at": "2026-11-03T21:00:00Z",
+  "expires_at": "2026-11-03T22:00:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -3779,7 +3779,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -6380,5 +6380,6 @@
     "next_action": "Fresh UX03 venuebooking/calendar/due-day departure whole-task REVIEW fromcurrentverified411manifest; pendingadjustedaudiolistening doesnotblock independentapprovedqualitywork. No repeatS95/UX02/gig/unchangedsuites/APK foractivity.",
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
-  }
+  },
+  "root_writer": "/root"
 }
