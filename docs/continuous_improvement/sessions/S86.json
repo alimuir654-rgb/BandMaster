@@ -200,7 +200,8 @@
     "receipt": "/tmp/bandmaster-s86-20261103/storage-relocation.json",
     "receipt_sha256": "c775eece350da26840a6c74ee247f3fb71cd153706025ced305e0e91c6aff3ee",
     "actual_reclaim_bytes": 13283328,
-    "metadata_exception": "Original derived-cache entry now symlink/newinode-device-ctime atarchive; all original bytes/mode/mtime/owner retained. Bothparent directoriesfsynced. No raw/source/art/PNG/log/receipt/save/historydeleted."
+    "metadata_exception": "Original derived-cache entry now symlink/newinode-device-ctime atarchive; all original bytes/mode/mtime/owner retained. Bothparent directoriesfsynced. No raw/source/art/PNG/log/receipt/save/historydeleted.",
+    "guard_activation": "Funded189/fulltailchecked/archivecountedALSO"
   },
   "storage_plan_AFTER_verified_relocation": {
     "fresh_tmp_free": 816627712,
@@ -243,5 +244,6 @@
     "nlink": 1,
     "mtime_ns": 1793694985367584480,
     "ctime_ns": 1793699534727734580
-  }
+  },
+  "archive_aware_guard_sha256": "4eb64d7e072d88c6a1d769f3009ce32f675d143302aa249718647f17254063cc"
 }
