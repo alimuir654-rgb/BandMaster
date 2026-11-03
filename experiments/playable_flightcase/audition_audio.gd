@@ -2,6 +2,9 @@ extends HBoxContainer
 ## Presentation only. No Game/model/save calls; caller supplies revealed context.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 var manifest_path := "res://experiments/playable_flightcase/audio/audition_clips.json"
+var play_caption := "PLAY PART"
+var available_hint := "Hear the revealed written part."
+var unavailable_hint := "Audio is unavailable for this part; the written sketch remains available."
 var playing := false
 var play_button: Button
 var stop_button: Button
@@ -17,7 +20,7 @@ func configure(context: Callable) -> void:
 func _ready() -> void:
  name="AuditionAudio"
  add_theme_constant_override("separation",8)
- play_button=C.button("PLAY PART")
+ play_button=C.button(play_caption)
  play_button.name="AuditionAudioPlay"
  stop_button=C.button("STOP")
  stop_button.name="AuditionAudioStop"
@@ -64,8 +67,8 @@ func _refresh() -> void:
  if play_button==null:return
  var available:=not _entry().is_empty()
  play_button.disabled=not available or _muted()
- play_button.text="SOUND MUTED" if _muted() else ("PLAY PART" if available else "NO AUDIO")
- play_button.tooltip_text="Master sound is muted." if _muted() else ("Hear the revealed written part." if available else "Audio is unavailable for this part; the written sketch remains available.")
+ play_button.text="SOUND MUTED" if _muted() else (play_caption if available else "NO AUDIO")
+ play_button.tooltip_text="Master sound is muted." if _muted() else (available_hint if available else unavailable_hint)
  stop_button.disabled=not playing
 
 func _play() -> void:

@@ -571,7 +571,7 @@ func _genre() -> void:
  body.add_theme_constant_override("separation",18 if wide else 12)
  root.add_child(body)
  var press := GenrePress.new()
- press.configure(setup.game.genre,size)
+ press.configure(setup.game.genre,size,setup)
  if wide:
   press.size_flags_vertical = Control.SIZE_EXPAND_FILL
  else:
@@ -617,7 +617,7 @@ func _choose_genre(value: String) -> void:
  if press==null:
   _render()
   return
- press.configure(setup.game.genre,size)
+ press.configure(setup.game.genre,size,setup)
  for item in Base.genres():
   var name: String = str(item)
   var button: Button = find_child("Genre_"+name.replace(" ","_").replace("/","_"),true,false) as Button

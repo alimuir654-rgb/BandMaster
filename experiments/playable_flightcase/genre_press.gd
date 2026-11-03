@@ -5,6 +5,13 @@ const Kit = preload("res://components/control_atlas/kit.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const AudioPreview = preload("res://experiments/playable_flightcase/audition_audio.gd")
+const EXAMPLES_PATH := "res://experiments/playable_flightcase/audio/genre_examples.json"
+var _preview_owner
+var _preview_genre := ""
+var _preview_material := ""
+var _audio
+
 const IMAGE_SOURCES := {
  "Indie rock":"genre_indie",
  "Punk":"genre_punk",
@@ -48,12 +55,16 @@ func _ink(text: String, points: int, node_name: String) -> Label:
  label.focus_mode = Control.FOCUS_NONE
  return label
 
-func configure(genre: String, viewport_size: Vector2) -> void:
+func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
+ _preview_owner = owner
+ _preview_genre = genre
+ _preview_material = ""
+ _audio = null
  for child in get_children():
   remove_child(child)
   child.queue_free()
  name = "GenrePress"
- mouse_filter = Control.MOUSE_FILTER_IGNORE
+ mouse_filter = Control.MOUSE_FILTER_PASS
  focus_mode = Control.FOCUS_NONE
  size_flags_horizontal = Control.SIZE_EXPAND_FILL
  var compact: bool = viewport_size.x < 720.0
@@ -65,7 +76,7 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  var content := VBoxContainer.new()
  content.name = "GenrePressContent"
  content.add_theme_constant_override("separation",6 if compact else 10)
- content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ content.mouse_filter = Control.MOUSE_FILTER_PASS
  add_child(content)
  var edition: Array = EDITIONS.get(genre,["355448","strings"])
  var color := Color(str(edition[0]))
@@ -108,8 +119,43 @@ func configure(genre: String, viewport_size: Vector2) -> void:
  content.add_child(_ink(str(descriptor.get("description","Build a sound of your own.")),16,"GenrePressDescription"))
  var strength: Label = _ink("Strength: "+str(descriptor.get("strength","Your first gigs")),14,"GenrePressStrength")
  content.add_child(strength)
+ _add_audio_preview(content)
  set_meta("genre",genre)
  set_meta("source","Independent image-generated instrument screenprint where supplied; original native motif fallback; unchanged session_paper.png")
+
+func _audio_context() -> Dictionary:
+ return {"allowed": _preview_owner != null and _preview_owner.screen == "genre" and _preview_owner.game.genre == _preview_genre,
+  "material_id": _preview_material, "content_version": "genre_examples_v1"}
+
+func _add_audio_preview(content: VBoxContainer) -> void:
+ var catalogue: Dictionary = {}
+ if FileAccess.file_exists(EXAMPLES_PATH):
+  var parser := JSON.new()
+  if parser.parse(FileAccess.get_file_as_string(EXAMPLES_PATH)) == OK and parser.data is Dictionary:
+   catalogue = parser.data
+ var entry: Dictionary = {}
+ if catalogue.get("schema_version") == 1 and catalogue.get("content_version") == "genre_examples_v1":
+  var genres = catalogue.get("genres",{})
+  var materials = catalogue.get("materials",{})
+  if genres is Dictionary and materials is Dictionary:
+   var id = genres.get(_preview_genre, "")
+   if id is String and materials.get(id) is Dictionary:
+    var candidate: Dictionary = materials[id]
+    if candidate.get("owner_listening_accepted") == true and candidate.get("label") is String:
+     _preview_material = id
+     entry = candidate
+ if entry.is_empty():
+  content.add_child(_ink("No audio example available yet.",16,"GenreAudioUnavailable"))
+  return
+ content.add_child(_ink(str(entry["label"]),16,"GenreAudioCaption"))
+ _audio = AudioPreview.new()
+ _audio.manifest_path = EXAMPLES_PATH
+ _audio.play_caption = "PLAY EXAMPLE"
+ _audio.available_hint = "Hear the indie guitar example. This does not select a genre."
+ _audio.unavailable_hint = "Audio example unavailable; all genre information and choices remain available."
+ _audio.configure(_audio_context)
+ _audio.set_clip(_preview_material)
+ content.add_child(_audio)
 
 class PrintArt extends Control:
  var ink := Color("355448")

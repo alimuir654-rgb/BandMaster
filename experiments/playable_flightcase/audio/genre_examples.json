@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "content_version": "genre_examples_v1",
+  "genres": {
+    "Indie rock": "genre_indie_guitar_v1"
+  },
+  "materials": {
+    "genre_indie_guitar_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_original_v2.ogg",
+      "sha256": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+      "style": "Indie rock",
+      "instrument": "electric_guitar",
+      "owner_listening_accepted": true,
+      "source_PCM_sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
+      "rights": "CC0 sampled instrument + original authored arrangement; S93 rights receipt local",
+      "label": "INDIE GUITAR EXAMPLE",
+      "description": "Original arranged sample-based guitar illustration, not a full band or player-performance prediction."
+    }
+  }
+}
