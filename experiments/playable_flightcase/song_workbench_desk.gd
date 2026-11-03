@@ -493,6 +493,10 @@ func request_exit(destination: String) -> void:
  center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  _exit_dialog.add_child(center)
  var panel:=PanelContainer.new()
+ panel.name="WorkbenchExitCard"
+ var card:=StyleBoxFlat.new()
+ card.bg_color=Color("161b18")
+ panel.add_theme_stylebox_override("panel",card)
  panel.custom_minimum_size.x=minf(420,maxf(260,size.x-28))
  center.add_child(panel)
  var body:=VBoxContainer.new()
