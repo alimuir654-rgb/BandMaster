@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1143246,
-    "sha256": "fe7930447249548e866236c52d17322d26425405a6e75dfa3fb73c304704137f"
+    "bytes": 1151626,
+    "sha256": "246ad7fbc281b30b986286d7cdac00a31f84357edf88df0622c5123c8bcaa9a2"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -165,5 +165,25 @@
     "root_actual_original_opened": "/tmp/bandmaster-s84-20261103/early-workbench-f152-phone-editor-v1/captures/01-FIRST-FAILURE-390x844.png",
     "failure_event": "S84-20261103-712",
     "newest_source_unverified": "adaa67f16fdf139653ab6643518bcc26c650811c"
+  },
+  "storage_amendment719": {
+    "path": "/tmp/bandmaster-s84-20261103/qa/storage-amendment719.json",
+    "sha256": "a1dc548f9880471dc24f4535e72ac432fbdb3ba682661d4e57e0688316d2c014",
+    "cache_caps_MiB": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
+    ],
+    "same_aggregate_MiB": 800,
+    "same_floor_MiB": 600
+  },
+  "archive_proof_adoption": {
+    "path": "/tmp/bandmaster-s84-20261103/review/archive-proof/ROOT_ADOPTION.json",
+    "sha256": "f256fdfa73cd3839a7f0c31d5579335e74805aa817c1e684fe38ec8771ba859a",
+    "extra_cap_MiB": 16,
+    "source_changes": false
   }
 }
