@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1328750,
-    "sha256": "680107eff9534f6a554c855236db9d6789d00598511c0f4c83b0e9f7094c5afc"
+    "bytes": 1330209,
+    "sha256": "6c02f9efae7c04d4982e66315f35f7831d4e1d3c118d522974ee59e5bd272bde"
   },
   "baseline_sha": "7bb1ec10c43f04a518199ee8620c870cb33d1b96",
   "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
@@ -76,10 +76,12 @@
   "storage_plan": {
     "aggregate_cap_bytes": 536870912,
     "source_cap_bytes": 104857600,
-    "cache_cap_bytes": 100663296,
+    "cache_cap_bytes": 201326592,
     "PNG_cap_bytes": 134217728,
     "workspace_floor_bytes": 629145600,
-    "TMP_floor_bytes": 629145600
+    "TMP_floor_bytes": 629145600,
+    "work_and_reserve_bytes": 96468992,
+    "cache_rescope": "Prospective finalsource emptyprivatecache import: retain firstdevelopmentcache entirely, fundsecond96MiB withinUNCHANGED512MiBaggregate/source100MiB/PNG128MiB/floors600MiB. Transfer96MiBfromexistingworkreserve; oldnative proofs onlyreused via exactsource+importedcacheclosure."
   },
   "next_action": "Commitgate then one component/manifest/clip/desk; earlyphonewide/finalfourview+standard+focused zeroowner proof.",
   "research_attachment": {
