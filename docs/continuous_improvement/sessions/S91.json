@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "S91",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue owner-authorised quality queue after completed S90 native baseline; fresh UX02 P2 portrait set-position repair, all APK/assets/audio holds preserved.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-14",
+    "BM-15",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1292737,
+    "sha256": "9cf223ea3c8eaa062a1c6fae0c654f3130f1d3d5197327d861f4377804a60281"
+  },
+  "target": {
+    "locator": "/workspace/work/s90-native-baseline-20261103/phone-v1/phone-choice.png",
+    "original_sha256": "ee87b944494c9f13e6617b619e833af542d9c1f2c95f6c503af9cbd486e78bc0",
+    "pixels_inspected": true,
+    "kind": "Root actuallyopened S90 current native phone choice; independent predesign current originals required before sourceedit."
+  },
+  "baseline_sha": "5bcb44419fefa2c8d156f2d104bb28a945834a9c",
+  "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "dominant_issue": "BM-38",
+  "hypothesis": "One compact 16px plainwrapped portrait-only saved ordinal/completed summary immediately above original fixed actions improves set orientation while preserving full heldvoice/neutral48pxchoices; no fulltitle duplication because voice already names current/next. Wide unchanged.",
+  "stop_condition": "HOLD actual clipping/unreadable or wrongcurrent-next/saved meaning, error/source/hash/save/once regression, missingcompleteproofbudget, displayreadiness/clampedrequestednativeviewport, competingwriter or leaseend. Two ineffective attempts change method/HOLD. No Xorg/config/newdeps/paid/APK forcinggreen.",
+  "controlled_comparison": "Same S90 original2song48charUnicode bracket fixture and savedsource3d2; portrait changed summaryonly, landscape exact RGBA where matching scene/reveal permits. Before any shippingedit verify fresh existingXorg native4viewport window/viewport rendering capability without changingdisplaysettings. Earlyphone+shortwide importantstates beforefullintegration, then finalfourview completebooking-to-finalwrap/currentoriginal73/88/freshimport/4standard+sourceprotection.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "docs/continuous_improvement/S91_PORTRAIT_PERFORMANCE_CONTEXT.md",
+    "docs/continuous_improvement/sessions/S91.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s91-performance-context-20261103/",
+    "/workspace/work/s88-recovery-20261103/runtime/s91_readiness.gd"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S91.json",
+    "Root exact4.7.2/Dummy/X11Mesa/additionalnetworkpermission/oneflock/freshprivateXDG. FreshS91 strictS51 derivative sourceonly; original73/88/import4standard. Focusedearlyphonewide then4native fulljourneys/errorrollbackretryreload/0-3songs/unknownstaleinvalidprefix/stateeffects; exactsourceandprotected54Scripts/config/privatecacheaudit. No unchangedmodels/APK/activityreruns."
+  ],
+  "root_lease": {
+    "id": "S91-portrait-performance-context-20261103T1715",
+    "writer": "/root",
+    "expires_at": "2026-11-03T19:00:00Z"
+  },
+  "started_at": "2026-11-03T17:16:26.273772+00:00",
+  "scope_end": "2026-11-03T19:00:00Z",
+  "queue_task": "UX02 portrait performance context P2 repair",
+  "reviewer": "/root/s91_visual_review independent pred esign/early/final; /root/s91_qa_plan scopednonshippingQA; rootonlysourceandengines",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "player_goal": "Know current/next saved song ordinal and completed count before original performance actions; complete original gig safely.",
+  "task_start": "Existing managed booking/set-out",
+  "task_end": "Original explicit finalwrap saved result; no automaticsettlement",
+  "commitment_points": "Original named checkpoint actions saveonce; onlyoriginalfinalwrap settles Finance/day; Label draw/resize/reveal/screenchange free",
+  "important_beats": [
+    "performing",
+    "choice",
+    "reaction",
+    "after_set",
+    "pause/Menu/Continue",
+    "ShowOptionsKeep",
+    "failedsave/retry",
+    "finalwrap"
+  ],
+  "state_matrix": [
+    "portraitphone+tall, landscape wide+desktop",
+    "0/1/2/3originals;48charliteralbracketUnicode;duplicate titlesdistinctIDs valid",
+    "performingPLAYING,choice/reactionNEXT,after_setCOMPLETE;emptyhonest",
+    "normal/reduced/revealSkip/resume/reload/resize",
+    "actualfailedsavewholetypedrollbackretry/stale/futureHOLD/no duplicate settlement",
+    "fullvoice/order unchanged;originalneutralactions>=44physical;fullnoteandnewsummarywithinclip"
+  ],
+  "storage_plan": {
+    "new_S91_aggregate_cap_bytes": 536870912,
+    "runtime_source_cap_bytes": 104857600,
+    "new_private_cache_cap_bytes": 100663296,
+    "PNG_cap_bytes": 134217728,
+    "QA_logs_cap_bytes": 50331648,
+    "failure_closeout_reserve_bytes": 146800640,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "existing_S88_S90_preserved": true,
+    "critical_evidence_storage": "Durableworkspaceonly; no volatileGitobjects, no oldproofreconstruction/purge"
+  },
+  "next_action": "Commit/gate, independentpredesign, bounded nativeviewportreadiness via existing unmodifiedXorg; ifready materialiseexact408candidate/privatecache, oneleafrepair and meaningfulproof."
+}
