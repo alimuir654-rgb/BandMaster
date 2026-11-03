@@ -187,6 +187,7 @@ func _build() -> void:
  _text.custom_minimum_size=Vector2(0,164)
  _text.wrap_mode=TextEdit.LINE_WRAPPING_BOUNDARY
  _text.set_scroll_past_end_of_file_enabled(false)
+ _text.set_deselect_on_focus_loss_enabled(false)
  _text.add_theme_font_size_override("font_size",21)
  _text.add_theme_color_override("font_color",Color("29241f"))
  _text.add_theme_color_override("caret_color",Color("29241f"))
