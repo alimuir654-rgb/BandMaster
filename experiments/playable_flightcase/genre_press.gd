@@ -151,7 +151,7 @@ func _add_audio_preview(content: VBoxContainer) -> void:
  _audio = AudioPreview.new()
  _audio.manifest_path = EXAMPLES_PATH
  _audio.play_caption = "PLAY EXAMPLE"
- _audio.available_hint = "Hear the indie guitar example. This does not select a genre."
+ _audio.available_hint = "Hear the instrumental indie band example. This does not select a genre."
  _audio.unavailable_hint = "Audio example unavailable; all genre information and choices remain available."
  _audio.configure(_audio_context)
  _audio.set_clip(_preview_material)

@@ -487,8 +487,8 @@ func _rollback_identity(before: Dictionary) -> void:
  identity_style=(before.get(IdentityStyle.KEY,{}) as Dictionary).duplicate(true)
  _retain_extensions(before)
 
-func audition_view() -> Dictionary:
- return Audition.view(snapshot())
+func audition_view(candidate_id: String="cast_jack") -> Dictionary:
+ return Audition.view(snapshot(),candidate_id)
 
 func audition_expected() -> Dictionary:
  return Audition.expected(snapshot())
@@ -502,7 +502,8 @@ func _finish_audition(before: Dictionary,result: Dictionary) -> Dictionary:
  if not _save_draft_owned():
   _rollback_identity(before)
   return {"ok":false,"message":"The audition could not be saved. Nothing changed; try again.","changed":false}
- return {"ok":true,"message":str(result.get("message","")),"changed":true,"view":audition_view(),"expected":audition_expected()}
+ var candidate_id: String=str(_audition_raw["active"].get("candidate_id",_audition_raw["last_result"].get("candidate_id","cast_jack")))
+ return {"ok":true,"message":str(result.get("message","")),"changed":true,"candidate_id":candidate_id,"view":audition_view(candidate_id),"expected":audition_expected()}
 
 func begin_audition(candidate_id: String,role: String) -> Dictionary:
  if _audition_busy or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"An audition choice is already being saved.","changed":false}

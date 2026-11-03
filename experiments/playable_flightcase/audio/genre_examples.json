@@ -2,19 +2,20 @@
   "schema_version": 1,
   "content_version": "genre_examples_v1",
   "genres": {
-    "Indie rock": "genre_indie_guitar_v1"
+    "Indie rock": "genre_indie_band_v1"
   },
   "materials": {
-    "genre_indie_guitar_v1": {
-      "path": "res://experiments/playable_flightcase/audio/jack_original_v2.ogg",
-      "sha256": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+    "genre_indie_band_v1": {
+      "name": "indie-full-band",
+      "path": "res://experiments/playable_flightcase/audio/indie_band_v1.ogg",
+      "sha256": "845c6b48db4c482d77f2dfb983fcc3cff9e1f8e95414b62c1757badfc7425b00",
+      "source_PCM_sha256": "fb51b79f38ee7cb1ea3f5aaeb5b2d4d46a72949c1c856f68a30091c49b449e75",
       "style": "Indie rock",
-      "instrument": "electric_guitar",
       "owner_listening_accepted": true,
-      "source_PCM_sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
-      "rights": "CC0 sampled instrument + original authored arrangement; S93 rights receipt local",
-      "label": "INDIE GUITAR EXAMPLE",
-      "description": "Original arranged sample-based guitar illustration, not a full band or player-performance prediction."
+      "rights": "Karoryfer CC0 sampled instruments + original authored arrangement; S99 pinned rights/render/owner acceptance local",
+      "instrument": "electric_guitar_bass_drums",
+      "label": "INDIE BAND EXAMPLE",
+      "description": "Original instrumental indie band example: guitar, bass and drums. A starting direction for your band."
     }
   }
 }

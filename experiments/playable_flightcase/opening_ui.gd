@@ -17,6 +17,7 @@ const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
 const SettingsSheet = preload("res://experiments/playable_flightcase/settings_sheet.gd")
+const SplashAudio = preload("res://experiments/playable_flightcase/splash_audio.gd")
 const AudioPreferences = preload("res://experiments/playable_flightcase/audio_preferences.gd")
 const NotesStyle = preload("res://experiments/playable_flightcase/notes_style.gd")
 const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
@@ -56,6 +57,9 @@ func _ready() -> void:
  _sync_safe_area()
  get_viewport().size_changed.connect(_on_viewport_resized)
  _render()
+ var startup:=SplashAudio.new()
+ startup.owner_root=self
+ add_child(startup)
 
 func _sync_safe_area() -> bool:
  var next: Rect2 = SafeArea.for_root(self)

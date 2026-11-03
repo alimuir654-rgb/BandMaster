@@ -30,8 +30,8 @@
   "game_baseline_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1375001,
-    "sha256": "44691e5ca89d60738e42576b105f987a8b3a6745400ae3f8ab2ad7022b4035db"
+    "bytes": 1380019,
+    "sha256": "b2369a0402ce6d4112c78672355ab8376c3ea678567bca3d47aa9ac34af8ed92"
   },
   "target": {
     "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
@@ -120,5 +120,6 @@
     "contract_sha256": "4329c983b56b92e660a749a303a03bc735dca1fb64467b80635bf42d0410c4dc",
     "replay_followup": "Root adopted as direct usability/compare requirement; reviewer notified before UI implementation."
   },
-  "completed_comparison_replay": "Explicit original-only replay on validated completed candidate notes, exact selected ID/heard receipt/version/context; no save/autoplay. Same existing UI path/player."
+  "completed_comparison_replay": "Explicit original-only replay on validated completed candidate notes, exact selected ID/heard receipt/version/context; no save/autoplay. Same existing UI path/player.",
+  "preflight_sha": "a4bcffbaaa5fe809e3bba8a3786097ab0ebd2141"
 }

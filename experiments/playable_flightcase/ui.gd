@@ -4,6 +4,9 @@ const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
+const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
+const PersonalContext = preload("res://experiments/playable_flightcase/personal_context.gd")
+const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
 const AuditionDesk = preload("res://experiments/playable_flightcase/audition_desk.gd")
 const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbench_desk.gd")
@@ -211,7 +214,7 @@ func _rebuild() -> void:
  if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
   display_message = "Meet the musicians. Auditions cost no time or talent."
  if game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false)):
-  display_message="JACK · A REHEARSAL SKETCH"
+  display_message=str(onboarding_state.audition_view()["person"]["name"]).to_upper()+" · A REHEARSAL SKETCH"
  if game.phase=="play" and opening_owner!=null and int(game.career.get("cash",0))==0:
   var account: Dictionary = Finance.view(game.career)
   display_message = "NO CASH  •  %d / 14 completed days  •  Check Finances in the Career Desk" % int(account.get("broke_days",0))
@@ -394,8 +397,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var id: String = str(person.id)
  var recruited: bool = Base.contains(game.roster,id)
  var heard: bool = bool(auditioned.get(id,false)) or recruited
- if id=="cast_jack" and onboarding_state!=null:
-  heard=bool(onboarding_state.audition_view().get("heard",false)) or recruited
+ if Profiles.supports(id) and onboarding_state!=null:
+  heard=bool(onboarding_state.audition_view(id).get("heard",false)) or recruited
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
@@ -442,6 +445,21 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  bio.add_child(_ink(str(person.get("town","UK")),16))
  bio.add_child(_ink(str(person.get("personality","Musician")),16,true))
  bio.add_child(_ink(str(person.get("story","An aspiring musician looking for a band.")),14))
+ var background: Dictionary=PersonalContext.for_candidate(id)
+ var practical:=_box()
+ practical.name="RecruitPracticalContext"
+ practical.add_child(_ink("WORK · "+background["work"],16))
+ practical.add_child(_ink("OUTSIDE THE BAND · "+background["outside_commitment"],16))
+ practical.add_child(_ink(background["availability"],16))
+ body.add_child(practical)
+ if Profiles.supports(id) and onboarding_state!=null and bool(onboarding_state.audition_view(id).get("heard",false)):
+  var content: Script=Profiles.content(id)
+  var replay:=AudioPart.new()
+  replay.manifest_path=Profiles.audio_manifest(id)
+  replay.play_caption="PLAY ORIGINAL"
+  replay.configure(_completed_audio_context.bind(id))
+  body.add_child(replay)
+  replay.set_clip(content.FIRST_ID)
  var strength: Label = _candidate_note("STRENGTH  •  "+str(person.get("strength","Still developing")),"RecruitStrength",heard and audition_note_id==id)
  var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
  strength.visible = heard
@@ -515,7 +533,7 @@ func _audition_candidate() -> void:
  if items.is_empty():
   return
  var id: String = str(items[selected_index].id)
- if id=="cast_jack" and onboarding_state!=null and not bool(onboarding_state.audition_view().get("heard",false)):
+ if Profiles.supports(id) and onboarding_state!=null and not bool(onboarding_state.audition_view(id).get("heard",false)):
   var result: Dictionary=onboarding_state.begin_audition(id,role)
   last_message=str(result.get("message",""))
   _audition_fresh=bool(result.get("ok",false))
@@ -530,8 +548,9 @@ func _audition_changed(result: Dictionary) -> void:
  last_message=str(result.get("message",""))
  _audition_fresh=str(onboarding_state.audition_view().get("phase","")) in ["arrival","tryout","response"]
  if not bool(onboarding_state.audition_view().get("active",false)):
-  auditioned["cast_jack"]=bool(onboarding_state.audition_view().get("heard",false))
-  audition_note_id="cast_jack" if auditioned["cast_jack"] else ""
+  var id: String=str(result.get("candidate_id",onboarding_state.audition_view().get("candidate_id","")))
+  auditioned[id]=bool(onboarding_state.audition_view(id).get("heard",false))
+  audition_note_id=id if auditioned[id] else ""
  _rebuild()
 
 func _reveal_audition_note() -> void:
@@ -1143,7 +1162,7 @@ func _move_candidate(delta: int) -> void:
  _rebuild()
 func _recruit(id: String) -> void:
  var heard: bool=bool(auditioned.get(id,false))
- if id=="cast_jack" and onboarding_state!=null:heard=bool(onboarding_state.audition_view().get("heard",false))
+ if Profiles.supports(id) and onboarding_state!=null:heard=bool(onboarding_state.audition_view(id).get("heard",false))
  if not heard:
   return
  last_message = str(onboarding_state.recruit(id)["message"] if onboarding_state != null else game.recruit(id)["message"])
@@ -1502,3 +1521,11 @@ func _load_original() -> void:
   _hydrate_song_draft()
  last_message = "Sandbox restored." if okay else "No valid sandbox save."
  _rebuild()
+
+func _completed_audio_context(candidate_id: String) -> Dictionary:
+ var items: Array=game.choices(role)
+ var selected: bool=selected_index>=0 and selected_index<items.size() and str(items[selected_index].id)==candidate_id
+ var content: Script=Profiles.content(candidate_id)
+ if content==null or onboarding_state==null:return {"allowed":false}
+ var view: Dictionary=onboarding_state.audition_view(candidate_id)
+ return {"allowed":is_visible_in_tree() and selected and game.phase=="recruit" and game.genre=="Indie rock" and view.get("ok",false) and not view.get("held",false) and not view.get("active",false) and view.get("heard",false),"material_id":content.FIRST_ID,"content_version":content.VERSION}

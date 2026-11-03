@@ -1,0 +1,12 @@
+{
+  "name": "splash-cadence",
+  "path": "res://experiments/playable_flightcase/audio/splash_cadence_v1.ogg",
+  "sha256": "e6dfc6097ec9821d1215eacf2caf99e9aac5b1a8e64bc4d1a74921acf7cd9186",
+  "source_PCM_sha256": "8bfa2c328d542bdb20a34ec468d875c2ab330725437018dbc2035797edc5509c",
+  "style": "Indie rock",
+  "owner_listening_accepted": true,
+  "rights": "Karoryfer CC0 sampled instruments + original authored arrangement; S99 pinned rights/render/owner acceptance local",
+  "schema_version": 1,
+  "instrument": "electric_guitar_bass_drums",
+  "once_per_process": true
+}

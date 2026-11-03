@@ -6,7 +6,9 @@ const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
-const Content = preload("res://experiments/playable_flightcase/audition_content.gd")
+const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
+const PersonalContext = preload("res://experiments/playable_flightcase/personal_context.gd")
+var _content: Script
 signal changed(result: Dictionary)
 signal menu_requested
 var owner_state
@@ -32,6 +34,8 @@ func _ready() -> void:
  size_flags_vertical=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",8)
  _view=owner_state.audition_view()
+ _content=Profiles.content(str(_view.get("candidate_id","")))
+ if _content==null:return
  _expected=owner_state.audition_expected()
  _build()
 
@@ -85,8 +89,9 @@ func _identity() -> VBoxContainer:
  var identity:=VBoxContainer.new()
  identity.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  identity.add_theme_constant_override("separation",4)
- identity.add_child(_label("JACK",22))
- identity.add_child(_label("Guitarist · 22 · Sheffield"))
+ var person: Dictionary=_view["person"]
+ identity.add_child(_label(str(person["name"]).to_upper(),22))
+ identity.add_child(_label("%s · %s · %s" % [person["role"],person["age"],person["town"]]))
  return identity
 
 func _add_voice(host: Control) -> void:
@@ -137,7 +142,7 @@ func _build() -> void:
   else:
    place.add_child(introduction)
    _add_voice(place)
-  work.add_child(_label("Jack has brought a short guitar idea. Look it over together, then ask him to try another approach."))
+  work.add_child(_label(str(_view["person"]["name"])+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
  else:
   if wide:
    place.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(380,214)))
@@ -153,12 +158,13 @@ func _build() -> void:
    pictures.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(200,112)))
    pictures.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",Vector2(112,106)))
    place.add_child(pictures)
-   place.add_child(_label("JACK · GUITARIST · 22 · SHEFFIELD",18))
+   var person: Dictionary=_view["person"]
+   place.add_child(_label(("%s · %s · %s · %s" % [person["name"],person["role"],person["age"],person["town"]]).to_upper(),18))
   _add_voice(place)
  var tools:=HBoxContainer.new()
  tools.name="AuditionInspectionTools"
  tools.add_theme_constant_override("separation",12)
- tools.add_child(_quiet_button("ABOUT JACK","AuditionBiography",_toggle_bio))
+ tools.add_child(_quiet_button("ABOUT "+str(_view["person"]["name"]).to_upper(),"AuditionBiography",_toggle_bio))
  var spacer:=Control.new()
  spacer.mouse_filter=Control.MOUSE_FILTER_IGNORE
  spacer.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -181,11 +187,12 @@ func _build() -> void:
   var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
   version_label.name="AuditionCurrentVersion"
   notes.add_child(version_label)
-  notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. Guitar: Jack’s part."))
+  notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. Guitar: "+str(_view["person"]["name"])+"’s part."))
   _audio=AudioPart.new()
+  _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
   _audio.configure(_audio_context)
   notes.add_child(_audio)
-  _audio.set_clip(Content.material_id(str(_view.get("request",""))))
+  _audio.set_clip(_content.material_id(str(_view.get("request",""))))
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
   _board.columns=4 if wide else 2
@@ -197,6 +204,14 @@ func _build() -> void:
   _inspector=C.paper_label("Tap a bar to inspect its written part.")
   _inspector.name="AuditionInspector"
   notes.add_child(_inspector)
+ var practical:=VBoxContainer.new()
+ practical.name="AuditionPracticalContext"
+ practical.add_theme_constant_override("separation",4)
+ var background: Dictionary=PersonalContext.for_candidate(str(_view["person"]["id"]))
+ practical.add_child(_label("WORK · "+background["work"]))
+ practical.add_child(_label("OUTSIDE THE BAND · "+background["outside_commitment"]))
+ practical.add_child(_label(background["availability"]))
+ work.add_child(practical)
  _bio=VBoxContainer.new()
  _bio.name="AuditionBiographyBody"
  _bio.visible=false
@@ -212,8 +227,8 @@ func _build() -> void:
  actions.add_theme_constant_override("separation",6)
  add_child(actions)
  if not _view.get("held",false):
-  var steps: Dictionary={"arrival":"1 / 4 · MEET JACK","tryout":"2 / 4 · HEAR THE FIRST PART","response":"3 / 4 · COMPARE THE ADJUSTMENT","decision":"4 / 4 · INVITE OR PASS"}
-  var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask Jack to try one change.","response":"Compare the original if useful, then review the invitation.","decision":"Read about Jack before choosing. Inviting costs the talent shown."}
+  var steps: Dictionary={"arrival":"1 / 4 · MEET "+str(_view["person"]["name"]).to_upper(),"tryout":"2 / 4 · HEAR THE FIRST PART","response":"3 / 4 · COMPARE THE ADJUSTMENT","decision":"4 / 4 · INVITE OR PASS"}
+  var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask "+str(_view["person"]["name"])+" to try one change.","response":"Compare the original if useful, then review the invitation.","decision":"Read about "+str(_view["person"]["name"])+" before choosing. Inviting costs the talent shown."}
   var progress:=_label(str(steps.get(phase,"AUDITION")),14)
   progress.name="AuditionProgress"
   actions.add_child(progress)
@@ -232,10 +247,10 @@ func _build() -> void:
    actions.add_child(requests)
   elif phase=="response":actions.add_child(_button("NEXT: INVITE OR PASS","AuditionReview",_act.bind("review","")))
   elif phase=="decision":
-   var price: int=Base.incremental_cost(owner_state.game.roster,owner_state.game.person_by_id("cast_jack"))
+   var price: int=Base.incremental_cost(owner_state.game.roster,owner_state.game.person_by_id(str(_view["person"]["id"])))
    actions.add_child(_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]))
-   var invite:=_button("INVITE JACK · %d TALENT" % price,"AuditionInvite",_invite)
-   invite.disabled=not owner_state.can_recruit("cast_jack")
+   var invite:=_button("INVITE %s · %d TALENT" % [str(_view["person"]["name"]).to_upper(),price],"AuditionInvite",_invite)
+   invite.disabled=not owner_state.can_recruit(str(_view["person"]["id"]))
    invite.set_meta("permitted",not invite.disabled)
    actions.add_child(invite)
    actions.add_child(_button("PASS FOR NOW","AuditionPass",_act.bind("pass","")))
@@ -284,10 +299,10 @@ func _inspect(index: int) -> void:
 func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
- if is_instance_valid(_audio):_audio.set_clip(Content.material_id("" if _show_prior else str(_view.get("request",""))))
+ if is_instance_valid(_audio):_audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
  _prior_toggle.text="VIEW ADJUSTED PART" if _show_prior else "VIEW ORIGINAL PART"
  _fill_board()
- _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what Jack changed."
+ _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what "+str(_view["person"]["name"])+" changed."
 
 func _toggle_bio() -> void:
  if not _busy:_bio.visible=not _bio.visible
@@ -336,4 +351,4 @@ func _audio_context() -> Dictionary:
  var allowed: bool=is_visible_in_tree() and owner_state.audition_expected()==_expected and not _busy and live.get("ok",false) and live.get("active",false) and not live.get("held",false) and live.get("phase","") in ["tryout","response","decision"] and owner_state.game.genre=="Indie rock"
  for key in ["id","revision","phase","request"]:
   allowed=allowed and live.get(key)==_view.get(key)
- return {"content_version":Content.VERSION,"allowed":allowed,"material_id":Content.material_id("" if _show_prior else str(live.get("request","")))}
+ return {"content_version":_content.VERSION,"allowed":allowed,"material_id":_content.material_id("" if _show_prior else str(live.get("request","")))}
