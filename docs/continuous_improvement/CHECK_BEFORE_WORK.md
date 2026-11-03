@@ -14,3 +14,7 @@
 
 ## Enforcement boundary
 The gate validates a current, scoped, source-linked record and append-only issue history. It cannot prove someone read an image or automatically judge artistic quality. Native pixel inspection and owner acceptance remain separate. CI cannot prevent a local edit, and branch-protection settings are not changed by this policy.
+
+## UI/UX review points
+
+Before development, an independent reviewer inspects the actual reference/current assets and complete player flow, then pins a few visible acceptance conditions. At the first working native composition, review phone and short landscape before full integration/proof; HOLD concrete clipping, unreadable controls, hidden decision context or incoherent hierarchy. After development, compare matching exact-source states against both the intended target and prior verified layout, then review the complete journey and corrections. Keep one implementation writer; controls/layout reviewers use explicitly scoped scratch evidence and verify fixes. Reviewers report prioritised evidenced defects, not decorative tweak lists. Technical checks, internal visual acceptance and owner approval remain separate; simulated lenses are not human testing. APK work remains held by latest owner direction.

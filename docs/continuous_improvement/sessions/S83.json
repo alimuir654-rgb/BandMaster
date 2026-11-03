@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "id": "S83",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue authorised quality/livedband work; next substantive audition; owner asks pre/post visual checks and specialist controls/layout review. No further APK work for now. Same finite48h queue/thread/end.",
+  "baseline_sha": "336a17952649502a7fd44411999812d7e170da1f",
+  "game_baseline_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
+  "dominant_issue": "BM-39",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-09",
+    "BM-10",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-29",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "hypothesis": "One persistent room/person plus real authored fourbar contribution and visibly changed requested arrangement, distinct held voice and atomic original TALENT invitation makes the first audition a coherent meaningful encounter; no hidden scores or extra-card substitute.",
+  "stop_condition": "ONE Jack/Guitarist pilot; exactly3new modules/one existing room curation/four prior adapter paths. HOLD on exercise/hierarchy/save/uncertainty/legacy defect. Two ineffective attempts change method. Stage earlynative review before final integration/proof; release by04:15 or fresh same-authority scoped continuation. No APK/ZIP.",
+  "target": {
+    "locator": "/tmp/bandmaster-s82-20261102/standard/s82-paired-625-standard-final/captures/c27-recruit-390x844.png",
+    "original_sha256": "5b723abbccb683baafbcd3a6f6a142372a5b08204c58c4329d3771e47f02f110",
+    "pixels_inspected": true,
+    "kind": "Actual Jack recruitment baseline plus C25approvedportrait/currentgenericroom sources opened; ownercompleteexperience direction."
+  },
+  "controlled_comparison": "Actual old Game/cost/roster/completecareer snapshots preserved across metadata-only phases. Compare legacy noactive APIs to independent625 exact baseline, original200talent/vocal/surcharges/refunds. Knownoptional wrapper is only free-phase delta; finalinvite originalonce+whole-opening rollback. Current4view screenshots actualexercise/input/resume/failure/retry plus declared audition-family standard changes; unrelated matched states exact.",
+  "allowed_paths": [
+    "AGENTS.md",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+    "docs/continuous_improvement/S83_AUDITION_ENCOUNTER.md",
+    "docs/continuous_improvement/sessions/S83.json",
+    "docs/continuous_improvement/LESSONS.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/opening_capture.gd",
+    "experiments/playable_flightcase/audition_content.gd",
+    "experiments/playable_flightcase/audition_encounter.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "Art/Backgrounds/shared/formation.webp"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s83-20261103",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "9119b085c0df86ce5c49a097ced62d1223722434c049e9ecf13b56d200ef2721",
+    "docs/continuous_improvement/LESSONS.md": "43e16fc970f78b5c3ba01f3d82c7082ae0a82380839aab1ebbc7b05d808904b5"
+  },
+  "issue_log_review": {
+    "bytes": 1066882,
+    "sha256": "7ed690fbd677ad8db8a0f25e230b2e083af60e205e9e5b572fa2241339cba11b"
+  },
+  "source_contract": "docs/continuous_improvement/S83_AUDITION_ENCOUNTER.md",
+  "source_contract_sha256": "6f3f72b28180034dcb0bdcbaedbb7bfd2236a76448f41aa08a37fcf0b5f41614",
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S83.json",
+    "Root exact405 source changed pure/model/earlynative2review/final73gameplay88openingimport4standard+4genuine auditions+input/failure/retry/reload/4viewactualpixels/EMPTYERRORs. No APK."
+  ],
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "existing_art_curation_allowed": [
+    "Art/Backgrounds/shared/formation.webp"
+  ],
+  "new_art_generation_allowed": false,
+  "current_plan_sequence": 19,
+  "current_review_board_sequence": 126,
+  "started_at": "2026-11-03T01:19:46.588127+00:00",
+  "scope_end": "2026-11-03T04:15:00Z",
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "delegated_source_writer": "/root/s81_contract_safety",
+  "expected_final_curation": 405,
+  "expected_protected_prior_paths": 397,
+  "early_visual_gate_required": true,
+  "pre_design_review": "/tmp/bandmaster-s83-20261103/review/pre-design",
+  "visual_acceptance": [
+    "Persistent contained room/smallJackidentity/native16/48targets",
+    "Actual vocal+guitar fourbar data legible phone2x2/landscape4; no fakeaudio",
+    "Selectedrequest visibly changes rests/answeringevents; prior/adjusted inspectable and distinct voice",
+    "Firstfold identity/activity/request orprimaryaction; safe readable scroll and fixedactions",
+    "Neutralchoices/publictalentonly/no hidden musical/reliability/collaboration numbers"
+  ],
+  "storage_plan": {
+    "tmp_free_at_preflight": 2194714624,
+    "minimum_free_floor": 629145600,
+    "immutable_raw_links_only": true,
+    "private_mutable_caches": true,
+    "no_purge": true
+  },
+  "protected": "All54originalScripts3UID/raw18C25/art/fonts/hardware6inertmeters/originalGame/session/economy/schema1unknowns/radio/work/gigoncecontracts. V9 remains625; no package work.",
+  "pre_design_review_sha256": "85974ad6924b40096f63af507eb2f3de59914087598f83888f39c68044fb8bd5"
+}
