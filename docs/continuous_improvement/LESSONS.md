@@ -240,6 +240,8 @@ S71 verified extension: keep unfinished activity metadata outside a fingerprinte
 **Prevent:** Every issue needs a responsible role, preventive check, evidence and closure condition. Recurrence escalates; unrelated polishing does not resolve an art P0.
 **Proof:** Current issue-linked preflight and closeout, recurrence log and one next action. Sources: ROOT, SWEEP, ASSET.
 
+S85 process reconciliation: a historical sourcing shortlist and broad feature plan are not current asset or screen-review queues. Keep one existing operational worklist with named role, player task, evidence, demonstrated defect versus review gap, dependency/HOLD, next permitted action and visible closure. Activate scoped helpers without claiming continuous workers or giving reviewers competing source ownership. Pre/early/post visual gates must lead to a concrete disposition; additional paperwork, asset counts and unchanged suite runs do not close a player-facing problem. A limited audio proposal needs source/listening acceptance and numerical scope caps before implementation; UI synthesis and Dummy playback tests do not establish a credible instrument recording.
+
 ### BM-39
 **What went wrong:** Hours of micro-polish and optional breadth displaced the largest visible gap.
 **Prevent:** Choose one meaningful material/player-facing outcome, cap ineffective corrective continuations at one, reduce breadth before quality and retain completed work.

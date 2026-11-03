@@ -62,12 +62,12 @@
   ],
   "reviewed_documents": {
     "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
-    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "9119b085c0df86ce5c49a097ced62d1223722434c049e9ecf13b56d200ef2721",
-    "docs/continuous_improvement/LESSONS.md": "4b9074bb09568d50a0b461301a04f693a3af941f519df78faa0a97e9a65c637d"
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1210109,
-    "sha256": "177efc2baa3f6a4f9ba31af32d0c7447adedc85b4b735152757c68009096f60c"
+    "bytes": 1214179,
+    "sha256": "d45ba2e3b0e57435b2e1c43100e74664ded2c7135b6d71ec3a29340f0a7f0ea2"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S85.json",
@@ -96,5 +96,31 @@
     "54 originalScripts3UID/18C25/6inertmeters/schema1unknowns/legacy once guards",
     "All owner decisions/stableIDs/art versions/history and47 prior board images",
     "V9/APK hold/sole queue/thread/finiteNov4 end"
-  ]
+  ],
+  "source_contract": "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+  "source_contract_sha256": "3fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a",
+  "retained_doc_draft761": {
+    "path": "/tmp/bandmaster-s85-process-20261103/queue-before-path-review761.md",
+    "sha256": "5320785c9920bd37e89bdaa42e0fee7686ce1187bdea53d7b1882f05be729ef0"
+  },
+  "independent_audio_review": {
+    "reviewed_sha256": "5a254c7399b6a0bf2f58588f32433711df22aee22afa625ce7f7de1b1053dea5",
+    "result": "No blocking source/API issue; clarified tails, truepeak and explicit private excerpt scope before owner review",
+    "no_audio_created_or_listened": true
+  },
+  "independent_final_review": {
+    "plan_sha256": "3fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a",
+    "queue_sha256": "d69b5f4c65e136e508a8206024d2cb5f9a9ecb24d81fdf3fa814599837a53a03",
+    "reviewer": "/root/foundation_tests",
+    "verdict": "CLEAR exactfinalhash; conditionalart/role/WIP/rights/privateexcerpt/plan-listening-integrationbounds",
+    "audio_source_reviewer": "/root/game_design_research",
+    "no_assets_or_audio_heard": true
+  },
+  "role_assignments": {
+    "implementation": "/root/s81_contract_safety",
+    "artwork_sourcing_method": "/root/foundation_tests",
+    "controls_layout": "/root/s81_visual_review",
+    "audio_source_scope": "/root/game_design_research",
+    "root": "solemetadata/integration/GLcoordinator"
+  }
 }
