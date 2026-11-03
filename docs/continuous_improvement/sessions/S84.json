@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1151626,
-    "sha256": "246ad7fbc281b30b986286d7cdac00a31f84357edf88df0622c5123c8bcaa9a2"
+    "bytes": 1155132,
+    "sha256": "c04a16876c0d5dd16be413675444a5f01f0e15468d231cd82687de4689f9f597"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -185,5 +185,49 @@
     "sha256": "f256fdfa73cd3839a7f0c31d5579335e74805aa817c1e684fe38ec8771ba859a",
     "extra_cap_MiB": 16,
     "source_changes": false
+  },
+  "storage_amendment721": {
+    "path": "/tmp/bandmaster-s84-20261103/qa/storage-amendment721.json",
+    "sha256": "646ac3c1acdd673327404d9c8b6b9dcf25c3017c5a74b1157e87df209b3ec8df",
+    "cache_caps_MiB": [
+      72,
+      72,
+      72,
+      72,
+      72,
+      72,
+      72
+    ],
+    "standard_output_MiB": 104,
+    "aggregate_MiB": 800,
+    "floor_MiB": 600
+  },
+  "modal_keyboard_diagnostic": {
+    "source_sha": "38aec6cc338d0cce9cd3445b2f30c26692cbeecd",
+    "receipt": "/tmp/bandmaster-s84-20261103/early-workbench-38a-phone-modal-focus-v3/execution.json",
+    "pass": true,
+    "checks": 1442,
+    "actual_Tab_ShiftTab": 16,
+    "focus_contained_all": true,
+    "no_focus_source_repair_needed": true
+  },
+  "early_gate_current38a": {
+    "technical_pass": true,
+    "phone_checks": 1437,
+    "wide_checks": 1353,
+    "unique_originals_two_views": 14,
+    "visual_verdict": "hold",
+    "one_gap": "721opaque_localmodalcard",
+    "root_opened": [
+      "phone01seed",
+      "phone03localcaret",
+      "phone04revisednote",
+      "phone07modal",
+      "wide01seed",
+      "wide04revisednote",
+      "wide07modal"
+    ],
+    "independent_review": "/tmp/bandmaster-s84-20261103/review/early-38a/visual-review.json",
+    "owner_approved": false
   }
 }
