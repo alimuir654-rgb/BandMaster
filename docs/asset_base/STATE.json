@@ -743,7 +743,7 @@
     }
   },
   "last_sprint": "S79",
-  "next_action": "SOLEsourcewriter two-leaf UX01 compact soundcheck/set-first layout, then rootEARLYphone/wide gate before fullproof. CurrentverifiedGamea8; no S86candidateverified.",
+  "next_action": "Rootfreshcandidateimport and EARLYphone/shortwide before fullproof. LastverifiedGamea8; candidate3d2notyetverified; APK/audioheld.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1946,7 +1946,7 @@
       "independent_actual_current_originals_opened": 22
     }
   },
-  "candidate_source_sha": "643428718c569ffc0535738c6954d0c3492402a7",
+  "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "candidate_native_verified": true,
   "candidate_status": "final408_frozen_awaiting_exact_proof",
   "updated_at": "2026-11-03T03:36:50.128253+00:00",
@@ -2456,7 +2456,7 @@
   "claimed_at": "2026-11-03T08:30:08.014907+00:00",
   "expires_at": "2026-11-03T11:15:00Z",
   "authority": "Owner48h quality/lived-band authority +3Nov operational controls/layout; S85 directs UX01next. Noaudio/APK.",
-  "delegated_source_writer": "/root/s86_contract_safety",
+  "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -3077,5 +3077,6 @@
     "Page_board": 132,
     "audio": "AU01v1PENDING"
   },
-  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830"
+  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830",
+  "source_implementation_status": "First2leafcandidatecommitted; paused; native/visual proof PENDING"
 }

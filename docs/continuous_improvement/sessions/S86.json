@@ -65,8 +65,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1226340,
-    "sha256": "625a716b3f1f34d315f03405385ba88cb53c49ecb550e6708fec11e8322af316"
+    "bytes": 1229227,
+    "sha256": "f3e0c4f0363e887ed41149a098c4e3628314c5974cfbadca5658623b03b1f539"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -134,6 +134,9 @@
   "resume_XDG_exception": "Sameunchangeda8privatebaseline resumption ONLY may reuse its own privateXDG_CACHE_HOME; DATA/CONFIGfresh. No crossruntime/sourcecache sharing.",
   "baseline_import_actual": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/import-resumed-v2.json",
   "baseline_checks": 3063,
-  "delegated_source_writer": "/root/s86_contract_safety",
-  "source_writer_started_at": "2026-11-03T08:44:00.570318+00:00"
+  "delegated_source_writer": null,
+  "source_writer_started_at": "2026-11-03T08:44:00.570318+00:00",
+  "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "source_implementation_status": "First2leafcandidatecommitted; paused; native/visual proof PENDING",
+  "next_action": "Rootfreshcandidateimport and EARLYphone/shortwide before fullproof. LastverifiedGamea8; candidate3d2notyetverified; APK/audioheld."
 }
