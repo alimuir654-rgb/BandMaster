@@ -45,6 +45,7 @@ var _opening_extensions: Dictionary = {}
 var _game_extensions: Dictionary = {}
 
 func begin_new() -> bool:
+ if _audition_busy:return false
  var before:=snapshot()
  game = Game.new()
  screen = "genre"
@@ -537,7 +538,7 @@ func save_draft() -> bool:
  var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
- file.store_string(JSON.stringify(snapshot(),"  "))
+ file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present))
  file.flush()
  var written: bool = file.get_error()==OK
  file.close()

@@ -684,6 +684,156 @@ func _recruit_person(pane) -> Dictionary:
  var index: int = int(pane.selected_index)
  return choices[index] if index>=0 and index<choices.size() else {}
 
+# S83 supersedes visible recruiting forecasts, not the original inert resources.
+func _s83_no_metric_leak(view: Control,tag: String) -> void:
+ for pattern in ["PassiveMeter*","RecruitStatRow*"]:
+  if not view.find_children(pattern,"Control",true,false).is_empty():
+   failures.append("S83 "+tag+" pre-invitation numerical ability rows remain: "+pattern)
+ var captions: Array=["TONE","ORIGINALITY","CHARACTER","PRESENCE","SOULFULNESS","LYRICISM","TECHNIQUE","TIMING","FEEL","VERSATILITY","RELIABILITY","COLLABORATION"]
+ var forecast:=RegEx.new()
+ forecast.compile("(?i)(tone|originality|character|presence|soulfulness|lyricism|technique|timing|feel|versatility|reliability|collaboration)\\s*[:•]?\\s*[+-]?[0-9]")
+ for node in view.find_children("*","Control",true,false):
+  var text: String=str(node.text) if node is Label or node is Button else ""
+  if text.strip_edges().to_upper() in captions or forecast.search(text)!=null or forecast.search(str(node.tooltip_text))!=null:
+   failures.append("S83 "+tag+" hidden recruiting score forecast leaks: "+str(node.name))
+ for score in range(METER_SHA256.size()):
+  var path: String="res://components/control_atlas/art/passive_meter_flightcase_%02d.png" % score
+  if FileAccess.get_sha256(path)!=METER_SHA256[score]:
+   failures.append("S83 protected original passive meter source changed: "+str(score))
+
+func _s83_typed(value: Variant) -> Variant:
+ if value is Dictionary:
+  var keys: Array=value.keys()
+  keys.sort_custom(func(a: Variant,b: Variant):return str(a)+":"+str(typeof(a))<str(b)+":"+str(typeof(b)))
+  var rows: Array=[]
+  for key in keys:rows.append([typeof(key),var_to_bytes(key).hex_encode(),_s83_typed(value[key])])
+  return [TYPE_DICTIONARY,rows]
+ if value is Array:
+  var rows: Array=[]
+  for item in value:rows.append(_s83_typed(item))
+  return [TYPE_ARRAY,rows]
+ return [typeof(value),var_to_bytes(value).hex_encode()]
+
+func _s83_recruit_pane(screen: Control) -> Control:
+ for child in screen.get_children():
+  if child is Control and child.has_method("_move_candidate") and child.has_method("_change_role"):return child
+ return null
+
+func _s83_checkpoint(screen: Control,before: Dictionary,prior_files: Dictionary,phase: String) -> bool:
+ var current: Dictionary=screen.setup.snapshot()
+ var original:=before.duplicate(true)
+ original.erase("audition_encounter_v1")
+ var source:=current.duplicate(true)
+ source.erase("audition_encounter_v1")
+ if _s83_typed(source)!=_s83_typed(original):
+  failures.append("S83 free "+phase+" checkpoint changed Game/talent/day/counter/identity/core fields")
+ var status: Dictionary=screen.setup.audition_view()
+ if not status.get("ok",false) or status.get("held",false) or not status.get("active",false) or status.get("phase")!=phase:
+  failures.append("S83 native audition failed explicit "+phase+" checkpoint")
+  return false
+ var active: Dictionary=current["audition_encounter_v1"]["active"]
+ if active["candidate_id"]!="cast_jack" or active["role"]!="Guitarist" or int(active["revision"])!=["arrival","tryout","response","decision"].find(phase):
+  failures.append("S83 canonical person/role/revision changed at "+phase)
+ var files:=_recap_save_bytes()
+ if files["user://c27_opening_draft.json"]==prior_files["user://c27_opening_draft.json"]:
+  failures.append("S83 explicit "+phase+" checkpoint did not durably write its metadata")
+ for path in prior_files:
+  if path!="user://c27_opening_draft.json" and files[path]!=prior_files[path]:
+   failures.append("S83 free checkpoint wrote an unrelated/production save: "+path)
+ var loaded:=OpeningModel.new()
+ if not loaded.load_draft() or _s83_typed(loaded.snapshot())!=_s83_typed(current):
+  failures.append("S83 "+phase+" checkpoint lost exact defined state/types on actual draft reload")
+ _s83_no_metric_leak(screen,"saved "+phase)
+ return true
+
+func _s83_finish_words(screen: Control) -> void:
+ var note: Label=screen.find_child("AuditionHeldVoice",true,false) as Label
+ if note==null:
+  failures.append("S83 held Jack voice missing")
+  return
+ if note.has_method("is_revealing") and note.is_revealing():
+  var before: Dictionary=screen.setup.snapshot()
+  var files:=_recap_save_bytes()
+  note.grab_focus()
+  await _recap_key(KEY_ENTER)
+  if _s83_typed(screen.setup.snapshot())!=_s83_typed(before) or _recap_save_bytes()!=files:
+   failures.append("S83 real reveal-completion key advanced or saved the encounter")
+
+func _s83_material(screen: Control,request: String) -> void:
+ var board: GridContainer=screen.find_child("AuditionPhraseBoard",true,false) as GridContainer
+ if board==null or board.get_child_count()!=4:
+  failures.append("S83 actual four-bar written contribution missing")
+  return
+ var expected_events: Array=[["D"],["G"],["A"],["D"]]
+ var expected_guitar: Array=["Held D chord","Brushed G chord","Held A chord","Brushed D chord"]
+ if request=="space_for_voice":
+  expected_events=[[],["G"],[],["D"]]
+  expected_guitar=["Rest — leave space","Brushed G chord","Rest — leave space","Brushed D chord"]
+ elif request=="own_part":
+  expected_events=[["D"],["B","A","G"],["A"],["F#","E","D"]]
+  expected_guitar=["Light D support","Answer: B – A – G","Light A support","Answer: F# – E – D"]
+ for index in range(4):
+  var button: Button=board.find_child("AuditionBar_"+str(index+1),true,false) as Button
+  if button==null:
+   failures.append("S83 numbered native inspection cell missing")
+   continue
+  var bar: Dictionary=button.get_meta("bar",{})
+  if bar.get("number")!=index+1 or bar.get("events")!=expected_events[index] or bar.get("guitar")!=expected_guitar[index] or bar.get("vocal_present")!=(index in [0,2]):
+   failures.append("S83 actual event/notation data differs at bar "+str(index+1)+" request "+request)
+  if button.size.x<48 or button.size.y<48 or button.focus_mode!=Control.FOCUS_ALL or button.mouse_filter!=Control.MOUSE_FILTER_PASS:
+   failures.append("S83 bar inspection lost its genuine48px native target/focus")
+  for label in button.find_children("*","Label",true,false):
+   if label.get_theme_font_size("font_size")<16 or label.get_visible_line_count()<label.get_line_count():
+    failures.append("S83 actual written exercise was shrunk or truncated")
+ var paper: PanelContainer=screen.find_child("AuditionSketchPaper",true,false) as PanelContainer
+ if paper==null or not paper.get_theme_stylebox("panel") is StyleBoxTexture:
+  failures.append("S83 shared written study lost its independent source paper")
+
+func _s83_jack_hearing(screen: Control,before: Dictionary,prior_files: Dictionary,w: int,h: int) -> bool:
+ if not _s83_checkpoint(screen,before,prior_files,"arrival"):return false
+ await _draw_screen("audition_jack_arrival",w,h)
+ await _s83_finish_words(screen)
+ var files:=_recap_save_bytes()
+ await click_action(screen.find_child("AuditionStartTryout",true,false) as Button)
+ if not _s83_checkpoint(screen,before,files,"tryout"):return false
+ _s83_material(screen,"")
+ await _draw_screen("audition_jack_tryout",w,h)
+ var readonly: Dictionary=screen.setup.snapshot()
+ files=_recap_save_bytes()
+ await click_action(screen.find_child("AuditionBar_1",true,false) as Button)
+ var inspector: Control=screen.find_child("AuditionInspector",true,false) as Control
+ if inspector==null or inspector.get_meta("inspected_bar",0)!=1:
+  failures.append("S83 actual bar inspection did not reveal the selected written part")
+ if _s83_typed(screen.setup.snapshot())!=_s83_typed(readonly) or _recap_save_bytes()!=files:
+  failures.append("S83 written bar inspection spent, saved or advanced")
+ await _s83_finish_words(screen)
+ files=_recap_save_bytes()
+ var request: String="space_for_voice" if w<840 else "own_part"
+ await click_action(screen.find_child("AuditionRequestSpace" if request=="space_for_voice" else "AuditionRequestOwn",true,false) as Button)
+ if not _s83_checkpoint(screen,before,files,"response"):return false
+ if screen.setup.audition_view().get("request")!=request:
+  failures.append("S83 actual requested approach was not locked")
+ _s83_material(screen,request)
+ await _draw_screen("audition_jack_response",w,h)
+ readonly=screen.setup.snapshot()
+ files=_recap_save_bytes()
+ await click_action(screen.find_child("AuditionPriorToggle",true,false) as Button)
+ _s83_material(screen,"")
+ await click_action(screen.find_child("AuditionPriorToggle",true,false) as Button)
+ _s83_material(screen,request)
+ if _s83_typed(screen.setup.snapshot())!=_s83_typed(readonly) or _recap_save_bytes()!=files:
+  failures.append("S83 before/adjusted inspection changed the saved encounter")
+ await _s83_finish_words(screen)
+ files=_recap_save_bytes()
+ await click_action(screen.find_child("AuditionReview",true,false) as Button)
+ if not _s83_checkpoint(screen,before,files,"decision"):return false
+ _s83_material(screen,request)
+ await _draw_screen("audition_jack_decision",w,h)
+ var invite: Button=screen.find_child("AuditionInvite",true,false) as Button
+ if invite==null or invite.disabled or invite.size.x<48 or invite.size.y<48 or not Rect2(0,0,w,h).encloses(invite.get_global_rect()):
+  failures.append("S83 actual priced invitation is unavailable or clipped after the complete hearing")
+ return true
+
 func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  var person := _recruit_person(pane)
  if person.is_empty():
@@ -714,6 +864,7 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
   return
  var recruited: bool = RecruitBase.contains(pane.game.roster,str(person.id))
  var heard: bool = recruited or bool(pane.auditioned.get(str(person.id),false))
+ if str(person.id)=="cast_jack" and pane.onboarding_state!=null:heard=recruited or bool(pane.onboarding_state.audition_view().get("heard",false))
  if strength.text!="STRENGTH  •  "+str(person.get("strength","Still developing")) or friction.text!="FRICTION  •  "+str(person.get("friction","Unknown")):
   failures.append("S43 "+tag+" complete authored audition notes changed or were truncated")
  for note in [strength,friction]:
@@ -786,17 +937,7 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
  var next_step: Button = pane.find_child("ReviewLineupAction" if str(pane.role) in ["Singer","Keyboardist"] else "AuditionNextStepAction",true,false)
  if next_step==null or next_step.disabled!=(not ready if str(pane.role) in ["Singer","Keyboardist"] else not covered.has(str(pane.role))):
   failures.append("S43 "+tag+" explicit Next/Review bypasses actual lineup coverage/readiness")
- var stats: Array = RecruitBase.stats_for(person,str(pane.role))
- for index in range(6):
-  var meter: TextureRect = pane.find_child("PassiveMeter"+str(index),true,false)
-  var score: int = int(stats[index])
-  var path: String = "res://components/control_atlas/art/passive_meter_flightcase_%02d.png" % score
-  if meter==null or meter.texture==null or meter.texture.resource_path!=path or int(meter.get("score"))!=score or FileAccess.get_sha256(path)!=METER_SHA256[score]:
-   failures.append("S43 "+tag+" original selected passive meter bytes/value changed: "+str(index))
-  elif meter.focus_mode!=Control.FOCUS_NONE or meter.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
-   failures.append("S43 "+tag+" passive selected stat takes input/focus: "+str(index))
-  elif not profile.is_ancestor_of(meter) or meter.size.x<=0 or meter.size.y<=0 or meter.get_global_rect().position.x<profile.get_global_rect().position.x or meter.get_global_rect().end.x>profile.get_global_rect().end.x:
-   failures.append("S43 "+tag+" selected meter escapes readable dossier width: "+str(index))
+ _s83_no_metric_leak(pane,tag)
  print("S40_RECRUIT_CONTEXT ",JSON.stringify({"case":tag,"candidate":person.id,"width":w,"height":h,"cost":cost,"available":available,"ready":ready,"copy":affordability.text,"auditioned":heard}))
 
 func _check_recruit_profile_keyboard(pane,w: int,h: int,tag: String) -> void:
@@ -809,20 +950,25 @@ func _check_recruit_profile_keyboard(pane,w: int,h: int,tag: String) -> void:
  var bar: VScrollBar = scroll.get_v_scroll_bar()
  if not scroll.follow_focus or scroll.horizontal_scroll_mode!=ScrollContainer.SCROLL_MODE_DISABLED:
   failures.append("S43 "+tag+" dossier lost native follow-focus/vertical scrolling")
- # Every original stat remains readable within the real clip viewport. The new
- # audition card intentionally scrolls; inert meters do not become focus stops.
- for index in range(6):
-  var field: Control = pane.find_child("RecruitStatRow"+str(index),true,false)
-  var meter: Control = pane.find_child("PassiveMeter"+str(index),true,false)
-  if field==null or meter==null:
-   failures.append("S43 "+tag+" original complete stat row missing: "+str(index))
+ # The owner superseded pre-invitation score forecasts. Preserve actual
+ # complete biography reading and native scrolling instead of fake stat rows.
+ var person:=_recruit_person(pane)
+ for key in ["town","personality","story"]:
+  var field: Label=null
+  for candidate in pane.find_children("*","Label",true,false):
+   if candidate.text==str(person.get(key,"")):
+    field=candidate
+    break
+  if field==null:
+   failures.append("S83 "+tag+" complete original biography field missing: "+key)
    continue
   scroll.ensure_control_visible(field)
   await process_frame
   await process_frame
   await RenderingServer.frame_post_draw
-  if not scroll.get_global_rect().encloses(field.get_global_rect()) or not scroll.get_global_rect().encloses(meter.get_global_rect()):
-   failures.append("S43 "+tag+" full original stat cannot be revealed in dossier viewport: "+str(index))
+  if not scroll.get_global_rect().encloses(field.get_global_rect()) or field.get_visible_line_count()<field.get_line_count():
+   failures.append("S83 "+tag+" complete biography cannot be read within dossier viewport: "+key)
+ _s83_no_metric_leak(pane,tag)
  for note_name in ["RecruitStrength","RecruitFriction"]:
   var note: Label = pane.find_child(note_name,true,false)
   if note!=null and note.is_visible_in_tree():
@@ -1336,9 +1482,7 @@ func take() -> void:
   failures.append("Genre Next did not open recruit via pointer")
  else:
   await _draw_screen("recruit",w,h)
-  var meter: Control = screen.find_child("PassiveMeter0",true,false)
-  if meter == null or meter.focus_mode!=Control.FOCUS_NONE or meter.mouse_filter!=Control.MOUSE_FILTER_IGNORE:
-   failures.append("meter focus/input regression")
+  _s83_no_metric_leak(screen,"initial recruitment")
 
  # The selected-candidate decision must be in the first fold without scrolling.
  var first_dock: Control = screen.find_child("RecruitDecisionDock",true,false)
@@ -1403,15 +1547,27 @@ func take() -> void:
     var before_audition_files: Dictionary = _recap_save_bytes()
     await click_action(pane.find_child("AuditionAction",true,false))
     await process_frame
-    if screen.setup.snapshot()!=before_audition or _recap_save_bytes()!=before_audition_files:
-     failures.append("S43 native audition reveal spent talent/day or wrote saves")
-    _check_recruit_context(pane,w,h,"actual auditioned "+desired_id)
+    if desired_id=="cast_jack":
+     if not await _s83_jack_hearing(screen,before_audition,before_audition_files,w,h):
+      break
+     pane=_s83_recruit_pane(screen)
+     if pane==null:
+      failures.append("S83 Jack decision lost its real recruiting owner")
+      break
+    else:
+     if screen.setup.snapshot()!=before_audition or _recap_save_bytes()!=before_audition_files:
+      failures.append("S43 native audition reveal spent talent/day or wrote saves")
+     _check_recruit_context(pane,w,h,"actual auditioned "+desired_id)
     var before_count: int = screen.setup.game.roster.size()
     var before_spent: int = screen.setup.game.spent()
     var before_available: int = screen.setup.remaining()
     var before_changes: int = screen.setup.change_counter
     var hire_cost: int = RecruitBase.incremental_cost(screen.setup.game.roster,_recruit_person(pane))
-    await click_action(pane.find_child("RecruitAction",true,false))
+    await click_action(pane.find_child("AuditionInvite" if desired_id=="cast_jack" else "RecruitAction",true,false))
+    pane=_s83_recruit_pane(screen)
+    if pane==null:
+     failures.append("S83 invitation lost its real recruiting owner")
+     break
     var confirmed := false
     for member in screen.setup.game.roster:
      if str(member.get("id",""))==desired_id:
@@ -1444,6 +1600,7 @@ func take() -> void:
    if pane.find_child("StartAction",true,false)!=null:
     failures.append("S43 Complete Lineup is exposed before vocal choice/review")
    await _draw_screen("recruit_needs_vocals",w,h)
+   _s83_no_metric_leak(pane,"actual original vocal decision")
    var vocal_action: Button = pane.find_child("VocalAssign_cast_jack",true,false)
    var before_voice_route: Dictionary = screen.setup.snapshot()
    var before_voice_files: Dictionary = _recap_save_bytes()
