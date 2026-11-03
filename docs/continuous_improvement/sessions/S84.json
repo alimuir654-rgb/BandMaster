@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "4b9074bb09568d50a0b461301a04f693a3af941f519df78faa0a97e9a65c637d"
   },
   "issue_log_review": {
-    "bytes": 1204332,
-    "sha256": "1aee72938c0f504a97ac98a5786eb40aa9cc2c2e53b78e5d8002714a98f564ec"
+    "bytes": 1205694,
+    "sha256": "3a25504ef4a0c29bb321eeace8228da97db07fa4f9c948ecba2ba7c8fa8afa12"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -94,7 +94,7 @@
   "pre_design_review": "/tmp/bandmaster-s84-20261103/review/pre-design/pre-design-review.json",
   "pre_design_review_sha256": "8091029b4929125841561265b3f8b048694bc7d85e9c394040fc4253ddc3fe1b",
   "started_at": "2026-11-03T02:31:04.346813+00:00",
-  "scope_end": "2026-11-03T06:45:00Z",
+  "scope_end": "2026-11-03T07:00:00Z",
   "root_lease": "S84-song-fragment-contract-20261103T0231",
   "current_plan_sequence": 22,
   "current_review_board_sequence": 130,
@@ -346,5 +346,12 @@
       "static_independent": "PASSafterexplicit6pathpre/postchecks; noengineyet",
       "historical_frozen_bundle": "SHA-exactreconstructionAFTERcorrection,755chronology"
     }
+  },
+  "s84_closeout_lease756": {
+    "previous_expiry": "2026-11-03T06:45:00Z",
+    "new_expiry": "2026-11-03T07:00:00Z",
+    "prospective_at": "2026-11-03T06:36:56.594522+00:00",
+    "scope": "sameS84metadata/visual/privatePNGcloseoutONLY; no newsource/art/engine/APK",
+    "finite48_end_unchanged": "2026-11-04T21:24:35+00:00"
   }
 }

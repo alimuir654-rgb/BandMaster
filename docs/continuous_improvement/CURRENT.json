@@ -4129,7 +4129,7 @@
   "last_verified_local_native_source_sha": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
   "source_writer_released_at": "2026-11-03T02:23:59.007622+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "scope_end": "2026-11-03T06:45:00Z",
+  "scope_end": "2026-11-03T07:00:00Z",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
@@ -4207,5 +4207,12 @@
     "full_group": 40894464,
     "new_cache": false,
     "mtime_exception": "4closedDERIVEDQAoraclecopiesonly; paths/bytes/mode/ownershipretained"
+  },
+  "s84_closeout_lease756": {
+    "previous_expiry": "2026-11-03T06:45:00Z",
+    "new_expiry": "2026-11-03T07:00:00Z",
+    "prospective_at": "2026-11-03T06:36:56.594522+00:00",
+    "scope": "sameS84metadata/visual/privatePNGcloseoutONLY; no newsource/art/engine/APK",
+    "finite48_end_unchanged": "2026-11-04T21:24:35+00:00"
   }
 }
