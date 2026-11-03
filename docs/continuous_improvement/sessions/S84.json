@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1137419,
-    "sha256": "c3f278972b859afc3381563c5a3940ed781d7203af77a08daa39b4f5fc18a8ad"
+    "bytes": 1143246,
+    "sha256": "fe7930447249548e866236c52d17322d26425405a6e75dfa3fb73c304704137f"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -148,5 +148,22 @@
     "early_source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
     "early_visual_status": "pending actual native phone/shortwide",
     "final_release_verified": false
+  },
+  "storage_amendment712": {
+    "path": "/tmp/bandmaster-s84-20261103/qa/storage-amendment712.json",
+    "sha256": "203b4edb4a55edc853eac4a7892965ab89e51ad59f9622243cb265e23b3fc7d7",
+    "aggregate_MiB": 800,
+    "floor_MiB": 600,
+    "private_import_caches": 5,
+    "per_cache_MiB": 96,
+    "failure_contingency_MiB": 32
+  },
+  "early_gate": {
+    "source_sha": "f152c46ed06b093e1b1b31abd52ca75b1d2f3a4c",
+    "verdict": "hold",
+    "failed_receipt": "/tmp/bandmaster-s84-20261103/early-workbench-f152-phone-editor-v1/execution.json",
+    "root_actual_original_opened": "/tmp/bandmaster-s84-20261103/early-workbench-f152-phone-editor-v1/captures/01-FIRST-FAILURE-390x844.png",
+    "failure_event": "S84-20261103-712",
+    "newest_source_unverified": "adaa67f16fdf139653ab6643518bcc26c650811c"
   }
 }
