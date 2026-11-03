@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-09",
+    "BM-14",
+    "BM-15",
+    "BM-25",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "target": {
+    "locator": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png",
+    "original_sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+    "pixels_inspected": true,
+    "kind": "Actually opened existing raw crowd-view art; not current native layout proof. Missing current native originals explicit HOLD pending fresh validation."
+  },
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "id": "S89",
+  "status": "active",
+  "owner_request": "Owner Proceed with audiofeasibility/artmethodbrief/UX02layoutspec whiledesktopunavailable; no generation orshippingUI change thispass.",
+  "baseline_sha": "a6a674b28b8ec4ab115cb1e68968ec26ac3587f8",
+  "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "dominant_issue": "BM-38",
+  "hypothesis": "Specific rights/tool/capability comparison plus small source-grounded music/art/layout briefs can produce actionable next contracts without unavailable desktop or repeating failed asset methods.",
+  "stop_condition": "HOLD generation/assets/paidservice/newdeps/unclearlicenses/publicuploads/statkeys/pixelclaims/newqueue; code/weight/output terms separate, firstshortstudy notlibrary.",
+  "controlled_comparison": "Keep actual3d2game/art/bios/costs/sourceprotected; proposed production uses same room/instrument and literal supported arrangements; provider code/license/weights/output/cost/tool/hardware compared before decision. No execution/listeningclaim.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
+    "docs/continuous_improvement/sessions/S89.json",
+    "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s89-briefs-20261103/",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "issue_log_review": {
+    "bytes": 1283766,
+    "sha256": "5dbe0b46aa65e65088eb36403eecf1b80fe66f0774c3b4bc98e91c849409d422"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S89.json",
+    "Primarypublicsource provenance/license/capability comparison; source-backedbrief review; allshippinginputs/Git byteprotection; zeroengines/assets/sourcegeneration/APK."
+  ],
+  "root_lease": {
+    "id": "S89-audio-art-layout-briefs-20261103T1625",
+    "writer": "/root",
+    "expires_at": "2026-11-03T18:00:00Z"
+  },
+  "started_at": "2026-11-03T16:25:00.812847+00:00",
+  "scope_end": "2026-11-03T18:00:00Z",
+  "queue_task": [
+    "AU01method",
+    "ART01brief",
+    "UX02predesign"
+  ],
+  "reviewers": [
+    "/root/art_method_brief READONLY",
+    "/root/performance_layout_brief READONLY"
+  ],
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_generation_allowed": false,
+  "pending_helpers": true,
+  "storage_plan": {
+    "scratch_cap": 4194304,
+    "workspace_floor": 629145600,
+    "no_native_allocation": true
+  },
+  "next_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs."
+}

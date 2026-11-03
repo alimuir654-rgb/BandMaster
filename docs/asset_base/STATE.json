@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "released",
+  "status": "active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S87 approved AU01 source/listening study ONLY; closed owner revision/evidence HOLD, no shipping implementation",
-  "writer": null,
+  "writer": "/root",
   "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.",
+  "next_single_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -732,7 +732,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S88",
+  "current_session": "S89",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.",
+  "next_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2000,7 +2000,7 @@
   "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "candidate_native_verified": true,
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T16:00:44.148385+00:00",
+  "updated_at": "2026-11-03T16:25:00.812847+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2193,7 +2193,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S88",
+  "session": "S89",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
@@ -2503,11 +2503,11 @@
   "last_writer": "S87-AU01-source-listening-study-20261103T1100",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S88_SOURCE_RECOVERY_IMPORT_VERIFIED_NATIVE_REVIEW_HOLD",
+  "source_phase": "S89_METADATA_RESEARCH_BRIEFS_ONLY",
   "claimed_at": "2026-11-03T11:10:26.616803+00:00",
-  "expires_at": "2026-11-03T17:30:00Z",
+  "expires_at": "2026-11-03T18:00:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -3127,11 +3127,9 @@
   },
   "latest_metadata_deliverable": "S87 committed376aaf9; S88reconstructed408exact/currentprivateimportPASS; nativeUX02visualreview stillHOLD, no shippingchange",
   "root_lease": {
-    "id": "S88-durable-source-recovery-20261103T1558",
-    "writer": null,
-    "expires_at": "2026-11-03T17:30:00Z",
-    "status": "released",
-    "released_at": "2026-11-03T16:00:44.148385+00:00"
+    "id": "S89-audio-art-layout-briefs-20261103T1625",
+    "writer": "/root",
+    "expires_at": "2026-11-03T18:00:00Z"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {

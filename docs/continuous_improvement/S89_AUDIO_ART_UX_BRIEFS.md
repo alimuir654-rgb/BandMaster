@@ -1,0 +1,11 @@
+# S89 audio feasibility and production briefs
+
+Owner3November: “Proceed” with audio feasibility, genuinely changed artwork method and performance layout specification. Metadata/research only. ShippingGame3d2 remains unchanged. Rootwriter boundedthrough18:00London3Nov; samefiniteNov4end/queue/thread. No generation/assets/model downloads/dependencies/payments/uploads/engines/APK/code/UIimplementation.
+
+Deliver one small music brief and internal character-skill rubric; compare public primary provider/model terms separately for code/weights/output and current tool/hardware/duration/storage feasibility. No paidservice/free-tier commercial right assumption. Preserve AU01planAPPROVED/v1REVISION and retained RAW+renders count4/32.097392s; any future raw+derived output counts under5/36.5s/4MiB until prospective rescope.
+
+Prepare one genuinely different ART01source-production method, not repeatedfullimageprompt/logo mask/cover/poster extraction/bodymultiplication/fakeplaying. A04 directionapproval valid; failedproductionhold is not ownerrejection. Zoe bass/Marcusdrum briefs conditional on method/camera success, existingkit notduplicated. No freshartaccepted/produced.
+
+Specify UX02completeplayergoal/start/end/commitment/interruptions and small state matrix. Current/next/completed context near livechoices, actualsavedprefix/title/order/vibe facts; no invented speech/simulation or hiddenanswer keys. Source inspection not freshnative defect repro; implementation waits nativephone/shortwide predesign/early/finalwholejourney gates. Missingmanageddesktop does not permit headlesspixel substitution or Xorgchanges.
+
+Review current Plan/board/comments/AgentInstructions. ExistingS80queue remains SINGLEoperationalworklist; research updates ONLYexisting /workspace/work/review-roadmap-20261101/research.json and research-log.md. Scratch notes under /workspace/work/s89-briefs-20261103 max4MiB. No mutablecache/runtime copies; preserve priorart/source/logs/receipts, no furtherAPKcleanup automatic. Independentartmethod andcontrols reviewers READONLY, rootsolemetadatawriter. Gate record is not artistic/listening/owner acceptance. Closeout DICTIONARY/fiveSIMULATEDlenses/disposition/newissues and release writer.
