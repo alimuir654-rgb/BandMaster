@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "id": "S88",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner3Nov: Ok, go ahead with those next steps; authorises storage recovery, UX02review and revisedaudio/tool/method preparation, no APK builds.",
+  "baseline_sha": "376aaf9111af5f0ae3b81a12666de795926dc4b9",
+  "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-09",
+    "BM-14",
+    "BM-15",
+    "BM-25",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "A pinned independent retained curated base plus actual Git additions and documented existing-art promotions reconstructs exact408 source rows durably without pretending lost proof survives; this funds honest fresh baseline evidence for UX02.",
+  "stop_condition": "HOLD count/hash/byte/extra-sidecar/storage/rights divergence, any engineERROR, absent reviewed strict runner; no lostproof recreated-as-original, no source/UI/assets edits under recovery contract.",
+  "target": {
+    "locator": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png",
+    "original_sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+    "pixels_inspected": true,
+    "kind": "Actually opened existing raw crowd-view art; not current native layout proof. Missing current native originals explicit HOLD pending fresh validation."
+  },
+  "controlled_comparison": "Exact frozen407Git blobs plus declared146Bentry; compare every reconstructed row to Git/S76pins and independently computed digest before any engine. No UI A/B or visualPASS claimed.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S88_SOURCE_RECOVERY.md",
+    "docs/continuous_improvement/sessions/S88.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s88-recovery-20261103/"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1278369,
+    "sha256": "3d1d0476c9ea4f3b1b4d03aa77bb9d02167cbaab980c136011238faa5c28a985"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S88.json",
+    "Root exact408 reconstruction/sourcehash/size/54Scripts3UID/protectedGit checks; strictrunner adoption before rootprivateimport/configuredentry; no UI repair/APK."
+  ],
+  "root_lease": {
+    "id": "S88-durable-source-recovery-20261103T1558",
+    "writer": "/root",
+    "expires_at": "2026-11-03T17:30:00Z"
+  },
+  "started_at": "2026-11-03T15:56:52.643945+00:00",
+  "scope_end": "2026-11-03T17:30:00Z",
+  "queue_task": "Recovery prerequisite for UX02",
+  "reviewer": "/root/recovery_source_review readonly manifest contract",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_generation_allowed": false,
+  "APK_work": "HELD",
+  "storage_plan": {
+    "aggregate_bytes": 268435456,
+    "private_import_cap_bytes": 100663296,
+    "durable_source_bytes": 96073351,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "no_original_deletion": true
+  },
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "next_action": "Commit this preflight/gate before recoveryallocation; materialize exact408 and verify newly durable source; adopt strictrunner before import/smoke."
+}
