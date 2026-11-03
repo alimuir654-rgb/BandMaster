@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1190896,
-    "sha256": "58709289cb42020409f7424347346e7d3f6805d7b3f9a6da6a740a3999c90758"
+    "bytes": 1194143,
+    "sha256": "4a44f7a006573bd7fc3c82cfcb01688fb43d2adb19f8f9428d5ae65b4729e073"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -296,5 +296,13 @@
     "sha256": "19db8b629fafe7a4f9c1f6fcaca55992abc27bdc249de757d3a0e598bedd12b0",
     "no_new_source_cache_import": true,
     "three_prefix_REUSED_four_missing_views": true
+  },
+  "capture_call_reconciliation748": {
+    "actual_phone_pass_log": "/tmp/bandmaster-s84-20261103/standard-v4/s84-a8a8956-v4-standard/logs/views-capture-390x844-v6.log",
+    "events": 58,
+    "families": 54,
+    "known_repeats": 4,
+    "phone_engine_rerun_allowed": false,
+    "resume_remaining_native_views": 3
   }
 }
