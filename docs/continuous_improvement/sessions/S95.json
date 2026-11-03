@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "S95",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Directowner Goahead to Gameplayback integration after firstsampledguitartone accepted. Firstpilot accepted ORIGINAL clip only; adjustedtwo variants pendinglistening retainwrittenfallback.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1319459,
+    "sha256": "9554fcb7021e6fe13ebf48f0a41a90c4f835351d22938a95491fdce10eeb6a08"
+  },
+  "baseline_sha": "7bb1ec10c43f04a518199ee8620c870cb33d1b96",
+  "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+  "target": {
+    "locator": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+    "original_sha256": "25794133433acf658b8120b8a6da455837497763f6f428fb2b9e428df6a1ae62",
+    "pixels_inspected": true,
+    "kind": "Actually reopened currentGame room/contact-art native reference for futureaudio alignment; NONVISUAL tooling isnotjudged bypixels, no audioquality/playingclaim. Functionalcontract S92document/S89brief separately."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Presentation-only verified revealed-material PlayStop control can let player hear the accepted first audition part without any owner/state/save/Gameeffects.",
+  "controlled_comparison": "Current S91 audition baseline vs samephase/content/source with one two-button row insidepaper; preserve voice/fullwrittenpart/fixedrequestactions/phoneusable scroll. One acceptedoriginalclip Indierock only. Unacceptedadjustedclips unavailableexceptFIRSTTRY.",
+  "stop_condition": "HOLD any sourceprotectedchange/saveeffects/unchosenplayback/ERROR/clipping/inaccessiblecontrols; missing/muted/unsupportedstale material remains silent with writtenequivalent. No APK, newdeps/paid/runtimeAI.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/audition_audio.gd",
+    "experiments/playable_flightcase/audio/audition_clips.json",
+    "experiments/playable_flightcase/audio/jack_original_v2.ogg",
+    "docs/continuous_improvement/sessions/S95.json",
+    "docs/continuous_improvement/S95_AUDITION_PLAYBACK.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s95-audio-playback-20261103/"
+  ],
+  "validation_commands": [
+    "Gatepreflight BEFOREsource/assets",
+    "Actual73gameplay/88opening/freshprivateimport/4standard; focused4viewnative PlayStop/repeat/mute/interruption/missing/stale/prior/teardown/ownerzero/failure retry/reload",
+    "Manual/wrapper allERRORempty, source411 rows+original54/art/fonts/models/saveexact; scopednative review, no deviceaudibilityclaim"
+  ],
+  "root_lease": {
+    "id": "S95-accepted-audition-playback-20261103T1915",
+    "writer": "/root",
+    "expires_at": "2026-11-03T21:00:00Z"
+  },
+  "started_at": "2026-11-03T19:14:31.775001+00:00",
+  "scope_end": "2026-11-03T21:00:00Z",
+  "queue_task": "AU01 accepted original audition playback pilot",
+  "reviewer": "game_design_research predesign/final; foundation_tests scratchQAauthor/rootaloneengines",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "aggregate_cap_bytes": 536870912,
+    "source_cap_bytes": 104857600,
+    "cache_cap_bytes": 100663296,
+    "PNG_cap_bytes": 134217728,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600
+  },
+  "next_action": "Commitgate then one component/manifest/clip/desk; earlyphonewide/finalfourview+standard+focused zeroowner proof.",
+  "research_attachment": {
+    "path": "/workspace/attachments/b2cd8a9c-bf12-4708-9cb5-abe8d86af758/BandMaster_Audio_Codex_Brief-1.md",
+    "sha256": "496eba77cecf0b9335054f3e05f4f7553db6bf574614fda1176ed9d302888329",
+    "authority": "Reference recommendations guide method; proposed Godot manager/MVP is not a direct instruction to integrate before listening acceptance."
+  }
+}
