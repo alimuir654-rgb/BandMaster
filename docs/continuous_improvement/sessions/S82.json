@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S82",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Latest direct owner: multiple venues, joined calendar/booking/travel, gig day focus, hidden red cancellation with big consequences; max out authorised48hours. Preserve uncertainty and earned consequences.",
   "baseline_sha": "bbced9bb7c72e57e589d5f0210d59056a504e12c",
@@ -81,12 +81,12 @@
     "/workspace/work/review-roadmap-20261101/research-log.md"
   ],
   "reviewed_documents": {
-    "docs/continuous_improvement/LESSONS.md": "5445f63bf508f337342a4f710190bec921dec4ad4e26ba9f6c74a203c581e562",
+    "docs/continuous_improvement/LESSONS.md": "43e16fc970f78b5c3ba01f3d82c7082ae0a82380839aab1ebbc7b05d808904b5",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1054442,
-    "sha256": "a4a45b67cb56bc7b2c68a5274408ab7e80fe322eb9d7970dfc410adca403e5c7"
+    "bytes": 1064425,
+    "sha256": "3103fadf4fe5891fbe096d1aa6cdd5f3803bd7bc41934aed1d7d17fbd7538a35"
   },
   "source_contract": "docs/continuous_improvement/S82_GIG_BOOKING_JOURNEY.md",
   "source_contract_sha256": "6dad1ed8929e9554e84508ba0d3532ba481a7924355ec00f4f75e7f2f1012e5c",
@@ -94,15 +94,15 @@
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S82.json",
     "Root strict acyclic preload/legacy/new-policy pure proof; exact401 source73/88/import/four standard journeys plus four actual booking-to-result loops, real input/failed-save/retry/reopen/four-view native inspection/EMPTYERRORs. Reexecute changed model closures rather than false reuse."
   ],
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "current_plan_sequence": 17,
-  "current_review_board_sequence": 118,
+  "current_plan_sequence": 18,
+  "current_review_board_sequence": 120,
   "started_at": "2026-11-02T23:09:59.160736+00:00",
   "scope_end": "2026-11-03T02:30:00Z",
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "delegated_source_writer": "/root",
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "delegated_source_writer": null,
   "expected_final_curation": 401,
   "expected_new_modules": [
     "experiments/playable_flightcase/gig_booking_rules.gd",
@@ -125,5 +125,286 @@
     "hypothesis": "Landscape contained place/skip left; named voice plus original hardware and saved set together on right; phone unchanged.",
     "before_source_sha": "b79e3078c89ab04facc3dc0a97d71e5118651884",
     "root_originals_opened": true
+  },
+  "candidate_source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
+  "closed_at": "2026-11-03T00:51:20.374306+00:00",
+  "closeout": {
+    "session": "S82",
+    "tested_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
+    "evidence": [
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/focused-validation-root.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/standard-comparison.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/controlled-comparison.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/source-protection-audit.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/runtime-source-audit.json",
+      "/tmp/bandmaster-s82-20261102/proof-final-625e644/visual-review-root.json",
+      "/tmp/bandmaster-s82-20261102/review/visual-625-final/visual-review.json",
+      "/tmp/bandmaster-s82-20261102/android/update-privacy-audit-v9.json",
+      "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
+      "/tmp/bandmaster-s82-20261102/review-delivery.json",
+      "/tmp/bandmaster-s82-20261102/queue-handoff.json"
+    ],
+    "technical_verdict": "pass",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "new_issue_review": "All S82 opaque event IDs through S82-20261103-669 reviewed, including original source/guard/intake errors, pure golden numeric typing, input wheel-mask failures, visual664 hold/repair, pre-engine auxiliary pin665, ancillary guessed path666, headless editor permission667 and atomic lesson patch refusal668. Failed source/probes/logs/PNGs are retained. Final625 and fresh V9v2 current ERROR lists are empty; model checks are explicitly reused, not current execution. Known scrolling/static art/eligibility/physical-phone gaps remain material. Precommit canonical review670 corrected the three completion_gate.validation aliases to the integrated proof; subordinate runtime audits remain separately bound.",
+    "reviewed_issue_ids": [
+      "S82-20261102-641",
+      "S82-20261102-642",
+      "S82-20261102-643",
+      "S82-20261102-644",
+      "S82-20261102-645",
+      "S82-20261102-646",
+      "S82-20261102-647",
+      "S82-20261102-648",
+      "S82-20261102-649",
+      "S82-20261102-650",
+      "S82-20261102-651",
+      "S82-20261102-652",
+      "S82-20261102-653",
+      "S82-20261102-654",
+      "S82-20261102-655",
+      "S82-20261102-656",
+      "S82-20261102-657",
+      "S82-20261102-658",
+      "S82-20261102-659",
+      "S82-20261102-660",
+      "S82-20261102-661",
+      "S82-20261102-662",
+      "S82-20261102-663",
+      "S82-20261102-664",
+      "S82-20261103-665",
+      "S82-20261103-666",
+      "S82-20261103-667",
+      "S82-20261103-668",
+      "S82-20261103-669",
+      "S82-20261103-670"
+    ],
+    "next_action": "Fresh scoped S83 (or actual next free ID) substantive audition: inspect/adopt /tmp/bandmaster-s83-20261103/contract, define whole-opening invitation rollback and full encounter checkpoint contract, preserve original TALENT recruiting/cast/unknown context and uncertainty. Commit/gate before code; source-backed role-specific exercise and requested adjustment, not extra Continue cards. If a specific owner-only art gate blocks that meaningful slice, record it and progress approved saved-song development. Same finite queue/thread/end.",
+    "checks_summary": {
+      "pass": true,
+      "technical_pass": true,
+      "source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
+      "gameplay": 73,
+      "opening": 88,
+      "clean_import": true,
+      "standard_journeys": 4,
+      "standard_validation": "/tmp/bandmaster-s82-20261102/standard/s82-paired-625-standard-final/validation.json",
+      "standard_canonical_originals": 172,
+      "standard_unique_PNGs_retained": 176,
+      "standard_RGBA_exact": 168,
+      "standard_disclosed_Reopen_fades": 4,
+      "standard_unexpected_differences": 0,
+      "focused_validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/focused-validation-root.json",
+      "focused_checks": 11304,
+      "focused_unique_PNGs": 98,
+      "focused_journeys": 4,
+      "auxiliary_validation": "/tmp/bandmaster-s82-20261102/menu-review-proof-menus-625-v4-aux-v1/execution.json",
+      "auxiliary_checks": 599,
+      "auxiliary_unique_PNGs": 3,
+      "auxiliary_is_fifth_main_journey": false,
+      "pure_model_reuse": "/tmp/bandmaster-s82-20261102/review/source625-reuse-audit/source625-reuse-summary.json",
+      "pure_model_checks_reused": 7013,
+      "pure_model_executed_source_sha": "b79e3078c89ab04facc3dc0a97d71e5118651884",
+      "pure_model_current_executions": 0,
+      "pure_model_orphans_measured": false,
+      "pure_model_closures": {
+        "booking": {
+          "checks": 5195,
+          "resources": 63
+        },
+        "radio": {
+          "checks": 1702,
+          "resources": 54
+        },
+        "work": {
+          "checks": 116,
+          "resources": 51
+        }
+      },
+      "all_error_lines": [],
+      "measured_native_orphan_growth": 0,
+      "source_count": 401,
+      "raw_Git_sources": 400,
+      "isolated_project_entry_bytes": 146,
+      "protected_prior_paths": 381,
+      "owned_game_paths": 20,
+      "new_modules": 2,
+      "original_Scripts": 54,
+      "original_tracked_UIDs": 3,
+      "configured_entry": "/tmp/bandmaster-s82-20261102/configured-entry-625e644-final/execution.json",
+      "runtime_source_audit": "/tmp/bandmaster-s82-20261102/proof-final-625e644/runtime-source-audit.json",
+      "source_protection_audit": "/tmp/bandmaster-s82-20261102/proof-final-625e644/source-protection-audit.json",
+      "standard_comparison": "/tmp/bandmaster-s82-20261102/proof-final-625e644/standard-comparison.json",
+      "controlled_comparison": "/tmp/bandmaster-s82-20261102/proof-final-625e644/controlled-comparison.json",
+      "runtime": "/tmp/bandmaster-s82-20261102/candidate-paired-625e644-v1/runtime",
+      "runtime_manifest": "/tmp/bandmaster-s82-20261102/candidate-paired-625e644-v1/source.json",
+      "visual_verdict": "partial",
+      "visual_review": "/tmp/bandmaster-s82-20261102/proof-final-625e644/visual-review-root.json",
+      "independent_visual_review": "/tmp/bandmaster-s82-20261102/review/visual-625-final/visual-review.json",
+      "root_current_originals_opened": 14,
+      "independent_current_originals_opened": 16,
+      "owner_approved": false,
+      "physical_device": false,
+      "new_APK": false,
+      "manual_ERROR_scan": "/tmp/bandmaster-s82-20261102/proof-final-625e644/manual-error-scan.json",
+      "assembled_at": "2026-11-03T00:38:14.894356+00:00",
+      "notes": [
+        "This proof authorises the exact401-source candidate for privateV9 packaging; physical installation/save retention pending.",
+        "Technical PASS is separate from visual PARTIAL/owner acceptance.",
+        "Models7013 reused through separate proven exact closures; no current625 model executions or model orphan measurement.",
+        "Only final wrap settles show/Story/Reviews/Finance; metadata phase commits remain zero cash/day/Finance."
+      ]
+    },
+    "root_current_originals_actually_opened": [
+      "/tmp/bandmaster-s82-20261102/proof-booking-desktop-625-v4-first/captures/11-initial-soundcheck-setlist-before-hardware-focus-1600x900.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-desktop-625-v4-first/captures/12-agreed-soundcheck-1600x900.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-desktop-625-v4-first/captures/18-earned-live-choice-1600x900.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-wide-625-v4-final/captures/10-initial-soundcheck-setlist-before-hardware-focus-1280x720.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-wide-625-v4-final/captures/11-agreed-soundcheck-1280x720.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-wide-625-v4-final/captures/17-earned-live-choice-1280x720.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-phone-625-v4-final/captures/03-review-actual-room-date-trip-390x844.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-phone-625-v4-final/captures/06-calendar-complete-trip-next-free-390x844.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-tall-625-v4-final/captures/10-initial-soundcheck-setlist-before-hardware-focus-720x1280.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-tall-625-v4-final/captures/17-earned-live-choice-720x1280.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-phone-625-v4-final/captures/10-travel-390x844.png",
+      "/tmp/bandmaster-s82-20261102/proof-booking-phone-625-v4-final/captures/24-saved-show-result-next-goal-390x844.png",
+      "/tmp/bandmaster-s82-20261102/menu-review-proof-menus-625-v4-aux-v1/captures/02-actual-show-options-red-action-default-back-390x844.png",
+      "/tmp/bandmaster-s82-20261102/menu-review-proof-menus-625-v4-aux-v1/captures/03-actual-cancel-confirmation-default-keep-booking-390x844.png"
+    ],
+    "root_comparison_originals_actually_opened": [
+      "/tmp/bandmaster-s82-20261102/proof-booking-desktop-b79-wheel-release-v4/captures/11-initial-soundcheck-setlist-before-hardware-focus-1600x900.png",
+      "/tmp/bandmaster-s81-20261102/proof-gig-desktop-61d-final/captures/05-initial-soundcheck-setlist-before-hardware-focus-1600x900.png"
+    ],
+    "independent_current_originals_opened": 16,
+    "independent_comparison_originals_opened": 3,
+    "five_simulated_lenses": [
+      {
+        "label": "SIMULATED new player",
+        "assessment": "Booked room/date/price/length and next free day agree; gig day becomes the primary journey. Qualification gates still limit early venue variety."
+      },
+      {
+        "label": "SIMULATED management-game player",
+        "assessment": "Travel commitment and context-dependent cancellation carry memory; choices retain uncertainty, after-action saved outcomes remain available."
+      },
+      {
+        "label": "SIMULATED accessibility review",
+        "assessment": "Original readable controls/fixed primaries preserved. Four native sizes and reduced-motion equal information observed; physical phone and maximal/CLEAR16 cases not newly visually tested."
+      },
+      {
+        "label": "SIMULATED art direction",
+        "assessment": "Correct camera and full source containment retained. Landscape hierarchy improved; sparse layouts and missing performer art remain PARTIAL."
+      },
+      {
+        "label": "SIMULATED QA critic",
+        "assessment": "Exact-source input/resume/failure/retry checks support safe loop, distinct from visual/owner acceptance. Regional qualification is a controlled fixture, not earned full-career progression."
+      }
+    ],
+    "remaining": [
+      "Phone/tall soundcheck and set bodies require scroll; wide720 lower controls/copy require short scroll.",
+      "Large canvases remain sparse; original generic venue/stage scenes repeat across rooms.",
+      "Static combined road still and static room scenes; no driving wheel rig, live performers or playing animation.",
+      "No physical Pixel9 installation, retained-save upgrade, cutout or touch-device verification.",
+      "Fresh career still has only one eligible original venue; six catalogue rooms require the original gates. No new starter venues invented.",
+      "Live room response remains a bounded model; no audio analysis, actual attendance telemetry or per-song musical simulation."
+    ],
+    "private_APK": {
+      "status": "PRIVATE_DELIVERED_PHYSICAL_PHONE_PENDING",
+      "game_source_sha": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
+      "version_name": "0.82.0-playtest",
+      "version_code": 9,
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+      "save_path": "user://c27_opening_draft.json",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "requested_permissions": [],
+      "bytes": 97156901,
+      "local_sha256": "ea1e334933a6f0657294fedce631918ac97e2b9a3371f2f2226e4c571de00059",
+      "apk_path": "/tmp/bandmaster-s82-20261102/android/build-625e644-v9-arm64-v2/BandMaster-Playtest.apk",
+      "build_receipt": "/tmp/bandmaster-s82-20261102/android/build-625e644-v9-arm64-v2/build.json",
+      "audit": "/tmp/bandmaster-s82-20261102/android/update-privacy-audit-v9.json",
+      "validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json",
+      "file_id": "1wI9nKffU26xqvwpXIgrIxS-EscCp0SVo",
+      "url": "https://drive.google.com/file/d/1wI9nKffU26xqvwpXIgrIxS-EscCp0SVo/view?usp=drivesdk",
+      "metadata_readback": {
+        "id": "1wI9nKffU26xqvwpXIgrIxS-EscCp0SVo",
+        "title": "BandMaster-Playtest-v9-arm64.apk",
+        "mime_type": "application/vnd.android.package-archive",
+        "size": "97156901",
+        "url": "https://drive.google.com/file/d/1wI9nKffU26xqvwpXIgrIxS-EscCp0SVo/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1wI9nKffU26xqvwpXIgrIxS-EscCp0SVo/view?usp=drivesdk",
+        "file_or_folder": "file",
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "0AAaVL64Kv2tDUk9PVA"
+        ],
+        "drive_id": null,
+        "current_user_can_share": true,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": [
+          {
+            "type": "user",
+            "role": "reader",
+            "emailAddress": "alimuir654@gmail.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          },
+          {
+            "type": "user",
+            "role": "owner",
+            "emailAddress": "chair@lovewelluk.com",
+            "domain": null,
+            "displayName": null,
+            "allowFileDiscovery": null
+          }
+        ],
+        "source_visibility_status": "permission_metadata_available"
+      },
+      "private_named_reader_verified": true,
+      "remote_checksum_available": false,
+      "physical_phone_tested": false,
+      "physical_upgrade_save_retention_tested": false,
+      "installation": "UPDATE existing app; never uninstall/wipe",
+      "v8_retained": true,
+      "source_history_keys_saves_uploaded": false,
+      "at": "2026-11-03T00:42:55.819Z"
+    },
+    "Page_plan_sequence": 18,
+    "Page_board_sequence": 120,
+    "Phone_guide_sequence": 15,
+    "review_preservation": {
+      "prior_choice_blocks": 66,
+      "prior_checked_blocks": 22,
+      "all_prior_choices_byte_exact": true,
+      "all_unrelated_prior_blocks_exact": true,
+      "prior_images": 35,
+      "current_images": 40,
+      "prior_native_collapse_metadata_exact": true,
+      "deleted_A03v2_absence_preserved": true
+    },
+    "source_implementation_pending": false,
+    "S82_helpers_released": true,
+    "separate_next_scope_read_only_contract_prep": "/tmp/bandmaster-s83-20261103/contract",
+    "GL_released": true,
+    "writer_released": true,
+    "writer_lease": "S82-joined-booking-calendar-travel-20261102T2305",
+    "closed_at": "2026-11-03T00:51:20.374306+00:00",
+    "source_writer_released_at": "2026-11-03T00:51:20.374306+00:00",
+    "artifact_writer_released_at": "2026-11-03T00:51:20.374306+00:00",
+    "queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "same_schedule_preserved": true,
+      "new_queue_created": false
+    },
+    "finite_end": "2026-11-04T21:24:35+00:00",
+    "no_project_ZIP_or_public_source_upload": true
   }
 }

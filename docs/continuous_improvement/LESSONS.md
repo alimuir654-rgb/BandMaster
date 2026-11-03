@@ -385,6 +385,8 @@ An unchanged response loop can become unreadable after moving into a disclosure.
 
 A native scrollbar can accept Tab, Home and End without owning every later arrow key. The timing-preserving phone trace proved that Up moved focus to the narrative and scrolled to it; neither a fixed wait nor a product repair was warranted. Preserve the failed probe, inspect actual focus/bar identity/event/scroll/frame facts, then change the reading method: genuine wheel events over the body with measured direction, range and bounded postdraw settlement. Keep full-word/font/clip/meter/state/save guards; remove only the disproven per-arrow ownership assumption.
 
+Complete synthetic wheel gestures with both press and release, then verify a neutral button mask before unrelated pointer input. S82’s unreleased wheel state left bit16 active: the later real Menu press reached the ScrollContainer instead of the stable enabled button. A passive receiver/mask trace isolated this without changing product timing, targets or assertions. Correct every retained helper that injects that gesture, seal the same harness for all profiles, and keep measured scroll direction/range, strict drag and full owner/save guards. Do not diagnose the product from a click callback count alone.
+
 With tight persistent storage, immutable raw art/font inputs may be hardlinked only when they will never be overwritten and exact source/runtime hashes are verified before and after import. Every mutable import cache must remain private to its runtime; S72 used fresh /tmp caches while retaining all originals, failure logs and receipts in the workspace. This is a storage method, not permission to purge history or weaken source inventory.
 
 
