@@ -10,6 +10,7 @@ const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd"
 const RehearsalScreen = preload("res://experiments/playable_flightcase/ui.gd")
 const Game = preload("res://experiments/playable_flightcase/session.gd")
 const OpeningModel = preload("res://experiments/playable_flightcase/opening_state.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const RecruitBase = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 # Owner-protected passive meter PNG bytes from the verified 33f checkpoint.
 const METER_SHA256 := [
@@ -662,6 +663,14 @@ func _check_practice_layout(screen: Control,w: int,h: int,exercise_choices: bool
    if (peer as Button).button_pressed: selected+=1
   if selected!=1 or not button.button_pressed or int(owner.idea_index)!=index:
    failures.append("S41 real idea input lost exclusive selection")
+  # A new Lyric/Verse–Chorus is a FREE actual workbench entry, never a
+  # disguised original day dispatch. Riff/Groove keep their original action.
+  if index==1 and int(screen.setup.game.career.get("song_draft_progress",0))==0:
+   var opener: Button=screen.find_child("WorkbenchBeginAction",true,false) as Button
+   if opener==null or not opener.text.contains("FREE") or screen.find_child("WriteAction",true,false)!=null:
+    failures.append("S84 new Lyric choice lost its distinct free workbench opener")
+  elif screen.find_child("WriteAction",true,false)==null:
+   failures.append("S84 original Riff/Groove committing action was replaced")
  var forms = screen.find_child("PracticeArrangementChoices",true,false)
  if forms==null or forms.items!=PackedStringArray(["Verse / Chorus","Slow Build","Loose Jam"]):
   failures.append("S41 compact arrangement lost original three model options")
@@ -1429,6 +1438,196 @@ func _draw_roster_cover(member_count: int,w: int,h: int) -> void:
  await process_frame
  await process_frame
 
+
+# S84 appends a genuine free material journey AFTER all preserved legacy
+# assertions/captures. Paid three-session/FS rollback proof is focused separately.
+const S84_SEED_TEXT := "We keep a light above the door\nFor everyone still coming home"
+const S84_OTHER_TEXT := "We keep a light above the door\nTill the last bus brings us home"
+
+func _s84_core(opening: Dictionary) -> Variant:
+ var source:=opening.duplicate(true)
+ if source.get("game") is Dictionary and source.game.get("career") is Dictionary:source.game.career.erase(Workbench.KEY)
+ return _s83_typed(source)
+
+func _s84_unchanged(screen: Control,before: Dictionary,saves: Dictionary,tag: String) -> bool:
+ if _s83_typed(screen.setup.snapshot())!=_s83_typed(before) or _recap_save_bytes()!=saves:
+  failures.append("S84 readonly "+tag+" changed original/metadata/save state")
+  return false
+ return true
+
+func _s84_checkpoint(screen: Control,before: Dictionary,saves: Dictionary,tag: String) -> bool:
+ if _s84_core(screen.setup.snapshot())!=_s84_core(before):
+  failures.append("S84 free "+tag+" changed original Game/Finance/day/cash/owner fields")
+  return false
+ var current: Dictionary=_recap_save_bytes()
+ if current.get(OpeningModel.SAVE_PATH)==saves.get(OpeningModel.SAVE_PATH):
+  failures.append("S84 explicit "+tag+" did not durably save its optional metadata")
+  return false
+ for path in saves:
+  if path!=OpeningModel.SAVE_PATH and current[path]!=saves[path]:
+   failures.append("S84 free "+tag+" wrote an unrelated/production save")
+   return false
+ var reloaded:=OpeningModel.new()
+ if not reloaded.load_draft() or _s83_typed(reloaded.snapshot())!=_s83_typed(screen.setup.snapshot()):
+  failures.append("S84 actual schema1 load lost this fixture's defined workbench/core values and types: "+tag)
+  return false
+ return true
+
+func _s84_finish_note(screen: Control) -> bool:
+ var note: Label=screen.find_child("WorkbenchNote",true,false) as Label
+ if note==null or not bool(note.call("is_revealing")):return true
+ var before: Dictionary=screen.setup.snapshot()
+ var saves: Dictionary=_recap_save_bytes()
+ await click_action(screen.find_child("WorkbenchSkipNote",true,false) as Button)
+ return _s84_unchanged(screen,before,saves,"explicit full-note input") and not bool(note.call("is_revealing"))
+
+func _s84_free(screen: Control,id: String) -> bool:
+ if not await _s84_finish_note(screen):return false
+ var before: Dictionary=screen.setup.snapshot()
+ var saves: Dictionary=_recap_save_bytes()
+ var count: int=failures.size()
+ await click_action(screen.find_child(id,true,false) as Button)
+ return failures.size()==count and _s84_checkpoint(screen,before,saves,id)
+
+func _s84_key(code: int,unicode: int=0,ctrl: bool=false) -> void:
+ for pressed in [true,false]:
+  var event:=InputEventKey.new()
+  event.window_id=root.get_window_id()
+  event.keycode=code
+  event.physical_keycode=code
+  event.unicode=unicode
+  event.ctrl_pressed=ctrl
+  event.pressed=pressed
+  Input.parse_input_event(event)
+  await process_frame
+
+func _s84_type(screen: Control,id: String,words: String) -> bool:
+ var control: Control=screen.find_child(id,true,false) as Control
+ if not (control is LineEdit or control is TextEdit):
+  failures.append("S84 native text control missing: "+id)
+  return false
+ var ancestor: Node=control.get_parent()
+ while ancestor!=null:
+  if ancestor is ScrollContainer:
+   (ancestor as ScrollContainer).ensure_control_visible(control)
+   await process_frame
+   await process_frame
+  ancestor=ancestor.get_parent()
+ var point: Vector2=control.get_global_rect().get_center()
+ ancestor=control.get_parent()
+ while ancestor!=null:
+  if ancestor is ScrollContainer and not (ancestor as ScrollContainer).get_global_rect().has_point(point):
+   failures.append("S84 actual editor remains outside its scroll viewport: "+id)
+   return false
+  ancestor=ancestor.get_parent()
+ if not Rect2(Vector2.ZERO,Vector2(root.size)).has_point(point):
+  failures.append("S84 actual editor cannot be reached physically: "+id)
+  return false
+ var before: Dictionary=screen.setup.snapshot()
+ var saves: Dictionary=_recap_save_bytes()
+ var instance: int=control.get_instance_id()
+ for pressed in [true,false]:
+  var pointer:=InputEventMouseButton.new()
+  pointer.window_id=root.get_window_id()
+  pointer.button_index=MOUSE_BUTTON_LEFT
+  pointer.position=point
+  pointer.global_position=point
+  pointer.pressed=pressed
+  Input.parse_input_event(pointer)
+  await process_frame
+ if not control.has_focus():
+  failures.append("S84 actual pointer did not focus "+id)
+  return false
+ await _s84_key(KEY_A,0,true)
+ for index in range(words.length()):
+  var unicode: int=words.unicode_at(index)
+  await _s84_key(KEY_ENTER if unicode==10 else (KEY_SPACE if unicode==32 else unicode),unicode)
+  if not is_instance_valid(control) or control.get_instance_id()!=instance or not control.is_inside_tree():
+   failures.append("S84 native typing rebuilt the editor per keystroke: "+id)
+   return false
+ if str(control.get("text"))!=words:
+  failures.append("S84 native Unicode/Space/Enter literal input differs: "+id)
+  return false
+ return _s84_unchanged(screen,before,saves,"typing "+id)
+
+func _s84_lyric_journey(screen: Control,w: int,h: int) -> void:
+ var original: Dictionary=screen.setup.snapshot()
+ if screen.find_child("RehearsalRecapPanel",true,false)!=null:
+  await click_action(screen.find_child("RecapToggleAction",true,false) as Button)
+ await click_action(screen.find_child("PracticeMode_create",true,false) as Button)
+ var ideas=screen.find_child("PracticeIdeaChoices",true,false)
+ if ideas==null:
+  failures.append("S84 actual writing idea selector is missing")
+  return
+ await click_action(ideas.buttons[1] as Button)
+ if not await _s84_type(screen,"SongTitle","LANTERN AT THE DOOR"):return
+ var opener: Button=screen.find_child("WorkbenchBeginAction",true,false) as Button
+ if opener==null or opener.disabled or screen.find_child("WriteAction",true,false)!=null:
+  failures.append("S84 new pilot did not expose its real validated free opener")
+  return
+ if not await _s84_free(screen,"WorkbenchBeginAction"):return
+ var view: Dictionary=screen.setup.workbench_view()
+ var text: TextEdit=screen.find_child("WorkbenchLyrics",true,false) as TextEdit
+ if text==null or text.text!=S84_SEED_TEXT or view.can_write:
+  failures.append("S84 actual seed or untried Write guard is wrong")
+  return
+ await _draw_screen("lyric_seed_saved",w,h)
+ if not await _s84_free(screen,"WorkbenchTry") or not await _s84_finish_note(screen):return
+ view=screen.setup.workbench_view()
+ if not view.can_write or view.project.last_trial.target.respondent_ref.candidate_id!="cast_zoe":
+  failures.append("S84 actual saved Jack-led trial did not pin Zoe's written note")
+  return
+ await _draw_screen("lyric_trial_written_note",w,h)
+ if not await _s84_type(screen,"WorkbenchLyrics",S84_OTHER_TEXT):return
+ var pending: Label=screen.find_child("WorkbenchNotice",true,false) as Label
+ var write: Button=screen.find_child("WorkbenchWrite",true,false) as Button
+ if pending==null or not pending.text.contains("LOCAL EDITS") or write==null or not write.disabled:
+  failures.append("S84 local words retained a false saved notice or paid eligibility")
+  return
+ if not await _s84_free(screen,"WorkbenchSave"):return
+ view=screen.setup.workbench_view()
+ if view.project.fragment.lines[1].text!="Till the last bus brings us home" or view.can_write:
+  failures.append("S84 revised saved take is not actual B or was falsely already tried")
+  return
+ var earlier: Label=screen.find_child("WorkbenchRespondent",true,false) as Label
+ if earlier==null or not earlier.text.contains("EARLIER SAVED NOTE"):
+  failures.append("S84 prior note was falsely assigned to the newly saved words")
+  return
+ await _draw_screen("lyric_revision_saved",w,h)
+ if not await _s84_free(screen,"WorkbenchTry"):return
+ # The original held-note rule: first paid-button input finishes this actual
+ # fresh note only; a separate later input would be needed to pay. We do not.
+ var note: Label=screen.find_child("WorkbenchNote",true,false) as Label
+ if note==null or not bool(note.call("is_revealing")):
+  failures.append("S84 fresh changed Try did not begin its normal held note")
+  return
+ var before_reveal: Dictionary=screen.setup.snapshot()
+ var reveal_files: Dictionary=_recap_save_bytes()
+ await click_action(screen.find_child("WorkbenchWrite",true,false) as Button)
+ if not _s84_unchanged(screen,before_reveal,reveal_files,"first Write finishes note only") or bool(note.call("is_revealing")):return
+ await _draw_screen("lyric_revision_tried",w,h)
+ var saved: Dictionary=screen.setup.snapshot()
+ var saved_files: Dictionary=_recap_save_bytes()
+ await click_action(screen.find_child("WorkbenchMenu",true,false) as Button)
+ if not screen.showing_menu:
+  failures.append("S84 actual clean Menu did not leave the notebook")
+  return
+ await click_action(screen.find_child("ContinueAction",true,false) as Button)
+ if not _s84_unchanged(screen,saved,saved_files,"actual Menu/Continue same-fragment resume"):return
+ view=screen.setup.workbench_view()
+ text=screen.find_child("WorkbenchLyrics",true,false) as TextEdit
+ if text==null or text.text!=S84_OTHER_TEXT or not view.can_write:
+  failures.append("S84 real Continue did not reopen the same tried literal take")
+  return
+ await _draw_screen("lyric_reopened_same_words",w,h)
+ if not await _s84_free(screen,"WorkbenchArchive"):return
+ if screen.setup.workbench_view().active or _s84_core(screen.setup.snapshot())!=_s84_core(original):
+  failures.append("S84 explicit archive reset original progress/economy instead of optional metadata only")
+  return
+ await _draw_screen("lyric_archived_original_unchanged",w,h)
+ print("S84_STANDARD_FREE_LYRIC_JOURNEY ",JSON.stringify({"width":w,"height":h,"native_text_input":true,"OS_IME":"pending real platform composition","same_fragment_resume":true,"free_original_state_exact":true,"paid_settlements":0,"paid_model_invocations_measured":false}))
+
+
 func take() -> void:
  var initial_orphans: int = int(Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
  var w := maxi(320,int(OS.get_environment("CAPTURE_WIDTH")))
@@ -1956,6 +2155,7 @@ func take() -> void:
  await _check_practice_dispatch(screen,w,h)
  await _draw_recruit_context_fixtures(screen,w,h)
  await _draw_six_member_recap(screen,w,h)
+ await _s84_lyric_journey(screen,w,h)
 
  # Deferred frees from the final screen transition must settle before checking
  # controls allocated along the complete recruitment/Continue journey.
