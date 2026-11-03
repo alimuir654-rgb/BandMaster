@@ -30,8 +30,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1363490,
-    "sha256": "fa47054f6684aff94deedb978e1438db8dac825c682568f17de0455e43d82e9e"
+    "bytes": 1372690,
+    "sha256": "629a9faf2e236269822226b5824ed9c6da3c48c6557320ea40310577068d186a"
   },
   "target": {
     "locator": "/workspace/work/s97-approved-variants-20261103/runs/final-phone-own-v3/captures/adjusted-playing-own_part-390x844.png",
@@ -93,9 +93,16 @@
     "private_cache_cap_bytes": 125829120,
     "PNG_cap_bytes": 150994944,
     "QA_work_audio_reserve_bytes": 423482304,
-    "durable_receipts_cap_bytes": 524288,
+    "durable_receipts_cap_bytes": 1048576,
     "no_cleanup": true,
-    "no_critical_Git_in_TMP": true
+    "no_critical_Git_in_TMP": true,
+    "durable_subcap_rebalance": {
+      "event": "S99-20261103-868",
+      "previous_cap_bytes": 524288,
+      "observed_overrun_bytes": 867128,
+      "aggregate_workspace_cap_unchanged": 4194304,
+      "prospective_remaining_receipt_tail_bytes": 181448
+    }
   },
   "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening.",
   "audio_review_amendment": {
@@ -131,5 +138,6 @@
     "listening": "AllnewclipsOWNER_LISTENING_PENDING untilactualreview; no replacementgenre/splash/newcandidateGameclip beforeacceptance. No newupload/readergrant withoutspecificpayload/destinationauthorisation.",
     "independent_source_review": "game_design_research primarypinnedCC0licences/authorpages/12Gitentries read inthread, no acquiredaudioheardclaim",
     "next": "Authorrootfrozenacquisition+scores+samplerresources; helpernoncompeting scratchonly; rootCPUrender afterexactsourcechecks. Rendererproofnotmusicalcredibility."
-  }
+  },
+  "latest_direct_owner_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json"
 }

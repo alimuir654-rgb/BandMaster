@@ -28,3 +28,8 @@ Largefreshsource/cache/QA/PNGs under /tmp/bandmaster-s99-feedback-20261103 bound
 ## Prospective full-band listening pilot amendment
 
 Review-onlyselection12CC0bass/drumWAVs5,107,496advertisedbytes (2pinnedKaroryferbanks, exactrevisions/limitsinsession). NewcustomSFZsources explicitlyhashbound; verifyGitblob/headers/pitchmapping andsamplervoice/tailbefore3originalprivatepilots:12secIndiefullband,5secsplash,12secArjuncontrast. Raw+room+reviewWAVs<=32MiB/100secondsINCLUDINGtails, bank<=8MiB, allinsideexisting768MiBTMP. No newdeps/services/wholebank/voices/runtimeAI/Gameintegration. Allnewrecordings remainlisteningpending; useracceptsactualsoundbeforeGameuse. No futureupload orsharingpermissioninferred.
+
+
+## Closeout receipt funding correction
+
+Event868 preserves the observed867128B durable receipt overrun of512KiB beforepromotion. Prospectively fund1MiB durable receipts within the unchanged4MiB workspace aggregate and600MiB floor; no file removal or aggregate increase. All prior files retained. Actual sourcef236 unchanged; all20Godotraw0. Directowner now approves all three exact selected audio pilots; freshintegration scope still required.
