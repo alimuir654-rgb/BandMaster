@@ -19,3 +19,6 @@ Independent pool review CLEAR. This is an explicit prospective exception to the 
 ## Remaining closeout category funding — event854
 
 The original8MiB work/reserve estimate was exceeded by privateQA/log/Mesa/XDG/reference-sidecars even while aggregate/floors andsource/cache/PNG caps stayedinside. Retain this accounting failure; no retroactive originalcategoryPASS. Before newdefault/Pages/closeout allocations, transfer unusedfunding to source100,000,000B/cache72,000,000B/PNG18,000,000B/work-reserve15,520,896B (including2MiBexternal repo/primaryGit reserve). Sum stays196MiB and600MiBfreefloors unchanged. No deletion/oldcache/evidence change.
+
+
+Terminalfunding855: afterallnativecaptures complete, transfer2,000,000BunusedPNGfunding towork/reserve: source100,000,000/cache72,000,000/PNG16,000,000/work17,520,896B=196MiB unchanged. ActualPNG15,855,616B, nofurthernativecaptures. Conservativeglobalfree∆202,686,464B used, outside-root attributionunclaimed;600MiBfloor intact. Terminalaudits/Pages/queue/Git only.

@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1349817,
-    "sha256": "cb1e0379f9976a5aaaaa9c1cf21cc1c6fb7829295b5b4669aa994e2bdde0a1a0"
+    "bytes": 1351243,
+    "sha256": "61d20986603ca22e4f98ffa8de7694e611eda433ec19ec675aea535f766608dd"
   },
   "baseline_sha": "0039145cb3d0983f974f649aa8d59497762689f0",
   "game_baseline_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
@@ -78,8 +78,8 @@
     "aggregate_cap_bytes": 205520896,
     "source_cap_bytes": 100000000,
     "cache_cap_bytes": 72000000,
-    "PNG_cap_bytes": 18000000,
-    "work_and_reserve_bytes": 15520896,
+    "PNG_cap_bytes": 16000000,
+    "work_and_reserve_bytes": 17520896,
     "workspace_floor_bytes": 629145600,
     "TMP_floor_bytes": 629145600,
     "initial_free_bytes": 845172736,
@@ -115,7 +115,8 @@
         "independent_review": "game_design_research explicitly CLEAR prospectively in currentthread; no higher-levelpoolprohibition; conditions adopted, earlier blanketwording carvedout before creation."
       }
     },
-    "rebalance854": "Prospective remainingdefault/closeout funding from unusedsource/cache/PNG category balances;196MiBaggregate/600MiBfloor unchanged. Initialworkestimate overrun retained andnotcalled originalsubcapPASS."
+    "rebalance854": "Prospective remainingdefault/closeout funding from unusedsource/cache/PNG category balances;196MiBaggregate/600MiBfloor unchanged. Initialworkestimate overrun retained andnotcalled originalsubcapPASS.",
+    "terminal_rebalance855": "Allnativecapturesfinished;2MBunusedPNGfunds transferred to terminalwork. Source100000000/cache72000000/PNG16000000/work17520896 sum196MiB unchanged; conservativeglobalfree delta used, no newengine/PNG allocations."
   },
   "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
   "independent_predesign": {
