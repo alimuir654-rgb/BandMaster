@@ -97,5 +97,39 @@
     "no_cleanup": true,
     "no_critical_Git_in_TMP": true
   },
-  "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening."
+  "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening.",
+  "audio_review_amendment": {
+    "kind": "Selected offline source/listening pilots ONLY; no shippingaudiointegration",
+    "approved_resources": [
+      {
+        "repo": "sfzinstruments/karoryfer.black-and-blue-basses",
+        "commit": "6e7d674cdb41be7a54dbccb15472401ad01099b9",
+        "license": "CC0-1.0",
+        "subset": "6mf darkblackD2/G2/A2 rr1/2",
+        "advertised_bytes": 3969480
+      },
+      {
+        "repo": "sfzinstruments/karoryfer.gogodze-phu-vol-ii",
+        "commit": "69a0274cdc39c99c3098cde1bc3789690de86d62",
+        "license": "CC0-1.0",
+        "subset": "6frontmic kick/snarecentre/closedhat vl3 rr1/2",
+        "advertised_bytes": 1138016
+      }
+    ],
+    "acquisition_boundary": "12WAVs total5107496B pluspinnedlicence/readme/maps metadata. VerifyactualGitblobSHA/bytes/PCMheaders andSHA256 afterdownload beforeSFZ; no wholebank",
+    "pilots": [
+      "12secIndie fullband originalguitar+bass+drums",
+      "5secsplash bandcadence includingrelease",
+      "12secArjun guitarcontrast withsameclearedguitarbank"
+    ],
+    "source_budget_within_current_TMP": {
+      "new_bank_and_metadata_max_bytes": 8388608,
+      "new_raw_room_review_WAVs_max_bytes": 33554432,
+      "duration_all_raw_and_review_includingtails_max_seconds": 100
+    },
+    "no_new_dependencies": "UseexactS93isolatedpysfizz/Pedalboard andoriginalsamplebank; newcustomsubsetSFZ/oneShot drums/explicitpitchkeys. No paid/runtimeAI",
+    "listening": "AllnewclipsOWNER_LISTENING_PENDING untilactualreview; no replacementgenre/splash/newcandidateGameclip beforeacceptance. No newupload/readergrant withoutspecificpayload/destinationauthorisation.",
+    "independent_source_review": "game_design_research primarypinnedCC0licences/authorpages/12Gitentries read inthread, no acquiredaudioheardclaim",
+    "next": "Authorrootfrozenacquisition+scores+samplerresources; helpernoncompeting scratchonly; rootCPUrender afterexactsourcechecks. Rendererproofnotmusicalcredibility."
+  }
 }

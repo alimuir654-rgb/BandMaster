@@ -23,3 +23,8 @@ Visualreview: compareprimaryPentimentartdirectorarticle, Wildermythcharacterhist
 ## Storage and finiteauthority
 
 Largefreshsource/cache/QA/PNGs under /tmp/bandmaster-s99-feedback-20261103 bounded768MiB and600MiBfloor; workspace4MiBnewmetadata/Git/receipts with600MiBfloor, durable<=512KiB. No arbitrarycleanup/TMPcriticalGit. ExistingS97proof/S98V10 untouched. One writer/oneGL; no newAPK/sessionextension/globalNov4end change.
+
+
+## Prospective full-band listening pilot amendment
+
+Review-onlyselection12CC0bass/drumWAVs5,107,496advertisedbytes (2pinnedKaroryferbanks, exactrevisions/limitsinsession). NewcustomSFZsources explicitlyhashbound; verifyGitblob/headers/pitchmapping andsamplervoice/tailbefore3originalprivatepilots:12secIndiefullband,5secsplash,12secArjuncontrast. Raw+room+reviewWAVs<=32MiB/100secondsINCLUDINGtails, bank<=8MiB, allinsideexisting768MiBTMP. No newdeps/services/wholebank/voices/runtimeAI/Gameintegration. Allnewrecordings remainlisteningpending; useracceptsactualsoundbeforeGameuse. No futureupload orsharingpermissioninferred.
