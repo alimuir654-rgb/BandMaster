@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "active",
+  "status": "released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "S87 approved AU01 source/listening study ONLY; closed owner revision/evidence HOLD, no shipping implementation",
-  "writer": "/root",
+  "writer": null,
   "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs.",
+  "next_single_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -653,9 +653,9 @@
     "reference": "docs/continuous_improvement/OWNER_FEEDBACK.md"
   },
   "last_improvement_review": {
-    "event_id": "S87-20261103-800",
-    "record_gate": "PASS800",
-    "source_SHA_unchanged": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12"
+    "event": "S89-20261103-806",
+    "closed_record_gate": "PASS806",
+    "artistic_approval": false
   },
   "current_owner_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs.",
+  "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2000,7 +2000,7 @@
   "candidate_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "candidate_native_verified": true,
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T16:25:00.812847+00:00",
+  "updated_at": "2026-11-03T16:33:12.919963+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2198,7 +2198,7 @@
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S88",
+  "last_completed_session": "S89",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2400,7 +2400,7 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "closed_at": "2026-11-03T12:09:39.705130+00:00",
+  "closed_at": "2026-11-03T16:33:12.919963+00:00",
   "historical_aliases_before_s65_final_audit": {
     "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
     "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
@@ -2499,13 +2499,13 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T16:00:44.148385+00:00",
-  "last_writer": "S87-AU01-source-listening-study-20261103T1100",
+  "released_at": "2026-11-03T16:33:12.919963+00:00",
+  "last_writer": "S89-audio-art-layout-briefs-20261103T1625",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S89_METADATA_RESEARCH_BRIEFS_ONLY",
+  "source_phase": "S89_BRIEFS_COMPLETE_PRODUCTION_HOLD",
   "claimed_at": "2026-11-03T11:10:26.616803+00:00",
   "expires_at": "2026-11-03T18:00:00Z",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
@@ -2586,8 +2586,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 28,
-  "current_review_board_sequence": 152,
+  "current_plan_sequence": 29,
+  "current_review_board_sequence": 153,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2808,7 +2808,7 @@
   "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
-  "closeout": "/workspace/work/s88-recovery-20261103/closeout.json",
+  "closeout": "/workspace/work/s89-briefs-20261103/closeout.json",
   "last_artifact_slice": {
     "session": "S82",
     "kind": "ONEprivateARM64V9APK",
@@ -2891,7 +2891,7 @@
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
-  "latest_external_read_status": "Current Plan28/Board152/comments read. All72choices23checked/50images/stableIDs/AgentInstructions/collapsedarchive/deletedA03imageabsence preserved; direct owner audio revision recorded without ticking choice. No Pagebrowser-render claim.",
+  "latest_external_read_status": "Plan29/Board153 readback; onlyoneexistingstatusparagraph each changed, allIDs72choices23checked/50images/AgentInstructions/archive preserved. No browserrenderclaim.",
   "delegated_source_writer_status": "released_complete_frozen_a8",
   "s84_in_progress_evidence": {
     "model_source_sha": "443fee24f42dbc287c3188555ad774142a491700",
@@ -3058,12 +3058,18 @@
       "audio_source_scope": "/root/game_design_research",
       "root": "solemetadata/integration/GLcoordinator"
     },
-    "audio_next": "Fresh bounded changed-method audio brief: verify a rights-cleared no-paid-service generation capability, actual band style and internal character instrument-skill rubric; restore durable evidence/Git storage under reviewed preservation contract before any replacement assets. One <=4-second tone/feel prototype can fit the retained cap; no new assets/integration until fresh committed preflight/gate. UX02 remains next shipping review after evidence/storage readiness."
+    "audio_next": "Fresh bounded changed-method audio brief: verify a rights-cleared no-paid-service generation capability, actual band style and internal character instrument-skill rubric; restore durable evidence/Git storage under reviewed preservation contract before any replacement assets. One <=4-second tone/feel prototype can fit the retained cap; no new assets/integration until fresh committed preflight/gate. UX02 remains next shipping review after evidence/storage readiness.",
+    "S89_briefs": "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
+    "current_blockers": [
+      "native desktop",
+      "audio executabletool/rights/budget",
+      "ART01compliantauthoringroute"
+    ]
   },
   "audio_proposal": {
     "id": "AU01",
     "revision": 1,
-    "status": "OWNER_APPROVED_PLAN_SOURCE_STUDY_V1_REVISION_REQUESTED",
+    "status": "OWNER_APPROVED_PLAN_V1REVISION_FEASIBILITY_COMPLETE_EXECUTION_HOLD",
     "choices": [
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
@@ -3091,7 +3097,7 @@
     },
     "source_listening_approval_before_integration": true,
     "private_excerpt_exception_requires_plan_approval": true,
-    "current_board_sequence": 152,
+    "current_board_sequence": 153,
     "owner_plan_approved": true,
     "approved_at_observed": "2026-11-03T11:22:36.784773+00:00",
     "owner_thread_quote": "Audio plan approved. Hopefully it can align with artwork presentation.",
@@ -3125,11 +3131,13 @@
     "no_new_Game_art_audio_APK": true,
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
-  "latest_metadata_deliverable": "S87 committed376aaf9; S88reconstructed408exact/currentprivateimportPASS; nativeUX02visualreview stillHOLD, no shippingchange",
+  "latest_metadata_deliverable": "S89 audiofeasibility/artmethod/UX02predesign complete; primary-sourceandindependentreviews, Plan29Board153. No productionassets/code/engines.",
   "root_lease": {
     "id": "S89-audio-art-layout-briefs-20261103T1625",
-    "writer": "/root",
-    "expires_at": "2026-11-03T18:00:00Z"
+    "writer": null,
+    "expires_at": "2026-11-03T18:00:00Z",
+    "status": "released",
+    "released_at": "2026-11-03T16:33:12.919963+00:00"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {
@@ -3573,7 +3581,7 @@
     }
   },
   "historical_owner_scope_before_S86": "NEW17:18manualicon/visualgear/posererevision,18:00twoindependentworkers,18:07thirdresearchworker+feature/artownerapprovalboard,18:20liveperformer/setlist/vibe/promotion proposals. Source3ecprototypecomplete; newfeatures/artdirectionpendingowner. Source/historylocal; privatePageonlyselectedreviewimages/proposalprose. No newqueue/automaticextension.",
-  "final_closeout_note": "S88 source/import recovery complete and writers released; recoveredmanifest/newimport are fresh durable evidence, not lostS86 originals. NativeDISPLAY/audio-generation readiness remains; Game3d2 unchanged.",
+  "final_closeout_note": "S89metadata/research delivered andwritersreleased; noGame/source/art/audio/APKchange. Specificdesktop/tool/capability gates remain; no automaticnewdeps/rescope or approvals.",
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -3802,5 +3810,70 @@
     "private_import": "/workspace/work/s88-recovery-20261103/fresh-import-v1/execution.json",
     "fresh_reconstruction_not_original": true,
     "game_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12"
+  },
+  "s89_closeout": {
+    "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "preflight_sha": "6d0f9e38eb6487226c5e6c8ddd2871de0e5a01f3",
+    "status": "METADATA_RESEARCH_AND_INDEPENDENT_PREDESIGN_COMPLETE_PRODUCTION_HOLD",
+    "evidence": {
+      "brief": "/workspace/BandMaster/docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
+      "brief_sha256": "c31d17b56da457f7c633a4d6fafb35920845f0a1877ba604d5388ab0d782b6e4",
+      "existing_research_json": "/workspace/work/review-roadmap-20261101/research.json",
+      "research_sha256": "a4d6c5deacbe1cfb5d813c2c04311543f78928f58ae945060c767ff6bdbd5534",
+      "existing_research_log": "/workspace/work/review-roadmap-20261101/research-log.md",
+      "ACE_code_pin": "ca1e85fe9430179831e6bc6be790c332190a3866",
+      "primary_sources_recorded_in_brief": true,
+      "independent_art_review": "CLEAR,6retainedraw/historicalnativeimages opened; no newpixels",
+      "independent_UX_review": "CLEAR sourcepredesign; minor4seconddecayclarification applied",
+      "Plan": 29,
+      "Board": 153,
+      "all72choices23checked_50images_AgentInstructions_archive_stableIDs_preserved": true,
+      "new_owner_choices_added": 0,
+      "no_browser_render_claim": true
+    },
+    "visual_verdict": "hold",
+    "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+    "new_issue_review": {
+      "through_event": "S89-20261103-806",
+      "source_rights_capacity_timing_clarification_recorded_beforecorrection": true,
+      "record_gate_shortSHA_refusal_retained": true
+    },
+    "technical_verdict": "Metadata/sourceprotection/primarysourcecomparison/reviewerchecks only; no productexecutionPASS claimed",
+    "owner_approved": false,
+    "owner_AU01_plan_approved": true,
+    "audio_v1": "OWNER_REVISION_REQUESTED",
+    "audio_candidate": "ACE-Step1.5 shortlisted, not adopted/runnable/installed/output-cleared",
+    "current_caps_unchanged": "5files/36.5s/4MiB",
+    "hypothetical_rescope_not_authorised": "6files/46.5s/7MiB, currentlimits unchanged",
+    "assets_or_code_created": false,
+    "new_audio_or_art_files": 0,
+    "Game_model_engine_APK_executions": 0,
+    "model_or_weights_downloads": 0,
+    "new_dependencies_or_paid_services": 0,
+    "source_readiness": "S88durable408source/privateimport retained; no newclaim about lostproof",
+    "actual_images_opened_root_S89": [],
+    "actual_images_opened_art_reviewer": [
+      "/workspace/generated_images/exec-b047e88d-808e-4e32-88cc-c315d4af1d5f.png",
+      "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+      "/workspace/BandMaster/Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "/workspace/BandMaster/Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "/workspace/work/overnight-20261102/s73/a04-v1-phone-final/captures/01-v1-initial-stage-390x844.png",
+      "/workspace/work/overnight-20261102/s73/a04-v1-wide-final/captures/01-v1-initial-stage-1280x720.png"
+    ],
+    "five_simulated_lenses": {
+      "music_director": "SIMULATED: crediblephysicalstrumming/style/skill/room rubric ready; no audibletest, no capabilityassumption.",
+      "art_director": "SIMULATED: newmanualmaster method changesauthoring ratherthanretry; actualrouteunproven/HOLD, conditionalidentity/kit briefs.",
+      "UX_accessibility": "SIMULATED: one relevant literal savedtitle/count near existingactions may improvehierarchy; nativefit/errorvisibility/physicaltarget notverified.",
+      "engineering_QA": "SIMULATED: no source/owner/model changes, actualIDuniqueness and savedprefix guarded in plan; zero runtime testclaims.",
+      "producer_rights": "SIMULATED: primary code/model/outputterms distinguished, no noncommercialfreeassets quietly shipped; oldcaps and humanchoices retained."
+    },
+    "material_gaps": [
+      "Manageddesktopunavailable, no currentnativeUX02pixelrepro or acceptance",
+      "No installed/authorised audio execution route; ACE10sminimum doesnotfit oldcap",
+      "No compliantmanualartproductionroute proven; freshsources needownerreview",
+      "Historical TMP receipts remain unavailable; recoveredS88copy is fresh evidence only"
+    ],
+    "closed_at": "2026-11-03T16:33:12.919963+00:00",
+    "source_artifact_helpers_GL_released": true
   }
 }

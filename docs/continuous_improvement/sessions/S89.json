@@ -34,7 +34,7 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "id": "S89",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Owner Proceed with audiofeasibility/artmethodbrief/UX02layoutspec whiledesktopunavailable; no generation orshippingUI change thispass.",
   "baseline_sha": "a6a674b28b8ec4ab115cb1e68968ec26ac3587f8",
   "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -60,8 +60,8 @@
     "/workspace/work/review-roadmap-20261101/research-log.md"
   ],
   "issue_log_review": {
-    "bytes": 1283766,
-    "sha256": "5dbe0b46aa65e65088eb36403eecf1b80fe66f0774c3b4bc98e91c849409d422"
+    "bytes": 1286717,
+    "sha256": "867cb118f3b3c618028cf0a79ea5fdcb924983fb10a516d8790fa950feb7403c"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S89.json",
@@ -86,11 +86,79 @@
   "source_write_allowed": false,
   "art_write_allowed": false,
   "audio_generation_allowed": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "storage_plan": {
     "scratch_cap": 4194304,
     "workspace_floor": 629145600,
     "no_native_allocation": true
   },
-  "next_action": "Commit metadata-onlypreflight/gate, publicprimaryaudiofeasibility and completeindependentreviewedbriefs."
+  "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+  "closeout": {
+    "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "preflight_sha": "6d0f9e38eb6487226c5e6c8ddd2871de0e5a01f3",
+    "status": "METADATA_RESEARCH_AND_INDEPENDENT_PREDESIGN_COMPLETE_PRODUCTION_HOLD",
+    "evidence": {
+      "brief": "/workspace/BandMaster/docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
+      "brief_sha256": "c31d17b56da457f7c633a4d6fafb35920845f0a1877ba604d5388ab0d782b6e4",
+      "existing_research_json": "/workspace/work/review-roadmap-20261101/research.json",
+      "research_sha256": "a4d6c5deacbe1cfb5d813c2c04311543f78928f58ae945060c767ff6bdbd5534",
+      "existing_research_log": "/workspace/work/review-roadmap-20261101/research-log.md",
+      "ACE_code_pin": "ca1e85fe9430179831e6bc6be790c332190a3866",
+      "primary_sources_recorded_in_brief": true,
+      "independent_art_review": "CLEAR,6retainedraw/historicalnativeimages opened; no newpixels",
+      "independent_UX_review": "CLEAR sourcepredesign; minor4seconddecayclarification applied",
+      "Plan": 29,
+      "Board": 153,
+      "all72choices23checked_50images_AgentInstructions_archive_stableIDs_preserved": true,
+      "new_owner_choices_added": 0,
+      "no_browser_render_claim": true
+    },
+    "visual_verdict": "hold",
+    "next_action": "Use completed S89briefs for fresh bounded production contracts only when specific blockers are resolved: permitted manageddesktop for UX02nativebaseline/early/final; approved practical generator/tool+rights+exactraw/derivedbudget for audio; available compliant handauthoringroute for ART01. No repeatedlauncher/import/suites for activity, no automatic newdeps/payment/caprescope/assets/APK.",
+    "new_issue_review": {
+      "through_event": "S89-20261103-806",
+      "source_rights_capacity_timing_clarification_recorded_beforecorrection": true,
+      "record_gate_shortSHA_refusal_retained": true
+    },
+    "technical_verdict": "Metadata/sourceprotection/primarysourcecomparison/reviewerchecks only; no productexecutionPASS claimed",
+    "owner_approved": false,
+    "owner_AU01_plan_approved": true,
+    "audio_v1": "OWNER_REVISION_REQUESTED",
+    "audio_candidate": "ACE-Step1.5 shortlisted, not adopted/runnable/installed/output-cleared",
+    "current_caps_unchanged": "5files/36.5s/4MiB",
+    "hypothetical_rescope_not_authorised": "6files/46.5s/7MiB, currentlimits unchanged",
+    "assets_or_code_created": false,
+    "new_audio_or_art_files": 0,
+    "Game_model_engine_APK_executions": 0,
+    "model_or_weights_downloads": 0,
+    "new_dependencies_or_paid_services": 0,
+    "source_readiness": "S88durable408source/privateimport retained; no newclaim about lostproof",
+    "actual_images_opened_root_S89": [],
+    "actual_images_opened_art_reviewer": [
+      "/workspace/generated_images/exec-b047e88d-808e-4e32-88cc-c315d4af1d5f.png",
+      "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+      "/workspace/BandMaster/Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "/workspace/BandMaster/Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "/workspace/work/overnight-20261102/s73/a04-v1-phone-final/captures/01-v1-initial-stage-390x844.png",
+      "/workspace/work/overnight-20261102/s73/a04-v1-wide-final/captures/01-v1-initial-stage-1280x720.png"
+    ],
+    "five_simulated_lenses": {
+      "music_director": "SIMULATED: crediblephysicalstrumming/style/skill/room rubric ready; no audibletest, no capabilityassumption.",
+      "art_director": "SIMULATED: newmanualmaster method changesauthoring ratherthanretry; actualrouteunproven/HOLD, conditionalidentity/kit briefs.",
+      "UX_accessibility": "SIMULATED: one relevant literal savedtitle/count near existingactions may improvehierarchy; nativefit/errorvisibility/physicaltarget notverified.",
+      "engineering_QA": "SIMULATED: no source/owner/model changes, actualIDuniqueness and savedprefix guarded in plan; zero runtime testclaims.",
+      "producer_rights": "SIMULATED: primary code/model/outputterms distinguished, no noncommercialfreeassets quietly shipped; oldcaps and humanchoices retained."
+    },
+    "material_gaps": [
+      "Manageddesktopunavailable, no currentnativeUX02pixelrepro or acceptance",
+      "No installed/authorised audio execution route; ACE10sminimum doesnotfit oldcap",
+      "No compliantmanualartproductionroute proven; freshsources needownerreview",
+      "Historical TMP receipts remain unavailable; recoveredS88copy is fresh evidence only"
+    ],
+    "closed_at": "2026-11-03T16:33:12.919963+00:00",
+    "source_artifact_helpers_GL_released": true
+  },
+  "closed_at": "2026-11-03T16:33:12.919963+00:00",
+  "current_plan_sequence": 29,
+  "current_review_board_sequence": 153
 }

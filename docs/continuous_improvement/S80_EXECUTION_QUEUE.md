@@ -117,3 +117,14 @@ Next actionable work after actual release is a fresh scoped saved-song fragment 
 
 
 **S88 readiness update:** source408 reconstructed exactly from retainedS76manifest+Git+documentedpromotions; new private4.7.2import exit0/EMPTYERROR/post408hash exact. Durable `/workspace/work/s88-recovery-20261103/closeout.json`. No lostoriginal receipt claim. UX02 native review waits restored permitted DISPLAY99 setup; Xorg/config untouched. No newUI/audio/art/APK. Rootreleased; freshscope before furtherwork.
+
+
+## S89 current preparation disposition — 3 November
+
+**Owner Proceed completed as metadata/research/predesign, no assets/code/engines.** Full brief `S89_AUDIO_ART_UX_BRIEFS.md`; research only the existing two roadmap logs.
+
+- AU01: one natural-strumming/chord tone/feel brief + internalinstrument-skill listeningrubric complete. ACE-Step1.5 shortlisted from primarycode/MIT/modelcard/commercialstatement; not installed/adopted, tool/dependency/outputrights unresolved.10sdocumentedminimum doesnotfit retained4files32.097392s under5/36.5s. Hypothetical6files46.5s7MiB is UNADOPTED, not newapproval/currentlimit. Sunofree/MusicGenweights noncommercial; no paidservice or generation.
+- ART01: independentreview CLEAR for freshhand-authoredmaster methodbrief, executionrouteunproven/productionHOLD. No samewholeimageedit orlogooverlay. Zoe/Marcus briefs ready CONDITIONAL onmethod/camera/kit success; backstage reusefirst. Existingdirectionapproval remains, no freshartaccepted.
+- UX02: sourcepredesign CLEAR: one relevant savedtitle/ordinal/completedcount aboveoriginalfixeddockactions; no scene/hardware/UX01/owner/model changes. DuplicateIDs invalidHOLD; duplicate titles withdistinctIDs valid. Full0/1/2/3song/longtitle/errorretry/Menu/reload/reducedmotion matrix ready; native baseline/candidate fit stillUNVERIFIED.
+
+NEXT actionable: restore permitted manageddesktop capability, then baselinephone390/shortwide1280 UX02importantstates before any repair. Whileunavailable, no repeatedlauncher/import/suites foractivity. Before audioassets, establish approvedpracticaltool/rights/exactfilebudget; before artassets establish compliantmanualauthoringroute/freshscope. No automatic library/payment/dependency/asset generation or newapprovalcheckbox. APK work staysHELD.
