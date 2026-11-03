@@ -8,6 +8,7 @@ var stop_button: Button
 var _player: AudioStreamPlayer
 var _context: Callable
 var _material := ""
+var _poll := 0.0
 var _manifest: Dictionary = {}
 
 func configure(context: Callable) -> void:
@@ -22,6 +23,7 @@ func _ready() -> void:
  stop_button.name="AuditionAudioStop"
  for button in [play_button,stop_button]:
   button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  button.mouse_filter=Control.MOUSE_FILTER_PASS
   add_child(button)
  _player=AudioStreamPlayer.new()
  _player.bus="Master"
@@ -85,8 +87,12 @@ func stop() -> void:
  playing=false
  if is_instance_valid(stop_button):stop_button.disabled=true
 
-func _process(_delta: float) -> void:
- if playing and (_muted() or _entry().is_empty()):stop()
+func _process(delta: float) -> void:
+ if playing and _muted():stop()
+ _poll+=delta
+ if _poll<0.1:return
+ _poll=0.0
+ if playing and _entry().is_empty():stop()
  _refresh()
 
 func _notification(what: int) -> void:
