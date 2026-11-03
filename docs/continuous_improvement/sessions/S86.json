@@ -103,7 +103,7 @@
     "failedsave/retry"
   ],
   "predesign": "/tmp/bandmaster-s86-20261103/predesign.json",
-  "current_a8_baseline_confirmation": "PENDING before source",
+  "current_a8_baseline_confirmation": "/tmp/bandmaster-s86-20261103/baseline-review.json",
   "current_plan_sequence": 24,
   "current_review_board_sequence": 132,
   "storage_plan": {
@@ -131,5 +131,9 @@
   "storage_review767": "Physicalcopy5.43MiB: prospective6/6subcaps, aggregate174/floor600unchanged",
   "baseline_import_hold768": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/import.json",
   "storage_review769": "Actual .godot66.72MiB +freshXDG3.14MiB => prospective72combined; PNG12 independentlyforecast/guard. Same174/floor600.",
-  "resume_XDG_exception": "Sameunchangeda8privatebaseline resumption ONLY may reuse its own privateXDG_CACHE_HOME; DATA/CONFIGfresh. No crossruntime/sourcecache sharing."
+  "resume_XDG_exception": "Sameunchangeda8privatebaseline resumption ONLY may reuse its own privateXDG_CACHE_HOME; DATA/CONFIGfresh. No crossruntime/sourcecache sharing.",
+  "baseline_import_actual": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/import-resumed-v2.json",
+  "baseline_checks": 3063,
+  "delegated_source_writer": "/root/s86_contract_safety",
+  "source_writer_started_at": "2026-11-03T08:44:00.570318+00:00"
 }
