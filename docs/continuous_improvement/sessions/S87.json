@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "S87",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Direct owner3Nov: Audio plan approved. Hopefully it can align with artwork presentation. AU01v1 plan approval permits cleared source/listening study; no integration approval.",
+  "baseline_sha": "9896e1cf45e37aef26ee58cf8c02267fa04ab21a",
+  "game_baseline_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+  "dominant_issue": "BM-14",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-09",
+    "BM-14",
+    "BM-15",
+    "BM-25",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-43",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "hypothesis": "Three bounded, exact-written electric-guitar studies using one cleared recorded source can support the visible rehearsal room and audible arrangement comparison, without a soundtrack/library or shipping-code change.",
+  "stop_condition": "HOLD unclear rights/binary identity/wrong notes/excesssource/count/duration/storage, stockloop/UIbleep substitution or unconvincing tone; no new source method aftertwo ineffective attempts without review. No integration before ownerlistening acceptance.",
+  "target": {
+    "locator": "/tmp/bandmaster-s83-20261103/focused-audition-phone-b608-v2/captures/03-response-real-opening-space_for_voice-390x844.png",
+    "original_sha256": "e0366d50daf2c8d1ed097e5c50fd6d1d8a2feac6cbf22ed575a140b70c4189e0",
+    "pixels_inspected": true,
+    "kind": "Root actually opened current unchanged Jack space-for-voice room/contact/written bars; no audio baseline exists."
+  },
+  "controlled_comparison": "Same recorded electric source/100BPM grid/voicing/technique/perceived-level target across original,space,ownpart. Verify exact supportednotes/rests and disclose sampler transposition; first deliver selected three private listening excerpts only.",
+  "allowed_paths": [
+    "docs/continuous_improvement/S87_AUDITION_AUDIO_SOURCE_STUDY.md",
+    "docs/continuous_improvement/sessions/S87.json",
+    "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/tmp/bandmaster-s87-audio-20261103/",
+    "/workspace/BandMaster/.git/objects/info/alternates",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1257335,
+    "sha256": "996653a9ada28255592af632a4289fd046319417463a175727e6933799e509de"
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S87.json",
+    "Pinnedsource/licence/Gitblob/RIFF/wholeaudio count/duration/storage before acquisition, exactevent/rest/mono16PCM/FFmpeg truepeak and level analysis after render; independentart/source review; shipping408 unchanged and owner/Page/private-destination readback. No Godot/currentmodel/standard/APK reruns."
+  ],
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_source_study_allowed": true,
+  "audio_implementation_allowed": false,
+  "APK_work": "HELD",
+  "root_lease": "S87-AU01-source-listening-study-20261103T1100",
+  "started_at": "2026-11-03T11:10:26.616803+00:00",
+  "scope_end": "2026-11-03T12:45:00Z",
+  "queue_task": "AU01v1 approved source/listening study",
+  "source_contract": "docs/continuous_improvement/S87_AUDITION_AUDIO_SOURCE_STUDY.md",
+  "source_contract_sha256": "9b89992a4fe309c20991a2f76f4f576475f606abd6264904b4f44dec1f8da7d4",
+  "approved_plan_original_path": "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+  "approved_plan_original_sha256": "3fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a",
+  "owner_decision": {
+    "plan_id": "AU01",
+    "revision": 1,
+    "status": "APPROVED_PLAN_ONLY",
+    "direct_thread_quote": "Audio plan approved. Hopefully it can align with artwork presentation.",
+    "board_sequence": 148,
+    "choice_block_id": "b35255ae-b0af-4d48-a975-e178b31abeed",
+    "checked": true,
+    "listening_acceptance": false,
+    "integration_approved": false
+  },
+  "storage_plan": {
+    "aggregate_bytes": 12582912,
+    "TMP_floor": 629145600,
+    "workspace_floor": 12582912,
+    "git_new_blob_cap": 1572864,
+    "raw_cap": 1048576,
+    "selected_PCM_cap": 4194304,
+    "scratch_cap": 3145728,
+    "failure_closeout_reserve": 2621440,
+    "no_native_cache_allocation": true
+  },
+  "storage_metadata_phase": "PROPOSAL until committedpreflight/independentreview; no Gitstorage mutation yet",
+  "audio_files_acquired": 0,
+  "source_generation_started": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "next_action": "Commit preflight/gate; reviewed preserve-all newGitblob phase, then record canonicalapproval/retrievalfinding before any audioacquisition. Independent rights+art checks, bounded rawsource inspection and three musical listeningstudies only.",
+  "storage_static_review": "IndependentHOLD normalgitaddduplicate assumption; adoptedexactOIDcacheinfo plus throwawayproof BEFOREproductionalternates mutation. No storage implementation yet."
+}

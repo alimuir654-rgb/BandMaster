@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "/root",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
-  "claimed_at": "2026-11-03T08:30:08.014907+00:00",
-  "expires_at": "2026-11-03T11:15:00Z",
+  "claimed_at": "2026-11-03T11:10:26.616803+00:00",
+  "expires_at": "2026-11-03T12:45:00Z",
   "scope": "UX01 phone soundcheck working space;2presentationleaves only",
   "authority": "Owner48h quality/lived-band authority +3Nov operational controls/layout; S85 directs UX01next. Noaudio/APK.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
+  "status": "active",
   "released_at": "2026-11-03T10:37:28.766030+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -311,7 +311,7 @@
     ],
     "expires_at": "2026-11-02T11:22:00Z"
   },
-  "page_write_allowed": false,
+  "page_write_allowed": true,
   "scratch_art_concept_allowed": false,
   "previous_s63_release": {
     "writer": "S63-visual-career-owner-revision-20261101T1730",
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": false,
-  "next_action": "After actual S86 root release, fresh S87(or actual next free) UX02 complete performance-choice/after-set context REVIEW. Pin current phone/shortwide/source/saved prefix, player goal and interruption points, independent predesign; fresh actual storage/protection/committed preflight/gate before repair. UX01 is complete; do not rerun passed suites or rebuild booking/economy/hardware. AU01 plan remains pending owner; all APK work held.",
+  "pending_helpers": true,
+  "next_action": "Commit preflight/gate; reviewed preserve-all newGitblob phase, then record canonicalapproval/retrievalfinding before any audioacquisition. Independent rights+art checks, bounded rawsource inspection and three musical listeningstudies only.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -353,7 +353,7 @@
   "source_freeze_target": "2026-11-04T20:15:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "closed_verified_local",
+  "source_phase": "AU01_source_listening_study_ONLY",
   "source_frozen_at": "2026-11-03T08:48:44Z",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S86",
+  "session": "S87",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -506,7 +506,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-  "current_session": "S86",
+  "current_session": "S87",
   "closed_at": "2026-11-03T10:37:28.766030+00:00",
   "last_updated_utc": "2026-11-03T10:37:28.766030+00:00",
   "last_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -858,7 +858,7 @@
   },
   "finite_end": "2026-11-04T21:24:35+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "session_path": "docs/continuous_improvement/sessions/S85.json",
+  "session_path": "docs/continuous_improvement/sessions/S87.json",
   "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "last_verified_game_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "last_verified_local_native_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -897,7 +897,7 @@
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
-  "scope_end": "2026-11-03T07:55:00Z",
+  "scope_end": "2026-11-03T12:45:00Z",
   "latest_external_read_status": "Current Plan25/Board133/comments read; media access/MIME/bytes/digests verified; all69choices22checked/47priorimages/AgentInstructions/archive/deletedA03absence retained. No browser-render claim.",
   "delegated_source_writer_status": "released_complete_frozen_a8",
   "s84_in_progress_evidence": {
@@ -1157,8 +1157,8 @@
     "audio": "AU01v1PENDING",
     "APK": "HELD"
   },
-  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830",
-  "source_implementation_status": "COMPLETE_VERIFIED_RELEASED_EXACT3d2",
+  "root_lease": "S87-AU01-source-listening-study-20261103T1100",
+  "source_implementation_status": "S86_GAME_VERIFIED_UNCHANGED; S87audio study notintegrated",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",

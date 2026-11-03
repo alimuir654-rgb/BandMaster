@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "released",
+  "status": "active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "UX01 phone soundcheck working space;2presentationleaves only",
-  "writer": null,
+  "writer": "/root",
   "last_verified_code_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "baseline": {
     "run_id": 40778019754,
@@ -734,7 +734,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S86",
+  "current_session": "S87",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -788,7 +788,7 @@
     }
   },
   "last_sprint": "S86",
-  "next_action": "After actual S86 root release, fresh S87(or actual next free) UX02 complete performance-choice/after-set context REVIEW. Pin current phone/shortwide/source/saved prefix, player goal and interruption points, independent predesign; fresh actual storage/protection/committed preflight/gate before repair. UX01 is complete; do not rerun passed suites or rebuild booking/economy/hardware. AU01 plan remains pending owner; all APK work held.",
+  "next_action": "Commit preflight/gate; reviewed preserve-all newGitblob phase, then record canonicalapproval/retrievalfinding before any audioacquisition. Independent rights+art checks, bounded rawsource inspection and three musical listeningstudies only.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2194,7 +2194,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S86",
+  "session": "S87",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
@@ -2504,11 +2504,11 @@
   "last_writer": "S86-phone-soundcheck-workspace-20261103T0830",
   "source_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "closed_verified_local",
-  "claimed_at": "2026-11-03T08:30:08.014907+00:00",
-  "expires_at": "2026-11-03T11:15:00Z",
+  "source_phase": "AU01_source_listening_study_ONLY",
+  "claimed_at": "2026-11-03T11:10:26.616803+00:00",
+  "expires_at": "2026-11-03T12:45:00Z",
   "authority": "Owner48h quality/lived-band authority +3Nov operational controls/layout; S85 directs UX01next. Noaudio/APK.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2804,7 +2804,7 @@
     "owner_approved": false
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
-  "page_write_allowed": false,
+  "page_write_allowed": true,
   "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
@@ -2853,7 +2853,7 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "session_path": "docs/continuous_improvement/sessions/S85.json",
+  "session_path": "docs/continuous_improvement/sessions/S87.json",
   "last_verified_game_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "current_candidate": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -2863,7 +2863,7 @@
   },
   "source_writer_released_at": "2026-11-03T10:37:28.766030+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "scope_end": "2026-11-03T07:55:00Z",
+  "scope_end": "2026-11-03T12:45:00Z",
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
   "active_development_run": {
@@ -3130,8 +3130,8 @@
     "audio": "AU01v1PENDING",
     "APK": "HELD"
   },
-  "root_lease": "S86-phone-soundcheck-workspace-20261103T0830",
-  "source_implementation_status": "COMPLETE_VERIFIED_RELEASED_EXACT3d2",
+  "root_lease": "S87-AU01-source-listening-study-20261103T1100",
+  "source_implementation_status": "S86_GAME_VERIFIED_UNCHANGED; S87audio study notintegrated",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
