@@ -1,3 +1,7 @@
+# Latest delivery policy — owner 3 November
+
+Continue development without further APK work for now. Native screenshots and progress reviews continue. V9 remains the current phone test build; later source changes are not included. No automatic release/milestone build; resume packaging only on fresh direct owner request. Same finite queue/thread and 4 November end remain.
+
 # Current 48-hour authority — supersedes completed shorter windows
 
 Owner2Nov21:24: “Max out the next48hours.” Sameworker48hourlyopportunities22:15Nov2–21:15Nov4; finalhardstop21:24:35LondonNov4. No newbreadth19:45Nov4/source-artfreeze20:15/final21:15readiness/allwrites21:20. QualityS80verifiedsource5022; nextcompletegigS81, auditions/songwritingthenapprovedcoherence. If owner-onlyartgateblocks, progressnextapprovedactionablework. PrivateAPKmeaningfulverifiedmilestones; humanartapprovalgatesstay.

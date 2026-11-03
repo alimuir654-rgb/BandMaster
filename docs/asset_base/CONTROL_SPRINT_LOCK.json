@@ -422,7 +422,7 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 18,
+  "current_plan_sequence": 19,
   "current_review_board_sequence": 120,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
@@ -789,5 +789,16 @@
     "automatic_extension": false,
     "next_action": "Fresh scoped S83 (or actual next free ID) substantive audition: inspect/adopt /tmp/bandmaster-s83-20261103/contract, define whole-opening invitation rollback and full encounter checkpoint contract, preserve original TALENT recruiting/cast/unknown context and uncertainty. Commit/gate before code; source-backed role-specific exercise and requested adjustment, not extra Continue cards. If a specific owner-only art gate blocks that meaningful slice, record it and progress approved saved-song development. Same finite queue/thread/end."
   },
-  "last_source_writer_release": "2026-11-03T00:51:20.374306+00:00"
+  "last_source_writer_release": "2026-11-03T00:51:20.374306+00:00",
+  "current_delivery_policy": {
+    "status": "APK_WORK_HELD_OWNER_REQUEST",
+    "owner_instruction": "I don't need apk for each release. Continue without for now.",
+    "recorded_at": "2026-11-03T01:02:14.756841+00:00",
+    "continue_source_QA_native_screenshots": true,
+    "automatic_milestone_APK": false,
+    "resume_APK_requires_fresh_owner_request": true,
+    "existing_phone_build": "V9/code9/source625e644",
+    "same_finite_queue": "6ae532c5fe9c819190f587a022c54052",
+    "finite_end": "2026-11-04T21:24:35+00:00"
+  }
 }
