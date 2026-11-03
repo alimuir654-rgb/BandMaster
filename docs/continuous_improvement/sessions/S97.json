@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "id": "S97",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue after direct Variations approved. Integrate both exact accepted S94 audition arrangements via existing player, preserving completed S96 genre preview. No APK.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1339646,
+    "sha256": "d5fafb19681dac60b241b8354308a846cde77a0c69a0b042417c033934874363"
+  },
+  "baseline_sha": "0039145cb3d0983f974f649aa8d59497762689f0",
+  "game_baseline_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
+  "target": {
+    "locator": "/workspace/work/s95-audio-playback-20261103/runs/early-phone-v2/captures/response-written-fallback-390x844.png",
+    "original_sha256": "dc81ca91086e3273d294a330058295ee4390f84f2316d78e12293925c07330cc",
+    "pixels_inspected": true,
+    "kind": "Actual retained response baseline with NO AUDIO; all UI/controller bytes exact throughS96, protected inS97. Rootopenedphone/wide beforepreflight; independentfouroriginals opened."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Exact approved adjusted clips can use existing revealed savedmaterial ID mapping with no UI/owner/model change; player can hear both requested arrangement responses and compare FIRST TRY.",
+  "controlled_comparison": "Same selectedIndie/Jack/request/phase/viewports and native source UI against retainedS95 response baseline; only adjustedavailability and correspondingOGGstream change. Original and genre-preview paths remain exact.",
+  "stop_condition": "HOLD any owner/save/phase/Finance effects, wrong/future/unselected clip, ERROR/sourceprotectedchange or budget/floor breach. Do not repair UI/model or expand sourcepaths silently. Two ineffectiveattempts change method/HOLD.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/audio/audition_clips.json",
+    "experiments/playable_flightcase/audio/jack_space_for_voice_v2.ogg",
+    "experiments/playable_flightcase/audio/jack_own_part_v2.ogg",
+    "docs/continuous_improvement/sessions/S97.json",
+    "docs/continuous_improvement/S97_APPROVED_AUDITION_VARIANTS.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s97-approved-variants-20261103/"
+  ],
+  "validation_commands": [
+    "Committedpreflight+gate BEFOREnewassetencoding/registry",
+    "Exact2PCMsha/waveheaders ->ffmpegq5Vorbis no creativeDSP; decode inputLUFS/truepeak/duration and originalpins",
+    "Current73/88/freshprivateimport/4standard216freshnativeencodingevents withhashverifiedrefs/newphysicalcounts; earlyphone+wideBEFOREfullproof",
+    "Eightfreshwholeauditionjourneys bothrequests each4profiles withnativepointer-key-touch/request/inviteFSfailure-retry/reload/prior/mute/lifecycle/zeroeffects +defaultentry5framesnosaves",
+    "414curated/413Git+146Bentry/protected411/all54Scripts3UID/art/fonts/hardware/schema/owners/player/genreoriginalOGG exact; acceptedERRORempty +independentnative finalreview"
+  ],
+  "root_lease": {
+    "id": "S97-approved-audition-variants-20261103T2058",
+    "writer": "/root",
+    "expires_at": "2026-11-03T22:45:00Z"
+  },
+  "started_at": "2026-11-03T20:58:24.427576+00:00",
+  "scope_end": "2026-11-03T22:45:00Z",
+  "queue_task": "AU01 both approved audition arrangements playback",
+  "reviewer": "game_design_research independent predesign/early/final; foundation_tests scratchQA; root onlysource/engines",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "aggregate_cap_bytes": 205520896,
+    "source_cap_bytes": 100663296,
+    "cache_cap_bytes": 75497472,
+    "PNG_cap_bytes": 20971520,
+    "work_and_reserve_bytes": 8388608,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "initial_free_bytes": 845172736,
+    "whole_scope_margin_above_floor": 10506240,
+    "external_repo_and_primaryGit_growth_reserve_within_work_bytes": 2097152,
+    "cache_contract": "ONE freshprivatecache afterfinal414source commit; no changed source/import correction assumption. If secondcache needed stop/prospectivefunding, no purge/sharemutablecache. Detection notOSquota.",
+    "PNG_contract": "All216standard steps genuinelyexecute and freshlyencodepostdraw. If currentencodedSHA+family+dims EXACTmatch verifiedactualretainedS96physicalPNG withsource/receiptSHA, write referenceevent only; otherwise preserveNEWphysicalPNG. Count separately. Focusedothercapturesbuffer-onlydiagnostic no pixelwitness claim, twoPNGs perrun.20MiBglobalcap BEFOREwrite; aggregate/floorbeforeeachengine. Preservealloldraw/audio/PNG/log/history."
+  },
+  "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
+  "independent_predesign": {
+    "path": "/workspace/work/s97-approved-variants-20261103/review/predesign.json",
+    "sha256": "e81b73bba40da61b1d870add50974469afecf4163e0a546f511ddf83f8185986",
+    "verdict": "CONDITIONAL_CLEAR conditions adopted",
+    "scope_refinement": "No UI/controller/player/model changes; onlyregistry+2OGGs. Bothrequests each4profiles =8freshownedlockedscenariojourneys; actualinput/FSfailure/retry/reload."
+  },
+  "player_task": {
+    "goal": "Hear selected saved requested guitar adjustment and compare prior material before inviting",
+    "start": "Original freshIndieJackaudition introduction/tryout",
+    "end": "Originalpublictalentinvitation orpause/return",
+    "commitment": "Onlyoriginalexplicitrequestcheckpoint/invite saves; audio haszeroauthority",
+    "important_beats": [
+      "arrivalnoaudio",
+      "originaltryout",
+      "realrequestfailure/retry",
+      "selectedadjustedresponse",
+      "FIRSTTRYcompare",
+      "Menu/resume/reload",
+      "invitefailure/retry/once"
+    ],
+    "interruptions": [
+      "mute",
+      "focus",
+      "resize",
+      "hide/free",
+      "actions/prior",
+      "missing/stale/unsupported"
+    ],
+    "acceptance": [
+      "correctapprovedclipafterselectedrequestonly",
+      "fullwrittenmaterial and48pxtargets unchanged",
+      "audioowner-files-saveattemptzero",
+      "all414rows/original54protected",
+      "eightfreshcompleteauditions/bothrequestsall4views",
+      "no deviceaudibility/APKclaim"
+    ]
+  },
+  "new_owner_variations_acceptance": {
+    "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
+    "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
+  }
+}
