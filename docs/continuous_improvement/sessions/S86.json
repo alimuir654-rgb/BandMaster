@@ -65,8 +65,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1224928,
-    "sha256": "6b353ed0907d7afea6952c9e50fdfe0018c58a6d216798653be07c6aa5f9b468"
+    "bytes": 1226340,
+    "sha256": "625a716b3f1f34d315f03405385ba88cb53c49ecb550e6708fec11e8322af316"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -81,7 +81,7 @@
   "audio_implementation_allowed": false,
   "APK_work": "HELD",
   "source_contract": "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
-  "source_contract_sha256": "b92f7dcb32f83509abc6b7caafac3eac27f889f61388c7a7d315c648a3adccc3",
+  "source_contract_sha256": "ad4967a7ab0f7d8a2f6c7754f93b6b68482d68f8781c1be76c79d9792f093f99",
   "source_writer": "/root/s86_contract_safety",
   "reviewer": "/root/s86_visual_review",
   "qa": "/root/s86_native_qa",
@@ -130,5 +130,6 @@
   "design_amendment": "766 same-scroll no tabs/sectionmetadata; prospective before source/native",
   "storage_review767": "Physicalcopy5.43MiB: prospective6/6subcaps, aggregate174/floor600unchanged",
   "baseline_import_hold768": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/import.json",
-  "storage_review769": "Actual .godot66.72MiB +freshXDG3.14MiB => prospective72combined; PNG12 independentlyforecast/guard. Same174/floor600."
+  "storage_review769": "Actual .godot66.72MiB +freshXDG3.14MiB => prospective72combined; PNG12 independentlyforecast/guard. Same174/floor600.",
+  "resume_XDG_exception": "Sameunchangeda8privatebaseline resumption ONLY may reuse its own privateXDG_CACHE_HOME; DATA/CONFIGfresh. No crossruntime/sourcecache sharing."
 }
