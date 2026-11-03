@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1195803,
-    "sha256": "c21b1dd327da849a926647cc830f602e8cf6d22f5e1b579ea3248599055575a3"
+    "bytes": 1199963,
+    "sha256": "e3066efb96260cef44efd0a437857c16176d4f30ee84269d946b2525459c0df6"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -310,5 +310,22 @@
     "sha256": "d1be1bdae9dd32fca56e4715334f58e11de68bbc9711675e23ef1d9b451d512b",
     "no_new_source_cache_import": true,
     "prefix6_REUSED_failed_desktop_only": true
+  },
+  "full_native_storage_hold750": {
+    "phone_PASS": 1858,
+    "tall_PASS": 1144,
+    "wide": "guarded_failure_3ERROR_noresult",
+    "desktop": "unrun",
+    "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+    "plan": "independentchangedmethodreviewpending; no extraengine/source/artwrites",
+    "at": "2026-11-03T06:16:16.473983+00:00"
+  },
+  "proof_storage_method752": {
+    "contract": "/tmp/bandmaster-s84-20261103/review/storage752.json",
+    "sha256": "2c69786eb70d16817e6167f5f8cbdc0a8a96e92d87fbdc8c879b80ed6751853f",
+    "root_adopted_narrow_QA_copy_metadata_exception": true,
+    "cutover_pending": true,
+    "fresh_scope": "QAstorage/proofonly; Game8pathscopefrozen/noAPK",
+    "at": "2026-11-03T06:23:21.576533+00:00"
   }
 }
