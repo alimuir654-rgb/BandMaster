@@ -27,8 +27,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1359930,
-    "sha256": "396d94de0ed0084aa41cf9ab6c71ce25f72b215b5513b1df7de0d57b82f6bcff"
+    "bytes": 1361430,
+    "sha256": "23130455204fd4a326023e288e4504797ed9940fd73e723df28495c30d2446b9"
   },
   "target": {
     "locator": "/workspace/work/s97-approved-variants-20261103/runs/final-phone-own-v3/captures/adjusted-playing-own_part-390x844.png",
@@ -99,6 +99,6 @@
     "evidence": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json",
     "visual_verdict": "partial",
     "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
-    "new_issue_review": "S98-20261103-860"
+    "new_issue_review": "S98-20261103-861"
   }
 }
