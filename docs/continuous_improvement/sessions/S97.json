@@ -85,13 +85,14 @@
     "initial_free_bytes": 845172736,
     "whole_scope_margin_above_floor": 10506240,
     "external_repo_and_primaryGit_growth_reserve_within_work_bytes": 2097152,
-    "cache_contract": "ONE freshprivatecache afterfinal414source commit; no changed source/import correction assumption. If secondcache needed stop/prospectivefunding, no purge/sharemutablecache. Detection notOSquota.",
+    "cache_contract": "ONE freshprivate414source importcache. No oldsource mutableimportcache copied/shared and no purge. Prospectively explicit narrow EXCEPTION a7cdda: one NEW empty shader-only pool for exact5b08candidate within SAME72MiBcachecap; only previously absent shader_cache paths in currentS97privateuserdirs link before nativeengine. Fresh save scenarios share a warm same-candidate shadercache, NOT independentcoldGPU caches. Existingearly/importedartifact bytes remain exact; current UIDmetadata observed separately. Newsource/engine/driver requires new pool/scope.",
     "PNG_contract": "All216standard steps genuinelyexecute and freshlyencodepostdraw. If currentencodedSHA+family+dims EXACTmatch verifiedactualretainedS96physicalPNG withsource/receiptSHA, write referenceevent only; otherwise preserveNEWphysicalPNG. Count separately. Focusedothercapturesbuffer-onlydiagnostic no pixelwitness claim, twoPNGs perrun.20MiBglobalcap BEFOREwrite; aggregate/floorbeforeeachengine. Preservealloldraw/audio/PNG/log/history.",
     "current_native_shader_pool": {
       "path": "/workspace/work/s97-approved-variants-20261103/candidate-v1/private-import-cache/native-shader-pool",
       "funding": "Within existing72MiBcachecap/196MiBaggregate, no capincrease. Currentimportcache70,537,216B leaves4,960,256B within72MiB for one~1MiB current-native compiler pool.",
       "scope": "OnlynewS97case user shader_cache directories symlink to this newempty samecandidate privatepool. Alluserdatasaves/logs remain freshprivatepercase. Rootoneflock sequential exact5b08source. Existingearlycases/oldS95/S96caches untouched; no copying or sharing oldsource mutable importcaches.",
-      "why": "Avoid up to~8MiB duplicate compiledCanvasShader caches while proving8branch scenarios+4standard. Completeallocationfloors andPNGquota unchanged."
+      "why": "Avoid up to~8MiB duplicate compiledCanvasShader caches while proving8branch scenarios+4standard. Completeallocationfloors andPNGquota unchanged.",
+      "independent_review": "game_design_research explicitly CLEAR prospectively in currentthread; no higher-levelpoolprohibition; conditions adopted, earlier blanketwording carvedout before creation."
     }
   },
   "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
