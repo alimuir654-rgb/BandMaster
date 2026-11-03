@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "id": "S100",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Complete latest playtest feedback: integrate exact three newly owner-approved clips, Arjun second saved audition, authored practical personal context. No updated APK; overnight plan after verified current task.",
+  "baseline_sha": "fc1e1ea643d2541217e2eb4c8469ce414cea54b6",
+  "game_baseline_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
+  "dominant_issue": "BM-38",
+  "issue_log_review": {
+    "bytes": 1375001,
+    "sha256": "44691e5ca89d60738e42576b105f987a8b3a6745400ae3f8ab2ad7022b4035db"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "63fbdec5a9d105db46790476363c84861f20239e004c48591c97ea724c55776f",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Candidate-specific four-bar source-backed encounters plus practical personal context let owner compare Arjun to Jack; accepted band/splash clips align opening identity, remembered mute governs all audio.",
+  "controlled_comparison": "Preserve Jack exact source/approved recordings and all original18castdata, six inert meters, original54Scripts3UID/art/fonts/hardware/Game/Finance/model costs. Only canonical Arjun second encounter + additive authored personal prose + approved3 audioassets. Same four layouts/original transactions.",
+  "stop_condition": "HOLD any erased hearing/unknown data, stale/future input accepted, duplicate talent/day/cash/invite settlement, false material audio, unsafe preference/autoplay/unmute behavior, ERROR, inaccessible essential UI, budget/floor breach.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/audition_encounter.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/audio/genre_examples.json",
+    "experiments/playable_flightcase/audition_profiles.gd",
+    "experiments/playable_flightcase/audition_arjun_content.gd",
+    "experiments/playable_flightcase/personal_context.gd",
+    "experiments/playable_flightcase/splash_audio.gd",
+    "experiments/playable_flightcase/audio/arjun_clips.json",
+    "experiments/playable_flightcase/audio/splash_cue.json",
+    "experiments/playable_flightcase/audio/indie_band_v1.ogg",
+    "experiments/playable_flightcase/audio/splash_cadence_v1.ogg",
+    "experiments/playable_flightcase/audio/arjun_original_v1.ogg",
+    "docs/continuous_improvement/sessions/S100.json",
+    "docs/continuous_improvement/S100_FEEDBACK_INTEGRATION.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s100-feedback-integration-20261103/",
+    "/tmp/bandmaster-s100-feedback-integration-20261103/"
+  ],
+  "validation_commands": [
+    "Independent predesign and early390phone/1280shortwide before fullproof.",
+    "Fresh source import/73gameplay/88opening/4originalstandard derivatives/assertions intact/default launch.",
+    "New focused model: Jack oldactive/closed compatibility, candidate-specific pins, unknown/future HOLD, per-candidate completedmap, abort retention, original talent prices/surcharges, failed-save whole typed rollback/retry/reload/duplicates/mixed order and fractional source values. No automatic9128reuse for changed closure.",
+    "Four complete native Arjun/Jack comparisons, typed reload/FSfailure/retry, explicitPlay/lifecycle/missingasset/written fallback, personal context/body scroll/48px/focus/touch/keyboard and unchanged Game owner effects.",
+    "Band preview explicitPlay/all14choices/no selection effect; once-per-process splash after persistedmute, no rebuild/Menu/unmute restart, mute/focus/navigation/resize/Settings stops, one natural5sec phone completion.",
+    "Exact curated/protected source/posthash/cache/PNG/storage/ERROR audits; independent final actual originals/fiveSIMULATED lenses. No updatedAPK.",
+    "Only after verified completion draw overnight plan in existing S80/Plan Page, same solequeue/schedule/finiteNov4end."
+  ],
+  "root_lease": {
+    "id": "S100-owner-feedback-integration-20261103T2340",
+    "writer": "/root",
+    "expires_at": "2026-11-04T02:00:00Z"
+  },
+  "started_at": "2026-11-03T23:20:43.250029+00:00",
+  "scope_end": "2026-11-04T02:00:00Z",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "queue_task": "Owner V10 feedback first playable comparison/approved opening identity",
+  "reviewer": "foundation_tests independent predesign/early/final and scratch QA; game_design_research source/rights review; root sole source+engine",
+  "storage_plan": {
+    "TMP_root": "/tmp/bandmaster-s100-feedback-integration-20261103",
+    "TMP_aggregate_cap_bytes": 805306368,
+    "source_cap_bytes": 105000000,
+    "private_cache_cap_bytes": 125829120,
+    "PNG_cap_bytes": 150994944,
+    "work_failure_closeout_reserve_bytes": 423482304,
+    "workspace_new_aggregate_cap_bytes": 3145728,
+    "workspace_initial_free_bytes": 633458688,
+    "durable_receipts_cap_bytes": 786432,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "no_cleanup": true,
+    "no_TMP_criticalGit": true
+  },
+  "audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
+  "next_action": "Implement exact declared16shippingpaths after committed preflight/gate; helper frozen model/native QA in separate scratch only.",
+  "predesign_review": {
+    "reviewer": "foundation_tests",
+    "disposition": "CLEAR with explicit adopted candidate-query/history/splash-lifetime refinements",
+    "reference": "/workspace/work/s99-feedback-20261103/review/independent-review.json",
+    "actual_source_f236_original_opens": 22,
+    "new_native_opens": 0,
+    "contract_sha256": "4329c983b56b92e660a749a303a03bc735dca1fb64467b80635bf42d0410c4dc"
+  }
+}
