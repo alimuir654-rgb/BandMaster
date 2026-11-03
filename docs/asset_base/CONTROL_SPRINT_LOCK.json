@@ -1,14 +1,14 @@
 {
-  "writer": "S85-quality-queues-audio-plan-20261103T0700",
-  "base_head": "336a17952649502a7fd44411999812d7e170da1f",
+  "writer": null,
+  "base_head": "40e5266cf4e273bf39ff13dd804c4162d94dbe50",
   "claimed_at": "2026-11-03T07:01:03.686347+00:00",
   "expires_at": "2026-11-03T07:55:00Z",
   "scope": "Owner-requested process/work-queue and bounded audio proposal ONLY; shippingGamea8unchanged/no APK.",
-  "authority": "Latest direct owner booking request and48hour extension",
+  "authority": "Direct owner3Nov process/worklist update and limitedaudio plan FOR REVIEW, inside unchanged48hour authority; no audio acquisition or implementation yet.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "claimed",
-  "released_at": null,
+  "status": "released",
+  "released_at": "2026-11-03T07:29:42.645331+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,7 +43,7 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S84-song-fragment-contract-20261103T0231",
+  "last_writer": "S85-quality-queues-audio-plan-20261103T0700",
   "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
   "previous_checkpoint_release": {
     "writer": null,
@@ -156,7 +156,7 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "S82 exact625 and private V9 verified/delivered. Source/artifact/Page/GL writers released; next fresh scoped audition before songwriting. All current ERROR empty; visual PARTIAL/owner false/physical pending.",
-  "source_writer_released_at": "2026-11-03T06:49:14.519386+00:00",
+  "source_writer_released_at": "2026-11-03T07:29:42.645331+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "Make artwork and controls/layout queues operational; present limited audio pilot for owner review. S85 scratch audition proposal remains historical proposal; next actual audition uses fresh S86 or nextfree preflight.",
+  "pending_helpers": false,
+  "next_action": "After actual S85 root release, fresh S86 (or actual next free) UX01 phone soundcheck/set-list space contract and current-baseline confirmation; UX02 only if inseparable. Preserve all original booking/economy/saves/hardware. Fresh bounded storage/preflight/gate and early phone/shortwide before exact final proof. AU01 audio remains pending owner; no acquisition/generation/privateaudio delivery/integration until its explicit gates. Continue other approved work without waiting for audio.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -441,8 +441,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 22,
-  "current_review_board_sequence": 130,
+  "current_plan_sequence": 24,
+  "current_review_board_sequence": 132,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -503,7 +503,7 @@
   "candidate_sha": "5cc32e30051fc20490340031b2ee7456b5262844",
   "current_session": "S85",
   "closed_at": "2026-11-03T00:51:20.374306+00:00",
-  "last_updated_utc": "2026-11-03T06:49:14.519386+00:00",
+  "last_updated_utc": "2026-11-03T07:29:42.645331+00:00",
   "last_validation": "/tmp/bandmaster-s82-20261102/proof-final-625e644/complete-validation.json",
   "last_run_summary": "S79ownerfeedback captured: wholebandjourney priority; design/source/Pages reviewed, no game/art/APKchanges.",
   "last_completed_deliverable": "S82 joined booking/calendar/travel/gig + private V9; technical PASS/visual PARTIAL/physical Pixel9 pending.",
@@ -821,18 +821,18 @@
     "authority": "Owner Max out next48hours",
     "queue_id": "6ae532c5fe9c819190f587a022c54052",
     "same_thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "status": "S84_complete_root_released_finite48h_queue_continues",
+    "status": "S85_process_complete_root_released_finite_queue_continues",
     "no_new_breadth": "2026-11-04T19:45:00+00:00",
     "integration_freeze": "2026-11-04T20:15:00+00:00",
     "final_readiness_wake": "2026-11-04T21:15:00+00:00",
     "all_writes_release_by": "2026-11-04T21:20:00+00:00",
     "hard_stop": "2026-11-04T21:24:35+00:00",
     "automatic_extension": false,
-    "next_action": "AfteractualS84rootrelease, freshS85(oractualnextfree)ONEZoe/Bassistwrittenaudition. ReadS85proposal+safetyreviewasproposals; adoptcomplete7pathcontract/predesign/storage/rollback/profilecompatibility/legacycaptureroute BEFOREcode. PreserveJackandoriginaltalent; noS84reruns/APK/newartforactivity.",
-    "last_completed_session": "S84",
-    "root_released_at": "2026-11-03T06:49:14.519386+00:00"
+    "next_action": "After actual S85 root release, fresh S86 (or actual next free) UX01 phone soundcheck/set-list space contract and current-baseline confirmation; UX02 only if inseparable. Preserve all original booking/economy/saves/hardware. Fresh bounded storage/preflight/gate and early phone/shortwide before exact final proof. AU01 audio remains pending owner; no acquisition/generation/privateaudio delivery/integration until its explicit gates. Continue other approved work without waiting for audio.",
+    "last_completed_session": "S85",
+    "root_released_at": "2026-11-03T07:29:42.645331+00:00"
   },
-  "last_source_writer_release": "2026-11-03T06:49:14.519386+00:00",
+  "last_source_writer_release": "2026-11-03T07:29:42.645331+00:00",
   "current_delivery_policy": {
     "status": "APK_WORK_HELD_OWNER_REQUEST",
     "owner_instruction": "I don't need apk for each release. Continue without for now.",
@@ -1028,5 +1028,82 @@
     "request": "Owner3Nov: Fold in suggested process improvements; concrete artwork and controls/layout queues; bounded audio plan FOR REVIEW. Audio acquisition/generation/integration not approved by this planning request. Existing finite48h and APK hold unchanged.",
     "audio_status": "PLAN_FOR_REVIEW_ONLY",
     "APK_hold_unchanged": true
+  },
+  "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
+  "current_operational_queue": {
+    "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "art_jobs": 4,
+    "UX_jobs": 9,
+    "next": "UX01 phone soundcheck/set-list space",
+    "roles": {
+      "implementation": "/root/s81_contract_safety",
+      "artwork_sourcing_method": "/root/foundation_tests",
+      "controls_layout": "/root/s81_visual_review",
+      "audio_source_scope": "/root/game_design_research",
+      "root": "solemetadata/integration/GLcoordinator"
+    }
+  },
+  "audio_proposal": {
+    "id": "AU01",
+    "revision": 1,
+    "status": "PENDING_OWNER",
+    "choices": [
+      {
+        "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
+        "checked": false,
+        "markdown": "- [ ] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+      },
+      {
+        "id": "01569100-f400-4d8d-9389-1b57e64de78c",
+        "checked": false,
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+      },
+      {
+        "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
+        "checked": false,
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+      }
+    ],
+    "caps": {
+      "clips": 5,
+      "seconds_including_tails": 36.5,
+      "source_PCM_bytes": 4194304,
+      "future_compressed_payload_bytes": 1048576,
+      "simultaneous_playback_streams": 2,
+      "spoken_sung_voices": 0
+    },
+    "source_listening_approval_before_integration": true,
+    "private_excerpt_exception_requires_plan_approval": true
+  },
+  "s85_process_changes": {
+    "CHECK_updated": true,
+    "one_current_queue": true,
+    "no_source_art_audio_change": true,
+    "no_new_scheduler": true,
+    "independent_review": "CLEAR",
+    "closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json"
+  },
+  "historical_lease_provenance_before_S85_correction": {
+    "base_head": "336a17952649502a7fd44411999812d7e170da1f",
+    "authority": "Latest direct owner booking request and48hour extension"
+  },
+  "game_baseline_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "s85_release": {
+    "writer": null,
+    "source_art_audio_writers": null,
+    "helpers": "allcompleted",
+    "GL_available": true,
+    "engine_processes": [],
+    "no_new_Game_art_audio_APK": true,
+    "at": "2026-11-03T07:29:42.645331+00:00"
+  },
+  "latest_metadata_deliverable": {
+    "session": "S85",
+    "status": "complete",
+    "closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
+    "Game_unchanged": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+    "Page_plan": 24,
+    "Page_board": 132,
+    "audio": "AU01v1PENDING"
   }
 }

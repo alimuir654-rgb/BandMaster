@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S85",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner3Nov: Fold in suggested process improvements; concrete artwork and controls/layout queues; bounded audio plan FOR REVIEW. Audio acquisition/generation/integration not approved by this planning request. Existing finite48h and APK hold unchanged.",
   "baseline_sha": "40e5266cf4e273bf39ff13dd804c4162d94dbe50",
@@ -66,8 +66,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1214179,
-    "sha256": "d45ba2e3b0e57435b2e1c43100e74664ded2c7135b6d71ec3a29340f0a7f0ea2"
+    "bytes": 1217613,
+    "sha256": "9b5d5d90e5755718998a569815d449d791db6b31e86ad08e86bfed7c845d15db"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S85.json",
@@ -79,12 +79,12 @@
   "audio_implementation_allowed": false,
   "audio_asset_acquisition_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "started_at": "2026-11-03T07:01:03.686347+00:00",
   "scope_end": "2026-11-03T07:55:00Z",
   "root_lease": "S85-quality-queues-audio-plan-20261103T0700",
-  "current_plan_sequence": 23,
-  "current_review_board_sequence": 131,
+  "current_plan_sequence": 24,
+  "current_review_board_sequence": 132,
   "storage_plan": {
     "planning_only_cap_bytes": 8388608,
     "minimum_tmp_free_floor": 629145600,
@@ -122,5 +122,40 @@
     "controls_layout": "/root/s81_visual_review",
     "audio_source_scope": "/root/game_design_research",
     "root": "solemetadata/integration/GLcoordinator"
-  }
+  },
+  "closeout_path": "/tmp/bandmaster-s85-process-20261103/closeout.json",
+  "closeout": {
+    "tested_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+    "evidence": {
+      "source_audit": "/tmp/bandmaster-s85-process-20261103/source-protection-audit.json",
+      "plan": "docs/continuous_improvement/S85_QUALITY_AND_AUDIO_PLAN.md",
+      "plan_sha256": "3fa4bc2350053fbabe24acb73657f2160a46a11dd7d0d2f5013a869bc9d54f5a",
+      "single_queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+      "queue_sha256": "d69b5f4c65e136e508a8206024d2cb5f9a9ecb24d81fdf3fa814599837a53a03",
+      "CHECK": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+      "canonical_lessons": "docs/continuous_improvement/LESSONS.md",
+      "Page_readback": "/tmp/bandmaster-s85-process-20261103/page-readback.json",
+      "queue_continuity": "/tmp/bandmaster-s85-process-20261103/queue-continuity.json"
+    },
+    "visual_verdict": "partial",
+    "next_action": "After actual S85 root release, fresh S86 (or actual next free) UX01 phone soundcheck/set-list space contract and current-baseline confirmation; UX02 only if inseparable. Preserve all original booking/economy/saves/hardware. Fresh bounded storage/preflight/gate and early phone/shortwide before exact final proof. AU01 audio remains pending owner; no acquisition/generation/privateaudio delivery/integration until its explicit gates. Continue other approved work without waiting for audio.",
+    "new_issue_review": {
+      "event_ids": [
+        "S85-20261103-759",
+        "S85-20261103-760",
+        "S85-20261103-761",
+        "S85-20261103-762",
+        "S85-20261103-763",
+        "S85-20261103-764"
+      ],
+      "bytes": 1217613,
+      "sha256": "9b5d5d90e5755718998a569815d449d791db6b31e86ad08e86bfed7c845d15db",
+      "all_draft_and_failure_history_retained": true,
+      "last_reviewed_event": "S85-20261103-764"
+    }
+  },
+  "closed_at": "2026-11-03T07:21:46.535756+00:00",
+  "next_action": "After actual S85 root release, fresh S86 (or actual next free) UX01 phone soundcheck/set-list space contract and current-baseline confirmation; UX02 only if inseparable. Preserve all original booking/economy/saves/hardware. Fresh bounded storage/preflight/gate and early phone/shortwide before exact final proof. AU01 audio remains pending owner; no acquisition/generation/privateaudio delivery/integration until its explicit gates. Continue other approved work without waiting for audio.",
+  "released_at": "2026-11-03T07:29:42.645331+00:00",
+  "queue_continuity": "/tmp/bandmaster-s85-process-20261103/queue-continuity.json"
 }
