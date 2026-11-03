@@ -35,13 +35,13 @@ func _ready() -> void:
    _manifest=parser.data
  _refresh()
 
-func set_material(id: String) -> void:
+func set_clip(id: String) -> void:
  stop()
  _material=id
  if is_node_ready():_refresh()
 
 func _entry() -> Dictionary:
- if not _context.is_valid():return {}
+ if not is_visible_in_tree() or not _context.is_valid():return {}
  var context: Dictionary=_context.call()
  if not context.get("allowed",false) or context.get("material_id","")!=_material:return {}
  if _manifest.get("schema_version")!=1:return {}
@@ -49,6 +49,7 @@ func _entry() -> Dictionary:
  if not FileAccess.file_exists(source) or FileAccess.get_sha256(source)!=_manifest.get("content_sha256",""):return {}
  var entries: Dictionary=_manifest.get("materials",{})
  var entry: Dictionary=entries.get(_material,{})
+ if not entry.get("owner_listening_accepted",false):return {}
  var path: String=str(entry.get("path",""))
  if not path.begins_with("res://") or not FileAccess.file_exists(path):return {}
  if FileAccess.get_sha256(path)!=entry.get("sha256",""):return {}
@@ -91,6 +92,7 @@ func _process(_delta: float) -> void:
 
 func _notification(what: int) -> void:
  if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_WM_WINDOW_FOCUS_OUT]:stop()
+ if what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree():stop()
 
 func _exit_tree() -> void:
  stop()

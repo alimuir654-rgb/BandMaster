@@ -182,7 +182,7 @@ func _build() -> void:
   _audio=AudioPart.new()
   _audio.configure(_audio_context)
   notes.add_child(_audio)
-  _audio.set_material(Content.material_id(str(_view.get("request",""))))
+  _audio.set_clip(Content.material_id(str(_view.get("request",""))))
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
   _board.columns=4 if wide else 2
@@ -270,7 +270,7 @@ func _inspect(index: int) -> void:
 func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
- if is_instance_valid(_audio):_audio.set_material(Content.material_id("" if _show_prior else str(_view.get("request",""))))
+ if is_instance_valid(_audio):_audio.set_clip(Content.material_id("" if _show_prior else str(_view.get("request",""))))
  _prior_toggle.text="ADJUSTED TRY" if _show_prior else "FIRST TRY"
  _fill_board()
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what Jack changed."
@@ -280,6 +280,7 @@ func _toggle_bio() -> void:
 
 func _finish_voice() -> bool:
  if is_instance_valid(_voice) and _voice.call("is_revealing"):
+  if is_instance_valid(_audio):_audio.stop()
   _voice.call("finish_now")
   return true
  return false
@@ -316,7 +317,7 @@ func _menu() -> void:
 
 func _audio_context() -> Dictionary:
  var live: Dictionary=owner_state.audition_view()
- var allowed: bool=not _busy and live.get("ok",false) and live.get("active",false) and not live.get("held",false) and live.get("phase","") in ["tryout","response","decision"] and owner_state.game.genre=="Indie rock"
+ var allowed: bool=is_visible_in_tree() and owner_state.audition_expected()==_expected and not _busy and live.get("ok",false) and live.get("active",false) and not live.get("held",false) and live.get("phase","") in ["tryout","response","decision"] and owner_state.game.genre=="Indie rock"
  for key in ["id","revision","phase","request"]:
   allowed=allowed and live.get(key)==_view.get(key)
  return {"allowed":allowed,"material_id":Content.material_id("" if _show_prior else str(live.get("request","")))}
