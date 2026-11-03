@@ -1,5 +1,5 @@
 {
-  "writer": "/root",
+  "writer": null,
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T20:00:00Z",
@@ -7,8 +7,8 @@
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "active",
-  "released_at": "2026-11-03T18:14:13.116487+00:00",
+  "status": "released",
+  "released_at": "2026-11-03T18:55:18.307534+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T18:23:55.023864+00:00",
+  "updated_at": "2026-11-03T18:55:18.307534+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Commit/gate, inspectpinnedCPUdependencylicense/actualwheel footprint, isolatedinstallonly, authorrealrenderbackend/prototype and deliverselectedprivateownerreview. No Aliaccessnewfileautomatically.",
+  "next_action": "Owner listening review of the actual new sample-based indie cue before any Game audio integration; preserve originalv1REVISION history. Existing approved UX03 whole-task review remains independently actionable under fresh scope.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -426,7 +426,7 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S89",
+  "last_completed_session": "S93",
   "closeout": "/workspace/work/s89-briefs-20261103/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
@@ -475,7 +475,7 @@
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "current_session": "S93",
-  "closed_at": "2026-11-03T16:33:12.919963+00:00",
+  "closed_at": "2026-11-03T18:55:18.307534+00:00",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "last_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "last_run_summary": "Four whole gigs12621checks/14failedsave retries/16reloads; current73/88/import/4standard and separate48title1359 pass;16acceptedERRORempty/nativeorphangrowth0.9128pureREUSED/0currentmodels.",
@@ -2397,5 +2397,143 @@
     ],
     "closed_at": "2026-11-03T18:14:13.116487+00:00",
     "source_artifact_helpers_GL_released": true
+  },
+  "s93_closeout": {
+    "tested_sha": "0149c3d074d0a0f87e2b87dfd61d276706b06a37",
+    "preflight_sha": "eb183d34da7040dc4225a244e3eda838685b5825",
+    "initial_preflight_sha": "96240f3bdfb8178e7be77eda4cc7c22d7ea21119",
+    "shipping_game_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+    "status": "SAMPLE_BASED_AUDIO_TOOLING_AND_PRIVATE_LISTENING_PROTOTYPE_COMPLETE",
+    "evidence": {
+      "contract": "/workspace/BandMaster/docs/continuous_improvement/S93_GENERATED_GUITAR_REVIEW.md",
+      "source_selection": "/workspace/work/s93-audio-review-20261103/source-reference/selection.json",
+      "exact_source_text_pins": "/workspace/work/s93-audio-review-20261103/source-reference/exact-text-pins.json",
+      "acquisition": "/workspace/work/s93-audio-review-20261103/acquisition.json",
+      "rights": "/workspace/work/s93-audio-review-20261103/rights.json",
+      "score": "/workspace/work/s93-audio-review-20261103/score-v1.json",
+      "render": "/workspace/work/s93-audio-review-20261103/render-v1/render.json",
+      "render_log": "/workspace/work/s93-audio-review-20261103/render-v1.log",
+      "decoded_loudness": "/workspace/work/s93-audio-review-20261103/review-decoded-loudness.json",
+      "WAV_inspection": "/workspace/work/s93-audio-review-20261103/review-inspection.json",
+      "whole_audio_bundle": "/workspace/work/s93-audio-review-20261103/bundle-audit.json",
+      "source_storage_logs": "/workspace/work/s93-audio-review-20261103/source-storage-log-audit.json",
+      "tests": "/workspace/work/s93-audio-review-20261103/tests-final.log",
+      "method_review": "/workspace/work/s93-audio-review-20261103/sample-method-review.json",
+      "final_review": "/workspace/work/s93-audio-review-20261103/sample-final-review.json",
+      "final_review_sha256": "32565e1027d03ffcd07ba20b3519d7c24205f1e3c83edf2a74f6d0e1caf3e995",
+      "private_delivery": "/workspace/work/s93-audio-review-20261103/private-delivery.json",
+      "Pages_preservation": "/workspace/work/s93-audio-review-20261103/page-status-audit.json"
+    },
+    "visual_verdict": "hold",
+    "audio_quality": "OWNER_LISTENING_PENDING",
+    "owner_approved": false,
+    "technical_pass": true,
+    "tests": 27,
+    "actual_audio": {
+      "sample_sources": 130,
+      "source_sample_bytes": 56198284,
+      "source_regions": 156,
+      "actual_MIDI_pitches": 13,
+      "pitch_shifts_zero": true,
+      "note_events": 93,
+      "complete_review_seconds": 12,
+      "review_frames": 576000,
+      "review_rate": 48000,
+      "review_channels": 2,
+      "review_width_bytes": 2,
+      "review_container_bytes": 2304078,
+      "review_sha256": "b0c6c19654843c732718d01cc1e3b40d0f8e4548a803e7989f8081d71d565b57",
+      "review_URL": "https://drive.google.com/file/d/1nDKBiZD6Ke9nO-hF9bx-21bkYS60VmvR/view?usp=drivesdk",
+      "decoded_LUFS": -23.0,
+      "decoded_true_peak_dBTP": -7.86,
+      "retained_audio_containers": 133,
+      "retained_audio_bytes": 65414450,
+      "retained_audio_total_seconds": 460.69997732426305,
+      "complete_tail_seconds": 2.4,
+      "source_render_raw_exit": null,
+      "source_render_completion": "Full completed JSON/source/output hashes retained; raw childexit unavailable after executor restart, not claimed0.",
+      "subsequent_FFmpeg_raw_exits": [
+        0,
+        0,
+        0
+      ],
+      "last_200ms_effect_peak": 5.777924982908189e-08,
+      "active_sampler_voices_end": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "privacy": {
+      "new_review_owner": "chair@lovewelluk.com",
+      "new_readers": 0,
+      "old_three_Ali_grants_unchanged": true,
+      "public_domain_folder_broadening": false,
+      "source_raw_recipe_history_uploaded": false,
+      "remote_checksum_available": false
+    },
+    "source_protection": {
+      "runtime408_exact": true,
+      "shipping407_exact": true,
+      "all54Scripts_including3UID_exact": true,
+      "Game_changes": [],
+      "Godot_APK_executions": 0
+    },
+    "owner_latest_authority": {
+      "new_dependencies_approved": true,
+      "old_clip_caps_waived": true,
+      "research_attachment_reference_only": true,
+      "Godot_MVP_integration_not_inferred": true
+    },
+    "next_action": "Owner listening review of the actual new sample-based indie cue before any Game audio integration; preserve originalv1REVISION history. Existing approved UX03 whole-task review remains independently actionable under fresh scope.",
+    "new_issue_review": {
+      "through_event": "S93-20261103-830",
+      "history": "826blockedsource403 changedroute;827SFZdefault60reader fixed;828READMEpatch/executorrawexitunavailable retained;829FFmpegJSONsuffix parser corrected without remeasurement;830ephemeralPagecontext/JSsyntaxaudit corrected without mutationreplay. No musicalrenderer failure or sourcechange."
+    },
+    "images_opened_this_session": [],
+    "reference_image_preflight_reopened": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+    "listening_reviewers": [],
+    "five_simulated_lenses": [
+      {
+        "lens": "SIMULATED musician/producer",
+        "finding": "Playable open-chord voicings, scheduled stroke directions and real alternate sample takes; audible naturalness awaits owner. Source has plucked articulations, not recorded up/down strums."
+      },
+      {
+        "lens": "SIMULATED audio engineer",
+        "finding": "Correct sampled MIDI/no pitchshift, source integrity, sampleaccurateevents, complete sampler/DSPtail, decodedlevels and PCMchecks; rawexit receipt gap explicit."
+      },
+      {
+        "lens": "SIMULATED tooling maintainer",
+        "finding": "Track/voice/style contracts allow later instrument/ensemble trials; exact first study only electricguitar/indie. Generalized SFZ parsing/resource policies/input immutability/privateAPI and RRtrace remain future hardening."
+      },
+      {
+        "lens": "SIMULATED game/accessibility reviewer",
+        "finding": "Offline authoring only, zero Game/save/economy effects; full silent experience remains. No playback manager/animation/character skill claim."
+      },
+      {
+        "lens": "SIMULATED returning owner",
+        "finding": "Actual selected WAV privately delivered for listening; v1revision/old3AliACL/humancheckboxhistory preserved, no listening approval inferred."
+      }
+    ],
+    "material_gaps": [
+      "Owner has not listened to/accepted this new cue. No human/audio-device/physicalPixel9/IME or instrument realism acceptance.",
+      "Fullband song snippets/percussion/bass/voices/otherstyles are representable, not rendered or proved.",
+      "Not a Jack skill-calibrated performance; no numericgrades or character biography invented.",
+      "Godot playback/mute/crossfade/interruption/silentfallback integration remains a fresh contract after listeningacceptance.",
+      "Earlier lost TMP proofs/oracles remain missing and permanentlyclosed.",
+      "Original render rawexit unavailable; completedartifacts/JSON/hashbound reviewer and later decoding receipts retained."
+    ],
+    "closed_at": "2026-11-03T18:55:18.307534+00:00",
+    "source_artifact_helpers_GL_released": true
+  },
+  "latest_owner_audio_authority_20261103": {
+    "new_dependencies_approved": true,
+    "old_clip_caps_waived_for_review": true,
+    "evidence": "Directowner requests before researchattachment; these override stale no-newdeps/cap statements only.",
+    "shipping_game_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+    "new_audio_integration": false
   }
 }
