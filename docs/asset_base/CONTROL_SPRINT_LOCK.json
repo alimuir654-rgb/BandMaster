@@ -1312,8 +1312,8 @@
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "last_verified_opening_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "last_improvement_review": {
-    "event": "S97-20261103-857",
-    "closed_record_gate": "PASS857",
+    "event": "S97-20261103-858",
+    "closed_record_gate": "PASS858 terminalmetadataonly",
     "artistic_approval": false
   },
   "historical_final_closeout_note_before_S86": "S82 exact625 and private V9 verified/delivered. Source/artifact/Page/GL writers released; next fresh scoped audition before songwriting. All current ERROR empty; visual PARTIAL/owner false/physical pending.",

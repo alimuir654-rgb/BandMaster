@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1355146,
-    "sha256": "1b12ea18765ab943ecf41980551f681d323a1daf782dbd86efe05686a91b01d9"
+    "bytes": 1356349,
+    "sha256": "6e2c9c3cae802e2582eb09b0c051cad215bc780211fb3057706e6102f594da2e"
   },
   "baseline_sha": "0039145cb3d0983f974f649aa8d59497762689f0",
   "game_baseline_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
@@ -171,6 +171,6 @@
     "evidence": "/workspace/work/s97-approved-variants-20261103/closeout.json",
     "visual_verdict": "partial",
     "next_action": "Fresh bounded UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW from414row source-final.json; fund complete durable scope from actual capacity first. No presumed defect/economy rebuild, unchanged-suite/closedmilestone reruns or APK work.",
-    "new_issue_review": "S97-20261103-857"
+    "new_issue_review": "S97-20261103-858"
   }
 }

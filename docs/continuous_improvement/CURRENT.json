@@ -3883,8 +3883,8 @@
     "starting_bio_facts_automatically_authored": false
   },
   "last_improvement_review": {
-    "event": "S97-20261103-857",
-    "closed_record_gate": "PASS857",
+    "event": "S97-20261103-858",
+    "closed_record_gate": "PASS858 terminalmetadataonly",
     "artistic_approval": false
   },
   "s78_authority": {
