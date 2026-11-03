@@ -60,6 +60,7 @@ var practice_activity := "create"
 var _workbench_desk
 var _workbench_finished := false
 var _workbench_finished_ref: Dictionary={}
+var _workbench_failure_message := ""
 
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
@@ -759,7 +760,12 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
    root_box.add_child(_workbench_desk)
    _workbench_desk.show()
    _workbench_desk.refresh_saved(_workbench_desk.has_local_edits())
+   if not _workbench_failure_message.is_empty():
+    _workbench_desk.show_commit_error(_workbench_failure_message)
+    _workbench_failure_message=""
    return
+ # The ordinary status displays failures when no active notebook remains.
+ _workbench_failure_message=""
  var scroll := ScrollContainer.new()
  scroll.name = "PracticeScroll"
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -1235,9 +1241,14 @@ func _rehearse() -> void:
 func _connect() -> void:
  _commit_session("connect")
 
+func _session_failure_message(message: String,managed: bool) -> void:
+ last_message=message
+ if managed:_workbench_failure_message=message
+
 func _commit_session(kind: String, expected: Dictionary = {}, workbench_request: Dictionary = {}) -> void:
  if session_busy:
   return
+ var managed: bool=not workbench_request.is_empty()
  if opening_owner!=null and RadioVisit.locked(game.career):
   last_message="Resume or cancel the saved radio visit before another session."
   career_requested.emit()
@@ -1252,11 +1263,11 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   return
  var situation: Dictionary=Situation.inspect_rehearsal(game.career)
  if not situation.ok:
-  last_message=str(situation.message)
+  _session_failure_message(str(situation.message),managed)
   _rebuild()
   return
  if not expected.is_empty() and game.snapshot()!=expected:
-  last_message="The band changed. Review the rehearsal again."
+  _session_failure_message("The band changed. Review the rehearsal again.",managed)
   _rebuild()
   return
  if kind=="tighten":
@@ -1276,11 +1287,13 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
  if not workbench_request.is_empty():
   if kind!="create" or opening_owner==null or not Workbench._keys(workbench_request,["expected"]) or not workbench_request.get("expected") is Dictionary:
    session_busy=false
+   _session_failure_message("Review the saved lyric session before writing.",true)
+   _rebuild()
    return
   var acquired: Dictionary=opening_owner.begin_workbench_commit(workbench_request.expected)
   if not acquired.ok:
    session_busy=false
-   last_message=acquired.message
+   _session_failure_message(acquired.message,true)
    _rebuild()
    return
   workbench_ticket=acquired.transaction_id
@@ -1297,7 +1310,7 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   result = game.clear_air()
  if not bool(result.get("ok",false)):
   if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(result.get("message","The writing session could not start.")))
-  last_message = _outcome_line(result)
+  _session_failure_message(_outcome_line(result),managed)
   session_busy = false
   _rebuild()
   return
@@ -1305,7 +1318,7 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   var checked_original: Dictionary=opening_owner.complete_workbench_original(workbench_ticket,result)
   if not checked_original.ok:
    session_busy=false
-   last_message=checked_original.message
+   _session_failure_message(checked_original.message,true)
    _rebuild()
    return
  if kind!="tighten":
@@ -1314,7 +1327,7 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
    if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(tracked.message))
    else:game.restore(before_snapshot)
    session_busy=false
-   last_message=str(tracked.message)
+   _session_failure_message(str(tracked.message),managed)
    _rebuild()
    return
   game.career=tracked.state
@@ -1325,7 +1338,7 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
    if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(accounted.get("message","The accounts could not be reconciled.")))
    else:game.restore(before_snapshot)
    session_busy=false
-   last_message=str(accounted.get("message","The accounts could not be reconciled."))
+   _session_failure_message(str(accounted.get("message","The accounts could not be reconciled.")),managed)
    _rebuild()
    return
   game.career=accounted["state"]
@@ -1336,10 +1349,11 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
    var sealed: Dictionary=opening_owner.finish_workbench_commit(workbench_ticket)
    if not sealed.ok:
     session_busy=false
-    last_message=sealed.message
+    _session_failure_message(sealed.message,true)
     _rebuild()
     return
    result=sealed.result
+   if is_instance_valid(_workbench_desk):_workbench_desk.show_commit_error("")
   elif not bool(opening_owner.save_draft()):
    game.restore(before_snapshot)
    session_busy = false

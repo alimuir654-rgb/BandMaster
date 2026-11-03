@@ -308,8 +308,8 @@ func refresh_saved(preserve_local: bool=false) -> void:
  if not preserve_local:
   var payload:=_saved_payload()
   if not payload.is_empty():
-   _text.text=payload.text
-   _title.text=payload.title
+   if _text.text!=payload.text:_text.text=payload.text
+   if _title.text!=payload.title:_title.text=payload.title
    _refrain=payload.refrain_line_id
    _leader_index=int(payload.leader_index)
  var project:=_project()
@@ -395,6 +395,13 @@ func _reveal_only() -> bool:
   _note.finish_now()
   return true
  return false
+
+func show_commit_error(message: String) -> void:
+ # The controller owns settlement/rollback. This is its visible feedback only.
+ if message.is_empty():
+  if _notice_kind=="error":_show_notice("")
+  return
+ _show_notice(message,"error")
 
 func _show_notice(words: String,kind: String="info") -> void:
  _notice_kind=kind
