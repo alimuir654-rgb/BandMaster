@@ -65,8 +65,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1220403,
-    "sha256": "6329bacf426bd83dcf75be2fbab00ecbb4dba5499e7d9a58750f44b6eaceaa0d"
+    "bytes": 1221677,
+    "sha256": "70755078729391550a413620c3a7a33ef2f1134748d924ae552b65fd528a5884"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -81,7 +81,7 @@
   "audio_implementation_allowed": false,
   "APK_work": "HELD",
   "source_contract": "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
-  "source_contract_sha256": "064042cc2e4b0aff859a6e061322606d6c1ce2a9215ffb96247035138afac1dc",
+  "source_contract_sha256": "0afe36ddd2cb51cd4adca6126d6a6819cc8eb7ebabd98625f81da539842b9025",
   "source_writer": "/root/s86_contract_safety",
   "reviewer": "/root/s86_visual_review",
   "qa": "/root/s86_native_qa",
@@ -113,8 +113,8 @@
     "private_cache_count": 2,
     "private_cache_cap": 71303168,
     "PNG_cap": 20971520,
-    "source_copies_cap": 5242880,
-    "QA_receipts_logs_cap": 7340032,
+    "source_copies_cap": 6291456,
+    "QA_receipts_logs_cap": 6291456,
     "failure_closeout_reserve": 6291456,
     "no_deletion": true,
     "no_mutable_cache_sharing": true
@@ -127,5 +127,6 @@
   ],
   "pending_implementation": true,
   "pending_helpers": true,
-  "design_amendment": "766 same-scroll no tabs/sectionmetadata; prospective before source/native"
+  "design_amendment": "766 same-scroll no tabs/sectionmetadata; prospective before source/native",
+  "storage_review767": "Physicalcopy5.43MiB: prospective6/6subcaps, aggregate174/floor600unchanged"
 }
