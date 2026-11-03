@@ -18,6 +18,7 @@ var _title: LineEdit
 var _leader: Label
 var _badge: Label
 var _notice: Label
+var _notice_kind := "info"
 var _note
 var _note_box: VBoxContainer
 var _respondent: Label
@@ -345,7 +346,11 @@ func _refresh_local() -> void:
  _text.editable=not held and not _busy
  _title.editable=not held and not _busy
  var stage: int=int(owner_state.game.career.get("song_draft_progress",0))+1
- _badge.text=("LOCAL EDITS · " if has_local_edits() else "SAVED TAKE · ")+"SESSION %d / 3" % stage
+ var local_edits: bool=has_local_edits()
+ _badge.text=("LOCAL EDITS · " if local_edits else "SAVED TAKE · ")+"SESSION %d / 3" % stage
+ if local_edits and _notice_kind!="error":
+  _show_notice("LOCAL EDITS · These words are not saved. Try this exact take before writing.","local")
+ elif not local_edits and _notice_kind=="local":_show_notice("")
  _write.text="WRITE SESSION %d OF 3" % stage
  var modal: bool=is_instance_valid(_exit_dialog)
  _write.disabled=_busy or modal or held or has_local_edits() or not bool(_view.get("can_write",false))
@@ -371,7 +376,7 @@ func _refresh_local() -> void:
   if not path.is_empty() and ResourceLoader.exists(path):_portrait.texture=load(path)
   else:_portrait.texture=null
   _portrait.set_meta("source",path)
- if held:_show_notice(str(_view.get("message","This saved sketch needs compatible review; its data is retained.")))
+ if held and _notice_kind!="error":_show_notice(str(_view.get("message","This saved sketch needs compatible review; its data is retained.")))
  _set_event_metadata()
 
 func _set_event_metadata() -> void:
@@ -390,7 +395,8 @@ func _reveal_only() -> bool:
   return true
  return false
 
-func _show_notice(words: String) -> void:
+func _show_notice(words: String,kind: String="info") -> void:
+ _notice_kind=kind
  _notice.text=words
  _notice.visible=not words.is_empty()
 
@@ -415,7 +421,7 @@ func _free(action: String) -> void:
  var result: Dictionary=owner_state.workbench_action(action,_expected.duplicate(true),_payload())
  _busy=false
  refresh_saved(true) # Actual saved text matches the payload; keep native caret/selection.
- _show_notice(str(result.message))
+ _show_notice(str(result.message),"saved" if result.get("ok",false) else "error")
  if result.get("ok",false) and action=="try" and result.get("changed",false):_note.begin(reduced_motion)
 
 func _archive() -> void:
@@ -425,7 +431,7 @@ func _archive() -> void:
  var result: Dictionary=owner_state.workbench_action("archive",_expected.duplicate(true),{"reason":"user_archive"})
  _busy=false
  if result.get("ok",false):closed.emit()
- else:refresh_saved(true);_show_notice(result.message)
+ else:refresh_saved(true);_show_notice(result.message,"error")
 
 func _request_write() -> void:
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
@@ -460,7 +466,7 @@ func _use_preview() -> void:
  var result: Dictionary=owner_state.workbench_action("use_alternate",_expected.duplicate(true),{"kind":_preview_kind})
  _busy=false
  refresh_saved(not result.get("ok",false))
- _show_notice(result.message)
+ _show_notice(result.message,"saved" if result.get("ok",false) else "error")
 
 func request_exit(destination: String) -> void:
  if _busy or is_instance_valid(_exit_dialog):return
