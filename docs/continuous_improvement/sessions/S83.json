@@ -76,11 +76,11 @@
     "docs/continuous_improvement/LESSONS.md": "43e16fc970f78b5c3ba01f3d82c7082ae0a82380839aab1ebbc7b05d808904b5"
   },
   "issue_log_review": {
-    "bytes": 1066882,
-    "sha256": "7ed690fbd677ad8db8a0f25e230b2e083af60e205e9e5b572fa2241339cba11b"
+    "bytes": 1081762,
+    "sha256": "d420f1371ff4f7128ac82f3a70139b705caa2c8ddf1748d3898d87518e392d96"
   },
   "source_contract": "docs/continuous_improvement/S83_AUDITION_ENCOUNTER.md",
-  "source_contract_sha256": "6f3f72b28180034dcb0bdcbaedbb7bfd2236a76448f41aa08a37fcf0b5f41614",
+  "source_contract_sha256": "3630170500ed0ebd923ab241785fc14e0c54d006080491ab3bd9dd73c8a94314",
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S83.json",
     "Root exact405 source changed pure/model/earlynative2review/final73gameplay88openingimport4standard+4genuine auditions+input/failure/retry/reload/4viewactualpixels/EMPTYERRORs. No APK."
@@ -91,8 +91,8 @@
     "Art/Backgrounds/shared/formation.webp"
   ],
   "new_art_generation_allowed": false,
-  "current_plan_sequence": 19,
-  "current_review_board_sequence": 126,
+  "current_plan_sequence": 20,
+  "current_review_board_sequence": 127,
   "started_at": "2026-11-03T01:19:46.588127+00:00",
   "scope_end": "2026-11-03T04:15:00Z",
   "pending_implementation": true,
@@ -117,5 +117,17 @@
     "no_purge": true
   },
   "protected": "All54originalScripts3UID/raw18C25/art/fonts/hardware6inertmeters/originalGame/session/economy/schema1unknowns/radio/work/gigoncecontracts. V9 remains625; no package work.",
-  "pre_design_review_sha256": "85974ad6924b40096f63af507eb2f3de59914087598f83888f39c68044fb8bd5"
+  "pre_design_review_sha256": "85974ad6924b40096f63af507eb2f3de59914087598f83888f39c68044fb8bd5",
+  "early_native_hold_679": {
+    "source_sha": "90b39dd7c84ca25f86c8ce11085f45f91a62a05a",
+    "phone_checks": 331,
+    "wide_checks": 300,
+    "unique_originals": 6,
+    "visual_verdict": "hold",
+    "allowed_UI_paths": [
+      "experiments/playable_flightcase/audition_desk.gd",
+      "experiments/playable_flightcase/ui.gd"
+    ],
+    "hypothesis": "Room/person and compact actual arrangement notes lead; reduce hardware/chrome dominance, preserve fullsource+16px+48targets and same content/state."
+  }
 }
