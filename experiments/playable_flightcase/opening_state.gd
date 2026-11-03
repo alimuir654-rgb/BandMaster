@@ -5,6 +5,7 @@ const Game = preload("res://experiments/playable_flightcase/session.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
 const Names = preload("res://experiments/playable_flightcase/name_rules.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
 const LOGOS := ["Wordmark","Stamp","Monogram"]
 const PALETTES := ["Amber / Charcoal","White / Ink","Red / Black"]
 const VIBES := ["Unpolished","Nocturnal","Wry","Atmospheric"]
@@ -37,8 +38,14 @@ var palette: String = "Amber / Charcoal"
 var vibe: String = "Unpolished"
 var identity_complete: bool = false
 var identity_style: Dictionary = {}
+var _audition_present := false
+var _audition_raw: Variant = null
+var _audition_busy := false
+var _opening_extensions: Dictionary = {}
+var _game_extensions: Dictionary = {}
 
 func begin_new() -> bool:
+ var before:=snapshot()
  game = Game.new()
  screen = "genre"
  lead_vocal_id = ""
@@ -55,9 +62,14 @@ func begin_new() -> bool:
  vibe = "Unpolished"
  identity_complete = false
  identity_style = {}
- return save_draft()
+ _audition_present=false
+ _audition_raw=null
+ _opening_extensions={}
+ _game_extensions={}
+ return _save_identity_or_restore(before)
 
 func set_genre(value: String) -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "genre" or not Base.genres().has(value):
   return false
  game.genre = value
@@ -65,12 +77,14 @@ func set_genre(value: String) -> bool:
  return save_draft()
 
 func to_recruit() -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "genre" or not Base.genres().has(game.genre):
   return false
  screen = "recruit"
  return save_draft()
 
 func back_to_genre() -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "recruit":
   return false
  screen = "genre"
@@ -102,17 +116,23 @@ func can_recruit(id: String) -> bool:
  return not person.is_empty() and Base.can_add(game.roster,person) and game.remaining()-Base.incremental_cost(game.roster,person)-vocal_extra_cost()>=0
 
 func recruit(id: String) -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):
+  return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Finish choosing your genre first."}
  if not can_recruit(id):
   return {"ok":false,"message":"Already selected, full band or not enough talent for the complete lineup."}
+ var before:=snapshot()
  var result: Dictionary = game.recruit(id)
  if result.get("ok",false):
   change_counter += 1
-  save_draft()
+  if not _save_identity_or_restore(before):
+   return {"ok":false,"message":"The invitation could not be saved. Nothing changed; try again."}
  return result
 
 func remove_member(id: String) -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):
+  return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Return to the lineup first."}
  var result: Dictionary = game.remove_member(id)
@@ -124,6 +144,8 @@ func remove_member(id: String) -> Dictionary:
  return result
 
 func choose_vocal(id: String) -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):
+  return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Choose band members first."}
  var person: Dictionary = _lead_person()
@@ -159,6 +181,8 @@ func ready() -> bool:
  return screen == "recruit" and missing().is_empty() and game.roster.size() <= 6
 
 func confirm_lineup() -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):
+  return {"ok":false,"message":"Finish or close the saved audition first."}
  if not ready():
   return {"ok":false,"message":"Still need "+missing()+"."}
  screen = "formed"
@@ -168,6 +192,7 @@ func confirm_lineup() -> Dictionary:
 
 
 func start_naming() -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "formed" or not formed_once:
   return false
  var before: Dictionary = snapshot()
@@ -181,6 +206,7 @@ func name_reactions() -> Array:
  return Names.reactions(game.roster,name_intent,game.genre) if not name_offer.is_empty() else []
 
 func submit_name(value: String,intent: String) -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_settled:
   return {"ok":false,"message":"Finish the lineup before naming."}
  var proposed: String = value.strip_edges()
@@ -205,6 +231,7 @@ func submit_name(value: String,intent: String) -> Dictionary:
  return {"ok":true,"message":"The band's given its verdict.","reactions":name_reactions()}
 
 func rethink_name() -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_offer.is_empty() or name_revisions>=1:
   return {"ok":false,"message":"Only one rethink is free."}
  var before: Dictionary = snapshot()
@@ -216,6 +243,7 @@ func rethink_name() -> Dictionary:
  return {"ok":true,"message":"One more chance to find a name everyone can live with."}
 
 func lock_name() -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_offer.is_empty() or name_settled:
   return {"ok":false,"message":"Propose a valid name first."}
  var comments: Array = name_reactions()
@@ -242,6 +270,7 @@ func lock_name() -> Dictionary:
  return {"ok":true,"message":"Band name confirmed.","chemistry_delta":name_delta}
 
 func start_identity() -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "name_milestone" or not name_settled:
   return false
  var before: Dictionary = snapshot()
@@ -249,6 +278,7 @@ func start_identity() -> bool:
  return _save_identity_or_restore(before)
 
 func set_identity(next_logo: String,next_palette: String,next_vibe: String) -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "identity" or not LOGOS.has(next_logo) or not PALETTES.has(next_palette) or not VIBES.has(next_vibe):
   return false
  var before: Dictionary = snapshot()
@@ -258,6 +288,7 @@ func set_identity(next_logo: String,next_palette: String,next_vibe: String) -> b
  return _save_identity_or_restore(before)
 
 func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionary:
+ if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "identity" or identity_complete or not name_settled:
   return {"ok":false,"message":"Complete the name and design first."}
  var vocalist: Dictionary = _lead_person()
@@ -295,6 +326,7 @@ func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionar
  return {"ok":true,"message":"The band identity is locked. Head to your first practice."}
 
 func start_playing() -> bool:
+ if _audition_busy or Audition.locked(snapshot()):return false
  if screen != "complete" or not identity_complete or game.phase != "play":
   return false
  var before: Dictionary = snapshot()
@@ -316,13 +348,17 @@ func missing_coverage() -> String:
  return ", ".join(absent)
 
 func snapshot() -> Dictionary:
- var result: Dictionary = {"schema_version":1,"screen":screen,"game":game.snapshot(),
+ var saved_game:=_game_extensions.duplicate(true)
+ saved_game.merge(game.snapshot(),true)
+ var result: Dictionary = _opening_extensions.duplicate(true)
+ result.merge({"schema_version":1,"screen":screen,"game":saved_game,
   "lead_vocal_id":lead_vocal_id,"formed_once":formed_once,"change_counter":change_counter,
   "name_offer":name_offer,"name_intent":name_intent,"name_revisions":name_revisions,
   "name_locked":name_locked,"name_delta":name_delta,"name_settled":name_settled,
-  "logo":logo,"palette":palette,"vibe":vibe,"identity_complete":identity_complete}
+  "logo":logo,"palette":palette,"vibe":vibe,"identity_complete":identity_complete},true)
  if not identity_style.is_empty():
   result[IdentityStyle.KEY] = identity_style.duplicate(true)
+ if _audition_present:result[Audition.KEY]=_copy_extension(_audition_raw)
  return result
 
 func restore(value: Dictionary) -> bool:
@@ -404,7 +440,25 @@ func restore(value: Dictionary) -> bool:
  vibe = incoming_vibe
  identity_complete = complete
  identity_style = incoming_style
+ _retain_extensions(value)
+ var saved_people: Array=raw.get("roster",[])
+ for index in range(mini(saved_people.size(),game.roster.size())):
+  var canonical: Dictionary=game.person_by_id(str(game.roster[index].get("id","")))
+  for key in saved_people[index]:
+   if not canonical.has(key):game.roster[index][key]=_copy_extension(saved_people[index][key])
  return true
+
+func _copy_extension(value: Variant) -> Variant:
+ return value.duplicate(true) if value is Dictionary or value is Array else value
+
+func _retain_extensions(value: Dictionary) -> void:
+ _opening_extensions=value.duplicate(true)
+ for key in ["schema_version","screen","game","lead_vocal_id","formed_once","change_counter","name_offer","name_intent","name_revisions","name_locked","name_delta","name_settled","logo","palette","vibe","identity_complete",IdentityStyle.KEY,Audition.KEY]:
+  _opening_extensions.erase(key)
+ _game_extensions=(value.get("game",{}) as Dictionary).duplicate(true)
+ for key in ["schema_version","genre","roster","phase","career"]:_game_extensions.erase(key)
+ _audition_present=value.has(Audition.KEY)
+ _audition_raw=_copy_extension(value.get(Audition.KEY))
 
 func _rollback_identity(before: Dictionary) -> void:
  # This is our own validated in-memory snapshot, not untrusted save input.
@@ -417,6 +471,57 @@ func _rollback_identity(before: Dictionary) -> void:
  for field in ["screen","lead_vocal_id","formed_once","change_counter","name_offer","name_intent","name_revisions","name_locked","name_delta","name_settled","logo","palette","vibe","identity_complete"]:
   set(field,before[field])
  identity_style=(before.get(IdentityStyle.KEY,{}) as Dictionary).duplicate(true)
+ _retain_extensions(before)
+
+func audition_view() -> Dictionary:
+ return Audition.view(snapshot())
+
+func audition_expected() -> Dictionary:
+ return Audition.expected(snapshot())
+
+func _finish_audition(before: Dictionary,result: Dictionary) -> Dictionary:
+ if not result.get("ok",false):
+  _rollback_identity(before)
+  return {"ok":false,"message":str(result.get("message","This audition choice is unavailable.")),"changed":false}
+ _audition_present=true
+ _audition_raw=(result["wrapper"] as Dictionary).duplicate(true)
+ if not save_draft():
+  _rollback_identity(before)
+  return {"ok":false,"message":"The audition could not be saved. Nothing changed; try again.","changed":false}
+ return {"ok":true,"message":str(result.get("message","")),"changed":true,"view":audition_view(),"expected":audition_expected()}
+
+func begin_audition(candidate_id: String,role: String) -> Dictionary:
+ if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ _audition_busy=true
+ var before:=snapshot()
+ var result:=_finish_audition(before,Audition.begin(before,candidate_id,role))
+ _audition_busy=false
+ return result
+
+func audition_action(action: String,expected: Dictionary,request: String="") -> Dictionary:
+ if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ _audition_busy=true
+ var before:=snapshot()
+ var result:=_finish_audition(before,Audition.checkpoint(before,action,expected,request))
+ _audition_busy=false
+ return result
+
+func invite_audition(expected: Dictionary) -> Dictionary:
+ if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ _audition_busy=true
+ var before:=snapshot()
+ var prepared:=Audition.prepare_invite(before,expected)
+ var result: Dictionary
+ if not prepared.get("ok",false):
+  result=_finish_audition(before,prepared)
+ else:
+  var available_before:=remaining()
+  var original: Dictionary=game.recruit(str(prepared["candidate_id"]))
+  if original.get("ok",false):change_counter+=1
+  var completed:=Audition.complete_invite(before,snapshot(),expected,original,available_before,remaining())
+  result=_finish_audition(before,completed)
+ _audition_busy=false
+ return result
 
 func _save_identity_or_restore(before: Dictionary) -> bool:
  if save_draft(): return true

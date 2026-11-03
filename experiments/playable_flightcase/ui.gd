@@ -3,11 +3,14 @@ const IdentityStyle = preload("res://experiments/playable_flightcase/identity_st
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
+const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
+const AuditionDesk = preload("res://experiments/playable_flightcase/audition_desk.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
+signal menu_requested
 ## C26 player-facing isolated scene. Existing photographic flightcase controls,
 ## original inert meters and genuine career rules; no flattened clickable mockup.
 const Game = preload("res://experiments/playable_flightcase/session.gd")
@@ -33,6 +36,7 @@ var role: String = "Guitarist"
 var selected_index := 0
 var auditioned: Dictionary = {}
 var audition_note_id := ""
+var _audition_fresh := false
 var vocals_panel := false
 var lineup_review := false
 var _new_session_notes := false
@@ -190,6 +194,8 @@ func _rebuild() -> void:
    display_message = "Your band is ready. Choose a session."
  if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
   display_message = "Meet the musicians. Auditions cost no time or talent."
+ if game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false)):
+  display_message="JACK · A REHEARSAL SKETCH"
  if game.phase=="play" and opening_owner!=null and int(game.career.get("cash",0))==0:
   var account: Dictionary = Finance.view(game.career)
   display_message = "NO CASH  •  %d / 14 completed days  •  Check Finances in the Career Desk" % int(account.get("broke_days",0))
@@ -336,6 +342,19 @@ func _audition_navigation(root_box: VBoxContainer) -> void:
  navigation.add_child(following)
 
 func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
+ if onboarding_state!=null:
+  var encounter: Dictionary=onboarding_state.audition_view()
+  if encounter.get("active",false) or encounter.get("held",false):
+   var desk:=AuditionDesk.new()
+   desk.owner_state=onboarding_state
+   desk.available_width=size.x
+   desk.reduced_motion=reduced_motion
+   desk.fresh=_audition_fresh
+   _audition_fresh=false
+   desk.changed.connect(_audition_changed)
+   desk.menu_requested.connect(func():menu_requested.emit())
+   root_box.add_child(desk)
+   return
  _audition_progress(root_box)
  if lineup_review:
   _lineup_review_page(root_box,mobile)
@@ -357,6 +376,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var id: String = str(person.id)
  var recruited: bool = Base.contains(game.roster,id)
  var heard: bool = bool(auditioned.get(id,false)) or recruited
+ if id=="cast_jack" and onboarding_state!=null:
+  heard=bool(onboarding_state.audition_view().get("heard",false)) or recruited
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
@@ -403,34 +424,6 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  bio.add_child(_ink(str(person.get("town","UK")),16))
  bio.add_child(_ink(str(person.get("personality","Musician")),16,true))
  bio.add_child(_ink(str(person.get("story","An aspiring musician looking for a band.")),14))
- var stat_grid := GridContainer.new()
- stat_grid.columns = 2 if mobile else 3
- stat_grid.add_theme_constant_override("h_separation",12)
- stat_grid.add_theme_constant_override("v_separation",5)
- if mobile:
-  body.add_child(stat_grid)
- else:
-  bio.add_child(stat_grid)
- var stats: Array = Base.stats_for(person,role)
- var captions: Array = Base.labels_for(role)
- for i in range(6):
-  var field := VBoxContainer.new()
-  field.name = "RecruitStatRow"+str(i)
-  field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  field.add_theme_constant_override("separation",1)
-  stat_grid.add_child(field)
-  field.add_child(_ink(str(captions[i]).to_upper(),13))
-  var row := HBoxContainer.new()
-  row.add_theme_constant_override("separation",4)
-  field.add_child(row)
-  var meter := Kit.PassiveMeter.new(look,int(stats[i]))
-  meter.name = "PassiveMeter"+str(i)
-  if size.x<600:
-   meter.custom_minimum_size.x = 80
-  row.add_child(meter)
-  var score: Label = _ink(str(int(stats[i])),14)
-  score.custom_minimum_size.x = 18
-  row.add_child(score)
  var strength: Label = _candidate_note("STRENGTH  •  "+str(person.get("strength","Still developing")),"RecruitStrength",heard and audition_note_id==id)
  var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
  strength.visible = heard
@@ -442,8 +435,6 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   note_host.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
  else:
   note_host.add_child(_ink("Meet the musician, then audition to read what they bring to the room.",16,true))
- if person.has("collaboration"):
-  note_host.add_child(_ink("RELIABILITY %d/10  •  COLLABORATION %d/10" % [int(person.reliability),int(person.collaboration)],14,true))
  if role=="Singer" and onboarding_state!=null and recruited:
   var chosen: bool = str(onboarding_state.lead_vocal_id)==id
   var appoint: Button = _button("✓ LEAD VOCALS" if chosen else "CHOOSE "+str(person.name).to_upper()+" FOR LEAD VOCALS",_choose_vocal.bind(id))
@@ -506,10 +497,24 @@ func _audition_candidate() -> void:
  if items.is_empty():
   return
  var id: String = str(items[selected_index].id)
+ if id=="cast_jack" and onboarding_state!=null and not bool(onboarding_state.audition_view().get("heard",false)):
+  var result: Dictionary=onboarding_state.begin_audition(id,role)
+  last_message=str(result.get("message",""))
+  _audition_fresh=bool(result.get("ok",false))
+  _rebuild()
+  return
  auditioned[id] = true
  audition_note_id = id
  _rebuild()
  call_deferred("_reveal_audition_note")
+
+func _audition_changed(result: Dictionary) -> void:
+ last_message=str(result.get("message",""))
+ _audition_fresh=str(onboarding_state.audition_view().get("phase","")) in ["arrival","tryout","response"]
+ if not bool(onboarding_state.audition_view().get("active",false)):
+  auditioned["cast_jack"]=bool(onboarding_state.audition_view().get("heard",false))
+  audition_note_id="cast_jack" if auditioned["cast_jack"] else ""
+ _rebuild()
 
 func _reveal_audition_note() -> void:
  # Full note text is shaped before revealing. Wait for the native containers
@@ -555,11 +560,7 @@ func _vocal_audition_page(root_box: VBoxContainer, mobile: bool) -> void:
   var chosen: bool = str(onboarding_state.lead_vocal_id)==str(member.id)
   var extra: int = 0 if (member.roles as Array).has("Singer") else 5
   body.add_child(_ink(str(member.name).to_upper()+"  /  "+str(member.get("primary_role","Musician")).to_upper(),20))
-  var score_text := PackedStringArray()
-  var names: Array = Base.labels_for("Singer")
-  for index in range(6):
-   score_text.append(str(names[index])+" "+str(int(scores[index])))
-  body.add_child(_ink("  •  ".join(score_text),14,true))
+  body.add_child(_ink(str(member.get("strength","A bandmate ready to try the vocal part.")),16,true))
   var assign: Button = _button(("✓ " if chosen else "")+str(member.name)+("  +5 TALENT" if extra else "  VOCALS INCLUDED"),_choose_vocal.bind(str(member.id)))
   assign.name = "VocalAssign_"+str(member.id)
   assign.disabled = chosen or game.remaining()<extra
@@ -1087,7 +1088,9 @@ func _move_candidate(delta: int) -> void:
  selected_index = posmod(selected_index+delta,items.size())
  _rebuild()
 func _recruit(id: String) -> void:
- if not bool(auditioned.get(id,false)):
+ var heard: bool=bool(auditioned.get(id,false))
+ if id=="cast_jack" and onboarding_state!=null:heard=bool(onboarding_state.audition_view().get("heard",false))
+ if not heard:
   return
  last_message = str(onboarding_state.recruit(id)["message"] if onboarding_state != null else game.recruit(id)["message"])
  _rebuild()

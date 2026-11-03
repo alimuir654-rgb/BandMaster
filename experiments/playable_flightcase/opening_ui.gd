@@ -193,6 +193,8 @@ func _render() -> void:
  _erase()
  if showing_menu or setup.screen == "menu":
   _menu()
+ elif bool(setup.audition_view().get("held",false)):
+  _audition_hold()
  elif setup.screen == "genre":
   _genre()
  elif setup.screen == "recruit":
@@ -216,6 +218,22 @@ func _render() -> void:
  # menu for input as well as drawing, without triggering exit-tree hooks.
  if is_instance_valid(_new_band_dialog):
   move_child(_new_band_dialog,get_child_count()-1)
+
+func _audition_hold() -> void:
+ var root:=_make_shell()
+ root.name="AuditionHeldShell"
+ var status: Dictionary=setup.audition_view()
+ root.add_child(_label("SAVED AUDITION HELD",22))
+ root.add_child(_label(str(status.get("message","This saved audition needs review before the opening can continue.")),16))
+ if not notice.is_empty():root.add_child(_label(notice,16))
+ if status.get("ok",false) and status.get("active",false):
+  root.add_child(_button("CLOSE THIS AUDITION",_close_held_audition,"action","AuditionHeldAbort"))
+ root.add_child(_button("BACK TO MENU",_home,"action","AuditionHeldMenu"))
+
+func _close_held_audition() -> void:
+ var result: Dictionary=setup.audition_action("abort",setup.audition_expected())
+ notice=str(result.get("message",""))
+ _render()
 
 func _opening_poster_wide() -> bool:
  return size.x >= 900.0 and size.x > size.y
@@ -621,6 +639,7 @@ func _recruit() -> void:
  _recruit_view = child
  child.lineup_confirmed.connect(_on_lineup)
  child.back_requested.connect(_back_genre)
+ child.menu_requested.connect(_home)
  add_child(child)
  child.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 
