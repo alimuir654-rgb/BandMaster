@@ -324,8 +324,20 @@
     "contract": "/tmp/bandmaster-s84-20261103/review/storage752.json",
     "sha256": "2c69786eb70d16817e6167f5f8cbdc0a8a96e92d87fbdc8c879b80ed6751853f",
     "root_adopted_narrow_QA_copy_metadata_exception": true,
-    "cutover_pending": true,
+    "cutover_pending": false,
     "fresh_scope": "QAstorage/proofonly; Game8pathscopefrozen/noAPK",
-    "at": "2026-11-03T06:23:21.576533+00:00"
+    "at": "2026-11-03T06:23:21.576533+00:00",
+    "cutover": "/tmp/bandmaster-s84-20261103/review/storage752-cutover.json",
+    "cutover_sha256": "07f6158e089a227bdf91b2917408c81cf1af6f57d3dba2e305a848e7c54dd6b0",
+    "actual_unique_reclaim": 21110784,
+    "prospective_pool_cap": 53477376,
+    "prospective_full_cap": 40894464,
+    "tail_start_global": 815640576,
+    "tail_total_incremental_bound": 20447232,
+    "QA_authoring_cap": 524288,
+    "each_new_case_cap": 9437184,
+    "final_metadata_cap": 1048576,
+    "global800_floor600_unchanged": true,
+    "refined_independent_review": "foundationconditionalapprovalandcontractSafetyconditionalclear; exact4closedcopymtimeexceptionacknowledged"
   }
 }

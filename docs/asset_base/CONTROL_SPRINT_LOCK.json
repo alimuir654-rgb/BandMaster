@@ -828,11 +828,15 @@
   "s84_current_proof_status": {
     "verified_game": "b6089a1f8570d3c634981ced9c1191fc1594ef89",
     "pending_source": "a8a8956396b8d7615e528feacfb914c65facfc4d",
-    "standard643": "7nativePASS but originalwrapperSTORAGEHOLD93.2266>88, immutable; supplementary96reviewpending",
-    "phone643": "430QAoracleargsint-vs-JSONfloat; wholeGame/result exacttyped, notproductfailure",
-    "source730": "Visiblepaidfailurefeedback+same-text editorpreservation corrected, notyetnativeverified",
-    "proof732": "Changedstorageproofmethod reviewed/committedc025ce59db9b672b5fd23fbb41df885954019815; scratchtoolingpendingbeforeengine",
-    "at": "2026-11-03T04:54:21.579615+00:00"
+    "standard": "73/88/resumedprivateimport/fourstandardPASS232events216uniqueFamilies; phoneexit0control-flowinferenceexplicit",
+    "full_phone": 1858,
+    "full_tall": 1144,
+    "full_wide": "v7storageHOLD",
+    "full_desktop": "unrun",
+    "models": "9128REUSEDcurrenta8closurePASS/0currentfinalexecutions",
+    "entry": "configured5framesPASS/no saves",
+    "next_action": "752newaccountingbundleonlyremainingwide+desktop; no passedsuitereruns/source/APK",
+    "at": "2026-11-03T06:24:27.578278+00:00"
   },
   "s84_lease_renewal749": {
     "prospective_at": "2026-11-03T06:00:38.971405+00:00",
@@ -840,5 +844,16 @@
     "new_expiry": "2026-11-03T06:45:00Z",
     "reason": "Finishunchanged-sourceverification/visualreviewafterboundedstorageHOLD; nonewGame/artbreadth",
     "finite48h_end_unchanged": "2026-11-04T21:24:35+00:00"
+  },
+  "s84_storage752": {
+    "contract": "/tmp/bandmaster-s84-20261103/review/storage752.json",
+    "cutover": "/tmp/bandmaster-s84-20261103/review/storage752-cutover.json",
+    "actual_reclaim": 21110784,
+    "global_cap": 838860800,
+    "floor": 629145600,
+    "pool": 53477376,
+    "full_group": 40894464,
+    "new_cache": false,
+    "mtime_exception": "4closedDERIVEDQAoraclecopiesonly; paths/bytes/mode/ownershipretained"
   }
 }
