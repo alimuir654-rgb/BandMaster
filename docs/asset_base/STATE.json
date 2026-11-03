@@ -743,7 +743,7 @@
     }
   },
   "last_sprint": "S79",
-  "next_action": "Rootfreshcandidateimport and EARLYphone/shortwide before fullproof. LastverifiedGamea8; candidate3d2notyetverified; APK/audioheld.",
+  "next_action": "Rootpreserve-allONEclosedbaselinefontcachecopy/symlink onlyafterfreshgate/independentreview; measuredreclaim+newfulltailguardbeforeengines. Game3d2frozen/unverified; lastverifieda8; noAPK/audio.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -3078,5 +3078,12 @@
     "audio": "AU01v1PENDING"
   },
   "root_lease": "S86-phone-soundcheck-workspace-20261103T0830",
-  "source_implementation_status": "First2leafcandidatecommitted; paused; native/visual proof PENDING"
+  "source_implementation_status": "First2leafcandidatecommitted; paused; native/visual proof PENDING",
+  "storage_operation_782": {
+    "status": "preflight_adopted_cutover_pending",
+    "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
+    "exact_one_closed_derived_file": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/private-import-cache/imported/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+    "engine_hold": true,
+    "no_source_art_PNG_log_receipt_save_deletion": true
+  }
 }

@@ -57,7 +57,8 @@
   "scratch_allowed_paths": [
     "/tmp/bandmaster-s86-20261103",
     "/workspace/work/review-roadmap-20261101/research.json",
-    "/workspace/work/review-roadmap-20261101/research-log.md"
+    "/workspace/work/review-roadmap-20261101/research-log.md",
+    "/workspace/work/s86-cache-preserved-20261103"
   ],
   "reviewed_documents": {
     "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
@@ -65,8 +66,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1239052,
-    "sha256": "87a3fda2101ab377288ab50970b203233e7f97bbf8ba8464e6bd70c18b0d81c2"
+    "bytes": 1247491,
+    "sha256": "ae417556b8704bbb7edfb03982958acd96395fb139f39ba8ff2bbe416ef5b394"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -81,7 +82,7 @@
   "audio_implementation_allowed": false,
   "APK_work": "HELD",
   "source_contract": "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
-  "source_contract_sha256": "c2f43595baaa57655b7fc65134fb0eadd27176e5af3788fae52c6565fce0b268",
+  "source_contract_sha256": "1bcab79616facf754921095498a741a3c885ad1bc08004fe7cdce8423c656a5f",
   "source_writer": "/root/s86_contract_safety",
   "reviewer": "/root/s86_visual_review",
   "qa": "/root/s86_native_qa",
@@ -150,5 +151,64 @@
     "whole_gig_claim": false,
     "historical_v3_failed_preserved": true
   },
-  "storage_review778": "Cache70.5each/QA12/reserve3/PNG12/source6=174; all source/harness assertions unchanged"
+  "storage_review778": "Cache70.5each/QA12/reserve3/PNG12/source6=174; all source/harness assertions unchanged",
+  "standard_hold779": "/tmp/bandmaster-s86-20261103/standard/soundcheck-3d2-final-v1/validation.json",
+  "full_phone_pass": "/tmp/bandmaster-s86-20261103/proof-full-phone-3d2-v4/execution.json",
+  "full_tall_hold780": "/tmp/bandmaster-s86-20261103/proof-full-tall-3d2-v4/execution.json",
+  "remaining_fixture_matrix781": {
+    "phone_completed": "2normal variant vsold3normal; retainactualPASS",
+    "tall": "2reduced",
+    "wide": "3normal",
+    "desktop": "2reduced"
+  },
+  "storage_relocation_782": {
+    "status": "ADOPTED_PREFLIGHT_NO_MUTATION_YET",
+    "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
+    "proposal_sha256": "a025185025986cc80215d9d8810429e2f0641f01ba3c91042f731163a924f4a5",
+    "independent_review": "/tmp/bandmaster-s86-20261103/review/relocation-independent-review.json",
+    "exact_allowlist": {
+      "new_archive_directory": "/workspace/work/s86-cache-preserved-20261103",
+      "archive_temporary_copy": "/workspace/work/s86-cache-preserved-20261103/.NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata.copying",
+      "archive_final_file": "/workspace/work/s86-cache-preserved-20261103/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+      "original_regular_to_symlink_path": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/private-import-cache/imported/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+      "temporary_symlink": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/private-import-cache/imported/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata.s86-relocation-link",
+      "rollback_temporary_copy": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/private-import-cache/imported/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata.s86-rollback-copy"
+    },
+    "source": {
+      "path": "/tmp/bandmaster-s86-20261103/baseline-a8-baseline-v1/private-import-cache/imported/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+      "sha256": "41be7db40f1e9396ac68d57331c373ac6aaee0916e74e49d81084cf69970660d",
+      "bytes": 13290643,
+      "mode": 420,
+      "uid": 1000,
+      "gid": 1000,
+      "inode": 265142,
+      "device": 34,
+      "nlink": 1,
+      "mtime_ns": 1793694985367584480,
+      "ctime_ns": 1793694985367584480
+    },
+    "baseline_permanently_closed": true,
+    "candidate_cache_untouched": true,
+    "source_Game_frozen": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "stage_only_no_engines": true,
+    "minimum_workspace_free": 12582912,
+    "actual_reclaim_mandatory": true,
+    "source_parent_fsync_required": true,
+    "rollback_immediate_phase_only": true
+  },
+  "storage_plan_AFTER_verified_relocation": {
+    "fresh_tmp_free": 816627712,
+    "minimum_free_floor": 629145600,
+    "aggregate_incremental_cap": 198180864,
+    "private_cache_count": 2,
+    "private_cache_cap": 73924608,
+    "PNG_cap": 20971520,
+    "source_copies_cap": 6291456,
+    "QA_receipts_logs_cap": 14680064,
+    "failure_closeout_reserve": 3145728,
+    "no_deletion": true,
+    "no_mutable_cache_sharing": true,
+    "archive_file_counted_in_baseline_cache": "/workspace/work/s86-cache-preserved-20261103/NotoSansSC.ttf-dbd4ae90ce6d2d6851caefe7b4cf9a4c.fontdata",
+    "minimum_workspace_free": 12582912
+  }
 }
