@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game source: `5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2` (S97 BOTH owner-approved adjusted audition clips integrated; S95 original and S96 optional Indie genre preview retained).414curated/413Git+146Bentry, cleanfinalsourceprivateimport/73/88/4standard and8completeauditions3498checks verified. Scopedplayback internal_pass; overallvisualPARTIAL/ownerfalse/deviceaudio untested. DirectownerS98V10build/audit COMPLETE; privateDriveuploadapprovalHOLD, V9source625 remainscurrentdeliveredAPK. FutureautomaticAPKheld. MissinghistoricalTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
+Current verified game source: `5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2` (S97 BOTH owner-approved adjusted audition clips integrated; S95 original and S96 optional Indie genre preview retained).414curated/413Git+146Bentry, cleanfinalsourceprivateimport/73/88/4standard and8completeauditions3498checks verified. Scopedplayback internal_pass; overallvisualPARTIAL/ownerfalse/deviceaudio untested. S98V10/code10/source5b08 privatelyDELIVERED afterfreshdirectupload+Alireaderapproval; exactfileowner+AliACLverified. V9retained; physicalinstall/audio/saveretentionunverified. FutureautomaticAPKheld. MissinghistoricalTMPproofs/oracles remain unavailable/closed. Same solequeue/thread/finite4Nov21:24:35Londonend.
 
 ## Ownership and work in progress
 
