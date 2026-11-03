@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "7ba5ceb52e1af892f196cccade6add796848ac879357bfff6a2047f66459e73b"
   },
   "issue_log_review": {
-    "bytes": 1155132,
-    "sha256": "c04a16876c0d5dd16be413675444a5f01f0e15468d231cd82687de4689f9f597"
+    "bytes": 1158186,
+    "sha256": "4dda86984099108058b2dbbda45721876c11f7bcdd3332a065d9bc14b4534439"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -229,5 +229,41 @@
     ],
     "independent_review": "/tmp/bandmaster-s84-20261103/review/early-38a/visual-review.json",
     "owner_approved": false
+  },
+  "storage_amendment724": {
+    "path": "/tmp/bandmaster-s84-20261103/qa/storage-amendment724.json",
+    "sha256": "18d0f6181d29a514e8edc7d48798804491c982d238ee9b0aca36e5e001fc85ae",
+    "caps_MiB": {
+      "private_cache": [
+        72,
+        72,
+        72,
+        72,
+        72,
+        72,
+        72
+      ],
+      "standard": 88,
+      "native": 96,
+      "model": 64,
+      "metadata": 16,
+      "contingency": 32,
+      "aggregate": 800,
+      "floor": 600
+    }
+  },
+  "final_candidate_sha": "643428718c569ffc0535738c6954d0c3492402a7",
+  "early_gate_pass": {
+    "source_sha": "b94ff2b3c01b4672f05d3798b99533cf98ebd393",
+    "phone_checks": 1442,
+    "wide_checks": 1358,
+    "unique_originals": 14,
+    "free_commits_each": 6,
+    "resumes_each": 3,
+    "paid_sessions": 0,
+    "visual_verdict": "internal_pass",
+    "independent_review": "/tmp/bandmaster-s84-20261103/review/early-b94/visual-review.json",
+    "owner_approved": false,
+    "physical_OSIME_pending": true
   }
 }
