@@ -101,7 +101,7 @@
     "private_cache_cap_bytes": 240000000,
     "PNG_cap_bytes": 150994944,
     "work_failure_closeout_reserve_bytes": 99311424,
-    "workspace_new_aggregate_cap_bytes": 3932160,
+    "workspace_new_aggregate_cap_bytes": 4194304,
     "workspace_initial_free_bytes": 633458688,
     "durable_receipts_cap_bytes": 786432,
     "workspace_floor_bytes": 629145600,
@@ -109,7 +109,8 @@
     "no_cleanup": true,
     "no_TMP_criticalGit": true,
     "prospective_rebalance_event": "S100-20261103-876; same805306368B aggregate, preservesinitial424source/cache and fundssecond final runtime/cache",
-    "prospective_final_rebalance": "880beforethirdsource/cache; preserves82/1125 proofsource/cache, noaggregateTMP/floor increase"
+    "prospective_final_rebalance": "880beforethirdsource/cache; preserves82/1125 proofsource/cache, noaggregateTMP/floor increase",
+    "workspace_final_tail": "Prospective4MiB ceiling includes primaryGit/receipts, initial633458688 minus4194304=629264384 above600MiBfloor629145600. Actualfree629919744 afterrestart, nocleanup. Final receipts stay768KiB; preserveallproofs. Verifyactualfree beforeeverycommit."
   },
   "audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
   "next_action": "Implement exact declared16shippingpaths after committed preflight/gate; helper frozen model/native QA in separate scratch only.",

@@ -49,3 +49,6 @@ Event876 preserves initial82c585424source/cache/import/73/88/model532 and pre-na
 ## Final early visual correction funding
 
 Events878–880 preserve early1125 visualHOLD and failedgeometry879. Exactnativegeometry disproves apparentfooterclip (both48px exits end700within720); no footerredesign. Fix definitebartextoverflow using fullnativecontent minimumheight and integeragecaption. BEFOREthirdsource/cache: existing768MiBTMP categories source315000000/cache240000000/PNG150994944/work99311424B. Workspaceprospective3.75MiB includingprimaryGit/durable768KiB,600MiBfloor unchanged; actualfreechecked. No cleanup; preserve82/1125runtimes/caches/PNGs/logs.
+
+
+Prospective closeout workspace ceiling4MiB (initial633458688B less4194304B=629264384B, above629145600B floor). This reserves complete finalmanifest/audits/primaryGit tail after interrupted-environment recovery; actualfreechecked, no deletion/newTMPGit. Durable768KiB andTMP768MiB remain.
