@@ -83,8 +83,9 @@ static func render(host, parent: Node, compact: bool) -> void:
  var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
  var short: bool=host.size.x>host.size.y and host.size.y<800
  var paired: bool=host.size.x>host.size.y and host.size.x>=1180
+ var soundcheck_workspace: bool=phase=="soundcheck" and host.size.x<=host.size.y
  var scene=Scene.new()
- scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh),"side_by_side":paired},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
+ scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh),"side_by_side":paired,"soundcheck_workspace":soundcheck_workspace},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
  parent.add_child(scene)
  host._journey_fresh=false
  var context: Node=scene.context_column if short or paired else parent
@@ -109,8 +110,17 @@ static func render(host, parent: Node, compact: bool) -> void:
    workbench.add_child(set_column)
    hardware_parent=hardware_column
    set_parent=set_column
-  ShowDesk.controls(host,hardware_parent,compact)
-  ShowDesk.journey_soundcheck(host,set_parent,state)
+  if soundcheck_workspace:
+   # Keep the actual set first without adding navigation or local saved state.
+   # The unchanged factory adds its paper before optional shout/incident rows;
+   # place the full hardware immediately after that paper in the same scroll.
+   var paper_index: int=context.get_child_count()
+   ShowDesk.journey_soundcheck(host,context,state)
+   ShowDesk.controls(host,context,compact)
+   context.move_child(context.get_child(context.get_child_count()-1),paper_index+1)
+  else:
+   ShowDesk.controls(host,hardware_parent,compact)
+   ShowDesk.journey_soundcheck(host,set_parent,state)
  elif phase in ["performing","choice","reaction","after_set","pack_up","wrap_ready"]:
   var set_title: Label=C.label("TONIGHT'S SET",16)
   set_title.name="JourneySetlistHeading"

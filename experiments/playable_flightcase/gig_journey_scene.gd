@@ -17,7 +17,10 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  _reduced=reduced
  _fresh=bool(data.get("fresh",false))
  _travel=bool(data.get("travel",false))
- var side_by_side: bool=short or bool(data.get("side_by_side",false))
+ # Explicit portrait-soundcheck opt-in. Every other phase/caller retains its
+ # original composition, source containment, native text and motion lifecycle.
+ var soundcheck_workspace: bool=bool(data.get("soundcheck_workspace",false)) and not short and not bool(data.get("side_by_side",false)) and not _travel
+ var side_by_side: bool=short or bool(data.get("side_by_side",false)) or soundcheck_workspace
  name="GigJourneyPlace"
  size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",6)
@@ -48,6 +51,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  image_view.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
  image_view.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
  var image_height: float=210 if short else clampf(available*0.52,165,255)
+ if soundcheck_workspace:image_height=clampf(available*0.28,96,144)
  image_view.custom_minimum_size=Vector2(0,0 if _travel else image_height)
  image_view.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  image_view.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -55,9 +59,13 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  if not path.is_empty() and ResourceLoader.exists(path):image_view.texture=load(path)
  if side_by_side and image_view.texture!=null:
   var aspect: float=float(image_view.texture.get_width())/float(image_view.texture.get_height())
-  frame.custom_minimum_size.x=minf(available*0.46,image_height*aspect)
-  image_height=frame.custom_minimum_size.x/aspect
-  image_view.custom_minimum_size.y=0 if _travel else image_height
+  if soundcheck_workspace:
+   image_view.custom_minimum_size=Vector2(image_height*aspect,image_height)
+   frame.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
+  else:
+   frame.custom_minimum_size.x=minf(available*0.46,image_height*aspect)
+   image_height=frame.custom_minimum_size.x/aspect
+   image_view.custom_minimum_size.y=0 if _travel else image_height
  image_view.set_meta("source",path)
  image_view.set_meta("source_sha256",str(data.get("source_sha256","")))
  image_view.set_meta("full_source_contained",true)
@@ -80,7 +88,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  var caption: Label=C.label(str(data.get("caption","")),16)
  caption.name="JourneyPlaceCaption"
  caption.add_theme_color_override("font_color",Color("f0c78b"))
- art_column.add_child(caption)
+ (self if soundcheck_workspace else art_column).add_child(caption)
  var voice: HBoxContainer=HBoxContainer.new()
  voice.name="JourneyBandVoice"
  voice.add_theme_constant_override("separation",10)
@@ -97,6 +105,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
   voice.add_child(portrait)
  var words: VBoxContainer=VBoxContainer.new()
  words.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ if soundcheck_workspace:words.size_flags_vertical=Control.SIZE_SHRINK_CENTER
  voice.add_child(words)
  var speaker: Label=C.label(str(data.get("speaker","THE BAND")),16)
  speaker.name="JourneySpeakerName"
@@ -106,7 +115,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  note.text=str(data.get("text",""))
  note.add_theme_color_override("font_color",Color("eee7d7"))
  if _fresh:note.visible_characters=0
- words.add_child(note)
+ (context_column if soundcheck_workspace else words).add_child(note)
  if not reduced and _fresh:
   var skip: Button=C.button("SKIP TRANSITION","flightcase","tab")
   skip.name="JourneySkipTransitionAction"
