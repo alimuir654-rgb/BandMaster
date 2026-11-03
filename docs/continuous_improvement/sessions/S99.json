@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "S99",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner accepts auditionprocess butrequests clearerdriving, morecandidateperformances, personaljobs/commitments, fullbandgenreexamples, comparativevisualreview, feelgoodsplashcue, audioon/off. Adoptentirefeedback inS80; implementbounded settings+orientation first, prepareexactexpandedcast/audio contracts. V10unchanged/no newAPK.",
+  "baseline_sha": "745102cebb1157572796f24df13fde75760c0f7d",
+  "game_baseline_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1363490,
+    "sha256": "fa47054f6684aff94deedb978e1438db8dac825c682568f17de0455e43d82e9e"
+  },
+  "target": {
+    "locator": "/workspace/work/s97-approved-variants-20261103/runs/final-phone-own-v3/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "b1188da61598e3926cdb2db9351077bab8f4584faae7280ee671b45d1d793b97",
+    "pixels_inspected": true,
+    "kind": "ActualS97phoneadjustedpart openedroot; retainedwidefailurealsoopened. Independentfoundation_tests actualsource/pixelreview currentthread."
+  },
+  "hypothesis": "Keepacceptedexperience andallGameactions, but namecurrentauditionphase/material/nextstep, explain reveal-onlypress/end-vs-menu, and makeAudioON/OFFclear andrememberedbeforefirstaudio.",
+  "controlled_comparison": "SameactualIndieJackphase/content/4viewports source5b08; presentationonly3existingleaves+1newsettingspersistenceleaf. Approvedcast/jobs/sourcecontent/musicalgrades/audioassets/owners/models remainbyteexact. Newprofilebiographies explicitlydraftedfiction, notexistingfacts/adoptedcontent.",
+  "stop_condition": "HOLD any Game/owner/save/day/cash/Finance/phase/invite effect frompreferences or inspection; sourceprotectedchange, failedatomicprefwrite corruptingoldfile, hiddenessentialactions, ERROR orbudgetfloorbreach. Newaudio requiresrights/sourceamendment+actualownerlisteningbeforeintegration; no sourcepathscopecreep.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/settings_sheet.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/audio_preferences.gd",
+    "docs/continuous_improvement/sessions/S99.json",
+    "docs/continuous_improvement/S99_OWNER_FEEDBACK.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s99-feedback-20261103/",
+    "/tmp/bandmaster-s99-feedback-20261103/"
+  ],
+  "validation_commands": [
+    "Committedscopedpreflight+gate BEFOREsource; separateindependentpredesignandearlyphone390/shortwide1280beforefullproof",
+    "Newuser://audio_preferences.json only; missingdefaultON, strictschema1booleanmute/unknownfieldretention; malformed/futurefiles preservedreadonly/effectiveOFF+visiblemessage; tempwrite/flush/atomicrename, failedwriteapplycurrentmute+visiblememoryonlystatus/noGamesave.",
+    "Earlyphone+wide settings/fourauditionphases/currentmaterial/compare/revealnotice/end-vs-resumemenufit; thenexact415curated/414Git+146Bentry sourceproof/privatecleanimport/73/88/4standard/rawexitERRORchecks",
+    "Fourprofileownedsettings+auditionjourneys, realinput/reload/prefrestart/FSfailure/retry/malformedfuture/zeroGameownerfileeffects; sourceunchangedmodelclosure reused, no unchangedgig/models/APK",
+    "PrimaryPentiment/Wildermyth/FM comparisonsactualreferences andsourcegroundedcast/jobdifferenceplan; no copyingUIart/hiddenstats/bestchoicegrade",
+    "Wholeownerfeedbackandexactpendingacceptance/dependencyboundaries reconciledintoS80/Pages/currentcanonical/release; samequeue/thread/finiteend."
+  ],
+  "root_lease": {
+    "id": "S99-feedback-settings-orientation-20261103T2250",
+    "writer": "/root",
+    "expires_at": "2026-11-04T01:00:00Z"
+  },
+  "started_at": "2026-11-03T22:48:55.182986+00:00",
+  "scope_end": "2026-11-04T01:00:00Z",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "queue_task": "OwnerV10feedback: clearerexperience/Audio foundation +adoptwholeexpansionroadmap",
+  "reviewer": "foundation_tests independentpredesign/early/final actualpixels+scratchQA; game_design_research read-onlycast/audiofeasibility; rootonlysource/engine",
+  "storage_plan": {
+    "temporary_root": "/tmp/bandmaster-s99-feedback-20261103",
+    "TMP_aggregate_cap_bytes": 805306368,
+    "workspace_new_metadata_primaryGit_and_receipts_cap_bytes": 4194304,
+    "workspace_initial_free_bytes": 636329984,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "runtime_source_cap_bytes": 105000000,
+    "private_cache_cap_bytes": 125829120,
+    "PNG_cap_bytes": 150994944,
+    "QA_work_audio_reserve_bytes": 423482304,
+    "durable_receipts_cap_bytes": 524288,
+    "no_cleanup": true,
+    "no_critical_Git_in_TMP": true
+  },
+  "next_action": "Implementfrozen4pathAudio+orientationcontract; helperQA/earlyphonewide beforewholeproof. Finishconcretesourcegroundedcast/fullband/splash/visualadoption; no newaudiointegrationwithoutlistening."
+}
