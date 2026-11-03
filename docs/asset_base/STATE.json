@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "released",
+  "status": "active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "S97 both exact approved audition arrangements integrated; S95original/S96genre preview retained",
-  "writer": null,
+  "scope": "ONEownerrequestedV10APKfromverifiedS97; no shippingcodechanges",
+  "writer": "S98-owner-apk-v10-20261103T2205",
   "last_verified_code_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "baseline": {
     "run_id": 40778019754,
@@ -732,7 +732,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S97",
+  "current_session": "S98",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S97",
-  "next_action": "Fresh bounded UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW from414row source-final.json; fund complete durable scope from actual capacity first. No presumed defect/economy rebuild, unchanged-suite/closedmilestone reruns or APK work.",
+  "next_action": "Write bounded scratch directmanifest exporter/audit, copy414rows+expliciticon/platformoverride toTMP, import/export/sign ONE V10 then exactprivateAPK delivery.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2120,7 +2120,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S97",
+  "session": "S98",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T21:20:00Z",
   "hard_stop": "2026-11-04T21:24:35Z",
@@ -2426,15 +2426,15 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T21:42:43.840827+00:00",
+  "released_at": null,
   "last_writer": "S97-approved-audition-variants-20261103T2058",
   "source_write_allowed": false,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97 complete verified/released",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
-  "expires_at": "2026-11-03T22:45:00Z",
+  "expires_at": "2026-11-03T23:30:00Z",
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2569,7 +2569,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -2802,13 +2802,12 @@
     "finite_end": "2026-11-04T21:24:35Z"
   },
   "current_delivery_policy": {
-    "status": "APK_WORK_HELD_OWNER_REQUEST",
-    "owner_instruction": "I don't need apk for each release. Continue without for now.",
-    "recorded_at": "2026-11-03T01:02:14.756841+00:00",
-    "continue_source_QA_native_screenshots": true,
+    "status": "ONE_V10_APK_DIRECT_OWNER_AUTHORISED",
+    "owner_instruction": "Great. Go ahead with an apk build.",
+    "recorded_at": "2026-11-03T22:05:46.139987+00:00",
     "automatic_milestone_APK": false,
-    "resume_APK_requires_fresh_owner_request": true,
-    "existing_phone_build": "V9/code9/source625e644 unchanged; excludes S83/S84; all APK work held.",
+    "scope": "ThisoneV10only; futureAPKhelduntilfreshdirectrequest",
+    "existing_phone_build": "V9/code9/source625 remainscurrentuntilauditedV10delivery",
     "same_finite_queue": "6ae532c5fe9c819190f587a022c54052",
     "finite_end": "2026-11-04T21:24:35+00:00"
   },
@@ -3059,10 +3058,9 @@
   },
   "latest_metadata_deliverable": "S97 approved variants source-bound closeout",
   "root_lease": {
-    "id": "S97-approved-audition-variants-20261103T2058",
-    "writer": null,
-    "released_at": "2026-11-03T21:42:43.840827+00:00",
-    "expires_at": "2026-11-03T22:45:00Z"
+    "id": "S98-owner-apk-v10-20261103T2205",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:30:00Z"
   },
   "source_implementation_status": "S97 COMPLETE/no pendingimplementation",
   "storage_operation_782": {
@@ -3557,7 +3555,7 @@
     "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
     "missing_evidence_still_HOLD": true
   },
-  "source_artifact_GL_released": true,
+  "source_artifact_GL_released": false,
   "s87_closeout": {
     "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "preflight_sha": "e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1",
@@ -4964,7 +4962,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "/root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -4994,5 +4992,11 @@
     "both_listening_accepted": true,
     "approval_receipt": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "written_equivalent_retained": true
+  },
+  "previous_S97_release": {
+    "session": "S97",
+    "source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
+    "released_at": "2026-11-03T21:42:43.840827+00:00"
   }
 }

@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "S98-owner-apk-v10-20261103T2205",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
-  "expires_at": "2026-11-03T22:45:00Z",
-  "scope": "S97 both exact approved audition arrangements integrated; S95original/S96genre preview retained",
+  "expires_at": "2026-11-03T23:30:00Z",
+  "scope": "ONEownerrequestedV10APKfromverifiedS97; no shippingcodechanges",
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
-  "released_at": "2026-11-03T21:42:43.840827+00:00",
+  "status": "active",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
-  "next_action": "Fresh bounded UX03 venuebooking/calendar/due-day departure WHOLE-TASK REVIEW from414row source-final.json; fund complete durable scope from actual capacity first. No presumed defect/economy rebuild, unchanged-suite/closedmilestone reruns or APK work.",
+  "next_action": "Write bounded scratch directmanifest exporter/audit, copy414rows+expliciticon/platformoverride toTMP, import/export/sign ONE V10 then exactprivateAPK delivery.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S97",
+  "session": "S98",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -471,7 +471,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-  "current_session": "S97",
+  "current_session": "S98",
   "closed_at": "2026-11-03T21:42:43.840827+00:00",
   "last_updated_utc": "2026-11-03T21:42:43.840827+00:00",
   "last_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
@@ -811,13 +811,12 @@
   },
   "last_source_writer_release": "2026-11-03T21:42:43.840827+00:00",
   "current_delivery_policy": {
-    "status": "APK_WORK_HELD_OWNER_REQUEST",
-    "owner_instruction": "I don't need apk for each release. Continue without for now.",
-    "recorded_at": "2026-11-03T01:02:14.756841+00:00",
-    "continue_source_QA_native_screenshots": true,
+    "status": "ONE_V10_APK_DIRECT_OWNER_AUTHORISED",
+    "owner_instruction": "Great. Go ahead with an apk build.",
+    "recorded_at": "2026-11-03T22:05:46.139987+00:00",
     "automatic_milestone_APK": false,
-    "resume_APK_requires_fresh_owner_request": true,
-    "existing_phone_build": "V9/code9/source625e644 unchanged; excludes S83/S84; all APK work held.",
+    "scope": "ThisoneV10only; futureAPKhelduntilfreshdirectrequest",
+    "existing_phone_build": "V9/code9/source625 remainscurrentuntilauditedV10delivery",
     "same_finite_queue": "6ae532c5fe9c819190f587a022c54052",
     "finite_end": "2026-11-04T21:24:35+00:00"
   },
@@ -1089,10 +1088,9 @@
   },
   "latest_metadata_deliverable": "S97 approved variants source-bound closeout",
   "root_lease": {
-    "id": "S97-approved-audition-variants-20261103T2058",
-    "writer": null,
-    "released_at": "2026-11-03T21:42:43.840827+00:00",
-    "expires_at": "2026-11-03T22:45:00Z"
+    "id": "S98-owner-apk-v10-20261103T2205",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:30:00Z"
   },
   "source_implementation_status": "S97 COMPLETE/no pendingimplementation",
   "storage_operation_782": {
@@ -1527,7 +1525,7 @@
     "pending_helpers": false,
     "final_record_gate": "789 PASS; final closed-record gate run before commit"
   },
-  "source_artifact_GL_released": true,
+  "source_artifact_GL_released": false,
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -2983,7 +2981,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "/root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3013,5 +3011,11 @@
     "both_listening_accepted": true,
     "approval_receipt": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "written_equivalent_retained": true
+  },
+  "previous_S97_release": {
+    "session": "S97",
+    "source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
+    "released_at": "2026-11-03T21:42:43.840827+00:00"
   }
 }

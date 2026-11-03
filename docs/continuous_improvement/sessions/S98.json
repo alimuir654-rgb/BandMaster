@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "S98",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Great. Go ahead with an apk build. Fresh DIRECT authority for ONE V10 ARM64 private playtest APK from finalS97 source; futureautomaticAPK remainsheld.",
+  "baseline_sha": "1143cbda7e6dce5c05c8d435ac871eecad8302fd",
+  "game_baseline_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "dominant_issue": "BM-35",
+  "lesson_ids": [
+    "BM-01",
+    "BM-13",
+    "BM-14",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1356349,
+    "sha256": "6e2c9c3cae802e2582eb09b0c051cad215bc780211fb3057706e6102f594da2e"
+  },
+  "target": {
+    "locator": "/workspace/work/s97-approved-variants-20261103/runs/final-phone-own-v3/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "b1188da61598e3926cdb2db9351077bab8f4584faae7280ee671b45d1d793b97",
+    "pixels_inspected": true,
+    "kind": "Retained actual finalS97phone original opened beforepreflight. No new UI/source/art change or pixelproof required for packaging-onlyscope."
+  },
+  "hypothesis": "Package exact414curated source via existing Android4.7.2 template/settings/originalsigningkey so V10 updatesV9 with sameappID/savefolder/cert and includes3approvedOGGs/genreexample.",
+  "controlled_comparison": "413Git rows/146Bentry pinned to verifiedS97; platformprojectoverride uses exactretainedAndroidconfig, explicitoriginalicon.svg addition only. Compiledscript/rawJSON/importedasset/remap closure audited against curated source. CompareappID/cert/savepath to durablecanonicalV9 record and retainedV6 template/settings proof, not unavailableoldTMPreceipts.",
+  "stop_condition": "HOLD any signingkey/cert/appID/savefolder mismatch, ERROR/nonzeroexport, unexplainedAPKresource/privatepayload, sourcehashdelta, allocation/floorbreach. Preservefailedattempts beforecorrection. No UI/engine/Xorg/dependency/model/owner changes or sourceZIP.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S98.json",
+    "docs/continuous_improvement/S98_OWNER_APK_V10.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s98-owner-apk-v10-20261103/",
+    "/tmp/bandmaster-s98-apk-20261103/"
+  ],
+  "validation_commands": [
+    "Committedpreflight/improvement_gate beforeadapter/sourcecopy/import/export/sign",
+    "Copy ONLY414manifestrows, platformprojectoverride+exactGiticon; newemptyprivatecache/freshXDG/oneflock/Dummy/additionalnetworkpermission",
+    "ONEARM64V10/code10/name0.97.0-playtest; strict9steps import/export/align/sign/verify-signature/verify-alignment/manifest/permissions/manifest-tree rawexits0/ERRORempty",
+    "APKCRC/entryprivacy/originalcompiledscripts+all3approvedOGGs/importedresources+materialgenreJSON/fonts/licences bind exactsource; cert83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2/appIDcom.bandmaster.ownerplaytest.s40/savefolderBandMasterOwnerPlaytestS40/zero permissions",
+    "Private selectedcompiledAPKdelivery only; metadataMIME/bytes/ACLreadback; physicalinstall/save-retention/audioNOTclaimed",
+    "All413shippingGit+priorS97runtime/cache/nativeevidence/originalfontarchive protection, freshstorageaudit/canonicalrelease/solequeuepreservation"
+  ],
+  "started_at": "2026-11-03T22:05:46.139987+00:00",
+  "scope_end": "2026-11-03T23:30:00Z",
+  "root_lease": {
+    "id": "S98-owner-apk-v10-20261103T2205",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:30:00Z"
+  },
+  "queue_task": "Direct owner ONE V10 APK update",
+  "reviewer": "Root separate strictread-only APK/update/privacy audit; S97 independentnative/sourceproof reused exactclosure. No UIrepair/newnativevisual scope.",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "artifact_write_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": false,
+  "storage_plan": {
+    "temporary_root": "/tmp/bandmaster-s98-apk-20261103",
+    "TMP_aggregate_cap_bytes": 1073741824,
+    "source_cap_bytes": 105000000,
+    "cache_cap_bytes": 268435456,
+    "APK_intermediates_and_final_cap_bytes": 524288000,
+    "work_and_reserve_bytes": 176018368,
+    "TMP_floor_bytes": 629145600,
+    "workspace_floor_bytes": 629145600,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 6291456,
+    "workspace_initial_free_bytes": 639905792,
+    "durable_receipts_cap_bytes": 1048576,
+    "no_arbitrary_cleanup": true,
+    "no_critical_Git_in_TMP": true
+  },
+  "next_action": "Write bounded scratch directmanifest exporter/audit, copy414rows+expliciticon/platformoverride toTMP, import/export/sign ONE V10 then exactprivateAPK delivery."
+}
