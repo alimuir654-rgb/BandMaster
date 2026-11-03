@@ -91,7 +91,7 @@ func _identity() -> VBoxContainer:
  identity.add_theme_constant_override("separation",4)
  var person: Dictionary=_view["person"]
  identity.add_child(_label(str(person["name"]).to_upper(),22))
- identity.add_child(_label("%s · %s · %s" % [person["role"],person["age"],person["town"]]))
+ identity.add_child(_label("%s · %d · %s" % [person["role"],int(person["age"]),person["town"]]))
  return identity
 
 func _add_voice(host: Control) -> void:
@@ -159,7 +159,7 @@ func _build() -> void:
    pictures.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",Vector2(112,106)))
    place.add_child(pictures)
    var person: Dictionary=_view["person"]
-   place.add_child(_label(("%s · %s · %s · %s" % [person["name"],person["role"],person["age"],person["town"]]).to_upper(),18))
+   place.add_child(_label(("%s · %s · %d · %s" % [person["name"],person["role"],int(person["age"]),person["town"]]).to_upper(),18))
   _add_voice(place)
  var tools:=HBoxContainer.new()
  tools.name="AuditionInspectionTools"
@@ -260,6 +260,12 @@ func _build() -> void:
  exits.add_child(_button("PAUSE / MENU","AuditionMenu",_menu))
  actions.add_child(exits)
 
+func _fit_bar(button: Button,inset: MarginContainer) -> void:
+ if not is_instance_valid(button) or not is_instance_valid(inset):return
+ if button.is_queued_for_deletion() or inset.is_queued_for_deletion() or not button.is_inside_tree() or not inset.is_inside_tree():return
+ var minimum: float=maxf(88,inset.get_combined_minimum_size().y)
+ if not is_equal_approx(button.custom_minimum_size.y,minimum):button.custom_minimum_size.y=minimum
+
 func _fill_board() -> void:
  var current_version: Label=find_child("AuditionCurrentVersion",true,false) as Label
  if current_version!=null:
@@ -287,6 +293,8 @@ func _fill_board() -> void:
   words.add_child(C.paper_label("BAR "+str(bar["number"]),16,true))
   words.add_child(C.paper_label(str(bar["vocal"])))
   words.add_child(C.paper_label(str(bar["guitar"])))
+  inset.minimum_size_changed.connect(_fit_bar.bind(button,inset))
+  _fit_bar.call_deferred(button,inset)
   _board.add_child(button)
 
 func _inspect(index: int) -> void:
