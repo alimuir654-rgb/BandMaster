@@ -118,5 +118,11 @@
     "existing_S88_S90_preserved": true,
     "critical_evidence_storage": "Durableworkspaceonly; no volatileGitobjects, no oldproofreconstruction/purge"
   },
-  "next_action": "Commit/gate, independentpredesign, bounded nativeviewportreadiness via existing unmodifiedXorg; ifready materialiseexact408candidate/privatecache, oneleafrepair and meaningfulproof."
+  "next_action": "Commit/gate, independentpredesign, bounded nativeviewportreadiness via existing unmodifiedXorg; ifready materialiseexact408candidate/privatecache, oneleafrepair and meaningfulproof.",
+  "predesign": {
+    "path": "/workspace/work/s91-performance-context-20261103/review/predesign.json",
+    "sha256": "bae1006fef7c89b9c70e0d1ad9a88dabe8b76e64c14635a2f48cb40de7fbedcc",
+    "disposition": "CLEAR_FOR_SCOPED_IMPLEMENTATION_AND_EARLY_NATIVE_REVIEW; not native acceptance",
+    "root_adoption": "Compactportraitordinal/completedonly; no fulltitleduplication, emptysummarysamehonestnooriginalstextbefore/after. Nativefitpending."
+  }
 }

@@ -159,6 +159,16 @@ static func dock(host, parent: Node, _compact: bool) -> void:
  var visit: Dictionary=view["active"]
  var phase: String=str(view["phase"])
  var token: Dictionary=view["expected"]
+ if host.size.x<=host.size.y and phase in ["performing","choice","reaction","after_set"]:
+  var count: int=visit["plan"]["song_snapshots"].size()
+  var cursor: int=int(visit["cursor"])
+  var position: String="SHORT SET · NO ORIGINALS SELECTED"
+  if count>0:
+   if phase=="after_set":position="SET COMPLETE · %d OF %d" % [cursor,count]
+   else:position=("PLAYING" if phase=="performing" else "NEXT")+" · SONG %d OF %d · %d COMPLETE" % [cursor+1,count,cursor]
+  var summary: Label=C.label(position,16)
+  summary.name="JourneySetPosition"
+  parent.add_child(summary)
  if phase=="begin":
   _button(host,parent,"MEET THE BAND  ›","JourneyMainAction","begin",{}, {"booking_id":Flow.booking_id(Calendar.pending(state))})
  elif phase=="choice":
