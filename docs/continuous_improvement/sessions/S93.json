@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "S93",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "LATEST DIRECT owner: audio limits waived fornow.Justgetsomethingtoreview; Newdependenciesareok.We need somethingnewunderpinthispart. These specifically override oldno-newdeps/5files36.5s4MiB restrictions forboundedauthoring/listening prototype. No paidservices/runtimeAI/Gameintegration/APK/sourceupload implied.",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1312701,
+    "sha256": "e14398bbe8e258498eaaa4317a39168db429f03dcb2e665c49919b64e4c04236"
+  },
+  "baseline_sha": "7bf8b9b0fba08a1a3dec4891c93b9987ff3f1616",
+  "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
+  "target": {
+    "locator": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+    "original_sha256": "25794133433acf658b8120b8a6da455837497763f6f428fb2b9e428df6a1ae62",
+    "pixels_inspected": true,
+    "kind": "Actually reopened currentGame room/contact-art native reference for futureaudio alignment; NONVISUAL tooling isnotjudged bypixels, no audioquality/playingclaim. Functionalcontract S92document/S89brief separately."
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "An actual originalmulti-string physicallymodelled indie guitar chord study with crediblefrettedvoicings/strokeorder/dynamics andisolatedCPUaudioDSP dependency can giveownerplayabletone/feelreview withoutsingle-note resampling, paidservices/blockedmodeldownload orruntimeAI. Label honestlygeneratedstring-modelprototype, nothumanperformance/Jackskillproof.",
+  "controlled_comparison": "Newchangedmethod generatesindependentpluckedstringexcitation atactualfingeredpitches, down/upstrokeorder/dynamics/muting, originalD/G/A/Dwrittenprogression100BPM. No samples/one-note resampling/oldWAV reconstruction. Two matchedlevel clean/warmamp variations optionalfromsamerawperformance; finaltailsincluded. Source/provenance/effects pins/localmeasurement, no claimhumanlistening/qualityPASS.",
+  "stop_condition": "HOLD actualdependencylicense/cost/storage/networkpolicyfailure, sourceGamechange, generationerrors/unboundedallocation, clipping/invalidWAV/rightsuncertainty; no paid/newservice/key/proxybypass/defaultvenv/globalinstall or fakeAI/human/audioqualityclaim. Ownerlisteningbeforeintegration.",
+  "allowed_paths": [
+    "tools/audio_authoring/core.py",
+    "tools/audio_authoring/__main__.py",
+    "tools/audio_authoring/catalog.json",
+    "tools/audio_authoring/string_model.py",
+    "tools/audio_authoring/requirements-review.txt",
+    "tools/audio_authoring/examples/indie_generated_guitar.json",
+    "tools/audio_authoring/README.md",
+    "tests/test_audio_authoring.py",
+    "docs/continuous_improvement/S93_GENERATED_GUITAR_REVIEW.md",
+    "docs/continuous_improvement/sessions/S93.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s93-audio-review-20261103/"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S93.json",
+    "Isolated --system-site-packages venv; pinnedpedalboard0.9.26 wheel+license+hash report; existingnumpy/scipy/ffmpeg actualversions. No hostglobal packagechange.",
+    "Originalauthoringtests plus targetbackend/requestguard tests; actualbounded22secondguitar render, completeWAVinspection/decodedFFmpeg LUFS/truepeak/ERROR/sourcehash/protected408 checks. No Godot/native/APK/activityreruns."
+  ],
+  "root_lease": {
+    "id": "S93-generated-guitar-review-20261103T1825",
+    "writer": "/root",
+    "expires_at": "2026-11-03T20:00:00Z"
+  },
+  "started_at": "2026-11-03T18:23:55.023864+00:00",
+  "scope_end": "2026-11-03T20:00:00Z",
+  "queue_task": "AU01 changed-method ACTUAL listening prototype, ownercapswaived/newdepsapproved",
+  "reviewer": "game_design_research source/rights/backendreview; rootonlyimplementation/render/delivery",
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_helpers": true,
+  "pending_implementation": true,
+  "storage_plan": {
+    "new_aggregate_cap_bytes": 536870912,
+    "isolated_dependency_cap_bytes": 268435456,
+    "audio_and_raw_cap_bytes": 67108864,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "owner_audio_caps": "Old5/36.5s4MiB waived DIRECT; theseareboundedworkspaceallocationnotoldaudioqualitycap. Preserveallpriorhistory."
+  },
+  "next_action": "Commit/gate, inspectpinnedCPUdependencylicense/actualwheel footprint, isolatedinstallonly, authorrealrenderbackend/prototype and deliverselectedprivateownerreview. No Aliaccessnewfileautomatically."
+}

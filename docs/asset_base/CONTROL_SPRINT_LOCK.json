@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "/root",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
-  "claimed_at": "2026-11-03T17:48:44.998970+00:00",
-  "expires_at": "2026-11-03T19:00:00Z",
-  "scope": "S92 offlineauthoringtooling COMPLETE; latestowneractualreviewpriority/capswaived",
+  "claimed_at": "2026-11-03T18:23:55.023864+00:00",
+  "expires_at": "2026-11-03T20:00:00Z",
+  "scope": "S93 actual generated guitar review; newdepsapproved/oldcapswaived, noGameaudiointegration",
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
+  "status": "active",
   "released_at": "2026-11-03T18:14:13.116487+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T18:14:13.116487+00:00",
+  "updated_at": "2026-11-03T18:23:55.023864+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Fresh S93 actualaudio review priority. LatestDIRECTowner waivedold audiofile/duration/bytecaps forreview. Find practicalcleared naturalindie guitarstrumming/chordprogression source/backend and deliverONEprivateplayableexample. No paidservices/newdeps/modeldownload/runtimeAI assumed; no one-note resampling/bleeps, no Gameintegration/APK. Retainold3privateexamples/history andAliaccessonlyold3.",
+  "next_action": "Commit/gate, inspectpinnedCPUdependencylicense/actualwheel footprint, isolatedinstallonly, authorrealrenderbackend/prototype and deliverselectedprivateownerreview. No Aliaccessnewfileautomatically.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S92",
+  "session": "S93",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -474,7 +474,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-  "current_session": "S92",
+  "current_session": "S93",
   "closed_at": "2026-11-03T16:33:12.919963+00:00",
   "last_updated_utc": "2026-11-03T12:09:39.705130+00:00",
   "last_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -1128,10 +1128,9 @@
   },
   "latest_metadata_deliverable": "S89 audiofeasibility/artmethod/UX02predesign complete; primary-sourceandindependentreviews, Plan29Board153. No productionassets/code/engines.",
   "root_lease": {
-    "id": "S92-flexible-audio-tooling-20261103T1748",
-    "writer": null,
-    "expires_at": "2026-11-03T19:00:00Z",
-    "released_at": "2026-11-03T18:14:13.116487+00:00"
+    "id": "S93-generated-guitar-review-20261103T1825",
+    "writer": "/root",
+    "expires_at": "2026-11-03T20:00:00Z"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {
