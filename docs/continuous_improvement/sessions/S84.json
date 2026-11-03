@@ -74,8 +74,8 @@
     "docs/continuous_improvement/LESSONS.md": "4b9074bb09568d50a0b461301a04f693a3af941f519df78faa0a97e9a65c637d"
   },
   "issue_log_review": {
-    "bytes": 1199963,
-    "sha256": "e3066efb96260cef44efd0a437857c16176d4f30ee84269d946b2525459c0df6"
+    "bytes": 1204332,
+    "sha256": "1aee72938c0f504a97ac98a5786eb40aa9cc2c2e53b78e5d8002714a98f564ec"
   },
   "source_contract": "docs/continuous_improvement/S84_SONG_WORKBENCH.md",
   "source_contract_sha256": "5199bacec9469fea7c961be7884fe446eefa3f1bd86473ab5a11bdda527919fd",
@@ -338,6 +338,13 @@
     "each_new_case_cap": 9437184,
     "final_metadata_cap": 1048576,
     "global800_floor600_unchanged": true,
-    "refined_independent_review": "foundationconditionalapprovalandcontractSafetyconditionalclear; exact4closedcopymtimeexceptionacknowledged"
+    "refined_independent_review": "foundationconditionalapprovalandcontractSafetyconditionalclear; exact4closedcopymtimeexceptionacknowledged",
+    "bundle": {
+      "runner": "/tmp/bandmaster-s84-20261103/qa/run_full_v8.py",
+      "sha256": "6893a7a9dffed0e55ba6363ddffb74145457058723611106089cd41fb4bca4ad",
+      "manifest_sha256": "c064f070d7b72dedc55a77131196ff2eaacf20818f589e8b493f82b9e5df5865",
+      "static_independent": "PASSafterexplicit6pathpre/postchecks; noengineyet",
+      "historical_frozen_bundle": "SHA-exactreconstructionAFTERcorrection,755chronology"
+    }
   }
 }
