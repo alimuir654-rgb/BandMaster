@@ -1,5 +1,5 @@
 {
-  "writer": null,
+  "writer": "S98-v10-private-delivery-20261103T2220",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T18:23:55.023864+00:00",
   "expires_at": "2026-11-03T23:30:00Z",
@@ -7,8 +7,8 @@
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "released",
-  "released_at": "2026-11-03T22:14:32.529160+00:00",
+  "status": "active",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
-  "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
+  "next_action": "UploadexactauditedV10APK then grantnamedAlireader and readbackMIME/bytes/parent/ACL; update deliveryrecords and release. No engines/source writes.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -811,7 +811,7 @@
   },
   "last_source_writer_release": "2026-11-03T21:42:43.840827+00:00",
   "current_delivery_policy": {
-    "status": "V10_BUILT_AUDITED_UPLOAD_APPROVAL_HOLD",
+    "status": "EXACT_V10_UPLOAD_AND_NAMED_ALI_READER_DIRECTLY_APPROVED",
     "owner_instruction": "Great. Go ahead with an apk build.",
     "recorded_at": "2026-11-03T22:05:46.139987+00:00",
     "automatic_milestone_APK": false,
@@ -822,15 +822,9 @@
     "build_authority_used": true,
     "resume_APK_requires_fresh_owner_request": true,
     "pending_private_upload_approval": {
-      "file": "BandMaster-Playtest-v10-arm64.apk",
-      "bytes": 99338695,
-      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
-      "account": "chair@lovewelluk.com",
-      "folder_id": "0AAaVL64Kv2tDUk9PVA",
-      "folder_name": "My Drive",
-      "additional_sharing": false,
-      "question_pending": true,
-      "automatic_review_rejection_record": "/workspace/work/s98-owner-apk-v10-20261103/upload-rejection.json"
+      "question_pending": false,
+      "direct_approval_receipt": "/workspace/work/s98-owner-apk-v10-20261103/owner-upload-approval.json",
+      "exact_named_reader": "alimuir654@gmail.com"
     }
   },
   "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
@@ -1101,10 +1095,9 @@
   },
   "latest_metadata_deliverable": "S98 V10 built/audited; privateupload approvalHOLD",
   "root_lease": {
-    "id": "S98-owner-apk-v10-20261103T2205",
-    "writer": null,
-    "expires_at": "2026-11-03T23:30:00Z",
-    "released_at": "2026-11-03T22:14:32.529160+00:00"
+    "id": "S98-v10-private-delivery-20261103T2220",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:00:00Z"
   },
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
@@ -2995,7 +2988,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "/root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3063,5 +3056,25 @@
     "url": null,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false
+  },
+  "latest_direct_owner_APK_upload": {
+    "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
+    "recorded_at": "2026-11-03T22:20:05.325909+00:00",
+    "exact_payload": {
+      "name": "BandMaster-Playtest-v10-arm64.apk",
+      "path": "/tmp/bandmaster-s98-apk-20261103/BandMaster-Playtest-v10-arm64.apk",
+      "bytes": 99338695,
+      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+      "game_source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2"
+    },
+    "destination": {
+      "account": "chair@lovewelluk.com",
+      "folder_id": "0AAaVL64Kv2tDUk9PVA",
+      "folder_name": "My Drive",
+      "specific_reader": "alimuir654@gmail.com",
+      "permission": "reader",
+      "no_public_domain_or_folder_grants": true
+    },
+    "supersedes": "S98 uploadapprovalHOLD859 for thisexactcompiledAPK only, no source/history/rawbank/keys/saves or futureblanketgrant."
   }
 }

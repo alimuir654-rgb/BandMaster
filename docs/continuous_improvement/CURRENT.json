@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "released",
-  "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
+  "status": "active",
+  "next_action": "UploadexactauditedV10APK then grantnamedAlireader and readbackMIME/bytes/parent/ACL; update deliveryrecords and release. No engines/source writes.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3259,7 +3259,7 @@
     }
   ],
   "last_completed_session": "S98",
-  "writer": null,
+  "writer": "S98-v10-private-delivery-20261103T2220",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3639,10 +3639,10 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-03T22:14:32.529160+00:00",
+  "released_at": null,
   "last_writer": "S98-owner-apk-v10-20261103T2205",
   "source_write_allowed": false,
-  "pending_implementation": false,
+  "pending_implementation": true,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
@@ -3778,7 +3778,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -4161,7 +4161,7 @@
     "finite_end": "2026-11-04T21:24:35Z"
   },
   "current_delivery_policy": {
-    "status": "V10_BUILT_AUDITED_UPLOAD_APPROVAL_HOLD",
+    "status": "EXACT_V10_UPLOAD_AND_NAMED_ALI_READER_DIRECTLY_APPROVED",
     "owner_instruction": "Great. Go ahead with an apk build.",
     "recorded_at": "2026-11-03T22:05:46.139987+00:00",
     "automatic_milestone_APK": false,
@@ -4172,15 +4172,9 @@
     "build_authority_used": true,
     "resume_APK_requires_fresh_owner_request": true,
     "pending_private_upload_approval": {
-      "file": "BandMaster-Playtest-v10-arm64.apk",
-      "bytes": 99338695,
-      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
-      "account": "chair@lovewelluk.com",
-      "folder_id": "0AAaVL64Kv2tDUk9PVA",
-      "folder_name": "My Drive",
-      "additional_sharing": false,
-      "question_pending": true,
-      "automatic_review_rejection_record": "/workspace/work/s98-owner-apk-v10-20261103/upload-rejection.json"
+      "question_pending": false,
+      "direct_approval_receipt": "/workspace/work/s98-owner-apk-v10-20261103/owner-upload-approval.json",
+      "exact_named_reader": "alimuir654@gmail.com"
     }
   },
   "last_source_writer_release": "2026-11-03T21:42:43.840827+00:00",
@@ -4452,10 +4446,9 @@
   },
   "latest_metadata_deliverable": "S98 V10 built/audited; privateupload approvalHOLD",
   "root_lease": {
-    "id": "S98-owner-apk-v10-20261103T2205",
-    "writer": null,
-    "expires_at": "2026-11-03T23:30:00Z",
-    "released_at": "2026-11-03T22:14:32.529160+00:00"
+    "id": "S98-v10-private-delivery-20261103T2220",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:00:00Z"
   },
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
@@ -6356,7 +6349,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "/root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6424,5 +6417,25 @@
     "url": null,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false
+  },
+  "latest_direct_owner_APK_upload": {
+    "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
+    "recorded_at": "2026-11-03T22:20:05.325909+00:00",
+    "exact_payload": {
+      "name": "BandMaster-Playtest-v10-arm64.apk",
+      "path": "/tmp/bandmaster-s98-apk-20261103/BandMaster-Playtest-v10-arm64.apk",
+      "bytes": 99338695,
+      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+      "game_source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2"
+    },
+    "destination": {
+      "account": "chair@lovewelluk.com",
+      "folder_id": "0AAaVL64Kv2tDUk9PVA",
+      "folder_name": "My Drive",
+      "specific_reader": "alimuir654@gmail.com",
+      "permission": "reader",
+      "no_public_domain_or_folder_grants": true
+    },
+    "supersedes": "S98 uploadapprovalHOLD859 for thisexactcompiledAPK only, no source/history/rawbank/keys/saves or futureblanketgrant."
   }
 }

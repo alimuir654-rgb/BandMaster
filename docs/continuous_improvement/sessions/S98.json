@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "id": "S98",
-  "status": "closed",
+  "status": "active",
   "owner_approved": false,
-  "owner_request": "Great. Go ahead with an apk build. Fresh DIRECT authority for ONE V10 ARM64 private playtest APK from finalS97 source; futureautomaticAPK remainsheld.",
+  "owner_request": "Fresh direct owner: Upload and give access to alimuir654@gmail.com. Upload ONLYexisting auditedV10APK toverifiedMyDrivechair@lovewelluk.com and exactreader, no rebuild/newsource.",
   "baseline_sha": "1143cbda7e6dce5c05c8d435ac871eecad8302fd",
   "game_baseline_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "dominant_issue": "BM-35",
@@ -65,17 +65,16 @@
   "started_at": "2026-11-03T22:05:46.139987+00:00",
   "scope_end": "2026-11-03T23:30:00Z",
   "root_lease": {
-    "id": "S98-owner-apk-v10-20261103T2205",
-    "writer": null,
-    "expires_at": "2026-11-03T23:30:00Z",
-    "released_at": "2026-11-03T22:14:32.529160+00:00"
+    "id": "S98-v10-private-delivery-20261103T2220",
+    "writer": "/root",
+    "expires_at": "2026-11-03T23:00:00Z"
   },
   "queue_task": "Direct owner ONE V10 APK update",
   "reviewer": "Root separate strictread-only APK/update/privacy audit; S97 independentnative/sourceproof reused exactclosure. No UIrepair/newnativevisual scope.",
   "source_write_allowed": false,
   "art_write_allowed": false,
-  "artifact_write_allowed": false,
-  "pending_implementation": false,
+  "artifact_write_allowed": true,
+  "pending_implementation": true,
   "pending_helpers": false,
   "storage_plan": {
     "temporary_root": "/tmp/bandmaster-s98-apk-20261103",
@@ -92,7 +91,7 @@
     "no_arbitrary_cleanup": true,
     "no_critical_Git_in_TMP": true
   },
-  "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
+  "next_action": "UploadexactauditedV10APK then grantnamedAlireader and readbackMIME/bytes/parent/ACL; update deliveryrecords and release. No engines/source writes.",
   "closed_at": "2026-11-03T22:14:32.529160+00:00",
   "closeout": {
     "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
@@ -100,5 +99,34 @@
     "visual_verdict": "partial",
     "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
     "new_issue_review": "S98-20261103-861"
+  },
+  "historical_build_closeout_before_delivery": {
+    "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "evidence": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "Await explicitprivateuploadapproval forONEauditedV10APK toMyDriveownerchair@lovewelluk.com root, noadditionalsharing. Do not rebuild. UX03 independent qualityreview may proceed onlyunderfreshcontract/storagefunding; futureautomaticAPKheld.",
+    "new_issue_review": "S98-20261103-861"
+  },
+  "delivery_amendment_at": "2026-11-03T22:20:05.325909+00:00",
+  "delivery_baseline_sha": "49938e3690ba618283193e22d8186b95f6998820",
+  "new_upload_authority": {
+    "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
+    "recorded_at": "2026-11-03T22:20:05.325909+00:00",
+    "exact_payload": {
+      "name": "BandMaster-Playtest-v10-arm64.apk",
+      "path": "/tmp/bandmaster-s98-apk-20261103/BandMaster-Playtest-v10-arm64.apk",
+      "bytes": 99338695,
+      "sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
+      "game_source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2"
+    },
+    "destination": {
+      "account": "chair@lovewelluk.com",
+      "folder_id": "0AAaVL64Kv2tDUk9PVA",
+      "folder_name": "My Drive",
+      "specific_reader": "alimuir654@gmail.com",
+      "permission": "reader",
+      "no_public_domain_or_folder_grants": true
+    },
+    "supersedes": "S98 uploadapprovalHOLD859 for thisexactcompiledAPK only, no source/history/rawbank/keys/saves or futureblanketgrant."
   }
 }
