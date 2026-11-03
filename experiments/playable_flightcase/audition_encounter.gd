@@ -49,6 +49,20 @@ static func _same(a: Variant,b: Variant) -> bool:
  var first: Variant=_canon(a)
  return first!=null and first==_canon(b)
 
+static func _freeze_candidate(value: Variant) -> Variant:
+ # Freeze new persisted candidate numbers through the established schema1
+ # codec; leave the original Game/roster and its typed values untouched.
+ if value is Dictionary:
+  var result: Dictionary={}
+  for key in value:result[str(key)]=_freeze_candidate(value[key])
+  return result
+ if value is Array:
+  var result: Array=[]
+  for item in value:result.append(_freeze_candidate(item))
+  return result
+ if value is float and is_finite(value) and absf(value)<1000000000.0 and value==floor(value):return int(value)
+ return value
+
 static func fingerprint(snapshot: Dictionary) -> String:
  var source:=snapshot.duplicate(true)
  source.erase(KEY)
@@ -164,7 +178,7 @@ static func begin(snapshot: Dictionary,candidate_id: String,role: String) -> Dic
  if int(wrapper["sequence"])>=LIMIT:return _fail("The audition history has reached its limit.")
  wrapper["sequence"]=int(wrapper["sequence"])+1
  wrapper["active"]={"id":"audition:%d:%s" % [int(wrapper["sequence"]),candidate_id],"revision":0,"phase":"arrival",
-  "candidate_id":candidate_id,"role":role,"candidate_snapshot":Content.candidate(),"catalogue_sha256":Content.catalogue_sha(),
+  "candidate_id":candidate_id,"role":role,"candidate_snapshot":_freeze_candidate(Content.candidate()),"catalogue_sha256":Content.catalogue_sha(),
   "content_version":Content.VERSION,"content_sha256":Content.fingerprint(),"exercise_version":Content.VERSION,
   "first_material_id":Content.FIRST_ID,"adjusted_material_id":"","response_id":"","source_fingerprint":fingerprint(snapshot),"request":""}
  return {"ok":true,"wrapper":wrapper,"message":"Meet Jack.","changed":true}

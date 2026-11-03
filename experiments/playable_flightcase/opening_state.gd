@@ -122,12 +122,15 @@ func recruit(id: String) -> Dictionary:
   return {"ok":false,"message":"Finish choosing your genre first."}
  if not can_recruit(id):
   return {"ok":false,"message":"Already selected, full band or not enough talent for the complete lineup."}
+ _audition_busy=true
  var before:=snapshot()
  var result: Dictionary = game.recruit(id)
  if result.get("ok",false):
   change_counter += 1
   if not _save_identity_or_restore(before):
+   _audition_busy=false
    return {"ok":false,"message":"The invitation could not be saved. Nothing changed; try again."}
+ _audition_busy=false
  return result
 
 func remove_member(id: String) -> Dictionary:

@@ -147,13 +147,15 @@ func _rebuild() -> void:
  outer.add_child(root_box)
  var header := HBoxContainer.new()
  header.add_theme_constant_override("separation",12)
+ var encounter_chrome: bool=game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false))
  if game.phase=="recruit":
-  var title := _label("AUDITIONS",26 if not mobile else 21)
-  title.name = "AuditionsHeading"
-  title.custom_minimum_size.y = 44
-  _decorate_audition_heading(title)
-  title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-  header.add_child(title)
+  if not encounter_chrome:
+   var title := _label("AUDITIONS",26 if not mobile else 21)
+   title.name = "AuditionsHeading"
+   title.custom_minimum_size.y = 44
+   _decorate_audition_heading(title)
+   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   header.add_child(title)
  else:
   # Reserve the displayed artwork's actual width, keeping the established
   # header height. The previous wider empty slot crowded short band names.
@@ -182,6 +184,7 @@ func _rebuild() -> void:
  var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
  var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  budget.name = "BudgetLabel"
+ if encounter_chrome:budget.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
  root_box.add_child(header)
@@ -203,7 +206,8 @@ func _rebuild() -> void:
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
- root_box.add_child(status)
+ if encounter_chrome:status.free()
+ else:root_box.add_child(status)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
  else:
