@@ -6,6 +6,7 @@ const Base = preload("res://experiments/character_cast/vendor/recruitment_catalo
 const Names = preload("res://experiments/playable_flightcase/name_rules.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const LOGOS := ["Wordmark","Stamp","Monogram"]
 const PALETTES := ["Amber / Charcoal","White / Ink","Red / Black"]
 const VIBES := ["Unpolished","Nocturnal","Wry","Atmospheric"]
@@ -40,7 +41,9 @@ var identity_complete: bool = false
 var identity_style: Dictionary = {}
 var _audition_present := false
 var _audition_raw: Variant = null
-var _audition_busy := false
+var _audition_busy := false # Shared owner transaction lock: audition and lyric workbench.
+var _workbench_serial := 0
+var _workbench_transaction: Dictionary = {}
 var _opening_extensions: Dictionary = {}
 var _game_extensions: Dictionary = {}
 
@@ -70,7 +73,7 @@ func begin_new() -> bool:
  return _save_identity_or_restore(before)
 
 func set_genre(value: String) -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "genre" or not Base.genres().has(value):
   return false
  game.genre = value
@@ -78,14 +81,14 @@ func set_genre(value: String) -> bool:
  return save_draft()
 
 func to_recruit() -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "genre" or not Base.genres().has(game.genre):
   return false
  screen = "recruit"
  return save_draft()
 
 func back_to_genre() -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "recruit":
   return false
  screen = "genre"
@@ -117,7 +120,7 @@ func can_recruit(id: String) -> bool:
  return not person.is_empty() and Base.can_add(game.roster,person) and game.remaining()-Base.incremental_cost(game.roster,person)-vocal_extra_cost()>=0
 
 func recruit(id: String) -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Finish choosing your genre first."}
@@ -135,7 +138,7 @@ func recruit(id: String) -> Dictionary:
  return result
 
 func remove_member(id: String) -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Return to the lineup first."}
@@ -148,7 +151,7 @@ func remove_member(id: String) -> Dictionary:
  return result
 
 func choose_vocal(id: String) -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Choose band members first."}
@@ -185,7 +188,7 @@ func ready() -> bool:
  return screen == "recruit" and missing().is_empty() and game.roster.size() <= 6
 
 func confirm_lineup() -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if not ready():
   return {"ok":false,"message":"Still need "+missing()+"."}
@@ -196,7 +199,7 @@ func confirm_lineup() -> Dictionary:
 
 
 func start_naming() -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "formed" or not formed_once:
   return false
  var before: Dictionary = snapshot()
@@ -210,7 +213,7 @@ func name_reactions() -> Array:
  return Names.reactions(game.roster,name_intent,game.genre) if not name_offer.is_empty() else []
 
 func submit_name(value: String,intent: String) -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_settled:
   return {"ok":false,"message":"Finish the lineup before naming."}
  var proposed: String = value.strip_edges()
@@ -235,7 +238,7 @@ func submit_name(value: String,intent: String) -> Dictionary:
  return {"ok":true,"message":"The band's given its verdict.","reactions":name_reactions()}
 
 func rethink_name() -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_offer.is_empty() or name_revisions>=1:
   return {"ok":false,"message":"Only one rethink is free."}
  var before: Dictionary = snapshot()
@@ -247,7 +250,7 @@ func rethink_name() -> Dictionary:
  return {"ok":true,"message":"One more chance to find a name everyone can live with."}
 
 func lock_name() -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_offer.is_empty() or name_settled:
   return {"ok":false,"message":"Propose a valid name first."}
  var comments: Array = name_reactions()
@@ -274,7 +277,7 @@ func lock_name() -> Dictionary:
  return {"ok":true,"message":"Band name confirmed.","chemistry_delta":name_delta}
 
 func start_identity() -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "name_milestone" or not name_settled:
   return false
  var before: Dictionary = snapshot()
@@ -282,7 +285,7 @@ func start_identity() -> bool:
  return _save_identity_or_restore(before)
 
 func set_identity(next_logo: String,next_palette: String,next_vibe: String) -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "identity" or not LOGOS.has(next_logo) or not PALETTES.has(next_palette) or not VIBES.has(next_vibe):
   return false
  var before: Dictionary = snapshot()
@@ -292,7 +295,7 @@ func set_identity(next_logo: String,next_palette: String,next_vibe: String) -> b
  return _save_identity_or_restore(before)
 
 func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionary:
- if _audition_busy or Audition.locked(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "identity" or identity_complete or not name_settled:
   return {"ok":false,"message":"Complete the name and design first."}
  var vocalist: Dictionary = _lead_person()
@@ -330,7 +333,7 @@ func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionar
  return {"ok":true,"message":"The band identity is locked. Head to your first practice."}
 
 func start_playing() -> bool:
- if _audition_busy or Audition.locked(snapshot()):return false
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return false
  if screen != "complete" or not identity_complete or game.phase != "play":
   return false
  var before: Dictionary = snapshot()
@@ -366,6 +369,13 @@ func snapshot() -> Dictionary:
  return result
 
 func restore(value: Dictionary) -> bool:
+ if _audition_busy:return false
+ _audition_busy=true
+ var restored: bool=_restore_owned(value)
+ _audition_busy=false
+ return restored
+
+func _restore_owned(value: Dictionary) -> bool:
  if int(value.get("schema_version",0)) != 1:
   return false
  var proposed := str(value.get("screen",""))
@@ -489,13 +499,13 @@ func _finish_audition(before: Dictionary,result: Dictionary) -> Dictionary:
   return {"ok":false,"message":str(result.get("message","This audition choice is unavailable.")),"changed":false}
  _audition_present=true
  _audition_raw=(result["wrapper"] as Dictionary).duplicate(true)
- if not save_draft():
+ if not _save_draft_owned():
   _rollback_identity(before)
   return {"ok":false,"message":"The audition could not be saved. Nothing changed; try again.","changed":false}
  return {"ok":true,"message":str(result.get("message","")),"changed":true,"view":audition_view(),"expected":audition_expected()}
 
 func begin_audition(candidate_id: String,role: String) -> Dictionary:
- if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ if _audition_busy or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
  _audition_busy=true
  var before:=snapshot()
  var result:=_finish_audition(before,Audition.begin(before,candidate_id,role))
@@ -503,7 +513,7 @@ func begin_audition(candidate_id: String,role: String) -> Dictionary:
  return result
 
 func audition_action(action: String,expected: Dictionary,request: String="") -> Dictionary:
- if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ if _audition_busy or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
  _audition_busy=true
  var before:=snapshot()
  var result:=_finish_audition(before,Audition.checkpoint(before,action,expected,request))
@@ -511,7 +521,7 @@ func audition_action(action: String,expected: Dictionary,request: String="") -> 
  return result
 
 func invite_audition(expected: Dictionary) -> Dictionary:
- if _audition_busy:return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
+ if _audition_busy or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
  _audition_busy=true
  var before:=snapshot()
  var prepared:=Audition.prepare_invite(before,expected)
@@ -528,17 +538,25 @@ func invite_audition(expected: Dictionary) -> Dictionary:
  return result
 
 func _save_identity_or_restore(before: Dictionary) -> bool:
- if save_draft(): return true
+ var written: bool=_save_draft_owned() if _audition_busy else save_draft()
+ if written:return true
  _rollback_identity(before)
  return false
 
 func save_draft() -> bool:
+ if _audition_busy:return false
+ _audition_busy=true
+ var saved: bool=_save_draft_owned()
+ _audition_busy=false
+ return saved
+
+func _save_draft_owned() -> bool:
  # The old valid draft remains intact until a complete replacement is ready.
  var temporary: String = SAVE_PATH+".identity-tmp"
  var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
- file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present))
+ file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY)))
  file.flush()
  var written: bool = file.get_error()==OK
  file.close()
@@ -551,14 +569,120 @@ func save_draft() -> bool:
  return replaced==OK
 
 func load_draft() -> bool:
+ if _audition_busy:return false
+ _audition_busy=true
+ var loaded: bool=_load_draft_owned()
+ _audition_busy=false
+ return loaded
+
+func _load_draft_owned() -> bool:
  if not FileAccess.file_exists(SAVE_PATH):
   return false
  var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
  if not parsed is Dictionary:
   return false
  var normalised: Variant = game._restore_integral_numbers(parsed)
- return restore(normalised as Dictionary) if normalised is Dictionary else false
+ return _restore_owned(normalised as Dictionary) if normalised is Dictionary else false
 
 func has_valid_draft() -> bool:
  var trial = get_script().new()
  return trial.load_draft()
+
+
+func workbench_view() -> Dictionary:
+ return Workbench.view(snapshot())
+
+func workbench_expected() -> Dictionary:
+ return Workbench.expected(snapshot())
+
+func _workbench_result(ok: bool,changed: bool,message: String) -> Dictionary:
+ return {"ok":ok,"changed":changed,"message":message,"view":workbench_view(),"expected":workbench_expected()}
+
+func _finish_workbench_free(before: Dictionary,result: Dictionary) -> Dictionary:
+ if not result.get("ok",false):
+  _rollback_identity(before)
+  return _workbench_result(false,false,str(result.get("message","This saved sketch needs review.")))
+ if not result.get("changed",false):return _workbench_result(true,false,str(result.get("message","")))
+ var outside_before: Dictionary=before.duplicate(true)
+ var outside_after: Dictionary=(result["state"] as Dictionary).duplicate(true)
+ outside_before.game.career.erase(Workbench.KEY)
+ outside_after.game.career.erase(Workbench.KEY)
+ if not Workbench._exact(outside_before,outside_after):
+  _rollback_identity(before)
+  return _workbench_result(false,false,"A free sketch cannot change the original career.")
+ game.career=(result.state.game.career as Dictionary).duplicate(true)
+ if not _save_draft_owned():
+  _rollback_identity(before)
+  return _workbench_result(false,false,"The sketch could not be saved. The previous band and your local words are retained; try again.")
+ return _workbench_result(true,true,str(result.get("message","")))
+
+func begin_workbench(title: String,leader_index: int,expected: Dictionary) -> Dictionary:
+ if _audition_busy:return _workbench_result(false,false,"A band action is already being saved.")
+ _audition_busy=true
+ var before:=snapshot()
+ var result:=_finish_workbench_free(before,Workbench.begin(before,title,leader_index,expected))
+ _audition_busy=false
+ return result
+
+func workbench_action(action: String,expected: Dictionary,payload: Dictionary={}) -> Dictionary:
+ if _audition_busy:return _workbench_result(false,false,"A band action is already being saved.")
+ _audition_busy=true
+ var before:=snapshot()
+ var result:=_finish_workbench_free(before,Workbench.checkpoint(before,action,expected,payload))
+ _audition_busy=false
+ return result
+
+func begin_workbench_commit(expected: Dictionary) -> Dictionary:
+ var fail: Dictionary={"ok":false,"changed":false,"message":"A band action is already being saved.","transaction_id":"","prepared":{},"before_game":{}}
+ if _audition_busy:return fail
+ _audition_busy=true
+ var before:=snapshot()
+ var prepared:=Workbench.prepare_paid(before,expected)
+ if not prepared.ok:
+  _audition_busy=false
+  fail.message=prepared.message
+  return fail
+ _workbench_serial+=1
+ var ticket: String="workbench-tx:%d" % _workbench_serial
+ _workbench_transaction={"id":ticket,"before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{}}
+ return {"ok":true,"changed":false,"message":"","transaction_id":ticket,"prepared":prepared.prepared.duplicate(true),"before_game":(before.game as Dictionary).duplicate(true)}
+
+func _workbench_ticket(ticket: String) -> bool:
+ return _audition_busy and not ticket.is_empty() and _workbench_transaction.get("id")==ticket
+
+func abort_workbench_commit(transaction_id: String,message: String) -> Dictionary:
+ if not _workbench_ticket(transaction_id):return _workbench_result(false,false,"That saved-session ticket is no longer active.")
+ _rollback_identity(_workbench_transaction.before)
+ _workbench_transaction={}
+ _audition_busy=false
+ return _workbench_result(false,false,message)
+
+func complete_workbench_original(transaction_id: String,original_result: Dictionary) -> Dictionary:
+ if not _workbench_ticket(transaction_id):return {"ok":false,"changed":false,"message":"That saved-session ticket is no longer active."}
+ if not _workbench_transaction.completion.is_empty():return {"ok":false,"changed":false,"message":"The original session has already been checked."}
+ var completed:=Workbench.complete_original(_workbench_transaction.before,snapshot(),_workbench_transaction.prepared,original_result)
+ if not completed.ok:
+  var failed:=abort_workbench_commit(transaction_id,completed.message)
+  return {"ok":false,"changed":false,"message":failed.message}
+ _workbench_transaction.completion=completed.completion.duplicate(true)
+ _workbench_transaction.original_result=original_result.duplicate(true)
+ return {"ok":true,"changed":false,"message":""}
+
+func finish_workbench_commit(transaction_id: String) -> Dictionary:
+ if not _workbench_ticket(transaction_id):return _workbench_result(false,false,"That saved-session ticket is no longer active.")
+ if _workbench_transaction.completion.is_empty():return abort_workbench_commit(transaction_id,"The original session has not been checked; nothing was saved.")
+ var before: Dictionary=_workbench_transaction.before
+ var sealed:=Workbench.seal_paid(before,snapshot(),_workbench_transaction.prepared,_workbench_transaction.completion,_workbench_transaction.original_result)
+ if not sealed.ok:return abort_workbench_commit(transaction_id,sealed.message)
+ game.career=(sealed.state.game.career as Dictionary).duplicate(true)
+ if not _save_draft_owned():return abort_workbench_commit(transaction_id,"The session could not be saved. Your whole previous band and words are retained; try again.")
+ var original: Dictionary=_workbench_transaction.original_result.duplicate(true)
+ original.state=game.career.duplicate(true)
+ if game.career.get("last_rehearsal_outcome") is Dictionary:original.outcome=game.career.last_rehearsal_outcome.duplicate(true)
+ var reference: Dictionary=game.career.get(Workbench.KEY,{}).get("last_result",{}).get("finished_ref",{}).duplicate(true) if int(_workbench_transaction.prepared.stage)==2 else {}
+ _workbench_transaction={}
+ _audition_busy=false
+ var result:=_workbench_result(true,true,str(sealed.message))
+ result["result"]=original
+ result["finished_ref"]=reference
+ return result

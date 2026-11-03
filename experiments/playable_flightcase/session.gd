@@ -1,5 +1,6 @@
 extends RefCounted
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 ## C26 isolated gameplay: reuse genuine recruitment, songwriting, rehearsal rules.
 ## This code never touches production career saves or replaces catalogue identities.
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
@@ -214,6 +215,17 @@ func _record_practice(result: Dictionary,focus: String) -> Dictionary:
  return result
 
 func write_session(idea: String,form: String,title: String,leader_index: int) -> Dictionary:
+ return _write_session_guarded(idea,form,title,leader_index,{})
+
+func write_session_prepared(idea: String,form: String,title: String,leader_index: int,permit: Dictionary) -> Dictionary:
+ return _write_session_guarded(idea,form,title,leader_index,permit)
+
+func _write_session_guarded(idea: String,form: String,title: String,leader_index: int,permit: Dictionary) -> Dictionary:
+ var guard: Dictionary=Workbench.guard_write(snapshot(),idea,form,title,leader_index,permit)
+ if not guard.get("ok",false):return guard
+ return _write_session_original(idea,form,title,leader_index)
+
+func _write_session_original(idea: String,form: String,title: String,leader_index: int) -> Dictionary:
  var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
  if not bool(commitment.get("ok",false)):return commitment
  if phase != "play":
