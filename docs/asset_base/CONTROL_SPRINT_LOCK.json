@@ -324,7 +324,7 @@
   },
   "pending_implementation": true,
   "pending_helpers": true,
-  "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
+  "next_action": "S97 sameowningroot finishes remainingwide/desktopstandard+default and finalsource/log/RGBA/native/Pages/solequeue/canonicalcloseout. All8variants3498checks and73/88/import/early2/phone+tallstandard passed. Candidate5b08 unchanged, noAPK. See durableactive-progress.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -351,7 +351,7 @@
     "hard_stop": "2026-11-01T20:00:00Z"
   },
   "source_freeze_target": "2026-11-04T20:15:00Z",
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "latest_unverified_candidate": null,
   "source_phase": "S96_OPTIONAL_INDIE_GENRE_PREVIEW_COMPLETE",
   "source_frozen_at": "2026-11-03T20:33:38.625812+00:00",
@@ -3025,5 +3025,7 @@
   "s96_new_owner_variations_acceptance": {
     "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
-  }
+  },
+  "active_progress_recorded_at": "2026-11-03T21:21:59.204393+00:00",
+  "s97_active_progress": "/workspace/work/s97-approved-variants-20261103/active-progress.json"
 }

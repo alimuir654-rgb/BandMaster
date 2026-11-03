@@ -11,7 +11,7 @@
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
   "status": "active",
-  "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
+  "next_action": "S97 sameowningroot finishes remainingwide/desktopstandard+default and finalsource/log/RGBA/native/Pages/solequeue/canonicalcloseout. All8variants3498checks and73/88/import/early2/phone+tallstandard passed. Candidate5b08 unchanged, noAPK. See durableactive-progress.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3240,7 +3240,7 @@
   },
   "splash_owner_feedback": "Owner explicitly likes current splash and title lettering; no blanket art approval.",
   "latest_unverified_candidate": null,
-  "pending_candidate_source_sha": null,
+  "pending_candidate_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "historical_held_candidates": [
     {
       "source_sha": "445230210a4b41371b29dff5eaa442a4918c10be",
@@ -6386,5 +6386,7 @@
   "s96_new_owner_variations_acceptance": {
     "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
-  }
+  },
+  "active_progress_recorded_at": "2026-11-03T21:21:59.197834+00:00",
+  "s97_active_progress": "/workspace/work/s97-approved-variants-20261103/active-progress.json"
 }

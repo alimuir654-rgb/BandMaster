@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1343138,
-    "sha256": "1cd5d0e38c326ff61b8b3ba8a886038f9db9d78e7cf1445f4e47cdbaa6135362"
+    "bytes": 1349817,
+    "sha256": "cb1e0379f9976a5aaaaa9c1cf21cc1c6fb7829295b5b4669aa994e2bdde0a1a0"
   },
   "baseline_sha": "0039145cb3d0983f974f649aa8d59497762689f0",
   "game_baseline_sha": "25bac73f252747d0b5b213af3756e5de757e791d",
@@ -76,10 +76,10 @@
   "pending_implementation": true,
   "storage_plan": {
     "aggregate_cap_bytes": 205520896,
-    "source_cap_bytes": 100663296,
-    "cache_cap_bytes": 75497472,
-    "PNG_cap_bytes": 20971520,
-    "work_and_reserve_bytes": 8388608,
+    "source_cap_bytes": 100000000,
+    "cache_cap_bytes": 72000000,
+    "PNG_cap_bytes": 18000000,
+    "work_and_reserve_bytes": 15520896,
     "workspace_floor_bytes": 629145600,
     "TMP_floor_bytes": 629145600,
     "initial_free_bytes": 845172736,
@@ -93,7 +93,29 @@
       "scope": "OnlynewS97case user shader_cache directories symlink to this newempty samecandidate privatepool. Alluserdatasaves/logs remain freshprivatepercase. Rootoneflock sequential exact5b08source. Existingearlycases/oldS95/S96caches untouched; no copying or sharing oldsource mutable importcaches.",
       "why": "Avoid up to~8MiB duplicate compiledCanvasShader caches while proving8branch scenarios+4standard. Completeallocationfloors andPNGquota unchanged.",
       "independent_review": "game_design_research explicitly CLEAR prospectively in currentthread; no higher-levelpoolprohibition; conditions adopted, earlier blanketwording carvedout before creation."
-    }
+    },
+    "initial_category_plan_before854": {
+      "aggregate_cap_bytes": 205520896,
+      "source_cap_bytes": 100663296,
+      "cache_cap_bytes": 75497472,
+      "PNG_cap_bytes": 20971520,
+      "work_and_reserve_bytes": 8388608,
+      "workspace_floor_bytes": 629145600,
+      "TMP_floor_bytes": 629145600,
+      "initial_free_bytes": 845172736,
+      "whole_scope_margin_above_floor": 10506240,
+      "external_repo_and_primaryGit_growth_reserve_within_work_bytes": 2097152,
+      "cache_contract": "ONE freshprivate414source importcache. No oldsource mutableimportcache copied/shared and no purge. Prospectively explicit narrow EXCEPTION a7cdda: one NEW empty shader-only pool for exact5b08candidate within SAME72MiBcachecap; only previously absent shader_cache paths in currentS97privateuserdirs link before nativeengine. Fresh save scenarios share a warm same-candidate shadercache, NOT independentcoldGPU caches. Existingearly/importedartifact bytes remain exact; current UIDmetadata observed separately. Newsource/engine/driver requires new pool/scope.",
+      "PNG_contract": "All216standard steps genuinelyexecute and freshlyencodepostdraw. If currentencodedSHA+family+dims EXACTmatch verifiedactualretainedS96physicalPNG withsource/receiptSHA, write referenceevent only; otherwise preserveNEWphysicalPNG. Count separately. Focusedothercapturesbuffer-onlydiagnostic no pixelwitness claim, twoPNGs perrun.20MiBglobalcap BEFOREwrite; aggregate/floorbeforeeachengine. Preservealloldraw/audio/PNG/log/history.",
+      "current_native_shader_pool": {
+        "path": "/workspace/work/s97-approved-variants-20261103/candidate-v1/private-import-cache/native-shader-pool",
+        "funding": "Within existing72MiBcachecap/196MiBaggregate, no capincrease. Currentimportcache70,537,216B leaves4,960,256B within72MiB for one~1MiB current-native compiler pool.",
+        "scope": "OnlynewS97case user shader_cache directories symlink to this newempty samecandidate privatepool. Alluserdatasaves/logs remain freshprivatepercase. Rootoneflock sequential exact5b08source. Existingearlycases/oldS95/S96caches untouched; no copying or sharing oldsource mutable importcaches.",
+        "why": "Avoid up to~8MiB duplicate compiledCanvasShader caches while proving8branch scenarios+4standard. Completeallocationfloors andPNGquota unchanged.",
+        "independent_review": "game_design_research explicitly CLEAR prospectively in currentthread; no higher-levelpoolprohibition; conditions adopted, earlier blanketwording carvedout before creation."
+      }
+    },
+    "rebalance854": "Prospective remainingdefault/closeout funding from unusedsource/cache/PNG category balances;196MiBaggregate/600MiBfloor unchanged. Initialworkestimate overrun retained andnotcalled originalsubcapPASS."
   },
   "next_action": "Encode exactapprovedPCM totwoOGGs, updateversionedregistry only, commit thenassemble414curated freshprivate runtime/cache; earlyphoneSPACE/shortwideOWN beforefullproof.",
   "independent_predesign": {
@@ -137,5 +159,7 @@
     "path": "/workspace/work/s96-genre-preview-20261103/owner-variations-approval.json",
     "sha256": "d0cde31e5045a20a5f5b866b280ee569a4a4492321afd80a9f9b24c5b2f5a48c"
   },
-  "storage_amendment_at": "2026-11-03T21:09:59.642019+00:00"
+  "storage_amendment_at": "2026-11-03T21:09:59.642019+00:00",
+  "candidate_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "evidence_count_refinement_852": "Actual frozen standard58calls/54families perprofile =232freshencodingevents/216families. No productassertion removed; versionednonshippingwriter handles repeatedcapturefamily withoutoverwriting."
 }
