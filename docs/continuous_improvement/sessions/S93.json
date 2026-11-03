@@ -22,8 +22,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1312701,
-    "sha256": "e14398bbe8e258498eaaa4317a39168db429f03dcb2e665c49919b64e4c04236"
+    "bytes": 1313998,
+    "sha256": "6279b3721056e6814a55c6adba73e577d9f52c25faadb7da78c09f508006b38f"
   },
   "baseline_sha": "7bf8b9b0fba08a1a3dec4891c93b9987ff3f1616",
   "game_baseline_sha": "0ec6b252bc27a119a1c74b53a6b644fb3163016b",
@@ -34,14 +34,14 @@
     "kind": "Actually reopened currentGame room/contact-art native reference for futureaudio alignment; NONVISUAL tooling isnotjudged bypixels, no audioquality/playingclaim. Functionalcontract S92document/S89brief separately."
   },
   "dominant_issue": "BM-38",
-  "hypothesis": "An actual originalmulti-string physicallymodelled indie guitar chord study with crediblefrettedvoicings/strokeorder/dynamics andisolatedCPUaudioDSP dependency can giveownerplayabletone/feelreview withoutsingle-note resampling, paidservices/blockedmodeldownload orruntimeAI. Label honestlygeneratedstring-modelprototype, nothumanperformance/Jackskillproof.",
-  "controlled_comparison": "Newchangedmethod generatesindependentpluckedstringexcitation atactualfingeredpitches, down/upstrokeorder/dynamics/muting, originalD/G/A/Dwrittenprogression100BPM. No samples/one-note resampling/oldWAV reconstruction. Two matchedlevel clean/warmamp variations optionalfromsamerawperformance; finaltailsincluded. Source/provenance/effects pins/localmeasurement, no claimhumanlistening/qualityPASS.",
+  "hypothesis": "Owner research notes favour sampled instruments over waveform synth. A real SFZ multisample virtual guitar with individually recorded pitches, velocity layers and alternate takes plus original playable voicings/up-downstroke phrasing can provide an actual12second indie listening cue; no claim human performance or Jack skill.",
+  "controlled_comparison": "Replace UNEXECUTED physical-string proposal. Fresh acquired CC0 BlackAndGreen pinnedb3b3249 sample subset; pysfizz0.1.3 SFZ engine, isolatedCPU offline. Actual D/G/A/D4bars100BPM+complete2.4secondtail; allthree recorded velocity layers and roundrobins for13 exact MIDI pitches. No oldsingle-note repitch. One clean restrainedsmallroom review, raw retained; owner listening pending.",
   "stop_condition": "HOLD actualdependencylicense/cost/storage/networkpolicyfailure, sourceGamechange, generationerrors/unboundedallocation, clipping/invalidWAV/rightsuncertainty; no paid/newservice/key/proxybypass/defaultvenv/globalinstall or fakeAI/human/audioqualityclaim. Ownerlisteningbeforeintegration.",
   "allowed_paths": [
     "tools/audio_authoring/core.py",
     "tools/audio_authoring/__main__.py",
     "tools/audio_authoring/catalog.json",
-    "tools/audio_authoring/string_model.py",
+    "tools/audio_authoring/sample_renderer.py",
     "tools/audio_authoring/requirements-review.txt",
     "tools/audio_authoring/examples/indie_generated_guitar.json",
     "tools/audio_authoring/README.md",
@@ -61,8 +61,8 @@
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S93.json",
-    "Isolated --system-site-packages venv; pinnedpedalboard0.9.26 wheel+license+hash report; existingnumpy/scipy/ffmpeg actualversions. No hostglobal packagechange.",
-    "Originalauthoringtests plus targetbackend/requestguard tests; actualbounded22secondguitar render, completeWAVinspection/decodedFFmpeg LUFS/truepeak/ERROR/sourcehash/protected408 checks. No Godot/native/APK/activityreruns."
+    "Isolated pinnedpedalboard0.9.26+pysfizz0.1.3 wheels/hash/license/footprint; CC0selectedsamples exactGitblob+SHA+actualSFZ mapping/PCM headers. No globaldeps/Game runtime.",
+    "Original22authoringtests plus musicalevent/sourceguard tests; actual12second multisampleguitar render, streaming WAVinspection/decodedFFmpegLUFS/truepeak/fulltail/protected408 audit. No engines/APK."
   ],
   "root_lease": {
     "id": "S93-generated-guitar-review-20261103T1825",
@@ -80,10 +80,16 @@
   "storage_plan": {
     "new_aggregate_cap_bytes": 536870912,
     "isolated_dependency_cap_bytes": 268435456,
-    "audio_and_raw_cap_bytes": 67108864,
+    "audio_and_raw_cap_bytes": 134217728,
     "workspace_floor_bytes": 629145600,
     "TMP_floor_bytes": 629145600,
-    "owner_audio_caps": "Old5/36.5s4MiB waived DIRECT; theseareboundedworkspaceallocationnotoldaudioqualitycap. Preserveallpriorhistory."
+    "owner_audio_caps": "Old5/36.5s4MiB waived DIRECT; theseareboundedworkspaceallocationnotoldaudioqualitycap. Preserveallpriorhistory.",
+    "sample_and_audio_scope": "SelectedCC0source samples +raw+processed+complete tails<=128MiB, evidence/reserve<=128MiB, aggregate512MiB/floors600MiB. No full bank/clone."
   },
-  "next_action": "Commit/gate, inspectpinnedCPUdependencylicense/actualwheel footprint, isolatedinstallonly, authorrealrenderbackend/prototype and deliverselectedprivateownerreview. No Aliaccessnewfileautomatically."
+  "next_action": "Gate committed sample-method amendment before pinnedpysfizz install, selectedmultisample acquisition and actualrender. Preserve raw/provenance/history; deliver selectedprivateowner WAV, no newAliaccess.",
+  "research_attachment": {
+    "path": "/workspace/attachments/b2cd8a9c-bf12-4708-9cb5-abe8d86af758/BandMaster_Audio_Codex_Brief-1.md",
+    "sha256": "496eba77cecf0b9335054f3e05f4f7553db6bf574614fda1176ed9d302888329",
+    "authority": "Reference recommendations guide method; proposed Godot manager/MVP is not a direct instruction to integrate before listening acceptance."
+  }
 }
