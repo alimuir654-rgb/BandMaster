@@ -217,6 +217,8 @@ S81 surface reuse: native font-size checks do not prove contrast. A helper that 
 
 S78 save-type prevention: new persisted Dictionary keys must use explicit String indexing. Dot assignment can introduce StringName keys that compare by value but change type after JSON reload. The owned attendance adapter was corrected at three counter writes; retain strict whole-typed owner reread rather than normalising away a product defect. Unknown biography context remains unknown until explicitly recorded; personal finances stay separate from shared band cash.
 
+S84 workbench verification: when a dedicated editor replaces the ordinary status area, route the actual failed-save error into that editor after refresh. Prove whole-owner rollback, visible retry, retained literal words, caret and selection through a real filesystem failure; identical text assignments must not reset native editing state. Free sketch metadata and the original paid session remain separate transactions, with the original resolver and Finance executed once.
+
 ### BM-36
 **What went wrong:** Booking, performance, recruitment and writing could spend before validation, settle twice or diverge between preview and commit.
 **Prevent:** Reuse authoritative pure models; validate before spending; copy preview state; make completion/refund/remove idempotent.
@@ -242,6 +244,8 @@ S71 verified extension: keep unfinished activity metadata outside a fingerprinte
 **What went wrong:** Hours of micro-polish and optional breadth displaced the largest visible gap.
 **Prevent:** Choose one meaningful material/player-facing outcome, cap ineffective corrective continuations at one, reduce breadth before quality and retain completed work.
 **Proof:** Obvious before/after improvement or an explicit changed-method/hold decision. Sources: PLAYBOOK, ASSET, OWNER.
+
+S84 evidence and storage prevention: count capture calls, unique filename families and physically retained originals separately. Retain successful exact-source steps and interrupted private-import history, then execute only missing work; label a child exit deduced from frozen executed control flow separately from a raw exit receipt. Budget the remaining whole journeys and closeout before launching, including code, generated sidecars and receipts. Storage monitors are detection, not an OS quota. A reviewed exact allowlist may deduplicate closed nonshipping QA copies only after byte/ownership checks and a recorded metadata exception; it never authorises raw-input, screenshot, log, save or mutable-cache sharing, removal, or overwriting. Measure physical reclaim before prospectively reallocating it within the unchanged aggregate cap and reserve floor. Preserve every earlier HOLD.
 
 ### BM-40
 **What went wrong:** Repeated stops asked the owner to inspect logs, re-upload accessible assets or make routine implementation choices.
