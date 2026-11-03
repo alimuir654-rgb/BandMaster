@@ -1372,3 +1372,8 @@ ONE next action: Fresh bounded changed-method audio brief: verify a rights-clear
 
 
 S87 post-closeout storage update: direct owner authorised old APK deletion and next steps. Exact27oldlocalAPKs/2,231,967,744B physical reclaimed, all non-APK/source/receipts/Drive untouched. Event801 and durable cleanup receipt govern. Capacity cleared, ordinary primaryGit metadata commit funded; original TMP evidence remains unavailable and audio v1 revision remains.
+
+
+## S88 durable source/import recovery — 2026-11-03T16:00:44.148385+00:00
+
+Preflight20054a997a9d555a9455e1075de7bb4f9e9d6251, Game3d2unchanged. Exact408curated/407Git+146Bentry/96073351B reconstructed from retainedS76audit +17Gitadditions+2explicitartpromotions. No oldruntime/cachecopy or recovered-original claim. Fresh4.7.2Dummy/privateXDG/import exit0/ALLERRORempty/post408exact/savecandidatesempty/privatecache69971968B/aggregate171855872B; source54Scripts3UID exact. Actualrawartimage opened1, no nativePNG. FiveSIMULATEDlenses/visualHOLD, no owner/audioacceptance, no currentmodel/73/88/GL/APK execution. Durablecloseout `/workspace/work/s88-recovery-20261103/closeout.json`. ExistingXorg/config/driver available but NOT changed/started; noDISPLAY99. Rootallwritersreleased. Next: Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.

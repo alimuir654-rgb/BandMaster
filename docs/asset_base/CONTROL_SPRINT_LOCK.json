@@ -1,5 +1,5 @@
 {
-  "writer": "/root",
+  "writer": null,
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T11:10:26.616803+00:00",
   "expires_at": "2026-11-03T17:30:00Z",
@@ -7,8 +7,8 @@
   "authority": "Direct AU01 plan approval/private selected delivery and explicit named Ali reader access; latest owner listening feedback requests generated strumming revision. No integration/APK authority.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "active",
-  "released_at": "2026-11-03T12:09:39.705130+00:00",
+  "status": "released",
+  "released_at": "2026-11-03T16:00:44.148385+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -155,7 +155,7 @@
     "released_at": "2026-10-31T20:53:47.824374+00:00",
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
-  "final_closeout_note": "S87 released, source unchanged. Capacity cleared by owner-authorised27oldAPK deletion; historical TMP evidence still absent. Audio revision remains. Fresh S88 recovery preflight next.",
+  "final_closeout_note": "S88 source/import recovery complete and writers released; recoveredmanifest/newimport are fresh durable evidence, not lostS86 originals. NativeDISPLAY/audio-generation readiness remains; Game3d2 unchanged.",
   "source_writer_released_at": "2026-11-03T12:09:39.705130+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "S86_verified_local_released",
-  "updated_at": "2026-11-03T15:56:52.643945+00:00",
+  "updated_at": "2026-11-03T16:00:44.148385+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -323,8 +323,8 @@
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
   "pending_implementation": false,
-  "pending_helpers": true,
-  "next_action": "Commit this preflight/gate before recoveryallocation; materialize exact408 and verify newly durable source; adopt strictrunner before import/smoke.",
+  "pending_helpers": false,
+  "next_action": "Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -353,7 +353,7 @@
   "source_freeze_target": "2026-11-04T20:15:00Z",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "S88_DURABLE_SOURCE_RECOVERY_ONLY",
+  "source_phase": "S88_SOURCE_RECOVERY_IMPORT_VERIFIED_NATIVE_REVIEW_HOLD",
   "source_frozen_at": "2026-11-03T08:48:44Z",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -460,8 +460,8 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S87",
-  "closeout": "/workspace/work/s87-audio-closeout-20261103/closeout.json",
+  "last_completed_session": "S88",
+  "closeout": "/workspace/work/s88-recovery-20261103/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
   "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
@@ -525,7 +525,7 @@
     "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
   },
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
-  "next_single_action": "Commit this preflight/gate before recoveryallocation; materialize exact408 and verify newly durable source; adopt strictrunner before import/smoke.",
+  "next_single_action": "Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
   "s78_authority": {
     "F11": "Direct ownerapproved +board96ApproveF11checked",
@@ -1155,11 +1155,13 @@
     "no_new_Game_art_audio_APK": true,
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
-  "latest_metadata_deliverable": "S87 closure committed376aaf9; ownerAPK cleanup clearedcapacity; originalTMPevidence remainsHOLD",
+  "latest_metadata_deliverable": "S87 committed376aaf9; S88reconstructed408exact/currentprivateimportPASS; nativeUX02visualreview stillHOLD, no shippingchange",
   "root_lease": {
     "id": "S88-durable-source-recovery-20261103T1558",
-    "writer": "/root",
-    "expires_at": "2026-11-03T17:30:00Z"
+    "writer": null,
+    "expires_at": "2026-11-03T17:30:00Z",
+    "status": "released",
+    "released_at": "2026-11-03T16:00:44.148385+00:00"
   },
   "source_implementation_status": "NONE; Game3d2 source unchanged",
   "storage_operation_782": {
@@ -1758,5 +1760,68 @@
     "next_single_action": "After actual S86 root release, fresh S87(or actual next free) UX02 complete performance-choice/after-set context REVIEW. Pin current phone/shortwide/source/saved prefix, player goal and interruption points, independent predesign; fresh actual storage/protection/committed preflight/gate before repair. UX01 is complete; do not rerun passed suites or rebuild booking/economy/hardware. AU01 plan remains pending owner; all APK work held.",
     "latest_external_read_status": "Current Plan25/Board133/comments read; media access/MIME/bytes/digests verified; all69choices22checked/47priorimages/AgentInstructions/archive/deletedA03absence retained. No browser-render claim."
   },
-  "delivery_status": "PrivateV9/source625 remains current phone APK; unchanged/excludesS83/S84/S86/audio. Three selected source-study-v1 WAVs privately accessible to owner chair@lovewelluk.com and named reader alimuir654@gmail.com only, owner requests quality revision. No new accepted audio/integration/APK work."
+  "delivery_status": "PrivateV9/source625 remains current phone APK; unchanged/excludesS83/S84/S86/audio. Three selected source-study-v1 WAVs privately accessible to owner chair@lovewelluk.com and named reader alimuir654@gmail.com only, owner requests quality revision. No new accepted audio/integration/APK work.",
+  "s88_closeout": {
+    "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+    "preflight_sha": "20054a997a9d555a9455e1075de7bb4f9e9d6251",
+    "status": "SOURCE_RECOVERY_AND_FRESH_IMPORT_PASS_NATIVE_VISUAL_REVIEW_HOLD",
+    "evidence": {
+      "/workspace/work/s88-recovery-20261103/reconstructed-source.json": "17eb9e7f9ff4cf0fef74adac01d76f74ef3799250b507d72a07c5f409558a3de",
+      "/workspace/work/s88-recovery-20261103/import_recovery.py": "060f3d2d9d1b2318e36e31d2d733e0b827eac80110474217a97d9319f6fa18ee",
+      "/workspace/work/s88-recovery-20261103/fresh-import-v1/execution.json": "8d0b969e6ba28bd569b334c06c2d23f843464004dc44b3aa80497fc443ec0bc3",
+      "/workspace/work/s88-recovery-20261103/fresh-import-v1/engine.log": "3d4e4a0eacda724c13f56123b7fd51bec1bb0b90f9f4c3a3672ea70924fe638f"
+    },
+    "visual_verdict": "hold",
+    "next_action": "Restore native DISPLAY99 using the existing approved environment setup without Xorg/config/dependency changes, then fresh UX02 phone390/shortwide1280 important-state review before any repair. Root must verify latest lease/head and budget; no new source edits until scoped preflight/early/final proofs. Revised audio waits verified generation capability/rights and actual listening acceptance.",
+    "new_issue_review": {
+      "through_event": "S88-20261103-803",
+      "recovery_recipe_and_import_reviewed": true,
+      "original_failure_history_preserved": true
+    },
+    "curated_inputs": 408,
+    "raw_Git_inputs": 407,
+    "isolated_entry_bytes": 146,
+    "source_bytes": 96073351,
+    "current_private_import": true,
+    "import_child_exit": 0,
+    "all_error_lines": [],
+    "all_source_inputs_unchanged": true,
+    "original54Scripts_including3UIDs_unchanged": true,
+    "private_cache_bytes": 69971968,
+    "aggregate_bytes_at_import": 171855872,
+    "storage_limits_are_detection_not_quota": true,
+    "current_73_88_model_GL_capture_executions": 0,
+    "current_engine_import_executions": 1,
+    "configured_entry_launch_executed": false,
+    "no_save_candidates_found": true,
+    "native_orphans_measured": false,
+    "owner_approved": false,
+    "audio_listening_accepted": false,
+    "original_TMP_evidence_restored": false,
+    "actually_opened_images": [
+      "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png"
+    ],
+    "image_kind": "one retained raw art source, not current native UI",
+    "simulated_lenses": {
+      "art": "SIMULATED: rawcrowdview remainsapproved existingcamera, no newart orplayingclaim.",
+      "UX": "SIMULATED: source-only UX02contextfinding needs native phone/shortwide before repair.",
+      "engineering": "SIMULATED: exactsource+privateimport pass; no runtimejourney/defaultGL proof claimed.",
+      "production": "SIMULATED: durable recovery removescapacity/sourceavailabilityblock, not missinghistoricalevidence or backendcapability.",
+      "owner_review": "SIMULATED: audio v1 remains directownerREVISION; no checkboxchange/acceptance inferred."
+    },
+    "remaining_gaps": [
+      "NoDISPLAY99socket/server; Xvfbmissing. Xorgbinary/existingdummyconfig/driver available but untouched.",
+      "No current native snapshots/wholejourney evidence recovered.",
+      "No dedicated suitable cleared audio generator exposed.",
+      "Artwork method remains preparation, no new source approval."
+    ],
+    "released_at": "2026-11-03T16:00:44.148385+00:00"
+  },
+  "recovered_current_source": {
+    "manifest": "/workspace/work/s88-recovery-20261103/reconstructed-source.json",
+    "runtime": "/workspace/work/s88-recovery-20261103/runtime",
+    "private_import": "/workspace/work/s88-recovery-20261103/fresh-import-v1/execution.json",
+    "fresh_reconstruction_not_original": true,
+    "game_source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12"
+  }
 }
