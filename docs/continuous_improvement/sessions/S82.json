@@ -85,11 +85,11 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 1031679,
-    "sha256": "ca50824773baea72ff4d91d0694e612347fcd3b8e5655e084af6abd1bd78b679"
+    "bytes": 1054442,
+    "sha256": "a4a45b67cb56bc7b2c68a5274408ab7e80fe322eb9d7970dfc410adca403e5c7"
   },
   "source_contract": "docs/continuous_improvement/S82_GIG_BOOKING_JOURNEY.md",
-  "source_contract_sha256": "969593dbb33ca82fc381be7a475849fb8ec870caf1e177c50621974a3d38d2d2",
+  "source_contract_sha256": "6dad1ed8929e9554e84508ba0d3532ba481a7924355ec00f4f75e7f2f1012e5c",
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S82.json",
     "Root strict acyclic preload/legacy/new-policy pure proof; exact401 source73/88/import/four standard journeys plus four actual booking-to-result loops, real input/failed-save/retry/reopen/four-view native inspection/EMPTYERRORs. Reexecute changed model closures rather than false reuse."
@@ -102,7 +102,7 @@
   "scope_end": "2026-11-03T02:30:00Z",
   "pending_implementation": true,
   "pending_helpers": true,
-  "delegated_source_writer": "/root/s81_gig_writer",
+  "delegated_source_writer": "/root",
   "expected_final_curation": 401,
   "expected_new_modules": [
     "experiments/playable_flightcase/gig_booking_rules.gd",
@@ -112,5 +112,18 @@
   "protected_guard_leaves": {
     "experiments/playable_flightcase/finance_policy.gd": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26",
     "experiments/playable_flightcase/review_policy.gd": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+  },
+  "initial_delegated_source_writer": "/root/s81_gig_writer",
+  "visual_repair_664": {
+    "target": "/tmp/bandmaster-s82-20261102/proof-booking-desktop-b79-wheel-release-v4/captures/11-initial-soundcheck-setlist-before-hardware-focus-1600x900.png",
+    "target_sha256": "72ea2de916fc28f5b5003e68a52216947cf20357965f833b254db1a026bbecf1",
+    "baseline": "/tmp/bandmaster-s81-20261102/proof-gig-desktop-61d-final/captures/05-initial-soundcheck-setlist-before-hardware-focus-1600x900.png",
+    "source_paths": [
+      "experiments/playable_flightcase/gig_journey_scene.gd",
+      "experiments/playable_flightcase/gig_journey_desk.gd"
+    ],
+    "hypothesis": "Landscape contained place/skip left; named voice plus original hardware and saved set together on right; phone unchanged.",
+    "before_source_sha": "b79e3078c89ab04facc3dc0a97d71e5118651884",
+    "root_originals_opened": true
   }
 }
