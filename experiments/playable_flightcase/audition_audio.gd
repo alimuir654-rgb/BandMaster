@@ -64,6 +64,7 @@ func _refresh() -> void:
  if play_button==null:return
  var available:=not _entry().is_empty()
  play_button.disabled=not available or _muted()
+ play_button.text="SOUND MUTED" if _muted() else ("PLAY PART" if available else "NO AUDIO")
  play_button.tooltip_text="Master sound is muted." if _muted() else ("Hear the revealed written part." if available else "Audio is unavailable for this part; the written sketch remains available.")
  stop_button.disabled=not playing
 
