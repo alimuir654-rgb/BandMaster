@@ -65,8 +65,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1232796,
-    "sha256": "18d597c20922267efc4de17f72fe51b7792b4419a93d1e24823d41c76d4b9de8"
+    "bytes": 1239052,
+    "sha256": "87a3fda2101ab377288ab50970b203233e7f97bbf8ba8464e6bd70c18b0d81c2"
   },
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S86.json",
@@ -81,7 +81,7 @@
   "audio_implementation_allowed": false,
   "APK_work": "HELD",
   "source_contract": "docs/continuous_improvement/S86_PHONE_SOUNDCHECK_WORKSPACE.md",
-  "source_contract_sha256": "1727d7cdb50e1214a8bfbc2488bf3f757f49248d6c71ba186909fe3f554c12f3",
+  "source_contract_sha256": "c2f43595baaa57655b7fc65134fb0eadd27176e5af3788fae52c6565fce0b268",
   "source_writer": "/root/s86_contract_safety",
   "reviewer": "/root/s86_visual_review",
   "qa": "/root/s86_native_qa",
@@ -111,10 +111,10 @@
     "minimum_free_floor": 629145600,
     "aggregate_incremental_cap": 182452224,
     "private_cache_count": 2,
-    "private_cache_cap": 74448896,
+    "private_cache_cap": 73924608,
     "PNG_cap": 12582912,
     "source_copies_cap": 6291456,
-    "QA_receipts_logs_cap": 11534336,
+    "QA_receipts_logs_cap": 12582912,
     "failure_closeout_reserve": 3145728,
     "no_deletion": true,
     "no_mutable_cache_sharing": true
@@ -140,5 +140,15 @@
   "source_implementation_status": "First2leafcandidatecommitted; paused; native/visual proof PENDING",
   "next_action": "Rootfreshcandidateimport and EARLYphone/shortwide before fullproof. LastverifiedGamea8; candidate3d2notyetverified; APK/audioheld.",
   "early_v2_review773": "Phone1677/wide1949 technicalPASS; rootphone2rowsimprovement; fullhardwarePNGreadingpositioninadequate fromQA Skipclick. No productfailure; final/visualacceptancepending.",
-  "storage_review774": "MeasuredremainingQA~10MiB =>cache71x2/QA11/reserve3/PNG12/source6, same174/floor600; nofurtherimports"
+  "storage_review774": "MeasuredremainingQA~10MiB =>cache71x2/QA11/reserve3/PNG12/source6, same174/floor600; nofurtherimports",
+  "early_v3_hold776": "/tmp/bandmaster-s86-20261103/proof-early-phone-3d2-v3/execution.json",
+  "early_gate_v4": {
+    "technical_pass": true,
+    "checks": 3637,
+    "independent_visual": "internal_pass_scopedUX01",
+    "review": "/tmp/bandmaster-s86-20261103/review/early-review-3d2-cleared-v4.json",
+    "whole_gig_claim": false,
+    "historical_v3_failed_preserved": true
+  },
+  "storage_review778": "Cache70.5each/QA12/reserve3/PNG12/source6=174; all source/harness assertions unchanged"
 }
