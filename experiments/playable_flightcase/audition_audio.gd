@@ -45,14 +45,13 @@ func _entry() -> Dictionary:
  var context: Dictionary=_context.call()
  if not context.get("allowed",false) or context.get("material_id","")!=_material:return {}
  if _manifest.get("schema_version")!=1:return {}
- var source: String=str(_manifest.get("content_source",""))
- if not FileAccess.file_exists(source) or FileAccess.get_sha256(source)!=_manifest.get("content_sha256",""):return {}
+ if context.get("content_version","")!=_manifest.get("content_version",""):return {}
  var entries: Dictionary=_manifest.get("materials",{})
  var entry: Dictionary=entries.get(_material,{})
  if not entry.get("owner_listening_accepted",false):return {}
  var path: String=str(entry.get("path",""))
- if not path.begins_with("res://") or not FileAccess.file_exists(path):return {}
- if FileAccess.get_sha256(path)!=entry.get("sha256",""):return {}
+ if not path.begins_with("res://") or not ResourceLoader.exists(path):return {}
+ if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256",""):return {}
  return entry
 
 func _muted() -> bool:

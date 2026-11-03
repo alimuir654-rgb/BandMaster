@@ -320,4 +320,4 @@ func _audio_context() -> Dictionary:
  var allowed: bool=is_visible_in_tree() and owner_state.audition_expected()==_expected and not _busy and live.get("ok",false) and live.get("active",false) and not live.get("held",false) and live.get("phase","") in ["tryout","response","decision"] and owner_state.game.genre=="Indie rock"
  for key in ["id","revision","phase","request"]:
   allowed=allowed and live.get(key)==_view.get(key)
- return {"allowed":allowed,"material_id":Content.material_id("" if _show_prior else str(live.get("request","")))}
+ return {"content_version":Content.VERSION,"allowed":allowed,"material_id":Content.material_id("" if _show_prior else str(live.get("request","")))}
