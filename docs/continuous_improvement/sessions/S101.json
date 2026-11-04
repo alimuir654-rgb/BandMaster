@@ -35,14 +35,19 @@
   "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1395306,
-    "sha256": "3883c08a74ba26cf1e587c58131788bc9e161963a3d96c3d0c7beb6fef99c3a7"
+    "bytes": 1396431,
+    "sha256": "d9a9cd29dc3297031f95428bbdec7db07e3f1e9c6074aa3358bb587e46e85257"
   },
   "hypothesis": "A reviewed role-specific Zoe bass exercise and exact profile/UI/save/QA integration contract make nextimplementation executable without guessing or erasing Jack/Arjun hearings.",
   "controlled_comparison": "Read-only existing424curatedsource; noGame/art/audio/native/cache/save changes. Preserve S100closeout uncommittedmetadatahold. Exactoldpromptarchived before updating SAMEsolequeue only.",
   "stop_condition": "No production before completepersistentbudget; nooldcachecutover withoutspecificapproval. Stopnewworkandhandoffby07:30London; previousNov4outerceiling remainsabsoluteupperbound.",
   "allowed_paths": [
-    "docs/continuous_improvement/sessions/S101.json"
+    "docs/continuous_improvement/sessions/S101.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json"
   ],
   "scratch_allowed_paths": [
     "/workspace/work/s101-overnight-prep-20261104/",
@@ -78,5 +83,7 @@
     "no_arbitrary_cleanup": true,
     "no_TMP_criticalGit": true
   },
-  "next_action": "Update existingsolequeue through07:30 as requested, then author exactZoe content/state/UI/QA contract in bounded scratch; no shippingimplementation."
+  "next_action": "Update existingsolequeue through07:30 as requested, then author exactZoe content/state/UI/QA contract in bounded scratch; no shippingimplementation.",
+  "preflight_sha": "329ded7d3581d530841c4f02a97f5f1c65805ba8",
+  "schedule_policy": "Latest direct07:30stop: samequeue COUNT48\u219234, last07:15opportunity. Prior21:24:35outerceiling retainedashistory, notpermissionpastnew07:30stop; noextraendtask."
 }
