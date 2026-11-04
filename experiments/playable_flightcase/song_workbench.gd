@@ -217,6 +217,11 @@ static func _closed_project_ok(value: Variant,id: String,paid_count: int) -> boo
   if not _trial_ok(trial,id) or trial.is_empty():return false
  return value.target.get("title") is String and _ref_ok(value.target.get("leader_ref")) and _ref_ok(value.target.get("respondent_ref"),true) and not _hash(value).is_empty()
 
+static func _producer_final_trial_ok(project: Dictionary,fragment: Dictionary,paid: Array) -> bool:
+ if paid.size()!=3 or not project.get("last_trial") is Dictionary:return false
+ var trial: Dictionary=project.last_trial
+ return _same(trial.get("fragment_snapshot"),_material(fragment)) and trial.get("producer_fragment_id")==fragment.fragment_id and trial.get("producer_fragment_revision")==fragment.revision and paid.back().get("trial_id")==trial.get("id") and _same(trial.get("target"),project.get("target")) and _same(paid.back().get("target"),project.get("target"))
+
 static func _closed_ok(value: Variant,sequence: int) -> bool:
  if not value is Dictionary:return false
  if value.is_empty():return true
@@ -227,7 +232,7 @@ static func _closed_ok(value: Variant,sequence: int) -> bool:
  if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
  if value.fragment.has("producer_recipe") and (not _same(value.fragment,value.get("project_snapshot",{}).get("fragment")) or not _same(value.paid_receipts,value.get("project_snapshot",{}).get("paid_receipts"))):return false
  if not _closed_project_ok(value.get("project_snapshot"),value.id,value.paid_receipts.size()):return false
- if value.result=="finished" and value.fragment.has("producer_recipe") and not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot):return false
+ if value.result=="finished" and value.fragment.has("producer_recipe") and (not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot) or not _producer_final_trial_ok(value.project_snapshot,value.fragment,value.paid_receipts)):return false
  return not _hash(value).is_empty()
 
 static func validate(opening: Dictionary) -> Dictionary:
@@ -517,6 +522,7 @@ static func _extension_ok(value: Variant) -> bool:
  if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
  if value.fragment.has("producer_recipe") and (not _same(value.fragment,value.get("project_snapshot",{}).get("fragment")) or not _same(value.paid_receipts,value.get("project_snapshot",{}).get("paid_receipts"))):return false
  if value.fragment.has("producer_recipe") and (value.paid_receipts.size()!=3 or not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot)):return false
+ if value.fragment.has("producer_recipe") and not _producer_final_trial_ok(value.project_snapshot,value.fragment,value.paid_receipts):return false
  if value.fragment.has("producer_recipe"):
   var project: Dictionary=value.project_snapshot
   var trial: Dictionary=project.get("last_trial",{}) if project.get("last_trial") is Dictionary else {}

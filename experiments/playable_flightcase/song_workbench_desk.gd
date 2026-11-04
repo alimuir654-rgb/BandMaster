@@ -440,6 +440,7 @@ func _refresh_local() -> void:
  _edit_words.text="DONE EDITING" if _editing_words else "EDIT WORDS"
  var producer: bool=_producer_mode()
  _producer_controls.visible=producer
+ _place.visible=_wide or not producer
  _edit_words.visible=not producer
  for button in _refrains:button.get_parent().visible=not producer
  var prior_tools: Node=find_child("WorkbenchPrior",true,false)
