@@ -31,8 +31,8 @@
   "hypothesis": "Whole-career evidence review separates technicalrobustness fromplayeragency, musicalcredibility and presentationquality, prioritising changes withplayerimpact.",
   "controlled_comparison": "Current0csource/S100retainedoriginals and actualunchangedclosure priorcareer originals; comparatorprimarydescriptions nothands-onorunavailableexternalpixels.",
   "issue_log_review": {
-    "bytes": 1413146,
-    "sha256": "f309dd98efaa6ec600ec0b67ffc985e88c9241667599cd05cfb6dbd528785eb7"
+    "bytes": 1413973,
+    "sha256": "b7fd20bb17c9ce23af471fb5ce0febe4095f3f2ec886bd4714aa25d60eca9eee"
   },
   "stop_condition": "Reviewreport only; closeby08:30London.2MiBworkspace includingGit/docs/receipts; floor600MiB. No engines/source/art/audio/cache/APK/deps/newqueue.",
   "allowed_paths": [
@@ -43,7 +43,8 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/ISSUES.jsonl"
   ],
   "validation_commands": [
     "Inspectactualretainedoriginals; pin source/receipt coverage/currentvslegacy; primarycompetitorsources.",
@@ -66,5 +67,6 @@
     "TMP_new": 0,
     "floor": 629145600,
     "largecopies": 0
-  }
+  },
+  "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation."
 }
