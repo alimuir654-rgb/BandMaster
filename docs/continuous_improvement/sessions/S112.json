@@ -25,14 +25,14 @@
     "pixels_inspected": true
   },
   "id": "S112",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Directowner: Go ahead updatedpriorities, remove ownerdecisionconstraints, buildthrough18:00London andprepareAPK at end. Delegate routinecreative/listening/integrationdecisions; keepprivacy/rights/cost/source/save/test safety.",
   "dominant_issue": "BM-38",
   "hypothesis": "A substantiveZoebass encounter plusdiscoverableexistinglyricworkbench improves representativebandfirstloop beforebroaderaudio content. Actualfastquitresourceleak additionallyneedsnarrowexistingSplashstoprelease; originalaudio/cue/owneronce/mute unchanged.",
   "controlled_comparison": "CurrentS100424manifest/source0c baseline; addZoe pureprofile andgenericpartlabels, preservedJack/Arjun materials/audio/receipts andoriginalcosts. Lyricsketch existingentrypoint made visible withoutbeststatkey. Samefourlayouts/realnativecontrols.",
   "issue_log_review": {
-    "bytes": 1435313,
-    "sha256": "87e1782df7ed897d712f2484c1ddaa3f6f3f52c1edc936c1c9565c36e7316cbb"
+    "bytes": 1439254,
+    "sha256": "81229715df47b54fb48b421bbcfda6111b75f59cdebb4dd46f57cd1b8e3a2f2b"
   },
   "stop_condition": "S112 closeby11:00; earlyphone/shortwide beforefullproof; preservefailedproof/twoineffectiveattempts changedmethod. Dayfreeze16:30/APKverification17:00/hardstop18:00, noextraqueue. Fundingfail changes task, no unreviewedpurge.",
   "allowed_paths": [
@@ -61,12 +61,13 @@
   "reviewer": "Independentpredesign/early/final existingreviewrole; rootaloneGodot",
   "root_lease": {
     "writer": "root_S112_integration",
-    "expires_at": "2026-11-04T11:00:00Z"
+    "expires_at": "2026-11-04T11:00:00Z",
+    "released_at": "2026-11-04T09:11:29.122556+00:00"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "preflight_commit_status": "COMMITBEFORESOURCE",
   "storage_plan": {
     "day_initial_free": 695787520,
@@ -101,5 +102,29 @@
     "no_assertion_weakening": true,
     "added_path": "experiments/playable_flightcase/splash_audio.gd",
     "fully_funded_failed_versions_and_final_tail": true
+  },
+  "known_nonfatal_fast_exit_P2": {
+    "failed_actuals": [
+      "configured-entry-v3",
+      "configured-entry-verbose-v3",
+      "configured-entry-v4"
+    ],
+    "contract": "NOscript abrupt5frames remainsHOLD, neverpromoted",
+    "cause": "Unknown; deferredaudio ownershiponlyinferred",
+    "internal_disposition": "Independentmusician_review agreescontinue scopedZoe/lyricwork withoverallreadinessPARTIAL; naturaldefaultisadditionalcoverage, not5framePASS.",
+    "strict_checks_retained": "Allacceptedactualruns requireERRORempty; startupstop/null/off/future/fullfour/standards/naturaldefaultmustpass.",
+    "no_new_product_delays": "No blockingdelay orfocus/mute bypass introduced."
+  },
+  "closeout": {
+    "tested_sha": "5d8b63733b26b07532012be4cf2bddb6280b815f",
+    "evidence": "/workspace/work/s112-zoe-first-loop-20261104/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "FreshfundedS114 representativeband scope: Marcusdrum/remaining13authoredcontexts, adoptreviewedmatchingbass/genreassets andmatchingMarcusaudio underdelegatedintegrationdecision, currentbase425only; noownerwait. ContinueUX03/coherence andfinalAPKby18:00.",
+    "new_issue_review": {
+      "through_events": 920,
+      "history": "Append-onlysource/QA/retrieval/contrast/fold/soundoracle/funding/forcedquit/audit/bindingfailuresretainedbeforecorrections; 5frameHOLDnotpromoted.",
+      "unresolved": "FastquitP2 +documentedvisualP2; no ownerdecisionpending.",
+      "metadata_prefix_failure": "920 retained; partialwrite recovery only, no source/native change."
+    }
   }
 }

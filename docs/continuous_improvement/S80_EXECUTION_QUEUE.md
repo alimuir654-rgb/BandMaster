@@ -2,7 +2,7 @@
 
 Updated 3 November 2026 for the owner's process, artwork, controls/layout and limited-audio request. This is the **single operational worklist** for the existing finite worker. Earlier S80 notes are retained below as history. The acquisition shortlist remains a source reference, not another active queue.
 
-Current verified game source remains `0c92100b826322c8c92fba89317b60b77dc28c9b` (S100) until S112 final proof closes. S112 candidate `bbef35f78799400a6e3bbe9914f5b38829560449` adds Zoe bass and a free lyric-sketch entry;425curated source rows. S109 storage consolidation and pending metadata are COMPLETE; no storage approval pending. The current owner authorises build through18:00London, delegates routine creative/listening/integration decisions, and requests ONE final APK ready for testing. Same sole queue/thread; V10 remains the current delivered APK until the final build is verified. Historical owner holds below are superseded only for this day scope.
+Current scoped-tested game source: `5d8b63733b26b07532012be4cf2bddb6280b815f` (S112 Zoe savedbass/freeLyricheader).425curated/424Git+146Bentry/96,973,734B, source-final.json in /workspace/work/s112-zoe-first-loop-20261104/ ONLY. Current73/88/emptyimport/4standards+6full4097 PASS; forced5frameexit remainsP2HOLD.65actualGodot/59executionpass/6held/27currentaccepted, overallPARTIAL. S113fiveassetsready/internalreviewCLEAR notyetintegrated. NextfreshfundedS114Marcus/13contexts/audiocohort withdelegateddecisions/noownerwait; S109fundingresolved. FinalAPKdirectlyrequestedby18:00; V10stillcurrentphone/S97. Samequeue/thread, no newcontroller.
 
 ## Ownership and work in progress
 
