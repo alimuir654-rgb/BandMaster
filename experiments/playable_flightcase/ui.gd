@@ -921,17 +921,17 @@ func _writing_notes(info: VBoxContainer) -> void:
 
 func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
- body.add_child(_ink("WRITE AN ORIGINAL",22))
- var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
- stage.name = "WritingStageLabel"
- body.add_child(stage)
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
   var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
   sketch.name="WritingOpenLyricSketch"
   sketch.custom_minimum_size.y=48
   sketch.pressed.connect(_open_lyric_sketch)
   body.add_child(sketch)
-  body.add_child(_ink("Try editable words with a bandmate before using a writing day.",16))
+ else:
+  body.add_child(_ink("WRITE AN ORIGINAL",22))
+ var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
+ stage.name = "WritingStageLabel"
+ body.add_child(stage)
  var fields := GridContainer.new()
  fields.columns = 2 if size.x>=1000 else 1
  fields.add_theme_constant_override("h_separation",12)

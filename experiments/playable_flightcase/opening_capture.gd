@@ -273,7 +273,7 @@ func _settings_sound_input(screen,w: int,h: int,mouse: bool,keycode: int,tag: St
  var actual_mute: bool = AudioServer.is_bus_mute(master)
  if pressed[0]!=1 or actual_mute==before_mute or bool(screen.muted)!=actual_mute:
   failures.append("S40 "+tag+" genuine sound input did not toggle actual Master once")
- if current==null or current.text!=("MASTER SOUND: MUTED" if actual_mute else "MASTER SOUND: ON") or current.tooltip_text!=current.text or not current.has_focus():
+ if current==null or current.text!=("MASTER SOUND: OFF" if actual_mute else "MASTER SOUND: ON") or current.tooltip_text!=current.text or not current.has_focus():
   failures.append("S40 "+tag+" sound label/focus does not follow actual Master state")
  _settings_same_view(screen,before,tag)
  _settings_targets(screen,w,h,true,tag)
