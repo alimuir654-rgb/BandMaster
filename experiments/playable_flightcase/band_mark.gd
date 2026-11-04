@@ -18,7 +18,7 @@ func configure(value: String, logo: String, style: Dictionary, points: int = 70,
  _single_line=compact and single_line
  horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  vertical_alignment=VERTICAL_ALIGNMENT_CENTER
- autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD
+ autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD_SMART
  if _single_line:
   text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   max_lines_visible=1
