@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "baseline_sha": "5b57425f7bd9c8eac616d7da79eef824c21a5d0f",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "target": {
+    "locator": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/full-phone-cast_arjun-v2/captures/practical-context-cast_arjun-own_part-390x844.png",
+    "original_sha256": "b4cac97a521b3d82fd76c1654e2d3d41e99bb07912a2403ea147a4304e2afa1e",
+    "pixels_inspected": true,
+    "inspection_scope": "ActualS106phoneoriginal inspection retained; hashunchanged. S107newopens0, no freshvisualverdict."
+  },
+  "id": "S110",
+  "status": "active",
+  "owner_request": "Explain narrowstorageblocker andplan nextsteps through18:00London4Nov. Planningonly now; no newqueue/APK/paidtools.",
+  "dominant_issue": "BM-45",
+  "hypothesis": "Prioritised playablemilestones and independenttracks prevent an audio/storageapproval from blocking unrelatedwork.",
+  "controlled_comparison": "ExistingS100verifiedsource andS101\u2013108proposals; no newcode/nativeproof.",
+  "issue_log_review": {
+    "bytes": 1413146,
+    "sha256": "f309dd98efaa6ec600ec0b67ffc985e88c9241667599cd05cfb6dbd528785eb7"
+  },
+  "stop_condition": "Planningonly, no product/assets/engines. Planends18:00London; noautomaticqueueextension.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S110.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+  ],
+  "validation_commands": [
+    "Recordgate; planPage/readback; singlequeue and approvalboundaries retained."
+  ],
+  "queue_task": "Existingworklist dayplan through18:00",
+  "reviewer": "Rootpreservationcheck; priorindependentreviews retained, no newhelper",
+  "root_lease": null,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "preflight_commit_status": "Planningpreflight committed; no productionauthority",
+  "storage_plan": {
+    "workspace_cap": 1048576,
+    "floor": 629145600,
+    "native_assets": 0,
+    "scope": "Planningrecords/Git only"
+  }
+}
