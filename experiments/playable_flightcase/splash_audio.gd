@@ -38,7 +38,9 @@ func _start_if_current() -> void:
  playing=true
 
 func stop() -> void:
- if is_instance_valid(_player):_player.stop()
+ if is_instance_valid(_player):
+  _player.stop()
+  _player.stream=null
  playing=false
 
 func _visibility_changed() -> void:
