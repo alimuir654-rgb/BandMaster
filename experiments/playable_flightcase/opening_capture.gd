@@ -12,6 +12,7 @@ const Game = preload("res://experiments/playable_flightcase/session.gd")
 const OpeningModel = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const RecruitBase = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const Profiles112 = preload("res://experiments/playable_flightcase/audition_profiles.gd")
 # Owner-protected passive meter PNG bytes from the verified 33f checkpoint.
 const METER_SHA256 := [
  "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
@@ -728,7 +729,7 @@ func _s83_recruit_pane(screen: Control) -> Control:
   if child is Control and child.has_method("_move_candidate") and child.has_method("_change_role"):return child
  return null
 
-func _s83_checkpoint(screen: Control,before: Dictionary,prior_files: Dictionary,phase: String) -> bool:
+func _s83_checkpoint(screen: Control,before: Dictionary,prior_files: Dictionary,phase: String,candidate_id: String="cast_jack") -> bool:
  var current: Dictionary=screen.setup.snapshot()
  var original:=before.duplicate(true)
  original.erase("audition_encounter_v1")
@@ -741,7 +742,7 @@ func _s83_checkpoint(screen: Control,before: Dictionary,prior_files: Dictionary,
   failures.append("S83 native audition failed explicit "+phase+" checkpoint")
   return false
  var active: Dictionary=current["audition_encounter_v1"]["active"]
- if active["candidate_id"]!="cast_jack" or active["role"]!="Guitarist" or int(active["revision"])!=["arrival","tryout","response","decision"].find(phase):
+ if active["candidate_id"]!=candidate_id or active["role"]!=Profiles112.content(candidate_id).ROLE or int(active["revision"])!=["arrival","tryout","response","decision"].find(phase):
   failures.append("S83 canonical person/role/revision changed at "+phase)
  var files:=_recap_save_bytes()
  if files["user://c27_opening_draft.json"]==prior_files["user://c27_opening_draft.json"]:
@@ -768,7 +769,7 @@ func _s83_finish_words(screen: Control) -> void:
   if _s83_typed(screen.setup.snapshot())!=_s83_typed(before) or _recap_save_bytes()!=files:
    failures.append("S83 real reveal-completion key advanced or saved the encounter")
 
-func _s83_material(screen: Control,request: String) -> void:
+func _s83_material(screen: Control,request: String,candidate_id: String="cast_jack") -> void:
  var board: GridContainer=screen.find_child("AuditionPhraseBoard",true,false) as GridContainer
  if board==null or board.get_child_count()!=4:
   failures.append("S83 actual four-bar written contribution missing")
@@ -781,13 +782,25 @@ func _s83_material(screen: Control,request: String) -> void:
  elif request=="own_part":
   expected_events=[["D"],["B","A","G"],["A"],["F#","E","D"]]
   expected_guitar=["Light D support","Answer: B – A – G","Light A support","Answer: F# – E – D"]
+ if candidate_id=="cast_zoe":
+  expected_events=[["D2","D2","D2","D2"],["G2","G2","G2","G2"],["A2","A2","A2","A2"],["D2","D2","D2","D2"]]
+  expected_guitar=["D2 on 1, 2&, 3, 4&","G2 on 1, 2, 3&, 4&","A2 on 1, 2&, 3, 4&","D2 on 1, 2, 3&, 4&"]
+  if request=="space_for_voice":
+   expected_events=[["D2"],["G2","G2","G2"],["A2"],["D2","D2"]]
+   expected_guitar=["Hold D2 for 3.2 beats; no pickup","G2 on 1, 3&, 4&","Hold A2 for 3.2 beats; no pickup","D2 on 1 and 4"]
+  elif request=="own_part":
+   expected_events=[["D2","D2"],["G2","D2","G2"],["A2","A2"],["D2","A2","D2"]]
+   expected_guitar=["D2 on 1 and 3","G2 on 1; D2 on 3&; G2 on 4&","A2 on 1 and 3","D2 on 1; A2 on 3&; D2 on 4&"]
+ elif candidate_id!="cast_jack":
+  failures.append("No reviewed standard material oracle for "+candidate_id)
+  return
  for index in range(4):
   var button: Button=board.find_child("AuditionBar_"+str(index+1),true,false) as Button
   if button==null:
    failures.append("S83 numbered native inspection cell missing")
    continue
   var bar: Dictionary=button.get_meta("bar",{})
-  if bar.get("number")!=index+1 or bar.get("events")!=expected_events[index] or bar.get("guitar")!=expected_guitar[index] or bar.get("vocal_present")!=(index in [0,2]):
+  if bar.get("number")!=index+1 or bar.get("events")!=expected_events[index] or bar.get("part",bar.get("guitar"))!=expected_guitar[index] or bar.get("vocal_present")!=(index in [0,2]):
    failures.append("S83 actual event/notation data differs at bar "+str(index+1)+" request "+request)
   if button.size.x<48 or button.size.y<48 or button.focus_mode!=Control.FOCUS_ALL or button.mouse_filter!=Control.MOUSE_FILTER_PASS:
    failures.append("S83 bar inspection lost its genuine48px native target/focus")
@@ -798,15 +811,16 @@ func _s83_material(screen: Control,request: String) -> void:
  if paper==null or not paper.get_theme_stylebox("panel") is StyleBoxTexture:
   failures.append("S83 shared written study lost its independent source paper")
 
-func _s83_jack_hearing(screen: Control,before: Dictionary,prior_files: Dictionary,w: int,h: int) -> bool:
- if not _s83_checkpoint(screen,before,prior_files,"arrival"):return false
- await _draw_screen("audition_jack_arrival",w,h)
+func _s83_jack_hearing(screen: Control,before: Dictionary,prior_files: Dictionary,w: int,h: int,candidate_id: String="cast_jack") -> bool:
+ var capture_prefix: String="audition_zoe" if candidate_id=="cast_zoe" else "audition_jack"
+ if not _s83_checkpoint(screen,before,prior_files,"arrival",candidate_id):return false
+ await _draw_screen(capture_prefix+"_arrival",w,h)
  await _s83_finish_words(screen)
  var files:=_recap_save_bytes()
  await click_action(screen.find_child("AuditionStartTryout",true,false) as Button)
- if not _s83_checkpoint(screen,before,files,"tryout"):return false
- _s83_material(screen,"")
- await _draw_screen("audition_jack_tryout",w,h)
+ if not _s83_checkpoint(screen,before,files,"tryout",candidate_id):return false
+ _s83_material(screen,"",candidate_id)
+ await _draw_screen(capture_prefix+"_tryout",w,h)
  var readonly: Dictionary=screen.setup.snapshot()
  files=_recap_save_bytes()
  await click_action(screen.find_child("AuditionBar_1",true,false) as Button)
@@ -819,25 +833,25 @@ func _s83_jack_hearing(screen: Control,before: Dictionary,prior_files: Dictionar
  files=_recap_save_bytes()
  var request: String="space_for_voice" if w<840 else "own_part"
  await click_action(screen.find_child("AuditionRequestSpace" if request=="space_for_voice" else "AuditionRequestOwn",true,false) as Button)
- if not _s83_checkpoint(screen,before,files,"response"):return false
+ if not _s83_checkpoint(screen,before,files,"response",candidate_id):return false
  if screen.setup.audition_view().get("request")!=request:
   failures.append("S83 actual requested approach was not locked")
- _s83_material(screen,request)
- await _draw_screen("audition_jack_response",w,h)
+ _s83_material(screen,request,candidate_id)
+ await _draw_screen(capture_prefix+"_response",w,h)
  readonly=screen.setup.snapshot()
  files=_recap_save_bytes()
  await click_action(screen.find_child("AuditionPriorToggle",true,false) as Button)
- _s83_material(screen,"")
+ _s83_material(screen,"",candidate_id)
  await click_action(screen.find_child("AuditionPriorToggle",true,false) as Button)
- _s83_material(screen,request)
+ _s83_material(screen,request,candidate_id)
  if _s83_typed(screen.setup.snapshot())!=_s83_typed(readonly) or _recap_save_bytes()!=files:
   failures.append("S83 before/adjusted inspection changed the saved encounter")
  await _s83_finish_words(screen)
  files=_recap_save_bytes()
  await click_action(screen.find_child("AuditionReview",true,false) as Button)
- if not _s83_checkpoint(screen,before,files,"decision"):return false
- _s83_material(screen,request)
- await _draw_screen("audition_jack_decision",w,h)
+ if not _s83_checkpoint(screen,before,files,"decision",candidate_id):return false
+ _s83_material(screen,request,candidate_id)
+ await _draw_screen(capture_prefix+"_decision",w,h)
  var invite: Button=screen.find_child("AuditionInvite",true,false) as Button
  if invite==null or invite.disabled or invite.size.x<48 or invite.size.y<48 or not Rect2(0,0,w,h).encloses(invite.get_global_rect()):
   failures.append("S83 actual priced invitation is unavailable or clipped after the complete hearing")
@@ -873,7 +887,7 @@ func _check_recruit_context(pane,w: int,h: int,tag: String) -> void:
   return
  var recruited: bool = RecruitBase.contains(pane.game.roster,str(person.id))
  var heard: bool = recruited or bool(pane.auditioned.get(str(person.id),false))
- if str(person.id)=="cast_jack" and pane.onboarding_state!=null:heard=recruited or bool(pane.onboarding_state.audition_view().get("heard",false))
+ if Profiles112.supports(str(person.id)) and pane.onboarding_state!=null:heard=recruited or bool(pane.onboarding_state.audition_view(str(person.id)).get("heard",false))
  if strength.text!="STRENGTH  •  "+str(person.get("strength","Still developing")) or friction.text!="FRICTION  •  "+str(person.get("friction","Unknown")):
   failures.append("S43 "+tag+" complete authored audition notes changed or were truncated")
  for note in [strength,friction]:
@@ -1746,8 +1760,8 @@ func take() -> void:
     var before_audition_files: Dictionary = _recap_save_bytes()
     await click_action(pane.find_child("AuditionAction",true,false))
     await process_frame
-    if desired_id=="cast_jack":
-     if not await _s83_jack_hearing(screen,before_audition,before_audition_files,w,h):
+    if Profiles112.supports(desired_id):
+     if not await _s83_jack_hearing(screen,before_audition,before_audition_files,w,h,desired_id):
       break
      pane=_s83_recruit_pane(screen)
      if pane==null:
@@ -1762,7 +1776,7 @@ func take() -> void:
     var before_available: int = screen.setup.remaining()
     var before_changes: int = screen.setup.change_counter
     var hire_cost: int = RecruitBase.incremental_cost(screen.setup.game.roster,_recruit_person(pane))
-    await click_action(pane.find_child("AuditionInvite" if desired_id=="cast_jack" else "RecruitAction",true,false))
+    await click_action(pane.find_child("AuditionInvite" if Profiles112.supports(desired_id) else "RecruitAction",true,false))
     pane=_s83_recruit_pane(screen)
     if pane==null:
      failures.append("S83 invitation lost its real recruiting owner")

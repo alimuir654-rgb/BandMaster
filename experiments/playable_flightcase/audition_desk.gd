@@ -142,7 +142,8 @@ func _build() -> void:
   else:
    place.add_child(introduction)
    _add_voice(place)
-  work.add_child(_label(str(_view["person"]["name"])+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
+  var name: String=str(_view["person"]["name"])
+  work.add_child(_label(name+" has brought a short bass idea. Look it over together, then ask "+name+" to try another approach." if _view["person"]["role"]=="Bassist" else name+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
  else:
   if wide:
    place.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(380,214)))
@@ -187,7 +188,7 @@ func _build() -> void:
   var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
   version_label.name="AuditionCurrentVersion"
   notes.add_child(version_label)
-  notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. Guitar: "+str(_view["person"]["name"])+"’s part."))
+  notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
   _audio=AudioPart.new()
   _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
   _audio.configure(_audio_context)
@@ -292,7 +293,7 @@ func _fill_board() -> void:
   inset.add_child(words)
   words.add_child(C.paper_label("BAR "+str(bar["number"]),16,true))
   words.add_child(C.paper_label(str(bar["vocal"])))
-  words.add_child(C.paper_label(str(bar["guitar"])))
+  words.add_child(C.paper_label(_part(bar)))
   inset.minimum_size_changed.connect(_fit_bar.bind(button,inset))
   _fit_bar.call_deferred(button,inset)
   _board.add_child(button)
@@ -301,8 +302,14 @@ func _inspect(index: int) -> void:
  if _busy:return
  var bars: Array=_view["before_bars"] if _show_prior else _view["bars"]
  var bar: Dictionary=bars[index]
- _inspector.text="Bar %d · %s. Guitar: %s." % [int(bar["number"]),str(bar["vocal"]),str(bar["guitar"])]
+ _inspector.text="Bar %d · %s. %s: %s." % [int(bar["number"]),str(bar["vocal"]),_instrument(),_part(bar)]
  _inspector.set_meta("inspected_bar",index+1)
+
+func _instrument() -> String:
+ return "Bass" if _view.get("person",{}).get("role","")=="Bassist" else "Guitar"
+
+func _part(bar: Dictionary) -> String:
+ return str(bar.get("part",bar.get("guitar","")))
 
 func _toggle_prior() -> void:
  if _busy:return

@@ -925,6 +925,13 @@ func _writing_workspace(body: VBoxContainer) -> void:
  var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
  stage.name = "WritingStageLabel"
  body.add_child(stage)
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
+  sketch.name="WritingOpenLyricSketch"
+  sketch.custom_minimum_size.y=48
+  sketch.pressed.connect(_open_lyric_sketch)
+  body.add_child(sketch)
+  body.add_child(_label("Try editable words with a bandmate before using a writing day.",16))
  var fields := GridContainer.new()
  fields.columns = 2 if size.x>=1000 else 1
  fields.add_theme_constant_override("h_separation",12)
@@ -1199,6 +1206,12 @@ func _write() -> void:
   _begin_workbench()
   return
  _commit_session("create")
+
+func _open_lyric_sketch() -> void:
+ if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
+ idea_index=1
+ form_index=0
+ _begin_workbench()
 
 func _begin_workbench() -> void:
  if session_busy or opening_owner==null:return
