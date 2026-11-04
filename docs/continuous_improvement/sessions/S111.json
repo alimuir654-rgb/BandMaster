@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "baseline_sha": "57c767ab3e3cba0704260076e34a0956c7b7b6f5",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "target": {
+    "locator": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-title-390x844.png",
+    "original_sha256": "016ce5a054e149c83c66a98e21fff2955642b9a454f17077a2ad71ad442facc9",
+    "pixels_inspected": true
+  },
+  "id": "S111",
+  "status": "active",
+  "owner_request": "Top-to-bottom review through simulatedgamecritic/musician/generalplayerpersonas; comparequality/playability with existinggames. Reviewonly, no productchanges.",
+  "dominant_issue": "BM-06",
+  "hypothesis": "Whole-career evidence review separates technicalrobustness fromplayeragency, musicalcredibility and presentationquality, prioritising changes withplayerimpact.",
+  "controlled_comparison": "Current0csource/S100retainedoriginals and actualunchangedclosure priorcareer originals; comparatorprimarydescriptions nothands-onorunavailableexternalpixels.",
+  "issue_log_review": {
+    "bytes": 1413146,
+    "sha256": "f309dd98efaa6ec600ec0b67ffc985e88c9241667599cd05cfb6dbd528785eb7"
+  },
+  "stop_condition": "Reviewreport only; closeby08:30London.2MiBworkspace includingGit/docs/receipts; floor600MiB. No engines/source/art/audio/cache/APK/deps/newqueue.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S111.json",
+    "docs/continuous_improvement/S111_WHOLE_GAME_REVIEW.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Inspectactualretainedoriginals; pin source/receipt coverage/currentvslegacy; primarycompetitorsources.",
+    "3explicitSIMULATEDpersonas, prioritisedfindings, exactopenednames, reportPage/readback/gate; no currenttests claimed."
+  ],
+  "queue_task": "Ownerwhole-gamecriticalreview beforedayimplementation",
+  "reviewer": "Rootcritic/generalplayer +scopedmusician_review readonlyhelper",
+  "root_lease": {
+    "writer": "root_S111_review_metadata",
+    "expires_at": "2026-11-04T08:30:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "preflight_commit_status": "Planningpreflight committed; no productionauthority",
+  "storage_plan": {
+    "workspace_cap": 2097152,
+    "initial_free": 697384960,
+    "TMP_new": 0,
+    "floor": 629145600,
+    "largecopies": 0
+  }
+}
