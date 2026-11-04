@@ -931,7 +931,7 @@ func _writing_workspace(body: VBoxContainer) -> void:
   sketch.custom_minimum_size.y=48
   sketch.pressed.connect(_open_lyric_sketch)
   body.add_child(sketch)
-  body.add_child(_label("Try editable words with a bandmate before using a writing day.",16))
+  body.add_child(_ink("Try editable words with a bandmate before using a writing day.",16))
  var fields := GridContainer.new()
  fields.columns = 2 if size.x>=1000 else 1
  fields.add_theme_constant_override("h_separation",12)
