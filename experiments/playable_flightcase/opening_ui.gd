@@ -633,6 +633,7 @@ func _choose_genre(value: String) -> void:
   _render()
   return
  press.configure(setup.game.genre,size,setup)
+ press.preview_selected()
  for item in Base.genres():
   var name: String = str(item)
   var button: Button = find_child("Genre_"+name.replace(" ","_").replace("/","_"),true,false) as Button

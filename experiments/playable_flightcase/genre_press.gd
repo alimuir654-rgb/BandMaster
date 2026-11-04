@@ -56,6 +56,7 @@ func _ink(text: String, points: int, node_name: String) -> Label:
  return label
 
 func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
+ if is_instance_valid(_audio):_audio.stop()
  _preview_owner = owner
  _preview_genre = genre
  _preview_material = ""
@@ -123,6 +124,10 @@ func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
  set_meta("genre",genre)
  set_meta("source","Independent image-generated instrument screenprint where supplied; original native motif fallback; unchanged session_paper.png")
 
+func preview_selected() -> void:
+ # Selection only: configure/arrival/resize never starts audio.
+ if is_inside_tree() and is_instance_valid(_audio):_audio.request_play()
+
 func _audio_context() -> Dictionary:
  return {"allowed": _preview_owner != null and _preview_owner.screen == "genre" and _preview_owner.game.genre == _preview_genre,
   "material_id": _preview_material, "content_version": "genre_examples_v1"}
@@ -151,7 +156,7 @@ func _add_audio_preview(content: VBoxContainer) -> void:
  _audio = AudioPreview.new()
  _audio.manifest_path = EXAMPLES_PATH
  _audio.play_caption = "PLAY EXAMPLE"
- _audio.available_hint = "Hear the instrumental indie band example. This does not select a genre."
+ _audio.available_hint = "The selected genre example plays automatically. Replay or stop it here."
  _audio.unavailable_hint = "Audio example unavailable; all genre information and choices remain available."
  _audio.configure(_audio_context)
  _audio.set_clip(_preview_material)

@@ -14,6 +14,9 @@ var reduced_motion := false
 var _view: Dictionary={}
 var _expected: Dictionary={}
 var _text: TextEdit
+var _words: Label
+var _edit_words: Button
+var _editing_words := false
 var _title: LineEdit
 var _leader: Label
 var _badge: Label
@@ -182,6 +185,12 @@ func _build() -> void:
  leader_row.get_child(0).custom_minimum_size.x=48
  leader_row.get_child(2).custom_minimum_size.x=48
  _paper_body.add_child(leader_row)
+ _words=_label("",21,true)
+ _words.name="WorkbenchWords"
+ _words.custom_minimum_size.y=164
+ _paper_body.add_child(_words)
+ _edit_words=_quiet("EDIT WORDS","WorkbenchEditWords",_toggle_word_editing,true)
+ _paper_body.add_child(_edit_words)
  _text=TextEdit.new()
  _text.name="WorkbenchLyrics"
  _text.custom_minimum_size=Vector2(0,164)
@@ -198,6 +207,7 @@ func _build() -> void:
  edit_focus.border_color=Color("8d6d3d")
  _text.add_theme_stylebox_override("focus",edit_focus)
  _text.text_changed.connect(_refresh_local)
+ _text.visible=false
  _paper_body.add_child(_text)
  var refrains:=HBoxContainer.new()
  refrains.add_theme_constant_override("separation",8)
@@ -288,6 +298,19 @@ func _saved_payload() -> Dictionary:
  if project.is_empty():return {}
  return {"text":"%s\n%s" % [project.fragment.lines[0].text,project.fragment.lines[1].text],"refrain_line_id":project.fragment.refrain_line_id,"title":project.target.title,"leader_index":int(project.target.leader_ref.slot)}
 
+func _toggle_word_editing() -> void:
+ if _busy or is_instance_valid(_exit_dialog):return
+ _editing_words=not _editing_words
+ _refresh_local()
+ if _editing_words:
+  _text.grab_focus()
+  var scroll: ScrollContainer=find_child("WorkbenchBodyScroll",true,false) as ScrollContainer
+  if scroll!=null:scroll.ensure_control_visible(_text)
+ else:
+  _text.release_focus()
+  DisplayServer.virtual_keyboard_hide()
+  _edit_words.grab_focus()
+
 func _payload() -> Dictionary:
  return {"text":_text.text,"refrain_line_id":_refrain,"title":_title.text,"leader_index":_leader_index}
 
@@ -344,7 +367,11 @@ func _refresh_local() -> void:
  if not is_instance_valid(_text):return
  var project:=_project()
  var held: bool=project.is_empty() or bool(_view.get("held",false))
- _text.editable=not held and not _busy
+ _text.editable=_editing_words and not held and not _busy
+ _text.visible=_editing_words
+ _words.visible=not _editing_words
+ _words.text=_text.text
+ _edit_words.text="DONE EDITING" if _editing_words else "EDIT WORDS"
  _title.editable=not held and not _busy
  var stage: int=int(owner_state.game.career.get("song_draft_progress",0))+1
  var local_edits: bool=has_local_edits()

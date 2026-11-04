@@ -18,7 +18,7 @@ func configure(value: String, logo: String, style: Dictionary, points: int = 70,
  _single_line=compact and single_line
  horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  vertical_alignment=VERTICAL_ALIGNMENT_CENTER
- autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD_SMART
+ autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD
  if _single_line:
   text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
   max_lines_visible=1
@@ -50,6 +50,10 @@ func _fit() -> void:
   return
  while chosen>_min_points:
   var measure: Vector2=font.get_multiline_string_size(text,HORIZONTAL_ALIGNMENT_CENTER,maxf(20.0,size.x-4.0),chosen)
-  if measure.y<=available and measure.x<=size.x+1.0: break
+  var longest_word: float=0.0
+  for word in text.split(" ",false):
+   longest_word=maxf(longest_word,font.get_string_size(word,HORIZONTAL_ALIGNMENT_LEFT,-1,chosen).x)
+  if longest_word<=size.x-4.0 and measure.y<=available and measure.x<=size.x+1.0: break
   chosen-=1
  add_theme_font_size_override("font_size",chosen)
+ tooltip_text=full_name

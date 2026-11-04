@@ -92,6 +92,11 @@ func _play() -> void:
  playing=true
  _refresh()
 
+func request_play() -> void:
+ # The caller owns the explicit selection gesture; the same context, asset
+ # approval and mute checks apply as the native Play button.
+ if is_node_ready():_play()
+
 func stop() -> void:
  if is_instance_valid(_player):_player.stop()
  playing=false
