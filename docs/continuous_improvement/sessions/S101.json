@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "63fbdec5a9d105db46790476363c84861f20239e004c48591c97ea724c55776f",
+    "pixels_inspected": true
+  },
+  "id": "S101",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue the existing overnight plan through07:30am Europe/London4Nov; noupdatedAPK. Specificoldcacheconsolidation remainsunapproved. Read-onlypreparation usefulwhilepersistentfloor blocks sourcefinalcommit.",
+  "baseline_sha": "2e995c2cb20bdd393b3c83eddb3c951734cd9756",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "dominant_issue": "BM-38",
+  "issue_log_review": {
+    "bytes": 1395306,
+    "sha256": "3883c08a74ba26cf1e587c58131788bc9e161963a3d96c3d0c7beb6fef99c3a7"
+  },
+  "hypothesis": "A reviewed role-specific Zoe bass exercise and exact profile/UI/save/QA integration contract make nextimplementation executable without guessing or erasing Jack/Arjun hearings.",
+  "controlled_comparison": "Read-only existing424curatedsource; noGame/art/audio/native/cache/save changes. Preserve S100closeout uncommittedmetadatahold. Exactoldpromptarchived before updating SAMEsolequeue only.",
+  "stop_condition": "No production before completepersistentbudget; nooldcachecutover withoutspecificapproval. Stopnewworkandhandoffby07:30London; previousNov4outerceiling remainsabsoluteupperbound.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S101.json"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s101-overnight-prep-20261104/",
+    "/tmp/bandmaster-s101-overnight-prep-20261104/"
+  ],
+  "validation_commands": [
+    "Recordgate before source-independent preparation; exactfile/canonicalperson/oldprompt hashes and currentwriter/process checks.",
+    "Independent read-only review of authoredexercise and actualsourceAPI/save/QA contract; noengineexecution.",
+    "Existingqueueprompt/schedule readback; exactsameID/environment/thread, no newqueue/controller/endtask.",
+    "Hash424beforeafter; old400cachepairs untouched, floors/caps checked; durablecloseout and writerrelease."
+  ],
+  "root_lease": {
+    "id": "S101-overnight-readonly-prep-20261104T0030",
+    "writer": "/root",
+    "expires_at": "2026-11-04T01:10:00Z"
+  },
+  "scope_end": "2026-11-04T01:10:00Z",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "queue_task": "Overnight priority1 Zoe bass predesign/content/contract; storageblockedproduction",
+  "reviewer": "Existing foundation_tests independentread-only authoring/contractreview; root solemetadatawriter",
+  "storage_plan": {
+    "adopted_at": "2026-11-04T00:28:59.132094+00:00",
+    "scope": "Read-only nextaudition/content contracts and existingsolequeue continuation through07:30London; no shippingassets/engines/import/cache",
+    "workspace_initial_free": 629641216,
+    "workspace_new_cap": 196608,
+    "TMP_new_cap": 2097152,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "includes": "Exactpreviousautomationprompt archive, scopedsession/contract/review/receipts and smallprimaryGit tail. DoesNOTfund finalS100metadata/source/native.",
+    "no_arbitrary_cleanup": true,
+    "no_TMP_criticalGit": true
+  },
+  "next_action": "Update existingsolequeue through07:30 as requested, then author exactZoe content/state/UI/QA contract in bounded scratch; no shippingimplementation."
+}
