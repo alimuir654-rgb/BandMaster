@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S124",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "reviewed_documents": {
     "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
@@ -31,8 +31,8 @@
   "baseline_sha": "94b19767b89bc1b4cb9af2597063aecc6c4010a6",
   "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "issue_log_review": {
-    "bytes": 1570243,
-    "sha256": "1d600229e33f83b935921e1ec10ca2517b7e94e95e9bf3f44b929a6de65c9111"
+    "bytes": 1572174,
+    "sha256": "e3ad9dd69922753420db878e25e88bcc9f5a769dd88a610f9f52bcdb9d18cc33"
   },
   "target": {
     "locator": "/tmp/bandmaster-s123-audible-producer-20261104/runs/full-phone-v2/proof/07-producer-original-three-days-finished-390x844.png",
@@ -72,15 +72,15 @@
     "private owner+namedreader only; physical device pending"
   ],
   "root_lease": {
-    "writer": "root_S124_producer_APK",
-    "expires_at": "2026-11-04T23:15:00Z"
+    "writer": null,
+    "expires_at": null
   },
   "source_write_allowed": false,
   "art_write_allowed": false,
   "audio_write_allowed": false,
-  "APK_artifact_allowed": true,
+  "APK_artifact_allowed": false,
   "page_write_allowed": true,
-  "engine_execution_allowed": true,
+  "engine_execution_allowed": false,
   "pending_implementation": false,
   "pending_helpers": false,
   "native_evidence_pending": false,
@@ -162,5 +162,214 @@
     "both_counted_against_same_cap": 805306368,
     "live_census_method": "FileNotFoundError only inside own .godot for disappeared atomic-write temporary files; outside errors retained",
     "fresh_empty_v2_cache": true
-  }
+  },
+  "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "closeout": {
+    "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "evidence": {
+      "build.json": "/workspace/work/s124-producer-apk-v12-20261104/build.json",
+      "update-privacy-audit-v12.json": "/workspace/work/s124-producer-apk-v12-20261104/update-privacy-audit-v12.json",
+      "private-delivery.json": "/workspace/work/s124-producer-apk-v12-20261104/private-delivery.json",
+      "attempt-v1-held.json": "/workspace/work/s124-producer-apk-v12-20261104/attempt-v1-held.json",
+      "attempt-v1-build.json": "/workspace/work/s124-producer-apk-v12-20261104/attempt-v1-build.json",
+      "corrected-recipe-derivation.json": "/workspace/work/s124-producer-apk-v12-20261104/corrected-recipe-derivation.json",
+      "closed-cache-pins.json": "/workspace/work/s124-producer-apk-v12-20261104/closed-cache-pins.json",
+      "final-audit.json": "/workspace/work/s124-producer-apk-v12-20261104/final-audit.json",
+      "page-status-audit.json": "/workspace/work/s124-producer-apk-v12-20261104/page-status-audit.json"
+    },
+    "visual_verdict": "partial",
+    "artifact_technical_pass": true,
+    "owner_approved": false,
+    "APK": {
+      "path": "/tmp/bandmaster-s124-producer-apk-v12-20261104/attempt-v2/BandMaster-Playtest-v12-arm64.apk",
+      "bytes": 104734243,
+      "sha256": "be6889ea0d5ed3a6571185d8d78ebcdaeed878eda4fb85b73c5fe5c11a4458dc",
+      "entries": 954,
+      "CRC": "PASS",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "from_version_code": 11,
+      "to_version_code": 12,
+      "version_name": "0.123.0-playtest",
+      "appID": "com.bandmaster.ownerplaytest.s40",
+      "certificate_SHA256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "same_custom_user_directory": "BandMasterOwnerPlaytestS40",
+      "same_embedded_project_binary_SHA": "c70d4d409501f7990945f837b3315672ac37c563184c05ba78372e7e74823a2a",
+      "same_platform_project_SHA": "be58d0ddeceea1a06ccebfc0e66e73a07f3780de2849494abf6a350ab600fcd1",
+      "permissions": [],
+      "physical_upgrade_save_retention_tested": false,
+      "prior_V11_basis": "Verified durable V11 build/audit plus current private Drive metadata. Exact retained V6 platform settings and project binary reused; same V11 app/cert/savefolder verified.",
+      "install": "UPDATE existing app; do not uninstall, clear storage or wipe saves.",
+      "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk",
+      "file_id": "16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q",
+      "private_owner_and_named_reader_verified": true,
+      "remote_checksum_available": false
+    },
+    "source": {
+      "manifest": "/workspace/work/s123-audible-producer-20261104/source-final.json",
+      "manifest_SHA": "b3c9688b6382375067c1c74749d711b171e50bffbb70d0480691924fe0a37df9",
+      "rows": 455,
+      "Git_rows": 454,
+      "bytes": 102102346,
+      "ordered_digest": "ed0cc1488bcfcfbc91a621e3b4c904434a8cf05f81d8950af32456292d01e248",
+      "copy_only_declared_rows": true,
+      "platform_project_override": true,
+      "runtime_QA_extras_copied": 0,
+      "next_source_base_not_APK_platform_project": true
+    },
+    "executions": {
+      "actual_Godot_starts": 3,
+      "first_interrupted_import": "held wrapperraw1/childrawexitUNAVAILABLE",
+      "accepted_v2_Godot": 2,
+      "strict_build_steps": 9,
+      "separate_readonly_audit_commands": 5,
+      "new_source_native_model_gig_or_whole_journey_executions": 0
+    },
+    "APK_audit": {
+      "curated455_exact": true,
+      "shipping454Git_exact": true,
+      "only_platform_project_override_and_originalGiticon_plus_exportsettings": true,
+      "runtime_extras_copied": 0,
+      "compiled_scripts": 161,
+      "source_remaps": 173,
+      "direct_identical": 40,
+      "fresh_imported_resource_matches": 232,
+      "omitted_sources": [
+        {
+          "path": "Art/References/ApprovedCast20261029/README.md",
+          "reason": "Godot omits original documentation"
+        },
+        {
+          "path": "Data/CharacterCast/NATIVE_TEST.log",
+          "reason": "Godot omits original technical test log"
+        },
+        {
+          "path": "Data/CharacterCast/SCORES.md",
+          "reason": "Godot omits original documentation"
+        },
+        {
+          "path": "Scripts/band_builder.gd.uid",
+          "reason": "Original tracked UID represented by engine UID metadata"
+        },
+        {
+          "path": "Scripts/main_menu.gd.uid",
+          "reason": "Original tracked UID represented by engine UID metadata"
+        },
+        {
+          "path": "Scripts/tour_intro.gd.uid",
+          "reason": "Original tracked UID represented by engine UID metadata"
+        },
+        {
+          "path": "components/control_atlas/.gitignore",
+          "reason": "Original development-only ignore file"
+        },
+        {
+          "path": "components/control_atlas/README.md",
+          "reason": "Godot omits original documentation"
+        },
+        {
+          "path": "experiments/character_cast/build.py",
+          "reason": "Original catalogue generator, not an Android resource"
+        },
+        {
+          "path": "experiments/character_cast/vendor/README.md",
+          "reason": "Godot omits original documentation"
+        },
+        {
+          "path": "project.godot",
+          "reason": "Exact unchanged Android settings compiled to project.binary"
+        }
+      ],
+      "unexpected_assets": []
+    },
+    "images": {
+      "new_opens": 0,
+      "new_native_PNGs": 0,
+      "retained_S123_root_actual_opens": 15,
+      "retained_S123_independent_final_phase_opens": 18,
+      "actual_names": "/workspace/work/s123-audible-producer-20261104/root-open-log.json",
+      "independent_review": "/workspace/work/s123-audible-producer-20261104/review/final-whole-task-review.json",
+      "independent_addendum": "/workspace/work/s123-audible-producer-20261104/review/final-audit-input-addendum.json"
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "critic": "Audibleproducer andnavigation are integrated prototype improvements; calendar/formation/repeatedposes remainunfinished. Not a new critic playtest.",
+      "musician": "16arranged8bar choices and revisedPunk score/provenance/levels verified; actual musicalconviction and deviceaudio untested, no recruitedcharacter performanceclaim.",
+      "general_player": "One private Update link and explicitWrite->Shapeanoriginal route; physicalswipecomfort and savedbandretention needdevicecheck.",
+      "accessibility": "Retained48px/nativekey/emulatedtouch/scrollproof; physicalIME/OSinterrupt/audio/headphones untested.",
+      "state_privacy": "Exactsourceclosure/sameappID/cert/savefolder/zeropermissions/privateexisting2users; no sourcehistory/keys/saves/rawbank upload."
+    },
+    "limits": [
+      "Only Indie-rock producer palette; no personal audition audio overhaul",
+      "Working restrictions on writing, datedcalendar, posterposes and formation/branding stillunimplemented",
+      "S123 dedicatedgenre auxiliary abrupt debug-exit resourceERROR strictHELD/causeunproved; ordinaryentry/fullwritingflows clean",
+      "Physical install/update save-retention/audio/IME/OSinterrupt untested; no human listening or owner-art acceptance"
+    ],
+    "Pages": {
+      "pages": [
+        {
+          "page_id": "page_75c8ccd784e08191825d48c2f382454d",
+          "sequence": 62,
+          "blocks": 123,
+          "changed": 1,
+          "unchanged": 122,
+          "choices": 0,
+          "checked": 0,
+          "images": 0,
+          "all_other_blocks_ID_order_kind_metadata_hash_exact": true,
+          "browser_render_claimed": false
+        },
+        {
+          "page_id": "page_b3929162c7b88191acd29e55dc06e779",
+          "sequence": 174,
+          "blocks": 308,
+          "changed": 2,
+          "unchanged": 306,
+          "choices": 72,
+          "checked": 23,
+          "images": 50,
+          "all_other_blocks_ID_order_kind_metadata_hash_exact": true,
+          "browser_render_claimed": false
+        },
+        {
+          "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+          "sequence": 17,
+          "blocks": 52,
+          "changed": 12,
+          "unchanged": 40,
+          "choices": 0,
+          "checked": 0,
+          "images": 4,
+          "all_other_blocks_ID_order_kind_metadata_hash_exact": true,
+          "browser_render_claimed": false
+        }
+      ],
+      "comments_empty_at_read": true,
+      "owner_checkbox_writes": 0,
+      "archive_and_deleted_A03v2_absence_preserved": true
+    },
+    "new_issue_review": {
+      "prefix": {
+        "bytes": 1572174,
+        "sha256": "e3ad9dd69922753420db878e25e88bcc9f5a769dd88a610f9f52bcdb9d18cc33"
+      },
+      "last_event": "S124-20261104-final-private-V12-verification",
+      "all_actual_new_events_reviewed": true,
+      "held_history_not_promoted": true
+    },
+    "released": {
+      "at": "2026-11-04T22:28:43.430097+00:00",
+      "root_source_artifact_helpers_GL_released": true,
+      "Xorg_not_started": true,
+      "socket_absent": true,
+      "both_APK_producers_caches_closed": true
+    },
+    "next_action": "InstallV12asUPDATE, test producer/music/scrollcomfort onphone. Next substantive source slice agreedworking availability anddatedcalendar, thenrealpose/formation/branding revision; no ownerapprovalwait or queue restart.",
+    "old_queue_remains_ended": true,
+    "new_queue_controller_or_schedule_created": false,
+    "continuous_compute_claim": false
+  },
+  "closeout_path": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
+  "closed_at": "2026-11-04T22:28:43.430097+00:00",
+  "artifact_writer_released": true
 }
