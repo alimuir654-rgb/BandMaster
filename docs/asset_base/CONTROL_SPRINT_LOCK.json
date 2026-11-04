@@ -1,5 +1,5 @@
 {
-  "writer": null,
+  "writer": "root_S112_integration",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
   "expires_at": null,
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": false,
-  "next_action": "Owner18:00dayplan: freshfundedZoe/one drummer andrepresentativefirstcareerloop. Review findings inS111; no APK/extraqueue.",
+  "next_action": "S112 fundedZoe audition/lyricdiscoverability now; executeupdatedpriorities through18:00 andpreparefinalAPK.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -1087,7 +1087,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S98 V10 privateAPKdelivered owner+Ali; physicalphonepending",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S112_integration",
+    "expires_at": "2026-11-04T11:00:00Z"
+  },
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -2977,7 +2980,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S112_integration",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3221,5 +3224,12 @@
     "verdict": "partial",
     "personas": "threeSIMULATED; nothuman",
     "source": "0c92100b826322c8c92fba89317b60b77dc28c9b"
+  },
+  "active_day_authority": {
+    "stop": "2026-11-04T18:00:00Z",
+    "owner_decisions_delegated": true,
+    "prepare_final_APK": true,
+    "same_queue": "6ae532c5fe9c819190f587a022c54052",
+    "session": "S112"
   }
 }

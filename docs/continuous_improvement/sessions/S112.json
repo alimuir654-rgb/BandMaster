@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "baseline_sha": "dd6e201db77ac764243fee78c244aa7029744f05",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "target": {
+    "locator": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-title-390x844.png",
+    "original_sha256": "016ce5a054e149c83c66a98e21fff2955642b9a454f17077a2ad71ad442facc9",
+    "pixels_inspected": true
+  },
+  "id": "S112",
+  "status": "active",
+  "owner_request": "Directowner: Go ahead updatedpriorities, remove ownerdecisionconstraints, buildthrough18:00London andprepareAPK at end. Delegate routinecreative/listening/integrationdecisions; keepprivacy/rights/cost/source/save/test safety.",
+  "dominant_issue": "BM-38",
+  "hypothesis": "A substantiveZoebass encounter plusdiscoverableexistinglyricworkbench improves representativebandfirstloop beforebroaderaudio content.",
+  "controlled_comparison": "CurrentS100424manifest/source0c baseline; addZoe pureprofile andgenericpartlabels, preservedJack/Arjun materials/audio/receipts andoriginalcosts. Lyricsketch existingentrypoint made visible withoutbeststatkey. Samefourlayouts/realnativecontrols.",
+  "issue_log_review": {
+    "bytes": 1418166,
+    "sha256": "83f07111757b909cc2c650f7f5ac69c6bd3c916a5c159ec4b6d54ce574be9eb3"
+  },
+  "stop_condition": "S112 closeby11:00; earlyphone/shortwide beforefullproof; preservefailedproof/twoineffectiveattempts changedmethod. Dayfreeze16:30/APKverification17:00/hardstop18:00, noextraqueue. Fundingfail changes task, no unreviewedpurge.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/audition_zoe_content.gd",
+    "experiments/playable_flightcase/audition_profiles.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/opening_capture.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "docs/continuous_improvement/sessions/S112.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Fresh affected models:Zoe/Jack/Arjun orders/freecheckpoints/pricedinvite/FSfailure/retry/typedreload/legacyfuturebusyunknown; no autoreuse532.",
+    "Early390phone/1280shortwide importantZoe states; finalfourlayout fullZoe journeys/nativeinput/failure/retry/reload/bar4inspection/lifecycle andJackArjun unchangedplayback compatibility.",
+    "Final73/88/emptyprivateimport/fouradaptedstandardjourneys/defaultentry; exactsource/54originalScripts/art/audio/oldcaches byteprotection/manualERRORaudit.",
+    "DaylastmilestoneAPK originalappID/cert/savefolder, newversioncode, privateonly; no ownerlistenpause fordelegatednewlicensedclips."
+  ],
+  "queue_task": "Updatedpriorities1\u20132 firstplayableband +lyricdiscoverability",
+  "reviewer": "Independentpredesign/early/final existingreviewrole; rootaloneGodot",
+  "root_lease": {
+    "writer": "root_S112_integration",
+    "expires_at": "2026-11-04T11:00:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "preflight_commit_status": "COMMITBEFORESOURCE",
+  "storage_plan": {
+    "day_initial_free": 695787520,
+    "day_new_persistent_cap": 25165824,
+    "S112_new_persistent_cap": 8388608,
+    "S112_TMP_cap": 1073741824,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "source_runtime": 110000000,
+    "private_cache": 100000000,
+    "PNG_budget": 200000000,
+    "QA_logs_failedproof": 300000000,
+    "remaining_TMP_reserve": 363741824,
+    "durable_Git_source_receipt_failure_tail_included": true,
+    "no_arbitrary_cleanup": true
+  },
+  "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation.",
+  "authority": {
+    "owner_decisions_delegated": true,
+    "newAPK_directly_authorised": true,
+    "original_owner_checkboxes_untouched": true,
+    "internal_quality_not_owner_listening": true,
+    "privacy_paid_runtimeAI_engineupgrade_boundaries_retained": true
+  }
+}

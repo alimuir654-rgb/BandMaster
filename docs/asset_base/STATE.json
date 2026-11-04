@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Approved opening audio plus Arjun comparison and personal context",
-  "writer": null,
+  "writer": "root_S112_integration",
   "last_verified_code_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "baseline": {
     "run_id": 40778019754,
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S100",
-  "next_action": "Owner18:00dayplan: freshfundedZoe/one drummer andrepresentativefirstcareerloop. Review findings inS111; no APK/extraqueue.",
+  "next_action": "S112 fundedZoe audition/lyricdiscoverability now; executeupdatedpriorities through18:00 andpreparefinalAPK.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2418,7 +2418,7 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-04T00:24:41.993684+00:00",
   "last_writer": "S100-owner-feedback-integration-20261103T2340",
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "pending_implementation": false,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
@@ -3057,7 +3057,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S98 V10 privateAPKdelivered owner+Ali; physicalphonepending",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S112_integration",
+    "expires_at": "2026-11-04T11:00:00Z"
+  },
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4958,7 +4961,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S112_integration",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5202,5 +5205,12 @@
     "verdict": "partial",
     "personas": "threeSIMULATED; nothuman",
     "source": "0c92100b826322c8c92fba89317b60b77dc28c9b"
+  },
+  "active_day_authority": {
+    "stop": "2026-11-04T18:00:00Z",
+    "owner_decisions_delegated": true,
+    "prepare_final_APK": true,
+    "same_queue": "6ae532c5fe9c819190f587a022c54052",
+    "session": "S112"
   }
 }
