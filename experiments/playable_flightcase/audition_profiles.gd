@@ -19,4 +19,5 @@ static func audio_manifest(id: String) -> String:
  if id=="cast_jack":return "res://experiments/playable_flightcase/audio/audition_clips.json"
  if id=="cast_arjun":return "res://experiments/playable_flightcase/audio/arjun_clips.json"
  if id=="cast_zoe":return "res://experiments/playable_flightcase/audio/zoe_clips.json"
+ if id=="cast_marcus":return "res://experiments/playable_flightcase/audio/marcus_clips.json"
  return ""

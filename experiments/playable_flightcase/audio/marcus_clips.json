@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "content_source": "res://experiments/playable_flightcase/audition_marcus_content.gd",
+  "content_sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83",
+  "content_version": "s114_marcus_drums_written_v1",
+  "materials": {
+    "marcus_four_bars_original_v1": {
+      "name": "marcus-original",
+      "path": "res://experiments/playable_flightcase/audio/marcus_original_v1.ogg",
+      "sha256": "babf148095e92a74769cb8497fc7e364362fd1d6c89e860a6513b0178b20e89d",
+      "source_PCM_sha256": "5458b6d755e6622257d29b0623beca72aba464b7299a660077c2c7fda94e3ac8",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled drum kit and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "drums"
+    },
+    "marcus_four_bars_space_for_voice_v1": {
+      "name": "marcus-space_for_voice",
+      "path": "res://experiments/playable_flightcase/audio/marcus_space_for_voice_v1.ogg",
+      "sha256": "99b0c9121f64667a6a5ac896623f965ce89b8a2c5a1521cecd358495b367e1ac",
+      "source_PCM_sha256": "13e6a3b06ccd7348577403aa23953b90a216f4436858ec0c09c728ff11b068c2",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled drum kit and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "drums"
+    },
+    "marcus_four_bars_own_part_v1": {
+      "name": "marcus-own_part",
+      "path": "res://experiments/playable_flightcase/audio/marcus_own_part_v1.ogg",
+      "sha256": "5a8990ea6318d445ce81b85321d0b37c3f2674482c4d0bb7edbc3edcc9b0a613",
+      "source_PCM_sha256": "333eaacf0bec17dc10e44d09e5f709cba63af03f4a3cec5ceaaf6437d06c81e5",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled drum kit and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "drums"
+    }
+  }
+}
