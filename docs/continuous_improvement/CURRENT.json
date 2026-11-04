@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S112",
+  "session": "S114",
   "scope": "Approved opening audio plus Arjun comparison and personal context",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S112_scoped_complete_readiness_partial",
-  "next_action": "S114representativebandcohort; source5d425base, fullyfunded/codegatebeforeedits.",
+  "status": "S114_scoped_complete_readiness_partial",
+  "next_action": "Fresh bounded UX03 booking/calendar/due-day-departure whole-task review within a natural representative first-career-loop from these436declaredrows; one evidencedcoherence repair ifneeded, finaloneAPK by18:00.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3252,7 +3252,7 @@
     }
   ],
   "last_completed_session": "S98",
-  "writer": "root_S112_integration",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3424,7 +3424,7 @@
     "protected_prior_paths": 406,
     "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
   },
-  "candidate_source_sha": "5d8b63733b26b07532012be4cf2bddb6280b815f",
+  "candidate_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "candidate_native_verified": true,
   "candidate_status": "scoped_complete_overall_partial",
   "touch_rescope": {
@@ -3461,7 +3461,7 @@
     "reason": "Wrong repeatedcopyCLI; corrected -exact343runtime isauthoritative."
   },
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
-  "all_write_freeze": "2026-11-04T21:20:00Z",
+  "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
   "current_session": "S100",
   "next_single_action": "Resolve the exact pending400file closed-cache consolidation approval/persistent final-metadata funding, then fresh bounded Zoe bass audition from S100424rowmanifest under the existing overnight plan; no updatedAPK.",
@@ -3632,8 +3632,8 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T00:24:41.993684+00:00",
-  "last_writer": "S100-owner-feedback-integration-20261103T2340",
+  "released_at": "2026-11-04T10:20:29.183737+00:00",
+  "last_writer": "root_S114_representative_band",
   "source_write_allowed": false,
   "pending_implementation": false,
   "pending_helpers": false,
@@ -3967,7 +3967,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": false,
-  "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "latest_local_native_checkpoint": {
     "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
     "complete_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
@@ -4087,7 +4087,7 @@
   },
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
-  "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
+  "closeout": "/workspace/work/s114-representative-band-20261104/closeout.json",
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "s79_closeout": "/tmp/bandmaster-s79-20261102/closeout.json",
   "current_experience_feedback": {
@@ -4138,7 +4138,7 @@
   "last_verified_component_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
   "last_verified_native_run_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
   "last_verified_local_native_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-  "source_writer_released_at": "2026-11-04T00:24:41.993684+00:00",
+  "source_writer_released_at": "2026-11-04T10:20:29.183737+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "scope_end": "2026-11-03T12:45:00Z",
   "latest_unverified_phase2_candidate": null,
@@ -4173,8 +4173,8 @@
       "named_reader_verified": true
     }
   },
-  "last_source_writer_release": "2026-11-04T00:24:41.993684+00:00",
-  "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
+  "tested_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -6595,5 +6595,7 @@
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
-  "active_session": "S114"
+  "active_session": null,
+  "game_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "breadth_freeze": "2026-11-04T16:30:00Z"
 }

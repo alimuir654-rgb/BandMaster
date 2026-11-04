@@ -1,5 +1,5 @@
 {
-  "writer": "root_S112_integration",
+  "writer": null,
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
   "expires_at": null,
@@ -7,8 +7,8 @@
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S114_preflight_active",
-  "released_at": "2026-11-04T00:24:41.993684+00:00",
+  "status": "S114_scoped_complete_readiness_partial",
+  "released_at": "2026-11-04T10:20:29.183737+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "S100-owner-feedback-integration-20261103T2340",
-  "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "last_writer": "root_S114_representative_band",
+  "source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -156,7 +156,7 @@
     "source_sha": "a9ba178a677678808fce96bee008a01c7ed2964e"
   },
   "final_closeout_note": "V10built/audited9steps andprivatelydelivered onfreshdirectapproval. Exactownerchair+Alireader verified, no source/UI change/rebuild; physicalphonepending. FutureautomaticAPKheld. Rootwriterreleased.",
-  "source_writer_released_at": "2026-11-04T00:24:41.993684+00:00",
+  "source_writer_released_at": "2026-11-04T10:20:29.183737+00:00",
   "previous_s47_release": {
     "last_writer": "S47-metadata-closeout-20261031T2131",
     "released_at": "2026-10-31T21:32:50.432716+00:00",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -182,7 +182,7 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-04T21:20:00Z",
+  "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
@@ -192,7 +192,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "5d8b63733b26b07532012be4cf2bddb6280b815f",
+  "candidate_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "S114sourcecohort undercommittedpreflight:Marcus/18contexts/typedreviewapproval+matchingoptionalclips; rootaloneGame/GL.",
+  "next_action": "Fresh bounded UX03 booking/calendar/due-day-departure whole-task review within a natural representative first-career-loop from these436declaredrows; one evidencedcoherence repair ifneeded, finaloneAPK by18:00.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S112",
+  "session": "S114",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -424,7 +424,7 @@
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
   "last_completed_session": "S98",
-  "closeout": "/workspace/work/s97-approved-variants-20261103/closeout.json",
+  "closeout": "/workspace/work/s114-representative-band-20261104/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
   "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
@@ -803,7 +803,7 @@
     "finite_end": "2026-11-04T21:24:35Z",
     "overnight_plan": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
   },
-  "last_source_writer_release": "2026-11-04T00:24:41.993684+00:00",
+  "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
   "current_delivery_policy": {
     "status": "V10_PRIVATE_DELIVERED_FUTURE_APK_HELD",
     "owner_instruction": "Great. Go ahead with an apk build.",
@@ -823,7 +823,7 @@
       "named_reader_verified": true
     }
   },
-  "tested_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "tested_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -2983,7 +2983,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S114_representative_band",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3237,5 +3237,8 @@
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
-  "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00"
+  "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
+  "active_session": null,
+  "game_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "breadth_freeze": "2026-11-04T16:30:00Z"
 }

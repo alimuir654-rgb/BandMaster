@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S114",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner4Novdelegatesroutinecreative/listening/integrationdecisions; buildthrough18:00andonefinalAPK. Completeoneaudiblerepresentative-bandcohort:Marcusdrum +18practicalcontexts +matchedpreparedbass/genre examples. Audioqualityfailuremustnotblockwrittencore.",
   "baseline_sha": "bf4c77165f936cd99bbbba624573078ce76b03e3",
@@ -27,8 +27,8 @@
   ],
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1440608,
-    "sha256": "8ee972d6c6e3abdce604ee0169bec6be3a71463f666c48249466cd6795d6b9f7"
+    "bytes": 1452971,
+    "sha256": "e3a3be3870f7ffe6a9a0c92c0f5e113599e62c1925c5d9eb533891838db2bf77"
   },
   "target": {
     "locator": "/tmp/bandmaster-s112-zoe-first-loop-20261104/runs/final-full-phone-v3/captures/bar4-inspected-cast_zoe-space_for_voice-390x844.png",
@@ -83,14 +83,11 @@
     "Newapprovalbool/stringtypes/MasterOff/unmutenoautoresume/missingasset/hashwrong/contextinvalid/teardown",
     "Phone/tall/wide/desktop, normal/reduced,48px/nativepointer-key-emulatedtouch, genuineFSfail/retry/reload"
   ],
-  "root_lease": {
-    "writer": "root_S114_representative_band",
-    "expires_at": "2026-11-04T12:00:00Z"
-  },
-  "source_write_allowed": true,
-  "art_write_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "root_lease": null,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "stop_condition": "Corefirst/assetdeadline10:30; no morethanoneineffectivecontinuationthenchangedmethod/HOLD. Fullproof/closeby12:00; freeze16:30/end18:00 unchanged. No ownerwaiting; quality/rights/fundingblockedoptionalassets stayout, writtenprogresscontinues.",
   "storage_plan": {
     "workspace_cap": 10485760,
@@ -140,5 +137,216 @@
     "final_APK_requested": true,
     "global_owner_art_approval_not_inferred": true,
     "no_newpaid_runtimeAI_engine_publicsharing": true
+  },
+  "finished_at": "2026-11-04T10:20:29.183737+00:00",
+  "closeout": {
+    "tested_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+    "evidence": [
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/source-final.json",
+        "sha256": "f5b312edbf055e109b5c329589ddb8c698c3293413b51e7736099f351c59ca4f"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/source-protection-v1.json",
+        "sha256": "a9e5f424163dede604c5eb438e60677d3219b35b164bc17f2bad67c0683b61df"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/source-storage-protection-final.json",
+        "sha256": "648fab0f52bb4200ef9efd875ad403a2c012fad52604d58aebdcd29458442b0d"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/accepted-log-audit.json",
+        "sha256": "0afc5b188de10fe319323f4ed40b4cba566715a1f9d622d4ed7d4c62ac94d984"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/focused-native-validation.json",
+        "sha256": "769fcc7251a66de01b2e23708400f0ddcd47862d45a398510455a48f1e0bc733"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/standard-RGBA-comparison.json",
+        "sha256": "195a74d52ae3c09cd91fb1b65f943e6ec957f12436d13b69bac78c80a41f6d88"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/model-validation-v2.json",
+        "sha256": "1c8aba99d9568bc7916b5d746daf4d06e7cf6de52c3b0f058d040ac303816620"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/actual-Godot-Marcus-audio-parity-v2.json",
+        "sha256": "e66a5334414949ef5c37367d403538cc0f9a0f5ef3558d5dba1394d61b9ca7a6"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/S113-asset-adoption.json",
+        "sha256": "bb2c0e2e1d45519cd4ff60517e2890075013368ff4f62b7c9b61aa5288c94ed3"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/Marcus-asset-adoption.json",
+        "sha256": "e97364fd3c7dd952a6dc1bb7a47fb1461b3fd0d616e164aa97eb6da8a1d57205"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/early-review.json",
+        "sha256": "5ef259d605a3a2f8629a05ffdb844a258c50e2c08a23c4297d1a65ed09ecf472"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/final-review.json",
+        "sha256": "6c2ce059ffdd0389664196b1b94d36cece9c479cf4f24c4f61d6040e1cbbc95b"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/final-review-entry-addendum.json",
+        "sha256": "7ebeed16f3ce8103ac55f749b6403fda9a69efeee708245fe329600ba73ad5b7"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/final-review-standard-addendum.json",
+        "sha256": "8cc57655f895620e486f17c2e52938791ffe3fa6d252e2171f1796e94645bb30"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/root-early-image-open-receipt.json",
+        "sha256": "616ee945134c7663f34651298510a48060a1ec0cc2968834bb07c7c7d59e7003"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/root-final-image-open-receipt.json",
+        "sha256": "809b2ed0554a3630e55ca012a09aafb5002e709d37f7391897dbeacbb491ad87"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/root-standard-image-open-receipt.json",
+        "sha256": "b914b45e3fc5203a2a3050ef1b8a63b6f2cb4c689890588262b5e3c17fde690e"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/page-status-audit.json",
+        "sha256": "70cbe879007168b15e43e6c6f37c6b5cb4ee7ab4e9f99e3049ee6a82b7fc1c96"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/retired-cache-protection.json",
+        "sha256": "464fdc9243a0f1cf386476460fb4320a74416d7b0a0ea0a40095b48f860b0142"
+      },
+      {
+        "path": "/workspace/work/s114-representative-band-20261104/display-stop.json",
+        "sha256": "81377430fd9eca05828193d9da6e50b3cdae80c1c33ac239b27ae1e5aa1c0f04"
+      }
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Fresh bounded UX03 booking/calendar/due-day-departure whole-task review within a natural representative first-career-loop from these436declaredrows; one evidencedcoherence repair ifneeded, finaloneAPK by18:00.",
+    "new_issue_review": {
+      "all_current_events_reviewed": true,
+      "event_ids": [
+        "S114-20261104-delegated-owner-flag-truth-table",
+        "S114-20261104-first-model-typed-reload-held",
+        "S114-20261104-exact-integral-float-fixture-diagnosis",
+        "S114-20261104-native-safe-root-derivative-held",
+        "S114-20261104-default-600frame-audio-exit-recurrence",
+        "S114-20261104-review-trace-key-collision-held",
+        "S114-20261104-standard-review-size-guard-held",
+        "S114-20261104-readonly-path-diagnostics-disclosure"
+      ],
+      "retained_failures": [
+        "configured-natural-v1",
+        "early-marcus-phone-v1",
+        "model-fractional-diagnostic-v1",
+        "model-v1"
+      ],
+      "no_product_correction_after_native_started": true,
+      "no_assertion_weakening_or_failed_proof_promotion": true
+    },
+    "integrated": [
+      "Marcus saved authored52/50/50-attack drum encounter with full hats/snare/kick notation and source-matched3recordings",
+      "All18explicitlyauthored practical backgrounds; original18bios andold5sidecarvalues unchanged",
+      "Zoe3matchingbass recordings and Punk/Post-punk optionalbandexamples; old6acceptedOGGs retained",
+      "Sharedtypedinternalreviewauthority gate; newowner_listening_acceptedFALSE, reviewacceptedTRUE underdirectdelegation; oldownerBOOLtrueunchanged",
+      "S112freefirstsessionLyricheader andJack/Arjun compatibility retained"
+    ],
+    "source_manifest": {
+      "path": "/workspace/work/s114-representative-band-20261104/source-final.json",
+      "sha256": "f5b312edbf055e109b5c329589ddb8c698c3293413b51e7736099f351c59ca4f",
+      "curated": 436,
+      "Git_rows": 435,
+      "declared_entry_bytes": 146,
+      "source_bytes": 98258856,
+      "ordered_digest": "a8c5383640df797ba7620463028bb6d8f568769bbf0a2fe70d1834ac297bc732",
+      "excluded_extras": 381,
+      "copy_only_declared_rows": true
+    },
+    "verification": {
+      "actual_Godot": 28,
+      "strict_accepted": 24,
+      "held": 4,
+      "all28_on_same_final_source": true,
+      "one_fresh_EMPTY_private_import": true,
+      "gameplay": 73,
+      "opening": 88,
+      "pure_model_actual": 1732,
+      "whole_auditions": 10,
+      "whole_audition_checks": 11174,
+      "whole_FSfail_retries": 20,
+      "native_original_priced_invites": 10,
+      "explicit_original_public_setup_invites_fullcases": 12,
+      "early_partial_cases": 2,
+      "early_checks": 2420,
+      "startup_cases": {
+        "startup-off-v2": 33,
+        "startup-future-v2": 34,
+        "startup-natural-v2": 23
+      },
+      "current_natural_startup_observed": true,
+      "configured_NOscript": "real-time capped600frames/maxfps60/verbose raw0/ERRORempty/noJSONsaves; fixed600current andforced5inheritedHOLD retained, exactcauseunproved",
+      "natural_longest_Post_punk_completion": "Zoephone19702ms only; othercases do not claimnaturalfinish",
+      "source_original54Scripts3UID_andold6OGGs_exact": true,
+      "old_S109_closed_cache_paths_exact": 800,
+      "standard_native_encoding_events": 248,
+      "standard_families": 232,
+      "standard_RGBA": {
+        "exact": 204,
+        "scoped_audio": 12,
+        "scoped_context": 12,
+        "known_Reopen_transition": 4,
+        "unexpected": 0
+      },
+      "all_physical_PNGs": 308,
+      "split_physical_PNGs": {
+        "full_focused": 50,
+        "early": 10,
+        "standard": 248,
+        "held": 0
+      },
+      "model_gig_activity_reruns": 0,
+      "whole_initial_menus_claimed": false
+    },
+    "actual_image_opens": {
+      "root": 16,
+      "root_split": "5earlycurrent+6finalfocusedcurrent+3standardcurrent+2retainedbaseline",
+      "independent": 29,
+      "independent_split": "10early+15final+4standardaddendum; countedactualopens, nothuman/device reviews; crossstagepixelduplicates notindependentcontentclaim"
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "new_player": "Fourstage current/prior/action labels support the audition task; firstnaturalcareerloop remainsnextreview.",
+      "musician": "Actualsource52/50/50 drums andZoe16/7/10 parts match rendered scores; no character skillgrade or realperformance claim.",
+      "general_player": "Fixedactions andpublictalent clear; body scroll used forlongparts/context.",
+      "accessibility": "Realnativepointer/key/emulatedtouch, normal/reduced/focus/resize exercised; physicalphone/IME/OS interruptions unverified.",
+      "save_safety": "Wholetypedrollback/filepreservation/retry/reload andoriginalonce-only pricedinvites; fourcandidate histories retained, noGame/Finance/schema edits."
+    },
+    "limitations": [
+      "Staticportraits/room, sparsewide/tall, phonebody scrolling andhandwrittenvoice close torightedge remainP2.",
+      "Currentfixed600 andinherited5frame defaultaudio-exitHOLD: raw0 butresourceERROR; realtime600/naturalfixture/interactive teardown strictlypass. Causeunknown; no audio-disable/blockingproduct workaround.",
+      "Dummyprovesrouting/state/timing, not physicalspeaker/headphone/phoneaudibility/IME/OSinterrupt/install/retention/humancomprehension.",
+      "Actualcurrent4audition profiles with18historycap; remaining14retainhonestlegacyencounters. Elevenof14genres have noexample. Arjunadjustedwrittenonly.",
+      "No newart/newbank/dependency/service/upload/APK inthisscope. V10/S97remainscurrentphonebuild untilonefinalrequestedAPK.",
+      "OldmissinghistoricalTMPproofs remainunavailable/closed; allcurrentproofs arefresh retained originals."
+    ],
+    "owner_approved": false,
+    "closed_at": "2026-11-04T10:20:29.183737+00:00",
+    "display": {
+      "pid": 52748,
+      "stopped": true,
+      "socket_gone": true,
+      "GL_free": true,
+      "three_config_pins_exact": {
+        "/usr/bin/Xorg": "bca1ceb412614f4e0cb13a68b5d78e86b32ac25f7f2f66b40de73517c8f239eb",
+        "/etc/X11/xorg.conf": "76b290e6680ec6bf706f2940347c56dbe8ac893be448e4af6e120d0d9bd7196a",
+        "/usr/lib/xorg/modules/drivers/dummy_drv.so": "608370525f3c6ecf96c1eab4908a2b22c5a676836c81dfd48a8377e268a384f8"
+      },
+      "zombie_retained": true,
+      "normal_wrapper_only": true,
+      "closed_at": "2026-11-04T10:14:19.505954+00:00"
+    },
+    "cache": "CurrentS114455-file privatecache nowpinned/permanentlyclosed; oldS112four runtimes/caches remainclosed. Newcases usedonecurrentcandidate warmshaderpool withfreshprivate saves/logs, notcoldGPUindependence.",
+    "funding": "S11410MiBdurable/2GiBTMP andDAY24MiB persistentcap/600MiBfloors retained; no arbitrarycleanup/TMPcriticalGit."
   }
 }
