@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-09",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "id": "S123",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "1de0759692eb05526a726fde7750bb69d2a4dcfb",
+  "game_baseline_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "owner_request": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
+  "issue_log_review": {
+    "bytes": 1538808,
+    "sha256": "11254a9af158770935517f4b2066256b4ecb961e20ed9f0d1b782cfffd750db5"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s122-songwriting-navigation-20261104/runs/latest-phone-v1/proof/07-done-editing-local-words-readable-390x844.png",
+    "original_sha256": "0872464ecb0501e176f492ab6449fc6d2858973d82f0f4450257341ce39e5aab",
+    "pixels_inspected": true,
+    "scope": "Actual S122 word-oriented desk to replace as primary first-palette creative activity; old route retained"
+  },
+  "hypothesis": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
+  "controlled_comparison": "Same original current opening and Jack/Zoe/Marcus trio, actual first-day original owners. Four native layouts; preserve legacy absent-recipe compatibility. Root source/assets/engines, independent pre/early/final review.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S123.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/audio/producer_examples.json",
+    "experiments/playable_flightcase/audio/genre_examples.json",
+    "experiments/playable_flightcase/audio/producer/recipe_00.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_01.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_02.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_03.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_04.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_05.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_06.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_07.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_08.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_09.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_10.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_11.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_12.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_13.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_14.ogg",
+    "experiments/playable_flightcase/audio/producer/recipe_15.ogg",
+    "experiments/playable_flightcase/audio/producer/punk_v2.ogg"
+  ],
+  "validation_commands": [
+    "Exhaustive16recipe and single-bit-neighbor material/quality/audio mapping; typed future/unknown HOLD preservingraw; legacy Workbench suite fresh. Actual skills present/integral/ranged for producer only.",
+    "Existing whole-owner free/paid transaction: stale/duplicate/append cap60/unknown extension/failedmetadata+eachpaid save retry/typedreload. Final ONLYnew-index quality+knownextension after original/Financecheck; priorcatalogue/demo/show/sourceScripts exact.",
+    "Earlyphone390/shortwide1280 importantstates beforefullproof; final4layouts genuine producer entry/4control changes/listenstop/dirtySaveDiscardKeep/3originalpaiddays/FSfailure-retry/reload. 73/88/EMPTYprivateimport/4standard/naturalentryERRORempty.",
+    "Actual16OGG mapping/provenance/finite source rendering/endvoices/tails/decodedLUFSpeak plus one longest natural completion, zeroaudio owner/files/save and lifecycle/mute/unmutenoautoresume/fallback.",
+    "All54originalScripts3UID/old14OGG/othermodels/art/fonts/hardware/unknownschema/Financeonce preserved; newPunk changes genreentry only under explicit internally-reviewed ownerfalse authority. No new performance/listening/deviceclaim."
+  ],
+  "queue_task": "S121 priority2 audible producer verticalslice +bounded revisedPunkgenre",
+  "reviewer": "/root/s122_design_review independent pre/early/final scoped scratch128KiB; root alone implementation/assetjob/engines",
+  "player_goal": "Make and hear a recognisable original through four musical choices, with clear local/saved take and original day commitment.",
+  "start_end_commitment": "First real career DAY1 new Indie producer idea -> audition real current arrangement/change/rehearse direction -> three original writingdays -> same finished recipe and bounded craft receipt. Optional legacy lyric route retained.",
+  "state_matrix": [
+    "390x844/720x1280/1280x720/1600x900",
+    "all4binary controls; current/saved/earlier, muted/missing, longtitle, dirtyexit, keyboard/touch/pointer/bodydrag",
+    "free metadata fail/retry,3paid day failures,typedreload/stale/future/append-index+cap/legacy",
+    "preview stop on selection/menu/paid/resize/hide/free/focus/context; no soundonarrival or unmute"
+  ],
+  "root_lease": {
+    "writer": "root_S123_audible_producer",
+    "expires_at": "2026-11-04T23:00:00Z"
+  },
+  "source_write_allowed": true,
+  "audio_write_allowed": true,
+  "art_write_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "external_artifact_roots": [
+    "/workspace/work/s123-audible-producer-20261104",
+    "/tmp/bandmaster-s123-audible-producer-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s122-songwriting-navigation-20261104/source-final.json",
+    "manifest_SHA": "10694cd8e2f237ccb0b9a80e55b15d790312962f637b3ee0e6092330183737ed"
+  },
+  "manual_authority": {
+    "direct_request": "Go ahead",
+    "clock": "2026-11-04T19:37:25Z",
+    "old_day_queue_not_restarted": true,
+    "fresh_manual_build": true
+  },
+  "stop_condition": "Self-bounded producer scope to23:00; no owner-set new finish time. Reserve full proof/closeout/APK tail. Stop/review after two ineffective approaches. No queue restart/automatic source scope expansion.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 667181056,
+    "TMP_initial_free_bytes": 4110618624,
+    "scope_persistent_cap": 16777216,
+    "scope_TMP_cap": 1879048192,
+    "manual_build_aggregate_cap": 25165824,
+    "manual_build_initial_free": 671449088,
+    "reserved_finalAPK_handoff_persistent": 4194304,
+    "reserved_finalAPK_TMP": 805306368,
+    "floor": 629145600,
+    "categories_persistent": {
+      "selected17OGG": 6291456,
+      "source_preflight_review": 1048576,
+      "primaryGit_sourceassets_metadata": 8388608,
+      "failedproof_closeout": 1048576
+    },
+    "categories_TMP": {
+      "audio_raw_room_review": 536870912,
+      "runtime_privatecache": 268435456,
+      "native_PNGs": 402653184,
+      "failedproof_QA_logs": 268435456,
+      "closeout_tail": 402653184
+    },
+    "no_old_mutablecache_shared": true
+  },
+  "implementation_contract": "/workspace/work/s122-songwriting-navigation-20261104/next-producer-contract.json",
+  "nonshipping_QA_contract": {
+    "allowed": [
+      "explicit frozen old model/nativeQA derivatives",
+      "qa/*.gd",
+      "runners.py",
+      "render*.py",
+      "score*.json",
+      "rights and acquisition references",
+      "regular private436row runtime copy/EMPTYimport",
+      "PNG/logs/XDG/receipts"
+    ],
+    "no_original_assertion_weakening": true
+  }
+}
