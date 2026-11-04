@@ -1,14 +1,14 @@
 {
-  "writer": null,
+  "writer": "root_S120_V11_existing_playtest_guide",
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T16:00:00Z",
   "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S119_closed_readonly_archive_contract_native_page_unreviewed",
-  "released_at": "2026-11-04T14:30:11.125021+00:00",
+  "status": "S120_V11_existing_playtest_guide_alignment",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": false,
-  "next_action": "Use actual V11 device feedback first; S118 UX05 remains the higher-priority ready presentation contract. For existing UX06, obtain a fresh funded native finished-sketch page baseline before any archive change, preserving the complete reference and dirty-exit path. No owner-approval wait, V11/source2d change, repeated review/engine/APK activity or queue extension;18:00 stop remains.",
+  "next_action": "Align existing phone guide with deliveredV11 and focused device checks; no Game, engine, cache, APK or sharing changes.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S119",
+  "session": "S120",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -470,7 +470,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-  "current_session": "S119",
+  "current_session": "S120",
   "closed_at": "2026-11-03T22:23:17.797280+00:00",
   "last_updated_utc": "2026-11-03T22:23:17.797280+00:00",
   "last_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
@@ -1014,7 +1014,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S119 UX06 source/identity contract ready; actual archive native page visual review held. S118 UX05 remains higher priority; V11 unchanged.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S120_V11_existing_playtest_guide",
+    "expires_at": "2026-11-04T16:00:00Z"
+  },
   "source_implementation_status": "NONE: S119 read-only contract/evidence classification only; source2d and V11 unchanged.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -2904,7 +2907,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S120_V11_existing_playtest_guide",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3126,7 +3129,7 @@
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S119",
+  "active_session": "S120",
   "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,

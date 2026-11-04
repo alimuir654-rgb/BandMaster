@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "S120",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue same day/hardstop18:00 with finalV11 testing artifact already delivered. Correct the existing linked phone playtest guide, which still directs V9 and describes auditions/songwriting as future, using verified V11 receipts and current UI facts. Routine decisions delegated; no new source/runtime/APK.",
+  "baseline_sha": "99b2b2cc104f0d0c3bf444c281f5b5d7969c625e",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-13",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1507024,
+    "sha256": "27c6d5cc6e8f9b0e9275c724d07eb0c30899dd6e6a792c04468e2615f33aad3e"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
+    "original_sha256": "ef81ce1336cd23a1a8e43ae9e55dc1491ca9cc01a87604aa0f723a36ed324e3b",
+    "pixels_inspected": true,
+    "scope": "Retained current native original actually opened in S119, not a new S120 image or guide browser-render witness."
+  },
+  "hypothesis": "Updating the existing guide to the verified V11 link/version and concrete save/sound/lyric checks prevents the testing handoff from sending the owner to an older artifact or calling integrated features unavailable.",
+  "controlled_comparison": "Same existing guide Page47blocks/sequence15, retained old download/history/images/feedback table; correct only current-version instructions and add concise V11 checks. ExistingPlan58/Board170 unchanged. Source2d/V11 unchanged, no physical device test or new permission.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S120.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit bounded guide-only preflight/gate before publication. Read current Plan/Board/Guide/comments/instructions; preserve human fields, images, old links and Page histories. One metadata/Page writer, no engines/GL claim.",
+    "Use existing S117 build/update/privacy/private-delivery receipts and source-backed UI routes. Do not rehash/build/re-audit/upload APK or grant recipients again; no APK size/signature/physical test inference beyond original evidence.",
+    "Update current guide link/code/name/filename and scope to V11. Retain previous V10/V9/V8/V7/V6/V5 links and images, save-retention-first Continue path, install UPDATE/no uninstall or clear data. Audio examples are audition/genre illustrations, not generated song/demo playback.",
+    "Add practical SoundOff/persistedmute, explicit PlayStop/selected variations, conditional recruitment, free Lyric+VerseChorus/save/try/dirty exits/resume and full-Details checks. Distinguish authored backgrounds from player-recorded circumstances; no hidden-stat answer keys or optimal gameplay prescriptions.",
+    "One guarded atomic Page batch, with exact current block IDs/hashes and observed insertion neighbors; verify every operation and complete readback. Preserve untouched blocks/order/IDs/metadata/images/feedback fields. No browser-render claim if unavailable.",
+    "Serialize final source435Git diff0/manifest/receipt/canonical/Pages/process/storage checks; closeoutDICT/fiveSIMULATEDlenses/zero new native images. Fund complete primaryGit/failed-receipt/closeout tail and release by16:00, sameCOUNT44/18:00 unchanged."
+  ],
+  "queue_task": "Existing final V11 handoff: update linked phone playtest guide",
+  "reviewer": "Root evidence/editorial check of actual current guide and verified V11 receipts; no independent-human or device acceptance.",
+  "player_goal": "Download the correct update, preserve an existing band, and test current sound/lyrics/calendar behaviors with useful reproduction notes.",
+  "start_end_commitment": "Start verifiedV11/source2d/private owner+Ali link and existing V9 guide. End same guide corrected to V11 with focused device checks, retained history and feedback fields; no game or APK changes.",
+  "state_matrix": [
+    "OldV9 link/version/filename versus deliveredV11 identity and existing old links/history",
+    "Continue retention before optional new formation; existing career not reset for testing",
+    "SoundOn/Off persisted; explicit audition/genre playback versus once-per-process splash; Arjun adjusted written-only",
+    "Free lyric sketch/save/try versus one-day paid write; dirty Keep/Save/Discard, Menu/resume; full notes via current DETAILS label",
+    "All18 authored backgrounds versus explicit player-recorded circumstances; no automatic wages/rota/attendance",
+    "No new engine/cache/audio/image/APK/resource/grant/source-history action; privacy/update/device limits retained"
+  ],
+  "root_lease": {
+    "writer": "root_S120_V11_existing_playtest_guide",
+    "expires_at": "2026-11-04T16:00:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "page_write_allowed": true,
+  "APK_artifact_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "stop_condition": "Correct current guide only, then verify/readback/release by16:00. Do not claim physical test or native/browser-render acceptance, alter Game or make another APK. No new queue/endtask/extension;18:00 hardstop unchanged.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 674414592,
+    "persistent_total_with_primaryGit_cap_bytes": 1835008,
+    "new_TMP_runtime_cache_PNG_bytes": 0,
+    "DAY_initial_free_bytes": 695787520,
+    "DAY_cap_bytes": 25165824,
+    "floor_bytes": 629145600,
+    "retained_final_handoff_reserve_bytes": 1048576,
+    "complete_scope_includes_primaryGit_failedproof_receipts_and_closeout": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s120-v11-playtest-guide-20261104"
+  ],
+  "pages_read": {
+    "Plan": 58,
+    "Board": 170,
+    "Guide": 15,
+    "all_comments_empty": true,
+    "human_checkbox_writes": 0
+  },
+  "guide_page": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+  "verified_receipt_root": "/workspace/work/s117-final-apk-v11-20261104/",
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+    "curated_rows": 436,
+    "all_old_producers_permanently_closed": true
+  }
+}
