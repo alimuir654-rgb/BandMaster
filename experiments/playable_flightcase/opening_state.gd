@@ -617,11 +617,11 @@ func _finish_workbench_free(before: Dictionary,result: Dictionary) -> Dictionary
   return _workbench_result(false,false,"The sketch could not be saved. The previous band and your local words are retained; try again.")
  return _workbench_result(true,true,str(result.get("message","")))
 
-func begin_workbench(title: String,leader_index: int,expected: Dictionary) -> Dictionary:
+func begin_workbench(title: String,leader_index: int,expected: Dictionary,recipe: Dictionary={}) -> Dictionary:
  if _audition_busy:return _workbench_result(false,false,"A band action is already being saved.")
  _audition_busy=true
  var before:=snapshot()
- var result:=_finish_workbench_free(before,Workbench.begin(before,title,leader_index,expected))
+ var result:=_finish_workbench_free(before,Workbench.begin(before,title,leader_index,expected,recipe))
  _audition_busy=false
  return result
 

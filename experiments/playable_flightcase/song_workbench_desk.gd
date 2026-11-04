@@ -1,5 +1,7 @@
 extends VBoxContainer
 ## The actual same two-line leaf. Typing, inspection and focus remain local.
+const Producer = preload("res://experiments/playable_flightcase/producer_recipe.gd")
+const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
 const Rules = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const Content = preload("res://experiments/playable_flightcase/song_fragment_content.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
@@ -11,6 +13,11 @@ signal exit_ready(destination: String)
 signal closed
 var owner_state
 var reduced_motion := false
+var _recipe: Dictionary={}
+var _producer_controls: VBoxContainer
+var _producer_audio
+var _producer_summary: Label
+var _recipe_buttons: Array[Button]=[]
 var _view: Dictionary={}
 var _expected: Dictionary={}
 var _text: TextEdit
@@ -187,6 +194,7 @@ func _build() -> void:
  leader_row.get_child(0).custom_minimum_size.x=48
  leader_row.get_child(2).custom_minimum_size.x=48
  _paper_body.add_child(leader_row)
+ _build_producer()
  _words=_label("",21,true)
  _words.name="WorkbenchWords"
  _words.custom_minimum_size.y=164
@@ -273,6 +281,7 @@ func _build() -> void:
  add_child(exits)
 
 func _on_resized() -> void:
+ _stop_demo()
  if not is_inside_tree():return
  if _layout_size!=size and is_instance_valid(_exit_dialog):
   _close_exit()
@@ -295,9 +304,57 @@ func _on_resized() -> void:
 func _project() -> Dictionary:
  return _view.get("project",{})
 
+func _producer_mode() -> bool:
+ return _project().get("fragment",{}).has("producer_recipe")
+
+func _stop_demo() -> void:
+ if is_instance_valid(_producer_audio):_producer_audio.stop()
+
+func _demo_context() -> Dictionary:
+ var live: Dictionary=owner_state.workbench_view()
+ var ok: bool=_producer_mode() and Producer.valid(_recipe) and live.get("ok",false) and live.get("active",false) and not live.get("held",true) and Rules._same(owner_state.workbench_expected(),_expected) and not _busy and not is_instance_valid(_exit_dialog)
+ return {"allowed":ok,"material_id":"recipe_%02d" % Producer.index(_recipe),"content_version":Producer.VERSION}
+
+func _build_producer() -> void:
+ _producer_controls=VBoxContainer.new()
+ _producer_controls.name="ProducerControls"
+ _producer_controls.add_theme_constant_override("separation",8)
+ _paper_body.add_child(_producer_controls)
+ _producer_controls.add_child(_label("SHAPE YOUR FIRST ORIGINAL",21,true))
+ _producer_controls.add_child(_label("Choose a direction, then listen. Keep a take and develop it across three writing days.",16,true))
+ for i in range(4):
+  _producer_controls.add_child(_label(Producer.TITLES[i],15,true))
+  var row:=HBoxContainer.new()
+  row.add_theme_constant_override("separation",8)
+  _producer_controls.add_child(row)
+  for choice in range(2):
+   var button:=_quiet(Producer.LABELS[i][choice],"Producer_%s_%d" % [Producer.FIELDS[i],choice],_choose_recipe.bind(i,choice),true)
+   button.add_theme_font_size_override("font_size",16)
+   row.add_child(button)
+   _recipe_buttons.append(button)
+ _producer_summary=_label("",16,true)
+ _producer_summary.name="ProducerRecipeSummary"
+ _producer_controls.add_child(_producer_summary)
+ _producer_audio=AudioPart.new()
+ _producer_audio.name="ProducerAudio"
+ _producer_audio.manifest_path="res://experiments/playable_flightcase/audio/producer_examples.json"
+ _producer_audio.play_caption="LISTEN TO THIS TAKE"
+ _producer_audio.available_hint="An arranged instrumental demo of these settings."
+ _producer_audio.unavailable_hint="Demo unavailable. Your selected direction can still be saved and developed."
+ _producer_audio.configure(_demo_context)
+ _producer_controls.add_child(_producer_audio)
+ _producer_controls.add_child(_label("Guitar · bass · drums\nInstrumental arrangement demo. Your band develops the finished song through writing sessions.",15,true))
+
+func _choose_recipe(field: int,choice: int) -> void:
+ if _busy or is_instance_valid(_exit_dialog) or _reveal_only() or not _producer_mode():return
+ _stop_demo()
+ _recipe[Producer.FIELDS[field]]=Producer.VALUES[field][choice]
+ _refresh_local()
+
 func _saved_payload() -> Dictionary:
  var project:=_project()
  if project.is_empty():return {}
+ if _producer_mode():return {"recipe":project.fragment.producer_recipe.duplicate(true),"title":project.target.title,"leader_index":int(project.target.leader_ref.slot)}
  return {"text":"%s\n%s" % [project.fragment.lines[0].text,project.fragment.lines[1].text],"refrain_line_id":project.fragment.refrain_line_id,"title":project.target.title,"leader_index":int(project.target.leader_ref.slot)}
 
 func _toggle_word_editing() -> void:
@@ -314,6 +371,7 @@ func _toggle_word_editing() -> void:
   _edit_words.grab_focus()
 
 func _payload() -> Dictionary:
+ if _producer_mode():return {"recipe":_recipe.duplicate(true),"title":_title.text,"leader_index":_leader_index}
  return {"text":_text.text,"refrain_line_id":_refrain,"title":_title.text,"leader_index":_leader_index}
 
 func has_local_edits() -> bool:
@@ -325,6 +383,7 @@ func has_local_edits() -> bool:
  return not Rules._same(current,saved)
 
 func refresh_saved(preserve_local: bool=false) -> void:
+ _stop_demo()
  _view=owner_state.workbench_view()
  _expected=owner_state.workbench_expected()
  if not is_instance_valid(_text):return
@@ -333,9 +392,10 @@ func refresh_saved(preserve_local: bool=false) -> void:
  if not preserve_local:
   var payload:=_saved_payload()
   if not payload.is_empty():
-   if _text.text!=payload.text:_text.text=payload.text
+   if _producer_mode():_recipe=payload.recipe.duplicate(true)
+   if not _producer_mode() and _text.text!=payload.text:_text.text=payload.text
    if _title.text!=payload.title:_title.text=payload.title
-   _refrain=payload.refrain_line_id
+   if not _producer_mode():_refrain=payload.refrain_line_id
    _leader_index=int(payload.leader_index)
  var project:=_project()
  var trial: Dictionary=project.get("last_trial",{})
@@ -359,6 +419,9 @@ func refresh_saved(preserve_local: bool=false) -> void:
  _respondent_portrait.texture=load(path) if not path.is_empty() and ResourceLoader.exists(path) else null
  _respondent_portrait.visible=not path.is_empty()
  _respondent_portrait.set_meta("source",path)
+ if _producer_mode() and trial.is_empty():
+  _respondent.text="YOUR SAVED ARRANGEMENT · NO NOTE YET"
+  _note.text="Listen to the settings, try a different direction, then TRY THIS TAKE for an arrangement note. Saving and listening do not use a writing day."
  _note.visible_characters=-1
  _preview.visible=false
  _use_take.visible=false
@@ -374,12 +437,32 @@ func _refresh_local() -> void:
  _words.visible=not _editing_words
  _words.text=_text.text
  _edit_words.text="DONE EDITING" if _editing_words else "EDIT WORDS"
+ var producer: bool=_producer_mode()
+ _producer_controls.visible=producer
+ _edit_words.visible=not producer
+ for button in _refrains:button.get_parent().visible=not producer
+ var prior_tools: Node=find_child("WorkbenchPrior",true,false)
+ if prior_tools!=null:prior_tools.get_parent().visible=not producer
+ if producer:
+  if _recipe.is_empty():_recipe=_project().fragment.producer_recipe.duplicate(true)
+  _words.hide();_text.hide();_edit_words.hide()
+  for button in _refrains:button.get_parent().hide()
+  var prior: Node=find_child("WorkbenchPrior",true,false)
+  if prior!=null:prior.get_parent().hide()
+  _producer_summary.text=("LOCAL DIRECTION · " if has_local_edits() else "SAVED DIRECTION · ")+Producer.summary(_recipe)
+  for i in range(_recipe_buttons.size()):
+   var field: int=i/2
+   var selected: bool=_recipe.get(Producer.FIELDS[field])==Producer.VALUES[field][i%2]
+   _recipe_buttons[i].text=("● " if selected else "")+Producer.LABELS[field][i%2]
+  var id: String="recipe_%02d" % Producer.index(_recipe)
+  if _producer_audio._material!=id:_producer_audio.set_clip(id)
+
  _title.editable=not held and not _busy
  var stage: int=int(owner_state.game.career.get("song_draft_progress",0))+1
  var local_edits: bool=has_local_edits()
  _badge.text=("LOCAL EDITS · " if local_edits else "SAVED TAKE · ")+"SESSION %d / 3" % stage
  if local_edits and _notice_kind!="error":
-  _show_notice("LOCAL EDITS · These words are not saved. Try this exact take before writing.","local")
+  _show_notice("LOCAL DIRECTION · Try this take to save it before writing." if producer else "LOCAL EDITS · These words are not saved. Try this exact take before writing.","local")
  elif not local_edits and _notice_kind=="local":_show_notice("")
  _write.text="WRITE SESSION %d OF 3" % stage
  var modal: bool=is_instance_valid(_exit_dialog)
@@ -443,6 +526,7 @@ func _choose_refrain(id: String) -> void:
  _refresh_local()
 
 func _change_leader(direction: int) -> void:
+ _stop_demo()
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  var members: Array=owner_state.game.career.get("members",[])
  if members.is_empty():return
@@ -452,6 +536,8 @@ func _change_leader(direction: int) -> void:
  _refresh_local()
 
 func _free(action: String) -> void:
+ _stop_demo()
+ if _producer_mode():action="producer_try" if action=="try" else "producer_save"
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  _busy=true
  _refresh_local()
@@ -459,9 +545,10 @@ func _free(action: String) -> void:
  _busy=false
  refresh_saved(true) # Actual saved text matches the payload; keep native caret/selection.
  _show_notice(str(result.message),"saved" if result.get("ok",false) else "error")
- if result.get("ok",false) and action=="try" and result.get("changed",false):_note.begin(reduced_motion)
+ if result.get("ok",false) and action in ["try","producer_try"] and result.get("changed",false):_note.begin(reduced_motion)
 
 func _archive() -> void:
+ _stop_demo()
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  if has_local_edits():_show_notice("Save your local words before archiving. Archiving keeps the original song draft and completed days.");return
  _busy=true
@@ -471,6 +558,7 @@ func _archive() -> void:
  else:refresh_saved(true);_show_notice(result.message,"error")
 
 func _request_write() -> void:
+ _stop_demo()
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  if has_local_edits() or not _view.get("can_write",false):
   _show_notice("Try these exact words, title and leader before using a writing day.")
@@ -506,6 +594,7 @@ func _use_preview() -> void:
  _show_notice(result.message,"saved" if result.get("ok",false) else "error")
 
 func request_exit(destination: String) -> void:
+ _stop_demo()
  if _busy or is_instance_valid(_exit_dialog):return
  if _reveal_only():return
  if not has_local_edits():exit_ready.emit(destination);return
@@ -538,7 +627,7 @@ func request_exit(destination: String) -> void:
  var body:=VBoxContainer.new()
  body.add_theme_constant_override("separation",10)
  panel.add_child(body)
- body.add_child(_label("KEEP YOUR LOCAL WORDS?",20))
+ body.add_child(_label("KEEP YOUR LOCAL DIRECTION?" if _producer_mode() else "KEEP YOUR LOCAL WORDS?",20))
  _exit_message=_label("Save this sketch free, discard only these local edits, or keep editing. No writing day is used.")
  body.add_child(_exit_message)
  body.add_child(_button("SAVE SKETCH FREE","WorkbenchExitSave",_exit_choice.bind("save",epoch)))
@@ -560,11 +649,15 @@ func _close_exit() -> void:
 
 func _exit_choice(choice: String,epoch: int) -> void:
  if not is_instance_valid(_exit_dialog) or epoch!=_exit_generation or _busy:return
- if choice=="keep":_close_exit();_text.grab_focus();return
+ if choice=="keep":
+  _close_exit()
+  if _producer_mode():_recipe_buttons[0].grab_focus()
+  else:_text.grab_focus()
+  return
  var destination: String=_exit_destination
  if choice=="save":
   _busy=true
-  var result: Dictionary=owner_state.workbench_action("save_sketch",_exit_token.duplicate(true),_payload())
+  var result: Dictionary=owner_state.workbench_action("producer_save" if _producer_mode() else "save_sketch",_exit_token.duplicate(true),_payload())
   _busy=false
   if not result.get("ok",false):
    _view=result.view
@@ -586,4 +679,5 @@ func _unhandled_key_input(event: InputEvent) -> void:
   get_viewport().set_input_as_handled()
 
 func _on_visibility_changed() -> void:
+ if not is_visible_in_tree():_stop_demo()
  if not is_visible_in_tree() and is_instance_valid(_exit_dialog):_close_exit()

@@ -927,6 +927,12 @@ func _writing_notes(info: VBoxContainer) -> void:
 func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  if game.genre=="Indie rock":
+   var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
+   producer.name="WritingOpenProducer"
+   producer.custom_minimum_size.y=48
+   producer.pressed.connect(_open_producer)
+   body.add_child(producer)
   var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
   sketch.name="WritingOpenLyricSketch"
   sketch.custom_minimum_size.y=48
@@ -1212,6 +1218,14 @@ func _write() -> void:
   return
  _commit_session("create")
 
+func _open_producer() -> void:
+ if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
+ var recipe: Dictionary=preload("res://experiments/playable_flightcase/producer_recipe.gd").recipe()
+ var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
+ last_message=str(result.message)
+ if result.get("ok",false):recap_expanded=false
+ _rebuild()
+
 func _open_lyric_sketch() -> void:
  if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
  idea_index=1
@@ -1257,10 +1271,30 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
   var selected: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
   if selected.ok:
    var fragment: Dictionary=selected.fragment.fragment
-   var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
-   words.name="WorkbenchFinishedText"
-   body.add_child(words)
-   body.add_child(_label("The words saved with this finished original.",16))
+   if fragment.has("producer_recipe"):
+    var producer_rules=preload("res://experiments/playable_flightcase/producer_recipe.gd")
+    var arrangement: Label=_label(producer_rules.summary(fragment.producer_recipe),21)
+    arrangement.name="WorkbenchFinishedArrangement"
+    body.add_child(arrangement)
+    var title: String=""
+    for item in Workbench.finished(opening_owner.snapshot()).items:
+     if Workbench._same(item.reference,_workbench_finished_ref):title=str(item.title);break
+    body.add_child(_label(title,22))
+    body.add_child(_label("Your saved arrangement demo. Writing has developed this original; the recording illustrates its musical direction.",16))
+    var audio=preload("res://experiments/playable_flightcase/audition_audio.gd").new()
+    audio.manifest_path="res://experiments/playable_flightcase/audio/producer_examples.json"
+    audio.play_caption="LISTEN TO SAVED TAKE"
+    audio.configure(func():
+     var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+     var current: Dictionary=live.get("fragment",{}).get("fragment",{}).get("producer_recipe",{})
+     return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":"recipe_%02d" % producer_rules.index(current),"content_version":producer_rules.VERSION})
+    audio.set_clip("recipe_%02d" % producer_rules.index(fragment.producer_recipe))
+    body.add_child(audio)
+   else:
+    var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
+    words.name="WorkbenchFinishedText"
+    body.add_child(words)
+    body.add_child(_label("The words saved with this finished original.",16))
   else:body.add_child(_label(selected.message,16))
  for item in Workbench.finished(opening_owner.snapshot()).items:
   var reference: Dictionary=item.reference.duplicate(true)

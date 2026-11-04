@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "content_version": "producer_indie_v1",
+  "materials": {
+    "recipe_00": {
+      "name": "producer-recipe-00",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_00.ogg",
+      "sha256": "e9f414c9a3678ae1037fd1f361c727a980a872d18023b0d6f091f0ae5caf8214",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_01": {
+      "name": "producer-recipe-01",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_01.ogg",
+      "sha256": "0cce3590695f7c480421d96ea123646134717063b9fb13cf5beab5b785dabdec",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_02": {
+      "name": "producer-recipe-02",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_02.ogg",
+      "sha256": "b31f3633e84292c12592f49d52a7da9445982f6b74af6af0ed34088764508e17",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_03": {
+      "name": "producer-recipe-03",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_03.ogg",
+      "sha256": "2b0e94564572e841afa9bc42a098e69e61a0dedee052ee884954c02ee9b1f28a",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_04": {
+      "name": "producer-recipe-04",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_04.ogg",
+      "sha256": "7ae6cb10a7e6e1a739de3cee1f9716b079005b87822ca62f666036dff51bfbc3",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_05": {
+      "name": "producer-recipe-05",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_05.ogg",
+      "sha256": "aae33ba77501e1e5960ad8180c74babf81387f03cd2a3eda2a6c87940079cff5",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_06": {
+      "name": "producer-recipe-06",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_06.ogg",
+      "sha256": "eda792004f3e7846399ade8d9df8d97ce526486bbb8d149ed6ee29861e58638d",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_07": {
+      "name": "producer-recipe-07",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_07.ogg",
+      "sha256": "3624740fa7c382e40d04c3acc61d007dc123c205c8b7d17724a83ab93036e9ed",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_08": {
+      "name": "producer-recipe-08",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_08.ogg",
+      "sha256": "c68a5c82b7a93a8bf66696113ca52e7ffa67fa59c44311962712095c0fcb76fb",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_09": {
+      "name": "producer-recipe-09",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_09.ogg",
+      "sha256": "6c2740e99b64c85b8776fc406ffdab0558f11ffb990fccea847a2dd7926b9b20",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_10": {
+      "name": "producer-recipe-10",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_10.ogg",
+      "sha256": "c27740915bba57fec582b43beddad90e38a75f77c4a84a57f8b2daf5373ed447",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_11": {
+      "name": "producer-recipe-11",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_11.ogg",
+      "sha256": "eaf7286b68d6a7648d00649b154f4d9cdc0b2d3efbed31bea882a2bb5a46d452",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_12": {
+      "name": "producer-recipe-12",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_12.ogg",
+      "sha256": "fb91761af22a3737a4a71d20f2534e6e633d1523a8582a8fac48031b8516e985",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_13": {
+      "name": "producer-recipe-13",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_13.ogg",
+      "sha256": "6d6a46fba6945e70d17a8399d7a9a716a203299615a199088f0c50d9bca95e68",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_14": {
+      "name": "producer-recipe-14",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_14.ogg",
+      "sha256": "2bb73247fb8585ac585fbb625faa030bbf25ce690aebcc87447c91d294021dad",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    },
+    "recipe_15": {
+      "name": "producer-recipe-15",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_15.ogg",
+      "sha256": "378334298fd7a56f3b48998f5d088b5eb8288834f605d71287b3b8f09a961778",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 sampled instruments and original S123 authored instrumental arrangement; source/score/measurement receipts local",
+      "instrument": "electric_guitar_bass_drums",
+      "description": "Arranged instrumental demo of selected settings, not a live performance by your recruited band."
+    }
+  }
+}

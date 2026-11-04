@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_version": "genre_examples_v1",
   "genres": {
-    "Indie rock": "genre_indie_band_v1",
-    "Punk": "genre_punk_band_v1",
+    "Indie rock": "genre_indie_producer_v2",
+    "Punk": "genre_punk_revision_v2",
     "Post-punk": "genre_post_punk_band_v1"
   },
   "materials": {
@@ -46,6 +46,30 @@
       "instrument": "electric_guitar_bass_drums",
       "label": "POST-PUNK BAND EXAMPLE",
       "description": "Original instrumental post-punk example: forward bass, sparse clean guitar and drums. One possible starting sound."
+    },
+    "genre_indie_producer_v2": {
+      "name": "genre_indie_producer_v2",
+      "path": "res://experiments/playable_flightcase/audio/producer/recipe_04.ogg",
+      "sha256": "7ae6cb10a7e6e1a739de3cee1f9716b079005b87822ca62f666036dff51bfbc3",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 samples; original S123 arrangement, internally reviewed under delegated authority",
+      "instrument": "electric_guitar_bass_drums",
+      "label": "INDIE BAND EXAMPLE",
+      "description": "An eight-bar indie instrumental: a returning guitar hook, full bass and drums. One starting direction."
+    },
+    "genre_punk_revision_v2": {
+      "name": "genre_punk_revision_v2",
+      "path": "res://experiments/playable_flightcase/audio/producer/punk_v2.ogg",
+      "sha256": "c77371d71f9f9891ae43c8dbf77f6536f1c7eedbe0f58c946000ecb8cd162b8d",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Existing pinned CC0 samples; original S123 arrangement, internally reviewed under delegated authority",
+      "instrument": "electric_guitar_bass_drums",
+      "label": "PUNK BAND EXAMPLE",
+      "description": "An original fast punk instrumental: driving power-chord guitar, eighth-note bass and a hard backbeat."
     }
   }
 }
