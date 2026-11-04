@@ -31,8 +31,8 @@
   ],
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1456625,
-    "sha256": "66fdf4412723025edbba7dc6f9162db4ea2e93dde8abc3beb4201b663f1b8902"
+    "bytes": 1458415,
+    "sha256": "fd3fdbbf9878fda8b08647d83fa075151af1766b19b83afa088f26ab6aed3ed8"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/a07_road_travel_v1.png",
@@ -53,7 +53,7 @@
     "docs/asset_base/REVIEW_INDEX.md"
   ],
   "validation_commands": [
-    "Beforecopy: all436source rows hashbound toS114finalmanifest; all455closedcachefiles rehash againstterminalpins. Copy only436rows +regularprivatecachecopies, never hardlink/share mutablecache. Same-source importartifactclone is not fresh/cold import; no unchanged editor/import/73/88/models/standard/APK activity reruns.",
+    "Beforecopy: all436source rows hashbound toS114manifest; sourceonlyregularcopy/EMPTYnewprivatecache; ONEinitialexistingeditorimport generates its own nonshippingremap/UID/cache underfreshprivateXDG androotGLflock. No381oldextras/copiedQA/sharedoldmutablecache. Current73/88/models/standards reusedexactsource; no activityreruns.",
     "Instrumented configuredopening.tscn instantiated; assignCounted115 setupbefore_ready withsame untouchedOriginal defaults andonlysavecounter-super override. All gameplay via realnativebuttons/keyboard/touch; no direct ownerstate/day/stat mutations. Not a NOscript defaultentry execution.",
     "Two fresh initialmenu\u2192realgenre\u2192Jack/Zoe/Marcus savedauditions\u2192nativevocaltrial +name/identity\u2192DAY1cash250. Originaltalent33+37+45+5=120; allcounts/costs verifiedactualowner. Mainfirstloop through bookingDAY5/\u00a30now, threeoriginal lyricwritingdays\u2192DAY4, oneoriginal\u00a315rehearsal\u2192DAY5, calendar due/departure/show/finalreceipt/reload. Honest toughoutcome valid.",
     "Booking starts withhonestlyempty setdraft; explicitnativeadd earnedfinishedsongat soundcheck. SameactualsongID/title/leader/literalwords inarchive/lockedset/showrecord whereoriginalschema carries them. No invented performanceaudio orsemanticquality evaluator.",
@@ -129,15 +129,6 @@
     "rows": 436,
     "ordered_digest": "a8c5383640df797ba7620463028bb6d8f568769bbf0a2fe70d1834ac297bc732"
   },
-  "source_cache_clone": {
-    "source_cache": "/tmp/bandmaster-s114-representative-band-20261104/candidate-v1/private-cache",
-    "pins": "/tmp/bandmaster-s114-representative-band-20261104/closed-final-cache-pins.json",
-    "pins_sha256": "eec5893ede457600a6b85504baff2fd74c99abd7bc881cc8b62e90433f24bd6b",
-    "rows": 455,
-    "regular_private_copies_only": true,
-    "oldproducer_permanently_closed": true,
-    "same_source_import_proof_reuse_not_newimport": true
-  },
   "predesign": "Existingindependentmusician_review current13API/source reviewCLEARinchat, supportsDAY5beforewriting shorterroute andseparateCorebranch. ActualcurrentUX03nativebaselineunproved, tobegeneratednow. RootopenedapprovedA07reference only. QAauthor feasible exactnativeIDs/savefailure seam reviewed; no code written beforegate.",
   "actual_API_pins": {
     "experiments/playable_flightcase/opening_ui.gd": "b5f29e4453b4a2d14a3ebeb10a3f7477fa1f5beb42f17c91225086c8e7d33be8",
@@ -170,5 +161,21 @@
     "rejected_commit": "a2c4669a51eade31162ac3daa2bf0a0555998c9d",
     "reason": "Repository versus external artifact path namespaces only; no caps or safety weakened",
     "no_runtime_QA_source_before_gate": true
+  },
+  "previous_source_cache_clone_proposal": {
+    "source_cache": "/tmp/bandmaster-s114-representative-band-20261104/candidate-v1/private-cache",
+    "pins": "/tmp/bandmaster-s114-representative-band-20261104/closed-final-cache-pins.json",
+    "pins_sha256": "eec5893ede457600a6b85504baff2fd74c99abd7bc881cc8b62e90433f24bd6b",
+    "rows": 455,
+    "regular_private_copies_only": true,
+    "oldproducer_permanently_closed": true,
+    "same_source_import_proof_reuse_not_newimport": true
+  },
+  "runtime_initialization": {
+    "method": "ONLY436regularsourcecopies +EMPTYnewprivatecache +ONEinitialeditorimport fornewownedreviewruntime",
+    "not_activity_rerun": "No prior native/task execution inthisnewownedruntime; needed generatedsource-adjacentremaps arederivedbyexistingtool, nevercopiedoldQAextras",
+    "original_final_source_import_proof": "S114initialimport remainsactualsourcequalityproof; newsetup isnotnewsource oradditionalgameplaycoverage",
+    "old455cache_protection_only": "/tmp/bandmaster-s114-representative-band-20261104/closed-final-cache-pins.json",
+    "old_cache_neverresumed_or_mutablyshared": true
   }
 }
