@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S115",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Direct owner4Nov delegates routine decisions/build through18:00/one finalAPK. Review one natural representative firstcareerloop including currentUX03 booking/calendar/due-daydeparture before one evidencedrepair; no ownerwait.",
   "baseline_sha": "61ed01b79f212c8417c1b30e7a0e6c7ce5a5617f",
@@ -31,8 +31,8 @@
   ],
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1458415,
-    "sha256": "fd3fdbbf9878fda8b08647d83fa075151af1766b19b83afa088f26ab6aed3ed8"
+    "bytes": 1476566,
+    "sha256": "64b1422f5804eab1603923a610ea64cf2c585ddd7663037fb430f4b9f2a20160"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/a07_road_travel_v1.png",
@@ -56,7 +56,7 @@
     "Beforecopy: all436source rows hashbound toS114manifest; sourceonlyregularcopy/EMPTYnewprivatecache; ONEinitialexistingeditorimport generates its own nonshippingremap/UID/cache underfreshprivateXDG androotGLflock. No381oldextras/copiedQA/sharedoldmutablecache. Current73/88/models/standards reusedexactsource; no activityreruns.",
     "Instrumented configuredopening.tscn instantiated; assignCounted115 setupbefore_ready withsame untouchedOriginal defaults andonlysavecounter-super override. All gameplay via realnativebuttons/keyboard/touch; no direct ownerstate/day/stat mutations. Not a NOscript defaultentry execution.",
     "Two fresh initialmenu\u2192realgenre\u2192Jack/Zoe/Marcus savedauditions\u2192nativevocaltrial +name/identity\u2192DAY1cash250. Originaltalent33+37+45+5=120; allcounts/costs verifiedactualowner. Mainfirstloop through bookingDAY5/\u00a30now, threeoriginal lyricwritingdays\u2192DAY4, oneoriginal\u00a315rehearsal\u2192DAY5, calendar due/departure/show/finalreceipt/reload. Honest toughoutcome valid.",
-    "Booking starts withhonestlyempty setdraft; explicitnativeadd earnedfinishedsongat soundcheck. SameactualsongID/title/leader/literalwords inarchive/lockedset/showrecord whereoriginalschema carries them. No invented performanceaudio orsemanticquality evaluator.",
+    "Savedplan atDAY1booking isempty; uncommittedsoundcheckUI correctlyproposescurrentfinishedoriginal viaShowFlow.default_plan. Inspectdefaultselection, free native remove/re-add ifexercised(0owner/file/save), thenconfirmactualearnedoriginal. SameactualsongID/title/leader/literalwords inarchive/lockedset/showrecord whereoriginalschema carries them. No invented performanceaudio orsemanticquality evaluator.",
     "Importantphone390/shortwide1280 originals first, 10\u201312selectedframes/maincase. Date/trip/reservedspan/nextavailable/publiccosts match savedterms; firstLanternnaturallyeligible only. Coreauthoredsidecar remainsseparate fromplayer-recordedworkcontext. Scroll/focus/physicaltargets/longcopy/MenuContinue/reload/normal-reduced inputcheck.",
     "Separate byteexact earnedprebooking/predeparture/prewrap checkpoints load in freshprivatebranches; actual .identity-tmp directoryfailure, wholetypedowner/disk rollback, visibleerror/retry/once/duplicate save-accounting. No constructed qualification/dayfixture or extra-wholeloop claim.",
     "One separate earnedDAY1prebooking Corebranch: nativeMarcus day_job context\u2192Rehearse opensWorkConflict\u2192nativeRescheduleDAY2 zero fee/day\u2192originalClearAirDAY1to2\u2192originalRehearse recordsactualattendance/agreement. No wages/rotas inferred fromnewbackground, no duplicatecontroller.",
@@ -69,7 +69,7 @@
   "state_matrix": [
     "Freshmenu/no saves/original200talent andoriginalcareerdefaults",
     "Bookingrooms/date/trip/review/confirm/calendar/upcoming/due/ShowOptionsKeep; no automaticexpiry",
-    "Samefirstlyricmaterialthreewritingdays/actualbandmate response/title/leader/ID; initialemptyset\u2192explicitaddatsoundcheck",
+    "Samefirstlyricmaterialthreewritingdays/actualbandmate response/title/leader/ID; initialsavedemptyplan\u2192currentdefaultlocalproposal\u2192explicitconfirmation",
     "Pointer/key/emulatedtouch/normal-reduced/48bookingtargets andoriginal>=44legacyhardware targets; fullcopyviaordinaryscroll, no fontshrink",
     "Wholeowner/actualdisk/saveattempts/Finance/day/cash/history for realFSfailure atbooking/departure/wrap; retry/duplicate/reload",
     "SeparateCoreplayer-recordeddayjob/agreement/actualattendance; biographyvalues untouched; unknownhistoryhonest"
@@ -82,11 +82,11 @@
   "art_write_allowed": false,
   "native_review_allowed": true,
   "pending_implementation": false,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
   "stop_condition": "Phone/shortwide mainbaseline first; meaningfulreview/closeby13:00, no automaticextension. Ifproductdefect found, freezeoriginalevidence andadopt freshsource scope beforeedits. Twoineffective attempts change method/HOLD. Onefirstcareerloop goal, no genre/art breadth. Dayfreeze16:30/hardstop18 unchanged.",
   "storage_plan": {
-    "workspace_cap": 3145728,
+    "workspace_cap": 3670016,
     "TMP_cap": 1073741824,
     "fresh_free": {
       "/workspace": 684269568,
@@ -98,7 +98,7 @@
     "DAY_initial_free": 695787520,
     "DAY_remaining_before_scope": 13647872,
     "prospective_reserved_beyond_S115": {
-      "one_evidenced_repair": 4194304,
+      "one_evidenced_repair": 3670016,
       "final_APK_durabletail": 4194304,
       "finalhandoff": 1048576
     },
@@ -177,5 +177,165 @@
     "original_final_source_import_proof": "S114initialimport remainsactualsourcequalityproof; newsetup isnotnewsource oradditionalgameplaycoverage",
     "old455cache_protection_only": "/tmp/bandmaster-s114-representative-band-20261104/closed-final-cache-pins.json",
     "old_cache_neverresumed_or_mutablyshared": true
+  },
+  "source_interpretation_note": "DAY1savedemptyplan versuslatercurrentlocaldefaultset explicitlydistinguished; actualmaterialnested.fragment, independentliteralwords/IDunchanged. No presumedproductbug.",
+  "native_route_clarification": "AfteractualRecapContinue, mandatoryDAYreadingcard requiresnativeSkipSessionBeatAction inbothmotionmodes. Pureack0owner/file/save/Finance/day; originalpressed==1kept. Tracev2provedmissingstep, notproductinputdefect.",
+  "native_finding": {
+    "due_calendar_route": "confirmed public route absent; fresh S116 needed",
+    "whole_loops_completed": 0,
+    "source_changes": 0
+  },
+  "closed_at": "2026-11-04T11:29:18.553142+00:00",
+  "closeout": {
+    "tested_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+    "evidence": {
+      "source_manifest": "/workspace/work/s115-first-career-loop-20261104/source-v1.json",
+      "source_storage": "/workspace/work/s115-first-career-loop-20261104/source-storage-protection-final.json",
+      "logs": "/workspace/work/s115-first-career-loop-20261104/accepted-log-audit.json",
+      "independent_final_and_S116_predesign": "/workspace/work/s115-first-career-loop-20261104/final-baseline-S116-predesign-review.json",
+      "Pages": "/workspace/work/s115-first-career-loop-20261104/page-status-audit.json"
+    },
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "Game_source_changes": 0,
+    "actual_Godot_executions": 8,
+    "strict_execution_accepted": 4,
+    "held_executions": 4,
+    "accepted_checks": {
+      "actual_first_write_diagnostic": 160,
+      "earned_DAY5_phone": 38,
+      "earned_DAY5_shortwide": 55
+    },
+    "accepted_checks_are_partial_diagnostics_not_whole_loops": true,
+    "whole_natural_loops_completed": 0,
+    "held_main_checks": [
+      524,
+      526,
+      669
+    ],
+    "source_initialization": "One empty private import of unchanged S114 source for this owned runtime; no repeated regression/model/import activity suite",
+    "physical_PNGs": {
+      "all": 26,
+      "accepted_partial": 4,
+      "held": 22
+    },
+    "native_finding": "On actual due DAY5 the eligible journey replaces the saved agreement and has no public calendar link. BookingCalendarAction is upstream only; the normal gigs navigation is hidden. Existing internal calendar route was not called as a QA shortcut.",
+    "progress_actually_observed": "Fresh actual menus, Jack/Zoe/Marcus auditions and priced invites, Jack vocal trial, band identity, DAY1 \u00a3250; first local DAY5 booking; three original saved writing days retain literal player words; first \u00a315 rehearsal reaches DAY5 \u00a3235. Run is held before calendar/departure; no completed first show claimed.",
+    "failed_proof_history": [
+      "main524 click under the required day acknowledgement",
+      "stock diagnostic parse error, no button evidence",
+      "trace526 proves DAY2 PLAN THE DAY overlay blocked underlying WorkbenchTry; paid write had succeeded once",
+      "main669 uses nonexistent CareerNav_calendar and reveals genuine absence of any due-day calendar control"
+    ],
+    "unexecuted_static_variants_not_counted_as_engines": true,
+    "root_actual_opens": [
+      {
+        "day": 1,
+        "height": 844,
+        "label": "saved-first-local-day5-agreement",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/main-phone-v1/captures/04-saved-first-local-day5-agreement-390x844.png",
+        "sha256": "6fd6f8710ea7ba652ec942f60886dc8af43f185008882fb626828ada838e23d5",
+        "width": 390,
+        "stage": "main-phone-v1"
+      },
+      {
+        "day": 1,
+        "height": 844,
+        "label": "calendar-upcoming-original-booking",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/main-phone-v1/captures/05-calendar-upcoming-original-booking-390x844.png",
+        "sha256": "0396f3e61f0fe0a4e5789c442e2eddb35bd0eff11ab5e014a9e311d675f7fc74",
+        "width": 390,
+        "stage": "main-phone-v1"
+      },
+      {
+        "day": 1,
+        "height": 844,
+        "label": "actual-player-words-and-bandmate-trial",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/main-phone-v1/captures/06-actual-player-words-and-bandmate-trial-390x844.png",
+        "sha256": "e0e81aeacb5d9cdd5d61cf85144679467814516d3146aea93906ad9bbebdaa94",
+        "width": 390,
+        "stage": "main-phone-v1"
+      },
+      {
+        "day": 2,
+        "exact_input_frame_claimed": false,
+        "height": 844,
+        "label": "diagnostic-current-later-frame-after-pointer-failure",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/main-phone-pointer-trace-v2/captures/07-diagnostic-current-later-frame-after-pointer-failure-390x844.png",
+        "raw_no_input_or_reveal_completion": true,
+        "sha256": "3b8a0cb466cee7a78daefbf3e56751e16400003a8dfdf498144426519c6b26fa",
+        "width": 390,
+        "stage": "main-phone-pointer-trace-v2"
+      },
+      {
+        "day": 5,
+        "height": 844,
+        "label": "first-saved-rehearsal-report-and-actual-voices",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/main-phone-v2/captures/09-first-saved-rehearsal-report-and-actual-voices-390x844.png",
+        "sha256": "fdc0db1f74423a8c844314a2d00d7ff54ff37e1044333b08014c5ed47d61114f",
+        "width": 390,
+        "stage": "main-phone-v2"
+      },
+      {
+        "day": 5,
+        "height": 844,
+        "label": "earned-held669-DAY5-begin-visible-actions-no-public-calendar",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-phone-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-390x844.png",
+        "sha256": "0f770f3286a0e0f8a915e90fcfd80621490514a5f9f9cc80b17ecff35893f1f9",
+        "width": 390,
+        "stage": "day5-route-phone-v1"
+      },
+      {
+        "day": 5,
+        "height": 720,
+        "label": "earned-held669-DAY5-begin-visible-actions-no-public-calendar",
+        "path": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-wide-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-1280x720.png",
+        "sha256": "025209d824ba3930e464cd085907aec405604b0d1328a0291a9873cdd6d4ffee",
+        "width": 1280,
+        "stage": "day5-route-wide-v1"
+      },
+      {
+        "path": "/workspace/BandMaster/experiments/playable_flightcase/art/a07_road_travel_v1.png",
+        "sha256": "1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec",
+        "width": 1672,
+        "height": 941,
+        "stage": "preflight raw approved reference, not current native UI"
+      }
+    ],
+    "root_open_count": 8,
+    "root_current_native_opens": 7,
+    "independent_actual_current_opens": 10,
+    "independent_receipts": [
+      "predesign.json",
+      "early-phone-partial-review.json",
+      "early-phone-v2-replies-review.json",
+      "final-baseline-S116-predesign-review.json"
+    ],
+    "five_explicit_SIMULATED_lenses": [
+      "SIMULATED general player: essential due-day calendar route missing",
+      "SIMULATED game critic: first loop reaches real preparation but remains incomplete",
+      "SIMULATED musician: actual words and original rehearsal retained; full existing reactions live under Details",
+      "SIMULATED controls reviewer: current main/menu readable; new 48px calendar row requires native fit and keyboard proof",
+      "SIMULATED save reviewer: earned DAY5 view makes zero owner saves; no departure or settlement inferred"
+    ],
+    "remaining_gaps": [
+      "Whole first-show loop and branch failure/retry evidence pending after calendar repair",
+      "Static contact art and sparse wide composition remain partial",
+      "Physical phone/install/save retention/speaker/headphone/IME/OS interruption untested",
+      "S112/S114 debug abrupt-exit audio-resource P2 retained; not rerun unchanged"
+    ],
+    "native_baseline_fixture": "Exact byte copy of genuinely earned DAY5 save from retained held669 main into fresh private userdata, then native configured Continue. Two display reviews are not two fresh whole loops.",
+    "next_action": "Fresh funded S116 begin-only 48px JourneyCalendarAction through existing free calendar navigation; preserve original main/menu and all owner/model/economy/source boundaries. Four-view whole first-career loop, real FS failures, retry/reload, changed-source regression and final APK remain authorized.",
+    "new_issue_review": {
+      "record": "docs/continuous_improvement/ISSUES.jsonl",
+      "all_S115_events_retained": true,
+      "no_failed_proof_promoted": true
+    },
+    "source_runtime_and_cache_permanently_closed": true,
+    "own_Xorg_stopped": 57659,
+    "GL_released": true,
+    "closed_at": "2026-11-04T11:29:18.553142+00:00",
+    "no_new_queue_or_extension": true,
+    "storage_plan_amendment": "/workspace/work/s115-first-career-loop-20261104/metadata-tail-rebalance.json"
   }
 }
