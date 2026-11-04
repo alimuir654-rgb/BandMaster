@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S116",
-  "scope": "Verified free due-day calendar route and natural first-career loop; source2d7656ae",
+  "session": "S117",
+  "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S116_scoped_closed",
-  "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
+  "status": "S117_final_APK_preflight",
+  "next_action": "Fresh isolated final APK import/export/sign/audit/private delivery; no Game changes.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3247,7 +3247,7 @@
     }
   ],
   "last_completed_session": "S98",
-  "writer": null,
+  "writer": "root_S117_final_APK",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3458,7 +3458,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
-  "current_session": "S116",
+  "current_session": "S117",
   "next_single_action": "Resolve the exact pending400file closed-cache consolidation approval/persistent final-metadata funding, then fresh bounded Zoe bass audition from S100424rowmanifest under the existing overnight plan; no updatedAPK.",
   "last_updated_utc": "2026-11-03T22:23:17.797280+00:00",
   "prepared_android_v7": {
@@ -3627,7 +3627,7 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T12:24:20.252570+00:00",
+  "released_at": null,
   "last_writer": "root_S114_representative_band",
   "source_write_allowed": false,
   "pending_implementation": false,
@@ -3635,7 +3635,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T14:00:00Z",
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {

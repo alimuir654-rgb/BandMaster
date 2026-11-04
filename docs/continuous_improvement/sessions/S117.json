@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-26",
+    "BM-32",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S117",
+  "status": "active",
+  "owner_request": "Direct owner4Nov: build through18:00 and prepare one final APK ready for testing; routine decisions delegated. Selected compiled APK privately to existing owner and Ali channel only.",
+  "baseline_sha": "cba498276127c48bde673d47c205928c3686a2f5",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-44",
+  "issue_log_review": {
+    "bytes": 1494277,
+    "sha256": "13de0fece35ab0fdba2abcdd070f59079ea7b05b33f492f29ef1d692b129137c"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-phone-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-390x844.png",
+    "original_sha256": "0f770f3286a0e0f8a915e90fcfd80621490514a5f9f9cc80b17ecff35893f1f9",
+    "pixels_inspected": true,
+    "source_scope": "Actual earned DAY5 baseline from retained held669; not completed first loop. Both phone/shortwide actually opened by root and independent reviewer."
+  },
+  "hypothesis": "One fresh ARM64 package of exact verified S116436-row source, using the retained audited platform settings and existing key, will provide an update-compatible private V11 without source/history/keys/saves or QA extras.",
+  "controlled_comparison": "Same verified2dGame source, same applicationID/certificate/custom user directory as V10, versioncode11>10 and name0.116.0-playtest. Only declared platform project/export/icon overrides; no Game/art/audio edits or intermediate APKs.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S117.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit scoped artifact preflight and run improvement_gate BEFORE isolated source copy/import/export/signing. Root only engine under native-gl flock and additional network permission; no Xorg/server needed for headless export.",
+    "Copy ONLY436 manifest rows as regular files, verifying each SHA. No381UID/import/QA extras or old mutable caches. Fresh private APK project and EMPTY cache. Retained closed S116 runtime read-only source bytes only, never engine/import/resume it.",
+    "Use exact retained platform project SHAbe58d0ddeceea1a06ccebfc0e66e73a07f3780de2849494abf6a350ab600fcd1 and export preset SHA6cad9c60efc9693f461c3cd0eaa5ed3eeed0fcbf988faf5bd7006ab49dba7fd4; explicit version11/name0.116.0-playtest/ARM64-only substitutions. Original Git icon as one declared extra, same source commit.",
+    "Existing Godot4.7.2/Android template SHA59e0073f0fa59f552684a861d8f4266b0b34b488a140d6657eac7dd70d1a0a0d, SDK36 build tools and Java21 only. Existing signing key read by apksigner privately; no key/password bytes copied or uploaded.",
+    "Nine strict rawexit0/ERRORempty steps: fresh import/export/alignment/signature/verify-signature/verify-alignment/manifest/permissions/manifest-tree. Retain all raw logs and output artifacts. One final signed APK; no old APK rehash or source UI/regression rerun for activity.",
+    "Separate read-only APK audit: source436exact except declared platform override, compiled GDSC script mapping, all14OGG serialized resources match fresh local imports, every audio registry direct-byte exact, no unexpected resources/QA/rawbanks/WAV/code/history/keys/saves. APKCRC,16KiB alignment, official template native/runtime members exact, ABI onlyarm64-v8a.",
+    "Same applicationIDcom.bandmaster.ownerplaytest.s40, certificate83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2, custom user directoryBandMasterOwnerPlaytestS40, same embedded platform project binary; versioncode11. Structural MAIN/LAUNCHER, no HOME, zero permissions. No uninstall/wipe or physical-upgrade retention inference.",
+    "Final private compiled APK only to existing Drive ownerchair@lovewelluk.com and named readeralimuir654@gmail.com; current V10 metadata read confirms exact existing channel. No folder/domain/public/sourcehistory/ZIP payload or newrecipient. Verify returned URL/name/MIME/bytes/parent/individual permissions; localSHA/signature audited, remote checksum only if actually available.",
+    "Source S116 exact whole-loop/native/73/88/standard/model-reuse proof retained, not rerun. Physical phone/install/audio/IME/OSinterrupt/retention remain untested. Update existing canonical/Plan/Board and solequeue prompt truthfully, preserve all human72choices23checked50images/archive/IDs. Release all artifact/writers/GL by18:00."
+  ],
+  "queue_task": "ONE final private ARM64 testing APK and day handoff",
+  "reviewer": "Root separate strict read-only packaging audit using retained audited pure helper functions; S116 independent source/native final review already CLEAR. No invented human/device reviewer.",
+  "player_goal": "Install an update over the existing V10 playtest and test the verified new auditions/audio/context/lyric entry/calendar/first-show loop.",
+  "start_end_commitment": "Start exact source-final436rows and existing V10 identity metadata. End one signed audited V11 artifact/private testing link. Never uninstall/clear storage; no production save writes or physical-device acceptance claim.",
+  "state_matrix": [
+    "Source436exact/no QA extras/fresh private import",
+    "ARM64/version11/same appID/cert/savefolder/zeropermissions/validlauncher",
+    "All14currentaudio assets and5audio JSON registries/resource remaps, exact source/provenance gates",
+    "Signing/CRC/alignment/assets/source privacy + actual private delivery readback",
+    "ExistingV10 retained; no oldAPK rehash, newrecipient or broad grant; physical install/retention/audio/IME pending"
+  ],
+  "root_lease": {
+    "writer": "root_S117_final_APK",
+    "expires_at": "2026-11-04T14:00:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "APK_artifact_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": false,
+  "native_evidence_pending": true,
+  "stop_condition": "One final APK only; hold any strict ERROR/source/privacy/signature mismatch before delivery. Preserve failed artifacts. No source fixes or extra paths without fresh rescope. Artifact lease14:00, hardstop18:00; no automatic extension/newqueue/endtask.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 679305216,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 4194304,
+    "workspace_floor_bytes": 629145600,
+    "TMP_initial_free_bytes": 5750251520,
+    "TMP_aggregate_cap_bytes": 1073741824,
+    "TMP_floor_bytes": 629145600,
+    "TMP_categories": {
+      "regular_source": 110000000,
+      "private_cache": 90000000,
+      "APK_outputs": 320000000,
+      "work": 20000000,
+      "retained_failed_proof": 480000000,
+      "closeout_reserve": 53741824
+    },
+    "DAY_initial_free_bytes": 695787520,
+    "DAY_cap_bytes": 25165824,
+    "final_handoff_reserve_bytes": 1048576,
+    "prior_V10_actual_TMP_peak": 472625152,
+    "large_artifacts_TMP_all_criticalGit_primary": true,
+    "no_arbitrary_cleanup_or_oldcache_sharing": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s117-final-apk-v11-20261104/",
+    "/tmp/bandmaster-s117-final-apk-v11-20261104/"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+    "game_source": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "rows": 436,
+    "bytes": 98258966,
+    "ordered_digest": "99f573b46c5fa82202c6b1e97c25b1a211b509b07a2cb7e14e08443b4428aec1",
+    "runtime_permanently_closed_readonly_copy_only": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime"
+  },
+  "packaging_inputs": {
+    "parent_build_recipe": "/workspace/work/s98-owner-apk-v10-20261103/build_v10.py",
+    "parent_audit_recipe": "/workspace/work/s98-owner-apk-v10-20261103/audit_v10.py",
+    "pure_audit_helpers": "/workspace/work/overnight-20261101/s55/audit_android_update.py",
+    "pure_helpers_SHA": "30d0136ccd15e2d62f5ea13b4a7a013fddf5a302c7196269896bc0d18a6e4c3e",
+    "platform_project": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/project/project.godot",
+    "preset": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/project/export_presets.cfg",
+    "template": "/workspace/tools/android-owner-test/godot-templates/4.7.2.stable/android_debug.apk",
+    "existing_key": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
+    "key_not_copied_or_printed": true
+  },
+  "prior_phone": {
+    "V10_source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+    "V10_code": 10,
+    "appID": "com.bandmaster.ownerplaytest.s40",
+    "certificate_SHA": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "savefolder": "BandMasterOwnerPlaytestS40",
+    "remote_id": "13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv",
+    "existing_owner": "chair@lovewelluk.com",
+    "existing_named_reader": "alimuir654@gmail.com"
+  },
+  "new_APK": {
+    "version_code": 11,
+    "version_name": "0.116.0-playtest",
+    "ABI": "arm64-v8a",
+    "physical_device_tested": false
+  }
+}

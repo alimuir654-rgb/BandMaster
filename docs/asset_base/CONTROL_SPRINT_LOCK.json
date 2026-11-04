@@ -1,14 +1,14 @@
 {
-  "writer": null,
-  "base_head": "d2abfa657b71217e36a4ebacaa5f83db064912e0",
-  "claimed_at": "2026-11-04T11:31:24.757556+00:00",
-  "expires_at": null,
-  "scope": "Verified free due-day calendar route and natural first-career loop; source2d7656ae",
+  "writer": "root_S117_final_APK",
+  "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
+  "claimed_at": "2026-11-04T12:28:15.451794+00:00",
+  "expires_at": "2026-11-04T14:00:00Z",
+  "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S116_scoped_closed",
-  "released_at": "2026-11-04T12:24:20.252570+00:00",
+  "status": "S117_final_APK_preflight",
+  "released_at": null,
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
+  "next_action": "Fresh isolated final APK import/export/sign/audit/private delivery; no Game changes.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S116",
+  "session": "S117",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -471,7 +471,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-  "current_session": "S116",
+  "current_session": "S117",
   "closed_at": "2026-11-03T22:23:17.797280+00:00",
   "last_updated_utc": "2026-11-03T22:23:17.797280+00:00",
   "last_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",

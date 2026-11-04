@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S116_scoped_closed",
+  "status": "S117_final_APK_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "Verified free due-day calendar route and natural first-career loop; source2d7656ae",
-  "writer": null,
+  "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
+  "writer": "root_S117_final_APK",
   "last_verified_code_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "baseline": {
     "run_id": 40778019754,
@@ -732,7 +732,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S116",
+  "current_session": "S117",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S100",
-  "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
+  "next_action": "Fresh isolated final APK import/export/sign/audit/private delivery; no Game changes.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2111,7 +2111,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S116",
+  "session": "S117",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
@@ -2417,7 +2417,7 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T12:24:20.252570+00:00",
+  "released_at": null,
   "last_writer": "root_S114_representative_band",
   "source_write_allowed": false,
   "pending_implementation": false,
@@ -2425,7 +2425,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T14:00:00Z",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
