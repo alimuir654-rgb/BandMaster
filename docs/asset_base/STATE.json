@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S123_audible_producer_active",
+  "status": "S123_closed_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,8 +10,8 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
-  "writer": "root_S123_audible_producer",
-  "last_verified_code_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "writer": null,
+  "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "baseline": {
     "run_id": 40778019754,
     "artifact_id": 12854794234,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Fresh funded S123 audible producer desk per reviewed exact contract; routine creative decisions delegated, no owner wait. New manual request has no specified owner end time; old day queue stays ended.",
+  "next_single_action": "Build and privately deliver one verified V12 ARM64 update from this exact455row source; subsequent substantive availability/datedcalendar and pose/formation/branding scopes remain owner-authorised but unfinished, requiring fresh complete source/native budgets and preflights. No owner-approval wait or ended-queue restart.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -514,7 +514,7 @@
     }
   ],
   "scope_reduction_trigger": "Core visual gate behind checkpoint; suspend optional cast/scene variants and allocate to largest observed visual gap without lowering quality threshold.",
-  "last_completed_deliverable": "S122 native songwriting navigation, whole-name fit and explicit genre-selection autoplay repairs verified; V11 remains old source2d.",
+  "last_completed_deliverable": "Audible producer songwriting slice with16savedarrangements and revisedPunk, scoped-tested; V11stilloldsource2d.",
   "review_index": {
     "character_contact_sheet": "conversation artifact BandMaster_C05_Portrait_Contact_Sheet.png",
     "character_source_pack": "conversation artifact BandMaster_C05_Portrait_Source_Pack.zip",
@@ -566,9 +566,9 @@
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
     "interpretation": "Permission to continue finite programme until 16:00, not art approval/merge/deadline extension. Preserve existing liked read-only RAG meters; pursue strong musician portraits, two purposefully complete native day/night scenes and integrated browse/select/recruit/remove interaction refinement; no optional cast/families; retain 12/14/15/16 gates."
   },
-  "last_run_summary": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
+  "last_run_summary": "/workspace/work/s123-audible-producer-20261104/closeout.json",
   "last_packaged_at": "2026-11-01T05:58:39.957744+00:00",
-  "last_validation": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
+  "last_validation": "/workspace/work/s123-audible-producer-20261104/closeout.json",
   "latest_owner_scope": "Same owner-authorised48h finite quality/lived-band development until4Nov21:24:35London.3Novdirectsteering: no APK until fresh request; owned artwork/controls queues and AU01audio plan FOR REVIEW. S86UX01 exactsource verified; AU01 unapproved, no audio acquisition/integration.",
   "c20": {
     "tested_code_sha": "41511e3eb9d79d0580d6d640eaa615ae863c97be",
@@ -638,7 +638,7 @@
     "artifact_sha256": "5847e39c38c54ebe0e86a3dc70eaeee6e8211026724ff1528dba226bada79d5a",
     "published_module_sha": "acd4cd0441feb682237ac4a906daadf11d86a197"
   },
-  "last_verified_component_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_component_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "continuous_improvement": {
     "entrypoint": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
     "lessons": "docs/continuous_improvement/LESSONS.md",
@@ -679,7 +679,7 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "last_verified_opening_run": "/workspace/work/s122-songwriting-navigation-20261104/accepted-log-audit.json",
+  "last_verified_opening_run": "/workspace/work/s123-audible-producer-20261104/accepted-log-audit.json",
   "last_verified_opening_project_artifact": null,
   "last_verified_milestone_polish": {
     "session": "C32",
@@ -696,7 +696,7 @@
     "owner_approved": false
   },
   "current_session": "S123",
-  "last_verified_native_run": "/workspace/work/s122-songwriting-navigation-20261104/focused-native-validation.json",
+  "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
   "latest_verified_phase2": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
@@ -712,7 +712,7 @@
     "owner_approved": false
   },
   "last_sprint": "S100",
-  "next_action": "Fresh funded S123 audible producer desk per reviewed exact contract; routine creative decisions delegated, no owner wait. New manual request has no specified owner end time; old day queue stays ended.",
+  "next_action": "Build and privately deliver one verified V12 ARM64 update from this exact455row source; subsequent substantive availability/datedcalendar and pose/formation/branding scopes remain owner-authorised but unfinished, requiring fresh complete source/native budgets and preflights. No owner-approval wait or ended-queue restart.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -755,7 +755,7 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": false,
-  "last_verified_native_run_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_native_run_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "latest_material_review": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "visual_verdict": "partial",
@@ -1824,7 +1824,7 @@
     "final_milestone_apk_delivered": true,
     "additional_apk_by_default": false
   },
-  "last_verified_local_native_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_local_native_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "latest_local_checkpoint": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
@@ -1839,10 +1839,10 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "candidate_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "candidate_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "candidate_native_verified": true,
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-04T20:53:53.144676+00:00",
+  "updated_at": "2026-11-04T22:17:20.754810+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2040,7 +2040,7 @@
   "all_write_freeze": null,
   "hard_stop": null,
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S122",
+  "last_completed_session": "S123",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2341,15 +2341,15 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T20:53:53.144676+00:00",
-  "last_writer": "root_S122_songwriting_navigation",
-  "source_write_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "released_at": "2026-11-04T22:17:20.754810+00:00",
+  "last_writer": "root_S123_audible_producer",
+  "source_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S122_navigation_namefit_genre_selection_verified_not_yet_APK",
+  "source_phase": "S123_audible_producer_verified_APK_next",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": "2026-11-04T23:00:00Z",
+  "expires_at": null,
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2375,7 +2375,7 @@
     "queue_receipt": "/workspace/work/overnight-20261102/s73/queue-readback.json"
   },
   "source_frozen_at": "2026-11-03T20:33:38.625812+00:00",
-  "source_freeze_target": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "source_freeze_target": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "previous_s68_verified_checkpoint": {
     "source_sha": "4bbf6a1baa370858beed081fe1cd17b331dd1e19",
@@ -2428,8 +2428,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 60,
-  "current_review_board_sequence": 172,
+  "current_plan_sequence": 61,
+  "current_review_board_sequence": 173,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2573,7 +2573,7 @@
   },
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "candidate_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
@@ -2644,7 +2644,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": true,
-  "source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "current_phone_page_sequence": 16,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": {
@@ -2774,9 +2774,9 @@
     "archived_on_board": 117
   },
   "session_path": "docs/continuous_improvement/sessions/S123.json",
-  "last_verified_game_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "current_candidate": {
-    "source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+    "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
     "status": "verified_scoped_source_not_yet_packaged",
     "visual_verdict": "partial",
     "owner_approved": false
@@ -2805,7 +2805,7 @@
     "hard_stop": "2026-11-04T18:00:00Z"
   },
   "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
-  "tested_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -3058,11 +3058,8 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "writer": "root_S123_audible_producer",
-    "expires_at": "2026-11-04T23:00:00Z"
-  },
-  "source_implementation_status": "S122_complete6leaves; producer_not_yet_implemented",
+  "root_lease": null,
+  "source_implementation_status": "S123_COMPLETE_no_implementation_pending",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -4220,7 +4217,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "current_verified_game_source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -4962,7 +4959,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S123_audible_producer",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5198,14 +5195,14 @@
     "session": "S120_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
-  "latest_owner_request": "Fresh direct owner playtest feedback after the18:00 build window: review process and present concrete options for songwriting scrolling (confirmed), repeated poster poses/name fit, weak auditions/audio, producer-desk songwriting without typing lyrics, real working commitments, dated calendar, automatic genre preview, stronger formation reveal and band branding. Manual design/review only; no resumed automation or new build authority.",
+  "latest_owner_request": "Fresh manual Go ahead19:37 after S121 recommendations: implement navigation and audible producer then meaningful availability/calendar/art revisions; no new owner-set endtime, ended queue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S123",
-  "game_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "active_session": null,
+  "game_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S123_audible_producer",
-  "artifact_writer": "root_S123_audible_producer",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V11_DELIVERED_PHYSICAL_DEVICE_PENDING",
@@ -5265,7 +5262,7 @@
   "genre_preview_direction": {
     "interaction": "on_explicit_genre_selection",
     "owner_requested": true,
-    "implemented": false,
+    "implemented": true,
     "master_mute_and_stop_lifecycle_preserved": true,
     "unmute_no_autoresume": true,
     "does_not_authorize_other_autoplay": true
@@ -5275,7 +5272,7 @@
     "received_clock": "2026-11-04T19:37:25Z",
     "old_day_queue_remains_ended": true,
     "owner_did_not_specify_new_finish_time": true,
-    "current_slice": "S122_closed",
+    "current_slice": "S123_closed",
     "next_requires_fresh_bounded_funded_preflight": true
   },
   "historical_active_aliases_before_S122_release": {
@@ -5293,5 +5290,6 @@
     "source_implementation_status": "NONE: existing guide corrected; Game2d/deliveredV11 unchanged."
   },
   "s122_closeout": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
-  "audio_write_allowed": true
+  "audio_write_allowed": false,
+  "s123_closeout": "/workspace/work/s123-audible-producer-20261104/closeout.json"
 }

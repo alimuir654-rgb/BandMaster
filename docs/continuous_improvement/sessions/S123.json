@@ -24,14 +24,14 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "id": "S123",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "1de0759692eb05526a726fde7750bb69d2a4dcfb",
   "game_baseline_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "owner_request": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "issue_log_review": {
-    "bytes": 1560314,
-    "sha256": "7ea50cd2290a208f39f39fa2466906e76db93bdfb090066f35f835596ad46fdf"
+    "bytes": 1568420,
+    "sha256": "d6a3117895ecd01a0f4fcaa1b6ce285903250b8b1f2d538cef6fded26e95d9d5"
   },
   "target": {
     "locator": "/tmp/bandmaster-s122-songwriting-navigation-20261104/runs/latest-phone-v1/proof/07-done-editing-local-words-readable-390x844.png",
@@ -94,19 +94,19 @@
     "preview stop on selection/menu/paid/resize/hide/free/focus/context; no soundonarrival or unmute"
   ],
   "root_lease": {
-    "writer": "root_S123_audible_producer",
-    "expires_at": "2026-11-04T23:00:00Z"
+    "writer": null,
+    "expires_at": null
   },
-  "source_write_allowed": true,
-  "audio_write_allowed": true,
+  "source_write_allowed": false,
+  "audio_write_allowed": false,
   "art_write_allowed": false,
   "page_write_allowed": true,
-  "engine_execution_allowed": true,
+  "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
-  "review_pending": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": false,
   "external_artifact_roots": [
     "/workspace/work/s123-audible-producer-20261104",
     "/tmp/bandmaster-s123-audible-producer-20261104"
@@ -164,5 +164,20 @@
     ],
     "no_original_assertion_weakening": true
   },
-  "quality_amendment": "Prospective -abs(capacity-demand) before production, independently enumerated reversal; keep bounded\u00b13 only new final song quality."
+  "quality_amendment": "Prospective -abs(capacity-demand) before production, independently enumerated reversal; keep bounded\u00b13 only new final song quality.",
+  "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "closeout": {
+    "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "evidence": "/workspace/work/s123-audible-producer-20261104/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "Build and privately deliver one verified V12 ARM64 update from this exact455row source; subsequent substantive availability/datedcalendar and pose/formation/branding scopes remain owner-authorised but unfinished, requiring fresh complete source/native budgets and preflights. No owner-approval wait or ended-queue restart.",
+    "new_issue_review": {
+      "all_actual_new_events_read": true,
+      "last_event": "S123-20261104-final-serial-audit-and-reviewed-diagnostics",
+      "held_logs_and_interim_sources_retained": true
+    }
+  },
+  "closeout_path": "/workspace/work/s123-audible-producer-20261104/closeout.json",
+  "visual_verdict": "partial",
+  "closed_at": "2026-11-04T22:17:20.754810+00:00"
 }
