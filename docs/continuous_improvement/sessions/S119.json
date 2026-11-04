@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "id": "S119",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Continue same owner-authorised day through18:00. Delivered V11 is unchanged; useful bounded READONLY next-scope review may progress using existing evidence. No repeated UX04/UX05 review or activity engines/APKs.",
+  "baseline_sha": "e9d6ded61c5f7d4e82cfa27167b8ac15a08724ef",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1504643,
+    "sha256": "1d90d11fb4eb832904eb95b258a4db23eb947af711171052c0c921abd42b98a7"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
+    "original_sha256": "ef81ce1336cd23a1a8e43ae9e55dc1491ca9cc01a87604aa0f723a36ed324e3b",
+    "pixels_inspected": true,
+    "evidence_limit": "Current earned completed-song checkpoint shows the subsequent writing form, not a finished-archive page. No native finished-page quality verdict inferred."
+  },
+  "baseline_originals_actually_opened": [
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-lyric_archived_original_unchanged-390x844.png",
+      "sha256": "1c5fb5f2ba098d1c873179680096687a92cb3763f420349248a44034a386c307"
+    },
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-wide-v1/captures/c27-lyric_archived_original_unchanged-1280x720.png",
+      "sha256": "540e26258f7a78b98afcf4b2964e5763dcdf51a4dc898933000deb7949d06c57"
+    },
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
+      "sha256": "ef81ce1336cd23a1a8e43ae9e55dc1491ca9cc01a87604aa0f723a36ed324e3b"
+    },
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-wide-v5/captures/08-earned-first-finished-original-day4-1280x720.png",
+      "sha256": "61c926502166f6ee5245937042ff913edb9a1ccfb38951d9bdda09763d995adf"
+    }
+  ],
+  "hypothesis": "An exact source/API and capture-evidence review can separate free archive-sketch closure from three-session finished-original browsing, preserve composite catalogue references, and define an archive presentation contract without inventing a current native defect.",
+  "controlled_comparison": "Current2d source and four retained phone/shortwide adjacent originals; neither filename nor completion checkpoint proves finished-page pixels. S118 report/notebook review remains complete; this addresses only the existing UX06 row. No new Game/native/model/audio/APK execution.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S119.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit scoped read-only preflight/gate before durable review artifacts; one metadata writer, no engines/GL claim. Review actual manifest-selected source, API return fields, known save contracts and observed capture code.",
+    "Verify catalogue_index/song_id/project_id/fragment_id/fragment_sha256 reference construction and stale refusal, literal material origin and original three paid-session sealing; no guessed header/date/credits/current-roster context.",
+    "Classify each actually opened current original by its real visible state and capture call. Record lack of a finished-page witness in this bounded review; no older lost TMP original recovery/reconstruction or rerender.",
+    "Produce concrete UX06 candidate with exact reusable components/paths, protected owner/model semantics, duplicate/long-title selection and dirty-exit/read-only validation matrix; no product implementation or presumed clipping diagnosis.",
+    "Preserve deliveredV11/source2d/436-row manifest, all54Scripts3UID/14OGGs/owners/schema/Finance/art/hardware; no rehash/build/audit/upload of V11, no closed-cache producer resumed.",
+    "Update only material UX06 worklist/status evidence in existing canonical/Pages if needed; preserve72choices23checked50images/IDs/archive/AgentInstructions/comments. Serialize final source/process/storage audit, full primaryGit tail and release all writers before15:00, hardstop18:00 unchanged."
+  ],
+  "queue_task": "Existing UX06 finished-lyric archive read-only identity/evidence review",
+  "reviewer": "Root source-backed task review; four actually opened retained adjacent originals, not new native archive evidence or independent/human acceptance.",
+  "player_goal": "Revisit the correct finished lyric sketch after another draft starts, identify it among similarly named songs, read its exact saved words, and return without changing the career.",
+  "start_end_commitment": "Start current source/capture evidence and deliveredV11. End explicit native-evidence boundary and a concrete future presentation/identity contract; no source, save, engine, cache or APK change.",
+  "state_matrix": [
+    "Free Archive Sketch versus successful third paid writing day versus read-only Finished Sketches; distinguish all three meanings",
+    "Composite reference and stale refusal; duplicate/long titles, append/reorder/changed-extension refusal; no title-only match",
+    "Old exact lyrics versus a newer active/local sketch; dirty Save/Discard/Keep path remains original owner behavior",
+    "Phone390 and shortwide1280 adjacent actual originals; finished-page native witness not established, no new quality verdict",
+    "Current source/V11 identity, no new shader/import/runtime artifacts; bounded final receipt/Git storage"
+  ],
+  "root_lease": {
+    "writer": "root_S119_readonly_finished_archive",
+    "expires_at": "2026-11-04T15:00:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": true,
+  "stop_condition": "Close this bounded source/evidence contract by15:00. HOLD actual archive visual verdict until fresh funded native task proof; no engine, screenshot recreation, source repair or extra APK under this scope.18:00 day end unchanged.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 675823616,
+    "persistent_total_with_primaryGit_cap_bytes": 1835008,
+    "new_TMP_cap_bytes": 0,
+    "new_runtime_cache_PNG_bytes": 0,
+    "DAY_initial_free_bytes": 695787520,
+    "DAY_cap_bytes": 25165824,
+    "floor_bytes": 629145600,
+    "retained_final_handoff_reserve_bytes": 1048576,
+    "complete_scope_includes_review_metadata_failed_diagnostics_primaryGit_and_closeout": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s119-finished-sketch-review-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+    "curated_rows": 436,
+    "all_old_runtime_cache_producers_permanently_closed": true
+  },
+  "pages_read": {
+    "Plan": 57,
+    "Board": 169,
+    "both_comments_empty": true,
+    "owner_checkbox_writes": 0
+  }
+}
