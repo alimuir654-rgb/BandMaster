@@ -2,7 +2,7 @@
   "schema_version": 1,
   "owner_approved": false,
   "id": "S118",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Continue the same authorised day opportunities through18:00; after delivered V11, useful bounded READONLY UX04/UX05/source-backed next-scope review without changing source or redoing engines/APK. Routine decisions delegated.",
   "baseline_sha": "2a8b5a166ae657b80d93ad2b5bc410260121bc15",
   "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
@@ -26,8 +26,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1500576,
-    "sha256": "c0832b03937655cf1454029a5eadc6fc54f7efebdf5a1c8794ea43e33209c6de"
+    "bytes": 1504643,
+    "sha256": "1d90d11fb4eb832904eb95b258a4db23eb947af711171052c0c921abd42b98a7"
   },
   "target": {
     "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-rehearsal_outcome-390x844.png",
@@ -77,7 +77,9 @@
   ],
   "root_lease": {
     "writer": "root_S118_readonly_report_review",
-    "expires_at": "2026-11-04T14:00:00Z"
+    "expires_at": "2026-11-04T14:00:00Z",
+    "active": false,
+    "released_at": "2026-11-04T13:21:11.514793+00:00"
   },
   "source_write_allowed": false,
   "art_write_allowed": false,
@@ -87,7 +89,7 @@
   "pending_implementation": false,
   "pending_helpers": false,
   "native_evidence_pending": false,
-  "review_pending": true,
+  "review_pending": false,
   "stop_condition": "Close a useful source-backed review by14:00 without Game/art/audio/cache/engine/APK changes. Do not implement candidate repair or claim native validation; fresh prospective production scope would be required. Hardstop18:00, no queue extension.",
   "storage_plan": {
     "workspace_initial_free_bytes": 677265408,
@@ -118,5 +120,120 @@
     "Board": 168,
     "both_comments_empty": true,
     "human_checkbox_writes": 0
+  },
+  "closed_at": "2026-11-04T13:21:11.514793+00:00",
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": {
+      "contract": "/workspace/work/s118-report-notebook-review-20261104/UX05_REVIEW_AND_CONTRACT.md",
+      "source_API_bindings": "/workspace/work/s118-report-notebook-review-20261104/source-api-bindings.json",
+      "actual_opened_originals": "/workspace/work/s118-report-notebook-review-20261104/root-open-log.json",
+      "Pages": "/workspace/work/s118-report-notebook-review-20261104/page-status-audit.json",
+      "retained_native_source_proof": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+      "unchanged_delivered_V11": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json"
+    },
+    "visual_verdict": "partial",
+    "review_contract_verdict": "internal_pass",
+    "owner_approved": false,
+    "scope": "Read-only UX05 discoverability contract and UX04 comparison triage; no product implementation.",
+    "findings": {
+      "UX05": "Full authored readings of saved outcomes exist in Details; generic touch label and ledger-before-responses order obscure their availability. Compact caption truncation is deliberate, not missing data.",
+      "UX04": "Current/earlier note, local/saved, previous/A/B semantics already exist. Shortwide shows words and note together; phone comparison uses normal shared body scrolling.",
+      "static_quote_inventory": {
+        "branch_arrays": 8,
+        "literal_entries": 48,
+        "unique_literals": 47,
+        "longer_than32": 21,
+        "examples": [
+          {
+            "full": "I'm feeling better; the room was tense.",
+            "excerpt": "I'm feeling better; the room…"
+          },
+          {
+            "full": "I'm not leaving that in a good mood.",
+            "excerpt": "I'm not leaving that in a good…"
+          }
+        ]
+      },
+      "candidate": "Existing FULL NOTES/HIDE NOTES disclosure and complete replies before detailed metrics; future copy/fit/order proof required.",
+      "candidate_paths": [
+        "experiments/playable_flightcase/ui.gd",
+        "experiments/playable_flightcase/rehearsal_press.gd",
+        "experiments/playable_flightcase/opening_capture.gd"
+      ],
+      "implementation_status": "NOT_IMPLEMENTED; ready for fresh funding/preflight/independent early/final native review, not awaiting owner approval."
+    },
+    "source_protection": {
+      "435_shipping_Git_rows_diff0_from_Game2d": true,
+      "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+      "seven_exact_reviewed_source_bindings": true,
+      "V11_source_relationship_unchanged": true,
+      "no_closed_producer_cache_or_artifact_mutation": true,
+      "no_new_register_controller_or_queue": true
+    },
+    "executions": {
+      "new_Godot": 0,
+      "new_models": 0,
+      "new_audio_render": 0,
+      "new_PNGs": 0,
+      "new_APK_build_audit_rehash_upload": 0
+    },
+    "actual_opened_images": {
+      "file_opens": 10,
+      "unique_contents": 10,
+      "retained_current_source_originals": true,
+      "all_14_selected_files_are_not_open_claims": true,
+      "six_member_fixture_not_natural_formation": true,
+      "new_independent_or_human_review": false
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "critic": "One specific reading friction is distinguished from missing content. Reordering the existing disclosure is a candidate, not proof of improved playability.",
+      "musician": "The mixed personal-morale/room-tension clause must remain complete and source-backed. Report readings interpret saved effects; they are not recorded character speech.",
+      "general_player": "The existing touch disclosure can be named more clearly; current phone scrolling and six-member browsing remain ordinary navigation, not a lost-data defect.",
+      "accessibility": "Preserve actual font/target/focus/scroll identity and original checks. Candidate copy width and device comprehension need future native/device verification.",
+      "state_safety": "No owner/model/Finance/schema or notebook mutation is needed. Existing read-only toggling and exact words/earlier-note relation must remain."
+    },
+    "remaining_gaps": [
+      "Candidate layout/copy/order not implemented or natively tested.",
+      "V11 physical installation, audio, IME and save retention remain untested.",
+      "Static people/sparse large layouts/body scrolling and retained forced-debug-exit audio P2 remain; no unchanged diagnostic rerun."
+    ],
+    "Pages": {
+      "Plan": 57,
+      "Board": 169,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "all_other_blocks_preserved": true,
+      "browser_render_claim": false
+    },
+    "new_issue_review": {
+      "prefix": {
+        "bytes": 1504643,
+        "sha256": "1d90d11fb4eb832904eb95b258a4db23eb947af711171052c0c921abd42b98a7"
+      },
+      "all_history_preserved": true,
+      "diagnostic": "Read-only capture path assumption corrected through exact manifest selection; no engine/source correction."
+    },
+    "storage": {
+      "persistent_total_cap": 2097152,
+      "new_runtime_cache_PNG_TMP_bytes": 0,
+      "DAY_cap": 25165824,
+      "floor": 629145600,
+      "all_criticalGit_primary": true
+    },
+    "next_action": "Test delivered V11 on device. For the next funded production scope, use the reviewed UX05 existing full-notes disclosure/order contract; keep notebook source and V11/source2d unchanged until actual production preflight/proof. No owner-approval wait, unchanged engine/APK activity or new queue;18:00 hard stop remains.",
+    "closed_at": "2026-11-04T13:21:11.514793+00:00",
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "helpers": "none activated by S118",
+      "GL_available": true,
+      "no_live_engine_Xorg": true,
+      "same_queue_COUNT44": true,
+      "hard_stop": "2026-11-04T18:00:00Z",
+      "no_extension_or_continuous_compute_claim": true
+    }
   }
 }
