@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "root_S115_first_career_review",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T13:00:00Z",
   "scope": "Approved opening audio plus Arjun comparison and personal context",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S114_scoped_complete_readiness_partial",
+  "status": "S115_native_review_preflight",
   "released_at": "2026-11-04T10:20:29.183737+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Fresh bounded UX03 booking/calendar/due-day-departure whole-task review within a natural representative first-career-loop from these436declaredrows; one evidencedcoherence repair ifneeded, finaloneAPK by18:00.",
+  "next_action": "Instrumented natural firstcareerloop/UX03 phone+shortwide review; no Game edits withoutfreshrescope.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S114",
+  "session": "S115",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -2983,7 +2983,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S115_first_career_review",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3238,7 +3238,8 @@
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S115",
   "game_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
-  "breadth_freeze": "2026-11-04T16:30:00Z"
+  "breadth_freeze": "2026-11-04T16:30:00Z",
+  "native_review_allowed": true
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S114",
+  "session": "S115",
   "scope": "Approved opening audio plus Arjun comparison and personal context",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S114_scoped_complete_readiness_partial",
-  "next_action": "Fresh bounded UX03 booking/calendar/due-day-departure whole-task review within a natural representative first-career-loop from these436declaredrows; one evidencedcoherence repair ifneeded, finaloneAPK by18:00.",
+  "status": "S115_native_review_preflight",
+  "next_action": "Instrumented natural firstcareerloop/UX03 phone+shortwide review; no Game edits withoutfreshrescope.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3252,7 +3252,7 @@
     }
   ],
   "last_completed_session": "S98",
-  "writer": null,
+  "writer": "root_S115_first_career_review",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3640,7 +3640,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T13:00:00Z",
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -6341,7 +6341,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S115_first_career_review",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6595,7 +6595,8 @@
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
-  "active_session": null,
+  "active_session": "S115",
   "game_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
-  "breadth_freeze": "2026-11-04T16:30:00Z"
+  "breadth_freeze": "2026-11-04T16:30:00Z",
+  "native_review_allowed": true
 }

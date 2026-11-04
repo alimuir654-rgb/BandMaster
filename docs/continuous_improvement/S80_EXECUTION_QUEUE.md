@@ -210,3 +210,5 @@ S111 whole-game SIMULATED critic/musician/player review: docs/continuous_improve
 
 
 S114 prospectivecohort: Marcusdrum/18contexts plusS113Zoe/Punk/Post-punk andmatchingMarcusclipsunderdelegatedtypedinternalacceptance.17productpaths upfront/sessionS114; source2GiBTMP/persistent10MiB/600MiBfloors/day24MiB. Corewrittenprogressdoesnotwaitforoptionalassets. Rootlease12:00; assetjob10:30. No ownerwait, originalCaseystandardroute/54Scripts/art/Game/Finance protected; inheritedfastquitP2retained.
+
+S115 fresh funded native REVIEW: currenta3/436source only,3MiBdurable/1GiBTMP, rootlease13:00. Two genuineinitialmenu firstloops phone normal/shortwide reduced; separateearned-checkpoint FSfailure andCorework/agreement/attendance branches. No source/art/audio/controller/economy edits; no qualification/day/stat fixture or forcedgoodshow. PredesignsourceCLEAR; earlycurrentpixels beforeanyrepair; finalAPK18 unchanged.
