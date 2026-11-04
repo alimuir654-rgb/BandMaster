@@ -146,7 +146,7 @@
     },
     "no_old_mutablecache_shared": true
   },
-  "implementation_contract": "/workspace/work/s122-songwriting-navigation-20261104/next-producer-contract.json",
+  "implementation_contract": "/workspace/work/s123-audible-producer-20261104/implementation-contract.json",
   "nonshipping_QA_contract": {
     "allowed": [
       "explicit frozen old model/nativeQA derivatives",
@@ -159,5 +159,6 @@
       "PNG/logs/XDG/receipts"
     ],
     "no_original_assertion_weakening": true
-  }
+  },
+  "quality_amendment": "Prospective -abs(capacity-demand) before production, independently enumerated reversal; keep bounded\u00b13 only new final song quality."
 }
