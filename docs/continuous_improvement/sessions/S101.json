@@ -35,8 +35,8 @@
   "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1403056,
-    "sha256": "3915a6ed024db2ad1c08c095f50122a1e592814a527f6d82631aaa6b5c555763"
+    "bytes": 1404378,
+    "sha256": "6b3e6b28b8eded7a8cfacaaa9dccb4a9dab11c469a04ac3fb75e904857a6cef1"
   },
   "hypothesis": "A reviewed role-specific Zoe bass exercise and exact profile/UI/save/QA integration contract make nextimplementation executable without guessing or erasing Jack/Arjun hearings.",
   "controlled_comparison": "Read-only existing424curatedsource; noGame/art/audio/native/cache/save changes. Preserve S100closeout uncommittedmetadatahold. Exactoldpromptarchived before updating SAMEsolequeue only.",
@@ -110,7 +110,8 @@
       "Pages": "/workspace/work/s101-overnight-prep-20261104/page-audit.json",
       "budget": "/workspace/work/s101-overnight-prep-20261104/budget.json",
       "old_automation_prompt_archive": "/workspace/work/s101-overnight-prep-20261104/previous-automation-prompt.txt",
-      "old_automation_prompt_archive_sha256": "240a7837c92aefd9c5f133cd991c790f42b03ad6976df09ab0535ab27ff72902"
+      "old_automation_prompt_archive_sha256": "5e158b9594237972d22c1cb9098b270353407e353aa503229fe0bcf913836306",
+      "old_automation_prompt_archive_bytes": 99933
     },
     "schedule": {
       "same_queue": "6ae532c5fe9c819190f587a022c54052",
@@ -127,14 +128,15 @@
     "cache_cutover_executed": false,
     "new_implementation_funding": "BLOCKEDpending400filecacheproposalapproval and completepersistenttailbudget; generalcontinue7:30 is notspecificcleanupapproval.",
     "new_issue_review": {
-      "prefix_event_through": "S101-20261104-890",
+      "prefix_event_through": "S101-20261104-891",
       "retained": [
         "885wrongparentgateheldbeforework",
         "886prospective320KiBtailbeforecapbreach",
         "887data-backedcatalogueretrieval",
         "888opaqueIDlocalguardbeforePagewrite",
         "889twoP2proposalclarificationsresolved",
-        "890receiptguardchangedmethodfullTMP+durablesummary"
+        "890receiptguardchangedmethodfullTMP+durablesummary",
+        "891newarchive soletool-addedLF removed afterexactoriginaltooltextcomparison; everyoriginalcharacter preserved"
       ],
       "routine_tool_notes": [
         "OnePagefreshness_unavailable retry read succeeded; no write tofailedread.",
