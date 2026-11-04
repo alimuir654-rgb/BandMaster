@@ -825,6 +825,11 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  paper.add_child(body)
  if practice_activity=="create":
   _writing_workspace(body)
+  # Ordinary vertical gestures on the writing paper/choices belong to its
+  # native body scroll. Text entry retains its own caret/selection handling.
+  paper.mouse_filter=Control.MOUSE_FILTER_PASS
+  for choice in paper.find_children("*","Button",true,false):
+   (choice as Button).mouse_filter=Control.MOUSE_FILTER_PASS
  else:
   _rehearsal_workspace(body,practice_activity)
  var info := _box()
