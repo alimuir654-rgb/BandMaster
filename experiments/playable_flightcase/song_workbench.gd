@@ -222,8 +222,10 @@ static func _closed_ok(value: Variant,sequence: int) -> bool:
  if value.id!="workbench:%d" % int(value.sequence) or not _fragment_ok(value.get("fragment"),value.id) or not _paid_ok(value.get("paid_receipts")):return false
  if value.result=="archived" and value.get("reason") not in ["user_archive","switch_route","source_review"]:return false
  if value.result=="finished" and value.paid_receipts.size()!=3:return false
+ if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
  if value.fragment.has("producer_recipe") and (not _same(value.fragment,value.get("project_snapshot",{}).get("fragment")) or not _same(value.paid_receipts,value.get("project_snapshot",{}).get("paid_receipts"))):return false
  if not _closed_project_ok(value.get("project_snapshot"),value.id,value.paid_receipts.size()):return false
+ if value.result=="finished" and value.fragment.has("producer_recipe") and not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot):return false
  return not _hash(value).is_empty()
 
 static func validate(opening: Dictionary) -> Dictionary:
@@ -505,7 +507,9 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
 
 static func _extension_ok(value: Variant) -> bool:
  if not value is Dictionary or value.get("version")!=1 or not value.get("project_id") is String or not _fragment_ok(value.get("fragment"),str(value.project_id)) or not _paid_ok(value.get("paid_receipts")):return false
+ if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
  if value.fragment.has("producer_recipe") and (not _same(value.fragment,value.get("project_snapshot",{}).get("fragment")) or not _same(value.paid_receipts,value.get("project_snapshot",{}).get("paid_receipts"))):return false
+ if value.fragment.has("producer_recipe") and (value.paid_receipts.size()!=3 or not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot)):return false
  return _producer_receipt_ok(value) and value.paid_receipts.size()==3 and _closed_project_ok(value.get("project_snapshot"),str(value.project_id),3) and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
 
 static func _finished_ref(index: int,song: Dictionary) -> Dictionary:
