@@ -31,8 +31,8 @@
   ],
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1454859,
-    "sha256": "51f3b8c3a2d9cfc6d895a380feb4220137962130ac01990ed18cc88864f79c89"
+    "bytes": 1456625,
+    "sha256": "66fdf4412723025edbba7dc6f9162db4ea2e93dde8abc3beb4201b663f1b8902"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/a07_road_travel_v1.png",
@@ -50,9 +50,7 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md",
-    "/workspace/work/s115-first-career-loop-20261104/",
-    "/tmp/bandmaster-s115-first-career-loop-20261104/"
+    "docs/asset_base/REVIEW_INDEX.md"
   ],
   "validation_commands": [
     "Beforecopy: all436source rows hashbound toS114finalmanifest; all455closedcachefiles rehash againstterminalpins. Copy only436rows +regularprivatecachecopies, never hardlink/share mutablecache. Same-source importartifactclone is not fresh/cold import; no unchanged editor/import/73/88/models/standard/APK activity reruns.",
@@ -119,7 +117,11 @@
     },
     "QA_scratch_cap": 4194304,
     "reviewer_receipts_cap": 49152,
-    "no_arbitrary_cleanup_gcrepackprune_reset_or_TMPcriticalGit": true
+    "no_arbitrary_cleanup_gcrepackprune_reset_or_TMPcriticalGit": true,
+    "roots": [
+      "/workspace/work/s115-first-career-loop-20261104/",
+      "/tmp/bandmaster-s115-first-career-loop-20261104/"
+    ]
   },
   "source_manifest": {
     "path": "/workspace/work/s114-representative-band-20261104/source-final.json",
@@ -159,5 +161,14 @@
     "STATE_SCHEMA.md": "9212d2e324432794a4797dd53f4abe769272e8a5d21058cfc235afeadba342b1",
     "note": "Historicalinventory only; actualcurrentOpeningState/CareerDesk/Workbench/Booking/Journey saveAPIs authoritative, no proposedGameState/controllerassumption."
   },
-  "created_at": "2026-11-04T10:36:11.543899+00:00"
+  "created_at": "2026-11-04T10:36:11.543899+00:00",
+  "artifact_QA_paths": [
+    "/workspace/work/s115-first-career-loop-20261104/",
+    "/tmp/bandmaster-s115-first-career-loop-20261104/"
+  ],
+  "preflight_amendment": {
+    "rejected_commit": "a2c4669a51eade31162ac3daa2bf0a0555998c9d",
+    "reason": "Repository versus external artifact path namespaces only; no caps or safety weakened",
+    "no_runtime_QA_source_before_gate": true
+  }
 }
