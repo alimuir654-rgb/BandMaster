@@ -28,15 +28,15 @@
     "pixels_inspected": true
   },
   "id": "S101",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Continue the existing overnight plan through07:30am Europe/London4Nov; noupdatedAPK. Specificoldcacheconsolidation remainsunapproved. Read-onlypreparation usefulwhilepersistentfloor blocks sourcefinalcommit.",
   "baseline_sha": "2e995c2cb20bdd393b3c83eddb3c951734cd9756",
   "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1397739,
-    "sha256": "ef2f7f34828d8ee8b96b95b20fe6e890e3394ab42c4ce2a6d1d42286a00e156f"
+    "bytes": 1403056,
+    "sha256": "3915a6ed024db2ad1c08c095f50122a1e592814a527f6d82631aaa6b5c555763"
   },
   "hypothesis": "A reviewed role-specific Zoe bass exercise and exact profile/UI/save/QA integration contract make nextimplementation executable without guessing or erasing Jack/Arjun hearings.",
   "controlled_comparison": "Read-only existing424curatedsource; noGame/art/audio/native/cache/save changes. Preserve S100closeout uncommittedmetadatahold. Exactoldpromptarchived before updating SAMEsolequeue only.",
@@ -59,16 +59,12 @@
     "Existingqueueprompt/schedule readback; exactsameID/environment/thread, no newqueue/controller/endtask.",
     "Hash424beforeafter; old400cachepairs untouched, floors/caps checked; durablecloseout and writerrelease."
   ],
-  "root_lease": {
-    "id": "S101-overnight-readonly-prep-20261104T0030",
-    "writer": "/root",
-    "expires_at": "2026-11-04T01:10:00Z"
-  },
+  "root_lease": null,
   "scope_end": "2026-11-04T01:10:00Z",
   "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "queue_task": "Overnight priority1 Zoe bass predesign/content/contract; storageblockedproduction",
   "reviewer": "Existing foundation_tests independentread-only authoring/contractreview; root solemetadatawriter",
   "storage_plan": {
@@ -87,7 +83,79 @@
     "observed_free_before_rebalance": 629448704,
     "prior_cap": 196608
   },
-  "next_action": "Update existingsolequeue through07:30 as requested, then author exactZoe content/state/UI/QA contract in bounded scratch; no shippingimplementation.",
+  "next_action": "Specificpending400filecacheconsolidationapproval/funding first; ifapprovedcompletepreservationamendment/atomiccutover/proof/finalS100metadata thenfreshboundedZoeimplementation. Ifabsentcontinueusefulboundedread-onlypreparationwithoutunderfundedsource/native. Finishby07:30London.",
   "preflight_sha": "329ded7d3581d530841c4f02a97f5f1c65805ba8",
-  "schedule_policy": "Latest direct07:30stop: samequeue COUNT48\u219234, last07:15opportunity. Prior21:24:35outerceiling retainedashistory, notpermissionpastnew07:30stop; noextraendtask."
+  "schedule_policy": "Latest direct07:30stop: samequeue COUNT48\u219234, last07:15opportunity. Prior21:24:35outerceiling retainedashistory, notpermissionpastnew07:30stop; noextraendtask.",
+  "closed_at": "2026-11-04T00:41:55.829564+00:00",
+  "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "closeout": {
+    "session": "S101",
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "source_changed": false,
+    "status": "READ_ONLY_PREPARATION_COMPLETE",
+    "technical_scope": "Source/rights/contract/schedule verification only; newGodot/model/native/audio/render/PNG/APK executions0. No implementedZoe/drummerclaim.",
+    "visual_verdict": "hold",
+    "scoped_review": "Ready for freshfundedpreflight, notowner/listening/deviceacceptance",
+    "owner_approved": false,
+    "closed_at": "2026-11-04T00:41:55.829564+00:00",
+    "evidence": {
+      "Zoe": "/workspace/work/s101-overnight-prep-20261104/ZOE_BASS_PROPOSAL.md",
+      "Zoe_sha256": "c8852cac8c20d671bc2020621d55fdda9ab88f754ecd0af2ee592b0f92981f82",
+      "independent_summary": "/workspace/work/s101-overnight-prep-20261104/review.json",
+      "independent_summary_sha256": "c384ca4cfbfe94b8ef2e16dbca694a7f4be665aa4c59b9d024af4e0f62a9d3bf",
+      "full_initial_review": "/tmp/bandmaster-s101-overnight-prep-20261104/full-review.json",
+      "full_initial_review_sha256": "f16cdd73805d51d998156e9d330e6225b883782fd438fe5e8799913746ae09da",
+      "drum_followon_unreviewed": "/workspace/work/s101-overnight-prep-20261104/DRUM_COMPARISON_BRIEF.md",
+      "queue": "/workspace/work/s101-overnight-prep-20261104/queue-update.json",
+      "Pages": "/workspace/work/s101-overnight-prep-20261104/page-audit.json",
+      "budget": "/workspace/work/s101-overnight-prep-20261104/budget.json",
+      "old_automation_prompt_archive": "/workspace/work/s101-overnight-prep-20261104/previous-automation-prompt.txt",
+      "old_automation_prompt_archive_sha256": "240a7837c92aefd9c5f133cd991c790f42b03ad6976df09ab0535ab27ff72902"
+    },
+    "schedule": {
+      "same_queue": "6ae532c5fe9c819190f587a022c54052",
+      "same_thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "environment_selection": "inherited; returneddetailsnull, nofutureexecutionproof",
+      "COUNT": 34,
+      "last_opportunity": "2026-11-04T07:15:00Z",
+      "stop_handoff": "2026-11-04T07:30:00Z",
+      "no_new_queue_controller_endtask": true,
+      "old48_count_archived": true,
+      "best_effort_not_continuous": true
+    },
+    "actual_source424_and_old800cachehashes_exact": true,
+    "cache_cutover_executed": false,
+    "new_implementation_funding": "BLOCKEDpending400filecacheproposalapproval and completepersistenttailbudget; generalcontinue7:30 is notspecificcleanupapproval.",
+    "new_issue_review": {
+      "prefix_event_through": "S101-20261104-890",
+      "retained": [
+        "885wrongparentgateheldbeforework",
+        "886prospective320KiBtailbeforecapbreach",
+        "887data-backedcatalogueretrieval",
+        "888opaqueIDlocalguardbeforePagewrite",
+        "889twoP2proposalclarificationsresolved",
+        "890receiptguardchangedmethodfullTMP+durablesummary"
+      ],
+      "routine_tool_notes": [
+        "OnePagefreshness_unavailable retry read succeeded; no write tofailedread.",
+        "TextEncoder absent inJS metadata-only formatting; used actualstoredstringlength. No product/source mutation."
+      ]
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "new_player": "Meet actualZoe and compareanactualbassline/change; nativecompositionstillunproved.",
+      "musician": "16/7/10attacks andphysicalD2/G2/A2; actualnewbassperformanceunrendered/unapproved.",
+      "returning_player": "Retainall3candidatehearing histories/original37talent/once/whole-ownerrollback; testsrequired.",
+      "accessibility": "GenericBasswords/fullnotation/48px/scrolledBar4planned; nofreshpixels.",
+      "art_direction": "Reuseapprovedroom/contactsource withoutplaying/masterclaims; externalreferencepixelsnotreopened."
+    },
+    "material_gaps": [
+      "No new sourcefeatures/audio integrated inS101.",
+      "Zoe contentneedsfundedcommittedimplementation+newaffectedmodel+earlyphone/shortwide+finalfourviewwholejourneyproof.",
+      "Drumbrief is unreviewedfollow-ononly.",
+      "No physicalphone/speaker/headphone/IME/OSinterrupt evidence.",
+      "S100finalprojectmetadata remain durableuncommittedhold; source0calreadycommitted."
+    ],
+    "next_action": "Specificpending400filecacheconsolidationapproval/funding first; ifapprovedcompletepreservationamendment/atomiccutover/proof/finalS100metadata thenfreshboundedZoeimplementation. Ifabsentcontinueusefulboundedread-onlypreparationwithoutunderfundedsource/native. Finishby07:30London.",
+    "helpers_source_artifact_GL_released": true
+  }
 }
