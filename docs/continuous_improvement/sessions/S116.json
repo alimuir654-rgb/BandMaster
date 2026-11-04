@@ -25,14 +25,14 @@
     "BM-45"
   ],
   "id": "S116",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Owner delegates day build through18:00 and one final APK. Repair the evidenced missing public due-day calendar route; no approval wait.",
   "baseline_sha": "d2abfa657b71217e36a4ebacaa5f83db064912e0",
   "game_baseline_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1476566,
-    "sha256": "64b1422f5804eab1603923a610ea64cf2c585ddd7663037fb430f4b9f2a20160"
+    "bytes": 1494277,
+    "sha256": "13de0fece35ab0fdba2abcdd070f59079ea7b05b33f492f29ef1d692b129137c"
   },
   "target": {
     "locator": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-phone-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-390x844.png",
@@ -80,9 +80,9 @@
   },
   "source_write_allowed": true,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
   "stop_condition": "One evidenced presentation repair only. Early phone/shortwide before full proof; HOLD concrete clipping or owner effects. Close by14:00 lease or prospectively rescope within18:00 hardstop; no automatic extension. No new breadth after16:30. Final oneAPK and handoff before18:00.",
   "storage_plan": {
     "workspace_initial_free": 681091072,
@@ -129,5 +129,142 @@
     "changed_leaf": "experiments/playable_flightcase/gig_journey_desk.gd",
     "SHA": "af327cf5a709f5372dc5f5ff1a94717fa50d03cb42edf12e7837d7ada9744ac3",
     "all_other435rows": true
+  },
+  "closed_at": "2026-11-04T12:24:20.252570+00:00",
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": {
+      "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+      "source_storage": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+      "logs": "/workspace/work/s116-due-day-calendar-20261104/accepted-log-audit.json",
+      "whole_journeys_and_branches": "/workspace/work/s116-due-day-calendar-20261104/focused-native-validation.json",
+      "standard_RGBA": "/workspace/work/s116-due-day-calendar-20261104/standard-RGBA-comparison.json",
+      "model_reuse": "/workspace/work/s116-due-day-calendar-20261104/model-proof-reuse.json",
+      "independent_final": "/workspace/work/s116-due-day-calendar-20261104/final-review.json",
+      "root_actual_opens": "/workspace/work/s116-due-day-calendar-20261104/root-open-log.json",
+      "Pages": "/workspace/work/s116-due-day-calendar-20261104/page-status-audit.json"
+    },
+    "visual_verdict": "partial",
+    "scoped_calendar_verdict": "internal_pass",
+    "owner_approved": false,
+    "source": {
+      "curated": 436,
+      "Git_rows": 435,
+      "declared_entry_bytes": 146,
+      "bytes": 98258966,
+      "ordered_digest": "99f573b46c5fa82202c6b1e97c25b1a211b509b07a2cb7e14e08443b4428aec1",
+      "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+      "changed": [
+        "experiments/playable_flightcase/gig_journey_desk.gd"
+      ],
+      "change": "One110-byte line adds begin-only free calendar button through existing navigation.",
+      "protected_prior_rows": 435,
+      "source_corrective_iterations_after_first_native": 0
+    },
+    "executions": {
+      "actual_Godot": 21,
+      "strict_accepted": 18,
+      "held": 3,
+      "held_cases": [
+        "full-phone-v3:108 recursive Array-equality errors; semantic pass not accepted",
+        "full-tall-v4:no genuine wheel-positive coverage; retained",
+        "branch-core-v5:hidden HOME navigation lookup; retained"
+      ],
+      "static_and_pre_engine_diagnostics_not_Godot_executions": true
+    },
+    "current_required": {
+      "gameplay": 73,
+      "opening": 88,
+      "empty_private_import": 1,
+      "four_standard_profiles": true,
+      "configured_NOscript_entry": "real-time600frames/max60/verbose, raw0/ERRORempty/noJSONsaves; no physical FPS claim",
+      "affected_model1732": "Reused actual S1141732 through435unchangedshipping inputs/57literaldependencyfiles/frozenexpectedcontext/4legacyfixtures; no S116 affected-model rerun. Core73/88 tests are separately fresh actual executions."
+    },
+    "whole_natural_first_career_loops": {
+      "count": 4,
+      "actual_menus": true,
+      "configured_scene_instrumented": "Original configured opening PackedScene, transparent original-owner save/load counters assigned before ready; all progression through native controls. Not four NOscript default-entry runs.",
+      "qualification_day_or_stat_fixtures": false,
+      "band": "Jack/Zoe/Marcus, Jack vocal trial, Indie",
+      "original_priced_invites": 12,
+      "original_owner_save_attempts_and_successes": 192,
+      "raw_verify_calls": 26929,
+      "included_deep_discovery_guard_calls": 22852,
+      "other_assertions": 4077,
+      "counts_are_not26929gameplay_decisions": true,
+      "QA_versions": "phonev4 + tall/wide/desktopv5; v5 only adds native earned-calendar positive/restoration. Same original guards and dimensions.",
+      "first_show_result_all_four": {
+        "day": 6,
+        "cash": 244,
+        "gross_fee": 14,
+        "transport": 5,
+        "success": false,
+        "originals": 1,
+        "forced_good_result": false
+      }
+    },
+    "separate_earned_checkpoint_branches": {
+      "real_FS_failure_retries": 3,
+      "checks": [
+        112,
+        87,
+        67
+      ],
+      "core_checks": 183,
+      "core_owner_saves": 4,
+      "core": "Explicit player-recorded Marcus dayjob -> original DAY2evening plan -> ClearAir DAY1to2 -> original rehearsal DAY2to3; three actual attendees and kept agreements. Not sidecar-inferred schedules or additional whole loops."
+    },
+    "native_images": {
+      "physical_PNGs": 335,
+      "accepted": 311,
+      "held": 24,
+      "standard_fresh_encodings": 248,
+      "standard_families": 232,
+      "RGBA_exact_S114": 228,
+      "known_Reopen_transition_differences": 4,
+      "unexpected": 0,
+      "root_actual_current_opens": 16,
+      "root_distinct_current_contents": 16,
+      "retained_S115_baseline_opens_referenced": 2,
+      "independent_actual_current_opens": 23,
+      "independent_early": 6,
+      "independent_final": 17
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "musician": "Recognisableliteral material reaches savedset; rehearsal/show aremodelled, notrenderedcharacterperformances.",
+      "critic": "Coherentnaturalopening-to-result loopdemonstrated; actualcalendarfriction repaired, visualpresence remainsPARTIAL.",
+      "general_player": "Publicdates/costs/returns/selectedsong/result clearininspectedstates; technicalchecks arenothumancomprehensiontests.",
+      "accessibility": "Nativepointer/key/emulatedtouch/wheel andactualwindow/viewport/drawbufferproof; nophysicalphone/IME/OSinterruptacceptance.",
+      "state_safety": "Wholeowner rollback/retry/reload anddeepnegativecontrols retained; branchesnotinflatedintowholeloops."
+    },
+    "limits": [
+      "Overall visual readiness remains partial: static people, sparse wide layouts and ordinary body scrolling for lower paper/hardware/details.",
+      "Arjun adjusted parts are written-only; three genre examples, eleven honest no-example genres; four implemented audition profiles, hearing-map capacity18.",
+      "Physical phone installation/save retention/speaker/headphone/IME/OS interruption and audio quality remain untested.",
+      "S112/S114 forced-debug-exit resource diagnostic remains a retained P2 HOLD; normal real-time entry/lifecycle evidence passes.",
+      "No human listening/owner art acceptance or physical-device inference from simulated lenses/Dummy routing."
+    ],
+    "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
+    "new_issue_review": {
+      "all_events_preserved": true,
+      "prefix": {
+        "bytes": 1494277,
+        "sha256": "13de0fece35ab0fdba2abcdd070f59079ea7b05b33f492f29ef1d692b129137c"
+      },
+      "resolved_scope": "Due-day calendar public route; QA comparator, route, dimension and receipt diagnostics retained without failed-proof promotion."
+    },
+    "storage": {
+      "workspace_scope_cap": 3670016,
+      "TMP_scope_cap": 1073741824,
+      "DAY_cap": 25165824,
+      "floor": 629145600,
+      "runtime_cache_permanently_closed": true,
+      "old_closed_caches_and800hardlink_paths_exact": true,
+      "critical_Git_primary_only": true
+    },
+    "own_Xorg59973_stopped_socket_absent": true,
+    "GL_released": true,
+    "closed_at": "2026-11-04T12:24:20.252570+00:00",
+    "no_new_queue_or_extension": true
   }
 }

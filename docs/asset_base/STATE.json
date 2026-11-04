@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S116_calendar_preflight",
+  "status": "S116_scoped_closed",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "One free due-day calendar route in journey begin; original owners/models/economy untouched",
-  "writer": "root_S116_due_day_calendar",
+  "scope": "Verified free due-day calendar route and natural first-career loop; source2d7656ae",
+  "writer": null,
   "last_verified_code_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "baseline": {
     "run_id": 40778019754,
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S100",
-  "next_action": "Run committed S116 gate before the single source edit; early phone/shortwide, wholeloop fourview, finalAPK.",
+  "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2417,7 +2417,7 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T11:29:18.553142+00:00",
+  "released_at": "2026-11-04T12:24:20.252570+00:00",
   "last_writer": "root_S114_representative_band",
   "source_write_allowed": false,
   "pending_implementation": false,
@@ -2425,7 +2425,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": "2026-11-04T14:00:00Z",
+  "expires_at": null,
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2724,7 +2724,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": false,
-  "source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": "/workspace/work/s114-representative-band-20261104/closeout.json",
@@ -3049,7 +3049,7 @@
     "base_head": "336a17952649502a7fd44411999812d7e170da1f",
     "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London."
   },
-  "game_baseline_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "game_baseline_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "s85_release": {
     "writer": null,
     "source_art_audio_writers": null,

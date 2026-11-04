@@ -1,14 +1,14 @@
 {
-  "writer": "root_S116_due_day_calendar",
+  "writer": null,
   "base_head": "d2abfa657b71217e36a4ebacaa5f83db064912e0",
   "claimed_at": "2026-11-04T11:31:24.757556+00:00",
-  "expires_at": "2026-11-04T14:00:00Z",
-  "scope": "One free due-day calendar route in journey begin; original owners/models/economy untouched",
+  "expires_at": null,
+  "scope": "Verified free due-day calendar route and natural first-career loop; source2d7656ae",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S116_calendar_preflight",
-  "released_at": null,
+  "status": "S116_scoped_closed",
+  "released_at": "2026-11-04T12:24:20.252570+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "root_S115_first_career_review",
-  "source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "last_writer": "root_S116_due_day_calendar",
+  "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": false,
   "pending_helpers": true,
-  "next_action": "Run committed S116 gate before the single source edit; early phone/shortwide, wholeloop fourview, finalAPK.",
+  "next_action": "Prepare one final private signed ARM64 APK from this exact verified436-row source with existing identity/key/savefolder and incremented code>10; audit privacy/update/resources, deliver existing owner+Ali channel, then release by18:00. No further Game breadth or intermediate APKs.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -1079,7 +1079,7 @@
     "base_head": "336a17952649502a7fd44411999812d7e170da1f",
     "authority": "Latest direct owner booking request and48hour extension"
   },
-  "game_baseline_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
+  "game_baseline_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "s85_release": {
     "writer": null,
     "source_art_audio_writers": null,
