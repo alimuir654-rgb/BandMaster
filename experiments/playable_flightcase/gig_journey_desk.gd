@@ -171,6 +171,7 @@ static func dock(host, parent: Node, _compact: bool) -> void:
   parent.add_child(summary)
  if phase=="begin":
   _button(host,parent,"MEET THE BAND  ›","JourneyMainAction","begin",{}, {"booking_id":Flow.booking_id(Calendar.pending(state))})
+  parent.add_child(host._button("OPEN THE CALENDAR","JourneyCalendarAction",host._navigate.bind("calendar")))
  elif phase=="choice":
   _button(host,parent,"GIVE THE ROOM A MOMENT","JourneyChoiceMomentAction","choice",token,{"intent":"moment"})
   _button(host,parent,"KEEP THE SET MOVING","JourneyChoiceMovingAction","choice",token,{"intent":"moving"})
