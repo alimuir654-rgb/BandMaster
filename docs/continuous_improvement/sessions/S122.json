@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "id": "S122",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Fresh direct Go ahead after S121 options: implement next build. First bounded repair songwriting navigation/name fit and explicitly selected genre automatic preview, then separate complete audible producer-desk contract. Old day queue remains ended; no generic owner-approval wait.",
+  "baseline_sha": "e3e5301c5446e1e8bc0f5f9ff98ed2e6e90e3e0c",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-09",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1516144,
+    "sha256": "fb381c6791ad6ecf014e789b4ecb8b4b0685a84450ca063ffa83b7f5f735ca93"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-lyric_seed_saved-390x844.png",
+    "original_sha256": "34f8b98b3beb83cc62504dc6fce7b138709cd8f5d50084714ec659cb04e4563b",
+    "pixels_inspected": true,
+    "scope": "Actual root-opened current lyric desk; owner inline formation poster separate unhashable evidence"
+  },
+  "hypothesis": "Separate ordinary reading/scrolling from explicit lyric editing; fit complete words before multiline acceptance; genre preview only on explicit selected button, never arrival/resize. Preserve typed drafts/caret/free/paid owners and audio stop/mute.",
+  "controlled_comparison": "Same source2d/current phone/wide workbench content and owner TRANSISTOR/Arjun-Zoe-Ellis name. Independent reviewer current actual desk originals before implementation. Baseline source copied under fresh private producer; no closed runtime/cache resumed.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S122.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/band_mark.gd",
+    "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/audition_audio.gd"
+  ],
+  "validation_commands": [
+    "Frozen source/review/model owners. Reproduce native default lyrics drag vs explicit editing; add Done control, keep typing/dirty Save/Discard/Keep. Native title keyboard focus and caret remains local.",
+    "Whole-word TRANSISTOR at four fonts/stamp/multiword/Unicode; complete name data untouched and compact headers unchanged; bounded readable fallback.",
+    "Genre selection starts current available example; no arrival/focus/resize autoplay, remembered Mastermute and no unmute autoresume, switch/leave/teardown stop, zero new Game/save/Finance effects.",
+    "Independent early actual390phone/1280shortwide before fullproof. Final exact four layouts workbench save/paid3days/dirty/reload/FSfailure-retry and native gesture positives; current73gameplay/88opening/emptyprivateimport/fourstandard and naturalentry; all acceptedERRORempty.",
+    "Exact protected431source rows/all54Scripts3UID/Game/Finance/owners/models/schema/audio/art/fonts/hardware. Same14OGGs/sixregistries byteexact. Finalsource manifest/actualopens/fiveSIMULATEDlenses, release all helpers/GL/source by20:25."
+  ],
+  "queue_task": "S121 owner revision priority1 + explicit genre preview direction",
+  "reviewer": "/root/s122_design_review independent read-only pre/early/final; root alone source and engines",
+  "player_goal": "Reach every writing option by ordinary body swipe; explicitly edit retained words; whole band name; hear selected genre.",
+  "start_end_commitment": "Begin current saved workbench and owner lineup; end reliable read/edit navigation with unchanged original save/day behavior. Production slice1, then producer-desk contract.",
+  "state_matrix": [
+    "Phone390x844/tall720x1280/shortwide1280x720/desktop1600x900",
+    "Body drag from text/paper/portrait/button; upward/downward, no incidental save/caret/action; editor explicit on/off; title/words keyboard and dirty exits",
+    "TRANSISTOR handpainted cobalt Arjun/Zoe/Ellis, four fonts, stamp/multiword/Unicode",
+    "Genre arrival silent; native select available/missing/muted/rapid switch/stop/context/hide/free/focus; existing auditions explicit only"
+  ],
+  "root_lease": {
+    "writer": "root_S122_songwriting_navigation",
+    "expires_at": "2026-11-04T20:25:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "stop_condition": "Close this bounded slice by20:25; old18:00 day automation not restarted. Fresh direct build request authorizes next production; no new queue/controller/endtask. Subsequent producer/audio/quality requires complete separate contract before edits; all work releases by prior outer21:20/21:24:35 ceiling.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 671449088,
+    "scope_persistent_cap": 6291456,
+    "scope_TMP_cap": 1342177280,
+    "new_manual_build_aggregate_persistent_cap": 25165824,
+    "new_manual_build_initial_free": 671449088,
+    "remaining_producer_and_APK_persistent_tail_reserved": 18874368,
+    "future_TMP_tail_reserved": 1879048192,
+    "floor_bytes": 629145600,
+    "categories": {
+      "source_preflight_review": 1048576,
+      "primary_Git_metadata_failedproof": 4194304,
+      "closeout": 1048576
+    },
+    "old_day_cap_closed_not_reused": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s122-songwriting-navigation-20261104",
+    "/tmp/bandmaster-s122-songwriting-navigation-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd"
+  },
+  "manual_authority": {
+    "direct_request": "Go ahead",
+    "clock": "2026-11-04T19:37:25Z",
+    "old_day_queue_not_restarted": true,
+    "fresh_manual_build": true
+  },
+  "nonshipping_QA_contract": {
+    "allowed": [
+      "qa/*.gd",
+      "runner.py",
+      "runner-standard.py",
+      "standard_capture.gd",
+      "source inventory/receipts",
+      "private runtime and fresh XDG/cache",
+      "display logs",
+      "focused/native PNGs"
+    ],
+    "baseline_leaf_copies": "frozen exact2d source under explicitly named QA paths, not changed product base",
+    "no_original_test_assertion_weakening": true
+  }
+}
