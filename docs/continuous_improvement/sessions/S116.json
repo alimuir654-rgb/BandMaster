@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-26",
+    "BM-32",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S116",
+  "status": "active",
+  "owner_request": "Owner delegates day build through18:00 and one final APK. Repair the evidenced missing public due-day calendar route; no approval wait.",
+  "baseline_sha": "d2abfa657b71217e36a4ebacaa5f83db064912e0",
+  "game_baseline_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "dominant_issue": "BM-38",
+  "issue_log_review": {
+    "bytes": 1476566,
+    "sha256": "64b1422f5804eab1603923a610ea64cf2c585ddd7663037fb430f4b9f2a20160"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-phone-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-390x844.png",
+    "original_sha256": "0f770f3286a0e0f8a915e90fcfd80621490514a5f9f9cc80b17ecff35893f1f9",
+    "pixels_inspected": true,
+    "source_scope": "Actual earned DAY5 baseline from retained held669; not completed first loop. Both phone/shortwide actually opened by root and independent reviewer."
+  },
+  "hypothesis": "One free48px calendar button in the existing journey begin dock restores inspection of the saved due-day agreement without owner/model/save/economy changes.",
+  "controlled_comparison": "Same genuine Jack/Zoe/Marcus Indie band, literal lyric material, DAY5 first local Lantern Room/headhome booking, original main/menu and scene. Only begin dock gains a secondary calendar row; all later phases and approved art/audio unchanged.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S116.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/gig_journey_desk.gd"
+  ],
+  "validation_commands": [
+    "Commit this scoped preflight and run improvement_gate BEFORE the sole Game source edit. Direct host._button, not the journey mutation helper: JourneyCalendarAction -> existing host._navigate.bind(calendar), only phase begin. Existing factory supplies48px; preserve all primary actions/unknowns/source types.",
+    "Independent predesign /workspace/work/s115-first-career-loop-20261104/final-baseline-S116-predesign-review.json SHA2cf8f4eeb690b529fe1a09c2eea455288c5a35b2ef17b4cd19a2dcabdefe149a. Early changed-source actual390phone normal/1280shortwide reduced important states before full proof.",
+    "Fresh436-row regular source copy; one EMPTY new private import. No old381extras, oldcache sharing or oldproducer resumption. Capture derivative and all QA declared as nonshipping extras.",
+    "Calendar pointer/Enter/Space, actual48px fit, CalendarLive return to same begin, complete typed owner/file/save-attempt0/Finance/day/booking/phase checks. Calendar action absent from later phases. Menu/Continue/resize/free/context remain original.",
+    "Four genuine fresh configured opening-menu first-career loops, no qualification/day/stat fixture: original auditions/invites/vocal/name, first local booking, three paid writing days, \u00a315rehearsal, due calendar, explicit departure, saved original plan, one show wrap and reload. Same source-supported song IDs/words/snapshots; no forced good outcome. Phone/tall/wide/desktop; normal/reduced inputs and current Four-layout physical-target proof.",
+    "Separate passed-main earned checkpoint branches: actual booking/departure/wrap filesystem failure/retry, whole typed rollback/visible error/once/duplicate/reload; existing SituationCore player-entered Marcus dayjob/reschedule/actual attendance branch. Not additional whole loops.",
+    "Final changed-source73gameplay/88opening/four standard/native wholejourneys; exact unaffected pure-model dependency closure permits reuse of actual S1141732 checks, no claimed rerun. Baseline a3 ordinary real-time entry retained; no unchanged forced-debug-quit reruns.",
+    "Audit all436source rows/435 protected rows,54 originalScripts incl3UID/Game/owners/models/Finance/schema/art/fonts/hardware/audio; manual strict allERROR scan accepted raw0 only; retained failures and known transitions. Final exact-source independent actual originals/five SIMULATED lenses, no device/human claim."
+  ],
+  "queue_task": "UX03 due-day calendar access within representative first-career-loop",
+  "reviewer": "Existing musician_review independent; zoe_qa nonshipping QA author; root alone source/Git/engines.",
+  "player_goal": "Inspect the real saved due-day calendar before meeting/departing with the band, then return and complete the natural first show once.",
+  "start_end_commitment": "Start: fresh original menu for whole cases; early display fixture explicitly derives exact S115 earned DAY5. End: actual first-show saved result/MenuContinue. Free calendar browsing0writes; only original checkpoint/invite/writing/rehearsal/wrap actions commit.",
+  "state_matrix": [
+    "Journeybegin due today before any activejourney: calendar visible48px and free; originalMeetBand/mainmenu fit",
+    "Calendar due saved DAY5/returnDAY6; pointer/Enter/Space/backlive and typedreload preserve entire owner/files/Finance",
+    "Later setout/travel/arrival/soundcheck/perform/choice/afterset/wrap retain original controls and no new Calendar button",
+    "Four fresh whole loops plus separately labelled earned failure/Core branches; no hidden navigation shortcut or forcedgoodshow",
+    "Original unknown/schema/save rollback/once-only charges,18hearingcap/4implementedprofiles and all approved audio preserved"
+  ],
+  "root_lease": {
+    "writer": "root_S116_due_day_calendar",
+    "expires_at": "2026-11-04T14:00:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "stop_condition": "One evidenced presentation repair only. Early phone/shortwide before full proof; HOLD concrete clipping or owner effects. Close by14:00 lease or prospectively rescope within18:00 hardstop; no automatic extension. No new breadth after16:30. Final oneAPK and handoff before18:00.",
+  "storage_plan": {
+    "workspace_initial_free": 681091072,
+    "workspace_cap": 3670016,
+    "TMP_cap": 1073741824,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "DAY_initial_free": 695787520,
+    "DAY_cap": 25165824,
+    "TMP_initial_free": 6124916736,
+    "TMP_categories": {
+      "runtime_source": 110000000,
+      "private_cache": 120000000,
+      "PNG": 220000000,
+      "QA": 20000000,
+      "case_data_logs": 40000000,
+      "failed_proof": 200000000,
+      "closeout_reserve": 363741824
+    },
+    "remaining_reserved_APK_durable": 4194304,
+    "remaining_reserved_handoff": 1048576,
+    "future_TMP_APK_reserved": 1073741824,
+    "no_arbitrary_cleanup_TMPcriticalGit_or_oldcache_write": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s116-due-day-calendar-20261104/",
+    "/tmp/bandmaster-s116-due-day-calendar-20261104/"
+  ],
+  "nonshipping_QA_contract": {
+    "existing_S115_main_v2_and_branches_v2_derivatives": true,
+    "early_exact_earned_DAY5_fixture": true,
+    "current_standard_capture_derivative": true,
+    "strict_runner_derivatives": true,
+    "all_only_under_declared_external_roots": true
+  },
+  "source_input": {
+    "manifest": "/workspace/work/s114-representative-band-20261104/source-final.json",
+    "SHA": "f5b312edbf055e109b5c329589ddb8c698c3293413b51e7736099f351c59ca4f",
+    "rows": 436,
+    "bytes": 98258856,
+    "copy_only_declared_rows": true
+  },
+  "protected_before": {
+    "changed_leaf": "experiments/playable_flightcase/gig_journey_desk.gd",
+    "SHA": "af327cf5a709f5372dc5f5ff1a94717fa50d03cb42edf12e7837d7ada9744ac3",
+    "all_other435rows": true
+  }
+}
