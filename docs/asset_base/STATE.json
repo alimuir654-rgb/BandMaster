@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S112_scoped_complete_readiness_partial",
+  "status": "S114_preflight_active",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -786,7 +786,7 @@
     }
   },
   "last_sprint": "S100",
-  "next_action": "FreshfundedS114 representativeband scope: Marcusdrum/remaining13authoredcontexts, adoptreviewedmatchingbass/genreassets andmatchingMarcusaudio underdelegatedintegrationdecision, currentbase425only; noownerwait. ContinueUX03/coherence andfinalAPKby18:00.",
+  "next_action": "S114sourcecohort undercommittedpreflight:Marcus/18contexts/typedreviewapproval+matchingoptionalclips; rootaloneGame/GL.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2419,9 +2419,9 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-04T00:24:41.993684+00:00",
   "last_writer": "S100-owner-feedback-integration-20261103T2340",
-  "source_write_allowed": false,
-  "pending_implementation": false,
-  "pending_helpers": false,
+  "source_write_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
@@ -3060,7 +3060,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S98 V10 privateAPKdelivered owner+Ali; physicalphonepending",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S114_representative_band",
+    "expires_at": "2026-11-04T12:00:00Z"
+  },
   "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4961,7 +4964,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S114_representative_band",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
