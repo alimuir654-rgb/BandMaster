@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "id": "S118",
+  "status": "active",
+  "owner_request": "Continue the same authorised day opportunities through18:00; after delivered V11, useful bounded READONLY UX04/UX05/source-backed next-scope review without changing source or redoing engines/APK. Routine decisions delegated.",
+  "baseline_sha": "2a8b5a166ae657b80d93ad2b5bc410260121bc15",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-21",
+    "BM-22",
+    "BM-25",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1500576,
+    "sha256": "c0832b03937655cf1454029a5eadc6fc54f7efebdf5a1c8794ea43e33209c6de"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-rehearsal_outcome-390x844.png",
+    "original_sha256": "2f172d16e27ea95e54b50895e9a3fe2edfb1c1b408630714e9ff3385a2998d75",
+    "pixels_inspected": true,
+    "retained_source": "S116 exact2d standard actual native original; not a new engine execution"
+  },
+  "references_opened_before_preflight": [
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-rehearsal_outcome-390x844.png",
+      "sha256": "2f172d16e27ea95e54b50895e9a3fe2edfb1c1b408630714e9ff3385a2998d75"
+    },
+    {
+      "path": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-wide-v1/captures/c27-rehearsal_outcome-1280x720.png",
+      "sha256": "f0d05e4f37daf6aafdb97119f47a26449cb20868f570bde554a0d37eff7448e4"
+    }
+  ],
+  "hypothesis": "Source-backed review can distinguish already accessible full session responses from ambiguous excerpt/disclosure presentation, then define one minimal future discoverability contract; notebook inspection is a separate secondary opportunity, not presumed missing content.",
+  "controlled_comparison": "Retained source2d/current V11 native phone390 and shortwide1280 outcomes/details/six-member and lyric-note states; no new source/runtime/cache/PNG/model/audio/APK. Preserve actual saved words and generated-from-saved-state replies.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S118.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit this bounded review preflight and run improvement_gate before durable review artifacts. Inspect exact current source APIs and retained native originals, matching receipts/SHA/dimensions and clearly label old captures as reused evidence.",
+    "Read full current report presenter, owner callback/disclosure and notebook comparison semantics; inventory literal source paths and candidate current versus historical/mid-reveal captures. No presumed defect or duplicate controller.",
+    "Pin compact actual opened-file log and five explicitly SIMULATED lenses. Produce one concrete UX05 discoverability contract with actual paths, preserved semantics, alternate considered, HOLD conditions and future native/input/save matrix; distinguish implementation proposal from integrated change.",
+    "Read current Pages/comments/AgentInstructions and preserve all72choices23checked50images/order/IDs/archive/deletedA03absence; update only existing status/worklist with a material review result. No human-checkbox or browser-render claims.",
+    "Before closeout compare tracked product diff0 and manifestSHA, verify source2d/V11 relationship unchanged, no engines/GL ownership, budget complete primaryGit/receipts tail and release all metadata/review ownership. No rehash/re-audit/rebuild/upload of V11 or old producers."
+  ],
+  "queue_task": "UX05 report discoverability READONLY contract; bounded UX04 comparison triage",
+  "reviewer": "Root source/native-evidence review using retained independently reviewed S116 originals; no new independent-human or device claim.",
+  "player_goal": "Find and understand the complete saved bandmate response, then return to the report without changing the career; compare saved lyric note with the corresponding words honestly.",
+  "start_end_commitment": "Start retained current saved report/native images and source2d. End prioritized concrete future UX05 contract and precise UX04 disposition; no production action, new save or APK.",
+  "state_matrix": [
+    "Three and six members; mixed improved morale/rising tension; complete quotes versus32-character excerpts",
+    "Current saved report versus historical day/cash; Details expand/collapse, hidden/reveal/Skip and native focus/return",
+    "Phone390/shortwide1280 actual retained originals; tall/desktop references as needed; no new device proof",
+    "Notebook saved/current/local edits/earlier note/previous take/A/B/dirty exit semantics; no invented note material",
+    "Source436 manifest exact, Game435Git delta0, V11 delivered relation unchanged, closed caches untouched"
+  ],
+  "root_lease": {
+    "writer": "root_S118_readonly_report_review",
+    "expires_at": "2026-11-04T14:00:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": true,
+  "stop_condition": "Close a useful source-backed review by14:00 without Game/art/audio/cache/engine/APK changes. Do not implement candidate repair or claim native validation; fresh prospective production scope would be required. Hardstop18:00, no queue extension.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 677265408,
+    "persistent_total_with_primaryGit_cap_bytes": 2097152,
+    "review_artifacts_estimate_bytes": 196608,
+    "metadata_primaryGit_estimate_bytes": 1376256,
+    "failed_diagnostics_and_closeout_reserve_bytes": 524288,
+    "new_runtime_bytes": 0,
+    "new_cache_bytes": 0,
+    "new_PNG_bytes": 0,
+    "new_TMP_cap_bytes": 0,
+    "DAY_initial_free_bytes": 695787520,
+    "DAY_cap_bytes": 25165824,
+    "floor_bytes": 629145600,
+    "retained_final_handoff_reserve_bytes": 1048576
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s118-report-notebook-review-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+    "only_declared436rows_if_ever_new_source_scope": true,
+    "source_and_all_previous_producer_caches_permanently_closed": true
+  },
+  "pages_read": {
+    "Plan": 56,
+    "Board": 168,
+    "both_comments_empty": true,
+    "human_checkbox_writes": 0
+  }
+}
