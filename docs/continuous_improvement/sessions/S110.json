@@ -26,7 +26,7 @@
     "inspection_scope": "ActualS106phoneoriginal inspection retained; hashunchanged. S107newopens0, no freshvisualverdict."
   },
   "id": "S110",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Explain narrowstorageblocker andplan nextsteps through18:00London4Nov. Planningonly now; no newqueue/APK/paidtools.",
   "dominant_issue": "BM-45",
   "hypothesis": "Prioritised playablemilestones and independenttracks prevent an audio/storageapproval from blocking unrelatedwork.",
@@ -56,5 +56,20 @@
     "floor": 629145600,
     "native_assets": 0,
     "scope": "Planningrecords/Git only"
+  },
+  "closeout": {
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "evidence": "ExistingPlan daytable andS80singleworklist dayplan",
+    "visual_verdict": "hold",
+    "next_action": "Execute nextfunded Zoe scope when work resumes; thisturn planningonly, stop18:00London.",
+    "new_issue_review": "898prefix unchanged; no newproductfailure.",
+    "five_SIMULATED_lenses": [
+      "player:playablepriority",
+      "musician:distinctparts",
+      "owner:approvalindependence",
+      "access:nativefourviews",
+      "safety:funding/atomicity"
+    ],
+    "actual_opens": 0
   }
 }
