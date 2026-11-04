@@ -30,8 +30,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1534246,
-    "sha256": "02e5281e4bba20dc1f103600a7b54349fa2b5a76be770c84bdc5000ce3d54ebb"
+    "bytes": 1536293,
+    "sha256": "62a3a505204db0db530fea3f0ff33f72e9d6f8fd2ba7c28a60682f93fc329dfe"
   },
   "target": {
     "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/final-standard-phone-v1/captures/c27-lyric_seed_saved-390x844.png",
@@ -77,7 +77,7 @@
   ],
   "root_lease": {
     "writer": "root_S122_songwriting_navigation",
-    "expires_at": "2026-11-04T20:40:00Z"
+    "expires_at": "2026-11-04T20:50:00Z"
   },
   "source_write_allowed": true,
   "art_write_allowed": false,
@@ -89,7 +89,7 @@
   "pending_helpers": true,
   "native_evidence_pending": true,
   "review_pending": true,
-  "stop_condition": "Close this expanded first navigation/name/genre slice by20:40. Fresh direct Go ahead authorizes a NEW manual build task after the old day ended; old finite queue/deadlines remain historical and are not restarted or extended. Subsequent producer scope needs its own complete funded contract and bounded lease; do not infer a new owner-set finish time.",
+  "stop_condition": "Close this expanded first navigation/name/genre slice by20:50. Fresh direct Go ahead authorizes a NEW manual build task after the old day ended; old finite queue/deadlines remain historical and are not restarted or extended. Subsequent producer scope needs its own complete funded contract and bounded lease; do not infer a new owner-set finish time.",
   "storage_plan": {
     "workspace_initial_free_bytes": 671449088,
     "scope_persistent_cap": 6291456,
@@ -104,7 +104,8 @@
       "primary_Git_metadata_failedproof": 4194304,
       "closeout": 1048576
     },
-    "old_day_cap_closed_not_reused": true
+    "old_day_cap_closed_not_reused": true,
+    "fresh_standard_correction_reserved_bytes": 136314880
   },
   "external_artifact_roots": [
     "/workspace/work/s122-songwriting-navigation-20261104",
@@ -133,5 +134,11 @@
     ],
     "baseline_leaf_copies": "frozen exact2d source under explicitly named QA paths, not changed product base",
     "no_original_test_assertion_weakening": true
+  },
+  "standard_context_correction": {
+    "new_XDG": "/tmp/bandmaster-s122-songwriting-navigation-20261104/standard-v4-fresh-xdg",
+    "prior_context_runs_retained_not_freshproof": true,
+    "funding": "Remaining source scope1.25GiB TMP/6MiB persistent; freshstandard sweep~112MiB plus existingactual scope check before allocation",
+    "TMPactual": 1047130112
   }
 }
