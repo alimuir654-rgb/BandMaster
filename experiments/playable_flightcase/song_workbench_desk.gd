@@ -512,7 +512,7 @@ func _finish_note() -> void:
 func _reveal_only() -> bool:
  if _note.is_revealing():
   _note.finish_now()
-  return true
+  return not _producer_mode()
  return false
 
 func show_commit_error(message: String) -> void:
@@ -568,7 +568,7 @@ func _request_write() -> void:
  _stop_demo()
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  if has_local_edits() or not _view.get("can_write",false):
-  _show_notice("Try these exact words, title and leader before using a writing day.")
+  _show_notice("Try this direction, title and leader before using a writing day." if _producer_mode() else "Try these exact words, title and leader before using a writing day.")
   return
  write_requested.emit(_expected.duplicate(true))
 
