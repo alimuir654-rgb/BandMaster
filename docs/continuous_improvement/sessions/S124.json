@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "id": "S124",
+  "status": "active",
+  "owner_approved": false,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-26",
+    "BM-32",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-44",
+  "owner_request": "Fresh direct Go ahead19:37Nov4 after owner playtest recommendations, delegated routine decisions and earlier requested testing APK. Package verified S122/S123 manual revisions; old day queue remains ended, no new owner-set endtime or automatic extension.",
+  "baseline_sha": "94b19767b89bc1b4cb9af2597063aecc6c4010a6",
+  "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "issue_log_review": {
+    "bytes": 1568420,
+    "sha256": "d6a3117895ecd01a0f4fcaa1b6ce285903250b8b1f2d538cef6fded26e95d9d5"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s123-audible-producer-20261104/runs/full-phone-v2/proof/07-producer-original-three-days-finished-390x844.png",
+    "original_sha256": "5287c35198753d90a1bf534f0d1ea8358b1deecdf13c5a42a4304c0ac14001de",
+    "pixels_inspected": true,
+    "scope": "Actually viewed final current producer result; source/native proof reused exactly, not a new runtime screenshot claim."
+  },
+  "hypothesis": "One freshly imported ARM64 V12 package of exact455curated source rows exposes verified producer/navigation/audio revisions while retaining exact appID/certificate/custom save directory and zero permissions.",
+  "controlled_comparison": "Source36 finalS123 with same platformproject/binary asV11; versioncode12/name0.123.0-playtest; only declared platform/export/icon overrides, no shipping source correction.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S124.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit artifact preflight and gate beforecopy/import/export; rootonlyGLflock/headless exactGodot4.7.2 withadditionalnetworkpermission. NoXorg orsourceUI/model/journey reruns.",
+    "Copy ONLY455declaredrows from closedS123source as regularprivatefiles, sha each; no caches/generatedUID/import/QA. FreshEMPTYprivateAPKcache. Existingplatformproject andGiticon overrides exactlydeclared.",
+    "Nine strict raw0/ERRORempty buildsteps, separate5read-onlySDKchecks, CRC/16KiB alignment/ARM64-only/source/remap/assets/launcher/privacy/signature/update audit. Retain output andallrawlogs.",
+    "Every31curatedOGGimportedserializedresource matchesfreshprivateimport; all7audioJSON directbytes; GDSCsourceclosure/11knownomissions/noextras/sourcehistory/rawbank/keys/saves. SameappID/cert/savefolder/platformbinary asV11, code12>11, zero permissions/MAINLAUNCHER/noHOME.",
+    "Private compiledAPK onlyexisting Driveownerchair@lovewelluk.com+reader alimuir654@gmail.com, individualfilegrant/readback; no domain/public/folder/newrecipient. No remote checksum claim unless exposed. Physical install/save retention/audio/IME remain untested.",
+    "Reuse exact455source/S123wholejourney/model/nativeproof; no engines onclosedS123producer. Final source/cache pinning and canonical/Page truthfulhandoff; release allwriters/artifactsGL by selfbounded23:15."
+  ],
+  "queue_task": "Freshmanual verifiedproducer/navigation V12 testing update; old sole queue ended",
+  "reviewer": "Separate root readonly APK audit using retained audited pure functions; independent S123 pre/early/final reviewer already released with current18finalphase opens and source455closure. Not human/device review.",
+  "player_goal": "Install update preserving existing playtest data; test ordinary songwriting swipes and make/hear an original without typing lyrics.",
+  "start_end_commitment": "Exactverifiedsource455rows to one signed audited private V12 link. Updateexistingapp, neveruninstall/cleardata.",
+  "state_matrix": [
+    "freshsource455/EMPTYprivateimport/noQAextras",
+    "sameapp/cert/savefolder/code12/zero permissions/ARM64/16KiB",
+    "all31OGG/sevenJSON/currentproducer/material approval gates",
+    "source/assets/remap/signature/privacy/launcher",
+    "private owner+namedreader only; physical device pending"
+  ],
+  "root_lease": {
+    "writer": "root_S124_producer_APK",
+    "expires_at": "2026-11-04T23:15:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": true,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "stop_condition": "ONEfinalV12artifact; strictsource/signature/privacy/rawERROR holds beforedelivery. No shipping edits/extra scope withoutnewpreflight. Selfbounded23:15, old finite automation neverrestarted.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 654123008,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 4194304,
+    "workspace_floor_bytes": 629145600,
+    "TMP_initial_free_bytes": 2572496896,
+    "TMP_aggregate_cap_bytes": 805306368,
+    "TMP_floor_bytes": 629145600,
+    "TMP_categories": {
+      "source": 110000000,
+      "cache": 100000000,
+      "APKoutputs": 330000000,
+      "logs_work": 10000000,
+      "failedproof": 200000000,
+      "closeout": 55306368
+    },
+    "manual_build_initial_free": 671449088,
+    "manual_aggregate_cap_bytes": 27262976,
+    "allcriticalGit_primary": true,
+    "no_arbitrary_cleanup_or_oldmutablecache_sharing": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s124-producer-apk-v12-20261104",
+    "/tmp/bandmaster-s124-producer-apk-v12-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s123-audible-producer-20261104/source-final.json",
+    "SHA": "b3c9688b6382375067c1c74749d711b171e50bffbb70d0480691924fe0a37df9",
+    "game_source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "rows": 455,
+    "bytes": 102102346,
+    "ordered_digest": "ed0cc1488bcfcfbc91a621e3b4c904434a8cf05f81d8950af32456292d01e248",
+    "runtime_permanently_closed_readonly_copy_only": "/tmp/bandmaster-s123-audible-producer-20261104/candidate-v6/runtime"
+  },
+  "packaging_inputs": {
+    "parent_build_recipe": "/workspace/work/s98-owner-apk-v10-20261103/build_v10.py",
+    "parent_audit_recipe": "/workspace/work/s98-owner-apk-v10-20261103/audit_v10.py",
+    "pure_audit_helpers": "/workspace/work/overnight-20261101/s55/audit_android_update.py",
+    "pure_helpers_SHA": "30d0136ccd15e2d62f5ea13b4a7a013fddf5a302c7196269896bc0d18a6e4c3e",
+    "platform_project": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/project/project.godot",
+    "preset": "/workspace/work/overnight-20261101/s55/android/build-db61d1d-v6/project/export_presets.cfg",
+    "template": "/workspace/tools/android-owner-test/godot-templates/4.7.2.stable/android_debug.apk",
+    "existing_key": "/workspace/work/s40/android/build-d0704c0/signing/owner-playtest.keystore",
+    "key_not_copied_or_printed": true
+  },
+  "prior_phone": {
+    "code": 11,
+    "file_id": "1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL",
+    "url": "https://drive.google.com/file/d/1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL/view?usp=drivesdk",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+    "owner": "chair@lovewelluk.com",
+    "reader": "alimuir654@gmail.com",
+    "metadata_readback_current": true
+  },
+  "new_APK": {
+    "version_code": 12,
+    "version_name": "0.123.0-playtest",
+    "ABI": "arm64-v8a",
+    "physical_device_tested": false
+  },
+  "audio_registry_inventory": [
+    "experiments/playable_flightcase/audio/arjun_clips.json",
+    "experiments/playable_flightcase/audio/audition_clips.json",
+    "experiments/playable_flightcase/audio/genre_examples.json",
+    "experiments/playable_flightcase/audio/marcus_clips.json",
+    "experiments/playable_flightcase/audio/producer_examples.json",
+    "experiments/playable_flightcase/audio/splash_cue.json",
+    "experiments/playable_flightcase/audio/zoe_clips.json"
+  ]
+}
