@@ -35,8 +35,8 @@
   "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1404378,
-    "sha256": "6b3e6b28b8eded7a8cfacaaa9dccb4a9dab11c469a04ac3fb75e904857a6cef1"
+    "bytes": 1405805,
+    "sha256": "1fe26391d02e841a96815204684749653a1ca8e68e5f17cbd36f92726f79672e"
   },
   "hypothesis": "A reviewed role-specific Zoe bass exercise and exact profile/UI/save/QA integration contract make nextimplementation executable without guessing or erasing Jack/Arjun hearings.",
   "controlled_comparison": "Read-only existing424curatedsource; noGame/art/audio/native/cache/save changes. Preserve S100closeout uncommittedmetadatahold. Exactoldpromptarchived before updating SAMEsolequeue only.",
@@ -71,7 +71,7 @@
     "adopted_at": "2026-11-04T00:28:59.132094+00:00",
     "scope": "Read-only nextaudition/content contracts and existingsolequeue continuation through07:30London; no shippingassets/engines/import/cache",
     "workspace_initial_free": 629641216,
-    "workspace_new_cap": 327680,
+    "workspace_new_cap": 368640,
     "TMP_new_cap": 2097152,
     "workspace_floor": 629145600,
     "TMP_floor": 629145600,
@@ -81,7 +81,17 @@
     "prospective_rebalance_at": "2026-11-04T00:34:59.998229+00:00",
     "rebalance_reason": "Actualconservativeglobaldelta192512B near196608Bcap after100kpreviouspromptarchive/smallprimaryGit; reviewedcomplete remainingcontract/reviewer/Pages/closeout tail now135168B withinfixedfloor. No overrun/cleanup/source/nativeauthority.",
     "observed_free_before_rebalance": 629448704,
-    "prior_cap": 196608
+    "prior_cap": 196608,
+    "observed_prior_cap_overrun": {
+      "recorded_at": "2026-11-04T00:43:54.540673+00:00",
+      "prior_cap": 327680,
+      "actual_conservative_global_delta": 344064,
+      "overrun_bytes": 16384,
+      "fixed_floor_breached": false,
+      "cause": "FinalsmallprimaryGitcommit consumed28672B; root hadreservedonly12288B fromprecommitcheck. Scope-estimate failure, not source/runtime/storagefloor failure."
+    },
+    "final_tail_policy": "Prospective24576B remaining ONLYboundedissue/finalreceipts/workingmetadata. NOmoreS101Gitcommits, source/assets/native/cache. Finalmetadataholds persist untilapprovedfunding; do not backdate prioroverrun.",
+    "prospective_final_tail_at": "2026-11-04T00:43:54.540684+00:00"
   },
   "next_action": "Specificpending400filecacheconsolidationapproval/funding first; ifapprovedcompletepreservationamendment/atomiccutover/proof/finalS100metadata thenfreshboundedZoeimplementation. Ifabsentcontinueusefulboundedread-onlypreparationwithoutunderfundedsource/native. Finishby07:30London.",
   "preflight_sha": "329ded7d3581d530841c4f02a97f5f1c65805ba8",
@@ -128,7 +138,7 @@
     "cache_cutover_executed": false,
     "new_implementation_funding": "BLOCKEDpending400filecacheproposalapproval and completepersistenttailbudget; generalcontinue7:30 is notspecificcleanupapproval.",
     "new_issue_review": {
-      "prefix_event_through": "S101-20261104-891",
+      "prefix_event_through": "S101-20261104-892",
       "retained": [
         "885wrongparentgateheldbeforework",
         "886prospective320KiBtailbeforecapbreach",
@@ -136,7 +146,8 @@
         "888opaqueIDlocalguardbeforePagewrite",
         "889twoP2proposalclarificationsresolved",
         "890receiptguardchangedmethodfullTMP+durablesummary",
-        "891newarchive soletool-addedLF removed afterexactoriginaltooltextcomparison; everyoriginalcharacter preserved"
+        "891newarchive soletool-addedLF removed afterexactoriginaltooltextcomparison; everyoriginalcharacter preserved",
+        "892conservativeglobaldelta344064 overprior327680by16384B afteractual28672BGittail; nofixedfloorbreach. Changedmethod nofurtherGitcommits; boundedprospective24576Breceipt-onlytail, finalmetadatahold."
       ],
       "routine_tool_notes": [
         "OnePagefreshness_unavailable retry read succeeded; no write tofailedread.",
@@ -158,6 +169,9 @@
       "S100finalprojectmetadata remain durableuncommittedhold; source0calreadycommitted."
     ],
     "next_action": "Specificpending400filecacheconsolidationapproval/funding first; ifapprovedcompletepreservationamendment/atomiccutover/proof/finalS100metadata thenfreshboundedZoeimplementation. Ifabsentcontinueusefulboundedread-onlypreparationwithoutunderfundedsource/native. Finishby07:30London.",
-    "helpers_source_artifact_GL_released": true
-  }
+    "helpers_source_artifact_GL_released": true,
+    "metadata_commit_status": "Source/session04f169dcommitted; post892closeout/budget/sessioncorrection durableUNCOMMITTED HOLD untilspecificfundingapproval.",
+    "storage_actual_prior_overrun_bytes": 16384
+  },
+  "metadata_commit_hold": true
 }

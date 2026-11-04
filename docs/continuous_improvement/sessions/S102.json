@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "63fbdec5a9d105db46790476363c84861f20239e004c48591c97ea724c55776f",
+    "pixels_inspected": true
+  },
+  "id": "S102",
+  "status": "closed",
+  "owner_approved": false,
+  "owner_request": "Sameexistingovernightqueue until07:30London. Storageapprovalstillpending; completeuseful bounded read-only Marcus/Ellis writtencontent comparison. NoAPK.",
+  "baseline_sha": "04f169d0a9e6969b1e4cdb86d1f291f949cff66c",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "issue_log_review": {
+    "bytes": 1407428,
+    "sha256": "c371edce08182c4889097c308bf9e5aed2a3efba9a7f8cf4dabb70778923f384"
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Explicitcontrasting drumpatterns and source-backed responses make the nextcastcomparison implementable without invented skillgrades or dependenceonmissingperformerart.",
+  "controlled_comparison": "Same100BPM4bar vocalgapgrid, sameavailablekick/snare/closedhat source, actualcanonicalMarcus/Ellis histories and unchangedoriginalprices; differauthoredpattern/adaptation. Proposaldocumentonly, norecording/performanceclaim.",
+  "stop_condition": "No shipping/audio/native/cache or Gitwrites beforefunding/committedproductionscope. Stopmetadata at64KiB/floor600MiB, retain failures; handoffby07:30.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S102.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s102-drum-contract-20261104/",
+    "/tmp/bandmaster-s102-drum-contract-20261104/"
+  ],
+  "validation_commands": [
+    "Recordgate on uncommittedREADONLYrecord; no committedpreflight/productionauthority claimed.",
+    "Explicitattack/patterndistinctness arithmetic and actualcanonical/source/rights bindings; independent2KiBreview withoutengine/source mutation.",
+    "Boundedphysicalfree/durabletail check, unchangedshippingdiff, zero newnative/audio/assets; Dictionarycloseout/sourcewriterreleased."
+  ],
+  "root_lease": null,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "artifact_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "scope_end": "2026-11-04T01:50:00Z",
+  "queue_task": "Readonlyfollow-on writtenMarcus/Elliscomparison, priority1castauditions",
+  "reviewer": "Existing foundation_tests independentboundedcontentreview; rootmetadataonly",
+  "storage_plan": {
+    "adopted_at": "2026-11-04T01:16:38.832393+00:00",
+    "workspace_initial_free": 629288960,
+    "workspace_new_cap": 65536,
+    "TMP_new_cap": 65536,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "Git_commits_allowed": 0,
+    "scope": "New read-only drum proposal/review/inputbindings/closeout only, no source/audio/native/cache/production; preserveallpriorGit/uncommittedmetadata.",
+    "complete_tail": "At most6small durablefiles pluscanonicalsession/currentlinks/oneappendledgerline; 2KiBreview. Reserve16KiBfailure-closeout inside64KiB. No hugepromptcopies or fullreceipt duplication."
+  },
+  "preflight_commit_status": "UNCOMMITTED_READONLY_RECORD_ONLY; productionrequiresfreshfundedCOMMITTEDpreflight",
+  "next_action": "Specificpending400fileclosed-cacheconsolidationapproval/funding first; thenfreshfundedZoeimplementation and revieweddrummerfollow-on. Untilapproval, no newsource/native/Git/APK; stopandhandoffby07:30London.",
+  "closed_at": "2026-11-04T01:23:23.339198+00:00",
+  "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "closeout": {
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "evidence": "/workspace/work/s102-drum-contract-20261104/closeout.json",
+    "visual_verdict": "hold",
+    "next_action": "Specificpending400fileclosed-cacheconsolidationapproval/funding first; thenfreshfundedZoeimplementation and revieweddrummerfollow-on. Untilapproval, no newsource/native/Git/APK; stopandhandoffby07:30London.",
+    "new_issue_review": "893threeP2sresolved; noproductsource/native"
+  },
+  "metadata_commit_hold": true
+}

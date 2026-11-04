@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
+    "original_sha256": "63fbdec5a9d105db46790476363c84861f20239e004c48591c97ea724c55776f",
+    "pixels_inspected": true
+  },
+  "id": "S103",
+  "status": "closed",
+  "owner_approved": false,
+  "owner_request": "Sameowner-authorised overnightthrough07:30London; sourceblockedpendingexactcacheapproval. Prepare remaining13canonicalpersonalbackgroundsasnewfiction, noAPK.",
+  "baseline_sha": "04f169d0a9e6969b1e4cdb86d1f291f949cff66c",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "issue_log_review": {
+    "bytes": 1407428,
+    "sha256": "c371edce08182c4889097c308bf9e5aed2a3efba9a7f8cf4dabb70778923f384"
+  },
+  "dominant_issue": "BM-38",
+  "hypothesis": "Fullcanonicalcast work/outside-bandcontext will support fitjudgment without overwritingoriginalbios or pretendingnewfiction isrecordedhistory.",
+  "controlled_comparison": "Exactly13newcanonicalIDs besideprotectedexisting5staticbackgroundvalues. Draftqualitativejobs/commitments only; allwages/wealth/support/schedules/attendance and originalmusicalstats/saveeffects remainunasserted. No appearance/gender-basedinference.",
+  "stop_condition": "No sourceimplementation/productionorGit beforefunding. Hold contradictorybio/wealth/job-derivedskillgrade oractualappointmentclaim; preserve48KiBcompletebudget/floor. Stop07:30.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S103.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "scratch_allowed_paths": [
+    "/workspace/work/s103-character-context-20261104/",
+    "/tmp/bandmaster-s103-character-context-20261104/"
+  ],
+  "validation_commands": [
+    "RecordgateonuncommittedREADONLYrecord; no committedproductionauthority.",
+    "Exact18canonicalID coverage/13new+5protected values, 3publicprosefields only; originalsourcehashes/publicbios unchanged.",
+    "Independentbounded2KiBsource/narrativereview; zeroengines/newassets/IME/deviceclaims.",
+    "CompactDictionarycloseout/canonicalrelease/floors, noGitcommits/sourcewrites/oldcapreuse."
+  ],
+  "root_lease": null,
+  "scope_end": "2026-11-04T02:50:00Z",
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "artifact_write_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "queue_task": "Overnightpriority2 personalcontextremainingcanonicalcast, readonlyauthoredproposal",
+  "reviewer": "Existingfoundation_tests independentboundedsource/narrativereview, noengines",
+  "storage_plan": {
+    "adopted_at": "2026-11-04T02:17:45.684552+00:00",
+    "workspace_initial_free": 629239808,
+    "workspace_new_cap": 49152,
+    "TMP_new_cap": 32768,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "Git_commits_allowed": 0,
+    "scope": "Read-only remaining13fictionalbackgrounddraft, sourcebindings, <=2KiBindependentreview and compactcloseout. No source/native/audio/cache/prod.",
+    "full_tail": "5Dfiles<=4/4/8/4/4KiBphysical plus8KiBcanonicalsession, oneissue8KiBreserve andcompactcurrent/ledger/reviewtail. No fullprompt/copy/largeJSON orGit commits."
+  },
+  "preflight_commit_status": "UNCOMMITTED_READONLY_RECORD_ONLY; sourceimplementationneedsfreshfundedCOMMITTEDpreflight",
+  "next_action": "Specific400fileclosed-cacheapproval/funding beforeanynewsource/native/Git/APK. ReviewedZoe/drummer/full18personalcontext proposals ready forfreshfundedscopes; preserveallcurrentproofs andstop07:30London.",
+  "closed_at": "2026-11-04T02:23:06.480738+00:00",
+  "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "metadata_commit_hold": true,
+  "closeout": {
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "evidence": "/workspace/work/s103-character-context-20261104/closeout.json",
+    "visual_verdict": "hold",
+    "next_action": "Specific400fileclosed-cacheapproval/funding beforeanynewsource/native/Git/APK. ReviewedZoe/drummer/full18personalcontext proposals ready forfreshfundedscopes; preserveallcurrentproofs andstop07:30London.",
+    "new_issue_review": "No newfailures; reviewedprefix893"
+  }
+}

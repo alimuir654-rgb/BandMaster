@@ -23,15 +23,15 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "id": "S100",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Complete latest playtest feedback: integrate exact three newly owner-approved clips, Arjun second saved audition, authored practical personal context. No updated APK; overnight plan after verified current task.",
   "baseline_sha": "fc1e1ea643d2541217e2eb4c8469ce414cea54b6",
   "game_baseline_sha": "f2361e352be0a6c2fa2680cb20b6edff3879c890",
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1389359,
-    "sha256": "ffa396b03d80d2149a0fca269bcc77c927d6647acd815b89fdfe18b448b70618"
+    "bytes": 1395306,
+    "sha256": "3883c08a74ba26cf1e587c58131788bc9e161963a3d96c3d0c7beb6fef99c3a7"
   },
   "target": {
     "locator": "/tmp/bandmaster-s99-feedback-20261103/runs/full-audition-phone-v1/captures/adjusted-playing-own_part-390x844.png",
@@ -81,17 +81,13 @@
     "Exact curated/protected source/posthash/cache/PNG/storage/ERROR audits; independent final actual originals/fiveSIMULATED lenses. No updatedAPK.",
     "Only after verified completion draw overnight plan in existing S80/Plan Page, same solequeue/schedule/finiteNov4end."
   ],
-  "root_lease": {
-    "id": "S100-owner-feedback-integration-20261103T2340",
-    "writer": "/root",
-    "expires_at": "2026-11-04T02:00:00Z"
-  },
+  "root_lease": null,
   "started_at": "2026-11-03T23:20:43.250029+00:00",
   "scope_end": "2026-11-04T02:00:00Z",
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
   "queue_task": "Owner V10 feedback first playable comparison/approved opening identity",
   "reviewer": "foundation_tests independent predesign/early/final and scratch QA; game_design_research source/rights review; root sole source+engine",
   "storage_plan": {
@@ -113,7 +109,7 @@
     "workspace_final_tail": "Prospective4MiB ceiling includes primaryGit/receipts, initial633458688 minus4194304=629264384 above600MiBfloor629145600. Actualfree629919744 afterrestart, nocleanup. Final receipts stay768KiB; preserveallproofs. Verifyactualfree beforeeverycommit."
   },
   "audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
-  "next_action": "Implement exact declared16shippingpaths after committed preflight/gate; helper frozen model/native QA in separate scratch only.",
+  "next_action": "Resolve the exact pending400file closed-cache consolidation approval/persistent final-metadata funding, then fresh bounded Zoe bass audition from S100424rowmanifest under the existing overnight plan; no updatedAPK.",
   "predesign_review": {
     "reviewer": "foundation_tests",
     "disposition": "CLEAR with explicit adopted candidate-query/history/splash-lifetime refinements",
@@ -124,5 +120,179 @@
     "replay_followup": "Root adopted as direct usability/compare requirement; reviewer notified before UI implementation."
   },
   "completed_comparison_replay": "Explicit original-only replay on validated completed candidate notes, exact selected ID/heard receipt/version/context; no save/autoplay. Same existing UI path/player.",
-  "preflight_sha": "a4bcffbaaa5fe809e3bba8a3786097ab0ebd2141"
+  "preflight_sha": "a4bcffbaaa5fe809e3bba8a3786097ab0ebd2141",
+  "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "closeout": {
+    "session": "S100",
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "technical_pass": true,
+    "visual_verdict": "partial",
+    "scoped_verdict": "internal_pass",
+    "owner_approved": false,
+    "verified_at": "2026-11-04T00:23:54.504324+00:00",
+    "closed_at": "2026-11-04T00:23:54.504324+00:00",
+    "metadata_commit_status": "HOLD_PENDING_PERSISTENT_STORAGE_FUNDING",
+    "source_committed": true,
+    "source_implementation_pending": false,
+    "source_artifact_helpers_GL_released": true,
+    "evidence": {
+      "source": "/workspace/work/s100-feedback-integration-20261103/source-final.json",
+      "protection": "/workspace/work/s100-feedback-integration-20261103/source-storage-protection-final.json",
+      "logs": "/workspace/work/s100-feedback-integration-20261103/accepted-log-audit.json",
+      "RGBA": "/workspace/work/s100-feedback-integration-20261103/standard-RGBA-comparison.json",
+      "root_actual_opens": "/workspace/work/s100-feedback-integration-20261103/root-actual-opens.json",
+      "independent_final": "/workspace/work/s100-feedback-integration-20261103/review/independent-review.json",
+      "final_binding": "/workspace/work/s100-feedback-integration-20261103/final-receipt-binding.json",
+      "assets": "/workspace/work/s100-feedback-integration-20261103/asset-integration.json",
+      "display_stop": "/workspace/work/s100-feedback-integration-20261103/display-stop.json",
+      "Pages": "/workspace/work/s100-feedback-integration-20261103/page-status-audit.json",
+      "pending_cache_proposal": "/workspace/work/s100-feedback-integration-20261103/closed-cache-consolidation-proposal.json"
+    },
+    "implemented": [
+      "Clearer fourstage/currentpart/nextaction audition guidance and remembered separate audio preferences retained from S99.",
+      "Canonical Arjun second saved audition with distinct40note original and two written responses; retained per-candidate Jack/Arjun completedhearings and explicit originalreplay.",
+      "Newly authored work/outsidecommitment/availability prose for Jack/Arjun/Zoe/Marcus/Ellis alongside unchangedcanonical biographies. Unprofiled context notdiscussed; no wages/schedules/attendance/economy effects.",
+      "Three exact directowneraccepted OGGs integrated without reencode: Indie fullband, onceperprocess5sec splash, Arjun original. AdjustedArjun NOAUDIO/fullwrittenfallback, Jack3approvedclips unchanged.",
+      "Native bar contentheight correction preservesfullnotation/16pxfloor/48pxactions; ageintegercaption."
+    ],
+    "actual_Godot_executions_all_sources": 31,
+    "strict_accepted_all_sources": 28,
+    "final_source_executions": 22,
+    "strict_accepted_final_source": 20,
+    "held_executions_retained": 3,
+    "held_detail": "1125geometry signature ParseError raw1; final0c firstfull656 andverbose656 raw0 but shutdownERROR2resources, notacceptedPASS. Fullcapture778 adds observableboundedresource-releaseguard; no productsourcechange or definitive audio-thread cause inferred.",
+    "final_regression": "73gameplay/88opening/freshEMPTYprivateimport ON FINAL UNCHANGED0c/4standards/defaultNOscript5framesnosaves raw0/ERRORempty. No unchangedgigs/old9128modelrerun.",
+    "focused": {
+      "complete_native_auditions": 8,
+      "checks": 5221,
+      "actual_FS_failure_retry_cases": 16,
+      "original_talent_invites": 8,
+      "startup_OFF_checks": 32,
+      "startup_future_OFF_checks": 33,
+      "earlier_partial_initial_checks": 440,
+      "repaired_early_checks": 744,
+      "fixtures": "Originalpublic begin_new/set_genre/to_recruit then realnativeaudition/actions/invite; not8wholeinitialmenus. Separateexplicitstartup/genre fixtures labelled; original legitimate writes counted, audio owner-files/saveattempt0.",
+      "input": "Real native pointer/Tab/Space and both-flags emulatedScreenTouch with positiveevent/pressed/stream controls; bodywheel/Bar4inspection/48px/bothdirectionresize/MenuContinue/hide/free/focusfixture/context/mute/typedreload/retry/duplicate guards.",
+      "natural_splash_completion": "5sec once PHONEArjun only; other7 startup lifecycle cases. No new12sec naturalcompletion or audibledeviceclaim."
+    },
+    "model": {
+      "actual_checks": 532,
+      "executed_sha": "82c585db628ab6bf144cb923e0c0b68ae7b41a20",
+      "reused_via_exact_inputs": 43,
+      "current_ref_executed": false,
+      "actualmodel_orphan_growth": 0
+    },
+    "pixels": {
+      "current_accepted_physical": 262,
+      "current_held_physical": 6,
+      "earlier1125physical": 9,
+      "all_physical": 277,
+      "standard_physical": 232,
+      "canonical_families": 216,
+      "RGBA": {
+        "exactS99": 176,
+        "scoped_audition_context_barheight": 16,
+        "scoped_candidate_context": 16,
+        "scoped_Indie_caption": 4,
+        "known_Reopen_fade": 4,
+        "unexpected": 0
+      },
+      "root_actual_originals": 22,
+      "root_buckets": "6held1125+6repaired0cearly+8acceptedfinalfocused+1currentstandard+1retainedS99baseline",
+      "independent_final_actual_originals": 24,
+      "independent_early_actuals": "6held1125+6repaired0c, separatefromfinal24",
+      "reviewer_also_QA_author": true
+    },
+    "source": {
+      "curated": 424,
+      "Git": 423,
+      "isolated_entry_bytes": 146,
+      "bytes": 96967768,
+      "ordered_digest": "19b4ac96ba5d4ce5508869815d15ab977635ba23c93130f652e6cc5c936ec434",
+      "manifest_sha256": "21179deeed21ee3d996ca40e573890225977ed1dd3b54a6e3f8a2b00249e9f03",
+      "prior_protected": 408,
+      "originalScripts_including3UID": 54,
+      "runtime_extras_excluded": 364,
+      "copy_ONLY_manifest_rows": true,
+      "corrective_source_commits_after_initial": 2,
+      "current_newaudio_bytes": 349509
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "new_player": "Phase/currentpart/nextstep and pause/end distinction clear.",
+      "musician": "Arjun/Jack sourcewritten differences and originalreplay meaningful; no skillgrade/humanperformance claim.",
+      "returning_player": "OldJack/currentbothcandidatehistory retained, no migrationonread and originalcost/checkpoints once.",
+      "accessibility": "Readable text/48pxcontrols/actualBar4/body scroll and rememberedOff; no physicalIME/deviceproof.",
+      "art_direction": "Existingroom/contact/paper/flightcase language retained; sparsity/staticpeople remain."
+    },
+    "material_gaps": [
+      "Only Jack and Arjun have substantive saved auditions; bass/drum comparisons next overnight.",
+      "Only Indie has fullband genreexample; remaining13genrechoices noexample.",
+      "Arjun adjusted responses writtenonly; additionalrecordings need exact ownerlisteningapproval.",
+      "New5personalbackgrounds are authorednarrative, not recovered historicalfacts or actualavailabilitypromises.",
+      "Staticcontactpeople/sparsewide-tall; phone lowernotation andshortwidefailurevoice neednormalbody scroll. Essentialpublictalent/error/actions readable.",
+      "Dummy provesrouting/state/timing; physicalphone/speaker/headphone/OSinterrupt/IME/install/saveretention unverified.",
+      "External design documentation compared; detailedexternalpixels/playingreferencegames notclaimed.",
+      "PrivateV10unchanged/S97source; noAPKbuild/export/sign/audit/rehash/upload this task."
+    ],
+    "audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
+    "new_uploads_or_grants": false,
+    "source_history_public_sharing": false,
+    "new_issue_review": {
+      "prefix_event_through": "S100-20261104-884",
+      "failed_attempts_retained": true,
+      "reviewer_header_concern": "Withdrawn after all8pairs actualtopright200x50RGBAexact; no productdefect/sourcefix inferred.",
+      "883": "FinalreviewprettyJSON13805 exceeded12288 beforewrite; compactsamefields12134 passed, structured equality retained.",
+      "884": "Terminalcanonicalaliasreadbackcaught inheritedpending/artifact/oldnextaction flags; correctedbeforefinalhandoff, historypreserved."
+    },
+    "storage": {
+      "TMP_cap": 805306368,
+      "workspace_floor": 629145600,
+      "workspace_new_cap": 4194304,
+      "durable_receipts_cap": 786432,
+      "current_three_private_caches_preserved": true,
+      "initial82cache431_final1125cache431_oldMesa101_exact": true,
+      "priorS99cache422_and_S86font_exact": true,
+      "pending_action": "400closedS88/S97importedbyteidenticalfiles,69832704Bproposedreclaim, bothpaths/bytes preserved; mtime/inode/ctime/nlinkchangesexplicit. Specificownerapproval PENDING, NOcutoverexecuted.",
+      "no_arbitrary_cleanup_or_TMP_Git": true
+    },
+    "overnight_plan": {
+      "status": "WRITTEN_AFTER_VERIFIED_TASK",
+      "canonical": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+      "Page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
+      "priorities": [
+        "Fundcompletepersistenttail",
+        "Zoe bass then Marcus/Ellis drum comparison",
+        "Broaderauthoredpersonalcontext",
+        "Smallclearedfullbandgenrelisteningbatch",
+        "UX03bookingcalendardeparturewhole-taskreview",
+        "Consistency andmorninghandoff"
+      ],
+      "same_sole_queue_schedule": true,
+      "no_new_controller_or_extension": true,
+      "finite_end": "2026-11-04T21:24:35Europe/London",
+      "no_updated_APK": true
+    },
+    "next_action": "Resolve the exact pending400file closed-cache consolidation approval/persistent final-metadata funding, then fresh bounded Zoe bass audition from S100424rowmanifest under the existing overnight plan; no updatedAPK."
+  },
+  "closed_at": "2026-11-04T00:23:54.504324+00:00",
+  "metadata_commit_hold": true,
+  "player_task": {
+    "goal": "Comparetwoactualguitarists and practicalfit; control musicalopeningidentity and remembered sound",
+    "start": "Title/genre/recruiting",
+    "end": "Completedhearingcomparison andoriginalinvitationonce",
+    "commitment": "Onlyoriginaltalentrecruit/save; audiofree/preferencesseparate",
+    "interruptions": [
+      "MenuContinue",
+      "resize",
+      "hide/free/focusfixture",
+      "savefail/retry/reload",
+      "mute/settings"
+    ],
+    "disposition": "Verifiedscopedcomplete; widercast/genrepalette inovernightplan"
+  },
+  "metadata_funding_resolution_S109": {
+    "approved": true,
+    "receipt": "/workspace/work/s100-feedback-integration-20261103/cache-consolidation-execution.json",
+    "reclaimed_bytes": 69832704
+  }
 }
