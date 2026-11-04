@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "S121",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Fresh direct owner playtest feedback after the18:00 build window: review process and present concrete options for songwriting scrolling (confirmed), repeated poster poses/name fit, weak auditions/audio, producer-desk songwriting without typing lyrics, real working commitments, dated calendar, automatic genre preview, stronger formation reveal and band branding. Manual design/review only; no resumed automation or new build authority.",
+  "baseline_sha": "544d62278ebdefcd665f2d54e96aea78f676a0d2",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-09",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1511752,
+    "sha256": "ae98cb883a2af1fb4d8d066ca94ed4bbb915d7cfd8a00f55a0a5df6d35e7b83b"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
+    "original_sha256": "ef81ce1336cd23a1a8e43ae9e55dc1491ca9cc01a87604aa0f723a36ed324e3b",
+    "pixels_inspected": true,
+    "scope": "Retained source2d native reference actually opened inS119, not the new owner attachment. New attached poster visually inspected in chat; raw file/SHA unavailable, no hash invented."
+  },
+  "primary_owner_evidence": {
+    "source": "Current direct message plus attached formation poster and follow-up reply songwriting",
+    "scroll_screen": "songwriting",
+    "lineup": [
+      "Arjun",
+      "Zoe",
+      "Ellis"
+    ],
+    "band_name": "TRANSISTOR",
+    "observed_name_wrap": "TRANSISTO then lone R",
+    "attachment_raw_SHA": null,
+    "physical_device_details_not_inferred": true
+  },
+  "hypothesis": "Treat actual player friction and uninspiring music/creative interactions as primary quality findings; define a small audible producer-desk vertical slice and calendar/availability/identity options rather than relabel existing controls or promote technical passes to player acceptance.",
+  "controlled_comparison": "Read exact current source/APIs and owner screenshot/notes. Preserve old approvals/evidence as history; current V11 experience is revision requested. Fresh manual scope ends19:30; old18:00 day automation remains ended, not extended.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S121.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Commit scoped manual-review preflight/gate before durable brief/feedback records/Page edits. Fresh actual disk funding includes complete notes/metadata/primaryGit/failure/closeout; no engine/cache/art/audio generation/APK work.",
+    "Bind current source facts: songwriting outer ScrollContainer plus TextEdit, compact calendar3cols/career-day labels, background-only practical context versus explicit Core jobs, fourfonts/eightinks/name fitting/pose sources. Distinguish hypotheses from reproduced causes.",
+    "Record direct owner revision of current poster/audio/songwriting usability, plus genre-on-selection autoplay direction (mastermute/stop/privacy preserved). Preserve all historical owner checkboxes/approvals/audio bytes and no source mutation.",
+    "Produce practical options and recommended sequence: scrolling first; producer desk with real audible changes and thematic lyrical direction; jobs/calendar; varied real source poses/wordmark fit; energetic audition/genre examples; formation reveal. No simulator/minigame, hidden formula keys, invented biographies/wages or false sound quality claims.",
+    "Update existing sole worklist and current Plan/Board status/priority prose using exact guards; preserve72choices23checked50images/order/IDs/archive/AgentInstructions/deletedA03absence. No new queue/schedule/controller/recipient/asset upload.",
+    "Final source435Git diff0, manifest/source2d/V11 relationship unchanged; closeoutDICT owner_revision/fiveSIMULATEDlenses/new attachment boundary. Serialize audits/receipts, gate/expectedHEAD primaryGit commit and release manual writer by19:30."
+  ],
+  "queue_task": "Fresh direct owner playtest review and design options; existing worklist only",
+  "reviewer": "Root source/experience review of direct human feedback and attached screenshot; optional scroll clarification answered songwriting. No new independent human or audio/device test inferred.",
+  "player_goal": "Reach all songwriting controls, make musically meaningful song decisions without typing lyrics, coordinate an actual band and feel a convincing formation/show calendar.",
+  "start_end_commitment": "Start current V11/source2d and owner report. End actionable options/recommended prototype/process changes and durable revision record; no implementation or new automation.",
+  "state_matrix": [
+    "Actual Arjun/Zoe/Ellis formation and TRANSISTOR handpainted wrap, rather than only tested Jack/Zoe/Marcus fixture",
+    "Songwriting drag ownership/body/TextEdit/keyboard/visible actions; root cause remains hypothesis until device reproduction",
+    "Pace/energy/originality/lyrical theme choices create audible arrangement tradeoffs, not monotonically better score sliders or rhythm simulator",
+    "Actual agreed availability and main-session time versus free planning; calendar date-to-career-day mapping/legacy unknowns",
+    "Genre-on-explicit-selection autoplay with mute/stop/reveal/lifecycle limits; new energetic Punk/Indie brief not louder-only",
+    "Formation emotional payoff/reduced-motion equivalent/source-honest pose variety/three branding directions"
+  ],
+  "root_lease": {
+    "writer": "root_S121_direct_owner_playtest_review",
+    "expires_at": "2026-11-04T19:30:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": true,
+  "stop_condition": "Manual new direct review/design response only; close by19:30. Do not resume ended18:00 day automation, create queue/endtask, change source/assets/audio/save/dependencies or build APK. Future production needs a fresh complete contract.",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 672907264,
+    "manual_review_persistent_cap": 1835008,
+    "new_TMP_runtime_cache_PNG_bytes": 0,
+    "existing_aggregate_initial_free": 695787520,
+    "existing_aggregate_cap": 25165824,
+    "floor_bytes": 629145600,
+    "previous_final_handoff_already_complete": true,
+    "fresh_funding_from_actual_remaining_headroom_not_closed_cache_caps": true,
+    "includes_complete_primaryGit_failedproof_closeout": true
+  },
+  "external_artifact_roots": [
+    "/workspace/work/s121-owner-playtest-design-20261104"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd"
+  },
+  "manual_authority": {
+    "direct_new_request_at_review_clock": "2026-11-04T18:53:11Z",
+    "old_day_hard_stop": "2026-11-04T18:00:00Z",
+    "old_finite_automation_remains_ended": true,
+    "scope": "Read-only source review, design options, feedback/worklist/Pages metadata only"
+  }
+}

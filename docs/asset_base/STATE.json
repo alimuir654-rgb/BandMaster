@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S120_closed_V11_playtest_guide_corrected",
+  "status": "S121_fresh_direct_owner_playtest_design_review",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
-  "writer": null,
+  "writer": "root_S121_direct_owner_playtest_review",
   "last_verified_code_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "baseline": {
     "run_id": 40778019754,
@@ -695,7 +695,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S120",
+  "current_session": "S121",
   "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "latest_verified_phase2": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
@@ -712,7 +712,7 @@
     "owner_approved": false
   },
   "last_sprint": "S100",
-  "next_action": "Use the corrected V11 phone guide for actual device playtest feedback: update retention first, then sound, available auditions/genre examples, lyric editing/resume, calendar and session Details. Source2d/V11 stay unchanged. UX05/UX06 contracts are already prepared; do not repeat their reviews or create no-op source/engine/APK/metadata work without a new actionable finding. Same existing opportunities and18:00 hard stop; routine decisions delegated.",
+  "next_action": "Review fresh direct playtest feedback and present design options; manual scope only, ended day automation not resumed.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -2035,7 +2035,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S120",
+  "session": "S121",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
@@ -2341,7 +2341,7 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-04T15:28:14.933887+00:00",
+  "released_at": null,
   "last_writer": "root_S120_V11_existing_playtest_guide",
   "source_write_allowed": false,
   "pending_implementation": false,
@@ -2349,7 +2349,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-04T19:30:00Z",
   "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2985,7 +2985,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S121_direct_owner_playtest_review",
+    "expires_at": "2026-11-04T19:30:00Z"
+  },
   "source_implementation_status": "NONE: existing guide corrected; Game2d/deliveredV11 unchanged.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4886,7 +4889,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S121_direct_owner_playtest_review",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5108,7 +5111,7 @@
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S120",
+  "active_session": "S121",
   "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
@@ -5157,5 +5160,11 @@
     "Game_source": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "browser_render_verified": false,
     "physical_device_tested": false
+  },
+  "manual_owner_feedback_review": {
+    "direct_new_request_at_review_clock": "2026-11-04T18:53:11Z",
+    "old_day_hard_stop": "2026-11-04T18:00:00Z",
+    "old_finite_automation_remains_ended": true,
+    "scope": "Read-only source review, design options, feedback/worklist/Pages metadata only"
   }
 }
