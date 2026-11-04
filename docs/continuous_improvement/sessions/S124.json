@@ -31,8 +31,8 @@
   "baseline_sha": "94b19767b89bc1b4cb9af2597063aecc6c4010a6",
   "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "issue_log_review": {
-    "bytes": 1568420,
-    "sha256": "d6a3117895ecd01a0f4fcaa1b6ce285903250b8b1f2d538cef6fded26e95d9d5"
+    "bytes": 1570243,
+    "sha256": "1d600229e33f83b935921e1ec10ca2517b7e94e95e9bf3f44b929a6de65c9111"
   },
   "target": {
     "locator": "/tmp/bandmaster-s123-audible-producer-20261104/runs/full-phone-v2/proof/07-producer-original-three-days-finished-390x844.png",
@@ -154,5 +154,13 @@
     "experiments/playable_flightcase/audio/producer_examples.json",
     "experiments/playable_flightcase/audio/splash_cue.json",
     "experiments/playable_flightcase/audio/zoe_clips.json"
-  ]
+  ],
+  "packaging_amendment": {
+    "at": "2026-11-04T22:21:42.341646+00:00",
+    "retained_attempt_v1_physical": 184057856,
+    "new_attempt": "/tmp/bandmaster-s124-producer-apk-v12-20261104/attempt-v2",
+    "both_counted_against_same_cap": 805306368,
+    "live_census_method": "FileNotFoundError only inside own .godot for disappeared atomic-write temporary files; outside errors retained",
+    "fresh_empty_v2_cache": true
+  }
 }
