@@ -28,11 +28,11 @@
   "status": "active",
   "owner_request": "Directowner: Go ahead updatedpriorities, remove ownerdecisionconstraints, buildthrough18:00London andprepareAPK at end. Delegate routinecreative/listening/integrationdecisions; keepprivacy/rights/cost/source/save/test safety.",
   "dominant_issue": "BM-38",
-  "hypothesis": "A substantiveZoebass encounter plusdiscoverableexistinglyricworkbench improves representativebandfirstloop beforebroaderaudio content.",
+  "hypothesis": "A substantiveZoebass encounter plusdiscoverableexistinglyricworkbench improves representativebandfirstloop beforebroaderaudio content. Actualfastquitresourceleak additionallyneedsnarrowexistingSplashstoprelease; originalaudio/cue/owneronce/mute unchanged.",
   "controlled_comparison": "CurrentS100424manifest/source0c baseline; addZoe pureprofile andgenericpartlabels, preservedJack/Arjun materials/audio/receipts andoriginalcosts. Lyricsketch existingentrypoint made visible withoutbeststatkey. Samefourlayouts/realnativecontrols.",
   "issue_log_review": {
-    "bytes": 1432274,
-    "sha256": "0ca7120d0d14217eebc2be5c383287da6f6f021e217160a466f2b236810ac0cf"
+    "bytes": 1435313,
+    "sha256": "87e1782df7ed897d712f2484c1ddaa3f6f3f52c1edc936c1c9565c36e7316cbb"
   },
   "stop_condition": "S112 closeby11:00; earlyphone/shortwide beforefullproof; preservefailedproof/twoineffectiveattempts changedmethod. Dayfreeze16:30/APKverification17:00/hardstop18:00, noextraqueue. Fundingfail changes task, no unreviewedpurge.",
   "allowed_paths": [
@@ -48,7 +48,8 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/splash_audio.gd"
   ],
   "validation_commands": [
     "Fresh affected models:Zoe/Jack/Arjun orders/freecheckpoints/pricedinvite/FSfailure/retry/typedreload/legacyfuturebusyunknown; no autoreuse532.",
@@ -71,17 +72,19 @@
     "day_initial_free": 695787520,
     "day_new_persistent_cap": 25165824,
     "S112_new_persistent_cap": 8388608,
-    "S112_TMP_cap": 1073741824,
+    "S112_TMP_cap": 1610612736,
     "workspace_floor": 629145600,
     "TMP_floor": 629145600,
-    "source_runtime": 300000000,
-    "private_cache": 250000000,
-    "PNG_budget": 230000000,
-    "QA_logs_failedproof": 100000000,
-    "remaining_TMP_reserve": 193741824,
+    "source_runtime": 400000000,
+    "private_cache": 350000000,
+    "PNG_budget": 400000000,
+    "QA_logs_failedproof": 150000000,
+    "remaining_TMP_reserve": 310612736,
     "durable_Git_source_receipt_failure_tail_included": true,
     "no_arbitrary_cleanup": true,
-    "category_rebalance_explanation": "Allthreepreservedversions source/cache explicit, reserve retained; initialestimatesexceeded notretroactivelyclaimed."
+    "category_rebalance_explanation": "Allthreepreservedversions source/cache explicit, reserve retained; initialestimatesexceeded notretroactivelyclaimed.",
+    "fresh_TMP_free_before_amendment": 7093137408,
+    "explicit_added_TMP_funding": 536870912
   },
   "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation.",
   "authority": {
@@ -91,5 +94,12 @@
     "internal_quality_not_owner_listening": true,
     "privacy_paid_runtimeAI_engineupgrade_boundaries_retained": true
   },
-  "predesign": "musician_review conditionalCLEAR:16/7/10attacks, genericBasslabels/pronouns/allfourstandardassertions,18history, actualFSrollback andoriginalprices; Lyricroutefreeexistingowner."
+  "predesign": "musician_review conditionalCLEAR:16/7/10attacks, genericBasslabels/pronouns/allfourstandardassertions,18history, actualFSrollback andoriginalprices; Lyricroutefreeexistingowner.",
+  "scope_amendment_before_addedpath": {
+    "reason": "ActualactiveSplash5frameleak",
+    "source_before": "bbef35f78799400a6e3bbe9914f5b38829560449",
+    "no_assertion_weakening": true,
+    "added_path": "experiments/playable_flightcase/splash_audio.gd",
+    "fully_funded_failed_versions_and_final_tail": true
+  }
 }
