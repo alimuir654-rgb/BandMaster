@@ -2,7 +2,9 @@
   "schema_version": 1,
   "content_version": "genre_examples_v1",
   "genres": {
-    "Indie rock": "genre_indie_band_v1"
+    "Indie rock": "genre_indie_band_v1",
+    "Punk": "genre_punk_band_v1",
+    "Post-punk": "genre_post_punk_band_v1"
   },
   "materials": {
     "genre_indie_band_v1": {
@@ -16,6 +18,34 @@
       "instrument": "electric_guitar_bass_drums",
       "label": "INDIE BAND EXAMPLE",
       "description": "Original instrumental indie band example: guitar, bass and drums. A starting direction for your band."
+    },
+    "genre_punk_band_v1": {
+      "name": "punk",
+      "path": "res://experiments/playable_flightcase/audio/punk_band_v1.ogg",
+      "sha256": "37a1fcd9365d4c71086feb8313da19fbb62573dc1b5b075559c338034310efce",
+      "source_PCM_sha256": "9236c679ca3b7e2abda856a9ebb404e4ccb26667e3939a1e6cef4f33e2afb668",
+      "style": "Punk",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled instruments and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "electric_guitar_bass_drums",
+      "label": "PUNK BAND EXAMPLE",
+      "description": "Original instrumental punk example: driven power-chord guitar, bass and drums. One possible starting sound."
+    },
+    "genre_post_punk_band_v1": {
+      "name": "post-punk",
+      "path": "res://experiments/playable_flightcase/audio/post_punk_band_v1.ogg",
+      "sha256": "16d6b3fdc0ee2ab1a7fd40f31ba09d6e07075d078dce3c3542fc794400752088",
+      "source_PCM_sha256": "dac4d3a679230963e1db47b73784ec02257cebedb2709e48aa1cbdd52f48a283",
+      "style": "Post-punk",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled instruments and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "electric_guitar_bass_drums",
+      "label": "POST-PUNK BAND EXAMPLE",
+      "description": "Original instrumental post-punk example: forward bass, sparse clean guitar and drums. One possible starting sound."
     }
   }
 }

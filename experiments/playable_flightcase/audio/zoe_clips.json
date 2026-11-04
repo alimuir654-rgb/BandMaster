@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "content_source": "res://experiments/playable_flightcase/audition_zoe_content.gd",
+  "content_sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765",
+  "content_version": "s112_zoe_bass_written_v1",
+  "materials": {
+    "zoe_four_bars_original_v1": {
+      "name": "zoe-original",
+      "path": "res://experiments/playable_flightcase/audio/zoe_original_v1.ogg",
+      "sha256": "c0504813160f078c4b9a79f1bbda2e98204a3cf4d6c2cd03beaa5dda0b763e8a",
+      "source_PCM_sha256": "69d1f8f796828bef25bbbfeca9a5bb1dbe2d83565773a5a90d7e39ae12ffcaea",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled instruments and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "electric_bass"
+    },
+    "zoe_four_bars_space_for_voice_v1": {
+      "name": "zoe-space_for_voice",
+      "path": "res://experiments/playable_flightcase/audio/zoe_space_for_voice_v1.ogg",
+      "sha256": "cfa5f3e14164c0f2981015b8dd5e4604d5bbcb54e1bef7836dbf032b26c1bfbc",
+      "source_PCM_sha256": "8027a135738d7024900b149fd6f3219cb753e75a307020cb620bee13f6082ad2",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled instruments and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "electric_bass"
+    },
+    "zoe_four_bars_own_part_v1": {
+      "name": "zoe-own_part",
+      "path": "res://experiments/playable_flightcase/audio/zoe_own_part_v1.ogg",
+      "sha256": "f3c41cfa5d6cf386d5d0c13e3e4f9966938ccdf27cdb4cf4912041fc8b129048",
+      "source_PCM_sha256": "b305acf0d14b5817021c0bc6941be292b3df3a6d7ad80e41da2e0e06e07c4ce2",
+      "style": "Indie rock",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "rights": "Karoryfer CC0 sampled instruments and original authored arrangement; internally reviewed under delegated authority.",
+      "instrument": "electric_bass"
+    }
+  }
+}
