@@ -3,14 +3,16 @@ extends RefCounted
 const Jack = preload("res://experiments/playable_flightcase/audition_content.gd")
 const Arjun = preload("res://experiments/playable_flightcase/audition_arjun_content.gd")
 const Zoe = preload("res://experiments/playable_flightcase/audition_zoe_content.gd")
+const Marcus = preload("res://experiments/playable_flightcase/audition_marcus_content.gd")
 
 static func supports(id: String) -> bool:
- return id in ["cast_jack","cast_arjun","cast_zoe"]
+ return id in ["cast_jack","cast_arjun","cast_zoe","cast_marcus"]
 
 static func content(id: String) -> Script:
  if id=="cast_jack":return Jack
  if id=="cast_arjun":return Arjun
  if id=="cast_zoe":return Zoe
+ if id=="cast_marcus":return Marcus
  return null
 
 static func audio_manifest(id: String) -> String:

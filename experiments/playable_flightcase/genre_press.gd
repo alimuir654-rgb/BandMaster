@@ -141,7 +141,7 @@ func _add_audio_preview(content: VBoxContainer) -> void:
    var id = genres.get(_preview_genre, "")
    if id is String and materials.get(id) is Dictionary:
     var candidate: Dictionary = materials[id]
-    if candidate.get("owner_listening_accepted") == true and candidate.get("label") is String:
+    if AudioPreview.entry_approved(candidate) and candidate.get("label") is String:
      _preview_material = id
      entry = candidate
  if entry.is_empty():

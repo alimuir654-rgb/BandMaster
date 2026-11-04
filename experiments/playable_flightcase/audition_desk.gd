@@ -143,7 +143,10 @@ func _build() -> void:
    place.add_child(introduction)
    _add_voice(place)
   var name: String=str(_view["person"]["name"])
-  work.add_child(_label(name+" has brought a short bass idea. Look it over together, then ask "+name+" to try another approach." if _view["person"]["role"]=="Bassist" else name+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
+  if _view["person"]["role"]=="Drummer":
+   work.add_child(_label(name+" has brought a short drum idea. Look it over together, then ask "+name+" to try another approach."))
+  else:
+   work.add_child(_label(name+" has brought a short bass idea. Look it over together, then ask "+name+" to try another approach." if _view["person"]["role"]=="Bassist" else name+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
  else:
   if wide:
    place.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(380,214)))
@@ -306,6 +309,7 @@ func _inspect(index: int) -> void:
  _inspector.set_meta("inspected_bar",index+1)
 
 func _instrument() -> String:
+ if _view.get("person",{}).get("role","")=="Drummer":return "Drums"
  return "Bass" if _view.get("person",{}).get("role","")=="Bassist" else "Guitar"
 
 func _part(bar: Dictionary) -> String:

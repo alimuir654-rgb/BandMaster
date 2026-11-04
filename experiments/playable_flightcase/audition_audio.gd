@@ -45,6 +45,12 @@ func set_clip(id: String) -> void:
  _material=id
  if is_node_ready():_refresh()
 
+static func entry_approved(entry: Dictionary) -> bool:
+ var owner_value=entry.get("owner_listening_accepted",false)
+ var review_value=entry.get("integration_review_accepted",false)
+ var authority=entry.get("integration_authority","")
+ return (typeof(owner_value)==TYPE_BOOL and owner_value==true) or (typeof(review_value)==TYPE_BOOL and review_value==true and typeof(authority)==TYPE_STRING and authority=="owner_delegation_20261104")
+
 func _entry() -> Dictionary:
  if not is_visible_in_tree() or not _context.is_valid():return {}
  var context: Dictionary=_context.call()
@@ -53,7 +59,7 @@ func _entry() -> Dictionary:
  if context.get("content_version","")!=_manifest.get("content_version",""):return {}
  var entries: Dictionary=_manifest.get("materials",{})
  var entry: Dictionary=entries.get(_material,{})
- if not entry.get("owner_listening_accepted",false):return {}
+ if not entry_approved(entry):return {}
  var path: String=str(entry.get("path",""))
  if not path.begins_with("res://") or not ResourceLoader.exists(path):return {}
  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256",""):return {}
