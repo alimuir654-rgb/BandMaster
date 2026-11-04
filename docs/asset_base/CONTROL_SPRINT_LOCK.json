@@ -1,14 +1,14 @@
 {
-  "writer": "root_S122_songwriting_navigation",
+  "writer": null,
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": "2026-11-04T20:50:00Z",
+  "expires_at": null,
   "scope": "Separate ordinary reading/scrolling from explicit lyric editing; fit complete words before multiline acceptance; genre preview only on explicit selected button, never arrival/resize. Preserve typed drafts/caret/free/paid owners and audio stop/mute. Native baseline also proves initial create-page PracticeFrame STOP blocks drag; set only create paper/descendant Buttons PASS.",
   "authority": "Fresh direct Go ahead after S121 options: implement next build. First bounded repair songwriting navigation/name fit and explicitly selected genre automatic preview, then separate complete audible producer-desk contract. Old day queue remains ended; no generic owner-approval wait.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S122_navigation_name_genre_active",
-  "released_at": "2026-11-04T19:09:21.724115+00:00",
+  "status": "S122_closed_released",
+  "released_at": "2026-11-04T20:53:53.144676+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "root_S121_direct_owner_playtest_review",
-  "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "last_writer": "root_S122_songwriting_navigation",
+  "source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -182,8 +182,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": "2026-11-04T18:00:00Z",
-  "hard_stop": "2026-11-04T18:00:00Z",
+  "all_write_freeze": null,
+  "hard_stop": null,
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -192,7 +192,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "candidate_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-04T19:09:21.724115+00:00",
+  "updated_at": "2026-11-04T20:53:53.144676+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "next_action": "Implement funded S122 repairs after committed preflight/gate; independent early phone/shortwide then exact full proof.",
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "next_action": "Fresh funded S123 audible producer desk per reviewed exact contract; routine creative decisions delegated, no owner wait. New manual request has no specified owner end time; old day queue stays ended.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -350,10 +350,10 @@
     "all_write_freeze": "2026-11-01T19:45:00Z",
     "hard_stop": "2026-11-01T20:00:00Z"
   },
-  "source_freeze_target": "5d8b63733b26b07532012be4cf2bddb6280b815f",
+  "source_freeze_target": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "pending_candidate_source_sha": null,
   "latest_unverified_candidate": null,
-  "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
+  "source_phase": "S122_navigation_namefit_genre_selection_verified_not_yet_APK",
   "source_frozen_at": "2026-11-03T20:33:38.625812+00:00",
   "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json",
   "previous_s66_release": {
@@ -407,8 +407,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S69_RADIO_STUDIO_VISIT.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 59,
-  "current_review_board_sequence": 171,
+  "current_plan_sequence": 60,
+  "current_review_board_sequence": 172,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -422,7 +422,7 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S121",
+  "last_completed_session": "S122",
   "closeout": {
     "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "evidence": [
@@ -538,13 +538,13 @@
   },
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "candidate_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "current_session": "S122",
   "closed_at": "2026-11-04T19:09:21.724115+00:00",
   "last_updated_utc": "2026-11-04T19:09:21.724115+00:00",
-  "last_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
-  "last_run_summary": "/workspace/work/s97-approved-variants-20261103/closeout.json",
-  "last_completed_deliverable": "S86 UX01 phone soundcheck workspace, exact3d2 verified locally; technicalPASS/scopedvisualinternal_pass/overallPARTIAL/ownerfalse. V9source625unchanged/APKheld.",
+  "last_validation": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
+  "last_run_summary": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
+  "last_completed_deliverable": "S122 native songwriting navigation, whole-name fit and explicit genre-selection autoplay repairs verified; V11 remains old source2d.",
   "last_sprint": "S100",
   "last_source_slice": {
     "session": "S86",
@@ -556,7 +556,7 @@
     "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
   },
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
-  "next_single_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
+  "next_single_action": "Fresh funded S123 audible producer desk per reviewed exact contract; routine creative decisions delegated, no owner wait. New manual request has no specified owner end time; old day queue stays ended.",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
   "s78_authority": {
     "F11": "Direct ownerapproved +board96ApproveF11checked",
@@ -778,17 +778,17 @@
     "historical_approvals_preserved": true,
     "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
-  "finite_end": "2026-11-04T18:00:00Z",
+  "finite_end": null,
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "session_path": "docs/continuous_improvement/sessions/S87.json",
-  "last_verified_code_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-  "last_verified_game_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-  "last_verified_local_native_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-  "last_verified_native_run_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "session_path": "docs/continuous_improvement/sessions/S122.json",
+  "last_verified_code_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_game_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_local_native_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_native_run_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "latest_unverified_phase2_candidate": null,
   "current_candidate": {
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "status": "verified_scoped_source_packaged_V11",
+    "source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+    "status": "verified_scoped_source_not_yet_packaged",
     "visual_verdict": "partial",
     "owner_approved": false
   },
@@ -813,7 +813,7 @@
     "no_sourcehistory_keys_saves_or_public_sharing": true,
     "hard_stop": "2026-11-04T18:00:00Z"
   },
-  "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "tested_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -984,7 +984,7 @@
       "at": "2026-11-03T06:24:27.578278+00:00"
     }
   },
-  "visual_verdict": "hold",
+  "visual_verdict": "partial",
   "s84_closeout": "/tmp/bandmaster-s84-20261103/closeout.json",
   "latest_s84_release": {
     "writer": null,
@@ -998,7 +998,7 @@
     "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
     "at": "2026-11-03T06:49:14.519386+00:00"
   },
-  "latest_direct_owner_steering": "4Nov: Go ahead with the updated priorities. Remove constraints around owner decisions - build through to6pm and prepare an apk at the end ready for testing.",
+  "latest_direct_owner_steering": "Fresh manual Go ahead19:37Nov4 after S121 recommended slice; no new owner-set finish time, old18:00 queue ended.",
   "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
   "current_operational_queue": {
     "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
@@ -1088,11 +1088,8 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "writer": "root_S122_songwriting_navigation",
-    "expires_at": "2026-11-04T20:50:00Z"
-  },
-  "source_implementation_status": "NONE: existing guide corrected; Game2d/deliveredV11 unchanged.",
+  "root_lease": null,
+  "source_implementation_status": "S122_complete6leaves; producer_not_yet_implemented",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -1306,9 +1303,9 @@
       "root_released_at": "2026-11-03T07:29:42.645331+00:00"
     }
   },
-  "last_verified_component_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-  "last_verified_native_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
-  "last_verified_opening_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
+  "last_verified_component_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "last_verified_native_run": "/workspace/work/s122-songwriting-navigation-20261104/focused-native-validation.json",
+  "last_verified_opening_run": "/workspace/work/s122-songwriting-navigation-20261104/accepted-log-audit.json",
   "last_improvement_review": {
     "event": "S98-20261103-862",
     "closed_record_gate": "PASS862 aftergate",
@@ -2239,7 +2236,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "current_verified_game_source": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -2981,7 +2978,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S122_songwriting_navigation",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3219,12 +3216,12 @@
   },
   "latest_owner_request": "Fresh direct owner playtest feedback after the18:00 build window: review process and present concrete options for songwriting scrolling (confirmed), repeated poster poses/name fit, weak auditions/audio, producer-desk songwriting without typing lyrics, real working commitments, dated calendar, automatic genre preview, stronger formation reveal and band branding. Manual design/review only; no resumed automation or new build authority.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S122",
-  "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "active_session": null,
+  "game_source_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S122_songwriting_navigation",
-  "artifact_writer": "root_S122_songwriting_navigation",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V11_DELIVERED_PHYSICAL_DEVICE_PENDING",
@@ -3293,7 +3290,23 @@
     "direct_request": "Go ahead after S121 recommendation",
     "received_clock": "2026-11-04T19:37:25Z",
     "old_day_queue_remains_ended": true,
-    "current_slice_lease_expires": "2026-11-04T20:40:00Z",
-    "owner_did_not_specify_new_finish_time": true
-  }
+    "owner_did_not_specify_new_finish_time": true,
+    "current_slice": "S122_closed",
+    "next_requires_fresh_bounded_funded_preflight": true
+  },
+  "historical_active_aliases_before_S122_release": {
+    "all_write_freeze": "2026-11-04T18:00:00Z",
+    "hard_stop": "2026-11-04T18:00:00Z",
+    "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
+    "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
+    "finite_end": "2026-11-04T18:00:00Z",
+    "session_path": "docs/continuous_improvement/sessions/S87.json",
+    "root_lease": {
+      "writer": "root_S122_songwriting_navigation",
+      "expires_at": "2026-11-04T20:50:00Z"
+    },
+    "source_implementation_status": "NONE: existing guide corrected; Game2d/deliveredV11 unchanged.",
+    "delivery_status": "PrivateV9/source625 remains current phone APK; unchanged/excludesS83/S84/S86/audio. Three selected source-study-v1 WAVs privately accessible to owner chair@lovewelluk.com and named reader alimuir654@gmail.com only, owner requests quality revision. No new accepted audio/integration/APK work."
+  },
+  "s122_closeout": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json"
 }

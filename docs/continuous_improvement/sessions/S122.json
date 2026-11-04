@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S122",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Fresh direct Go ahead after S121 options: implement next build. First bounded repair songwriting navigation/name fit and explicitly selected genre automatic preview, then separate complete audible producer-desk contract. Old day queue remains ended; no generic owner-approval wait.",
   "baseline_sha": "e3e5301c5446e1e8bc0f5f9ff98ed2e6e90e3e0c",
@@ -76,8 +76,8 @@
     "Genre arrival silent; native select available/missing/muted/rapid switch/stop/context/hide/free/focus; existing auditions explicit only"
   ],
   "root_lease": {
-    "writer": "root_S122_songwriting_navigation",
-    "expires_at": "2026-11-04T20:50:00Z"
+    "writer": null,
+    "expires_at": null
   },
   "source_write_allowed": true,
   "art_write_allowed": false,
@@ -85,10 +85,10 @@
   "page_write_allowed": true,
   "engine_execution_allowed": true,
   "APK_artifact_allowed": false,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
-  "review_pending": true,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": false,
   "stop_condition": "Close this expanded first navigation/name/genre slice by20:50. Fresh direct Go ahead authorizes a NEW manual build task after the old day ended; old finite queue/deadlines remain historical and are not restarted or extended. Subsequent producer scope needs its own complete funded contract and bounded lease; do not infer a new owner-set finish time.",
   "storage_plan": {
     "workspace_initial_free_bytes": 671449088,
@@ -140,5 +140,131 @@
     "prior_context_runs_retained_not_freshproof": true,
     "funding": "Remaining source scope1.25GiB TMP/6MiB persistent; freshstandard sweep~112MiB plus existingactual scope check before allocation",
     "TMPactual": 1047130112
-  }
+  },
+  "tested_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+  "closeout": {
+    "tested_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+    "evidence": {
+      "source-final.json": "/workspace/work/s122-songwriting-navigation-20261104/source-final.json",
+      "accepted-log-audit.json": "/workspace/work/s122-songwriting-navigation-20261104/accepted-log-audit.json",
+      "focused-native-validation.json": "/workspace/work/s122-songwriting-navigation-20261104/focused-native-validation.json",
+      "standard-RGBA-comparison.json": "/workspace/work/s122-songwriting-navigation-20261104/standard-RGBA-comparison.json",
+      "source-storage-protection-final.json": "/workspace/work/s122-songwriting-navigation-20261104/source-storage-protection-final.json",
+      "root-open-log.json": "/workspace/work/s122-songwriting-navigation-20261104/root-open-log.json",
+      "page-status-audit.json": "/workspace/work/s122-songwriting-navigation-20261104/page-status-audit.json",
+      "review/final-latest8b.json": "/workspace/work/s122-songwriting-navigation-20261104/review/final-latest8b.json",
+      "review/opened-audit-latest8b.json": "/workspace/work/s122-songwriting-navigation-20261104/review/opened-audit-latest8b.json",
+      "next-producer-contract.json": "/workspace/work/s122-songwriting-navigation-20261104/next-producer-contract.json"
+    },
+    "visual_verdict": "partial",
+    "scoped_navigation": "internal_pass",
+    "owner_approved": false,
+    "owner_experience_revision_still_active": true,
+    "new_issue_review": {
+      "events": 977,
+      "last_event": "S122-20261104-closeout-session-dictionary-contract",
+      "all_actual_events_reviewed": true,
+      "raw_held_cases_retained": 7,
+      "freshness_held_raw0_cases": 6
+    },
+    "next_action": "Fresh funded S123 audible producer desk per reviewed exact contract; routine creative decisions delegated, no owner wait. New manual request has no specified owner end time; old day queue stays ended.",
+    "implemented": [
+      "Initial and active songwriting ordinary paper/button drag propagation; words explicitly Edit/Done with local draft preserved",
+      "Whole-word TRANSISTOR fit with original readable-floor longtoken fallback",
+      "Automatic available genre preview only after explicit native selection; mute/stop/lifecycle retained"
+    ],
+    "not_implemented": [
+      "audible producer controls and new music",
+      "pose/art/formation reveal revision",
+      "availability and dated-calendar presentation"
+    ],
+    "proof": {
+      "actual_Godot": 46,
+      "raw_execution_pass": 39,
+      "raw_held": 7,
+      "additional_freshness_held": 6,
+      "current_source_actual_Godot": 21,
+      "strict_current_accepted": 15,
+      "current_complete_writing_journeys": 4,
+      "current_writing_verify_calls": 2492,
+      "actual_paid_writing_days": 12,
+      "real_FSfail_retries": 4,
+      "fresh73": true,
+      "fresh88": true,
+      "fresh_empty_import": true,
+      "fresh4standard": true,
+      "default_natural_entry_ERRORempty": true,
+      "all14_native_genres": "3examples/11silentfallback",
+      "standard_encodings": 248,
+      "standard_families": 232,
+      "RGBA_exact_S116": 208,
+      "scoped_lyric": 20,
+      "known_Reopen": 4,
+      "unexpected": 0,
+      "native_PNGs_all_history": 868,
+      "earlier_f4_four_writing_journeys": "INTERIM_not_latestsource"
+    },
+    "source": {
+      "tested_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
+      "curated": 436,
+      "Git_rows": 435,
+      "source_bytes": 98260973,
+      "ordered_digest": "10f513a0cfa54fcd64acbeb6940dcbc3a28fc86ab7ead16995b15380e9a10665",
+      "manifest_SHA": "10694cd8e2f237ccb0b9a80e55b15d790312962f637b3ee0e6092330183737ed",
+      "changed_leaves": 6,
+      "protected_prior_rows": 430,
+      "all54Scripts3UID_exact": true,
+      "all14OGGs6audioJSON_exact": true,
+      "Game_owners_models_schema_Finance_art_fonts_hardware_exact": true,
+      "current_cache_files": 455,
+      "current_cache_pins": "/tmp/bandmaster-s122-songwriting-navigation-20261104/closed-final-v4-cache-pins.json",
+      "all4scopeproducer_caches_permanently_closed": true,
+      "old_closed_runtimes_or_mutablecaches_resumed": false,
+      "runtime_extras_excluded": 838,
+      "TMPphysical": 1158410240,
+      "TMPcap": 1342177280,
+      "workspace_free": 668299264,
+      "floor": 629145600,
+      "own_Xorg_stopped": 66103,
+      "X99_socket_absent": true,
+      "config3pins_exact": true,
+      "primaryGit_only": true,
+      "default_JSON_saves": 0
+    },
+    "root_actual_opens": 20,
+    "independent_actual_opens": 47,
+    "simulated_lenses": [
+      "game critic",
+      "musician",
+      "general player",
+      "mobile usability",
+      "save/continuity skeptic"
+    ],
+    "simulated_not_human_reviewers": true,
+    "limits": [
+      "Physical phone/keyboard IME/audibility/install/save-retention untested",
+      "Static repeated poses and weak music remain owner revisions",
+      "Debug abrupt-exit P2 retained, unchanged diagnostic not repeated"
+    ],
+    "release": {
+      "at": "2026-11-04T20:53:53.144676+00:00",
+      "source_artifact_helpers_GL_released": true,
+      "Xorg66103_stopped": true,
+      "socket_absent": true,
+      "all4scope_caches_closed_immutable": true,
+      "self_lease_metadata_overrun_disclosed": true
+    },
+    "APK": "No new build in S122. Existing V11/source2d remains delivered phone APK and excludes repairs.",
+    "Pages": {
+      "Plan": 60,
+      "Board": 172,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "all_unrelated_exact": true
+    }
+  },
+  "visual_verdict": "partial",
+  "closed_at": "2026-11-04T20:53:53.144676+00:00",
+  "closeout_path": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json"
 }
