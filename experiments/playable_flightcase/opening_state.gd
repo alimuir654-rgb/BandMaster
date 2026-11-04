@@ -612,9 +612,10 @@ func _finish_workbench_free(before: Dictionary,result: Dictionary) -> Dictionary
   _rollback_identity(before)
   return _workbench_result(false,false,"A free sketch cannot change the original career.")
  game.career=(result.state.game.career as Dictionary).duplicate(true)
+ var producer: bool=game.career.get(Workbench.KEY,{}).get("project",{}).get("fragment",{}).has("producer_recipe")
  if not _save_draft_owned():
   _rollback_identity(before)
-  return _workbench_result(false,false,"The sketch could not be saved. The previous band and your local words are retained; try again.")
+  return _workbench_result(false,false,"The take could not be saved. The previous band and your local direction are retained; try again." if producer else "The sketch could not be saved. The previous band and your local words are retained; try again.")
  return _workbench_result(true,true,str(result.get("message","")))
 
 func begin_workbench(title: String,leader_index: int,expected: Dictionary,recipe: Dictionary={}) -> Dictionary:
@@ -686,7 +687,9 @@ func finish_workbench_commit(transaction_id: String) -> Dictionary:
  if not sealed.ok:return _abort_workbench_owned(sealed.message)
  game.career=(sealed.state.game.career as Dictionary).duplicate(true)
  _workbench_transaction.phase="saving"
- if not _save_draft_owned():return _abort_workbench_owned("The session could not be saved. Your whole previous band and words are retained; try again.")
+ if not _save_draft_owned():
+  var producer: bool=_workbench_transaction.before.game.career.get(Workbench.KEY,{}).get("project",{}).get("fragment",{}).has("producer_recipe")
+  return _abort_workbench_owned("The session could not be saved. Your whole previous band and direction are retained; try again." if producer else "The session could not be saved. Your whole previous band and words are retained; try again.")
  var original: Dictionary=_workbench_transaction.original_result.duplicate(true)
  original.state=game.career.duplicate(true)
  if game.career.get("last_rehearsal_outcome") is Dictionary:original.outcome=game.career.last_rehearsal_outcome.duplicate(true)

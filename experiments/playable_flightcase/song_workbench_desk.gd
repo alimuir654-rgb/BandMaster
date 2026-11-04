@@ -16,6 +16,7 @@ var reduced_motion := false
 var _recipe: Dictionary={}
 var _producer_controls: VBoxContainer
 var _producer_audio
+var _producer_intro: Label
 var _producer_summary: Label
 var _recipe_buttons: Array[Button]=[]
 var _view: Dictionary={}
@@ -291,6 +292,7 @@ func _on_resized() -> void:
  if _spread==null:return
  _spread.columns=2 if wide else 1
  _place.visible=wide or not _producer_mode()
+ if is_instance_valid(_producer_intro):_producer_intro.visible=not (wide and get_viewport_rect().size.y<800)
  _place.custom_minimum_size.x=340 if wide else 0
  _room.custom_minimum_size=Vector2(220,124) if wide else Vector2(200,112)
  _text.custom_minimum_size.y=210 if wide else 164
@@ -322,7 +324,9 @@ func _build_producer() -> void:
  _producer_controls.add_theme_constant_override("separation",4)
  _paper_body.add_child(_producer_controls)
  _producer_controls.add_child(_label("SHAPE YOUR FIRST ORIGINAL",21,true))
- _producer_controls.add_child(_label("Choose a direction. Listen, then try a take.",16,true))
+ _producer_intro=_label("Choose a direction. Listen, then try a take.",16,true)
+ _producer_intro.name="ProducerIntro"
+ _producer_controls.add_child(_producer_intro)
  for i in range(4):
   _producer_controls.add_child(_label(Producer.TITLES[i],15,true))
   var row:=HBoxContainer.new()

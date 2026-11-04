@@ -30,8 +30,8 @@
   "game_baseline_sha": "8b5e969f8b97476c585f8992307cc3d342bc7133",
   "owner_request": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "issue_log_review": {
-    "bytes": 1541252,
-    "sha256": "4fdc27e6d1bc6c3d745c3923c5e664d6c03ba72f4352a35c041d4ad9e0836d5d"
+    "bytes": 1557407,
+    "sha256": "d755b5559c0e8c2d027380583a940143ef2fdfe3721de50f437aea0ab987fea8"
   },
   "target": {
     "locator": "/tmp/bandmaster-s122-songwriting-navigation-20261104/runs/latest-phone-v1/proof/07-done-editing-local-words-readable-390x844.png",
@@ -126,7 +126,7 @@
     "TMP_initial_free_bytes": 4110618624,
     "scope_persistent_cap": 16777216,
     "scope_TMP_cap": 1879048192,
-    "manual_build_aggregate_cap": 25165824,
+    "manual_build_aggregate_cap": 27262976,
     "manual_build_initial_free": 671449088,
     "reserved_finalAPK_handoff_persistent": 4194304,
     "reserved_finalAPK_TMP": 805306368,
@@ -144,7 +144,10 @@
       "failedproof_QA_logs": 268435456,
       "closeout_tail": 402653184
     },
-    "no_old_mutablecache_shared": true
+    "no_old_mutablecache_shared": true,
+    "full_reserved_caps_sum": "S1226MiB +S12316MiB +finalAPK4MiB =26MiB",
+    "amendment_at": "2026-11-04T21:27:19.836505+00:00",
+    "prospective_workspace_free": 657768448
   },
   "implementation_contract": "/workspace/work/s123-audible-producer-20261104/implementation-contract.json",
   "nonshipping_QA_contract": {
