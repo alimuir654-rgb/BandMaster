@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "lesson_ids": [
+    "BM-06",
+    "BM-14",
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-38",
+    "BM-40",
+    "BM-43",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "baseline_sha": "afe4437a4a0464a6dd74e9d3e8c262cf1c297095",
+  "game_baseline_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+  "target": {
+    "locator": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-title-390x844.png",
+    "original_sha256": "016ce5a054e149c83c66a98e21fff2955642b9a454f17077a2ad71ad442facc9",
+    "pixels_inspected": true
+  },
+  "id": "S113",
+  "status": "active",
+  "owner_request": "Directowner delegatedownerdecisions andauthorisedbuildthrough18:00/APK. OfflineZoe3bassclips +Punk/Post-punk fullbandcandidates usingretainedclearedsamples; internallyreview, no ownerapprovalwait.",
+  "dominant_issue": "BM-46",
+  "hypothesis": "ExactwrittenZoeevents renderedwithsameclearedbassbank andtwo distinctgenrearrangements supportmusicalcomparison withoutblockingwrittenGamework.",
+  "controlled_comparison": "MatchZoe16/7/10attacks tocurrentwrittencontent; original12s includingtail. DistinctPunk160BPM8bars14.4s/Post-punk112BPM8bars19.542857s includingproposed2.4stail; actualtails/levels verified. No fakehuman/characterperformance/skillgrade.",
+  "issue_log_review": {
+    "bytes": 1422049,
+    "sha256": "768a15d5c62e1bdf3bdbbb2fd2409e3339d06edde89eebc16261eba5666d19e4"
+  },
+  "stop_condition": "Authorrenderingby11:30;assetTMP256MiB/durable3MiBfullraw-room-review/failedproof/OGG/Gittail. Holdquality/sourcefailures ratherthanreacquire/pay/install. No Godot/sourceintegration/upload untilseparateadoption. Daystop18:00.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S113.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Verifyretainedguitar130/bass6/drum6samplepins/CC0rights/SFZmaps beforeuse; no acquisition/newdeps.",
+    "ActualrendererandFFmpeg rawexitreceipts, scoreevents/gates/taillength/endvoices/decodedlevels/peaks; matchedZoe16-7-10andgenrecontrast.",
+    "Independentmusical/source/internalqualityreview nothumanlistening; no ownerapprovalpause, no fakegrade."
+  ],
+  "queue_task": "ONE parallelassetjob:Zoeandtwofullbandgenreclips",
+  "reviewer": "Scopedofflineaudioauthor +readonlymusicalreview;rootintegratesonlylater",
+  "root_lease": {
+    "writer": "audio_author",
+    "expires_at": "2026-11-04T11:30:00Z"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": true,
+  "pending_implementation": false,
+  "pending_helpers": true,
+  "preflight_commit_status": "COMMITBEFORESOURCE",
+  "storage_plan": {
+    "workspace_cap": 3145728,
+    "TMP_cap": 268435456,
+    "workspace_floor": 629145600,
+    "TMP_floor": 629145600,
+    "initial_workspace_free": 694296576,
+    "roots": [
+      "/workspace/work/s113-offline-band-audio-20261104",
+      "/tmp/bandmaster-s113-offline-band-audio-20261104"
+    ],
+    "included": "Allnewraw/room/review/OGG/failedproof/log/receipts/Git; no originals deletion/overwrites."
+  },
+  "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation.",
+  "authority": {
+    "owner_decisions_delegated": true,
+    "newAPK_directly_authorised": true,
+    "original_owner_checkboxes_untouched": true,
+    "internal_quality_not_owner_listening": true,
+    "privacy_paid_runtimeAI_engineupgrade_boundaries_retained": true
+  }
+}
