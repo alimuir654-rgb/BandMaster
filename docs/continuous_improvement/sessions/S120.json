@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S120",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Continue same day/hardstop18:00 with finalV11 testing artifact already delivered. Correct the existing linked phone playtest guide, which still directs V9 and describes auditions/songwriting as future, using verified V11 receipts and current UI facts. Routine decisions delegated; no new source/runtime/APK.",
   "baseline_sha": "99b2b2cc104f0d0c3bf444c281f5b5d7969c625e",
@@ -24,8 +24,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1507024,
-    "sha256": "27c6d5cc6e8f9b0e9275c724d07eb0c30899dd6e6a792c04468e2615f33aad3e"
+    "bytes": 1511752,
+    "sha256": "ae98cb883a2af1fb4d8d066ca94ed4bbb915d7cfd8a00f55a0a5df6d35e7b83b"
   },
   "target": {
     "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
@@ -67,7 +67,9 @@
   ],
   "root_lease": {
     "writer": "root_S120_V11_existing_playtest_guide",
-    "expires_at": "2026-11-04T16:00:00Z"
+    "expires_at": "2026-11-04T16:00:00Z",
+    "active": false,
+    "released_at": "2026-11-04T15:28:14.933887+00:00"
   },
   "source_write_allowed": false,
   "art_write_allowed": false,
@@ -75,7 +77,7 @@
   "page_write_allowed": true,
   "APK_artifact_allowed": false,
   "engine_execution_allowed": false,
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": false,
   "native_evidence_pending": false,
   "stop_condition": "Correct current guide only, then verify/readback/release by16:00. Do not claim physical test or native/browser-render acceptance, alter Game or make another APK. No new queue/endtask/extension;18:00 hardstop unchanged.",
@@ -106,5 +108,113 @@
     "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
     "curated_rows": 436,
     "all_old_producers_permanently_closed": true
+  },
+  "closed_at": "2026-11-04T15:28:14.933887+00:00",
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": {
+      "guide_before": "/workspace/work/s120-v11-playtest-guide-20261104/prior-guide-sequence15.json",
+      "final_edit": "/workspace/work/s120-v11-playtest-guide-20261104/planned-page-edit-final.json",
+      "atomic_edit_receipt": "/workspace/work/s120-v11-playtest-guide-20261104/page-edit-receipt.json",
+      "guide_readback": "/workspace/work/s120-v11-playtest-guide-20261104/guide-sequence16-readback.json",
+      "preservation_audit": "/workspace/work/s120-v11-playtest-guide-20261104/page-status-audit.json",
+      "source_facts": "/workspace/work/s120-v11-playtest-guide-20261104/source-fact-bindings.json",
+      "unchanged_V11_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json"
+    },
+    "visual_verdict": "partial",
+    "editorial_handoff_verdict": "internal_pass",
+    "owner_approved": false,
+    "scope": "Existing phone playtest guide aligned to already deliveredV11; metadata/Page prose only.",
+    "guide": {
+      "page_id": "page_484e9c379f348191aa0ac8ca3f9f92ca",
+      "url": "https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca",
+      "sequence": 16,
+      "version_code": 11,
+      "version_name": "0.116.0-playtest",
+      "APK_url": "https://drive.google.com/file/d/1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL/view?usp=drivesdk",
+      "Game_source": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+      "browser_render_verified": false,
+      "physical_device_tested": false
+    },
+    "publication": {
+      "old_sequence": 15,
+      "new_sequence": 16,
+      "old_blocks": 47,
+      "current_blocks": 52,
+      "current_replacements": 12,
+      "new_text_blocks": 5,
+      "all_old_ID_order_kind_metadata_retained": true,
+      "untouched_old_blocks_exact": 35,
+      "all_four_images_and_feedback_table_preserved": true,
+      "old_V5_V6_V7_V8_V9_V10_download_links_retained": true,
+      "prior_full_read_archived_local": true
+    },
+    "actual_content": [
+      "Correct V11/code11/name0.116.0-playtest/installer/private link and same-identity update instruction; Continue and existing-save checks first.",
+      "Remembered MASTER SOUND On/Off, no unmute autoresume, explicit audition/genre PlayStop and once-per-process splash boundary.",
+      "Indie-rock formation clip scope; Zoe/Marcus original+adjusted, Arjun adjusted written-only; genre examples Indie/Punk/Post-punk/all14choices retained.",
+      "Free first-session Lyric/VerseChorus Save/Try versus separate one-day paid write; dirty exits/Menu/resume/current Details.",
+      "Authored backgrounds versus player-recorded circumstances/agreements; no automatic wages/rota/attendance inference.",
+      "Demo/song records do not synthesize a written song into audio; test keyboard/OS audio/install/save retention on physical device."
+    ],
+    "protection": {
+      "source435Git_rows_diff0_from_Game2d": true,
+      "curated_manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+      "APK_V11_unchanged": true,
+      "Plan58_all_blocks_unchanged": true,
+      "Board170_all_blocks_unchanged": true,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "no_owner_checkbox_new_recipients_grants_or_uploads": true,
+      "old_closed_producer_caches_untouched": true
+    },
+    "executions": {
+      "new_engines_models_PNG_audio_or_APK_operations": 0,
+      "new_APK_rehash_or_permissions": 0,
+      "S120_new_image_opens": 0,
+      "retained_actual_native_reference": "S119 already-opened first-finished-original adjacent writing-form image; not new guide/native evidence."
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "general_player": "Correct download and concrete checks, with Continue before optional formation; retained save is the first observed phone question.",
+      "musician": "Matching part examples and literal lyric notes are distinguished from generated song/demo playback or character performances.",
+      "accessibility": "Phone checks cover keyboard, scrolling, clear notes, sound and return; saved Page text does not prove browser rendering or physical usability.",
+      "critic": "Current integrated features and future presentation contracts stay distinct; the guide no longer labels those auditions/songwriting wholly future.",
+      "state_privacy": "Keep Update/no uninstall or data clearing, private existing channel and original once-only costs. No local save/key/source upload or new grant."
+    },
+    "limits": [
+      "Physical install/save retention/audio/speaker/headphone/IME/OS interruption remain untested.",
+      "No Page browser preview was inspected; exact saved Markdown/blocks read back, not a browser-render acceptance claim.",
+      "Overall source presentation remains partial and the existing forced-debug-exit audio P2 remains retained. UX05/UX06 proposals are not newly implemented."
+    ],
+    "new_issue_review": {
+      "prefix": {
+        "bytes": 1511752,
+        "sha256": "ae98cb883a2af1fb4d8d066ca94ed4bbb915d7cfd8a00f55a0a5df6d35e7b83b"
+      },
+      "all_history_preserved": true,
+      "resolved": "Existing guide current-version/handoff drift; no failed source proof promoted."
+    },
+    "storage": {
+      "scope_persistent_cap": 1835008,
+      "new_TMP_runtime_cache_PNG_bytes": 0,
+      "DAY_cap": 25165824,
+      "floor": 629145600,
+      "retained_handoff_reserve": 1048576,
+      "critical_Git_primary_only": true,
+      "no_cleanup": true
+    },
+    "next_action": "Use the corrected V11 phone guide for actual device playtest feedback: update retention first, then sound, available auditions/genre examples, lyric editing/resume, calendar and session Details. Source2d/V11 stay unchanged. UX05/UX06 contracts are already prepared; do not repeat their reviews or create no-op source/engine/APK/metadata work without a new actionable finding. Same existing opportunities and18:00 hard stop; routine decisions delegated.",
+    "closed_at": "2026-11-04T15:28:14.933887+00:00",
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "helpers": "none activated",
+      "GL_available": true,
+      "same_queue_COUNT44": true,
+      "hard_stop": "2026-11-04T18:00:00Z",
+      "no_new_queue_endtask_extension_or_continuous_compute_claim": true
+    }
   }
 }

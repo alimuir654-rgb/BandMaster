@@ -20,6 +20,8 @@ These are bounded delegated roles, not continuously running services. Root activ
 
 ## Next shipping priority
 
+S120 corrected the already linked phone playtest guide to V11/code11: https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca (sequence16). It now checks existing-save retention first, remembered Sound/selected part playback, the free lyric sketch and current Details, with honest Indie-rock/audio/demo/background boundaries. Older V5–V10 links, four images and feedback fields remain. Plan58/Board170 unchanged. Source2d/V11 unchanged; future opportunities should respond to genuinely new actionable feedback, not repeat completed reviews or create no-op metadata/engine/APK activity.
+
 S119 completed a separate read-only UX06 source/identity contract. Free Archive Sketch and the third paid session are distinct from read-only finished-page browsing; current opened adjacent captures do not establish an archive-page native baseline. Obtain that actual view in a fresh funded scope before presentation changes. No source/V11 change and no reopened UX04/UX05 review.
 
 S118 read-only follow-up: full report responses already exist; make their disclosure clearer and move them ahead of the detailed ledger in the next fresh production scope. The notebook already distinguishes current/earlier notes and local/saved takes. Review contract /workspace/work/s118-report-notebook-review-20261104/UX05_REVIEW_AND_CONTRACT.md is ready, not integrated; V11/source2d remain unchanged. Device playtest feedback takes priority.
