@@ -26,7 +26,7 @@
     "pixels_inspected": true
   },
   "id": "S113",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Directowner delegatedownerdecisions andauthorisedbuildthrough18:00/APK. OfflineZoe3bassclips +Punk/Post-punk fullbandcandidates usingretainedclearedsamples; internallyreview, no ownerapprovalwait.",
   "dominant_issue": "BM-46",
   "hypothesis": "ExactwrittenZoeevents renderedwithsameclearedbassbank andtwo distinctgenrearrangements supportmusicalcomparison withoutblockingwrittenGamework.",
@@ -52,12 +52,13 @@
   "reviewer": "Scopedofflineaudioauthor +readonlymusicalreview;rootintegratesonlylater",
   "root_lease": {
     "writer": "audio_author",
-    "expires_at": "2026-11-04T11:30:00Z"
+    "expires_at": "2026-11-04T11:30:00Z",
+    "released_at": "2026-11-04T08:32:07.434296+00:00"
   },
   "source_write_allowed": false,
   "art_write_allowed": true,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "preflight_commit_status": "COMMITBEFORESOURCE",
   "storage_plan": {
     "workspace_cap": 3145728,
@@ -78,5 +79,12 @@
     "original_owner_checkboxes_untouched": true,
     "internal_quality_not_owner_listening": true,
     "privacy_paid_runtimeAI_engineupgrade_boundaries_retained": true
+  },
+  "closeout": {
+    "tested_sha": "b6a198c5141aff4e34abb94e1755ea187ab56e04",
+    "evidence": "/workspace/work/s113-offline-band-audio-20261104/closeout.json",
+    "visual_verdict": "hold",
+    "next_action": "Root adopt exactfive assets aftercurrentS112 closure underfreshsourcepreflight; noownerwaiting.",
+    "new_issue_review": "Reviewedthrough913; production56raw0+diagnostic1raw0+held1raw1; nofailedpromotion. IndependentreviewactualmappedCC0/pitch/beat/timing/levelsCLEAR, nohuman/device listening."
   }
 }
