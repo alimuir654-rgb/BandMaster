@@ -20,6 +20,25 @@ These are bounded delegated roles, not continuously running services. Root activ
 
 ## Next shipping priority
 
+### New direct owner playtest revision —4November, manual review after the day build
+
+**Current experience is REVISION REQUESTED.** The owner explicitly identified songwriting as the frustrating scrolling screen. The attached Arjun/Zoe/Ellis poster repeats similar poses and breaks TRANSISTOR into TRANSISTO plus a lone R. Auditions and current Indie/Punk examples are not musically convincing; typed lyrics are rejected as the primary songwriting task. Work commitments, dates and formation lack visible consequence/energy. These are real player findings, not dismissed as ordinary scrolling or closed by prior technical tests. Historical approvals/source/proofs remain intact; V11/source2d is unchanged.
+
+Recommended sequence and options are in /workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md. This is a fresh direct manual review, not an extension/restart of the ended18:00 queue or authority to implement this new scope.
+
+| Priority | Next coherent work | Acceptance before breadth |
+|---|---|---|
+| 1 | Reproduce and fix songwriting gesture ownership; fit the actual band name. | Physical drags over paper/editor/controls with keyboard; every choice/action reachable; Arjun/Zoe/Ellis and whole TRANSISTOR wordmark. Nested editor/body is a hypothesis until reproduced. |
+| 2 | One audible producer-desk song-making slice. | Pace/energy/originality/lyrical direction without required lyric typing; recognisably different compatible musical takes, meaningful tradeoffs, saved identity; no max-all score answer key or simulator. Alternatives: authored writer’s room, then a hybrid desk plus one bandmate challenge. |
+| 3 | Agreed availability and dated calendar. | Reuse existing SituationCore attendance/agreements/booking ownership; record actual working patterns, show who can attend before commitment, clear paid-day cost. Dated week/month/phone week strip, earned show stamps and real trip reservations; no invented wages/rotas. |
+| 4 | Musical audition/genre revision. | Recognisable first phrase plus meaningful musical requests; strong original Punk/Indie hook/interplay/contrast at matched loudness. Explicit genre selection now requests automatic preview with remembered mute, stop/lifecycle and no unmute-resume. |
+| 5 | Formation, poses and branding. | Restrained fade/name/group/musical lift, immediate skip/reduced motion/mute; genuinely different source poses and depth, whole-name fit, coherent DIY poster/label-stamp/hand-painted directions. No flip/warp/body-copy fix or fake performance. |
+| 6 | Experience review and process. | Actual owner lineup/route; physical task completion, musical conviction and art composition judged separately from save/model/level checks. One coherent vertical slice before wider styles/cast breadth. |
+
+The S118 complete-notes/report and S119 archive proposals remain retained but secondary: clarifying Details does not solve the rejected songwriting direction. Current biography sidecars explicitly have no schedule/attendance effects; do not pretend those authored jobs already create weekly restrictions. Existing paid writing/rehearsal day rules stay preserved. Calendar navigation was technically repaired; its dated presentation is a new owner-requested direction, not an automatic booking/economy defect.
+
+Plan59/Board171 now record these current revisions and preserve all72choices/23checked/50images, unrelated blocks/order/IDs/AgentInstructions/archive/deletedA03absence. Current owner feedback supersedes earlier experience recommendations only; historical human decisions and audio values are not rewritten. No new Game/art/audio/native/APK operations in this manual review. Routine decisions stay delegated, with no generic owner-approval wait.
+
 S120 corrected the already linked phone playtest guide to V11/code11: https://chatgpt.com/space/page_484e9c379f348191aa0ac8ca3f9f92ca (sequence16). It now checks existing-save retention first, remembered Sound/selected part playback, the free lyric sketch and current Details, with honest Indie-rock/audio/demo/background boundaries. Older V5–V10 links, four images and feedback fields remain. Plan58/Board170 unchanged. Source2d/V11 unchanged; future opportunities should respond to genuinely new actionable feedback, not repeat completed reviews or create no-op metadata/engine/APK activity.
 
 S119 completed a separate read-only UX06 source/identity contract. Free Archive Sketch and the third paid session are distinct from read-only finished-page browsing; current opened adjacent captures do not establish an archive-page native baseline. Obtain that actual view in a fresh funded scope before presentation changes. No source/V11 change and no reopened UX04/UX05 review.

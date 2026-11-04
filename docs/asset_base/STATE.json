@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S121_fresh_direct_owner_playtest_design_review",
+  "status": "S121_manual_owner_playtest_review_closed_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "ONE final private ARM64 V11 from verified2d source; artifact only",
-  "writer": "root_S121_direct_owner_playtest_review",
+  "scope": "Fresh direct owner playtest design review and options only; completed",
+  "writer": null,
   "last_verified_code_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "baseline": {
     "run_id": 40778019754,
@@ -22,7 +22,7 @@
   },
   "scheduled_worker_generation_capability": "image_gen available but two attempted standalone portraits returned entire multi-panel UI collages; rejected",
   "next_stream": "presentation",
-  "next_single_action": "Resolve the exact pending400file closed-cache consolidation approval/persistent final-metadata funding, then fresh bounded Zoe bass audition from S100424rowmanifest under the existing overnight plan; no updatedAPK.",
+  "next_single_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
   "streams": {
     "C": {
       "status": "art_hold_v19_audited_512_pair_source_missing_independent_1024",
@@ -560,7 +560,7 @@
     "f16_meter_hash_verification": "23 passive source sprites byte-identical C15 vs F16; all six stats inert, focus none",
     "pending_core": "Independent >=1024px distinct musician master for Alex and Nia not available; C15 paired-origin 512px studies provisional; 16:00 art sign-off pending."
   },
-  "last_updated_utc": "2026-11-03T22:23:17.797280+00:00",
+  "last_updated_utc": "2026-11-04T19:09:21.724115+00:00",
   "owner_feedback_2026_10_29": {
     "received_at_utc": "2026-10-29T09:04:32Z",
     "exact_quote": "The progress here is reasonable. Keep it going till 4pm. I'm hoping for more progress and bigger ambition whilst retaining the quality. The meters look good.",
@@ -712,7 +712,7 @@
     "owner_approved": false
   },
   "last_sprint": "S100",
-  "next_action": "Review fresh direct playtest feedback and present design options; manual scope only, ended day automation not resumed.",
+  "next_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1842,7 +1842,7 @@
   "candidate_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
   "candidate_native_verified": true,
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-03T22:23:17.797280+00:00",
+  "updated_at": "2026-11-04T19:09:21.724115+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2040,7 +2040,7 @@
   "all_write_freeze": "2026-11-04T18:00:00Z",
   "hard_stop": "2026-11-04T18:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S98",
+  "last_completed_session": "S121",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2242,7 +2242,7 @@
     "source_game_unchanged": "3ec115477a75860ecb361c5bd41dc6eca9f9e917",
     "closeout": "/workspace/work/owner-review-revisions-20261101/s64/closeout.json"
   },
-  "closed_at": "2026-11-03T22:23:17.797280+00:00",
+  "closed_at": "2026-11-04T19:09:21.724115+00:00",
   "historical_aliases_before_s65_final_audit": {
     "last_validation": "/workspace/work/s40/runs/s51-mobile-c58f580-final/complete-validation.json",
     "last_run_summary": "Exactb310 standard/focused/entry/source/pixel/visual proof complete, technicalPASS/visualPARTIAL.",
@@ -2341,16 +2341,16 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": null,
-  "last_writer": "root_S120_V11_existing_playtest_guide",
+  "released_at": "2026-11-04T19:09:21.724115+00:00",
+  "last_writer": "root_S121_direct_owner_playtest_review",
   "source_write_allowed": false,
   "pending_implementation": false,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": "2026-11-04T19:30:00Z",
-  "authority": "Directowner4Nov: executeupdatedpriorities through18:00, routinecreative/listening/integrationdecisionsdelegated, prepareonefinalAPK. Internalquality/privacy/funding/save/sourcegatesretained.",
+  "expires_at": null,
+  "authority": "Fresh direct request to review actual playtest feedback and present ideas/options; manual review only. Earlier18:00 day build and queue remain ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
@@ -2428,8 +2428,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 37,
-  "current_review_board_sequence": 161,
+  "current_plan_sequence": 59,
+  "current_review_board_sequence": 171,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -2503,18 +2503,10 @@
     "current_local_evidence_availability": "HOLD previous TMP roots missing afterS87; historical execution retained, no fresh availability claim"
   },
   "current_manual_window": {
-    "date": "2026-11-02",
-    "authority": "Latestdirectowner F11approved + continuenextstages/buildAPKafterchanges. One bounded manualimplementationanddeliverypass; noautomaticschedule.",
-    "self_bounded": true,
-    "writer_release_target": "2026-11-02T13:30:00Z",
-    "all_write_freeze": "2026-11-02T13:40:00Z",
-    "hard_stop": "2026-11-02T13:45:00Z",
-    "status": "closed_delivered",
-    "queue_changed": false,
-    "last_completed_session": "S78",
-    "last_checkpoint_source": "5cc32e30051fc20490340031b2ee7456b5262844",
-    "root_released_at": "2026-11-02T12:31:16.561322+00:00",
-    "next_action": "Owner installs privately delivered V8 as an UPDATE without uninstalling/wiping, tests the work/rehearsal pilot and current radio/goals, then records detailed feedback for nextweek in PhonePage14 or this same chat. No further automatic feature/art/build/queue work."
+    "session": "S121",
+    "status": "closed_released",
+    "ended_at": "2026-11-04T19:09:21.724115+00:00",
+    "no_automatic_extension": true
   },
   "previous_local_checkpoint_before_S75": {
     "source_sha": "3e3ea50a8eaf54fec8a9bbae37a5d090691b68f4",
@@ -2655,7 +2647,76 @@
   "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "current_phone_page_sequence": 16,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
-  "closeout": "/workspace/work/s120-v11-playtest-guide-20261104/closeout.json",
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": [
+      "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
+      "/workspace/work/s121-owner-playtest-design-20261104/source-fact-bindings.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/source-process-audit.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/page-status-audit.json"
+    ],
+    "visual_verdict": "hold",
+    "experience_verdict": "owner_revision_requested",
+    "next_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
+    "new_issue_review": {
+      "owner_feedback_event": "S121-20261104-direct-owner-experience-revision-songwriting-scroll-and-music",
+      "alias_review_event": "S121-20261104-reviewed-inherited-current-aliases-before-release",
+      "all_actual_events_reviewed": true,
+      "no_product_correction_or_failed_proof_promotion": true
+    },
+    "scope": "Fresh direct manual review/options after ended18:00 day automation, no resumed build",
+    "owner_approved": false,
+    "direct_owner_feedback_received": true,
+    "historical_technical_passes_unchanged": true,
+    "owner_attachment_visual_inspections": 1,
+    "new_native_original_file_opens": 0,
+    "new_native_captures": 0,
+    "source_fact_bindings": 11,
+    "engine_model_audio_art_APK_executions": 0,
+    "scroll_root_cause": "Not reproduced; nested TextEdit/body scroll is a source-supported hypothesis",
+    "five_explicit_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED game critic",
+        "finding": "An earned formation moment and coherent song-to-show identity matter more than additional menus or numerical completeness."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Audible distinctive phrases and meaningful arrangement tradeoffs required; event parity/loudness/notation do not establish compelling music."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "Reach all choices, understand day/availability commitments and hear the result of a small number of choices without typing lyrics."
+      },
+      {
+        "lens": "SIMULATED mobile/accessibility reviewer",
+        "finding": "Reproduce songwriting drag ownership with keyboard and owner lineup; maintain reachable actions, reduced motion, mute, skip and no orphan name line."
+      },
+      {
+        "lens": "SIMULATED art/identity reviewer",
+        "finding": "Real varied source poses and coherent poster/sleeve/handpainted treatments; exact owner Arjun/Zoe/Ellis composition is a first acceptance case."
+      }
+    ],
+    "material_gaps": [
+      "Design and acceptance contract only, not implemented or audible prototype.",
+      "New owner playtest is real feedback; exact installed APK/device/output/keyboard/retention not independently verified.",
+      "Raw owner attachment unavailable locally; no hash or native rendering claim.",
+      "No new independent human reviewer or listening test; persona lenses are explicitly simulated."
+    ],
+    "Pages": {
+      "plan": 59,
+      "board": 171,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "unrelated_blocks_order_IDs_metadata_instructions_exact": true,
+      "browser_render_claim": false
+    },
+    "source_and_delivered_V11_unchanged": true,
+    "closed_at": "2026-11-04T19:09:21.724115+00:00",
+    "source_artifact_helpers_GL_released": true,
+    "manual_old_automation_not_resumed": true
+  },
   "last_artifact_slice": {
     "session": "S98",
     "kind": "ONEprivateARM64V10APKDELIVERED",
@@ -2665,15 +2726,27 @@
   "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "s79_closeout": "/tmp/bandmaster-s79-20261102/closeout.json",
   "current_experience_feedback": {
-    "session": "S79",
-    "owner_feedback": "Gamefeelslikeinstantbuttons/screens; meaningfuljourneys/auditions/songwritingneedsubstanceandcontinuity.",
-    "experience_acceptance": "not_met",
-    "brief": "docs/continuous_improvement/S79_BAND_EXPERIENCE_BRIEF.md",
-    "implementation_status": "proposed_not_implemented_in_V8",
-    "scope": "Designandmetadataonly",
-    "closed_at": "2026-11-02T19:10:21.914333+00:00",
-    "no_new_build": true,
-    "no_queue_change": true
+    "at": "2026-11-04T19:09:21.724115+00:00",
+    "source": "Direct owner chat, attached poster visually inspected in chat, and follow-up songwriting",
+    "status": "OWNER_REVISION_REQUESTED",
+    "experience": "scroll/songwriting/audio/audition/poster/formation/calendar/availability",
+    "scroll_screen": "songwriting",
+    "owner_poster": {
+      "lineup": [
+        "Arjun",
+        "Zoe",
+        "Ellis"
+      ],
+      "name": "TRANSISTOR",
+      "visible_defect": "TRANSISTO then orphan R; repetitive upright poses",
+      "raw_file_SHA": null
+    },
+    "genre_selection_autoplay_requested": true,
+    "routine_creative_decisions_delegated": true,
+    "review": "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
+    "event": "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
+    "historical_approvals_preserved": true,
+    "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
   "finite_end": "2026-11-04T18:00:00Z",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
@@ -2880,7 +2953,7 @@
       "at": "2026-11-03T04:54:21.581610+00:00"
     }
   },
-  "visual_verdict": "partial",
+  "visual_verdict": "hold",
   "s84_closeout": "/tmp/bandmaster-s84-20261103/closeout.json",
   "note": "S91latest source verification overrides olddisplay/P2repairpending pointers; historicalmissingproof/audio/art/APK/privacy/finiteend boundaries unchanged.",
   "latest_s84_release": {
@@ -2985,10 +3058,7 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "writer": "root_S121_direct_owner_playtest_review",
-    "expires_at": "2026-11-04T19:30:00Z"
-  },
+  "root_lease": null,
   "source_implementation_status": "NONE: existing guide corrected; Game2d/deliveredV11 unchanged.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4889,7 +4959,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S121_direct_owner_playtest_review",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -4958,7 +5028,8 @@
     "remote_checksum_available": false,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
-    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
+    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves.",
+    "owner_playtest_feedback_received": true
   },
   "latest_direct_owner_APK_upload": {
     "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
@@ -5050,12 +5121,27 @@
     "receipt": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json"
   },
   "latest_owner_playtest_feedback": {
-    "path": "/workspace/work/s99-feedback-20261103/owner-feedback.json",
-    "original_audition_process": "DIRECT_POSITIVE",
-    "latest_audio_acceptance": "/workspace/work/s99-feedback-20261103/owner-audio-approval.json",
-    "threeclips_integrated": true,
-    "no_updated_APK": true,
-    "overnight_plan_written": true
+    "at": "2026-11-04T19:09:21.724115+00:00",
+    "source": "Direct owner chat, attached poster visually inspected in chat, and follow-up songwriting",
+    "status": "OWNER_REVISION_REQUESTED",
+    "experience": "scroll/songwriting/audio/audition/poster/formation/calendar/availability",
+    "scroll_screen": "songwriting",
+    "owner_poster": {
+      "lineup": [
+        "Arjun",
+        "Zoe",
+        "Ellis"
+      ],
+      "name": "TRANSISTOR",
+      "visible_defect": "TRANSISTO then orphan R; repetitive upright poses",
+      "raw_file_SHA": null
+    },
+    "genre_selection_autoplay_requested": true,
+    "routine_creative_decisions_delegated": true,
+    "review": "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
+    "event": "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
+    "historical_approvals_preserved": true,
+    "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
   "metadata_commit_hold": null,
   "latest_owner_overnight_continuation": {
@@ -5109,12 +5195,12 @@
     "session": "S120_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
-  "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
+  "latest_owner_request": "Fresh direct owner playtest feedback after the18:00 build window: review process and present concrete options for songwriting scrolling (confirmed), repeated poster poses/name fit, weak auditions/audio, producer-desk songwriting without typing lyrics, real working commitments, dated calendar, automatic genre preview, stronger formation reveal and band branding. Manual design/review only; no resumed automation or new build authority.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S121",
+  "active_session": "S121_closed",
   "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "breadth_freeze": "2026-11-04T16:30:00Z",
-  "native_review_allowed": true,
+  "native_review_allowed": false,
   "source_writer": null,
   "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
@@ -5142,7 +5228,8 @@
     "remote_checksum_available": false,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
-    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
+    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves.",
+    "owner_playtest_feedback_received": true
   },
   "native_evidence_pending": false,
   "publication": "V11 compiled APK privately delivered to existing owner and named Ali reader only; all source/history/keys/saves remain local. Prior public-source automatic rejection remains binding.",
@@ -5165,6 +5252,19 @@
     "direct_new_request_at_review_clock": "2026-11-04T18:53:11Z",
     "old_day_hard_stop": "2026-11-04T18:00:00Z",
     "old_finite_automation_remains_ended": true,
-    "scope": "Read-only source review, design options, feedback/worklist/Pages metadata only"
+    "scope": "Read-only source review, design options, feedback/worklist/Pages metadata only",
+    "status": "closed_released",
+    "closed_at": "2026-11-04T19:09:21.724115+00:00",
+    "automation_restarted": false
+  },
+  "experience_verdict": "owner_revision_requested",
+  "s121_closeout": "/workspace/work/s121-owner-playtest-design-20261104/closeout.json",
+  "genre_preview_direction": {
+    "interaction": "on_explicit_genre_selection",
+    "owner_requested": true,
+    "implemented": false,
+    "master_mute_and_stop_lifecycle_preserved": true,
+    "unmute_no_autoresume": true,
+    "does_not_authorize_other_autoplay": true
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S121",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Fresh direct owner playtest feedback after the18:00 build window: review process and present concrete options for songwriting scrolling (confirmed), repeated poster poses/name fit, weak auditions/audio, producer-desk songwriting without typing lyrics, real working commitments, dated calendar, automatic genre preview, stronger formation reveal and band branding. Manual design/review only; no resumed automation or new build authority.",
   "baseline_sha": "544d62278ebdefcd665f2d54e96aea78f676a0d2",
@@ -30,8 +30,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1511752,
-    "sha256": "ae98cb883a2af1fb4d8d066ca94ed4bbb915d7cfd8a00f55a0a5df6d35e7b83b"
+    "bytes": 1516144,
+    "sha256": "fb381c6791ad6ecf014e789b4ecb8b4b0685a84450ca063ffa83b7f5f735ca93"
   },
   "target": {
     "locator": "/tmp/bandmaster-s116-due-day-calendar-20261104/runs/full-phone-v4/captures/08-earned-first-finished-original-day4-390x844.png",
@@ -84,10 +84,7 @@
     "Genre-on-explicit-selection autoplay with mute/stop/reveal/lifecycle limits; new energetic Punk/Indie brief not louder-only",
     "Formation emotional payoff/reduced-motion equivalent/source-honest pose variety/three branding directions"
   ],
-  "root_lease": {
-    "writer": "root_S121_direct_owner_playtest_review",
-    "expires_at": "2026-11-04T19:30:00Z"
-  },
+  "root_lease": null,
   "source_write_allowed": false,
   "art_write_allowed": false,
   "audio_write_allowed": false,
@@ -97,7 +94,7 @@
   "pending_implementation": false,
   "pending_helpers": false,
   "native_evidence_pending": false,
-  "review_pending": true,
+  "review_pending": false,
   "stop_condition": "Manual new direct review/design response only; close by19:30. Do not resume ended18:00 day automation, create queue/endtask, change source/assets/audio/save/dependencies or build APK. Future production needs a fresh complete contract.",
   "storage_plan": {
     "workspace_initial_free_bytes": 672907264,
@@ -122,5 +119,76 @@
     "old_day_hard_stop": "2026-11-04T18:00:00Z",
     "old_finite_automation_remains_ended": true,
     "scope": "Read-only source review, design options, feedback/worklist/Pages metadata only"
-  }
+  },
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": [
+      "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
+      "/workspace/work/s121-owner-playtest-design-20261104/source-fact-bindings.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/source-process-audit.json",
+      "/workspace/work/s121-owner-playtest-design-20261104/page-status-audit.json"
+    ],
+    "visual_verdict": "hold",
+    "experience_verdict": "owner_revision_requested",
+    "next_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
+    "new_issue_review": {
+      "owner_feedback_event": "S121-20261104-direct-owner-experience-revision-songwriting-scroll-and-music",
+      "alias_review_event": "S121-20261104-reviewed-inherited-current-aliases-before-release",
+      "all_actual_events_reviewed": true,
+      "no_product_correction_or_failed_proof_promotion": true
+    },
+    "scope": "Fresh direct manual review/options after ended18:00 day automation, no resumed build",
+    "owner_approved": false,
+    "direct_owner_feedback_received": true,
+    "historical_technical_passes_unchanged": true,
+    "owner_attachment_visual_inspections": 1,
+    "new_native_original_file_opens": 0,
+    "new_native_captures": 0,
+    "source_fact_bindings": 11,
+    "engine_model_audio_art_APK_executions": 0,
+    "scroll_root_cause": "Not reproduced; nested TextEdit/body scroll is a source-supported hypothesis",
+    "five_explicit_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED game critic",
+        "finding": "An earned formation moment and coherent song-to-show identity matter more than additional menus or numerical completeness."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Audible distinctive phrases and meaningful arrangement tradeoffs required; event parity/loudness/notation do not establish compelling music."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "Reach all choices, understand day/availability commitments and hear the result of a small number of choices without typing lyrics."
+      },
+      {
+        "lens": "SIMULATED mobile/accessibility reviewer",
+        "finding": "Reproduce songwriting drag ownership with keyboard and owner lineup; maintain reachable actions, reduced motion, mute, skip and no orphan name line."
+      },
+      {
+        "lens": "SIMULATED art/identity reviewer",
+        "finding": "Real varied source poses and coherent poster/sleeve/handpainted treatments; exact owner Arjun/Zoe/Ellis composition is a first acceptance case."
+      }
+    ],
+    "material_gaps": [
+      "Design and acceptance contract only, not implemented or audible prototype.",
+      "New owner playtest is real feedback; exact installed APK/device/output/keyboard/retention not independently verified.",
+      "Raw owner attachment unavailable locally; no hash or native rendering claim.",
+      "No new independent human reviewer or listening test; persona lenses are explicitly simulated."
+    ],
+    "Pages": {
+      "plan": 59,
+      "board": 171,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "unrelated_blocks_order_IDs_metadata_instructions_exact": true,
+      "browser_render_claim": false
+    },
+    "source_and_delivered_V11_unchanged": true,
+    "closed_at": "2026-11-04T19:09:21.724115+00:00",
+    "source_artifact_helpers_GL_released": true,
+    "manual_old_automation_not_resumed": true
+  },
+  "closed_at": "2026-11-04T19:09:21.724115+00:00"
 }
