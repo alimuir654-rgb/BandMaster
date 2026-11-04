@@ -10,19 +10,22 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S117_final_APK_preflight",
-  "next_action": "Fresh isolated final APK import/export/sign/audit/private delivery; no Game changes.",
+  "status": "S117_closed_V11_private_testing_ready",
+  "next_action": "Install V11 as an UPDATE over the existing playtest without uninstalling or clearing app data; test audition playback/mute, lyric keyboard editing, calendar/departure and first-show save retention on the physical phone. Remaining existing opportunities can handle actual feedback or useful funded read-only UX04/UX05 proposals until the18:00 hard stop; no unchanged suites/builds or intermediate APKs for activity.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
     "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "technical_pass": false,
     "scoped_technical_pass": true,
+    "artifact_technical_pass": true,
     "scoped_calendar_verdict": "internal_pass",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
-    "retained_debug_exit_P2": true
+    "validation": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
+    "retained_source_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+    "retained_forced_debug_exit_P2": true,
+    "physical_device_pending": true
   },
   "last_polish": {
     "session": "C34",
@@ -65,11 +68,16 @@
     "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
     "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
     "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+    "source_runtime_and_cache_permanently_closed": true,
     "scoped_source_accepted_for_next_work": true,
-    "current_phone_APK_is_this_source": false,
-    "phone_source_unchanged": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2"
+    "latest_delivered_APK_is_this_source": true,
+    "latest_delivered_APK_code": 11,
+    "physical_phone_installed_source_verified": false,
+    "visual_verdict": "partial",
+    "owner_approved": false
   },
-  "publication": "Source/history remain local; prior automatic public-upload rejection stands. Only selected private native PNG and compiled V9 APK delivered.",
+  "publication": "V11 compiled APK privately delivered to existing owner and named Ali reader only; all source/history/keys/saves remain local. Prior public-source automatic rejection remains binding.",
   "historical_opening_completion_gate": {
     "native_full_input_verified": true,
     "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
@@ -325,7 +333,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -443,7 +451,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -594,7 +602,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -792,7 +800,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2558,7 +2566,7 @@
       "simulated_lenses": {
         "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
         "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
-        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
+        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/£0 does not age or rescue zero-cash count.",
         "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
         "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
       },
@@ -2636,14 +2644,14 @@
       "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
       "visual_verdict": "partial",
       "owner_approved": false,
-      "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47–S51 source LOCAL, no newAPK",
       "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
       "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
       "remaining": [
         "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
         "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
         "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
-        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47–S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
         "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
       ],
       "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
@@ -2697,7 +2705,7 @@
       "visual_verdict": "partial",
       "owner_approved": false,
       "source_runtime": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime",
-      "android": "V5/a9 unchanged; S47\u2013S53 LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47–S53 LOCAL, no newAPK",
       "packaging": "Imported337-file isolated runtime and actual configuredentryPASS. No S53ZIP/APK built; finalstablemilestonepackaging later. LOCAL, notpublicdownloads.",
       "remaining": [
         "Physical Android camera/navigation/touch/performance verification pending; no device or emulator run.",
@@ -2705,7 +2713,7 @@
         "Phone soundcheck deliberately scrolls below fixed hardware; no claim that all three selected songs fit one phone fold. Reach preview is a plan modifier, not final net fans.",
         "Native full paid-show integration uses three selected originals; zero-original gross cap and hired/low-cash variants are independently model tested. Zero-selected warning has actual render/wheel proof, not a claimed zero-song paid native journey.",
         "Hardware lifecycle bench measures real mouse hide/resize/free and indexed-touch cancel/device isolation; do not extrapolate every modality/lifecycle permutation. Read-only27context utility did NOT measure orphan counters.",
-        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47\u2013S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
+        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47–S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
         "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
         "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
       ]
@@ -2830,8 +2838,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2849,7 +2857,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -3247,7 +3255,7 @@
     }
   ],
   "last_completed_session": "S98",
-  "writer": "root_S117_final_APK",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3627,15 +3635,15 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": null,
-  "last_writer": "root_S114_representative_band",
+  "released_at": "2026-11-04T12:58:38.665394+00:00",
+  "last_writer": "root_S117_final_APK",
   "source_write_allowed": false,
   "pending_implementation": false,
   "pending_helpers": false,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S97verifiednative/source; S98V10compiledAPKbuild/auditcomplete",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": "2026-11-04T14:00:00Z",
+  "expires_at": null,
   "authority": "Direct owner Variations approved and Continue; scopedS97 committedpreflight and completeexactsource proof. NoAPK/fullGame/art approval inferred.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -3964,126 +3972,51 @@
   "page_write_allowed": false,
   "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "latest_local_native_checkpoint": {
-    "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-    "complete_validation": "/workspace/work/s97-approved-variants-20261103/closeout.json",
-    "manifest": "/workspace/work/s97-approved-variants-20261103/candidate-v1/source-final.json",
-    "runtime": "/workspace/work/s97-approved-variants-20261103/candidate-v1/runtime",
-    "source_protection": "/workspace/work/s97-approved-variants-20261103/source-storage-protection-final.json",
-    "logs": "/workspace/work/s97-approved-variants-20261103/accepted-log-audit.json",
-    "standard_RGBA": "/workspace/work/s97-approved-variants-20261103/standard-RGBA-comparison.json",
-    "final_visual": "/workspace/work/s97-approved-variants-20261103/review/final-v1.json",
+    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+    "source_runtime_and_cache_permanently_closed": true,
+    "scoped_source_accepted_for_next_work": true,
+    "latest_delivered_APK_is_this_source": true,
+    "latest_delivered_APK_code": 11,
+    "physical_phone_installed_source_verified": false,
     "visual_verdict": "partial",
-    "scoped_audition_variants": "internal_pass",
-    "owner_approved": false,
-    "current_phone_APK_is_this_source": false,
-    "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb"
+    "owner_approved": false
   },
   "latest_verified_phase2": {
-    "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-    "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
-    "closeout": "/tmp/bandmaster-s86-20261103/closeout.json",
-    "source_runtime": "/tmp/bandmaster-s86-20261103/candidate-soundcheck-3d2-v1/runtime",
-    "runtime_manifest": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/source.json",
-    "runtime_source_audit": "/tmp/bandmaster-s86-20261103/review/final-runtime-storage-oracle-audit.json",
-    "source_protection_audit": "/tmp/bandmaster-s86-20261103/source-protection-audit.json",
-    "focused_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
-    "visual_review": "/tmp/bandmaster-s86-20261103/review/final-visual-review-root-3d2.json",
-    "independent_visual": "/tmp/bandmaster-s86-20261103/review/final-visual-review-3d2.json",
-    "independent_auxiliary_visual": "/tmp/bandmaster-s86-20261103/review/final-visual-review-3d2-aux48-addendum.json",
+    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+    "source_runtime_and_cache_permanently_closed": true,
+    "scoped_source_accepted_for_next_work": true,
+    "latest_delivered_APK_is_this_source": true,
+    "latest_delivered_APK_code": 11,
+    "physical_phone_installed_source_verified": false,
     "visual_verdict": "partial",
-    "owner_approved": false,
-    "phone_release_is_this_source": false,
-    "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
-    "summary": {
-      "gameplay": 73,
-      "opening": 88,
-      "current_private_import": true,
-      "four_standard_journeys": true,
-      "standard_render_events": 232,
-      "standard_unique_filename_families": 216,
-      "standard_new_physical_PNGs": 4,
-      "standard_fresh_encoded_references": 228,
-      "standard_RGBA_exact": 228,
-      "disclosed_Reopen_fades": 4,
-      "unexpected_standard_differences": 0,
-      "focused_checks": 12621,
-      "full_gigs": 4,
-      "failed_save_retry_cases": 14,
-      "reloads": 16,
-      "auxiliary_checks": 1359,
-      "auxiliary_is_full_gig": false,
-      "accepted_current_log_count": 16,
-      "all_error_lines": [],
-      "measured_native_orphan_growth": 0,
-      "model_checks_REUSED": 9128,
-      "current_model_executions": 0,
-      "model_orphans_measured": false,
-      "curated": 408,
-      "raw_Git": 407,
-      "entry_bytes": 146,
-      "shipping_changed": 2,
-      "protected_curated": 406,
-      "original_Scripts": 54,
-      "original_UIDs": 3,
-      "root_final_stage_actual_opens": 9,
-      "independent_final_stage_actual_opens": 18
-    }
+    "owner_approved": false
   },
   "playable_opening_checkpoint": {
-    "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-    "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
-    "closeout": "/tmp/bandmaster-s86-20261103/closeout.json",
-    "source_runtime": "/tmp/bandmaster-s86-20261103/candidate-soundcheck-3d2-v1/runtime",
-    "runtime_manifest": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/source.json",
-    "runtime_source_audit": "/tmp/bandmaster-s86-20261103/review/final-runtime-storage-oracle-audit.json",
-    "source_protection_audit": "/tmp/bandmaster-s86-20261103/source-protection-audit.json",
-    "focused_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
-    "visual_review": "/tmp/bandmaster-s86-20261103/review/final-visual-review-root-3d2.json",
-    "independent_visual": "/tmp/bandmaster-s86-20261103/review/final-visual-review-3d2.json",
-    "independent_auxiliary_visual": "/tmp/bandmaster-s86-20261103/review/final-visual-review-3d2-aux48-addendum.json",
+    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+    "source_runtime_and_cache_permanently_closed": true,
+    "scoped_source_accepted_for_next_work": true,
+    "latest_delivered_APK_is_this_source": true,
+    "latest_delivered_APK_code": 11,
+    "physical_phone_installed_source_verified": false,
     "visual_verdict": "partial",
-    "owner_approved": false,
-    "phone_release_is_this_source": false,
-    "phone_source_unchanged": "625e6443cc8ea5c68b57db1b248b0c69d0c7e2eb",
-    "summary": {
-      "gameplay": 73,
-      "opening": 88,
-      "current_private_import": true,
-      "four_standard_journeys": true,
-      "standard_render_events": 232,
-      "standard_unique_filename_families": 216,
-      "standard_new_physical_PNGs": 4,
-      "standard_fresh_encoded_references": 228,
-      "standard_RGBA_exact": 228,
-      "disclosed_Reopen_fades": 4,
-      "unexpected_standard_differences": 0,
-      "focused_checks": 12621,
-      "full_gigs": 4,
-      "failed_save_retry_cases": 14,
-      "reloads": 16,
-      "auxiliary_checks": 1359,
-      "auxiliary_is_full_gig": false,
-      "accepted_current_log_count": 16,
-      "all_error_lines": [],
-      "measured_native_orphan_growth": 0,
-      "model_checks_REUSED": 9128,
-      "current_model_executions": 0,
-      "model_orphans_measured": false,
-      "curated": 408,
-      "raw_Git": 407,
-      "entry_bytes": 146,
-      "shipping_changed": 2,
-      "protected_curated": 406,
-      "original_Scripts": 54,
-      "original_UIDs": 3,
-      "root_final_stage_actual_opens": 9,
-      "independent_final_stage_actual_opens": 18
-    }
+    "owner_approved": false
   },
   "current_phone_page_sequence": 15,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
-  "closeout": "/workspace/work/s114-representative-band-20261104/closeout.json",
-  "last_delivery": "/tmp/bandmaster-s82-20261102/android/phone-v9-delivery.json",
+  "closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
+  "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "s79_closeout": "/tmp/bandmaster-s79-20261102/closeout.json",
   "current_experience_feedback": {
     "session": "S79",
@@ -4097,7 +4030,7 @@
     "no_queue_change": true
   },
   "session_path": "docs/continuous_improvement/sessions/S87.json",
-  "finite_end": "2026-11-04T21:24:35+00:00",
+  "finite_end": "2026-11-04T18:00:00Z",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "art_pending_A06": false,
   "A06_v1_owner_decision": {
@@ -4122,54 +4055,43 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "last_verified_game_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "last_verified_game_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "current_candidate": {
-    "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-    "status": "verified_local",
+    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "status": "verified_scoped_source_packaged_V11",
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "last_verified_code_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
-  "last_verified_component_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-  "last_verified_native_run_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-  "last_verified_local_native_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "last_verified_code_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "last_verified_component_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "last_verified_native_run_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+  "last_verified_local_native_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "source_writer_released_at": "2026-11-04T10:20:29.183737+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "scope_end": "2026-11-03T12:45:00Z",
+  "scope_end": "2026-11-04T12:58:38.665394+00:00",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
   "active_development_run": {
-    "status": "S100_complete_released_metadata_commit_hold",
-    "session": "S100",
-    "source_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "session": "S117",
+    "status": "closed_private_V11_delivered",
     "writer": null,
-    "released_at": "2026-11-04T00:24:41.993684+00:00",
+    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "released_at": "2026-11-04T12:58:38.665394+00:00",
     "continuous_compute_claim": false,
-    "finite_end": "2026-11-04T21:24:35Z",
-    "overnight_plan": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+    "finite_end": "2026-11-04T18:00:00Z"
   },
   "current_delivery_policy": {
-    "status": "V10_PRIVATE_DELIVERED_FUTURE_APK_HELD",
-    "owner_instruction": "Great. Go ahead with an apk build.",
-    "recorded_at": "2026-11-03T22:05:46.139987+00:00",
-    "automatic_milestone_APK": false,
-    "scope": "ThisoneV10only; futureAPKhelduntilfreshdirectrequest",
-    "existing_phone_build": "V10/code10/source5b08 privatelyDELIVERED, physicalinstall/audio/retentionunverified. V9retained.",
-    "same_finite_queue": "6ae532c5fe9c819190f587a022c54052",
-    "finite_end": "2026-11-04T21:24:35+00:00",
-    "build_authority_used": true,
-    "resume_APK_requires_fresh_owner_request": true,
-    "pending_private_upload_approval": {
-      "question_pending": false,
-      "resolved_direct_owner_request": "Upload and give access to alimuir654@gmail.com",
-      "approval_receipt": "/workspace/work/s98-owner-apk-v10-20261103/owner-upload-approval.json",
-      "file_id": "13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv",
-      "named_reader_verified": true
-    }
+    "status": "V11_PRIVATE_DELIVERED_DAY_REQUEST_FULFILLED",
+    "routine_decisions_delegated": true,
+    "one_final_APK_only": true,
+    "automatic_intermediate_APKs": false,
+    "private_owner_and_existing_named_reader_only": true,
+    "no_sourcehistory_keys_saves_or_public_sharing": true,
+    "hard_stop": "2026-11-04T18:00:00Z"
   },
   "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
-  "tested_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -4348,13 +4270,13 @@
     "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
     "at": "2026-11-03T06:49:14.519386+00:00"
   },
-  "latest_direct_owner_steering": "The audio files aren't great. I would go for some improvised strumming and chord progressions in line with the music style. We will need to grade them against the characters skill levels. Might be best to generate rather than source.",
+  "latest_direct_owner_steering": "4Nov: Go ahead with the updated priorities. Remove constraints around owner decisions - build through to6pm and prepare an apk at the end ready for testing.",
   "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
   "current_operational_queue": {
     "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
     "art_jobs": 4,
     "UX_jobs": 9,
-    "next": "Evidence/storage readiness plus changed-method audio brief; UX02 remains next shipping review",
+    "next": "Install V11 as an UPDATE over the existing playtest without uninstalling or clearing app data; test audition playback/mute, lyric keyboard editing, calendar/departure and first-show save retention on the physical phone. Remaining existing opportunities can handle actual feedback or useful funded read-only UX04/UX05 proposals until the18:00 hard stop; no unchanged suites/builds or intermediate APKs for activity.",
     "roles": {
       "implementation": "/root/s81_contract_safety",
       "artwork_sourcing_method": "/root/foundation_tests",
@@ -4362,13 +4284,15 @@
       "audio_source_scope": "/root/game_design_research",
       "root": "solemetadata/integration/GLcoordinator"
     },
-    "audio_next": "Fresh bounded changed-method audio brief: verify a rights-cleared no-paid-service generation capability, actual band style and internal character instrument-skill rubric; restore durable evidence/Git storage under reviewed preservation contract before any replacement assets. One <=4-second tone/feel prototype can fit the retained cap; no new assets/integration until fresh committed preflight/gate. UX02 remains next shipping review after evidence/storage readiness.",
+    "audio_next": "Adopted current source recordings; no remaining owner listening wait under delegated authority.",
     "S89_briefs": "docs/continuous_improvement/S89_AUDIO_ART_UX_BRIEFS.md",
     "current_blockers": [
       "native desktop",
       "audio executabletool/rights/budget",
       "ART01compliantauthoringroute"
-    ]
+    ],
+    "scope": "Existing single worklist; S114/S116 priorities implemented and V11 delivered.",
+    "id": "6ae532c5fe9c819190f587a022c54052"
   },
   "audio_proposal": {
     "id": "AU01",
@@ -4378,17 +4302,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -4425,7 +4349,7 @@
     "base_head": "336a17952649502a7fd44411999812d7e170da1f",
     "authority": "Latestdirectownergoahead/resource-reset/max48h; finiteendNov4 21:24:35London."
   },
-  "game_baseline_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "s85_release": {
     "writer": null,
     "source_art_audio_writers": null,
@@ -4435,9 +4359,9 @@
     "no_new_Game_art_audio_APK": true,
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
-  "latest_metadata_deliverable": "S98 V10 privateAPKdelivered owner+Ali; physicalphonepending",
+  "latest_metadata_deliverable": "S117 V11 signed/audited/private owner+Ali testing artifact delivered; physical-device acceptance pending.",
   "root_lease": null,
-  "source_implementation_status": "NONE: S98packagingonly; GameS97unchanged",
+  "source_implementation_status": "NONE: verified S116 source packaged as V11; S117 artifact-only.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -4887,17 +4811,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -5594,7 +5518,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
+  "current_verified_game_source": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -6336,7 +6260,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S115_first_career_review",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6382,64 +6306,30 @@
   },
   "s98_closeout": "/workspace/work/s98-owner-apk-v10-20261103/closeout.json",
   "latest_owner_APK_build": {
-    "status": "PRIVATE_DELIVERED_PHYSICAL_PHONE_PENDING",
-    "game_source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-    "version_name": "0.97.0-playtest",
-    "version_code": 10,
+    "status": "PRIVATE_V11_DELIVERED_PHYSICAL_DEVICE_PENDING",
+    "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "version_code": 11,
+    "version_name": "0.116.0-playtest",
     "application_id": "com.bandmaster.ownerplaytest.s40",
     "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
     "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
-    "save_path": "user://c27_opening_draft.json",
     "abis": [
       "arm64-v8a"
     ],
     "requested_permissions": [],
-    "bytes": 99338695,
-    "local_sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
-    "apk_path": "/tmp/bandmaster-s98-apk-20261103/BandMaster-Playtest-v10-arm64.apk",
-    "build_receipt": "/workspace/work/s98-owner-apk-v10-20261103/build.json",
-    "audit": "/workspace/work/s98-owner-apk-v10-20261103/update-privacy-audit-v10.json",
-    "file_id": "13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv",
-    "url": "https://drive.google.com/file/d/13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv/view?usp=drivesdk",
-    "metadata_readback": {
-      "status": "PRIVATE_V10_DELIVERED_NAMED_READER_VERIFIED",
-      "source_sha": "5b08a3d5cc746a4b1b1b3f9936503ee091aaf3b2",
-      "file_id": "13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv",
-      "url": "https://drive.google.com/file/d/13clOc_IG1N2-vbzLCfDh4BGnxYXMg3Jv/view?usp=drivesdk",
-      "file_name": "BandMaster-Playtest-v10-arm64.apk",
-      "mime_type": "application/vnd.android.package-archive",
-      "bytes": 99338695,
-      "local_sha256": "18eb91324e6ea79644ceaadc2177ece297c0bf8938c9c5e2e2cadfd2c9cdbe9f",
-      "parent_ids": [
-        "0AAaVL64Kv2tDUk9PVA"
-      ],
-      "permissions": [
-        {
-          "type": "user",
-          "role": "reader",
-          "email": "alimuir654@gmail.com"
-        },
-        {
-          "type": "user",
-          "role": "owner",
-          "email": "chair@lovewelluk.com"
-        }
-      ],
-      "explicit_owner_upload_reader_approval": "Upload and give access to alimuir654@gmail.com",
-      "upload_success": true,
-      "individual_reader_grant_success": true,
-      "metadata_readback_verified": true,
-      "remote_checksum_available": false,
-      "public_domain_folder_broadening": false,
-      "source_history_keys_saves_rawbank_uploaded": false,
-      "new_engine_or_rebuild": false,
-      "physical_phone_install_save_retention_audio_tested": false
-    },
+    "bytes": 100969577,
+    "local_sha256": "6349ce07387aa46b7e966475f8348fd66cfa58781356752e947539a6b2bd96f2",
+    "apk_path": "/tmp/bandmaster-s117-final-apk-v11-20261104/BandMaster-Playtest-v11-arm64.apk",
+    "file_id": "1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL",
+    "url": "https://drive.google.com/file/d/1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL/view?usp=drivesdk",
+    "build_receipt": "/workspace/work/s117-final-apk-v11-20261104/build.json",
+    "audit": "/workspace/work/s117-final-apk-v11-20261104/update-privacy-audit-v11.json",
+    "delivery_receipt": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
     "private_named_reader_verified": true,
     "remote_checksum_available": false,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
-    "install_instruction": "InstallUPDATE; never uninstall/clearstorage/wipe."
+    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
   },
   "latest_direct_owner_APK_upload": {
     "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
@@ -6538,7 +6428,7 @@
     "no_updated_APK": true,
     "overnight_plan_written": true
   },
-  "metadata_commit_hold": false,
+  "metadata_commit_hold": null,
   "latest_owner_overnight_continuation": {
     "direct_request": "Continue through to7:30am",
     "date": "2026-11-04",
@@ -6585,13 +6475,45 @@
     "stop": "2026-11-04T18:00:00Z",
     "owner_decisions_delegated": true,
     "prepare_final_APK": true,
+    "final_APK_delivered": true,
     "same_queue": "6ae532c5fe9c819190f587a022c54052",
-    "session": "S112_closed_nextS114",
+    "session": "S117_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
   "latest_owner_request": "Directowner: buildthrough18:00, routineownerdecisionsdelegated, preparefinalAPK; samequeue/thread. No newprivacy/paid/runtimeAI/engineauthority.",
-  "active_session": "S115",
-  "game_source_sha": "a3acbc7f72b8770a91fb2294b104a0aa78cf4269",
+  "active_session": "S117",
+  "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "breadth_freeze": "2026-11-04T16:30:00Z",
-  "native_review_allowed": true
+  "native_review_allowed": true,
+  "source_writer": null,
+  "artifact_writer": null,
+  "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
+  "latest_private_android": {
+    "status": "PRIVATE_V11_DELIVERED_PHYSICAL_DEVICE_PENDING",
+    "game_source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "version_code": 11,
+    "version_name": "0.116.0-playtest",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+    "abis": [
+      "arm64-v8a"
+    ],
+    "requested_permissions": [],
+    "bytes": 100969577,
+    "local_sha256": "6349ce07387aa46b7e966475f8348fd66cfa58781356752e947539a6b2bd96f2",
+    "apk_path": "/tmp/bandmaster-s117-final-apk-v11-20261104/BandMaster-Playtest-v11-arm64.apk",
+    "file_id": "1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL",
+    "url": "https://drive.google.com/file/d/1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL/view?usp=drivesdk",
+    "build_receipt": "/workspace/work/s117-final-apk-v11-20261104/build.json",
+    "audit": "/workspace/work/s117-final-apk-v11-20261104/update-privacy-audit-v11.json",
+    "delivery_receipt": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
+    "private_named_reader_verified": true,
+    "remote_checksum_available": false,
+    "physical_phone_tested": false,
+    "physical_upgrade_save_retention_tested": false,
+    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
+  },
+  "native_evidence_pending": false,
+  "historical_active_aliases_before_S117_release": "/workspace/work/s117-final-apk-v11-20261104/canonical-aliases-before-release.json"
 }

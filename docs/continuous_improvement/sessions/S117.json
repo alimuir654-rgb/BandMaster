@@ -25,14 +25,14 @@
     "BM-45"
   ],
   "id": "S117",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Direct owner4Nov: build through18:00 and prepare one final APK ready for testing; routine decisions delegated. Selected compiled APK privately to existing owner and Ali channel only.",
   "baseline_sha": "cba498276127c48bde673d47c205928c3686a2f5",
   "game_baseline_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
   "dominant_issue": "BM-44",
   "issue_log_review": {
-    "bytes": 1494277,
-    "sha256": "13de0fece35ab0fdba2abcdd070f59079ea7b05b33f492f29ef1d692b129137c"
+    "bytes": 1500576,
+    "sha256": "c0832b03937655cf1454029a5eadc6fc54f7efebdf5a1c8794ea43e33209c6de"
   },
   "target": {
     "locator": "/tmp/bandmaster-s115-first-career-loop-20261104/runs/day5-route-phone-v1/captures/01-earned-held669-DAY5-begin-visible-actions-no-public-calendar-390x844.png",
@@ -70,20 +70,22 @@
   "state_matrix": [
     "Source436exact/no QA extras/fresh private import",
     "ARM64/version11/same appID/cert/savefolder/zeropermissions/validlauncher",
-    "All14currentaudio assets and5audio JSON registries/resource remaps, exact source/provenance gates",
+    "All14currentaudio assets and6audio JSON registries/resource remaps, exact source/provenance gates",
     "Signing/CRC/alignment/assets/source privacy + actual private delivery readback",
     "ExistingV10 retained; no oldAPK rehash, newrecipient or broad grant; physical install/retention/audio/IME pending"
   ],
   "root_lease": {
     "writer": "root_S117_final_APK",
-    "expires_at": "2026-11-04T14:00:00Z"
+    "expires_at": "2026-11-04T14:00:00Z",
+    "released_at": "2026-11-04T12:58:38.665394+00:00",
+    "active": false
   },
   "source_write_allowed": false,
   "art_write_allowed": false,
   "APK_artifact_allowed": true,
-  "pending_implementation": true,
+  "pending_implementation": false,
   "pending_helpers": false,
-  "native_evidence_pending": true,
+  "native_evidence_pending": false,
   "stop_condition": "One final APK only; hold any strict ERROR/source/privacy/signature mismatch before delivery. Preserve failed artifacts. No source fixes or extra paths without fresh rescope. Artifact lease14:00, hardstop18:00; no automatic extension/newqueue/endtask.",
   "storage_plan": {
     "workspace_initial_free_bytes": 679305216,
@@ -146,5 +148,182 @@
     "version_name": "0.116.0-playtest",
     "ABI": "arm64-v8a",
     "physical_device_tested": false
+  },
+  "audio_registry_inventory": [
+    "experiments/playable_flightcase/audio/arjun_clips.json",
+    "experiments/playable_flightcase/audio/audition_clips.json",
+    "experiments/playable_flightcase/audio/genre_examples.json",
+    "experiments/playable_flightcase/audio/splash_cue.json",
+    "experiments/playable_flightcase/audio/zoe_clips.json",
+    "experiments/playable_flightcase/audio/marcus_clips.json"
+  ],
+  "closed_at": "2026-11-04T12:58:38.665394+00:00",
+  "artifact_writer_released": true,
+  "closeout": {
+    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+    "evidence": {
+      "build": "/workspace/work/s117-final-apk-v11-20261104/build.json",
+      "separate_readonly_APK_audit": "/workspace/work/s117-final-apk-v11-20261104/update-privacy-audit-v11.json",
+      "private_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
+      "final_source_storage_process_audit": "/workspace/work/s117-final-apk-v11-20261104/final-audit.json",
+      "Pages": "/workspace/work/s117-final-apk-v11-20261104/page-status-audit.json",
+      "sole_queue": "/workspace/work/s117-final-apk-v11-20261104/queue-update.json",
+      "retained_exact_source_native_proof": "/workspace/work/s116-due-day-calendar-20261104/closeout.json"
+    },
+    "visual_verdict": "partial",
+    "artifact_technical_pass": true,
+    "owner_approved": false,
+    "APK": {
+      "path": "/tmp/bandmaster-s117-final-apk-v11-20261104/BandMaster-Playtest-v11-arm64.apk",
+      "bytes": 100969577,
+      "sha256": "6349ce07387aa46b7e966475f8348fd66cfa58781356752e947539a6b2bd96f2",
+      "entries": 917,
+      "CRC": "PASS",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "from_version_code": 10,
+      "to_version_code": 11,
+      "version_name": "0.116.0-playtest",
+      "appID": "com.bandmaster.ownerplaytest.s40",
+      "certificate_SHA256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "same_custom_user_directory": "BandMasterOwnerPlaytestS40",
+      "same_embedded_project_binary_SHA": "c70d4d409501f7990945f837b3315672ac37c563184c05ba78372e7e74823a2a",
+      "same_platform_project_SHA": "be58d0ddeceea1a06ccebfc0e66e73a07f3780de2849494abf6a350ab600fcd1",
+      "permissions": [],
+      "physical_upgrade_save_retention_tested": false,
+      "prior_V10_basis": "Verified durable V10 build/audit plus current private Drive metadata. Exact retained V6 platform settings and project binary reused; same V10 app/cert/savefolder verified.",
+      "install": "UPDATE existing app; do not uninstall, clear storage or wipe saves.",
+      "url": "https://drive.google.com/file/d/1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL/view?usp=drivesdk",
+      "file_id": "1J1Pk7QadTW3G_45_ducmHCPgRUPPCFKL",
+      "private_owner_and_named_reader_verified": true,
+      "remote_checksum_available": false,
+      "remote_checksum_limit": "Returned metadata wrapper did not expose a remote checksum; no remote cryptographic byte equality claim."
+    },
+    "source": {
+      "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+      "manifest_SHA": "7cd3e64706f19d3e16665bfdfc958dd5afb4de0039d2fd91801f417a6033badd",
+      "curated_rows": 436,
+      "Git_rows": 435,
+      "bytes": 98258966,
+      "ordered_digest": "99f573b46c5fa82202c6b1e97c25b1a211b509b07a2cb7e14e08443b4428aec1",
+      "Game_mutation_in_S117": false,
+      "declared_platform_project_override": true,
+      "runtime_extras_copied": 0,
+      "next_base_is_S116_manifest_not_APK_project": true
+    },
+    "executions": {
+      "S117_actual_Godot": 2,
+      "fresh_private_import": 1,
+      "export": 1,
+      "strict_build_steps_raw0_ERRORempty": 9,
+      "separate_readonly_SDK_audit_steps_raw0_ERRORempty": 5,
+      "S117_held_builds_or_audits": 0,
+      "new_source_UI_model_or_gig_suite_executions": 0
+    },
+    "APK_audit": {
+      "entries": 917,
+      "CRC": "PASS",
+      "alignment": "16KiB PASS",
+      "ABI": "arm64-v8a",
+      "permissions": [],
+      "MAIN_LAUNCHER": true,
+      "HOME": false,
+      "compiled_scripts": 160,
+      "source_remaps": 172,
+      "direct_identical": 39,
+      "fresh_imported_resource_matches": 215,
+      "all14OGGs_and_six_audio_JSON_exact": true,
+      "same11_omissions_as_V10": true,
+      "official_template_runtime_native_members_exact": true,
+      "unexpected_assets": []
+    },
+    "reused_source_proof": {
+      "receipt": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+      "four_complete_natural_menu_to_first_show_loops": true,
+      "separate_real_FS_failure_retry_branches": 3,
+      "original_Core_attendance_branch": true,
+      "S116_actual_Godot": 21,
+      "S116_strict_accepted": 18,
+      "S116_held_retained": 3,
+      "fresh73_gameplay_88opening_EMPTYimport_fourstandards": true,
+      "affected1732_model_checks": "Reused actual S114 suite via exact unchanged dependency closure; not a new S116/S117 affected-model execution.",
+      "no_reexecution_or_new_visual_evidence_claim": true
+    },
+    "images": {
+      "S117_new_actual_opens": 0,
+      "S117_new_native_PNGs": 0,
+      "retained_S116_root_current_opens": 16,
+      "retained_S116_independent_current_opens": 23,
+      "S116_root_log": "/workspace/work/s116-due-day-calendar-20261104/root-open-log.json",
+      "S116_independent_review": "/workspace/work/s116-due-day-calendar-20261104/final-review.json"
+    },
+    "five_explicit_SIMULATED_lenses": {
+      "critic": "Four natural first-show journeys are supported by retained exact-source proof. Static cast art and sparse large layouts remain partial; this artifact audit is not a new game review.",
+      "musician": "Bass/drum parts and their matching clips are retained with approved/provenance gates; Dummy and symbolic parity do not prove audible quality or character musicianship.",
+      "general_player": "One private update link and unchanged save identity; actual Android installation/retained career comprehension remain for device testing.",
+      "accessibility": "Native pointer/key/emulated-touch proof is retained. Physical keyboard/IME, OS interruption and speaker/headphone behavior remain untested.",
+      "state_privacy": "Same appID/certificate/savefolder, zero permissions and excluded source/history/keys/saves; physical upgrade save retention is untested."
+    },
+    "limits": [
+      "Physical installation, save retention, speaker/headphone audibility, IME, OS interruptions and device audio quality are untested.",
+      "Overall visuals remain partial: static people, sparse wide/tall composition and normal body scrolling for lower paper/details.",
+      "Arjun adjusted responses are written-only; four implemented audition profiles and three genre examples, with all14 genres selectable.",
+      "S112/S114 forced debug-exit resource diagnostic remains a retained P2 HOLD; ordinary lifecycle and separately capped real-time entry pass. Exact cause unproved.",
+      "No human listening, human game-critic/playtest or owner artwork acceptance inferred from simulated lenses or technical audits."
+    ],
+    "Pages": {
+      "Plan_sequence": 56,
+      "Board_sequence": 168,
+      "choices": 72,
+      "checked": 23,
+      "images": 50,
+      "all_other_blocks_order_ID_hash_exact": true,
+      "owner_checkbox_writes": 0,
+      "browser_render_claimed": false
+    },
+    "sole_queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "COUNT": 44,
+      "last_opportunity": "17:15 Europe/London",
+      "hard_stop": "2026-11-04T18:00:00Z",
+      "prompt_only_updated": true,
+      "no_new_queue_controller_endtask_extension": true,
+      "continuous_compute_claim": false
+    },
+    "new_issue_review": {
+      "prefix": {
+        "bytes": 1500576,
+        "sha256": "c0832b03937655cf1454029a5eadc6fc54f7efebdf5a1c8794ea43e33209c6de"
+      },
+      "all_events_preserved": true,
+      "scope": "Actual six-registry inventory, bounded retrieval and stale active alias review, final signed artifact/private delivery verified. No failed source or build proof promoted."
+    },
+    "storage": {
+      "persistent_cap": 4194304,
+      "TMP_cap": 1073741824,
+      "DAY_cap": 25165824,
+      "floor": 629145600,
+      "TMP_physical_final": 481214464,
+      "new_private_cache_files": 482,
+      "source_and_cache_permanently_closed": true,
+      "old_S116_455_cache_files_exact": true,
+      "prior_protected_caches_and800_hardlink_paths": "Retained serialized S116 proof; not mutated by artifact-only work.",
+      "critical_Git_primary_only": true,
+      "no_cleanup_or_old_mutable_cache_sharing": true
+    },
+    "released": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "helpers": "all completed",
+      "GL_lock_available": true,
+      "S117_Xorg_started": false,
+      "socket99_absent": true,
+      "PID1_owned_defunct_Xorg_entries_retained_not_live": true
+    },
+    "closed_at": "2026-11-04T12:58:38.665394+00:00",
+    "next_action": "Install V11 as an UPDATE over the existing playtest without uninstalling or clearing app data; test audition playback/mute, lyric keyboard editing, calendar/departure and first-show save retention on the physical phone. Remaining existing opportunities can handle actual feedback or useful funded read-only UX04/UX05 proposals until the18:00 hard stop; no unchanged suites/builds or intermediate APKs for activity."
   }
 }
