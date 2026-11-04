@@ -77,6 +77,7 @@ func _button(words: String,id: String,callback: Callable) -> Button:
  var button: Button=C.button(words)
  button.name=id
  button.custom_minimum_size.y=48
+ button.mouse_filter=Control.MOUSE_FILTER_PASS
  button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  button.pressed.connect(callback)
  _buttons.append(button)
@@ -151,6 +152,7 @@ func _build() -> void:
  _place.add_child(history)
  var paper:=PanelContainer.new()
  paper.name="SketchPaper"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
  paper.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  paper.add_theme_stylebox_override("panel",Paper.scorecard())
  _spread.add_child(paper)
