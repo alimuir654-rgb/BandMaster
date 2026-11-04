@@ -25,14 +25,14 @@
     "pixels_inspected": true
   },
   "id": "S111",
-  "status": "active",
+  "status": "closed",
   "owner_request": "Top-to-bottom review through simulatedgamecritic/musician/generalplayerpersonas; comparequality/playability with existinggames. Reviewonly, no productchanges.",
   "dominant_issue": "BM-06",
   "hypothesis": "Whole-career evidence review separates technicalrobustness fromplayeragency, musicalcredibility and presentationquality, prioritising changes withplayerimpact.",
   "controlled_comparison": "Current0csource/S100retainedoriginals and actualunchangedclosure priorcareer originals; comparatorprimarydescriptions nothands-onorunavailableexternalpixels.",
   "issue_log_review": {
-    "bytes": 1413973,
-    "sha256": "b7fd20bb17c9ce23af471fb5ce0febe4095f3f2ec886bd4714aa25d60eca9eee"
+    "bytes": 1416393,
+    "sha256": "b8fe9b6a02859f8048b078758b8a4f3052fbb7568d5bf8b3b239cc33b85d4d34"
   },
   "stop_condition": "Reviewreport only; closeby08:30London.2MiBworkspace includingGit/docs/receipts; floor600MiB. No engines/source/art/audio/cache/APK/deps/newqueue.",
   "allowed_paths": [
@@ -52,14 +52,11 @@
   ],
   "queue_task": "Ownerwhole-gamecriticalreview beforedayimplementation",
   "reviewer": "Rootcritic/generalplayer +scopedmusician_review readonlyhelper",
-  "root_lease": {
-    "writer": "root_S111_review_metadata",
-    "expires_at": "2026-11-04T08:30:00Z"
-  },
+  "root_lease": null,
   "source_write_allowed": false,
   "art_write_allowed": false,
   "pending_implementation": false,
-  "pending_helpers": true,
+  "pending_helpers": false,
   "preflight_commit_status": "Planningpreflight committed; no productionauthority",
   "storage_plan": {
     "workspace_cap": 2097152,
@@ -68,5 +65,94 @@
     "floor": 629145600,
     "largecopies": 0
   },
-  "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation."
+  "review_scope_note": "Mandatory retrievalfailure event alreadyappended; include canonicalISSUES beforepublishing reviewfindings. No productimplementation.",
+  "closeout": {
+    "tested_sha": "0c92100b826322c8c92fba89317b60b77dc28c9b",
+    "evidence": {
+      "report": "docs/continuous_improvement/S111_WHOLE_GAME_REVIEW.md",
+      "sha256": "670fd920be32e63e1a118b7be6c82e451d4ac6f2bae69cb1761cd8e1345fc0df",
+      "Page": "ExistingPlan whole-game review section",
+      "images": [
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-title-390x844.png",
+          "sha256": "016ce5a054e149c83c66a98e21fff2955642b9a454f17077a2ad71ad442facc9"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-genre-390x844.png",
+          "sha256": "cfae849a08915342565e1c9923fb29f198dcffbc36ba09232bfe7c985ac7b0da"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-completed_band-390x844.png",
+          "sha256": "58924329221986fd26bab3be1a39b3e6c392c7eae2bc2510d1cf5f39b0ea477f"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-practice-390x844.png",
+          "sha256": "de62d06d2c538c3add995206dbc9a09eb4b621527969c0a29233d157aec68957"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-lyric_trial_written_note-390x844.png",
+          "sha256": "ae0c5cc8aa0b214a68382d60b0f82fa32f913360d3cc745c09a301a53bec1884"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-rehearsal_full_reactions-390x844.png",
+          "sha256": "2f323924d7d7685edacbc0ff74d1d3fbb67d643a84b76962f1d9d83a0f6b80fd"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-rehearsal_outcome-390x844.png",
+          "sha256": "2f172d16e27ea95e54b50895e9a3fe2edfb1c1b408630714e9ff3385a2998d75"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-lyric_archived_original_unchanged-390x844.png",
+          "sha256": "50f2e2b7e5a57ad4989cf2eaf427b19d25826568f66cc37e789fc5b0a8eabbc9"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-settings_saved_draft_open-390x844.png",
+          "sha256": "5a3a133e73541fa3c941c8a1a23ae94ccff82e407f47604d671b7ac72a9bf9b8"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-audition_jack_decision-390x844.png",
+          "sha256": "c88f70548790262cde956fd6688965817971c1c625c203be12e529ca099d3cc3"
+        },
+        {
+          "path": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-0-performing.png",
+          "sha256": "d4906bea56237cc6d0abdab5a83d173f29dc3845257e34d0884a759f614e8959"
+        },
+        {
+          "path": "/workspace/work/s91-performance-context-20261103/runs/final-wide3-v1/wide-1-choice.png",
+          "sha256": "9fd1e3c6e64bc7d1086324261671130d11bc0f61c245194bbd744dbb8befba19"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-audition_jack_response-390x844.png",
+          "sha256": "86f910ce7d5be52899d8c5e253f50b0003076ad3d77d5efc1838608370e27016"
+        },
+        {
+          "path": "/tmp/bandmaster-s100-feedback-integration-20261103/runs/final-standard-phone-v1/c27-lyric_revision_tried-390x844.png",
+          "sha256": "e336e9496a78627ad660e51ce590ebb5a5a4c190bc5b42db06be7f64bc7caeaf"
+        },
+        {
+          "path": "/workspace/work/s91-performance-context-20261103/runs/final-phone2-v1/phone-1-choice.png",
+          "sha256": "25794133433acf658b8120b8a6da455837497763f6f428fb2b9e428df6a1ae62"
+        }
+      ]
+    },
+    "visual_verdict": "partial",
+    "next_action": "FreshfundedZoe +representativeband/firstcareerloop; exposesubstantivelyricpath and retain18:00bound. Reviewonlythisturn.",
+    "new_issue_review": "899missingpath,900confidenceenumrecordfailure,901qualitativefindings retained; no productsourcecorrection.",
+    "five_explicit_SIMULATED_lenses": [
+      "critic",
+      "musician",
+      "generalplayer",
+      "accessibilityreader",
+      "evidence/release"
+    ],
+    "actual_opens": {
+      "root": 12,
+      "musician": 5,
+      "unique": 15,
+      "newphysicalPNGs": 0
+    },
+    "gaps": "No newfullplaythrough/retailcomparison/device/audio/IME/balance/retentionproof; nativeUX03held.",
+    "new_engines_game_source_audio_APK": 0,
+    "closed_at": "2026-11-04T07:50:42.842978+00:00"
+  }
 }
