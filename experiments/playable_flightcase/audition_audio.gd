@@ -46,10 +46,10 @@ func set_clip(id: String) -> void:
  if is_node_ready():_refresh()
 
 static func entry_approved(entry: Dictionary) -> bool:
- var owner_value=entry.get("owner_listening_accepted",false)
+ var owner_value=entry.get("owner_listening_accepted")
  var review_value=entry.get("integration_review_accepted",false)
  var authority=entry.get("integration_authority","")
- return (typeof(owner_value)==TYPE_BOOL and owner_value==true) or (typeof(review_value)==TYPE_BOOL and review_value==true and typeof(authority)==TYPE_STRING and authority=="owner_delegation_20261104")
+ return (typeof(owner_value)==TYPE_BOOL and owner_value==true) or (typeof(owner_value)==TYPE_BOOL and owner_value==false and typeof(review_value)==TYPE_BOOL and review_value==true and typeof(authority)==TYPE_STRING and authority=="owner_delegation_20261104")
 
 func _entry() -> Dictionary:
  if not is_visible_in_tree() or not _context.is_valid():return {}

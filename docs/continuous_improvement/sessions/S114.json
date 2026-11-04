@@ -27,8 +27,8 @@
   ],
   "dominant_issue": "BM-38",
   "issue_log_review": {
-    "bytes": 1439254,
-    "sha256": "81229715df47b54fb48b421bbcfda6111b75f59cdebb4dd46f57cd1b8e3a2f2b"
+    "bytes": 1440608,
+    "sha256": "8ee972d6c6e3abdce604ee0169bec6be3a71463f666c48249466cd6795d6b9f7"
   },
   "target": {
     "locator": "/tmp/bandmaster-s112-zoe-first-loop-20261104/runs/final-full-phone-v3/captures/bar4-inspected-cast_zoe-space_for_voice-390x844.png",
@@ -37,7 +37,7 @@
     "current_equivalent": "Actual5dcurrentv4sameencodedSHA/dimensions, S112finalbinding; existingfullpart/fixedactions baseline, no newdrummockupinference."
   },
   "hypothesis": "A contrastingdrumencounter, fullcastpracticalcontext andhonestapprovedinstrument/genreillustrations makea coherentrepresentativefirstband ratherthanmore isolatedscreens. Reuseallowner/history/action/audio lifecycles.",
-  "controlled_comparison": "S112425declaredrows only. PreserveJack/Arjun/Zoecontent/audio, canonical18bios, all54Scripts3UID/Game/Finance/hardware/art/fonts/schema. NewMarcus52/50/50timings fullhumanparts; exactS10313newbackgrounds while5existingvaluesunchanged. Newreview_acceptedauthoritytypedgatehelper sharedAudioPart/GenrePress; legacyowneracceptedBOOLtrueunchanged. Newowner_listening_acceptedFALSE truthful/nohumanclaim. All14genresselectable,3examples/11noexamples afteradoption.",
+  "controlled_comparison": "S112425declaredrows only. PreserveJack/Arjun/Zoecontent/audio, canonical18bios, all54Scripts3UID/Game/Finance/hardware/art/fonts/schema. NewMarcus52/50/50timings fullhumanparts; exactS10313newbackgrounds while5existingvaluesunchanged. Newreview_acceptedauthoritytypedgatehelper sharedAudioPart/GenrePress; legacyowneracceptedBOOLtrueunchanged. Newowner_listening_acceptedFALSE truthful/nohumanclaim. All14genresselectable,3examples/11noexamples afteradoption. DelegatedbranchrequiresexplicitownerBOOLfalse, notmissing/malformed; legacyBOOLtruealoneunchanged.",
   "allowed_paths": [
     "experiments/playable_flightcase/audition_marcus_content.gd",
     "experiments/playable_flightcase/audition_profiles.gd",
