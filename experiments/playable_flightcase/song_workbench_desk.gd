@@ -290,6 +290,7 @@ func _on_resized() -> void:
  var wide: bool=size.x>=840
  if _spread==null:return
  _spread.columns=2 if wide else 1
+ _place.visible=wide or not _producer_mode()
  _place.custom_minimum_size.x=340 if wide else 0
  _room.custom_minimum_size=Vector2(220,124) if wide else Vector2(200,112)
  _text.custom_minimum_size.y=210 if wide else 164
@@ -318,10 +319,10 @@ func _demo_context() -> Dictionary:
 func _build_producer() -> void:
  _producer_controls=VBoxContainer.new()
  _producer_controls.name="ProducerControls"
- _producer_controls.add_theme_constant_override("separation",8)
+ _producer_controls.add_theme_constant_override("separation",4)
  _paper_body.add_child(_producer_controls)
  _producer_controls.add_child(_label("SHAPE YOUR FIRST ORIGINAL",21,true))
- _producer_controls.add_child(_label("Choose a direction, then listen. Keep a take and develop it across three writing days.",16,true))
+ _producer_controls.add_child(_label("Choose a direction. Listen, then try a take.",16,true))
  for i in range(4):
   _producer_controls.add_child(_label(Producer.TITLES[i],15,true))
   var row:=HBoxContainer.new()
@@ -444,6 +445,7 @@ func _refresh_local() -> void:
  var prior_tools: Node=find_child("WorkbenchPrior",true,false)
  if prior_tools!=null:prior_tools.get_parent().visible=not producer
  if producer:
+  _paper_body.move_child(_producer_controls,1)
   if _recipe.is_empty():_recipe=_project().fragment.producer_recipe.duplicate(true)
   _words.hide();_text.hide();_edit_words.hide()
   for button in _refrains:button.get_parent().hide()
@@ -550,7 +552,7 @@ func _free(action: String) -> void:
 func _archive() -> void:
  _stop_demo()
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
- if has_local_edits():_show_notice("Save your local words before archiving. Archiving keeps the original song draft and completed days.");return
+ if has_local_edits():_show_notice("Save your local direction before archiving. The original song and completed days are retained.");return
  _busy=true
  var result: Dictionary=owner_state.workbench_action("archive",_expected.duplicate(true),{"reason":"user_archive"})
  _busy=false

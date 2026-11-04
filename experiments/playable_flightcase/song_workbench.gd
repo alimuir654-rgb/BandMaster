@@ -194,6 +194,8 @@ static func _trial_ok(value: Variant,project_id: String) -> bool:
  if _trial_number(value.get("id"),project_id)<1 or not _whole(value.get("stage"),0,2) or not _material_ok(value.get("fragment_snapshot")):return false
  if not value.get("target") is Dictionary or not value.target.get("title") is String or not _ref_ok(value.target.get("leader_ref")) or not _ref_ok(value.target.get("respondent_ref"),true):return false
  if not value.get("immutable_context") is Dictionary or not _whole(value.immutable_context.get("day"),1) or not value.get("note") is Dictionary:return false
+ if value.fragment_snapshot.has("producer_recipe"):
+  if not _whole(value.get("producer_fragment_revision"),1) or value.get("producer_fragment_id")!="%s:f:%d" % [project_id,int(value.producer_fragment_revision)]:return false
  var note: Dictionary=value.note
  return note.get("text") is String and str(note.text).length()<=1024 and note.get("delivery")=="written_note" and note.get("source_kind") in ["literal","authored"] and note.get("content_version") is String and not str(note.content_version).is_empty() and note.get("request") is Dictionary and _request_ok(note.request) and _ref_ok(note.get("respondent_ref"),true) and _same(note.respondent_ref,value.target.respondent_ref) and _whole(note.get("day"),1) and int(note.day)==int(value.immutable_context.day) and not _hash(value).is_empty()
 
@@ -321,6 +323,7 @@ static func _priority(opening: Dictionary) -> String:
 static func _ready(opening: Dictionary,project: Dictionary) -> bool:
  var state:=_career(opening)
  var trial: Dictionary=project.last_trial
+ if project.fragment.has("producer_recipe") and (trial.get("producer_fragment_id")!=project.fragment.fragment_id or trial.get("producer_fragment_revision")!=project.fragment.revision):return false
  return _binding_ok(state,project) and _participants_ok(state,project.target) and not trial.is_empty() and int(trial.stage)==int(state.song_draft_progress) and _same(trial.fragment_snapshot,_material(project.fragment)) and _same(trial.target,project.target)
 
 static func view(opening: Dictionary) -> Dictionary:
@@ -416,6 +419,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  var material_changed: bool=not _same(material,_material(project.fragment))
  var target_changed: bool=not _same(target,project.target)
  var identical_trial: bool=not project.last_trial.is_empty() and project.last_trial.stage==state.song_draft_progress and _same(project.last_trial.fragment_snapshot,material) and _same(project.last_trial.target,target)
+ if producer and project.last_trial.get("producer_fragment_id")!=project.fragment.fragment_id:identical_trial=false
  if not material_changed and not target_changed and (action not in ["try","producer_try"] or identical_trial):return _mutation(opening,true,"The same saved take and note are retained.")
  if int(wrapper.revision)>=LIMIT-1 or int(project.fragment.revision)>=LIMIT-1:return _mutation(opening,false,"The bounded sketch history is full.")
  if material_changed:
@@ -432,6 +436,9 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
   var response: Dictionary=Producer.note(target.respondent_ref,material.producer_recipe,context) if producer else Content.note(target.respondent_ref,material,project.last_trial,context)
   if not response.ok:return _mutation(opening,false,response.message)
   var trial: Dictionary={"id":"%s:trial:%d" % [project.id,int(wrapper.revision)],"stage":int(state.song_draft_progress),"fragment_snapshot":material.duplicate(true),"target":target.duplicate(true),"immutable_context":context,"note":response.note}
+  if producer:
+   trial.producer_fragment_id=project.fragment.fragment_id
+   trial.producer_fragment_revision=project.fragment.revision
   project.last_trial=trial
   project.feedback_history.append(trial.duplicate(true))
   while project.feedback_history.size()>3:project.feedback_history.pop_front()
@@ -510,6 +517,10 @@ static func _extension_ok(value: Variant) -> bool:
  if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
  if value.fragment.has("producer_recipe") and (not _same(value.fragment,value.get("project_snapshot",{}).get("fragment")) or not _same(value.paid_receipts,value.get("project_snapshot",{}).get("paid_receipts"))):return false
  if value.fragment.has("producer_recipe") and (value.paid_receipts.size()!=3 or not _same(_material(value.fragment),value.paid_receipts.back().fragment_snapshot)):return false
+ if value.fragment.has("producer_recipe"):
+  var project: Dictionary=value.project_snapshot
+  var trial: Dictionary=project.get("last_trial",{}) if project.get("last_trial") is Dictionary else {}
+  if not _same(trial.get("fragment_snapshot"),_material(value.fragment)) or trial.get("producer_fragment_id")!=value.fragment.fragment_id or value.paid_receipts.back().get("trial_id")!=trial.get("id"):return false
  return _producer_receipt_ok(value) and value.paid_receipts.size()==3 and _closed_project_ok(value.get("project_snapshot"),str(value.project_id),3) and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
 
 static func _finished_ref(index: int,song: Dictionary) -> Dictionary:
