@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105/runs/standard-phone/captures/037-c27-practice_mode_create_day1-390x844.png",
+    "original_sha256": "6c2095fe12e77721b5ec63b79fc437378cb9d0608598375a46266e7a66d5caba",
+    "pixels_inspected": true,
+    "scope": "ExactunchangedbfcwritingPNG inspectedS130, retainedvisualcontext only/no newimageclaim. Musicaltarget ownerheardTone03Heavy, SHA520c3a22fb284ee90297d69d2be4b222d66a054fb4781925d0e9f0b5dd3aa3ed. Others faileddark/rawbrief despite technicalchecks."
+  },
+  "id": "S131",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "6e88a04cce32287db89373a9b958cd7125cbac7d",
+  "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+  "owner_request": "Direct5Nov: Onlytone03edgy; restbright sunshine dreamytone. Onefocusedrevision using03heavyguitartone asreference, changecomposition/register/gaps/rhythm insteadofmorecosmetictonevariants.",
+  "issue_log_review": {
+    "bytes": 1676476,
+    "sha256": "3d3231ed8f2202a9ea0120d56037d69b88070aa8f3f9af585095a374032210e7"
+  },
+  "hypothesis": "LowerD/F/E/C/Bb riff andi-bVI-bVII powerchords, basslockedtohits, dryheavyguitars/nohighlead/noambientverb giveactualgrittycharacter missingfromearlierbrightpart.",
+  "controlled_comparison": "OneNEWarrangement at104BPM/16bars+2.4tail, preserveTone03actualDSP33/29drive/preamp3/HP85/LP3800. Notlabelledsame-takecomparison; composition/rhythm/register intentionallychange. No claimitworksuntilactualownerlistens.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S131.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/ISSUES.jsonl"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s131-low-riff-revision-20261105",
+    "/tmp/bandmaster-s131-low-riff-revision-20261105"
+  ],
+  "validation_commands": [
+    "CommitSessionpreflight/gateBEFOREnewsource/assets; preserveall7existingdurableuncommittedmetadata.",
+    "Newauthoredscore/physicalstringvoices/nooverlap/coveredkey; retain142CC0samplehashes/rights/SFZbeforeafter. Guitarclone3derivedkeys47\u219246(-1),50\u219248(-2),52\u219253(+1); bassD38clone\u2192Bb34(-4)/C36(-2). Derivedpitchesexplicit, no newbank/deps/acquisition.",
+    "Onefreshsamplerprocess/main+answer+bass+kit, endvoices0/full2.4tail/finite/noPCMclip. HeavyTone03guitarDSP actualsame; noambientreverb/brightregisterlead. Newarrangement explicitlylabelled.",
+    "Uniqueattempt/version childreceiptpaths fromstart, rawexitbeforeparse; measurement/probe/PCM/OGGdecode/tail/headroom checked. Independentpre/finalsymbolictechnicalreview\u2260tasteapproval.",
+    "Game463Gitrows/54Scripts3UID/34OGG8JSON/V13byteexact; no source/UI/native/import/APK/activityreruns.",
+    "OneprivateWAVonlyverifiedowner+existingAlireader/exactparent/account/ACL; no rawbanks/stems/code/history/key/saveupload."
+  ],
+  "queue_task": "ExistingS80musicalidentityfollowup; no newqueue",
+  "reviewer": "Existing /root/s125_review onlyD131/review<=6144B, no source/Git/Pages/engine/render/network",
+  "player_goal": "JudgeonesubstantiallychangedlowriffagainstTone03edginessreference, notfourmoresimilarshinyvariations.",
+  "start_end_commitment": "Oneoffline39sreviewclip/sourceproof/updatedfeedbackrecord; noGame/APKintegration.",
+  "state_matrix": [
+    "104BPM/8verse+8chorus, lowerleadregister/Dminor-pentatonicriff/i-bVI-bVII",
+    "ExactHeavyDSP/preamp3/noambientverb/samplerendvoices0",
+    "Uniqueversionreceipt/realrawexit/encodeprobeactualdecode/levels/tail",
+    "Owner03edginessfeedbackscoped; no falseallclipsaccepted/nomusicaltasteprooffrommetrics"
+  ],
+  "root_lease": {
+    "writer": "root_S131_low_riff",
+    "expires_at": "2026-11-05T21:05:00Z",
+    "scope": "boundedofflineassetonly, no reopenedday/automation"
+  },
+  "source_write_allowed": false,
+  "audio_write_allowed": true,
+  "art_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "stop_condition": "Closeby21:05 tasklease; onefocusedarrangementrevision, aftertwoineffectiveattempts changemethod/HOLD. Noautomaticextension/queue/ownerapprovalwait.",
+  "storage_plan": {
+    "workspace_start_free": 629448704,
+    "persistent_global_cap": 245760,
+    "durable_root_cap": 73728,
+    "review_cap_included": 6144,
+    "primaryGit_new_cap": 24576,
+    "index_peak": 131072,
+    "canonical_growth_cap": 16384,
+    "TMPcap": 268435456,
+    "floor": 629145600,
+    "durable_cap_includes_failed_closeout_tail": true,
+    "commit_policy": "OnlyS131Sessionpre/finalcommitted, compactsourceD131durable, allcriticalGitprimary. LargeS129/S130/S131canonicalmetadataintentionallydurableuncommitted, preservedbeforesTMP. No forcedunderfloorcommit/cleanup/cachewrite.",
+    "no_cleanup_orclosedproducer_resume": true
+  },
+  "source_input": {
+    "Game_manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
+    "Tone03_reference": "/tmp/bandmaster-s130-tone-and-sonic-identity-20261105/tones-v2/03-Heavy/BandMaster-Tone-03-Heavy.wav",
+    "reference_SHA256": "520c3a22fb284ee90297d69d2be4b222d66a054fb4781925d0e9f0b5dd3aa3ed",
+    "no_old_producer_execution": true
+  }
+}
