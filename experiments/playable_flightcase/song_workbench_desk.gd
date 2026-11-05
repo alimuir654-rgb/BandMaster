@@ -9,6 +9,7 @@ const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Availability = preload("res://experiments/playable_flightcase/situation_core.gd")
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 signal write_requested(expected: Dictionary)
 signal exit_ready(destination: String)
 signal closed
@@ -279,7 +280,7 @@ func _build() -> void:
  var exits:=HBoxContainer.new()
  exits.add_theme_constant_override("separation",8)
  exits.add_child(_button("BACK TO MENU","WorkbenchMenu",request_exit.bind("menu")))
- exits.add_child(_button("CAREER DESK ›","WorkbenchCareer",request_exit.bind("career")))
+ exits.add_child(_button("CAREER DESK ›","WorkbenchCareer",_request_career))
  add_child(exits)
 
 func _on_resized() -> void:
@@ -484,6 +485,8 @@ func _refresh_local() -> void:
  if not available:_write.text="WRITING · PEOPLE AT WORK" if work.get("ok",false) else "WRITING · REVIEW AVAILABILITY"
  elif work.get("plan_status")=="due":_write.text="WRITE 1 DAY · MISS REHEARSAL"
  var modal: bool=is_instance_valid(_exit_dialog)
+ var career_button: Button=find_child("WorkbenchCareer",true,false) as Button
+ if is_instance_valid(career_button):career_button.text="PLAN OUR WEEK ›" if BandWeek.offer(owner_state.game.career).get("changed",false) else "CAREER DESK ›"
  _write.disabled=_busy or modal or held or has_local_edits() or not bool(_view.get("can_write",false)) or not available
  var retained: Array[Button]=[]
  for button in _buttons:
@@ -610,6 +613,9 @@ func _use_preview() -> void:
  _busy=false
  refresh_saved(not result.get("ok",false))
  _show_notice(result.message,"saved" if result.get("ok",false) else "error")
+
+func _request_career() -> void:
+ request_exit("planning" if BandWeek.offer(owner_state.game.career).get("changed",false) else "career")
 
 func request_exit(destination: String) -> void:
  _stop_demo()

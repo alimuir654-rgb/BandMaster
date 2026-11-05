@@ -4,6 +4,10 @@ const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 const Dates = preload("res://experiments/playable_flightcase/career_dates.gd")
 const Personal = preload("res://experiments/playable_flightcase/personal_context.gd")
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const Radio = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const PATTERNS := {
  "cast_jack":[0,2],"cast_arjun":[1,3],"cast_zoe":[1,5],"cast_marcus":[0,2],"cast_ellis":[4,5],
  "cast_maya":[1,5],"cast_dan":[0,2],"cast_ryan":[1,3],"cast_lily":[3,5],"cast_ben":[1,4],
@@ -76,6 +80,8 @@ static func apply(opening: Dictionary, expected: Dictionary) -> Dictionary:
  if not schema_ok(opening) or not exact(opening,expected):return failure
  if opening.get("screen")!="play" or not opening.get("game") is Dictionary or opening.game.get("phase")!="play" or not opening.game.get("career") is Dictionary:return failure
  var career: Dictionary=opening.game.career
+ if Finance.is_over(career) or Radio.locked(career) or Audition.locked(opening):failure.message="Finish the current visit or held activity before agreeing the week.";return failure
+ if career.has(Workbench.KEY) and not Workbench.validate(opening).get("ok",false):failure.message="Review the saved writing activity before agreeing the week.";return failure
  var commitment: Dictionary=Booking.guard_commitment(career,"recorded_context",0)
  if not commitment.get("ok",false):failure.message=str(commitment.get("message","Finish the current commitment first."));return failure
  var proposal: Dictionary=offer(career)
@@ -86,7 +92,7 @@ static func apply(opening: Dictionary, expected: Dictionary) -> Dictionary:
  var next: Dictionary=opening.duplicate(true)
  next.game.career=result.state.duplicate(true)
  if not next.game.career.has(Dates.KEY):next.game.career[Dates.KEY]=Dates.initial()
- return {"ok":true,"changed":true,"message":"The work evenings and career calendar are agreed. No day or room fee was used.","state":next}
+ return {"ok":true,"changed":true,"message":"The recorded patterns and career dates are saved. Unrecorded availability stays unknown. No day or room fee was used.","state":next}
 
 static func outside_equal(first: Dictionary, second: Dictionary) -> bool:
  var a: Dictionary=first.duplicate(true);var b: Dictionary=second.duplicate(true)

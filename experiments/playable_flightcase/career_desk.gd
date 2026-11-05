@@ -249,8 +249,9 @@ func _render() -> void:
  content.add_child(_scroll)
  var inset := MarginContainer.new()
  inset.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ var dated_calendar: bool=page=="calendar" and not CareerDates.info(game.career,int(game.career.get("tour_day",1))).is_empty()
  for side in ["left","right","top","bottom"]:
-  inset.add_theme_constant_override("margin_"+side,14)
+  inset.add_theme_constant_override("margin_"+side,0 if dated_calendar and side in ["left","right"] else 14)
  _scroll.add_child(inset)
  var body := _box(12)
  inset.add_child(body)
@@ -656,10 +657,19 @@ func _situation_save() -> void:
 
 func _agree_band_week(expected: Dictionary) -> void:
  if busy or page!="situation" or is_instance_valid(_live_dialog) or opening_owner==null or not is_inside_tree() or not is_visible_in_tree():return
+ for row in Situation.members(game.career):
+  if row.id==situation_member_id and str(row.kind)!=situation_kind:
+   notice="Save your selected context before agreeing the week, or select its recorded context again."
+   _render()
+   return
  busy=true
  var result: Dictionary=opening_owner.agree_band_week(expected)
  busy=false
  notice=str(result.get("message","Review the working week."))
+ if result.get("ok",false):
+  situation_expected=game.career.duplicate(true)
+  for row in Situation.members(game.career):
+   if row.id==situation_member_id:situation_kind=str(row.kind)
  _pending_focus="WeekCalendarAction" if result.get("ok",false) else "WeekAgreementAction"
  _render()
 

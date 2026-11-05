@@ -1253,6 +1253,7 @@ func _workbench_exit(destination: String) -> void:
  if session_busy:return
  if destination=="menu":back_requested.emit()
  elif destination=="career":career_requested.emit()
+ elif destination=="planning":planning_requested.emit()
  elif destination=="load":_load_original()
  elif destination=="finished":_workbench_finished=true;_workbench_finished_ref={};_rebuild()
  elif destination.begins_with("practice:"):

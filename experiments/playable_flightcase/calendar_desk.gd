@@ -188,7 +188,7 @@ static func _event_source(career: Dictionary) -> Dictionary:
  var booking: Dictionary=Booking.validate(career)
  var memory: Dictionary=Booking.memory(career) if booking.ok else {}
  var history: Array=career.get("gig_history",[]) if career.get("gig_history",[]) is Array else []
- return {"people":Core.members(career) if core.ok else [],"plans":core.core.plans if core.ok else [],"records":memory.get("records",[]),"first_booking":booking.ok and int(memory.get("sequence",0))==1 and memory.get("records",[]).is_empty() and history.is_empty(),"legacy":history,"availability_ok":bool(core.ok)}
+ return {"people":Core.members(career) if core.ok else [],"plans":core.core.plans if core.ok else [],"records":memory.get("records",[]),"first_booking":booking.ok and int(memory.get("sequence",0))==1 and memory.get("records",[]).is_empty() and career.has("gig_history") and history.is_empty(),"legacy":history,"availability_ok":bool(core.ok)}
 
 static func day_events(data: Dictionary, source: Dictionary, day: int) -> Array:
  var result: Array=[]
@@ -203,18 +203,16 @@ static func day_events(data: Dictionary, source: Dictionary, day: int) -> Array:
   if person.active and Core._shift(person.context,day):result.append({"kind":"work","text":"WORK EVENING · "+str(person.name)})
  for plan in source.plans:
   if int(plan.day)==day:result.append({"kind":"rehearsal","text":"REHEARSAL · "+str(plan.status).to_upper()+"\nEVENING · agreed band participants"})
- var first_completed: bool=true
  for record in source.records:
   if not record is Dictionary or not record.get("terms") is Dictionary:continue
   var terms: Dictionary=record.terms
   if not Booking.terms_valid(terms):continue
-  var name: String=str(terms.venue_snapshot.get("name","Saved venue"))
+  var name: String=str(terms.venue_snapshot.get("venue","Saved venue"))
   if int(terms.day)==day:
    var kind: String=str(record.get("kind",""))
-   var title: String=("FIRST SHOW · PLAYED" if first_completed else "SHOW PLAYED") if kind=="completed" else ("SHOW · CANCELLED" if kind=="cancelled" else "SHOW · MISSED")
+   var title: String="SHOW PLAYED" if kind=="completed" else ("SHOW · CANCELLED" if kind=="cancelled" else "SHOW · MISSED")
    result.append({"kind":"show_memory","text":title+"\n"+name})
   if record.get("kind")=="completed":
-   first_completed=false
    if _day(record.get("day")) and int(record.day)==day and int(record.day)!=int(terms.day):result.append({"kind":"return","text":"RETURNED FROM THE SHOW · "+name})
  for record in source.legacy:
   if not record is Dictionary or not _day(record.get("day")):continue

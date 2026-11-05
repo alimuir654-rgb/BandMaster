@@ -13,8 +13,10 @@ static func _week(host, parent: Node, compact: bool) -> void:
  if not offer.ok:
   host._copy(body,str(offer.message),16).name="WeekAgreementNotice"
   return
- host._copy(body,"PROPOSED · NOT SAVED" if offer.changed else "AGREED AVAILABILITY",18).name="WeekAgreementStatus"
+ host._copy(body,"PROPOSED · NOT SAVED" if offer.changed else "RECORDED PATTERNS + DATES",18).name="WeekAgreementStatus"
  if not host.notice.is_empty():host._copy(body,host.notice,16).name="WeekSaveNotice"
+ for row in Core.members(host.game.career):
+  if row.id==host.situation_member_id and str(row.kind)!=host.situation_kind:host._copy(body,"Save your selected context below before agreeing the week, or select its recorded context again.",16).name="WeekLocalContextNotice"
  if offer.changed:
   host._copy(body,"Agree the band's writing and rehearsal evenings. These proposed work patterns are new arrangements; existing recorded circumstances stay as they are.",16)
   host._copy(body,"Career DAY 1: Monday 9 November 2026." if not Dates.inspect(host.game.career).exists else "Your saved career start date is retained.",16).name="WeekDateProposal"
@@ -99,7 +101,10 @@ static func dock(host, parent: Node) -> void:
  var offer: Dictionary=Week.offer(host.game.career)
  if offer.ok and offer.changed:
   var expected: Dictionary=host.opening_owner.snapshot().duplicate(true)
-  parent.add_child(host._button("AGREE OUR WEEK · FREE","WeekAgreementAction",host._agree_band_week.bind(expected),true))
+  var agree: Button=host._button("AGREE OUR WEEK · FREE","WeekAgreementAction",host._agree_band_week.bind(expected),true)
+  for row in Core.members(host.game.career):
+   if row.id==host.situation_member_id and str(row.kind)!=host.situation_kind:agree.disabled=true
+  parent.add_child(agree)
  elif offer.ok:
   var agreed: Button=host._button("WEEK AGREED","WeekAgreementAction",func():pass,true)
   agreed.disabled=true

@@ -18,6 +18,9 @@ static func inspect(career: Dictionary) -> Dictionary:
   if not value.is_valid_int():return fail
  var year: int=int(parts[0]);var month: int=int(parts[1]);var day: int=int(parts[2])
  if year<1900 or year>2099 or month<1 or month>12 or day<1 or day>31:return fail
+ if str(raw.day_one)!="%04d-%02d-%02d"%[year,month,day]:return fail
+ var month_days: Array=[31,29 if year%4==0 and (year%100!=0 or year%400==0) else 28,31,30,31,30,31,31,30,31,30,31]
+ if day>int(month_days[month-1]):return fail
  var stamp: int=Time.get_unix_time_from_datetime_dict({"year":year,"month":month,"day":day,"hour":0,"minute":0,"second":0})
  var back: Dictionary=Time.get_datetime_dict_from_unix_time(stamp)
  if int(back.year)!=year or int(back.month)!=month or int(back.day)!=day or int(back.weekday)!=1:return fail
