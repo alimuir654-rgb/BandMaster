@@ -35,8 +35,8 @@
   "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "issue_log_review": {
-    "bytes": 1590089,
-    "sha256": "2f8644656661e497212cecd72d2a538ed1936abbd8969b207d4a356b50815727"
+    "bytes": 1596516,
+    "sha256": "5aaf4e2621c8b6fbfb1e3f13f7e87d027950035b544e53fe6efd7445fc132bdc"
   },
   "target": {
     "locator": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/baseline-phone-v1/proof/baseline-current-calendar-390x844.png",
@@ -114,13 +114,13 @@
   },
   "storage_plan": {
     "workspace_initial_free_bytes": 651022336,
-    "scope_persistent_cap_bytes": 5242880,
+    "scope_persistent_cap_bytes": 6291456,
     "scope_TMP_cap_bytes": 2147483648,
     "review_scratch_cap_bytes": 131072,
     "day_initial_free_bytes": 651022336,
     "day_aggregate_persistent_cap_bytes": 18874368,
     "day_TMP_cap_bytes": 5368709120,
-    "reserved_art_persistent": 8388608,
+    "reserved_art_persistent": 7340032,
     "reserved_art_TMP": 2147483648,
     "reserved_APK_persistent": 4194304,
     "reserved_APK_TMP": 1073741824,
@@ -131,7 +131,7 @@
       "source_contract_QA_receipts": 1048576,
       "review": 131072,
       "primaryGit": 3145728,
-      "failedproof_closeout": 917504
+      "failedproof_closeout": 1966080
     },
     "categories_TMP": {
       "source_versions": 600000000,
@@ -163,5 +163,6 @@
   },
   "source_corrective_iteration": 2,
   "source_review_hold": "/workspace/work/s125-week-and-calendar-20261105/review/source-review-v1.json",
-  "issue_schema_repair": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json"
+  "issue_schema_repair": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json",
+  "final_source_correction_reason": "ActualnewPlanrowfirstfoldregression, independentfootercompositionpredesignCLEAR"
 }
