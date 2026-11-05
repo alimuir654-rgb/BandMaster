@@ -74,10 +74,10 @@ static func material_matches(value: Dictionary) -> bool:
  for i in range(2):
   if not value.lines[i] is Dictionary:return false
   for key in ["id","text"]:
-   if value.lines[i].get(key)!=authored.lines[i][key]:return false
- if value.get("refrain_line_id")!=authored.refrain_line_id:return false
+   if not value.lines[i].get(key) is String or value.lines[i][key]!=authored.lines[i][key]:return false
+ if not value.get("refrain_line_id") is String or value.refrain_line_id!=authored.refrain_line_id:return false
  for key in ["verse","chorus"]:
-  if value.sections.get(key)!=authored.sections[key]:return false
+  if not value.sections.get(key) is String or value.sections[key]!=authored.sections[key]:return false
  return true
 
 static func skills_ok(state: Dictionary) -> bool:

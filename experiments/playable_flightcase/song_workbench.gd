@@ -547,6 +547,7 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  if not extension.fragment.has("producer_recipe"):return not extension.has("producer_quality_receipt")
  var r=extension.get("producer_quality_receipt")
  if not r is Dictionary or not _keys(r,["model","recipe_sha256","song_id","base_quality","delta","final_quality","context","reason"]):return false
+ if not r.get("model") is String or not r.get("recipe_sha256") is String:return false
  if r.model!="producer_raw_craft_v2" or r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
  if not _whole(r.base_quality,0,100) or not _whole(r.final_quality,1,100) or not (r.delta is int or r.delta is float) or not is_finite(float(r.delta)) or float(r.delta)!=floor(float(r.delta)) or int(r.delta)<-3 or int(r.delta)>3:return false
  var c=r.context

@@ -6,6 +6,7 @@ const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 
 static func recipe(song: Dictionary) -> Dictionary:
+ if not song.get("id") is String or not Rules._whole(song.get("quality"),1,100):return {}
  var extension: Variant=song.get(Rules.FRAGMENT_KEY)
  if not Rules._extension_ok(extension):return {}
  var value: Variant=extension.fragment.get("producer_recipe")
