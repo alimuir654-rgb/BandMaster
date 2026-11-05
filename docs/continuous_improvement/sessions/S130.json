@@ -25,14 +25,14 @@
     "scope": "Actualcurrent bfc phone writing firstfold opened, visualcontext only. Musicaltarget directownerfeedback/basicstrums and approvedonehookmatrix; pixelsdoNOTproveaudioquality."
   },
   "id": "S130",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "4a0777a02ea7c47f5e70cfe0e40458a0868d5e18",
   "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
   "owner_request": "5Nov directownerlikesS129 butasksdistinctguitartones/moredistortion; nextdirectsteering darker/rawbandidentity mustcarryearliergenre/nameintent/vibe throughmusic, nomoodyindie/sunny mismatch. Boundedofflinefollow-up, notendedday/queue restart.",
   "issue_log_review": {
-    "bytes": 1670131,
-    "sha256": "d02a94946d0d786f073edc358968bdb52ff42335f064ffb7a217031e42d80022"
+    "bytes": 1676476,
+    "sha256": "3d3231ed8f2202a9ea0120d56037d69b88070aa8f3f9af585095a374032210e7"
   },
   "hypothesis": "Sameactualperformancewith3clearlyseparatedguitarDSPprofiles tests tonechoice; separateDminor/half-time/rawsketch tests darkerbandidentity throughactualharmony, notjustfilter/darklabel.",
   "controlled_comparison": "Edge/Raw/Heavy: exactsameDrivingOpenparts/basskit/tempo/stereo, samecombinedguitartargetRMS/fixedrolebalance/onecommonmaster. NocturnalRaw isexplicitlyseparateminor/half-time arrangement, nottone-onlycounterfactual.",
@@ -70,30 +70,32 @@
     "Finalencode/decode/levels/tail/privateshare; no humanquality/speakerdeviceclaim"
   ],
   "root_lease": {
-    "writer": "root_S130_tone_identity",
+    "writer": null,
     "expires_at": "2026-11-05T21:00:00Z",
-    "scope": "boundedofflineartifactonly, notnewuserdayextension"
+    "scope": "boundedofflineartifactonly, notnewuserdayextension",
+    "released_at": "2026-11-05T20:17:00.303039+00:00"
   },
   "source_write_allowed": false,
-  "audio_write_allowed": true,
+  "audio_write_allowed": false,
   "art_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
+  "page_write_allowed": false,
   "stop_condition": "Closeby21:00London tasklease. Twoineffectiveattempts changemethod/HOLD; no genericownerwait/newqueue/automaticextension.",
   "storage_plan": {
     "workspace_start_free": 629633024,
     "persistent_global_cap": 393216,
-    "durable_root_cap": 98304,
+    "durable_root_cap": 114688,
     "review_cap_included": 8192,
-    "new_primaryGit_cap": 65536,
+    "new_primaryGit_cap": 49152,
     "index_peak": 131072,
     "metadata_growth": 24576,
     "tail_reserved": 73728,
     "TMPcap": 536870912,
     "floor": 629145600,
     "commit_policy": "OnlycompactS130Session preflight/final committed; sourcecode+compactreceiptsdurableD130, largecanonicalmetadata intentionallydurableuncommitted asS129. Preserveall7prioruncommittedfiles. AllcriticalGitprimary; no forcedfullmetadataunderfloorcommit.",
-    "no_cleanup_or_closed_cache_mutation": true
+    "no_cleanup_or_closed_cache_mutation": true,
+    "prospective_closeout_rebalance": "Same393216Bglobalcap;16KiBunusedprimaryGitreservation moves tocompactdurablecloseout/failedhistoryreceipts BEFOREadditionalallocation. No cleanup/capextension/ownerwait."
   },
   "source_input": {
     "source_manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
@@ -101,5 +103,30 @@
     "S129master": "/workspace/work/s129-song-sketch-prototype-20261105/audio-delivery.json",
     "no_old_producer_execution": true
   },
-  "authority_note": "Latestdirecttone/identityrequests authoriseofflineDSP/minorcomparison andcontract; integrationwouldneedfreshfundedproductionpreflight, notpendinggenericownerapproval."
+  "authority_note": "Latestdirecttone/identityrequests authoriseofflineDSP/minorcomparison andcontract; integrationwouldneedfreshfundedproductionpreflight, notpendinggenericownerapproval.",
+  "tone_v2_input_staging": {
+    "fixed_preamp_gain": 3.0,
+    "all_four_profiles": true,
+    "RMS_target": "unamplifiedbaseEdge9/7 referencecomputedfromsamefrozendryPCM; preservesoriginalinstrumentbalance",
+    "sameperformance_no_sampler_rerun": true,
+    "old_source_and_outputs_retained": true,
+    "same_contrast_threshold_and_common_master": true
+  },
+  "receipt_history_gap": "Oneearlierv1premasterchildrawreceipt overwritten; originalparentraw1/source/mixkept, standalonechildrow unavailable. Final32acceptedv2rows retained. Futureuniqueversionnamespace; S130closedproducersneverrerun.",
+  "review_size_ordering": "Prewriteguardheld8211/8192; reviewernotifiedrootthencompactedbeforeformalappend. Actualorderingdisclosed; no failedfileorbackdatedclaim.",
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "review_pending": false,
+  "closeout": {
+    "tested_sha": "7e26b9a05121db4972f60dfdfaa7137801ae9907",
+    "evidence": "/workspace/work/s130-tone-and-sonic-identity-20261105/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "Freshfundedproductionforpersistentgenre+declarednameintent+vibe soundbrief\u2192newwritingrecipe\u2192rehearsal/show, withactualsonicchoicepreviewandoriginalavailability/atomiccommit guards. No automaticintegration orownerapprovalwaiting.",
+    "new_issue_review": {
+      "v1_contrast_hold": "Prespecifieddifference>.1 failed; fixedpreampinput3xallprofiles, samePCM/nosamplerrepeat/samethreshold;v2Raw.214/Heavy.499.",
+      "receipt_gap": "Earlierchildrowunavailable asabove; doNOTclaimalloldrawsretained.",
+      "review_size_guard": "5539+2672=8211/8192 refusedprewrite; nofailedfile. Reviewernotifiedrootthencompacted5208Bfinal BEFOREformalrootappend/HOLDarrival; actualorderingdisclosed, no backdatedlogclaim.",
+      "all_opaque_current_events_reviewed": true
+    }
+  }
 }
