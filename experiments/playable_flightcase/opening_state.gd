@@ -567,7 +567,7 @@ func _save_draft_owned() -> bool:
  var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
- file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY) or game.career.has(CareerDates.KEY)))
+ file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY) or game.career.has(CareerDates.KEY) or game.career.has(WorkAvailability.KEY)))
  file.flush()
  var written: bool = file.get_error()==OK
  file.close()
