@@ -35,8 +35,8 @@
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1626721,
-    "sha256": "522763544d7844d9d417176fb8c4b3679d9f4e35fa7f28cddbdb4f697797148f"
+    "bytes": 1629551,
+    "sha256": "e8e52a4142bcacb00a572c496e2470587604a82f21aa724d8550956803ea26c5"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -106,7 +106,7 @@
   "storage_plan": {
     "workspace_start_free": 635924480,
     "persistent_cap": 3145728,
-    "TMPcap": 1342177280,
+    "TMPcap": 1610612736,
     "source_3OGG_ceiling": 600000,
     "source_target_3OGG_bytes": 500000,
     "primaryGit_source_and_finalmetadata": 1600000,
@@ -183,5 +183,13 @@
     "not_assertion_weakening": true,
     "independent_direction_pending": false,
     "independent_direction": "Existing reviewer actualfailureopened/CLEAR narrow nativefollow_focus; no wheel-only QA workaround."
+  },
+  "typed_binding_amendment": {
+    "exact5shippingpaths_unchanged": true,
+    "change": "LocaltypedString matcher beforecomparison innew_backing_entry; originalplayer/owner/schema unchanged.",
+    "TMPcap": 1610612736,
+    "fulltail": "Retainall4candidate/import/proofs, fifth464privatecopy/EMPTYimport/full8newsourceproof/standardPNGs/failedtail. DAY6GiB TMP unchanged; primary3MiB unchanged, actualworkspacefree checked.",
+    "workspace_free_before": 633819136,
+    "TMPfree_before": 6477553664
   }
 }
