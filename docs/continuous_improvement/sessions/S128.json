@@ -28,15 +28,15 @@
     "BM-45"
   ],
   "id": "S128",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "dominant_issue": "BM-21",
   "baseline_sha": "749068e59e27efe2de37aa98afca7767dec17e2f",
   "game_baseline_sha": "c24e4a927eef0feaec934358448daa1554539e57",
   "owner_request": "Direct5Nov: Continuewithnextdevelopmentsteps.Workthroughto5pm; routinecreative/integrationdelegation andrequestedfinaltestingAPKcarryforward. ExistingUX05fullnotediscovery/order thenONEprivateV13, no genericapprovalwait/newqueue/extension.",
   "issue_log_review": {
-    "bytes": 1641511,
-    "sha256": "55f63064c43802a2c24736e52bc4c1502986776d678a3a8cd9556b3a2f31c5c0"
+    "bytes": 1663121,
+    "sha256": "c5cbdfefc7ff33737fb0aadb4347a55b23e897f2526693cfb624e23cf9521f69"
   },
   "target": {
     "locator": "/tmp/bandmaster-s127-jack-backing-context-20261105/runs/standard-phone-final/captures/040-c27-rehearsal_full_reactions-390x844.png",
@@ -81,19 +81,20 @@
     "finaloneAPK sameapp/cert/savefolder/source; privateexistingowner+Ali only; no remotecryptobyteequalitywithoutchecksum"
   ],
   "root_lease": {
-    "writer": "root_S128_full_notes_final_APK",
-    "expires_at": "2026-11-05T16:45:00Z"
+    "writer": null,
+    "expires_at": null,
+    "released_at": "2026-11-05T15:11:38.623247+00:00"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
   "audio_write_allowed": false,
-  "APK_artifact_allowed": true,
-  "page_write_allowed": true,
-  "engine_execution_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
-  "review_pending": true,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": false,
   "stop_condition": "FreezeUX05source15:15, unresolvedmeaningfulcandidateHOLDby15:30 andselectexactverifiedc24forfinalAPKwithoutreset. Finalproof+ONEsignedprivateAPK/handoff/releasesbeforeHARDSTOP17London; no newqueues/schedules/controllers/extraendtasks/automaticextension.",
   "external_artifact_roots": [
     "/workspace/work/s128-full-notes-and-final-apk-20261105",
@@ -107,7 +108,7 @@
     "onlydeclaredrows_nooldmutablecache": true,
     "all5S127producersclosed": true
   },
-  "artifact_phase": "HELD_until_current_source_native_review_PASS_or_explicit_retained_c24_selection",
+  "artifact_phase": "closed_verified_V13_privately_delivered",
   "storage_plan": {
     "workspace_initial_free_bytes": 632135680,
     "workspace_new_metadata_and_primaryGit_cap_bytes": 2300000,
@@ -157,5 +158,140 @@
     "single_unused_reference_export_omission_review_SHA256": "669f2caf7790b9d38a3a133325f73eaf3d888d99373e2a79750a15c4e6feb94b",
     "freshbuild_fromonlyfinalmanifest_nooldproducerresume": true,
     "no_uninstall_wipe_orphysicalacceptanceclaim": true
+  },
+  "predesign_review": {
+    "verdict": "CLEAR",
+    "actual_current_baseline_opens": 10,
+    "exact3path_patch_reviewed": true,
+    "source_proposal_SHA256": "453c91a5858e45eba4b62ad277e62301c6b05ed33e2cfeb6e48a30a3ef5822ef",
+    "receipt": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/predesign-v1.json",
+    "SHA256": "ec004997f39d3507d727b986ae4dfc4231fbacbdfd55e97329fd1db119c02f38"
+  },
+  "early_review": {
+    "verdict": "CLEAR",
+    "source": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+    "current_important_actual_opens": 10,
+    "physical_count_note": "mainphone/wide13calls10uniquephysicaleach; survivinglatestoccurrences only",
+    "product_correction_needed": false
+  },
+  "native_final_review": {
+    "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/native-final-bfc-review.json",
+    "SHA256": "e4018c24267718899c68ec53d7858f632b1275c3e65619a0ed0a472d9e211da4",
+    "scoped_verdict": "CLEAR",
+    "visual_verdict": "partial",
+    "actual_opens": 39,
+    "unique_contents": 39,
+    "owner_approved": false
+  },
+  "source_frozen": true,
+  "artifact_review_pending": false,
+  "artifact_final_review": {
+    "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/artifact-v13-independent-review.json",
+    "SHA256": "bdf1dfa112f454b2752f0a7ce0463b2d5bd2571aeba0e62cffff06a3410c38d6",
+    "verdict": "CLEAR"
+  },
+  "tested_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+  "source_artifact_GL_released": true,
+  "closed_at": "2026-11-05T15:11:38.623247+00:00",
+  "closeout": {
+    "tested_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+    "evidence": [
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
+        "SHA256": "f0d8e6c228d5c5e35602e511b8ae2afc730e2483d9069d4461894a1160687030"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-protection-final.json",
+        "SHA256": "c74ae1f16ec4507e66fc09a8dd86f9b4b2cd3dec636eee02d3c90474d60de24f"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/task-matrix.json",
+        "SHA256": "abbf299f1f16e707d64fe5371e7ca2f0caa764b4e0ab48e5d8a22310db947ecd"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/accepted-log-audit.json",
+        "SHA256": "bf87558d3d4bd236d0977f6b355ae9c9681923b46d85cb83e426e23e548a07ea"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/physical-PNG-index.json",
+        "SHA256": "bdba103fac612c414830bf69bfa32d8974610bd691a7d46cc4057e506a298f3c"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/standard-RGBA-comparison.json",
+        "SHA256": "49bebeff2c3c948b77fcdab494b93876e6951b43b8e99962993713dd6ee6ca16"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/model-closure-reuse.json",
+        "SHA256": "e84c68e756894b6ad64828cd478a927a73c8f0b2a0e6be7cba95d08d29742086"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/root-review.json",
+        "SHA256": "965c9161371243b8b4d881c6e3ac07bc620d16af923086a37d0bc11c6932147a"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/closed-native-producer.json",
+        "SHA256": "f99a0833f9d79af237eb85bea5581f9d8c335bd2d71ec65999801a43a2c10832"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/closed-APK-producer.json",
+        "SHA256": "30b81ee2e8eff7ef4fe2a3b5d7bc1f67f1559e682b1715eb47fd9a5ee2676498"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/build.json",
+        "SHA256": "e57448829e36a14e6a96369f0d2335d33c5e12da828608348b389a69a3f553cc"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/update-privacy-audit-v13.json",
+        "SHA256": "66c8f8e0cec5a80d04c3c5f81c5929472ec3586ccdda7fd2d52fd88def8e17fe"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/private-delivery.json",
+        "SHA256": "10ec1e5bc8768212cacaa237fc48ab00d0fce39afc5c934edf7433029a5002c1"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/page-status-audit.json",
+        "SHA256": "20b9f28638e1b8252943df4a3b84998595e24610fb9d0c3fe65d5eb982261283"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/native-final-bfc-review.json",
+        "SHA256": "e4018c24267718899c68ec53d7858f632b1275c3e65619a0ed0a472d9e211da4"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/artifact-v13-independent-review.json",
+        "SHA256": "bdf1dfa112f454b2752f0a7ce0463b2d5bd2571aeba0e62cffff06a3410c38d6"
+      },
+      {
+        "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/review/delivery-binding-and-release.json",
+        "SHA256": "96200c61c5cd22dc9b1841b3ba054d1d86cdcb098752fe6f0c23b7071ada50fc"
+      }
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Install V13 as Update and check retained band, scrolling, work/calendar, formation, notes and audio on the phone. Use actual feedback for the next bounded fix within explicit time/funding; no automatic queue, new controller, extension or continuous-compute claim.",
+    "new_issue_review": {
+      "through_bytes": 1663121,
+      "SHA256": "c5cbdfefc7ff33737fb0aadb4347a55b23e897f2526693cfb624e23cf9521f69",
+      "actual_events": 1066,
+      "S128_opaque_event_ids": [
+        "S128-20261105-readonly-project-path-correction",
+        "S128-20261105-full-notes-and-one-final-APK-preflight",
+        "S128-20261105-scrollbar-content-clip-QA-held",
+        "S128-20261105-return-tab-and-settled-capture-method",
+        "S128-20261105-repeated-capture-label-retention",
+        "S128-20261105-desktop-day-overlay-native-input-QA",
+        "S128-20261105-unexecuted-APK-audit-template-indentation",
+        "S128-20261105-day-overlay-closing-state-QA-method-change",
+        "S128-20261105-display-fixture-missing-vocal-formation",
+        "S128-20261105-display-fixture-construction-two-attempt-method-change",
+        "S128-20261105-display-pin-map-validator-coverage",
+        "S128-20261105-active-alias-normalization",
+        "S128-20261105-guide-source-path-retrieval",
+        "S128-20261105-APK-upload-account-binding-auto-review",
+        "S128-20261105-Page-readback-key-order-comparator",
+        "S128-20261105-Page-derived-preview-actual-cause-and-method-change",
+        "S128-20261105-verified-source-V13-private-delivery-closeout"
+      ],
+      "all_new_events_reviewed": true,
+      "failures_retained_no_numeric_ID_guessing": true
+    }
   }
 }
