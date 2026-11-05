@@ -1,13 +1,13 @@
 {
-  "writer": "root_S125_week_calendar",
+  "writer": null,
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": "2026-11-05T12:30:00Z",
+  "expires_at": "2026-11-05T10:36:57.857003+00:00",
   "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S125_active_week_calendar",
+  "status": "S125_closed_verified_week_calendar",
   "released_at": "2026-11-04T22:28:43.430097+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -44,7 +44,7 @@
     }
   },
   "last_writer": "root_S124_producer_APK",
-  "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -192,7 +192,7 @@
     "scope": "Reconcile the approved overnight authority with canonical state and the sole finite schedule, and pin an artwork/control/test contract before any new source slice; preserve latestverified179 andV5 distinction.",
     "expires_at": "2026-11-01T00:12:00Z"
   },
-  "candidate_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "candidate_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "previous_s53_release": {
     "last_writer": "S53-first-gig-20261101T0230",
     "source_sha": "dd59bb8a0806d7b565930dfead1622b7735bebe4",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-05T08:56:40.634366+00:00",
+  "updated_at": "2026-11-05T10:36:57.857003+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": true,
   "pending_helpers": true,
-  "next_action": "InstallV12asUPDATE, test producer/music/scrollcomfort onphone. Next substantive source slice agreedworking availability anddatedcalendar, thenrealpose/formation/branding revision; no ownerapprovalwait or queue restart.",
+  "next_action": "Freshfunded distinctArjun/Zoe/Ellis posterposes + formation/branding, including2observedcopyP2s; one finalverifiedAPK by17:00London5Nov. No oldqueue restart.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -390,18 +390,14 @@
   "overnight_integration_freeze": "2026-11-02T06:45:00Z",
   "s68_closeout": "/workspace/work/overnight-20261102/s68/closeout.json",
   "latest_local_checkpoint": {
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
-    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
-    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
-    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
-    "source_runtime_and_cache_permanently_closed": true,
-    "scoped_source_accepted_for_next_work": true,
-    "latest_delivered_APK_is_this_source": true,
-    "latest_delivered_APK_code": 11,
-    "physical_phone_installed_source_verified": false,
+    "session": "S125",
+    "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "evidence": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
+    "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
     "visual_verdict": "partial",
-    "owner_approved": false
+    "owner_approved": false,
+    "source_only_notV12": true
   },
   "delegated_art_writer": null,
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
@@ -424,74 +420,178 @@
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
   "last_completed_session": "S124",
   "closeout": {
-    "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "evidence": [
-      "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
-      "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
-      "/workspace/work/s121-owner-playtest-design-20261104/source-fact-bindings.json",
-      "/workspace/work/s121-owner-playtest-design-20261104/source-process-audit.json",
-      "/workspace/work/s121-owner-playtest-design-20261104/page-status-audit.json"
-    ],
-    "visual_verdict": "hold",
-    "experience_verdict": "owner_revision_requested",
-    "next_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
-    "new_issue_review": {
-      "owner_feedback_event": "S121-20261104-direct-owner-experience-revision-songwriting-scroll-and-music",
-      "alias_review_event": "S121-20261104-reviewed-inherited-current-aliases-before-release",
-      "all_actual_events_reviewed": true,
-      "no_product_correction_or_failed_proof_promotion": true
+    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "evidence": {
+      "source-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
+      "source-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-protection-final.json",
+      "focused-native-validation.json": "/workspace/work/s125-week-and-calendar-20261105/focused-native-validation.json",
+      "accepted-log-audit.json": "/workspace/work/s125-week-and-calendar-20261105/accepted-log-audit.json",
+      "native-PNG-index.json": "/workspace/work/s125-week-and-calendar-20261105/native-PNG-index.json",
+      "source-storage-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-storage-protection-final.json",
+      "closed-cache-pins.json": "/workspace/work/s125-week-and-calendar-20261105/closed-cache-pins.json",
+      "root-final-actual-opens.json": "/workspace/work/s125-week-and-calendar-20261105/root-final-actual-opens.json",
+      "page-status-audit.json": "/workspace/work/s125-week-and-calendar-20261105/page-status-audit.json",
+      "display-closure.json": "/workspace/work/s125-week-and-calendar-20261105/display-closure.json",
+      "independent_review": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-independent-review.json",
+      "independent_binding": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-receipt-binding.json"
     },
-    "scope": "Fresh direct manual review/options after ended18:00 day automation, no resumed build",
+    "visual_verdict": "partial",
+    "scoped_week_calendar_verdict": "internal_pass",
     "owner_approved": false,
-    "direct_owner_feedback_received": true,
-    "historical_technical_passes_unchanged": true,
-    "owner_attachment_visual_inspections": 1,
-    "new_native_original_file_opens": 0,
-    "new_native_captures": 0,
-    "source_fact_bindings": 11,
-    "engine_model_audio_art_APK_executions": 0,
-    "scroll_root_cause": "Not reproduced; nested TextEdit/body scroll is a source-supported hypothesis",
+    "next_action": "Freshfunded distinctArjun/Zoe/Ellis posterposes + formation/branding, including2observedcopyP2s; one finalverifiedAPK by17:00London5Nov. No oldqueue restart.",
+    "new_issue_review": {
+      "bytes": 1602207,
+      "sha256": "f96101cc9344939b4ea2f8dff9d3d38202b65b58bd5575894a52c75152e7f9e6",
+      "events": 1021,
+      "all_new_opaque_events_reviewed": true,
+      "two_invalid_event_categories_normalized_originalraws_and_fcb_commit_retained": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json",
+      "no_failed_proof_promotion": true
+    },
+    "source": {
+      "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+      "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
+      "manifest_SHA256": "95863f8621bd19736a4123edc9f902f151caf945a6f3a06e99adbc9c223b0feb",
+      "curated": 457,
+      "Git_rows": 456,
+      "source_bytes": 102136445,
+      "ordered_digest": "b4e8000ba1dceb9510c19116760a9bbcfa5cb93df9a4227001b483152ae8be4a",
+      "protected_prior": 446,
+      "modified_prior": [
+        "experiments/playable_flightcase/calendar_desk.gd",
+        "experiments/playable_flightcase/career_desk.gd",
+        "experiments/playable_flightcase/opening_state.gd",
+        "experiments/playable_flightcase/opening_ui.gd",
+        "experiments/playable_flightcase/session.gd",
+        "experiments/playable_flightcase/situation_core.gd",
+        "experiments/playable_flightcase/situation_desk.gd",
+        "experiments/playable_flightcase/song_workbench_desk.gd",
+        "experiments/playable_flightcase/ui.gd"
+      ],
+      "new_rows": [
+        "experiments/playable_flightcase/band_week.gd",
+        "experiments/playable_flightcase/career_dates.gd"
+      ],
+      "all54originalScripts_including3UID_exact": true,
+      "all31OGG_and7audioJSON_exact": true,
+      "all_prior_art_fonts_hardware_originalresolvers_exact": true,
+      "runtime_extra_rows_not_curated": 415
+    },
+    "actual_Godot": {
+      "total": 50,
+      "execution_level_pass": 39,
+      "strictheld": 11,
+      "diagnostics_in_total": 4,
+      "strict_final_current": 19,
+      "not50PASS": true
+    },
+    "whole_task": {
+      "final4workingweeks_verify_calls": 3997,
+      "originalpaidactions": 28,
+      "owned_save_attempts_including_public_formationfixtures": 120,
+      "four_originalpublicGameformationfixtures_notwholemenus_or_auditions": true,
+      "DAY1to8_no_day_or_stat_injection": true,
+      "endcash235": true,
+      "onefinishedsong_each": true,
+      "actualeligibleLanternDAY12booking_each": true,
+      "mainFSfailure_retry_pairs": 16,
+      "auxiliary_pairs": 2,
+      "early_pairs": 2,
+      "auxiliary_notextra_wholeloops": true
+    },
+    "actual_models": {
+      "final_affected": 474,
+      "fresh_original_gameplay": 73,
+      "fresh_original_opening": 88,
+      "no_old9128_or_unchangedgigs_rerun": true
+    },
+    "nativePNG": {
+      "all_physical": 517,
+      "final_current": 332,
+      "standard_actual_encoding_events": 248,
+      "standard_filename_families": 232,
+      "all_encoding_occurrences_physical_unique": true,
+      "no_full_historicalRGBA_comparison_claim": true
+    },
+    "root_final_actual_opens": 12,
+    "independent_actual_opens": {
+      "all": 66,
+      "current74": 18,
+      "priorfcb_whole": 16,
+      "baseline_early_held": 32,
+      "unique_contents": 47,
+      "not_human_reviewers": true
+    },
     "five_explicit_SIMULATED_lenses": [
       {
         "lens": "SIMULATED game critic",
-        "finding": "An earned formation moment and coherent song-to-show identity matter more than additional menus or numerical completeness."
+        "finding": "A working week now has commitments and consequences; static/sparse scenes and remaining formation revisions still limit impact."
       },
       {
         "lens": "SIMULATED musician",
-        "finding": "Audible distinctive phrases and meaningful arrangement tradeoffs required; event parity/loudness/notation do not establish compelling music."
+        "finding": "Actual agreed work availability and attending musicians affect sessions; newrotas are authoredproposals, notinferredrealemployment. No newaudio or humanlisteningclaim."
       },
       {
         "lens": "SIMULATED general player",
-        "finding": "Reach all choices, understand day/availability commitments and hear the result of a small number of choices without typing lyrics."
+        "finding": "Date/venue stamps, work names and costs are readable; agreedweek isexplicit andcanbe skipped, unknownlegacy remainshonest."
       },
       {
         "lens": "SIMULATED mobile/accessibility reviewer",
-        "finding": "Reproduce songwriting drag ownership with keyboard and owner lineup; maintain reachable actions, reduced motion, mute, skip and no orphan name line."
+        "finding": "48pxtargets/nativewheel/key/emulatedtouch/resize proved; ordinarybodyscrollremains anddisabledAgreementcopyneedsnextsourcefix. Physicaldevice/IMEuntested."
       },
       {
-        "lens": "SIMULATED art/identity reviewer",
-        "finding": "Real varied source poses and coherent poster/sleeve/handpainted treatments; exact owner Arjun/Zoe/Ellis composition is a first acceptance case."
+        "lens": "SIMULATED save/state reviewer",
+        "finding": "Freeagreement oneownercheckpoint, fulltypedrollback/retry/deepunknown/fractionalreload andzero calendarview sideeffects verified; oldmodels/Finance unchanged."
       }
     ],
     "material_gaps": [
-      "Design and acceptance contract only, not implemented or audible prototype.",
-      "New owner playtest is real feedback; exact installed APK/device/output/keyboard/retention not independently verified.",
-      "Raw owner attachment unavailable locally; no hash or native rendering claim.",
-      "No new independent human reviewer or listening test; persona lenses are explicitly simulated."
+      "Explicitweekagreement isopt-in; absent/unknownlegacy stilloriginalbehavior. This is not automaticjobrotas for everycareer.",
+      "Workpatterns affect writing/rehearsal; gigattendance remainsoriginal, calendarcan show anoverlap.",
+      "TwoobservedcopyP2s carried to nextsource beforeV13.",
+      "Ordinaryphone/shortwidebodyscroll, staticpeople/sparsewide-tall art remain.",
+      "HistoricalTMPsourceproofs/caches/APKoutputs vanishedbeforeNov5; durableoriginalrecords retained, nothingreconstructed orreopened falsely.",
+      "S112/S114/S123abruptdebug-exitaudio warning remainsHOLD/causeunproved; ordinary600frameentry/lifecycle passes do not resolveit.",
+      "Dummy/nativeemulation notphysicalphone/audio/listening/IME/OSinterrupt/install/retention/humancomprehension evidence."
     ],
+    "APK": {
+      "current_phone": "V12",
+      "source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+      "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk",
+      "newS125not_in_phone_yet": true,
+      "new_build_upload_or_grants_in_S125": 0
+    },
     "Pages": {
-      "plan": 59,
-      "board": 171,
-      "choices": 72,
-      "checked": 23,
-      "images": 50,
-      "unrelated_blocks_order_IDs_metadata_instructions_exact": true,
+      "plan": 63,
+      "board": 176,
+      "choices72_checked23_images50_preserved": true,
+      "all_otherblocksIDs_order_metadata_exact": true,
+      "ownercheckboxwrites": 0,
       "browser_render_claim": false
     },
-    "source_and_delivered_V11_unchanged": true,
-    "closed_at": "2026-11-04T19:09:21.724115+00:00",
+    "source_corrective_iterations_afterfirstnative": 3,
     "source_artifact_helpers_GL_released": true,
-    "manual_old_automation_not_resumed": true
+    "display": {
+      "pid": 1905,
+      "status": "stopped",
+      "socket_gone": true,
+      "config3pins_unchanged": true,
+      "pins": {
+        "/usr/bin/Xorg": "bca1ceb412614f4e0cb13a68b5d78e86b32ac25f7f2f66b40de73517c8f239eb",
+        "/etc/X11/xorg.conf": "76b290e6680ec6bf706f2940347c56dbe8ac893be448e4af6e120d0d9bd7196a",
+        "/usr/lib/xorg/modules/drivers/dummy_drv.so": "608370525f3c6ecf96c1eab4908a2b22c5a676836c81dfd48a8377e268a384f8"
+      },
+      "GL_flock_free": true,
+      "PID1_defunct_if_retained_not_live_server": true,
+      "completed_at": "2026-11-05T10:24:16.538602+00:00"
+    },
+    "closed_at": "2026-11-05T10:36:57.857003+00:00",
+    "owner_latest_deadline": "2026-11-05T17:00:00Z",
+    "oldfinitequeue_ended_notrestarted": true,
+    "funding_amendment": {
+      "S125cap": 7340032,
+      "nextart_cap": 6291456,
+      "daycap": 18874368,
+      "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
+    }
   },
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
@@ -586,32 +686,24 @@
     "completed_at": "2026-11-01T14:38:45.952009+00:00"
   },
   "latest_local_native_checkpoint": {
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
-    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
-    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
-    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
-    "source_runtime_and_cache_permanently_closed": true,
-    "scoped_source_accepted_for_next_work": true,
-    "latest_delivered_APK_is_this_source": true,
-    "latest_delivered_APK_code": 11,
-    "physical_phone_installed_source_verified": false,
+    "session": "S125",
+    "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "evidence": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
+    "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
     "visual_verdict": "partial",
-    "owner_approved": false
+    "owner_approved": false,
+    "source_only_notV12": true
   },
   "latest_verified_phase2": {
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
-    "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
-    "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
-    "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
-    "source_runtime_and_cache_permanently_closed": true,
-    "scoped_source_accepted_for_next_work": true,
-    "latest_delivered_APK_is_this_source": true,
-    "latest_delivered_APK_code": 11,
-    "physical_phone_installed_source_verified": false,
+    "session": "S125",
+    "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "evidence": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
+    "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
     "visual_verdict": "partial",
-    "owner_approved": false
+    "owner_approved": false,
+    "source_only_notV12": true
   },
   "playable_opening_checkpoint": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
@@ -783,8 +875,8 @@
   "session_path": "docs/continuous_improvement/sessions/S125.json",
   "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-  "last_verified_local_native_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-  "last_verified_native_run_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "last_verified_local_native_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "last_verified_native_run_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "latest_unverified_phase2_candidate": null,
   "current_candidate": {
     "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
@@ -813,7 +905,7 @@
     "no_sourcehistory_keys_saves_or_public_sharing": true,
     "hard_stop": "2026-11-04T18:00:00Z"
   },
-  "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -1089,10 +1181,10 @@
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
   "root_lease": {
-    "writer": "root_S125_week_calendar",
-    "expires_at": "2026-11-05T12:30:00Z"
+    "writer": null,
+    "expires_at": "2026-11-05T10:36:57.857003+00:00"
   },
-  "source_implementation_status": "No pendingimplementation in completedS123/S124; availability_calendar_art remainfuture scopes",
+  "source_implementation_status": "none_in_S125_closed_scope",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -1525,7 +1617,7 @@
     "pending_helpers": false,
     "final_record_gate": "789 PASS; final closed-record gate run before commit"
   },
-  "source_artifact_GL_released": false,
+  "source_artifact_GL_released": true,
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -2239,7 +2331,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "current_verified_game_source": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -2981,7 +3073,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S125_week_calendar",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3217,14 +3309,14 @@
     "session": "S120_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
-  "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
+  "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S125",
-  "game_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "active_session": null,
+  "game_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S125_week_calendar",
-  "artifact_writer": "root_S125_week_calendar",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
@@ -3312,5 +3404,134 @@
   "s122_closeout": "/workspace/work/s122-songwriting-navigation-20261104/closeout.json",
   "audio_write_allowed": false,
   "s123_closeout": "/workspace/work/s123-audible-producer-20261104/closeout.json",
-  "s124_closeout": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json"
+  "s124_closeout": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
+  "historical_before_S125_verified_closeout": {
+    "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "tested_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "candidate_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "game_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "current_verified_game_source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "last_verified_native_run_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "last_verified_local_native_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+    "latest_local_checkpoint": {
+      "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+      "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+      "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+      "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+      "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+      "source_runtime_and_cache_permanently_closed": true,
+      "scoped_source_accepted_for_next_work": true,
+      "latest_delivered_APK_is_this_source": true,
+      "latest_delivered_APK_code": 11,
+      "physical_phone_installed_source_verified": false,
+      "visual_verdict": "partial",
+      "owner_approved": false
+    },
+    "latest_local_native_checkpoint": {
+      "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+      "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+      "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+      "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+      "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+      "source_runtime_and_cache_permanently_closed": true,
+      "scoped_source_accepted_for_next_work": true,
+      "latest_delivered_APK_is_this_source": true,
+      "latest_delivered_APK_code": 11,
+      "physical_phone_installed_source_verified": false,
+      "visual_verdict": "partial",
+      "owner_approved": false
+    },
+    "latest_verified_phase2": {
+      "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+      "manifest": "/workspace/work/s116-due-day-calendar-20261104/source-final.json",
+      "complete_validation": "/workspace/work/s116-due-day-calendar-20261104/closeout.json",
+      "source_protection": "/workspace/work/s116-due-day-calendar-20261104/source-storage-protection-final.json",
+      "source_runtime": "/tmp/bandmaster-s116-due-day-calendar-20261104/candidate-v1/runtime",
+      "source_runtime_and_cache_permanently_closed": true,
+      "scoped_source_accepted_for_next_work": true,
+      "latest_delivered_APK_is_this_source": true,
+      "latest_delivered_APK_code": 11,
+      "physical_phone_installed_source_verified": false,
+      "visual_verdict": "partial",
+      "owner_approved": false
+    },
+    "closeout": {
+      "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
+      "evidence": [
+        "/workspace/work/s121-owner-playtest-design-20261104/owner-playtest-event.json",
+        "/workspace/work/s121-owner-playtest-design-20261104/DESIGN_REVIEW_AND_OPTIONS.md",
+        "/workspace/work/s121-owner-playtest-design-20261104/source-fact-bindings.json",
+        "/workspace/work/s121-owner-playtest-design-20261104/source-process-audit.json",
+        "/workspace/work/s121-owner-playtest-design-20261104/page-status-audit.json"
+      ],
+      "visual_verdict": "hold",
+      "experience_verdict": "owner_revision_requested",
+      "next_action": "Fresh fully funded prototype: reproduce/fix songwriting touch-scroll and TRANSISTOR name fit; then one audible producer-desk song with agreed availability and a dated calendar. New audio/art follows that creative brief. No automatic implementation, queue restart or generic owner-approval wait.",
+      "new_issue_review": {
+        "owner_feedback_event": "S121-20261104-direct-owner-experience-revision-songwriting-scroll-and-music",
+        "alias_review_event": "S121-20261104-reviewed-inherited-current-aliases-before-release",
+        "all_actual_events_reviewed": true,
+        "no_product_correction_or_failed_proof_promotion": true
+      },
+      "scope": "Fresh direct manual review/options after ended18:00 day automation, no resumed build",
+      "owner_approved": false,
+      "direct_owner_feedback_received": true,
+      "historical_technical_passes_unchanged": true,
+      "owner_attachment_visual_inspections": 1,
+      "new_native_original_file_opens": 0,
+      "new_native_captures": 0,
+      "source_fact_bindings": 11,
+      "engine_model_audio_art_APK_executions": 0,
+      "scroll_root_cause": "Not reproduced; nested TextEdit/body scroll is a source-supported hypothesis",
+      "five_explicit_SIMULATED_lenses": [
+        {
+          "lens": "SIMULATED game critic",
+          "finding": "An earned formation moment and coherent song-to-show identity matter more than additional menus or numerical completeness."
+        },
+        {
+          "lens": "SIMULATED musician",
+          "finding": "Audible distinctive phrases and meaningful arrangement tradeoffs required; event parity/loudness/notation do not establish compelling music."
+        },
+        {
+          "lens": "SIMULATED general player",
+          "finding": "Reach all choices, understand day/availability commitments and hear the result of a small number of choices without typing lyrics."
+        },
+        {
+          "lens": "SIMULATED mobile/accessibility reviewer",
+          "finding": "Reproduce songwriting drag ownership with keyboard and owner lineup; maintain reachable actions, reduced motion, mute, skip and no orphan name line."
+        },
+        {
+          "lens": "SIMULATED art/identity reviewer",
+          "finding": "Real varied source poses and coherent poster/sleeve/handpainted treatments; exact owner Arjun/Zoe/Ellis composition is a first acceptance case."
+        }
+      ],
+      "material_gaps": [
+        "Design and acceptance contract only, not implemented or audible prototype.",
+        "New owner playtest is real feedback; exact installed APK/device/output/keyboard/retention not independently verified.",
+        "Raw owner attachment unavailable locally; no hash or native rendering claim.",
+        "No new independent human reviewer or listening test; persona lenses are explicitly simulated."
+      ],
+      "Pages": {
+        "plan": 59,
+        "board": 171,
+        "choices": 72,
+        "checked": 23,
+        "images": 50,
+        "unrelated_blocks_order_IDs_metadata_instructions_exact": true,
+        "browser_render_claim": false
+      },
+      "source_and_delivered_V11_unchanged": true,
+      "closed_at": "2026-11-04T19:09:21.724115+00:00",
+      "source_artifact_helpers_GL_released": true,
+      "manual_old_automation_not_resumed": true
+    }
+  },
+  "engine_execution_allowed": false,
+  "s125_closeout": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
+  "S125_final_funding": {
+    "S125cap": 7340032,
+    "nextart_cap": 6291456,
+    "daycap": 18874368,
+    "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
+  }
 }
