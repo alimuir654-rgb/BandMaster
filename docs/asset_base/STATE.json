@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S128_closed_V13_private_delivered",
+  "status": "S132_closed_preservation_funded",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -402,12 +402,12 @@
     {
       "at": "2026-10-29T12:00:00+00:00",
       "status": "reviewed_optional_breadth_frozen_F16_native_verified_art_partial",
-      "decision": "At 12:05\u201312:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
+      "decision": "At 12:05–12:10 UK reviewed C15 390x844/day Nia, 1280x720/night Nia, 1280x720/day Nia and 1600x900/day Alex actual Godot PNGs from run 40863989717. C15 indie portraits more relevant than C12 corporate, but 512x690 paired-origin originals remain P0 art HOLD; 1600x900 day dossier expands to ~600px-tall mostly blank textured card and night summary sits near top with unused right lower field. Freeze ALL optional cast/scene/control families now. F16 only adjust responsive widescreen dossier positioning/proportions using existing modular source materials and native labels, preserving C15 portraits, all six passive meters, recruitment interactions and 390/720/1280 arrangements. Verify 32 native screenshots and 20 hardware captures before art verdict. No more portrait collage retries. Actual F16 first native rendered clipped day biography despite green tests; one corrective height/bounds pass then 32+20 native captures/0 failures and three same-SHA CI successes at a7d2e5803c491f36e26cc5d62863ff10b92985f2. Only 1600x900 photos changed relative to C15; 390/720/1280 all pixel-identical. Day photo notes now fit; no meter or portrait source rework; proceed at 14 to validation/packaging."
     },
     {
       "at": "2026-10-29T14:00:00+00:00",
       "status": "reviewed_packaged_native_art_hold_no_new_family",
-      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12\u2192U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12\u2192U18 owner review; owner_approved=false."
+      "decision": "14:00 gate: downloaded authentic C12 run40837105664 artifact12880838182 and latest U18 native run40880526534 artifact12900730044; opened genuine C12-v-U18 original PNG comparisons at 1280x720 and 1600x900, current real 390x844 day/night and 720x1280 day, 4-viewport gallery, character-source sheet and modular F/U atlas. Audited all 32 U18 scene PNG dimensions and 20 U04 capture dimensions, X11 Godot4.7.2 zero failures, 3 green same-source CI. Extracted original standalone Godot project; 23 passive_meter_*.png SHA256 source files identical C12→U18, six meters still non-focus/ignore. F and U source-state kit verified and packed, NO new families or implementation edits. Relative to C12, indie paired-source 512x690 faces appear more credible but do not satisfy distinct independent >=1024 character masters. 720 Nia close-up oversized, night 1600 lower area underused and day 390 labels still crowded. Replan: 15:00 evidence/index ONLY, 16:00 NO WRITES and original C12→U18 owner review; owner_approved=false."
     },
     {
       "at": "2026-10-29T15:00:00+00:00",
@@ -695,7 +695,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S128",
+  "current_session": "S132",
   "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
   "latest_verified_phase2": {
     "session": "S125",
@@ -1900,7 +1900,7 @@
         "New Caveat22/CLEAR16 preference applies to this play session only; no new preference persistence/save schema. Compact portrait captions deliberately printed16, full narrative22; original wordmark remains RGBA art, not an installed font.",
         "Actual paper Home endpoint views use explicitly cloned QA tension0/100 and native End on focused scrollbar. They establish screen-context readability, not all-surface physical touch scrolling. CLEAR final result-full-dossier.png names are misleading collapsed originals; actual expanded originals recovered with birthtime/hash provenance, raw files retained.",
         "No first-gig control/transport/setlist/crowd/gear/audio/cast/gameplay change in S52. S53 contract/intake are READONLY preparation, no claimed implementation.",
-        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47\u2013S52, one final useful milestone APK remains conditional on stable core.",
+        "No S52 APK/ZIP/Page image upload; verified imported328-file runtime is LOCAL checkpoint only. Current V5/a9 excludes S47–S52, one final useful milestone APK remains conditional on stable core.",
         "Visual PARTIAL/owner_approved=false, handwritten glyph reveal is not physical pen-stroke simulation. Original source art/cast/hardware/passive gradient bytes remain intact.",
         "Public full learning-history/source upload remains blocked by earlier automatic approval review; no retry, bypass, merge or production access."
       ]
@@ -2033,7 +2033,7 @@
   "all_write_freeze": "2026-11-05T17:00:00Z",
   "hard_stop": "2026-11-05T17:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S128",
+  "last_completed_session": "S132",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2335,7 +2335,7 @@
     }
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-05T15:11:38.623247+00:00",
+  "released_at": "2026-11-05T21:20:54.929310+00:00",
   "last_writer": "root_S128_full_notes_final_APK",
   "source_write_allowed": false,
   "pending_implementation": false,
@@ -2896,7 +2896,7 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "session_path": "docs/continuous_improvement/sessions/S128.json",
+  "session_path": "docs/continuous_improvement/sessions/S132.json",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "current_candidate": {
     "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
@@ -3123,17 +3123,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -3633,17 +3633,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -5567,5 +5567,36 @@
     "tested_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
     "visual_verdict": "partial",
     "owner_approved": false
+  },
+  "latest_offline_audio_prototype": {
+    "session": "S131",
+    "closeout": "/workspace/work/s131-low-riff-revision-20261105/closeout.json",
+    "private_files": 1,
+    "source": "3ae8c9bb3606e2eff2011e7046367660e1039c6a",
+    "Game_unchanged": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+    "integration": false,
+    "human_listening_accepted": false
+  },
+  "durable_metadata_commit_policy_S129": "Largecanonicalupdates intentionallydurableuncommitted; compactSession/toolprimaryGit only, within512KiBcap. No approvalpending.",
+  "latest_storage_preservation": {
+    "session": "S132",
+    "reclaimed_B": 139984896,
+    "source_paths": 804,
+    "anchors": 402,
+    "execution": "/workspace/work/s132-cache-preservation-execution.json",
+    "all3cachesclosedimmutable": true,
+    "approval_pending": false
+  },
+  "latest_owner_musical_decision": {
+    "quote": "Yes, this is much better.",
+    "reference": "S131lowriff",
+    "WAV_SHA256": "b5eb23cf75fd6c05f0b8d26fc0b272ac7db988039cc6d174d19ee582a749ad5a",
+    "file_id": "1RnkcXukUr1CpnoH5xHQfN9G6zsAqJ2XB",
+    "scope": "Raw/darkerreferenceaccepted, notallpreviousclips/art/Gameacceptance"
+  },
+  "latest_owner_production_steering": {
+    "goahead": "Raw/darkco-writingverticalslicethenotherstatedpriorities",
+    "existing_songs": "Don't worry about existing songs; no prototype-songcompatibilitygate",
+    "preserve": "Game/day/Finance/roster/unknownschema/saveguards/54Scripts"
   }
 }

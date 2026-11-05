@@ -7,8 +7,8 @@
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S128_closed_V13_private_delivered",
-  "released_at": "2026-11-05T15:11:38.623247+00:00",
+  "status": "S132_closed_preservation_funded",
+  "released_at": "2026-11-05T21:20:54.929310+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -220,8 +220,8 @@
     "writer": "S54-song-recording-20261101T0425",
     "claimed_at": "2026-11-01T04:24:30.738786+00:00",
     "expires_at": "2026-11-01T06:20:00Z",
-    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
-    "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+    "authority": "Owner explicitly approved the 1 November00:15–09:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
     "released_at": "2026-11-01T05:39:04.406867+00:00"
   },
@@ -418,7 +418,7 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "last_completed_session": "S128",
+  "last_completed_session": "S132",
   "closeout": "/workspace/work/s126-formation-identity-20261105/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
@@ -466,7 +466,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-  "current_session": "S128",
+  "current_session": "S132",
   "closed_at": "2026-11-04T19:09:21.724115+00:00",
   "last_updated_utc": "2026-11-04T19:09:21.724115+00:00",
   "last_validation": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
@@ -702,7 +702,7 @@
   },
   "finite_end": "2026-11-05T17:00:00Z",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "session_path": "docs/continuous_improvement/sessions/S128.json",
+  "session_path": "docs/continuous_improvement/sessions/S132.json",
   "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "last_verified_local_native_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
@@ -952,17 +952,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -1453,17 +1453,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -3392,5 +3392,36 @@
     "tested_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
     "visual_verdict": "partial",
     "owner_approved": false
+  },
+  "latest_offline_audio_prototype": {
+    "session": "S131",
+    "closeout": "/workspace/work/s131-low-riff-revision-20261105/closeout.json",
+    "private_files": 1,
+    "source": "3ae8c9bb3606e2eff2011e7046367660e1039c6a",
+    "Game_unchanged": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+    "integration": false,
+    "human_listening_accepted": false
+  },
+  "durable_metadata_commit_policy_S129": "Largecanonicalupdates intentionallydurableuncommitted; compactSession/toolprimaryGit only, within512KiBcap. No approvalpending.",
+  "latest_storage_preservation": {
+    "session": "S132",
+    "reclaimed_B": 139984896,
+    "source_paths": 804,
+    "anchors": 402,
+    "execution": "/workspace/work/s132-cache-preservation-execution.json",
+    "all3cachesclosedimmutable": true,
+    "approval_pending": false
+  },
+  "latest_owner_musical_decision": {
+    "quote": "Yes, this is much better.",
+    "reference": "S131lowriff",
+    "WAV_SHA256": "b5eb23cf75fd6c05f0b8d26fc0b272ac7db988039cc6d174d19ee582a749ad5a",
+    "file_id": "1RnkcXukUr1CpnoH5xHQfN9G6zsAqJ2XB",
+    "scope": "Raw/darkerreferenceaccepted, notallpreviousclips/art/Gameacceptance"
+  },
+  "latest_owner_production_steering": {
+    "goahead": "Raw/darkco-writingverticalslicethenotherstatedpriorities",
+    "existing_songs": "Don't worry about existing songs; no prototype-songcompatibilitygate",
+    "preserve": "Game/day/Finance/roster/unknownschema/saveguards/54Scripts"
   }
 }
