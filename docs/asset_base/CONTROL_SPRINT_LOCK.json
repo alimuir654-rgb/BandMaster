@@ -1,5 +1,5 @@
 {
-  "writer": "root_S127_jack_backing_context",
+  "writer": null,
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-05T12:14:54.335706+00:00",
   "expires_at": "2026-11-05T14:45:00Z",
@@ -7,7 +7,7 @@
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S127_active_Jack_backing_context",
+  "status": "S127_closed_released_optional_Jack_backing",
   "released_at": "2026-11-05T12:01:32.508435+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-05T10:36:57.857003+00:00",
+  "updated_at": "2026-11-05T13:39:27.651801+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -322,9 +322,9 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "next_action": "Fresh457sourcebaseline/independentcontrols+asset predesign beforegeneratedcohort/nativebranding source; scopecloses14:30, finalAPK17:00.",
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "next_action": "FreshbudgetforoneboundedUX05fullnotesdisclosure ifcompletefundingfits; otherwiseproceedonefinalsignedprivateAPKfromthis464sourceby17London. No ownerapprovalwait/newqueue.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S126",
+  "session": "S127",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -466,7 +466,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-  "current_session": "S126",
+  "current_session": "S127",
   "closed_at": "2026-11-04T19:09:21.724115+00:00",
   "last_updated_utc": "2026-11-04T19:09:21.724115+00:00",
   "last_validation": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
@@ -714,13 +714,13 @@
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
   "active_development_run": {
-    "session": "S120",
-    "status": "closed_existing_guide_handoff",
-    "writer": null,
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "released_at": "2026-11-04T15:28:14.933887+00:00",
+    "session": "S127",
+    "status": "active",
+    "writer": "root_S127_jack_backing_context",
+    "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+    "released_at": null,
     "continuous_compute_claim": false,
-    "finite_end": "2026-11-04T18:00:00Z"
+    "finite_end": "2026-11-05T17:00:00Z"
   },
   "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
   "current_delivery_policy": {
@@ -732,7 +732,7 @@
     "no_sourcehistory_keys_saves_or_public_sharing": true,
     "hard_stop": "2026-11-04T18:00:00Z"
   },
-  "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "tested_sha": "c24e4a927eef0feaec934358448daa1554539e57",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -1008,8 +1008,9 @@
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
   "root_lease": {
-    "writer": "root_S126_formation_identity",
-    "expires_at": "2026-11-05T14:30:00Z"
+    "writer": null,
+    "expires_at": "2026-11-05T14:45:00Z",
+    "released_at": "2026-11-05T13:39:27.651801+00:00"
   },
   "source_implementation_status": "none_in_S125_closed_scope",
   "storage_operation_782": {
@@ -1444,7 +1445,7 @@
     "pending_helpers": false,
     "final_record_gate": "789 PASS; final closed-record gate run before commit"
   },
-  "source_artifact_GL_released": false,
+  "source_artifact_GL_released": true,
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -2900,7 +2901,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S127_jack_backing_context",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3138,12 +3139,12 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S126",
-  "game_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "active_session": null,
+  "game_source_sha": "c24e4a927eef0feaec934358448daa1554539e57",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S127_jack_backing_context",
-  "artifact_writer": "root_S127_jack_backing_context",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
@@ -3171,7 +3172,7 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
   },
-  "native_evidence_pending": true,
+  "native_evidence_pending": false,
   "publication": "V12 compiledAPK privateexistingownerchair+Ali reader only; source/history/rawaudio/keys/saves local.",
   "historical_active_aliases_before_S117_release": "/workspace/work/s117-final-apk-v11-20261104/canonical-aliases-before-release.json",
   "s118_closeout": "/workspace/work/s118-report-notebook-review-20261104/closeout.json",
@@ -3361,5 +3362,24 @@
     "daycap": 18874368,
     "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
   },
-  "GL_owner": null
+  "GL_owner": null,
+  "review_pending": false,
+  "latest_verified_game_sha": "c24e4a927eef0feaec934358448daa1554539e57",
+  "latest_source_manifest": "/workspace/work/s127-jack-backing-context-20261105/source-final.json",
+  "s127_closeout": {
+    "tested_sha": "c24e4a927eef0feaec934358448daa1554539e57",
+    "closeout": "/workspace/work/s127-jack-backing-context-20261105/closeout.json",
+    "SHA256": "988747331b4863a3a97384b38adbbb5c881d02e0c43e4642f7efce2ee296a807",
+    "source_manifest": "/workspace/work/s127-jack-backing-context-20261105/source-final.json",
+    "source_manifest_SHA256": "7e324af2c84fd1270ee1d1231e36f6fc625ab6b9e085c3a01275cbcef3797054",
+    "status": "scoped_internal_pass_overall_partial",
+    "released_at": "2026-11-05T13:39:27.651801+00:00"
+  },
+  "DAY_storage_20261105": {
+    "initial_free": 651022336,
+    "cap": 21495808,
+    "floor": 629145600,
+    "finalAPKreserve": 1572864,
+    "handoffreserve": 655360
+  }
 }

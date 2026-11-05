@@ -28,15 +28,15 @@
     "BM-45"
   ],
   "id": "S127",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "dominant_issue": "BM-38",
   "baseline_sha": "06805f2c166dfb05e626317e70136021c4ea286f",
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1635427,
-    "sha256": "d4ff482dd1d4ef01f7f7a6724e099b7d7bdd729e1de177a41abd7b99c1384637"
+    "bytes": 1638547,
+    "sha256": "b085a82ed99832e344e404d9aeaff2cda9e0a03d7b0c0eb4bf8813d59c4b4516"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -79,19 +79,20 @@
     "FSrollback/retry/stale/duplicate/typedreload/unknown; originalcosts/phase/time exact"
   ],
   "root_lease": {
-    "writer": "root_S127_jack_backing_context",
-    "expires_at": "2026-11-05T14:45:00Z"
+    "writer": null,
+    "expires_at": "2026-11-05T14:45:00Z",
+    "released_at": "2026-11-05T13:39:27.651801+00:00"
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "art_write_allowed": false,
-  "audio_write_allowed": true,
+  "audio_write_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
-  "engine_execution_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
-  "review_pending": true,
+  "page_write_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": false,
   "stop_condition": "No production untilindependentpre+asset sourcecontract cleared; twoineffective methods HOLD/change. Audio mustnotdelay17APK; stopbreadth15:00/proof16:00. No queues/autoextension.",
   "external_artifact_roots": [
     "/workspace/work/s127-jack-backing-context-20261105",
@@ -211,5 +212,242 @@
     "fulltail": "Retainall4candidate/import/proofs, fifth464privatecopy/EMPTYimport/full8newsourceproof/standardPNGs/failedtail. DAY6GiB TMP unchanged; primary3MiB unchanged, actualworkspacefree checked.",
     "workspace_free_before": 633819136,
     "TMPfree_before": 6477553664
+  },
+  "source_artifact_GL_released": true,
+  "closeout": {
+    "tested_sha": "c24e4a927eef0feaec934358448daa1554539e57",
+    "evidence": {
+      "source-final.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/source-final.json",
+        "SHA256": "7e324af2c84fd1270ee1d1231e36f6fc625ab6b9e085c3a01275cbcef3797054"
+      },
+      "source-protection-final.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/source-protection-final.json",
+        "SHA256": "f010b1e902b59903518d34fb64659d2e6c84be98e2355ed339554605905b95cb"
+      },
+      "accepted-log-audit.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/accepted-log-audit.json",
+        "SHA256": "ff68787d95eebaf77b55d8d70d1157677f28e538dab4c01c783ba6b2a3bd1841"
+      },
+      "native-PNG-index.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/native-PNG-index.json",
+        "SHA256": "c4add8068a4f8904dbca248482a4926e575816801e02986b6961b5376b510871"
+      },
+      "standard-RGBA-comparison.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/standard-RGBA-comparison.json",
+        "SHA256": "2230df51fa11c61d2d2b34fa842c02dde559fed2e0b05cd5fdac0a157dd24bd5"
+      },
+      "focused-native-validation.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/focused-native-validation.json",
+        "SHA256": "52c4e0b032a490b3eec77e3c40dd7edebafbd5bbc329d6daf8225658b6a8b1cb"
+      },
+      "model-closure-reuse.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/model-closure-reuse.json",
+        "SHA256": "4a9b29d382778965e1a50206f4d8e74cc9427340c6d350b6ed9967bebfac7e14"
+      },
+      "root-actual-opens.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/root-actual-opens.json",
+        "SHA256": "d7217c60950f7f803e5adfb6e30907669b72f4859e484512b67070115c0221fe"
+      },
+      "closed-cache-pins.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/closed-cache-pins.json",
+        "SHA256": "5cc6f6ef838cd95c92195222607439b7f03ba38ec0af7bd103e45cbec2d451f8"
+      },
+      "source-storage-protection-final.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/source-storage-protection-final.json",
+        "SHA256": "2559c34f0b7aed6273e5e34f079d1979e3eec40a2e840c439a89f88789986486"
+      },
+      "display-closure.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/display-closure.json",
+        "SHA256": "33d053d925a44a42d626ea19ba2df1b29a907a28bd0df0dfc49b208743022859"
+      },
+      "page-status-audit.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/page-status-audit.json",
+        "SHA256": "f9ad0e0119265395aea7d97d74e19d73c278dddaff96c1e03f48d789eb0b5e2d"
+      },
+      "audio-delivery-v3.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/audio-delivery-v3.json",
+        "SHA256": "79dc54107d7ac5f7fb08aab923a67b6c7bf2368d9c7bc8b62b1187e8d468097d"
+      },
+      "rights.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/rights.json",
+        "SHA256": "c62f784266439995eaa9de9e2ad6c8722a18ae8bea5824b52f8ea5feb5bccc6f"
+      },
+      "review/final-c24-independent-review.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/review/final-c24-independent-review.json",
+        "SHA256": "83b7810b4d5475f533a425e6b38094f56c240d70db2b8eb44ccb120d041ba5bd"
+      },
+      "review/asset-v3-adoption.json": {
+        "path": "/workspace/work/s127-jack-backing-context-20261105/review/asset-v3-adoption.json",
+        "SHA256": "96f2e21cef2fcaf962aa5b217ea1e8ae22dab07c1aafca52115d5fcdf6531295"
+      }
+    },
+    "visual_verdict": "partial",
+    "scoped_visual_verdict": "internal_pass",
+    "owner_approved": false,
+    "technical_pass": true,
+    "status": "closed_scoped_internal_pass_overall_partial",
+    "source_manifest": "/workspace/work/s127-jack-backing-context-20261105/source-final.json",
+    "source_rows": 464,
+    "source_bytes": 104739852,
+    "ordered_digest": "461eb6aa2b36162b0f46e947bbf40be0440a85c262a6c04f663e7c29b00f8b3e",
+    "integrated": [
+      "OptionalJackSOLO PART/WITH BACKING for actualrevealed original/currentadjustment/prior; exactold3guitars retained againstoneauthored16bass+51kit groove,12secondsincludingtail. Explicitillustration, nottherecruitedbandsperformance/skillgrade.",
+      "Native48px modebuttons/readablehover; modechanges disposeoldownedplayer/nullstream, noautoplay; freshDesk/Menu/reloadSOLO. Fullwrittenpart/fallbackretained, other3profileskeeporiginalaudio.",
+      "NativeAuditionBodyScroll followskeyboardfocusto lowerwrittencontrols, actualwheelbothdirections unchanged; noowner/model/schema/Finance/economychanges."
+    ],
+    "executions": {
+      "actualGodot": 40,
+      "strictaccepted_all_sources": 34,
+      "strictaccepted_finalsource": 18,
+      "held": 6,
+      "not40PASS": true,
+      "shipping_source_versions": 4,
+      "private_runtime_candidates": 5,
+      "whole_final8_assertions": 3666,
+      "whole_final_FSretry_pairs": 16,
+      "whole_final_invites_original33talent": 8,
+      "whole_save_attempts": 80,
+      "ofwhich_explicit_public_setup_saves": 24,
+      "whole_not_initialmenus": true,
+      "aux_current_cases": 2,
+      "aux_checks": 1156,
+      "aux_public_otherprofile_fixture_saves": 30,
+      "aux_Jack_explicit_restore_saves": 2,
+      "unknown_fixture": "Actualtyped15nestedlevels andexact0.25, noarbitraryfloatingtypeguarantee",
+      "current73_88_EMPTYimport_fourstandards_ordinary600entry": true,
+      "ordinaryentry_raw0_ERRORempty_noJSONsaves": true,
+      "reused_S126_models335_via66shipping2frozenQA": true,
+      "model_reruns": 0,
+      "audio_actual_sampler_raw0": 1,
+      "audio_actual_uniqueFFmpeg_raw0": 33,
+      "held_mix_parent_runs": 2,
+      "all_audio_child_raw0_not_all_parentPASS": true,
+      "natural12s_completion": "ActualfinalPHONE SPACE only; prior e40PHONE SPACE historicalcompletionseparate."
+    },
+    "native_evidence": {
+      "physicalPNGs": 484,
+      "accepted": 456,
+      "held": 28,
+      "acceptedfinalsource": 348,
+      "standard_events": 248,
+      "families": 232,
+      "eventRGBA": {
+        "exact": 228,
+        "Jackscope": 12,
+        "knownReopen": 4,
+        "reviewed_partialformationfade": 4,
+        "unexpected": 0
+      },
+      "canonicalRGBA": {
+        "exact": 212,
+        "Jackscope": 12,
+        "Reopen": 4,
+        "formationpartial": 4
+      },
+      "root_actualopens": 28,
+      "root_uniquecontents": 28,
+      "root_finalacceptedopens": 12,
+      "independent_actualopens": 43,
+      "independent_uniquecontents": 40,
+      "independent_finalopens": 16,
+      "standardcompletedband": "Actualpartialfadeframes,notsettledcurrentposter/namefitproof; S1264settledcovers referencedonlybyunchangedsourceclosure."
+    },
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "persona": "SIMULATED game critic",
+        "finding": "Optionalsame-partcontext adds usefulcomparison; static/sparsecompositionremainsPARTIAL."
+      },
+      {
+        "persona": "SIMULATED musician",
+        "finding": "Exactguitar/commonbacking/decodedtechnicalchecks andfaithfulness pass;nohumanlisteningorphysicalaudiblequalityverdict."
+      },
+      {
+        "persona": "SIMULATED general player",
+        "finding": "Fullwritten/current/priorpartsandfixedoriginalinvitecost/returnroute remain clear in testedstates."
+      },
+      {
+        "persona": "SIMULATED controls andaccessibility",
+        "finding": "Nativepointer/keys/emulatedtouch/Tabfocus/wheel/resize/mute/lifecycle tested; physicaltouch/IME/OSinterruptionuntested."
+      },
+      {
+        "persona": "SIMULATED save/source reviewer",
+        "finding": "Audio/modefreeoperations preservetypedowner/files/saves; actualFSrollback/retry/duplicate/currenttypedreload pass,459priorprotected."
+      }
+    ],
+    "material_gaps": [
+      "OverallvisualPARTIAL/staticpeople/sparsewide-tall/ordinaryphonebodyscroll; variedposesremainonlyexactArjunZoeEllisS126cohort.",
+      "Newmix internaltechnical/symbolicreviewonly, owner_listening_accepted=false. Dummydoesnotprovephone/speaker/headphonequality orhumancomprehension.",
+      "No newAPKyet; V12/source36dc7f0 remainsphoneuntilonefinalverifiedupdate.",
+      "HistoricalS112/S114abruptdebugOggresourcequitP2remainsHOLD/causeunproved; ordinarycurrententry/lifecyclepassesdonotresolveit.",
+      "HistoricalmissingTMPproofs/cachesremainunavailable/closed; fresh12sampleacquisitionisnotreconstruction.",
+      "Opt-inworkrotasconstrainwriting/rehearsal; unknownlegacyandoriginalshowattendanceunchanged."
+    ],
+    "new_issue_review": {
+      "opaque_event_ids": [
+        "S127-20261105-exact-source-audition-context-preflight",
+        "S127-20261105-readonly-tree-output-budget",
+        "S127-20261105-source-map-paths-refused",
+        "S127-20261105-canonical-lease-aliases-current",
+        "S127-20261105-FFmpeg-JSON-tail-parser-held",
+        "S127-20261105-musical-context-level-comparison-HOLD",
+        "S127-20261105-selected-backing-hover-contrast",
+        "S127-20261105-curated-entry-copy-refused",
+        "S127-20261105-hidden-QA-node-lookup-held",
+        "S127-20261105-written-bar-focus-inaccessible",
+        "S127-20261105-tall-fit-positive-scroll-fixture-held",
+        "S127-20261105-malformed-string-binding-script-error",
+        "S127-20261105-observer-lifetime-and-inplace-fixture-held",
+        "S127-20261105-primaryGit-closeout-estimate-rebalance",
+        "S127-20261105-standard-formation-frame-difference-reviewed",
+        "S127-20261105-index-peak-finaltail-reserve",
+        "S127-20261105-review-receipt-size-guard-retained",
+        "S127-20261105-final-scoped-resolution-and-release"
+      ],
+      "source_corrections_after_first_native": 3,
+      "source_corrections": [
+        "selected-hovercontrast",
+        "nativefocus-following",
+        "type-firstbinding"
+      ],
+      "all6heldGodot_and2heldmixparents_retained": true,
+      "strict_ERRORgate_overrules_raw0_or_baseQApass": true,
+      "QA_method_changes": "Retainedhiddencontrolreference; fittedrange/realoverflowresize; one-shotmodeobserver; inplacecontextvsnewDeskSOLO distinguished, actualMenuContinueproof; everyoriginalsemantic/FS/typedassertionretained.",
+      "review_receipt_sizeguard": "Compactserializationafterfailedprewriteestimate; all43opensretained,role110656/131072B.",
+      "allissues_reviewed_bytes": 1638547,
+      "allissues_SHA256": "b085a82ed99832e344e404d9aeaff2cda9e0a03d7b0c0eb4bf8813d59c4b4516"
+    },
+    "storage": {
+      "scope_cap": 3801088,
+      "TMPcap": 1610612736,
+      "DAYcap": 21495808,
+      "DAYinitialfree": 651022336,
+      "floor": 629145600,
+      "finalAPKreserve": 1572864,
+      "handoffreserve": 655360,
+      "allcriticalGitprimary": true,
+      "all5source_cache_producers_closed": true,
+      "prior8caches4052files_rechecked_exact": true,
+      "oldmissingTMP_unavailable": true,
+      "no_cleanup_or_underfloor_commit": true
+    },
+    "pages": {
+      "Plan": 65,
+      "Board": 178,
+      "human_choices": 72,
+      "checked": 23,
+      "images": 50,
+      "allunrelated_IDs_order_AgentInstructions_archive_deletedA03v2absence_exact": true,
+      "no_upload_grants_browserrender_claim": true
+    },
+    "current_phone": {
+      "version": 12,
+      "source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+      "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk"
+    },
+    "next_action": "FreshbudgetforoneboundedUX05fullnotesdisclosure ifcompletefundingfits; otherwiseproceedonefinalsignedprivateAPKfromthis464sourceby17London. No ownerapprovalwait/newqueue.",
+    "closed_at": "2026-11-05T13:39:27.651801+00:00",
+    "source_artifact_helpers_GL_released": true,
+    "ownXorg14216_stopped_Z_socketgone_config3pins_exact": true
   }
 }
