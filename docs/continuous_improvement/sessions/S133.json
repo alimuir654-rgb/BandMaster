@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "id": "S133",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "091fa4c38faa60763c88610582b5d8ba9c1afd12",
+  "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+  "owner_request": "DirectGoaheadforraw/darkwritingverticalslice+statedpriorities. S131Yesmuchbetter acceptsrawreference. LatestDontworryexistingsongs waivesprototype-songcompatibility. Newsteering: suggestionresponsecanaffectrelationships; longerdrink/drug/arrest/fanscandal arcs capturedinsoleworklist, notallimplementednow. Noqueue/controller restart oroldwindowextension.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1682586,
+    "sha256": "fb7faa7e3a680d23e3f2c7d9b0246eaeb4768fa2a0163c1fd8a45fa928931ab6"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105/runs/standard-phone/captures/057-c27-lyric_seed_saved-390x844.png",
+    "original_sha256": "3aec142938eb06f2fa7cec6200449be9dc0ccf2495c1e837537776a5b3281f4b",
+    "pixels_inspected": true,
+    "wide": "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105/runs/standard-wide/captures/057-c27-lyric_seed_saved-1280x720.png",
+    "wide_SHA256": "732d0ee2073d9e7ed4975166af82e3223cedbdf008e956f41b284faf7a5dbf29",
+    "scope": "Actualcurrentbfcphone/widewritingcontextopened. ExactProducerbaselinefreshnativebeforeUIeditsfunded; owneracceptedS131musicreference isartisticrawtarget, nohumanUIacceptanceclaim."
+  },
+  "hypothesis": "Onecoherentraw/dark songdevelopsfromriffsketch\u2192rhythmsection\u2192chorus usingfouraudiblechoices/actualmembercounterproposal; savedbrief/recipe andread-onlylaterreplaymakebandidentityperceptible. Suggestionconsideration rememberedandonlycommittedwritingcanapplyboundedrelationalconsequence.",
+  "controlled_comparison": "Sameoriginalcast/talent/3writingdays/costs/Finance/schema/54Scripts/art/fonts/hardware; newrawrecipev2/palette+audible3stageprogression andlocalpresentation. Newfreshbandgate; existingprototype-songcompatibilitynotrequired.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S133.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/band_sound.gd",
+    "experiments/playable_flightcase/song_audio.gd",
+    "experiments/playable_flightcase/producer_social.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/show_replay.gd",
+    "experiments/playable_flightcase/opening_capture.gd",
+    "experiments/playable_flightcase/audio/producer_raw_dark.json",
+    "experiments/playable_flightcase/audio/producer/raw_dark_v1/*.ogg",
+    "docs/continuous_improvement/S133_RAW_DARK_CO_WRITING.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s133-raw-dark-cowriting-20261105",
+    "/tmp/bandmaster-s133-raw-dark-cowriting-20261105"
+  ],
+  "queue_task": "ExistingS80raw-darkco-writing/identity/whole-firstcareerloop",
+  "reviewer": "Existing/root/s125_review independentpre-source/earlyphone-shortwide/finalexactsource; scopedD/review<=131072B. Rootonlyshippingwriter/engines. Oneexplicitassethelperjob onlyD/audio-author<=524288B+R/audio-job<=1207959552B; noGame/Git/Pages/engine byhelper. CHECKexplicithelperrolesauthoriseassetdelegation.",
+  "player_goal": "Formraw/darkband\u2192actualworkingweek\u2192shape/listenriff\u2192bandmateoffer\u2192try/keep\u2192original3paidwritingdays\u2192savedoriginal\u2192listenatrehearsal/show, withrealavailabilityandonce-onlysaves.",
+  "start_end_commitment": "Freshcurrentopeningmenustonaturalfirstshowwherefeasible; transparentqualification/setupfixturesseparate. Freepreview/choice/trial0Game/day/cash/Finance; originalwriting/rehearsal/gigonlyoriginalowners once. Socialmemory/effectonlyinsidepaidwritingatomicowner, neverPlay/mute/views.",
+  "state_matrix": [
+    "16four-bitrecipes\u00d73stages48boundcues; onlyIndierawsupported, all14genresselectable/nofalseaudiomatch",
+    "Phone390/shortwide1280baseline/earlyimportantstatesbeforefullproof; all4finalnativewholejourney/input/scroll/longname/context/dirtysavefailure/reload",
+    "Bandbriefgenre/nameintent/vibepersist; newrecipeversion2stage/hook/brief; unknownfutureHOLD/typedrootunknownspreserved; existingprototype-songcompatibilitywaived",
+    "Actualmemberoffer boundtoactualsavedrecipe/trial; apply/compare/keep; repeateddismissalcontext remembered; financial/day/loyaltyeffectsonlyoncepaidcommit/fullrollback",
+    "Savedfinishedrecipe\u2192rehearsal/selectedearnedshowsnapshotread-onlyexplicit48pxPlayStop; nofuture/unchosen/autoplay/musicgrade/humanperformanceclaim",
+    "Mastermute/persistedOff/focus/resize/hide/Menu/free/contextstop/unmutenoautoresume; missingasset/writtenfallback; audiozeroownersaveeffects"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S133.json",
+    "RootbaselinecurrentbfcProducerphone/shortwide innewprivatefundedruntime; independentpredesign beforeUIedits. Onefreshprivateaudiojob48cuesfromS131lowriffwithliteralflag/stagecontract; originalacceptedstage2index4OGGbyteexact; other47internaltechnical/symbolicreviewdelegatedauthoritynotownerlistening.",
+    "Source/apihashes/physicalnotes/142CC0samples/endvoices/tails/uniqueversionrawreceipts/all48decode/probe/level/materialbinding; no paid/newbank/deps/runtimeAI.",
+    "Freshaffectedproducer/workbench/identity/socialmodel testswithindependentliteraloracles; meaningfulunknown/future/reentrant/FSfailedsave-retry/typedreload/once-only/payloadhash tests. Legacyprototype-songmigrationnotgate; originalRiff/lyricotherpaths/Game/saveguards preserved.",
+    "Finalcurrent73/88/freshEMPTYprivateimport/fourstandard/ordinaryrealtime600max60verbose plusfulltask4layouts/missingaudio/input/availability. DoNOTrepeatforced5frameknownaudioP2/unchangedgigs/modelsforactivity.",
+    "All54originalScripts3UID/ownersession/Finance/old34OGG8JSON/art/fonts/hardware protectedexceptdeclaredpaths; exactfinalcuratedmanifestonly, no arbitraryUID/cacheextras. Source/art/proofversionsretained, noassertionweakening.",
+    "OnefinalprivateAPKafterchosenintegration/proof, notintermediateAPKs; code>13/sameappID/cert/savefolder/ARM64/privacy/updateaudit, selectedAPKonlyexistingowner+Ali. No uninstall/clearproddata orphysicaltestclaim."
+  ],
+  "root_lease": {
+    "writer": "root_S133_raw_dark_cowriting",
+    "expires_at": "2026-11-06T00:30:00Z",
+    "scope": "Boundednewdirecttask, no newschedule/automaticextension; rootcancloseearlier."
+  },
+  "source_write_allowed": true,
+  "audio_write_allowed": true,
+  "art_write_allowed": false,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": true,
+  "page_write_allowed": true,
+  "stop_condition": "Twoineffectiveattemptschange/HOLD, no genericownerapprovalwait. No newaudio/stylebreadthbeyondrawIndiehook; maturearcsbacklogonly. Freshfundbeforeanyaddedpaths/allocation, no cleanup/sharedclosedcachewrites/TMPcriticalGit.",
+  "storage_plan": {
+    "workspace_start_free": 768081920,
+    "TMPstartfree": 4471939072,
+    "floor": 629145600,
+    "TASKpersistentcap": 100663296,
+    "TASKTMPcap": 3221225472,
+    "S133persistentcap": 83886080,
+    "S133TMPcap": 2147483648,
+    "TASKreserved_other_context_followup": 12582912,
+    "TASKreserved_finalAPKmetadata": 2097152,
+    "TASKreservedhandoff": 2097152,
+    "TASKTMPreserved_followup": 536870912,
+    "TASKTMPreserved_finalAPK": 536870912,
+    "S133primary_categories_MiB": {
+      "OGGsource": 32,
+      "primaryGit_audio_source": 34,
+      "compactsource_receipts": 1,
+      "canonicalGit": 3,
+      "QAfailedreceipts": 1,
+      "APKmetadata": 1,
+      "tail": 8
+    },
+    "S133TMPcategories_MiB": {
+      "audio_lossless_stems_FLAC_OGG_scores_logs": 1152,
+      "runtime_privatecache_baseline_development_finalempty": 640,
+      "physicalPNG": 128,
+      "work_models_saves_failedproof": 128
+    },
+    "closedcapnotautomaticauthority": true,
+    "allcriticalGitprimary": true,
+    "primaryD_audio_author_cap": 524288,
+    "D_independent_review_cap": 131072,
+    "alllargeartifactsTMP": true,
+    "no_cleanup_oroldmutablecache_reuse": true
+  },
+  "source_input": {
+    "manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
+    "manifest_SHA256": "f0d8e6c228d5c5e35602e511b8ae2afc730e2483d9069d4461894a1160687030",
+    "curatedrows": 464,
+    "copy_ONLY_declared_rows": true,
+    "accepted_reference_WAV": "b5eb23cf75fd6c05f0b8d26fc0b272ac7db988039cc6d174d19ee582a749ad5a",
+    "accepted_reference_file_id": "1RnkcXukUr1CpnoH5xHQfN9G6zsAqJ2XB",
+    "S132all3newclosedcachetrees_neverresume": true
+  },
+  "implementation_contract": {
+    "recipe_version": 2,
+    "fields": [
+      "version",
+      "palette",
+      "hook",
+      "brief",
+      "stage",
+      "pace",
+      "energy",
+      "originality",
+      "theme"
+    ],
+    "palette": "raw_dark_v1",
+    "hook": "low_riff_v1",
+    "four_values": [
+      [
+        "driving",
+        "urgent"
+      ],
+      [
+        "open",
+        "full"
+      ],
+      [
+        "familiar",
+        "angular"
+      ],
+      [
+        "home",
+        "escape"
+      ]
+    ],
+    "index_bits": [
+      8,
+      4,
+      2,
+      1
+    ],
+    "stages": [
+      0,
+      1,
+      2
+    ],
+    "stage0": "riffsketch",
+    "stage1": "bass+drums",
+    "stage2": "chorusanswer/fullarrangement",
+    "default_stage2_index4": "ExactS131acceptedOGG",
+    "tempo": [
+      104,
+      132
+    ],
+    "audio_id": "raw_s{stage}_{index:02d}",
+    "manifest": "res://experiments/playable_flightcase/audio/producer_raw_dark.json",
+    "content_version": "producer_raw_dark_v2",
+    "no_required_lyric_typing": true,
+    "member_request": "Boundedtypedactualrecipe/trialoffer; try/keepandconsiderationmemory; relationshipreactionfromrepeatedcommitteddismissals noteverydecline, nofreeactionsettlement",
+    "social_owner": "Workbenchseal withinoriginalOpeningStatepaidtransaction, sameonesave; no extraFinance/day/secondcontroller",
+    "newlongtermarcs": "CaptureexistingS80only; growlaterfromactions/commitments/relationships, notrandompunishmentcards."
+  }
+}
