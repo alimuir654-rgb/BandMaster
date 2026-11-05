@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "S129",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "535faf32531c40b04222c2014b9a16f868b6ddc5",
+  "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+  "owner_request": "Direct5Nov Go ahead approves one30-45s verse-to-chorus prototype: onehook/twogrooves/twochoruses,4listening sketches. New bounded task only; endedqueue/day not restarted. Routinecreative decisions delegated.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1663121,
+    "sha256": "c5cbdfefc7ff33737fb0aadb4347a55b23e897f2526693cfb624e23cf9521f69"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105/runs/standard-phone/captures/037-c27-practice_mode_create_day1-390x844.png",
+    "original_sha256": "6c2095fe12e77721b5ec63b79fc437378cb9d0608598375a46266e7a66d5caba",
+    "pixels_inspected": true,
+    "scope": "Actualcurrent bfc phone writing firstfold opened, visualcontext only. Musicaltarget directownerfeedback/basicstrums and approvedonehookmatrix; pixelsdoNOTproveaudioquality."
+  },
+  "hypothesis": "Prepared authored verse/chorus/hook and guitar articulation make groove/chorus decisions audibly meaningful before anyUI/economy integration.",
+  "controlled_comparison": "Same112BPM/16bars/hook/harmony/instrumentbank/balance/commonmaster; groove changesbass+kit only, chorustreatmentchangeschorusguitars only. 4named combinations.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S129.json",
+    "tools/audio_authoring/song_sketch.py",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s129-song-sketch-prototype-20261105",
+    "/tmp/bandmaster-s129-song-sketch-prototype-20261105"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S129.json",
+    "S93isolatedvenv: strictscores/SFZ+142samples+rights beforeafter; physical guitarvoicings/coveredkeys/nooverlap/identicalpairedmodules",
+    "Actualsamplerrenderrawexit0/endvoices0/noERROR/tail; guitar-onlybreakup; commonmastergain/FFmpegq5 encodeprobeactualdecode/levels/truepeak/duration; retainallfailures",
+    "Independentpre/finalsymbolictechnicalreview, no human/devicelisteningclaim; Game464source rows/54Scripts3UID/34OGG8JSON/V13 untouched; noGodot/APK/native/import reruns",
+    "Private4selectedclips only existingowner+namedAli viaexplicitverifiedparent/account/ACL. No raw/source/stems/historyupload."
+  ],
+  "queue_task": "ExistingS80 musicalcontinuity/songwriting follow-up, no newqueue",
+  "reviewer": "Existing /root/s125_review, scopedD129/review <=12288B, read-onlysource/score/proof; noGit/Pages/source/engine.",
+  "player_goal": "Hearonehookbecomeaverseandchorus; compare grooveandtreatment withoutwordentry orstatoptimisation.",
+  "start_end_commitment": "Listeningprototypeonly:4clips, no Game/save/day/Finance/integration/APK changes.",
+  "state_matrix": [
+    "Driving/Open;Driving/Tight;Half-time/Open;Half-time/Tight",
+    "Samehook/harmony/tempo/verseguitars; exactpairedstemreuse",
+    "Guitar-onlydistortion/pan; unprocessedbass+kit; complete2.4stail; finaldecodedheadroom",
+    "No listen/device acceptance inference; fourprivatefilegrants only"
+  ],
+  "root_lease": {
+    "writer": "root_S129_song_sketch",
+    "expires_at": "2026-11-05T19:15:00Z",
+    "scope": "offlineartifact/audio only, no shippingwriter/GL"
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": true,
+  "APK_artifact_allowed": false,
+  "engine_execution_allowed": false,
+  "page_write_allowed": true,
+  "stop_condition": "Closeboundedprototype by19:15; aftertwoineffectivemusical/renderattempts change/HOLD. No ownerapprovalwait/cleanup/newqueue/automaticextension.",
+  "storage_plan": {
+    "workspace_start_free": 629936128,
+    "persistent_global_cap": 524288,
+    "durable_compact_root_cap": 98304,
+    "review_cap_included": 12288,
+    "TMPcap": 536870912,
+    "floor": 629145600,
+    "finaltail_reserved": 131072,
+    "criticalGit_primary": true,
+    "commit_policy": "Commit onlycompactS129Session+newtool inprimaryGit. Largecanonicalstate/ledger/ISSUES/worklist updates remainDURABLEUNCOMMITTED byprospectiveofflineartifactscope, withbeforemapinTMP. No Game/source/APKchange; no forcedunderfloorfullcanonicalcommit.",
+    "phase_peak": "Newcompactsource/receipts/Git<=262144B plus indexpeak131072 andtail131072 total524288. Canonicalupdatesinplace, originalfullbeforesnapshotsretainedTMP.",
+    "no_cleanup_orclosedcachewrite": true
+  },
+  "source_input": {
+    "manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
+    "sha256": "f0d8e6c228d5c5e35602e511b8ae2afc730e2483d9069d4461894a1160687030",
+    "rows": 464,
+    "no_runtimecopy_needed": true
+  },
+  "new_diagnostic_review": "Read-onlywrongCONTROLpath andsystemPythonmetadata lookup failed; actualpaths/isolatedvenv known, appendrecurrencebeforecorrection. No audioexecution/sourcefailure."
+}
