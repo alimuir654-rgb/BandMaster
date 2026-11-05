@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "root_S127_jack_backing_context",
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
-  "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": null,
-  "scope": "ClosedS126exactcohort/nativebranding/formation/firstweek/copyP2proof; no implementationpending.",
+  "claimed_at": "2026-11-05T12:14:54.335706+00:00",
+  "expires_at": "2026-11-05T14:45:00Z",
+  "scope": "OneJack optionalbackingcontext; exact5shippingpaths, originalcontent/owners/models/audio protected.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S126_closed_released",
+  "status": "S127_active_Jack_backing_context",
   "released_at": "2026-11-05T12:01:32.508435+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -2900,7 +2900,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S127_jack_backing_context",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3142,8 +3142,8 @@
   "game_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": null,
-  "artifact_writer": null,
+  "source_writer": "root_S127_jack_backing_context",
+  "artifact_writer": "root_S127_jack_backing_context",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",

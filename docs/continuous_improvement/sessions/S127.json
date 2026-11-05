@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S127",
+  "status": "active",
+  "owner_approved": false,
+  "dominant_issue": "BM-38",
+  "baseline_sha": "06805f2c166dfb05e626317e70136021c4ea286f",
+  "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+  "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
+  "issue_log_review": {
+    "bytes": 1616804,
+    "sha256": "34bfba102585431872eccdb4a4933258967156d89738f57ac9c66578ff632de7"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
+    "original_sha256": "b2dec006db533154a1a8344fb0ea9b83bee323c263e969dca4f32cf5b771ab1c",
+    "pixels_inspected": true,
+    "scope": "Actual12f currentphone/wide Jacktryout+response originals opened; exactsamecurrentbaseline evidence reused, no oldproducer execution."
+  },
+  "hypothesis": "Hear the unchanged revealed Jack guitar part against one coherent authored bass/drum groove, with explicit solo/backing mode and honestillustration label; preserve written exercise and decisions.",
+  "controlled_comparison": "SameactualJack/currentrequest/originalaudio/talent/owner/viewport; only optionalnewbacking illustration plus48pxlocalmode, no event/ability/economy change.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S127.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/audio/jack_backing_clips_v1.json",
+    "experiments/playable_flightcase/audio/jack_backing_original_v1.ogg",
+    "experiments/playable_flightcase/audio/jack_backing_space_v1.ogg",
+    "experiments/playable_flightcase/audio/jack_backing_own_v1.ogg"
+  ],
+  "validation_commands": [
+    "Pre-design current4originals/source APIs before product/assets; fresh12selectedsameCC0Gitblob/bytes/PCM/license/SFZ/score checks; same100BPM D/G/A/D backing for3exactoldguitarrecordings,12secincl2.4tail, samebalancedgains, decodedlevels/tails/stereo/voicestop. Internaltechnical/symbolic review nothuman/device acceptance.",
+    "Earlyactualphone390/shortwide1280importanttryout/adjusted/prior/mode/mute/input states BEFORE fullproof. Fourlayouts\u00d7bothrequests completeJackauditions withrealFSsavefailure/retry/invite/typedreload/duplicateguards, modezeroowner/file/save/day/cash/Finance/talent/phase effects; no arrival/future/unchosen/autoplay. Other3profilecompatibility exactclosure/nativecurrentgeneric defaults already19strict12f; affectednewtests forJackmode/fallback/typedcontext.",
+    "Current73/88/freshEMPTYprivateimport/fourstandards/ordinaryentry onfinalsource; allold460prior exceptDesk protected,31OGG7audioJSON/54Scripts3UID/owners/models/schema/Finance/art/fonts/hardware exact. Nounchangedmodel/gig/import/activity reruns.",
+    "RootaloneGodot4.7.2/Dummy/oneGLflock/freshprivateXDG/additionalnetworkpermission/normalXorgwrapperconfig; allactualstrictacceptedERRORempty, failedrawsretained, opaqueissuesbeforecorrection/twoineffectiveattempts change/HOLD.",
+    "FullfundsourceOGG/Git/cache/PNG/failedproof/closeout+finalAPK beforeallocation; source+criticalGitdurable, largeartifactsTMP. Noarbitrarycleanup/gc/prune/reset/TMPcriticalGit/oldmutablecache reuse."
+  ],
+  "queue_task": "ExistingS80ownerpersonal-audition-musicality",
+  "reviewer": "Reuseexisting /root/s125_review independentpre/asset/early/final, onlyD127/review <=131072B within3MiB; no source/Git/Pages/engine writes.",
+  "player_goal": "Compare the same revealed guitar part alone and in an arranged backing context before asking for an adjustment orinviting.",
+  "start_end_commitment": "Originalpublicbegin_new/setgenre/to_recruit thenrealnativeJackaudition/selectedrequest/prior/contextcomparison/invite/typedreload; explicitfixture disclosed, not8wholeinitialmenus.",
+  "state_matrix": [
+    "solo/backing/original/SPACE/OWN/prior;48pxtouch/pointer/keys/scroll",
+    "arrival/held/future/otherprofile/noexample/missingmanifest/resource/hash; no unchosen cue",
+    "mute/Off/unmute/noautoresume; focus/hide/resize/context/Menu/free/teardown",
+    "FSrollback/retry/stale/duplicate/typedreload/unknown; originalcosts/phase/time exact"
+  ],
+  "root_lease": {
+    "writer": "root_S127_jack_backing_context",
+    "expires_at": "2026-11-05T14:45:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "audio_write_allowed": true,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "stop_condition": "No production untilindependentpre+asset sourcecontract cleared; twoineffective methods HOLD/change. Audio mustnotdelay17APK; stopbreadth15:00/proof16:00. No queues/autoextension.",
+  "external_artifact_roots": [
+    "/workspace/work/s127-jack-backing-context-20261105",
+    "/tmp/bandmaster-s127-jack-backing-context-20261105"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s126-formation-identity-20261105/source-final.json",
+    "SHA256": "9b69ca233944afc77b57119fe6445fc1345b8d2f8822ae9439356dadeed90572",
+    "rows": 460,
+    "alloldproducer_cachesclosed_copyonlydeclaredrows": true
+  },
+  "storage_plan": {
+    "workspace_start_free": 635924480,
+    "persistent_cap": 3145728,
+    "TMPcap": 1073741824,
+    "source_3OGG_ceiling": 600000,
+    "source_target_3OGG_bytes": 500000,
+    "primaryGit_source_and_finalmetadata": 1600000,
+    "compact_contract_receipts_QA": 700000,
+    "failedcloseout_tail": 245728,
+    "DAYinitialfree": 651022336,
+    "DAYcap": 21495808,
+    "DAYcategory_reservations": {
+      "S125closed_actual6877184_reserved": 7077888,
+      "S126closed": 8388608,
+      "S127": 3145728,
+      "finalAPK": 1835008,
+      "handoff": 1048576
+    },
+    "DAYrebalance": "Freshprospective20.5MiBDAY actualfloorcheck; onlyunusedclosedS125reservation0.25MiBreallocated (closedrecordnotrewritten), alloldbytesretained. No automaticclosedcapreuse orcleanup.",
+    "DAYTMPcap": 6442450944,
+    "workspace_TMPfloor": 629145600,
+    "finalAPKreserve": 1835008,
+    "handoffreserve": 1048576,
+    "allcriticalGitprimary": true,
+    "no_cleanup_oroldmutablecache_reuse": true
+  },
+  "fresh_acquisition": {
+    "not_lost_TMP_original_recovery_or_reconstruction": true,
+    "same_previouslyapproved_banks_and_exact_commits": [
+      {
+        "repo": "sfzinstruments/karoryfer.black-and-blue-basses",
+        "commit": "6e7d674cdb41be7a54dbccb15472401ad01099b9",
+        "license": "CC0-1.0",
+        "subset": "6mf darkblackD2/G2/A2 rr1/2",
+        "advertised_bytes": 3969480
+      },
+      {
+        "repo": "sfzinstruments/karoryfer.gogodze-phu-vol-ii",
+        "commit": "69a0274cdc39c99c3098cde1bc3789690de86d62",
+        "license": "CC0-1.0",
+        "subset": "6frontmic kick/snarecentre/closedhat vl3 rr1/2",
+        "advertised_bytes": 1138016
+      }
+    ],
+    "12WAV_max_bytes": 8388608,
+    "raw_room_review_max_bytes": 67108864,
+    "rendered_release_included": true,
+    "no_new_bank_dependencies_paid_services_runtimeAI": true
+  }
+}
