@@ -135,7 +135,7 @@ def score(groove, chorus):
 
 
 def plan():
-    out = R/'scores-v2'; out.mkdir()
+    out = R/'scores-v3'; out.mkdir()
     variants = {}
     for groove in ['driving','half-time']:
         for chorus in ['open','tight']:
@@ -148,7 +148,8 @@ def plan():
         for index in (2,3): assert a['tracks'][index] == b['tracks'][index]
         for index in (0,1):
             for s in (a,b):
-                assert [n for n in s['tracks'][index]['notes'] if n['at']<32*BEAT] == [n for n in a['tracks'][index]['notes'] if n['at']<32*BEAT]
+                boundary = round(32*BEAT*RATE)
+                assert [n for n in s['tracks'][index]['notes'] if round(n['at']*RATE)<boundary] == [n for n in a['tracks'][index]['notes'] if round(n['at']*RATE)<boundary]
         assert [n['pitch'] for n in a['tracks'][1]['notes']] == [n['pitch'] for n in b['tracks'][1]['notes']]
     for chorus in ['open','tight']:
         a,b=[variants[f's129-{g}-{chorus}'] for g in ['driving','half-time']]
