@@ -147,7 +147,7 @@ func _ready() -> void:
  songs.name = "ShowReplaySavedSongOrder"
  body.add_child(songs)
  for song in _receipt.get("plan",{}).get("song_snapshots",[]):
-  if song is Dictionary:preload("res://experiments/playable_flightcase/song_audio.gd").attach(body,song,func():return is_inside_tree() and is_visible_in_tree() and not _closing and not _closed)
+  if song is Dictionary:preload("res://experiments/playable_flightcase/song_audio.gd").attach(body,song,func():return is_inside_tree() and is_visible_in_tree() and not _closing and not _closed,false)
 
  _ack = C.button("SHOW SAVED NOTES  ›","flightcase","action")
  _ack.name = "ShowReplayContinueAction"

@@ -1290,7 +1290,7 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
  var body:=_box()
  body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  scroll.add_child(body)
- body.add_child(_label("SAVED LYRIC SKETCHES",22))
+ body.add_child(_label("SAVED ORIGINALS",22))
  if not _workbench_finished_ref.is_empty():
   var selected: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
   if selected.ok:

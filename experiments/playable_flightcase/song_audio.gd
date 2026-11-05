@@ -15,13 +15,13 @@ static func recipe(song: Dictionary) -> Dictionary:
  if receipt.get("song_id")!=song.get("id") or receipt.get("final_quality")!=song.get("quality"):return {}
  return value.duplicate(true)
 
-static func attach(parent: Node,song: Dictionary,context: Callable) -> void:
+static func attach(parent: Node,song: Dictionary,context: Callable,paper: bool=true) -> void:
  var value: Dictionary=recipe(song)
  if value.is_empty():return
- var caption: Label=C.label("SAVED ARRANGEMENT · "+str(song.get("title","Original")),16)
+ var caption: Label=C.label("SAVED ARRANGEMENT · "+str(song.get("title","Original")),16,"notepaper" if paper else "flightcase")
  caption.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(caption)
- var written: Label=C.label(Producer.written(value),16)
+ var written: Label=C.label(Producer.written(value),16,"notepaper" if paper else "flightcase")
  written.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(written)
  var audio=AudioPart.new()
