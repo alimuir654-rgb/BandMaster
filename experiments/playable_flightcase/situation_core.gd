@@ -2,14 +2,40 @@ extends RefCounted
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 ## Owned, optional career facts. No personal money or canonical biographies are inferred.
 const KEY := "situation_core_v1"
+const Starting = preload("res://experiments/playable_flightcase/member_commitments.gd")
 const KINDS := ["unknown","day_job","family_supported","flexible"]
 const MAX_NUMBER := 2147483647
 const WEEK_SOURCE := "agreed_band_week_20261105"
 const WEEKDAYS := ["MON","TUE","WED","THU","FRI","SAT","SUN"]
 
+static func exact(first: Variant, second: Variant) -> bool:
+ # Iterative typed equality: Dictionary order is immaterial, key/scalar types
+ # and exact binary float values are not. No recursive Array equality.
+ var pending: Array=[[first,second]]
+ var visited: int=0
+ while not pending.is_empty():
+  visited+=1
+  if visited>2000000:return false
+  var pair: Array=pending.pop_back()
+  var a: Variant=pair[0];var b: Variant=pair[1]
+  if typeof(a)!=typeof(b):return false
+  if a is Dictionary:
+   if a.size()!=b.size():return false
+   var keys: Dictionary={}
+   for key in b:keys[var_to_bytes(key).hex_encode()]=key
+   for key in a:
+    var code: String=var_to_bytes(key).hex_encode()
+    if not keys.has(code):return false
+    pending.append([a[key],b[keys[code]]])
+  elif a is Array:
+   if a.size()!=b.size():return false
+   for index in range(a.size()):pending.append([a[index],b[index]])
+  elif typeof(a) not in [TYPE_NIL,TYPE_BOOL,TYPE_INT,TYPE_FLOAT,TYPE_STRING,TYPE_STRING_NAME] or var_to_bytes(a)!=var_to_bytes(b):return false
+ return true
+
 static func _weekly_ok(value: Variant) -> bool:
  if not value is Dictionary or typeof(value.get("version"))!=TYPE_INT or value.version!=1:return false
- if typeof(value.get("anchor_day"))!=TYPE_INT or value.anchor_day!=1 or value.get("window")!="EVENING" or value.get("source")!=WEEK_SOURCE:return false
+ if typeof(value.get("anchor_day"))!=TYPE_INT or value.anchor_day!=1 or value.get("window")!="EVENING" or value.get("source") not in [WEEK_SOURCE,Starting.SOURCE]:return false
  if typeof(value.get("window"))!=TYPE_STRING or typeof(value.get("source"))!=TYPE_STRING or not value.get("unavailable_days") is Array:return false
  if value.unavailable_days.is_empty() or value.unavailable_days.size()>7:return false
  var previous: int=-1
@@ -60,6 +86,26 @@ static func validate(state: Dictionary) -> Dictionary:
   if not _integer(context.get("recorded_day",null),1):return _fail("A context date is not readable.")
   if context.kind=="day_job" and (not _integer(context.get("shift_anchor",null),1) or context.get("shift_period",0)!=2 or context.get("window","")!="EVENING"):return _fail("A recorded shift schedule is not readable.")
   if context.has("weekly_v1") and (context.kind!="day_job" or not _weekly_ok(context.weekly_v1)):return _fail("This saved weekly availability needs a compatible version. Its original work pattern is retained.")
+  if context.has("family_weekly_v1") and (not _weekly_ok(context.family_weekly_v1) or context.family_weekly_v1.source!=Starting.SOURCE):return _fail("The saved family commitment needs a compatible version. It is retained.")
+  if context.has("family_weekly_v1") and not context.has("starting_context_v1"):return _fail("The saved family commitment has no known source. It is retained.")
+  if context.has("starting_context_v1"):
+   var start: Variant=context.starting_context_v1
+   if not start is Dictionary or typeof(start.get("version"))!=TYPE_INT or start.version!=1 or start.get("source")!=Starting.SOURCE or start.get("candidate_id")!=id or not Starting.ROWS.has(id) or start.get("job_title")!=Starting.ROWS[id].job_title:return _fail("The known starting circumstances need a compatible version. They are retained.")
+   if context.kind not in ["day_job","flexible"]:return _fail("The known work commitment has an unsupported status.")
+   if context.kind=="day_job" and (not context.has("weekly_v1") or context.weekly_v1.source!=Starting.SOURCE or not exact(context.weekly_v1.unavailable_days,Starting.ROWS[id].work_evenings)):return _fail("The starting work rota is incomplete. It is retained.")
+   var has_family: bool=not Starting.ROWS[id].family_evenings.is_empty()
+   if has_family!=context.has("family_weekly_v1"):return _fail("The known family commitment is incomplete. It is retained.")
+   if has_family and not exact(context.family_weekly_v1.unavailable_days,Starting.ROWS[id].family_evenings):return _fail("The known family evenings changed. They are retained for review.")
+   if context.kind=="flexible" and not context.has("job_change_v1"):return _fail("The saved work change is incomplete. No free evenings have been assumed.")
+   if context.get("family_note","")!=Starting.ROWS[id].family_note:return _fail("The saved family context changed. It is retained for review.")
+  if context.has("job_change_v1"):
+   var change: Variant=context.job_change_v1
+   if not context.has("starting_context_v1") or not change is Dictionary or typeof(change.get("version"))!=TYPE_INT or change.version!=1 or change.get("source")!=Starting.SOURCE or change.get("kind")!="left_job" or context.kind!="flexible" or not _integer(change.get("day"),1) or int(change.day)>int(state.tour_day) or change.get("job_title")!=context.starting_context_v1.job_title or not change.get("completed_show_ids") is Array or change.completed_show_ids.size()!=3:return _fail("The saved job-change history needs a compatible version. It is retained.")
+   var receipts: Dictionary={}
+   for receipt_id in change.completed_show_ids:
+    if typeof(receipt_id)!=TYPE_STRING or receipt_id.is_empty() or receipts.has(receipt_id):return _fail("The saved job-change evidence is incomplete.")
+    receipts[receipt_id]=true
+
  for id in raw.agreements:
   var agreement: Variant=raw.agreements[id]
   if not id is String or not agreement is Dictionary:return _fail("The agreement history is not readable.")
@@ -90,8 +136,17 @@ static func members(state: Dictionary) -> Array:
   rows.append({"id":id,"index":index,"name":str(person.get("name","")),"kind":str(context.get("kind","unknown")),"context":context,"editable":not id.is_empty(),"active":str(person.get("life_status","active"))=="active"})
  return rows
 
+static func starting_context(context: Dictionary) -> bool:
+ return context.get("starting_context_v1") is Dictionary and context.starting_context_v1.get("source")==Starting.SOURCE
+
 static func context_text(row: Dictionary, today: int) -> String:
  var context: Dictionary=row.get("context",{})
+ if starting_context(context):
+  var result: String=str(context.starting_context_v1.job_title)+". "
+  if context.has("job_change_v1"):result="Left the "+str(context.starting_context_v1.job_title).to_lower()+" job on DAY %d. Work evenings are now available." % int(context.job_change_v1.day)
+  else:result+="Known work evenings: "+weekday_words(context.weekly_v1.unavailable_days)+"."
+  if context.has("family_weekly_v1"):result+=" Family: "+weekday_words(context.family_weekly_v1.unavailable_days)+". "+str(context.family_note)
+  return result+" Personal income is separate from the band fund."
  match str(row.get("kind","unknown")):
   "day_job":
    if context.has("weekly_v1"):
@@ -104,7 +159,7 @@ static func context_text(row: Dictionary, today: int) -> String:
  return "Outside-band circumstances not recorded. No job, family support or missed wages are assumed."
 
 static func _compare(state: Dictionary, expected: Dictionary) -> bool:
- return expected.is_empty() or state==expected
+ return expected.is_empty() or exact(state,expected)
 
 static func _put(state: Dictionary, core: Dictionary, message: String) -> Dictionary:
  if int(core.revision)>=MAX_NUMBER:return _fail("The situation history has reached its supported limit.")
@@ -127,6 +182,11 @@ static func set_context(state: Dictionary, id: String, kind: String, expected: D
  var core: Dictionary=checked.core
  var old: Dictionary=core.member_contexts.get(id,{"kind":"unknown"})
  if old.get("kind","unknown")==kind:return {"ok":true,"changed":false,"state":state.duplicate(true),"message":"This context is already recorded."}
+ if starting_context(old):
+  if old.kind!="day_job" or kind!="flexible":return _fail("These known commitments cannot be erased as an unrecorded context. Talk about a work change instead.")
+  var offer: Dictionary=job_change_offer(state,id)
+  if not offer.get("eligible",false):return _fail(str(offer.get("message","The band is still establishing itself. Keep the known commitments for now.")))
+
  var context: Dictionary=old.duplicate(true)
  context["kind"]=kind
  context["recorded_day"]=int(state.tour_day)
@@ -136,13 +196,57 @@ static func set_context(state: Dictionary, id: String, kind: String, expected: D
   context["window"]="EVENING"
  else:
   for field in ["shift_anchor","shift_period","window","weekly_v1"]:context.erase(field)
+ if starting_context(old):
+  context["job_change_v1"]={"version":1,"source":Starting.SOURCE,"kind":"left_job","day":int(state.tour_day),"job_title":old.starting_context_v1.job_title,"completed_show_ids":job_change_offer(state,id).completed_show_ids.duplicate()}
  core.member_contexts[id]=context
- return _put(state,core,"Outside-band context saved. The original biography is unchanged.")
+ return _put(state,core,"The work change is saved. Family commitments remain; no day or band money was used." if starting_context(old) else "Outside-band context saved. The original biography is unchanged.")
+
+static func commitment_reasons(context: Dictionary, day: int) -> Array:
+ var result: Array=[]
+ if day<1:return result
+ var working: bool=false
+ if context.get("kind")=="day_job":
+  if context.has("weekly_v1"):working=_weekly_ok(context.weekly_v1) and context.weekly_v1.unavailable_days.has((day-1)%7)
+  else:working=day>=int(context.get("shift_anchor",day+1)) and (day-int(context.get("shift_anchor",day+1)))%2==0
+ if working:result.append({"kind":"work","label":"work shift"})
+ if context.has("family_weekly_v1") and _weekly_ok(context.family_weekly_v1) and context.family_weekly_v1.unavailable_days.has((day-1)%7):result.append({"kind":"family","label":"family commitment"})
+ return result
 
 static func _shift(context: Dictionary, day: int) -> bool:
- if context.has("weekly_v1"):
-  return context.get("kind")=="day_job" and _weekly_ok(context.weekly_v1) and day>=1 and context.weekly_v1.unavailable_days.has((day-1)%7)
- return context.get("kind","unknown")=="day_job" and day>=int(context.shift_anchor) and (day-int(context.shift_anchor))%2==0
+ return not commitment_reasons(context,day).is_empty()
+
+static func seed_starting(state: Dictionary) -> Dictionary:
+ var checked: Dictionary=validate(state)
+ if not checked.ok:return checked
+ if checked.exists:return {"ok":true,"changed":false,"state":state.duplicate(true),"message":"Existing recorded circumstances are retained."}
+ if int(state.tour_day)!=1:return _fail("Starting commitments belong only to a new band. Existing history is retained.")
+ var core: Dictionary=checked.core
+ for row in members(state):
+  var known: Dictionary=Starting.for_candidate(str(row.id))
+  if not row.active or known.is_empty():continue
+  var context: Dictionary={"kind":"day_job","recorded_day":1,"shift_anchor":1,"shift_period":2,"window":"EVENING","weekly_v1":{"version":1,"anchor_day":1,"unavailable_days":known.work_evenings.duplicate(),"window":"EVENING","source":Starting.SOURCE},"starting_context_v1":{"version":1,"source":Starting.SOURCE,"candidate_id":row.id,"job_title":known.job_title},"family_note":known.family_note}
+  if not known.family_evenings.is_empty():context["family_weekly_v1"]={"version":1,"anchor_day":1,"unavailable_days":known.family_evenings.duplicate(),"window":"EVENING","source":Starting.SOURCE}
+  core.member_contexts[row.id]=context
+ var result: Dictionary=_put(state,core,"The band's known starting commitments are recorded.")
+ if not result.ok or not validate(result.state).ok:return _fail("The new starting commitments could not be validated.")
+ return result
+
+static func job_change_offer(state: Dictionary, id: String) -> Dictionary:
+ var result: Dictionary={"eligible":false,"completed_show_ids":[],"message":"The band is still establishing itself. Keep the known commitments for now."}
+ var checked: Dictionary=validate(state)
+ if not checked.ok:result.message=checked.message;return result
+ var person: Dictionary={}
+ for row in members(state):
+  if row.id==id:person=row;break
+ if person.is_empty() or not person.active or not starting_context(person.context) or person.kind!="day_job" or person.context.has("job_change_v1"):return result
+ if int(state.tour_day)<15:return result
+ if not Booking.validate(state).ok:return result
+ var ids: Array=[]
+ for receipt in Booking.memory(state).records:
+  if receipt.kind=="completed" and int(receipt.day)<=int(state.tour_day) and not ids.has(receipt.commitment_id):ids.append(receipt.commitment_id)
+ if ids.size()<3:return result
+ result.eligible=true;result.completed_show_ids=ids.slice(ids.size()-3);result.message="There has been sustained live work. You can discuss making more room for the band; leaving a job is still their life outside it."
+ return result
 
 static func agree_weekly(state: Dictionary, proposals: Dictionary) -> Dictionary:
  var checked: Dictionary=validate(state)
@@ -172,7 +276,10 @@ static func inspect_writing(state: Dictionary) -> Dictionary:
  for row in view.absent:names.append(str(row.name))
  view["can_write"]=names.is_empty()
  view["work_names"]=", ".join(names)
- view["message"]="At work this evening: "+", ".join(names)+". The whole band is needed for this writing session; no day or money has been used." if not names.is_empty() else ""
+ var reasons: PackedStringArray=[]
+ for row in view.absent:reasons.append(str(row.name)+" · "+str(row.reason))
+ view["unavailable_summary"]="; ".join(reasons)
+ view["message"]="Unavailable this evening: "+str(view.unavailable_summary)+". The whole band is needed for this writing session; no day or money has been used." if not names.is_empty() else ""
  view["next_full_day"]=0
  for offset in range(15):
   if int(state.tour_day)>MAX_NUMBER-offset:break
@@ -197,7 +304,10 @@ static func inspect_rehearsal(state: Dictionary) -> Dictionary:
  var absent: Array=[]
  for row in members(state):
   if not row.active:continue
-  if _shift(row.context,day):absent.append({"id":row.id,"index":row.index,"name":row.name,"reason":"recorded evening work shift"})
+  if _shift(row.context,day):
+   var words: PackedStringArray=[]
+   for reason in commitment_reasons(row.context,day):words.append(reason.label)
+   absent.append({"id":row.id,"index":row.index,"name":row.name,"reason":" + ".join(words)})
   else:attendees.append(row.index)
  var plan: Dictionary={}
  for item in checked.core.plans:
@@ -258,7 +368,7 @@ static func after_action(before: Dictionary, after: Dictionary, attendance: Arra
  var previous_core: Dictionary=core.duplicate(true)
  if not rehearsal:
   _mark_missed(core,int(next.get("tour_day",before.tour_day)))
-  if core==previous_core:return {"ok":true,"state":next,"message":""}
+  if exact(core,previous_core):return {"ok":true,"state":next,"message":""}
   return _put(next,core,"")
  var key: String="practice:tighten:%d" % int(next.get("action_count",0))
  if core.processed.has(key):return _fail("That rehearsal has already been recorded.")
@@ -309,7 +419,7 @@ static func after_action(before: Dictionary, after: Dictionary, attendance: Arra
   if near and int(before.get("readiness",0))<60:
    next["tension"]=clampi(int(next.get("tension",0))+maxi(1,active_count-attendance.size()),0,100)
    emotional.append("The approaching show leaves little time to bring the missing players into the set.")
-  message="Attended: "+", ".join(names)+". Recorded work commitments kept the other musicians away."
+  message="Attended: "+", ".join(names)+". Recorded work or family commitments kept the other musicians away."
  elif not kept_plan.is_empty():message="The band kept its agreed evening rehearsal."
  if not emotional.is_empty():message+=" "+" ".join(emotional)
  var record: Dictionary={"id":key,"day":old_day,"completed_day":int(next.tour_day),"window":"EVENING","attendee_ids":attending_ids,"absent_ids":absent_ids,"plan_id":kept_plan,"message":message,"policy_version":1}

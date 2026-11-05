@@ -27,4 +27,5 @@ static func for_candidate(id: String) -> Dictionary:
  var result: Dictionary={}
  for key in ["work","outside_commitment","availability"]:
   result[key]=str(source.get(key,"Not discussed yet."))
+ result["starting_availability"]=preload("res://experiments/playable_flightcase/member_commitments.gd").summary(id)
  return result

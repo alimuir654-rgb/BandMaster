@@ -453,6 +453,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  practical.add_child(_ink("WORK · "+background["work"],16))
  practical.add_child(_ink("OUTSIDE THE BAND · "+background["outside_commitment"],16))
  practical.add_child(_ink(background["availability"],16))
+ practical.add_child(_ink(background["starting_availability"],16))
  body.add_child(practical)
  if Profiles.supports(id) and onboarding_state!=null and bool(onboarding_state.audition_view(id).get("heard",false)):
   var content: Script=Profiles.content(id)
@@ -1036,7 +1037,7 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
  if kind=="tighten" and situation.ok and situation.conflict:
   var names: Array=[]
   for person in situation.absent:names.append(str(person.name))
-  var shift: Label=_ink("EVENING WORK SHIFT • "+", ".join(names)+". Review attendance before booking the room.",16,true)
+  var shift: Label=_ink("UNAVAILABLE THIS EVENING • "+", ".join(names)+". Review attendance before booking the room.",16,true)
   shift.name="SituationPracticeClash"
   body.add_child(shift)
  var gap := Control.new()

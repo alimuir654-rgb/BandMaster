@@ -52,7 +52,7 @@ func _render() -> void:
  add_child(margin)
  var shell:=_box(10)
  margin.add_child(shell)
- shell.add_child(C.label("AN EVENING WORK CLASH",22))
+ shell.add_child(C.label("AN EVENING CLASH",22))
  var scroll:=ScrollContainer.new()
  scroll.name="WorkConflictScroll"
  scroll.follow_focus=true
@@ -81,8 +81,8 @@ func _render() -> void:
    photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
    photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
    row.add_child(photo)
-  _copy(row,str(missing.name)+" has a recorded evening work shift.",18)
- _copy(body,"Move the session to a shared free evening, or rehearse with the musicians who can attend. Work shifts affect availability. Personal pay does not enter the band fund.",16,"WorkConflictContext")
+  _copy(row,str(missing.name)+" · "+str(missing.get("reason","recorded commitment"))+" this evening.",18)
+ _copy(body,"Move the session to a shared free evening, or rehearse with the musicians who can attend. Work and family commitments affect availability. Personal income is separate from the band fund.",16,"WorkConflictContext")
  var count: int=(_view.get("attendee_indices",[]) as Array).size()
  _copy(body,"%d musicians are available. Room hire is £15 and rehearsal uses 1 day when it happens." % count,16,"WorkConflictAttendance")
  if not str(_view.get("notice","")).is_empty():_copy(body,str(_view.notice),16,"WorkConflictNotice")

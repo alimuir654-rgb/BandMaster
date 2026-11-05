@@ -559,10 +559,10 @@ func _refresh_local() -> void:
  var cost: Label=find_child("WorkbenchPublicCost",true,false) as Label
  if is_instance_valid(cost):
   if not work.get("ok",false):cost.text=str(work.get("message","Availability needs review."))
-  elif not available:cost.text="WORK THIS EVENING: "+str(work.work_names)
+  elif not available:cost.text="UNAVAILABLE: "+str(work.get("unavailable_summary",work.work_names))
   elif work.get("plan_status")=="due":cost.text="REHEARSAL AGREED TODAY · Writing misses it"
   else:cost.text="Free preview / written ideas · Writing uses 1 day · No room fee"
- if not available:_write.text="WRITING · PEOPLE AT WORK" if work.get("ok",false) else "WRITING · REVIEW AVAILABILITY"
+ if not available:_write.text="WRITING · BAND UNAVAILABLE" if work.get("ok",false) else "WRITING · REVIEW AVAILABILITY"
  elif work.get("plan_status")=="due":_write.text="WRITE 1 DAY · MISS REHEARSAL"
  var modal: bool=is_instance_valid(_exit_dialog)
  var career_button: Button=find_child("WorkbenchCareer",true,false) as Button

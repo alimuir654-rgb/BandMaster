@@ -16,29 +16,7 @@ const PATTERNS := {
 }
 
 static func exact(first: Variant, second: Variant) -> bool:
- # Iterative typed equality: Dictionary order is immaterial, key/scalar types
- # and exact binary float values are not. No recursive Array equality.
- var pending: Array=[[first,second]]
- var visited: int=0
- while not pending.is_empty():
-  visited+=1
-  if visited>2000000:return false
-  var pair: Array=pending.pop_back()
-  var a: Variant=pair[0];var b: Variant=pair[1]
-  if typeof(a)!=typeof(b):return false
-  if a is Dictionary:
-   if a.size()!=b.size():return false
-   var keys: Dictionary={}
-   for key in b:keys[var_to_bytes(key).hex_encode()]=key
-   for key in a:
-    var code: String=var_to_bytes(key).hex_encode()
-    if not keys.has(code):return false
-    pending.append([a[key],b[keys[code]]])
-  elif a is Array:
-   if a.size()!=b.size():return false
-   for index in range(a.size()):pending.append([a[index],b[index]])
-  elif typeof(a) not in [TYPE_NIL,TYPE_BOOL,TYPE_INT,TYPE_FLOAT,TYPE_STRING,TYPE_STRING_NAME] or var_to_bytes(a)!=var_to_bytes(b):return false
- return true
+ return Core.exact(first,second)
 
 static func schema_ok(value: Variant) -> bool:
  var pending: Array=[value]

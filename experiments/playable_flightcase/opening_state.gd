@@ -324,6 +324,12 @@ func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionar
  game.career["palette"] = palette
  game.career["vibe"] = vibe
  game.career[preload("res://experiments/playable_flightcase/band_sound.gd").KEY] = preload("res://experiments/playable_flightcase/band_sound.gd").make(game.genre,name_intent,vibe)
+ var starting: Dictionary=WorkAvailability.seed_starting(game.career)
+ if not starting.get("ok",false):
+  _rollback_identity(before)
+  return {"ok":false,"message":str(starting.get("message","The known commitments could not be recorded."))}
+ game.career=starting.state.duplicate(true)
+ if not game.career.has(CareerDates.KEY):game.career[CareerDates.KEY]=CareerDates.initial(WorkAvailability.Starting.SOURCE)
  identity_style = proposed_style
  if not identity_style.is_empty():
   game.career[IdentityStyle.KEY] = identity_style.duplicate(true)
@@ -676,6 +682,28 @@ func agree_band_week(expected: Dictionary) -> Dictionary:
   _rollback_identity(before)
   _audition_busy=false
   return {"ok":false,"changed":false,"message":"The week could not be saved. Your whole previous band and choices are retained; try again."}
+ _audition_busy=false
+ return {"ok":true,"changed":true,"message":str(result.message)}
+
+func set_member_context(expected: Dictionary,id: String,kind: String) -> Dictionary:
+ var fail: Dictionary={"ok":false,"changed":false,"message":"The band changed. Reopen the known circumstances before saving."}
+ if _audition_busy:return fail
+ _audition_busy=true
+ var before: Dictionary=snapshot()
+ if not BandWeek.schema_ok(before) or not BandWeek.exact(before,expected) or screen!="play" or game.phase!="play" or Audition.locked(before) or Workbench.preplay_held(before) or BandWeek.Finance.is_over(game.career) or BandWeek.Radio.locked(game.career) or (game.career.has(Workbench.KEY) and not Workbench.validate(before).get("ok",false)):
+  _audition_busy=false;return fail
+ var result: Dictionary=WorkAvailability.set_context(game.career,id,kind,before.game.career)
+ if not result.get("ok",false) or not result.get("changed",false):
+  _audition_busy=false;return {"ok":bool(result.get("ok",false)),"changed":false,"message":str(result.get("message","Review the known circumstances."))}
+ var proposed: Dictionary=before.duplicate(true);proposed.game.career=result.state.duplicate(true)
+ var a: Dictionary=before.duplicate(true);var b: Dictionary=proposed.duplicate(true)
+ a.game.career.erase(WorkAvailability.KEY);b.game.career.erase(WorkAvailability.KEY)
+ if not BandWeek.exact(a,b):
+  _audition_busy=false;return fail
+ game.career=result.state.duplicate(true)
+ if not _save_draft_owned():
+  _rollback_identity(before);_audition_busy=false
+  return {"ok":false,"changed":false,"message":"The change could not be saved. Your whole previous band and pending choice are retained; try again."}
  _audition_busy=false
  return {"ok":true,"changed":true,"message":str(result.message)}
 

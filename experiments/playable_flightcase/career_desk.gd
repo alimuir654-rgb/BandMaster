@@ -623,7 +623,7 @@ func _situation_pick_member(id: String) -> void:
   if row.id==id and row.editable:
    situation_member_id=id
    situation_kind=str(row.kind)
-   situation_expected=game.career.duplicate(true)
+   situation_expected=opening_owner.snapshot().duplicate(true)
    notice=""
    _pending_focus="SituationMember_"+id
    _render()
@@ -633,26 +633,25 @@ func _situation_pick_kind(kind: String) -> void:
  if busy or page!="situation" or not kind in Situation.KINDS:return
  situation_kind=kind
  _pending_focus="SituationContext_"+kind
+ for row in Situation.members(game.career):
+  if row.id==situation_member_id and Situation.starting_context(row.context):_pending_focus="SituationKeepWorkAction" if kind=="flexible" else "SituationDiscussWorkAction"
  _render()
 
 func _situation_save() -> void:
- if busy or page!="situation" or is_instance_valid(_live_dialog) or game==null or not is_inside_tree() or not is_visible_in_tree():return
+ if busy or page!="situation" or is_instance_valid(_live_dialog) or game==null or opening_owner==null or not is_inside_tree() or not is_visible_in_tree():return
  if Finance.is_over(game.career) or RadioVisit.locked(game.career) or Bridge.show_day(game.career):
   notice="Finish the current show or visit before recording a new availability agreement."
   _render()
   return
  busy=true
- var before: Dictionary=game.snapshot().duplicate(true)
- var result: Dictionary=Situation.set_context(game.career,situation_member_id,situation_kind,situation_expected)
- if result.get("ok",false) and result.get("changed",false):
-  game.career=result.state.duplicate(true)
-  if not bool(opening_owner.save_draft()):
-   game.restore(before)
-   result={"ok":false,"message":"The context could not be saved. The whole previous career and pending choices are retained; you can retry."}
+ var result: Dictionary=opening_owner.set_member_context(situation_expected.duplicate(true),situation_member_id,situation_kind)
  busy=false
  notice=str(result.get("message","The context could not be saved."))
- if result.get("ok",false):situation_expected=game.career.duplicate(true)
+ if result.get("ok",false):situation_expected=opening_owner.snapshot().duplicate(true)
  _pending_focus="SituationSaveContextAction"
+ if result.get("ok",false):
+  for row in Situation.members(game.career):
+   if row.id==situation_member_id and Situation.starting_context(row.context):_pending_focus="SituationMember_"+situation_member_id
  _render()
 
 func _agree_band_week(expected: Dictionary) -> void:
@@ -667,7 +666,7 @@ func _agree_band_week(expected: Dictionary) -> void:
  busy=false
  notice=str(result.get("message","Review the working week."))
  if result.get("ok",false):
-  situation_expected=game.career.duplicate(true)
+  situation_expected=opening_owner.snapshot().duplicate(true)
   for row in Situation.members(game.career):
    if row.id==situation_member_id:situation_kind=str(row.kind)
  _pending_focus="WeekCalendarAction" if result.get("ok",false) else "WeekAgreementAction"

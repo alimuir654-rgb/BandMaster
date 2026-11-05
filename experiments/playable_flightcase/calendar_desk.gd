@@ -200,7 +200,9 @@ static func day_events(data: Dictionary, source: Dictionary, day: int) -> Array:
   if day>int(trip.start_day) and day<=int(trip.last_reserved_day):result.append({"kind":"travel","text":"RESERVED FOR THE BOOKED TRIP"})
   if day==int(trip.next_available_day):result.append({"kind":"return","text":"NEXT AVAILABLE · PLANNED RETURN"})
  for person in source.people:
-  if person.active and Core._shift(person.context,day):result.append({"kind":"work","text":"WORK EVENING · "+str(person.name)})
+  if person.active:
+   for reason in Core.commitment_reasons(person.context,day):
+    result.append({"kind":str(reason.kind),"text":("WORK EVENING · " if reason.kind=="work" else "FAMILY COMMITMENT · ")+str(person.name)})
  for plan in source.plans:
   if int(plan.day)==day:result.append({"kind":"rehearsal","text":"REHEARSAL · "+str(plan.status).to_upper()+"\nEVENING · agreed band participants"})
  for record in source.records:
@@ -249,7 +251,7 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
   spread.add_child(heading);spread.add_child(status)
  _copy(owner,heading,str(date.month_name)+" "+str(date.year),"CalendarTitle",26)
  _copy(owner,heading,"TODAY · "+Dates.caption(career,today),"CalendarToday",18)
- _copy(owner,status,"Your agreed career dates. Looking ahead never uses a day.","CalendarExplanation",16,true)
+ _copy(owner,status,"Your recorded career dates. Looking ahead never uses a day.","CalendarExplanation",16,true)
  if data.booking.present and data.booking.valid:
   _copy(owner,status,("SAVED SHOW OVERDUE" if data.booking.status=="overdue" else ("SHOW DUE TODAY" if data.booking.status=="due" else "NEXT SHOW"))+" · "+str(data.booking.venue),"CalendarStatus",18)
   _copy(owner,status,Dates.caption(career,int(data.booking.day)),"CalendarBookingDay",16)
@@ -293,7 +295,7 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
   button.set_meta("career_day",day)
   button.set_meta("appointment_events",events.duplicate(true))
   button.set_meta("today",day==today)
-  button.tooltip_text=Dates.caption(career,day) if cell.supported else "Before the agreed career start"
+  button.tooltip_text=Dates.caption(career,day) if cell.supported else "Before this career starts"
   if day==today:button.tooltip_text="TODAY · "+button.tooltip_text
   for event in events:button.tooltip_text+="\n"+str(event.text)
   grid.add_child(button)
@@ -301,7 +303,7 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
  selected.name="CalendarSelectedDay"
  _copy(owner,selected,Dates.caption(career,cursor),"CalendarSelectedDate",20)
  var events: Array=day_events(data,source,cursor)
- if events.is_empty():_copy(owner,selected,"No appointment or work clash recorded for this evening.","CalendarEmptyDay")
+ if events.is_empty():_copy(owner,selected,"No appointment or outside-band commitment recorded for this evening.","CalendarEmptyDay")
  for index in range(events.size()):
   var row: Dictionary=events[index]
   _copy(owner,selected,str(row.text),"CalendarEvent_"+str(index),18)
@@ -312,8 +314,8 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
  _copy(owner,next,"NEXT IN YOUR BAND WEEK","CalendarNextTitle",20)
  var writing: Dictionary=Core.inspect_writing(career)
  if writing.ok:
-  if int(writing.next_full_day)>0:_copy(owner,next,"NEXT EVENING WITHOUT A RECORDED WORK CLASH\n"+Dates.caption(career,int(writing.next_full_day)),"CalendarNextBandEvening")
-  else:_copy(owner,next,"No common evening is recorded in the next fortnight. Review the existing work agreements.","CalendarNoCommonEvening")
+  if int(writing.next_full_day)>0:_copy(owner,next,"NEXT SHARED FREE EVENING\n"+Dates.caption(career,int(writing.next_full_day)),"CalendarNextBandEvening")
+  else:_copy(owner,next,"No common evening is recorded in the next fortnight. Review the known work and family commitments.","CalendarNoCommonEvening")
  if data.booking.present and data.booking.valid:_copy(owner,next,str(data.booking.venue)+"\n"+Dates.caption(career,int(data.booking.day)),"CalendarNextShow")
  var trip: Dictionary=data.get("trip",{})
  if trip.get("valid",false):_copy(owner,next,"TRIP RESERVED THROUGH "+Dates.caption(career,int(trip.last_reserved_day))+"\nNEXT AVAILABLE · "+Dates.caption(career,int(trip.next_available_day)),"CalendarTripDates")

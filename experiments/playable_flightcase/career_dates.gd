@@ -1,5 +1,6 @@
 extends RefCounted
-## Optional, player-agreed fictional career chronology. Never uses the wall clock.
+## Recorded fictional career chronology. Never uses the wall clock.
+const Starting = preload("res://experiments/playable_flightcase/member_commitments.gd")
 const KEY := "career_clock_v1"
 const DAY_ONE := "2026-11-09"
 const SOURCE := "player_agreed_start"
@@ -11,7 +12,7 @@ static func inspect(career: Dictionary) -> Dictionary:
  if not career.has(KEY):return {"ok":true,"exists":false,"message":"Agree a start date to put this career on the calendar."}
  var raw: Variant=career[KEY]
  var fail: Dictionary={"ok":false,"exists":true,"message":"This saved calendar needs a compatible version. Its original dates are retained."}
- if not raw is Dictionary or typeof(raw.get("version"))!=TYPE_INT or raw.version!=1 or typeof(raw.get("source"))!=TYPE_STRING or raw.source!=SOURCE or typeof(raw.get("day_one"))!=TYPE_STRING:return fail
+ if not raw is Dictionary or typeof(raw.get("version"))!=TYPE_INT or raw.version!=1 or typeof(raw.get("source"))!=TYPE_STRING or raw.source not in [SOURCE,Starting.SOURCE] or typeof(raw.get("day_one"))!=TYPE_STRING:return fail
  var parts: PackedStringArray=str(raw.day_one).split("-")
  if parts.size()!=3 or parts[0].length()!=4 or parts[1].length()!=2 or parts[2].length()!=2:return fail
  for value in parts:
@@ -26,8 +27,9 @@ static func inspect(career: Dictionary) -> Dictionary:
  if int(back.year)!=year or int(back.month)!=month or int(back.day)!=day or int(back.weekday)!=1:return fail
  return {"ok":true,"exists":true,"origin":stamp,"day_one":str(raw.day_one),"message":""}
 
-static func initial() -> Dictionary:
- return {"version":1,"day_one":DAY_ONE,"source":SOURCE}
+static func initial(source: String=SOURCE) -> Dictionary:
+ if source not in [SOURCE,Starting.SOURCE]:return {}
+ return {"version":1,"day_one":DAY_ONE,"source":source}
 
 static func info(career: Dictionary, career_day: int) -> Dictionary:
  var checked: Dictionary=inspect(career)

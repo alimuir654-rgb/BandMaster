@@ -252,6 +252,7 @@ func _build() -> void:
  practical.add_child(_label("WORK · "+background["work"]))
  practical.add_child(_label("OUTSIDE THE BAND · "+background["outside_commitment"]))
  practical.add_child(_label(background["availability"]))
+ practical.add_child(_label(background["starting_availability"]))
  work.add_child(practical)
  _bio=VBoxContainer.new()
  _bio.name="AuditionBiographyBody"

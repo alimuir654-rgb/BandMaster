@@ -1,5 +1,5 @@
 extends RefCounted
-## Player-recorded context, separate from the approved musical biographies.
+## Known starting circumstances and player-recorded history, separate from musical biographies.
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Week = preload("res://experiments/playable_flightcase/band_week.gd")
@@ -32,7 +32,7 @@ static func render(host, parent: Node, compact: bool) -> void:
  _week(host,parent,compact)
  var body: VBoxContainer=host._paper(parent,compact)
  host._copy(body,"LIFE OUTSIDE THE BAND",24)
- host._copy(body,"Record what you know. These career notes do not rewrite a musician's original biography. Personal money is not simulated.",16)
+ host._copy(body,"Known commitments travel with the band. Earlier career notes and each musician's original biography are retained. Personal income is separate from the band fund.",16)
  if not checked.ok:
   host._copy(body,str(checked.message),16)
   return
@@ -64,24 +64,39 @@ static func render(host, parent: Node, compact: bool) -> void:
  host._copy(profile,str(selected.name),22)
  var current: Label=host._copy(body,Core.context_text(selected,int(host.game.career.tour_day)),16)
  current.name="SituationRecordedContext"
- host._copy(body,"CHOOSE THE CONTEXT YOU WANT TO RECORD",16)
- var choices:=GridContainer.new()
- choices.columns=2
- choices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- choices.add_theme_constant_override("h_separation",6)
- choices.add_theme_constant_override("v_separation",6)
- body.add_child(choices)
- for entry in [["unknown","NOT RECORDED"],["day_job","DAY JOB"],["family_supported","FAMILY SUPPORT"],["flexible","FLEXIBLE"]]:
-  var option: Button=host._button(str(entry[1]),"SituationContext_"+str(entry[0]),host._situation_pick_kind.bind(str(entry[0])))
-  option.toggle_mode=true
-  option.set_pressed_no_signal(host.situation_kind==entry[0])
-  choices.add_child(option)
- var draft: Dictionary=selected.duplicate(true) if host.situation_kind==selected.kind else {"kind":host.situation_kind,"context":{"kind":host.situation_kind,"shift_anchor":int(host.game.career.tour_day)}}
- var description: Label=host._copy(body,Core.context_text(draft,int(host.game.career.tour_day)),16)
- description.name="SituationDraftContext"
- var save: Button=host._button("SAVE THIS CONTEXT","SituationSaveContextAction",host._situation_save)
- save.disabled=host.busy or host.situation_member_id.is_empty() or not checked.ok
- body.add_child(save)
+ if Core.starting_context(selected.context):
+  if selected.kind=="day_job":
+   var offer: Dictionary=Core.job_change_offer(host.game.career,str(selected.id))
+   host._copy(body,str(offer.message),16).name="SituationWorkChangeContext"
+   if offer.eligible:
+    if host.situation_kind=="flexible":
+     host._copy(body,"LEAVE THE JOB?",22).name="SituationWorkChangeQuestion"
+     host._copy(body,str(selected.name)+" would leave the "+str(selected.context.starting_context_v1.job_title).to_lower()+" job to make more room for the band. Family commitments stay. Personal income is not paid into the band fund; this records the work change, without a wage amount or a promised music outcome.",16)
+     body.add_child(host._button("KEEP THE JOB","SituationKeepWorkAction",host._situation_pick_kind.bind("day_job")))
+     body.add_child(host._button("LEAVE THE JOB","SituationSaveContextAction",host._situation_save))
+    else:
+     body.add_child(host._button("TALK ABOUT WORK","SituationDiscussWorkAction",host._situation_pick_kind.bind("flexible")))
+  else:
+   host._copy(body,"This work change is recorded. Family commitments still belong to this musician; reopening this page never changes them.",16).name="SituationWorkChangeRecorded"
+ else:
+  host._copy(body,"CHOOSE THE CONTEXT YOU WANT TO RECORD",16)
+  var choices:=GridContainer.new()
+  choices.columns=2
+  choices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  choices.add_theme_constant_override("h_separation",6)
+  choices.add_theme_constant_override("v_separation",6)
+  body.add_child(choices)
+  for entry in [["unknown","NOT RECORDED"],["day_job","DAY JOB"],["family_supported","FAMILY SUPPORT"],["flexible","FLEXIBLE"]]:
+   var option: Button=host._button(str(entry[1]),"SituationContext_"+str(entry[0]),host._situation_pick_kind.bind(str(entry[0])))
+   option.toggle_mode=true
+   option.set_pressed_no_signal(host.situation_kind==entry[0])
+   choices.add_child(option)
+  var draft: Dictionary=selected.duplicate(true) if host.situation_kind==selected.kind else {"kind":host.situation_kind,"context":{"kind":host.situation_kind,"shift_anchor":int(host.game.career.tour_day)}}
+  var description: Label=host._copy(body,Core.context_text(draft,int(host.game.career.tour_day)),16)
+  description.name="SituationDraftContext"
+  var save: Button=host._button("SAVE THIS CONTEXT","SituationSaveContextAction",host._situation_save)
+  save.disabled=host.busy or host.situation_member_id.is_empty() or not checked.ok
+  body.add_child(save)
  if not host.notice.is_empty():host._copy(body,host.notice,16).name="SituationNotice"
  var inspected: Dictionary=Core.inspect_rehearsal(host.game.career)
  if inspected.ok and not inspected.plan.is_empty():
@@ -108,7 +123,7 @@ static func dock(host, parent: Node) -> void:
     agree.text="SAVE CONTEXT FIRST"
   parent.add_child(agree)
  elif offer.ok:
-  var agreed: Button=host._button("WEEK AGREED","WeekAgreementAction",func():pass,true)
+  var agreed: Button=host._button("WEEK RECORDED","WeekAgreementAction",func():pass,true)
   agreed.disabled=true
   parent.add_child(agreed)
  parent.add_child(host._button("BACK TO BAND","SituationBackAction",host._navigate.bind("band")))
