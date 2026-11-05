@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S129",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "535faf32531c40b04222c2014b9a16f868b6ddc5",
   "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1666917,
-    "sha256": "3cdd1e0c0871ef62ce8a9ba818d5f69d60706bf0bc33bb9bc51f39c82785cad6"
+    "bytes": 1670131,
+    "sha256": "d02a94946d0d786f073edc358968bdb52ff42335f064ffb7a217031e42d80022"
   },
   "lesson_ids": [
     "BM-01",
@@ -69,16 +69,17 @@
     "No listen/device acceptance inference; fourprivatefilegrants only"
   ],
   "root_lease": {
-    "writer": "root_S129_song_sketch",
+    "writer": null,
     "expires_at": "2026-11-05T19:15:00Z",
-    "scope": "offlineartifact/audio only, no shippingwriter/GL"
+    "scope": "offlineartifact/audio only, no shippingwriter/GL",
+    "released_at": "2026-11-05T18:21:11.029551+00:00"
   },
   "source_write_allowed": false,
   "art_write_allowed": false,
-  "audio_write_allowed": true,
+  "audio_write_allowed": false,
   "APK_artifact_allowed": false,
   "engine_execution_allowed": false,
-  "page_write_allowed": true,
+  "page_write_allowed": false,
   "stop_condition": "Closeboundedprototype by19:15; aftertwoineffectivemusical/renderattempts change/HOLD. No ownerapprovalwait/cleanup/newqueue/automaticextension.",
   "storage_plan": {
     "workspace_start_free": 629936128,
@@ -99,5 +100,30 @@
     "rows": 464,
     "no_runtimecopy_needed": true
   },
-  "new_diagnostic_review": "Read-onlywrongCONTROLpath andsystemPythonmetadata lookup failed; actualpaths/isolatedvenv known, appendrecurrencebeforecorrection. No audioexecution/sourcefailure."
+  "new_diagnostic_review": "Read-onlywrongCONTROLpath andsystemPythonmetadata lookup failed; actualpaths/isolatedvenv known, appendrecurrencebeforecorrection. No audioexecution/sourcefailure.",
+  "mix_calibration": {
+    "shared_role_scales": {
+      "rhythm": 1,
+      "hook": 2,
+      "bass": 1.15,
+      "kit": 2.5
+    },
+    "reason": "ActualsamplerstemRMS/peaks showed hook/drums quieterthanrhythm; onefixedcalibration all4, noresampling/sourcechange orpervariantnormalisation.",
+    "commonmaster_target": "mean-23LUFS subjectto -3.8dBTP headroom; decoded<=-3dBTP; preservechorusdynamicrange",
+    "retained_original_renders": true
+  },
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "review_pending": false,
+  "closeout": {
+    "tested_sha": "a17dd0d50f195ee995f39196ac0d295e82043140",
+    "evidence": "/workspace/work/s129-song-sketch-prototype-20261105/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "Usefouractualsketches todeveloponeaudibleco-writingflow withpreparedmusicalchoices/memberresponse andexistingavailability/commitguard; noautomaticGame/APK integration.",
+    "new_issue_review": {
+      "all_current_issues_reviewed": true,
+      "held_plans": "v1strictstringoverlap;v2floatsectionboundary. Changedgates/samplepartition withoutweakenedassertions;v3PASS.",
+      "diagnostics": "Wrongreadpath/systemPythonmetadata, initialemptyaffected_paths eventguard, preliminaryFFmpegJSONtrailingstats, optionalunexecutedRMSanalysisSyntaxError allretained, no promotedfailedproof."
+    }
+  }
 }
