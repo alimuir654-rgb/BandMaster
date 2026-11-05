@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-39",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105/runs/standard-phone/captures/037-c27-practice_mode_create_day1-390x844.png",
+    "original_sha256": "6c2095fe12e77721b5ec63b79fc437378cb9d0608598375a46266e7a66d5caba",
+    "pixels_inspected": true,
+    "scope": "Actualcurrent bfc phone writing firstfold opened, visualcontext only. Musicaltarget directownerfeedback/basicstrums and approvedonehookmatrix; pixelsdoNOTproveaudioquality."
+  },
+  "id": "S130",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "4a0777a02ea7c47f5e70cfe0e40458a0868d5e18",
+  "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
+  "owner_request": "5Nov directownerlikesS129 butasksdistinctguitartones/moredistortion; nextdirectsteering darker/rawbandidentity mustcarryearliergenre/nameintent/vibe throughmusic, nomoodyindie/sunny mismatch. Boundedofflinefollow-up, notendedday/queue restart.",
+  "issue_log_review": {
+    "bytes": 1670131,
+    "sha256": "d02a94946d0d786f073edc358968bdb52ff42335f064ffb7a217031e42d80022"
+  },
+  "hypothesis": "Sameactualperformancewith3clearlyseparatedguitarDSPprofiles tests tonechoice; separateDminor/half-time/rawsketch tests darkerbandidentity throughactualharmony, notjustfilter/darklabel.",
+  "controlled_comparison": "Edge/Raw/Heavy: exactsameDrivingOpenparts/basskit/tempo/stereo, samecombinedguitartargetRMS/fixedrolebalance/onecommonmaster. NocturnalRaw isexplicitlyseparateminor/half-time arrangement, nottone-onlycounterfactual.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S130.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/continuous_improvement/ISSUES.jsonl"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s130-tone-and-sonic-identity-20261105",
+    "/tmp/bandmaster-s130-tone-and-sonic-identity-20261105"
+  ],
+  "validation_commands": [
+    "CommitS130preflightthenactualimprovement_gate check BEFOREasset/sourcecode; existinguncommittedS129metadata byte-preserved inbeforemap, noreset/stageall.",
+    "Newisolateddrysamplerrenderstrictscore/142CC0sourcefiles/SFZhash/sourcebeforeafter/realplayablekeys/zeroendvoices/complete2.4tail. No newbank/deps/acquisition.",
+    "FreshdarkSFZderivativeONLY: source47/59/61/66 mappedone-semitonedown to46/58/60/65 via lokey/hikey, originalpitch_keycenter unchanged. Exactsamplesunchanged; provenanceexplicitderivedpitches notnewrecordednotes. PhysicalDminor/Gminor/Aminorvoicings/coveredkeys/nooverlaps.",
+    "3DSPprofiles9/7,21/18,33/29dBdrive guitarONLY, tonecompensationbycombinedguitarRMS toavoid louder=better; untouchedbass/kit exacthash; onecommonmaster. Darkfourthactualminorharmony+half-time, separatelylabelled.",
+    "ActualFFmpegencode/probe/decode/measure rawexits retainedbeforeJSONparser; finaldecodedlevels/headroom/tailfinite. Independentpre/finaltechnicalsymbolicreview, not human/deviceacceptance.",
+    "Source463Gitrows/54Scripts3UID/all34OGG8JSON/Game/art/fonts/hardware/V13 remainexact. No Godot/UI/APK/import/rerunoldclosedproducers.",
+    "Private4selectedreviewWAVs onlysameverifiedowner+namedAli existingchannel, explicitparent/account/ACL. No source/stems/historyupload."
+  ],
+  "queue_task": "ExistingS80 musicalcontinuity follow-up, no newqueue",
+  "reviewer": "Reuse /root/s125_review independentonlyD130/review<=8192B; no source/Git/Pages/render/network/engine.",
+  "player_goal": "Hearwhatguitartoneandbandidentitychange, withsamepartsacross3tones andaseparatedarkarrangement.",
+  "start_end_commitment": "Fourprivateofflineprototypes+source-backedidentitycarrythroughcontract. No Game/native/save/schema/economy/APKintegration.",
+  "state_matrix": [
+    "Edge/Raw/Heavy sametake/PCRhythm/tempo/bass/kit; guitaristdrivenonly",
+    "DarkRaw Dminor/Gminor/Aminor/half-time: explicitlycomposition+tone, fourderivedsemitonepitches",
+    "Persistedopeninggenre/name_intent/vibe\u2192futureeditablebandsonicbrief\u2192newwriting/rehearsal/show; legacyunknowns/oldrecordingsimmutable",
+    "Finalencode/decode/levels/tail/privateshare; no humanquality/speakerdeviceclaim"
+  ],
+  "root_lease": {
+    "writer": "root_S130_tone_identity",
+    "expires_at": "2026-11-05T21:00:00Z",
+    "scope": "boundedofflineartifactonly, notnewuserdayextension"
+  },
+  "source_write_allowed": false,
+  "audio_write_allowed": true,
+  "art_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "stop_condition": "Closeby21:00London tasklease. Twoineffectiveattempts changemethod/HOLD; no genericownerwait/newqueue/automaticextension.",
+  "storage_plan": {
+    "workspace_start_free": 629633024,
+    "persistent_global_cap": 393216,
+    "durable_root_cap": 98304,
+    "review_cap_included": 8192,
+    "new_primaryGit_cap": 65536,
+    "index_peak": 131072,
+    "metadata_growth": 24576,
+    "tail_reserved": 73728,
+    "TMPcap": 536870912,
+    "floor": 629145600,
+    "commit_policy": "OnlycompactS130Session preflight/final committed; sourcecode+compactreceiptsdurableD130, largecanonicalmetadata intentionallydurableuncommitted asS129. Preserveall7prioruncommittedfiles. AllcriticalGitprimary; no forcedfullmetadataunderfloorcommit.",
+    "no_cleanup_or_closed_cache_mutation": true
+  },
+  "source_input": {
+    "source_manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
+    "source_sha256": "f0d8e6c228d5c5e35602e511b8ae2afc730e2483d9069d4461894a1160687030",
+    "S129master": "/workspace/work/s129-song-sketch-prototype-20261105/audio-delivery.json",
+    "no_old_producer_execution": true
+  },
+  "authority_note": "Latestdirecttone/identityrequests authoriseofflineDSP/minorcomparison andcontract; integrationwouldneedfreshfundedproductionpreflight, notpendinggenericownerapproval."
+}
