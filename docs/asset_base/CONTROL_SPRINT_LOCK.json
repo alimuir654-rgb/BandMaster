@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "root_S125_week_calendar",
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-05T12:30:00Z",
   "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S124_closed_V12_delivered",
+  "status": "S125_active_week_calendar",
   "released_at": "2026-11-04T22:28:43.430097+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -167,7 +167,7 @@
     "released_at": "2026-10-31T22:04:21.070750+00:00",
     "source_sha": "8d35ccaba0a81cc36c2c9c31ae6aa27e53bdb164"
   },
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "last_delivery": "/workspace/work/s117-final-apk-v11-20261104/private-delivery.json",
   "previous_s48_release": {
     "last_writer": "S48-approved-page-delivery-closeout-20261031",
@@ -182,8 +182,8 @@
     "authority": "Latest owner: What are your thoughts on the next best steps. Go ahead for one hour. Start22:39:15Europe/London31Oct2026; hardstop23:39:15. This new manual window prospectively authorises this one scoped nextgameplay slice; no scheduler/queue extension.",
     "expires_at": "2026-10-31T23:35:00Z"
   },
-  "all_write_freeze": null,
-  "hard_stop": null,
+  "all_write_freeze": "2026-11-05T17:00:00Z",
+  "hard_stop": "2026-11-05T17:00:00Z",
   "historical_s49_final_closeout_note": "Source frozen 2026-10-31T23:04:19Z; allnative/import/package and metadata closeout complete before23:25target/23:35lease/23:39:15ownerhardstop. No extension.",
   "previous_s50_release": {
     "last_writer": "S50-overnight-art-control-preparation-20261101",
@@ -201,7 +201,7 @@
     "expires_at": "2026-11-01T04:25:00Z"
   },
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-04T22:28:43.430097+00:00",
+  "updated_at": "2026-11-05T08:56:40.634366+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -322,8 +322,8 @@
     "closeout": "/workspace/work/visual-career-20261101/s63/closeout.json",
     "review_page": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779"
   },
-  "pending_implementation": false,
-  "pending_helpers": false,
+  "pending_implementation": true,
+  "pending_helpers": true,
   "next_action": "InstallV12asUPDATE, test producer/music/scrollcomfort onphone. Next substantive source slice agreedworking availability anddatedcalendar, thenrealpose/formation/branding revision; no ownerapprovalwait or queue restart.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "Review-onlyA02v2/A03v2TWOconceptPNGcalls/scratchnativepreview/privateownerPage; no productionGame/APK/ZIP/signing/paid/networkbypass",
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S124",
+  "session": "S125",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -539,7 +539,7 @@
   "new_breadth_freeze": "2026-11-02T11:15:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-  "current_session": "S124",
+  "current_session": "S125",
   "closed_at": "2026-11-04T19:09:21.724115+00:00",
   "last_updated_utc": "2026-11-04T19:09:21.724115+00:00",
   "last_validation": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
@@ -780,7 +780,7 @@
   },
   "finite_end": null,
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
-  "session_path": "docs/continuous_improvement/sessions/S124.json",
+  "session_path": "docs/continuous_improvement/sessions/S125.json",
   "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "last_verified_local_native_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
@@ -998,7 +998,7 @@
     "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
     "at": "2026-11-03T06:49:14.519386+00:00"
   },
-  "latest_direct_owner_steering": "Fresh manual Go ahead19:37Nov4 after S121 recommended slice; no new owner-set finish time, old18:00 queue ended.",
+  "latest_direct_owner_steering": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
   "current_operational_queue": {
     "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
@@ -1088,7 +1088,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S125_week_calendar",
+    "expires_at": "2026-11-05T12:30:00Z"
+  },
   "source_implementation_status": "No pendingimplementation in completedS123/S124; availability_calendar_art remainfuture scopes",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -1522,7 +1525,7 @@
     "pending_helpers": false,
     "final_record_gate": "789 PASS; final closed-record gate run before commit"
   },
-  "source_artifact_GL_released": true,
+  "source_artifact_GL_released": false,
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -2978,7 +2981,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S125_week_calendar",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3214,14 +3217,14 @@
     "session": "S120_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
-  "latest_owner_request": "Fresh manual Go ahead19:37 after S121 recommendations: implement navigation and audible producer then meaningful availability/calendar/art revisions; no new owner-set endtime, ended queue not restarted.",
+  "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S125",
   "game_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": null,
-  "artifact_writer": null,
+  "source_writer": "root_S125_week_calendar",
+  "artifact_writer": "root_S125_week_calendar",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
@@ -3249,7 +3252,7 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
   },
-  "native_evidence_pending": false,
+  "native_evidence_pending": true,
   "publication": "V12 compiledAPK privateexistingownerchair+Ali reader only; source/history/rawaudio/keys/saves local.",
   "historical_active_aliases_before_S117_release": "/workspace/work/s117-final-apk-v11-20261104/canonical-aliases-before-release.json",
   "s118_closeout": "/workspace/work/s118-report-notebook-review-20261104/closeout.json",
@@ -3286,12 +3289,11 @@
     "does_not_authorize_other_autoplay": true
   },
   "manual_build_authority": {
-    "direct_request": "Go ahead after S121 recommendation",
-    "received_clock": "2026-11-04T19:37:25Z",
-    "old_day_queue_remains_ended": true,
-    "owner_did_not_specify_new_finish_time": true,
-    "current_slice": "S124_closed_V12_delivered",
-    "next_requires_fresh_bounded_funded_preflight": true
+    "direct_request": "Continue with next development steps. Work through to5pm.",
+    "received_date": "2026-11-05",
+    "hard_stop": "2026-11-05T17:00:00Z",
+    "old_queue_remains_ended": true,
+    "current_slice": "S125_active"
   },
   "historical_active_aliases_before_S122_release": {
     "all_write_freeze": "2026-11-04T18:00:00Z",

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "S125",
+  "status": "active",
+  "owner_approved": false,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "baseline_sha": "1fa8d0175ec521d1d9c04fc3412c62f53025c0f4",
+  "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+  "owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
+  "issue_log_review": {
+    "bytes": 1573980,
+    "sha256": "60245747a443a27a36e83b41dfc1c42a69919a27b55d78377fd37976f07481ee"
+  },
+  "target": {
+    "locator": "/workspace/work/overnight-20261101/s56/calendar-347ead7-phone/captures/calendar-booked-safe-insets-390x844.png",
+    "original_sha256": "95d7eca1a0c0f41ba78461d3180952f2d07c100c613e6188917eb95bef9aa5d3",
+    "pixels_inspected": true,
+    "scope": "Actuallyopened retainedS56ordinalcalendar reference, explicitlyNOTcurrent36baseline. Freshcurrentphone/shortwidebaseline captured underthispreflight beforeproduction."
+  },
+  "hypothesis": "Explicitlyagreed authoredweeklyavailability feeds existingCore attendance and blocksoriginal all-bandpaidwriting onknownworkclashes; freeproducerdraft/listening remainsfree. A player-agreedfictionalcareerstart anchorsread-onlyweek/month calendar with actualshow/trip/rehearsal/work stamps.",
+  "controlled_comparison": "Samecurrent455source/actualArjunZoeEllis andJackZoeMarcus publicformationfixtures/phone390x844,720x1280,1280x720,1600x900; no day/statqualification injection inmainweektask. Freshbaseline first, earlytwoimportantstates beforefullproof; originallegacyabsentweekly/date behavior remains.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S125.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/band_week.gd",
+    "experiments/playable_flightcase/career_dates.gd",
+    "experiments/playable_flightcase/situation_core.gd",
+    "experiments/playable_flightcase/session.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/situation_desk.gd",
+    "experiments/playable_flightcase/calendar_desk.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/song_workbench_desk.gd"
+  ],
+  "validation_commands": [
+    "Commitpreflight/gate beforebaselinecopy/import/native/product. RootaloneexactGodot4.7.2/Dummy/oneGL/flock/privateXDG/additionalnetwork permission; normalXorgwrapper/configunchanged. Fresh455sourcecopy fromverifiedGit454+exactretained146Bentry, nooldruntime/cachereuse.",
+    "Baselinephone/shortwide actualnative Calendar/availability andsource-backedcontract independentreview BEFOREproduct. 48pxphysicaltargets, no textshrink; fullwidthcalendargridoutsidepaperifneeded, nativeheader/date/eventtext separatefromart.",
+    "Core strictoptionalweekly_v1 typedversion/source/window/anchor/dayset; absentweeklylegacyalternating exact, future/malformedHOLD/rawpreserved. New18authoredproposals explicitlyacceptedonlyforcurrentactiveknownIDs withabsent/unknowncontexts; existingplayerdayjob/family/flex andclockvaluesbyteexact. No samekind reanchor/removal; clearweeklyonlyknownkindchange; repeatedAgreezeroownerwrites.",
+    "OpeningState newfreeagreementtransaction acquiresbusyBEFOREsnapshot/pureapply/save, exacttypedwholeowner guard/onlyCORE+clockkeydiff/one_save/_rollback_identity onrealFSfailure; nestedreset/save/restore refused, unknownroot/Game/roster/WB/deep/fractional fields preserved. No Finance/day/cash effects.",
+    "AuthoritativeSession._write_session_guarded checks knownallbandavailability BEFOREoriginalresolver; directraw/preparedbypasscases guarded. UI andWB show actualclash/dueplan beforepaidcommit; freeSave/Try/Listen retained. Original3paidwritingdays/quality/Financeonce/save unchanged, partialwriting notsimulated.",
+    "Calendar anchoredonlybyexplicitfictionalDAY1Monday9Nov2026 agreement; no systemdate/autofill/viewmutation. Typedfutureclockretained; month/week/date selectionlocal/read-only. Actualmodernbooked/terminalterms.day showstamps; legacygig_history.day onlylabelcompleted/returned, neverinferredshowdate. Originaleligibility/booking/expiry/trip/Finance unchanged.",
+    "Affectedpuremodel andactualfourviewwholeweeklyagreement->workclash->originalpaidwriting/rehearsal/freepreview/calendar/weekmonth/duebooking/input/realFSfailure-retry/typedreload/duplicate/stale/future/legacy tests. Explicitfixtureslabelled, rootaloneengines. Current73/88/EMPTYimport/4standard/defaultrequired afterfinalsource; nounchangedaudio/gig/APK rerunsforactivity.",
+    "Finalexactsource/fourviewindependentreview, actualopens/fiveSIMULATEDlenses/partialownerfalse; serializeallaudits afterengines. DurableGit/source/compactreceipts, largeisolatedproofTMP; fixed600MiBfloor/noarbitrarycleanup. CloseS125by12:30selflease, dayfreeze15:00/finalproof16:00/APK16:15\u201316:45/handoff17:00, noautomaticextension."
+  ],
+  "queue_task": "ExistingS80ownerpriority3 agreedavailability+datedcalendar",
+  "reviewer": "/root/s125_review independentread-onlypre/early/final,128KiB D125/review; rootsoleimplementation/GL",
+  "player_goal": "Plan a workable band week, understand when people cannotwrite/rehearse, and see the actualshow/trip ondatedcalendar.",
+  "start_end_commitment": "RealcurrentbandDAY1 ->explicitfreeweekagreement ->knownshift refusespaidwritingwithoutsave/day/cash ->ordinaryavailableday/session+rehearsalattendance ->matchingdatedcalendar/booking/reload. Original3paidwritingdayscontinue, noforcedgoodresult/dayinjection inmain.",
+  "state_matrix": [
+    "fourphysicalnativeviewports/phone-shortwide importantstates first",
+    "none/legacy/weekly/future/malformedcontexts andclock; all18canonicalproposalliterals",
+    "local/saved/free/paid/dirtyexit/modal/keyboard/touch/resize/focus/menu/reload",
+    "currentbooking/trip/rehearsal/work/history; week/month/year boundaries",
+    "wholeownerFSfail/retry/reentrant/unknown/fractional/deepkeytype/stale/idempotent"
+  ],
+  "root_lease": {
+    "writer": "root_S125_week_calendar",
+    "expires_at": "2026-11-05T12:30:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "stop_condition": "Beforeproductionfreshbaseline+exactreviewedcontract. Twoineffectiveattempts changemethod/HOLD. Selflease12:30, all daywritesrelease17:00London; no automaticextension/newqueue/controller/oldworker. Source/native/evidence/P2gatesremain but routineownerdecisions delegated.",
+  "external_artifact_roots": [
+    "/workspace/work/s125-week-and-calendar-20261105",
+    "/tmp/bandmaster-s125-week-and-calendar-20261105"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s123-audible-producer-20261104/source-final.json",
+    "SHA": "b3c9688b6382375067c1c74749d711b171e50bffbb70d0480691924fe0a37df9"
+  },
+  "storage_plan": {
+    "workspace_initial_free_bytes": 651022336,
+    "scope_persistent_cap_bytes": 4194304,
+    "scope_TMP_cap_bytes": 2147483648,
+    "review_scratch_cap_bytes": 131072,
+    "day_initial_free_bytes": 651022336,
+    "day_aggregate_persistent_cap_bytes": 18874368,
+    "day_TMP_cap_bytes": 5368709120,
+    "reserved_art_persistent": 8388608,
+    "reserved_art_TMP": 2147483648,
+    "reserved_APK_persistent": 4194304,
+    "reserved_APK_TMP": 1073741824,
+    "handoff_contingency_persistent": 2097152,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "categories_persistent": {
+      "source_contract_QA_receipts": 786432,
+      "review": 131072,
+      "primaryGit": 2621440,
+      "failedproof_closeout": 655360
+    },
+    "categories_TMP": {
+      "source_versions": 600000000,
+      "privatecaches": 500000000,
+      "PNG": 400000000,
+      "QA_logs_failedproof": 300000000,
+      "closeout": 347483648
+    },
+    "allcriticalGit_primary": true,
+    "no_arbitrary_cleanup_or_oldmutablecache_sharing": true
+  },
+  "implementation_contract": "/workspace/work/s125-week-and-calendar-20261105/implementation-contract.json",
+  "known_proof_restart": "HistoricalTMPoriginals/caches unavailable/closed; currentdurable receipts retained but noactualoldPNGopens invented. Freshbaseline isnewcurrent evidence, notrestoredhistory."
+}

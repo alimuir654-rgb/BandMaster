@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S124_closed_V12_delivered",
+  "status": "S125_active_week_calendar",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
-  "writer": null,
+  "writer": "root_S125_week_calendar",
   "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "baseline": {
     "run_id": 40778019754,
@@ -695,7 +695,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S124",
+  "current_session": "S125",
   "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
   "latest_verified_phase2": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
@@ -1842,7 +1842,7 @@
   "candidate_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "candidate_native_verified": true,
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-04T22:28:43.430097+00:00",
+  "updated_at": "2026-11-05T08:56:40.634366+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2035,10 +2035,10 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S124",
+  "session": "S125",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
-  "all_write_freeze": null,
-  "hard_stop": null,
+  "all_write_freeze": "2026-11-05T17:00:00Z",
+  "hard_stop": "2026-11-05T17:00:00Z",
   "pending_candidate_source_sha": null,
   "last_completed_session": "S124",
   "historical_native_run_fields_before_s57": {
@@ -2343,13 +2343,13 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-04T22:28:43.430097+00:00",
   "last_writer": "root_S124_producer_APK",
-  "source_write_allowed": false,
-  "pending_implementation": false,
-  "pending_helpers": false,
+  "source_write_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "S123_verified_producer_S124_V12_private_delivered",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-05T12:30:00Z",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2490,7 +2490,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -2773,7 +2773,7 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "session_path": "docs/continuous_improvement/sessions/S124.json",
+  "session_path": "docs/continuous_improvement/sessions/S125.json",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "current_candidate": {
     "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
@@ -2968,7 +2968,7 @@
     "source_sha": "a8a8956396b8d7615e528feacfb914c65facfc4d",
     "at": "2026-11-03T06:49:14.519386+00:00"
   },
-  "latest_direct_owner_steering": "Fresh manual Go ahead19:37Nov4 after S121 recommended slice; no new owner-set finish time, old18:00 queue ended.",
+  "latest_direct_owner_steering": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
   "current_operational_queue": {
     "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
@@ -3058,7 +3058,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S125_week_calendar",
+    "expires_at": "2026-11-05T12:30:00Z"
+  },
   "source_implementation_status": "No pendingimplementation in completedS123/S124; availability_calendar_art remainfuture scopes",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -3552,7 +3555,7 @@
     "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
     "missing_evidence_still_HOLD": true
   },
-  "source_artifact_GL_released": true,
+  "source_artifact_GL_released": false,
   "s87_closeout": {
     "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "preflight_sha": "e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1",
@@ -4959,7 +4962,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S125_week_calendar",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5195,14 +5198,14 @@
     "session": "S120_closed",
     "freeze_new_breadth": "2026-11-04T16:30:00Z"
   },
-  "latest_owner_request": "Fresh manual Go ahead19:37 after S121 recommendations: implement navigation and audible producer then meaningful availability/calendar/art revisions; no new owner-set endtime, ended queue not restarted.",
+  "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S125",
   "game_source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": null,
-  "artifact_writer": null,
+  "source_writer": "root_S125_week_calendar",
+  "artifact_writer": "root_S125_week_calendar",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
@@ -5230,7 +5233,7 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
   },
-  "native_evidence_pending": false,
+  "native_evidence_pending": true,
   "publication": "V12 compiledAPK privateexistingownerchair+Ali reader only; source/history/rawaudio/keys/saves local.",
   "historical_active_aliases_before_S117_release": "/workspace/work/s117-final-apk-v11-20261104/canonical-aliases-before-release.json",
   "s118_closeout": "/workspace/work/s118-report-notebook-review-20261104/closeout.json",
@@ -5267,12 +5270,11 @@
     "does_not_authorize_other_autoplay": true
   },
   "manual_build_authority": {
-    "direct_request": "Go ahead after S121 recommendation",
-    "received_clock": "2026-11-04T19:37:25Z",
-    "old_day_queue_remains_ended": true,
-    "owner_did_not_specify_new_finish_time": true,
-    "current_slice": "S124_closed_V12_delivered",
-    "next_requires_fresh_bounded_funded_preflight": true
+    "direct_request": "Continue with next development steps. Work through to5pm.",
+    "received_date": "2026-11-05",
+    "hard_stop": "2026-11-05T17:00:00Z",
+    "old_queue_remains_ended": true,
+    "current_slice": "S125_active"
   },
   "historical_active_aliases_before_S122_release": {
     "all_write_freeze": "2026-11-04T18:00:00Z",
