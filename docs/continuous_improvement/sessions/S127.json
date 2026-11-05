@@ -35,8 +35,8 @@
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1621743,
-    "sha256": "e91525aafcff824b148e6256b9d08bf61276fe4ad35ef11d5da63db720f5b0e0"
+    "bytes": 1626721,
+    "sha256": "522763544d7844d9d417176fb8c4b3679d9f4e35fa7f28cddbdb4f697797148f"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -106,7 +106,7 @@
   "storage_plan": {
     "workspace_start_free": 635924480,
     "persistent_cap": 3145728,
-    "TMPcap": 1073741824,
+    "TMPcap": 1342177280,
     "source_3OGG_ceiling": 600000,
     "source_target_3OGG_bytes": 500000,
     "primaryGit_source_and_finalmetadata": 1600000,
@@ -162,5 +162,26 @@
     "one_bounded_correction_then_HOLD_ifqualityfails": true,
     "independent_review": "/workspace/work/s127-jack-backing-context-20261105/review/calibration-v3-direction.json",
     "SHA256": "65ef89801e4b32dbd69452d47837c3c0a688a4dac4b8394eced143ba9227dc61"
+  },
+  "predesign_review": {
+    "path": "/workspace/work/s127-jack-backing-context-20261105/review/predesign-v1.json",
+    "SHA256": "5b4f196e32a63c5749711f7c4aaa3af7e2fa60dd3d6bb377928723bda4cd576d",
+    "actual_current_baseline_opens": 4,
+    "verdict": "CLEAR"
+  },
+  "asset_adoption_review": {
+    "path": "/workspace/work/s127-jack-backing-context-20261105/review/asset-v3-adoption.json",
+    "SHA256": "96f2e21cef2fcaf962aa5b217ea1e8ae22dab07c1aafca52115d5fcdf6531295",
+    "verdict": "CLEAR_internal_source_technical_symbolic_not_human",
+    "actual_three_OGGs": 437399
+  },
+  "focus_navigation_amendment": {
+    "observed_failure": "/tmp/bandmaster-s127-jack-backing-context-20261105/runs/whole-phone-space-v2/proof/FIRST-FAILURE-390x844.png",
+    "scope": "One-line existingAuditionBodyScroll.follow_focus=true for all4actualprofilebodies; nativecontroller-owned focus only, no layout/type/hardware/owner/model/schema change. All4profilecompatibility and originalnativewheel directions required.",
+    "TMPcap": 1342177280,
+    "reason": "All3priorprivatecandidates retainedimmutable (oneheldentrycopy); fourth464regularcopy+freshEMPTYimport+complete8journey/standardPNG/failuretail fits1.25GiB. SameDAYTMP6GiB actualfree6.75GB/floor600MiB, persistent3MiB unchanged.",
+    "not_assertion_weakening": true,
+    "independent_direction_pending": false,
+    "independent_direction": "Existing reviewer actualfailureopened/CLEAR narrow nativefollow_focus; no wheel-only QA workaround."
   }
 }
