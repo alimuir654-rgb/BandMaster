@@ -35,8 +35,8 @@
   "game_baseline_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. New17:00Europe/London5Nov hardstop; routine creative/integration decisions delegated, oldendedqueue not restarted/newqueue notcreated.",
   "issue_log_review": {
-    "bytes": 1588706,
-    "sha256": "52a138811f5c2719e61d2c228f0a5e8735350df4e036cf277de4d9299f3063d5"
+    "bytes": 1590089,
+    "sha256": "2f8644656661e497212cecd72d2a538ed1936abbd8969b207d4a356b50815727"
   },
   "target": {
     "locator": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/baseline-phone-v1/proof/baseline-current-calendar-390x844.png",
@@ -162,5 +162,6 @@
     "bound_reference_reopens": 0
   },
   "source_corrective_iteration": 2,
-  "source_review_hold": "/workspace/work/s125-week-and-calendar-20261105/review/source-review-v1.json"
+  "source_review_hold": "/workspace/work/s125-week-and-calendar-20261105/review/source-review-v1.json",
+  "issue_schema_repair": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json"
 }
