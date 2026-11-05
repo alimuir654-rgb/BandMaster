@@ -35,8 +35,8 @@
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1632590,
-    "sha256": "a290a625962a8cb3755d08be9e5b195828b8cb3f9b97c51ac2775e7a23c2ff6d"
+    "bytes": 1635427,
+    "sha256": "d4ff482dd1d4ef01f7f7a6724e099b7d7bdd729e1de177a41abd7b99c1384637"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -105,7 +105,7 @@
   },
   "storage_plan": {
     "workspace_start_free": 635924480,
-    "persistent_cap": 3670016,
+    "persistent_cap": 3801088,
     "TMPcap": 1610612736,
     "source_3OGG_ceiling": 600000,
     "source_target_3OGG_bytes": 500000,
@@ -117,15 +117,15 @@
     "DAYcategory_reservations": {
       "S125closed_actual6877184_reserved": 7077888,
       "S126closed": 8388608,
-      "S127": 3670016,
+      "S127": 3801088,
       "finalAPK": 1572864,
-      "handoff": 786432
+      "handoff": 655360
     },
     "DAYrebalance": "Freshprospective20.5MiBDAY actualfloorcheck; onlyunusedclosedS125reservation0.25MiBreallocated (closedrecordnotrewritten), alloldbytesretained. No automaticclosedcapreuse orcleanup.",
     "DAYTMPcap": 6442450944,
     "workspace_TMPfloor": 629145600,
     "finalAPKreserve": 1572864,
-    "handoffreserve": 786432,
+    "handoffreserve": 655360,
     "allcriticalGitprimary": true,
     "no_cleanup_oroldmutablecache_reuse": true,
     "closeout_rebalance": {
@@ -136,6 +136,17 @@
       "handoff_complete0_75MiB_tail": true,
       "DAYsumunchanged": 21495808,
       "no_owner_approval_wait": true
+    },
+    "finaltail_peak_forecast": {
+      "actual_allocated": 2535424,
+      "remaining_receipts": 65536,
+      "new_primaryGit_blobs": 943718,
+      "trees_commits": 65536,
+      "index_peak": 131072,
+      "total_peak": 3741286,
+      "scope_cap": 3801088,
+      "all_category_reservations_sum": 21495808,
+      "subcomponent_ceilings_are_overlapping_global_cap_enforced": true
     }
   },
   "fresh_acquisition": {
