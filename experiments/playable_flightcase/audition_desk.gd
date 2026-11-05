@@ -121,7 +121,7 @@ func _build() -> void:
  scroll.name="AuditionBodyScroll"
  scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
- scroll.follow_focus=false
+ scroll.follow_focus=true
  scroll.get_v_scroll_bar().focus_mode=Control.FOCUS_ALL
  add_child(scroll)
  var spread: BoxContainer=HBoxContainer.new() if wide else VBoxContainer.new()
