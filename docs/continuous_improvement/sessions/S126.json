@@ -35,14 +35,14 @@
   "game_baseline_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "owner_request": "Direct5Nov Continue nextdevelopment through17London plus continuingNov4delegation ofroutinecreative/listening/integration; no genericapprovalwait or queue/controller restart.",
   "issue_log_review": {
-    "bytes": 1602207,
-    "sha256": "f96101cc9344939b4ea2f8dff9d3d38202b65b58bd5575894a52c75152e7f9e6"
+    "bytes": 1603955,
+    "sha256": "0e4f1c2e39f60a7f3182c377852a4ae25d03aa43c8657c46f786aa18233907ff"
   },
   "target": {
-    "locator": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/standard-phone-final-v2/captures/027-c27-completed_band-390x844.png",
-    "original_sha256": "58924329221986fd26bab3be1a39b3e6c392c7eae2bc2510d1cf5f39b0ea477f",
+    "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/baseline-phone-v1/proof/baseline-actual-Arjun-Zoe-Ellis-confirmed-band-390x844.png",
+    "original_sha256": "703b0c02700fd7fbc2b53cbaaf44b491380f7793e50498c1ff606dd2a5c66a80",
     "pixels_inspected": true,
-    "scope": "Actuallyopenedcurrent74 classicJack/Zoe/Casey nativecompletedcover reference; sourceC25Arjun/Zoe/Ellis3contactrefs alsoactuallyopened. Freshactualownercohort baseline required beforeproduct/art."
+    "scope": "Actuallyopenedfresh74actualArjun/Zoe/Ellis confirmedcover; Rootalsoopenedwideconfirmed/phonecontrolsscroll and3contactrefs. Nativepublicroster/namingfixture, notwholeinitialmenus/auditions."
   },
   "hypothesis": "An earned distinct editorial first press for actual Arjun/Zoe/Ellis, richer native mark treatments and restrained post-confirm reveal leading into planning the firstweek; never fakeplaying/performerart.",
   "controlled_comparison": "SameactualselectedArjun/Zoe/Ellis/TRANSISTOR, viewport390x844/720x1280/1280x720/1600x900, sameoriginaltalent/model/identitycommit; newcohortposes/nativeprintfinish/postconfirmone-shotpresentation only.",
@@ -128,5 +128,13 @@
     "SHA256": "95863f8621bd19736a4123edc9f902f151caf945a6f3a06e99adbc9c223b0feb",
     "rows": 457,
     "nextbase_closed_immutable_copyonlydeclaredrows": true
-  }
+  },
+  "predesign_review": {
+    "path": "/workspace/work/s126-formation-identity-20261105/review/predesign-current-baseline.json",
+    "SHA256": "00908b18208d70874f7fc065cb0bebd114d913303e591c6a56e3c8b75e746502",
+    "asset_verdict": "CLEAR",
+    "source_seams": "CLEAR afterpinnedvariants/lifecycle; newlivepreviewproposalindependentreviewpending",
+    "actual_independent_opens": 7
+  },
+  "implementation_contract_SHA256": "e8eb3d3ee0d4f77ecbd6492686ed43a32627f1ac45a60e543c3142e5b67ddc95"
 }
