@@ -392,6 +392,7 @@ func _consider_offer(choice: String) -> void:
  _busy=false
  _compare_recipe={}
  refresh_saved(false)
+ if result.ok:call_deferred("_show_producer_note")
  _show_notice("Their change is saved beside your earlier take. Compare both freely." if result.ok and choice=="try" else (("You left this idea unanswered." if choice=="dismiss" else "You considered their idea and kept your direction.") if result.ok else str(result.message)),"saved" if result.ok else "error")
 
 
@@ -635,6 +636,12 @@ func _change_leader(direction: int) -> void:
   if members[index].get("life_status","active")=="active":_leader_index=index;break
  _refresh_local()
 
+func _show_producer_note() -> void:
+ # An explicit new trial changes the question at the fixed response dock.
+ # Show that question before the player answers; literal lyric editing keeps its caret/scroll.
+ var scroll: ScrollContainer=find_child("WorkbenchBodyScroll",true,false) as ScrollContainer
+ if _producer_mode() and scroll!=null:scroll.set_deferred("scroll_vertical",0)
+
 func _free(action: String) -> void:
  if _producer_mode() and _offer_pending:
   _consider_offer("try" if action=="save_sketch" else "keep")
@@ -651,6 +658,7 @@ func _free(action: String) -> void:
  refresh_saved(true) # Actual saved text matches the payload; keep native caret/selection.
  _show_notice(str(result.message),"saved" if result.get("ok",false) else "error")
  if result.get("ok",false) and action in ["try","producer_try"] and result.get("changed",false) and not _producer_mode():_note.begin(reduced_motion)
+ if result.get("ok",false) and action=="producer_try" and result.get("changed",false):call_deferred("_show_producer_note")
 
 func _archive() -> void:
  _stop_demo()
