@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1726678,
-    "sha256": "c22184b67bf8e937788f976260b4160d99993cef4d9ef17c7ffb45037cd64c32"
+    "bytes": 1728221,
+    "sha256": "9d280a6937db05e75c5e507a7eb0925039fa121ea909aaff81fda7831bbe77db"
   },
   "lesson_ids": [
     "BM-01",
@@ -69,14 +69,15 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/asset_base/REVIEW_INDEX.md"
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/song_workbench_desk.gd"
   ],
   "external_artifact_roots": [
     "/workspace/work/s134-starting-commitments-20261105",
     "/tmp/bandmaster-s134-starting-commitments-20261105"
   ],
   "queue_task": "ExistingS80startingjobs-family-week-calendar andearnedcircumstance followup",
-  "reviewer": "Existing/root/s133_final_quality CHECKrequiredindependentpredesign/early/final, onlyD/review<=131072B, no source/Git/Pages/engines/network/children. Rootsolewriter/engines.",
+  "reviewer": "CHECKrequired /root/s134_quality_review, replacement afterenvironmentready removedprioragentbeforeanyS134receipt; D/review<=131072B only/no source-Git-Pages-engines-network-children. Independentpre/early/final.",
   "player_goal": "See knowncommitments beforeinvitation; newband firstwritingday\u2192actualTuesdayclash\u2192available rehearsal ornextfreeplan/calendar\u2192typedreload; later earned optionaljobdecision withcare retained.",
   "start_end_commitment": "Freshformation seedsCore/date insideoriginalfinish_identity onesave. Freeviews/Play/scroll/plans0day/cash/Finance. Existingwriting/rehearsal settlesoriginalonce. Newcontext change uses existingOpeningState busy/snapshot/owned-save/wholeopeningrollback with expectedfullsnapshot, includinglegacycontext, neversecondcontroller.",
   "state_matrix": [
@@ -143,7 +144,7 @@
   },
   "contract": {
     "path": "/workspace/work/s134-starting-commitments-20261105/CONTRACT.md",
-    "SHA256": "fa48973deca8f72c82fbe56d902ffe089f8cd3aa6825113680751e070a34ac94",
+    "SHA256": "761e18cacffe3d9fc937fb7a90f580ecb4333f4f05e5d525bb6dbf63b91210e9",
     "literalproposal": "/workspace/work/s134-starting-commitments-20261105/starting-commitments-proposal.json",
     "literalproposal_SHA256": "8716f40d47aa3132ecb8227a1a4822af9c441bc2681b520bcb21a4e8b0c574ed"
   },
