@@ -8,6 +8,14 @@ const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
 const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
 const PersonalContext = preload("res://experiments/playable_flightcase/personal_context.gd")
+const BACKING_MANIFEST := "res://experiments/playable_flightcase/audio/jack_backing_clips_v1.json"
+const BACKING_FILES := {"jack_four_bars_original_v1":"res://experiments/playable_flightcase/audio/jack_backing_original_v1.ogg","jack_four_bars_space_for_voice_v1":"res://experiments/playable_flightcase/audio/jack_backing_space_v1.ogg","jack_four_bars_own_part_v1":"res://experiments/playable_flightcase/audio/jack_backing_own_v1.ogg"}
+var backing_manifest_path := BACKING_MANIFEST
+var _backing_catalogue: Dictionary={}
+var _solo_catalogue: Dictionary={}
+var _use_backing := false
+var _audio_slot: VBoxContainer
+var _mode_buttons: Dictionary={}
 var _content: Script
 signal changed(result: Dictionary)
 signal menu_requested
@@ -37,6 +45,9 @@ func _ready() -> void:
  _content=Profiles.content(str(_view.get("candidate_id","")))
  if _content==null:return
  _expected=owner_state.audition_expected()
+ if _has_backing_choice():
+  _backing_catalogue=_read_audio_catalogue(backing_manifest_path)
+  _solo_catalogue=_read_audio_catalogue(Profiles.audio_manifest("cast_jack"))
  _build()
 
 func _label(words: String,points: int=16) -> Label:
@@ -191,12 +202,30 @@ func _build() -> void:
   var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
   version_label.name="AuditionCurrentVersion"
   notes.add_child(version_label)
-  notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
-  _audio=AudioPart.new()
-  _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
-  _audio.configure(_audio_context)
-  notes.add_child(_audio)
-  _audio.set_clip(_content.material_id(str(_view.get("request",""))))
+  if _has_backing_choice():
+   var modes:=HBoxContainer.new()
+   modes.name="AuditionListeningModes"
+   modes.add_theme_constant_override("separation",8)
+   notes.add_child(modes)
+   for key in ["solo","backing"]:
+    var button: Button=_quiet_button("SOLO PART" if key=="solo" else "WITH BACKING","AuditionMode_"+key,_choose_audio_mode.bind(key=="backing"),true)
+    button.custom_minimum_size.y=48.0
+    button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+    button.toggle_mode=true
+    button.focus_entered.connect(_reveal_audio_mode.bind(button))
+    _mode_buttons[key]=button
+    modes.add_child(button)
+   _audio_slot=VBoxContainer.new()
+   _audio_slot.name="AuditionAudioSlot"
+   notes.add_child(_audio_slot)
+   _refresh_listening_audio()
+  else:
+   notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
+   _audio=AudioPart.new()
+   _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
+   _audio.configure(_audio_context)
+   notes.add_child(_audio)
+   _audio.set_clip(_content.material_id(str(_view.get("request",""))))
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
   _board.columns=4 if wide else 2
@@ -208,6 +237,13 @@ func _build() -> void:
   _inspector=C.paper_label("Tap a bar to inspect its written part.")
   _inspector.name="AuditionInspector"
   notes.add_child(_inspector)
+  if _has_backing_choice():
+   var voice_hint: Label=C.paper_label("Voice: a line in bars 1 and 3. Guitar: Jack’s part.")
+   voice_hint.name="AuditionVoicePlacement"
+   notes.add_child(voice_hint)
+   var context_hint: Label=C.paper_label("Backing is an arranged bass-and-drum example, not your recruited band’s performance.")
+   context_hint.name="AuditionBackingDisclosure"
+   notes.add_child(context_hint)
  var practical:=VBoxContainer.new()
  practical.name="AuditionPracticalContext"
  practical.add_theme_constant_override("separation",4)
@@ -318,7 +354,8 @@ func _part(bar: Dictionary) -> String:
 func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
- if is_instance_valid(_audio):_audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
+ if _has_backing_choice():_refresh_listening_audio()
+ elif is_instance_valid(_audio):_audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
  _prior_toggle.text="VIEW ADJUSTED PART" if _show_prior else "VIEW ORIGINAL PART"
  _fill_board()
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what "+str(_view["person"]["name"])+" changed."
@@ -371,3 +408,72 @@ func _audio_context() -> Dictionary:
  for key in ["id","revision","phase","request"]:
   allowed=allowed and live.get(key)==_view.get(key)
  return {"content_version":_content.VERSION,"allowed":allowed,"material_id":_content.material_id("" if _show_prior else str(live.get("request","")))}
+
+func _has_backing_choice() -> bool:
+ return str(_view.get("candidate_id",""))=="cast_jack" and owner_state!=null and owner_state.game.genre=="Indie rock" and not _view.get("held",false) and _view.get("active",false) and _view.get("phase","") in ["tryout","response","decision"]
+
+func _read_audio_catalogue(path: String) -> Dictionary:
+ if not FileAccess.file_exists(path):return {}
+ var value: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
+ return value if value is Dictionary else {}
+
+func _backing_entry() -> Dictionary:
+ if not _has_backing_choice() or not _audio_context().get("allowed",false):return {}
+ var version: Variant=_backing_catalogue.get("schema_version")
+ if typeof(version) not in [TYPE_INT,TYPE_FLOAT] or version!=1:return {}
+ if typeof(_backing_catalogue.get("content_version"))!=TYPE_STRING or _backing_catalogue.content_version!=_content.VERSION:return {}
+ if _backing_catalogue.get("content_source")!="res://experiments/playable_flightcase/audition_content.gd" or _backing_catalogue.get("content_sha256")!=_solo_catalogue.get("content_sha256",""):return {}
+ var registry_sha: Variant=_backing_catalogue.get("solo_registry_sha256")
+ if typeof(registry_sha)!=TYPE_STRING or registry_sha.length()!=64 or FileAccess.get_sha256(Profiles.audio_manifest("cast_jack"))!=registry_sha:return {}
+ var material: String=_content.material_id("" if _show_prior else str(_view.get("request","")))
+ var materials: Variant=_backing_catalogue.get("materials")
+ var solos: Variant=_solo_catalogue.get("materials")
+ if not materials is Dictionary or not solos is Dictionary:return {}
+ var entry: Variant=materials.get(material)
+ var solo: Variant=solos.get(material)
+ if not entry is Dictionary or not solo is Dictionary or not AudioPart.entry_approved(entry):return {}
+ if typeof(entry.get("owner_listening_accepted"))!=TYPE_BOOL or entry.owner_listening_accepted!=false:return {}
+ if entry.get("source_solo_OGG_sha256")!=solo.get("sha256","") or entry.get("path")!=BACKING_FILES.get(material,""):return {}
+ var path: String=str(entry.get("path",""))
+ var digest: Variant=entry.get("sha256")
+ if typeof(digest)!=TYPE_STRING or digest.length()!=64 or not ResourceLoader.exists(path):return {}
+ if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=digest:return {}
+ return entry
+
+func _choose_audio_mode(backing: bool) -> void:
+ if _busy or not _has_backing_choice() or (backing and _backing_entry().is_empty()):return
+ _use_backing=backing
+ _refresh_listening_audio()
+
+func _refresh_listening_audio() -> void:
+ if not is_instance_valid(_audio_slot):return
+ if is_instance_valid(_audio):
+  _audio.release_stream()
+  if _audio.get_parent()!=null:_audio.get_parent().remove_child(_audio)
+  _audio.queue_free()
+ var available: bool=not _backing_entry().is_empty()
+ if _use_backing and not available:_use_backing=false
+ var solo: Button=_mode_buttons.get("solo")
+ var backing: Button=_mode_buttons.get("backing")
+ solo.set_pressed_no_signal(not _use_backing)
+ backing.set_pressed_no_signal(_use_backing)
+ backing.text="WITH BACKING" if available else "NO BACKING"
+ backing.disabled=_busy or not available
+ backing.set_meta("permitted",available)
+ backing.tooltip_text="Hear the same revealed guitar with an arranged bass-and-drum backing." if available else "Backing example unavailable. The solo part and complete written sketch remain available."
+ _audio=AudioPart.new()
+ _audio.manifest_path=backing_manifest_path if _use_backing else Profiles.audio_manifest("cast_jack")
+ _audio.play_caption="PLAY WITH BACKING" if _use_backing else "PLAY SOLO PART"
+ _audio.available_hint="Same revealed guitar part; arranged accompaniment is an illustration." if _use_backing else "Hear the unchanged solo guitar part."
+ _audio.configure(_audio_context)
+ _audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
+ _audio_slot.add_child(_audio)
+ set_meta("listening_mode","backing" if _use_backing else "solo")
+
+func _reveal_audio_mode(button: Button) -> void:
+ var parent: Node=button.get_parent()
+ while parent!=null and not parent is ScrollContainer:parent=parent.get_parent()
+ if parent is ScrollContainer:parent.ensure_control_visible(button)
+
+func _exit_tree() -> void:
+ if is_instance_valid(_audio):_audio.release_stream()

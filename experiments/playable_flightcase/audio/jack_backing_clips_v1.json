@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "content_source": "res://experiments/playable_flightcase/audition_content.gd",
+  "content_sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e",
+  "content_version": "s83_jack_written_v1",
+  "solo_registry_sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89",
+  "backing_score_sha256": "d2e0dd137d6b0d12edcc8acfd46402d12aa16e0b214852f34f4e31f205069ddf",
+  "backing_raw_sha256": "67fd94a592740635affd4148437428ce4ba4fc19b6937feaf10abfbbc561a55b",
+  "same_master_gain_all3": 0.7591600283306855,
+  "same_backing_staticgain": 25.412336426226577,
+  "provenance": "S127 original illustration: same exact retained solo sources plus newly authored bass/drums from fresh acquisition of same pinned S99 CC0 subset; not recruited-band or character performance. No human/device listening acceptance.",
+  "materials": {
+    "jack_four_bars_original_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_backing_original_v1.ogg",
+      "sha256": "0c0ca5c9edf5936710c7834e44bc93d0844d4525c3ff952c655abe037710912c",
+      "source_solo_OGG_sha256": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+      "style": "Indie rock",
+      "instrument": "electric_guitar_with_illustrative_bass_drums",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "label": "Jack guitar with an arranged backing example",
+      "rights": "CC0 instrument samples and original authored accompaniment; S127 local rights/source/score/mix review",
+      "duration_seconds": 12.0
+    },
+    "jack_four_bars_space_for_voice_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_backing_space_v1.ogg",
+      "sha256": "8e6ad6bdfcbb861c9ec73edb9e0c8b7313cd768dbeb0aac078e91a5301ca5a19",
+      "source_solo_OGG_sha256": "fbccd6cf003d15c5d29a2990b1ef01c75536b74908b892bcfb7ffb20d1c7eab9",
+      "style": "Indie rock",
+      "instrument": "electric_guitar_with_illustrative_bass_drums",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "label": "Jack guitar with an arranged backing example",
+      "rights": "CC0 instrument samples and original authored accompaniment; S127 local rights/source/score/mix review",
+      "duration_seconds": 12.0
+    },
+    "jack_four_bars_own_part_v1": {
+      "path": "res://experiments/playable_flightcase/audio/jack_backing_own_v1.ogg",
+      "sha256": "cc26b603f8b45bc7797ee5dce3260871e1a5553ef583579836744390435d0a42",
+      "source_solo_OGG_sha256": "e977e6b2aec17de3f920d8032c07147cd6603bf6d7b2eaf40746de0985deea2a",
+      "style": "Indie rock",
+      "instrument": "electric_guitar_with_illustrative_bass_drums",
+      "owner_listening_accepted": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "label": "Jack guitar with an arranged backing example",
+      "rights": "CC0 instrument samples and original authored accompaniment; S127 local rights/source/score/mix review",
+      "duration_seconds": 12.0
+    }
+  }
+}
