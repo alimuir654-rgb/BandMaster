@@ -2,9 +2,32 @@ extends RefCounted
 ## Player-recorded context, separate from the approved musical biographies.
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
+const Week = preload("res://experiments/playable_flightcase/band_week.gd")
+const Dates = preload("res://experiments/playable_flightcase/career_dates.gd")
+
+static func _week(host, parent: Node, compact: bool) -> void:
+ var body: VBoxContainer=host._paper(parent,compact)
+ body.name="WeekAgreementPaper"
+ var offer: Dictionary=Week.offer(host.game.career)
+ host._copy(body,"OUR WORKING WEEK",24).name="WeekAgreementTitle"
+ if not offer.ok:
+  host._copy(body,str(offer.message),16).name="WeekAgreementNotice"
+  return
+ host._copy(body,"PROPOSED · NOT SAVED" if offer.changed else "AGREED AVAILABILITY",18).name="WeekAgreementStatus"
+ if not host.notice.is_empty():host._copy(body,host.notice,16).name="WeekSaveNotice"
+ if offer.changed:
+  host._copy(body,"Agree the band's writing and rehearsal evenings. These proposed work patterns are new arrangements; existing recorded circumstances stay as they are.",16)
+  host._copy(body,"Career DAY 1: Monday 9 November 2026." if not Dates.inspect(host.game.career).exists else "Your saved career start date is retained.",16).name="WeekDateProposal"
+ for row in offer.rows:
+  host._copy(body,str(row.name)+" · "+str(row.work),18).name="WeekMember_"+str(row.id)
+  host._copy(body,str(row.text),16).name="WeekPattern_"+str(row.id)
+ if not offer.changed:
+  host._copy(body,Dates.caption(host.game.career,int(host.game.career.tour_day)),16)
+  body.add_child(host._button("VIEW OUR CALENDAR ›","WeekCalendarAction",host._navigate.bind("calendar")))
 
 static func render(host, parent: Node, compact: bool) -> void:
  var checked: Dictionary=Core.validate(host.game.career)
+ _week(host,parent,compact)
  var body: VBoxContainer=host._paper(parent,compact)
  host._copy(body,"LIFE OUTSIDE THE BAND",24)
  host._copy(body,"Record what you know. These career notes do not rewrite a musician's original biography. Personal money is not simulated.",16)
@@ -51,9 +74,12 @@ static func render(host, parent: Node, compact: bool) -> void:
   option.toggle_mode=true
   option.set_pressed_no_signal(host.situation_kind==entry[0])
   choices.add_child(option)
- var draft: Dictionary={"kind":host.situation_kind,"context":{"kind":host.situation_kind,"shift_anchor":int(host.game.career.tour_day)}}
+ var draft: Dictionary=selected.duplicate(true) if host.situation_kind==selected.kind else {"kind":host.situation_kind,"context":{"kind":host.situation_kind,"shift_anchor":int(host.game.career.tour_day)}}
  var description: Label=host._copy(body,Core.context_text(draft,int(host.game.career.tour_day)),16)
  description.name="SituationDraftContext"
+ var save: Button=host._button("SAVE THIS CONTEXT","SituationSaveContextAction",host._situation_save)
+ save.disabled=host.busy or host.situation_member_id.is_empty() or not checked.ok
+ body.add_child(save)
  if not host.notice.is_empty():host._copy(body,host.notice,16).name="SituationNotice"
  var inspected: Dictionary=Core.inspect_rehearsal(host.game.career)
  if inspected.ok and not inspected.plan.is_empty():
@@ -70,7 +96,12 @@ static func render(host, parent: Node, compact: bool) -> void:
   host._copy(body,str(source.story),16).name="SituationOriginalBiography"
 
 static func dock(host, parent: Node) -> void:
- var save: Button=host._button("SAVE CONTEXT","SituationSaveContextAction",host._situation_save,true)
- save.disabled=host.busy or host.situation_member_id.is_empty() or not Core.validate(host.game.career).ok
- parent.add_child(save)
+ var offer: Dictionary=Week.offer(host.game.career)
+ if offer.ok and offer.changed:
+  var expected: Dictionary=host.opening_owner.snapshot().duplicate(true)
+  parent.add_child(host._button("AGREE OUR WEEK · FREE","WeekAgreementAction",host._agree_band_week.bind(expected),true))
+ elif offer.ok:
+  var agreed: Button=host._button("WEEK AGREED","WeekAgreementAction",func():pass,true)
+  agreed.disabled=true
+  parent.add_child(agreed)
  parent.add_child(host._button("BACK TO BAND","SituationBackAction",host._navigate.bind("band")))

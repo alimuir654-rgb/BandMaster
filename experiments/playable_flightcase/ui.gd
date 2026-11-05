@@ -11,10 +11,12 @@ const AuditionDesk = preload("res://experiments/playable_flightcase/audition_des
 const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbench_desk.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
+signal planning_requested
 signal menu_requested
 ## C26 player-facing isolated scene. Existing photographic flightcase controls,
 ## original inert meters and genuine career rules; no flattened clickable mockup.
@@ -824,6 +826,11 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  paper.add_child(body)
  if practice_activity=="create":
+  var week: Dictionary=BandWeek.offer(game.career)
+  if opening_owner!=null and week.get("ok",false) and week.get("changed",false):
+   var planning: Button=_button("PLAN OUR WEEK · FREE",func():planning_requested.emit(),"tab")
+   planning.name="PracticePlanningAction"
+   body.add_child(planning)
   _writing_workspace(body)
   # Ordinary vertical gestures on the writing paper/choices belong to its
   # native body scroll. Text entry retains its own caret/selection handling.
@@ -841,7 +848,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  for person in game.career.get("members",[]):
   info.add_child(_label("%s  •  %s   morale %d" % [str(person.get("name","")),str(person.get("role","")),int(person.get("morale",0))],16))
  if opening_owner!=null and not Workbench.finished(opening_owner.snapshot()).items.is_empty():
-  var sketches: Button=_button("FINISHED LYRIC SKETCHES",_open_finished_workbench,"tab")
+  var sketches: Button=_button("FINISHED ORIGINALS",_open_finished_workbench,"tab")
   sketches.name="WorkbenchFinishedAction"
   info.add_child(sketches)
  info.add_child(_label("YOUR ORIGINALS",18))
@@ -1349,6 +1356,12 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   _session_failure_message("The band changed. Review the rehearsal again.",managed)
   _rebuild()
   return
+ if kind=="create":
+  var work: Dictionary=Situation.guard_writing(game.career)
+  if not work.get("ok",false):
+   _session_failure_message(str(work.get("message","Review the band's available evening.")),managed)
+   _rebuild()
+   return
  if kind=="tighten":
   if situation.plan_status=="future":
    last_message="Your rehearsal is agreed for DAY %d EVENING. No day or room fee has been used." % int(situation.plan.day)

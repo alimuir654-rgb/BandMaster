@@ -43,6 +43,10 @@ const GoalFocus = preload("res://experiments/playable_flightcase/goal_focus_rule
 const BandMoment = preload("res://experiments/playable_flightcase/band_moment_desk.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const SituationDesk = preload("res://experiments/playable_flightcase/situation_desk.gd")
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
+const CareerDates = preload("res://experiments/playable_flightcase/career_dates.gd")
+var calendar_cursor: int=0
+var calendar_mode: String="week"
 var game
 var situation_member_id := ""
 var situation_kind := "unknown"
@@ -648,6 +652,45 @@ func _situation_save() -> void:
  notice=str(result.get("message","The context could not be saved."))
  if result.get("ok",false):situation_expected=game.career.duplicate(true)
  _pending_focus="SituationSaveContextAction"
+ _render()
+
+func _agree_band_week(expected: Dictionary) -> void:
+ if busy or page!="situation" or is_instance_valid(_live_dialog) or opening_owner==null or not is_inside_tree() or not is_visible_in_tree():return
+ busy=true
+ var result: Dictionary=opening_owner.agree_band_week(expected)
+ busy=false
+ notice=str(result.get("message","Review the working week."))
+ _pending_focus="WeekCalendarAction" if result.get("ok",false) else "WeekAgreementAction"
+ _render()
+
+func _calendar_select(day: int) -> void:
+ if busy or page!="calendar" or is_instance_valid(_live_dialog) or not is_visible_in_tree():return
+ if CareerDates.info(game.career,day).is_empty():return
+ calendar_cursor=day
+ _pending_focus="CalendarDate_"+str(day)
+ _render()
+
+func _calendar_shift(direction: int) -> void:
+ if busy or page!="calendar" or is_instance_valid(_live_dialog) or not is_visible_in_tree():return
+ var today: int=int(game.career.get("tour_day",1))
+ var cursor: int=today if calendar_cursor==0 else calendar_cursor
+ var next: int=CareerDates.month_cursor(game.career,cursor,direction) if calendar_mode=="month" else cursor+direction*7
+ next=clampi(next,maxi(1,today-730),mini(CareerDates.MAX_DISPLAY_DAY,today+730))
+ if CareerDates.info(game.career,next).is_empty():return
+ calendar_cursor=next
+ _pending_focus="CalendarNext" if direction>0 else "CalendarPrevious"
+ _render()
+
+func _calendar_set_mode(mode: String) -> void:
+ if busy or page!="calendar" or mode not in ["week","month"] or is_instance_valid(_live_dialog) or not is_visible_in_tree():return
+ calendar_mode=mode
+ _pending_focus="CalendarMode_"+mode
+ _render()
+
+func _calendar_today() -> void:
+ if busy or page!="calendar" or is_instance_valid(_live_dialog) or not is_visible_in_tree():return
+ calendar_cursor=int(game.career.get("tour_day",1))
+ _pending_focus="CalendarTodayAction"
  _render()
 
 func _open_band_poster() -> void:

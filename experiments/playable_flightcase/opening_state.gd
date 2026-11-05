@@ -12,6 +12,9 @@ const PALETTES := ["Amber / Charcoal","White / Ink","Red / Black"]
 const VIBES := ["Unpolished","Nocturnal","Wry","Atmospheric"]
 const SAVE_PATH := "user://c27_opening_draft.json"
 const DOUBLE_VOCAL_COST := 5
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
+const CareerDates = preload("res://experiments/playable_flightcase/career_dates.gd")
+const WorkAvailability = preload("res://experiments/playable_flightcase/situation_core.gd")
 # Explicit fictional audition notes, not appearance-inferred abilities.
 # Only listed instrumentalists may double as front-person; singer roles retain source vocal arrays.
 const VOCAL_TRIALS := {
@@ -557,7 +560,7 @@ func _save_draft_owned() -> bool:
  var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
- file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY)))
+ file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY) or game.career.has(CareerDates.KEY)))
  file.flush()
  var written: bool = file.get_error()==OK
  file.close()
@@ -644,10 +647,36 @@ func begin_workbench_commit(expected: Dictionary) -> Dictionary:
   _audition_busy=false
   fail.message=prepared.message
   return fail
+ var attendance: Dictionary=WorkAvailability.guard_writing(game.career)
+ if not attendance.get("ok",false):
+  _audition_busy=false
+  fail.message=str(attendance.get("message","Review the band's available evening."))
+  return fail
  _workbench_serial+=1
  var ticket: String="workbench-tx:%d" % _workbench_serial
  _workbench_transaction={"id":ticket,"before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{},"phase":"prepared"}
  return {"ok":true,"changed":false,"message":"","transaction_id":ticket,"prepared":prepared.prepared.duplicate(true),"before_game":(before.game as Dictionary).duplicate(true)}
+
+func agree_band_week(expected: Dictionary) -> Dictionary:
+ var fail: Dictionary={"ok":false,"changed":false,"message":"A band action is already being saved."}
+ if _audition_busy:return fail
+ _audition_busy=true
+ var before: Dictionary=snapshot()
+ var result: Dictionary=BandWeek.apply(before,expected)
+ if not result.get("ok",false) or not result.get("changed",false):
+  _audition_busy=false
+  return {"ok":bool(result.get("ok",false)),"changed":false,"message":str(result.get("message","Review the proposed week."))}
+ var next: Dictionary=result.state
+ if not BandWeek.outside_equal(before,next):
+  _audition_busy=false
+  return {"ok":false,"changed":false,"message":"A free working-week agreement cannot change the rest of the band."}
+ game.career=next.game.career.duplicate(true)
+ if not _save_draft_owned():
+  _rollback_identity(before)
+  _audition_busy=false
+  return {"ok":false,"changed":false,"message":"The week could not be saved. Your whole previous band and choices are retained; try again."}
+ _audition_busy=false
+ return {"ok":true,"changed":true,"message":str(result.message)}
 
 func _workbench_ticket(ticket: String) -> bool:
  return _audition_busy and not ticket.is_empty() and _workbench_transaction.get("id")==ticket

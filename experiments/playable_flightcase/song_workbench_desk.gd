@@ -8,6 +8,7 @@ const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
+const Availability = preload("res://experiments/playable_flightcase/situation_core.gd")
 signal write_requested(expected: Dictionary)
 signal exit_ready(destination: String)
 signal closed
@@ -472,8 +473,18 @@ func _refresh_local() -> void:
   _show_notice("LOCAL DIRECTION · Try this take to save it before writing." if producer else "LOCAL EDITS · These words are not saved. Try this exact take before writing.","local")
  elif not local_edits and _notice_kind=="local":_show_notice("")
  _write.text="WRITE SESSION %d OF 3" % stage
+ var work: Dictionary=Availability.inspect_writing(owner_state.game.career)
+ var available: bool=work.get("ok",false) and work.get("can_write",false)
+ var cost: Label=find_child("WorkbenchPublicCost",true,false) as Label
+ if is_instance_valid(cost):
+  if not work.get("ok",false):cost.text=str(work.get("message","Availability needs review."))
+  elif not available:cost.text="WORK THIS EVENING: "+str(work.work_names)
+  elif work.get("plan_status")=="due":cost.text="REHEARSAL AGREED TODAY · Writing misses it"
+  else:cost.text="Try and edit free · Writing uses 1 day · No room fee"
+ if not available:_write.text="WRITING · PEOPLE AT WORK" if work.get("ok",false) else "WRITING · REVIEW AVAILABILITY"
+ elif work.get("plan_status")=="due":_write.text="WRITE 1 DAY · MISS REHEARSAL"
  var modal: bool=is_instance_valid(_exit_dialog)
- _write.disabled=_busy or modal or held or has_local_edits() or not bool(_view.get("can_write",false))
+ _write.disabled=_busy or modal or held or has_local_edits() or not bool(_view.get("can_write",false)) or not available
  var retained: Array[Button]=[]
  for button in _buttons:
   if not is_instance_valid(button):continue

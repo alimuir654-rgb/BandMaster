@@ -1088,11 +1088,23 @@ func _practice() -> void:
   panel.recap_expanded=false
  panel.back_requested.connect(_home)
  panel.career_requested.connect(_open_career_desk)
+ panel.planning_requested.connect(_open_band_planning)
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  if Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":
   call_deferred("_open_career_desk")
+
+func _open_band_planning() -> void:
+ _open_career_desk()
+ if not is_instance_valid(_career_view) or not _career_view.is_visible_in_tree() or str(_career_view.get("page"))!="home":return
+ _career_view.call("_open_situation")
+ call_deferred("_focus_band_planning",_career_view.get_instance_id())
+
+func _focus_band_planning(id: int) -> void:
+ if not is_instance_valid(_career_view) or _career_view.get_instance_id()!=id or not _career_view.is_visible_in_tree() or str(_career_view.get("page"))!="situation":return
+ var target: String="WeekAgreementAction" if _career_view.find_child("WeekAgreementAction",true,false)!=null else "WeekCalendarAction"
+ _career_view.call("_restore_focus",target)
 
 func _open_career_desk() -> void:
  if setup.screen!="play" or not is_instance_valid(_practice_view) or bool(_practice_view.get("session_busy")):

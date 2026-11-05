@@ -4,6 +4,24 @@ const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules
 const KEY := "situation_core_v1"
 const KINDS := ["unknown","day_job","family_supported","flexible"]
 const MAX_NUMBER := 2147483647
+const WEEK_SOURCE := "agreed_band_week_20261105"
+const WEEKDAYS := ["MON","TUE","WED","THU","FRI","SAT","SUN"]
+
+static func _weekly_ok(value: Variant) -> bool:
+ if not value is Dictionary or typeof(value.get("version"))!=TYPE_INT or value.version!=1:return false
+ if typeof(value.get("anchor_day"))!=TYPE_INT or value.anchor_day!=1 or value.get("window")!="EVENING" or value.get("source")!=WEEK_SOURCE:return false
+ if typeof(value.get("window"))!=TYPE_STRING or typeof(value.get("source"))!=TYPE_STRING or not value.get("unavailable_days") is Array:return false
+ if value.unavailable_days.is_empty() or value.unavailable_days.size()>7:return false
+ var previous: int=-1
+ for day in value.unavailable_days:
+  if typeof(day)!=TYPE_INT or day<0 or day>6 or day<=previous:return false
+  previous=day
+ return true
+
+static func weekday_words(days: Array) -> String:
+ var words: PackedStringArray=[]
+ for day in days:words.append(WEEKDAYS[int(day)])
+ return ", ".join(words)
 
 static func _fail(message: String) -> Dictionary:
  return {"ok":false,"message":message}
@@ -41,6 +59,7 @@ static func validate(state: Dictionary) -> Dictionary:
   if not id is String or id.is_empty() or not context is Dictionary or not context.get("kind",null) in KINDS:return _fail("A recorded outside-band context is not readable.")
   if not _integer(context.get("recorded_day",null),1):return _fail("A context date is not readable.")
   if context.kind=="day_job" and (not _integer(context.get("shift_anchor",null),1) or context.get("shift_period",0)!=2 or context.get("window","")!="EVENING"):return _fail("A recorded shift schedule is not readable.")
+  if context.has("weekly_v1") and (context.kind!="day_job" or not _weekly_ok(context.weekly_v1)):return _fail("This saved weekly availability needs a compatible version. Its original work pattern is retained.")
  for id in raw.agreements:
   var agreement: Variant=raw.agreements[id]
   if not id is String or not agreement is Dictionary:return _fail("The agreement history is not readable.")
@@ -75,6 +94,8 @@ static func context_text(row: Dictionary, today: int) -> String:
  var context: Dictionary=row.get("context",{})
  match str(row.get("kind","unknown")):
   "day_job":
+   if context.has("weekly_v1"):
+    return "Agreed work evenings: "+weekday_words(context.weekly_v1.unavailable_days)+". Writing and rehearsal must work around these evenings. Personal wages are not simulated."
    var anchor: int=int(context.get("shift_anchor",today))
    var next: int=today if (today-anchor)%2==0 else today+1
    return "Player-recorded day job. Evening shift every other day: DAY %d, %d, %d. Personal wages are not simulated." % [next,next+2,next+4]
@@ -114,12 +135,59 @@ static func set_context(state: Dictionary, id: String, kind: String, expected: D
   context["shift_period"]=2
   context["window"]="EVENING"
  else:
-  for field in ["shift_anchor","shift_period","window"]:context.erase(field)
+  for field in ["shift_anchor","shift_period","window","weekly_v1"]:context.erase(field)
  core.member_contexts[id]=context
  return _put(state,core,"Outside-band context saved. The original biography is unchanged.")
 
 static func _shift(context: Dictionary, day: int) -> bool:
+ if context.has("weekly_v1"):
+  return context.get("kind")=="day_job" and _weekly_ok(context.weekly_v1) and day>=1 and context.weekly_v1.unavailable_days.has((day-1)%7)
  return context.get("kind","unknown")=="day_job" and day>=int(context.shift_anchor) and (day-int(context.shift_anchor))%2==0
+
+static func agree_weekly(state: Dictionary, proposals: Dictionary) -> Dictionary:
+ var checked: Dictionary=validate(state)
+ if not checked.ok:return checked
+ var core: Dictionary=checked.core
+ var actual: Dictionary={}
+ for row in members(state):
+  if row.active and row.editable:actual[row.id]=row
+ var changed: bool=false
+ for id in proposals:
+  if typeof(id)!=TYPE_STRING or not actual.has(id) or actual[id].kind!="unknown":return _fail("The proposed musicians changed. Reopen the working week.")
+  var weekly: Dictionary={"version":1,"anchor_day":1,"unavailable_days":proposals[id],"window":"EVENING","source":WEEK_SOURCE}
+  if not _weekly_ok(weekly):return _fail("The proposed work evenings are not readable.")
+  var context: Dictionary=core.member_contexts.get(id,{"kind":"unknown"}).duplicate(true)
+  context["kind"]="day_job";context["recorded_day"]=int(state.tour_day)
+  context["shift_anchor"]=1;context["shift_period"]=2;context["window"]="EVENING"
+  context["weekly_v1"]=weekly.duplicate(true)
+  core.member_contexts[id]=context
+  changed=true
+ if not changed:return {"ok":true,"changed":false,"state":state.duplicate(true),"message":"Existing recorded circumstances are retained."}
+ return _put(state,core,"The proposed work evenings have been agreed.")
+
+static func inspect_writing(state: Dictionary) -> Dictionary:
+ var view: Dictionary=inspect_rehearsal(state)
+ if not view.ok:return view
+ var names: PackedStringArray=[]
+ for row in view.absent:names.append(str(row.name))
+ view["can_write"]=names.is_empty()
+ view["work_names"]=", ".join(names)
+ view["message"]="At work this evening: "+", ".join(names)+". The whole band is needed for this writing session; no day or money has been used." if not names.is_empty() else ""
+ view["next_full_day"]=0
+ for offset in range(15):
+  if int(state.tour_day)>MAX_NUMBER-offset:break
+  var target: int=int(state.tour_day)+offset
+  var free: bool=true
+  for row in members(state):
+   if row.active and _shift(row.context,target):free=false
+  if free:view.next_full_day=target;break
+ return view
+
+static func guard_writing(state: Dictionary) -> Dictionary:
+ var view: Dictionary=inspect_writing(state)
+ if not view.ok:return view
+ if not view.can_write:return _fail(str(view.message))
+ return {"ok":true,"message":""}
 
 static func inspect_rehearsal(state: Dictionary) -> Dictionary:
  var checked: Dictionary=validate(state)

@@ -223,6 +223,11 @@ func write_session_prepared(idea: String,form: String,title: String,leader_index
 func _write_session_guarded(idea: String,form: String,title: String,leader_index: int,permit: Dictionary) -> Dictionary:
  var guard: Dictionary=Workbench.guard_write(snapshot(),idea,form,title,leader_index,permit)
  if not guard.get("ok",false):return guard
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not commitment.get("ok",false):return commitment
+ if phase=="play":
+  var attendance: Dictionary=Situation.guard_writing(career)
+  if not attendance.get("ok",false):return attendance
  return _write_session_original(idea,form,title,leader_index)
 
 func _write_session_original(idea: String,form: String,title: String,leader_index: int) -> Dictionary:
@@ -238,6 +243,9 @@ func rehearse() -> Dictionary:
  if not bool(commitment.get("ok",false)):return commitment
  if phase != "play":
   return {"ok":false,"message":"Recruit a viable band first."}
+ var availability: Dictionary=Situation.inspect_rehearsal(career)
+ if not availability.get("ok",false):return availability
+ if availability.get("conflict",false):return {"ok":false,"message":"Some musicians are at work. Review the actual rehearsal attendance or agree another evening."}
  var result: Dictionary = _apply_risk(Practice.resolve(career,"tighten"),"tighten")
  return _record_practice(result,"tighten")
 

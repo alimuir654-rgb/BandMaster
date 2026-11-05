@@ -1,5 +1,8 @@
 extends RefCounted
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
+const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
+const Dates = preload("res://experiments/playable_flightcase/career_dates.gd")
+const C = preload("res://experiments/playable_flightcase/career_components.gd")
 ## Read-only ordinal career calendar. No resolver, expiry, IO or save calls.
 const FUTURE_DAYS := 14
 const RECENT_NOTES := 5
@@ -99,12 +102,20 @@ static func _copy(owner, parent: Node, text: String, node_name: String="", point
 
 static func render(owner, parent: Node, compact: bool) -> void:
  var data: Dictionary=summary(owner.game.career)
+ var clock: Dictionary=Dates.inspect(owner.game.career)
+ if clock.ok and clock.exists and data.today_valid and not Dates.info(owner.game.career,int(data.today)).is_empty():
+  _render_dated(owner,parent,compact,data)
+  return
  var booking: Dictionary=data["booking"]
  var body: VBoxContainer=owner._paper(parent,compact)
  body.name="CalendarSheet"
  _copy(owner,body,"YOUR BAND CALENDAR","CalendarTitle",26)
  _copy(owner,body,"TODAY  /  DAY %d" % int(data["today"]) if bool(data["today_valid"]) else "TODAY  /  DAY NOT RECORDED","CalendarToday",20)
  _copy(owner,body,"Career days, not real-world dates. Viewing the calendar never advances time.","CalendarExplanation",16,true)
+ if not clock.ok:_copy(owner,body,str(clock.message),"CalendarClockWarning")
+ elif not clock.exists:
+  _copy(owner,body,"Put this career on a dated calendar when you agree the band's working week.","CalendarStartProposal")
+  body.add_child(owner._button("PLAN OUR WEEK · FREE","CalendarPlanWeekAction",owner._open_situation))
  var booked: VBoxContainer=owner._box(4)
  booked.name="CalendarBooking"
  booked.mouse_filter=Control.MOUSE_FILTER_PASS
@@ -171,3 +182,129 @@ static func render(owner, parent: Node, compact: bool) -> void:
   _copy(owner,entry,"DAY %d" % int(note["day"]) if int(note["day"])>0 else "DAY NOT RECORDED","CalendarNoteDay_"+str(index),16,true)
   _copy(owner,entry,str(note["title"]),"CalendarNoteTitle_"+str(index),18)
   _copy(owner,entry,str(note["text"]),"CalendarNoteText_"+str(index))
+
+static func _event_source(career: Dictionary) -> Dictionary:
+ var core: Dictionary=Core.validate(career)
+ var booking: Dictionary=Booking.validate(career)
+ var memory: Dictionary=Booking.memory(career) if booking.ok else {}
+ var history: Array=career.get("gig_history",[]) if career.get("gig_history",[]) is Array else []
+ return {"people":Core.members(career) if core.ok else [],"plans":core.core.plans if core.ok else [],"records":memory.get("records",[]),"first_booking":booking.ok and int(memory.get("sequence",0))==1 and memory.get("records",[]).is_empty() and history.is_empty(),"legacy":history,"availability_ok":bool(core.ok)}
+
+static func day_events(data: Dictionary, source: Dictionary, day: int) -> Array:
+ var result: Array=[]
+ var booking: Dictionary=data.booking
+ if booking.present and booking.valid and int(booking.day)==day:
+  result.append({"kind":"show","text":("FIRST SHOW · BOOKED" if source.first_booking else "BOOKED SHOW")+"\n"+str(booking.venue)+" · "+str(booking.city)})
+ var trip: Dictionary=data.get("trip",{})
+ if trip.get("valid",false):
+  if day>int(trip.start_day) and day<=int(trip.last_reserved_day):result.append({"kind":"travel","text":"RESERVED FOR THE BOOKED TRIP"})
+  if day==int(trip.next_available_day):result.append({"kind":"return","text":"NEXT AVAILABLE · PLANNED RETURN"})
+ for person in source.people:
+  if person.active and Core._shift(person.context,day):result.append({"kind":"work","text":"WORK EVENING · "+str(person.name)})
+ for plan in source.plans:
+  if int(plan.day)==day:result.append({"kind":"rehearsal","text":"REHEARSAL · "+str(plan.status).to_upper()+"\nEVENING · agreed band participants"})
+ var first_completed: bool=true
+ for record in source.records:
+  if not record is Dictionary or not record.get("terms") is Dictionary:continue
+  var terms: Dictionary=record.terms
+  if not Booking.terms_valid(terms):continue
+  var name: String=str(terms.venue_snapshot.get("name","Saved venue"))
+  if int(terms.day)==day:
+   var kind: String=str(record.get("kind",""))
+   var title: String=("FIRST SHOW · PLAYED" if first_completed else "SHOW PLAYED") if kind=="completed" else ("SHOW · CANCELLED" if kind=="cancelled" else "SHOW · MISSED")
+   result.append({"kind":"show_memory","text":title+"\n"+name})
+  if record.get("kind")=="completed":
+   first_completed=false
+   if _day(record.get("day")) and int(record.day)==day and int(record.day)!=int(terms.day):result.append({"kind":"return","text":"RETURNED FROM THE SHOW · "+name})
+ for record in source.legacy:
+  if not record is Dictionary or not _day(record.get("day")):continue
+  if int(record.day)==day:
+   var venue: String=str(record.get("venue","Saved venue")) if record.get("venue","") is String else "Saved venue"
+   result.append({"kind":"legacy_memory","text":"COMPLETED / RETURNED · "+venue+"\nOriginal show date was not recorded here."})
+ return result
+
+static func _light(parent: Node, words: String, name: String, points: int=16) -> Label:
+ var label: Label=C.label(words,points)
+ label.name=name
+ label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+ parent.add_child(label)
+ return label
+
+static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) -> void:
+ var career: Dictionary=owner.game.career
+ var today: int=int(data.today)
+ var cursor: int=today if int(owner.calendar_cursor)==0 else int(owner.calendar_cursor)
+ if Dates.info(career,cursor).is_empty():cursor=today
+ var date: Dictionary=Dates.info(career,cursor)
+ var source: Dictionary=_event_source(career)
+ var header: VBoxContainer=owner._paper(parent,compact)
+ header.name="CalendarSheet"
+ _copy(owner,header,str(date.month_name)+" "+str(date.year),"CalendarTitle",26)
+ _copy(owner,header,"TODAY · "+Dates.caption(career,today),"CalendarToday",18)
+ _copy(owner,header,"Your agreed career dates. Looking ahead never uses a day.","CalendarExplanation",16,true)
+ if data.booking.present and data.booking.valid:
+  _copy(owner,header,("SAVED SHOW OVERDUE" if data.booking.status=="overdue" else ("SHOW DUE TODAY" if data.booking.status=="due" else "NEXT SHOW"))+" · "+str(data.booking.venue),"CalendarStatus",18)
+  _copy(owner,header,Dates.caption(career,int(data.booking.day)),"CalendarBookingDay",16)
+ else:_copy(owner,header,"NO SHOW BOOKED" if not data.booking.present else "SAVED BOOKING NEEDS REVIEW","CalendarStatus",18)
+ var nav: HBoxContainer=HBoxContainer.new()
+ nav.add_theme_constant_override("separation",6)
+ parent.add_child(nav)
+ nav.add_child(owner._button("‹","CalendarPrevious",owner._calendar_shift.bind(-1)))
+ nav.add_child(owner._button("TODAY","CalendarTodayAction",owner._calendar_today))
+ nav.add_child(owner._button("›","CalendarNext",owner._calendar_shift.bind(1)))
+ var modes: HBoxContainer=HBoxContainer.new()
+ modes.add_theme_constant_override("separation",6)
+ parent.add_child(modes)
+ for mode in ["week","month"]:
+  var button: Button=owner._button(str(mode).to_upper(),"CalendarMode_"+str(mode),owner._calendar_set_mode.bind(str(mode)))
+  button.toggle_mode=true
+  button.set_pressed_no_signal(owner.calendar_mode==mode)
+  modes.add_child(button)
+ # The grid occupies the available full width, outside the sheet's ink insets.
+ # Seven 48px targets plus six 2px gaps fit the native 390px phone composition.
+ var grid: GridContainer=GridContainer.new()
+ grid.name="CalendarDatedGrid"
+ grid.columns=7
+ grid.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ grid.mouse_filter=Control.MOUSE_FILTER_PASS
+ grid.add_theme_constant_override("h_separation",2)
+ grid.add_theme_constant_override("v_separation",4)
+ parent.add_child(grid)
+ for index in range(7):_light(grid,Core.WEEKDAYS[index],"CalendarWeekday_"+str(index),16)
+ var cells: Array=Dates.cells(career,cursor,str(owner.calendar_mode))
+ for cell in cells:
+  var day: int=int(cell.day)
+  var events: Array=day_events(data,source,day) if cell.supported else []
+  var words: String=str(cell.date)+( "\n•" if not events.is_empty() else "")
+  var button: Button=owner._button(words,"CalendarDate_"+str(day),owner._calendar_select.bind(day))
+  button.toggle_mode=true
+  button.set_pressed_no_signal(day==cursor)
+  button.disabled=owner.busy or not cell.supported
+  button.set_meta("career_day",day)
+  button.set_meta("appointment_events",events.duplicate(true))
+  button.set_meta("today",day==today)
+  button.tooltip_text=Dates.caption(career,day) if cell.supported else "Before the agreed career start"
+  if day==today:button.tooltip_text="TODAY · "+button.tooltip_text
+  for event in events:button.tooltip_text+="\n"+str(event.text)
+  grid.add_child(button)
+ var selected: VBoxContainer=owner._paper(parent,compact)
+ selected.name="CalendarSelectedDay"
+ _copy(owner,selected,Dates.caption(career,cursor),"CalendarSelectedDate",20)
+ var events: Array=day_events(data,source,cursor)
+ if events.is_empty():_copy(owner,selected,"No appointment or work clash recorded for this evening.","CalendarEmptyDay")
+ for index in range(events.size()):
+  var row: Dictionary=events[index]
+  _copy(owner,selected,str(row.text),"CalendarEvent_"+str(index),18)
+ if not source.availability_ok:_copy(owner,selected,"Saved availability needs compatible review. No free evening has been assumed.","CalendarAvailabilityWarning")
+ if not data.issues.is_empty():
+  for issue in data.issues:_copy(owner,selected,str(issue),"",16)
+ var next: VBoxContainer=owner._paper(parent,compact)
+ _copy(owner,next,"NEXT IN YOUR BAND WEEK","CalendarNextTitle",20)
+ var writing: Dictionary=Core.inspect_writing(career)
+ if writing.ok:
+  if int(writing.next_full_day)>0:_copy(owner,next,"NEXT EVENING WITHOUT A RECORDED WORK CLASH\n"+Dates.caption(career,int(writing.next_full_day)),"CalendarNextBandEvening")
+  else:_copy(owner,next,"No common evening is recorded in the next fortnight. Review the existing work agreements.","CalendarNoCommonEvening")
+ if data.booking.present and data.booking.valid:_copy(owner,next,str(data.booking.venue)+"\n"+Dates.caption(career,int(data.booking.day)),"CalendarNextShow")
+ var trip: Dictionary=data.get("trip",{})
+ if trip.get("valid",false):_copy(owner,next,"TRIP RESERVED THROUGH "+Dates.caption(career,int(trip.last_reserved_day))+"\nNEXT AVAILABLE · "+Dates.caption(career,int(trip.next_available_day)),"CalendarTripDates")
+ next.add_child(owner._button("REVIEW OUR WORKING WEEK ›","CalendarReviewWeekAction",owner._open_situation))
