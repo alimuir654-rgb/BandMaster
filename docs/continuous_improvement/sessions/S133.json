@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1704214,
-    "sha256": "0625f0059df59993ae21dab202c5096de5ac27470fe5d363956a42af9c782df2"
+    "bytes": 1706765,
+    "sha256": "1af531a612521e81acb237da9d77922c4ad0a5bf5dcdb5b1e385d73517189892"
   },
   "lesson_ids": [
     "BM-01",
@@ -242,5 +242,14 @@
       "remaining_contingency": 8388608
     },
     "scope_notes": "No retroactiveapproval for automaticGitpacking/floordip. NextsourcefreshEMPTYruntime/privatecache+actualfailedproof+fullcloseoutfunded. CurrentS1332.5GiB pluscontext512MiB+APK512MiB totals3.5GiB; artTMPmustfreshbudgetfromACTUALremainingbeforeallocation, neverautomaticclosedcap reuse."
+  },
+  "research_update_scope": {
+    "paths": [
+      "/workspace/work/review-roadmap-20261101/research.json",
+      "/workspace/work/review-roadmap-20261101/research-log.md"
+    ],
+    "additional_bytes_cap": 32768,
+    "purpose": "Owner requested other-game quality benchmarks; append primary-source feature/design observations and clearly labelled BandMaster acceptance criteria. No new research register, competitor-pixel or hands-on claim.",
+    "budget": "32KiB from prospective future-primary contingency, no engine/source allocation."
   }
 }
