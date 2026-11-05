@@ -35,8 +35,8 @@
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1629551,
-    "sha256": "e8e52a4142bcacb00a572c496e2470587604a82f21aa724d8550956803ea26c5"
+    "bytes": 1632590,
+    "sha256": "a290a625962a8cb3755d08be9e5b195828b8cb3f9b97c51ac2775e7a23c2ff6d"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -105,29 +105,38 @@
   },
   "storage_plan": {
     "workspace_start_free": 635924480,
-    "persistent_cap": 3145728,
+    "persistent_cap": 3670016,
     "TMPcap": 1610612736,
     "source_3OGG_ceiling": 600000,
     "source_target_3OGG_bytes": 500000,
-    "primaryGit_source_and_finalmetadata": 1600000,
-    "compact_contract_receipts_QA": 700000,
-    "failedcloseout_tail": 245728,
+    "primaryGit_source_and_finalmetadata": 2100000,
+    "compact_contract_receipts_QA": 1100000,
+    "failedcloseout_tail": 470016,
     "DAYinitialfree": 651022336,
     "DAYcap": 21495808,
     "DAYcategory_reservations": {
       "S125closed_actual6877184_reserved": 7077888,
       "S126closed": 8388608,
-      "S127": 3145728,
-      "finalAPK": 1835008,
-      "handoff": 1048576
+      "S127": 3670016,
+      "finalAPK": 1572864,
+      "handoff": 786432
     },
     "DAYrebalance": "Freshprospective20.5MiBDAY actualfloorcheck; onlyunusedclosedS125reservation0.25MiBreallocated (closedrecordnotrewritten), alloldbytesretained. No automaticclosedcapreuse orcleanup.",
     "DAYTMPcap": 6442450944,
     "workspace_TMPfloor": 629145600,
-    "finalAPKreserve": 1835008,
-    "handoffreserve": 1048576,
+    "finalAPKreserve": 1572864,
+    "handoffreserve": 786432,
     "allcriticalGitprimary": true,
-    "no_cleanup_oroldmutablecache_reuse": true
+    "no_cleanup_oroldmutablecache_reuse": true,
+    "closeout_rebalance": {
+      "beforefree": 633634816,
+      "compressed8canonical_blob_estimate": 921600,
+      "index_bytes": 116342,
+      "finalAPK_complete1_5MiB_tail": true,
+      "handoff_complete0_75MiB_tail": true,
+      "DAYsumunchanged": 21495808,
+      "no_owner_approval_wait": true
+    }
   },
   "fresh_acquisition": {
     "not_lost_TMP_original_recovery_or_reconstruction": true,
