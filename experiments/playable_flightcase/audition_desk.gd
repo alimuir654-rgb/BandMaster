@@ -212,6 +212,7 @@ func _build() -> void:
     button.custom_minimum_size.y=48.0
     button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     button.toggle_mode=true
+    button.add_theme_stylebox_override("hover_pressed",button.get_theme_stylebox("pressed"))
     button.focus_entered.connect(_reveal_audio_mode.bind(button))
     _mode_buttons[key]=button
     modes.add_child(button)
