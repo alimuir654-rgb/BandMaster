@@ -35,8 +35,8 @@
   "game_baseline_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "owner_request": "Direct5Nov Continue nextdevelopment through17London plus continuingNov4delegation ofroutinecreative/listening/integration; no genericapprovalwait or queue/controller restart.",
   "issue_log_review": {
-    "bytes": 1603955,
-    "sha256": "0e4f1c2e39f60a7f3182c377852a4ae25d03aa43c8657c46f786aa18233907ff"
+    "bytes": 1605547,
+    "sha256": "6935e43cdea9a119c7595d3ad42f6f6edf3db795333ac67558d042c4cb1b5e74"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/baseline-phone-v1/proof/baseline-actual-Arjun-Zoe-Ellis-confirmed-band-390x844.png",
@@ -100,27 +100,29 @@
   "stop_condition": "No asset/product beforefreshbaseline+independentcontractreview. Twoineffectiveattemptsmethodchange/HOLD. Selflease14:30/full17:00day stop; no automaticextension/newqueue/controller. CoreGame/Audio/source/save/provenance guards retained.",
   "external_artifact_roots": [
     "/workspace/work/s126-formation-identity-20261105",
-    "/tmp/bandmaster-s126-formation-identity-20261105"
+    "/tmp/bandmaster-s126-formation-identity-20261105",
+    "/workspace/generated_images/exec-a4409317-30ec-4580-bd4c-617378d410ec.png"
   ],
   "storage_plan": {
     "workspace_start_free": 644145152,
     "TMPstart_free": 8204750848,
-    "persistent_cap": 7340032,
+    "persistent_cap": 7864320,
     "TMPcap": 2147483648,
     "shippingPNG": 2097152,
-    "primaryGit_inclPNG_and_metadata": 4194304,
-    "compact_contract_receipts": 524288,
-    "failed_closeout_tail": 524288,
+    "primaryGit_inclPNG_and_metadata": 4718592,
+    "compact_contract_receipts": 786432,
+    "failed_closeout_tail": 196608,
     "DAYinitialfree": 651022336,
     "DAYcap": 18874368,
     "S125closedcap": 7340032,
-    "S126cap": 7340032,
-    "finalAPKreserve": 3145728,
+    "S126cap": 7864320,
+    "finalAPKreserve": 2621440,
     "handoffreserve": 1048576,
     "DAYTMPcap": 5368709120,
     "workspace_TMPfloor": 629145600,
     "allcriticalGit_primary": true,
-    "no_cleanup_oroldmutablecache_reuse": true
+    "no_cleanup_oroldmutablecache_reuse": true,
+    "shippingPNG_and_original_sameimmutabledata": 2162688
   },
   "implementation_contract": "/workspace/work/s126-formation-identity-20261105/implementation-contract.json",
   "source_input": {
@@ -133,8 +135,15 @@
     "path": "/workspace/work/s126-formation-identity-20261105/review/predesign-current-baseline.json",
     "SHA256": "00908b18208d70874f7fc065cb0bebd114d913303e591c6a56e3c8b75e746502",
     "asset_verdict": "CLEAR",
-    "source_seams": "CLEAR afterpinnedvariants/lifecycle; newlivepreviewproposalindependentreviewpending",
+    "source_seams": "CLEAR variants/header/lifecycle pinned; actualassetreviewpending",
     "actual_independent_opens": 7
   },
-  "implementation_contract_SHA256": "e8eb3d3ee0d4f77ecbd6492686ed43a32627f1ac45a60e543c3142e5b67ddc95"
+  "implementation_contract_SHA256": "b1c8bb9ae51f73594c23ccff1aa0658614f002cde4f7d9d6ac8d63d2a63e6c69",
+  "immutable_asset_binding": {
+    "original": "/workspace/generated_images/exec-a4409317-30ec-4580-bd4c-617378d410ec.png",
+    "target": "experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png",
+    "operation": "newhardlinkadditiononlyafterassetclearance, no deletion/rename/rawpixelwrite",
+    "preserve": "bytes/mode/uidgid/mtime bothpaths; ctime/nlinkaddition explicitlydisclosed",
+    "permanent": "Bothpathsimmutable; allfuturecreativechangesnewversionfilename, allruntimecopiesregularprivate/nlink1."
+  }
 }
