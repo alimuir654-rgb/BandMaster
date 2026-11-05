@@ -418,12 +418,16 @@ func _read_audio_catalogue(path: String) -> Dictionary:
  var value: Variant=JSON.parse_string(FileAccess.get_file_as_string(path))
  return value if value is Dictionary else {}
 
+static func _audio_strings_match(left: Variant,right: Variant) -> bool:
+ if typeof(left)!=TYPE_STRING or typeof(right)!=TYPE_STRING:return false
+ return left==right
+
 func _backing_entry() -> Dictionary:
  if not _has_backing_choice() or not _audio_context().get("allowed",false):return {}
  var version: Variant=_backing_catalogue.get("schema_version")
  if typeof(version) not in [TYPE_INT,TYPE_FLOAT] or version!=1:return {}
  if typeof(_backing_catalogue.get("content_version"))!=TYPE_STRING or _backing_catalogue.content_version!=_content.VERSION:return {}
- if _backing_catalogue.get("content_source")!="res://experiments/playable_flightcase/audition_content.gd" or _backing_catalogue.get("content_sha256")!=_solo_catalogue.get("content_sha256",""):return {}
+ if not _audio_strings_match(_backing_catalogue.get("content_source"),"res://experiments/playable_flightcase/audition_content.gd") or not _audio_strings_match(_backing_catalogue.get("content_sha256"),_solo_catalogue.get("content_sha256","")):return {}
  var registry_sha: Variant=_backing_catalogue.get("solo_registry_sha256")
  if typeof(registry_sha)!=TYPE_STRING or registry_sha.length()!=64 or FileAccess.get_sha256(Profiles.audio_manifest("cast_jack"))!=registry_sha:return {}
  var material: String=_content.material_id("" if _show_prior else str(_view.get("request","")))
@@ -434,7 +438,7 @@ func _backing_entry() -> Dictionary:
  var solo: Variant=solos.get(material)
  if not entry is Dictionary or not solo is Dictionary or not AudioPart.entry_approved(entry):return {}
  if typeof(entry.get("owner_listening_accepted"))!=TYPE_BOOL or entry.owner_listening_accepted!=false:return {}
- if entry.get("source_solo_OGG_sha256")!=solo.get("sha256","") or entry.get("path")!=BACKING_FILES.get(material,""):return {}
+ if not _audio_strings_match(entry.get("source_solo_OGG_sha256"),solo.get("sha256","")) or not _audio_strings_match(entry.get("path"),BACKING_FILES.get(material,"")):return {}
  var path: String=str(entry.get("path",""))
  var digest: Variant=entry.get("sha256")
  if typeof(digest)!=TYPE_STRING or digest.length()!=64 or not ResourceLoader.exists(path):return {}
