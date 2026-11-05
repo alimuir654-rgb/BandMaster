@@ -1,14 +1,14 @@
 {
-  "writer": "root_S126_formation_identity",
+  "writer": null,
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-04T12:28:15.451794+00:00",
-  "expires_at": "2026-11-05T14:30:00Z",
-  "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
+  "expires_at": null,
+  "scope": "ClosedS126exactcohort/nativebranding/formation/firstweek/copyP2proof; no implementationpending.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S126_active_formation_identity",
-  "released_at": "2026-11-04T22:28:43.430097+00:00",
+  "status": "S126_closed_released",
+  "released_at": "2026-11-05T12:01:32.508435+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
     "expires_at": "2026-10-30T14:25:00Z",
@@ -43,8 +43,8 @@
       "source_sha": "9163db9b6d8dd082d1299847c5c90f62c276b6eb"
     }
   },
-  "last_writer": "root_S124_producer_APK",
-  "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "last_writer": "root_S126_formation_identity",
+  "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "previous_checkpoint_release": {
     "writer": null,
     "last_writer": "S40-codex-overnight-20261030",
@@ -419,180 +419,7 @@
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
   "last_completed_session": "S124",
-  "closeout": {
-    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
-    "evidence": {
-      "source-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
-      "source-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-protection-final.json",
-      "focused-native-validation.json": "/workspace/work/s125-week-and-calendar-20261105/focused-native-validation.json",
-      "accepted-log-audit.json": "/workspace/work/s125-week-and-calendar-20261105/accepted-log-audit.json",
-      "native-PNG-index.json": "/workspace/work/s125-week-and-calendar-20261105/native-PNG-index.json",
-      "source-storage-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-storage-protection-final.json",
-      "closed-cache-pins.json": "/workspace/work/s125-week-and-calendar-20261105/closed-cache-pins.json",
-      "root-final-actual-opens.json": "/workspace/work/s125-week-and-calendar-20261105/root-final-actual-opens.json",
-      "page-status-audit.json": "/workspace/work/s125-week-and-calendar-20261105/page-status-audit.json",
-      "display-closure.json": "/workspace/work/s125-week-and-calendar-20261105/display-closure.json",
-      "independent_review": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-independent-review.json",
-      "independent_binding": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-receipt-binding.json"
-    },
-    "visual_verdict": "partial",
-    "scoped_week_calendar_verdict": "internal_pass",
-    "owner_approved": false,
-    "next_action": "Freshfunded distinctArjun/Zoe/Ellis posterposes + formation/branding, including2observedcopyP2s; one finalverifiedAPK by17:00London5Nov. No oldqueue restart.",
-    "new_issue_review": {
-      "bytes": 1602207,
-      "sha256": "f96101cc9344939b4ea2f8dff9d3d38202b65b58bd5575894a52c75152e7f9e6",
-      "events": 1021,
-      "all_new_opaque_events_reviewed": true,
-      "two_invalid_event_categories_normalized_originalraws_and_fcb_commit_retained": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json",
-      "no_failed_proof_promotion": true
-    },
-    "source": {
-      "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
-      "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
-      "manifest_SHA256": "95863f8621bd19736a4123edc9f902f151caf945a6f3a06e99adbc9c223b0feb",
-      "curated": 457,
-      "Git_rows": 456,
-      "source_bytes": 102136445,
-      "ordered_digest": "b4e8000ba1dceb9510c19116760a9bbcfa5cb93df9a4227001b483152ae8be4a",
-      "protected_prior": 446,
-      "modified_prior": [
-        "experiments/playable_flightcase/calendar_desk.gd",
-        "experiments/playable_flightcase/career_desk.gd",
-        "experiments/playable_flightcase/opening_state.gd",
-        "experiments/playable_flightcase/opening_ui.gd",
-        "experiments/playable_flightcase/session.gd",
-        "experiments/playable_flightcase/situation_core.gd",
-        "experiments/playable_flightcase/situation_desk.gd",
-        "experiments/playable_flightcase/song_workbench_desk.gd",
-        "experiments/playable_flightcase/ui.gd"
-      ],
-      "new_rows": [
-        "experiments/playable_flightcase/band_week.gd",
-        "experiments/playable_flightcase/career_dates.gd"
-      ],
-      "all54originalScripts_including3UID_exact": true,
-      "all31OGG_and7audioJSON_exact": true,
-      "all_prior_art_fonts_hardware_originalresolvers_exact": true,
-      "runtime_extra_rows_not_curated": 415
-    },
-    "actual_Godot": {
-      "total": 50,
-      "execution_level_pass": 39,
-      "strictheld": 11,
-      "diagnostics_in_total": 4,
-      "strict_final_current": 19,
-      "not50PASS": true
-    },
-    "whole_task": {
-      "final4workingweeks_verify_calls": 3997,
-      "originalpaidactions": 28,
-      "owned_save_attempts_including_public_formationfixtures": 120,
-      "four_originalpublicGameformationfixtures_notwholemenus_or_auditions": true,
-      "DAY1to8_no_day_or_stat_injection": true,
-      "endcash235": true,
-      "onefinishedsong_each": true,
-      "actualeligibleLanternDAY12booking_each": true,
-      "mainFSfailure_retry_pairs": 16,
-      "auxiliary_pairs": 2,
-      "early_pairs": 2,
-      "auxiliary_notextra_wholeloops": true
-    },
-    "actual_models": {
-      "final_affected": 474,
-      "fresh_original_gameplay": 73,
-      "fresh_original_opening": 88,
-      "no_old9128_or_unchangedgigs_rerun": true
-    },
-    "nativePNG": {
-      "all_physical": 517,
-      "final_current": 332,
-      "standard_actual_encoding_events": 248,
-      "standard_filename_families": 232,
-      "all_encoding_occurrences_physical_unique": true,
-      "no_full_historicalRGBA_comparison_claim": true
-    },
-    "root_final_actual_opens": 12,
-    "independent_actual_opens": {
-      "all": 66,
-      "current74": 18,
-      "priorfcb_whole": 16,
-      "baseline_early_held": 32,
-      "unique_contents": 47,
-      "not_human_reviewers": true
-    },
-    "five_explicit_SIMULATED_lenses": [
-      {
-        "lens": "SIMULATED game critic",
-        "finding": "A working week now has commitments and consequences; static/sparse scenes and remaining formation revisions still limit impact."
-      },
-      {
-        "lens": "SIMULATED musician",
-        "finding": "Actual agreed work availability and attending musicians affect sessions; newrotas are authoredproposals, notinferredrealemployment. No newaudio or humanlisteningclaim."
-      },
-      {
-        "lens": "SIMULATED general player",
-        "finding": "Date/venue stamps, work names and costs are readable; agreedweek isexplicit andcanbe skipped, unknownlegacy remainshonest."
-      },
-      {
-        "lens": "SIMULATED mobile/accessibility reviewer",
-        "finding": "48pxtargets/nativewheel/key/emulatedtouch/resize proved; ordinarybodyscrollremains anddisabledAgreementcopyneedsnextsourcefix. Physicaldevice/IMEuntested."
-      },
-      {
-        "lens": "SIMULATED save/state reviewer",
-        "finding": "Freeagreement oneownercheckpoint, fulltypedrollback/retry/deepunknown/fractionalreload andzero calendarview sideeffects verified; oldmodels/Finance unchanged."
-      }
-    ],
-    "material_gaps": [
-      "Explicitweekagreement isopt-in; absent/unknownlegacy stilloriginalbehavior. This is not automaticjobrotas for everycareer.",
-      "Workpatterns affect writing/rehearsal; gigattendance remainsoriginal, calendarcan show anoverlap.",
-      "TwoobservedcopyP2s carried to nextsource beforeV13.",
-      "Ordinaryphone/shortwidebodyscroll, staticpeople/sparsewide-tall art remain.",
-      "HistoricalTMPsourceproofs/caches/APKoutputs vanishedbeforeNov5; durableoriginalrecords retained, nothingreconstructed orreopened falsely.",
-      "S112/S114/S123abruptdebug-exitaudio warning remainsHOLD/causeunproved; ordinary600frameentry/lifecycle passes do not resolveit.",
-      "Dummy/nativeemulation notphysicalphone/audio/listening/IME/OSinterrupt/install/retention/humancomprehension evidence."
-    ],
-    "APK": {
-      "current_phone": "V12",
-      "source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-      "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk",
-      "newS125not_in_phone_yet": true,
-      "new_build_upload_or_grants_in_S125": 0
-    },
-    "Pages": {
-      "plan": 63,
-      "board": 176,
-      "choices72_checked23_images50_preserved": true,
-      "all_otherblocksIDs_order_metadata_exact": true,
-      "ownercheckboxwrites": 0,
-      "browser_render_claim": false
-    },
-    "source_corrective_iterations_afterfirstnative": 3,
-    "source_artifact_helpers_GL_released": true,
-    "display": {
-      "pid": 1905,
-      "status": "stopped",
-      "socket_gone": true,
-      "config3pins_unchanged": true,
-      "pins": {
-        "/usr/bin/Xorg": "bca1ceb412614f4e0cb13a68b5d78e86b32ac25f7f2f66b40de73517c8f239eb",
-        "/etc/X11/xorg.conf": "76b290e6680ec6bf706f2940347c56dbe8ac893be448e4af6e120d0d9bd7196a",
-        "/usr/lib/xorg/modules/drivers/dummy_drv.so": "608370525f3c6ecf96c1eab4908a2b22c5a676836c81dfd48a8377e268a384f8"
-      },
-      "GL_flock_free": true,
-      "PID1_defunct_if_retained_not_live_server": true,
-      "completed_at": "2026-11-05T10:24:16.538602+00:00"
-    },
-    "closed_at": "2026-11-05T10:36:57.857003+00:00",
-    "owner_latest_deadline": "2026-11-05T17:00:00Z",
-    "oldfinitequeue_ended_notrestarted": true,
-    "funding_amendment": {
-      "S125cap": 7340032,
-      "nextart_cap": 6291456,
-      "daycap": 18874368,
-      "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
-    }
-  },
+  "closeout": "/workspace/work/s126-formation-identity-20261105/closeout.json",
   "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
   "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
@@ -3073,7 +2900,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S126_formation_identity",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3315,8 +3142,8 @@
   "game_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S126_formation_identity",
-  "artifact_writer": "root_S126_formation_identity",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
@@ -3533,5 +3360,6 @@
     "nextart_cap": 6291456,
     "daycap": 18874368,
     "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
-  }
+  },
+  "GL_owner": null
 }

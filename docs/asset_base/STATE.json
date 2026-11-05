@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S126_active_formation_identity",
+  "status": "S126_closed_released",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -10,7 +10,7 @@
   "owner_approved": false,
   "owner_approval_evidence": null,
   "scope": "Four independent finite arrangement controls change actual preview sound and save the same recipe through original3paid writing sessions; bounded context-sensitive craft adjustment only newly appended song after original and Finance guards. No lyric typing required/no DAW simulator.",
-  "writer": "root_S126_formation_identity",
+  "writer": null,
   "last_verified_code_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "baseline": {
     "run_id": 40778019754,
@@ -708,7 +708,7 @@
     "source_only_notV12": true
   },
   "last_sprint": "S100",
-  "next_action": "Fresh457sourcebaseline/independentcontrols+asset predesign beforegeneratedcohort/nativebranding source; scopecloses14:30, finalAPK17:00.",
+  "next_action": "Fresh fullyfunded source-backed audition-quality musical-context pilot from this460row source, if viable within15:00breadthfreeze and17:00APK/handoff; no newqueue/ownerapprovalwait.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -747,7 +747,7 @@
     "owner_approved": false
   },
   "last_verified_native_run_is_historical_remote": false,
-  "last_verified_native_run_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "last_verified_native_run_source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "latest_material_review": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "visual_verdict": "partial",
@@ -1816,7 +1816,7 @@
     "final_milestone_apk_delivered": true,
     "additional_apk_by_default": false
   },
-  "last_verified_local_native_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "last_verified_local_native_source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "latest_local_checkpoint": {
     "session": "S125",
     "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
@@ -1827,10 +1827,10 @@
     "owner_approved": false,
     "source_only_notV12": true
   },
-  "candidate_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "candidate_source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "candidate_native_verified": true,
   "candidate_status": "scoped_complete_overall_partial",
-  "updated_at": "2026-11-05T10:36:57.857003+00:00",
+  "updated_at": "2026-11-05T12:01:32.508435+00:00",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -2028,7 +2028,7 @@
   "all_write_freeze": "2026-11-05T17:00:00Z",
   "hard_stop": "2026-11-05T17:00:00Z",
   "pending_candidate_source_sha": null,
-  "last_completed_session": "S124",
+  "last_completed_session": "S126",
   "historical_native_run_fields_before_s57": {
     "last_verified_native_run": "/workspace/work/s40/runs/s56-calendar-e4eaebc-exact/complete-validation.json",
     "last_verified_native_run_source_sha": "e4eaebc99ae2743486356e5d186c2965b8666b94",
@@ -2330,12 +2330,12 @@
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-04T22:28:43.430097+00:00",
-  "last_writer": "root_S124_producer_APK",
-  "source_write_allowed": true,
+  "last_writer": "root_S126_formation_identity",
+  "source_write_allowed": false,
   "pending_implementation": true,
   "pending_helpers": true,
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "S123_verified_producer_S124_V12_private_delivered",
+  "source_phase": "S126_scoped_verified_V12_phone_unchanged",
   "claimed_at": "2026-11-03T23:20:43.250029+00:00",
   "expires_at": "2026-11-05T14:30:00Z",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
@@ -2435,7 +2435,7 @@
   "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
   "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
-  "delivery_status": "PrivateV9/source625 remains current phone APK; unchanged/excludesS83/S84/S86/audio. Three selected source-study-v1 WAVs privately accessible to owner chair@lovewelluk.com and named reader alimuir654@gmail.com only, owner requests quality revision. No new accepted audio/integration/APK work.",
+  "delivery_status": "PrivateV12/source36 remainscurrentphone; verifiedS125/S126source12f notyetpackaged; onefinalprivateAPKby17:00London5Nov planned. No newupload/grants inS126.",
   "completion_gate": {
     "tested_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
     "technical_pass": false,
@@ -2632,182 +2632,208 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": true,
-  "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "current_phone_page_sequence": 16,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": {
-    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+    "tested_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+    "status": "closed_scoped_internal_pass_overall_partial",
+    "source_manifest": "/workspace/work/s126-formation-identity-20261105/source-final.json",
+    "source_rows": 460,
+    "source_bytes": 104292571,
+    "ordered_digest": "9a11a7925eabec84cce684462e6ac27c5713c112acef4d7594ed00eddff11233",
     "evidence": {
-      "source-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
-      "source-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-protection-final.json",
-      "focused-native-validation.json": "/workspace/work/s125-week-and-calendar-20261105/focused-native-validation.json",
-      "accepted-log-audit.json": "/workspace/work/s125-week-and-calendar-20261105/accepted-log-audit.json",
-      "native-PNG-index.json": "/workspace/work/s125-week-and-calendar-20261105/native-PNG-index.json",
-      "source-storage-protection-final.json": "/workspace/work/s125-week-and-calendar-20261105/source-storage-protection-final.json",
-      "closed-cache-pins.json": "/workspace/work/s125-week-and-calendar-20261105/closed-cache-pins.json",
-      "root-final-actual-opens.json": "/workspace/work/s125-week-and-calendar-20261105/root-final-actual-opens.json",
-      "page-status-audit.json": "/workspace/work/s125-week-and-calendar-20261105/page-status-audit.json",
-      "display-closure.json": "/workspace/work/s125-week-and-calendar-20261105/display-closure.json",
-      "independent_review": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-independent-review.json",
-      "independent_binding": "/workspace/work/s125-week-and-calendar-20261105/review/final-v4-receipt-binding.json"
+      "source-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-final.json",
+        "SHA256": "9b69ca233944afc77b57119fe6445fc1345b8d2f8822ae9439356dadeed90572"
+      },
+      "source-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-protection-final.json",
+        "SHA256": "7f4110cd60f367d7a1ca23b208d5c5cf091e6cca01421164fb9213cb6c24e85c"
+      },
+      "accepted-log-audit.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/accepted-log-audit.json",
+        "SHA256": "8f2d6204eba55dff3d05bcf984088d75f30fe6257293cb58a7843087255cbc68"
+      },
+      "native-PNG-index.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/native-PNG-index.json",
+        "SHA256": "95b1fe061dfa39144cd7f8f4a439802e20b136e8f95b94093db5c61573a5ee16"
+      },
+      "focused-native-validation.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/focused-native-validation.json",
+        "SHA256": "e55431e4c45e462f8354c306f7bafa85eb2549f583ac4e4ee5f2d9f6398eb54c"
+      },
+      "standard-RGBA-comparison.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/standard-RGBA-comparison.json",
+        "SHA256": "e1f29ba8178ad0b2f85af2595fa424aa8e9e6e9feced1315b96ce68bffe0cbd0"
+      },
+      "root-actual-opens.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/root-actual-opens.json",
+        "SHA256": "6e5fb3fc643fff6ff786301e050575eb1f46d928eb1a00584fcbd28ed6cc5170"
+      },
+      "source-storage-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-storage-protection-final.json",
+        "SHA256": "26c764a87aeb495807e8d5b8927c190de88e245e3c2d1f791b2beb0797ccff82"
+      },
+      "closed-cache-pins.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/closed-cache-pins.json",
+        "SHA256": "76bc028ea5091283491c1c1a47237921231d3b83698078034bde0ac1a44fad67"
+      },
+      "prior-cache-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/prior-cache-protection-final.json",
+        "SHA256": "98757e795d157394b82fdb4959548f542f6a0d1c1d1ea31546135b7d3cf3faef"
+      },
+      "immutable-asset-binding-v1.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/immutable-asset-binding-v1.json",
+        "SHA256": "eb1ef5794d082bb9a61096cdee497f5ad75be43694cbc873a89e4b8c527fb703"
+      },
+      "display-closure.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/display-closure.json",
+        "SHA256": "b71a8c565736070201f2a0f88c973547d0ef7e90d96ca9e10f6b7ea793231bd5"
+      },
+      "page-status-audit.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/page-status-audit.json",
+        "SHA256": "83a2d796fb7dfaed704e7fa563837de5543365477b2695f5720fa5e230a665c1"
+      },
+      "review/final-v2-independent-review.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/review/final-v2-independent-review.json",
+        "SHA256": "92367d750837680ff7f0b536226e8816008d34ebc80786d9569af06392f8467e"
+      },
+      "review/export-reference-omission-assessment.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/review/export-reference-omission-assessment.json",
+        "SHA256": "669f2caf7790b9d38a3a133325f73eaf3d888d99373e2a79750a15c4e6feb94b"
+      }
     },
     "visual_verdict": "partial",
-    "scoped_week_calendar_verdict": "internal_pass",
+    "scoped_visual_verdict": "internal_pass",
     "owner_approved": false,
-    "next_action": "Freshfunded distinctArjun/Zoe/Ellis posterposes + formation/branding, including2observedcopyP2s; one finalverifiedAPK by17:00London5Nov. No oldqueue restart.",
-    "new_issue_review": {
-      "bytes": 1602207,
-      "sha256": "f96101cc9344939b4ea2f8dff9d3d38202b65b58bd5575894a52c75152e7f9e6",
-      "events": 1021,
-      "all_new_opaque_events_reviewed": true,
-      "two_invalid_event_categories_normalized_originalraws_and_fcb_commit_retained": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json",
-      "no_failed_proof_promotion": true
+    "technical_pass": true,
+    "integrated": [
+      "One new transparent exact Arjun/Zoe/Ellis still-cohort atlas across five existing press variants; actual roster order and shared seated graphic scale. All other cohorts retain original sources, including specifically approved Arjun/Zoe/Marcus career art.",
+      "Four optional typed native print finishes with legacy absence and unknown nested data preserved; mobile live name preview stays one line while choices scroll; full poster retains complete name.",
+      "Only an actual successful original identity save arms one runtime-only skippable1.05sec fade and existing selected Indie/Punk/Postpunk cue, respecting mute/reducedmotion/interruptions; no reload/arrival replay or future/unchosen audio.",
+      "Existing start-play save then direct proposed-firstweek route, explicit separate free agreement; no day/cash/Finance effects from presentation.",
+      "Two observed copy P2s closed: disabled SAVE CONTEXT FIRST48px and neutral rehearsal/clear-air intent copy; original54Scripts unchanged."
+    ],
+    "source_protection": {
+      "prior450_exact": true,
+      "original54Scripts_including3UID_exact": true,
+      "all31oldOGG_sevenaudioJSON_exact": true,
+      "owners_models_OpeningState_Session_Core_Calendar_Finance_art_fonts_hardware_exact": true
     },
-    "source": {
-      "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
-      "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
-      "manifest_SHA256": "95863f8621bd19736a4123edc9f902f151caf945a6f3a06e99adbc9c223b0feb",
-      "curated": 457,
-      "Git_rows": 456,
-      "source_bytes": 102136445,
-      "ordered_digest": "b4e8000ba1dceb9510c19116760a9bbcfa5cb93df9a4227001b483152ae8be4a",
-      "protected_prior": 446,
-      "modified_prior": [
-        "experiments/playable_flightcase/calendar_desk.gd",
-        "experiments/playable_flightcase/career_desk.gd",
-        "experiments/playable_flightcase/opening_state.gd",
-        "experiments/playable_flightcase/opening_ui.gd",
-        "experiments/playable_flightcase/session.gd",
-        "experiments/playable_flightcase/situation_core.gd",
-        "experiments/playable_flightcase/situation_desk.gd",
-        "experiments/playable_flightcase/song_workbench_desk.gd",
-        "experiments/playable_flightcase/ui.gd"
-      ],
-      "new_rows": [
-        "experiments/playable_flightcase/band_week.gd",
-        "experiments/playable_flightcase/career_dates.gd"
-      ],
-      "all54originalScripts_including3UID_exact": true,
-      "all31OGG_and7audioJSON_exact": true,
-      "all_prior_art_fonts_hardware_originalresolvers_exact": true,
-      "runtime_extra_rows_not_curated": 415
+    "executions": {
+      "actualGodot": 28,
+      "strictaccepted_allversions": 26,
+      "strictaccepted_finalsource": 19,
+      "held": 2,
+      "not28PASS": true,
+      "current73gameplay88opening335models": true,
+      "current_freshEMPTYprivateimport_fourstandards_ordinary600entry": true,
+      "configured_entry_noJSONsaves": true,
+      "whole4_native_assertions": 954,
+      "main_realFSfail_retry_pairs": 8,
+      "actualtypedreloads": 4,
+      "main_owned_save_attempts": 60,
+      "main_explicit_public_fixture_attempts": 40,
+      "main_native_attempts": 20,
+      "early2partial_sourcee447_assertions": 311,
+      "earlyFSretry_pairs": 2,
+      "auxiliary_separate_assertions": 605,
+      "fixture_boundary": "OriginalpublicOwner/Game viableformationfixture, not4wholemenus/auditions/naturallyearnedrecruitment; controlled lifecycle/variant fixtures explicitly labelled."
     },
-    "actual_Godot": {
-      "total": 50,
-      "execution_level_pass": 39,
-      "strictheld": 11,
-      "diagnostics_in_total": 4,
-      "strict_final_current": 19,
-      "not50PASS": true
+    "native_evidence": {
+      "all314physicalPNGs": true,
+      "accepted_allversions": 312,
+      "held": 2,
+      "accepted_finalsource": 295,
+      "standard248actualencodings232families": true,
+      "RGBAevents200exact44scoped4knownReopen0unexpected": true,
+      "canonical_firstoccurrence192exact36scoped4knownReopen": true,
+      "standard_completed_band": "Actual midfade capture; focused four settled-cover originals independently establish full readability.",
+      "root_actualopens25": "10current12f+15earlier/reference/raw, exactnames/hashes in receipt",
+      "independent_actualopens48": "27current12f+21earlier;47uniqueencodedcontents/44nativePNGopens+3contactrefs+1rawatlas"
     },
-    "whole_task": {
-      "final4workingweeks_verify_calls": 3997,
-      "originalpaidactions": 28,
-      "owned_save_attempts_including_public_formationfixtures": 120,
-      "four_originalpublicGameformationfixtures_notwholemenus_or_auditions": true,
-      "DAY1to8_no_day_or_stat_injection": true,
-      "endcash235": true,
-      "onefinishedsong_each": true,
-      "actualeligibleLanternDAY12booking_each": true,
-      "mainFSfailure_retry_pairs": 16,
-      "auxiliary_pairs": 2,
-      "early_pairs": 2,
-      "auxiliary_notextra_wholeloops": true
-    },
-    "actual_models": {
-      "final_affected": 474,
-      "fresh_original_gameplay": 73,
-      "fresh_original_opening": 88,
-      "no_old9128_or_unchangedgigs_rerun": true
-    },
-    "nativePNG": {
-      "all_physical": 517,
-      "final_current": 332,
-      "standard_actual_encoding_events": 248,
-      "standard_filename_families": 232,
-      "all_encoding_occurrences_physical_unique": true,
-      "no_full_historicalRGBA_comparison_claim": true
-    },
-    "root_final_actual_opens": 12,
-    "independent_actual_opens": {
-      "all": 66,
-      "current74": 18,
-      "priorfcb_whole": 16,
-      "baseline_early_held": 32,
-      "unique_contents": 47,
-      "not_human_reviewers": true
-    },
-    "five_explicit_SIMULATED_lenses": [
+    "five_explicitly_SIMULATED_lenses": [
       {
-        "lens": "SIMULATED game critic",
-        "finding": "A working week now has commitments and consequences; static/sparse scenes and remaining formation revisions still limit impact."
+        "persona": "SIMULATED game critic",
+        "finding": "More deliberate formation and direct firstweek purpose; static sparse wide art remains PARTIAL."
       },
       {
-        "lens": "SIMULATED musician",
-        "finding": "Actual agreed work availability and attending musicians affect sessions; newrotas are authoredproposals, notinferredrealemployment. No newaudio or humanlisteningclaim."
+        "persona": "SIMULATED musician",
+        "finding": "Existing selected genre cue reused; no newS126audio or new human musicality/listening acceptance. S123 revisedIndie/Punk andproducer evidence retained; personal auditions remain nextquality target."
       },
       {
-        "lens": "SIMULATED general player",
-        "finding": "Date/venue stamps, work names and costs are readable; agreedweek isexplicit andcanbe skipped, unknownlegacy remainshonest."
+        "persona": "SIMULATED general player",
+        "finding": "Whole name and native finish choice remain visible while scrolling; fixed primary/Menu and explicit proposed week preserve agency."
       },
       {
-        "lens": "SIMULATED mobile/accessibility reviewer",
-        "finding": "48pxtargets/nativewheel/key/emulatedtouch/resize proved; ordinarybodyscrollremains anddisabledAgreementcopyneedsnextsourcefix. Physicaldevice/IMEuntested."
+        "persona": "SIMULATED controls and accessibility",
+        "finding": "Actual pointer/Enter/Space/emulatedtouch, all48px targets, long/glyph/dark/reduced states and lifecycle proven in testedmatrix; physicalIME/OSinterruption/phonecomfort untested."
       },
       {
-        "lens": "SIMULATED save/state reviewer",
-        "finding": "Freeagreement oneownercheckpoint, fulltypedrollback/retry/deepunknown/fractionalreload andzero calendarview sideeffects verified; oldmodels/Finance unchanged."
+        "persona": "SIMULATED save and source reviewer",
+        "finding": "Actualwholetypedrollback/retry/reload and additive token legacy/future refusal; original owners/Finance/art/audio preserved, nopresentation settlement."
       }
     ],
     "material_gaps": [
-      "Explicitweekagreement isopt-in; absent/unknownlegacy stilloriginalbehavior. This is not automaticjobrotas for everycareer.",
-      "Workpatterns affect writing/rehearsal; gigattendance remainsoriginal, calendarcan show anoverlap.",
-      "TwoobservedcopyP2s carried to nextsource beforeV13.",
-      "Ordinaryphone/shortwidebodyscroll, staticpeople/sparsewide-tall art remain.",
-      "HistoricalTMPsourceproofs/caches/APKoutputs vanishedbeforeNov5; durableoriginalrecords retained, nothingreconstructed orreopened falsely.",
-      "S112/S114/S123abruptdebug-exitaudio warning remainsHOLD/causeunproved; ordinary600frameentry/lifecycle passes do not resolveit.",
-      "Dummy/nativeemulation notphysicalphone/audio/listening/IME/OSinterrupt/install/retention/humancomprehension evidence."
+      "Overallart remainsstatic/sparse; newposecohortonlyArjun/Zoe/Ellis, no18cohortreplacement, instruments or fakeplaying. Generatedbody/decorations arefiction, notrestoredphotographicmasters orbiographicalfacts.",
+      "Newart internaldelegationreview accepted, ownerartacceptancefalse. Dummy routing/timing isnotphysicalaudiblequality/device/IME/humancomprehension.",
+      "Opt-in workpatterns constrain writing/rehearsal; unknownlegacy and originalshowattendance unchanged.",
+      "S112/S114abruptdebug-exit audioresource P2 remainsHOLD/causeunproved; ordinary currententry/lifecyclepass doesnotresolveit. No unchangeddiagnostic rerun.",
+      "Bareoriginalschema codec test preserves actualtypedunknown depth15top and exactlyrepresentable0.25; no new arbitrarybinaryfloat preservation guarantee.",
+      "Standaloneformationprobe suppliesknownTRANSISTOR and isnotgenuinepre-name shell; standaloneoldcohortcropclippedmasthead provesidentity/source only, notfullcareerlayoutacceptance.",
+      "HistoricalmissingTMPproofs/caches/APKoutputs remain unavailable/permanentlyclosed; no reconstructionclaim.",
+      "V12/source36 remainscurrentphone; S125/S126notyetpackaged. FinalAPKby17:00 stillplanned, exactsingle-unused-referenceexport omission assessed independently for100MiBdelivery."
     ],
-    "APK": {
-      "current_phone": "V12",
+    "current_phone": {
+      "version": 12,
       "source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
       "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk",
-      "newS125not_in_phone_yet": true,
-      "new_build_upload_or_grants_in_S125": 0
+      "not_updated_by_this_scope": true
     },
-    "Pages": {
-      "plan": 63,
-      "board": 176,
-      "choices72_checked23_images50_preserved": true,
-      "all_otherblocksIDs_order_metadata_exact": true,
-      "ownercheckboxwrites": 0,
-      "browser_render_claim": false
+    "next_action": "Fresh fullyfunded source-backed audition-quality musical-context pilot from this460row source, if viable within15:00breadthfreeze and17:00APK/handoff; no newqueue/ownerapprovalwait.",
+    "new_issue_review": {
+      "opaque_event_ids": [
+        "S126-20261105-fresh-cohort-baseline-and-design-boundaries",
+        "S126-20261105-generated-original-accounting-and-immutable-source-binding",
+        "S126-20261105-readonly-check-path-retrieval",
+        "S126-20261105-postsource-review-prefix-refresh",
+        "S126-20261105-live-mark-long-name-source-risk",
+        "S126-20261105-whole-wide-scroll-positive-fixture",
+        "S126-20261105-aux-await-parser-held",
+        "S126-20261105-cache-index-schema-retrieval",
+        "S126-20261105-finalproof-Git-tail-rebalance",
+        "S126-20261105-finalmetadata-compressed-Git-reserve"
+      ],
+      "retained_failures": "OnewideQA wrongassumedscrollposition held; derivative proves realdownpositive+up with original assertions. Oneauxcoroutineparseheld; derivativeaddsawait. Read-onlyCHECKpath/prefix/cacheindex/reviewerlookup diagnostics retained; no product assertionweakening or failedproofpromotion.",
+      "source_corrections_after_firstnative": 1,
+      "correction": "One explicit single_line argument after independent source longname risk; allfinalproof on12f.",
+      "root_and_reviewer_roles": "RootQAauthor/executor, separate independentreviewer/source+pixels; no human reviewers.",
+      "metadata_funding_hold": "ExactcompressedGitguardstoppedbeforeallocation; final8MiBsource/APK2MiB rebalance within18MiBDAY/no ownerwait/floorviolation. Originalheldestimate retained."
     },
-    "source_corrective_iterations_afterfirstnative": 3,
+    "pages": {
+      "Plan": 64,
+      "Board": 177,
+      "72choices23checked50images_preserved": true,
+      "allunrelatedblocksIDsorderAgentInstructionsarchive_deletedA03v2absence_exact": true,
+      "no_new_upload_grants_or_browserrender_claim": true
+    },
+    "storage": {
+      "scope_cap": 8388608,
+      "TMPcap": 2147483648,
+      "DAYcap": 18874368,
+      "APKreserve": 2097152,
+      "handoffreserve": 1048576,
+      "floor": 629145600,
+      "allcriticalGitprimary": true,
+      "newsourcePNG_original_shipping_paths_both_immutable": true,
+      "all3scopeproducers_closed": true,
+      "fiveS125caches2530files_rechecked_exact": true,
+      "oldmissingTMP_unavailable": true
+    },
+    "closed_at": "2026-11-05T12:01:32.508435+00:00",
     "source_artifact_helpers_GL_released": true,
-    "display": {
-      "pid": 1905,
-      "status": "stopped",
-      "socket_gone": true,
-      "config3pins_unchanged": true,
-      "pins": {
-        "/usr/bin/Xorg": "bca1ceb412614f4e0cb13a68b5d78e86b32ac25f7f2f66b40de73517c8f239eb",
-        "/etc/X11/xorg.conf": "76b290e6680ec6bf706f2940347c56dbe8ac893be448e4af6e120d0d9bd7196a",
-        "/usr/lib/xorg/modules/drivers/dummy_drv.so": "608370525f3c6ecf96c1eab4908a2b22c5a676836c81dfd48a8377e268a384f8"
-      },
-      "GL_flock_free": true,
-      "PID1_defunct_if_retained_not_live_server": true,
-      "completed_at": "2026-11-05T10:24:16.538602+00:00"
-    },
-    "closed_at": "2026-11-05T10:36:57.857003+00:00",
-    "owner_latest_deadline": "2026-11-05T17:00:00Z",
-    "oldfinitequeue_ended_notrestarted": true,
-    "funding_amendment": {
-      "S125cap": 7340032,
-      "nextart_cap": 6291456,
-      "daycap": 18874368,
-      "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
-    }
+    "normalwrapper_ownXorg8529_stopped_socketgone_3pins_exact": true
   },
   "last_artifact_slice": {
     "session": "S98",
@@ -2868,24 +2894,24 @@
   "session_path": "docs/continuous_improvement/sessions/S126.json",
   "last_verified_game_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
   "current_candidate": {
-    "source_sha": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
-    "status": "verified_scoped_source_not_yet_packaged",
+    "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+    "status": "scoped_complete_overall_partial",
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "source_writer_released_at": "2026-11-04T10:20:29.183737+00:00",
+  "source_writer_released_at": "2026-11-05T12:01:32.508435+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "scope_end": "2026-11-04T12:58:38.665394+00:00",
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
   "source_implementation_pending": false,
   "active_development_run": {
-    "session": "S120",
-    "status": "closed_existing_guide_handoff",
+    "session": "S126",
+    "status": "closed",
     "writer": null,
-    "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
-    "released_at": "2026-11-04T15:28:14.933887+00:00",
+    "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+    "released_at": "2026-11-05T12:01:32.508435+00:00",
     "continuous_compute_claim": false,
-    "finite_end": "2026-11-04T18:00:00Z"
+    "finite_end": "2026-11-05T17:00:00Z"
   },
   "current_delivery_policy": {
     "status": "V11_PRIVATE_DELIVERED_DAY_REQUEST_FULFILLED",
@@ -2896,7 +2922,7 @@
     "no_sourcehistory_keys_saves_or_public_sharing": true,
     "hard_stop": "2026-11-04T18:00:00Z"
   },
-  "last_source_writer_release": "2026-11-04T10:20:29.183737+00:00",
+  "last_source_writer_release": "2026-11-05T12:01:32.508435+00:00",
   "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
@@ -3154,7 +3180,7 @@
     "writer": "root_S126_formation_identity",
     "expires_at": "2026-11-05T14:30:00Z"
   },
-  "source_implementation_status": "none_in_S125_closed_scope",
+  "source_implementation_status": "none_in_S126_closed_scope",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -3647,7 +3673,7 @@
     "no_volatile_TMP_Git_objects": "ordinary durable primaryGit only",
     "missing_evidence_still_HOLD": true
   },
-  "source_artifact_GL_released": false,
+  "source_artifact_GL_released": true,
   "s87_closeout": {
     "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "preflight_sha": "e2f3a8f6c1520ad903cbdaab265d1fcbdb8eecc1",
@@ -4312,7 +4338,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "current_verified_game_source": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -5054,7 +5080,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S126_formation_identity",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5282,22 +5308,22 @@
     "source": "0c92100b826322c8c92fba89317b60b77dc28c9b"
   },
   "active_day_authority": {
-    "stop": "2026-11-04T18:00:00Z",
+    "stop": "2026-11-05T17:00:00Z",
     "owner_decisions_delegated": true,
     "prepare_final_APK": true,
-    "final_APK_delivered": true,
+    "final_APK_delivered": false,
     "same_queue": "6ae532c5fe9c819190f587a022c54052",
-    "session": "S120_closed",
-    "freeze_new_breadth": "2026-11-04T16:30:00Z"
+    "session": "S126",
+    "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S126",
-  "game_source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "active_session": null,
+  "game_source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": true,
-  "source_writer": "root_S126_formation_identity",
-  "artifact_writer": "root_S126_formation_identity",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "PRIVATE_V12_DELIVERED_NAMED_READER_VERIFIED",
