@@ -35,8 +35,8 @@
   "game_baseline_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
   "owner_request": "Direct5Nov continuedevelopment through17London, continuingdelegatedcreative/audio decisions; oneJackaudition musicalcontextpilot beforefinalAPK. No genericapprovalwaiting/newqueue/controller.",
   "issue_log_review": {
-    "bytes": 1616804,
-    "sha256": "34bfba102585431872eccdb4a4933258967156d89738f57ac9c66578ff632de7"
+    "bytes": 1621743,
+    "sha256": "e91525aafcff824b148e6256b9d08bf61276fe4ad35ef11d5da63db720f5b0e0"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/standard-phone-final/captures/010-c27-audition_jack_tryout-390x844.png",
@@ -148,8 +148,19 @@
       }
     ],
     "12WAV_max_bytes": 8388608,
-    "raw_room_review_max_bytes": 67108864,
+    "raw_room_review_max_bytes": 100663296,
     "rendered_release_included": true,
     "no_new_bank_dependencies_paid_services_runtimeAI": true
+  },
+  "mix_calibration_amendment": {
+    "same_backing_activeRMS": 0.07,
+    "previous": 0.04,
+    "same_all3guitars_backing_commonmaster": true,
+    "no_new_sampler_run": true,
+    "source_score_unchanged": true,
+    "retention96MiB_allolddata_kept": true,
+    "one_bounded_correction_then_HOLD_ifqualityfails": true,
+    "independent_review": "/workspace/work/s127-jack-backing-context-20261105/review/calibration-v3-direction.json",
+    "SHA256": "65ef89801e4b32dbd69452d47837c3c0a688a4dac4b8394eced143ba9227dc61"
   }
 }
