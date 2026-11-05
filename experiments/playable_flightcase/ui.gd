@@ -935,7 +935,7 @@ func _writing_notes(info: VBoxContainer) -> void:
 func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
-  if game.genre=="Indie rock":
+  if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
    var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
    producer.name="WritingOpenProducer"
    producer.custom_minimum_size.y=48
@@ -1047,6 +1047,19 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
   line.name = "PracticeCurrent_"+str(row[0])
   body.add_child(line)
  body.add_child(_ink("Results depend on the band's actual preparation, traits and relationships.",16,true))
+ if kind=="tighten":
+  var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
+  for saved in game.career.get("song_catalogue",[]):
+   if saved is Dictionary and not song_audio.recipe(saved).is_empty():
+    var pin: String=Workbench._hash(saved)
+    var id: String=str(saved.get("id",""))
+    song_audio.attach(body,saved,func():
+     if practice_activity!="tighten" or session_busy:return false
+     for current in game.career.get("song_catalogue",[]):
+      if current is Dictionary and str(current.get("id",""))==id:return Workbench._hash(current)==pin
+     return false)
+    break
+
 
 func _refresh_practice_commitment() -> void:
  if game.phase!="play":
@@ -1230,7 +1243,7 @@ func _write() -> void:
 
 func _open_producer() -> void:
  if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
- var recipe: Dictionary=preload("res://experiments/playable_flightcase/producer_recipe.gd").recipe()
+ var recipe: Dictionary=preload("res://experiments/playable_flightcase/producer_recipe.gd").recipe(4,preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
  var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
  last_message=str(result.message)
  if result.get("ok",false):recap_expanded=false
@@ -1293,13 +1306,13 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
     body.add_child(_label(title,22))
     body.add_child(_label("Your saved arrangement demo. Writing has developed this original; the recording illustrates its musical direction.",16))
     var audio=preload("res://experiments/playable_flightcase/audition_audio.gd").new()
-    audio.manifest_path="res://experiments/playable_flightcase/audio/producer_examples.json"
+    audio.manifest_path=producer_rules.MANIFEST
     audio.play_caption="LISTEN TO SAVED TAKE"
     audio.configure(func():
      var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
      var current: Dictionary=live.get("fragment",{}).get("fragment",{}).get("producer_recipe",{})
-     return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":"recipe_%02d" % producer_rules.index(current),"content_version":producer_rules.VERSION})
-    audio.set_clip("recipe_%02d" % producer_rules.index(fragment.producer_recipe))
+     return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":producer_rules.audio_id(current),"content_version":producer_rules.VERSION})
+    audio.set_clip(producer_rules.audio_id(fragment.producer_recipe))
     body.add_child(audio)
    else:
     var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
@@ -1324,7 +1337,7 @@ func _outcome_line(result: Dictionary) -> String:
  var title := "cohesion" if key=="cohesion" else "set"
  var value: int = int(metrics.get(key,{}).get("delta",0))
  var tension: int = int(metrics.get("tension",{}).get("delta",0))
- return "%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)]
+ return ("%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)])+("\n"+str(result.co_writing_message) if result.get("co_writing_message") is String else "")
 
 func _rehearse() -> void:
  _commit_session("tighten")

@@ -1,5 +1,7 @@
 extends RefCounted
 ## Optional lyric metadata. Original Workshop/Practice remain the sole musical model.
+const Social = preload("res://experiments/playable_flightcase/producer_social.gd")
+const Sound = preload("res://experiments/playable_flightcase/band_sound.gd")
 const Producer = preload("res://experiments/playable_flightcase/producer_recipe.gd")
 const Content = preload("res://experiments/playable_flightcase/song_fragment_content.gd")
 const Canon = preload("res://experiments/playable_flightcase/audition_encounter.gd")
@@ -180,6 +182,8 @@ static func _trial_number(id: Variant,project_id: String) -> int:
 
 static func _request_ok(request: Dictionary) -> bool:
  if request.is_empty():return true
+ if not request.get("kind") is String:return false
+ if request.get("kind")=="raw_change":return Producer.request_ok(request)
  if request.get("kind")=="refrain":return _keys(request,["kind","line_id"]) and request.line_id in ["hook:1","hook:2"]
  if request.get("kind")!="keep_line" or not _keys(request,["kind","line_id","text"]) or request.line_id not in ["hook:1","hook:2"] or not request.text is String:return false
  var text: String=request.text
@@ -197,6 +201,9 @@ static func _trial_ok(value: Variant,project_id: String) -> bool:
  if value.fragment_snapshot.has("producer_recipe"):
   if not _whole(value.get("producer_fragment_revision"),1) or value.get("producer_fragment_id")!="%s:f:%d" % [project_id,int(value.producer_fragment_revision)]:return false
  var note: Dictionary=value.note
+ if value.fragment_snapshot.has("producer_recipe") and not value.target.respondent_ref.is_empty():
+  if not note.get("request") is Dictionary or not Producer.request_ok(note.request) or not _same(note.request,Producer.offer(note.request.recipe,value.target.respondent_ref)):return false
+ if value.fragment_snapshot.has("producer_recipe") and not note.get("request") is Dictionary:return false
  return note.get("text") is String and str(note.text).length()<=1024 and note.get("delivery")=="written_note" and note.get("source_kind") in ["literal","authored"] and note.get("content_version") is String and not str(note.content_version).is_empty() and note.get("request") is Dictionary and _request_ok(note.request) and _ref_ok(note.get("respondent_ref"),true) and _same(note.respondent_ref,value.target.respondent_ref) and _whole(note.get("day"),1) and int(note.day)==int(value.immutable_context.day) and not _hash(value).is_empty()
 
 static func _paid_ok(value: Variant) -> bool:
@@ -210,6 +217,7 @@ static func _paid_ok(value: Variant) -> bool:
 static func _closed_project_ok(value: Variant,id: String,paid_count: int) -> bool:
  if not value is Dictionary or value.get("id")!=id or not value.get("binding") is Dictionary or not value.get("target") is Dictionary:return false
  if not _whole(value.binding.get("progress"),0,2) or not _whole(value.binding.get("original_song_sequence")) or not value.binding.get("canonical_draft") is Dictionary or value.binding.get("canonical_draft_fingerprint")!=_hash(value.binding.canonical_draft):return false
+ if not _decision_ok(value):return false
  if not _fragment_ok(value.get("fragment"),id) or not value.get("prior_fragment") is Dictionary or not _material_ok(value.get("authored_alternate")) or not _trial_ok(value.get("last_trial"),id):return false
  if not value.prior_fragment.is_empty() and not _fragment_ok(value.prior_fragment,id):return false
  if not _paid_ok(value.get("paid_receipts")) or value.paid_receipts.size()!=paid_count or not value.get("feedback_history") is Array or value.feedback_history.size()>3:return false
@@ -249,6 +257,7 @@ static func validate(opening: Dictionary) -> Dictionary:
  if project.get("fragment") is Dictionary and project.fragment.has("producer_recipe") and not Producer.skills_ok(state):return fail
  if not _whole(project.get("sequence"),1,int(raw.sequence)) or project.get("id")!="workbench:%d" % int(project.sequence) or project.get("content_version")!=Content.VERSION or project.get("policy_version")!=POLICY:return fail
  if project.get("phase") not in ["seed","trial","revision","between_sessions"] or not project.get("binding") is Dictionary or not project.get("target") is Dictionary:return fail
+ if not _decision_ok(project):return fail
  var binding: Dictionary=project.binding
  if not _whole(binding.get("progress"),0,2) or not _whole(binding.get("original_song_sequence")) or not binding.get("canonical_draft") is Dictionary or binding.get("canonical_draft_fingerprint")!=_hash(binding.canonical_draft):return fail
  if not project.target.get("title") is String or not _ref_ok(project.target.get("leader_ref")) or not _ref_ok(project.target.get("respondent_ref"),true):return fail
@@ -325,9 +334,26 @@ static func _priority(opening: Dictionary) -> String:
  if not core.get("ok",false):return "review"
  return "workbench"
 
-static func _ready(opening: Dictionary,project: Dictionary) -> bool:
+static func _decision_ok(project: Dictionary) -> bool:
+ if not project.has("producer_decision"):return true
+ var d: Variant=project.producer_decision
+ if not d is Dictionary:return false
+ if d.is_empty():return true
+ if not d.get("choice") is String or not d.get("offer_id") is String or not (d.get("stage") is int or d.get("stage") is float):return false
+ if not _keys(d,["offer_id","stage","member","base_recipe","chosen_recipe","choice"]) or d.choice not in ["keep","try","dismiss"] or not _ref_ok(d.get("member")) or not Producer.valid(d.get("base_recipe")) or not Producer.valid(d.get("chosen_recipe")):return false
+ var offer: Dictionary=Producer.offer(d.base_recipe,d.member)
+ if offer.is_empty() or d.offer_id!=offer.offer_id or d.stage!=offer.stage:return false
+ var chosen: Dictionary=d.base_recipe.duplicate(true)
+ if d.choice=="try":chosen[offer.field]=offer.value
+ return _same(chosen,d.chosen_recipe)
+
+static func _ready(opening: Dictionary,project: Dictionary,require_reply: bool=true) -> bool:
  var state:=_career(opening)
  var trial: Dictionary=project.last_trial
+ if require_reply and project.fragment.has("producer_recipe") and not project.target.respondent_ref.is_empty():
+  var d: Dictionary=project.get("producer_decision",{})
+  if d.get("stage")!=int(state.song_draft_progress) or not _same(d.get("member"),project.target.respondent_ref) or not _same(d.get("chosen_recipe"),project.fragment.producer_recipe):return false
+ if project.fragment.has("producer_recipe") and (int(project.fragment.producer_recipe.stage)!=int(state.song_draft_progress) or not _same(project.fragment.producer_recipe.brief,Sound.read(state)) or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}}))):return false
  if project.fragment.has("producer_recipe") and (trial.get("producer_fragment_id")!=project.fragment.fragment_id or trial.get("producer_fragment_revision")!=project.fragment.revision):return false
  return _binding_ok(state,project) and _participants_ok(state,project.target) and not trial.is_empty() and int(trial.stage)==int(state.song_draft_progress) and _same(trial.fragment_snapshot,_material(project.fragment)) and _same(trial.target,project.target)
 
@@ -352,7 +378,7 @@ static func begin(opening: Dictionary,title: String,leader_index: int,token: Dic
  if not checked.ok or checked.active or not _token(opening,token) or _priority(opening)!="workbench":return _mutation(opening,false,"Review the saved career and its current commitments before starting a lyric sketch.")
  var state:=_career(opening)
  if int(state.song_draft_progress)!=0 or not state.current_song_draft.is_empty():return _mutation(opening,false,"This earlier song has no lyric fragment recorded. Finish it through its original session route.")
- if not recipe.is_empty() and (not Producer.valid(recipe) or opening.game.get("genre")!="Indie rock" or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible Indie band and recorded participants.")
+ if not recipe.is_empty() and (not Producer.valid(recipe) or recipe.get("stage")!=0 or not _same(recipe.get("brief"),Sound.read(state)) or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}})) or opening.game.get("genre")!="Indie rock" or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible Indie band and recorded participants.")
  var chosen:=_target(state,title,leader_index)
  if not chosen.ok:return _mutation(opening,false,chosen.message)
  var wrapper:=_wrapper(opening)
@@ -400,10 +426,21 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  if producer and action in ["save_sketch","try","use_alternate"]:return _mutation(opening,false,"Use the producer controls for this arrangement; the saved recipe is retained.")
  if action in ["producer_save","producer_try"]:
   if not producer or not _keys(payload,["recipe","title","leader_index"]) or not Producer.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Choose a compatible arrangement, title and leader.")
+  if int(payload.recipe.stage)!=int(state.song_draft_progress) or not _same(payload.recipe.brief,Sound.read(state)):return _mutation(opening,false,"Develop the current writing stage with the confirmed band sound.")
+  if not _same(payload.recipe,project.fragment.producer_recipe):project.producer_decision={}
   material=_merge_material(material,Producer.material(payload.recipe))
   var chosen:=_target(state,payload.title,int(payload.leader_index))
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
+ elif action=="producer_offer":
+  if not producer or not _keys(payload,["choice","offer_id"]) or payload.get("choice") not in ["keep","try","dismiss"] or not _ready(opening,project,false):return _mutation(opening,false,"Try the current saved take before considering this idea.")
+  var base: Dictionary=project.fragment.producer_recipe.duplicate(true)
+  var offer: Dictionary=Producer.offer(base,target.respondent_ref)
+  if offer.is_empty() or payload.get("offer_id")!=offer.offer_id:return _mutation(opening,false,"This bandmate idea changed. Review the current note.")
+  var chosen: Dictionary=base.duplicate(true)
+  if payload.choice=="try":chosen[offer.field]=offer.value
+  project.producer_decision={"offer_id":offer.offer_id,"stage":int(base.stage),"member":target.respondent_ref.duplicate(true),"base_recipe":base,"chosen_recipe":chosen.duplicate(true),"choice":payload.choice}
+  material=_merge_material(material,Producer.material(chosen))
  elif action in ["save_sketch","try"]:
   var parsed:=_payload_material(payload)
   if parsed.is_empty():return _mutation(opening,false,"Use two nonblank lines, up to 96 characters each, and choose the refrain, title and leader.")
@@ -425,7 +462,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  var target_changed: bool=not _same(target,project.target)
  var identical_trial: bool=not project.last_trial.is_empty() and project.last_trial.stage==state.song_draft_progress and _same(project.last_trial.fragment_snapshot,material) and _same(project.last_trial.target,target)
  if producer and project.last_trial.get("producer_fragment_id")!=project.fragment.fragment_id:identical_trial=false
- if not material_changed and not target_changed and (action not in ["try","producer_try"] or identical_trial):return _mutation(opening,true,"The same saved take and note are retained.")
+ if not material_changed and not target_changed and (action not in ["try","producer_try","producer_offer"] or (identical_trial and action!="producer_offer")):return _mutation(opening,true,"The same saved take and note are retained.")
  if int(wrapper.revision)>=LIMIT-1 or int(project.fragment.revision)>=LIMIT-1:return _mutation(opening,false,"The bounded sketch history is full.")
  if material_changed:
   project.prior_fragment=project.fragment.duplicate(true)
@@ -436,10 +473,14 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  project.target=target
  project.phase="revision" if material_changed or target_changed else project.phase
  wrapper.revision=int(wrapper.revision)+1
- if action in ["try","producer_try"]:
+ if action in ["try","producer_try","producer_offer"]:
   var context:=_context(state,target)
   var response: Dictionary=Producer.note(target.respondent_ref,material.producer_recipe,context) if producer else Content.note(target.respondent_ref,material,project.last_trial,context)
   if not response.ok:return _mutation(opening,false,response.message)
+  if producer and action=="producer_offer":
+   response.note.request=Producer.offer(project.producer_decision.base_recipe,target.respondent_ref)
+   response.note.text="You tried their proposed change; the original take is retained for comparison." if payload.choice=="try" else ("You considered the written change and kept your direction." if payload.choice=="keep" else "You chose to leave this idea unanswered for this writing session.")
+
   var trial: Dictionary={"id":"%s:trial:%d" % [project.id,int(wrapper.revision)],"stage":int(state.song_draft_progress),"fragment_snapshot":material.duplicate(true),"target":target.duplicate(true),"immutable_context":context,"note":response.note}
   if producer:
    trial.producer_fragment_id=project.fragment.fragment_id
@@ -506,7 +547,7 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  if not extension.fragment.has("producer_recipe"):return not extension.has("producer_quality_receipt")
  var r=extension.get("producer_quality_receipt")
  if not r is Dictionary or not _keys(r,["model","recipe_sha256","song_id","base_quality","delta","final_quality","context","reason"]):return false
- if r.model!="producer_craft_v1" or r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
+ if r.model!="producer_raw_craft_v2" or r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
  if not _whole(r.base_quality,0,100) or not _whole(r.final_quality,1,100) or not (r.delta is int or r.delta is float) or not is_finite(float(r.delta)) or float(r.delta)!=floor(float(r.delta)) or int(r.delta)<-3 or int(r.delta)>3:return false
  var c=r.context
  if not c is Dictionary or not _keys(c,["active_skill_sum","active_count","capacity","demand"]) or not _whole(c.active_count,1,6) or not _whole(c.active_skill_sum,0,int(c.active_count)*100) or not _whole(c.capacity,1,4) or not _whole(c.demand,1,4):return false
@@ -569,6 +610,12 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
  project.phase="between_sessions"
  wrapper.revision=int(wrapper.revision)+1
  var next:=after_accounting.duplicate(true)
+ var social_message: String=""
+ if project.fragment.has("producer_recipe"):
+  var social: Dictionary=Social.apply(next.game.career,project,int(completion.stage))
+  if not social.ok:return fail
+  next.game.career=social.state
+  social_message=social.message
  if int(completion.stage)==2:
   var index: int=int(completion.appended_index)
   var extension: Dictionary={"version":1,"project_id":project.id,"content_version":project.content_version,"policy_version":POLICY,"fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"contributions":project.feedback_history.duplicate(true),"project_snapshot":project.duplicate(true)}
@@ -586,7 +633,7 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
   wrapper.project={}
  else:wrapper.project=project
  next.game.career[KEY]=Canon._freeze_candidate(wrapper)
- return _mutation(next,true,"The original session and this exact lyric take are saved.",true)
+ return _mutation(next,true,"The original session and this exact take are saved. "+social_message,true)
 
 static func finished(opening: Dictionary) -> Dictionary:
  var items: Array=[]

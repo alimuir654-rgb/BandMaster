@@ -935,7 +935,7 @@ func _identity() -> void:
   return
  var wide: bool=size.x>=1100.0 and size.x>size.y
  if wide:
-  root.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
+  root.add_child(_label("Type and ink shape the poster. Your confirmed attitude also sets the band’s sound brief. Previews are free.",16))
  else:
   var live:=BandMark.new()
   live.name="IdentityLivePreviewMark"
@@ -993,7 +993,7 @@ func _identity() -> void:
   # Actual shell: 72margins +33title +23caption +36gaps +102footer.
   proof_budget=Vector2(440.0,maxf(120.0,size.y-266.0-notice_height))
  identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"],"",proof_budget)
- if not wide:controls.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
+ if not wide:controls.add_child(_label("Type and ink shape the poster. Your confirmed attitude also sets the band’s sound brief. Previews are free.",16))
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2

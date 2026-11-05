@@ -323,6 +323,7 @@ func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionar
  game.career["logo"] = logo
  game.career["palette"] = palette
  game.career["vibe"] = vibe
+ game.career[preload("res://experiments/playable_flightcase/band_sound.gd").KEY] = preload("res://experiments/playable_flightcase/band_sound.gd").make(game.genre,name_intent,vibe)
  identity_style = proposed_style
  if not identity_style.is_empty():
   game.career[IdentityStyle.KEY] = identity_style.duplicate(true)
@@ -721,6 +722,7 @@ func finish_workbench_commit(transaction_id: String) -> Dictionary:
   return _abort_workbench_owned("The session could not be saved. Your whole previous band and direction are retained; try again." if producer else "The session could not be saved. Your whole previous band and words are retained; try again.")
  var original: Dictionary=_workbench_transaction.original_result.duplicate(true)
  original.state=game.career.duplicate(true)
+ original["co_writing_message"]=str(sealed.message)
  if game.career.get("last_rehearsal_outcome") is Dictionary:original.outcome=game.career.last_rehearsal_outcome.duplicate(true)
  var reference: Dictionary=game.career.get(Workbench.KEY,{}).get("last_result",{}).get("finished_ref",{}).duplicate(true) if int(_workbench_transaction.prepared.stage)==2 else {}
  _workbench_transaction={}

@@ -16,6 +16,11 @@ signal closed
 var owner_state
 var reduced_motion := false
 var _recipe: Dictionary={}
+var _compare_recipe: Dictionary={}
+var _producer_offer_buttons: HBoxContainer
+var _producer_written: Label
+var _producer_compare: Button
+var _offer_pending := false
 var _producer_controls: VBoxContainer
 var _producer_audio
 var _producer_intro: Label
@@ -132,7 +137,7 @@ func _build() -> void:
  scroll.name="WorkbenchBodyScroll"
  scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
  scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
- scroll.follow_focus=false
+ scroll.follow_focus=_producer_mode()
  scroll.get_v_scroll_bar().focus_mode=Control.FOCUS_ALL
  add_child(scroll)
  _spread=GridContainer.new()
@@ -294,17 +299,17 @@ func _on_resized() -> void:
  if _spread==null:return
  _spread.columns=2 if wide else 1
  _place.visible=wide or not _producer_mode()
- if is_instance_valid(_producer_intro):_producer_intro.visible=not (wide and get_viewport_rect().size.y<800)
+ if is_instance_valid(_producer_intro):_producer_intro.visible=_producer_mode() or not (wide and get_viewport_rect().size.y<800)
  _place.custom_minimum_size.x=340 if wide else 0
  _room.custom_minimum_size=Vector2(220,124) if wide else Vector2(200,112)
  _text.custom_minimum_size.y=210 if wide else 164
  if _wide!=wide:
   _wide=wide
-  if _note_box.get_parent()!=(_place if wide else _paper_body):
+  if not _producer_mode() and _note_box.get_parent()!=(_place if wide else _paper_body):
    _note_box.get_parent().remove_child(_note_box)
    (_place if wide else _paper_body).add_child(_note_box)
- for label in [_respondent,_note]:label.add_theme_color_override("font_color",Color("eee7d7") if wide else Color("29241f"))
- _quiet_skin(_skip_note,not wide)
+ for label in [_respondent,_note]:label.add_theme_color_override("font_color",Color("eee7d7") if wide and not _producer_mode() else Color("29241f"))
+ _quiet_skin(_skip_note,not wide or _producer_mode())
 
 func _project() -> Dictionary:
  return _view.get("project",{})
@@ -318,17 +323,37 @@ func _stop_demo() -> void:
 func _demo_context() -> Dictionary:
  var live: Dictionary=owner_state.workbench_view()
  var ok: bool=_producer_mode() and Producer.valid(_recipe) and live.get("ok",false) and live.get("active",false) and not live.get("held",true) and Rules._same(owner_state.workbench_expected(),_expected) and not _busy and not is_instance_valid(_exit_dialog)
- return {"allowed":ok,"material_id":"recipe_%02d" % Producer.index(_recipe),"content_version":Producer.VERSION}
+ var playing_recipe: Dictionary=_recipe if _compare_recipe.is_empty() else _compare_recipe
+ var progress: int=int(owner_state.game.career.get("song_draft_progress",0))
+ var pinned_compare: bool=Rules._same(playing_recipe,_project().get("producer_decision",{}).get("base_recipe",{})) or Rules._same(playing_recipe,_project().get("prior_fragment",{}).get("producer_recipe",{})) or Rules._same(playing_recipe,_project().get("fragment",{}).get("producer_recipe",{}))
+ var allowed_stage: bool=(int(playing_recipe.get("stage",3))==progress) if _compare_recipe.is_empty() else (pinned_compare and int(playing_recipe.get("stage",3))<=progress)
+ return {"allowed":ok and Producer.valid(playing_recipe) and allowed_stage and Rules._same(playing_recipe.get("brief"),preload("res://experiments/playable_flightcase/band_sound.gd").read(owner_state.game.career)),"material_id":Producer.audio_id(playing_recipe),"content_version":Producer.VERSION}
 
 func _build_producer() -> void:
  _producer_controls=VBoxContainer.new()
  _producer_controls.name="ProducerControls"
- _producer_controls.add_theme_constant_override("separation",4)
+ _producer_controls.add_theme_constant_override("separation",6)
  _paper_body.add_child(_producer_controls)
- _producer_controls.add_child(_label("SHAPE YOUR FIRST ORIGINAL",21,true))
- _producer_intro=_label("Choose a direction. Listen, then try a take.",16,true)
+ _producer_intro=_label("",18,true)
  _producer_intro.name="ProducerIntro"
  _producer_controls.add_child(_producer_intro)
+ _producer_audio=AudioPart.new()
+ _producer_audio.name="ProducerAudio"
+ _producer_audio.manifest_path=Producer.MANIFEST
+ _producer_audio.play_caption="LISTEN TO THIS TAKE"
+ _producer_audio.available_hint="Arranged demo · your selected direction"
+ _producer_audio.unavailable_hint="Demo unavailable; read the arrangement below and continue."
+ _producer_audio.configure(_demo_context)
+ _producer_controls.add_child(_producer_audio)
+ _producer_compare=_quiet("COMPARE PREVIOUS TAKE","ProducerCompare",_compare_previous,true)
+ _producer_controls.add_child(_producer_compare)
+ _producer_offer_buttons=HBoxContainer.new()
+ _producer_offer_buttons.name="ProducerOfferActions"
+ _producer_offer_buttons.add_theme_constant_override("separation",8)
+ _producer_offer_buttons.add_child(_quiet("TRY THEIR IDEA","ProducerOfferTry",_consider_offer.bind("try"),true))
+ _producer_offer_buttons.add_child(_quiet("KEEP MY DIRECTION","ProducerOfferKeep",_consider_offer.bind("keep"),true))
+ _producer_controls.add_child(_producer_offer_buttons)
+ _producer_controls.add_child(_quiet("LEAVE IDEA UNANSWERED","ProducerOfferDismiss",_consider_offer.bind("dismiss"),true))
  for i in range(4):
   _producer_controls.add_child(_label(Producer.TITLES[i],15,true))
   var row:=HBoxContainer.new()
@@ -342,19 +367,38 @@ func _build_producer() -> void:
  _producer_summary=_label("",16,true)
  _producer_summary.name="ProducerRecipeSummary"
  _producer_controls.add_child(_producer_summary)
- _producer_audio=AudioPart.new()
- _producer_audio.name="ProducerAudio"
- _producer_audio.manifest_path="res://experiments/playable_flightcase/audio/producer_examples.json"
- _producer_audio.play_caption="LISTEN TO THIS TAKE"
- _producer_audio.available_hint="An arranged instrumental demo of these settings."
- _producer_audio.unavailable_hint="Demo unavailable. Your selected direction can still be saved and developed."
- _producer_audio.configure(_demo_context)
- _producer_controls.add_child(_producer_audio)
- _producer_controls.add_child(_label("Guitar · bass · drums\nInstrumental arrangement demo. Your band develops the finished song through writing sessions.",15,true))
+ _producer_written=_label("",16,true)
+ _producer_written.name="ProducerWrittenArrangement"
+ _producer_controls.add_child(_producer_written)
+ _producer_controls.add_child(_label("Instrumental arrangement illustration, not a recording of your musicians. Reading the idea and keeping your take is a valid response; listening never saves or scores it.",15,true))
+
+func _compare_previous() -> void:
+ _stop_demo()
+ if _busy or is_instance_valid(_exit_dialog):return
+ if not _compare_recipe.is_empty():_compare_recipe={}
+ else:
+  var project: Dictionary=_project()
+  var previous: Dictionary=project.get("producer_decision",{}).get("base_recipe",project.get("prior_fragment",{}).get("producer_recipe",{}))
+  if Producer.valid(previous):_compare_recipe=previous.duplicate(true)
+ _refresh_local()
+
+func _consider_offer(choice: String) -> void:
+ _stop_demo()
+ if _busy or is_instance_valid(_exit_dialog) or has_local_edits():return
+ var request: Dictionary=_project().get("last_trial",{}).get("note",{}).get("request",{})
+ if not Producer.request_ok(request):return
+ _busy=true
+ var result: Dictionary=owner_state.workbench_action("producer_offer",_expected.duplicate(true),{"choice":choice,"offer_id":request.offer_id})
+ _busy=false
+ _compare_recipe={}
+ refresh_saved(false)
+ _show_notice("Their change is saved beside your earlier take. Compare both freely." if result.ok and choice=="try" else (("You left this idea unanswered." if choice=="dismiss" else "You considered their idea and kept your direction.") if result.ok else str(result.message)),"saved" if result.ok else "error")
+
 
 func _choose_recipe(field: int,choice: int) -> void:
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only() or not _producer_mode():return
  _stop_demo()
+ _compare_recipe={}
  _recipe[Producer.FIELDS[field]]=Producer.VALUES[field][choice]
  _refresh_local()
 
@@ -393,13 +437,16 @@ func refresh_saved(preserve_local: bool=false) -> void:
  _stop_demo()
  _view=owner_state.workbench_view()
  _expected=owner_state.workbench_expected()
+ if not preserve_local:_compare_recipe={}
  if not is_instance_valid(_text):return
  var history: Button=find_child("WorkbenchHistory",true,false) as Button
  if history!=null:history.visible=not Rules.finished(owner_state.snapshot()).items.is_empty()
  if not preserve_local:
   var payload:=_saved_payload()
   if not payload.is_empty():
-   if _producer_mode():_recipe=payload.recipe.duplicate(true)
+   if _producer_mode():
+    _recipe=payload.recipe.duplicate(true)
+    _recipe.stage=int(owner_state.game.career.get("song_draft_progress",0))
    if not _producer_mode() and _text.text!=payload.text:_text.text=payload.text
    if _title.text!=payload.title:_title.text=payload.title
    if not _producer_mode():_refrain=payload.refrain_line_id
@@ -428,7 +475,7 @@ func refresh_saved(preserve_local: bool=false) -> void:
  _respondent_portrait.set_meta("source",path)
  if _producer_mode() and trial.is_empty():
   _respondent.text="YOUR SAVED ARRANGEMENT · NO NOTE YET"
-  _note.text="Listen to the settings, try a different direction, then TRY THIS TAKE for an arrangement note. Saving and listening do not use a writing day."
+  _note.text="Start with the low riff. TRY THIS TAKE saves your direction and asks a bandmate for an idea. Listening uses no day."
  _note.visible_characters=-1
  _preview.visible=false
  _use_take.visible=false
@@ -453,7 +500,39 @@ func _refresh_local() -> void:
  if prior_tools!=null:prior_tools.get_parent().visible=not producer
  if producer:
   _paper_body.move_child(_producer_controls,1)
+  _producer_intro.visible=true
+  _producer_intro.text=Producer.STAGES[int(_recipe.get("stage",0))]+" · "+preload("res://experiments/playable_flightcase/band_sound.gd").summary(_recipe.get("brief",{}))
+  if _note_box.get_parent()!=_producer_controls:
+   _note_box.get_parent().remove_child(_note_box)
+   _producer_controls.add_child(_note_box)
+  _producer_controls.move_child(_note_box,3)
+  _producer_controls.move_child(_producer_offer_buttons,4)
+  var decision: Dictionary=project.get("producer_decision",{})
+  var considered: bool=decision.get("chosen_recipe")==project.fragment.producer_recipe and decision.get("stage")==int(owner_state.game.career.get("song_draft_progress",0))
+  var current_trial: Dictionary=project.get("last_trial",{})
+  var request: Dictionary=current_trial.get("note",{}).get("request",{})
+  _offer_pending=not current_trial.is_empty() and Producer.request_ok(request) and not considered and int(current_trial.get("stage",-1))==int(owner_state.game.career.get("song_draft_progress",0)) and not has_local_edits()
+  _producer_offer_buttons.hide()
+  var save_action: Button=find_child("WorkbenchSave",true,false) as Button
+  var try_action: Button=find_child("WorkbenchTry",true,false) as Button
+  if save_action!=null:save_action.text="TRY THEIR IDEA" if _offer_pending else "SAVE SKETCH"
+  if try_action!=null:
+   try_action.text="KEEP MY DIRECTION" if _offer_pending else (Producer.STAGES[int(owner_state.game.career.get("song_draft_progress",0))]+" · FREE" if int(_recipe.stage)<int(owner_state.game.career.get("song_draft_progress",0)) else "TRY THIS TAKE")
+  _skip_note.hide()
+  _respondent_portrait.custom_minimum_size=Vector2(48,48)
+  _note.finish_now()
+  var dismiss: Button=find_child("ProducerOfferDismiss",true,false) as Button
+  if dismiss!=null:
+   dismiss.visible=_offer_pending
+   _producer_controls.move_child(dismiss,5)
+  if considered:_note.text="You tried their arrangement. Compare it with your earlier take." if decision.choice=="try" else ("You considered the proposed change and kept your own direction." if decision.choice=="keep" else "You chose to leave this suggestion unanswered for this writing session.")
+  _producer_written.text=Producer.written(_recipe if _compare_recipe.is_empty() else _compare_recipe)
+  var previous: Dictionary=decision.get("base_recipe",project.get("prior_fragment",{}).get("producer_recipe",{}))
+  _producer_compare.visible=Producer.valid(previous) and not Rules._same(previous,_recipe)
+  _producer_compare.text="BACK TO CURRENT TAKE" if not _compare_recipe.is_empty() else "COMPARE PREVIOUS TAKE"
   if _recipe.is_empty():_recipe=_project().fragment.producer_recipe.duplicate(true)
+  _paper_body.move_child(_title,_paper_body.get_child_count()-1)
+  _paper_body.move_child(_leader.get_parent(),_paper_body.get_child_count()-1)
   _words.hide();_text.hide();_edit_words.hide()
   for button in _refrains:button.get_parent().hide()
   var prior: Node=find_child("WorkbenchPrior",true,false)
@@ -463,7 +542,7 @@ func _refresh_local() -> void:
    var field: int=i/2
    var selected: bool=_recipe.get(Producer.FIELDS[field])==Producer.VALUES[field][i%2]
    _recipe_buttons[i].text=("● " if selected else "")+Producer.LABELS[field][i%2]
-  var id: String="recipe_%02d" % Producer.index(_recipe)
+  var id: String=Producer.audio_id(_recipe if _compare_recipe.is_empty() else _compare_recipe)
   if _producer_audio._material!=id:_producer_audio.set_clip(id)
 
  _title.editable=not held and not _busy
@@ -481,7 +560,7 @@ func _refresh_local() -> void:
   if not work.get("ok",false):cost.text=str(work.get("message","Availability needs review."))
   elif not available:cost.text="WORK THIS EVENING: "+str(work.work_names)
   elif work.get("plan_status")=="due":cost.text="REHEARSAL AGREED TODAY · Writing misses it"
-  else:cost.text="Try and edit free · Writing uses 1 day · No room fee"
+  else:cost.text="Free preview / written ideas · Writing uses 1 day · No room fee"
  if not available:_write.text="WRITING · PEOPLE AT WORK" if work.get("ok",false) else "WRITING · REVIEW AVAILABILITY"
  elif work.get("plan_status")=="due":_write.text="WRITE 1 DAY · MISS REHEARSAL"
  var modal: bool=is_instance_valid(_exit_dialog)
@@ -557,8 +636,13 @@ func _change_leader(direction: int) -> void:
  _refresh_local()
 
 func _free(action: String) -> void:
+ if _producer_mode() and _offer_pending:
+  _consider_offer("try" if action=="save_sketch" else "keep")
+  return
  _stop_demo()
- if _producer_mode():action="producer_try" if action=="try" else "producer_save"
+ if _producer_mode():
+  action="producer_try" if action=="try" else "producer_save"
+  _recipe.stage=int(owner_state.game.career.get("song_draft_progress",0))
  if _busy or is_instance_valid(_exit_dialog) or _reveal_only():return
  _busy=true
  _refresh_local()
@@ -566,7 +650,7 @@ func _free(action: String) -> void:
  _busy=false
  refresh_saved(true) # Actual saved text matches the payload; keep native caret/selection.
  _show_notice(str(result.message),"saved" if result.get("ok",false) else "error")
- if result.get("ok",false) and action in ["try","producer_try"] and result.get("changed",false):_note.begin(reduced_motion)
+ if result.get("ok",false) and action in ["try","producer_try"] and result.get("changed",false) and not _producer_mode():_note.begin(reduced_motion)
 
 func _archive() -> void:
  _stop_demo()

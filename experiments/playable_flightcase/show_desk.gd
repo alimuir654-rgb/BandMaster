@@ -176,6 +176,8 @@ static func _setlist(host, body: Node, state: Dictionary) -> void:
   choice.disabled = index<0 and selected.size()>=3
   row.add_child(choice)
   if index>=0:
+   var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
+   song_audio.attach(body,song,func():return is_instance_valid(host) and host.is_visible_in_tree() and host.show_draft.get("song_ids",[]).has(id))
    var up: Button = host._button("UP","ShowUp_"+id.replace(":","_"),host._show_song_move.bind(id,-1))
    up.disabled=index==0
    row.add_child(up)
@@ -333,6 +335,7 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  _copy(details,"GROSS FEE £%d · %d ORIGINALS" % [int(data.get("settled_fee",0)),int(data.get("originals_played",0))])
  for index in range(data.get("plan",{}).get("song_snapshots",[]).size()):
   _copy(details,"%d. %s" % [index+1,str(data["plan"]["song_snapshots"][index].get("title",""))])
+  preload("res://experiments/playable_flightcase/song_audio.gd").attach(details,data.plan.song_snapshots[index],func():return is_instance_valid(host) and host.is_visible_in_tree() and details.is_visible_in_tree())
  var response_index := 0
  for point in data.get("responses",[]):
   _copy(details,str(point.get("title","SAVED RESPONSE")),20)
