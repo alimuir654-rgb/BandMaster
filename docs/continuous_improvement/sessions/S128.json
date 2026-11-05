@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S128",
+  "status": "active",
+  "owner_approved": false,
+  "dominant_issue": "BM-21",
+  "baseline_sha": "749068e59e27efe2de37aa98afca7767dec17e2f",
+  "game_baseline_sha": "c24e4a927eef0feaec934358448daa1554539e57",
+  "owner_request": "Direct5Nov: Continuewithnextdevelopmentsteps.Workthroughto5pm; routinecreative/integrationdelegation andrequestedfinaltestingAPKcarryforward. ExistingUX05fullnotediscovery/order thenONEprivateV13, no genericapprovalwait/newqueue/extension.",
+  "issue_log_review": {
+    "bytes": 1641511,
+    "sha256": "55f63064c43802a2c24736e52bc4c1502986776d678a3a8cd9556b3a2f31c5c0"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s127-jack-backing-context-20261105/runs/standard-phone-final/captures/040-c27-rehearsal_full_reactions-390x844.png",
+    "original_sha256": "2f323924d7d7685edacbc0ff74d1d3fbb67d643a84b76962f1d9d83a0f6b80fd",
+    "pixels_inspected": true,
+    "scope": "Fouractualcurrentc24phone/shortwide3membersummary+expanded originals opened; sameexistingUI/presenter/roster forcomparison. S118sourcecontractretained."
+  },
+  "hypothesis": "ClearFULLNOTES route andcompleteexistingbandmaterepliesbeforemetrics make recordedresponses easierto discoverwithoutreport rebuild/noveldialogue/owner effects.",
+  "controlled_comparison": "Sameactualsavedreport/canonicalpeople/words/materials/font/viewport/fixedContinue; onlydisclosurecopy/reservedwidth/orderofalready-existingfullreplies andledger changes.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S128.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/rehearsal_press.gd",
+    "experiments/playable_flightcase/opening_capture.gd"
+  ],
+  "validation_commands": [
+    "Independentpredesign actualcurrent4baselineoriginals/sourceS118contract beforeedits; earlyactualphone390/shortwide1280 summary+expanded3memberearnedpaidreport andlabelledoriginal197talent6memberfixture BEFOREfullproof; no font/targetshrinking.",
+    "Fourcompleteactualoriginalpaidrehearsal\u2192readfullnotes\u2192continue tasks withrealFSfail/fulltypedownerrollback/retry,1day/15fee/1Finance/1saveoriginal/typedreload/MenuContinue; disclosurepointer/Enter/Space/Tab/ShiftTab/emulatedtouch/scroll/resize/reduced/held-note-finish zeroowner/file/save/day/cash effects; samecontrolidentities/focus/validscroll retained.",
+    "Existingoriginal6membernativegallery/lastquote/ledgerend; literalpositive/mixed/negative/longnames/longreplies/emptyfuturefallbackcontrolledfixtures honestlylabelled; completequote16px+48pxtargets/order beforeallnumericrows, everyoriginalreason/metric/quote/footer retained. Initialcanonicalopening_capture exactcaptionexpectationandaddedordering/physicalfitassertions up-front; no oldnative/semanticassertionremoved.",
+    "Finalsourcecurrent73/88/freshEMPTYprivateimport/fourstandard/ordinary600entry; pure335S126modelreuseonlyexact68inputclosure ifunchanged. CurrentoneJackfullphone+wide3profile/fallbackcompat regression forchangedUI module; historicalS127eightnotrelabellednewsource. All461protectedprior/54Scripts3UID/34OGG8audioJSON/owners/models/schema/Finance/art/fonts/hardware exact.",
+    "ONEfinalARM64V13code13/0.128.0-playtest fromexactlatestscopedverifiedsource aftersourceproof; freshprivatecopy/import/export/align/sign/privacy/update/launcher/CRC/16KiB/templates/sourcecompiled/importedresourceaudit. SameappID/cert/savefolder/zero permissions; no physicalinstall/retention/listening/IMEclaim. No intermediateAPK orunchangedsuitesforactivity.",
+    "Prospectiveexactexport-onlyexclude Art/References/ApprovedCast20261029/approved_cast_reference.png; source464row retained/hashpinned, all18individualpreviews+newposeatlas present, onlyold11+thatoneomission allowed. Bind reviewed669f2caf7790b9d38a3a133325f73eaf3d888d99373e2a79750a15c4e6feb94b. No runtime dependency/enumeration; nofolderexclusion/sourcebytechanges. APKactual\u2264104857600B beforeprivateupload.",
+    "RootaloneexactGodot4.7.2/Dummy/oneGLlock/privateXDG/additionalnetworkpermission/normalXorgconfig; allstrictacceptedERRORempty, allheldrawsretained; logopaqueissuesBEFOREcorrection/twoineffectivemethods change/HOLD. Allfinalauditsafterengines/receipts."
+  ],
+  "queue_task": "UX05",
+  "reviewer": "Reuseexisting /root/s125_review independentpre/early/final+artifactreview, D128/review \u226498304B withincomplete2300000B; no source/Git/Pages/engine writes.",
+  "player_goal": "Understand everyactualbandmatesavedresponse andsessionledger, thenreturntopractice withoutaccidentallyspendinganotherday.",
+  "start_end_commitment": "OriginalpublicOwner/GameviableDAY1/250formationfixture (notwholemenus/auditions), actualnativeRehearseAction paidcommit\u2192recordedreport\u2192FULLNOTES/scroll/ledger\u2192Continue; separatelabelled6member/long/invalidfixtures, no fabricatedprogress.",
+  "state_matrix": [
+    "summary/full/collapsed;samecontrolIDs/focus/scroll;pointer/keyboard/emulatedtouch48px",
+    "realpaidFSfailure/retry/typedreload/MenuContinue/normalreducedmotion/actualresizes",
+    "3earnedmemberreport andoriginal6member197talentNO SAVE gallery;fullquote/order/ledgerend",
+    "positive/mixed/negative/longnames/longfullreplies/empty-incompatiblehonestfallback",
+    "currentaudio4profilecompat; all34OGG8JSON/art/meterssourceexact",
+    "finaloneAPK sameapp/cert/savefolder/source; privateexistingowner+Ali only; no remotecryptobyteequalitywithoutchecksum"
+  ],
+  "root_lease": {
+    "writer": "root_S128_full_notes_final_APK",
+    "expires_at": "2026-11-05T16:45:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": true,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "stop_condition": "FreezeUX05source15:15, unresolvedmeaningfulcandidateHOLDby15:30 andselectexactverifiedc24forfinalAPKwithoutreset. Finalproof+ONEsignedprivateAPK/handoff/releasesbeforeHARDSTOP17London; no newqueues/schedules/controllers/extraendtasks/automaticextension.",
+  "external_artifact_roots": [
+    "/workspace/work/s128-full-notes-and-final-apk-20261105",
+    "/tmp/bandmaster-s128-full-notes-and-final-apk-20261105"
+  ],
+  "source_input": {
+    "manifest": "/workspace/work/s127-jack-backing-context-20261105/source-final.json",
+    "SHA256": "7e324af2c84fd1270ee1d1231e36f6fc625ab6b9e085c3a01275cbcef3797054",
+    "rows": 464,
+    "bytes": 104739852,
+    "onlydeclaredrows_nooldmutablecache": true,
+    "all5S127producersclosed": true
+  },
+  "artifact_phase": "HELD_until_current_source_native_review_PASS_or_explicit_retained_c24_selection",
+  "storage_plan": {
+    "workspace_initial_free_bytes": 632135680,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 2300000,
+    "persistent_cap": 2300000,
+    "TMP_aggregate_cap_bytes": 1610612736,
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "source_and_primaryGit_budget": 1150000,
+    "compact_QA_review_build_audit_receipts_budget": 850000,
+    "index_stage_peak": 150000,
+    "failed_closeout_tail": 150000,
+    "DAYinitialfree": 651022336,
+    "DAYcap": 21850000,
+    "DAYTMPcap": 6442450944,
+    "closed_DAY_actual_before_scope": 18886656,
+    "DAYprospective_reservations": {
+      "S125_closed_actual": 6877184,
+      "S126_closed_actual": 8220672,
+      "S127_closed_actual": 3788800,
+      "S128_fullnotes_and_finalAPK": 2300000,
+      "final_handoff": 655360
+    },
+    "DAYreservation_sum": 21842016,
+    "handoffreserve": 655360,
+    "retained_TMP_measured": 3369799680,
+    "forecast_DAYTMP_max": 4980412416,
+    "no_arbitrarycleanup_gc_reset_TMPcriticalGit_oroldcachewrite": true,
+    "allcriticalGit_primary": true,
+    "combined_scope_shares_single_finalcanonical_commit_no_reducing_checks": true
+  },
+  "APK_update": {
+    "version_code": 13,
+    "version_name": "0.128.0-playtest",
+    "appID": "com.bandmaster.ownerplaytest.s40",
+    "certificate_SHA256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "savefolder": "BandMasterOwnerPlaytestS40",
+    "ARM64_only": true,
+    "permissions": [],
+    "delivery_only": [
+      "chair@lovewelluk.com",
+      "alimuir654@gmail.com"
+    ],
+    "APK_byte_ceiling": 104857600,
+    "template_SHA256": "59e0073f0fa59f552684a861d8f4266b0b34b488a140d6657eac7dd70d1a0a0d",
+    "platform_project_SHA256": "be58d0ddeceea1a06ccebfc0e66e73a07f3780de2849494abf6a350ab600fcd1",
+    "single_unused_reference_export_omission_review": "/workspace/work/s126-formation-identity-20261105/review/export-reference-omission-assessment.json",
+    "single_unused_reference_export_omission_review_SHA256": "669f2caf7790b9d38a3a133325f73eaf3d888d99373e2a79750a15c4e6feb94b",
+    "freshbuild_fromonlyfinalmanifest_nooldproducerresume": true,
+    "no_uninstall_wipe_orphysicalacceptanceclaim": true
+  }
+}
