@@ -1025,9 +1025,8 @@ func _writing_field(fields: GridContainer, title: String) -> VBoxContainer:
  return field
 
 func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
- var rule: Dictionary = Practice.FOCUSES[kind]
  body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
- body.add_child(_ink(str(rule.get("description","")),16,true))
+ body.add_child(_ink("Work through the set together: starts, stops and the places that need another pass." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
  body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
  var situation: Dictionary=Situation.inspect_rehearsal(game.career)
  if situation.ok and not situation.plan.is_empty():

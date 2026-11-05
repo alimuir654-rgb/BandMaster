@@ -5,6 +5,9 @@ const FONTS := ["blockprint","condensed","handpainted","mono"]
 const INKS := ["charcoal","ivory","oxblood","burnt_amber","faded_teal","cobalt","forest","muted_violet"]
 const FONT_LABELS := ["BLOCKPRINT","CONDENSED","HANDPAINTED","MONO"]
 const INK_LABELS := ["CHARCOAL","IVORY","OXBLOOD","BURNT AMBER","FADED TEAL","COBALT","FOREST","MUTED VIOLET"]
+const FINISH_KEY := "print_finish_v1"
+const FINISHES := ["plain","underline","rules","brackets"]
+const FINISH_LABELS := ["PLAIN","UNDERLINED","DOUBLE RULE","BRACKETED"]
 const FONT_FILES := {
  "blockprint":"res://experiments/playable_flightcase/fonts/identity/Anton-Regular.ttf",
  "condensed":"res://experiments/playable_flightcase/fonts/identity/BarlowCondensed-SemiBold.ttf",
@@ -20,7 +23,21 @@ static func defaults() -> Dictionary:
 static func valid(value: Variant) -> bool:
  if not value is Dictionary:
   return false
- return typeof(value.get("version"))==TYPE_INT and value["version"]==1 and value.get("font") is String and FONTS.has(value["font"]) and value.get("ink") is String and INKS.has(value["ink"])
+ if not (typeof(value.get("version"))==TYPE_INT and value["version"]==1 and value.get("font") is String and FONTS.has(value["font"]) and value.get("ink") is String and INKS.has(value["ink"])):return false
+ if not value.has(FINISH_KEY):return true
+ var finish: Variant=value[FINISH_KEY]
+ return finish is Dictionary and typeof(finish.get("version"))==TYPE_INT and finish.version==1 and typeof(finish.get("kind"))==TYPE_STRING and FINISHES.has(finish.kind)
+
+static func finish_kind(value: Dictionary) -> String:
+ return str(value[FINISH_KEY].kind) if valid(value) and value.has(FINISH_KEY) else "plain"
+
+static func with_finish(value: Dictionary, kind: String) -> Dictionary:
+ if not valid(value) or not FINISHES.has(kind):return {}
+ var result: Dictionary=value.duplicate(true)
+ var token: Dictionary=result.get(FINISH_KEY,{}).duplicate(true)
+ token.merge({"version":1,"kind":kind},true)
+ result[FINISH_KEY]=token
+ return result
 
 static func effective(value: Variant, legacy_palette: String = "") -> Dictionary:
  if valid(value):

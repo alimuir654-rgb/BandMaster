@@ -8,9 +8,45 @@ const Style = preload("res://experiments/playable_flightcase/identity_style.gd")
 const Mark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const CAST_PATH := "res://experiments/playable_flightcase/art/identity/CAST.json"
 const APPROVED_REVISIONS := "res://experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
+const POSE_COHORT := "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.json"
+var cohort_registry_path := POSE_COHORT
 var member_ids: Array[String] = []
 var _full_length := false
 var _regions: Dictionary = {}
+
+static func _whole(value: Variant) -> bool:
+ return typeof(value) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value)) and float(value)==floorf(float(value))
+
+static func cohort_entries(registry_path: String, ids: Array[String], variant: String) -> Dictionary:
+ if variant not in ["preview","formation","milestone","complete","career"] or ids.size()!=3:return {}
+ for pid in ["cast_arjun","cast_zoe","cast_ellis"]:
+  if not ids.has(pid):return {}
+ if not FileAccess.file_exists(registry_path):return {}
+ var parsed: Variant=JSON.parse_string(FileAccess.get_file_as_string(registry_path))
+ if not parsed is Dictionary or not _whole(parsed.get("schema_version")) or parsed.schema_version!=1:return {}
+ if typeof(parsed.get("owner_art_acceptance"))!=TYPE_BOOL or parsed.owner_art_acceptance!=false:return {}
+ if typeof(parsed.get("integration_review_accepted"))!=TYPE_BOOL or parsed.integration_review_accepted!=true:return {}
+ if typeof(parsed.get("integration_authority"))!=TYPE_STRING or parsed.integration_authority!="owner_delegation_20261104":return {}
+ if not parsed.get("people") is Dictionary or parsed.people.size()!=3:return {}
+ var result: Dictionary={}
+ for pid in ids:
+  var entry: Variant=parsed.people.get(pid)
+  if not entry is Dictionary:return {}
+  var path: Variant=entry.get("texture")
+  var digest: Variant=entry.get("sha256")
+  if typeof(path)!=TYPE_STRING or not path.begins_with("res://") or typeof(digest)!=TYPE_STRING or digest.length()!=64 or not ResourceLoader.exists(path):return {}
+  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=digest:return {}
+  var texture: Texture2D=load(path) as Texture2D
+  if texture==null or texture.get_size()!=Vector2(1536,1024):return {}
+  var rect: Variant=entry.get("region")
+  if not rect is Array or rect.size()!=4:return {}
+  for value in rect:
+   if not _whole(value):return {}
+  if rect[0]<0 or rect[1]<0 or rect[2]<=8 or rect[3]<=8 or rect[0]+rect[2]>1536 or rect[1]+rect[3]>1024:return {}
+  var ratio: Variant=entry.get("pose_height_ratio")
+  if typeof(ratio) not in [TYPE_INT,TYPE_FLOAT] or not is_finite(float(ratio)) or float(ratio)<=0.0 or float(ratio)>1.0:return {}
+  result[pid]=entry.duplicate(true)
+ return result
 
 static func printed_height(label: Label, width: float) -> float:
  var font: Font=label.get_theme_font("font")
@@ -107,6 +143,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
    var replacements: Dictionary=approved.get("people",{})
    if replacements.has("cast_arjun") and replacements.has("cast_zoe") and replacements.has("cast_marcus"):
     manifest.merge(replacements,true)
+ var poses: Dictionary=cohort_entries(cohort_registry_path,member_ids,variant)
+ if not poses.is_empty():manifest.merge(poses,true)
  _full_length=not entries.is_empty()
  for person in entries:
   var entry: Dictionary=manifest.get(str(person["id"]),{})
@@ -168,13 +206,16 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   # lower. Fit the complete group from ONE visible head-to-sole height instead.
   var ratios: Array[float]=[]
   var heights: Array[float]=[]
+  var pose_ratios: Array[float]=[]
   var max_full_ratio: float=1.0
   for view in views:
    var source: Vector2=view.texture.get_size()
    var visible_height: float=maxf(1.0,source.y-8.0)
-   ratios.append(source.x/visible_height)
+   var pose_ratio: float=float(_regions.get(str(view.get_meta("cast_id")),{}).get("pose_height_ratio",1.0))
+   pose_ratios.append(pose_ratio)
+   ratios.append(source.x/visible_height*pose_ratio)
    heights.append(source.y)
-   max_full_ratio=maxf(max_full_ratio,source.y/visible_height)
+   max_full_ratio=maxf(max_full_ratio,source.y/visible_height*pose_ratio)
   var overlap: float=0.16 if count<=3 else (0.20 if count==4 else (0.24 if count==5 else 0.28))
   var extent: float=0.0
   for i in range(count):
@@ -182,15 +223,15 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
    if i>0:extent-=overlap*minf(ratios[i-1],ratios[i])
   var figure_height: float=maxf(0.0,minf(stage.size.y/max_full_ratio,stage.size.x/maxf(0.01,extent)))
   var max_bleed: float=0.0
-  for source_height in heights:max_bleed=maxf(max_bleed,4.0*figure_height/maxf(1.0,source_height-8.0))
+  for i in range(count):max_bleed=maxf(max_bleed,4.0*figure_height*pose_ratios[i]/maxf(1.0,heights[i]-8.0))
   var ground: float=stage.size.y-max_bleed
   var cursor: float=(stage.size.x-figure_height*extent)*0.5
   for i in range(count):
-   var scale: float=figure_height/maxf(1.0,heights[i]-8.0)
+   var scale: float=figure_height*pose_ratios[i]/maxf(1.0,heights[i]-8.0)
    var width: float=ratios[i]*figure_height
    views[i].position=Vector2(cursor,ground-(heights[i]-4.0)*scale)
    views[i].size=Vector2(width,heights[i]*scale)
-   views[i].set_meta("visible_figure_height",figure_height)
+   views[i].set_meta("visible_figure_height",figure_height*pose_ratios[i])
    views[i].set_meta("ground_line",ground)
    if i<count-1:cursor+=width-overlap*minf(width,ratios[i+1]*figure_height)
  stage.resized.connect(layout)

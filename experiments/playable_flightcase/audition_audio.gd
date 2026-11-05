@@ -6,6 +6,7 @@ var play_caption := "PLAY PART"
 var available_hint := "Hear the revealed written part."
 var unavailable_hint := "Audio is unavailable for this part; the written sketch remains available."
 var playing := false
+var controls_visible := true
 var play_button: Button
 var stop_button: Button
 var _player: AudioStreamPlayer
@@ -27,6 +28,10 @@ func _ready() -> void:
  for button in [play_button,stop_button]:
   button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   button.mouse_filter=Control.MOUSE_FILTER_PASS
+  button.visible=controls_visible
+  if not controls_visible:
+   button.focus_mode=Control.FOCUS_NONE
+   button.mouse_filter=Control.MOUSE_FILTER_IGNORE
   add_child(button)
  _player=AudioStreamPlayer.new()
  _player.bus="Master"
@@ -101,6 +106,10 @@ func stop() -> void:
  if is_instance_valid(_player):_player.stop()
  playing=false
  if is_instance_valid(stop_button):stop_button.disabled=true
+
+func release_stream() -> void:
+ stop()
+ if is_instance_valid(_player):_player.stream=null
 
 func _process(delta: float) -> void:
  if playing and _muted():stop()

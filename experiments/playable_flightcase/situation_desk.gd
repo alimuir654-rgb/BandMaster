@@ -103,7 +103,9 @@ static func dock(host, parent: Node) -> void:
   var expected: Dictionary=host.opening_owner.snapshot().duplicate(true)
   var agree: Button=host._button("AGREE OUR WEEK · FREE","WeekAgreementAction",host._agree_band_week.bind(expected),true)
   for row in Core.members(host.game.career):
-   if row.id==host.situation_member_id and str(row.kind)!=host.situation_kind:agree.disabled=true
+   if row.id==host.situation_member_id and str(row.kind)!=host.situation_kind:
+    agree.disabled=true
+    agree.text="SAVE CONTEXT FIRST"
   parent.add_child(agree)
  elif offer.ok:
   var agreed: Button=host._button("WEEK AGREED","WeekAgreementAction",func():pass,true)

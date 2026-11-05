@@ -19,6 +19,8 @@ const Shared = preload("res://experiments/playable_flightcase/career_components.
 const SettingsSheet = preload("res://experiments/playable_flightcase/settings_sheet.gd")
 const SplashAudio = preload("res://experiments/playable_flightcase/splash_audio.gd")
 const AudioPreferences = preload("res://experiments/playable_flightcase/audio_preferences.gd")
+const FormationMoment = preload("res://experiments/playable_flightcase/formation_moment.gd")
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const NotesStyle = preload("res://experiments/playable_flightcase/notes_style.gd")
 const CareerDesk = preload("res://experiments/playable_flightcase/career_desk.gd")
 const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
@@ -39,6 +41,8 @@ var chosen_intent: String = "Raw"
 var response: String = ""
 var identity_draft: Dictionary = {}
 var _identity_committing := false
+var _formation_armed := false
+var _formation_moment
 var _new_band_dialog: Control
 var _settings_sheet: Control
 var _practice_view: Control
@@ -94,6 +98,8 @@ func _draw() -> void:
   draw_texture_rect(SAFE_BACKDROP,Rect2(-position,get_viewport_rect().size),false,Color(0.52,0.57,0.61))
 
 func _erase() -> void:
+ if is_instance_valid(_formation_moment):_formation_moment.cancel()
+ _formation_moment=null
  for old in get_children():
   # A resize rebuilds the menu behind the pending decision. Keeping the
   # original dialog in-tree preserves its focus and once-only callback.
@@ -761,7 +767,8 @@ func _cover_milestone(kind: String) -> void:
   signoff.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
   signoff.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
  elif complete:
-  signoff.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+  var week: Dictionary=BandWeek.offer(setup.game.career)
+  signoff.add_child(_button("PLAN OUR FIRST WEEK ›" if week.ok and week.changed else "FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
   signoff.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
  else:
   signoff.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
@@ -786,6 +793,12 @@ func _cover_milestone(kind: String) -> void:
   poster.configure(setup.game.roster,setup.lead_vocal_id,size.x,composition,surface_budget)
  else:
   poster.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,setup.logo,setup.palette,setup.vibe,size.x,"complete" if complete else "milestone",IdentityStyle.effective(setup.identity_style),composition,surface_budget)
+ if complete and _formation_armed:
+  _formation_armed=false
+  var expected: Dictionary=setup.snapshot().duplicate(true)
+  _formation_moment=FormationMoment.new()
+  add_child(_formation_moment)
+  _formation_moment.begin(poster,setup.game.genre,reduced_motion,func():return not showing_menu and setup.screen=="complete" and BandWeek.exact(expected,setup.snapshot()))
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()
@@ -915,8 +928,19 @@ func _identity() -> void:
  if identity_draft.is_empty(): _load_identity_draft()
  var root: VBoxContainer=_make_shell()
  root.add_child(_label("03 / NAME & LOOK",24))
- root.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
+ if setup.identity_style.has(IdentityStyle.FINISH_KEY) and not IdentityStyle.valid(setup.identity_style):
+  root.add_child(_label("SAVED PRINT TREATMENT HELD",22))
+  root.add_child(_label("This saved print treatment needs a compatible version. Its original data is retained.",16))
+  root.add_child(_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
+  return
  var wide: bool=size.x>=1100.0 and size.x>size.y
+ if wide:
+  root.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
+ else:
+  var live:=BandMark.new()
+  live.name="IdentityLivePreviewMark"
+  live.configure(setup.name_locked,str(identity_draft.logo),identity_draft.style,26,true,true)
+  root.add_child(live)
  var workspace: HBoxContainer
  if wide:
   workspace=HBoxContainer.new()
@@ -969,6 +993,7 @@ func _identity() -> void:
   # Actual shell: 72margins +33title +23caption +36gaps +102footer.
   proof_budget=Vector2(440.0,maxf(120.0,size.y-266.0-notice_height))
  identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"],"",proof_budget)
+ if not wide:controls.add_child(_label("Make it yours. Type, ink and attitude are cosmetic; previews are free.",16))
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2
@@ -1019,6 +1044,20 @@ func _identity() -> void:
   var b: Button=_identity_button(("✓ " if identity_draft["logo"]==treatment else "")+treatment.to_upper(),_design.bind("logo",treatment),"tab","IdentityLogo_"+treatment)
   b.add_theme_font_size_override("font_size",14)
   treatments.add_child(b)
+ controls.add_child(_label("PRINT FINISH",16))
+ var finishes:=GridContainer.new()
+ finishes.columns=2
+ finishes.add_theme_constant_override("h_separation",8)
+ finishes.add_theme_constant_override("v_separation",8)
+ controls.add_child(finishes)
+ for i in range(IdentityStyle.FINISHES.size()):
+  var kind: String=IdentityStyle.FINISHES[i]
+  var chosen: bool=IdentityStyle.finish_kind(style)==kind
+  var choice: Button=_identity_button(("✓ " if chosen else "")+IdentityStyle.FINISH_LABELS[i],_identity_choose.bind("finish",kind),"tab","IdentityFinish_"+kind)
+  choice.toggle_mode=true
+  choice.set_pressed_no_signal(chosen)
+  choice.add_theme_font_size_override("font_size",14)
+  finishes.add_child(choice)
  controls.add_child(_label("ATTITUDE",16))
  var vibes:=GridContainer.new()
  vibes.columns=2
@@ -1042,9 +1081,11 @@ func _identity_choose(family: String,value: String) -> void:
  if setup.screen!="identity" or identity_draft.is_empty(): return
  if family=="font" and not IdentityStyle.FONTS.has(value): return
  if family=="ink" and not IdentityStyle.INKS.has(value): return
- if family not in ["font","ink"]: return
- identity_draft["style"][family]=value
- _refresh_identity_preview("Identity"+("Type_" if family=="font" else "Ink_")+value)
+ if family=="finish" and not IdentityStyle.FINISHES.has(value):return
+ if family not in ["font","ink","finish"]: return
+ if family=="finish":identity_draft["style"]=IdentityStyle.with_finish(identity_draft["style"],value)
+ else:identity_draft["style"][family]=value
+ _refresh_identity_preview("Identity"+({"font":"Type_","ink":"Ink_","finish":"Finish_"}[family])+value)
 
 func _refresh_identity_preview(focus_name: String) -> void:
  var old_scroll: ScrollContainer=find_child("IdentityChoicesScroll",true,false) as ScrollContainer
@@ -1064,9 +1105,11 @@ func _design(family: String,value: String) -> void:
 
 func _finish() -> void:
  if _identity_committing: return
+ if setup.identity_style.has(IdentityStyle.FINISH_KEY) and not IdentityStyle.valid(setup.identity_style):return
  _identity_committing=true
  if identity_draft.is_empty(): _load_identity_draft()
  var result: Dictionary=setup.finish_identity(identity_draft["style"],identity_draft)
+ _formation_armed=bool(result.get("ok",false))
  _identity_committing=false
  response=str(result.get("message",""))
  _render()
@@ -1075,8 +1118,11 @@ func _summary() -> void:
  _cover_milestone("complete")
 
 func _start_playing() -> void:
+ if is_instance_valid(_formation_moment):_formation_moment.cancel()
+ var week: Dictionary=BandWeek.offer(setup.game.career)
  if setup.start_playing():
   _render()
+  if week.ok and week.changed:_open_band_planning()
 func _practice() -> void:
  var panel = Recruit.new()
  panel.game = setup.game

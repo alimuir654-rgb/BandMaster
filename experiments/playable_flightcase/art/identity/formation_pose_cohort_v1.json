@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "owner_art_acceptance": false,
+  "integration_review_accepted": true,
+  "integration_authority": "owner_delegation_20261104",
+  "provenance": "One newly image-generated fictional still cohort from original contact references; no photographic/master/performing claim. No pixel edits.",
+  "review_SHA256": "514deffe433a01766338e152e52cf59e4189a4a66c6e1b9f1e016ece135190d6",
+  "people": {
+    "cast_arjun": {
+      "texture": "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png",
+      "sha256": "9308b23b2fede9676145caab9cede0ae5256bb0343992a7a632e2a9d7a27993f",
+      "region": [
+        87,
+        23,
+        417,
+        983
+      ],
+      "pose_height_ratio": 0.9858442871587462
+    },
+    "cast_zoe": {
+      "texture": "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png",
+      "sha256": "9308b23b2fede9676145caab9cede0ae5256bb0343992a7a632e2a9d7a27993f",
+      "region": [
+        548,
+        198,
+        430,
+        819
+      ],
+      "pose_height_ratio": 0.8200202224469161
+    },
+    "cast_ellis": {
+      "texture": "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png",
+      "sha256": "9308b23b2fede9676145caab9cede0ae5256bb0343992a7a632e2a9d7a27993f",
+      "region": [
+        1136,
+        11,
+        326,
+        997
+      ],
+      "pose_height_ratio": 1.0
+    }
+  }
+}
