@@ -1519,3 +1519,6 @@ S125 freshday5Nov preflight2026-11-05T08:56:40.634366+00:00: directownercontinue
 
 
 S125 2026-11-05T10:36:57.857003+00:00 — 74f2b91aba50a8a4ffeb82b376059f6d5b440092 agreedweek/datedcalendar scopedinternal_pass, overallPARTIAL/ownerfalse. /workspace/work/s125-week-and-calendar-20261105/closeout.json; final19strictGodot/fourworkingweeks3997calls/model474/73/88/EMPTYimport/fourstandard248actualevents232families. Main+aux18FSretry pairs plus2early; all446protectedprior/54Scripts/31OGG/sevenJSON exact. Historical50starts39executionpass11heldincl4diagnostics, not50PASS. Reviewer66actualopens18current, root12final; fiveSIMULATEDlenses, nohumandeviceacceptance. CopyP2snextsource, V12/source36phoneunchanged, finalAPKby17. Allroot/helper/GLreleased, fiveprivatecachesclosedimmutable.
+
+
+S126 preflight 2026-11-05T10:52:37.712594+00:00: fresh owner-authorised distinctArjun/Zoe/Ellis stillcohort, nativeprintfinishes, explicitconfirm-onlyformationmoment/selectedexistinggenrecue, firstweekroute and2observedcopyP2s. Source74/457only, protectedoriginal54Scripts/31OGGs/sevenJSON/owners/models/Finance/sourceart unchanged. Persistent7MiB/TMP2GiB; DAY18MiB rebalanced S1257+S1267+APK3+handoff1, fixed600MiBfloors. Oneassetjob, rootaloneGL; baseline+independentpredesign beforeproduct. Selflease14:30, hard17:00day; no oldqueue/controller restart.

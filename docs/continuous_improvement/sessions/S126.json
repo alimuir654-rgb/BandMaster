@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "id": "S126",
+  "status": "active",
+  "owner_approved": false,
+  "dominant_issue": "BM-38",
+  "baseline_sha": "b4b63a3db051cdc4ea087765c97b4305b01e9e5d",
+  "game_baseline_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+  "owner_request": "Direct5Nov Continue nextdevelopment through17London plus continuingNov4delegation ofroutinecreative/listening/integration; no genericapprovalwait or queue/controller restart.",
+  "issue_log_review": {
+    "bytes": 1602207,
+    "sha256": "f96101cc9344939b4ea2f8dff9d3d38202b65b58bd5575894a52c75152e7f9e6"
+  },
+  "target": {
+    "locator": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/standard-phone-final-v2/captures/027-c27-completed_band-390x844.png",
+    "original_sha256": "58924329221986fd26bab3be1a39b3e6c392c7eae2bc2510d1cf5f39b0ea477f",
+    "pixels_inspected": true,
+    "scope": "Actuallyopenedcurrent74 classicJack/Zoe/Casey nativecompletedcover reference; sourceC25Arjun/Zoe/Ellis3contactrefs alsoactuallyopened. Freshactualownercohort baseline required beforeproduct/art."
+  },
+  "hypothesis": "An earned distinct editorial first press for actual Arjun/Zoe/Ellis, richer native mark treatments and restrained post-confirm reveal leading into planning the firstweek; never fakeplaying/performerart.",
+  "controlled_comparison": "SameactualselectedArjun/Zoe/Ellis/TRANSISTOR, viewport390x844/720x1280/1280x720/1600x900, sameoriginaltalent/model/identitycommit; newcohortposes/nativeprintfinish/postconfirmone-shotpresentation only.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S126.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/band_mark.gd",
+    "experiments/playable_flightcase/identity_style.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/audition_audio.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/situation_desk.gd",
+    "experiments/playable_flightcase/formation_moment.gd",
+    "experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.json",
+    "experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png"
+  ],
+  "validation_commands": [
+    "Fresh457-onlybaselinephone/shortwideactualArjunZoeEllis completeposter/identitybeforeasset/product; independentpredesign. Earlynativephone390/shortwide1280 beforefullproof. Fourcompleteidentity/confirm/reveal/firstweek tasks withrealFSfailedidentitysave/retry/typedreload/duplicates/dirtypreview/Menu/input/resize/mute/Off/future/missingasset/legacy/hide/free/context. Affectedpurestyle/finishmodels pluscurrent73/88/EMPTYimport/fourstandards/defaultordinaryentry onfinalsource; currentAudioPart default4profilecompatibility. Sourceart/approval/nativequalityseparatefromhuman/deviceacceptance.",
+    "Allsource/artassets aftercommittedpreflight/gate andindependentpredesign; newpathsrescopebeforeedit. RootaloneenginesGodot4.7.2/Dummy/oneGLflock/freshprivateXDG/additionalnetworkpermission; normalexistingXorgconfigonly.",
+    "Logactualschemaissues beforecorrection; twoineffectiveattemptschangemethod/HOLD. Keepfailedraws, no test/gateweakening or hiddenfailurepromotion.",
+    "Fundfullpersistent/TMP/source/cache/PNG/failedproof/Git/closeout+finalAPKreserve beforeallocation, no oldclosedcapreuse/arbitrarycleanup/GitGC/prune/reset/TMPcriticalGit."
+  ],
+  "queue_task": "ExistingS80ownerprioritiesformation-branding+2observedcopyP2s",
+  "reviewer": "Reuseexisting /root/s125_review forindependentS126 pre/early/asset/final role underCHECK;256KiB withinS126cap, noengines/sharedsource/Git/Pages writes.",
+  "player_goal": "Confirm a band that looks and feels like your selected people, try a distinctname treatment, thenplan itsfirstweek.",
+  "start_end_commitment": "Originalpublic viableformationfixture ->actualname/looklocalpreview ->oneoriginalidentitysave/failure-retry ->cohortfirstpress/reveal ->firstweekroute ->typedreload/zero presentationeffects.",
+  "state_matrix": [
+    "actualcohort/newposes/allotherlineupsfallback",
+    "plainlegacy/4finishes/4fonts/8inks/3logos/longnames/glyphs",
+    "selectedfocuseddisabled/mutedOff/future/noexample/missingasset",
+    "normal/reducedmotion/skip/Menu/reload/resize/hide/free/context",
+    "wholeownerFSfail/retry/busyduplicate/unknownschema1"
+  ],
+  "root_lease": {
+    "writer": "root_S126_formation_identity",
+    "expires_at": "2026-11-05T14:30:00Z"
+  },
+  "source_write_allowed": true,
+  "art_write_allowed": true,
+  "audio_write_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "engine_execution_allowed": true,
+  "pending_implementation": true,
+  "pending_helpers": true,
+  "native_evidence_pending": true,
+  "review_pending": true,
+  "stop_condition": "No asset/product beforefreshbaseline+independentcontractreview. Twoineffectiveattemptsmethodchange/HOLD. Selflease14:30/full17:00day stop; no automaticextension/newqueue/controller. CoreGame/Audio/source/save/provenance guards retained.",
+  "external_artifact_roots": [
+    "/workspace/work/s126-formation-identity-20261105",
+    "/tmp/bandmaster-s126-formation-identity-20261105"
+  ],
+  "storage_plan": {
+    "workspace_start_free": 644145152,
+    "TMPstart_free": 8204750848,
+    "persistent_cap": 7340032,
+    "TMPcap": 2147483648,
+    "shippingPNG": 2097152,
+    "primaryGit_inclPNG_and_metadata": 4194304,
+    "compact_contract_receipts": 524288,
+    "failed_closeout_tail": 524288,
+    "DAYinitialfree": 651022336,
+    "DAYcap": 18874368,
+    "S125closedcap": 7340032,
+    "S126cap": 7340032,
+    "finalAPKreserve": 3145728,
+    "handoffreserve": 1048576,
+    "DAYTMPcap": 5368709120,
+    "workspace_TMPfloor": 629145600,
+    "allcriticalGit_primary": true,
+    "no_cleanup_oroldmutablecache_reuse": true
+  },
+  "implementation_contract": "/workspace/work/s126-formation-identity-20261105/implementation-contract.json",
+  "source_input": {
+    "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
+    "SHA256": "95863f8621bd19736a4123edc9f902f151caf945a6f3a06e99adbc9c223b0feb",
+    "rows": 457,
+    "nextbase_closed_immutable_copyonlydeclaredrows": true
+  }
+}
