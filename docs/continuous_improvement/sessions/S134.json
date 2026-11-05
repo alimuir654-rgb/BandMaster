@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1728221,
-    "sha256": "9d280a6937db05e75c5e507a7eb0925039fa121ea909aaff81fda7831bbe77db"
+    "bytes": 1729456,
+    "sha256": "a439861ed902710a5778249f827238a0fe35714b832ddc4f440289fe44a3ef07"
   },
   "lesson_ids": [
     "BM-01",
@@ -70,7 +70,8 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/REVIEW_INDEX.md",
-    "experiments/playable_flightcase/song_workbench_desk.gd"
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/career_dates.gd"
   ],
   "external_artifact_roots": [
     "/workspace/work/s134-starting-commitments-20261105",
@@ -144,7 +145,7 @@
   },
   "contract": {
     "path": "/workspace/work/s134-starting-commitments-20261105/CONTRACT.md",
-    "SHA256": "761e18cacffe3d9fc937fb7a90f580ecb4333f4f05e5d525bb6dbf63b91210e9",
+    "SHA256": "d757f2b83eb802d1e49f5588093df0128fd76f1c5310fbe3fd4e199fbfc87733",
     "literalproposal": "/workspace/work/s134-starting-commitments-20261105/starting-commitments-proposal.json",
     "literalproposal_SHA256": "8716f40d47aa3132ecb8227a1a4822af9c441bc2681b520bcb21a4e8b0c574ed"
   },
