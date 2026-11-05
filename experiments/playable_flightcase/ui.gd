@@ -1144,13 +1144,16 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
  var actions := HBoxContainer.new()
  actions.add_theme_constant_override("separation",8)
  dock.add_child(actions)
- var details: Button = _button("HIDE DETAILS" if recap_details_expanded else "DETAILS",_toggle_recap_details,"tab")
+ var details: Button = _button("HIDE NOTES" if recap_details_expanded else "FULL NOTES",_toggle_recap_details,"tab")
  details.name = "RecapDetailsToggleAction"
- details.tooltip_text = "Show the complete session breakdown and every bandmate's full reaction."
+ details.tooltip_text = "Read every bandmate’s complete note and the saved session breakdown."
  details.icon = RehearsalPress.JournalIcon
  # Reserve the longer expanded label so toggling disclosure cannot move the
  # focused target or its neighbouring Continue action under a pointer.
- details.custom_minimum_size.x = ceilf(details.get_theme_font("font").get_string_size("HIDE DETAILS",HORIZONTAL_ALIGNMENT_LEFT,-1,details.get_theme_font_size("font_size")).x + details.get_theme_stylebox("normal").get_minimum_size().x + details.icon.get_width() + details.get_theme_constant("h_separation"))
+ var disclosure_font: Font=details.get_theme_font("font")
+ var disclosure_points: int=details.get_theme_font_size("font_size")
+ var disclosure_width: float=maxf(disclosure_font.get_string_size("FULL NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,disclosure_points).x,disclosure_font.get_string_size("HIDE NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,disclosure_points).x)
+ details.custom_minimum_size.x = ceilf(disclosure_width + details.get_theme_stylebox("normal").get_minimum_size().x + details.icon.get_width() + details.get_theme_constant("h_separation"))
  actions.add_child(details)
  var footer: Button = _button("CONTINUE TO DAY %d  ›" % int(game.career.get("tour_day",1)),_toggle_recap)
  footer.name = "RecapToggleAction"
@@ -1165,7 +1168,7 @@ func _toggle_recap_details() -> void:
  # Rebuilding here destroys all three and can make keyboard users lose place.
  recap_details_expanded = not recap_details_expanded
  detail.visible = recap_details_expanded
- action.text = "HIDE DETAILS" if recap_details_expanded else "DETAILS"
+ action.text = "HIDE NOTES" if recap_details_expanded else "FULL NOTES"
 
 func _toggle_recap() -> void:
  if session_busy:

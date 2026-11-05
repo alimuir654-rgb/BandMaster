@@ -261,7 +261,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   content.add_child(room)
   content.move_child(room,people_at+1 if short_landscape else people_at+2)
  if not external_details:
-  var breakdown := Kit.button("HIDE FULL BREAKDOWN" if expanded_details else "FULL BREAKDOWN  ›","flightcase","tab")
+  var breakdown := Kit.button("HIDE NOTES" if expanded_details else "FULL NOTES  ›","flightcase","tab")
   breakdown.name = "RecapDetailsToggleAction"
   breakdown.icon = JournalIcon
   breakdown.pressed.connect(func(): details_toggled.emit())
@@ -278,12 +278,6 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  var full_reason := ink(str(view.get("reason","")),16)
  full_reason.name="RecapFullReason"
  detail.add_child(full_reason)
- for item in view.get("metric_rows",[]):
-  if item is Dictionary:
-   var number := ink(str(item.get("text","")),12 if mobile else 13)
-   number.name = "RecapMetric_"+str(item.get("key",""))
-   detail.add_child(number)
- detail.add_child(ink(str(view.get("footnote","")),10,true))
  for voice in voices:
   if voice is Dictionary:
    # Compact hero captions are excerpts. The native optional ledger keeps the
@@ -294,4 +288,10 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
    full_quote.add_to_group("bandmaster_notes")
    detail.add_child(full_quote)
    detail.add_child(ink(str(voice.get("name","Musician"))+": "+str(voice.get("effects","")),11,true))
+ for item in view.get("metric_rows",[]):
+  if item is Dictionary:
+   var number := ink(str(item.get("text","")),12 if mobile else 13)
+   number.name = "RecapMetric_"+str(item.get("key",""))
+   detail.add_child(number)
+ detail.add_child(ink(str(view.get("footnote","")),10,true))
  detail.add_child(ink("NEXT MOVE  /  "+str(view.get("next_step","")),11 if mobile else 13))

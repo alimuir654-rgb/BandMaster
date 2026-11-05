@@ -1239,7 +1239,7 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
   failures.append("S40 Enter lost full-breakdown keyboard focus")
  if absi(live_scroll.scroll_vertical-offset)>1:
   failures.append("S40 Enter reset report scroll position")
- if not live_detail.visible or live_action.text!="HIDE DETAILS":
+ if not live_detail.visible or live_action.text!="HIDE NOTES":
   failures.append("S40 genuine Enter did not reveal full ledger/update toggle")
  var view: Dictionary = Recap.present(screen.setup.game.career.get("last_rehearsal_outcome",{}),screen.setup.game.career.get("members",[]))
  var last_quote: Label = null
@@ -1255,6 +1255,25 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
    failures.append("S40 full reaction text too small for "+pid)
   else:
    last_quote = full_quote
+ # S128: replies retain presenter order and precede every numeric ledger row.
+ var first_numeric: int=1000000
+ for item in view.get("metric_rows",[]):
+  var number: Control=live_detail.find_child("RecapMetric_"+str(item.get("key","")),true,false) as Control
+  if number==null or number.get_parent()!=live_detail:
+   failures.append("S128 saved numeric ledger row missing or reparented")
+  else:first_numeric=mini(first_numeric,number.get_index())
+ var full_reason: Control=live_detail.find_child("RecapFullReason",true,false) as Control
+ var previous_full: int=full_reason.get_index() if full_reason!=null else -1
+ for voice in view.get("reactions",[]):
+  var quote: Control=live_detail.find_child("RecapFullQuote_"+str(voice.get("candidate_id","")),true,false) as Control
+  if quote==null or quote.get_parent()!=live_detail or quote.get_index()<=previous_full or quote.get_index()>=first_numeric:
+   failures.append("S128 complete bandmate replies must retain order before numeric ledger")
+  if quote!=null:previous_full=quote.get_index()
+ var full_width: float=live_action.get_theme_font("font").get_string_size("FULL NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,live_action.get_theme_font_size("font_size")).x
+ var hide_width: float=live_action.get_theme_font("font").get_string_size("HIDE NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,live_action.get_theme_font_size("font_size")).x
+ var inner_width: float=live_action.size.x-live_action.get_theme_stylebox("normal").get_minimum_size().x-live_action.icon.get_width()-live_action.get_theme_constant("h_separation")
+ if live_action.size.y<48 or maxf(full_width,hide_width)>inner_width+1.0:
+  failures.append("S128 full-notes labels/48px target do not fit native dock")
  # Actual expanded native pixels show the complete reaction that the compact
  # hero deliberately excerpts. Restore the prior reading position afterward.
  if last_quote!=null:
@@ -1280,7 +1299,7 @@ func _check_recap_keyboard(screen,w: int,h: int) -> void:
    failures.append("S40 Space lost full-breakdown keyboard focus")
   if absi(closed_scroll.scroll_vertical-collapse_offset)>1:
    failures.append("S40 Space reset report scroll position")
-  if closed_detail.visible or closed_action.text!="DETAILS":
+  if closed_detail.visible or closed_action.text!="FULL NOTES":
    failures.append("S40 genuine Space did not collapse full ledger/update toggle")
  if screen.setup.snapshot()!=before or _recap_save_bytes()!=saved_files:
   failures.append("S40 keyboard disclosure changed settled gameplay or save bytes")
