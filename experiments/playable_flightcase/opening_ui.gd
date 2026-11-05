@@ -939,7 +939,7 @@ func _identity() -> void:
  else:
   var live:=BandMark.new()
   live.name="IdentityLivePreviewMark"
-  live.configure(setup.name_locked,str(identity_draft.logo),identity_draft.style,26,true,true)
+  live.configure(setup.name_locked,str(identity_draft.logo),identity_draft.style,26,true,true,true)
   root.add_child(live)
  var workspace: HBoxContainer
  if wide:
