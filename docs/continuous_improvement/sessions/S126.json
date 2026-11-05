@@ -35,8 +35,8 @@
   "game_baseline_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "owner_request": "Direct5Nov Continue nextdevelopment through17London plus continuingNov4delegation ofroutinecreative/listening/integration; no genericapprovalwait or queue/controller restart.",
   "issue_log_review": {
-    "bytes": 1605547,
-    "sha256": "6935e43cdea9a119c7595d3ad42f6f6edf3db795333ac67558d042c4cb1b5e74"
+    "bytes": 1613185,
+    "sha256": "9823fed7214004401e4cdc28bc2f9ae703c9d4cdef028cf1e2bef05a0c6d7053"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/baseline-phone-v1/proof/baseline-actual-Arjun-Zoe-Ellis-confirmed-band-390x844.png",
@@ -106,7 +106,7 @@
   "storage_plan": {
     "workspace_start_free": 644145152,
     "TMPstart_free": 8204750848,
-    "persistent_cap": 7864320,
+    "persistent_cap": 8126464,
     "TMPcap": 2147483648,
     "shippingPNG": 2097152,
     "primaryGit_inclPNG_and_metadata": 4718592,
@@ -115,14 +115,15 @@
     "DAYinitialfree": 651022336,
     "DAYcap": 18874368,
     "S125closedcap": 7340032,
-    "S126cap": 7864320,
-    "finalAPKreserve": 2621440,
+    "S126cap": 8126464,
+    "finalAPKreserve": 2359296,
     "handoffreserve": 1048576,
     "DAYTMPcap": 5368709120,
     "workspace_TMPfloor": 629145600,
     "allcriticalGit_primary": true,
     "no_cleanup_oroldmutablecache_reuse": true,
-    "shippingPNG_and_original_sameimmutabledata": 2162688
+    "shippingPNG_and_original_sameimmutabledata": 2162688,
+    "final_tail_rebalance": "Prospective sourceclosed proof finalGit funding S1257+S1267.75+APK2.25+handoff1=18MiB; no source/path change"
   },
   "implementation_contract": "/workspace/work/s126-formation-identity-20261105/implementation-contract.json",
   "source_input": {
