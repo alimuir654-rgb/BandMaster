@@ -28,15 +28,15 @@
     "BM-45"
   ],
   "id": "S126",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "dominant_issue": "BM-38",
   "baseline_sha": "b4b63a3db051cdc4ea087765c97b4305b01e9e5d",
   "game_baseline_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
   "owner_request": "Direct5Nov Continue nextdevelopment through17London plus continuingNov4delegation ofroutinecreative/listening/integration; no genericapprovalwait or queue/controller restart.",
   "issue_log_review": {
-    "bytes": 1613185,
-    "sha256": "9823fed7214004401e4cdc28bc2f9ae703c9d4cdef028cf1e2bef05a0c6d7053"
+    "bytes": 1614320,
+    "sha256": "e387cf695e2f45aee8d512c62c84adf665e4f9faf1090c6daa20fc3d1b7a7e16"
   },
   "target": {
     "locator": "/tmp/bandmaster-s126-formation-identity-20261105/runs/baseline-phone-v1/proof/baseline-actual-Arjun-Zoe-Ellis-confirmed-band-390x844.png",
@@ -84,19 +84,20 @@
     "wholeownerFSfail/retry/busyduplicate/unknownschema1"
   ],
   "root_lease": {
-    "writer": "root_S126_formation_identity",
-    "expires_at": "2026-11-05T14:30:00Z"
+    "writer": null,
+    "expires_at": "2026-11-05T14:30:00Z",
+    "released_at": "2026-11-05T12:01:32.508435+00:00"
   },
-  "source_write_allowed": true,
-  "art_write_allowed": true,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
   "audio_write_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
-  "engine_execution_allowed": true,
-  "pending_implementation": true,
-  "pending_helpers": true,
-  "native_evidence_pending": true,
-  "review_pending": true,
+  "page_write_allowed": false,
+  "engine_execution_allowed": false,
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "native_evidence_pending": false,
+  "review_pending": false,
   "stop_condition": "No asset/product beforefreshbaseline+independentcontractreview. Twoineffectiveattemptsmethodchange/HOLD. Selflease14:30/full17:00day stop; no automaticextension/newqueue/controller. CoreGame/Audio/source/save/provenance guards retained.",
   "external_artifact_roots": [
     "/workspace/work/s126-formation-identity-20261105",
@@ -106,7 +107,7 @@
   "storage_plan": {
     "workspace_start_free": 644145152,
     "TMPstart_free": 8204750848,
-    "persistent_cap": 8126464,
+    "persistent_cap": 8388608,
     "TMPcap": 2147483648,
     "shippingPNG": 2097152,
     "primaryGit_inclPNG_and_metadata": 4718592,
@@ -115,15 +116,15 @@
     "DAYinitialfree": 651022336,
     "DAYcap": 18874368,
     "S125closedcap": 7340032,
-    "S126cap": 8126464,
-    "finalAPKreserve": 2359296,
+    "S126cap": 8388608,
+    "finalAPKreserve": 2097152,
     "handoffreserve": 1048576,
     "DAYTMPcap": 5368709120,
     "workspace_TMPfloor": 629145600,
     "allcriticalGit_primary": true,
     "no_cleanup_oroldmutablecache_reuse": true,
     "shippingPNG_and_original_sameimmutabledata": 2162688,
-    "final_tail_rebalance": "Prospective sourceclosed proof finalGit funding S1257+S1267.75+APK2.25+handoff1=18MiB; no source/path change"
+    "final_tail_rebalance": "S1257+S1268+APK2+handoff1=18MiB; exactfinalmetadata1176617B fundedbeforeGit."
   },
   "implementation_contract": "/workspace/work/s126-formation-identity-20261105/implementation-contract.json",
   "source_input": {
@@ -146,5 +147,207 @@
     "operation": "newhardlinkadditiononlyafterassetclearance, no deletion/rename/rawpixelwrite",
     "preserve": "bytes/mode/uidgid/mtime bothpaths; ctime/nlinkaddition explicitlydisclosed",
     "permanent": "Bothpathsimmutable; allfuturecreativechangesnewversionfilename, allruntimecopiesregularprivate/nlink1."
-  }
+  },
+  "closeout": {
+    "tested_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+    "status": "closed_scoped_internal_pass_overall_partial",
+    "source_manifest": "/workspace/work/s126-formation-identity-20261105/source-final.json",
+    "source_rows": 460,
+    "source_bytes": 104292571,
+    "ordered_digest": "9a11a7925eabec84cce684462e6ac27c5713c112acef4d7594ed00eddff11233",
+    "evidence": {
+      "source-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-final.json",
+        "SHA256": "9b69ca233944afc77b57119fe6445fc1345b8d2f8822ae9439356dadeed90572"
+      },
+      "source-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-protection-final.json",
+        "SHA256": "7f4110cd60f367d7a1ca23b208d5c5cf091e6cca01421164fb9213cb6c24e85c"
+      },
+      "accepted-log-audit.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/accepted-log-audit.json",
+        "SHA256": "8f2d6204eba55dff3d05bcf984088d75f30fe6257293cb58a7843087255cbc68"
+      },
+      "native-PNG-index.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/native-PNG-index.json",
+        "SHA256": "95b1fe061dfa39144cd7f8f4a439802e20b136e8f95b94093db5c61573a5ee16"
+      },
+      "focused-native-validation.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/focused-native-validation.json",
+        "SHA256": "e55431e4c45e462f8354c306f7bafa85eb2549f583ac4e4ee5f2d9f6398eb54c"
+      },
+      "standard-RGBA-comparison.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/standard-RGBA-comparison.json",
+        "SHA256": "e1f29ba8178ad0b2f85af2595fa424aa8e9e6e9feced1315b96ce68bffe0cbd0"
+      },
+      "root-actual-opens.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/root-actual-opens.json",
+        "SHA256": "6e5fb3fc643fff6ff786301e050575eb1f46d928eb1a00584fcbd28ed6cc5170"
+      },
+      "source-storage-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/source-storage-protection-final.json",
+        "SHA256": "26c764a87aeb495807e8d5b8927c190de88e245e3c2d1f791b2beb0797ccff82"
+      },
+      "closed-cache-pins.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/closed-cache-pins.json",
+        "SHA256": "76bc028ea5091283491c1c1a47237921231d3b83698078034bde0ac1a44fad67"
+      },
+      "prior-cache-protection-final.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/prior-cache-protection-final.json",
+        "SHA256": "98757e795d157394b82fdb4959548f542f6a0d1c1d1ea31546135b7d3cf3faef"
+      },
+      "immutable-asset-binding-v1.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/immutable-asset-binding-v1.json",
+        "SHA256": "eb1ef5794d082bb9a61096cdee497f5ad75be43694cbc873a89e4b8c527fb703"
+      },
+      "display-closure.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/display-closure.json",
+        "SHA256": "b71a8c565736070201f2a0f88c973547d0ef7e90d96ca9e10f6b7ea793231bd5"
+      },
+      "page-status-audit.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/page-status-audit.json",
+        "SHA256": "83a2d796fb7dfaed704e7fa563837de5543365477b2695f5720fa5e230a665c1"
+      },
+      "review/final-v2-independent-review.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/review/final-v2-independent-review.json",
+        "SHA256": "92367d750837680ff7f0b536226e8816008d34ebc80786d9569af06392f8467e"
+      },
+      "review/export-reference-omission-assessment.json": {
+        "path": "/workspace/work/s126-formation-identity-20261105/review/export-reference-omission-assessment.json",
+        "SHA256": "669f2caf7790b9d38a3a133325f73eaf3d888d99373e2a79750a15c4e6feb94b"
+      }
+    },
+    "visual_verdict": "partial",
+    "scoped_visual_verdict": "internal_pass",
+    "owner_approved": false,
+    "technical_pass": true,
+    "integrated": [
+      "One new transparent exact Arjun/Zoe/Ellis still-cohort atlas across five existing press variants; actual roster order and shared seated graphic scale. All other cohorts retain original sources, including specifically approved Arjun/Zoe/Marcus career art.",
+      "Four optional typed native print finishes with legacy absence and unknown nested data preserved; mobile live name preview stays one line while choices scroll; full poster retains complete name.",
+      "Only an actual successful original identity save arms one runtime-only skippable1.05sec fade and existing selected Indie/Punk/Postpunk cue, respecting mute/reducedmotion/interruptions; no reload/arrival replay or future/unchosen audio.",
+      "Existing start-play save then direct proposed-firstweek route, explicit separate free agreement; no day/cash/Finance effects from presentation.",
+      "Two observed copy P2s closed: disabled SAVE CONTEXT FIRST48px and neutral rehearsal/clear-air intent copy; original54Scripts unchanged."
+    ],
+    "source_protection": {
+      "prior450_exact": true,
+      "original54Scripts_including3UID_exact": true,
+      "all31oldOGG_sevenaudioJSON_exact": true,
+      "owners_models_OpeningState_Session_Core_Calendar_Finance_art_fonts_hardware_exact": true
+    },
+    "executions": {
+      "actualGodot": 28,
+      "strictaccepted_allversions": 26,
+      "strictaccepted_finalsource": 19,
+      "held": 2,
+      "not28PASS": true,
+      "current73gameplay88opening335models": true,
+      "current_freshEMPTYprivateimport_fourstandards_ordinary600entry": true,
+      "configured_entry_noJSONsaves": true,
+      "whole4_native_assertions": 954,
+      "main_realFSfail_retry_pairs": 8,
+      "actualtypedreloads": 4,
+      "main_owned_save_attempts": 60,
+      "main_explicit_public_fixture_attempts": 40,
+      "main_native_attempts": 20,
+      "early2partial_sourcee447_assertions": 311,
+      "earlyFSretry_pairs": 2,
+      "auxiliary_separate_assertions": 605,
+      "fixture_boundary": "OriginalpublicOwner/Game viableformationfixture, not4wholemenus/auditions/naturallyearnedrecruitment; controlled lifecycle/variant fixtures explicitly labelled."
+    },
+    "native_evidence": {
+      "all314physicalPNGs": true,
+      "accepted_allversions": 312,
+      "held": 2,
+      "accepted_finalsource": 295,
+      "standard248actualencodings232families": true,
+      "RGBAevents200exact44scoped4knownReopen0unexpected": true,
+      "canonical_firstoccurrence192exact36scoped4knownReopen": true,
+      "standard_completed_band": "Actual midfade capture; focused four settled-cover originals independently establish full readability.",
+      "root_actualopens25": "10current12f+15earlier/reference/raw, exactnames/hashes in receipt",
+      "independent_actualopens48": "27current12f+21earlier;47uniqueencodedcontents/44nativePNGopens+3contactrefs+1rawatlas"
+    },
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "persona": "SIMULATED game critic",
+        "finding": "More deliberate formation and direct firstweek purpose; static sparse wide art remains PARTIAL."
+      },
+      {
+        "persona": "SIMULATED musician",
+        "finding": "Existing selected genre cue reused; no newS126audio or new human musicality/listening acceptance. S123 revisedIndie/Punk andproducer evidence retained; personal auditions remain nextquality target."
+      },
+      {
+        "persona": "SIMULATED general player",
+        "finding": "Whole name and native finish choice remain visible while scrolling; fixed primary/Menu and explicit proposed week preserve agency."
+      },
+      {
+        "persona": "SIMULATED controls and accessibility",
+        "finding": "Actual pointer/Enter/Space/emulatedtouch, all48px targets, long/glyph/dark/reduced states and lifecycle proven in testedmatrix; physicalIME/OSinterruption/phonecomfort untested."
+      },
+      {
+        "persona": "SIMULATED save and source reviewer",
+        "finding": "Actualwholetypedrollback/retry/reload and additive token legacy/future refusal; original owners/Finance/art/audio preserved, nopresentation settlement."
+      }
+    ],
+    "material_gaps": [
+      "Overallart remainsstatic/sparse; newposecohortonlyArjun/Zoe/Ellis, no18cohortreplacement, instruments or fakeplaying. Generatedbody/decorations arefiction, notrestoredphotographicmasters orbiographicalfacts.",
+      "Newart internaldelegationreview accepted, ownerartacceptancefalse. Dummy routing/timing isnotphysicalaudiblequality/device/IME/humancomprehension.",
+      "Opt-in workpatterns constrain writing/rehearsal; unknownlegacy and originalshowattendance unchanged.",
+      "S112/S114abruptdebug-exit audioresource P2 remainsHOLD/causeunproved; ordinary currententry/lifecyclepass doesnotresolveit. No unchangeddiagnostic rerun.",
+      "Bareoriginalschema codec test preserves actualtypedunknown depth15top and exactlyrepresentable0.25; no new arbitrarybinaryfloat preservation guarantee.",
+      "Standaloneformationprobe suppliesknownTRANSISTOR and isnotgenuinepre-name shell; standaloneoldcohortcropclippedmasthead provesidentity/source only, notfullcareerlayoutacceptance.",
+      "HistoricalmissingTMPproofs/caches/APKoutputs remain unavailable/permanentlyclosed; no reconstructionclaim.",
+      "V12/source36 remainscurrentphone; S125/S126notyetpackaged. FinalAPKby17:00 stillplanned, exactsingle-unused-referenceexport omission assessed independently for100MiBdelivery."
+    ],
+    "current_phone": {
+      "version": 12,
+      "source": "36dc7f0e01fa3ec5bc836757be9d9be3161f799c",
+      "url": "https://drive.google.com/file/d/16Fzh2zeAQGoSoUZ8DqitsXH4t0iMEG8q/view?usp=drivesdk",
+      "not_updated_by_this_scope": true
+    },
+    "next_action": "Fresh fullyfunded source-backed audition-quality musical-context pilot from this460row source, if viable within15:00breadthfreeze and17:00APK/handoff; no newqueue/ownerapprovalwait.",
+    "new_issue_review": {
+      "opaque_event_ids": [
+        "S126-20261105-fresh-cohort-baseline-and-design-boundaries",
+        "S126-20261105-generated-original-accounting-and-immutable-source-binding",
+        "S126-20261105-readonly-check-path-retrieval",
+        "S126-20261105-postsource-review-prefix-refresh",
+        "S126-20261105-live-mark-long-name-source-risk",
+        "S126-20261105-whole-wide-scroll-positive-fixture",
+        "S126-20261105-aux-await-parser-held",
+        "S126-20261105-cache-index-schema-retrieval",
+        "S126-20261105-finalproof-Git-tail-rebalance",
+        "S126-20261105-finalmetadata-compressed-Git-reserve"
+      ],
+      "retained_failures": "OnewideQA wrongassumedscrollposition held; derivative proves realdownpositive+up with original assertions. Oneauxcoroutineparseheld; derivativeaddsawait. Read-onlyCHECKpath/prefix/cacheindex/reviewerlookup diagnostics retained; no product assertionweakening or failedproofpromotion.",
+      "source_corrections_after_firstnative": 1,
+      "correction": "One explicit single_line argument after independent source longname risk; allfinalproof on12f.",
+      "root_and_reviewer_roles": "RootQAauthor/executor, separate independentreviewer/source+pixels; no human reviewers.",
+      "metadata_funding_hold": "ExactcompressedGitguardstoppedbeforeallocation; final8MiBsource/APK2MiB rebalance within18MiBDAY/no ownerwait/floorviolation. Originalheldestimate retained."
+    },
+    "pages": {
+      "Plan": 64,
+      "Board": 177,
+      "72choices23checked50images_preserved": true,
+      "allunrelatedblocksIDsorderAgentInstructionsarchive_deletedA03v2absence_exact": true,
+      "no_new_upload_grants_or_browserrender_claim": true
+    },
+    "storage": {
+      "scope_cap": 8388608,
+      "TMPcap": 2147483648,
+      "DAYcap": 18874368,
+      "APKreserve": 2097152,
+      "handoffreserve": 1048576,
+      "floor": 629145600,
+      "allcriticalGitprimary": true,
+      "newsourcePNG_original_shipping_paths_both_immutable": true,
+      "all3scopeproducers_closed": true,
+      "fiveS125caches2530files_rechecked_exact": true,
+      "oldmissingTMP_unavailable": true
+    },
+    "closed_at": "2026-11-05T12:01:32.508435+00:00",
+    "source_artifact_helpers_GL_released": true,
+    "normalwrapper_ownXorg8529_stopped_socketgone_3pins_exact": true
+  },
+  "closed_at": "2026-11-05T12:01:32.508435+00:00",
+  "source_artifact_helpers_GL_released": true
 }
