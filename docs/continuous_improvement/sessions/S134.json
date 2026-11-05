@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "id": "S134",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "804db627e5d6c34892d1e8dbe8670ed0f2350fa1",
+  "game_baseline_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
+  "owner_request": "Direct work through08:00London6Nov; artwork fallback ifblocked; othergame qualitybenchmarks. Prior explicit startingjobs/family andlater jobchange request; routine source/creative decisions delegated. Samequeue/thread only.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1726678,
+    "sha256": "c22184b67bf8e937788f976260b4160d99993cef4d9ef17c7ffb45037cd64c32"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/whole-phone-final-v5/proof/agreed-week-before-first-writing-day-390x844.png",
+    "original_sha256": "a857461ba398eeab894e75cde21024c89caab96bd67b161c3a2bd8d7b8a7621b",
+    "wide": "/tmp/bandmaster-s125-week-and-calendar-20261105/runs/whole-wide-final-v5/proof/Tuesday-work-clash-original-attendance-options-1280x720.png",
+    "wide_SHA256": "cbfed337199a5a24aeef3768e2add1e6fa9a1c4f15b7a47a71cf43c2c8dae7bb",
+    "pixels_inspected": true,
+    "scope": "Actualopened retainedS125 finalv5 calendar/workclash originals. Current36 Core/Week/Calendar source andoptionalagreement loophole reviewed; exactclosure of relevant unchanged target files beforeadoption. No competitorpixel/newcurrentnative claim."
+  },
+  "hypothesis": "Known starting job/family facts make firstweek writing/rehearsal clashes meaningful without requiring optionalweekagreement. Sharedfreeevenings avoidweeksofwaiting; earned optionaljobchanges preservefamilyhistory.",
+  "controlled_comparison": "Keep original18biographies/old18contextliteralvalues/82OGG9JSON/54Scripts3UID/artfontshardware/originalpaidactions-day-Finance. Seed onlyfreshnewlaunch in existingonesave, preserve oldcontext/unknown history. Views/audio remainfree; newcare separatefromfinancialsupport.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/member_commitments.gd",
+    "experiments/playable_flightcase/situation_core.gd",
+    "experiments/playable_flightcase/personal_context.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/band_week.gd",
+    "experiments/playable_flightcase/situation_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/calendar_desk.gd",
+    "experiments/playable_flightcase/work_conflict_view.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/opening_capture.gd",
+    "docs/continuous_improvement/S134_STARTING_COMMITMENTS.md",
+    "docs/continuous_improvement/sessions/S134.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s134-starting-commitments-20261105",
+    "/tmp/bandmaster-s134-starting-commitments-20261105"
+  ],
+  "queue_task": "ExistingS80startingjobs-family-week-calendar andearnedcircumstance followup",
+  "reviewer": "Existing/root/s133_final_quality CHECKrequiredindependentpredesign/early/final, onlyD/review<=131072B, no source/Git/Pages/engines/network/children. Rootsolewriter/engines.",
+  "player_goal": "See knowncommitments beforeinvitation; newband firstwritingday\u2192actualTuesdayclash\u2192available rehearsal ornextfreeplan/calendar\u2192typedreload; later earned optionaljobdecision withcare retained.",
+  "start_end_commitment": "Freshformation seedsCore/date insideoriginalfinish_identity onesave. Freeviews/Play/scroll/plans0day/cash/Finance. Existingwriting/rehearsal settlesoriginalonce. Newcontext change uses existingOpeningState busy/snapshot/owned-save/wholeopeningrollback with expectedfullsnapshot, includinglegacycontext, neversecondcontroller.",
+  "state_matrix": [
+    "18independentliteralrota/familyproposal; preserveold18contextvalues/biographies. SharedMonWedFriSun; TuesdayJackabsent and2available in canonicaltrio.",
+    "Pre-invite knownjob/familycopy; phone390/shortwide1280 firstweek/context/clash/calendar beforefullproof; final4wholeweek/nativepointer/key/emulatedtouch/scroll/48px.",
+    "IdentityseedFSfailure/fulltypedrollback/retry; job/contextFSfailure/retry/stale/duplicate/reentrant/reset/unknownextensions/fractionalroundtrip.",
+    "No seeding onload/Continue oroverwritingexistingCore; unsupportedfuturetyped fields HOLD; unknownmember remainsunknown.",
+    "Knownstartingcontext cannotbe erasedusinglegacyfreepicker; later3completedoriginalshowreceipts+week3 opportunity; labelledqualifiedfixture ifused; safeKeep/Back0effects; leaveonefreeownersave/0day/cash/Finance/loyaltybonus; familyretained.",
+    "Required73/88/EMPTYimport/4standards/ordinary600entry andfreshaffectedCore/Week/launch/jobmodels. Adapt initialstandard to genuineknownavailability, no legacy-onlytestbypass orassertionweakening."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S134.json",
+    "Independentpre-source actualsource/literalproposal/baselineoriginals; earlyphone/shortwide importantstates beforefullproof; finalexactsourcefourviewwholefirstweek/nativeinput/FSretry/typedreload/sourceprotection.",
+    "Fresh Core/Week/launch/jobchange/unknownfuture/wholeowner affectedmodels withindependentliteraloracles; unchangedpureproofreuse onlyexactclosure. No old9128/audio/gig/APKactivityreruns.",
+    "Current73gameplay/88opening/oneEMPTYprivateimport/4standard/ordinaryNOscript600max60verbose raw0/ERRORempty; retainfailedsource/log/receipts/PNGs.",
+    "Protectall516priorrowsexceptdeclaredleaves/82OGG9JSON/54Scripts3UID/artfontshardware; nextmanifest onlycuratedrows."
+  ],
+  "root_lease": {
+    "writer": "root_S134_starting_commitments",
+    "expires_at": "2026-11-06T02:00:00Z",
+    "scope": "Boundedfreshscope within08:00outerstop; closeearlier; noautomaticextension."
+  },
+  "source_write_allowed": true,
+  "audio_write_allowed": false,
+  "art_write_allowed": false,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "stop_condition": "Aftertwoineffectiveattempts changemethod/HOLD. Addedpaths/runtime fullyfundedamendment/gatebeforeedit. Ifrealblock switchseparatelyfundedartwork; noapprovalwait/unchangedsuitesforactivity. No newbreadth06:30/releases07:55/hardstop08:00.",
+  "source_input": {
+    "manifest": "/workspace/work/s133-raw-dark-cowriting-20261105/source-final.json",
+    "SHA256": "7814954688ece14423426de18634b38e282a7bcccf4f79f0fd299004012953d6",
+    "curated": 516,
+    "ONLYdeclaredrows": true,
+    "all9S133producer_caches_permanently_closed": true
+  },
+  "storage_plan": {
+    "at": "2026-11-05T23:26:58.351735+00:00",
+    "workspace_free": 902254592,
+    "TMPfree": 1901379584,
+    "fixed_floor": 629145600,
+    "S133_actual_closed_TMP": 2570555392,
+    "S133_unused_reservation_prospectively_released": true,
+    "no_closed_bytes_removed_or_mutated": true,
+    "S134_primary_cap": 12582912,
+    "S134_TMP_cap": 671088640,
+    "final_APK_TMP_reserved": 536870912,
+    "primary_future_other": {
+      "art_source_and_Git": 67108864,
+      "APK_metadata": 2097152,
+      "handoff": 2097152,
+      "contingency": 8388608
+    },
+    "S134_TMP_categories": {
+      "two_source_versions": 268435456,
+      "two_private_import_caches": 201326592,
+      "PNG_accepted_failed": 134217728,
+      "models_saves_logs_failedproof_closeout_tail": 67108864
+    },
+    "after_all_future_TMP_reservations": 693420032,
+    "complete_funding": "One baseline plus one production runtime/cache or two production versions using retained exactbaseline pixels; source corrections needing more require prospective rebalance from actualfree or switch to artwork. No underfunded fullproof.",
+    "art_TMP": "Freshactualfunding/rebalance needed ifchosen; not automaticextra640MiB.",
+    "Git": "Allcriticalobjectsprimary; everymutation -c gc.auto=0 -c maintenance.auto=false"
+  },
+  "contract": {
+    "path": "/workspace/work/s134-starting-commitments-20261105/CONTRACT.md",
+    "SHA256": "fa48973deca8f72c82fbe56d902ffe089f8cd3aa6825113680751e070a34ac94",
+    "literalproposal": "/workspace/work/s134-starting-commitments-20261105/starting-commitments-proposal.json",
+    "literalproposal_SHA256": "8716f40d47aa3132ecb8227a1a4822af9c441bc2681b520bcb21a4e8b0c574ed"
+  },
+  "schema_policy": "Originalschema1unknownfields andsource/saveguards retained. TypedoptionalCoreextensions only; unknownfutureHOLD, notdefaultfree. Oldprototype-songcompatibilitywaived."
+}
