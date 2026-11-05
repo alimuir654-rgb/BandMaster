@@ -25,14 +25,14 @@
     "scope": "ExactunchangedbfcwritingPNG inspectedS130, retainedvisualcontext only/no newimageclaim. Musicaltarget ownerheardTone03Heavy, SHA520c3a22fb284ee90297d69d2be4b222d66a054fb4781925d0e9f0b5dd3aa3ed. Others faileddark/rawbrief despite technicalchecks."
   },
   "id": "S131",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "6e88a04cce32287db89373a9b958cd7125cbac7d",
   "game_baseline_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
   "owner_request": "Direct5Nov: Onlytone03edgy; restbright sunshine dreamytone. Onefocusedrevision using03heavyguitartone asreference, changecomposition/register/gaps/rhythm insteadofmorecosmetictonevariants.",
   "issue_log_review": {
-    "bytes": 1676476,
-    "sha256": "3d3231ed8f2202a9ea0120d56037d69b88070aa8f3f9af585095a374032210e7"
+    "bytes": 1679237,
+    "sha256": "e8a7652561dfa00f9f647bdc0b2e1da090dfa2c69a20b58f34300b67669a4a32"
   },
   "hypothesis": "LowerD/F/E/C/Bb riff andi-bVI-bVII powerchords, basslockedtohits, dryheavyguitars/nohighlead/noambientverb giveactualgrittycharacter missingfromearlierbrightpart.",
   "controlled_comparison": "OneNEWarrangement at104BPM/16bars+2.4tail, preserveTone03actualDSP33/29drive/preamp3/HP85/LP3800. Notlabelledsame-takecomparison; composition/rhythm/register intentionallychange. No claimitworksuntilactualownerlistens.",
@@ -63,41 +63,65 @@
   "player_goal": "JudgeonesubstantiallychangedlowriffagainstTone03edginessreference, notfourmoresimilarshinyvariations.",
   "start_end_commitment": "Oneoffline39sreviewclip/sourceproof/updatedfeedbackrecord; noGame/APKintegration.",
   "state_matrix": [
-    "104BPM/8verse+8chorus, lowerleadregister/Dminor-pentatonicriff/i-bVI-bVII",
+    "104BPM/8verse+8chorus, lowerleadregister/D-minor riff/i-bVI-bVII",
     "ExactHeavyDSP/preamp3/noambientverb/samplerendvoices0",
     "Uniqueversionreceipt/realrawexit/encodeprobeactualdecode/levels/tail",
     "Owner03edginessfeedbackscoped; no falseallclipsaccepted/nomusicaltasteprooffrommetrics"
   ],
   "root_lease": {
-    "writer": "root_S131_low_riff",
+    "writer": null,
     "expires_at": "2026-11-05T21:05:00Z",
-    "scope": "boundedofflineassetonly, no reopenedday/automation"
+    "scope": "boundedofflineassetonly, no reopenedday/automation",
+    "released_at": "2026-11-05T20:32:56.636822+00:00"
   },
   "source_write_allowed": false,
-  "audio_write_allowed": true,
+  "audio_write_allowed": false,
   "art_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
+  "page_write_allowed": false,
   "stop_condition": "Closeby21:05 tasklease; onefocusedarrangementrevision, aftertwoineffectiveattempts changemethod/HOLD. Noautomaticextension/queue/ownerapprovalwait.",
   "storage_plan": {
     "workspace_start_free": 629448704,
-    "persistent_global_cap": 245760,
+    "persistent_global_cap": 262144,
     "durable_root_cap": 73728,
     "review_cap_included": 6144,
-    "primaryGit_new_cap": 24576,
+    "primaryGit_new_cap": 32768,
     "index_peak": 131072,
-    "canonical_growth_cap": 16384,
+    "canonical_growth_cap": 24576,
     "TMPcap": 268435456,
     "floor": 629145600,
     "durable_cap_includes_failed_closeout_tail": true,
     "commit_policy": "OnlyS131Sessionpre/finalcommitted, compactsourceD131durable, allcriticalGitprimary. LargeS129/S130/S131canonicalmetadataintentionallydurableuncommitted, preservedbeforesTMP. No forcedunderfloorcommit/cleanup/cachewrite.",
-    "no_cleanup_orclosedproducer_resume": true
+    "no_cleanup_orclosedproducer_resume": true,
+    "prospective_closeout_forecast": "Freshfreecheck beforecloseout: adds16KiB completeclosingforecast forSessionworktree/Gittrees/canonicalgrowth, total256KiBcap frominitial629448704Bfree, stillfixed600MiBfloor. Noallocationoverrun/cleanup/ownerwait/breadthextension; Dcap72KiB unchanged, finalstorageaudit foldedintocloseout."
   },
   "source_input": {
     "Game_manifest": "/workspace/work/s128-full-notes-and-final-apk-20261105/source-final.json",
     "Tone03_reference": "/tmp/bandmaster-s130-tone-and-sonic-identity-20261105/tones-v2/03-Heavy/BandMaster-Tone-03-Heavy.wav",
     "reference_SHA256": "520c3a22fb284ee90297d69d2be4b222d66a054fb4781925d0e9f0b5dd3aa3ed",
     "no_old_producer_execution": true
+  },
+  "preventive_receipt_guard": {
+    "independent_code_review": "Pathnonexistenceguard movedbeforechildexecution, BEFOREfirstsamplerrender/finish. Noactualcollision/failureclaimed.",
+    "old_source_retained": "/tmp/bandmaster-s131-low-riff-revision-20261105/author-low-riff-before-preventive-receipt-guard.py",
+    "new_author_source_SHA256": "83dcee2427fca2997c1359c35f7c421c31cda746ad1d39bb91aed81f5c0bcfeb",
+    "plan_render_score_source_functions_byte_exact": true,
+    "no_sampler_or_plan_rerun_needed": true
+  },
+  "pending_implementation": false,
+  "pending_helpers": false,
+  "review_pending": false,
+  "closeout": {
+    "tested_sha": "3ae8c9bb3606e2eff2011e7046367660e1039c6a",
+    "evidence": "/workspace/work/s131-low-riff-revision-20261105/closeout.json",
+    "visual_verdict": "partial",
+    "next_action": "Useactualownerlisteningfeedbackonthisonechangedpart tochoosemusicaldirection; thenfreshfundedsonicidentitycarry/writingproduction, no automaticGame/APKintegration.",
+    "new_issue_review": {
+      "owner_musical_feedback": "Changedmethod/register/harmony/rhythm; metricsdonotprovemusicalcharacter.",
+      "preventive_code_review": "MovedreceiptpathnonexistenceassertBEFOREchildexec beforefirstrender; noactualcollision/failure. PriorcodeRretained, plan/renderfunctionsbyteexact.",
+      "no_current_failed_audio_runs": true,
+      "all_new_opaque_events_reviewed": true
+    }
   }
 }
