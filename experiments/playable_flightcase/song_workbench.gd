@@ -347,12 +347,16 @@ static func _decision_ok(project: Dictionary) -> bool:
  if d.choice=="try":chosen[offer.field]=offer.value
  return _same(chosen,d.chosen_recipe)
 
+static func producer_reply_ok(project: Dictionary,stage: int) -> bool:
+ if not _decision_ok(project):return false
+ var d: Dictionary=project.get("producer_decision",{})
+ return not d.is_empty() and int(d.stage)==stage and _same(d.member,project.get("target",{}).get("respondent_ref",{})) and _same(d.chosen_recipe,project.get("fragment",{}).get("producer_recipe",{}))
+
 static func _ready(opening: Dictionary,project: Dictionary,require_reply: bool=true) -> bool:
  var state:=_career(opening)
  var trial: Dictionary=project.last_trial
  if require_reply and project.fragment.has("producer_recipe") and not project.target.respondent_ref.is_empty():
-  var d: Dictionary=project.get("producer_decision",{})
-  if d.get("stage")!=int(state.song_draft_progress) or not _same(d.get("member"),project.target.respondent_ref) or not _same(d.get("chosen_recipe"),project.fragment.producer_recipe):return false
+  if not producer_reply_ok(project,int(state.song_draft_progress)):return false
  if project.fragment.has("producer_recipe") and (int(project.fragment.producer_recipe.stage)!=int(state.song_draft_progress) or not _same(project.fragment.producer_recipe.brief,Sound.read(state)) or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}}))):return false
  if project.fragment.has("producer_recipe") and (trial.get("producer_fragment_id")!=project.fragment.fragment_id or trial.get("producer_fragment_revision")!=project.fragment.revision):return false
  return _binding_ok(state,project) and _participants_ok(state,project.target) and not trial.is_empty() and int(trial.stage)==int(state.song_draft_progress) and _same(trial.fragment_snapshot,_material(project.fragment)) and _same(trial.target,project.target)
@@ -460,6 +464,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  else:return _mutation(opening,false,"That lyric action is unavailable.")
  var material_changed: bool=not _same(material,_material(project.fragment))
  var target_changed: bool=not _same(target,project.target)
+ if producer and target_changed and not _same(project.get("producer_decision",{}).get("member",{}),target.respondent_ref):project.producer_decision={}
  var identical_trial: bool=not project.last_trial.is_empty() and project.last_trial.stage==state.song_draft_progress and _same(project.last_trial.fragment_snapshot,material) and _same(project.last_trial.target,target)
  if producer and project.last_trial.get("producer_fragment_id")!=project.fragment.fragment_id:identical_trial=false
  if not material_changed and not target_changed and (action not in ["try","producer_try","producer_offer"] or (identical_trial and action!="producer_offer")):return _mutation(opening,true,"The same saved take and note are retained.")

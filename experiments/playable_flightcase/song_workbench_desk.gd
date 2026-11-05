@@ -508,7 +508,7 @@ func _refresh_local() -> void:
   _producer_controls.move_child(_note_box,3)
   _producer_controls.move_child(_producer_offer_buttons,4)
   var decision: Dictionary=project.get("producer_decision",{})
-  var considered: bool=decision.get("chosen_recipe")==project.fragment.producer_recipe and decision.get("stage")==int(owner_state.game.career.get("song_draft_progress",0))
+  var considered: bool=Rules.producer_reply_ok(project,int(owner_state.game.career.get("song_draft_progress",0)))
   var current_trial: Dictionary=project.get("last_trial",{})
   var request: Dictionary=current_trial.get("note",{}).get("request",{})
   _offer_pending=not current_trial.is_empty() and Producer.request_ok(request) and not considered and int(current_trial.get("stage",-1))==int(owner_state.game.career.get("song_draft_progress",0)) and not has_local_edits()

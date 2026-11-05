@@ -26,7 +26,7 @@ static func attach(parent: Node,song: Dictionary,context: Callable,paper: bool=t
  parent.add_child(written)
  var audio=AudioPart.new()
  audio.manifest_path=Producer.MANIFEST
- audio.play_caption="HEAR SAVED ARRANGEMENT"
+ audio.play_caption="PLAY SAVED TAKE"
  audio.available_hint="Illustration of this saved direction; not the performance or a skill grade."
  audio.configure(func():return {"allowed":bool(context.call()),"material_id":Producer.audio_id(value),"content_version":Producer.VERSION})
  audio.set_clip(Producer.audio_id(value))
