@@ -826,11 +826,6 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  paper.add_child(body)
  if practice_activity=="create":
-  var week: Dictionary=BandWeek.offer(game.career)
-  if opening_owner!=null and week.get("ok",false) and week.get("changed",false):
-   var planning: Button=_button("PLAN OUR WEEK · FREE",func():planning_requested.emit(),"tab")
-   planning.name="PracticePlanningAction"
-   body.add_child(planning)
   _writing_workspace(body)
   # Ordinary vertical gestures on the writing paper/choices belong to its
   # native body scroll. Text entry retains its own caret/selection handling.
@@ -891,13 +886,19 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   action.name = "ClearAirAction"
  dock.add_child(action)
  if opening_owner!=null:
+  var week: Dictionary=BandWeek.offer(game.career)
+  var planning_available: bool=practice_activity=="create" and week.get("ok",false) and week.get("changed",false)
   var navigation := HBoxContainer.new()
   navigation.add_theme_constant_override("separation",8)
   dock.add_child(navigation)
-  var back: Button = _button("BACK TO MENU",_practice_back,"tab")
+  var back: Button = _button("MENU" if planning_available else "BACK TO MENU",_practice_back,"tab")
   back.name = "PracticeBackAction"
   navigation.add_child(back)
-  var career: Button = _button("CAREER DESK  ›",_open_career,"tab")
+  if planning_available:
+   var planning: Button=_button("PLAN WEEK",func():planning_requested.emit(),"tab")
+   planning.name="PracticePlanningAction"
+   navigation.add_child(planning)
+  var career: Button = _button("DESK ›" if planning_available else "CAREER DESK  ›",_open_career,"tab")
   career.name = "CareerDeskAction"
   navigation.add_child(career)
  _refresh_practice_commitment()

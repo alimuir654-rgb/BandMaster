@@ -161,7 +161,7 @@
     "actual_opens": 4,
     "bound_reference_reopens": 0
   },
-  "source_corrective_iteration": 2,
+  "source_corrective_iteration": 3,
   "source_review_hold": "/workspace/work/s125-week-and-calendar-20261105/review/source-review-v1.json",
   "issue_schema_repair": "/workspace/work/s125-week-and-calendar-20261105/issue-schema-normalization.json",
   "final_source_correction_reason": "ActualnewPlanrowfirstfoldregression, independentfootercompositionpredesignCLEAR"
