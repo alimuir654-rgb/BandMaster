@@ -298,3 +298,14 @@ Direct owner: only Tone03 was edgy; the others were bright, sunny or dreamy. Thi
 ### S132 funded; new production authorised
 
 Exact additional cache consolidation approved and completed:139984896B recovered,all1206path/byte/statproof and oldS109800pins correct. All3S95/S96cachetrees permanentlyclosed/immutable; no approval pending. User accepts S131 low-riff raw/darker reference and says not to worry about existing prototype songs. Next fresh scope builds the identity-aware raw/dark co-writing experience on the existing workbench: riff sketch→rhythm section→chorus, actual audible settings, one bandmate musical proposal, saved recipe and later listening. Prioritise new flow over old-song compatibility; retain original paid days/Finance/save/roster/54Scripts. No new queue/controller.
+
+
+### New owner consideration — 5 November: relationships and longer arcs
+
+Keep the current raw/dark co-writing slice first. A bandmate idea must be a concrete, comparable change. Trying it or considering its written equivalent and retaining your own direction counts as engagement; repeated unanswered suggestions at distinct committed sessions can affect that actual member’s trust. Free audio, retries and reopening must never farm consequences. This is part of S133; longer arcs below are a next-scope design backlog, not an implementation claim.
+
+Use the existing SituationCore and recorded history for sustained adult band-life stories: late drinking after actual shows, escalating substance problems, an arrest and its legal/commitment aftermath, or conflicts over adult fan relationships and boundaries. Start from existing strain, actual choices, touring exposure and prior promises. Distinguish occasional use from dependency, an allegation from an established event, and private relationship conflict from abuse. Never make a scandal inevitable merely because a character drinks or dates a fan.
+
+Give each arc anticipation, several possible interventions, remembered agreements and a credible aftermath: missed work or rehearsal, care and recovery time, legal appointments and public statements, broken trust, departures or reconciliation. Include support, privacy and boundary-setting alongside commercial pressure; avoid a morality score or a fixed reward-card sequence. Costs and time must be explicit; consequences follow circumstances, remain once-only and survive save failure/reload. Adult, consensual relationships only; no exploitative or explicit presentation.
+
+A first bounded pilot should be one earned repeated missed-rehearsal concern with a member conversation and a follow-up commitment, rather than implementing every theme together. Review observable triggers, saved facts versus rumour, player agency, harm and recovery paths before adding any new event state. No new controller/register, random punishment layer or source modification is authorised merely by this backlog entry.
