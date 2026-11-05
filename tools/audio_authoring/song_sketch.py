@@ -65,7 +65,7 @@ def score(groove, chorus):
         # not a claim that the source bank contains recorded palm-muted notes.
         if not is_chorus:
             pattern = [(0,.56,88),(.75,.20,63),(1.5,.32,80),
-                       (2.5,.28,74),(3.25,.19,61),(3.5,.29,81)]
+                       (2.5,.28,74),(3.25,.17,61),(3.5,.29,81)]
         elif chorus == 'open':
             pattern = [(0,1.15,105),(1.5,.65,84),(2.5,.65,99),(3.5,.35,80)]
         else:
@@ -135,7 +135,7 @@ def score(groove, chorus):
 
 
 def plan():
-    out = R/'scores-v1'; out.mkdir()
+    out = R/'scores-v2'; out.mkdir()
     variants = {}
     for groove in ['driving','half-time']:
         for chorus in ['open','tight']:
