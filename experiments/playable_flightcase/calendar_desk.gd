@@ -188,7 +188,7 @@ static func _event_source(career: Dictionary) -> Dictionary:
  var booking: Dictionary=Booking.validate(career)
  var memory: Dictionary=Booking.memory(career) if booking.ok else {}
  var history: Array=career.get("gig_history",[]) if career.get("gig_history",[]) is Array else []
- return {"people":Core.members(career) if core.ok else [],"plans":core.core.plans if core.ok else [],"records":memory.get("records",[]),"first_booking":booking.ok and int(memory.get("sequence",0))==1 and memory.get("records",[]).is_empty() and career.has("gig_history") and history.is_empty(),"legacy":history,"availability_ok":bool(core.ok)}
+ return {"people":Core.members(career) if core.ok else [],"plans":core.core.plans if core.ok else [],"records":memory.get("records",[]),"first_booking":booking.ok and int(memory.get("sequence",0))==1 and memory.get("records",[]).is_empty() and career.get("gig_history") is Array and history.is_empty(),"legacy":history,"availability_ok":bool(core.ok)}
 
 static func day_events(data: Dictionary, source: Dictionary, day: int) -> Array:
  var result: Array=[]
@@ -237,13 +237,23 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
  var source: Dictionary=_event_source(career)
  var header: VBoxContainer=owner._paper(parent,compact)
  header.name="CalendarSheet"
- _copy(owner,header,str(date.month_name)+" "+str(date.year),"CalendarTitle",26)
- _copy(owner,header,"TODAY · "+Dates.caption(career,today),"CalendarToday",18)
- _copy(owner,header,"Your agreed career dates. Looking ahead never uses a day.","CalendarExplanation",16,true)
+ var wide: bool=owner.size.x>=840
+ var heading: Node=header
+ var status: Node=header
+ if wide:
+  var spread:=HBoxContainer.new()
+  spread.add_theme_constant_override("separation",24)
+  header.add_child(spread)
+  heading=owner._box(6);heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  status=owner._box(6);status.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  spread.add_child(heading);spread.add_child(status)
+ _copy(owner,heading,str(date.month_name)+" "+str(date.year),"CalendarTitle",26)
+ _copy(owner,heading,"TODAY · "+Dates.caption(career,today),"CalendarToday",18)
+ _copy(owner,status,"Your agreed career dates. Looking ahead never uses a day.","CalendarExplanation",16,true)
  if data.booking.present and data.booking.valid:
-  _copy(owner,header,("SAVED SHOW OVERDUE" if data.booking.status=="overdue" else ("SHOW DUE TODAY" if data.booking.status=="due" else "NEXT SHOW"))+" · "+str(data.booking.venue),"CalendarStatus",18)
-  _copy(owner,header,Dates.caption(career,int(data.booking.day)),"CalendarBookingDay",16)
- else:_copy(owner,header,"NO SHOW BOOKED" if not data.booking.present else "SAVED BOOKING NEEDS REVIEW","CalendarStatus",18)
+  _copy(owner,status,("SAVED SHOW OVERDUE" if data.booking.status=="overdue" else ("SHOW DUE TODAY" if data.booking.status=="due" else "NEXT SHOW"))+" · "+str(data.booking.venue),"CalendarStatus",18)
+  _copy(owner,status,Dates.caption(career,int(data.booking.day)),"CalendarBookingDay",16)
+ else:_copy(owner,status,"NO SHOW BOOKED" if not data.booking.present else "SAVED BOOKING NEEDS REVIEW","CalendarStatus",18)
  var nav: HBoxContainer=HBoxContainer.new()
  nav.add_theme_constant_override("separation",6)
  parent.add_child(nav)
@@ -252,12 +262,14 @@ static func _render_dated(owner, parent: Node, compact: bool, data: Dictionary) 
  nav.add_child(owner._button("›","CalendarNext",owner._calendar_shift.bind(1)))
  var modes: HBoxContainer=HBoxContainer.new()
  modes.add_theme_constant_override("separation",6)
- parent.add_child(modes)
+ if not wide:parent.add_child(modes)
  for mode in ["week","month"]:
   var button: Button=owner._button(str(mode).to_upper(),"CalendarMode_"+str(mode),owner._calendar_set_mode.bind(str(mode)))
   button.toggle_mode=true
   button.set_pressed_no_signal(owner.calendar_mode==mode)
-  modes.add_child(button)
+  if wide:nav.add_child(button)
+  else:modes.add_child(button)
+ if wide:modes.free()
  # The grid occupies the available full width, outside the sheet's ink insets.
  # Seven 48px targets plus six 2px gaps fit the native 390px phone composition.
  var grid: GridContainer=GridContainer.new()
