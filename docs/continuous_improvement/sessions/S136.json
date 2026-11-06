@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "S136",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "c536e09241930c3812cd3d39a190cb870cc9468a",
+  "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "owner_request": "ONEfinalprivateARM64APK/updateaudit by08:00London6Nov; routineintegration delegated; samequeue/thread/hardstop.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1760719,
+    "sha256": "9b7e5057b6353a5013d47ae61e17a495824de942b5e020c9f1f735f4d41b9d35"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-23",
+    "BM-34",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "dominant_issue": "BM-39",
+  "target": {
+    "locator": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/standard-phone-v3/captures/008-c27-recruit-390x844.png",
+    "original_sha256": "d1f695c2068687f5ad41300d2eec2606374bb18f90c8d8229d6ed7641d6aac75",
+    "pixels_inspected": true,
+    "scope": "ExactcurrentS134actualopenednative source reference plus completeS134fourview/wholeweek proof. APKpackagingmustcarry517same rows; no newnativepixelclaim."
+  },
+  "hypothesis": "OnecurrentverifiedsourceARM64updatewithsameapp/cert/savefolder/zeroPermissionsandexactresourceclosureisreadyforownerphysicaltestingwithoutpackingQA/rawhistory orrepeatGameactivity.",
+  "controlled_comparison": "PreserveGame898andall517declaredrows; platformsettingssameasV13, version14andexactnewsourceonly. RetainoldV13/artifacts/keys/saves.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S136.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s136-final-apk-v14-20261106",
+    "/tmp/bandmaster-s136-final-apk-v14-20261106"
+  ],
+  "queue_task": "FinalprivateAPK/updateprivacyhandoff",
+  "reviewer": "CHECKexisting/root/s134_quality_review S136read-onlypre/finalartifactrole;D136/review<=65536B only/noengine/Git/Pages/network/children/oldproofmutation. Rootseparatereadonlyauditcommands, notindependenthuman/device.",
+  "player_goal": "InstallasUPDATEretainingappidentityandthenphysicallytestcurrentraw/darkcowritingandwork/familyconstraints.",
+  "start_end_commitment": "0newGame/source/day/cash/save/Financeeffects; freshprivatepackagingonly; compiledAPKprivateexistingowner+Alireader.",
+  "state_matrix": [
+    "Selectedsource517rows/import/exportproject/assetclosure/scriptremaps/all82OGG9JSONexact;S135rawartNOTincluded.",
+    "Nineactualbuildsteps+fiveseparateauditsraw0/ERRORempty;signingidentity/version14/ARM64/zeroPermissions/16KiB/CRC/launcher/update.",
+    "Source/privatecache2normalAPKs+onefullfailedAPKtail/Git/logs/closeoutfullyfunded/floors600MiB/nonewcleanup.",
+    "Freshprofile/privateparentobserved;fileonlyowner+Alireaderreadback/MIMEbytesparent/noextras/noremotechecksumclaim.",
+    "Samecuratednativeproofexactclosure,0unchangednativeactivityreruns/newAPKnotphysicalinstall/test. Independentartifactreviewpre/final/ownerfalse."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S136.json",
+    "Independentpre-artifact actualcontract/source/input/toolchain/updateidentity/funding/privatechannelreviewbeforeengine.",
+    "Freshprivatepackagingimport/exportonly plus9buildsteps/5readonlyauditcommands; inspecteachdependentresultbeforeproceeding.",
+    "All517Game/source exact/82OGG9JSON/compiledscripts/importresources/12reviewedomissions/0extras; nooldcache/sharedmutableproducer.",
+    "VerifyoneprivatecompiledAPKfile/individualowner+Alireader/MIMEbytesparent;closeproducer/cache/DICThandoff withoutdevice/humaninference."
+  ],
+  "root_lease": {
+    "writer": "root_S136_final_APK",
+    "expires_at": "2026-11-06T02:30:00Z",
+    "scope": "ONEartifactfromverified898only, noGame/source/UI/assetschange. Closeearlier;07:55release/08:00outerstop."
+  },
+  "artifact_phase": "READY_verified_898_source_native_independent_review",
+  "source_write_allowed": false,
+  "audio_write_allowed": false,
+  "art_write_allowed": false,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": true,
+  "page_write_allowed": true,
+  "stop_condition": "Twoineffectiveattempts changemethod/HOLD; noassertionweakening. Freshfundingforunexpectedsize/failurebeforeallocation; noownerwaiting/newqueue/extension;release07:55/hard08.",
+  "source_input": {
+    "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+    "SHA256": "83d386d75e9962e6b77f87a5b73808f48f7e7b282006c122e6ccb874b20448aa",
+    "curated": 517,
+    "old_all_producers_closed": true
+  },
+  "storage_plan": {
+    "workspace_floor_bytes": 629145600,
+    "TMP_floor_bytes": 629145600,
+    "workspace_initial_free_bytes": 890306560,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 8388608,
+    "TMP_aggregate_cap_bytes": 620756992,
+    "TMP_initial_free_bytes": 1253400576,
+    "TMP_categories_MiB": {
+      "source": 128,
+      "privatecache": 100,
+      "unsigned_export": 120,
+      "final_signed": 120,
+      "one_full_failed_APK": 120,
+      "work": 4
+    },
+    "actual_APK_limit_bytes": 125829120,
+    "handoff_TMP_reserved": 1048576,
+    "handoff_primary_reserved": 2097152,
+    "primary_contingency_reserved": 4194304,
+    "after_all_future_TMP_reservations": 631595008,
+    "prior_S135_TMP0_closed_unused_reservation_released": true,
+    "no_old_files_deleted_or_mutated": true
+  },
+  "contract": {
+    "path": "/workspace/work/s136-final-apk-v14-20261106/CONTRACT.md",
+    "SHA256": "17453de479c158bf6141286ee29941822271365505a9294230d9c385233f42a5"
+  }
+}
