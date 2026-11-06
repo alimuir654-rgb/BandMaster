@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S141",
-  "scope": "Read-only V15 owner-feedback proposal complete; no implementation performed.",
+  "session": "S142",
+  "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,7 +10,7 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S141_closed_readonly_proposal_Gamef9_V15_unchanged",
+  "status": "S142_readonly_three_song_demo_review",
   "next_action": "Prioritise contextual Back/Pause plus free attendee-aware practice, then explicit-play continuous audition and clearer existing song continuity. Fresh complete production funding/preflight/native proof required.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
@@ -4413,7 +4413,12 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "owner": "root_S142_demo_scalability_review",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T20:02:38.903335+00:00",
+    "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK."
+  },
   "source_implementation_status": "NONE; implemented sourcef9 is verified and delivered as V15.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -6313,7 +6318,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S142_demo_scalability_review",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6547,7 +6552,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "S141",
+  "active_session": "S142",
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7275,5 +7280,10 @@
     "scope": "Read-only source-backed feedback/design review and canonical notes only; no Game/source/assets/native/APK or automation."
   },
   "next_design_proposal": "/workspace/work/s141-available-evening-review-20261106/source-contract.json",
-  "s141_closeout": "/workspace/work/s141-available-evening-review-20261106/closeout.json"
+  "s141_closeout": "/workspace/work/s141-available-evening-review-20261106/closeout.json",
+  "previous_S141_closed_status": {
+    "session": "S141",
+    "status": "S141_closed_readonly_proposal_Gamef9_V15_unchanged",
+    "next_design_proposal": "/workspace/work/s141-available-evening-review-20261106/source-contract.json"
+  }
 }

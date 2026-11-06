@@ -3,11 +3,11 @@
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
   "expires_at": null,
-  "scope": "Read-only V15 owner-feedback proposal complete; no implementation performed.",
+  "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S141_closed_readonly_proposal_Gamef9_V15_unchanged",
+  "status": "S142_readonly_three_song_demo_review",
   "released_at": "2026-11-06T19:23:12.294809+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S141",
+  "session": "S142",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -1063,7 +1063,12 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "owner": "root_S142_demo_scalability_review",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T20:02:38.903335+00:00",
+    "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK."
+  },
   "source_implementation_status": "NONE; implemented sourcef9 is verified and delivered as V15.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -2953,7 +2958,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S142_demo_scalability_review",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3188,7 +3193,7 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": "S141",
+  "active_session": "S142",
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -3922,5 +3927,10 @@
     "scope": "Read-only source-backed feedback/design review and canonical notes only; no Game/source/assets/native/APK or automation."
   },
   "next_design_proposal": "/workspace/work/s141-available-evening-review-20261106/source-contract.json",
-  "s141_closeout": "/workspace/work/s141-available-evening-review-20261106/closeout.json"
+  "s141_closeout": "/workspace/work/s141-available-evening-review-20261106/closeout.json",
+  "previous_S141_closed_status": {
+    "session": "S141",
+    "status": "S141_closed_readonly_proposal_Gamef9_V15_unchanged",
+    "next_design_proposal": "/workspace/work/s141-available-evening-review-20261106/source-contract.json"
+  }
 }

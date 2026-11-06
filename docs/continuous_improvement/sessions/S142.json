@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "S142",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "46919c286f0366bb76f41247ad1a3e672155fcdc",
+  "game_baseline_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "owner_request": "Owner reports same sound for new songs and asks scalability to50songs, immediate3-song demo→radio, fewer empty pre-show clicks/distinct button hierarchy, acousticIndie/vocals without new creation process, and comparable-game approaches.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1837747,
+    "sha256": "48967c38a969bede7984f25346076b591608a8736bb0d18f5411a26de09eb54e"
+  },
+  "lesson_ids": [
+    "BM-15",
+    "BM-21",
+    "BM-25",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-21",
+  "target": {
+    "locator": "/workspace/work/s140-mixing-desk-20261106/native-review/f9-native-final-desktop-f9-01-initial-writing-room-1600x900.png",
+    "original_sha256": "537c8690d08a5de2b01b1b3c9a0b1347a812d78ffc4f814a33041471ca3dc24a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Separate persistent composition identity from arrangement controls; first prove3 recognisably different songs and reuse existing demo/released-radio pipeline. Simplify presentation without dropping real decisions or save ownership.",
+  "controlled_comparison": "Directly viewed owner phone screenshots PlanTripHUGYDAY5£211 and WritingRoomHUGYDEPTHDAY11£173 plus actual current source. Prior current desktop reference retained; owner attachments have no supplied localbytehash. Primary documentation research only, not hands-on competitor/device testing.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S142.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s142-three-song-demo-review-20261106",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "root_lease": {
+    "owner": "root_S142_demo_scalability_review",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T20:02:38.903335+00:00",
+    "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK."
+  },
+  "source_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
+  "queue_task": "ExistingS80 career/songwriting/controls worklist, priorities refined by latest direct feedback; no new queue/controller.",
+  "storage_plan": {
+    "primary_start_free": 658681856,
+    "primary_cap": 4194304,
+    "TMP_cap": 0,
+    "RAM_cap": 0,
+    "floor": 629145600,
+    "D_max_bytes": 131072,
+    "research_updates_only_existing_two_files": true,
+    "includes": "proposal/researchappend/metadataGit/failures/closeout;0runtime/assets/native/APK"
+  },
+  "validation_commands": [
+    "Read actual source APIs, source hashes and public costs; no engine executions.",
+    "improvement_gate current session; exact source-proposal distinction; canonical release and source unchanged check."
+  ],
+  "stop_condition": "Close bounded research/proposal; no new source/assets/engine/listening/device/APK acceptance. Future production needs fully funded committed source preflight and complete native proof.",
+  "owner_screenshots": [
+    "Plan Trip / HUGY / DAY5£211",
+    "Writing Room / HUGY / DEPTH / DAY11£173"
+  ]
+}
