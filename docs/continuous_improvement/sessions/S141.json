@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "S141",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "727cfe4ac0e6ae69194d509839fa3b280b29d423",
+  "game_baseline_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "owner_request": "V15 feedback: free jam/practice for available members, growth/connection/absence consequences, less disconnected mixing desk, hide accidental Main Menu; think through next improvements. This scope is proposal-only.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1836116,
+    "sha256": "4d6c9f219cdc15d555a9823c97447e5d663694a7782de91dc3cd176ec667bec7"
+  },
+  "lesson_ids": [
+    "BM-15",
+    "BM-21",
+    "BM-25",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-21",
+  "target": {
+    "locator": "/workspace/work/s140-mixing-desk-20261106/native-review/f9-native-final-desktop-f9-01-initial-writing-room-1600x900.png",
+    "original_sha256": "537c8690d08a5de2b01b1b3c9a0b1347a812d78ffc4f814a33041471ca3dc24a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Offer a source-backed next slice: contextual Back/Pause, optional continuous audition after explicit Play, and attendee-aware no-room-fee jam using existing owners; make current saved-song continuity visible rather than add a duplicate controller.",
+  "controlled_comparison": "Read actual current source and retained exact f9 desktop original plus direct owner report. No new native reproduction or implemented improvement claimed.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S141.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s141-available-evening-review-20261106"
+  ],
+  "root_lease": {
+    "owner": "root_S141_available_evening_review",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T19:39:14.385845+00:00",
+    "scope": "Read-only source-backed feedback/design review and canonical notes only; no Game/source/assets/native/APK or automation."
+  },
+  "source_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
+  "queue_task": "Existing S80 controls/layout and career-loop review only; no new queue/controller",
+  "storage_plan": {
+    "at": "2026-11-06T19:19:14.385845+00:00",
+    "primary_start_free": 660271104,
+    "primary_cap": 4194304,
+    "TMP_cap": 0,
+    "RAM_cap": 0,
+    "floor": 629145600,
+    "D_max_bytes": 131072,
+    "includes": "proposal/failure/closeout and metadata primaryGit; no runtime/cache/source/assets/nativePNG/APK allocation"
+  },
+  "validation_commands": [
+    "Read actual source APIs, source hashes and public costs; no engine executions.",
+    "improvement_gate current session; exact source-proposal distinction; canonical release and source unchanged check."
+  ],
+  "stop_condition": "No production changes, native proof, new audio/art or APK under review. Close proposal and release metadata lease; future implementation requires complete fresh scope/funding/native gates."
+}
