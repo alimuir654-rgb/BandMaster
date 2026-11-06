@@ -111,10 +111,15 @@
     "primary_contingency_reserved": 4194304,
     "after_all_future_TMP_reservations": 631595008,
     "prior_S135_TMP0_closed_unused_reservation_released": true,
-    "no_old_files_deleted_or_mutated": true
+    "no_old_files_deleted_or_mutated": true,
+    "signing_transient_and_failed_tail": {
+      "first_attempt_full_signing_temp_may_use120MiB_contingency": true,
+      "retained_full_failed_APK_requires_fresh_complete_funding_before_any_retry": true,
+      "peak_samples_not_OS_quota": true
+    }
   },
   "contract": {
     "path": "/workspace/work/s136-final-apk-v14-20261106/CONTRACT.md",
-    "SHA256": "17453de479c158bf6141286ee29941822271365505a9294230d9c385233f42a5"
+    "SHA256": "fbfb396328fa6a234eafdbe8bc9662737395352af074d4f82f084364f4e3ab64"
   }
 }
