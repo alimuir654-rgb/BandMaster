@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1819729,
-    "sha256": "c8e7e0a5e695dcf5bc9431e9a6f795e517d3ba832bb3b5532a84629287af31c6"
+    "bytes": 1820979,
+    "sha256": "e497263036b7f8140815a0cbefee28d9fe21afac2d7390be9d0d6cf4bd89079d"
   },
   "lesson_ids": [
     "BM-01",
@@ -107,7 +107,7 @@
   "root_lease": {
     "owner": "root_S140_mixing_desk",
     "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-06T16:30:00+00:00",
+    "expires_at": "2026-11-06T17:00:00+00:00",
     "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
   },
   "source_write_allowed": true,
@@ -137,12 +137,12 @@
       "contingency": 0
     },
     "memory_categories_MiB": {
-      "regular_private_source_cache_versions": 1792,
-      "offline_audio_generation": 256,
+      "regular_private_source_cache_versions": 2048,
+      "offline_audio_generation": 128,
       "native_PNG_and_failedproof": 384,
       "final_APK_and_export_and_failedtail": 896,
       "work_XDG_qa": 128,
-      "contingency": 128
+      "contingency": 0
     },
     "closed_producers_immutable": true,
     "no_cleanup": true,
@@ -328,5 +328,13 @@
     "continuity_source_reference": "/workspace/work/s133-raw-dark-cowriting-20261105/continuity-v5.gd",
     "continuity_method": "Newcurrentpassed checkpoint viaactualtypedOpening.load; no day/stat/qualification rewriting; earnoriginalavailability/rehearsal/booking/show and inspectactual new v3 saved-recipe playback. OriginalS133receipt notcurrentproof.",
     "RAM_native_proof_cap_unchanged": true
+  },
+  "archive_copy_preflight": {
+    "at": "2026-11-06T16:14:46.168202+00:00",
+    "allowed_shipping_change": "experiments/playable_flightcase/ui.gd one generic saved-archive prose literal only",
+    "reason": "Close independentlyobservedfalse-recordingclaimforunsupportedstyles beforefinalAPK. No newfeature/bank/engine/controller.",
+    "proof": "Freshnewsource/privateimport/4viewwholewriting+73/88/4standard/ordinaryentry; exactunchangedmodel/audioinputreuse separatelybound; savedrecipeRehearsal/show currentbranch.",
+    "lease": "FreshdirectGo manualS140scope only; boundedrenewal17:00 forcompletedesk/save/songplayback/package. Oldhourlyqueue staysended; no automationwindow extension.",
+    "RAM_rebalance": "Withinunchanged3.5GiB: sourceversions+256MiB fundedfromclosedaudiojobreserved128 andcontingency128. Allpriorversionsretainedimmutable."
   }
 }

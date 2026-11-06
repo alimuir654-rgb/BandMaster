@@ -220,8 +220,8 @@
     "writer": "S54-song-recording-20261101T0425",
     "claimed_at": "2026-11-01T04:24:30.738786+00:00",
     "expires_at": "2026-11-01T06:20:00Z",
-    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2–3 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
-    "authority": "Owner explicitly approved the 1 November00:15–09:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
+    "scope": "One complete song-to-demo pilot: existing Songbook routes to a numbered recording track sheet, free selection/order of2\u20133 real completed song IDs, explicit original60/2day recording then original25/1day local release, immutable full creative snapshots and durable read-only archive. Shared original paper/native controls/notes unify it with first-gig receipts; no new audio/stock/economy rates.",
+    "authority": "Owner explicitly approved the 1 November00:15\u201309:00 Europe/London overnight first-gig plan and directed artwork-led development, sprint lesson reads/updates, and original rotaries/faders/meters as meaningful venue/setlist/energy/shout-out controls. Plan https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d; this approval prospectively supersedes completed previous freezes for approvedwork only.",
     "source_sha": "db61d1d9468f4b2babf43e661e4bdd3cdd97a113",
     "released_at": "2026-11-01T05:39:04.406867+00:00"
   },
@@ -324,7 +324,7 @@
   },
   "pending_implementation": [],
   "pending_helpers": [],
-  "next_action": "Independent predesign → root production mixing desk → early native phone/shortwide review → final exact four-view whole writing task/save/audio proof. V14/source898 preserved.",
+  "next_action": "Independent predesign \u2192 root production mixing desk \u2192 early native phone/shortwide review \u2192 final exact four-view whole writing task/save/audio proof. V14/source898 preserved.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "ClosedV14packaging/localartifactready; noV14Drivefile/grant; producer688cachefilesimmutable. No furtherbuild/activityupload.",
   "previous_s64_release": {
@@ -1021,17 +1021,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -1082,7 +1082,7 @@
   "root_lease": {
     "owner": "root_S140_mixing_desk",
     "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-06T16:30:00+00:00",
+    "expires_at": "2026-11-06T17:00:00+00:00",
     "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
   },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
@@ -1527,17 +1527,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
