@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "id": "S143",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "3730156be7c5fbb73929cf4c6fab88cb8c915118",
+  "game_baseline_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "owner_request": "Latest direct owner: Go ahead with the updates after S142 proposal for three genuinely distinct songs/demo/radio, meaningful creation flow, fewer empty show steps and differentiated navigation; previous linked free informal practice/Back/live audition priorities retained. Fresh manual task, earlier windows completed.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1838796,
+    "sha256": "d7baf80475fb449e86bad0eabe670c330b5ba83c0ec4a22ee23229e099041627"
+  },
+  "lesson_ids": [
+    "BM-15",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-25",
+  "target": {
+    "locator": "/workspace/work/s140-mixing-desk-20261106/native-review/f9-native-final-desktop-f9-01-initial-writing-room-1600x900.png",
+    "original_sha256": "537c8690d08a5de2b01b1b3c9a0b1347a812d78ffc4f814a33041471ca3dc24a",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Persist distinct musical foundation identity independently of title/arrangement; three foundations and original 9writingdays feed unchanged ordered demo/release/radio. Reduce repeated screens/buttons without changing real costs or decisions. Preserve blocked-day agency with explicit free informal practice.",
+  "controlled_comparison": "Same raw/dark Indie band and exact settings across3different authored compositions; current viewed desktop and2ownerphone images establish baseline. Early390phone/1280shortwide important states before final four-view whole demo/show tasks.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S143.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "experiments/playable_flightcase/mixing_recipe.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/song_audio.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/session.gd",
+    "experiments/playable_flightcase/situation_core.gd",
+    "experiments/playable_flightcase/situation_jam.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/gig_journey.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/recording_desk.gd",
+    "experiments/playable_flightcase/control_roles.gd",
+    "experiments/playable_flightcase/audio/demo_foundations_v1.json",
+    "experiments/playable_flightcase/audio/producer/demo_foundations_v1/*.ogg"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s143-three-song-demo-20261106",
+    "/dev/shm/bandmaster-s143-three-song-demo-20261106"
+  ],
+  "root_lease": {
+    "owner": "root_S143_three_song_demo",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-07T03:59:11.316028+00:00",
+    "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
+  },
+  "source_write_allowed": true,
+  "engine_execution_allowed": true,
+  "APK_artifact_allowed": true,
+  "page_write_allowed": true,
+  "queue_task": "Existing S80 songwriting/demo and controls rows, linked availability practice; no new worklist or automation.",
+  "storage_plan": {
+    "at": "2026-11-06T21:59:11.316028+00:00",
+    "floor": 629145600,
+    "primary_start_free": 657104896,
+    "TMP_start_free": 773120000,
+    "primary_new_cap": 25165824,
+    "TMP_new_cap": 1048576,
+    "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
+    "RAM_persistent_cap": 939524096,
+    "RAM_categories_MiB": {
+      "one_active_regular_private_source_and_cache": 300,
+      "PNG_and_failed_proof": 64,
+      "pack_and_two_APKs": 432,
+      "offline_audio_work_XDG_receipts": 100
+    },
+    "native_phase_persistent_cap": 503316480,
+    "native_process_tree_RSS_cap": 671088640,
+    "SDK_phase_process_tree_RSS_cap": 469762048,
+    "cgroup_continuous_headroom_min": 1073741824,
+    "primary_categories_MiB": {
+      "shipping_audio": 6,
+      "new_Git_objects": 7,
+      "source_QA_native_originals": 6,
+      "receipts_failure_closeout": 5
+    },
+    "rationale": "Different prospective lower-peak route. One active producer may refresh only declared changed source at committed/gated candidate boundaries; frozen primary Git + source inventories/logs/PNGs retain each failed version. No old closed producer/cache writes or claims of repeated independent empty imports. No second full producer fits this scope. Export-pack then Godot-stopped SDK assembly, never held native APK export route; monitor full process tree and headroom; stop before any allocation that exceeds bound.",
+    "independent_predesign": "game_design_research source review conditional CLEAR, resource monitoring required; foundation_tests read-only exact API/test map complete.",
+    "all_critical_Git_source_primary": true,
+    "old_closed_caps_reused": false,
+    "cleanup": false,
+    "RAM_artifacts_volatile": true
+  },
+  "scope_contract": {
+    "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim.",
+    "acoustic_and_vocals": "No genuine acoustic or vocal source currentlycleared. Hold production inclusion; cleaner existing hollowbody sketch is labelled picked electric, never acoustic or singing. No new bank/deps/acquisition.",
+    "informal_practice": "\u00a30 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
+    "show_navigation": "One editable date/trip/terms agreement after room selection with one explicit booking confirmation; batch only non-choice trip transitions tosoundcheck, preserving original checkpoint/cost/save owners. Pause keeps dirty exits/Continue guards.",
+    "audio_preview": "Only if funded within same source scope: explicit-start sustained phrase, local updates without silent start, bounded supported pattern switch and stop on mute/focus/nav; no extra saves.",
+    "protected": "All54originalScripts3UID/all370oldOGG10JSON/art/fonts/hardware/sixinertmeters/Game/Finance/schema/once-onlyowners exact; any additional path requires prospective amendment."
+  },
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S143.json",
+    "Fresh empty private import once, actual changed models/73gameplay/88opening/ordinary entry; root alone exact Godot/Dummy/flock/privateXDG, editor/import/export/X11 additional network permission.",
+    "Independent predesign; early390/1280 important states before full proof; final390/720/1280/1600 three-song tasks with native pointer/key/emulatedtouch/scroll, typedreload and real filesystem failure/retry.",
+    "Actual ordered3songdemo\u2192release\u2192radio (record\u00a360/2days,release\u00a325/1day,radio\u00a320/1day) using existing originals; whole show/booking changed task and freejam guards.",
+    "ONE final code16 ARM64 exact latest scoped-tested source via fresh lower-peak pack/template SDK route, full update/privacy/resources audit then sameprivateDropbox/BandMaster; V15 retained untilverified."
+  ],
+  "stop_condition": "Before source/assets require committed preflight+gate. Per-phase full memory/disk guards; preserve every failed input/output; two ineffective attempts change method/HOLD. No cleanup/oldcache mutation, no paid/newbanks/runtimeAI; genuine acoustic/singing remain source-gated, no false acceptance. No automatic schedule/window extension."
+}
