@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1838796,
-    "sha256": "d7baf80475fb449e86bad0eabe670c330b5ba83c0ec4a22ee23229e099041627"
+    "bytes": 1844223,
+    "sha256": "8dc3358d07e6e1ab2054a4e49889977b065d9460bb5f64ae37477f889829fd93"
   },
   "lesson_ids": [
     "BM-15",
@@ -68,7 +68,10 @@
     "experiments/playable_flightcase/recording_desk.gd",
     "experiments/playable_flightcase/control_roles.gd",
     "experiments/playable_flightcase/audio/demo_foundations_v1.json",
-    "experiments/playable_flightcase/audio/producer/demo_foundations_v1/*.ogg"
+    "experiments/playable_flightcase/audio/producer/demo_foundations_v1/*.ogg",
+    "experiments/playable_flightcase/rehearsal_recap.gd",
+    "experiments/playable_flightcase/rehearsal_press.gd",
+    "experiments/playable_flightcase/session_transition.gd"
   ],
   "external_artifact_roots": [
     "/workspace/work/s143-three-song-demo-20261106",
@@ -132,5 +135,14 @@
     "Actual ordered3songdemo\u2192release\u2192radio (record\u00a360/2days,release\u00a325/1day,radio\u00a320/1day) using existing originals; whole show/booking changed task and freejam guards.",
     "ONE final code16 ARM64 exact latest scoped-tested source via fresh lower-peak pack/template SDK route, full update/privacy/resources audit then sameprivateDropbox/BandMaster; V15 retained untilverified."
   ],
-  "stop_condition": "Before source/assets require committed preflight+gate. Per-phase full memory/disk guards; preserve every failed input/output; two ineffective attempts change method/HOLD. No cleanup/oldcache mutation, no paid/newbanks/runtimeAI; genuine acoustic/singing remain source-gated, no false acceptance. No automatic schedule/window extension."
+  "stop_condition": "Before source/assets require committed preflight+gate. Per-phase full memory/disk guards; preserve every failed input/output; two ineffective attempts change method/HOLD. No cleanup/oldcache mutation, no paid/newbanks/runtimeAI; genuine acoustic/singing remain source-gated, no false acceptance. No automatic schedule/window extension.",
+  "prospective_jam_report_amendment": {
+    "paths": [
+      "experiments/playable_flightcase/rehearsal_recap.gd",
+      "experiments/playable_flightcase/rehearsal_press.gd",
+      "experiments/playable_flightcase/session_transition.gd"
+    ],
+    "reason": "Existing generic recap otherwise calls unchanged readiness a failed live rehearsal and hides the jam reason. Add jam-only truthful earned report/attendee-only voices and heading; preserve all other focus layouts/art/fonts. Same24MiB/896MiB caps.",
+    "independent_QA": "foundation_tests literal attendance/free-day/no-readiness policy confirmed before QA authoring."
+  }
 }
