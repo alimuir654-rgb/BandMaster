@@ -1,0 +1,15 @@
+# S140 mixing-desk song creation
+
+Owner direction: “Bingo. This is great. Go for it.” The approved mockup is design direction, not acceptance of every shipping asset. This fresh manual task does not restart the completed overnight automation.
+
+The Writing Room now has native tactile Tone/Pace rotaries, Energy/Complexity faders, Groove/Shape switches and lyrical direction. Free changes, A/B listening, member Try/Keep/Leave responses and sketch saves remain separate from COMMIT SESSION. FEEL, BUILD and TAKE develop through the original three paid writing days. Matching finite audio is scoped to raw/dark Indie; other styles have honest written fallback. Saved arrangements replay through the existing original, rehearsal, selected earned show and receipt paths.
+
+Verified source: `f9d26dba65b127cdbb8844aa570b7178c4858bea`. Next base is only the812declared rows in the durable source-final manifest, read from811primaryGit paths plus its146B isolated entry. Never resume any closed RAM producer or copy arbitrary cache/QA extras. All54originalScripts including3UID, old82OGG9audioJSON, art/fonts/hardware, inert meters and original once-only owners remain protected.
+
+Four complete current writing tasks, actual free/paid filesystem failures and retry, typed reload, scroll/input/lifecycle and earned-checkpoint rehearsal/show continuity passed. Formation uses explicit original-owner setup fixtures; this is not proof of four naturally earned initial-menu careers. Current final source has15strict engine executions; across iterations50Godot comprise37strict and13held. Exact unchanged model2256/audio111 proof is reused with14/291hash-bound inputs. Overall visual quality remains PARTIAL; physical phone, IME, listening, install/update and saved-band retention are untested.
+
+V15/code15/version0.140.0-playtest is privately delivered at `/BandMaster/BandMaster-Playtest-v15-arm64.apk` in the connected Dropbox account.139425647B/SHA1b1e26709ebe7d5aa10e6462d283523bb9bf57518db3b289bfda793f13ef6e70. Same app/certificate/save folder, ARM64, zero permissions; signature/alignment/CRC/launcher/source/resources pass. Two Godot exports remain HELD after memory guards. The final file was derived only after complete component validation, standalone alignment/signing and a separate full audit; no9buildstepsPASS claim. The actual temporary-floor incident and exact failed-file preservation/rehome are documented. No source/history/keys/saves/rawbank sharing or new sharing grant occurred. Remote cryptographic checksum was not supplied.
+
+S135 formation art and S138 backstage remain offline, S139 long-arc pilot remains a proposal, A04 stays technicalHOLD. All writers/helpers/GL are released and all current/old producers closed. Next action: download V15 from the private Dropbox BandMaster folder, install as Update without uninstalling or clearing data, then supply actual phone and listening feedback.
+
+Exact evidence, opened originals, five explicitly SIMULATED lenses and all material gaps: `/workspace/work/s140-mixing-desk-20261106/closeout.json`.

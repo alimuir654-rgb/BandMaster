@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S140",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "1dd454793cc250d9902b055d4b05d482726e934f",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1832119,
-    "sha256": "98725dc6298a4a082d8999cea63667756e7e448ad83dad3b82b463f8897aff2b"
+    "bytes": 1833459,
+    "sha256": "02297c0cc92da5217b347fc1a477a7b8a8f0b3473dfb032b7fb1f232091eed6e"
   },
   "lesson_ids": [
     "BM-01",
@@ -104,18 +104,13 @@
     "Final changed source73gameplay/88opening/freshEMPTYprivateimport/4standard/ordinary600max60verbose; source protection/raw log/PNG/failure version receipts, no unchanged activity suites.",
     "One meaningful final APK only after complete changed-source verification, same appID/cert/savefolder increasedcode; packaging tail RAM-funded. Private delivery must use exact owner-authorised destination; no new sharing grants."
   ],
-  "root_lease": {
-    "owner": "root_S140_mixing_desk",
-    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-06T19:00:00+00:00",
-    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
-  },
-  "source_write_allowed": true,
-  "art_write_allowed": true,
-  "audio_write_allowed": true,
-  "engine_execution_allowed": true,
-  "APK_artifact_allowed": true,
-  "page_write_allowed": true,
+  "root_lease": null,
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
   "storage_plan": {
     "at": "2026-11-06T13:29:28.358370+00:00",
     "primary_start_free": 751398912,
@@ -500,5 +495,308 @@
     "source_category_actual": 1968855522,
     "source_category_newcap": 2013265920,
     "offline_audio_newcap": 67108864
+  },
+  "released_root_lease": {
+    "owner": "root_S140_mixing_desk",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T19:00:00+00:00",
+    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
+  },
+  "closed_at": "2026-11-06T18:30:18.350451+00:00",
+  "closeout": {
+    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "evidence": [
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/source-final.json",
+        "SHA256": "f473803f0f0fde5d32b5cf1efad1437bebd166dc81c87349b4fae09df7a9c707"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/source-protection-final.json",
+        "SHA256": "ff742d4d3e0e3452a947943fb3e9baa1de69a0a42557151148ea430328e0f4b0"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+        "SHA256": "0b59657bb00235fb24fba89dbbcc5f78370ddd1369418d0491f67f582d81d0f4"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/accepted-log-audit.json",
+        "SHA256": "3cfd07458661976a36e1f66c73f8e4ce08a0c823dd68b85b8506257ae3bceab4"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/PNG-inventory-final.json",
+        "SHA256": "75d529331642f977a93ad269d4958555028e373c0d690aaa0256681440677d73"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/root-review-final.json",
+        "SHA256": "27985e33bf11582eee51879d7855f4cf6fd4ecdbedc7c9e722fd5a7cf873a838"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/model-reuse-current-final.json",
+        "SHA256": "e560443c18dd849b33bfc569a589a44a9ea138a9a46d49f418bfe10fed89a7b5"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/native-audio-reuse-current-final.json",
+        "SHA256": "66bb112770d170685fb2ba65e5d155c4498552c5b1a8e282f369afad4e6ceaf8"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/review/final-source-native-f9-v1.json",
+        "SHA256": "caba41de6e24fb7cf7ce6d48a0dc5631dcee4c663c60c0f14f0fe06372ef1c13"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/review/standard-pixel-independent-v1.json",
+        "SHA256": "ad487357497d273cf9d21b06e473e63c30a2a39a5e0f396408c7e814005508b8"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/review/artifact-v15-final-v1.json",
+        "SHA256": "3e71cda66af1362ff222b7d9f52eb06d621eaf6f98b571a47798c52ff9e016c4"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/build.json",
+        "SHA256": "9a76647d0ebcae41593822c95379b09a3fa6c02ec2f6cb877e08b7b329ccc53c"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/recovery-input-validation.json",
+        "SHA256": "fc59e9fe5901e949304d93c327e8a914ea27329ccb8e1b9da38852a5d5685980"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/update-privacy-audit-v15.json",
+        "SHA256": "05a57430a1be6ea2a6bea003dfe7ef85b7c28dcbce92e4a4fef7ce3c597e15ce"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/exact-native-TMP-rehome-complete.json",
+        "SHA256": "23648989a618b772446fb3dc8c7a9f69b3fa732b431223228b4325a775aee3eb"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/producer-cache-closure-final.json",
+        "SHA256": "8d69b398435c1202a999a7da2dc65a21964a02bcaa2f3c65aa56fe248aa60b8e"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json",
+        "SHA256": "9d9b4b464ada3997d3c480efa570808f1d3e17d58146e95b40626e1b9fef9ecb"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/private-delivery-context.json",
+        "SHA256": "da217ec3008cca834fb0d79a17af619e3371b89706af5d27495b73c6ce4d0009"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/page-status-audit.json",
+        "SHA256": "9ffcbdc3b8336174222da7154606988ad3bce66fc2e329cf5e259ab57d6e0641"
+      },
+      {
+        "path": "/workspace/work/s140-mixing-desk-20261106/resources-release-final.json",
+        "SHA256": "5a162da95d9a299639cc6292f68360d5d3c809444ff9364189989ed78f3713a6"
+      }
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Install V15 from the private Dropbox BandMaster folder as UPDATE and playtest the raw/dark Indie writing desk, phone scrolling/IME/audio and retained career; do not uninstall or clear data.",
+    "new_issue_review": {
+      "reviewed_bytes": 1833459,
+      "sha256": "02297c0cc92da5217b347fc1a477a7b8a8f0b3473dfb032b7fb1f232091eed6e",
+      "all_actual_events": 1187,
+      "resumed_new_opaque_events": [
+        {
+          "event_id": "S140-20261106T174332-continuity-due-pane-eee6c863",
+          "id": "BM-33",
+          "event": "recurrence",
+          "observation": "First final-f9 native saved-song continuity run raw1/ERRORempty reaches456 checks then fails expected due-day original redirect reaches live desk; bounded task stops. Original source/career/counters and full failed result retained; route cause not yet established.",
+          "expected": "Verify actual existing due-day presentation and then explicit native departure through original owner; no presumed immediate career-pane transition.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/executions/continuity-phone-f9.json",
+            "/workspace/work/s140-mixing-desk-20261106/qa/mixing_continuity_v1.gd"
+          ],
+          "severity": "P2",
+          "cause_confidence": "unknown",
+          "prevention": "Derive actual source/report/redirect phase before asserting native pane; preserve whole original owner/save/song guards.",
+          "verification": "HELD456checks; no show/continuity PASS or product defect claim.",
+          "owner_role": "root_S140_mixing_desk",
+          "next_action": "Read actual due-day source/result then versioned QA correction only if exact assertion disproved; retain all game/save assertions.",
+          "recorded_at": "2026-11-06T17:43:40.280631+00:00",
+          "append_schema_failure_retained": "Initial unaccepted event append refused missing recorded_at; original tool receipt retained. Add required timestamp before accepted append; no source/QA correction preceded log. Second unaccepted append refused missing affected_paths. Changed method: read exact append_event required fields and existing-ID discriminator before corrected complete request; both refusals retained, no log/source mutation.",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/qa/mixing_continuity_v1.gd"
+          ]
+        },
+        {
+          "event_id": "S140-20261106T174807-394a2d237fae",
+          "id": "BM-33",
+          "event": "verified_resolution",
+          "observation": "Final continuity v2 on f9 passes694checks raw0/ERRORempty, one actual original-priced rehearsal, eligible local booking, DAY12 due departure/show, actual receipt and typed reload. Separate shortwide rehearsal context96checks strict. v1 failed456 remains HELD.",
+          "expected": "Source-confirmed saved recap acknowledgement then genuine CareerDeskAction; every old game/song/save assertion retained.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/executions/continuity-phone-f9-v2.json",
+            "/workspace/work/s140-mixing-desk-20261106/executions/continuity-wide-context-f9.json"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Derive actual phase and filesystem context; do not weaken assertions or promote failed proof.",
+          "verification": "Current exact receipts/actual opened-file list only; source unchanged.",
+          "recorded_at": "2026-11-06T17:48:07.855775+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/qa/mixing_continuity_v2.gd"
+          ],
+          "next_action": "Complete final source/artifact closure with separate held history."
+        },
+        {
+          "event_id": "S140-20261106T174807-3486f98a5d8e",
+          "id": "BM-34",
+          "event": "recurrence",
+          "observation": "Independent final review assembly tried to rehash a previously actually opened host-RAM native PNG and got FileNotFoundError in that exec context. Six primary originals rehash successfully; four earlier RAM image views retain their actual view/receipt history.",
+          "expected": "Record observed retrieval limitation without inferring disappearance or claiming a new open/hash; use primary copies or root host-dev26 read-bound witnesses.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/selected-final-f9-copies.json",
+            "Independent game_design_research retrieval message 2026-11-06"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Derive actual phase and filesystem context; do not weaken assertions or promote failed proof.",
+          "verification": "Current exact receipts/actual opened-file list only; source unchanged.",
+          "recorded_at": "2026-11-06T17:48:07.965742+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/review"
+          ],
+          "next_action": "Complete final source/artifact closure with separate held history."
+        },
+        {
+          "event_id": "S140-20261106T175034-newfamily-key-49fcaec6",
+          "id": "BM-33",
+          "event": "recurrence",
+          "observation": "Independent host read-only pixel audit raw1 before write: KeyError RGBA_exact on actual new mixing_free_entry row, which has no baseline witness and intentionally omits equality. No pixel mismatch or completed independent260closure inferred.",
+          "expected": "Compare actual equality for every paired row; explicitly handle four new-family rows with no baseline, do not replace missing witness by equality.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/standard-pairs-initial.json",
+            "game_design_research exact retrieval failure message"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Inspect actual optional row keys/new-family shape before indexing, keep paired equality assertions unchanged.",
+          "verification": "Read-only diagnostic held; corrected explicit row-shape branch pending.",
+          "recorded_at": "2026-11-06T17:50:34.382322+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/review"
+          ],
+          "next_action": "One corrected independent pixel audit with explicit new-family handling; no engine/source mutation."
+        },
+        {
+          "event_id": "S140-20261106T175329-APK-memoryguard-a0cb7e4d",
+          "id": "BM-30",
+          "event": "recurrence",
+          "observation": "V15 fresh import strictPASS; first export reached98percent debug signing then root2GiB cgroup-headroom guard interrupted/killed process group. Export raw completion unavailable;139250510B partial exported.apk/log retained. No build/audit/deliveryPASS. Afterstop cgroupcurrent14164750336/max17179869184.",
+          "expected": "Keep2GiBheadroom guard and all payloads/proof/history; bound signing JVM peak rather than repeat unchanged export or remove assets.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/build.json",
+            "S140 APK export held traceback session79197",
+            "/dev/shm/bandmaster-s140-mixing-desk-20261106/android-v15/logs/export.log"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Inspect actual signing launcher/JVM limits; prospectively fund retained full failed export and changed-method continuation before rerun.",
+          "verification": "First packaging export HELD atmemoryguard; sourcef9 nativeproof remainsvalid.",
+          "recorded_at": "2026-11-06T17:53:29.908256+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/build_v15-v1.py"
+          ],
+          "next_action": "Read existing apksigner JVM interface; stage changed-method bounded continuation with source/cache regularcopy immutability, noimport rerun or guard weakening."
+        },
+        {
+          "event_id": "S140-20261106T180217-36745bfc1580",
+          "id": "BM-30",
+          "event": "recurrence",
+          "observation": "Second changed-JVM export-v2 was interrupted by unchanged2GiBheadroomguard at97percent Aligning APK, BEFORE signing. Actual childraw-15 recorded. Originalexported.apk139250510B and exported-v2.apk116862555B retained; both remain HELD, no exportPASS or9buildstepsPASS.",
+          "expected": "Stop in-engine APK export. New reviewed method may recover only fully validated complete first-export components, align/sign standalone with Godot absent, retaining both failedbyte/statwitnesses and all guards.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/build.json",
+            "/workspace/work/s140-mixing-desk-20261106/component-recovery-readonly.json"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Use observed schemas/paths and genuinely changed execution method; never convert a held producer into a successful raw exit.",
+          "verification": "Actual history retained; independent full artifact validation required before new final APK acceptance.",
+          "recorded_at": "2026-11-06T18:02:17.027269+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106"
+          ],
+          "next_action": "Complete scope-bound source/visual final review and explicit separate component-recovery preflight."
+        },
+        {
+          "event_id": "S140-20261106T180217-3d0e1ba757df",
+          "id": "BM-33",
+          "event": "recurrence",
+          "observation": "Independent read-only ancillary probes included absent guessed identity_press.gd (rgraw2) and omitted review/ segment when reading its already-existing standard-pixel-independent-v1.json (raw1). Following source/model hashes and actual persisted pixel report unaffected; no mutation or producer defect.",
+          "expected": "Use actual observed path D/review/standard-pixel-independent-v1.json; final report may cite only successful reads/opened originals and preserve diagnostic chronology.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/review/standard-pixel-independent-v1.json",
+            "Independent game_design_research read-only diagnostics"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Use observed schemas/paths and genuinely changed execution method; never convert a held producer into a successful raw exit.",
+          "verification": "Actual history retained; independent full artifact validation required before new final APK acceptance.",
+          "recorded_at": "2026-11-06T18:02:17.113118+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106"
+          ],
+          "next_action": "Complete scope-bound source/visual final review and explicit separate component-recovery preflight."
+        },
+        {
+          "event_id": "S140-20261106T180800-unplanned-TMP-align-c311be30",
+          "id": "BM-30",
+          "event": "recurrence",
+          "observation": "Standalone recovery guard refused BEFORE any SDK command: actual TMPfree494624768B below629145600B floor. Two S140 Godot exports left exact new /tmp/tmpexport-unaligned.1793987524.apk and .1793987801.apk, each139250139B, timestamps matching held exports; TMPDIR did not constrain those native export intermediates. Original build monitor omitted actual /tmp free check. This is an actual funding/floor incident, not retrospectively approved allocation.",
+          "expected": "Preserve both complete new failed intermediates and restore fixedTMPfloor via exact prospectively funded rehome to owned hostRAM, not arbitrary cleanup or oldcache/Git mutation; no more in-engine exports.",
+          "evidence": [
+            "/tmp/tmpexport-unaligned.1793987524.apk",
+            "/tmp/tmpexport-unaligned.1793987801.apk",
+            "/workspace/work/s140-mixing-desk-20261106/recover_v15-v1.py",
+            "recovery pre-SDK guard trace 2026-11-06T1805"
+          ],
+          "severity": "P1",
+          "cause_confidence": "observed",
+          "prevention": "Monitor actualTMPfloor too; force standalone Java tmpdir to fundedR/tmp, retain changed source/input/producer history and full bytes at declared new locations.",
+          "verification": "RecoverySDKcalls0; source/nativeproof unchanged, both exports remainHELD. Fixedfloormustbe restored before continued packaging.",
+          "recorded_at": "2026-11-06T18:08:00.280037+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/build_v15-v1.py",
+            "/workspace/work/s140-mixing-desk-20261106/build_v15-v2-continuation.py",
+            "/workspace/work/s140-mixing-desk-20261106/recover_v15-v1.py"
+          ],
+          "next_action": "Prospective exact2-file hash/stat allowlist rehome preserving bytes/mode/uidgid/mtime, explicit originalpath changes disclosed; unchanged3.5GiBglobalcap/2GiBmemoryguard, then standalone recovery only."
+        },
+        {
+          "event_id": "S140-20261106T182325-closure-row-basis-13af9e1b",
+          "id": "BM-33",
+          "event": "recurrence",
+          "observation": "Final read-only cache preservation audit stopped before writes: older candidate-v2 closure rows are relative to .godot (first .gdignore), while v3-v7 rows are relative to runtime (first .godot/.gdignore). Incorrect shared base produced FileNotFoundError, not evidence cache disappearance.",
+          "expected": "Use actual v2 cache-relative schema and actual v3-v7 runtime-relative schema; assert all declared files/bytes/hashes unchanged.",
+          "evidence": [
+            "/workspace/work/s140-mixing-desk-20261106/candidate-host-v2-cache-closure.json",
+            "/workspace/work/s140-mixing-desk-20261106/candidate-host-v7-cache-closure.json",
+            "root final closure diagnostic 8634bb"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Read complete actual receipt root/path basis before combining old schemas; no guessed same-basis assumption.",
+          "verification": "Initial auditor held before closure writes; all older producer immutability remains required.",
+          "recorded_at": "2026-11-06T18:23:25.659046+00:00",
+          "owner_role": "root_S140_mixing_desk",
+          "affected_paths": [
+            "/workspace/work/s140-mixing-desk-20261106/producer-cache-closure-final.json"
+          ],
+          "next_action": "Correct only explicit path basis, preserve all old hash assertions, then serialize final closure once."
+        }
+      ],
+      "all_current_events_reviewed": true,
+      "holds_preserved": [
+        "Two interrupted Godot APK exports, old abrupt-exit audio diagnostic and all earlier failed QA/visual/gate history.",
+        "Actual TMP floor incident retained; exact two-file byte/stat rehome restored fixed floor.",
+        "Historical S133 unreachable-object preservation remains unproved; old missing alternate is not reconstructed."
+      ]
+    }
   }
 }

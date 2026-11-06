@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "S140",
-  "scope": "ExistingS80firstlongerarc authoredproposalready;0Game/source/assets/native/APKchange.",
+  "scope": "Owner-approved mixing-desk song creation, final sourcef9 and private V15; no implementation pending.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,18 +10,17 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S140_active_owner_approved_mixing_desk_rework",
-  "next_action": "Independent predesign → root production mixing desk → early native phone/shortwide review → final exact four-view whole writing task/save/audio proof. V14/source898 preserved.",
+  "status": "S140_closed_verified_source_and_private_V15_delivered",
+  "next_action": "Install V15 from the private Dropbox BandMaster folder as UPDATE and playtest the raw/dark Indie writing desk, phone scrolling/IME/audio and retained career; do not uninstall or clear data.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
-    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
     "scoped_technical_pass": true,
     "visual_verdict": "partial",
     "owner_approved": false,
-    "evidence": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
-    "physical_device_pending": true,
-    "historical_debug_exit_P2_retained": true
+    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
+    "physical_device_pending": true
   },
   "last_polish": {
     "session": "C34",
@@ -60,17 +59,16 @@
     "status": "historical_completed_at09:00; sameautomation reused for ownerapproveddayplan"
   },
   "latest_local_checkpoint": {
-    "session": "S134",
-    "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "evidence": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
-    "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+    "session": "S140",
+    "source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
+    "manifest": "/workspace/work/s140-mixing-desk-20261106/source-final.json",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "packaged_in_V13": false,
-    "packaged_in_V14": true
+    "packaged_in_V15": true
   },
-  "publication": "VerifiedV14compiledAPK available as localworkspaceartifact; Driveconnector100MiBblocked beforeaction. ExistingV13Drive ownerchair+Alireader unchanged; noV14remotegrant/sourcehistory/rawbanks/keys/savesupload.",
+  "publication": "V15 compiledAPK in connected Ali private Dropbox/BandMaster, metadata/readback verified; no new links/grants. V14 retained; older Drive remainsV13.",
   "historical_opening_completion_gate": {
     "native_full_input_verified": true,
     "tested_sha": "d5f71bbce0f4ea34cca256f87fb10f9c91ccba6a",
@@ -2765,17 +2763,7 @@
     "five_lenses": "SIMULATED",
     "physical_device": false
   },
-  "latest_focused_native_qa": {
-    "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-    "receipt": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
-    "checks": 12621,
-    "whole_gigs": 4,
-    "failed_save_retry_cases": 14,
-    "reloads": 16,
-    "auxiliary_checks": 1359,
-    "all_error_lines": [],
-    "native_orphan_growth": 0
-  },
+  "latest_focused_native_qa": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
   "previous_focused_native_qa": {
     "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T04:09:52.459751+00:00",
@@ -2985,11 +2973,10 @@
     "next_action": "Next bounded worker: nativeQA of the EXISTING overwrite-draft KEEP BAND and Escape cancellation paths, checking originalinvoker focus restoration, unchanged career/draftbytes, modalbackground input and exactly-once callbacks. Confirm actualdefect before anyfix, appendissue/commitpreflight first, preserve current2e source/art and all completedviews. No new features/persistence/material swaps;08:50onward finalread-onlyreview."
   },
   "android_owner_package": {
-    "status": "verified_local_artifact_ready_Drive_transfer_HELD",
-    "session": "S136",
-    "game_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "version_name": "0.134.0-playtest",
-    "version_code": 14,
+    "status": "private_Dropbox_delivered_verified_metadata",
+    "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "version_name": "0.140.0-playtest",
+    "version_code": 15,
     "application_id": "com.bandmaster.ownerplaytest.s40",
     "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
     "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
@@ -2997,18 +2984,19 @@
       "arm64-v8a"
     ],
     "requested_permissions": [],
-    "bytes": 123902239,
-    "local_sha256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
-    "apk_path": "/workspace/work/s136-final-apk-v14-20261106/BandMaster-Playtest-v14-arm64.apk",
-    "build_receipt": "/workspace/work/s136-final-apk-v14-20261106/build.json",
-    "audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
-    "local_handoff": "/workspace/work/s136-final-apk-v14-20261106/local-handoff.json",
-    "Drive_file_created": false,
-    "Drive_grants_changed": 0,
-    "Drive_delivery_completed": false,
+    "bytes": 139425647,
+    "local_sha256": "1b1e26709ebe7d5aa10e6462d283523bb9bf57518db3b289bfda793f13ef6e70",
+    "apk_path": "/dev/shm/bandmaster-s140-mixing-desk-20261106/android-v15/BandMaster-Playtest-v15-arm64.apk",
+    "build_receipt": "/workspace/work/s140-mixing-desk-20261106/build.json",
+    "audit": "/workspace/work/s140-mixing-desk-20261106/update-privacy-audit-v15.json",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAABw",
+    "Dropbox_path": "/BandMaster/BandMaster-Playtest-v15-arm64.apk",
+    "owner_folder_navigation_url": "https://www.dropbox.com/home/BandMaster",
+    "private_delivery": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json",
+    "remote_checksum_available": false,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
-    "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
+    "install_instruction": "UPDATE; never uninstall, clear data or wipe."
   },
   "previous_session": "docs/continuous_improvement/sessions/S51.json",
   "day31_authority": {
@@ -3403,9 +3391,9 @@
     ]
   },
   "last_artifact_slice": {
-    "session": "S128",
-    "artifact": "V13",
-    "evidence": "/workspace/work/s128-full-notes-and-final-apk-20261105/private-delivery.json"
+    "session": "S140",
+    "artifact": "V15",
+    "evidence": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json"
   },
   "owner_identity_calendar_20261101": {
     "owner_direction": "Calendar; bettername/logobuilderfonts/colours; celebratoryeditorialbandname+selectedfull-lengthgroup milestone",
@@ -3461,10 +3449,10 @@
   "artifact_completion_gate": {
     "technical_pass": true,
     "local_APK_ready": true,
+    "private_Dropbox_delivery_completed": true,
     "private_Drive_delivery_completed": false,
-    "visual_verdict": "partial",
-    "owner_approved": false,
-    "evidence": "/workspace/work/s136-final-apk-v14-20261106/closeout.json"
+    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
+    "owner_approved": false
   },
   "owner_review_board": {
     "url": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
@@ -3593,13 +3581,13 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-06T04:42:17.170959+00:00",
-  "last_writer": "root_S139_readonly_rehearsal_pilot",
+  "released_at": "2026-11-06T18:30:18.350451+00:00",
+  "last_writer": "root_S140_mixing_desk",
   "source_write_allowed": false,
-  "pending_implementation": [],
+  "pending_implementation": false,
   "pending_helpers": [],
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "closed_verified_S134_898",
+  "source_phase": "closed_verified_S140_f9",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
   "expires_at": null,
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
@@ -3680,8 +3668,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 76,
-  "current_review_board_sequence": 186,
+  "current_plan_sequence": 77,
+  "current_review_board_sequence": 187,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -3695,9 +3683,9 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
-  "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
-  "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
+  "candidate_run": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+  "candidate_model": "/workspace/work/s140-mixing-desk-20261106/model-reuse-current-final.json",
+  "candidate_focus_run": "/workspace/work/s140-mixing-desk-20261106/executions/whole-phone-f9.json",
   "last_sprint": "S100",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
   "last_completed_deliverable": "S139authoredrehearsal-concernpilot/sourcecontract PROPOSALONLY",
@@ -3815,7 +3803,7 @@
   },
   "new_breadth_freeze": "2026-11-06T06:30:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
-  "candidate_sha": null,
+  "candidate_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
   "base_head": "b25343ea43061e55f16af0343fbb6ee67aefe302",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
@@ -3920,7 +3908,7 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": false,
-  "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "latest_local_native_checkpoint": {
     "session": "S134",
     "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -3955,7 +3943,7 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "current_phone_page_sequence": 19,
+  "current_phone_page_sequence": 20,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
   "closeout": {
     "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -4072,7 +4060,7 @@
       "automatic_regression_rejection_resolved_by_actual13changedpaths_and_explicit_required_checks": true
     }
   },
-  "last_delivery": "/workspace/work/s136-final-apk-v14-20261106/local-handoff.json",
+  "last_delivery": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json",
   "s79_closeout": "/tmp/bandmaster-s79-20261102/closeout.json",
   "current_experience_feedback": {
     "at": "2026-11-04T19:09:21.724115+00:00",
@@ -4097,7 +4085,7 @@
     "historical_approvals_preserved": true,
     "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
-  "session_path": "docs/continuous_improvement/sessions/S134.json",
+  "session_path": "docs/continuous_improvement/sessions/S140.json",
   "finite_end": "2026-11-06T08:00:00Z",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "art_pending_A06": false,
@@ -4123,27 +4111,23 @@
     "scope": "Combined fictional road travel still, full16:9contain; no wheelrig/photograph/ownership/performeranimation claim",
     "archived_on_board": 117
   },
-  "last_verified_game_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-  "current_candidate": null,
+  "last_verified_game_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "current_candidate": {
+    "source": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "status": "closed_verified_in_V15",
+    "next_base_only": "/workspace/work/s140-mixing-desk-20261106/source-final.json"
+  },
   "last_verified_code_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "last_verified_component_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "last_verified_native_run_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "last_verified_local_native_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-  "source_writer_released_at": "2026-11-06T00:46:38.531160+00:00",
+  "source_writer_released_at": "2026-11-06T18:30:18.350451+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "scope_end": "2026-11-06T08:00:00Z",
   "latest_unverified_phase2_candidate": null,
   "s82_closeout": "/tmp/bandmaster-s82-20261102/closeout.json",
-  "source_implementation_pending": null,
-  "active_development_run": {
-    "session": "S127",
-    "status": "active",
-    "writer": "root_S127_jack_backing_context",
-    "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
-    "released_at": null,
-    "continuous_compute_claim": false,
-    "finite_end": "2026-11-05T17:00:00Z"
-  },
+  "source_implementation_pending": false,
+  "active_development_run": null,
   "current_delivery_policy": {
     "status": "V11_PRIVATE_DELIVERED_DAY_REQUEST_FULFILLED",
     "routine_decisions_delegated": true,
@@ -4153,8 +4137,8 @@
     "no_sourcehistory_keys_saves_or_public_sharing": true,
     "hard_stop": "2026-11-04T18:00:00Z"
   },
-  "last_source_writer_release": "2026-11-05T15:11:38.623247+00:00",
-  "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "last_source_writer_release": "2026-11-06T18:30:18.350451+00:00",
+  "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -4429,13 +4413,8 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "owner": "root_S140_mixing_desk",
-    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-06T19:00:00+00:00",
-    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
-  },
-  "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
+  "root_lease": null,
+  "source_implementation_status": "NONE; implemented sourcef9 is verified and delivered as V15.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
     "proposal": "/tmp/bandmaster-s86-20261103/review/closed-baseline-font-cache-relocation-proposal.json",
@@ -5592,7 +5571,7 @@
     "closed_at": "2026-11-03T17:45:33.922598+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "current_verified_game_source": "36c0bea5ed8c2d498fa5668743880b22759596da",
+  "current_verified_game_source": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "s86_checkpoint_history_before_S91": {
     "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
     "validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
@@ -6334,7 +6313,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S140_mixing_desk",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6555,11 +6534,8 @@
     "metadata_commit": "553a24908fab8ce4ae2ecd57097a8b52b87c0ec0"
   },
   "latest_whole_game_review": {
-    "session": "S111",
-    "report": "docs/continuous_improvement/S111_WHOLE_GAME_REVIEW.md",
-    "verdict": "partial",
-    "personas": "threeSIMULATED; nothuman",
-    "source": "0c92100b826322c8c92fba89317b60b77dc28c9b"
+    "scope": "S140 writing/rehearsal/show callers; not wholeinitialmenus",
+    "evidence": "/workspace/work/s140-mixing-desk-20261106/review/final-source-native-f9-v1.json"
   },
   "active_day_authority": {
     "stop": "2026-11-05T17:00:00Z",
@@ -6572,21 +6548,37 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "active_session": "S140",
-  "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
+  "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
-  "source_writer": "root_S140_mixing_desk",
-  "artifact_writer": "root_S140_mixing_desk",
+  "source_writer": null,
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
-    "session": "S128",
-    "version_code": 13,
-    "game_source_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
-    "url": "https://drive.google.com/file/d/1r8vfWnYw0VWzunY3zA9rbw3iQn35p1fr/view?usp=drivesdk",
-    "build_receipt": "/workspace/work/s128-full-notes-and-final-apk-20261105/build.json",
-    "excludes_S133_S134": true,
+    "status": "private_Dropbox_delivered_verified_metadata",
+    "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "version_name": "0.140.0-playtest",
+    "version_code": 15,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+    "abis": [
+      "arm64-v8a"
+    ],
+    "requested_permissions": [],
+    "bytes": 139425647,
+    "local_sha256": "1b1e26709ebe7d5aa10e6462d283523bb9bf57518db3b289bfda793f13ef6e70",
+    "apk_path": "/dev/shm/bandmaster-s140-mixing-desk-20261106/android-v15/BandMaster-Playtest-v15-arm64.apk",
+    "build_receipt": "/workspace/work/s140-mixing-desk-20261106/build.json",
+    "audit": "/workspace/work/s140-mixing-desk-20261106/update-privacy-audit-v15.json",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAABw",
+    "Dropbox_path": "/BandMaster/BandMaster-Playtest-v15-arm64.apk",
+    "owner_folder_navigation_url": "https://www.dropbox.com/home/BandMaster",
+    "private_delivery": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json",
+    "remote_checksum_available": false,
     "physical_phone_tested": false,
-    "physical_upgrade_save_retention_tested": false
+    "physical_upgrade_save_retention_tested": false,
+    "install_instruction": "UPDATE; never uninstall, clear data or wipe."
   },
   "native_evidence_pending": false,
   "historical_active_aliases_before_S117_release": "/workspace/work/s117-final-apk-v11-20261104/canonical-aliases-before-release.json",
@@ -6773,8 +6765,8 @@
   },
   "GL_owner": null,
   "review_pending": false,
-  "latest_verified_game_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-  "latest_source_manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+  "latest_verified_game_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "latest_source_manifest": "/workspace/work/s140-mixing-desk-20261106/source-final.json",
   "s127_closeout": {
     "tested_sha": "c24e4a927eef0feaec934358448daa1554539e57",
     "closeout": "/workspace/work/s127-jack-backing-context-20261105/closeout.json",
@@ -6795,7 +6787,7 @@
     "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/active-aliases-before-S128-normalization.json",
     "SHA256": "e9a862ec74e150497e00a6c0015f019e177b29b333c7230572d97a5858843b9c"
   },
-  "artifact_scope": "ClosedV14packaging/localartifactready; noV14Drivefile/grant; producer688cachefilesimmutable. No furtherbuild/activityupload.",
+  "artifact_scope": "closed; one new V15 complete, both interrupted exports retainedHELD; no further producer active.",
   "s128_closeout": {
     "path": "/workspace/work/s128-full-notes-and-final-apk-20261105/closeout.json",
     "tested_sha": "bfc6b5c37e3c8cc9735f8c8cd2b940512cba297d",
@@ -6847,7 +6839,7 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "APK_artifact_allowed": true,
+  "APK_artifact_allowed": false,
   "s134_closeout": {
     "path": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
     "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -7014,13 +7006,12 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
   },
-  "artifact_phase": "READY_verified_S140_final_source",
+  "artifact_phase": "closed_verified_V15_private_Dropbox_delivered",
   "latest_verified_local_android": {
-    "status": "verified_local_artifact_ready_Drive_transfer_HELD",
-    "session": "S136",
-    "game_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "version_name": "0.134.0-playtest",
-    "version_code": 14,
+    "status": "private_Dropbox_delivered_verified_metadata",
+    "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "version_name": "0.140.0-playtest",
+    "version_code": 15,
     "application_id": "com.bandmaster.ownerplaytest.s40",
     "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
     "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
@@ -7028,18 +7019,19 @@
       "arm64-v8a"
     ],
     "requested_permissions": [],
-    "bytes": 123902239,
-    "local_sha256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
-    "apk_path": "/workspace/work/s136-final-apk-v14-20261106/BandMaster-Playtest-v14-arm64.apk",
-    "build_receipt": "/workspace/work/s136-final-apk-v14-20261106/build.json",
-    "audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
-    "local_handoff": "/workspace/work/s136-final-apk-v14-20261106/local-handoff.json",
-    "Drive_file_created": false,
-    "Drive_grants_changed": 0,
-    "Drive_delivery_completed": false,
+    "bytes": 139425647,
+    "local_sha256": "1b1e26709ebe7d5aa10e6462d283523bb9bf57518db3b289bfda793f13ef6e70",
+    "apk_path": "/dev/shm/bandmaster-s140-mixing-desk-20261106/android-v15/BandMaster-Playtest-v15-arm64.apk",
+    "build_receipt": "/workspace/work/s140-mixing-desk-20261106/build.json",
+    "audit": "/workspace/work/s140-mixing-desk-20261106/update-privacy-audit-v15.json",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAABw",
+    "Dropbox_path": "/BandMaster/BandMaster-Playtest-v15-arm64.apk",
+    "owner_folder_navigation_url": "https://www.dropbox.com/home/BandMaster",
+    "private_delivery": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json",
+    "remote_checksum_available": false,
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
-    "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
+    "install_instruction": "UPDATE; never uninstall, clear data or wipe."
   },
   "s136_closeout": "/workspace/work/s136-final-apk-v14-20261106/closeout.json",
   "historical_active_aliases_before_S137": {
@@ -7181,5 +7173,94 @@
     "no_new_share_link_or_recipient": true,
     "raw_RAM_volatile": true,
     "all_critical_Git_and_source_primary": true
-  }
+  },
+  "historical_active_aliases_before_S140_close": {
+    "candidate_sha": null,
+    "candidate_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json",
+    "candidate_model": "/tmp/bandmaster-s86-20261103/qa/standard/model-reuse-3d2b5ed.json",
+    "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
+    "current_candidate": null,
+    "active_development_run": {
+      "session": "S127",
+      "status": "active",
+      "writer": "root_S127_jack_backing_context",
+      "source_sha": "12f0a1c93f9c5d3dfa28a00b9236b30c8043a61e",
+      "released_at": null,
+      "continuous_compute_claim": false,
+      "finite_end": "2026-11-05T17:00:00Z"
+    },
+    "active_sprint": null,
+    "artifact_completion_gate": {
+      "technical_pass": true,
+      "local_APK_ready": true,
+      "private_Drive_delivery_completed": false,
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "evidence": "/workspace/work/s136-final-apk-v14-20261106/closeout.json"
+    },
+    "latest_focused_native_qa": {
+      "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+      "receipt": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
+      "checks": 12621,
+      "whole_gigs": 4,
+      "failed_save_retry_cases": 14,
+      "reloads": 16,
+      "auxiliary_checks": 1359,
+      "all_error_lines": [],
+      "native_orphan_growth": 0
+    },
+    "latest_whole_game_review": {
+      "session": "S111",
+      "report": "docs/continuous_improvement/S111_WHOLE_GAME_REVIEW.md",
+      "verdict": "partial",
+      "personas": "threeSIMULATED; nothuman",
+      "source": "0c92100b826322c8c92fba89317b60b77dc28c9b"
+    },
+    "session_path": "docs/continuous_improvement/sessions/S134.json",
+    "expires_at": null
+  },
+  "previous_verified_checkpoint_before_S140": {
+    "session": "S134",
+    "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
+    "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "packaged_in_V13": false,
+    "packaged_in_V14": true
+  },
+  "previous_android_before_S140": {
+    "status": "verified_local_artifact_ready_Drive_transfer_HELD",
+    "session": "S136",
+    "game_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "version_name": "0.134.0-playtest",
+    "version_code": 14,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "custom_user_directory_name": "BandMasterOwnerPlaytestS40",
+    "abis": [
+      "arm64-v8a"
+    ],
+    "requested_permissions": [],
+    "bytes": 123902239,
+    "local_sha256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
+    "apk_path": "/workspace/work/s136-final-apk-v14-20261106/BandMaster-Playtest-v14-arm64.apk",
+    "build_receipt": "/workspace/work/s136-final-apk-v14-20261106/build.json",
+    "audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
+    "local_handoff": "/workspace/work/s136-final-apk-v14-20261106/local-handoff.json",
+    "Drive_file_created": false,
+    "Drive_grants_changed": 0,
+    "Drive_delivery_completed": false,
+    "physical_phone_tested": false,
+    "physical_upgrade_save_retention_tested": false,
+    "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
+  },
+  "released_root_lease": {
+    "owner": "root_S140_mixing_desk",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T19:00:00+00:00",
+    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
+  },
+  "s140_closeout": "/workspace/work/s140-mixing-desk-20261106/closeout.json"
 }
