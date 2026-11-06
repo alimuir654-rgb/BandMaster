@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S139_closed_authored_rehearsal_pilot_ready_V14_unchanged",
+  "status": "S140_active_owner_approved_mixing_desk_rework",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -708,7 +708,7 @@
     "source_only_notV12": true
   },
   "last_sprint": "S100",
-  "next_action": "S139authoredpilotreadyasPROPOSALONLY; futureproductionrequiresnewcompletefunding/Core-ownedamendment/whole-openingwrapper/actualsource-native-saveproof. Do notredoS137/S138/S139orbuildanotherAPKforactivity. CurrentGame898/V14unchanged; remainingopportunitiesactualfeedback/readinesswithhard08:00/no breadth06:30/releases07:55.",
+  "next_action": "Independent predesign → root production mixing desk → early native phone/shortwide review → final exact four-view whole writing task/save/audio proof. V14/source898 preserved.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1992,7 +1992,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S139",
+  "session": "S140",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
@@ -3051,7 +3051,12 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "owner": "root_S140_mixing_desk",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T16:30:00+00:00",
+    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
+  },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4952,7 +4957,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S140_mixing_desk",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5190,11 +5195,11 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S140",
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
-  "source_writer": null,
+  "source_writer": "root_S140_mixing_desk",
   "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {

@@ -7,7 +7,7 @@
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S139_closed_authored_rehearsal_pilot_ready_V14_unchanged",
+  "status": "S140_active_owner_approved_mixing_desk_rework",
   "released_at": "2026-11-06T04:42:17.170959+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": [],
   "pending_helpers": [],
-  "next_action": "S139authoredpilotreadyasPROPOSALONLY; futureproductionrequiresnewcompletefunding/Core-ownedamendment/whole-openingwrapper/actualsource-native-saveproof. Do notredoS137/S138/S139orbuildanotherAPKforactivity. CurrentGame898/V14unchanged; remainingopportunitiesactualfeedback/readinesswithhard08:00/no breadth06:30/releases07:55.",
+  "next_action": "Independent predesign → root production mixing desk → early native phone/shortwide review → final exact four-view whole writing task/save/audio proof. V14/source898 preserved.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "ClosedV14packaging/localartifactready; noV14Drivefile/grant; producer688cachefilesimmutable. No furtherbuild/activityupload.",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S139",
+  "session": "S140",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -1079,7 +1079,12 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "owner": "root_S140_mixing_desk",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T16:30:00+00:00",
+    "purpose": "New direct owner Go for it after approved mixing-desk mockup; fresh production scope, completed overnight is not extended."
+  },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -2969,7 +2974,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S140_mixing_desk",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3207,11 +3212,11 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S140",
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
-  "source_writer": null,
+  "source_writer": "root_S140_mixing_desk",
   "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
