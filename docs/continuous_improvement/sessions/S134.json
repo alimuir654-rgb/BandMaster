@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S134",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "804db627e5d6c34892d1e8dbe8670ed0f2350fa1",
   "game_baseline_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1754762,
-    "sha256": "1931447d1ffc9ac5488565770fe31bd81c9b154f5d3b8a2e4a05de508d8df258"
+    "bytes": 1757709,
+    "sha256": "2fd60e0443fccb44da06ac8e2d2dd109940cc6cc46eba391204a1a9b5a1a5a3b"
   },
   "lesson_ids": [
     "BM-01",
@@ -96,17 +96,13 @@
     "Current73gameplay/88opening/oneEMPTYprivateimport/4standard/ordinaryNOscript600max60verbose raw0/ERRORempty; retainfailedsource/log/receipts/PNGs.",
     "Protectall516priorrowsexceptdeclaredleaves/82OGG9JSON/54Scripts3UID/artfontshardware; nextmanifest onlycuratedrows."
   ],
-  "root_lease": {
-    "writer": "root_S134_starting_commitments",
-    "expires_at": "2026-11-06T02:00:00Z",
-    "scope": "Boundedfreshscope within08:00outerstop; closeearlier; noautomaticextension."
-  },
-  "source_write_allowed": true,
+  "root_lease": null,
+  "source_write_allowed": false,
   "audio_write_allowed": false,
   "art_write_allowed": false,
-  "engine_execution_allowed": true,
+  "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
+  "page_write_allowed": false,
   "stop_condition": "Aftertwoineffectiveattempts changemethod/HOLD. Addedpaths/runtime fullyfundedamendment/gatebeforeedit. Ifrealblock switchseparatelyfundedartwork; noapprovalwait/unchangedsuitesforactivity. No newbreadth06:30/releases07:55/hardstop08:00.",
   "source_input": {
     "manifest": "/workspace/work/s133-raw-dark-cowriting-20261105/source-final.json",
@@ -165,5 +161,224 @@
     "literalproposal": "/workspace/work/s134-starting-commitments-20261105/starting-commitments-proposal.json",
     "literalproposal_SHA256": "8716f40d47aa3132ecb8227a1a4822af9c441bc2681b520bcb21a4e8b0c574ed"
   },
-  "schema_policy": "Originalschema1unknownfields andsource/saveguards retained. TypedoptionalCoreextensions only; unknownfutureHOLD, notdefaultfree. Oldprototype-songcompatibilitywaived."
+  "schema_policy": "Originalschema1unknownfields andsource/saveguards retained. TypedoptionalCoreextensions only; unknownfutureHOLD, notdefaultfree. Oldprototype-songcompatibilitywaived.",
+  "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+        "SHA256": "83d386d75e9962e6b77f87a5b73808f48f7e7b282006c122e6ccb874b20448aa"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/source-protection-final.json",
+        "SHA256": "6f8898fb20118f2494acf8f6870e82c7751b14d97bb4b614d7f5a663b95661db"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/accepted-log-audit.json",
+        "SHA256": "d78b539db40cd1a00aa1eefb0c10b97774c8499e34c6d9d860d366fc8569e803"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/standard-RGBA-comparison.json",
+        "SHA256": "4afb97939923d33c068a66eb46b7f2dc09ca617c6d0fa14fecab860eabef7d4e"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/PNG-inventory-final.json",
+        "SHA256": "9b8c463e9c6075d57e6d3dea9018039efbb90bbdc8d8f2c546b333bfed9f537b"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/root-review.json",
+        "SHA256": "d07f1b0c680c9565928a2fdf7ea4004159cb29a2a1fdd65ea7fd9c38c454d946"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/primary-object-audit-final.json",
+        "SHA256": "1c484c818b07210428f606e32151a4a030c8536e7b8a5bcd7c7877fcc496e847"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/closed-preservation-final.json",
+        "SHA256": "f238edbb65f383b6fc7a0ea1ad21d8dab47ae3ba8f2a7d0d6575f75d8348a716"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/prior-S133-cache-preservation.json",
+        "SHA256": "411389892a1f2668c873cd20dd9b7fcb71f9cbf74e482ebb43d7cb483102419a"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/runtime-cache-closure.json",
+        "SHA256": "2d9f523eed192c4a94745e458e986e4027606704b438d9085aefa2b45158b662"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/display-release.json",
+        "SHA256": "1ed6bb7f9287ce4ebdef0394ed3959f7de5c0008b14484278a507f4a45245353"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/page-status-audit.json",
+        "SHA256": "08e73df855bf7f54a367480853911bb54f5da1b9a06169d875fc23eb45addd3d"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/storage-final.json",
+        "SHA256": "bb20c980b7d35d3a5099227426aa840f307c692e0694f85c40d452db59f806e5"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/review/predesign-v1.json",
+        "SHA256": "e1496a8f7395540e2c9b653c7c4c94458ef1ccb79776b9f5e7a7f727e9445c22"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/review/early-week-v1.json",
+        "SHA256": "dfa3171923a7730aa467fcb25c0a9137065d30e7be0c7414654dbae809162124"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/review/early-job-v1.json",
+        "SHA256": "3d362e1e2a894ff0d0e7be33c83012a5e5f32f4d9dcdb229cd70e36432292f13"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/review/final-focused-v1.json",
+        "SHA256": "a70476d0f099f33ec860fa4ef84979daabd10dfc754eb559fc94fabbf50192ff"
+      },
+      {
+        "path": "/workspace/work/s134-starting-commitments-20261105/review/final-binding-v1.json",
+        "SHA256": "efb787e43a054b4cee42c170dc613037adc073131c17b42489769a53c5b9dc49"
+      }
+    ],
+    "visual_verdict": "partial",
+    "scoped_visual_verdict": "internal_pass",
+    "owner_approved": false,
+    "next_action": "Freshfunded bounded artwork improvement then one final verified privateARM64 APK/updateaudit by08:00; no newbreadth06:30/release07:55. Noapprovalwaiting orclosedproducer resume.",
+    "new_issue_review": {
+      "through_bytes": 1757709,
+      "SHA256": "2fd60e0443fccb44da06ac8e2d2dd109940cc6cc46eba391204a1a9b5a1a5a3b",
+      "actual_events": 1135,
+      "all_new_events_reviewed": true,
+      "opaque_S134_event_ids": [
+        "S134-20261105T232934-readonly-retrieval-schema",
+        "S134-20261105T232934-inventory-method-change",
+        "S134-20261105T232934-production-preflight",
+        "S134-20261105T232957-preflight-target-inventory-held",
+        "S134-20261105T233439-source-audit-scope-amendment",
+        "S134-20261105T233856-known-date-provenance-scope",
+        "S134-20261105T234235-authoring-boundary-variable-held",
+        "S134-20261105T234943-model-QA-typed-local-parse",
+        "S134-20261105T235049-model-QA-public-result-method-change",
+        "S134-20261105T235209-actual-new-launch-typed-reload-held",
+        "S134-20261105T235343-typed-comparator-key-isolation",
+        "S134-20261105T235505-observed-QA-StringName-boundary",
+        "S134-20261105T235646-cancellation-fixture-departure-contract",
+        "S134-20261105T235828-legacy-Core-only-precision-roundtrip",
+        "S134-20261106T000435-retained-helper-path-readonly",
+        "S134-20261106T000547-enforce-directory-inventory-only",
+        "S134-20261106T001915-job-native-safe-focus",
+        "S134-20261106T002017-job-continue-counter",
+        "S134-20261106T002409-changed-source-regression-auto-review",
+        "S134-20261106T002409-stale-layout-retrieval",
+        "S134-20261106T002621-standard-new-starting-handoff",
+        "S134-20261106T002711-touch-aux-lambda-statement",
+        "S134-20261106T002808-touch-aux-reveal-method",
+        "S134-20261106T003027-standard-entry-mode-oracle",
+        "S134-20261106T004205-reviewer-standard-result-location",
+        "S134-20261106T004638-verified-source-closeout"
+      ],
+      "no_committed_history_changed": true,
+      "automatic_regression_rejection_resolved_by_actual13changedpaths_and_explicit_required_checks": true
+    },
+    "source": {
+      "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+      "manifest_SHA256": "83d386d75e9962e6b77f87a5b73808f48f7e7b282006c122e6ccb874b20448aa",
+      "curated": 517,
+      "Git_rows": 516,
+      "entry_bytes": 146,
+      "source_bytes": 124101515,
+      "ordered_digest": "67649668e289c551aa14a6dd44f4ce4b4221f826e4d37dff129cc033088dcebf",
+      "prior_exact": 504,
+      "prior_changed": 12,
+      "new_files": 1,
+      "protected_original_Scripts_rows": 54,
+      "protected_UID_rows": 3,
+      "all82OGG9registries_and_art_fonts_hardware_exact": true,
+      "copy_ONLY_declared_rows": true
+    },
+    "implemented": [
+      "18 explicitlyauthored startingjobrotas and7knownfamilyfacts, preserving18originalbios/oldbackgroundvalues. Seed onlyfreshnewband inoriginalfinish_identity save; neverload/Continue/overwriteoldCore.",
+      "ExistingCore/Week/Calendar owns named work/care writingblocks, partialrehearsal orreschedule/sharedfreeevenings and actualattendance. Familyfinancialsupport is notcaregiving.",
+      "Earned optionalTalk/Keep/Leave job decision; onefreeownedmetadata save/0daycashFinance, familyretained andboundedworkhistory. Wholeopening rollback/reentry/legacyunknownfractional safety. No personalwage orgigattendance simulator."
+    ],
+    "proof": {
+      "current_affected_models": {
+        "starting_context_owner_save": 324,
+        "cowriting_with_actual_original_ClearAir_on_unavailable_Tuesday_Thursday": 503
+      },
+      "complete_firstweek_native_cases": 4,
+      "complete_firstweek_checks": 1611,
+      "firstweek_real_FS_retry_pairs": 4,
+      "week_routes": "phone/wide actualpartialTuesday2members DAY3\u00a3235; tall/desktop savedWednesdayplan+originalClearAir+all3rehearsal DAY4\u00a3235. Each1nativepaidwritingday/1originalrehearsal; originalpublic15saveformationfixtures, notwholeinitialmenus.",
+      "early_week_checks": 613,
+      "qualified_native_job_cases": 2,
+      "qualified_job_checks": 357,
+      "job_FS_retry_pairs": 2,
+      "job_fixture": "ExplicitDAY15/3consistenthistoricalbookingreceipt qualification derivedfromonefrozenactualearnedreceipt; notnatural3shows. ActualnativeKeep/Leave/failure/retry/reload controls.",
+      "model_FS_retry_pairs": 2,
+      "touch_resize_auxiliary_checks": 87,
+      "actual_touch_drag_pixels": 88,
+      "actual_emulated_touch_positive": 1,
+      "actual_two_direction_resize": true,
+      "fresh_gameplay": 73,
+      "fresh_opening": 88,
+      "fresh_EMPTY_import_on_current_source": true,
+      "four_standard_sweeps": true,
+      "configured_NOscript_realtime600_max60_verbose_ERRORempty_noJSONsave": true,
+      "actual_Godot": 33,
+      "execution_strict": 21,
+      "held_executions": 12,
+      "strict_current_source": 19,
+      "source_corrections_after_first_native": 0,
+      "standard_encoding_events": 256,
+      "filename_families": 232,
+      "RGBA_exact": 132,
+      "scoped_differences": 116,
+      "new_actual_extra_ClearAir_events_without_old_witness": 8,
+      "unexpected_or_unclassified": 0,
+      "physical_PNG": 430,
+      "strict_PNG": 296,
+      "held_PNG": 134,
+      "independent_actual_opens": 41,
+      "independent_current": 35,
+      "independent_retained": 6,
+      "root_actual_native_opens": 18,
+      "root_current_strict": 13,
+      "root_current_held": 3,
+      "root_retained": 2,
+      "root_shipping_art_inspections": 1,
+      "five_lenses": "ExplicitlySIMULATED inindependent/rootreview; nothuman"
+    },
+    "material_limits": [
+      "Staticpeople/sparsewidecomposition/ordinaryphonebodyscroll/technicalwordyjobcopyP2.",
+      "Jobquit changesrememberedavailability; no personalincome loss/riskmodel orpromisedmusicalsuccess.",
+      "PostrehearsalPNGshowsnextdaypractice; actualattendanceverifiedinsaveddata/result.",
+      "Completedbandstandards arepartialformationframes, notsettledposter/newartacceptance.",
+      "RetainedS133earnedshow436 is not rerun or promoted ascurrent898; currentnewscope isfirstweek/jobs/availability withfreshaffectedmodels, notunchangedgigactivity.",
+      "Dummy/nativeproof isnotphysicalphone/speaker/headphone/IME/OSinterrupt/install/saveretention/humancomprehension.",
+      "V13/sourcebfc remains deliveredphonebuild; S133/S134notyetinAPK.",
+      "HistoricalS133autopacking incident retained; currentreachableprimaryobjects verified, historicalunreachablepreservationunproved."
+    ],
+    "storage": {
+      "fixed_floor": 629145600,
+      "primary_cap": 12582912,
+      "TMP_cap": 671088640,
+      "final_APK_TMP_reservation": 536870912,
+      "all2S134privateproducer_caches_closed_immutable": true,
+      "closed_cache_files": 1322,
+      "all9priorS133caches5486files_exact": true,
+      "S132_1206_and_S109_800_exact": true,
+      "no_cleanup_or_newstorage_approval": true,
+      "futureAPKcap_needs_actualtoolchain_size_review_beforeallocation": true
+    },
+    "released": {
+      "root_writer": null,
+      "source_writer": null,
+      "helpers": null,
+      "artifact_writer": null,
+      "GL": "free",
+      "owned_Xorg47363": "STOPPEDZ/socketgone/3pins exact; zombies retained"
+    },
+    "closed_at": "2026-11-06T00:46:38.531160+00:00"
+  },
+  "closed_at": "2026-11-06T00:46:38.531160+00:00"
 }
