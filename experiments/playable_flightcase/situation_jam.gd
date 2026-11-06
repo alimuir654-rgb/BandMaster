@@ -4,6 +4,9 @@ extends RefCounted
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 
 static func resolve(state: Dictionary,indices: Array) -> Dictionary:
+ var financial: Dictionary=preload("res://experiments/playable_flightcase/finance_policy.gd").guard(state)
+ if not financial.get("ok",false):return financial
+ if preload("res://experiments/playable_flightcase/radio_visit_rules.gd").locked(state):return {"ok":false,"message":"Finish or cancel the saved radio visit before another evening with the band."}
  var view: Dictionary=Core.inspect_rehearsal(state)
  if not view.get("ok",false):return view
  if not Core.exact(indices,view.attendee_indices):return {"ok":false,"message":"Availability changed. Review who is free this evening."}
