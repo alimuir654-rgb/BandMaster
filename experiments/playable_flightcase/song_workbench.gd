@@ -382,7 +382,7 @@ static func begin(opening: Dictionary,title: String,leader_index: int,token: Dic
  if not checked.ok or checked.active or not _token(opening,token) or _priority(opening)!="workbench":return _mutation(opening,false,"Review the saved career and its current commitments before starting a lyric sketch.")
  var state:=_career(opening)
  if int(state.song_draft_progress)!=0 or not state.current_song_draft.is_empty():return _mutation(opening,false,"This earlier song has no lyric fragment recorded. Finish it through its original session route.")
- if not recipe.is_empty() and (not Producer.valid(recipe) or recipe.get("stage")!=0 or not _same(recipe.get("brief"),Sound.read(state)) or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}})) or opening.game.get("genre")!="Indie rock" or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible Indie band and recorded participants.")
+ if not recipe.is_empty() and (not Producer.valid(recipe) or recipe.get("stage")!=0 or not _same(recipe.get("brief"),Sound.read(state)) or recipe.get("brief",{}).get("genre")!=opening.game.get("genre") or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}})) or (opening.game.get("genre")!="Indie rock" and recipe.get("version")!=3) or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible band and recorded participants.")
  var chosen:=_target(state,title,leader_index)
  if not chosen.ok:return _mutation(opening,false,chosen.message)
  var wrapper:=_wrapper(opening)
@@ -497,6 +497,38 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  wrapper.project=project
  return _put(opening,wrapper,"The written take and note are saved; no day or room fee was used." if action in ["try","producer_try"] else "Sketch saved. Try this exact take before using the next session day.")
 
+static func prepare_mixing_local(opening: Dictionary,token: Dictionary,payload: Dictionary) -> Dictionary:
+ # Pure in-memory preparation. The original owner keeps its PRE-click rollback
+ # snapshot and makes only its existing final paid save. HEAR never calls this.
+ var fail: Dictionary={"ok":false,"message":"Review this exact direction and bandmate response before committing.","state":opening,"prepared":{}}
+ var Mixing=preload("res://experiments/playable_flightcase/mixing_recipe.gd")
+ if not _token(opening,token) or not _keys(payload,["recipe","title","leader_index","decision"]) or not Mixing.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5) or not payload.get("decision") is Dictionary:return fail
+ var project: Dictionary=_wrapper(opening).get("project",{})
+ if not Mixing.valid(project.get("fragment",{}).get("producer_recipe")):return fail
+ var decision: Dictionary=payload.decision
+ if not _keys(decision,["choice","base_recipe","offer_id"]) or not decision.get("choice") is String or decision.choice not in ["try","keep","dismiss","none"] or not Mixing.valid(decision.get("base_recipe")) or not decision.get("offer_id") is String:return fail
+ var staged: Dictionary=checkpoint(opening,"producer_try",token,{"recipe":decision.base_recipe,"title":payload.title,"leader_index":payload.leader_index})
+ if not staged.get("ok",false):fail.message=staged.get("message",fail.message);return fail
+ var next: Dictionary=staged.state
+ var trial: Dictionary=_wrapper(next).project.last_trial
+ if trial.target.respondent_ref.is_empty():
+  if decision.choice!="none" or not decision.offer_id.is_empty():return fail
+ else:
+  if decision.choice=="none":return fail
+  var request: Dictionary=trial.note.request
+  if not Mixing.request_ok(request) or decision.offer_id!=request.offer_id:return fail
+  var response: Dictionary=checkpoint(next,"producer_offer",expected(next),{"choice":decision.choice,"offer_id":decision.offer_id})
+  if not response.get("ok",false):fail.message=response.get("message",fail.message);return fail
+  next=response.state
+ if not _same(_wrapper(next).project.fragment.producer_recipe,payload.recipe):return fail
+ var before_outer: Dictionary=opening.duplicate(true)
+ var next_outer: Dictionary=next.duplicate(true)
+ before_outer.game.career.erase(KEY);next_outer.game.career.erase(KEY)
+ if not _exact(before_outer,next_outer):return fail
+ var prepared: Dictionary=prepare_paid(next,expected(next))
+ if not prepared.get("ok",false):fail.message=prepared.get("message",fail.message);return fail
+ return {"ok":true,"message":"","state":next,"prepared":prepared.prepared}
+
 static func prepare_paid(opening: Dictionary,token: Dictionary) -> Dictionary:
  var failure: Dictionary={"ok":false,"message":"Try the exact current saved words, title and leader before writing this session.","prepared":{}}
  var checked:=validate(opening)
@@ -553,7 +585,9 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  var r=extension.get("producer_quality_receipt")
  if not r is Dictionary or not _keys(r,["model","recipe_sha256","song_id","base_quality","delta","final_quality","context","reason"]):return false
  if not r.get("model") is String or not r.get("recipe_sha256") is String:return false
- if r.model!="producer_raw_craft_v2" or r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
+ if r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
+ if extension.fragment.producer_recipe.get("version")==3:return preload("res://experiments/playable_flightcase/mixing_recipe.gd").receipt_ok(r,extension.fragment.producer_recipe)
+ if r.model!="producer_raw_craft_v2":return false
  if not _whole(r.base_quality,0,100) or not _whole(r.final_quality,1,100) or not (r.delta is int or r.delta is float) or not is_finite(float(r.delta)) or float(r.delta)!=floor(float(r.delta)) or int(r.delta)<-3 or int(r.delta)>3:return false
  var c=r.context
  if not c is Dictionary or not _keys(c,["active_skill_sum","active_count","capacity","demand"]) or not _whole(c.active_count,1,6) or not _whole(c.active_skill_sum,0,int(c.active_count)*100) or not _whole(c.capacity,1,4) or not _whole(c.demand,1,4):return false

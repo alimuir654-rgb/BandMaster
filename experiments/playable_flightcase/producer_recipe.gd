@@ -2,6 +2,7 @@ extends RefCounted
 ## One authored arrangement palette. No runtime synthesis or objective music grading.
 const VERSION := "producer_raw_dark_v2"
 const Sound = preload("res://experiments/playable_flightcase/band_sound.gd")
+const Mixing = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
 const MANIFEST := "res://experiments/playable_flightcase/audio/producer_raw_dark.json"
 const STAGES := ["FIND THE RIFF","BRING IN THE BAND","SHAPE THE CHORUS"]
 const FIELDS := ["pace","energy","originality","theme"]
@@ -29,6 +30,7 @@ const REASONS := [
 ]
 
 static func valid(value: Variant) -> bool:
+ if value is Dictionary and value.get("version")==3:return Mixing.valid(value)
  if not value is Dictionary or value.size()!=9:return false
  if not (value.get("version") is int or value.get("version") is float) or value.version!=2:return false
  if not value.get("palette") is String or not value.get("hook") is String:return false
@@ -45,9 +47,11 @@ static func recipe(index: int=4,brief: Dictionary={"genre":"Indie rock","name_in
  return result
 
 static func audio_id(value: Dictionary) -> String:
+ if Mixing.valid(value):return "mix_"+Mixing.scenario_key(value)
  return "raw_s%d_%02d" % [int(value.stage),index(value)] if valid(value) else ""
 
 static func written(value: Dictionary) -> String:
+ if Mixing.valid(value):return Mixing.written(value)
  if not valid(value):return "The saved arrangement needs review."
  var pace: String="104 BPM" if value.pace=="driving" else "132 BPM"
  var pulse: String="space between the low attacks" if value.energy=="open" else "a dense, locked low pulse"
@@ -57,17 +61,20 @@ static func written(value: Dictionary) -> String:
  return "%s. %s; %s; %s. The ending %s." % [layer,pace,pulse,phrase,ending]
 
 static func index(value: Dictionary) -> int:
+ if Mixing.valid(value):return Mixing.index(value)
  if not valid(value):return -1
  var result:=0
  for i in range(4):result=result*2+VALUES[i].find(value[FIELDS[i]])
  return result
 
 static func material(value: Dictionary) -> Dictionary:
+ if Mixing.valid(value):return Mixing.material(value)
  if not valid(value):return {}
  var home: bool=value.theme=="home"
  return {"lines":[{"id":"hook:1","text":"Home as a place you cannot quite return to" if home else "Escape without a clean way out"},{"id":"hook:2","text":"Return to the low D with its weight intact" if home else "Leave the low C unresolved"}],"refrain_line_id":"hook:2","sections":{"verse":"hook:1","chorus":"hook:2"},"producer_recipe":value.duplicate(true)}
 
 static func material_matches(value: Dictionary) -> bool:
+ if Mixing.valid(value.get("producer_recipe")):return Mixing.material_matches(value)
  if not valid(value.get("producer_recipe")):return false
  var authored:=material(value.producer_recipe)
  if not value.get("lines") is Array or value.lines.size()!=2 or not value.get("sections") is Dictionary:return false
@@ -92,6 +99,7 @@ static func skills_ok(state: Dictionary) -> bool:
  return count>0
 
 static func craft(state: Dictionary,value: Dictionary) -> Dictionary:
+ if Mixing.valid(value):return Mixing.craft(state,value)
  if not valid(value) or not skills_ok(state):return {"ok":false}
  var sum:=0;var count:=0
  for person in state.members:
@@ -103,10 +111,12 @@ static func craft(state: Dictionary,value: Dictionary) -> Dictionary:
  return {"ok":true,"model":"producer_raw_craft_v2","delta":clampi(int(CRAFT[id])-absi(capacity-demand),-3,3),"capacity":capacity,"demand":demand,"active_skill_sum":sum,"active_count":count,"reason":REASONS[id]}
 
 static func summary(value: Dictionary) -> String:
+ if Mixing.valid(value):return Mixing.summary(value)
  if not valid(value):return "Arrangement needs review"
  return "%s · %s · %s · %s" % [LABELS[0][VALUES[0].find(value.pace)],LABELS[1][VALUES[1].find(value.energy)],LABELS[2][VALUES[2].find(value.originality)],LABELS[3][VALUES[3].find(value.theme)]]
 
 static func offer(value: Dictionary,respondent: Dictionary) -> Dictionary:
+ if Mixing.valid(value):return Mixing.offer(value,respondent)
  if not valid(value) or respondent.is_empty():return {}
  var field: String=["energy","originality","theme"][int(value.stage)]
  var choices: Array=VALUES[FIELDS.find(field)]
@@ -115,6 +125,7 @@ static func offer(value: Dictionary,respondent: Dictionary) -> Dictionary:
  return {"kind":"raw_change","field":field,"value":choice,"stage":int(value.stage),"recipe":value.duplicate(true),"offer_id":id}
 
 static func request_ok(request: Dictionary) -> bool:
+ if Mixing.valid(request.get("recipe")):return Mixing.request_ok(request)
  if request.size()!=6 or not request.get("kind") is String or not request.get("field") is String or not request.get("value") is String or not request.get("offer_id") is String:return false
  if request.kind!="raw_change" or not valid(request.get("recipe")) or not (request.get("stage") is int or request.get("stage") is float):return false
  if request.stage!=request.recipe.stage or request.offer_id.length()!=64 or not request.offer_id.is_valid_hex_number(false):return false
@@ -122,6 +133,7 @@ static func request_ok(request: Dictionary) -> bool:
  return field in FIELDS and request.value in VALUES[FIELDS.find(field)] and request.value!=request.recipe[field]
 
 static func note(respondent: Dictionary,value: Dictionary,context: Dictionary) -> Dictionary:
+ if Mixing.valid(value):return Mixing.note(respondent,value,context)
  if not valid(value):return {"ok":false,"message":"This arrangement needs review."}
  var request: Dictionary=offer(value,respondent)
  var suggestions: Dictionary={"energy":{"open":"Could we strip out some repeated attacks? Let the weight come from the gaps.","full":"Could the low riff hit harder, with a fuller pulse?"},"originality":{"familiar":"Could we bring the accents back onto a direct repeating phrase?","angular":"Could we clip the phrase and push a few accents off the beat?"},"theme":{"home":"Could we let it land back on the low D? Home can still feel uneasy.","escape":"Could we leave it hanging on C? It would feel like getting out without finding an answer."}}

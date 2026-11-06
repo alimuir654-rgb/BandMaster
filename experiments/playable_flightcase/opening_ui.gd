@@ -676,6 +676,7 @@ func _recruit() -> void:
  child.lineup_confirmed.connect(_on_lineup)
  child.back_requested.connect(_back_genre)
  child.menu_requested.connect(_home)
+ child.sound_requested.connect(_toggle_sound)
  add_child(child)
  child.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
 
@@ -1135,6 +1136,7 @@ func _practice() -> void:
  panel.back_requested.connect(_home)
  panel.career_requested.connect(_open_career_desk)
  panel.planning_requested.connect(_open_band_planning)
+ panel.sound_requested.connect(_toggle_sound)
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)

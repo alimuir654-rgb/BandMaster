@@ -10,6 +10,8 @@ const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.
 const AuditionDesk = preload("res://experiments/playable_flightcase/audition_desk.gd")
 const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbench_desk.gd")
+const MixingDesk = preload("res://experiments/playable_flightcase/mixing_desk.gd")
+const MixingRecipe = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
@@ -18,6 +20,7 @@ signal back_requested
 signal career_requested
 signal planning_requested
 signal menu_requested
+signal sound_requested
 ## C26 player-facing isolated scene. Existing photographic flightcase controls,
 ## original inert meters and genuine career rules; no flattened clickable mockup.
 const Game = preload("res://experiments/playable_flightcase/session.gd")
@@ -205,7 +208,8 @@ func _rebuild() -> void:
  if encounter_chrome:budget.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
- root_box.add_child(header)
+ if _mixing_active():header.free()
+ else:root_box.add_child(header)
  var display_message := last_message
  if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
   var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
@@ -244,6 +248,9 @@ func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
   control.grab_focus()
   if control is LineEdit and caret>=0:
    (control as LineEdit).caret_column = mini(caret,(control as LineEdit).text.length())
+
+func _mixing_active() -> bool:
+ return game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and MixingRecipe.valid(opening_owner.workbench_view().get("project",{}).get("fragment",{}).get("producer_recipe"))
 
 func _hydrate_song_draft() -> void:
  if game.phase!="play":
@@ -774,16 +781,23 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
  modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect"][index])))
  root_box.add_child(modes)
+ modes.visible=not _mixing_active()
  if _workbench_finished:
   _finished_workbench_page(root_box)
   return
  if opening_owner!=null and practice_activity=="create":
   var notebook: Dictionary=opening_owner.workbench_view()
   if notebook.get("active",false) or (notebook.get("exists",false) and notebook.get("held",false)):
+   var mixing: bool=MixingRecipe.valid(notebook.get("project",{}).get("fragment",{}).get("producer_recipe"))
+   if is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false))!=mixing:
+    _workbench_desk.free();_workbench_desk=null
    if not is_instance_valid(_workbench_desk):
-    _workbench_desk=WorkbenchDesk.new()
+    _workbench_desk=MixingDesk.new() if mixing else WorkbenchDesk.new()
     _workbench_desk.configure(opening_owner,reduced_motion)
-    _workbench_desk.write_requested.connect(_write_workbench)
+    if mixing:
+     _workbench_desk.write_requested.connect(_write_mixing)
+     _workbench_desk.sound_requested.connect(func():sound_requested.emit())
+    else:_workbench_desk.write_requested.connect(_write_workbench)
     _workbench_desk.exit_ready.connect(_workbench_exit)
     _workbench_desk.closed.connect(func():recap_expanded=false;_rebuild())
    elif _workbench_desk.get_parent()!=null:_workbench_desk.get_parent().remove_child(_workbench_desk)
@@ -935,6 +949,12 @@ func _writing_notes(info: VBoxContainer) -> void:
 
 func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady():
+  body.add_child(_ink("THE WRITING ROOM",24))
+  body.add_child(_label("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
+  var open: Button=Kit.button("OPEN THE WRITING ROOM · FREE","notepaper","action")
+  open.name="WritingOpenProducer";open.custom_minimum_size.y=48;open.pressed.connect(_open_producer);body.add_child(open)
+  return
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
   if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
    var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
@@ -1244,7 +1264,7 @@ func _write() -> void:
 
 func _open_producer() -> void:
  if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
- var recipe: Dictionary=preload("res://experiments/playable_flightcase/producer_recipe.gd").recipe(4,preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
+ var recipe: Dictionary=MixingRecipe.recipe(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
  var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
  last_message=str(result.message)
  if result.get("ok",false):recap_expanded=false
@@ -1265,6 +1285,12 @@ func _begin_workbench() -> void:
 
 func _write_workbench(expected: Dictionary) -> void:
  _commit_session("create",{},{"expected":expected})
+
+func _write_mixing(request: Dictionary) -> void:
+ _commit_session("create",{},request)
+
+func SoundBriefReady() -> bool:
+ return preload("res://experiments/playable_flightcase/band_sound.gd").valid(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
 
 func _workbench_exit(destination: String) -> void:
  if session_busy:return
@@ -1306,15 +1332,21 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
      if Workbench._same(item.reference,_workbench_finished_ref):title=str(item.title);break
     body.add_child(_label(title,22))
     body.add_child(_label("Your saved arrangement demo. Writing has developed this original; the recording illustrates its musical direction.",16))
-    var audio=preload("res://experiments/playable_flightcase/audition_audio.gd").new()
-    audio.manifest_path=producer_rules.MANIFEST
-    audio.play_caption="LISTEN TO SAVED TAKE"
-    audio.configure(func():
-     var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
-     var current: Dictionary=live.get("fragment",{}).get("fragment",{}).get("producer_recipe",{})
-     return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":producer_rules.audio_id(current),"content_version":producer_rules.VERSION})
-    audio.set_clip(producer_rules.audio_id(fragment.producer_recipe))
-    body.add_child(audio)
+    if MixingRecipe.valid(fragment.producer_recipe):
+     var saved_mix: Dictionary=fragment.producer_recipe.duplicate(true)
+     preload("res://experiments/playable_flightcase/mixing_audio.gd").attach_controls(body,saved_mix,func():
+      var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+      return _workbench_finished and live.get("ok",false) and Workbench._same(live.get("fragment",{}).get("fragment",{}).get("producer_recipe"),saved_mix))
+    else:
+     var audio=preload("res://experiments/playable_flightcase/audition_audio.gd").new()
+     audio.manifest_path=producer_rules.MANIFEST
+     audio.play_caption="LISTEN TO SAVED TAKE"
+     audio.configure(func():
+      var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+      var current: Dictionary=live.get("fragment",{}).get("fragment",{}).get("producer_recipe",{})
+      return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":producer_rules.audio_id(current),"content_version":producer_rules.VERSION})
+     audio.set_clip(producer_rules.audio_id(fragment.producer_recipe))
+     body.add_child(audio)
    else:
     var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
     words.name="WorkbenchFinishedText"
@@ -1395,12 +1427,13 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
  var workbench_ticket := ""
  var prepared: Dictionary={}
  if not workbench_request.is_empty():
-  if kind!="create" or opening_owner==null or not Workbench._keys(workbench_request,["expected"]) or not workbench_request.get("expected") is Dictionary:
+  var local_mixing: bool=Workbench._keys(workbench_request,["expected","mixing_payload"]) and workbench_request.get("mixing_payload") is Dictionary
+  if kind!="create" or opening_owner==null or (not Workbench._keys(workbench_request,["expected"]) and not local_mixing) or not workbench_request.get("expected") is Dictionary:
    session_busy=false
    _session_failure_message("Review the saved lyric session before writing.",true)
    _rebuild()
    return
-  var acquired: Dictionary=opening_owner.begin_workbench_commit(workbench_request.expected)
+  var acquired: Dictionary=opening_owner.begin_workbench_commit(workbench_request.expected,workbench_request.mixing_payload if local_mixing else {})
   if not acquired.ok:
    session_busy=false
    _session_failure_message(acquired.message,true)

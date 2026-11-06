@@ -1,0 +1,3260 @@
+{
+  "schema_version": 1,
+  "content_version": "mixing_desk_v1",
+  "palette": "mixing_desk_v1",
+  "hook": "low_riff_v1",
+  "master_gain_db": 0.0,
+  "part_gain_db": {
+    "main": 7.621068728137816,
+    "answer": 7.621068728137816,
+    "bass": 7.621068728137816,
+    "kit": 7.621068728137816
+  },
+  "stage_post_gain_db": {
+    "0": 14.458631315222375,
+    "1": 10.60893127186218,
+    "2": 10.048931271862186
+  },
+  "scenarios": {
+    "slow_open_familiar_personal_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_main.ogg",
+          "sha256": "96c72aac879b20af87cd2c0dc63b6f09b5621b20b998f0ef6a99df95fa4b956f",
+          "bytes": 101336,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_answer.ogg",
+          "sha256": "fe1bd1eb2025cf3cf997b998272276ec48a72dfbffa65c17c1ed766618f08291",
+          "bytes": 101271,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_bass.ogg",
+          "sha256": "e446e439bf1189dbe2d2244bb6d267a3be1ffaf8542c39ded0eedc9a82cc8a4a",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_kit.ogg",
+          "sha256": "77817595971e2efa5b77b535d9119ab1f3c604c9f2cd67e53c0da376d9713068",
+          "bytes": 101364,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_familiar_personal_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_main.ogg",
+          "sha256": "1e550e921536d622280abeb53830665ab2092dfc5fce0fe65ad0c4fc484cb30c",
+          "bytes": 101339,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_answer.ogg",
+          "sha256": "76c1dfb9881adc83c681e85f84c4a1d5849debab98389bb3aa6d88255fae6eb6",
+          "bytes": 101271,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_bass.ogg",
+          "sha256": "d75357a542fbb67811aff6485d8ebb1c53414eb7afc4206628ee64a22730812e",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_kit.ogg",
+          "sha256": "c7882994d446bf9f688c3421e4bb8ed8cf1f7abfc3031b45af85b1415a12ec95",
+          "bytes": 101355,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_familiar_streetlife_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_main.ogg",
+          "sha256": "2c2cfdf0e20fc335e66c9840a15931e774c3c288523e014b30b1a9d5e2d1462a",
+          "bytes": 101341,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_answer.ogg",
+          "sha256": "e6567f06113c6d8ca65bc79d9fcee1648acb94b3a3551ac5f48638dd8e9716e8",
+          "bytes": 101272,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_bass.ogg",
+          "sha256": "6c69b428eea806ac1bf45f0e56a26750f8366be8864905ac5b312247db6ffce4",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_kit.ogg",
+          "sha256": "5168d7dbc2161917adcfbafb6b6452be9921db6eb149736b10485ab4c7c56157",
+          "bytes": 101364,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_familiar_streetlife_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_main.ogg",
+          "sha256": "6a1deefb07ecd206efd5668cf2c3aad6a745850072420f44f257a351792ad6a1",
+          "bytes": 101344,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_answer.ogg",
+          "sha256": "8c730fd297cb999dd1fcf351e668034ded0d36d2f2fbfbd203afd9db0e0d90ff",
+          "bytes": 101272,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_bass.ogg",
+          "sha256": "d99d68c3db9afdd78e2d33b58317ca914b7e1ff018a433a52d690cfb9bd15f4e",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_kit.ogg",
+          "sha256": "c0cb67d6411ebd8da3cc3beeed299fef65b00289e7e98f28ce9b6b04409b682b",
+          "bytes": 101355,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_familiar_escape_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_main.ogg",
+          "sha256": "4fbe4f84e957b4351510081c9292d0a58ced61212414d3471389daadaa21b841",
+          "bytes": 101340,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_answer.ogg",
+          "sha256": "49a9f439e3b296f5dd52041f678fd8ca789f3528a0eb01730283ed1687fcb94e",
+          "bytes": 101272,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_bass.ogg",
+          "sha256": "2603aabb69efbbfb38af673c50651e1442508256a8eeb1847fc3d62db034e3b5",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_kit.ogg",
+          "sha256": "347492986dddaa0917e72e0607d0d718b2adb677ec282c75ce1be7254a5e10f2",
+          "bytes": 101364,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_familiar_escape_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_main.ogg",
+          "sha256": "fd1fb571b44daed48ae83a75a03400219f60259c50652fe0c1fef3209a601dda",
+          "bytes": 101343,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_answer.ogg",
+          "sha256": "05022f022d47258eaeb82c93b35daf58b9c197485e765054868cc9a745665667",
+          "bytes": 101272,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_bass.ogg",
+          "sha256": "e36def1b48743f520ef542b24fd4f9026927d8517d6e254c5fac0e25ec640b50",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_kit.ogg",
+          "sha256": "dedbf8ad8019af60bbc0842bb4a8912c8557e0e7c070c5d87bcd80d7692a4f94",
+          "bytes": 101355,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_personal_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_main.ogg",
+          "sha256": "39729aeb6f4b6018a86f71dbf711309770383be7107464be1b1be737618b400d",
+          "bytes": 101338,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_answer.ogg",
+          "sha256": "8371ab8bea661075178c272e964e2f60a81e6b97a057f1436caee30e82485c88",
+          "bytes": 101273,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_bass.ogg",
+          "sha256": "c2a6b80171f33047735e1fa0a00b6084cff96d0233f5888890623426e38a791f",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_kit.ogg",
+          "sha256": "71745bfcdcd6a280091569ed12fa6c6c2aa2970cee0c7fb765bf5a896c3cf238",
+          "bytes": 101375,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_personal_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_main.ogg",
+          "sha256": "42b10df02e7fa1aa87425fb64d9e22602d8fe9a40f3be1776bb39093bf5df1d0",
+          "bytes": 101343,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_answer.ogg",
+          "sha256": "7f5f14eaacd5d9b91ea89ec6f7068db37389707ef21fbd4e1dc89ff174a8396f",
+          "bytes": 101273,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_bass.ogg",
+          "sha256": "9981249825c5e37d569767e2a4ff7a02801c7dcdb19af1adff358ff301ff9f06",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_kit.ogg",
+          "sha256": "8e36cb134358587484791d5c03db7914c44a5d47c4a05a5fd7dbf7ec807907e9",
+          "bytes": 101370,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_streetlife_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_main.ogg",
+          "sha256": "619a7fd2171d2d07983468e3b95f8874f7e87da48e07af9d5b7961d426da8990",
+          "bytes": 101343,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_answer.ogg",
+          "sha256": "e032166b98286be90b98e8ec999d701671887e7011968682bdfafc0fdcdeb2f9",
+          "bytes": 101274,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_bass.ogg",
+          "sha256": "6af2e0c1a640c2a04cf904970eb093f079d6edee126dcd9f6de1af7583d496f0",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_kit.ogg",
+          "sha256": "effd0b5de062afc117dc97835e85184f770f11bcc597fa19df3010fb15e739f2",
+          "bytes": 101375,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_streetlife_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_main.ogg",
+          "sha256": "0c1bac406332f52b43696cd12ea7053e28645e606294c41f30cf31df5ad177cd",
+          "bytes": 101348,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_answer.ogg",
+          "sha256": "2ff123b059db19bd3281d6192939391b26fd1f1ecbd100a40296df331e95e97c",
+          "bytes": 101274,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_bass.ogg",
+          "sha256": "8fccc823fb7ed4d4f9a3eb1e8a5016c717bdff7ccfa47e38bf668e595ea57d06",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_kit.ogg",
+          "sha256": "cd9d81d01ab16abc914f89d6fcd58a9c304f730747ae7820f620cfa375c69ee6",
+          "bytes": 101370,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_escape_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_main.ogg",
+          "sha256": "4247fa640efc7467f57afdc0d9f05469cfc925cb3df75f7cfd6b44ea9b182f93",
+          "bytes": 101343,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_answer.ogg",
+          "sha256": "84001cc236998c5711c366bd446bb2cd3271dd2100ef5a52fbfc38fc4633a664",
+          "bytes": 101274,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_bass.ogg",
+          "sha256": "0db43ec21ce7b24f9b0e2464f5f5b3b6604cd14cee303353222d66904fef1d48",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_kit.ogg",
+          "sha256": "167a4820bb0499d9a14830428379d97e64fb6c4d0b575f7de93da76fb2747eac",
+          "bytes": 101375,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_open_angular_escape_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_main.ogg",
+          "sha256": "38aaa674185e8fad39a02f209a17026290842d3cff4afca0f0a6b57ca50dae3b",
+          "bytes": 101348,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_answer.ogg",
+          "sha256": "6e343e011db28b21454f8be767a6dbbf345a89a67d35ed9b3c34a60c0342f909",
+          "bytes": 101274,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_bass.ogg",
+          "sha256": "dd0f4c80a9b74a3bf51783e8d2d0059120de085806e76723b8e20745d16d8715",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_kit.ogg",
+          "sha256": "9985a56d6c890b19b5818adfec1a1b387b2c16ebffa8ac554925ae122001f47a",
+          "bytes": 101370,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_personal_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_main.ogg",
+          "sha256": "3284530f31da524d4097ae223ad40f1ed1c66f915952d22bd80c964aba15abf6",
+          "bytes": 101414,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_answer.ogg",
+          "sha256": "0870ac375cbbcca996b71ddf6114f37f79592892068bfc6745e044b6e7496d70",
+          "bytes": 101288,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_bass.ogg",
+          "sha256": "f6321573d221b715278c6d01b5e1bf6e4e255625f4ae843b0faba55fa62f3e6d",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_kit.ogg",
+          "sha256": "4b9f53f2d91144e1140044b49b59c977f5273fc6d33fff674eda0f5cf850051c",
+          "bytes": 101340,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_personal_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_main.ogg",
+          "sha256": "dc63c8e46e8c475ab53b45926882cde70eb6b247ad679f041f692cdf653fbfdc",
+          "bytes": 101407,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_answer.ogg",
+          "sha256": "f912c7d9c647aa41c35884cf2243b0b6df04d0e6c29b8a17431fb28f20c97e2c",
+          "bytes": 101291,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_bass.ogg",
+          "sha256": "34cdcf718400287909429bc1c96968f60b840bbc14c2ef3f86ffd2c4e0c98b49",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_kit.ogg",
+          "sha256": "0c84e021fdf8115447c9d51d784b7705a0e0d2a8d2a4a4e159c61778598bb457",
+          "bytes": 101336,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_streetlife_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_main.ogg",
+          "sha256": "089c473b781f4b8bfd543ced9af131fc953c5447dbaa6303b265cec8d6d07ee1",
+          "bytes": 101414,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_answer.ogg",
+          "sha256": "40ae1b9b4ad9c31eef940f3327be38bba7319e7a378a599777f8b45e0e178503",
+          "bytes": 101286,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_bass.ogg",
+          "sha256": "2923b077aeeb82edd6139918a3eb8906f077d02c602402986075b2b51260cd25",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_kit.ogg",
+          "sha256": "2a2b64e2729a1f587abaaa219f2841125a451e57c1dde5575b371b03c6d44299",
+          "bytes": 101340,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_streetlife_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_main.ogg",
+          "sha256": "508d8aff5dfa33ba0703d982291e933c8a9b5de5755d49cbda56075f381f2aae",
+          "bytes": 101407,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_answer.ogg",
+          "sha256": "6854b3696129f5ba3c11568e26621417be06c9f6eca1e2f3e36201645f90c6d5",
+          "bytes": 101289,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_bass.ogg",
+          "sha256": "a88e17e3a46a97a11dd89edaf5160e0032205a7ffdd5461f621f1577848e0b51",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_kit.ogg",
+          "sha256": "6c2fa7e0305facef672105befe417fac1c304d76c209c82a7d98d6dd5cac66d1",
+          "bytes": 101336,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_escape_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_main.ogg",
+          "sha256": "f5977b91d99f0db9137367c6100975b389183c70f8dd5258ecbbbf0e11515b81",
+          "bytes": 101417,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_answer.ogg",
+          "sha256": "424005461d209edddbb2838527a8230f31356b4f5fc1d957bcc8d50c0dc5ee0f",
+          "bytes": 101289,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_bass.ogg",
+          "sha256": "d329e7b953eb22453eff2c8e3ee3f69be719c32898ecfc8121aa61f4d4ee5e34",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_kit.ogg",
+          "sha256": "e973a1af0b5564fc904d5b32befe7c56d9789e39837dd7e63caeb78936ef11af",
+          "bytes": 101340,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_familiar_escape_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_main.ogg",
+          "sha256": "c2883572bea742559f5c1af87432172c0b6716ff7a1afb1493e0a82e329724b5",
+          "bytes": 101410,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_answer.ogg",
+          "sha256": "82714f0e4b525ad6e8f28b9825a04d6751c56be33830f2e2197a81f9a2418eac",
+          "bytes": 101292,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_bass.ogg",
+          "sha256": "bc3301b744a3bfb8319fa1bfd02d8220d06b29e5a6f2a4e8a8190a5a74c257b2",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_kit.ogg",
+          "sha256": "2a3bd3ed53e3bc9135a56b8b03eb71204c368e1c531350a880532fc0da6b088a",
+          "bytes": 101336,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_personal_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_main.ogg",
+          "sha256": "74381065d18e92f280c98d099bf528e9d1210a69ca2cecf09e272dfa69d5c89f",
+          "bytes": 101418,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_answer.ogg",
+          "sha256": "e979052ebed0b944c77c61e17dbf0d46a5ee707f890058a6ee79076d24f39e8a",
+          "bytes": 101303,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_bass.ogg",
+          "sha256": "016df92df93c8a282fa2c36f38f08959698877289947bfaf33de9402642f2979",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_kit.ogg",
+          "sha256": "51a67fbb5efb6788e6855b0c15b759e35aad7932d5be8544c096385b2cddba80",
+          "bytes": 101335,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_personal_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_main.ogg",
+          "sha256": "9f4aead7deae133bdf83ecb41ea66ee9406e0b72b599305bbd3953f99ffad7e2",
+          "bytes": 101416,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_answer.ogg",
+          "sha256": "dbf9a0406f0c209106bbf548bbb9b5ccee2056d823a2aee20706b5d066831c81",
+          "bytes": 101303,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_bass.ogg",
+          "sha256": "28a66bb26da2f34495d622c3b2ad5a4c4317d4aae978bda249c4757996c41d42",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_kit.ogg",
+          "sha256": "3d0d86778a3f5eebcfc38571abbe0fa2ff0bd669ef75dbd6c39ce7d04ebfde49",
+          "bytes": 101345,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_streetlife_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_main.ogg",
+          "sha256": "7ecba78e05313f6c67df20fc865eee4b930f978d71ebbd8165c737189762a5d3",
+          "bytes": 101417,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_answer.ogg",
+          "sha256": "bc294e5f07c8b62370f7a25d09892fdb1ecca64fd4ac4df2ca38f335249311bd",
+          "bytes": 101304,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_bass.ogg",
+          "sha256": "22b786f19839f087cd3625899126ee239272dd67789bcd7a65cde9a0eb80f884",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_kit.ogg",
+          "sha256": "883609ac6a669352953032688e29feb828956c524a7adc127703230b458d2363",
+          "bytes": 101335,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_streetlife_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_main.ogg",
+          "sha256": "fbccdee780f81808de6f2dafc0761ceb941e491352fe3d6b333d22b2201fb221",
+          "bytes": 101416,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_answer.ogg",
+          "sha256": "44d25b68ee49af0ecb23e60269e92e25601086d3be0cc7014537875976439b79",
+          "bytes": 101304,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_bass.ogg",
+          "sha256": "65728d3888cf975842a0ea1ff694b1518f29df2202a30d2e464504926227f89c",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_kit.ogg",
+          "sha256": "e837736336534352ae2947c171b116291bb0de89a3833033b1cc0cc508a23729",
+          "bytes": 101345,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_escape_straight": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_main.ogg",
+          "sha256": "1a1c01ae1b0ef5719d0f7631fe83d654b2316f47754f18b307ac5d6fbbf55272",
+          "bytes": 101420,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_answer.ogg",
+          "sha256": "347ba17f0e6126ecb4004622da5cc5a95fd5a091c605975b17b6afc87e0ed6ac",
+          "bytes": 101305,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_bass.ogg",
+          "sha256": "75385604b95b99e26bd215b9a459cc5c60fe6e07be3f885ed5670bde216b74a2",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_kit.ogg",
+          "sha256": "8e63312a2fb9653f2c98a2485e0dcf89e03046e9d37b19707fdb1737932d92e0",
+          "bytes": 101335,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "slow_full_angular_escape_loose": {
+      "frames": 1162473,
+      "sample_rate": 48000,
+      "tempo": 88,
+      "music_seconds": 21.818181818181817,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_main.ogg",
+          "sha256": "4dd47b3b5641ff8dce50870347926f9708a0d9b30b17ff341feb89019b7c3911",
+          "bytes": 101419,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_answer.ogg",
+          "sha256": "4f9e31d68f8f67bee1633d3b926b969c88bbe74a282ade4fdf684c4139c8f23d",
+          "bytes": 101305,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_bass.ogg",
+          "sha256": "7b4cbfef2c174d256cd6dad469309e4b79d22b4a721e976bfeb9e18639f2baeb",
+          "bytes": 101270,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_kit.ogg",
+          "sha256": "d80804f740f398ada369969da0f127ca258b3a23b4262218936c8edd53fe3b10",
+          "bytes": 101345,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_personal_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_main.ogg",
+          "sha256": "a5ee2b1e6e4e878801b9e137b857e14af425465565be8c83ad97af42d7f82710",
+          "bytes": 87668,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_answer.ogg",
+          "sha256": "1b571c741f01b0fe69c01bb53dda3fc84ca0534e9aaf0e128dfc0c7e9afd314d",
+          "bytes": 87602,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_bass.ogg",
+          "sha256": "0ea39a9f9d4d3e53f9a9d4547b54e8ec8192e91b8ce6367076d6ec8cc341b1d0",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_kit.ogg",
+          "sha256": "cf9084b9c84149f6ff703a6c8d2d0c5238f60ce3f4fce3335a7ab8f5e7c69452",
+          "bytes": 87664,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_personal_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_main.ogg",
+          "sha256": "cfcf9328bbc2e663f22ba3474076ff7a1d3d22d6b2412aa044746a7cbd570979",
+          "bytes": 87663,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_answer.ogg",
+          "sha256": "44c9dcfe8e9f022938dca0215c4bc04b995438275500472b2e52c8d3da5a3a65",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_bass.ogg",
+          "sha256": "dae971edef724dccbfe37cf189a508ed361b5992dc2296da60ca3ee18cbfd5cb",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_kit.ogg",
+          "sha256": "5d55605cfd6a9301e9178ea0509703a15917c04dd4492016c25294d804726373",
+          "bytes": 87662,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_streetlife_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_main.ogg",
+          "sha256": "c1f4ac09d9cdca80dcb8fc7365fe02adc546988c5e5b1a5094db320d5873dc74",
+          "bytes": 87671,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_answer.ogg",
+          "sha256": "7e070a8f39e1c8bf5b87204095e78ac6c52689285b69909d3e011b1908e81714",
+          "bytes": 87603,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_bass.ogg",
+          "sha256": "f2db0b2b577d18d6fa3e7259c12a3361c7338419589b1761817dd40cb3011ea2",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_kit.ogg",
+          "sha256": "8a809b68d164d2ef086a033392a4dafb957fdca125cb1e7d7d05e2bd4431c038",
+          "bytes": 87664,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_streetlife_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_main.ogg",
+          "sha256": "296358f545fe74b5bab747b456c7861106da8f47b6e2a19dcc917427f73a3ae5",
+          "bytes": 87666,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_answer.ogg",
+          "sha256": "24716060b5de478f9664e29750dc79d52c6e161b3af19127a1317ac820f39896",
+          "bytes": 87602,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_bass.ogg",
+          "sha256": "0e1e6fd713bd11291396a15cd15e5c7024414d68f7c87c2ccff40261cd074599",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_kit.ogg",
+          "sha256": "7731183aa11ea2b4eb367dace29176b58b7179ee176606bedd7e31becb9984b1",
+          "bytes": 87662,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_escape_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_main.ogg",
+          "sha256": "eddffbc13895aa7b3fb2c6ab8b5f3bf9d65f56d5d4a337df6f49d7e717d15c84",
+          "bytes": 87671,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_answer.ogg",
+          "sha256": "e6c1990db8e253728dff7c74a36438b4e4ba85833b9fc573dcd8e0ed90f1427e",
+          "bytes": 87603,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_bass.ogg",
+          "sha256": "27812def38430fa463299bdf3e37648fb44d213ac03d73129725332503013dda",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_kit.ogg",
+          "sha256": "b052a8d52701e06f980356a868d37adb9538cf589df66e5fbc0bd8942f13cc21",
+          "bytes": 87664,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_familiar_escape_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_main.ogg",
+          "sha256": "1fcf8bb3461eec15f455afcc4a0d1271cd2877904f17d8ca6f2f7c2facaf1ad2",
+          "bytes": 87666,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_answer.ogg",
+          "sha256": "14d604dc508c6d67ca41e8ea0c98887778bbb35bf35d5fbac3f3cf8ff51ea6c0",
+          "bytes": 87602,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_bass.ogg",
+          "sha256": "42e209e88cb2e9dbc27fbd29f943693f2468a5178afbbd2156ac9a24995f9092",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_kit.ogg",
+          "sha256": "e02f4fedf5fb917cbde7e6fa8203f415484132ea4b2c11014fef17b9d477c774",
+          "bytes": 87662,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_personal_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_main.ogg",
+          "sha256": "8b470b64f0d69425ae7ee3b70e8d818daa5f51499cea996b61dbeb27be47aa9d",
+          "bytes": 87672,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_answer.ogg",
+          "sha256": "e6481d59ff5da926124b60ad9f0f4a0d2c7c3c852f0f2909356c4c0bdae2f17b",
+          "bytes": 87604,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_bass.ogg",
+          "sha256": "6c1153698e9e38a9d0ca12cf539f213833b670d0926723ae35c166db1e1de168",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_kit.ogg",
+          "sha256": "66703d9b25be2bb0e3321a15de734e8b0caa80c23e65136d545e27ef380e4af2",
+          "bytes": 87655,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_personal_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_main.ogg",
+          "sha256": "970172f35397e3730901ad333012283d8648c03c951c4e6313ac73fcc3b262ab",
+          "bytes": 87665,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_answer.ogg",
+          "sha256": "8906031797e9a093d36a4ef9325d3ede17742a9dcfaa9c3aab5b5abe21b23b2a",
+          "bytes": 87604,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_bass.ogg",
+          "sha256": "b57783d3baa05dc8b937101ee629025137cfc8f5d4fdc1977552a9bb0709a9ef",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_kit.ogg",
+          "sha256": "3e60af6aaa010ec310c76bd8e55a19c93f5c775f2bbbf20b8b701201511e943a",
+          "bytes": 87667,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_streetlife_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_main.ogg",
+          "sha256": "60bb848c37ab2c2f9b944a96b0e55b4ebdfa3fd523af899a7382b74672dee867",
+          "bytes": 87676,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_answer.ogg",
+          "sha256": "ba92b41830562bfa191a90cc4de370c678e6734e3af127dc557eacf56bb63393",
+          "bytes": 87606,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_bass.ogg",
+          "sha256": "5d8f3b20e0793525b9d056434a30cef7eeba50f671610f2f1c0bbc1968d0e32e",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_kit.ogg",
+          "sha256": "7f331437f1ed9b0575f9fb70f76720cb4493093d559ccb770f204fe187a654bd",
+          "bytes": 87655,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_streetlife_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_main.ogg",
+          "sha256": "1cab7c33e8f2777a0e7154c646c6ed948dd98d35bbcbcfd06dc72fdfdd910866",
+          "bytes": 87669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_answer.ogg",
+          "sha256": "469f9c55e4b18f325f2aec35ba2b001d491d0bd9dfa50fa740590adcc0f77c41",
+          "bytes": 87606,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_bass.ogg",
+          "sha256": "67020fca94226d1a42d3edf415fe9bf23f67847edbd2b0d1279dc18141567f2a",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_kit.ogg",
+          "sha256": "c3ac65a0612f038918432f30d2b98027f2d4bc93b3b4c67df6371813c110a5a6",
+          "bytes": 87667,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_escape_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_main.ogg",
+          "sha256": "cb07e2191193968dd824f98301cf98db58476d6eaf3461afed61882646c525f0",
+          "bytes": 87677,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_answer.ogg",
+          "sha256": "564dd5e4ab7cb03687ca6f98680980fe837f99eda439124bbf38c603b67b54ea",
+          "bytes": 87605,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_bass.ogg",
+          "sha256": "3ca327c04109614dc0b1f3540c6288b8d74254ad20c0bca4770422664fa53aee",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_kit.ogg",
+          "sha256": "783e437494d10354c79ee1dd5d9b67b9aeabb2413c0e079b44b72546a0a5e164",
+          "bytes": 87655,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_open_angular_escape_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_main.ogg",
+          "sha256": "7fe6c082bff923c04b6d6426d638304ef28a9f44be5bc2b644754a197956631a",
+          "bytes": 87670,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_answer.ogg",
+          "sha256": "9e37b3c652b13e51276b10f2d0338dc9c4e01830727f46eaaa97aadac6a4c75f",
+          "bytes": 87605,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_bass.ogg",
+          "sha256": "7eaf7f6ef69a4c328c49a25c1b88fd9148dbf035b67a3fccf9b448e236b2673a",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_kit.ogg",
+          "sha256": "dcc2fc00520bc54098fa43504fbaf9040cac4061bfbcb298ca18c3f008674bf9",
+          "bytes": 87667,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_personal_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_main.ogg",
+          "sha256": "b918c3877934dc043a922f4bc8950958108e28fd0b5ebc5979d8f113c43e686b",
+          "bytes": 87726,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_answer.ogg",
+          "sha256": "0c5aad2d0115a68188454f67dfecfc4d5b444abdf641eaecc709acbdadb633e5",
+          "bytes": 87620,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_bass.ogg",
+          "sha256": "3972eac8887ccde8e8b4ab5c6f3de1ef4dbab4ffd4a4c7352ce00408efeac304",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_kit.ogg",
+          "sha256": "3fd5ea729b5dccdf8985d895d8c2a9bf92a91ca99c4c41e9a956119a6ad162fd",
+          "bytes": 87656,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_personal_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_main.ogg",
+          "sha256": "db3eedf81b54912b965fb02bb19106f4fe9e86155d308414c6f3e13c97c0cb3b",
+          "bytes": 87729,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_answer.ogg",
+          "sha256": "cb7340fcb039b6a5febaacfac5421e163a6f749fa78ad9278035f7c0bf31a71c",
+          "bytes": 87622,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_bass.ogg",
+          "sha256": "b1760584c74be9948e0b8cf04bdcba0019e7e1ed546c071391b5c7922cb6ac6d",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_kit.ogg",
+          "sha256": "7e1c1811f1656140fd6771636d967892cc924dedcc8d09cbba7bbc4dcc8fd82a",
+          "bytes": 87650,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_streetlife_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_main.ogg",
+          "sha256": "2eed09913bdb212db16d22a1e33d51fa00c37e37cfcc72ccbd2b6ce54ac3da2b",
+          "bytes": 87726,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_answer.ogg",
+          "sha256": "3e315cd492bc45834318e37871894bd820220bbafc7f3323ec806ce0245d9096",
+          "bytes": 87619,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_bass.ogg",
+          "sha256": "acc9ba0fb0363bd5dff01e11240d2ed976b6ea19584750023e9800eaae590bd2",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_kit.ogg",
+          "sha256": "29ccfa729a027682ae781f585c7f9d1f0a798c5a0400a486a5d491793420c8f9",
+          "bytes": 87656,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_streetlife_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_main.ogg",
+          "sha256": "2bcd69462394c8bf5fb5ef02fb62827f6ee1c9373d23e8b84811cecb31b608ac",
+          "bytes": 87728,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_answer.ogg",
+          "sha256": "cf992e6c5b16e66ccefd6c445bc9eab3c8e19f83091c7f0c5f1011b23e6b3461",
+          "bytes": 87621,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_bass.ogg",
+          "sha256": "f8fde491fdefe90704f1fe5e15ca68a43d7cb0e1e0662672271fe7b49c9793fc",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_kit.ogg",
+          "sha256": "34644213291e03c2180f7f2f3f41b164392f5b0ac257102f3b739576a7095917",
+          "bytes": 87650,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_escape_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_main.ogg",
+          "sha256": "f211844b2df2afdbed9e628ef7d73fa5bcb661def91d8055a95908e63133ff1a",
+          "bytes": 87728,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_answer.ogg",
+          "sha256": "0e6b271760e90e0d47a9ed4ef5947062957c76a139aac85fbde2000d1a092372",
+          "bytes": 87620,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_bass.ogg",
+          "sha256": "068dbda296d809512e252ab3892dae596f737769d74e4e379a31e5c3792492f8",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_kit.ogg",
+          "sha256": "ba07132aa45f794cdf05622b127ec0239dc4742013dd190e21c482b7ae1ba2ad",
+          "bytes": 87656,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_familiar_escape_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_main.ogg",
+          "sha256": "6c812765b91785da02b072fef34d4c0c75dc6b65932429bf5e0ea0059ada4c26",
+          "bytes": 87731,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_answer.ogg",
+          "sha256": "4b660038495308225a0b784bd65debf0d50bf64d1c4ac6786f88c9ba80b3f2fc",
+          "bytes": 87622,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_bass.ogg",
+          "sha256": "0646ca194094b0a14f96a5b27e3e024537b6e3ae2853eb3a8b6389a051f6fe75",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_kit.ogg",
+          "sha256": "62796fc59dcbd88d76f95a357fc21307071e42a20727b5820d39a91ffe6ff405",
+          "bytes": 87650,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_personal_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_main.ogg",
+          "sha256": "b9798b6e5b75e3c3830420fb7bff28f93351f6353ccc79e4dcf365ff3267e281",
+          "bytes": 87719,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_answer.ogg",
+          "sha256": "80fabb1d373397cdf6e39c46a4fc873da62774182b7e9df081da52407ee7d457",
+          "bytes": 87632,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_bass.ogg",
+          "sha256": "bf5127f765dafa9e14578a4dda32ec6b4f7fa688f71d48a50e616ef4f633323b",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_kit.ogg",
+          "sha256": "1ccc221b6008b55299610fcfd6aad4c49a1b3060a15ae4fbcb9809613103a8ed",
+          "bytes": 87639,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_personal_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_main.ogg",
+          "sha256": "d84b308e4f338115614bd248d8b5441086ec9bbb936580891f45897ba92d1609",
+          "bytes": 87721,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_answer.ogg",
+          "sha256": "6cf70c47d689fa1778ea631bebbf57a3c6c3b4e42bf693cfb60ed2f93338ed34",
+          "bytes": 87635,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_bass.ogg",
+          "sha256": "ed3b5c9a0b3281ae452d2adc4c1d92e8a3cc6e71cb65c8238f4eea8055d2440d",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_kit.ogg",
+          "sha256": "1765e0c3eb50f49a9fb870a6ba9c6474964aa4a64c1c67a2c2b37e279f1c98d3",
+          "bytes": 87643,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_streetlife_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_main.ogg",
+          "sha256": "7618a4bbcbe2df8e851e312d74246d3280ac5c5a7290e5fdb5221e520a83baac",
+          "bytes": 87719,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_answer.ogg",
+          "sha256": "203d9d3d982be22db0e6a29a92d3ecec203541e2eaa3763176555a74948bcaa0",
+          "bytes": 87631,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_bass.ogg",
+          "sha256": "cc052e7e10faa6caf885f0dfbf9bfdfe865ca68e3be9ac756180cb21b2ab8076",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_kit.ogg",
+          "sha256": "2d2bfeaeeb3c0cc3abfca0c2ca2ea3ffd17553369af851407f8cc0228e979326",
+          "bytes": 87639,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_streetlife_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_main.ogg",
+          "sha256": "2c1a982bd2ea7a65e76b34514792478a185661d29a2b92bb9c8198c45b689051",
+          "bytes": 87721,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_answer.ogg",
+          "sha256": "d745148f554b7c58e4f7da881b6edba12e5f2c2ba3abdcdb44fb8baa85cb3af7",
+          "bytes": 87634,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_bass.ogg",
+          "sha256": "70dec0831ae03a26170d5cf6292574c6515f1976bbc0f725a77b6638ebee2b41",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_kit.ogg",
+          "sha256": "19591999da9e6ec5394a2e21a54c16475a5edf04b9e1fa906663a9e72c7a18d9",
+          "bytes": 87643,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_escape_straight": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_main.ogg",
+          "sha256": "e86aa8a2eea70332c28fedf916f5b9787f02cf0d42be813604bc7b1f845bd232",
+          "bytes": 87722,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_answer.ogg",
+          "sha256": "e24576a39975ee98c734db27b8558ba468592b67acfc4bbc087793187b114703",
+          "bytes": 87632,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_bass.ogg",
+          "sha256": "8d3b0ae4a4623de2f6f9e1ca51e27dba6b2fc627bd185a9299f21d37bbe7d35c",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_kit.ogg",
+          "sha256": "791b173d47d93a0ed42b505734eaf47080cbf05758392a64a8d878e1c5b0fedf",
+          "bytes": 87639,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "driving_full_angular_escape_loose": {
+      "frames": 1001354,
+      "sample_rate": 48000,
+      "tempo": 104,
+      "music_seconds": 18.46153846153846,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_main.ogg",
+          "sha256": "b8cd5e85798026327bc7052b943cd8347b4f8bb3ae75994428dbf450d92481d4",
+          "bytes": 87724,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_answer.ogg",
+          "sha256": "693f18ac8c23584e22bd6c47f68a501281a74be613697b2c9c7f0d66a4f7297e",
+          "bytes": 87635,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_bass.ogg",
+          "sha256": "d64e5ea7488b6c96bc8b15e6b0057ffd7b002635d2ab692e6849962d31c50458",
+          "bytes": 87601,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_kit.ogg",
+          "sha256": "d36b60ec3e1bb96530472ec3a6aaf6383fa91d80487eb2d8b3841a7e4624d49d",
+          "bytes": 87643,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_personal_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_main.ogg",
+          "sha256": "250be12048b742eb9a045ae9f537fcc59ac46facb370a2a1f6ba711f19110468",
+          "bytes": 71718,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_answer.ogg",
+          "sha256": "cb7e6f1b6e37f950eff736290cd894fe76226da076715b312c6f851f294c418d",
+          "bytes": 71670,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_bass.ogg",
+          "sha256": "5fcdb319165a70e2c8120d0746429654b51b1cf5e46bfdac531ed8a9e73da3ed",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_kit.ogg",
+          "sha256": "4463c885bbcfcac5f039ad1362b398b82ff04c4d8429dcd01528cc17837d3699",
+          "bytes": 71695,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_personal_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_main.ogg",
+          "sha256": "f6ac3d91d8eb2351aeb9dafc0c12b3c8d8d98506ce77d7f86b8e9ce048718797",
+          "bytes": 71724,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_answer.ogg",
+          "sha256": "d94967c730be8391d0fbba1274fa316ae51ccb577530953a144817ad1f60fd03",
+          "bytes": 71670,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_bass.ogg",
+          "sha256": "f03f2285a2931f6e72cd35d39692afa5d947389966adb7ddaa70ca7dfff7c195",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_kit.ogg",
+          "sha256": "0ecea7ea4dd1c4263a38b994d5c951682fe6655972d9499f6b219617c6f029c4",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_streetlife_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_main.ogg",
+          "sha256": "bc7dcac3c2c1cc406ea20b638a793ef0f6bedc30e6878861805e058a8cde9559",
+          "bytes": 71721,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_answer.ogg",
+          "sha256": "28d997b2bdd8d9c4fcf26a99165b9a5839d457737e7807cdee9998fdabdbc995",
+          "bytes": 71672,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_bass.ogg",
+          "sha256": "773d8fb5422d3980b03c235a3d9b1023f600d32c3a89fd3ecd8e19c54d594b77",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_kit.ogg",
+          "sha256": "5901d1f25023d6a7a7de10a4964794566068e2b246241417970b32d793d32240",
+          "bytes": 71695,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_streetlife_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_main.ogg",
+          "sha256": "6087dbb0088d1034f5424715691b8da595369a2477f5faf320207eaaff88f511",
+          "bytes": 71727,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_answer.ogg",
+          "sha256": "c1044aa0e9cd9381bce3ce3c8ae4748f20f491b257274b9ab764b01a2d257fb6",
+          "bytes": 71672,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_bass.ogg",
+          "sha256": "106a1b6681633381c464fff0262a46f06219405b511d7036edebbc67996826ee",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_kit.ogg",
+          "sha256": "5e824d456f5f3dccf2fb5fa6cf058640bb2f4bbd7735bb968ef9b7755e3d8719",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_escape_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_main.ogg",
+          "sha256": "66db1b200a06ad9a3f001aca47a35d4e02a69e4399008f0682c6305e649687c6",
+          "bytes": 71722,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_answer.ogg",
+          "sha256": "60a36f8b475b2360767025b6c5d376bc1584f5813d6033625506db90fc5a8371",
+          "bytes": 71672,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_bass.ogg",
+          "sha256": "f0c03a0aa7f9f1f90eb52e41f6aefa02f78eb06e67467128be1a494f9ca97aad",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_kit.ogg",
+          "sha256": "b8109d24d0194ee4bd5a751d1d0a0dfd47507744b239afc43fde576d88468146",
+          "bytes": 71695,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_familiar_escape_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_main.ogg",
+          "sha256": "f7363f7ce17be5280d578cea488afe1e07a6fc0e0202193ac4303e4fbcec6675",
+          "bytes": 71728,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_answer.ogg",
+          "sha256": "ecd7512afc7b14533dce4d6e65f02024df883cab71466382927877739c529ecf",
+          "bytes": 71672,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_bass.ogg",
+          "sha256": "568890df5e8c6994899280fde8960600c31bf205db141f9c1e7341bfbbd13354",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_kit.ogg",
+          "sha256": "9ee4b0e4f9db686de5e58fa2bc2f4c313d5da11c2d7fd942c4f942913a8e0ee4",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_personal_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_main.ogg",
+          "sha256": "5ffbe61205038ef505dc763ce02387ab74c57c213fea5f0b0c6f407c4dcb766f",
+          "bytes": 71725,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_answer.ogg",
+          "sha256": "b6f5660035912f8aced540fbdc2f4bdce8501ee57f0ead06b01acb5f4817f382",
+          "bytes": 71673,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_bass.ogg",
+          "sha256": "191db88bc65bdc306b1f363bfd10d93e1b6c4992c8b2d5dac09e6049d325aeac",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_kit.ogg",
+          "sha256": "aa4624a34766d3aaa32356fd0058e3485e0732b8b05510499f7bd7ea07c393e9",
+          "bytes": 71690,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_personal_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_main.ogg",
+          "sha256": "f6956c0faf3962b7c8408d7a781175694394ba84ab8efe2094b1482141e859b5",
+          "bytes": 71727,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_answer.ogg",
+          "sha256": "97eff8d26e28add0c7689188aa6c78527596dfe477351bdd2b1d4b86952c1a73",
+          "bytes": 71673,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_bass.ogg",
+          "sha256": "ddc0e13e6afe395cd8dcc3920ef973be3caea89ff87dc598183b4ca5b09fdbe6",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_kit.ogg",
+          "sha256": "b848cd07b54ec0ca94ace310d12f39e21c77bf9b7fbb1c589bead43f43c32142",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_streetlife_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_main.ogg",
+          "sha256": "ff88322a06337547615ee327a230cfd310e47dcf8d909c9be789e9ba9a358251",
+          "bytes": 71729,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_answer.ogg",
+          "sha256": "2406a5e107364b6c79ec22249704c27277f097ec12caec1d64f0dc877018bc08",
+          "bytes": 71674,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_bass.ogg",
+          "sha256": "df1f6f3ce798af9877cc69c558fd6059ad3c65598c83def24b526bf29e15ace3",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_kit.ogg",
+          "sha256": "d225c86f677845d816546022a11322ab0c5b3153b54f2067d7339aa2bd85d56e",
+          "bytes": 71690,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_streetlife_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_main.ogg",
+          "sha256": "e4bfd352751a1339ef542eab33aa295ef58b5f14c48d44f7e64e0dc481459985",
+          "bytes": 71732,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_answer.ogg",
+          "sha256": "5e6b05c84c87188afa6dd0f21c5062f86106f6c1fcc633a15dae3ce3f3054720",
+          "bytes": 71674,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_bass.ogg",
+          "sha256": "a701749debd77dbcfbc6ad7c15dcab62021a056f47d03034edf4e06d1cdace9f",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_kit.ogg",
+          "sha256": "368ddd90c3cc5ef1daae240ba646657ab67595cab4d88be98c835f16fc7e8a7e",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_escape_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_main.ogg",
+          "sha256": "632ecf434d9c7031b55255f118651dc19333c3392550c13970398a46de1baa80",
+          "bytes": 71729,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_answer.ogg",
+          "sha256": "8f2c6dc652ff15e5af7ccb9516c4ffe6e4680270f4fbf6613d5590cc9adc3cbd",
+          "bytes": 71675,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_bass.ogg",
+          "sha256": "760afdf90db2d379c57c7bccfd99b1e26794d9d0a62c9c9c12ea6c36bf5a2093",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_kit.ogg",
+          "sha256": "562d20f639412078ea44c473d5a319b9fa4d85ef3606685a7d6d463a28e2878c",
+          "bytes": 71690,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_open_angular_escape_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_main.ogg",
+          "sha256": "32e66eb198ad49ff17e000eb8147669d04f30aa4769498458d19a9411ce16f13",
+          "bytes": 71732,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_answer.ogg",
+          "sha256": "f5873d4315b689154f4a177b25e984ebd6d5443631ccf71871dc610c0fc8d484",
+          "bytes": 71675,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_bass.ogg",
+          "sha256": "ededfbc0cfa7d0a081f92ac5a2bc7824cd6ede9cfe5b44918ec77e389cd9c250",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_kit.ogg",
+          "sha256": "b7a2dd57e15491195c61c76aeb0c4547aaeec6c460804c6e095fe330827e3669",
+          "bytes": 71694,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_personal_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_main.ogg",
+          "sha256": "afeb07e72f44246c0c8a8a662fc1dfd69f7f4ec84602fec6e2d7ad8def3365d7",
+          "bytes": 71774,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_answer.ogg",
+          "sha256": "ae4dcbce1355f9ae53fe723ab83891a153b13028ccab01d695794c44fa40892a",
+          "bytes": 71687,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_bass.ogg",
+          "sha256": "4d4c5646d3ef8ebd59a9cb922e5363a04aaeebfa8852a1ead675382d3977c3fa",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_kit.ogg",
+          "sha256": "3a1dda4ea456c676407ff2146c8a0ecba60af5e38c36c48eadc9f64e93f20ce1",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_personal_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_main.ogg",
+          "sha256": "4472ed1723d25cfd4235c8cfcc47d1343f29ebc90acf431758a45675f43972b2",
+          "bytes": 71773,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_answer.ogg",
+          "sha256": "3626a4a3a13329e604867a0d0297ac006e7a528db4b8890f0b47b055150a8f5e",
+          "bytes": 71686,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_bass.ogg",
+          "sha256": "19a22fbdac5d4b8740a00925e0f690ecefa891fa7f5bbb07094b89c08902fd1e",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_kit.ogg",
+          "sha256": "b88cb0d410ae2110255a0254ca7ea84bf9c98d4baa48700b95195883bd279b84",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_streetlife_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_main.ogg",
+          "sha256": "eadfd1c754531ab5732d70dff06ccb034eacc0507bd22a30fadebc8d411824ae",
+          "bytes": 71773,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_answer.ogg",
+          "sha256": "fb972c475bba7086d11b87e443c22f1f3c611b16cd3c4f5d96c4c67a60f12cb3",
+          "bytes": 71687,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_bass.ogg",
+          "sha256": "f5901286970f0e4ff5c9ab01a1875f577ba4634091a61dd03d00775c16d89502",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_kit.ogg",
+          "sha256": "5b2d3304039cfc05b471ebcd9a16b3e684449148cfec1cdf8b189fc47e2b29c4",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_streetlife_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_main.ogg",
+          "sha256": "542aae33cf767ffea93eb178a85c4828a0f58d8677ca46abb509f3616550e3e2",
+          "bytes": 71772,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_answer.ogg",
+          "sha256": "847b71e1600ef2570e612b1cccbb1697e09322304e7dcab0c907eda963cbd934",
+          "bytes": 71686,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_bass.ogg",
+          "sha256": "5f26d2c27904959579e532bfb4ccbaa705670d3aa4b7bb551045ad48215dd332",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_kit.ogg",
+          "sha256": "637512afecbf17ae998337043811315580cfb20c0cfd3a04f130f654e412b96e",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_escape_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_main.ogg",
+          "sha256": "364f3785e0e5044b031cedc706c13ef63d34c57b63f4bed4353840e16d42c2d9",
+          "bytes": 71776,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_answer.ogg",
+          "sha256": "358e37d580d424cd2f7610c956026b02556af42a95541d99a206a77c29ba47f6",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_bass.ogg",
+          "sha256": "ae8bf09b8063331295530c6ed650ab259b5d3422cbd86f05ed5a7131b794da40",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_kit.ogg",
+          "sha256": "c876579ab2953046a04c2c094644c2b98876838efa4867c5337af11dee4a8a7a",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_familiar_escape_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_main.ogg",
+          "sha256": "6c9f9ec1ef21b4e8318c3e6fe4b66287155220c051c96bbd81b6661a47a4dc52",
+          "bytes": 71775,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_answer.ogg",
+          "sha256": "e0ea3e78ec396c11d77b8e260159e034e04ba3bf0dfd0ec4a57301b2e2b5e857",
+          "bytes": 71688,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_bass.ogg",
+          "sha256": "f5cb2974846902fe61eac5bc43d3b32f2a111faa3e05a9762b2edb06c5290762",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_kit.ogg",
+          "sha256": "4fb6d3163058053883583794ca2fc563ec538a2cdf353d9bf9fc3cf2010d466e",
+          "bytes": 71689,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_personal_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_main.ogg",
+          "sha256": "8b76772e3fda3e3ec3425978f92edde79dfbd2836fb37c4501fb2906e3b846f3",
+          "bytes": 71760,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_answer.ogg",
+          "sha256": "e42a7f19e4831c853827c5d2372c2745ab19c1b3f70f917566a35279bd18aada",
+          "bytes": 71699,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_bass.ogg",
+          "sha256": "da9883ef01e1b71a4972624760db4b7b4250862e5c6c1297645a71c57f55afe3",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_kit.ogg",
+          "sha256": "91ef216179355083f30e90327aec3791e02335a5812159f4759330258ffc03d5",
+          "bytes": 71681,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_personal_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_main.ogg",
+          "sha256": "d905ef73537f2bcdfd5433e624d90f563a5c8106dd4f7d0ec849b1c31651b45c",
+          "bytes": 71759,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_answer.ogg",
+          "sha256": "74f084039bb86c95cea0f13f1bbba07c7f6a2b46d5fee26d4f71a6b26b87ca0d",
+          "bytes": 71696,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_bass.ogg",
+          "sha256": "f66a8d12fa2bbe8961db6254d9af1d06ee9c017ce63be5d8a32eaf444c0b9950",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_kit.ogg",
+          "sha256": "c34c907e4c71ebbde7632f82621d5e5850b9f16483b6c26d246c485cac45b492",
+          "bytes": 71679,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_streetlife_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_main.ogg",
+          "sha256": "705623fae7e2c17f39838817828ded41b0e35bf1c507d943ce834e2d7e049bd8",
+          "bytes": 71760,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_answer.ogg",
+          "sha256": "5cb37e2a511826ecd2452cfaa5e9d4e1e69a860b8e010add374fe56195faf038",
+          "bytes": 71699,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_bass.ogg",
+          "sha256": "9118b16c9b49fa8e2533003fcb32ffda3f779659d44efb8374d549d958b12f92",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_kit.ogg",
+          "sha256": "4c70ae4f33a98ec2cc85d8ec9101edb15d4099450252d085c8865e37136885ea",
+          "bytes": 71681,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_streetlife_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_main.ogg",
+          "sha256": "744b90c47685ce1dca17e0a78f39e72fece8b14d7dfbfc08e8442a0ebc4f4bfb",
+          "bytes": 71759,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_answer.ogg",
+          "sha256": "f2d2c28fdb6f54868660f7373aa760ced43516ce2e43c568212d579084954d86",
+          "bytes": 71696,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_bass.ogg",
+          "sha256": "f97bb496f97e510aea809916d47fa09f92889bbc179f0a399cf7b494e5310221",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_kit.ogg",
+          "sha256": "c0e22beea0720e4817818b0940201b67849b407ffd47a2ac5ed88a168b6e1510",
+          "bytes": 71679,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_escape_straight": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_main.ogg",
+          "sha256": "29b4c7a4bff4633699572c2bbc9ff9a3d9815c4aa422d834128cdd54ff43d06b",
+          "bytes": 71763,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_answer.ogg",
+          "sha256": "21a9ebf144a979d60f745417c62d27c0e7b520988a02ade9b46d58af3544cb8d",
+          "bytes": 71700,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_bass.ogg",
+          "sha256": "856c778249bff2a0f61cd2e65c34b52a60094284b666ec17dd8e9cb1e4f14c4b",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_kit.ogg",
+          "sha256": "a49df1a7870cf8140524e9790168587598740487e0268aa490336a0bd49d25a0",
+          "bytes": 71681,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    },
+    "urgent_full_angular_escape_loose": {
+      "frames": 813382,
+      "sample_rate": 48000,
+      "tempo": 132,
+      "music_seconds": 14.545454545454545,
+      "tail_seconds": 2.4,
+      "parts": {
+        "main": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_main.ogg",
+          "sha256": "9f578e98af4e2679085fd85716a32943ea6645ec339352deb93ebd5dd3820a39",
+          "bytes": 71762,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "answer": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_answer.ogg",
+          "sha256": "a8fd76f722eece8ab1b003ad9cf97bd879133e9e480b16ffb7a81ab4822f9a96",
+          "bytes": 71697,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "bass": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_bass.ogg",
+          "sha256": "f76cc4ff2b6eb5aa0917ef046695d9ecf87085924c3d1230cbed8a9978cdcb5b",
+          "bytes": 71669,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        },
+        "kit": {
+          "path": "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_kit.ogg",
+          "sha256": "1d367933a7e7211514bf4e7b6581ed1652f1d770e353a28ddf6a18cb533f2409",
+          "bytes": 71679,
+          "channels": 1,
+          "owner_listening_accepted": false,
+          "integration_review_accepted": true,
+          "integration_authority": "owner_delegation_20261104"
+        }
+      }
+    }
+  }
+}

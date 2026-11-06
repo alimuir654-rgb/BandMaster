@@ -644,12 +644,38 @@ func workbench_action(action: String,expected: Dictionary,payload: Dictionary={}
  _audition_busy=false
  return result
 
-func begin_workbench_commit(expected: Dictionary) -> Dictionary:
+func save_mixing_sketch(expected: Dictionary,payload: Dictionary) -> Dictionary:
+ if _audition_busy:return _workbench_result(false,false,"A band action is already being saved.")
+ _audition_busy=true
+ var before: Dictionary=snapshot()
+ var result: Dictionary
+ if Workbench._keys(payload,["recipe","title","leader_index","decision"]) and payload.get("decision") is Dictionary and payload.decision.is_empty():
+  if not preload("res://experiments/playable_flightcase/mixing_recipe.gd").valid(payload.get("recipe")):
+   _audition_busy=false;return _workbench_result(false,false,"Review this direction before saving.")
+  result=Workbench.checkpoint(before,"producer_save",expected,{"recipe":payload.recipe,"title":payload.title,"leader_index":payload.leader_index})
+ else:
+  var staged: Dictionary=Workbench.prepare_mixing_local(before,expected,payload)
+  result=Workbench._mutation(staged.get("state",before),bool(staged.get("ok",false)),"Direction and considered idea saved free." if staged.get("ok",false) else str(staged.get("message","Review this direction.")),bool(staged.get("ok",false)))
+ var finished: Dictionary=_finish_workbench_free(before,result)
+ _audition_busy=false
+ return finished
+
+func begin_workbench_commit(expected: Dictionary,mixing_payload: Dictionary={}) -> Dictionary:
  var fail: Dictionary={"ok":false,"changed":false,"message":"A band action is already being saved.","transaction_id":"","prepared":{},"before_game":{}}
  if _audition_busy:return fail
  _audition_busy=true
  var before:=snapshot()
- var prepared:=Workbench.prepare_paid(before,expected)
+ var working: Dictionary=before
+ var prepared: Dictionary
+ if mixing_payload.is_empty():prepared=Workbench.prepare_paid(before,expected)
+ else:
+  var staged: Dictionary=Workbench.prepare_mixing_local(before,expected,mixing_payload)
+  if not staged.get("ok",false):
+   _audition_busy=false
+   fail.message=str(staged.get("message","Review the local direction before committing."))
+   return fail
+  working=staged.state
+  prepared={"ok":true,"prepared":staged.prepared}
  if not prepared.ok:
   _audition_busy=false
   fail.message=prepared.message
@@ -661,8 +687,9 @@ func begin_workbench_commit(expected: Dictionary) -> Dictionary:
   return fail
  _workbench_serial+=1
  var ticket: String="workbench-tx:%d" % _workbench_serial
- _workbench_transaction={"id":ticket,"before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{},"phase":"prepared"}
- return {"ok":true,"changed":false,"message":"","transaction_id":ticket,"prepared":prepared.prepared.duplicate(true),"before_game":(before.game as Dictionary).duplicate(true)}
+ game.career=(working.game.career as Dictionary).duplicate(true)
+ _workbench_transaction={"id":ticket,"before":working.duplicate(true),"rollback_before":before.duplicate(true),"prepared":prepared.prepared.duplicate(true),"completion":{},"original_result":{},"phase":"prepared"}
+ return {"ok":true,"changed":false,"message":"","transaction_id":ticket,"prepared":prepared.prepared.duplicate(true),"before_game":(working.game as Dictionary).duplicate(true)}
 
 func agree_band_week(expected: Dictionary) -> Dictionary:
  var fail: Dictionary={"ok":false,"changed":false,"message":"A band action is already being saved."}
@@ -713,7 +740,7 @@ func _workbench_ticket(ticket: String) -> bool:
 func _abort_workbench_owned(message: String) -> Dictionary:
  # Only this owner may clean up its retained in-flight snapshot. Public
  # reentrant finish/abort calls cannot interrupt the actual writer.
- _rollback_identity(_workbench_transaction.before)
+ _rollback_identity(_workbench_transaction.get("rollback_before",_workbench_transaction.before))
  _workbench_transaction={}
  _audition_busy=false
  return _workbench_result(false,false,message)
