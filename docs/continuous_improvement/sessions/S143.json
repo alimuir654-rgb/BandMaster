@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1853158,
-    "sha256": "c0f1835a6e6897537c8e87343df8fec15648f05779c3119cbc293426f9121a48"
+    "bytes": 1855036,
+    "sha256": "d25cd84a8d7e89c7bcd8549983228b1125d26b900a4aeec67474112da27421fa"
   },
   "lesson_ids": [
     "BM-15",
@@ -156,5 +156,12 @@
     "reason": "Newexplicitprivateworker_pool2afterfirstimportresourceHOLD; productionP/projectunchanged, effectivenativeandAndroidsameworkerlimit. Old146entrykeptimmutableinD140andinitialintake.",
     "max_threads_setting_verified_in_exact_binary": true,
     "all_import_threads_controlled_claim": false
+  },
+  "audio_metadata_mapping_amendment": {
+    "path": "experiments/playable_flightcase/audio/demo_foundations_v1.json",
+    "actual_typed_consumer": "audition_audio.gd:53 unchanged",
+    "change": "Mapproposalownerapprovedfalse\u2192owner_listening_acceptedfalse andproposalreviewauthority\u2192integration_authority exactString; internalreviewtrue. Noaudiofilename/hash/rights/gain changes.",
+    "proof": "Narrowconsumerpositive+wrongtype/authoritynegativechecks beforeearlynative retry. JSONtextonlyrefreshinS143activecache; no reimport/OGGcachechange/coldimportclaim.",
+    "prior_registry_held": "00e3155 source/initialadoptionreceipt retained; closedhelperproposal/deliveryimmutable"
   }
 }
