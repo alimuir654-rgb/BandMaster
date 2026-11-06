@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S136",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "c536e09241930c3812cd3d39a190cb870cc9468a",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1767009,
-    "sha256": "9696355526b763bce3514c309e7f2c7a98e0ba0bbe5dedb3943d4aa7ba5c921d"
+    "bytes": 1770250,
+    "sha256": "359583a8203c569fe5647331017830e1ca5e5d1a5039cff18bc1bdd6717231db"
   },
   "lesson_ids": [
     "BM-01",
@@ -71,18 +71,14 @@
     "All517Game/source exact/82OGG9JSON/compiledscripts/importresources/12reviewedomissions/0extras; nooldcache/sharedmutableproducer.",
     "VerifyoneprivatecompiledAPKfile/individualowner+Alireader/MIMEbytesparent;closeproducer/cache/DICThandoff withoutdevice/humaninference."
   ],
-  "root_lease": {
-    "writer": "root_S136_final_APK",
-    "expires_at": "2026-11-06T02:30:00Z",
-    "scope": "ONEartifactfromverified898only, noGame/source/UI/assetschange. Closeearlier;07:55release/08:00outerstop."
-  },
-  "artifact_phase": "ARTIFACT_PASS_DRIVE_HELD_100MiB_LOCAL_HANDOFF_COPY_FUNDED",
+  "root_lease": null,
+  "artifact_phase": "CLOSED_LOCAL_APK_READY_DRIVE_TRANSFER_HELD",
   "source_write_allowed": false,
   "audio_write_allowed": false,
   "art_write_allowed": false,
-  "engine_execution_allowed": true,
-  "APK_artifact_allowed": true,
-  "page_write_allowed": true,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
   "stop_condition": "Twoineffectiveattempts changemethod/HOLD; noassertionweakening. Freshfundingforunexpectedsize/failurebeforeallocation; noownerwaiting/newqueue/extension;release07:55/hard08.",
   "source_input": {
     "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
@@ -134,5 +130,363 @@
   "current_build_receipt": "/workspace/work/s136-final-apk-v14-20261106/build.json",
   "current_APK_SHA256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
   "current_APK_bytes": 123902239,
-  "separate_update_privacy_audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json"
+  "separate_update_privacy_audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
+  "closed_at": "2026-11-06T01:51:59.661873+00:00",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/build.json",
+        "bytes": 7550,
+        "SHA256": "b2ca03f2e7cffde8f58bfaa721279f2b33acfe102499ff923c533d4483b4ad0f"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
+        "bytes": 41638,
+        "SHA256": "d85e139e46b310bf6022f07d48684a2cd78ee44ffd90667441cb5299d18c28d9"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/preflight-inputs.json",
+        "bytes": 2236,
+        "SHA256": "7cb7723f97f3dc80163b60b4647be6d38616389645520ba5091ebd86cfed67ba"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/source-inputs.json",
+        "bytes": 702,
+        "SHA256": "c677c8e3c8141ac82c5beea1e1d8abf57abd85dd797fec8219c843e6b0278f36"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/apk-entries.json",
+        "bytes": 198,
+        "SHA256": "a1c5c7ee0f8fa530e9432dab37d567926e1223111f953f327ab76e0f4889440c"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/prospective-funding.json",
+        "bytes": 1531,
+        "SHA256": "9db61413b60045a33d7530a25a3e162648b7970460a1610f939b3b6bb29c0744"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/private-channel-preflight.json",
+        "bytes": 2407,
+        "SHA256": "acd352ba7dccfb6b362e4bf4efc954297d64d14e3ba741913f2a9c50c0799e21"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/blocked-drive-transfer-v1.json",
+        "bytes": 762,
+        "SHA256": "a6823f2dff655d8642e8bdb5817799b4e762b69c09b0ca412bf66504eb7a34b8"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/read-only-lossless-packaging-estimate.json",
+        "bytes": 398,
+        "SHA256": "e1fbd6cd5a422d7d4cc7926cadd821db1cbdd6acdb7303815204012c95eec52a"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/local-handoff.json",
+        "bytes": 1267,
+        "SHA256": "380a71256e26a6199d9c37ed6013faa08fe2c9dca204825530d096d19b1101e7"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/artifact-cache-closure.json",
+        "bytes": 863,
+        "SHA256": "dcf390d6cb486b45e07262000da371e45b41ec5cbe35c769d078ccfe4a1f450d"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/source-and-artifact-protection-final.json",
+        "bytes": 1355,
+        "SHA256": "e343110c05cd33e9837f52ebc1b8001f7eff8f2f83eec3efdf74d96619c87d98"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/primary-object-audit-final.json",
+        "bytes": 484,
+        "SHA256": "04ef7925e44f2748f6a5d29e82436f276f66c7510721fb7e92d032fd54796c31"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/page-status-audit.json",
+        "bytes": 3143,
+        "SHA256": "72185caaf6a16a475b52f0466b9299bc877ae1b20e445e5b8033c008e7eb8db7"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/sole-queue-status-final.json",
+        "bytes": 609,
+        "SHA256": "27e61b517acc8fdfdbc281f463845364b5435f564d7c0d1ed7c87bd055cc569c"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/review/pre-artifact-v1.json",
+        "bytes": 13822,
+        "SHA256": "5d617c049905d16e335410360c4607a10183dee651d45a59087e2c6e569d42e3"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/review/final-artifact-v1.json",
+        "bytes": 5810,
+        "SHA256": "94c82c0a754009c88b84b7166886f9db8f536255fd9919aa3478f45f7bcef39e"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/review/reviewer-semantic-audit-v1-result.json",
+        "bytes": 5208,
+        "SHA256": "f8fb8f8b2d832f16d2c07c817caaabbba7ad92e163c2375a07012b1c8003dbc9"
+      },
+      {
+        "path": "/workspace/work/s136-final-apk-v14-20261106/review/final-delivery-limits-v1.json",
+        "bytes": 4360,
+        "SHA256": "7b7073e5b9382e3e8170e332a280e40c51a37d73ab1b1151211fad74a9008297"
+      }
+    ],
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "artifact_technical_verdict": "internal_pass",
+    "local_deliverable_status": "VERIFIED_LOCAL_APK_READY",
+    "private_Drive_delivery_status": "HELD_CONNECTOR100MiB_BEFORE_ACTION",
+    "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension.",
+    "new_issue_review": {
+      "through_bytes": 1770250,
+      "SHA256": "359583a8203c569fe5647331017830e1ca5e5d1a5039cff18bc1bdd6717231db",
+      "all_new_events_reviewed": true,
+      "opaque_S136_events": [
+        "S136-20261106T010946-signed-export-and-handoff-guard",
+        "S136-20261106T011711-reviewer-virtual-remap-location",
+        "S136-20261106T011841-reviewer-compression-sidecar-method-change",
+        "S136-20261106T012932-Drive-100MiB-transfer-block",
+        "S136-20261106T013506-unexecuted-Guide-index-draft",
+        "S136-20261106T015159-local-APK-final-handoff"
+      ],
+      "Drive_transfer_block_remains_HELD": true,
+      "two_extra_reviewer_diagnostics_HELD_then_changed_semantic_method_PASS": true,
+      "unexecuted_Page_index_draft_retained_corrected_before_external_write": true,
+      "retrieval_limits": "Read-only terminal output truncations recovered from exact durable files; one orchestrator syntax refusal before nested calls, no source/engine/remote effects. No failed-proof promotion.",
+      "committed_issue_prefix_preserved": true
+    },
+    "Game_changed": false,
+    "verification_kind": "FreshisolatedAPKpackagingandresource/update/privacy audit; reuseexactS134currentGameproof, no newGame/nativejourneyproof.",
+    "APK": {
+      "status": "LOCAL_VERIFIED_APK_READY_DRIVE_TRANSFER_HELD",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "version_code": 14,
+      "version_name": "0.134.0-playtest",
+      "local_APK": "/workspace/work/s136-final-apk-v14-20261106/BandMaster-Playtest-v14-arm64.apk",
+      "TMP_original_APK": "/tmp/bandmaster-s136-final-apk-v14-20261106/android-v14/BandMaster-Playtest-v14-arm64.apk",
+      "bytes": 123902239,
+      "SHA256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
+      "copy_byte_exact": true,
+      "originals_retained": true,
+      "recorded_at": "2026-11-06T01:29:58.040244+00:00",
+      "Drive_upload_attempts": 1,
+      "Drive_action_invoked": false,
+      "Drive_file_created": false,
+      "Drive_grants_changed": 0,
+      "actual_Drive_transfer_limit": 104857600,
+      "no_chunks_or_public_or_newrecipient_bypass": true,
+      "newAPK_remote_checksum_available": false,
+      "V13_privateDrive_file_retained": true,
+      "privateDrive_delivery_completed": false,
+      "workspace_file_reference": "/workspace/work/s136-final-apk-v14-20261106/BandMaster-Playtest-v14-arm64.apk",
+      "physical_install_audio_IME_retention_verified": false,
+      "install": "Update existingapp; neveruninstall/cleardata.",
+      "workspace_free_after_copy": 764354560,
+      "TMPfree_after_copy": 773353472
+    },
+    "source_manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+    "commands": {
+      "build_steps": 9,
+      "separate_readonly_audit_commands": 5,
+      "all14_rawexit0_ERRORempty": true,
+      "Godot_import_export_executions": 2,
+      "new_Game_native_journeys": 0,
+      "separate_reviewer_extra_diagnostics_HELD": 2,
+      "reviewer_method_changed_to_retained_validated_semantics": true,
+      "reviewer_oversized_draft_refused_before_write": true
+    },
+    "asset_closure": {
+      "curated_source_rows": 517,
+      "Git_shipping_rows": 516,
+      "compiled_GDSC": 168,
+      "source_remaps": 180,
+      "fresh_imported_target_matches": 283,
+      "OGGs": 82,
+      "audio_JSON": 9,
+      "reviewed_old_omissions": 12,
+      "unexpected_assets": 0,
+      "ZIP_entries": 1073
+    },
+    "actual_opened_images": {
+      "new_native_or_image_opens_in_S136": 0,
+      "independent_new_image_opens": 0,
+      "reused_current_S134_reference": {
+        "locator": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/standard-phone-v3/captures/008-c27-recruit-390x844.png",
+        "original_sha256": "d1f695c2068687f5ad41300d2eec2606374bb18f90c8d8229d6ed7641d6aac75",
+        "pixels_inspected": true,
+        "scope": "ExactcurrentS134actualopenednative source reference plus completeS134fourview/wholeweek proof. APKpackagingmustcarry517same rows; no newnativepixelclaim."
+      },
+      "scope_note": "S134actual18rootnativeopens+1artinspection/41independent andS1355root/7independent remain their original receipts; not freshS136opens."
+    },
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED game critic",
+        "finding": "Co-writingandrealavailability nowpackaged; staticpeople/ordinarybodyscroll/sparsewidecomposition remainmateriallimits; no benchmarkratingparity/humanreview."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Exact82OGG9JSON/sourcepreserved; paidmusicdevelopment/memberinput/knownworkclashes remain; audioillustration notrecruitedliveperformance/grade. No physicalspeaker/headphonelistening."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "VerifiedlocalV14 UPDATE ready; oldV13Drive explicitly labelledprevious; no newDriveURL exists. Neveruninstall/cleardata."
+      },
+      {
+        "lens": "SIMULATED accessibility/mobile player",
+        "finding": "No newphysicalphone/touch/IME/OSinterrupttesting; actualS134nativeinputproof reusedhonestly, fullwritten/mute fallback retained."
+      },
+      {
+        "lens": "SIMULATED source/privacy auditor",
+        "finding": "Sameapp/cert/savefolder, zeroPermissions/MAINLAUNCHER/noHOME/ARM64/alignment/CRC/sourceclosureverified; localSHAexact; remoteactionnotinvoked/grants0/DriveHELD."
+      }
+    ],
+    "offline_S135_art": {
+      "path": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+      "SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+      "in_Game_or_V14": false,
+      "owner_approved": false,
+      "future_integration_needs_full_funding_native_proof": true
+    },
+    "material_limits": [
+      "V14Drive transfer blocked; no remoteAPK/grant/checksum/actualuserdownloadclaim.",
+      "Physicalinstall/upgrade/save-retention/audioquality/IME/OSinterrupt untested.",
+      "S135triooffline; existingnativebandartunchanged.",
+      "Raw/darkaudiblepalette scoped to supportedIndierockidentity, notall14genres.",
+      "S13433actualGodot21executionstrict12held/19strictcurrent; no blanket33PASS.",
+      "HistoricaldebugexitP2held/causeunproved; ordinarylifecycle passes retained.",
+      "HistoricalunreachableGitobjectpreservation afterS133automaticpackingunproved; currentreachableprimaryauditpassed."
+    ],
+    "funding": {
+      "prospective": {
+        "workspace_floor_bytes": 629145600,
+        "TMP_floor_bytes": 629145600,
+        "workspace_initial_free_bytes": 890306560,
+        "workspace_new_metadata_and_primaryGit_cap_bytes": 150994944,
+        "TMP_aggregate_cap_bytes": 620756992,
+        "TMP_initial_free_bytes": 1253400576,
+        "TMP_categories_MiB": {
+          "source": 128,
+          "privatecache": 100,
+          "final_signed": 120,
+          "one_full_failed_APK": 120,
+          "work": 4,
+          "Godot_export_APK": 120
+        },
+        "actual_APK_limit_bytes": 125829120,
+        "handoff_TMP_reserved": 1048576,
+        "handoff_primary_reserved": 2097152,
+        "primary_contingency_reserved": 4194304,
+        "after_all_future_TMP_reservations": 631595008,
+        "prior_S135_TMP0_closed_unused_reservation_released": true,
+        "no_old_files_deleted_or_mutated": true,
+        "signing_transient_and_failed_tail": {
+          "first_attempt_full_signing_temp_may_use120MiB_contingency": true,
+          "retained_full_failed_APK_requires_fresh_complete_funding_before_any_retry": true,
+          "peak_samples_not_OS_quota": true
+        },
+        "runtime_floor_guards_include_handoff_reserves": true,
+        "durable_final_user_APK_copy_exception": {
+          "primary_cap_MiB": 144,
+          "actual_current_free": 888897536,
+          "new_local_final_APK_bytes": 123902239,
+          "reason": "Finaluser-facingdeliverable exactcopy toownedworkspace becauseactualDriveconnector100MiBcap. LargeISOLATEDruntime/cache/proofs stayTMP; alloriginalAPKs retained. Thisisnewreversibleaddition, nocleanup ormutablecachechange.",
+          "no_Source_audio_APK_bytes_changed": true,
+          "no_remote_delivery_claim": true
+        }
+      },
+      "workspace_free_at_close": 763932672,
+      "TMP_free_at_close": 773140480,
+      "primary_observed_delta_from_S136_initial": 126373888,
+      "TMP_physical": 479776768,
+      "peak_TMP_observed_0_5s_sample": 479694848,
+      "absolute_peak_claim": false,
+      "no_arbitrary_cleanup": true
+    },
+    "source_and_cache_protection": {
+      "at": "2026-11-06T01:44:16.974506+00:00",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "source_manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+      "manifest_SHA256": "83d386d75e9962e6b77f87a5b73808f48f7e7b282006c122e6ccb874b20448aa",
+      "all517input_rows_exact": true,
+      "primary516shipping_andfreshartifact516_rows_exact": true,
+      "platform_override_same_V13": true,
+      "all82OGG9JSON54Scripts3UID_art_fonts_hardware_exact": true,
+      "prior_closed_cache_checks": {
+        "S133": {
+          "producers": 9,
+          "files_exact": 5486,
+          "remain_closed": true
+        },
+        "S134": {
+          "producers": 2,
+          "files_exact": 1322,
+          "remain_closed": true
+        }
+      },
+      "local_APK_SHA256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
+      "APKbytes": 123902239,
+      "no_new_source_or_omissions_to_fit_transfer_limit": true,
+      "source_raw_S135_art_excluded": true,
+      "Godot_executions_in_S136": 2,
+      "build_steps": 9,
+      "separate_audit_commands": 5,
+      "all14_steps_raw0_ERRORempty": true,
+      "reviewer_diagnostics": "2extraad-hoccomparisonsHELD; semanticmethodPASS; oversizeddraftrefusedbeforewrite. Notproductfailures/allreviewdiagnosticsPASS.",
+      "Drive": "HTTP413beforeaction/noV14file/grant",
+      "new_local_copy_verified": true,
+      "workspace_free": 764018688,
+      "TMPfree": 773140480
+    },
+    "cache_closed": {
+      "at": "2026-11-06T01:37:56.378811+00:00",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "producer": "/tmp/bandmaster-s136-final-apk-v14-20261106/android-v14/project",
+      "cache": "/tmp/bandmaster-s136-final-apk-v14-20261106/android-v14/project/.godot",
+      "cache_files": 688,
+      "inventory": "/tmp/bandmaster-s136-final-apk-v14-20261106/closed-APK-cache-inventory-final.json",
+      "inventory_SHA256": "04e28c61bab43c93c46e1fedd5ab4bb480835a543d988824f5a1b59cbfb4f14e",
+      "producer_and_cache_permanently_closed_immutable": true,
+      "never_engine_import_export_resume_or_write_closed_bytes": true,
+      "new_Game_source_base_stays_S134_manifest_notplatform_project": true,
+      "GL_flock_free": true,
+      "Xorg_launched": false,
+      "workspace_free": 764022784,
+      "TMPfree": 773140480,
+      "new_local_APK_durable_verified": true,
+      "Drive_delivery_HELD": true
+    },
+    "Pages": {
+      "Plan": 73,
+      "Board": 186,
+      "Guide": 19,
+      "human_choices": 72,
+      "checked": 23,
+      "images": 50,
+      "all_unrelated_blocks_preserved": true,
+      "browser_render_claim": false
+    },
+    "sole_queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261105T231500\nRRULE:FREQ=HOURLY;COUNT=9\nEND:VEVENT",
+      "is_enabled": true,
+      "prompt_chars": 13124,
+      "updated_at": "2026-11-06T01:50:00.133093+00:00",
+      "prompt_file": "/workspace/work/s136-final-apk-v14-20261106/next-sole-queue-prompt.txt",
+      "only_prompt_changed": true,
+      "no_new_queue_controller_worker_endtask": true,
+      "hard_stop": "2026-11-06T08:00:00Z",
+      "release_by": "2026-11-06T07:55:00Z",
+      "existing_hourly_COUNT9_unchanged": true
+    },
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "art_writer": null,
+      "helpers": null,
+      "GL": "free; S136headless/Xorgnotstarted; PID1zombiesretainednotlive"
+    },
+    "closed_at": "2026-11-06T01:51:59.661873+00:00"
+  }
 }
