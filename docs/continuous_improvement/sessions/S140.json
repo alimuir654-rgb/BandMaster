@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1782597,
-    "sha256": "c92de2dbd799b946b6379a72cb3625112f62f8e583830e41b6583bbc72dfad36"
+    "bytes": 1784031,
+    "sha256": "95d5e5c20c05957afb5860628918a401994e2bca5937f5b130c5c79e876db869"
   },
   "lesson_ids": [
     "BM-01",
@@ -76,7 +76,8 @@
     "experiments/playable_flightcase/opening_capture.gd",
     "experiments/playable_flightcase/audio/mixing_desk_v1.json",
     "experiments/playable_flightcase/audio/producer/mixing_desk_v1/*.ogg",
-    "experiments/playable_flightcase/art/mixing_desk/*.png"
+    "experiments/playable_flightcase/art/mixing_desk/*.png",
+    "experiments/playable_flightcase/mixing_recipe.gd"
   ],
   "external_artifact_roots": [
     "/workspace/work/s140-mixing-desk-20261106",
@@ -161,5 +162,115 @@
     "use": "design target only, not shipped full interface",
     "accepted": true
   },
-  "audio_contract": "Inspect existing48-cue score/stems and CC0 bank before choosing bounded independent control mapping. No decorative inert or falsely audible axis. New finite layered review possible within32MiB source cap; old48 and original82 retained exact. New audio ownerfalse/internalreviewtrue/current delegated authority, no human listening claim."
+  "audio_contract": "Inspect existing48-cue score/stems and CC0 bank before choosing bounded independent control mapping. No decorative inert or falsely audible axis. New finite layered review possible within32MiB source cap; old48 and original82 retained exact. New audio ownerfalse/internalreviewtrue/current delegated authority, no human listening claim.",
+  "independent_predesign": {
+    "path": "/workspace/work/s140-mixing-desk-20261106/review/predesign-v1.json",
+    "SHA256": "0bcee745f643c014b6e0dbe30c3f829de1e43941407d7e18e0851b2b093e33b0",
+    "bytes": 21762,
+    "disposition": "CLEAR_FOR_SCOPED_IMPLEMENTATION_WITH_EXPLICIT_ACCEPTANCE_GATES"
+  },
+  "mixing_v3_contract": {
+    "version": 3,
+    "palette": "mixing_desk_v1",
+    "hook": "low_riff_v1",
+    "keys": [
+      "version",
+      "palette",
+      "hook",
+      "brief",
+      "stage",
+      "pace",
+      "energy",
+      "originality",
+      "theme",
+      "tone",
+      "groove",
+      "shape"
+    ],
+    "fields": {
+      "tone": [
+        "warm",
+        "gritty",
+        "biting"
+      ],
+      "pace": [
+        "slow",
+        "driving",
+        "urgent"
+      ],
+      "energy": [
+        "open",
+        "full"
+      ],
+      "originality": [
+        "familiar",
+        "angular"
+      ],
+      "groove": [
+        "straight",
+        "loose"
+      ],
+      "shape": [
+        "build",
+        "burst"
+      ],
+      "theme": [
+        "personal",
+        "streetlife",
+        "escape"
+      ]
+    },
+    "physical_labels": {
+      "tone": [
+        "WARM",
+        "GRITTY",
+        "BITING"
+      ],
+      "pace": [
+        "SLOW",
+        "DRIVING",
+        "FAST"
+      ],
+      "energy": [
+        "RESTRAINED",
+        "FIERCE"
+      ],
+      "originality": [
+        "SIMPLE",
+        "LAYERED"
+      ],
+      "groove": [
+        "STRAIGHT",
+        "LOOSE"
+      ],
+      "shape": [
+        "BUILD",
+        "BURST"
+      ],
+      "theme": [
+        "PERSONAL",
+        "STREETLIFE",
+        "ESCAPE"
+      ]
+    },
+    "tempo": [
+      88,
+      104,
+      132
+    ],
+    "energy": "attack/velocity, not part count",
+    "complexity": "note/answer density",
+    "groove": "offbeat microtiming, not tempo",
+    "shape": "phrase/section entries, not one overall loudness",
+    "lyric": "written intent; instrumental cadence D/Bb/C, no sung-lyrics claim",
+    "preview": "zero-save read-only owned audio leaf",
+    "paid_commit": "one existing OpeningState transaction, stage exact local take and explicit member response in memory before original paid resolver; separate whole original rollback snapshot; one final save",
+    "old_v2": "immutable old assets, old valid/read/replay paths preserved; new drafts use v3",
+    "all_genres": "new creative desk for known supported Sound brief; audio explicitly only actual rawIndie palette, honest written fallback elsewhere",
+    "source_audio_max_bytes": 33554432,
+    "stem_core_scenarios": 72,
+    "stems_per_scenario": 4,
+    "song_duration": "8 authored bars +2.4s fulltail; distinct paid-stage parts",
+    "no_passive_meter_inputs": true
+  }
 }
