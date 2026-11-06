@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S141",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "727cfe4ac0e6ae69194d509839fa3b280b29d423",
   "game_baseline_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
@@ -49,12 +49,7 @@
   "external_artifact_roots": [
     "/workspace/work/s141-available-evening-review-20261106"
   ],
-  "root_lease": {
-    "owner": "root_S141_available_evening_review",
-    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-06T19:39:14.385845+00:00",
-    "scope": "Read-only source-backed feedback/design review and canonical notes only; no Game/source/assets/native/APK or automation."
-  },
+  "root_lease": null,
   "source_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
@@ -74,5 +69,79 @@
     "Read actual source APIs, source hashes and public costs; no engine executions.",
     "improvement_gate current session; exact source-proposal distinction; canonical release and source unchanged check."
   ],
-  "stop_condition": "No production changes, native proof, new audio/art or APK under review. Close proposal and release metadata lease; future implementation requires complete fresh scope/funding/native gates."
+  "stop_condition": "No production changes, native proof, new audio/art or APK under review. Close proposal and release metadata lease; future implementation requires complete fresh scope/funding/native gates.",
+  "released_root_lease": {
+    "owner": "root_S141_available_evening_review",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-06T19:39:14.385845+00:00",
+    "scope": "Read-only source-backed feedback/design review and canonical notes only; no Game/source/assets/native/APK or automation."
+  },
+  "closeout": {
+    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+    "evidence": [
+      {
+        "path": "/workspace/work/s141-available-evening-review-20261106/source-contract.json",
+        "SHA256": "c948abcdfc16ea2c49b49bffb61249ccdb4a8ae8eefdc5865d206fb0220629e4"
+      },
+      {
+        "path": "/workspace/work/s141-available-evening-review-20261106/proposal.md",
+        "SHA256": "76e99bb144a42b7e8577667403017ddce70f0f22fb5f6b07df129ce952588b41"
+      }
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Prioritise contextual Back/Pause plus free attendee-aware practice, then explicit-play continuous audition and clearer existing song continuity. Fresh complete production funding/preflight/native proof required.",
+    "new_issue_review": {
+      "bytes": 1836116,
+      "sha256": "4d6c9f219cdc15d555a9823c97447e5d663694a7782de91dc3cd176ec667bec7",
+      "new_opaque_events": [
+        {
+          "event_id": "S141-20261106T191914-e3b06642b5",
+          "id": "BM-33",
+          "event": "recurrence",
+          "observation": "Read-only discovery included absent guessed experiments/playable_flightcase/career_ui.gd; rg emitted missing-file diagnostic. Actual opening_ui.gd preload identifies career_desk.gd. No source edit or product defect.",
+          "expected": "Use actual preload/manifest path and preserve retrieval diagnostic before corrected review.",
+          "evidence": [
+            "Direct owner feedback after V15 delivery",
+            "experiments/playable_flightcase/mixing_desk.gd:221",
+            "experiments/playable_flightcase/ui.gd:912",
+            "experiments/playable_flightcase/situation_practice.gd:14"
+          ],
+          "severity": "P2",
+          "cause_confidence": "observed",
+          "prevention": "Read real APIs/costs/attendance and distinguish owner report, source observation, causal inference and future design; reuse one authoritative save/day/Finance path.",
+          "verification": "Source-backed planning only; no native reproduction, new source or APK.",
+          "recorded_at": "2026-11-06T19:19:14.385845+00:00",
+          "owner_role": "root_S141_available_evening_review",
+          "affected_paths": [
+            "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+          ],
+          "next_action": "Write bounded source-backed proposal then close/release; no unchanged suite or asset activity."
+        },
+        {
+          "event_id": "S141-20261106T191914-9d2196c8f5",
+          "id": "BM-21",
+          "event": "recurrence",
+          "observation": "Direct V15 owner feedback: unavailable members can leave no worthwhile musical activity; social outings cost money; desk improved but disconnected; Main Menu too easy to reach. Source confirms paid partial rehearsal, existing no-fee ClearAir, control changes/Compare stop audio, and direct Menu callbacks.",
+          "expected": "Prepare proposal for attendee-aware free informal jam, contextual navigation and explicit-play live audition; do not call proposals implemented or automatically punish each legitimate work/family absence.",
+          "evidence": [
+            "Direct owner feedback after V15 delivery",
+            "experiments/playable_flightcase/mixing_desk.gd:221",
+            "experiments/playable_flightcase/ui.gd:912",
+            "experiments/playable_flightcase/situation_practice.gd:14"
+          ],
+          "severity": "P2",
+          "cause_confidence": "inferred",
+          "prevention": "Read real APIs/costs/attendance and distinguish owner report, source observation, causal inference and future design; reuse one authoritative save/day/Finance path.",
+          "verification": "Source-backed planning only; no native reproduction, new source or APK.",
+          "recorded_at": "2026-11-06T19:19:14.385845+00:00",
+          "owner_role": "root_S141_available_evening_review",
+          "affected_paths": [
+            "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+          ],
+          "next_action": "Write bounded source-backed proposal then close/release; no unchanged suite or asset activity."
+        }
+      ],
+      "all_new_events_reviewed": true
+    }
+  }
 }
