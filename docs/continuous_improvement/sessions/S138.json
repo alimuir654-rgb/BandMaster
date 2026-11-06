@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S138",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "809a2fbc07a9c981ef2c78eee43174315593c5ba",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1775254,
-    "sha256": "c502f8bd0cbac1e20a4ccaf789ea4c559dc2648b1374d927103bd09fa3765504"
+    "bytes": 1778602,
+    "sha256": "d406fa3779cebb7434b7d87d06367445a77be6da05293f9bdb24e8a033737ce9"
   },
   "lesson_ids": [
     "BM-01",
@@ -77,11 +77,7 @@
     "All517currentGame/runtime rowsandoriginalsourceart exact;0engines/nativePNGs/uploads/APKs;newsourceoffline/ownerfalse.",
     "FinalDICT/actualopens/fiveSIMULATEDlenses/append-onlyissues/budget/oldproofavailability/gate/canonicalrelease; noactivityrebuild."
   ],
-  "root_lease": {
-    "writer": "root_S138_offline_backstage_art",
-    "expires_at": "2026-11-06T04:15:00Z",
-    "scope": "OneofflineART04sourceversion+atmostonefocusedcorrection;primary16MiB/TMP0, shippingwriterNULL;closeearlier."
-  },
+  "root_lease": null,
   "storage_plan": {
     "at": "2026-11-06T03:17:05.780899+00:00",
     "actual_free": {
@@ -108,11 +104,409 @@
     "no_closed_cap_reuse_cleanup_or_pending_owner_approval": true
   },
   "source_write_allowed": false,
-  "art_write_allowed": true,
+  "art_write_allowed": false,
   "audio_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "artifact_write_allowed": true,
-  "page_write_allowed": true,
-  "stop_condition": "IndependentpredesignHOLDbeforegenerationifexistingreuseadequate/venuecameraunjustified. Twoineffectiveattemptschangemethod/HOLD;retainalloutputs. NoGame/nativeintegrationorAPKunderthisscope;releaseby04:15/07:55outer;hard08:00."
+  "artifact_write_allowed": false,
+  "page_write_allowed": false,
+  "stop_condition": "IndependentpredesignHOLDbeforegenerationifexistingreuseadequate/venuecameraunjustified. Twoineffectiveattemptschangemethod/HOLD;retainalloutputs. NoGame/nativeintegrationorAPKunderthisscope;releaseby04:15/07:55outer;hard08:00.",
+  "closed_at": "2026-11-06T03:29:27.843537+00:00",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/BRIEF.md",
+        "bytes": 3317,
+        "SHA256": "8028cd845cad11e4d30ef0c6ac9482a9d3f8114e37483ea2c789f3f4148dd8e6"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/reference-inputs.json",
+        "bytes": 1751,
+        "SHA256": "45d2232311b17b2cfd9d95c7e5318625df6c6b311c14ba4691bf8ac5458275fa"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/prospective-funding.json",
+        "bytes": 917,
+        "SHA256": "82d27087e9c9b96d37ddbbbbc4e03872b2977d59274103390b000d75297b54a3"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/generation-prompt-v1.txt",
+        "bytes": 2172,
+        "SHA256": "20108792fad74b68b1436d4c57d9510138da7c2abfc573dcc2dd08a0b2e98250"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/generation-inputs-v1.json",
+        "bytes": 837,
+        "SHA256": "e6bc1960117eeacbad48e58fd3417c10593a0b1e06250264174ef7142eca74cc"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/candidate-v1.json",
+        "bytes": 700,
+        "SHA256": "0af0db7f31a0c8b25361d032778e10631c4d0cad603f932f81200c7f8b8abd29"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/delivery.json",
+        "bytes": 1596,
+        "SHA256": "411fae72e125d9708982bf13f6b2309702eb3c572cb29bd0fec6146a4d20f00a"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/review/predesign-v1.json",
+        "bytes": 7393,
+        "SHA256": "d5a6e4991517dace8735bcb2fab05132e54eef78e7fa62a48403920ebc4e8cd3"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/review/final-source-v1.json",
+        "bytes": 6775,
+        "SHA256": "4dddce01d58684fdffddc1aa825a56551a5a7d0ff425f4796a1a6523386ec022"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/source-art-protection-final.json",
+        "bytes": 1246,
+        "SHA256": "b2045516cab7d860b5ab518ba99b0cd85a736067b799b8b19956b586574d8998"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/research-update-audit.json",
+        "bytes": 501,
+        "SHA256": "a4c1421f49d7a0169076c9bf65cd971bd78fb0bb30da1d9ec4ba3b09d7a96b4c"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/page-status-audit.json",
+        "bytes": 496,
+        "SHA256": "546e77f7a280d1ce7a7c93e22aed49089ca08557870ffb6b6a6b0eaba6d8da3b"
+      },
+      {
+        "path": "/workspace/generated_images/exec-a601e25e-86eb-486c-9e89-1f8d2f00976d.png",
+        "bytes": 2348042,
+        "SHA256": "d4849f70ccff927ca16b441b9b9d27b5eb60010987c5d011a70c457dc7cf16f5"
+      },
+      {
+        "path": "/workspace/work/s138-backstage-source-20261106/sole-queue-status.json",
+        "bytes": 474,
+        "SHA256": "008d6c7f26978eb51307fb02ada19c257eb8620f682907c642908dc58e5495e3"
+      }
+    ],
+    "visual_verdict": "partial",
+    "scoped_offline_source_art_verdict": "internal_pass",
+    "owner_approved": false,
+    "next_action": "ART04sourceisreadyoffline; do notrerender/re-reviewitforactivity. Freshnativeadoptionrequirescompletefunding/context/input/saveproof; currentGame898/V14unchanged. Remainingopportunitiesactualfeedback/anothermeaningfulfundedboundedtask; noextraAPK/queue/extension. Release07:55/HARDSTOP08:00London.",
+    "new_issue_review": {
+      "through_bytes": 1778602,
+      "SHA256": "d406fa3779cebb7434b7d87d06367445a77be6da05293f9bdb24e8a033737ce9",
+      "all_new_events_reviewed": true,
+      "opaque_S138_events": [
+        "S138-20261106T031705-source-intake-path-diagnostics",
+        "S138-20261106T032445-final-audit-dictionary-parse-refusal",
+        "S138-20261106T032927-offline-backstage-source-reviewed"
+      ],
+      "missing_old_TMP_and_guessed_retrieval_path_retained": true,
+      "one_final_audit_parse_refusal_before_any_operation_retained": "/workspace/work/s138-backstage-source-20261106/failed-final-audit-v0.json",
+      "corrected_readonly_source_audit_pass": "/workspace/work/s138-backstage-source-20261106/source-art-protection-final.json",
+      "existing_helper_role_reused_no_duplicate_created": true,
+      "source_art_generation_failures": 0,
+      "no_failed_proof_promotion": true
+    },
+    "verification_kind": "Independentofflineartsource review and exactunchangedcurrentcuratedGame/provenance; noGame/nativeintegrationexecutionproof.",
+    "source": {
+      "path": "/workspace/generated_images/exec-a601e25e-86eb-486c-9e89-1f8d2f00976d.png",
+      "SHA256": "d4849f70ccff927ca16b441b9b9d27b5eb60010987c5d011a70c457dc7cf16f5",
+      "bytes": 2348042,
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "mode": "RGB",
+      "opaque": true,
+      "source_kind": "Newimage-generatedfictionalemptybackstageplatefromtwoexistingfictionalvenueartreferences; no photograph/realvenue/architecturalblueprintclaim",
+      "owner_art_acceptance": false,
+      "Game_or_APK_integration": false,
+      "generation_count": 1,
+      "root_new_raw_file_open": true,
+      "output_default_root_predeclared": true,
+      "original_retained_immutable_inplace": true,
+      "recorded_at": "2026-11-06T03:21:45.001086+00:00"
+    },
+    "delivery": {
+      "source": {
+        "path": "/workspace/generated_images/exec-a601e25e-86eb-486c-9e89-1f8d2f00976d.png",
+        "SHA256": "d4849f70ccff927ca16b441b9b9d27b5eb60010987c5d011a70c457dc7cf16f5",
+        "bytes": 2348042,
+        "dimensions": [
+          1448,
+          1086
+        ],
+        "mode": "RGB",
+        "opaque": true,
+        "source_kind": "Newimage-generatedfictionalemptybackstageplatefromtwoexistingfictionalvenueartreferences; no photograph/realvenue/architecturalblueprintclaim",
+        "owner_art_acceptance": false,
+        "Game_or_APK_integration": false,
+        "generation_count": 1,
+        "root_new_raw_file_open": true,
+        "output_default_root_predeclared": true,
+        "original_retained_immutable_inplace": true,
+        "recorded_at": "2026-11-06T03:21:45.001086+00:00"
+      },
+      "internal_source_art_verdict": "internal_pass",
+      "owner_art_acceptance": false,
+      "integration_review_accepted": true,
+      "integration_authority": "owner_delegation_20261104",
+      "Game_integration": false,
+      "in_V14": false,
+      "new_Game_source_rows": 0,
+      "generation_count": 1,
+      "correction_iterations": 0,
+      "root_actual_file_opens": 4,
+      "independent_actual_source_opens": 4,
+      "independent_actual_native_opens": 0,
+      "original_retained_immutable_inplace": true,
+      "source_method": "Oneimage-generatedfictionalemptyroom usingexistingROOM+ARRIVALreferences; no pixelpostprocessing/newbank/people/performance/UI.",
+      "future_use": "Pub-compatible/localvenuebackstageillustration onlyafterfullfreshfunding/nativefit/context/input/saveproof; not6roomssurveyedblueprints.",
+      "physical_device_or_owner_acceptance": false,
+      "upload_grants": 0
+    },
+    "actual_opened_originals": {
+      "root": [
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+          "SHA256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+          "bytes": 2223640,
+          "root_actually_opened": true,
+          "kind": "Existingfictionalvenuesourceart; notnewnativeproof",
+          "dimensions": [
+            1448,
+            1086
+          ]
+        },
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_arrival.png",
+          "SHA256": "d6c313c2602caa8140bd698b41677c49127bae7525882b236d1baa0bf12c50da",
+          "bytes": 2504430,
+          "root_actually_opened": true,
+          "kind": "Existingfictionalvenuesourceart; notnewnativeproof",
+          "dimensions": [
+            1672,
+            941
+          ]
+        },
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png",
+          "SHA256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+          "bytes": 1974676,
+          "root_actually_opened": true,
+          "kind": "Existingfictionalvenuesourceart; notnewnativeproof",
+          "dimensions": [
+            1672,
+            941
+          ]
+        },
+        {
+          "path": "/workspace/generated_images/exec-a601e25e-86eb-486c-9e89-1f8d2f00976d.png",
+          "SHA256": "d4849f70ccff927ca16b441b9b9d27b5eb60010987c5d011a70c457dc7cf16f5",
+          "bytes": 2348042,
+          "dimensions": [
+            1448,
+            1086
+          ],
+          "mode": "RGB",
+          "opaque": true,
+          "source_kind": "Newimage-generatedfictionalemptybackstageplatefromtwoexistingfictionalvenueartreferences; no photograph/realvenue/architecturalblueprintclaim",
+          "owner_art_acceptance": false,
+          "Game_or_APK_integration": false,
+          "generation_count": 1,
+          "root_new_raw_file_open": true,
+          "output_default_root_predeclared": true,
+          "original_retained_immutable_inplace": true,
+          "recorded_at": "2026-11-06T03:21:45.001086+00:00"
+        }
+      ],
+      "root_source_count": 4,
+      "independent_source_count": 4,
+      "independent_sources": [
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+          "sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+          "bytes": 2223640,
+          "dimensions": [
+            1448,
+            1086
+          ],
+          "mode": "RGB",
+          "actually_opened": true,
+          "kind": "retained original raw source, not new native proof"
+        },
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_arrival.png",
+          "sha256": "d6c313c2602caa8140bd698b41677c49127bae7525882b236d1baa0bf12c50da",
+          "bytes": 2504430,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "actually_opened": true,
+          "kind": "retained original raw source, not new native proof"
+        },
+        {
+          "path": "/workspace/BandMaster/experiments/playable_flightcase/art/s53_stage.png",
+          "sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+          "bytes": 1974676,
+          "dimensions": [
+            1672,
+            941
+          ],
+          "mode": "RGB",
+          "actually_opened": true,
+          "kind": "retained original raw source, not new native proof"
+        }
+      ],
+      "actual_native_opens": 0,
+      "no_generated_thumbnail_or_native_capture": true
+    },
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED art reviewer",
+        "finding": "Distinctprivatebench/doorcorner, coherentwornwood/brick/plaster/amberlight, no importantarchitecture/source defect; no correctionneeded."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Believablemodestwaitingcorner withcases/water androuteonstage; nofakeperformers/instruments/playingskillorvenueownershipclaim."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "Bench/doorprovideclearquietpauseandnextplacelandmark; UI/speaker/choicesremainnativefutureintegration."
+      },
+      {
+        "lens": "SIMULATED mobile player",
+        "finding": "Largebench/case/door silhouettesreadat sourceinspection, butactualphone/shortwide/nativecontrast/inputfitnotproved."
+      },
+      {
+        "lens": "SIMULATED source/save auditor",
+        "finding": "All517Game/runtime516primaryrows/82OGG9JSON54Scripts3UID/oldart protected; generatedoriginalpredeclaredroot/retainedhash;0owner/save/Finance/native/APKactions."
+      }
+    ],
+    "material_limits": [
+      "OfflinecandidateNOTinGameorV14; nativeintegrationnotfunded.",
+      "No surveyedvenueblueprint/exactreversecamera/all6roomsclaim; futureusecontextappropriatepub/localillustration.",
+      "Bench naturallyextendsleftsourceedge butseat/back/importantlandmarksreadable; notacorrection-worthydefect.",
+      "No human/owner/device/screencontrast/IME/audio/OSinterrupt/install/save-retentionacceptance.",
+      "OldS116TMPnativebaselineunavailable; no reconstruction/newcurrentwholeGameproof.",
+      "OnecorrectiontailunusedbecausefirstsourceCLEAR; closedcapsnotnewfunding.",
+      "A04headstock/performer methodHOLDunchanged; emptybackstageplate doesnotresolvemissingperformers.",
+      "V14localready/Drive100MiBHELD unchanged; noAPKbuild/audit/hash/uploadcommands."
+    ],
+    "source_protection": {
+      "at": "2026-11-06T03:24:47.872252+00:00",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "all517_declared_runtime_rows_exact": true,
+      "all516_Git_shipping_primary_rows_exact": true,
+      "all54Scripts3UID_82OGG9JSON_art_fonts_hardware_preserved": true,
+      "all3_reference_sources_exact": true,
+      "new_source_SHA256": "d4849f70ccff927ca16b441b9b9d27b5eb60010987c5d011a70c457dc7cf16f5",
+      "new_source_dimensions": [
+        1448,
+        1086
+      ],
+      "new_source_bytes": 2348042,
+      "source_art_only_no_Game_APK_integration": true,
+      "Game_source_writes": 0,
+      "Godot_executions": 0,
+      "new_native_PNGs": 0,
+      "APK_build_audit_rehash_upload_commands": 0,
+      "all_previous_closed_producers_not_opened_for_engine_or_write": true,
+      "old_S116_TMP_native_unavailable_not_reconstructed": true,
+      "new_raw_default_output_root_predeclared": true,
+      "all_originals_retained": true,
+      "generation_count": 1,
+      "correction_iterations": 0,
+      "root_actual_file_opens": 4,
+      "independent_review_bytes": 14168,
+      "free": {
+        "/workspace": 757600256,
+        "/tmp": 773140480
+      },
+      "scope_primary_observed_delta_B": 3366912,
+      "first_audit_preexecution_syntax_refusal_retained": "/workspace/work/s138-backstage-source-20261106/failed-final-audit-v0.json"
+    },
+    "funding": {
+      "prospective": {
+        "at": "2026-11-06T03:17:05.780899+00:00",
+        "actual_free": {
+          "/workspace": 760950784,
+          "/tmp": 773140480
+        },
+        "global_primary_free_before_bootstrap_B": 760967168,
+        "primary_new_scope_cap_B": 16777216,
+        "categories_B": {
+          "two_raw_originals_max_each6MiB": 12582912,
+          "metadata_primaryGit_failedretrieval_review_closeout": 4194304
+        },
+        "TMP_new_scope_cap_B": 0,
+        "fixed_floor_B": 629145600,
+        "handoff_primary_reserved_B": 2097152,
+        "handoff_TMP_reserved_B": 1048576,
+        "primary_contingency_reserved_B": 4194304,
+        "worst_primary_after_all_reservations_B": 737882112,
+        "no_runtime_cache_nativePNG_source_APK_allocation": true,
+        "source_art_default_output_root": "/workspace/generated_images",
+        "maximum_generations": 2,
+        "only_one_focused_correction_after_actual_source_review": true,
+        "retainall_originals_inplace": true,
+        "no_closed_cap_reuse_cleanup_or_pending_owner_approval": true
+      },
+      "actual_free_at_close": {
+        "/workspace": 757567488,
+        "/tmp": 773140480
+      },
+      "primary_observed_global_delta_B": 3399680,
+      "no_TMP_allocation": true,
+      "all_originals_retained": true,
+      "review_bytes": 14168
+    },
+    "Pages": {
+      "status": "PASS",
+      "Plan_before": 74,
+      "Plan_after": 75,
+      "Board_sequence": 186,
+      "Guide_sequence_unchanged": 19,
+      "Plan_only_changed_block": "e88f7c66-f05b-4550-b50d-e6e6337bca3c",
+      "all_other_Plan_blocks_order_IDs_metadata_exact": true,
+      "Board_all_blocks_exact": true,
+      "human_choices": 72,
+      "checked": 23,
+      "images": 50,
+      "AgentInstructions_archive_deletedA03v2absence_preserved": true,
+      "human_checkbox_writes": 0,
+      "uploads_or_grants": 0,
+      "browser_render_claim": false
+    },
+    "generation_count": 1,
+    "correction_iterations": 0,
+    "Godot_executions": 0,
+    "new_physical_source_PNGs": 1,
+    "new_native_PNGs": 0,
+    "source_files_in_Game_written": 0,
+    "new_APKs": 0,
+    "uploads_or_grants": 0,
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "art_writer": null,
+      "helper": null,
+      "GL": "free/unused; noGodot/Xorgstarted"
+    },
+    "closed_at": "2026-11-06T03:29:27.843537+00:00",
+    "sole_queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261105T231500\nRRULE:FREQ=HOURLY;COUNT=9\nEND:VEVENT",
+      "is_enabled": true,
+      "only_prompt_changed": true,
+      "updated_at": "2026-11-06T03:30:24.120995+00:00",
+      "prompt_chars": 16462,
+      "no_new_queue_controller_worker_endtask": true,
+      "hard_stop": "2026-11-06T08:00:00Z",
+      "release_by": "2026-11-06T07:55:00Z"
+    }
+  }
 }
