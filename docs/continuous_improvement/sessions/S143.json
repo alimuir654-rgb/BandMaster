@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1861465,
-    "sha256": "2f244bf4d3b54c6e2db8e262611ba844bae9d74ee7726861507c54b2a9a7c37f"
+    "bytes": 1865246,
+    "sha256": "ddcdc20f8bd72fbfba9685695a5a55285eca258bd4519d9ef9e20ae237819cff"
   },
   "lesson_ids": [
     "BM-15",
@@ -75,7 +75,8 @@
   ],
   "external_artifact_roots": [
     "/workspace/work/s143-three-song-demo-20261106",
-    "/dev/shm/bandmaster-s143-three-song-demo-20261106"
+    "/dev/shm/bandmaster-s143-three-song-demo-20261106",
+    "/tmp/bandmaster-s143-standard-proof-20261106"
   ],
   "root_lease": {
     "owner": "root_S143_three_song_demo",
@@ -124,10 +125,12 @@
     "import_process_tree_RSS_cap": 1073741824,
     "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB−actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup.",
     "TMP_categories_MiB": {
-      "four_standard_originals": 128,
+      "four_standard_originals_and_selected_review_copies": 128,
       "existing_work_and_handoff": 1
     },
-    "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106"
+    "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106",
+    "export_phase_persistent_cap": 738197504,
+    "export_process_tree_RSS_cap": 671088640
   },
   "scope_contract": {
     "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
@@ -176,5 +179,22 @@
     "full": "14 includes00entry; unchanged",
     "qa_versions": "new wholecore_v2/capture_v2/task_v3 uniquealiases; oldretained",
     "funding_receipt": "/workspace/work/s143-three-song-demo-20261106/proof-and-packaging-funding-v3.json"
+  },
+  "android_packaging_transition": {
+    "at": "2026-11-06T23:35:08.945055+00:00",
+    "only_after": "all current source native/risk/regression receipts reviewed and source-final pinned; separate readiness packet binds exact source",
+    "one_active_private_producer": "Native-to-Android platform transition only after every Game execution; never close then reopen cache. Same regular private current source, not oldclosed producer and no second copy/coldimport claim. Preserve original185B entry as source-final nextbase.",
+    "effective_project": "Verified S55 Android project be58d0dd... plus exact worker_pool/max_threads2; originalGitproject unchanged. Exact original icon and declared export preset only additions; exclude QA aliases and qa/* before data export.",
+    "payload": "Exact Godot --export-pack Android preset .zip, compiled source/resource closure; no in-engine APK export. ZIP <=128MiB. Exportphase704persistent+640RSS+1024untouched reserve=2368MiB, prospectively test actual before launching.",
+    "assembly": "New V15 nonasset shell copy, exact preserved officialruntime/_cl_/resources; only2 actualmanifestbytes differ. New sparse index from actual newly packaged asset order/paths/size/MD5, independently parse and compare, reject unsafe/duplicates/NUL/stale/importextras. No oldAPK mutation.",
+    "SDK": "Godot stopped. Align new assembledAPK to final filename, signinplace existingkey, fulltemporary/failuretail retained; standalone full audits after finalsign. Existing global1024MiB/SDK320/reserve1024 bound unchanged; output must fit actual remaining budget before allocation.",
+    "codecs": {
+      "android_manifest_v16.py": "70f8c7d2df59758002342a3bc14d4d86125c42425466ba89f68f6186c0abebe8",
+      "manifest-version-patch-readonly-proof.json": "5345dd927dd3015b75c0c24491b35e9c3557007401becc86969639c4ff7e666e",
+      "sparse_android_index.py": "7d6f4bc8d35c1d82420912d41af44d329b18b75c57a70adcc865aa52e6a5c4c0",
+      "sparse-index-codec-readonly-proof.json": "66989fd41fc62a9083ffc877d13449bd49826c8061f44f212c64d13e8ed9a21c"
+    },
+    "review": "/workspace/work/s143-three-song-demo-20261106/review/packaging-method-predesign-v1.json",
+    "TMP_previews": "Selected original native review copies may use spare bytes inside same128MiB standard pool, exact hashes/durable metadata; no new PNG generation or raised globalcap."
   }
 }
