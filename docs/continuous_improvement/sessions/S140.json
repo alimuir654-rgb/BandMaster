@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1813027,
-    "sha256": "0054f36250de79a72247a22352aa1e198e6daeea9bc9f7fd8d3488a95b8f42ce"
+    "bytes": 1819729,
+    "sha256": "c8e7e0a5e695dcf5bc9431e9a6f795e517d3ba832bb3b5532a84629287af31c6"
   },
   "lesson_ids": [
     "BM-01",
@@ -317,5 +317,16 @@
     ],
     "hypothesis": "Native plain ASCII / separator and exactlyone visible SELECTED response latch close independentearlyE3/E4; no game/save/audio changes. Reapply onlyaftercommittedpreflightandinspectedPASS.",
     "proof": "newexactsourceearlyphone/wideimportantstates andwhole4viewpaidtask; frozenmodels/audio exactclosure reused separately"
+  },
+  "qa_scope_amendment": {
+    "at": "2026-11-06T16:03:38.260828+00:00",
+    "author": "existing/root/foundation_tests",
+    "directory": "/workspace/work/s140-mixing-desk-20261106/qa",
+    "cap_bytes": 786432,
+    "complete_primary_budget_unchanged": true,
+    "purpose": "RetainedallheldQAversions plusfinalfitteddesktop path/headerpreferences and currentv3saved-recipe rehearsal/earnedshow integration. NotnewGamefeature, bank, controller or unchangedgigactivity.",
+    "continuity_source_reference": "/workspace/work/s133-raw-dark-cowriting-20261105/continuity-v5.gd",
+    "continuity_method": "Newcurrentpassed checkpoint viaactualtypedOpening.load; no day/stat/qualification rewriting; earnoriginalavailability/rehearsal/booking/show and inspectactual new v3 saved-recipe playback. OriginalS133receipt notcurrentproof.",
+    "RAM_native_proof_cap_unchanged": true
   }
 }
