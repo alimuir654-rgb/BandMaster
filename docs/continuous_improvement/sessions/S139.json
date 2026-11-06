@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "id": "S139",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "bb54c6eb2673249c552a00716fa470224eb4b58e",
+  "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "owner_request": "Continueauthorisedworkto08:00; existingS80longerband-life backlog asks firstoneearnedrehearsalconcern/memberconversation/follow-up. Prepareconcreteauthoredpilot/sourcecontract, notGameimplementation oralladultarcs.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1778602,
+    "sha256": "d406fa3779cebb7434b7d87d06367445a77be6da05293f9bdb24e8a033737ce9"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-16",
+    "BM-21",
+    "BM-22",
+    "BM-25",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "dominant_issue": "BM-38",
+  "target": {
+    "locator": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/touch-context-v3/captures/Zoe-known-context-after-actual-touch-390x844.png",
+    "original_sha256": "d354728c29fe8d5c6d88e32058374632b97cfe859895dd86fbd51ed71dfb043e",
+    "pixels_inspected": true,
+    "scope": "Currentknowncircumstanceview groundsfactualwork/familywording; proposedpilotUIdoesnotexist/no newnativequalityclaim."
+  },
+  "hypothesis": "A shortmulti-beatconversation grounded in distinctmissedbandplans and lateractualrehearsalattendance cancreate rememberedband-lifeconsequenceswithoutblamingknownwork/familyabsence orinventingsubstanceuse.",
+  "controlled_comparison": "ExistingCoretruth/paidowners/oldgenericDramaunchanged; compareauthoredtrigger andeachdialoguevariant toactualplans/attendance/identitysource. No candidatecode/runtime.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S139.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s139-rehearsal-concern-pilot-20261106",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "queue_task": "ExistingS80longerarcbacklog/firstmissed-rehearsalpilot only; no newcontroller/register",
+  "reviewer": "CHECKexistinggame_design_research role independentpredesign/finalcontent-source review; D139/review<=65536B only/noGame/Git/Pages/engines/network/children. Rootownsallotherwrites.",
+  "player_goal": "Understandbandmateconcern fromactualmissedplans, choosearealisticdatedcommitmentorreply,andlaterrecogniseactualfollow-through.",
+  "start_end_commitment": "Authoredproposalonly;0Game/model/schema/ownerchanges/paidactions/saves/Finance/audio/art/APKeffects. Futureimplementationrequiresfreshfullyfundedscopedrescope.",
+  "state_matrix": [
+    "DistinctplanIDs/days/currentparticipantidentity; countersoronepartialrehearsal notpersonalno-show/substancecause.",
+    "CurrentCorefulfilledrequiresallplannedIDsactualattendance;rescheduleguardsfuture/dueplan/currentclashmustbehonestlydeclared.",
+    "Reaffirmexistingdate/movevalidfuturedate/explicitunanswered;calendarbrowse/Menuclose do notsilentlycommit/charge/dismiss.",
+    "Follow-upactualplan/receipt/attendeeIDs;no fabricatedsharedattendance orautomaticpenalty/diagnosis.",
+    "Unknown/legacy/stale/future/actorleft/reorderedroster/duplicate/reload/failure-retry preserveactualdata; futureonce-onlyownership/humanreviewseparate."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S139.json",
+    "IndependentactualCore/Drama/Week/OpeningStatesource andexistingcontextreferences predesign beforecontentpacket.",
+    "Writeoneoriginalthree-to-fourbeatpilotwithmeaningfulschedulingchoices/follow-upvariants; pinexistingAPIreuse/newgaps, no implementationclaim.",
+    "Independentfinalliteralcontent/sourceambiguity review/closecorefacts/APIgaps;meaningfulfuturefulljourneymatrix, noGame/nativeexecutions.",
+    "Currentcuratedsource/rawassets/V14unchanged; existingresearchtwofilesonly/priorvaluespreserved, gate/DICT/releasebeforedeadline."
+  ],
+  "root_lease": {
+    "writer": "root_S139_readonly_rehearsal_pilot",
+    "expires_at": "2026-11-06T05:00:00Z",
+    "scope": "Oneauthoredcontentpacket/read-onlysourcecontract;primary4MiB/TMP0 includingGit/review/closeout. ShippingwriterNULL."
+  },
+  "storage_plan": {
+    "at": "2026-11-06T04:23:29.562075+00:00",
+    "actual_free": {
+      "/workspace": 756244480,
+      "/tmp": 773140480
+    },
+    "global_primary_free_before_bootstrap_B": 756260864,
+    "scope_new_primary_cap_B": 4194304,
+    "includes": "Fullcontentpacket/contract/sourcebindings/review<=65536B/canonical/research/Git/index/failedproof/closeout; noGame/source/asset/runtime/cache/PNG/audio/APK allocation.",
+    "new_TMP_cap_B": 0,
+    "floor_B": 629145600,
+    "handoff_primary_reserved_B": 2097152,
+    "handoff_TMP_reserved_B": 1048576,
+    "primary_contingency_reserved_B": 4194304,
+    "worst_primary_after_all_reservations_B": 745758720,
+    "closed_scope_caps_not_reused": true
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "artifact_write_allowed": true,
+  "page_write_allowed": true,
+  "stop_condition": "NoGameimplementation/newstate/controller merelyfrombacklog. UnsupportedAPI/time/identity/cause mustremainexplicitfuturegap; noapprovalwait/runtimeallocation. Closeby05:00/no breadth06:30/releases07:55/hard08:00."
+}
