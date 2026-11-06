@@ -1,0 +1,1132 @@
+{
+  "type": "BandMaster_Lab08_4_assembled_layers",
+  "instructions": "Unpack into a DEDICATED feature branch ONLY, not directly main. Sprite layer precedence: Lab08 base < Lab08.2 < Lab08.3 < Lab08.4. SHA verifies files, not Godot rendering or owner approval.",
+  "precedence": [
+    "BandMaster_Premium_Dashboard_Lab08.zip",
+    "BandMaster_Lab08_2_Fix_Only.zip",
+    "BandMaster_Lab08_3_Fix_Only.zip",
+    "BandMaster_Lab08_4_Fix_Only.zip"
+  ],
+  "original_archives": [
+    {
+      "filename": "BandMaster_Premium_Dashboard_Lab08.zip",
+      "sha256": "b1a9a8e114e8f9dfea2678a2e16ba6de98f230495bd760410271d8f2b28872c1",
+      "size": 24684408
+    },
+    {
+      "filename": "BandMaster_Lab08_2_Fix_Only.zip",
+      "sha256": "91424ef5edea4891e3e4b36800a77a21f49a3b4b69d3f2e741c583ab1adfdf90",
+      "size": 12520023
+    },
+    {
+      "filename": "BandMaster_Lab08_3_Fix_Only.zip",
+      "sha256": "8177aea0ee172ca7ce3803d31a5be9f0c262552821dc11fdd8c5d682521d4186",
+      "size": 8856110
+    },
+    {
+      "filename": "BandMaster_Lab08_4_Fix_Only.zip",
+      "sha256": "a128063cc4ebec6847c8d513dfaf61d2feb913240a9fbb7de9eec93b849b3f52",
+      "size": 692621
+    }
+  ],
+  "files": {
+    "bandmaster_premium_dashboard_poc/LAB_VERSION.txt": {
+      "sha256": "843345c8d836f1be7aa1e321ed688134f3cb5986deafdf6bbe67e57e24b5e237",
+      "source": "08_4_final",
+      "history": [
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/README.md": {
+      "sha256": "23df8e63163ff2cb96aa841252903efdc56b032f8aa5850fdc3683a42b955dc8",
+      "source": "08_4_final",
+      "history": [
+        "08_original",
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_base.png": {
+      "sha256": "df850eb8c2d4a1644fce785c4207376a6e494811bc8402d84dc49d518b9fa4b9",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_00.png": {
+      "sha256": "a84a1b10d08c6584a976e7cf78850deed2f603d3cf2b076d173a130265c39742",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_01.png": {
+      "sha256": "280d760991e8c27a9e34b44aed14c86ea8f2d3d70311692e3b0fb4ef20f8427f",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_02.png": {
+      "sha256": "b69c1bf98f55552844985f4233c07602c63598a678f85d7f340f2bce9c89623f",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_03.png": {
+      "sha256": "262eecd713b22723d6e489443aa8933293b873feba9bd57069dc357e4c6e692a",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_04.png": {
+      "sha256": "63eeddb17b2435f4efe4e2d64bd6a5db96c746aee360bc60fdf6afe04319043b",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_05.png": {
+      "sha256": "7c8cd351fd8112c5b46b6049c99a3f53b99d13c5ecc2ec01815e2de6f840c9ae",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_06.png": {
+      "sha256": "ba82f6d6949573cf9cb504ea940d45c383f24f5570d45a314ed5aed6d3c0b737",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_07.png": {
+      "sha256": "f5cebaafbcbd246fdb593cb71efe03bdaa53f091195c13e1bab9b149fb0b08e9",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_08.png": {
+      "sha256": "166f22354e85eb06b1dc4204e2272468dbdb67bbab444bccb35d50af9a8b9271",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_09.png": {
+      "sha256": "46028b8e80efdf3983176b2b5ec61185ddbd7314913a637109aedcdfcc154ac1",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_10.png": {
+      "sha256": "ccf22cb547f051d18f9a88f797d4f9718197f8c62ccafb6fc24e9e375c331ac0",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_11.png": {
+      "sha256": "7dbc24c0a85ae405fe2e58623acbbf7026be260a0f9f2fdf4f6b66d589e6c626",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_12.png": {
+      "sha256": "f7369c5dea5f63289174feb51e12212100255366384ad5b761fcd6233cbcf1a1",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_13.png": {
+      "sha256": "6717949bdad4545babe8250fd3e9a1d2d760a80fbee319799d89786f3ac9cab9",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_14.png": {
+      "sha256": "65c91c8e6287a4a602aedfbbc8c279273a34cdd168f71326355e7ade9901fd2a",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_15.png": {
+      "sha256": "feeb80ce6ca6a2fbf2eb2f04395eec3f68b6f586a03f2bb311ccd8ed2681b187",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_16.png": {
+      "sha256": "a64befbe2bdae628f435b1ccc62a070f4d557b06027c9336c7241d847986a112",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_17.png": {
+      "sha256": "58d86382462483dd2c8f7f3faffee83db55a8a4626eab9be2983e18b9a49d26c",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_18.png": {
+      "sha256": "2d4949d7787fbfa056984688dcb85fe205b4d953d387ecb5e5171a0c24aaa0d3",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_19.png": {
+      "sha256": "d8e852bf1fca0658545243c14fe2462df09104188dc137c3405ed4d7239ceab3",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_20.png": {
+      "sha256": "54606448d817cf92c8431ae6e2b54b2036df4dd6b1d274a01b7fbfcc1eda7da3",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_21.png": {
+      "sha256": "6147c53fd3751eec2891a15c689aaef1682ffb821008267b749ffc2804460c40",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_led_22.png": {
+      "sha256": "8a4eec27b6af9b15f99cd0b3f9f89f7399b4515f62eeb668165f9d587370d377",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_ring_off.png": {
+      "sha256": "bf1c7b4e7d10121e5a6a5ea4746e1cc91734700d7f940cf9321765a3f484741b",
+      "source": "08_3_fix",
+      "history": [
+        "08_2_fix",
+        "08_3_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/buzz_rotor.png": {
+      "sha256": "f923bf265d4efe1a5f2c3ab47a3a1edebb0d98d7e32f5887d96f50fd84156d67",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_electronic_active.png": {
+      "sha256": "cfbb32982452a57dcfbe0815307510abe7b9b7815cbea73cd483b3ec2eca7e5a",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_electronic_disabled.png": {
+      "sha256": "c28be8fce963935f47615d2855e6fbcc0e598484f6bbf31c79da417b3c946cc2",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_electronic_hover.png": {
+      "sha256": "22dba7c555240ed735d2f5715c05e6dab0a9b807b1db89231a57596804b364fd",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_electronic_idle.png": {
+      "sha256": "f0f34f501150e9cd6ee126551a3c4c3886af716c9e2e4a9e63eabc5520cb89f2",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_electronic_pressed.png": {
+      "sha256": "166020f1e71871c6a05ce5c5525da5e312d895634d133e7ef76a5fecb676941c",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_punk_active.png": {
+      "sha256": "a8569f386673699d2aa1331e1e3a853e7dc7333675151d0fa9243d6931bbf801",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_punk_disabled.png": {
+      "sha256": "239ced555e47320d14e21b3013fe66f98ebfeaf94788b4aa7db9d3e6ccf5658f",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_punk_hover.png": {
+      "sha256": "69212cb90ea92218759367941ff7a88c321f86d1510aae058173dc2fa4df3ca9",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_punk_idle.png": {
+      "sha256": "0f1e4fcc8f08582ef57b96c35bf8d065b8725f7cd50c8d2b3e6dbef177df9acd",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_punk_pressed.png": {
+      "sha256": "ef69167575f44a6547161371195b787da8871a8149882cd2a1f0beea68ece3c8",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_reference.png": {
+      "sha256": "a081c8bfa371f34724423c78f39bc9dd6a36822a21011abccc01c26d5a09afb1",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_studio_active.png": {
+      "sha256": "c239cf6e51b9488ddbf7a735c1c22beb8beea543b44a5f8ae5062aabe9b6569e",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_studio_disabled.png": {
+      "sha256": "5600fe2b5731b198690f44bd4aa050a7b0ab988062202e5dea32fa1a59975fe6",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_studio_hover.png": {
+      "sha256": "56dc54ebe712a722492a477759f1617687898cb845d3f1ae5a22ce716a821c57",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_studio_idle.png": {
+      "sha256": "ac1999c27afcedffee97e1460b2f3ca5e2ec8829259f83885f73a48712dda229",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/channel_studio_pressed.png": {
+      "sha256": "fbbf7e73084f80b5db88b1d3b858f33ec66b7532b20e575e0b1d15f9f7e3eaef",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_base.png": {
+      "sha256": "6cc503956ec254fa32d340be8451edb67ca0433bd489dec9c2fc7659f6565b91",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_00.png": {
+      "sha256": "45d2786dd410757bb432d0b8c2b5803e1f41d4a80c5914b9fb67f5a642c3586a",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_01.png": {
+      "sha256": "01ce4ab33af2a0b9dc4bb17f492134e5feae53cc77d7957b5f4f39db467984aa",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_02.png": {
+      "sha256": "d79c16f4d3ca92c308ae60b45cf03b6bddc6081a181042d0a76c6bba93b8f286",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_03.png": {
+      "sha256": "b04482898e627b082bfcdc561709899d318085b5210ef0d66f0ba57de366cc18",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_04.png": {
+      "sha256": "49dc223f8eef46a244a2d4dea10d40335efc3eee54b71d3a3b56ea66df81e2be",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_05.png": {
+      "sha256": "cafeb758601e317de3b628b6b37d61f742545a56f3d43bcef8b41b5d1e6e2164",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_06.png": {
+      "sha256": "33d80e066324004c7ca52581a1f4c51ab03ef4539db5de6d3e53207436e28b09",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_07.png": {
+      "sha256": "688efbd2b3a60cd65e55de16d3ff3426c2fd42dc3b1938cb78cf1bf583ef9e0e",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_08.png": {
+      "sha256": "1a45cd563b745dfa1bac08d18a3845bf33b570c716ee7bdd9bae9585138f198f",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_09.png": {
+      "sha256": "f132e75d8e07cd8fec73fec950600328e56111ba78db318bafea8b136dd82070",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_10.png": {
+      "sha256": "3fed34ee833350da28574494cd7412e0bebc8b0f1c44b26edf23b06f4b045448",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_11.png": {
+      "sha256": "2498c30ff72e12a2cc7b069262ddb90f970dad764073c31356203410c7d8564f",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_12.png": {
+      "sha256": "9bbd3e881892c63a8413af69380fb68e5b55e89f1268eff9406e98b9d3724269",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_13.png": {
+      "sha256": "baa4dbee3b0b201588457d2477c47ec9a7587e800f2b874d2b5e061196934b97",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_14.png": {
+      "sha256": "b5cdcc856dc4f763c9d953d72128723ec3bdc5dea0b5b10fe02c9cfae422a36a",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_15.png": {
+      "sha256": "64c8d7c3583f6cc7358567a58fd747cb35737ba90162ebbe899c67cacf916d67",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_16.png": {
+      "sha256": "4d808072d2c89fe58a30758785ececc60685eec771a2daafa005dabe061be36a",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_17.png": {
+      "sha256": "f7133f9a56367a7ed31cd8b2f54aec59658d218e55799b77ce024ea5537d3ece",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_18.png": {
+      "sha256": "49dbee5532656fab3905d2765b418e922241e840bc9304654730dad4f46fb53c",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_19.png": {
+      "sha256": "208d1efae80e77e650749ffb711464654d9a305f2f43674c38cf8d581949d894",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_20.png": {
+      "sha256": "8ce0458c35d7025c76480e328d0145144f499d9430ea3c659020e270f24502eb",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_21.png": {
+      "sha256": "d3db175f73ab44984b61389489df20fa2dd6b456fbc05e25454b2f8d8f8ca564",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_22.png": {
+      "sha256": "aa3af86ab2f675c5c9b21aebb705ebc9fdd2732db26c69a799b34f00be9af549",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_23.png": {
+      "sha256": "fe3fe2c587e71cb3c09940126f29b0f15d948f6ac4c43bfae9ce40f0016dbe5d",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_24.png": {
+      "sha256": "5558f4dfc05177c30db964b552c30b4268ccb2cfa6d04d544a318f256ecd76e8",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_25.png": {
+      "sha256": "402451de23e323950f83da6b2b3aa7d142b959a567d134be3dc5c6b54c00ce53",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_led_26.png": {
+      "sha256": "352afb765c6ea9bde9c996bd5c365e5d8a8473fea029d39c53967bef59b4182a",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_ring_off.png": {
+      "sha256": "eddac46220113c772711dd9d37006b2128c752d960c732cdace9ee4decbd284f",
+      "source": "08_3_fix",
+      "history": [
+        "08_2_fix",
+        "08_3_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/focus_rotor.png": {
+      "sha256": "c0e630805a47be11488aeafee2a68b8e322dec13fe624db3c960d9effc392d34",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/horizontal_base.png": {
+      "sha256": "06a9f12df4cca5777cd29f359ae688259ba85010283c178591750c3c4bee8d96",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/horizontal_cap.png": {
+      "sha256": "c1f243c1385061c134a2a3efa7db630583536886cb0816c7875fb265e279446f",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/meter_base.png": {
+      "sha256": "76bbe984f21ec1446bb2b6cd71da059425cdc420065c22e94dd88a596e61dd2f",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_electronic_active.png": {
+      "sha256": "e3154f48741bff1e206763b172c547cc6cfb21c33a0ec88f33b8762aeeca9cf4",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_electronic_disabled.png": {
+      "sha256": "01040980410f2d4fc50848d679da20c6c645a029a624729b2bad47913e7eae08",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_electronic_hover.png": {
+      "sha256": "c4b084fc63120991ad7835237edc75b8d981b8ad3d027b1f333adfab1e1c036b",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_electronic_idle.png": {
+      "sha256": "8d263c77a775be478ba76d7cc4c8eea4e8294c0207778125433281947bc09ad8",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_electronic_pressed.png": {
+      "sha256": "92c6740d3b9d860e49b1c9a970d5103dd8beac16bc99bde1cff187133e99dd21",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_punk_active.png": {
+      "sha256": "b6d4c1e7bf34371dd24e67c336b41cea514bb824008faa7c6d59a9e7d5db91e6",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_punk_disabled.png": {
+      "sha256": "7ca6b098019ee99f4803d6682d98ef66fa45c3e78834479dd38bb66267377f10",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_punk_hover.png": {
+      "sha256": "f341bdbf8e11bc85796dcd1f6fdc91974007068a2de15e6b609a81dde0995d17",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_punk_idle.png": {
+      "sha256": "ce673f1cccab496e989e7b1c0803fc80d95b2cd0971bc9930342e70def873b15",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_punk_pressed.png": {
+      "sha256": "3213fd813ea77361ca5f28dfe672cf2bb895016999b2473cc4fd37f6a7be5599",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_studio_active.png": {
+      "sha256": "f8c2f969320e21b3335bf4806ea2a7b4d304ede01f3e0b372d842fd3b3a2ef70",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_studio_disabled.png": {
+      "sha256": "171db487040d0dc0ab0f588846f041223cc1a07477f061b15c0acbff638b9293",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_studio_hover.png": {
+      "sha256": "9f76323cc6599a2b187283bcfe3e78772d2acfb88de3f2d2be3e82d6cd5df652",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_studio_idle.png": {
+      "sha256": "680737808fe86c31f2be7df71b79832d2f7b128378c4f949fdc1bfac41b04187",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/nav_studio_pressed.png": {
+      "sha256": "f95407acd983a468da9e21abedc15b719a02aa2c63d06380b42a20c067ed4222",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_electronic_active.png": {
+      "sha256": "6f70deb980619f7840b61c4a4a12576ee490e66e1468a170fbb1531ff56b0d73",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_electronic_disabled.png": {
+      "sha256": "968e300de147588169b73e36556aca1893a2c14c3105c410b3eb3215c451cc2c",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_electronic_hover.png": {
+      "sha256": "90d9e1321060a5fbbdaee5b563148cd8b4e33c2b47bce80154a28783ede6a4fe",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_electronic_idle.png": {
+      "sha256": "ff56f001a38c6f3d3d9714674eed17d595b0dcea13b2661a2c55de060ee0bc87",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_electronic_pressed.png": {
+      "sha256": "1aa19ee01c7142d9b17eff86e3448fcdec5351083504e7dff144c7971974b0af",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_punk_active.png": {
+      "sha256": "f338fb74c40586f6848b4579bbcc8bf4700eb65b5fd966a5a7b89b201633e12f",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_punk_disabled.png": {
+      "sha256": "ef851c08363a8f2b5e807858a1f7d79f9db060e837d33bc4523e31eba961bc48",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_punk_hover.png": {
+      "sha256": "42ac6ae030a2622b4d9be6e546ae30c6514ee589d855765fd7df328bdd1b8ec6",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_punk_idle.png": {
+      "sha256": "81615b1b1953ac29283711a9787ab45cb6cc098a082db42f138557da2543ca64",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_punk_pressed.png": {
+      "sha256": "0a75b8534a38fbdb871d2679361ca9b7ebee356fc36c724f262398580dca8917",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_reference.png": {
+      "sha256": "5e5b15add09503a05a86cce8e741875ce0e0fe13601c3ad4bf7d5941d3191a30",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_studio_active.png": {
+      "sha256": "f998b000ecb84715c08aea44498496d0aadfe4c720cecddce0800c6cd4e0e00e",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_studio_disabled.png": {
+      "sha256": "e1b0c635e78196926c846fda03091038a32d443ea73dfccebd82d527a539e22a",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_studio_hover.png": {
+      "sha256": "5c11b4959d8527b9e3a02c6f1686ecc7fa6f61ca16789562af68a3be3314f3c2",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_studio_idle.png": {
+      "sha256": "5e1416c19dbb12628ad8f60c6462093188f323c358fde2e4af5d3223c1cb6677",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/pad_studio_pressed.png": {
+      "sha256": "e188ebdfacfeb96c9d12e523e50c3549bd4ed93e6c30907ae739bb127c5ad00e",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_electronic_active.png": {
+      "sha256": "0175e5980a0da6725a119bc02762b890a76368db12e13f22cb097290a3fcbbf6",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_electronic_disabled.png": {
+      "sha256": "76a0e7a821a537e2533d3d9fd9fd2e9a39d2a988b879feb0da342044f9f438d8",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_electronic_hover.png": {
+      "sha256": "854ffc79e2c75bdf77f4fa2be667ad4e44f95c6d458e193c5eb0a51846619be2",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_electronic_idle.png": {
+      "sha256": "90d00085494066bab5832026093d0b11f2987f4e621d21890e312111aa523764",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_electronic_pressed.png": {
+      "sha256": "c2863d8035f664d699c294036c21c42148418ad6065fbc969806dc25af532a57",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_punk_active.png": {
+      "sha256": "e3edea0680a571c70fdbb2db2346960111be988da43cc688c5c6d96e8091351b",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_punk_disabled.png": {
+      "sha256": "9340c7aff637dde35f21c90398ad9ec38a8f19f8417befe95abcc758af8c4f60",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_punk_hover.png": {
+      "sha256": "259afa809c4553fd5160ee6785b41ad6031d6074ae92ee2138d63fe4d6c37ff5",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_punk_idle.png": {
+      "sha256": "a9a1dc03a397224b30ec184d291e50786b5718f66e33eb3cad08bbc2c69acb75",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_punk_pressed.png": {
+      "sha256": "4b642913d224688de6312d25a643c3fe02a7662d4fe698ca29bfc94f4393b027",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_reference.png": {
+      "sha256": "e6358f4e3ed737a524c11d40ce5ddb66b82648c8e21c65932545b2db0dc8df07",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_studio_active.png": {
+      "sha256": "629e28d28c453cb712915af843a057e346d425d7a81d9ce027752e487ecd29cd",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_studio_disabled.png": {
+      "sha256": "8885721dc37e88bf652eba7bff13c8ebc883e2c7c9885d4b8e8ad4fd6d926e71",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_studio_hover.png": {
+      "sha256": "3d8d635955946f53d0392884bc83f523757265a691b784f8ffe8cceaeae4a0bc",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_studio_idle.png": {
+      "sha256": "7c00a854abb486ff509ec57071637c015580305fc0dda12e639ccd4c4557b2f4",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/transport_studio_pressed.png": {
+      "sha256": "23cd616d021ac84f927755b1b27b2da7c280c59123bf2f2580ebcfa145a48ad4",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/vertical_base.png": {
+      "sha256": "694b733f520df1582f6e6114876904304931fbc4ac5be7bfe507e2d564c09e45",
+      "source": "08_2_fix",
+      "history": [
+        "08_original",
+        "08_2_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/assets/vertical_cap.png": {
+      "sha256": "b6d1e489fdb4514424a7314f2151e993c582d28992030c1b4ba7f52931fd01ec",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab082_fader_track_comparison.png": {
+      "sha256": "ecfbdd4e7ec9144363be1e6ba7727618df90e53706e3258354ac1a3ef98d2154",
+      "source": "08_2_fix",
+      "history": [
+        "08_2_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab082_knob_lighting_comparison.png": {
+      "sha256": "bf2ba537bbb2a878a716bc386661ddc63d70685fd0aee87c4b2f572395ffc2b4",
+      "source": "08_2_fix",
+      "history": [
+        "08_2_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab082_static_preview.png": {
+      "sha256": "f59175b0b163ee8a59aa68c4560b7e935a595c15b60a5485f75f11f498b7a994",
+      "source": "08_2_fix",
+      "history": [
+        "08_2_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab083_dashboard_static_preview.png": {
+      "sha256": "3ba0e2245ac1a1136c6b95b781de1b43d833fad332c42ce9a7c12c4f80551ff9",
+      "source": "08_3_fix",
+      "history": [
+        "08_3_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab083_knob_states.png": {
+      "sha256": "8410c347ac01cad1a3b8b1fa8b0e5abb946d03c02d5f64d58dcddbf0f1127efe",
+      "source": "08_3_fix",
+      "history": [
+        "08_3_fix"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab084_ring_test_game.png": {
+      "sha256": "f1c88f32192b4fc2e6b50f499b9d01930726f29e57ae0967cafe27f51724d39b",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/lab084_ring_test_native.png": {
+      "sha256": "01f62deb7509d62b5f5dcce32917520d478358dcb90cb491da948b089a5fcc97",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/static_composition_preview.png": {
+      "sha256": "4a87055942eb5307954887e57f2bc7709bf2ce5b6359fec059c58c35d80ea7f4",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/studio_control.gd": {
+      "sha256": "0cbb5c314f2fcea7ed1deb5f07bd5c2c3ee22c1562094606d91f96fe4a269e16",
+      "source": "08_4_final",
+      "history": [
+        "08_original",
+        "08_2_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/studio_controls_lab.gd": {
+      "sha256": "81e7c5199287b67c0f2bc1d326ef9c1011c94cda84b79db9d83e149dc2015bf7",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/studio_controls_lab.tscn": {
+      "sha256": "c645215464dc6a2017f5a95ecebab0a77e39499d6dc72bd312c71b21aaaf8534",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/studio_dashboard.gd": {
+      "sha256": "21b6b03e29e860e7df3142de0434180580e37b6cef9ba45bc73b5f7ed4eb5014",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/studio_dashboard.tscn": {
+      "sha256": "fdda5d9a44f7fa1f9d84a202980000ddb83fdb1c0030e9539b6127dd84f0a5db",
+      "source": "08_original",
+      "history": [
+        "08_original"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/tests/lab08_smoke.gd": {
+      "sha256": "89d3a2a43eca380d020e541ceab4ba02fe6fcc2ffb3799c70cc721dc4653b2dc",
+      "source": "08_4_final",
+      "history": [
+        "08_original",
+        "08_2_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/tests/validate_lab082.py": {
+      "sha256": "b3d5ecdfbcca519050249fd43526d4e114362430c0b26f274d20af421c018f2e",
+      "source": "08_4_final",
+      "history": [
+        "08_2_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/tests/validate_lab083.py": {
+      "sha256": "b3d5ecdfbcca519050249fd43526d4e114362430c0b26f274d20af421c018f2e",
+      "source": "08_4_final",
+      "history": [
+        "08_3_fix",
+        "08_4_final"
+      ]
+    },
+    "bandmaster_premium_dashboard_poc/tests/validate_lab084.py": {
+      "sha256": "706fea5e7aa0f8e4ace017db6f2e94692fceadb1eda46ee52843c878956a1e2f",
+      "source": "08_4_final",
+      "history": [
+        "08_4_final"
+      ]
+    }
+  }
+}
