@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1859451,
-    "sha256": "b675c300ea410a92600feeede62edad68d95b209ff01eb25555bd67c29534799"
+    "bytes": 1861465,
+    "sha256": "2f244bf4d3b54c6e2db8e262611ba844bae9d74ee7726861507c54b2a9a7c37f"
   },
   "lesson_ids": [
     "BM-15",
@@ -94,7 +94,7 @@
     "primary_start_free": 657104896,
     "TMP_start_free": 773120000,
     "primary_new_cap": 25165824,
-    "TMP_new_cap": 1048576,
+    "TMP_new_cap": 135266304,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1073741824,
     "RAM_categories_MiB": {
@@ -119,15 +119,20 @@
     "old_closed_caps_reused": false,
     "cleanup": false,
     "RAM_artifacts_volatile": true,
-    "packaging_method_amendment": "Prospective before runtime/APK allocation: totalRAM1024MiB, SDKfulltree320MiB, reserve1024MiB =>2368MiB. Native480+640+1024=>2144MiB. Actualbaselinebeforeeachphase. Oneactiveproducer may refresh only declared committed/Git-preserved source; all priorproof/log/PNG retained, no re-emptyimport or independenceclaim. PCK export/extract exact compiledentries into audited V15nonassettemplate shell; narrowly patched binarymanifest version16/name0.143.0; officialruntime byteexact; standalone SDK onlywithGodotstopped. Extra signingtemp/fullfailedtail included; no repeatofheldS140APKexportroute.",
+    "packaging_method_amendment": "Exact Godot --export-pack extension chooses ZIP. Compiled payloadZIP <=128MiB + two normalAPK <=144MiB each + full signing temporary or failedAPK <=144MiB =560MiB <= reserved576MiB. This cap is prospective failclosed, never trimming accepted sources. Source/cache300MiB+nativePNG64+pack576+work84=1024MiB. New four-standard PNGs funded separately TMP128MiB, originalRAM PNGs retained. Godot stopped during SDK320MiB; continuous1GiB reserve unchanged. PriorPCK extraction idea superseded before any packaging allocation.",
     "import_phase_persistent_cap": 335544320,
     "import_process_tree_RSS_cap": 1073741824,
-    "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB\u2212actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup."
+    "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB−actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup.",
+    "TMP_categories_MiB": {
+      "four_standard_originals": 128,
+      "existing_work_and_handoff": 1
+    },
+    "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106"
   },
   "scope_contract": {
     "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
     "acoustic_and_vocals": "No genuine acoustic or vocal source currentlycleared. Hold production inclusion; cleaner existing hollowbody sketch is labelled picked electric, never acoustic or singing. No new bank/deps/acquisition.",
-    "informal_practice": "\u00a30 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
+    "informal_practice": "£0 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
     "show_navigation": "One editable date/trip/terms agreement after room selection with one explicit booking confirmation; batch only non-choice trip transitions tosoundcheck, preserving original checkpoint/cost/save owners. Pause keeps dirty exits/Continue guards.",
     "audio_preview": "Only if funded within same source scope: explicit-start sustained phrase, local updates without silent start, bounded supported pattern switch and stop on mute/focus/nav; no extra saves.",
     "protected": "All54originalScripts3UID/all370oldOGG10JSON/art/fonts/hardware/sixinertmeters/Game/Finance/schema/once-onlyowners exact; any additional path requires prospective amendment."
@@ -136,7 +141,7 @@
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S143.json",
     "Fresh empty private import once, actual changed models/73gameplay/88opening/ordinary entry; root alone exact Godot/Dummy/flock/privateXDG, editor/import/export/X11 additional network permission.",
     "Independent predesign; early390/1280 important states before full proof; final390/720/1280/1600 three-song tasks with native pointer/key/emulatedtouch/scroll, typedreload and real filesystem failure/retry.",
-    "Actual ordered3songdemo\u2192release\u2192radio (record\u00a360/2days,release\u00a325/1day,radio\u00a320/1day) using existing originals; whole show/booking changed task and freejam guards.",
+    "Actual ordered3songdemo→release→radio (record£60/2days,release£25/1day,radio£20/1day) using existing originals; whole show/booking changed task and freejam guards.",
     "ONE final code16 ARM64 exact latest scoped-tested source via fresh lower-peak pack/template SDK route, full update/privacy/resources audit then sameprivateDropbox/BandMaster; V15 retained untilverified."
   ],
   "stop_condition": "Before source/assets require committed preflight+gate. Per-phase full memory/disk guards; preserve every failed input/output; two ineffective attempts change method/HOLD. No cleanup/oldcache mutation, no paid/newbanks/runtimeAI; genuine acoustic/singing remain source-gated, no false acceptance. No automatic schedule/window extension.",
@@ -160,8 +165,16 @@
   "audio_metadata_mapping_amendment": {
     "path": "experiments/playable_flightcase/audio/demo_foundations_v1.json",
     "actual_typed_consumer": "audition_audio.gd:53 unchanged",
-    "change": "Mapproposalownerapprovedfalse\u2192owner_listening_acceptedfalse andproposalreviewauthority\u2192integration_authority exactString; internalreviewtrue. Noaudiofilename/hash/rights/gain changes.",
+    "change": "Mapproposalownerapprovedfalse→owner_listening_acceptedfalse andproposalreviewauthority→integration_authority exactString; internalreviewtrue. Noaudiofilename/hash/rights/gain changes.",
     "proof": "Narrowconsumerpositive+wrongtype/authoritynegativechecks beforeearlynative retry. JSONtextonlyrefreshinS143activecache; no reimport/OGGcachechange/coldimportclaim.",
     "prior_registry_held": "00e3155 source/initialadoptionreceipt retained; closedhelperproposal/deliveryimmutable"
+  },
+  "capture_budget_amendment": {
+    "at": "2026-11-06T23:20:00.959139+00:00",
+    "reason": "actualheld764 capturecap7 omitted inherited00entry; separate four standard PNG budget gap discovered before runs",
+    "early": "version only inherited wholecore early cap8; standalone early7 exact; main frozen-parent hashes updated; all asserts retained",
+    "full": "14 includes00entry; unchanged",
+    "qa_versions": "new wholecore_v2/capture_v2/task_v3 uniquealiases; oldretained",
+    "funding_receipt": "/workspace/work/s143-three-song-demo-20261106/proof-and-packaging-funding-v3.json"
   }
 }
