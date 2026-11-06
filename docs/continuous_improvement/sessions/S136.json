@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1760719,
-    "sha256": "9b7e5057b6353a5013d47ae61e17a495824de942b5e020c9f1f735f4d41b9d35"
+    "bytes": 1762075,
+    "sha256": "c88bfcfae4ecee07ef92912117e3d4c70117be4fbbf179b827e9b73ccf15002e"
   },
   "lesson_ids": [
     "BM-01",
@@ -100,10 +100,10 @@
     "TMP_categories_MiB": {
       "source": 128,
       "privatecache": 100,
-      "unsigned_export": 120,
       "final_signed": 120,
       "one_full_failed_APK": 120,
-      "work": 4
+      "work": 4,
+      "Godot_export_APK": 120
     },
     "actual_APK_limit_bytes": 125829120,
     "handoff_TMP_reserved": 1048576,
@@ -116,10 +116,11 @@
       "first_attempt_full_signing_temp_may_use120MiB_contingency": true,
       "retained_full_failed_APK_requires_fresh_complete_funding_before_any_retry": true,
       "peak_samples_not_OS_quota": true
-    }
+    },
+    "runtime_floor_guards_include_handoff_reserves": true
   },
   "contract": {
     "path": "/workspace/work/s136-final-apk-v14-20261106/CONTRACT.md",
-    "SHA256": "fbfb396328fa6a234eafdbe8bc9662737395352af074d4f82f084364f4e3ab64"
+    "SHA256": "8c759310d8e81fd29a9d5ff1f8ed6b154b7f4e60f7069f0559dcf7496ede3a76"
   }
 }
