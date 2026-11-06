@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1757709,
-    "sha256": "2fd60e0443fccb44da06ac8e2d2dd109940cc6cc46eba391204a1a9b5a1a5a3b"
+    "bytes": 1759102,
+    "sha256": "0be1956d5ae208924b107b8284c54f54dcefdc7b956790886ba7da64b77d6413"
   },
   "lesson_ids": [
     "BM-01",
@@ -52,7 +52,8 @@
   ],
   "external_artifact_roots": [
     "/workspace/work/s135-formation-trio-art-20261106",
-    "/tmp/bandmaster-s135-formation-trio-art-20261106"
+    "/tmp/bandmaster-s135-formation-trio-art-20261106",
+    "/workspace/generated_images"
   ],
   "queue_task": "Existingformationpose/artworkgap, offlinecandidateonly",
   "reviewer": "CHECKrequiredexisting/root/s134_quality_review newS135role; D135/review<=65536B only/readsource-images; noengines/Git/Pages/network/children/oldS134receiptwrites. Independentpredesign/finaloriginalreview.",
@@ -116,5 +117,21 @@
   "contract": {
     "path": "/workspace/work/s135-formation-trio-art-20261106/BRIEF.md",
     "SHA256": "b2b2751c836d685d3bcd42d8cf0abd3d6fd2b16bd5dcb7681c5f9ce96c754751"
+  },
+  "generated_output_scope": {
+    "root": "/workspace/generated_images",
+    "owned_new_allowlist": [
+      {
+        "path": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+        "SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+        "bytes": 2349609
+      }
+    ],
+    "original_immutable_no_move_delete": true,
+    "all_other_existing_generated_files_protected": true,
+    "cap_includes_global_generated_outputs": true,
+    "no_duplicate_source_copy_needed": true,
+    "scope_boundary_incident_disclosed": "/workspace/work/s135-formation-trio-art-20261106/S135-20261106T005800-default-generated-output-root.json",
+    "future_second_output_requires_exact_returned_path_record_beforeanymutation": true
   }
 }
