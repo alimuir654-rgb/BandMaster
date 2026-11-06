@@ -1349,7 +1349,7 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
     for item in Workbench.finished(opening_owner.snapshot()).items:
      if Workbench._same(item.reference,_workbench_finished_ref):title=str(item.title);break
     body.add_child(_label(title,22))
-    body.add_child(_label("Your saved arrangement demo. Writing has developed this original; the recording illustrates its musical direction.",16))
+    body.add_child(_label("Your saved original. Its sound and lyrical direction are kept here.",16))
     if MixingRecipe.valid(fragment.producer_recipe):
      var saved_mix: Dictionary=fragment.producer_recipe.duplicate(true)
      preload("res://experiments/playable_flightcase/mixing_audio.gd").attach_controls(body,saved_mix,func():
