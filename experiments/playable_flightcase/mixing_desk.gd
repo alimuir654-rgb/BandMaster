@@ -48,6 +48,7 @@ var _compare_button: Button
 var _responses: Array[Button]=[]
 var _themes: Array[Button]=[]
 var _foundations: Array[Button]=[]
+var _foundation_group:=ButtonGroup.new()
 var _foundation_note: Label
 var _demo_path: Label
 var _pause_open := false
@@ -151,7 +152,7 @@ func _build() -> void:
  var foundations:=HBoxContainer.new();foundations.name="MixingFoundations";foundations.add_theme_constant_override("separation",4);surface.add_child(foundations)
  for i in range(Recipe.HOOKS.size()):
   var choice: Button=_button(["RIFF","BASS","PICKED"][i],"MixingFoundation_%d" % i,_choose_foundation.bind(i))
-  choice.toggle_mode=true;foundations.add_child(choice);_foundations.append(choice)
+  choice.toggle_mode=true;choice.button_group=_foundation_group;_foundation_group.allow_unpress=false;foundations.add_child(choice);_foundations.append(choice)
  _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
  _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
  for i in range(4):_add_control(_grid,i,"rotary" if i<2 else "fader")
