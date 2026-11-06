@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "S137_closed_readonly_art_contract_ready_V14_unchanged",
+  "status": "S138_offline_backstage_art_preflight",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "dual-frame-proof-2026-10-28",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "Read-onlyS135wholecohort futureintegrationcontractready; noGame/source/art/audio/native/APKchange.",
-  "writer": null,
+  "scope": "ART04offlinebackstagecorner sourcereview/generationonly;newtrio/V14/Gameunchanged.",
+  "writer": "root_S138_offline_backstage_art",
   "last_verified_code_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "baseline": {
     "run_id": 40778019754,
@@ -695,7 +695,7 @@
     "visual_verdict": "partial, materially better milestone1/2",
     "owner_approved": false
   },
-  "current_session": "S137",
+  "current_session": "S138",
   "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
   "latest_verified_phase2": {
     "session": "S125",
@@ -708,7 +708,7 @@
     "source_only_notV12": true
   },
   "last_sprint": "S100",
-  "next_action": "UseS137contractonlywhenacompletefreshnativeintegrationbudgetfits; do notreviewit/clearartagainforactivity. Actualownerplaytestfeedback oranothermeaningfulfundedboundedtask mayleadremainingopportunities. KeepV14/source898unchanged;noextraAPK/queue/extension;release07:55/hard08:00London.",
+  "next_action": "IndependentART04predesign fromactual3existingrawsources; oneboundedbackstageplate ifjustified,0Game/native/APKwork.",
   "owner_overnight_extension": {
     "authorized_at": "2026-10-30T23:48:38Z",
     "until": "2026-10-31T09:00:00Z",
@@ -1992,7 +1992,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "S137",
+  "session": "S138",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
@@ -2307,7 +2307,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified_S134_898",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-06T04:15:00Z",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -2417,7 +2417,7 @@
   },
   "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
   "art_delegation": null,
-  "art_write_allowed": false,
+  "art_write_allowed": true,
   "art_frozen_at": "2026-11-02T02:28:04.417747+00:00",
   "s73_closeout": "/workspace/work/overnight-20261102/s73/closeout.json",
   "last_art_slice": {
@@ -2444,7 +2444,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -2597,7 +2597,7 @@
     "owner_approved": false
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
-  "page_write_allowed": false,
+  "page_write_allowed": true,
   "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "current_phone_page_sequence": 19,
   "s78_closeout": "/tmp/bandmaster-s78-20261102/closeout.json",
@@ -3051,7 +3051,11 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S138_offline_backstage_art",
+    "expires_at": "2026-11-06T04:15:00Z",
+    "scope": "OneofflineART04sourceversion+atmostonefocusedcorrection;primary16MiB/TMP0, shippingwriterNULL;closeearlier."
+  },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4952,7 +4956,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S138_offline_backstage_art",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -5190,12 +5194,12 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S138",
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": null,
-  "artifact_writer": null,
+  "artifact_writer": "root_S138_offline_backstage_art",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "session": "S128",
@@ -5472,7 +5476,7 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "art_writer": null,
+  "art_writer": "root_S138_offline_backstage_art",
   "latest_offline_formation_art": {
     "session": "S135",
     "source": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
@@ -5685,5 +5689,15 @@
     "next_action": "BindactualexistingposterAPIs/exactcohorts/fallback/nativeQAcontract; noengine/source/art/APKchange."
   },
   "s137_closeout": "/workspace/work/s137-formation-art-contract-20261106/closeout.json",
-  "latest_art_integration_contract": "/workspace/work/s137-formation-art-contract-20261106/integration-contract.json"
+  "latest_art_integration_contract": "/workspace/work/s137-formation-art-contract-20261106/integration-contract.json",
+  "historical_active_aliases_before_S138": {
+    "status": "S137_closed_readonly_art_contract_ready_V14_unchanged",
+    "session": "S137",
+    "current_session": "S137",
+    "active_session": null,
+    "root_writer": null,
+    "root_lease": null,
+    "scope": "Read-onlyS135wholecohort futureintegrationcontractready; noGame/source/art/audio/native/APKchange.",
+    "next_action": "UseS137contractonlywhenacompletefreshnativeintegrationbudgetfits; do notreviewit/clearartagainforactivity. Actualownerplaytestfeedback oranothermeaningfulfundedboundedtask mayleadremainingopportunities. KeepV14/source898unchanged;noextraAPK/queue/extension;release07:55/hard08:00London."
+  }
 }

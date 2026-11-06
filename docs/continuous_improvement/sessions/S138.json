@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "id": "S138",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "809a2fbc07a9c981ef2c78eee43174315593c5ba",
+  "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "owner_request": "Workto08:00; ifblocked switchartworkimprovements; othergamesasqualitybenchmarks. OneexistingART04offlinebackstagecorner needsource/currentcamerareview; noGame/nativeintegrationfunding/V14change.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1775254,
+    "sha256": "c502f8bd0cbac1e20a4ccaf789ea4c559dc2648b1374d927103bd09fa3765504"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-09",
+    "BM-11",
+    "BM-12",
+    "BM-14",
+    "BM-21",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "dominant_issue": "BM-39",
+  "target": {
+    "locator": "/workspace/BandMaster/experiments/playable_flightcase/art/opening_stage.png",
+    "original_sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+    "pixels_inspected": true,
+    "scope": "Actualcurrentroomrawsource reusedinbackstagephase; no privatebackstagecorner among3existingplates. Missingoldnativebaselineexplicit; nofreshnativeclaim."
+  },
+  "hypothesis": "Oneemptyadjacentpubbackstagebench/flightcase/stagedoorcorner inexistingamber/brick/woodmateriallanguage makesplayerheldbackstagepausevisuallydistinctfromsoundcheck withoutnewpeople/performers/cast/UI/model.",
+  "controlled_comparison": "CompareactualROOM/ARRIVAL/CROWDsources tooneadjacentcornercandidate; preservefictionalvenuegrade/material/scaleandcleardoorlandmark. No productionplate replacement ornewroomcontroller.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S138.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s138-backstage-source-20261106",
+    "/workspace/generated_images",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "queue_task": "ART04 existing backstagecorner needreview/sourcejob; no newworklist/controller",
+  "reviewer": "CHECKrequiresindependentartpredesign/finalsourceinspection; existingart_method_brief role toD138/review <=65536B only; noGame/Git/Pages/engines/imagegen/network/children. Rootownsallotherwrites.",
+  "player_goal": "Futureplayerfeelsprivatestagingpause andclearroutebacktostage, whileactualspeaker/name/intent/actions staynative.",
+  "start_end_commitment": "Offlinebackgroundsource only, noGame/phase/time/cash/Finance/save/APK/audio changes; no no-oprefreshorduplicateAPK.",
+  "state_matrix": [
+    "Samevenuewood/brick/cases/amberlight;side/backstagecamera withdoorwaytowardstage, noexteriorreversecrop.",
+    "SmallbelievableUKpubutilitycorner notluxurydressingroom;benches/cases/water supportsprivatepausewithoutnewcast.",
+    "Nopeople/logos/readabletext/instrumentsforeground/fakeplaying/kitduplication/posterperformers;notA04headstockretry.",
+    "Clearlargebench/doorlandmarks atthumbnail;wholecontainedsource, no UI baked ornewphysicaltargetclaim.",
+    "Sourceidentity/rights/internalreview/ownerfalse;alloriginalsources/artifactsretained;atmostoneactualfocusedcorrection."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S138.json",
+    "IndependentactualROOM/ARRIVAL/CROWDpredesign andsourcequalitygate beforegeneration.",
+    "OneimagegenusingactualROOM/ARRIVALreferences/defaultoutputrootincluded;actualrawinspection/internalreview/provenance/dims/bytes/globalbudget;onefocusedcorrectiononlyifneeded.",
+    "All517currentGame/runtime rowsandoriginalsourceart exact;0engines/nativePNGs/uploads/APKs;newsourceoffline/ownerfalse.",
+    "FinalDICT/actualopens/fiveSIMULATEDlenses/append-onlyissues/budget/oldproofavailability/gate/canonicalrelease; noactivityrebuild."
+  ],
+  "root_lease": {
+    "writer": "root_S138_offline_backstage_art",
+    "expires_at": "2026-11-06T04:15:00Z",
+    "scope": "OneofflineART04sourceversion+atmostonefocusedcorrection;primary16MiB/TMP0, shippingwriterNULL;closeearlier."
+  },
+  "storage_plan": {
+    "at": "2026-11-06T03:17:05.780899+00:00",
+    "actual_free": {
+      "/workspace": 760950784,
+      "/tmp": 773140480
+    },
+    "global_primary_free_before_bootstrap_B": 760967168,
+    "primary_new_scope_cap_B": 16777216,
+    "categories_B": {
+      "two_raw_originals_max_each6MiB": 12582912,
+      "metadata_primaryGit_failedretrieval_review_closeout": 4194304
+    },
+    "TMP_new_scope_cap_B": 0,
+    "fixed_floor_B": 629145600,
+    "handoff_primary_reserved_B": 2097152,
+    "handoff_TMP_reserved_B": 1048576,
+    "primary_contingency_reserved_B": 4194304,
+    "worst_primary_after_all_reservations_B": 737882112,
+    "no_runtime_cache_nativePNG_source_APK_allocation": true,
+    "source_art_default_output_root": "/workspace/generated_images",
+    "maximum_generations": 2,
+    "only_one_focused_correction_after_actual_source_review": true,
+    "retainall_originals_inplace": true,
+    "no_closed_cap_reuse_cleanup_or_pending_owner_approval": true
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": true,
+  "audio_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "artifact_write_allowed": true,
+  "page_write_allowed": true,
+  "stop_condition": "IndependentpredesignHOLDbeforegenerationifexistingreuseadequate/venuecameraunjustified. Twoineffectiveattemptschangemethod/HOLD;retainalloutputs. NoGame/nativeintegrationorAPKunderthisscope;releaseby04:15/07:55outer;hard08:00."
+}
