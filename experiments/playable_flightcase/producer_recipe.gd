@@ -30,7 +30,7 @@ const REASONS := [
 ]
 
 static func valid(value: Variant) -> bool:
- if value is Dictionary and value.get("version")==3:return Mixing.valid(value)
+ if value is Dictionary and Mixing.whole(value.get("version"),3,3):return Mixing.valid(value)
  if not value is Dictionary or value.size()!=9:return false
  if not (value.get("version") is int or value.get("version") is float) or value.version!=2:return false
  if not value.get("palette") is String or not value.get("hook") is String:return false
