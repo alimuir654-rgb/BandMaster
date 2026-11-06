@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1811278,
-    "sha256": "d9f2294008f6a18fb75076f9a8da8b8fcb2a59561ad9582082025e24949c1945"
+    "bytes": 1813027,
+    "sha256": "0054f36250de79a72247a22352aa1e198e6daeea9bc9f7fd8d3488a95b8f42ce"
   },
   "lesson_ids": [
     "BM-01",
@@ -300,5 +300,22 @@
   },
   "RAM_execution_status": "PASS hostdev26 sentinel persisted across distinct escalated commands; sandboxdev37 unavailableintake retainedasheldhistory",
   "host_RAM_availability_test_authorized": true,
-  "final_selected_native_cap_amendment": "Prospective selectedbyteexactoriginals10MiB fromprevious6+4contingency, same104MiBprimarycap; allprior originalsretained."
+  "final_selected_native_cap_amendment": "Prospective selectedbyteexactoriginals10MiB fromprevious6+4contingency, same104MiBprimarycap; allprior originalsretained.",
+  "noncompliant_visual_draft": {
+    "commit": "a1db3575fc544b84bb2e2c5e333105414754300c",
+    "status": "HELD_gate_failed_before_edits",
+    "incident": "/workspace/work/s140-mixing-desk-20261106/actual-gate-orchestration-incident.json",
+    "prospective_adoption_requires_narrow_reverse_committed_preflight_and_inspected_gate": true
+  },
+  "visual_adoption_preflight": {
+    "at": "2026-11-06T15:14:54.776045+00:00",
+    "source_restored_to_verified_early_3f_by_narrow_reverse_only": true,
+    "previous_noncompliant_draft_preserved": "a1db3575fc544b84bb2e2c5e333105414754300c",
+    "proposed_exact_paths": [
+      "experiments/playable_flightcase/mixing_control.gd",
+      "experiments/playable_flightcase/mixing_desk.gd"
+    ],
+    "hypothesis": "Native plain ASCII / separator and exactlyone visible SELECTED response latch close independentearlyE3/E4; no game/save/audio changes. Reapply onlyaftercommittedpreflightandinspectedPASS.",
+    "proof": "newexactsourceearlyphone/wideimportantstates andwhole4viewpaidtask; frozenmodels/audio exactclosure reused separately"
+  }
 }

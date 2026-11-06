@@ -185,7 +185,7 @@ func _draw() -> void:
   draw_texture_rect(_piece("rocker",Rect2(640,590,260,330)),Rect2(cap_x,29,34,48),false,Color(1,1,1,opacity))
   draw_circle(Vector2(size.x*0.5+(-48 if value==0 else 48),53),4,Color("f2b745"))
   _text(str(labels[int(value)]),88,16,ink)
- var alternatives: String=" · ".join(labels) if labels.size()>2 else " / ".join(labels)
+ var alternatives: String=" · ".join(labels) if labels.size()>2 else " ↔ ".join(labels)
  _text(alternatives,108 if kind=="switch" else (165 if kind=="fader" else 156),16,Color(0.78,0.71,0.58,opacity))
  if has_focus():draw_rect(input_rect().grow(2),Color("efc079"),false,2)
 

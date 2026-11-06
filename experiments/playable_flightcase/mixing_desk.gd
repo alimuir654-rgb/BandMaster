@@ -316,13 +316,6 @@ func _refresh() -> void:
  for button in _responses:button.visible=not respondent.is_empty()
  var person_name: String=str(respondent.get("name","THEIR")).to_upper()
  _responses[0].text="TRY "+person_name+"’S IDEA" if person_name.length()<=14 else "TRY THEIR IDEA"
- for i in range(_responses.size()):
-  var chosen: bool=_decision.get("choice")==["try","keep","dismiss"][i]
-  var button: Button=_responses[i]
-  if i>0:button.text="KEEP MY DIRECTION" if i==1 else "LEAVE UNANSWERED"
-  button.toggle_mode=true;button.set_pressed_no_signal(chosen)
-  button.modulate=Color(1.0,0.77,0.4) if chosen else Color.WHITE
-  if chosen:button.text="SELECTED · "+button.text
  _response.text="Choose how to answer before committing." if not respondent.is_empty() and _decision.is_empty() else ("Their idea is selected. Compare both takes freely." if _decision.get("choice")=="try" else ("You considered the idea and kept your direction." if _decision.get("choice")=="keep" else ("You chose to leave the idea unanswered." if _decision.get("choice")=="dismiss" else "Your direction is ready.")))
  _compare_button.visible=not _previous().is_empty();_compare_button.text="BACK TO CURRENT TAKE" if _compare else "COMPARE THE TAKES"
  _written.text=("EARLIER TAKE\n" if _compare else "CURRENT DIRECTION\n")+Recipe.written(_previous() if _compare else _recipe)+"\n"+_audio.hint()
