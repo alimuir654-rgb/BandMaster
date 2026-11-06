@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1800133,
-    "sha256": "46d81ed0caa94b971535c89e441eb72f56f5257157d1a2460f6e7c9dfa5ff29d"
+    "bytes": 1806694,
+    "sha256": "f7fa58655ab4c82a020c7fd1e151ed1300e5c13da4430271b691d3ae24afe7c4"
   },
   "lesson_ids": [
     "BM-01",
@@ -137,8 +137,8 @@
       "contingency": 4
     },
     "memory_categories_MiB": {
-      "regular_private_source_cache_versions": 1280,
-      "offline_audio_generation": 1024,
+      "regular_private_source_cache_versions": 1792,
+      "offline_audio_generation": 512,
       "native_PNG_and_failedproof": 384,
       "final_APK_and_export_and_failedtail": 640,
       "work_XDG_qa": 128,
@@ -159,7 +159,8 @@
       "cgroup_max": 17179869184,
       "root_exists": false
     },
-    "inspection_method": "Copy only selected exact native original PNGs from host RAM to funded primary D/native-review <=6MiB. Root/reviewer open those byte-exact originals, raw full proofs remain volatile host RAM. Never claim earlier disappeared sandbox proof retained."
+    "inspection_method": "Copy only selected exact native original PNGs from host RAM to funded primary D/native-review <=6MiB. Root/reviewer open those byte-exact originals, raw full proofs remain volatile host RAM. Never claim earlier disappeared sandbox proof retained.",
+    "RAM_rebalance_20261106T1500": "Prospective within unchanged3.5GiBcap: completedaudioactual29MB, reserve512MiB not1024; add512MiB source/cacheversions for retainedfailedinput versions+finalcorrectedsource. Allclosedversionsimmutable; no cleanup."
   },
   "stop_condition": "No generic owner wait; after two ineffective attempts change method/HOLD. Preserve floors/cgroup headroom; rescope before added paths or budget. No cleanup/sourcehistory/upload/newdependencies/main/prod/runtimeAI. All production assets independent material and native text/input, never ship approved mockup as hidden click interface. Native/source artistic verdict remains separate from owner mockup acceptance.",
   "source_input": {

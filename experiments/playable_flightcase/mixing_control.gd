@@ -140,6 +140,11 @@ func _notification(what: int) -> void:
  if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_WM_WINDOW_FOCUS_OUT,NOTIFICATION_EXIT_TREE]:cancel_gesture()
  if what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree():cancel_gesture()
 
+func _process(_delta: float) -> void:
+ # Engine-internal releases can update physical state without delivering a
+ # GUI/_input event. They cancel ownership and never synthesize a tap.
+ if _mode=="mouse" and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):cancel_gesture()
+
 func _text(words: String,y: float,points: int=16,color: Color=Color("eee4ce")) -> void:
  var width: float=FONT.get_string_size(words,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x
  draw_string(FONT,Vector2((size.x-width)*0.5,y),words,HORIZONTAL_ALIGNMENT_LEFT,-1,points,color)

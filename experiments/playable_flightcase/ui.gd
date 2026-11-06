@@ -252,6 +252,9 @@ func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
 func _mixing_active() -> bool:
  return game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and MixingRecipe.valid(opening_owner.workbench_view().get("project",{}).get("fragment",{}).get("producer_recipe"))
 
+func _mixing_entry() -> bool:
+ return opening_owner!=null and practice_activity=="create" and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady()
+
 func _hydrate_song_draft() -> void:
  if game.phase!="play":
   return
@@ -891,8 +894,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  dock.add_child(cost)
  var action: Button
  if practice_activity=="create":
-  action = _button("WRITE SESSION",_write)
-  action.name = "WriteAction"
+  action = _button("OPEN THE WRITING ROOM · FREE",_open_producer) if _mixing_entry() else _button("WRITE SESSION",_write)
+  action.name = "WritingOpenProducer" if _mixing_entry() else "WriteAction"
  elif practice_activity=="tighten":
   action = _button("START REHEARSAL  •  £15",_rehearse)
   action.name = "RehearseAction"
@@ -947,36 +950,7 @@ func _writing_notes(info: VBoxContainer) -> void:
  info.add_child(history)
  info.add_child(_label("Notes describe saved sessions. The choices above apply when you commit.",14))
 
-func _writing_workspace(body: VBoxContainer) -> void:
- var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
- if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady():
-  body.add_child(_ink("THE WRITING ROOM",24))
-  body.add_child(_label("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
-  var open: Button=Kit.button("OPEN THE WRITING ROOM · FREE","notepaper","action")
-  open.name="WritingOpenProducer";open.custom_minimum_size.y=48;open.pressed.connect(_open_producer);body.add_child(open)
-  return
- if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
-  if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
-   var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
-   producer.name="WritingOpenProducer"
-   producer.custom_minimum_size.y=48
-   producer.pressed.connect(_open_producer)
-   body.add_child(producer)
-  var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
-  sketch.name="WritingOpenLyricSketch"
-  sketch.custom_minimum_size.y=48
-  sketch.pressed.connect(_open_lyric_sketch)
-  body.add_child(sketch)
- else:
-  body.add_child(_ink("WRITE AN ORIGINAL",22))
- var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
- stage.name = "WritingStageLabel"
- body.add_child(stage)
- var fields := GridContainer.new()
- fields.columns = 2 if size.x>=1000 else 1
- fields.add_theme_constant_override("h_separation",12)
- fields.add_theme_constant_override("v_separation",6)
- body.add_child(fields)
+func _writing_title(fields: GridContainer) -> void:
  var title_field: VBoxContainer = _writing_field(fields,"SONG TITLE")
  var entry := LineEdit.new()
  entry.name = "SongTitle"
@@ -1001,6 +975,38 @@ func _writing_workspace(body: VBoxContainer) -> void:
  validation.add_theme_color_override("font_color",Color("954a42"))
  validation.visible = false
  title_field.add_child(validation)
+
+func _writing_workspace(body: VBoxContainer) -> void:
+ var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady():
+  body.add_child(_ink("THE WRITING ROOM",24))
+  body.add_child(_label("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
+  var fields:=GridContainer.new();fields.columns=1;body.add_child(fields)
+  _writing_title(fields)
+  return
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
+   var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
+   producer.name="WritingOpenProducer"
+   producer.custom_minimum_size.y=48
+   producer.pressed.connect(_open_producer)
+   body.add_child(producer)
+  var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
+  sketch.name="WritingOpenLyricSketch"
+  sketch.custom_minimum_size.y=48
+  sketch.pressed.connect(_open_lyric_sketch)
+  body.add_child(sketch)
+ else:
+  body.add_child(_ink("WRITE AN ORIGINAL",22))
+ var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
+ stage.name = "WritingStageLabel"
+ body.add_child(stage)
+ var fields := GridContainer.new()
+ fields.columns = 2 if size.x>=1000 else 1
+ fields.add_theme_constant_override("h_separation",12)
+ fields.add_theme_constant_override("v_separation",6)
+ body.add_child(fields)
+ _writing_title(fields)
  var leader_field: VBoxContainer = _writing_field(fields,"SESSION LEADER")
  var leader_names := PackedStringArray()
  for person in game.career.get("members",[]):
@@ -1092,7 +1098,7 @@ func _refresh_practice_commitment() -> void:
  if opening_owner!=null and Finance.is_over(game.career):
   summary.text = "THE BAND HAS FOLDED"
   cost.text = "14 completed days without money  •  Final accounts are saved"
-  for control_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction"]:
    var final_action: Button = find_child(control_name,true,false) as Button
    if final_action!=null:
     final_action.text = "VIEW FINAL ACCOUNTS  ›"
@@ -1101,13 +1107,23 @@ func _refresh_practice_commitment() -> void:
  if opening_owner!=null and Live.show_day(game.career):
   summary.text = "TONIGHT'S SHOW  •  THE VENUE IS EXPECTING YOU"
   cost.text = "Open the live desk  •  No session will be started"
-  for control_name in ["WriteAction","RehearseAction","ClearAirAction"]:
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction"]:
    var show_action: Button = find_child(control_name,true,false) as Button
    if show_action!=null:
     show_action.text = "GO TO TONIGHT'S SHOW  ›"
     show_action.disabled = false
   return
  if practice_activity=="create":
+  if _mixing_entry():
+   summary.text="Find the feel, build the song, make the take."
+   cost.text="Open free · Each committed session uses 1 day"
+   var ready: Dictionary=Workshop.develop(game.career,"Lyric","Verse / Chorus",song_title,leader_index)
+   var open: Button=find_child("WritingOpenProducer",true,false) as Button
+   if open!=null:open.disabled=not ready.get("ok",false)
+   var validation: Label=find_child("WritingValidation",true,false) as Label
+   if validation!=null:
+    validation.visible=not ready.get("ok",false);validation.text=str(ready.get("message","Name your original."))
+   return
   var members: Array = game.career.get("members",[])
   var leader_name: String = str(members[leader_index].get("name","Musician")) if leader_index>=0 and leader_index<members.size() else "Choose a leader"
   summary.text = "%s  •  %s  •  %s" % [str(Workshop.IDEAS[idea_index]),str(Workshop.FORMS[form_index]),leader_name]
@@ -1264,6 +1280,8 @@ func _write() -> void:
 
 func _open_producer() -> void:
  if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
+ if RadioVisit.locked(game.career) or Finance.is_over(game.career) or Live.show_day(game.career):
+  career_requested.emit();return
  var recipe: Dictionary=MixingRecipe.recipe(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
  var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
  last_message=str(result.message)
@@ -1503,6 +1521,10 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
    last_message = "The session could not be saved. Your previous band state and pending choices are retained."
    _rebuild()
    return
+ if managed and workbench_request.has("mixing_payload") and is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false)):
+  # Only a successful original paid seal resolves these local decisions.
+  # Failed-save paths above return with the exact local direction retained.
+  _workbench_desk.refresh_saved(false)
  last_message = _outcome_line(result)
  recap_expanded = true
  recap_details_expanded = false
