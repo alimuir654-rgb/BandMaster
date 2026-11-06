@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1825060,
-    "sha256": "216d2ee7fa34b45250f7dca714bdf4163fc804024a64ebbc99c31ab3ef5249de"
+    "bytes": 1827626,
+    "sha256": "b2571d7a220c63187ab9e0f5d725830a891a8d118ba9cfb89c25bc512ae0699f"
   },
   "lesson_ids": [
     "BM-01",
@@ -162,17 +162,32 @@
     "inspection_method": "Copy only selected exact native original PNGs from host RAM to funded primary D/native-review <=6MiB. Root/reviewer open those byte-exact originals, raw full proofs remain volatile host RAM. Never claim earlier disappeared sandbox proof retained.",
     "RAM_rebalance_20261106T1500": "Prospective within unchanged3.5GiBcap: completedaudioactual29MB, reserve512MiB not1024; add512MiB source/cacheversions for retainedfailedinput versions+finalcorrectedsource. Allclosedversionsimmutable; no cleanup.",
     "final_packaging_tail_amendment": {
-      "at": "2026-11-06T15:12:40.055048+00:00",
-      "APK_source_MiB": 160,
-      "private_import_MiB": 140,
-      "original_export_MiB": 192,
-      "final_signed_MiB": 192,
-      "one_failed_or_signing_temp_MiB": 192,
-      "work_MiB": 20,
-      "total_MiB": 896,
-      "within_unchanged_total_RAM_cap": true,
-      "new_actual_APK_limit_bytes": 201326592,
-      "no_trim_for_old_connector_limit": true
+      "at": "2026-11-06T17:56:17.717354+00:00",
+      "scope": "Same ONEV15/update. Continue accepted private import, preserve failedexported.apk/log/receipt; new export-v2.apk, no reimport/coldclaim/sourcechange.",
+      "changed_method": "Inherited existing JVM _JAVA_OPTIONS bounds512MiBheap/128MiBdirect, verified actual effective512/128 despite launcher1024M. OwnnativeXorgstopped; headless export only.",
+      "guard_unchanged": {
+        "headroom_bytes": 2147483648,
+        "global_RAM_cap": 3758096384,
+        "packaging_cap": 939524096,
+        "disk_floor": 629145600
+      },
+      "packaging_categories_MiB": {
+        "source": 160,
+        "private_cache": 140,
+        "held_export": 144,
+        "new_original_export": 144,
+        "final_signed": 144,
+        "signing_transient": 144,
+        "work": 20
+      },
+      "actual_APK_limit_bytes": 150994944,
+      "second_ineffective_attempt_HOLD": true,
+      "all_original_payloads_and_first_failure_retained": true,
+      "no_cleanup": true,
+      "script": "/workspace/work/s140-mixing-desk-20261106/build_v15-v2-continuation.py",
+      "script_SHA256": "8e8d371aa639c64f89f9e49f9b976865c72778ca783b200a3ebd13ece696f274",
+      "effective_JVM_evidence": "/workspace/work/s140-mixing-desk-20261106/signing-JVM-bound-v2.json",
+      "held_receipt": "/workspace/work/s140-mixing-desk-20261106/held-export-memoryguard-v1.json"
     }
   },
   "stop_condition": "No generic owner wait; after two ineffective attempts change method/HOLD. Preserve floors/cgroup headroom; rescope before added paths or budget. No cleanup/sourcehistory/upload/newdependencies/main/prod/runtimeAI. All production assets independent material and native text/input, never ship approved mockup as hidden click interface. Native/source artistic verdict remains separate from owner mockup acceptance.",
@@ -379,6 +394,34 @@
     "authorised_existing_private_Dropbox_parent": "id:6rRaLzqs6O4AAAAAAAAABQ",
     "no_new_share_link_or_recipient": true,
     "raw_RAM_volatile": true,
-    "all_critical_Git_and_source_primary": true
+    "all_critical_Git_and_source_primary": true,
+    "changed_method_continuation": {
+      "at": "2026-11-06T17:56:17.717354+00:00",
+      "scope": "Same ONEV15/update. Continue accepted private import, preserve failedexported.apk/log/receipt; new export-v2.apk, no reimport/coldclaim/sourcechange.",
+      "changed_method": "Inherited existing JVM _JAVA_OPTIONS bounds512MiBheap/128MiBdirect, verified actual effective512/128 despite launcher1024M. OwnnativeXorgstopped; headless export only.",
+      "guard_unchanged": {
+        "headroom_bytes": 2147483648,
+        "global_RAM_cap": 3758096384,
+        "packaging_cap": 939524096,
+        "disk_floor": 629145600
+      },
+      "packaging_categories_MiB": {
+        "source": 160,
+        "private_cache": 140,
+        "held_export": 144,
+        "new_original_export": 144,
+        "final_signed": 144,
+        "signing_transient": 144,
+        "work": 20
+      },
+      "actual_APK_limit_bytes": 150994944,
+      "second_ineffective_attempt_HOLD": true,
+      "all_original_payloads_and_first_failure_retained": true,
+      "no_cleanup": true,
+      "script": "/workspace/work/s140-mixing-desk-20261106/build_v15-v2-continuation.py",
+      "script_SHA256": "8e8d371aa639c64f89f9e49f9b976865c72778ca783b200a3ebd13ece696f274",
+      "effective_JVM_evidence": "/workspace/work/s140-mixing-desk-20261106/signing-JVM-bound-v2.json",
+      "held_receipt": "/workspace/work/s140-mixing-desk-20261106/held-export-memoryguard-v1.json"
+    }
   }
 }
