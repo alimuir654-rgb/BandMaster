@@ -5,15 +5,18 @@ const Approval = preload("res://experiments/playable_flightcase/audition_audio.g
 const PARTS := ["main","answer","bass","kit"]
 signal status_changed
 var playing := false
+var live_audition := false
 var manifest_path := Recipe.MANIFEST
 var _context: Callable
 var _manifest: Dictionary={}
+var _foundations: Dictionary={}
 var _players: Array[AudioStreamPlayer]=[]
 var _buses: Array[String]=[]
 var _active: Dictionary={}
 var _entry_active: Dictionary={}
 var _poll := 0.0
 var _last_status := ""
+var _bar := 0
 
 func configure(context: Callable) -> void:
  _context=context
@@ -23,6 +26,10 @@ func _ready() -> void:
  if FileAccess.file_exists(manifest_path):
   var parser:=JSON.new()
   if parser.parse(FileAccess.get_file_as_string(manifest_path))==OK and parser.data is Dictionary:_manifest=parser.data
+ var foundations_path: String="res://experiments/playable_flightcase/audio/demo_foundations_v1.json"
+ if FileAccess.file_exists(foundations_path):
+  var parser:=JSON.new()
+  if parser.parse(FileAccess.get_file_as_string(foundations_path))==OK and parser.data is Dictionary:_foundations=parser.data
  for part in PARTS:
   var player:=AudioStreamPlayer.new()
   player.name="MixStem_"+part
@@ -44,20 +51,34 @@ func current_recipe() -> Dictionary:
 
 func _entry(value: Dictionary) -> Dictionary:
  if not Recipe.audio_supported(value) or _manifest.get("schema_version")!=1 or _manifest.get("content_version")!=Recipe.VERSION or not _manifest.get("scenarios") is Dictionary:return {}
- var entry: Variant=_manifest.scenarios.get(Recipe.scenario_key(value))
+ var extended: bool=value.hook!="low_riff_v1"
+ if extended and (_foundations.get("schema_version")!=1 or _foundations.get("content_version")!="demo_foundations_v1" or not _foundations.get("scenarios") is Dictionary):return {}
+ var entry: Variant=_foundations.scenarios.get("%s_%s_%s" % [value.hook,value.pace,value.groove]) if extended else _manifest.scenarios.get(Recipe.scenario_key(value))
  if not entry is Dictionary or not entry.get("parts") is Dictionary or entry.parts.size()!=4 or not Recipe.whole(entry.get("frames"),1,100000000) or entry.get("sample_rate")!=48000:return {}
  var tempo: int=Recipe.TEMPOS[Recipe.VALUES[1].find(value.pace)]
  if entry.get("tempo")!=tempo or not (entry.get("music_seconds") is int or entry.get("music_seconds") is float):return {}
  if not is_finite(float(entry.music_seconds)) or absf(float(entry.music_seconds)-32.0*60.0/tempo)>0.001:return {}
  if absf(float(entry.frames)/48000.0-float(entry.music_seconds)-2.4)>0.001:return {}
+ if extended:
+  var gains: Variant=entry.get("runtime_gain")
+  if not gains is Dictionary or not gains.get("postfilter_gain_db_by_stage") is Dictionary or not _gain_ok(gains.get("common_gain_db")):return {}
+  for stage in ["0","1","2"]:
+   if not _gain_ok(gains.postfilter_gain_db_by_stage.get(stage)):return {}
  for part in PARTS:
   var material: Variant=entry.parts.get(part)
   if not material is Dictionary or not Approval.entry_approved(material):return {}
   var path: String=str(material.get("path",""))
-  if not path.begins_with("res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/") or not ResourceLoader.exists(path):return {}
+  var prefix: String="res://experiments/playable_flightcase/audio/producer/demo_foundations_v1/" if extended else "res://experiments/playable_flightcase/audio/producer/mixing_desk_v1/"
+  if not path.begins_with(prefix) or not ResourceLoader.exists(path):return {}
   if not material.get("sha256") is String or material.sha256.length()!=64:return {}
   if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=material.sha256:return {}
  return entry
+
+func _gain_ok(value: Variant) -> bool:
+ return (value is int or value is float) and is_finite(float(value)) and float(value)>=-24.0 and float(value)<=24.0
+
+func _part_gain(value: Dictionary,part: String) -> float:
+ return float(_entry_active.runtime_gain.common_gain_db) if value.hook!="low_riff_v1" else float(_manifest.get("part_gain_db",{}).get(part,0.0))
 
 func available() -> bool:
  return not _entry(current_recipe()).is_empty()
@@ -68,7 +89,7 @@ func hint() -> String:
  if not Recipe.valid(value):return "Review the current song direction."
  if not Recipe.audio_supported(value):return "This style has written ideas; there isn't a matching demo yet."
  if _entry(value).is_empty():return "Demo unavailable. You can read the direction and continue writing."
- return "Instrumental sketch of this direction · not a recording of your musicians."
+ return Recipe.foundation(value)+" · instrumental sketch, not a recording of your musicians."+(" Changes join at the next bar; STOP ends the audition." if live_audition else "")
 
 func _new_bus(name: String,send: String) -> int:
  AudioServer.add_bus()
@@ -82,7 +103,7 @@ func _create_buses(value: Dictionary) -> void:
  var prefix: String="Mixing-%d-" % get_instance_id()
  var main: int=_new_bus(prefix+"sum","Master")
  var amplify:=AudioEffectAmplify.new()
- amplify.volume_db=float(_manifest.get("master_gain_db",0.0))+float(_manifest.get("stage_post_gain_db",{}).get(str(int(value.stage)),0.0))
+ amplify.volume_db=float(_entry_active.runtime_gain.postfilter_gain_db_by_stage[str(int(value.stage))]) if value.hook!="low_riff_v1" else float(_manifest.get("master_gain_db",0.0))+float(_manifest.get("stage_post_gain_db",{}).get(str(int(value.stage)),0.0))
  AudioServer.add_bus_effect(main,amplify)
  var limiter:=AudioEffectLimiter.new()
  limiter.ceiling_db=-3.0
@@ -93,7 +114,7 @@ func _create_buses(value: Dictionary) -> void:
   var pan:=AudioEffectPanner.new()
   pan.pan=-0.22 if i==0 else (0.22 if i==1 else 0.0)
   AudioServer.add_bus_effect(index,pan)
-  if i<2:
+  if i<2 or (i==2 and value.hook=="bass_current_v1"):
    if value.tone=="biting":
     var drive:=AudioEffectDistortion.new()
     drive.mode=AudioEffectDistortion.MODE_ATAN
@@ -105,7 +126,7 @@ func _create_buses(value: Dictionary) -> void:
    AudioServer.add_bus_effect(index,filter)
   _players[i].bus=prefix+PARTS[i]
 
-func request_play() -> bool:
+func request_play(start_beat: float=0.0) -> bool:
  stop()
  var value: Dictionary=current_recipe()
  var entry: Dictionary=_entry(value)
@@ -116,17 +137,20 @@ func request_play() -> bool:
   if stream==null or absf(stream.get_length()-float(entry.frames)/48000.0)>0.01:return false
   streams.append(stream)
  _active=value.duplicate(true);_entry_active=entry.duplicate(true)
+ _bar=int(start_beat/4.0)
  _create_buses(value)
  set_meta("start_process_frame",Engine.get_process_frames())
  set_meta("playing_stage",int(value.stage))
  set_meta("scenario_key",Recipe.scenario_key(value))
+ set_meta("composition_id",str(value.hook))
  set_meta("source_frames",int(entry.frames))
  for i in range(PARTS.size()):
   _players[i].stream=streams[i]
   var initial: float=1.0
   if value.shape=="build":initial=0.32 if i==0 and int(value.stage)==0 else (1.0 if i==0 else 0.0)
-  _players[i].volume_db=float(_manifest.get("part_gain_db",{}).get(PARTS[i],0.0))+(linear_to_db(initial) if initial>0 else -80.0)
-  if i==0 or (i==1 and int(value.stage)==2) or (i>=2 and int(value.stage)>=1):_players[i].play()
+  if value.hook=="bass_current_v1" and int(value.stage)==0:initial=0.0 if i==0 else (0.32 if i==2 and value.shape=="build" else 1.0)
+  _players[i].volume_db=_part_gain(value,PARTS[i])+(linear_to_db(initial) if initial>0 else -80.0)
+  if i==0 or (i==1 and int(value.stage)==2) or (i>=2 and int(value.stage)>=1) or (i==2 and value.hook=="bass_current_v1"):_players[i].play(start_beat*60.0/float(entry.tempo))
  playing=true
  _shape()
  for other in get_tree().get_nodes_in_group("SavedArrangementAudio"):
@@ -144,14 +168,19 @@ func _shape() -> void:
   var gain: float=1.0
   if i==1 and stage<2:gain=0
   if i>=2 and stage<1:gain=0
+  if _active.hook=="bass_current_v1" and stage==0:gain=0.0 if i!=2 else 1.0
   if build:
-   if i==0 and stage==0:
+   if i==2 and stage==0 and _active.hook=="bass_current_v1":gain*=lerpf(0.32,1.0,clampf((beat-4.0)/8.0,0,1))
+   elif i==0 and stage==0:
     # A restrained opening phrase, then the same riff arrives in full.
     gain*=lerpf(0.32,1.0,clampf((beat-4.0)/8.0,0,1))
    elif i==1:gain*=clampf((beat-16.0)/4.0,0,1)
    elif i==2:gain*=clampf((beat-4.0)/4.0,0,1)
    elif i==3:gain*=clampf((beat-8.0)/4.0,0,1)
-  var base: float=float(_manifest.get("part_gain_db",{}).get(PARTS[i],0.0))
+  if _active.hook!="low_riff_v1":
+   if _active.energy=="open":gain*=0.67
+   if i==1 and _active.originality=="familiar":gain=0.0
+  var base: float=_part_gain(_active,PARTS[i])
   _players[i].volume_db=base+(linear_to_db(gain) if gain>0.0001 else -80.0)
 
 func stop() -> void:
@@ -170,7 +199,15 @@ func _process(delta: float) -> void:
  if _poll<0.15:return
  _poll=0
  var value: Dictionary=current_recipe()
- if playing and (muted() or value!=_active or _entry(value).is_empty()):stop()
+ if playing:
+  if muted() or _entry(value).is_empty():stop()
+  elif live_audition:
+   var beat: float=_players[0].get_playback_position()*float(_entry_active.tempo)/60.0
+   if beat>=32.0:request_play()
+   elif int(beat/4.0)>_bar:
+    _bar=int(beat/4.0)
+    if value!=_active:request_play(float(_bar*4))
+  elif value!=_active:stop()
  var status: String=str(playing)+":"+str(muted())+":"+str(not _entry(value).is_empty())
  if status!=_last_status:_last_status=status;status_changed.emit()
 

@@ -752,7 +752,7 @@ func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
  return label
 
 func _select_practice_activity(kind: String) -> void:
- if session_busy or kind not in ["create","tighten","connect"]:
+ if session_busy or kind not in ["create","tighten","connect","jam"]:
   return
  if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():
   _workbench_desk.request_exit("practice:"+kind)
@@ -765,8 +765,8 @@ func _select_practice_activity(kind: String) -> void:
 
 func _practice_back() -> void:
  if session_busy:return
- if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("menu")
- else:back_requested.emit()
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("career")
+ else:career_requested.emit()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = size.x
@@ -776,13 +776,13 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  if not saved_report.is_empty() and recap_expanded:
   _rehearsal_result_page(root_box,mobile,saved_report)
   return
- var mode_index: int = ["create","tighten","connect"].find(practice_activity)
- var modes := Kit.ChoiceStrip.new(look,PackedStringArray(["WRITE","REHEARSE","CLEAR AIR"]),maxi(0,mode_index))
+ var mode_index: int = ["create","tighten","connect","jam"].find(practice_activity)
+ var modes := Kit.ChoiceStrip.new(look,PackedStringArray(["WRITE","REHEARSE","CLEAR AIR","JAM"]),maxi(0,mode_index))
  modes.name = "PracticeActivityChoices"
- for index in range(3):
-  modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect"][index])
+ for index in range(4):
+  modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect","jam"][index])
   modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
- modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect"][index])))
+ modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect","jam"][index])))
  root_box.add_child(modes)
  modes.visible=not _mixing_active()
  if _workbench_finished:
@@ -851,7 +851,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   for choice in paper.find_children("*","Button",true,false):
    (choice as Button).mouse_filter=Control.MOUSE_FILTER_PASS
  else:
-  _rehearsal_workspace(body,practice_activity)
+  if practice_activity=="jam":_jam_workspace(body)
+  else:_rehearsal_workspace(body,practice_activity)
  var info := _box()
  info.custom_minimum_size.x = 0 if stacked else 300
  content.add_child(_panel(info))
@@ -899,6 +900,11 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  elif practice_activity=="tighten":
   action = _button("START REHEARSAL  •  £15",_rehearse)
   action.name = "RehearseAction"
+ elif practice_activity=="jam":
+  var available: Dictionary=Situation.inspect_rehearsal(game.career)
+  var count: int=available.get("attendee_indices",[]).size()
+  action=_button("JAM TOGETHER · £0" if count>=2 else ("SOLO PRACTICE · £0" if count==1 else "TAKE A QUIET EVENING · £0"),_commit_session.bind("jam"))
+  action.name="InformalPracticeAction"
  else:
   action = _button("CLEAR THE AIR",_connect)
   action.name = "ClearAirAction"
@@ -909,7 +915,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   var navigation := HBoxContainer.new()
   navigation.add_theme_constant_override("separation",8)
   dock.add_child(navigation)
-  var back: Button = _button("MENU" if planning_available else "BACK TO MENU",_practice_back,"tab")
+  var back: Button = _button("‹ BACK TO DESK",_practice_back,"tab")
   back.name = "PracticeBackAction"
   navigation.add_child(back)
   if planning_available:
@@ -1098,7 +1104,7 @@ func _refresh_practice_commitment() -> void:
  if opening_owner!=null and Finance.is_over(game.career):
   summary.text = "THE BAND HAS FOLDED"
   cost.text = "14 completed days without money  •  Final accounts are saved"
-  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction"]:
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction","InformalPracticeAction"]:
    var final_action: Button = find_child(control_name,true,false) as Button
    if final_action!=null:
     final_action.text = "VIEW FINAL ACCOUNTS  ›"
@@ -1107,7 +1113,7 @@ func _refresh_practice_commitment() -> void:
  if opening_owner!=null and Live.show_day(game.career):
   summary.text = "TONIGHT'S SHOW  •  THE VENUE IS EXPECTING YOU"
   cost.text = "Open the live desk  •  No session will be started"
-  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction"]:
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction","InformalPracticeAction"]:
    var show_action: Button = find_child(control_name,true,false) as Button
    if show_action!=null:
     show_action.text = "GO TO TONIGHT'S SHOW  ›"
@@ -1150,9 +1156,25 @@ func _refresh_practice_commitment() -> void:
    rehearse.disabled = int(game.career.get("cash",0))<15
    if rehearse.disabled:
     cost.text = "Uses 1 day  •  Needs £15  •  £%d available" % int(game.career.get("cash",0))
+ elif practice_activity=="jam":
+  var available: Dictionary=Situation.inspect_rehearsal(game.career)
+  summary.text="Practise with the musicians who are free tonight." if not available.get("attendee_indices",[]).is_empty() else "Nobody is free. Take a quiet evening and return tomorrow."
+  cost.text="Uses 1 day · £0 · No room hire"
  else:
   summary.text = "A band meeting to work on trust and tension."
   cost.text = "Uses 1 day  •  No room fee"
+
+func _jam_workspace(body: VBoxContainer) -> void:
+ body.add_child(_ink("AN EVENING WITH THE MUSIC",22))
+ body.add_child(_ink("A low-volume jam or solo practice with whoever is free. No room is booked. This is time with the music, not a full rehearsal of the live set.",18))
+ body.add_child(_ink("£0 · USES 1 CAREER DAY",16))
+ var available: Dictionary=Situation.inspect_rehearsal(game.career)
+ if not available.get("ok",false):body.add_child(_ink(str(available.get("message","Review current availability.")),16));return
+ var names: Array[String]=[]
+ for index in available.attendee_indices:names.append(str(game.career.members[index].get("name","Bandmate")))
+ body.add_child(_ink("FREE TONIGHT · "+(", ".join(names) if not names.is_empty() else "Nobody"),18))
+ for person in available.absent:body.add_child(_ink(str(person.get("name","Bandmate"))+" · "+str(person.get("reason","Recorded commitment")),16))
+ body.add_child(_ink("Only the people here practise together. Keep a proper rehearsal date for the whole band; this does not fulfil a room booking or agreed rehearsal.",16,true))
 
 func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
  var viewport_size := size
@@ -1282,7 +1304,7 @@ func _open_producer() -> void:
  if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
  if RadioVisit.locked(game.career) or Finance.is_over(game.career) or Live.show_day(game.career):
   career_requested.emit();return
- var recipe: Dictionary=MixingRecipe.recipe(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
+ var recipe: Dictionary=MixingRecipe.recipe(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career),0,game.career.get("song_catalogue",[]).size())
  var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
  last_message=str(result.message)
  if result.get("ok",false):recap_expanded=false
@@ -1319,7 +1341,7 @@ func _workbench_exit(destination: String) -> void:
  elif destination=="finished":_workbench_finished=true;_workbench_finished_ref={};_rebuild()
  elif destination.begins_with("practice:"):
   var kind: String=destination.trim_prefix("practice:")
-  if kind in ["create","tighten","connect"]:_workbench_finished=false;_workbench_finished_ref={};practice_activity=kind;_rebuild()
+  if kind in ["create","tighten","connect","jam"]:_workbench_finished=false;_workbench_finished_ref={};practice_activity=kind;_rebuild()
 
 func _open_finished_workbench() -> void:
  if session_busy:return
@@ -1383,6 +1405,7 @@ func _outcome_line(result: Dictionary) -> String:
  if not bool(result.get("ok",false)) or not result.has("outcome"):
   return str(result.get("message",""))
  var report: Dictionary = result["outcome"]
+ if report.get("focus")=="jam":return str(report.get("verdict","An evening with the music"))+". "+str(result.get("message",report.get("reason","")))
  var metrics: Dictionary = report.get("metrics",{})
  var key := "cohesion" if str(report.get("focus",""))=="connect" else "readiness"
  var title := "cohesion" if key=="cohesion" else "set"
@@ -1467,6 +1490,8 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  elif kind=="tighten":
   result = game.rehearse_attending(situation.attendee_indices)
+ elif kind=="jam":
+  result = game.informal_practice(situation.attendee_indices)
  else:
   result = game.clear_air()
  if not bool(result.get("ok",false)):

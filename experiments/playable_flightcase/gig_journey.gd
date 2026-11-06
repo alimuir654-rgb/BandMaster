@@ -171,6 +171,18 @@ static func _owned(state: Dictionary, token: Dictionary) -> Dictionary:
  return {"ok":true,"active":visit}
 
 static func checkpoint(state: Dictionary, action: String, token: Dictionary, payload: Dictionary = {}) -> Dictionary:
+ if action=="arrive_soundcheck":
+  var owned: Dictionary=_owned(state,token)
+  if not owned.get("ok",false):return owned
+  if str(owned.active.phase) not in ["set_out","travel","arrival","load_in"] or not payload.is_empty():return _bad("Only the agreed trip and load-in can be carried through here.")
+  var current: Dictionary=state.duplicate(true)
+  for step in range(4):
+   if active(current).get("phase")=="soundcheck":break
+   var advanced: Dictionary=checkpoint(current,"advance",expected(current))
+   if not advanced.get("ok",false):return advanced
+   current=advanced.state
+  if active(current).get("phase")!="soundcheck":return _bad("The saved trip did not reach soundcheck.")
+  return _result(current,"The agreed lift, arrival and load-in are complete. Time to find the room together.",true)
  var checked: Dictionary=validate(state)
  if not bool(checked.get("ok",false)):return checked
  var visit: Dictionary=active(state)

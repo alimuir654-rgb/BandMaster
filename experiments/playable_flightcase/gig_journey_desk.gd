@@ -192,6 +192,9 @@ static func dock(host, parent: Node, _compact: bool) -> void:
    parent.add_child(C.label("£%d costs at settlement · %d career day(s)" % [cost,days],16))
   else:parent.add_child(C.label("Settle the original show costs · 1 career day",16))
   _button(host,parent,"WRAP THE NIGHT & HEAD HOME  ›","JourneyWrapAction","wrap",token)
+ elif phase in ["set_out","travel","arrival","load_in"]:
+  parent.add_child(C.label("The agreed trip and load-in carry straight through. Your set and soundcheck decisions come next.",16))
+  _button(host,parent,"TRAVEL & LOAD IN  ›","JourneyMainAction","arrive_soundcheck",token)
  else:
   var names: Dictionary={"set_out":"SET OUT  ›","travel":"ARRIVE AT THE VENUE  ›","arrival":"CARRY THE GEAR IN  ›","load_in":"START SOUNDCHECK  ›","backstage":"READY TO GO ON  ›","stage_entrance":"START THE SET  ›","reaction":"BACK TO THE SET  ›","after_set":"PACK UP TOGETHER  ›","pack_up":"BACK TO THE LIFT  ›"}
   _button(host,parent,str(names.get(phase,"CONTINUE  ›")),"JourneyMainAction","advance",token)

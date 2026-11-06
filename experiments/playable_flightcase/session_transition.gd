@@ -75,7 +75,7 @@ func _ready() -> void:
   _fit_card()
  else:
   center.add_child(_card)
- var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
+ var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","jam":"TIME WITH THE MUSIC","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
  var heading := Kit.label(heading_text,"notepaper" if focus_kind=="day" else style,36 if focus_kind=="day" else 26)
  heading.name = "SessionBeatTitle"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

@@ -824,7 +824,9 @@ func _decision_dock(parent: Node, compact: bool) -> void:
  var practice_action: Button=_button(str(goal["route_label"]),"CareerGoalPreparationAction",_goal_preparation.bind(str(goal["route"]))) if guided else _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
  practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career) or Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))
  navigation.add_child(practice_action)
- navigation.add_child(_button("MAIN MENU","CareerMenuAction",_menu))
+ var pause: Button=_button("PAUSE","CareerMenuAction",_menu)
+ preload("res://experiments/playable_flightcase/control_roles.gd").quiet(pause)
+ navigation.add_child(pause)
 
 func _commit_gear(verb: String, member_index: int = -1) -> void:
  if busy or receipt_open or game==null or opening_owner==null:
@@ -1145,7 +1147,17 @@ func _toggle_show_details() -> void:
  _render()
 
 func _menu() -> void:
- if not busy and not is_instance_valid(_live_dialog):menu_requested.emit()
+ if busy or is_instance_valid(_live_dialog):return
+ var dialog: Control=Kit.dialog("PAUSED","Resume this career here, or return to the title screen. Your last saved career is retained.","flightcase")
+ dialog.name="CareerPauseDialog";dialog.set("confirm_text","RETURN TO TITLE");dialog.set("cancel_text","RESUME")
+ _live_dialog=dialog
+ dialog.completed.connect(func(accepted: bool):
+  _live_dialog=null
+  if is_instance_valid(dialog):dialog.queue_free()
+  if accepted:menu_requested.emit()
+  else:call_deferred("_restore_focus","CareerMenuAction"))
+ add_child(dialog);(dialog.get("confirm_button") as Button).name="CareerPauseExitTitle";(dialog.get("cancel_button") as Button).name="CareerPauseResume"
+ dialog.call("open_modal")
 
 func _select_live_offer(offer: String) -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog):return
@@ -1731,9 +1743,10 @@ func _booking_select(field: String,value: Variant,expected: Dictionary,generatio
   booking_step="date"
  if booking_draft["venue_id"]!="local" or booking_draft["offer_id"]!="standard":booking_origin={}
  notice=""
- _scroll_position=0
- if is_instance_valid(_scroll):_scroll.scroll_vertical=0
- _pending_focus="BookingDay_%d" % int(booking_draft["day"]) if booking_step=="date" else "BookingReviewAction"
+ if field=="venue_id":
+  _scroll_position=0
+  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingDay_%d" % int(booking_draft["day"]) if field in ["venue_id","day"] else ("BookingOffer_"+str(value) if field=="offer_id" else "BookingTrip_"+str(value))
  _render()
 
 func _booking_go(step: String,generation: int) -> void:
@@ -1755,7 +1768,7 @@ func _booking_back(generation: int) -> void:
  if booking_step=="rooms":
   _navigate("offstage" if not booking_origin.is_empty() else "home")
   return
- booking_step=str({"date":"rooms","trip":"date","review":"trip"}.get(booking_step,"rooms"))
+ booking_step="rooms"
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()

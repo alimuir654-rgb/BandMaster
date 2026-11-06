@@ -54,7 +54,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  # Only writing needs this recognisable song fragment in the hero. Other
  # sessions already have their verdict and band response; their complete
  # saved reason remains in RecapFullReason inside Details.
- why.visible = str(view.get("focus",""))=="create"
+ why.visible = str(view.get("focus","")) in ["create","jam"]
  why.add_theme_font_size_override("font_size",16)
  why.add_theme_color_override("font_color",Color("695c4b"))
  if fresh_notes and why.visible:
@@ -76,6 +76,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
  tiles.name = "RecapHeroMetrics"
  tiles.add_theme_constant_override("separation",10 if tall_tablet else (4 if mobile else 10))
  content.add_child(tiles)
+ if str(view.get("focus",""))=="jam":tiles.visible=false;score.visible=false
  for selector in [["readiness","READINESS"],["morale","MORALE"],["tension","TENSION"]]:
   var key: String = str(selector[0])
   var item: Dictionary = metrics.get(key,{})

@@ -1,6 +1,6 @@
 extends RefCounted
 ## S39: purely present the S38 saved resolver result. This file NEVER changes career.
-const FOCUS_LABELS = {"tighten":"LIVE REHEARSAL","connect":"BAND MEETING","create":"WRITING SESSION"}
+const FOCUS_LABELS = {"tighten":"LIVE REHEARSAL","connect":"BAND MEETING","create":"WRITING SESSION","jam":"INFORMAL PRACTICE"}
 
 static func signed_change(value: int, unit: String = "") -> String:
  if value > 0:
@@ -33,7 +33,9 @@ static func _reaction(report: Dictionary, change: Dictionary, _members: Array, u
  # A current trait/risk is not evidence that this musician caused a saved
  # disagreement. In particular, feeling better and a tense room can coexist.
  var lines: Array[String] = ["Let's see what comes next.","I'll see how the next session goes.","I'm taking stock of that one.","We'll have to build from here.","I need to sit with that session.","Let's come back to it."]
- if mood>0 and strained:
+ if focus=="jam":
+  lines = ["Good to spend time with the music.","Something to bring back to the others.","A few patterns to keep working on.","Worth finding a little space to practise.","We can pick this up together next time.","A little more time getting comfortable with the parts."]
+ elif mood>0 and strained:
   lines = ["Glad we got through it. Tense room, though.","Something to keep. Still a tense session.","I'm feeling better; the room was tense.","I took something from it, despite the strain.","A lift for me, even with the tension.","That helped me. It wasn't an easy session."]
  elif mood>0 and focus=="create":
   lines = ["There's something worth building on.","I'm glad we put time into this song.","That gives us something to work with.","I feel better about where this is going.","Something to bring to the next session.","I'm taking something good from that."]
@@ -56,6 +58,9 @@ static func _reaction(report: Dictionary, change: Dictionary, _members: Array, u
    break
  used_quotes[quote]=true
  var changes := PackedStringArray()
+ if focus=="jam":
+  var skill: int=int(stats.get("skill",{}).get("delta",0))
+  if skill!=0:changes.append("skill " + signed_change(skill))
  if mood != 0:
   changes.append("morale " + signed_change(mood))
  if tired != 0:
@@ -84,7 +89,9 @@ static func present(report: Dictionary, career_members: Array) -> Dictionary:
  var tensions: int = int(metrics.get("tension",{}).get("delta",0))
  var ready: int = int(metrics.get("readiness",{}).get("delta",0))
  var next_step := "Keep shaping an original and rehearse before your first show."
- if tensions > 0:
+ if focus=="jam":
+  next_step="Keep a full rehearsal for the live set. Check the calendar for an evening together."
+ elif tensions > 0:
   next_step = "Tension rose. CLEAR THE AIR can help before the next push."
  elif focus == "connect":
   next_step = "You have talked things through. Try a focused rehearsal."
@@ -114,7 +121,7 @@ static func present(report: Dictionary, career_members: Array) -> Dictionary:
   "verdict":str(report.get("verdict","Session completed")),
   "reason":saved_reason,"summary":first_sentence,"room_context":room_context,
   "completed_day":completed_day,"after_day":after_day,"has_receipt":has_receipt,
-  "receipt":receipt,"completed_heading":"SAVED DAY %d  •  %s" % [completed_day,str({"tighten":"REHEARSAL","create":"WRITING","connect":"BAND MEETING"}.get(focus,"SESSION"))] if has_receipt else "SESSION COMPLETE",
+  "receipt":receipt,"completed_heading":"SAVED DAY %d  •  %s" % [completed_day,str({"tighten":"REHEARSAL","create":"WRITING","connect":"BAND MEETING","jam":"INFORMAL PRACTICE"}.get(focus,"SESSION"))] if has_receipt else "SESSION COMPLETE",
   "metric_rows":rows,"reactions":voices,
   "footnote":"* Cohesion is the mean of existing pair relationships, not a separate bonus.",
   "next_step":next_step}

@@ -24,7 +24,7 @@ static func attach(parent: Node,song: Dictionary,context: Callable,paper: bool=t
  var written: Label=C.label(Producer.written(value),16,"notepaper" if paper else "flightcase")
  written.mouse_filter=Control.MOUSE_FILTER_IGNORE
  parent.add_child(written)
- if value.get("version")==3:
+ if value.get("version") in [3,4]:
   preload("res://experiments/playable_flightcase/mixing_audio.gd").attach_controls(parent,value,context)
   return
  var audio=AudioPart.new()

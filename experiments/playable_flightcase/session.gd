@@ -305,6 +305,23 @@ func clear_air() -> Dictionary:
  var result: Dictionary = Practice.resolve(career,"connect")
  return _record_practice(result,"connect")
 
+func informal_practice(indices: Array) -> Dictionary:
+ var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
+ if not commitment.get("ok",false):return commitment
+ if phase!="play":return {"ok":false,"message":"Recruit a viable band first."}
+ var result: Dictionary=preload("res://experiments/playable_flightcase/situation_jam.gd").resolve(career,indices)
+ result=_record_practice(result,"jam")
+ if result.get("ok",false):
+  result.outcome["verdict"]="A quiet evening" if indices.is_empty() else ("Solo practice" if indices.size()==1 else "Finding a connection")
+  result.outcome["source"]="Informal practice with the actual available musicians"
+  result.outcome["attendee_indices"]=indices.duplicate()
+  var voices: Array=[]
+  for index in indices:voices.append(result.outcome.member_changes[index].duplicate(true))
+  result.outcome["member_changes"]=voices
+  career["last_rehearsal_outcome"]=result.outcome.duplicate(true)
+  result.state=career.duplicate(true)
+ return result
+
 func snapshot() -> Dictionary:
  return {"schema_version":1,"genre":genre,"roster":roster.duplicate(true),
   "phase":phase,"career":career.duplicate(true)}

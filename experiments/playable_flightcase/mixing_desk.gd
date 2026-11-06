@@ -47,6 +47,10 @@ var _response: Label
 var _compare_button: Button
 var _responses: Array[Button]=[]
 var _themes: Array[Button]=[]
+var _foundations: Array[Button]=[]
+var _foundation_note: Label
+var _demo_path: Label
+var _pause_open := false
 var _leader: Label
 var _written: Label
 var _buttons: Array[Button]=[]
@@ -104,6 +108,8 @@ func _button(words: String,id: String,callback: Callable,brass: bool=false) -> B
   button.add_theme_stylebox_override("focus",_plate_style(true))
   for state in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:button.add_theme_color_override(state,Color("21170f"))
  button.pressed.connect(callback);_buttons.append(button)
+ if id in ["MixingReadDirection","MixingPlanWeek","MixingHistory","MixingRehearse","MixingClearAir","MixingJam","MixingResponse_keep","MixingResponse_dismiss"]:
+  preload("res://experiments/playable_flightcase/control_roles.gd").quiet(button,true)
  return button
 
 func _ready() -> void:
@@ -123,7 +129,7 @@ func _build() -> void:
  var back: Button=_button("‹","MixingBack",request_exit.bind("career"));back.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;back.custom_minimum_size.x=48;header.add_child(back)
  var heading: Label=_label("THE WRITING ROOM",22);heading.name="MixingHeading";heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(heading)
  _sound=_button("♫ ON","MixingSound",func():_stop_audio();sound_requested.emit();_refresh_audio());_sound.size_flags_horizontal=Control.SIZE_SHRINK_END;_sound.custom_minimum_size.x=58;header.add_child(_sound)
- var menu: Button=_button("MENU","MixingMenu",request_exit.bind("menu"));menu.size_flags_horizontal=Control.SIZE_SHRINK_END;menu.custom_minimum_size.x=54;header.add_child(menu)
+ var menu: Button=_button("PAUSE","MixingPauseButton",_show_pause);menu.size_flags_horizontal=Control.SIZE_SHRINK_END;menu.custom_minimum_size.x=54;header.add_child(menu)
  var identity:=PanelContainer.new();identity.name="MixingProjectStrip";identity.add_theme_stylebox_override("panel",Paper.scorecard());identity.mouse_filter=Control.MOUSE_FILTER_PASS;add_child(identity)
  var identity_rows:=VBoxContainer.new();identity_rows.add_theme_constant_override("separation",1);identity.add_child(identity_rows)
  _band=_label("",20,true);_band.name="MixingBand";identity_rows.add_child(_band)
@@ -134,6 +140,7 @@ func _build() -> void:
   if not _hydrating:_invalidate_response();_refresh())
  identity_rows.add_child(_title)
  _brief=_label("",16,true);_brief.name="MixingBrief";identity_rows.add_child(_brief)
+ _demo_path=_label("",16,true);_demo_path.name="MixingDemoPath";identity_rows.add_child(_demo_path)
  var stages:=HBoxContainer.new();stages.name="MixingStages";stages.add_theme_constant_override("separation",6);add_child(stages)
  for i in range(3):
   var label: Label=_label("%d  %s" % [i+1,["FEEL","BUILD","TAKE"][i]],17);label.name="MixingStage_%d" % i;label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.custom_minimum_size.y=24;label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;stages.add_child(label);_stages.append(label)
@@ -141,6 +148,11 @@ func _build() -> void:
  _spread=GridContainer.new();_spread.name="MixingSpread";_spread.columns=1;_spread.add_theme_constant_override("h_separation",14);_spread.add_theme_constant_override("v_separation",10);_spread.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_scroll.add_child(_spread)
  var console:=PanelContainer.new();console.name="MixingConsole";console.size_flags_horizontal=Control.SIZE_EXPAND_FILL;console.mouse_filter=Control.MOUSE_FILTER_PASS;console.add_theme_stylebox_override("panel",_surface_style());_spread.add_child(console)
  var surface:=VBoxContainer.new();surface.add_theme_constant_override("separation",8);console.add_child(surface)
+ var foundations:=HBoxContainer.new();foundations.name="MixingFoundations";foundations.add_theme_constant_override("separation",4);surface.add_child(foundations)
+ for i in range(Recipe.HOOKS.size()):
+  var choice: Button=_button(["RIFF","BASS","PICKED"][i],"MixingFoundation_%d" % i,_choose_foundation.bind(i))
+  choice.toggle_mode=true;foundations.add_child(choice);_foundations.append(choice)
+ _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
  _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
  for i in range(4):_add_control(_grid,i,"rotary" if i<2 else "fader")
  var switches:=HBoxContainer.new();switches.add_theme_constant_override("separation",6);surface.add_child(switches)
@@ -170,6 +182,7 @@ func _build() -> void:
  var activities:=HBoxContainer.new();activities.add_theme_constant_override("separation",6);note_body.add_child(activities)
  activities.add_child(_button("REHEARSE","MixingRehearse",request_exit.bind("practice:tighten")))
  activities.add_child(_button("CLEAR AIR","MixingClearAir",request_exit.bind("practice:connect")))
+ note_body.add_child(_button("FREE JAM / SOLO PRACTICE · 1 DAY","MixingJam",request_exit.bind("practice:jam")))
  var history: Button=_button("FINISHED ORIGINALS","MixingHistory",request_exit.bind("finished"));note_body.add_child(history)
  _notice=_label("",16);_notice.name="MixingNotice";_notice.visible=false;add_child(_notice)
  var dock:=VBoxContainer.new();dock.name="MixingCommitDock";dock.add_theme_constant_override("separation",4);add_child(dock)
@@ -177,12 +190,11 @@ func _build() -> void:
  var actions:=HBoxContainer.new();actions.add_theme_constant_override("separation",8);dock.add_child(actions)
  _hear=_button("▶ HEAR THE IDEA","MixingHear",_hear_take);actions.add_child(_hear)
  _commit=_button("COMMIT SESSION","MixingCommit",_request_commit,true);actions.add_child(_commit)
- _audio=Audio.new();_audio.name="MixingAudio";_audio.configure(_audio_context);add_child(_audio);_audio.status_changed.connect(_refresh_audio)
+ _audio=Audio.new();_audio.name="MixingAudio";_audio.live_audition=true;_audio.configure(_audio_context);add_child(_audio);_audio.status_changed.connect(_refresh_audio)
 
 func _add_control(parent: Node,index: int,kind: String) -> void:
  var control=Dial.new();control.configure(Recipe.FIELDS[index],Recipe.TITLES[index],kind,Recipe.LABELS[index]);parent.add_child(control);_controls[Recipe.FIELDS[index]]=control
  control.value_changed.connect(func(value: float):_choose(Recipe.FIELDS[index],int(value)))
- control.gesture_started.connect(_stop_audio)
 
 func _project() -> Dictionary:
  return _view.get("project",{})
@@ -219,7 +231,12 @@ func has_local_edits() -> bool:
  return not Rules._same(_recipe,_saved_recipe()) or _title.text.strip_edges().to_upper()!=str(target.get("title","")) or _leader_index!=int(target.get("leader_ref",{}).get("slot",0)) or not Rules._same(_decision,_saved_decision())
 
 func _invalidate_response() -> void:
- _stop_audio();_decision={};_compare=false
+ _decision={};_compare=false
+
+func _choose_foundation(index: int) -> void:
+ if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or _recipe.version!=4 or int(_recipe.stage)!=0 or index<0 or index>=Recipe.HOOKS.size():return
+ if _recipe.hook==Recipe.HOOKS[index]:return
+ _stop_audio();_invalidate_response();_recipe["hook"]=Recipe.HOOKS[index];_refresh()
 
 func _choose(field: String,index: int) -> void:
  if _hydrating or _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe):return
@@ -243,7 +260,7 @@ func _respond(choice: String) -> void:
  var base: Dictionary=_offer_base()
  var request: Dictionary=Recipe.offer(base,target.get("respondent_ref",{}))
  if request.is_empty():return
- _stop_audio();_compare=false;_recipe=base.duplicate(true)
+ _compare=false;_recipe=base.duplicate(true)
  if choice=="try":_recipe[request.field]=request.value
  _decision={"choice":choice,"base_recipe":base,"offer_id":request.offer_id}
  _refresh()
@@ -255,7 +272,7 @@ func _previous() -> Dictionary:
 
 func _compare_take() -> void:
  if _busy or is_instance_valid(_dialog) or _previous().is_empty():return
- _stop_audio();_compare=not _compare;_refresh()
+ _compare=not _compare;_refresh()
 
 func _audio_context() -> Dictionary:
  var live: Dictionary=owner_state.workbench_view()
@@ -293,6 +310,9 @@ func _refresh() -> void:
  var stage: int=int(owner_state.game.career.get("song_draft_progress",0))
  _band.text=str(owner_state.game.career.get("band_name","YOUR BAND")).to_upper()
  _brief.text=Sound.summary(Sound.read(owner_state.game.career))+"  ·  DAY %d / £%d" % [int(owner_state.game.career.get("tour_day",1)),int(owner_state.game.career.get("cash",0))]
+ var originals: int=preload("res://experiments/playable_flightcase/recording_rules.gd").songs(owner_state.game.career).size()
+ _demo_path.text="DEMO PATH · %d / 3 ORIGINALS · RECORD → RELEASE → RADIO" % mini(originals,3)
+ _foundation_note.text=Recipe.HOOK_NOTES[Recipe.HOOKS.find(_recipe.hook)]+(" · FOUNDATION RECORDED" if stage>0 else " · CHOOSE THIS SONG'S FOUNDATION") if valid else "Review the saved foundation."
  _title.editable=not _busy and not modal and valid
  _title.focus_mode=Control.FOCUS_NONE if modal else Control.FOCUS_ALL
  for i in range(_stages.size()):_stages[i].add_theme_color_override("font_color",Color("f1c374") if i==stage else Color("aa9c83"))
@@ -300,6 +320,7 @@ func _refresh() -> void:
   var control=_controls[key]
   if valid:control.set_value_no_signal(Recipe.VALUES[Recipe.FIELDS.find(key)].find(_recipe[key]))
   control.set_locked(_busy or modal or not valid);control.queue_redraw()
+  if key=="originality":control.tooltip_text="SIMPLE keeps the main phrase; LAYERED brings in the answering part when you make the finished take." if valid and _recipe.hook!="low_riff_v1" else ""
  for i in range(_themes.size()):
   var selected: bool=valid and _recipe.theme==Recipe.VALUES[6][i]
   _themes[i].modulate=Color(1.0,0.77,0.4) if selected else Color.WHITE
@@ -335,6 +356,10 @@ func _refresh() -> void:
  elif not available:_cost.text="UNAVAILABLE TODAY · "+str(work.get("unavailable_summary",work.get("work_names","Review commitments")))
  elif work.get("plan_status")=="due":_cost.text="1 day · No hire · Misses today's agreed rehearsal"
  for button in _buttons:button.disabled=_busy or modal or not valid
+ for i in range(_foundations.size()):
+  _foundations[i].disabled=_busy or modal or not valid or stage>0 or _recipe.get("version")!=4
+  _foundations[i].set_pressed_no_signal(valid and _recipe.hook==Recipe.HOOKS[i])
+  _foundations[i].modulate=Color(1.0,0.77,0.4) if valid and _recipe.hook==Recipe.HOOKS[i] else Color.WHITE
  _commit.text="COMMIT SESSION" if available else "BAND UNAVAILABLE"
  _commit.disabled=_busy or modal or not valid or not available
  _refresh_audio()
@@ -392,13 +417,29 @@ func request_exit(destination: String) -> void:
   if button is Button:button.disabled=false
  keep.call_deferred("grab_focus")
 
+func _show_pause() -> void:
+ if _busy or is_instance_valid(_dialog):return
+ _stop_audio();_cancel_controls();_pause_open=true
+ _dialog_layer=CanvasLayer.new();_dialog_layer.layer=30;add_child(_dialog_layer)
+ _dialog=Control.new();_dialog.name="MixingPause";_dialog.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);_dialog.mouse_filter=Control.MOUSE_FILTER_STOP;_dialog_layer.add_child(_dialog)
+ var shade:=ColorRect.new();shade.color=Color(0,0,0,0.86);shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);_dialog.add_child(shade)
+ var center:=CenterContainer.new();center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);_dialog.add_child(center)
+ var card:=PanelContainer.new();card.custom_minimum_size.x=minf(380,maxf(280,size.x-28));card.add_theme_stylebox_override("panel",_surface_style());center.add_child(card)
+ var body:=VBoxContainer.new();body.add_theme_constant_override("separation",8);card.add_child(body)
+ body.add_child(_label("PAUSED",24));body.add_child(_label("Your local direction is retained. Resume here, or return to the title screen.",18))
+ var resume: Button=_button("RESUME WRITING","MixingPauseResume",_close_dialog);body.add_child(resume)
+ body.add_child(_button("RETURN TO TITLE","MixingPauseExitTitle",func():_close_dialog();request_exit("menu")))
+ _refresh();resume.disabled=false;(body.get_child(body.get_child_count()-1) as Button).disabled=false
+ resume.call_deferred("grab_focus")
+
 func _close_dialog() -> void:
+ _pause_open=false
  _exit_epoch+=1
  if is_instance_valid(_dialog_layer):remove_child(_dialog_layer);_dialog_layer.queue_free()
  _dialog_layer=null;_dialog=null;_dialog_error=null
  var retained: Array[Button]=[]
  for button in _buttons:
-  if is_instance_valid(button) and not str(button.name).begins_with("MixingExit") :retained.append(button)
+  if is_instance_valid(button) and not str(button.name).begins_with("MixingExit") and not str(button.name).begins_with("MixingPauseResume") and not str(button.name).begins_with("MixingPauseExitTitle"):retained.append(button)
  _buttons=retained
  _refresh()
 
@@ -417,4 +458,11 @@ func _exit_choice(choice: String,epoch: int) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
  if is_instance_valid(_dialog) and event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_ESCAPE:
-  _exit_choice("keep",_exit_epoch);get_viewport().set_input_as_handled()
+  if _pause_open:_close_dialog()
+  else:_exit_choice("keep",_exit_epoch)
+  get_viewport().set_input_as_handled()
+
+func _unhandled_input(event: InputEvent) -> void:
+ if not is_visible_in_tree() or is_instance_valid(_dialog) or _busy:return
+ if event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_ESCAPE:
+  request_exit("career");get_viewport().set_input_as_handled()

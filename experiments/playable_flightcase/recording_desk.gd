@@ -74,6 +74,8 @@ static func render(host, parent: Node, compact: bool) -> void:
  var songs: Array=Rules.songs(state)
  var body: VBoxContainer=host._paper(parent,compact)
  _copy(host,body,"CUT A DEMO","RecordingHeading",26)
+ _copy(host,body,"THREE ORIGINALS → RECORD → RELEASE → LOCAL RADIO","DemoRadioPath",16)
+ _copy(host,body,"Choose two or three finished originals. Recording uses £60 and 2 days; release uses £25 and 1 day. A released demo opens the local-radio pitch.","DemoRadioCosts",16)
  _copy(host,body,"%d OF 3 TRACKS SELECTED" % host.recording_ids.size(),"RecordingCount",16)
  if not str(host.notice).is_empty(): _copy(host,body,str(host.notice),"RecordingNotice")
  var columns: Array=_columns(host,body,compact)

@@ -1145,7 +1145,7 @@ func _practice() -> void:
 
 func _open_band_planning() -> void:
  _open_career_desk()
- if not is_instance_valid(_career_view) or not _career_view.is_visible_in_tree() or str(_career_view.get("page"))!="home":return
+ if not is_instance_valid(_career_view) or not _career_view.is_visible_in_tree() or Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":return
  _career_view.call("_open_situation")
  call_deferred("_focus_band_planning",_career_view.get_instance_id())
 
@@ -1158,6 +1158,7 @@ func _open_career_desk() -> void:
  if setup.screen!="play" or not is_instance_valid(_practice_view) or bool(_practice_view.get("session_busy")):
   return
  _practice_view.hide()
+ var first_open: bool=not is_instance_valid(_career_view)
  if not is_instance_valid(_career_view):
   var desk = CareerDesk.new()
   desk.name = "CareerDesk"
@@ -1168,7 +1169,8 @@ func _open_career_desk() -> void:
   desk.menu_requested.connect(_home)
   add_child(desk)
   _career_view = desk
- _career_view.call("open_home")
+ if first_open:_career_view.call("open_home")
+ else:_career_view.call("_render")
  _career_view.show()
  if Finance.is_over(setup.game.career):
   _career_view.call("_navigate","finance")
