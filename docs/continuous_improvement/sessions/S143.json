@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1844223,
-    "sha256": "8dc3358d07e6e1ab2054a4e49889977b065d9460bb5f64ae37477f889829fd93"
+    "bytes": 1845795,
+    "sha256": "11ec11f8018442785e62d3a2877765f4fa28345450fd59d865234fbb6accf918"
   },
   "lesson_ids": [
     "BM-15",
@@ -96,16 +96,16 @@
     "primary_new_cap": 25165824,
     "TMP_new_cap": 1048576,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
-    "RAM_persistent_cap": 939524096,
+    "RAM_persistent_cap": 1073741824,
     "RAM_categories_MiB": {
       "one_active_regular_private_source_and_cache": 300,
       "PNG_and_failed_proof": 64,
-      "pack_and_two_APKs": 432,
-      "offline_audio_work_XDG_receipts": 100
+      "pack_two_APKs_full_signing_or_failure_tail": 576,
+      "offline_audio_work_XDG_receipts": 84
     },
     "native_phase_persistent_cap": 503316480,
     "native_process_tree_RSS_cap": 671088640,
-    "SDK_phase_process_tree_RSS_cap": 469762048,
+    "SDK_phase_process_tree_RSS_cap": 335544320,
     "cgroup_continuous_headroom_min": 1073741824,
     "primary_categories_MiB": {
       "shipping_audio": 6,
@@ -118,10 +118,11 @@
     "all_critical_Git_source_primary": true,
     "old_closed_caps_reused": false,
     "cleanup": false,
-    "RAM_artifacts_volatile": true
+    "RAM_artifacts_volatile": true,
+    "packaging_method_amendment": "Prospective before runtime/APK allocation: totalRAM1024MiB, SDKfulltree320MiB, reserve1024MiB =>2368MiB. Native480+640+1024=>2144MiB. Actualbaselinebeforeeachphase. Oneactiveproducer may refresh only declared committed/Git-preserved source; all priorproof/log/PNG retained, no re-emptyimport or independenceclaim. PCK export/extract exact compiledentries into audited V15nonassettemplate shell; narrowly patched binarymanifest version16/name0.143.0; officialruntime byteexact; standalone SDK onlywithGodotstopped. Extra signingtemp/fullfailedtail included; no repeatofheldS140APKexportroute."
   },
   "scope_contract": {
-    "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim.",
+    "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
     "acoustic_and_vocals": "No genuine acoustic or vocal source currentlycleared. Hold production inclusion; cleaner existing hollowbody sketch is labelled picked electric, never acoustic or singing. No new bank/deps/acquisition.",
     "informal_practice": "\u00a30 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
     "show_navigation": "One editable date/trip/terms agreement after room selection with one explicit booking confirmation; batch only non-choice trip transitions tosoundcheck, preserving original checkpoint/cost/save owners. Pause keeps dirty exits/Continue guards.",
