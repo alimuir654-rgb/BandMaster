@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "S137",
-  "scope": "Boundedread-onlyS135futurewholecohortintegrationcontract; currentGame/V14/artunchanged.",
+  "scope": "Read-onlyS135wholecohort futureintegrationcontractready; noGame/source/art/audio/native/APKchange.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S137_readonly_art_contract_active",
-  "next_action": "BindactualexistingposterAPIs/exactcohorts/fallback/nativeQAcontract; noengine/source/art/APKchange.",
+  "status": "S137_closed_readonly_art_contract_ready_V14_unchanged",
+  "next_action": "UseS137contractonlywhenacompletefreshnativeintegrationbudgetfits; do notreviewit/clearartagainforactivity. Actualownerplaytestfeedback oranothermeaningfulfundedboundedtask mayleadremainingopportunities. KeepV14/source898unchanged;noextraAPK/queue/extension;release07:55/hard08:00London.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3213,8 +3213,8 @@
       "successor_repair_verified": "47692162d7d68e0eca354760734f21d216e3a392"
     }
   ],
-  "last_completed_session": "S136",
-  "writer": "root_S137_readonly_art_contract",
+  "last_completed_session": "S137",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3223,7 +3223,7 @@
     "finite_existing_thread": true
   },
   "previous_closed_at": "2026-10-31T19:58:39.208791+00:00",
-  "closed_at": "2026-11-06T01:51:59.661873+00:00",
+  "closed_at": "2026-11-06T02:25:49.898798+00:00",
   "previous_android_owner_package_before_v5": {
     "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
     "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
@@ -3339,7 +3339,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-06T01:51:59.661873+00:00",
+  "updated_at": "2026-11-06T02:25:49.898798+00:00",
   "page_delivery": {
     "plan_sequence": 66,
     "board_sequence": 179,
@@ -3424,8 +3424,8 @@
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
   "current_session": "S137",
-  "next_single_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension.",
-  "last_updated_utc": "2026-11-06T01:51:59.661873+00:00",
+  "next_single_action": "UseS137contractonlywhenacompletefreshnativeintegrationbudgetfits; do notreviewit/clearartagainforactivity. Actualownerplaytestfeedback oranothermeaningfulfundedboundedtask mayleadremainingopportunities. KeepV14/source898unchanged;noextraAPK/queue/extension;release07:55/hard08:00London.",
+  "last_updated_utc": "2026-11-06T02:25:49.898798+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -3593,15 +3593,15 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-06T01:51:59.661873+00:00",
-  "last_writer": "root_S136_final_APK",
+  "released_at": "2026-11-06T02:25:49.898798+00:00",
+  "last_writer": "root_S137_readonly_art_contract",
   "source_write_allowed": false,
   "pending_implementation": [],
   "pending_helpers": [],
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified_S134_898",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
-  "expires_at": "2026-11-06T03:00:00Z",
+  "expires_at": null,
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -3680,7 +3680,7 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 73,
+  "current_plan_sequence": 74,
   "current_review_board_sequence": 186,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
@@ -3700,7 +3700,7 @@
   "candidate_focus_run": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/focused-validation.json",
   "last_sprint": "S100",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
-  "last_completed_deliverable": "V14/code14/localverifiedAPK andtruthfulprivateDriveHOLD",
+  "last_completed_deliverable": "S137read-onlyexactcohortsource/nativeQAcontract; notimplementation",
   "last_run_summary": "/workspace/work/s123-audible-producer-20261104/closeout.json",
   "last_validation": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
   "s72_closeout": "/workspace/work/overnight-20261102/s72/closeout.json",
@@ -3732,7 +3732,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": true,
+  "artifact_write_allowed": false,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -3919,7 +3919,7 @@
     "private_delivery": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json"
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
-  "page_write_allowed": true,
+  "page_write_allowed": false,
   "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "latest_local_native_checkpoint": {
     "session": "S134",
@@ -4429,11 +4429,7 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "writer": "root_S137_readonly_art_contract",
-    "expires_at": "2026-11-06T03:00:00Z",
-    "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
-  },
+  "root_lease": null,
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4875,7 +4871,7 @@
       "root_released_at": "2026-11-03T07:29:42.645331+00:00"
     }
   },
-  "final_closeout_note": "ExactV14Game898built/audited/independentlyCLEAR/localSHAexact; Drive413beforeaction/noV14fileorgrant. Allwriters/helpers/GLreleased, producer/cacheclosed. No physicaldeviceacceptance.",
+  "final_closeout_note": "S137sourcecontractready/3retainedopens/0engines/source/assets/APKs. V14localready/DriveHELD and Game898 remainunchanged. Allwriters/helpers/GLreleased;hard08:00.",
   "historical_audio_plan_pending_before_S87": {
     "id": "AU01",
     "revision": 1,
@@ -6333,7 +6329,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S137_readonly_art_contract",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6570,12 +6566,12 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "S137",
+  "active_session": null,
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": null,
-  "artifact_writer": "root_S137_readonly_art_contract",
+  "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "session": "S128",
@@ -7050,5 +7046,21 @@
     "root_lease": null,
     "scope": "FinalV14 exactGame898 packaging/update/privacy/localhandoff complete; privateDrive transferHELD100MiB. NoGame/source/artintegrationchange.",
     "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension."
-  }
+  },
+  "historical_active_aliases_before_S137_close": {
+    "status": "S137_readonly_art_contract_active",
+    "session": "S137",
+    "current_session": "S137",
+    "active_session": "S137",
+    "root_writer": "root_S137_readonly_art_contract",
+    "root_lease": {
+      "writer": "root_S137_readonly_art_contract",
+      "expires_at": "2026-11-06T03:00:00Z",
+      "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
+    },
+    "scope": "Boundedread-onlyS135futurewholecohortintegrationcontract; currentGame/V14/artunchanged.",
+    "next_action": "BindactualexistingposterAPIs/exactcohorts/fallback/nativeQAcontract; noengine/source/art/APKchange."
+  },
+  "s137_closeout": "/workspace/work/s137-formation-art-contract-20261106/closeout.json",
+  "latest_art_integration_contract": "/workspace/work/s137-formation-art-contract-20261106/integration-contract.json"
 }

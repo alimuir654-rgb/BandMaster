@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S137",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "409aaec3bf7ebc826457b55cae7c6a06f2f1b2e0",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1770250,
-    "sha256": "359583a8203c569fe5647331017830e1ca5e5d1a5039cff18bc1bdd6717231db"
+    "bytes": 1773861,
+    "sha256": "64aec9300ee5eb1e78977b1ba7d8ad47d25a9488831ad5491b677ba41197dcbb"
   },
   "lesson_ids": [
     "BM-01",
@@ -75,11 +75,7 @@
     "Hashall517base rows plusoriginalS135artbefore/after; protectall54Scripts3UID/82OGG9JSON/sources/caches/APK unchanged.",
     "Contractsourcecitations/negativecasematrix andcompletefuturefunding/HOLD; finalDICT/sourceprotection/append-onlyissues/onequeuehardstop."
   ],
-  "root_lease": {
-    "writer": "root_S137_readonly_art_contract",
-    "expires_at": "2026-11-06T03:00:00Z",
-    "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
-  },
+  "root_lease": null,
   "storage_plan": {
     "at": "2026-11-06T02:17:15.979674+00:00",
     "free_at_preflight": {
@@ -108,6 +104,221 @@
   "audio_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "page_write_allowed": true,
-  "stop_condition": "No implementationorassetgenerationunderthisscope. No restartclosedproducer/extraAPK/ownerwait. Unfundednativeintegration remainsHOLD;closeby03:00/release07:55/hard08:00."
+  "page_write_allowed": false,
+  "stop_condition": "No implementationorassetgenerationunderthisscope. No restartclosedproducer/extraAPK/ownerwait. Unfundednativeintegration remainsHOLD;closeby03:00/release07:55/hard08:00.",
+  "closed_at": "2026-11-06T02:25:49.898798+00:00",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/input-bindings.json",
+        "bytes": 3217,
+        "SHA256": "60e781e340311ae6f95e50df07a1a48bc45f93c23248e4163f7ba7e52101e738"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/prospective-funding.json",
+        "bytes": 890,
+        "SHA256": "5494471747c90a08ddb6dd19043daa28d39c7cfa9456cc96f2e939738a34c798"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/integration-contract.json",
+        "bytes": 12187,
+        "SHA256": "217d4a48a8ec89162b2eb8876116a55c3de5bd41a1cc05be4646f15e2610973a"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/research-update-audit.json",
+        "bytes": 532,
+        "SHA256": "e23623eea263fd3b5b7c7585cd3cbf355ee57ba6694bd4dee3cfd7d475ddc03f"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/page-status-audit.json",
+        "bytes": 478,
+        "SHA256": "9e4d48101282323c187aaa7489b3da6592d4a2a88f09745a4db81241899ed122"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/sole-queue-status.json",
+        "bytes": 388,
+        "SHA256": "55fb31de23115f59d9cefb12a82a53479a665c9cb0755e5fb880c3a5268154b4"
+      },
+      {
+        "path": "/workspace/work/s137-formation-art-contract-20261106/source-protection-final.json",
+        "bytes": 957,
+        "SHA256": "22647b5b835a5f4b3e436df4820ff4f8ca61d5b83676227e2f83f4f768ea2490"
+      }
+    ],
+    "visual_verdict": "partial",
+    "scoped_contract_verdict": "source_contract_ready",
+    "implemented": false,
+    "owner_approved": false,
+    "next_action": "UseS137contractonlywhenacompletefreshnativeintegrationbudgetfits; do notreviewit/clearartagainforactivity. Actualownerplaytestfeedback oranothermeaningfulfundedboundedtask mayleadremainingopportunities. KeepV14/source898unchanged;noextraAPK/queue/extension;release07:55/hard08:00London.",
+    "new_issue_review": {
+      "through_bytes": 1773861,
+      "SHA256": "64aec9300ee5eb1e78977b1ba7d8ad47d25a9488831ad5491b677ba41197dcbb",
+      "all_new_events_reviewed": true,
+      "opaque_S137_events": [
+        "S137-20261106T022549-exact-cohort-source-contract",
+        "S137-20261106T022652-short-before-gate-refusal"
+      ],
+      "new_reproduced_product_defect_claimed": false,
+      "no_failed_proof_promoted": true,
+      "retrieval_note": "Largepolicyterminalresponseswerebounded/truncated; actualsourcecitationsreboundfromcurrentfiles. Noengine/product/remoteartifactfailures orretries.",
+      "final_short_SHA_gate_refusal_retained": "/workspace/work/s137-formation-art-contract-20261106/failed-short-before-gate.json",
+      "executed_closeout_producer_note": "/workspace/work/s137-formation-art-contract-20261106/closeout-producer-note.json"
+    },
+    "verification_kind": "Read-onlyactualsource/APIbindings+existingoriginalinspection;no newGame/nativeintegration/deviceproof.",
+    "actual_opened_originals": [
+      {
+        "path": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+        "bytes": 2349609,
+        "SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+        "actually_opened_in_S137": true,
+        "meaning": "S135offlinewholecohortsource actuallyopened; distinctbodyposes;nottransparentindividualmasters"
+      },
+      {
+        "path": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/standard-phone-v3/captures/027-c27-completed_band-390x844.png",
+        "bytes": 222945,
+        "SHA256": "ef0623d3e5b47f27fece782cebbfae940ce56ceb27a82bad4057f0acba7cd2c5",
+        "actually_opened_in_S137": true,
+        "meaning": "CurrentGame898phone actualretainedpartialfade;notsettledposterqualityproof"
+      },
+      {
+        "path": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/standard-wide-v3/captures/027-c27-completed_band-1280x720.png",
+        "bytes": 367966,
+        "SHA256": "6580851a04c061c185e602e4a181ac3593c290fd047076f2c8d90b94f9fb30d8",
+        "actually_opened_in_S137": true,
+        "meaning": "CurrentGame898shortwide actualretainedpartialfade;notsettledposterqualityproof"
+      }
+    ],
+    "root_actual_opens": 3,
+    "independent_actual_opens": 0,
+    "new_physical_PNGs": 0,
+    "engines": 0,
+    "new_assets": 0,
+    "new_APKs": 0,
+    "Game_source_writes": 0,
+    "new_uploads_or_grants": 0,
+    "independent_human_or_device_review": false,
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED art reviewer",
+        "finding": "Retainonecoherentstill andsourcepose/light; nativecontainment/facelegibility stillneedsactualproof, nocandidateaccepted."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Actualselectedbandidentitypreserved, no unrelatedperformer/instrument/playingclaim."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "Exactcohortmatchingandnativecredits/lead/clearfirstpracticeaction; nochangeornewGameflowimplemented."
+      },
+      {
+        "lens": "SIMULATED mobile player",
+        "finding": "Currentopenedpartialsnotsettledposterbaseline; earlyphone/shortwidefullalpha/input/scrollandfourviewproofrequiredfuture."
+      },
+      {
+        "lens": "SIMULATED source/save auditor",
+        "finding": "517runtime/516primaryrows/rawartunchanged; wholefallback/oldcohort preservedbyfuturecontract; existingstrictQAbranchmustbeextendedwithoutfake nodes."
+      }
+    ],
+    "material_limits": [
+      "NoimplementedartintegrationorvisibleV14change; sourcecontractonly.",
+      "Fullfuturecache/runtime/PNG/failedproofbudgetdoesnotfitcurrentTMPheadroom; no genericownerapprovalpending.",
+      "RawS135remainsopaque/offline; noindependent/human/deviceapprovaloftheproposedintegration.",
+      "Currentnativepartialsarenotsettledqualityorcontrastfailures.",
+      "V14localready/Drive100MiBHELD unchanged; no packaging/re-audit/hash/uploadcommands inS137.",
+      "Benchmarksarepreviouslyrevieweddeveloperdescriptions/designinterpretations, notfreshretailplay/competitorpixels/ratingparity."
+    ],
+    "source_protection": {
+      "at": "2026-11-06T02:25:49.898798+00:00",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "all517_declared_runtime_rows_exact": true,
+      "all516_primary_Git_shipping_rows_exact": true,
+      "protected54Scripts3UID_82OGG9JSON_art_fonts_hardware_unchanged": true,
+      "S135_raw_art_SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+      "S135_source_unchanged": true,
+      "source_files_written": 0,
+      "engine_executions": 0,
+      "images_created_or_modified": 0,
+      "APK_build_audit_hash_or_upload_commands": 0,
+      "existing_V14_receipt_reused_not_reexecuted": "/workspace/work/s136-final-apk-v14-20261106/closed-metadata-receipt.json",
+      "closed_producers_never_opened_for_engine_or_write": true,
+      "actual_current_input_source_bindings": 9,
+      "native_or_device_quality_of_proposed_integration_not_verified": true,
+      "free": {
+        "/workspace": 762228736,
+        "/tmp": 773140480
+      },
+      "scope_primary_observed_delta_B": 442368
+    },
+    "funding": {
+      "at": "2026-11-06T02:17:15.979674+00:00",
+      "free_at_preflight": {
+        "/workspace": 762658816,
+        "/tmp": 773140480
+      },
+      "primary_scope_new_total_cap_B": 2097152,
+      "includes": "completecontract/bindings/researchdelta/canonical/session/failedretrieval/closeout/primaryGit/index/trees; noGame/runtime/audio/artgeneration/nativecache/PNG/APK allocation",
+      "TMP_scope_new_cap_B": 0,
+      "handoff_primary_reserved_B": 2097152,
+      "handoff_TMP_reserved_B": 1048576,
+      "contingency_primary_reserved_B": 4194304,
+      "fixed_floor_B": 629145600,
+      "worst_primary_after_all_reservations_B": 754270208,
+      "no_closed_cap_reuse": true,
+      "old_artifacts_and_all_closed_caches_untouched": true,
+      "bootstrap_preflight_script": {
+        "path": "/workspace/work/s137-preflight-setup.py",
+        "bytes": 8714,
+        "included_in_primary_cap": true
+      },
+      "global_primary_free_before_bootstrap_B": 762671104
+    },
+    "research_audit": {
+      "at": "2026-11-06T02:22:09.715899+00:00",
+      "previous_research_SHA256": "6058de4978a63d7e15761d401e864ef5806a3439c35d6ff429a3681983f49c13",
+      "new_research_SHA256": "f4b36573f4ab0182d55b059b38db2ff810731d97ef70b9e37da550269b5903cd",
+      "all_preexisting_JSON_values_exact": true,
+      "only_new_key": "S137_formation_integration_contract",
+      "research_log_prefix_bytes": 86369,
+      "research_log_prefix_SHA256": "1af8222e371db7cb6a5a8b00d4ccb8d36b87fad5f3598c3538e2ff797da9b9e7",
+      "log_append_only": true,
+      "no_new_register": true
+    },
+    "Pages": {
+      "status": "PASS",
+      "Plan_before": 73,
+      "Plan_after": 74,
+      "Board_before": 186,
+      "Board_after": 186,
+      "Plan_only_changed_block": "e88f7c66-f05b-4550-b50d-e6e6337bca3c",
+      "all_other_blocks_order_IDs_metadata_exact": true,
+      "Board_full_blocks_exact": true,
+      "human_choices": 72,
+      "checked": 23,
+      "images": 50,
+      "human_checkbox_writes": 0,
+      "uploads_or_grants": 0,
+      "AgentInstructions_archive_deletedA03v2absence_preserved": true,
+      "browser_render_claim": false
+    },
+    "sole_queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261105T231500\nRRULE:FREQ=HOURLY;COUNT=9\nEND:VEVENT",
+      "is_enabled": true,
+      "updated_at": "2026-11-06T02:24:18.770400+00:00",
+      "prompt_chars": 14595,
+      "only_prompt_changed": true,
+      "no_new_queue_controller_endtask": true
+    },
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "art_writer": null,
+      "helpers": null,
+      "GL": "notused/free; no engines/Xorgstarted"
+    },
+    "closed_at": "2026-11-06T02:25:49.898798+00:00"
+  }
 }
