@@ -3217,7 +3217,7 @@
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": "root_S140_mixing_desk",
-  "artifact_writer": null,
+  "artifact_writer": "root_S140_mixing_desk",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "session": "S128",
@@ -3494,7 +3494,7 @@
     "visual_verdict": "partial",
     "owner_approved": false
   },
-  "APK_artifact_allowed": false,
+  "APK_artifact_allowed": true,
   "s134_closeout": {
     "path": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
     "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -3661,7 +3661,7 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
   },
-  "artifact_phase": "closed_localV14_ready_privateDrive_HELD",
+  "artifact_phase": "READY_verified_S140_final_source",
   "latest_verified_local_android": {
     "status": "verified_local_artifact_ready_Drive_transfer_HELD",
     "session": "S136",
@@ -3797,5 +3797,36 @@
     "previous_expiry": "2026-11-06T17:00:00+00:00",
     "expires_at": "2026-11-06T19:00:00+00:00",
     "reason": "Resume same owner-authorised manual task after interrupted response; only missing continuity, final source review, one APK/update audit/private delivery and closeout. No new breadth, automation or schedule change."
+  },
+  "S140_final_APK_preflight": {
+    "at": "2026-11-06T17:49:59.381723+00:00",
+    "prior_V14_canonical": {
+      "version_code": 14,
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+      "custom_user_directory_name": "BandMasterOwnerPlaytestS40"
+    },
+    "prior_V14_audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json",
+    "final_source_verification": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+    "final_source_manifest_SHA256": "f473803f0f0fde5d32b5cf1efad1437bebd166dc81c87349b4fae09df7a9c707",
+    "artifact_scope": "ONE final ARM64 V15 same app/cert/savefolder, exact812declaredrows + exact platform project/Giticon/exportpreset. No shipping source change, oldcache reuse, intermediate APK or V14 rebuild.",
+    "build_script": {
+      "path": "/workspace/work/s140-mixing-desk-20261106/build_v15-v1.py",
+      "sha256": "157168bf052daefbc2c736051b517f5b605514ce69d6fa27b9bd1bcf53102dfb"
+    },
+    "audit_script": {
+      "path": "/workspace/work/s140-mixing-desk-20261106/audit_v15-v1.py",
+      "sha256": "681575f2bda4c0295272c02cef8eb2a81391b2210db767ea4f0363189b2ff96f"
+    },
+    "RAM_packaging_cap": 939524096,
+    "same_global_RAM_cap": 3758096384,
+    "same_primary_cap": 109051904,
+    "actual_APK_guard": 201326592,
+    "floor": 629145600,
+    "private_destination": "/BandMaster/BandMaster-Playtest-v15-arm64.apk",
+    "authorised_existing_private_Dropbox_parent": "id:6rRaLzqs6O4AAAAAAAAABQ",
+    "no_new_share_link_or_recipient": true,
+    "raw_RAM_volatile": true,
+    "all_critical_Git_and_source_primary": true
   }
 }
