@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1830244,
-    "sha256": "5034afe2d4ba141da0430e6c3a1a6b60eb59e72dfc0350ddce04e4881598f24c"
+    "bytes": 1832119,
+    "sha256": "98725dc6298a4a082d8999cea63667756e7e448ad83dad3b82b463f8897aff2b"
   },
   "lesson_ids": [
     "BM-01",
@@ -137,10 +137,10 @@
       "contingency": 0
     },
     "memory_categories_MiB": {
-      "regular_private_source_cache_versions": 2048,
-      "offline_audio_generation": 128,
+      "regular_private_source_cache_versions": 1920,
+      "offline_audio_generation": 64,
       "native_PNG_and_failedproof": 384,
-      "final_APK_and_export_and_failedtail": 896,
+      "final_APK_and_export_and_failedtail": 1088,
       "work_XDG_qa": 128,
       "contingency": 0
     },
@@ -456,5 +456,42 @@
     "accepted_source_f9_unchanged": true,
     "stop": "If input incomplete/mismatched or standalone resourceguard/SDK/audit fails, HOLD; no repeated in-engine route or payload removal."
   },
-  "recovery_phase": "PREVALIDATE_complete_components_before_derivation"
+  "recovery_phase": "READY_complete_component_validation",
+  "complete_component_validation": {
+    "receipt": "/workspace/work/s140-mixing-desk-20261106/recovery-input-validation.json",
+    "SHA256": "fc59e9fe5901e949304d93c327e8a914ea27329ccb8e1b9da38852a5d5685980",
+    "producer_exports_remain_HELD": true
+  },
+  "unplanned_TMP_remediation_preflight": {
+    "at": "2026-11-06T18:08:00.361262+00:00",
+    "files": [
+      "/tmp/tmpexport-unaligned.1793987524.apk",
+      "/tmp/tmpexport-unaligned.1793987801.apk"
+    ],
+    "new_parent": "/dev/shm/bandmaster-s140-mixing-desk-20261106/android-v15/held-native-TMP",
+    "retained_separate_copies": true,
+    "copy_validate_full_SHA_stat_before_unlink_only_exact_new_task_owned_files": true,
+    "preserve": [
+      "bytes",
+      "mode",
+      "uid",
+      "gid",
+      "mtime"
+    ],
+    "exceptions_disclosed": [
+      "old_path_absent_after_rehome",
+      "inode",
+      "ctime",
+      "nlink",
+      "atime"
+    ],
+    "TMPfloor_restore_required": 629145600,
+    "RAM_packaging_cap": 1140850688,
+    "global_RAM_cap": 3758096384,
+    "headroom_guard": 2147483648,
+    "no_other_cleanup_or_closed_cache_changes": true,
+    "source_category_actual": 1968855522,
+    "source_category_newcap": 2013265920,
+    "offline_audio_newcap": 67108864
+  }
 }
