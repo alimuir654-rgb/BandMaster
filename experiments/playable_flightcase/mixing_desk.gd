@@ -434,6 +434,7 @@ func _show_pause() -> void:
  resume.call_deferred("grab_focus")
 
 func _close_dialog() -> void:
+ var resume_pause: bool=_pause_open
  _pause_open=false
  _exit_epoch+=1
  if is_instance_valid(_dialog_layer):remove_child(_dialog_layer);_dialog_layer.queue_free()
@@ -443,6 +444,12 @@ func _close_dialog() -> void:
   if is_instance_valid(button) and not str(button.name).begins_with("MixingExit") and not str(button.name).begins_with("MixingPauseResume") and not str(button.name).begins_with("MixingPauseExitTitle"):retained.append(button)
  _buttons=retained
  _refresh()
+ if resume_pause:call_deferred("_restore_pause_focus",_exit_epoch)
+
+func _restore_pause_focus(epoch: int) -> void:
+ if epoch!=_exit_epoch or _busy or is_instance_valid(_dialog) or not is_inside_tree() or not is_visible_in_tree():return
+ var invoker: Button=find_child("MixingPauseButton",true,false) as Button
+ if invoker!=null and invoker.is_visible_in_tree() and not invoker.disabled:invoker.grab_focus()
 
 func _exit_choice(choice: String,epoch: int) -> void:
  if _busy or not is_instance_valid(_dialog) or epoch!=_exit_epoch:return
