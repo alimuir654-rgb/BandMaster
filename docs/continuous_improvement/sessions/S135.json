@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S135",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "01551b4ebae7ec36147bbdb56d0b4bbfa863c56e",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1759102,
-    "sha256": "0be1956d5ae208924b107b8284c54f54dcefdc7b956790886ba7da64b77d6413"
+    "bytes": 1760719,
+    "sha256": "9b7e5057b6353a5013d47ae61e17a495824de942b5e020c9f1f735f4d41b9d35"
   },
   "lesson_ids": [
     "BM-01",
@@ -72,14 +72,10 @@
     "Root+independentactualgeneratedoriginalreview/hash/dims/sourceprovenance; all517currentGameGit/runtimeexact. No engine/activitysuite rerun; offlinecandidate notinAPK.",
     "Fixed600MiB floors/fullretainedfailedproof/closeout budget; no APKunderS135/no broadsharing."
   ],
-  "root_lease": {
-    "writer": "root_S135_offline_formation_art",
-    "expires_at": "2026-11-06T01:30:00Z",
-    "scope": "Oneofflineartcandidate only, no Game/native/cache/export; closeearlier. Outer08:00/no breadth06:30/releases07:55."
-  },
+  "root_lease": null,
   "source_write_allowed": false,
   "audio_write_allowed": false,
-  "art_write_allowed": true,
+  "art_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
   "page_write_allowed": false,
@@ -133,5 +129,157 @@
     "no_duplicate_source_copy_needed": true,
     "scope_boundary_incident_disclosed": "/workspace/work/s135-formation-trio-art-20261106/S135-20261106T005800-default-generated-output-root.json",
     "future_second_output_requires_exact_returned_path_record_beforeanymutation": true
-  }
+  },
+  "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/BRIEF.md",
+        "SHA256": "b2b2751c836d685d3bcd42d8cf0abd3d6fd2b16bd5dcb7681c5f9ce96c754751"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/reference-inputs.json",
+        "SHA256": "feb5216ee2f93204469c6f90f9dd0afa420858c5c643fbe1280d9784cc5768d2"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/generation-prompt-v1.txt",
+        "SHA256": "f1e7e3424b3754efcd7a38f995234dd313b4d0e4762e90401c39d4674180929c"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/source-art-audit.json",
+        "SHA256": "9faa58ef201379ab255cfdb1b60ae267df8a29348afb63c25568ff9609f9dd23"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/delivery.json",
+        "SHA256": "09f4c71907a2f84c4e3d9b9f3e4e4fedf6b3e89c9e358880c2e165d7d3638af7"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/prospective-funding.json",
+        "SHA256": "cfdb1433f449567588c98e26edd56df5eca27ec2f389b0b386a55d04556a59e2"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/review/predesign-v1.json",
+        "SHA256": "50fccef3f9da5c0791956b9ecbf9f826e0a59a11ac22f1626f22c05fbc565075"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/review/final-art-v1.json",
+        "SHA256": "52bae404d3fd30fff61b4f4ded4f10880d77d16a4c3e5de17d3d53878443b9d3"
+      },
+      {
+        "path": "/workspace/work/s135-formation-trio-art-20261106/sole-queue-status.json",
+        "SHA256": "73d580c52d1f96429c4738d28e6d9d7e7a177c83b259f9a9e5566f9e42109044"
+      },
+      {
+        "path": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+        "SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660"
+      }
+    ],
+    "visual_verdict": "partial",
+    "scoped_offline_art_verdict": "internal_pass",
+    "owner_approved": false,
+    "next_action": "FreshfundedONEfinalARM64APK code>13 fromscopedverifiedGame898, two-normalartifactpipeline/fullfailedtail/592MiB reserved; sameapp/cert/savefolder/privateowner+Ali. Rawartcandidateexcludeduntilfuturefundednativeintegration.",
+    "new_issue_review": {
+      "through_bytes": 1760719,
+      "SHA256": "9b7e5057b6353a5013d47ae61e17a495824de942b5e020c9f1f735f4d41b9d35",
+      "all_new_events_reviewed": true,
+      "opaque_S135_events": [
+        "S135-20261106T005800-default-generated-output-root",
+        "S135-20261106T010135-offline-trio-reviewed"
+      ],
+      "default_output_boundary_incident_retained": true,
+      "no_committed_history_changed": true
+    },
+    "verification_kind": "Offlineartsource/identity/provenance andexactunchanged517Gamesource rows; no newGame/nativeexecutionproof.",
+    "Game_changed": false,
+    "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "candidate": {
+      "path": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+      "bytes": 2349609,
+      "SHA256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "opaque_flat_background": true,
+      "transparent_individual_masters": false,
+      "generated_fictional_cohort": true,
+      "character_ids": [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      "source_method": "Newcoherentstill fromthreeapprovedfictionalportraitreferences; noguitar/headstockA04retry orpostermasking.",
+      "owner_approved": false,
+      "physically_in_Game_or_APK": false
+    },
+    "one_generation_only": true,
+    "correction_iterations": 0,
+    "actual_Godot_executions": 0,
+    "upload_grants": 0,
+    "root_actual_opens": 5,
+    "independent_actual_opens": 7,
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED art reviewer",
+        "finding": "Distinctbody/silhouette/expressions, coherentfloor/light/roadcase; no P1."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Plausibleinformalnewbandpressstill, no fakeplaying/borrowedguitar/skillclaims."
+      },
+      {
+        "lens": "SIMULATED generalplayer",
+        "finding": "Threefictionalcharacterfaces/costumesrecognizable; pocketpose repetitionremoved."
+      },
+      {
+        "lens": "SIMULATED mobileplayer",
+        "finding": "Rawsourceonly: nativeposterframing/density/textcontrastandscrollnotyetproved; no physicalphoneclaim."
+      },
+      {
+        "lens": "SIMULATED source/save reviewer",
+        "finding": "All517Gamesource rows unchanged; no controller/schema/save/audio/artregistrymutation; originalgeneratoroutputretained."
+      }
+    ],
+    "material_limits": [
+      "OfflinecandidateNOTinGame898/V13/finalAPK.",
+      "No canonicalheight/transparentmaster/humanorownerartapproval/devicepresentationclaim.",
+      "Futureintegrationneedsnewcompletefunding/predesign/nativeproof; nopendinggenericownerapproval.",
+      "TMPstaysreservedforfinalAPKandhandoff; no newruntime/cache."
+    ],
+    "funding": {
+      "at": "2026-11-06T00:52:12.070396+00:00",
+      "actual_free": {
+        "/workspace": 895004672,
+        "/tmp": 1253400576
+      },
+      "fixed_floor": 629145600,
+      "S135_primary_cap": 25165824,
+      "S135_TMP_cap": 1048576,
+      "final_APK_TMP_reserved": 620756992,
+      "final_APK_categories_MiB": {
+        "source": 128,
+        "privatecache": 100,
+        "unsigned_export": 120,
+        "final_signed": 120,
+        "one_failed_full_APK": 120,
+        "work": 4
+      },
+      "handoff_TMP_reserved": 1048576,
+      "after_all_future_TMP_reservations": 630546432,
+      "existing_S134_all_closed_immutable": true,
+      "new_native_art_integration_not_funded": true,
+      "no_pending_owner_storage_decision": true
+    },
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "art_writer": null,
+      "helpers": null,
+      "GL": "unused/free; no Xorgstarted"
+    },
+    "closed_at": "2026-11-06T01:01:35.359552+00:00"
+  },
+  "closed_at": "2026-11-06T01:01:35.359552+00:00"
 }
