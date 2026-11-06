@@ -86,6 +86,7 @@ func cancel_gesture() -> void:
 func _gui_input(event: InputEvent) -> void:
  if locked:return
  if event is InputEventMouseButton:
+  if event.canceled:return
   if event.button_index==MOUSE_BUTTON_LEFT and event.pressed and input_rect().has_point(event.position):
    # A raw touch can also produce a mouse press. Reserve the same hardware
    # rectangle so the ancestor scroll never arms a second, emulated gesture.
@@ -95,6 +96,8 @@ func _gui_input(event: InputEvent) -> void:
   if event.pressed and _mode.is_empty() and input_rect().has_point(event.position):
    _begin(event.position,"touch",event.device,event.index);accept_event()
  elif event is InputEventKey and event.pressed and not event.echo:
+  if event.keycode==KEY_ESCAPE and not _mode.is_empty():
+   cancel_gesture();accept_event();return
   match event.keycode:
    KEY_LEFT,KEY_DOWN:value-=1
    KEY_RIGHT,KEY_UP:value+=1
@@ -108,13 +111,19 @@ func _input(event: InputEvent) -> void:
  if _mode.is_empty() or locked:return
  if _mode=="touch" and event.device<0 and (event is InputEventMouseMotion or event is InputEventMouseButton):
   get_viewport().set_input_as_handled();return
+ if _mode=="mouse" and event is InputEventMouseButton and event.device==-2 and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed:
+  cancel_gesture();get_viewport().set_input_as_handled();return
  if _mode=="mouse" and event.device==_device:
   if event is InputEventMouseMotion:
    var local: InputEventMouseMotion=make_input_local(event)
-   _drag(local.position);get_viewport().set_input_as_handled()
+   if (event.button_mask&MOUSE_BUTTON_MASK_LEFT)==0:cancel_gesture()
+   else:_drag(local.position)
+   get_viewport().set_input_as_handled()
   elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and not event.pressed:
    var local: InputEventMouseButton=make_input_local(event)
-   _release(local.position);get_viewport().set_input_as_handled()
+   if event.canceled:cancel_gesture()
+   else:_release(local.position)
+   get_viewport().set_input_as_handled()
  elif _mode=="touch" and event.device==_device:
   if event is InputEventScreenTouch and event.pressed and event.index!=_finger:
    get_viewport().set_input_as_handled()
