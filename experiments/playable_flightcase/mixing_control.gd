@@ -21,7 +21,7 @@ func configure(key: String,title: String,style: String,words: Array) -> void:
  field=key;caption=title;kind=style;labels=words.duplicate()
  name="Mixing_"+field
  min_value=0;max_value=maxi(0,labels.size()-1);step=1
- custom_minimum_size=Vector2(144,88 if kind=="switch" else (146 if kind=="fader" else 136))
+ custom_minimum_size=Vector2(144,110 if kind=="switch" else (168 if kind=="fader" else 158))
  size_flags_horizontal=Control.SIZE_EXPAND_FILL
  set_meta("musical_axis",field)
  set_meta("finite_detents",labels.size())
@@ -85,9 +85,12 @@ func cancel_gesture() -> void:
 
 func _gui_input(event: InputEvent) -> void:
  if locked:return
- if event is InputEventMouseButton and event.device!=-1:
+ if event is InputEventMouseButton:
   if event.button_index==MOUSE_BUTTON_LEFT and event.pressed and input_rect().has_point(event.position):
-   _begin(event.position,"mouse",event.device);accept_event()
+   # A raw touch can also produce a mouse press. Reserve the same hardware
+   # rectangle so the ancestor scroll never arms a second, emulated gesture.
+   if event.device>=0:_begin(event.position,"mouse",event.device)
+   accept_event()
  elif event is InputEventScreenTouch:
   if event.pressed and _mode.is_empty() and input_rect().has_point(event.position):
    _begin(event.position,"touch",event.device,event.index);accept_event()
@@ -103,6 +106,8 @@ func _gui_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
  if _mode.is_empty() or locked:return
+ if _mode=="touch" and event.device<0 and (event is InputEventMouseMotion or event is InputEventMouseButton):
+  get_viewport().set_input_as_handled();return
  if _mode=="mouse" and event.device==_device:
   if event is InputEventMouseMotion:
    var local: InputEventMouseMotion=make_input_local(event)
@@ -166,6 +171,8 @@ func _draw() -> void:
   draw_texture_rect(_piece("rocker",Rect2(640,590,260,330)),Rect2(cap_x,29,34,48),false,Color(1,1,1,opacity))
   draw_circle(Vector2(size.x*0.5+(-48 if value==0 else 48),53),4,Color("f2b745"))
   _text(str(labels[int(value)]),88,16,ink)
+ var alternatives: String=" · ".join(labels) if labels.size()>2 else " ↔ ".join(labels)
+ _text(alternatives,108 if kind=="switch" else (165 if kind=="fader" else 156),16,Color(0.78,0.71,0.58,opacity))
  if has_focus():draw_rect(input_rect().grow(2),Color("efc079"),false,2)
 
 func _slot_style() -> StyleBoxFlat:

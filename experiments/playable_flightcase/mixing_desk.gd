@@ -76,8 +76,10 @@ static func _surface_style() -> StyleBoxTexture:
 
 static func _plate_style(focus: bool=false) -> StyleBoxTexture:
  if _plate==null:
-  var image: Image=Dial.SOURCE.get_image().get_region(Rect2i(1030,690,480,165))
-  image.resize(360,124,Image.INTERPOLATE_LANCZOS)
+  # The independent raised cap supplies an action surface; the screw-ended
+  # nameplate remains reserved for control captions.
+  var image: Image=Dial.SOURCE.get_image().get_region(Rect2i(1050,193,423,199))
+  image.resize(304,143,Image.INTERPOLATE_LANCZOS)
   _plate=ImageTexture.create_from_image(image)
  var style:=StyleBoxTexture.new()
  style.texture=_plate;style.set_texture_margin_all(18)
