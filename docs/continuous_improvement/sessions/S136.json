@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1762075,
-    "sha256": "c88bfcfae4ecee07ef92912117e3d4c70117be4fbbf179b827e9b73ccf15002e"
+    "bytes": 1767009,
+    "sha256": "9696355526b763bce3514c309e7f2c7a98e0ba0bbe5dedb3943d4aa7ba5c921d"
   },
   "lesson_ids": [
     "BM-01",
@@ -54,7 +54,7 @@
     "/tmp/bandmaster-s136-final-apk-v14-20261106"
   ],
   "queue_task": "FinalprivateAPK/updateprivacyhandoff",
-  "reviewer": "CHECKexisting/root/s134_quality_review S136read-onlypre/finalartifactrole;D136/review<=65536B only/noengine/Git/Pages/network/children/oldproofmutation. Rootseparatereadonlyauditcommands, notindependenthuman/device.",
+  "reviewer": "CHECKexisting/root/s134_quality_review S136read-onlypre/finalartifactrole;D136/review<=98304B only/noengine/Git/Pages/network/children/oldproofmutation. Rootseparatereadonlyauditcommands, notindependenthuman/device.",
   "player_goal": "InstallasUPDATEretainingappidentityandthenphysicallytestcurrentraw/darkcowritingandwork/familyconstraints.",
   "start_end_commitment": "0newGame/source/day/cash/save/Financeeffects; freshprivatepackagingonly; compiledAPKprivateexistingowner+Alireader.",
   "state_matrix": [
@@ -76,7 +76,7 @@
     "expires_at": "2026-11-06T02:30:00Z",
     "scope": "ONEartifactfromverified898only, noGame/source/UI/assetschange. Closeearlier;07:55release/08:00outerstop."
   },
-  "artifact_phase": "READY_verified_898_source_native_independent_review",
+  "artifact_phase": "ARTIFACT_PASS_DRIVE_HELD_100MiB_LOCAL_HANDOFF_COPY_FUNDED",
   "source_write_allowed": false,
   "audio_write_allowed": false,
   "art_write_allowed": false,
@@ -94,7 +94,7 @@
     "workspace_floor_bytes": 629145600,
     "TMP_floor_bytes": 629145600,
     "workspace_initial_free_bytes": 890306560,
-    "workspace_new_metadata_and_primaryGit_cap_bytes": 8388608,
+    "workspace_new_metadata_and_primaryGit_cap_bytes": 150994944,
     "TMP_aggregate_cap_bytes": 620756992,
     "TMP_initial_free_bytes": 1253400576,
     "TMP_categories_MiB": {
@@ -117,10 +117,22 @@
       "retained_full_failed_APK_requires_fresh_complete_funding_before_any_retry": true,
       "peak_samples_not_OS_quota": true
     },
-    "runtime_floor_guards_include_handoff_reserves": true
+    "runtime_floor_guards_include_handoff_reserves": true,
+    "durable_final_user_APK_copy_exception": {
+      "primary_cap_MiB": 144,
+      "actual_current_free": 888897536,
+      "new_local_final_APK_bytes": 123902239,
+      "reason": "Finaluser-facingdeliverable exactcopy toownedworkspace becauseactualDriveconnector100MiBcap. LargeISOLATEDruntime/cache/proofs stayTMP; alloriginalAPKs retained. Thisisnewreversibleaddition, nocleanup ormutablecachechange.",
+      "no_Source_audio_APK_bytes_changed": true,
+      "no_remote_delivery_claim": true
+    }
   },
   "contract": {
     "path": "/workspace/work/s136-final-apk-v14-20261106/CONTRACT.md",
-    "SHA256": "8c759310d8e81fd29a9d5ff1f8ed6b154b7f4e60f7069f0559dcf7496ede3a76"
-  }
+    "SHA256": "b5c20673cbd556f2d4ad7ec86f3a972c4a1f5ec37d6a79fedc58d0935a5b14c0"
+  },
+  "current_build_receipt": "/workspace/work/s136-final-apk-v14-20261106/build.json",
+  "current_APK_SHA256": "5ec1260262c2f1460b27badb488d8aba677f30b02b44ec594c734570fc94ec28",
+  "current_APK_bytes": 123902239,
+  "separate_update_privacy_audit": "/workspace/work/s136-final-apk-v14-20261106/update-privacy-audit-v14.json"
 }
