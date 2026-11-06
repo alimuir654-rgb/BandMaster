@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1866377,
-    "sha256": "0b0fe5a009ad3245dc2e92e4cfe1d4ab241c9fe9cd65b0cfa59a45899ee41933"
+    "bytes": 1871383,
+    "sha256": "113b458ffbadfa5e81201ebb93d135b072ec96be1506d6fe67b5f58e0c4cf27c"
   },
   "lesson_ids": [
     "BM-15",
@@ -94,7 +94,7 @@
     "floor": 629145600,
     "primary_start_free": 657104896,
     "TMP_start_free": 773120000,
-    "primary_new_cap": 25165824,
+    "primary_new_cap": 27787264,
     "TMP_new_cap": 135266304,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1073741824,
@@ -112,7 +112,7 @@
       "shipping_audio": 6,
       "new_Git_objects": 7,
       "source_QA_native_originals": 6,
-      "receipts_failure_closeout": 5
+      "receipts_failure_closeout": "actualretainedincident plus prospective remainingtail; detailed byteplan below"
     },
     "rationale": "Different prospective lower-peak route. One active producer may refresh only declared changed source at committed/gated candidate boundaries; frozen primary Git + source inventories/logs/PNGs retain each failed version. No old closed producer/cache writes or claims of repeated independent empty imports. No second full producer fits this scope. Export-pack then Godot-stopped SDK assembly, never held native APK export route; monitor full process tree and headroom; stop before any allocation that exceeds bound.",
     "independent_predesign": "game_design_research source review conditional CLEAR, resource monitoring required; foundation_tests read-only exact API/test map complete.",
@@ -130,7 +130,29 @@
     },
     "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106",
     "export_phase_persistent_cap": 738197504,
-    "export_process_tree_RSS_cap": 671088640
+    "export_process_tree_RSS_cap": 671088640,
+    "primary_budget_incident": {
+      "original_cap": 25165824,
+      "actual_delta_at_changedmethod": 26214400,
+      "cap_exceeded": true,
+      "floor_breached": false,
+      "retroactive_approval_claim": false,
+      "cause": "full trace copied after engine without postreceiptguard",
+      "oldbytes_preserved": true
+    },
+    "remaining_primary_tail": {
+      "start_free": 630890496,
+      "cap": 1572864,
+      "full_reserved_end_free": 629317632,
+      "minima": {
+        "one_final_primary_Git": 1048576,
+        "compact_source_manifest": 184320,
+        "compact_closure_protection": 8192,
+        "review_pages_build_delivery_closeout": 131072,
+        "new_compact_execution_receipts": 40960,
+        "small_preflight_Git_and_method": 32768
+      }
+    }
   },
   "scope_contract": {
     "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
@@ -196,5 +218,13 @@
     },
     "review": "/workspace/work/s143-three-song-demo-20261106/review/packaging-method-predesign-v1.json",
     "TMP_previews": "Selected original native review copies may use spare bytes inside same128MiB standard pool, exact hashes/durable metadata; no new PNG generation or raised globalcap."
+  },
+  "compact_receipt_amendment": {
+    "status": "prospective_changedmethod_after_retainedincident",
+    "recorded_at": "2026-11-06T23:55:36.634387+00:00",
+    "all_existing_D_receipts": "retainbyteexact",
+    "future_D_receipts": "max32768B status/scalars/captures/sourcepins; full rawRexecution/result/log boundbySHA; no testassertions/ERRORholds removed",
+    "no_new_primary_PNGs": true,
+    "Git": "onlysmallpreflightsessionnow; finalallcanonical/ISSUESonecommit, gc.auto0maintenancefalse"
   }
 }
