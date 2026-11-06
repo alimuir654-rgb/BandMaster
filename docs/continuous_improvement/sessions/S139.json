@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S139",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "bb54c6eb2673249c552a00716fa470224eb4b58e",
   "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1778602,
-    "sha256": "d406fa3779cebb7434b7d87d06367445a77be6da05293f9bdb24e8a033737ce9"
+    "bytes": 1782597,
+    "sha256": "c92de2dbd799b946b6379a72cb3625112f62f8e583830e41b6583bbc72dfad36"
   },
   "lesson_ids": [
     "BM-01",
@@ -76,11 +76,7 @@
     "Independentfinalliteralcontent/sourceambiguity review/closecorefacts/APIgaps;meaningfulfuturefulljourneymatrix, noGame/nativeexecutions.",
     "Currentcuratedsource/rawassets/V14unchanged; existingresearchtwofilesonly/priorvaluespreserved, gate/DICT/releasebeforedeadline."
   ],
-  "root_lease": {
-    "writer": "root_S139_readonly_rehearsal_pilot",
-    "expires_at": "2026-11-06T05:00:00Z",
-    "scope": "Oneauthoredcontentpacket/read-onlysourcecontract;primary4MiB/TMP0 includingGit/review/closeout. ShippingwriterNULL."
-  },
+  "root_lease": null,
   "storage_plan": {
     "at": "2026-11-06T04:23:29.562075+00:00",
     "actual_free": {
@@ -103,7 +99,304 @@
   "audio_write_allowed": false,
   "engine_execution_allowed": false,
   "APK_artifact_allowed": false,
-  "artifact_write_allowed": true,
-  "page_write_allowed": true,
-  "stop_condition": "NoGameimplementation/newstate/controller merelyfrombacklog. UnsupportedAPI/time/identity/cause mustremainexplicitfuturegap; noapprovalwait/runtimeallocation. Closeby05:00/no breadth06:30/releases07:55/hard08:00."
+  "artifact_write_allowed": false,
+  "page_write_allowed": false,
+  "stop_condition": "NoGameimplementation/newstate/controller merelyfrombacklog. UnsupportedAPI/time/identity/cause mustremainexplicitfuturegap; noapprovalwait/runtimeallocation. Closeby05:00/no breadth06:30/releases07:55/hard08:00.",
+  "closed_at": "2026-11-06T04:42:17.170959+00:00",
+  "closeout": {
+    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+    "evidence": [
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/input-bindings.json",
+        "bytes": 3104,
+        "SHA256": "5db0098b1e66c7ecd669e7aad6eacb27b3d735f535f149814636a31b8bee96d2"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/source-facts.json",
+        "bytes": 2259,
+        "SHA256": "82cfe7d58e4a32169c37a3185d55c557861d85d74e95d47fcf6f4f642647b684"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/prospective-funding.json",
+        "bytes": 664,
+        "SHA256": "10a5cf96eeea1ebe04c7053671b4470474071a730e95720843153ff7832bee6b"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/PLAYER_SCRIPT.md",
+        "bytes": 3662,
+        "SHA256": "ef5e3793223085e1ee9f1508c9063575dec9d89e48f55b81e1459e577b8cb492"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/pilot.json",
+        "bytes": 9849,
+        "SHA256": "7691d9666624fd359279c6a4792389b5c697c54b3b2d33c299a47c12246c234d"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/source-contract.json",
+        "bytes": 9717,
+        "SHA256": "e4616ab90f259b7712dbd500fd4bb2e103393c6833a9860a5a88b750b9e9fceb"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/delivery.json",
+        "bytes": 1832,
+        "SHA256": "9f8db14e9fe440308b7316c6238e3428005b722e5059b8d5fd84b4d33fae775b"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/packet-v2-correction-audit.json",
+        "bytes": 429,
+        "SHA256": "08d4449253b1a430d4bff7c416bb4bc81bc1a24499e32b9959975c02b04890da"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/source-protection-final.json",
+        "bytes": 708,
+        "SHA256": "d6a8dd907688bd0d93438a880b023c6f9559c005966bbdd0b713048db1a566da"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/research-update-audit.json",
+        "bytes": 545,
+        "SHA256": "8398dcc64049f8f4007515c2e5de13c85f6a96a8c853f938bb3aec52470e547d"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/page-status-audit.json",
+        "bytes": 482,
+        "SHA256": "1acd5f9298c2045855ff426469a31d96f6e947833e11cead593f336e21f37fbf"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/review/predesign-v1.json",
+        "bytes": 14234,
+        "SHA256": "b465b5b4ef34b70c0e4b8f78c059c4e0af8aa49c529f0f947b8784d96fd3cb1a"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/review/packet-findings-v1.json",
+        "bytes": 3167,
+        "SHA256": "fdfafd65a0d92047d85248ec82bd4230044b196f004597dd4e1e2d348371c82e"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/review/final-packet-v1.json",
+        "bytes": 13127,
+        "SHA256": "04438236984fcf4e065e9498301705d3d662744ab856ce82187e8eb2738b6eb3"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/retained-v1/PLAYER_SCRIPT.md",
+        "bytes": 3662,
+        "SHA256": "184ed7a4f348b0e7efa9674a7bcd1521d37ad0cb2f161b654ee789a36f5b4585"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/retained-v1/pilot.json",
+        "bytes": 9338,
+        "SHA256": "197f37d79389e6939cb53bbcaf1ae9c8eea0e9af0f3ab96c0ae1046327df4f4d"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/retained-v1/source-contract.json",
+        "bytes": 8996,
+        "SHA256": "2f3fa7eb8b6e07e978e0ec24b2e83d4ea9c7c8c18a7ef643457fa78c7409ea7c"
+      },
+      {
+        "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/sole-queue-status.json",
+        "bytes": 474,
+        "SHA256": "dd930afe3a9e9468de99bcb17eb78eabb9f13929248d80bc533af131a8479898"
+      }
+    ],
+    "visual_verdict": "partial",
+    "scoped_content_disposition": "authored_proposal_ready",
+    "owner_approved": false,
+    "implemented": false,
+    "next_action": "S139authoredpilotreadyasPROPOSALONLY; futureproductionrequiresnewcompletefunding/Core-ownedamendment/whole-openingwrapper/actualsource-native-saveproof. Do notredoS137/S138/S139orbuildanotherAPKforactivity. CurrentGame898/V14unchanged; remainingopportunitiesactualfeedback/readinesswithhard08:00/no breadth06:30/releases07:55.",
+    "new_issue_review": {
+      "through_bytes": 1782597,
+      "SHA256": "c92de2dbd799b946b6379a72cb3625112f62f8e583830e41b6583bbc72dfad36",
+      "all_new_events_reviewed": true,
+      "opaque_S139_events": [
+        "S139-20261106T043500-independent-packet-v1-corrections",
+        "S139-20261106T044217-authored-pilot-review-complete"
+      ],
+      "one_packet_v1_HOLD_three_narrow_corrections_retained": true,
+      "one_corrective_iteration_v2_final_CLEAR_proposal_only": true,
+      "reviewer_reported_missing_guessed_path_retained": true,
+      "no_current_product_defect_or_failed_proof_promotion": true
+    },
+    "verification_kind": "Actualsource/owner-semantic audit plusindependentreviewofauthoredproposal; no newGame/nativeexecutionproof.",
+    "delivery": {
+      "status": "AUTHORED_PILOT_READY_PROPOSAL_ONLY",
+      "recorded_at": "2026-11-06T04:39:14.037236+00:00",
+      "title": "An evening we keep",
+      "implemented": false,
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "V14_changed": false,
+      "owner_approved": false,
+      "packet_version": 2,
+      "correction_iterations": 1,
+      "files": [
+        {
+          "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/PLAYER_SCRIPT.md",
+          "bytes": 3662,
+          "SHA256": "ef5e3793223085e1ee9f1508c9063575dec9d89e48f55b81e1459e577b8cb492"
+        },
+        {
+          "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/pilot.json",
+          "bytes": 9849,
+          "SHA256": "7691d9666624fd359279c6a4792389b5c697c54b3b2d33c299a47c12246c234d"
+        },
+        {
+          "path": "/workspace/work/s139-rehearsal-concern-pilot-20261106/source-contract.json",
+          "bytes": 9717,
+          "SHA256": "e4616ab90f259b7712dbd500fd4bb2e103393c6833a9860a5a88b750b9e9fceb"
+        }
+      ],
+      "independent_final_review": "/workspace/work/s139-rehearsal-concern-pilot-20261106/review/final-packet-v1.json",
+      "independent_review_SHA256": "04438236984fcf4e065e9498301705d3d662744ab856ce82187e8eb2738b6eb3",
+      "generic_owner_decision_pending": false,
+      "packet_status_labels": "Reviewed source files retain their authoring-stage PENDING labels as frozen reviewed bytes; this delivery and final review are the current disposition, not an approval block.",
+      "future_implementation_gaps": [
+        "Core-owned concern memory and general future/due plan date amendment",
+        "Narrow whole-opening metadata transaction wrapper",
+        "Follow-up composition into existing rehearsal OR ordinary non-rehearsal day-advance owner",
+        "Fresh complete funding/source/native/model/input/failure-retry/typed-reload proof"
+      ],
+      "no_current_Game_code_or_dialogue_integration": true
+    },
+    "actual_opened_originals": [
+      {
+        "path": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/touch-context-v3/captures/Zoe-known-context-after-actual-touch-390x844.png",
+        "SHA256": "d354728c29fe8d5c6d88e32058374632b97cfe859895dd86fbd51ed71dfb043e",
+        "bytes": 278885,
+        "root_actually_opened": true,
+        "meaning": "Currentknownwork/familycontext only; notnewconcernUI/nativeproof"
+      },
+      {
+        "path": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/touch-context-v3/captures/Zoe-known-context-real-resize-1280x720.png",
+        "SHA256": "be17fc5ccee547149a06e3ada4c1bc2d433d503395afdcec14690b2dbf6b938a",
+        "bytes": 478777,
+        "root_actually_opened": true,
+        "meaning": "Currentknownwork/familycontext only; notnewconcernUI/nativeproof"
+      }
+    ],
+    "root_actual_current_context_opens": 2,
+    "independent_actual_current_context_opens": 2,
+    "proposed_concern_UI_exists": false,
+    "new_native_PNGs": 0,
+    "Godot_executions": 0,
+    "new_assets": 0,
+    "Game_source_writes": 0,
+    "new_APKs": 0,
+    "APK_build_audit_hash_upload_commands": 0,
+    "packet_versions": 2,
+    "correction_iterations": 1,
+    "review_limits": "v1HELDfor3narrowcopy/ownership/dateclarifications;v2CLEARforproposalonly. No human/device/ownerapproval; frozenpacketstage labelsarehistorical, currentstatusdelivery/finalreview.",
+    "five_explicitly_SIMULATED_lenses": [
+      {
+        "lens": "SIMULATED game critic",
+        "finding": "Oneearnedmulti-beatconcern withactualdatedchoices/rememberedaftermath,notarandomrewardcard; implementationremainsfuture."
+      },
+      {
+        "lens": "SIMULATED musician",
+        "finding": "Legitimatework/familyabsenceisnotpersonalblame; realrehearsal/planfactsremainauthoritative;newsubstance/legalcausesnotinvented."
+      },
+      {
+        "lens": "SIMULATED general player",
+        "finding": "Keepdate/move/explicitleaveunanswereddistinctfrombrowsing/Menu; visibleordinarycost/time unchanged,no fakecancel/reward."
+      },
+      {
+        "lens": "SIMULATED mobile player",
+        "finding": "Onlyexistingcontextviewsopened;newconcernneedsactualearlyphone/shortwideandfourview/input/scrollproofbeforeintegration. No newnativefitclaim."
+      },
+      {
+        "lens": "SIMULATED source/save auditor",
+        "finding": "All517Game/516primaryrowsprotected; Corefutureamendmentandwholeownerentryexplicitgaps. FollowupincludesoriginalrehearsalORnon-rehearsaldayadvanceowner,0duplicateFinance/save."
+      }
+    ],
+    "material_limits": [
+      "AuthoredPROPOSALONLY/notGameorV14; no currentconversation/state/controllerimplementation.",
+      "FutureCore-ownedplanamendment/concerndataandwhole-openingtransaction/followupbridgeneedfreshscopedsourcework, notcurrentAPIclaims.",
+      "No newrehearsal/attendance/clinical/legal/relationshipfact is inferredfromcountersorstyle;allwideradultarcsremainbacklog.",
+      "No newactualUI/device/humancomprehension/retailplay/competitorpixelsorqualityparityproof.",
+      "Knownwork/familyfactsandoriginal18biographies/54Scripts/all82OGG9JSON/art/hardware remainunchanged.",
+      "S135/S138artofflineandS137contractunchanged; no artdependencyornewAPKtofilltime.",
+      "Genericownerapprovalnotpending;futureproductionfunding/verificationstillrequired."
+    ],
+    "source_protection": {
+      "at": "2026-11-06T04:38:27.983751+00:00",
+      "Game_source": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "all517_runtime_rows_exact": true,
+      "all516_primary_Git_shipping_rows_exact": true,
+      "protected54Scripts3UID_82OGG9JSON_art_fonts_hardware_unchanged": true,
+      "actual_current_source_bindings": 11,
+      "current_native_context_references_exact": true,
+      "Game_source_writes": 0,
+      "engines": 0,
+      "new_native_PNGs": 0,
+      "new_assets": 0,
+      "APK_build_audit_hash_upload_commands": 0,
+      "previous_closed_caches_not_opened_for_engine_or_write": true,
+      "proposal_only": true,
+      "root_actual_current_context_opens": 2,
+      "independent_actual_current_context_opens": 2,
+      "source_and_V14_unchanged": true
+    },
+    "funding": {
+      "prospective": {
+        "at": "2026-11-06T04:23:29.562075+00:00",
+        "actual_free": {
+          "/workspace": 756244480,
+          "/tmp": 773140480
+        },
+        "global_primary_free_before_bootstrap_B": 756260864,
+        "scope_new_primary_cap_B": 4194304,
+        "includes": "Fullcontentpacket/contract/sourcebindings/review<=65536B/canonical/research/Git/index/failedproof/closeout; noGame/source/asset/runtime/cache/PNG/audio/APK allocation.",
+        "new_TMP_cap_B": 0,
+        "floor_B": 629145600,
+        "handoff_primary_reserved_B": 2097152,
+        "handoff_TMP_reserved_B": 1048576,
+        "primary_contingency_reserved_B": 4194304,
+        "worst_primary_after_all_reservations_B": 745758720,
+        "closed_scope_caps_not_reused": true
+      },
+      "actual_free_at_close": {
+        "/workspace": 755728384,
+        "/tmp": 773140480
+      },
+      "primary_scope_observed_delta_B": 532480,
+      "new_TMP_bytes": 0,
+      "review_bytes": 30528,
+      "all_originals_and_v1_retained": true
+    },
+    "Pages": {
+      "status": "PASS",
+      "Plan_before": 75,
+      "Plan_after": 76,
+      "Board_sequence": 186,
+      "Guide_unchanged": 19,
+      "changed_Plan_block": "e88f7c66-f05b-4550-b50d-e6e6337bca3c",
+      "all_other_blocks_order_IDs_metadata_exact": true,
+      "Board_full_blocks_exact": true,
+      "human_choices": 72,
+      "checked": 23,
+      "images": 50,
+      "checkbox_writes": 0,
+      "image_uploads_or_new_grants": 0,
+      "AgentInstructions_archive_deletedA03v2absence_preserved": true,
+      "browser_render_claim": false
+    },
+    "release": {
+      "root_writer": null,
+      "source_writer": null,
+      "artifact_writer": null,
+      "helpers": null,
+      "art_writer": null,
+      "GL": "unused/free; noengines/Xorgstarted"
+    },
+    "closed_at": "2026-11-06T04:42:17.170959+00:00",
+    "sole_queue": {
+      "id": "6ae532c5fe9c819190f587a022c54052",
+      "thread_id": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Europe/London:20261105T231500\nRRULE:FREQ=HOURLY;COUNT=9\nEND:VEVENT",
+      "is_enabled": true,
+      "only_prompt_changed": true,
+      "updated_at": "2026-11-06T04:43:17.572679+00:00",
+      "prompt_chars": 18954,
+      "no_new_queue_controller_worker_endtask": true,
+      "release_by": "2026-11-06T07:55:00Z",
+      "hard_stop": "2026-11-06T08:00:00Z"
+    }
+  }
 }
