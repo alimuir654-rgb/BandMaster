@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1848362,
-    "sha256": "0438ad21d5e98467bbda16254062b1ba8a0ff443598806b7d0c427b4e7d2902d"
+    "bytes": 1849998,
+    "sha256": "4290a9866bc3d626b6a0eb272579292560ef9114c2985a180660dee7abeec8af"
   },
   "lesson_ids": [
     "BM-15",
@@ -119,7 +119,10 @@
     "old_closed_caps_reused": false,
     "cleanup": false,
     "RAM_artifacts_volatile": true,
-    "packaging_method_amendment": "Prospective before runtime/APK allocation: totalRAM1024MiB, SDKfulltree320MiB, reserve1024MiB =>2368MiB. Native480+640+1024=>2144MiB. Actualbaselinebeforeeachphase. Oneactiveproducer may refresh only declared committed/Git-preserved source; all priorproof/log/PNG retained, no re-emptyimport or independenceclaim. PCK export/extract exact compiledentries into audited V15nonassettemplate shell; narrowly patched binarymanifest version16/name0.143.0; officialruntime byteexact; standalone SDK onlywithGodotstopped. Extra signingtemp/fullfailedtail included; no repeatofheldS140APKexportroute."
+    "packaging_method_amendment": "Prospective before runtime/APK allocation: totalRAM1024MiB, SDKfulltree320MiB, reserve1024MiB =>2368MiB. Native480+640+1024=>2144MiB. Actualbaselinebeforeeachphase. Oneactiveproducer may refresh only declared committed/Git-preserved source; all priorproof/log/PNG retained, no re-emptyimport or independenceclaim. PCK export/extract exact compiledentries into audited V15nonassettemplate shell; narrowly patched binarymanifest version16/name0.143.0; officialruntime byteexact; standalone SDK onlywithGodotstopped. Extra signingtemp/fullfailedtail included; no repeatofheldS140APKexportroute.",
+    "import_phase_persistent_cap": 335544320,
+    "import_process_tree_RSS_cap": 1073741824,
+    "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB\u2212actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup."
   },
   "scope_contract": {
     "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
@@ -145,5 +148,13 @@
     ],
     "reason": "Existing generic recap otherwise calls unchanged readiness a failed live rehearsal and hides the jam reason. Add jam-only truthful earned report/attendee-only voices and heading; preserve all other focus layouts/art/fonts. Same24MiB/896MiB caps.",
     "independent_QA": "foundation_tests literal attendance/free-day/no-readiness policy confirmed before QA authoring."
+  },
+  "isolation_entry_override": {
+    "path": "/workspace/work/s143-three-song-demo-20261106/isolated-project.godot",
+    "sha256": "7d5f96915a420cc62ed90ae74228cf1a98748c2428b671dc59396290221da859",
+    "bytes": 185,
+    "reason": "Newexplicitprivateworker_pool2afterfirstimportresourceHOLD; productionP/projectunchanged, effectivenativeandAndroidsameworkerlimit. Old146entrykeptimmutableinD140andinitialintake.",
+    "max_threads_setting_verified_in_exact_binary": true,
+    "all_import_threads_controlled_claim": false
   }
 }
