@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "S135",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "01551b4ebae7ec36147bbdb56d0b4bbfa863c56e",
+  "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "owner_request": "Workthrough8am6Nov; artworkfallbackifblocked; othergamesqualitybenchmarks; routinecreative decisions delegated. Samequeue/thread.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1757709,
+    "sha256": "2fd60e0443fccb44da06ac8e2d2dd109940cc6cc46eba391204a1a9b5a1a5a3b"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-44",
+    "BM-45",
+    "BM-46"
+  ],
+  "dominant_issue": "BM-39",
+  "target": {
+    "locator": "/tmp/bandmaster-s134-starting-commitments-20261105/runs/standard-desktop-v3/captures/027-c27-completed_band-1600x900.png",
+    "original_sha256": "b941339186028e439813bdbf765aa14ffa80362660a97cd9f32303e42f4ac53f",
+    "pixels_inspected": true,
+    "scope": "ActualopenedcurrentS134partialformation, notsettledposterproof; rawCAST/threeapprovedportraitsources alsoopened. Currentcanonicaltrio repeatsstandinghands/height."
+  },
+  "hypothesis": "A coherentlygeneratedexactfictionalJackZoeCaseystill withdifferentbodypositions andexpressions willremove repeatedpose/sameheightimpression withoutfakeperformance orUIbaking.",
+  "controlled_comparison": "Keep3canonicalidentities/costumes/wholebodies/oldartbytes; oneindependentnewsource. No shipping/nativecomparison claim beforefutureintegration.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S135.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s135-formation-trio-art-20261106",
+    "/tmp/bandmaster-s135-formation-trio-art-20261106"
+  ],
+  "queue_task": "Existingformationpose/artworkgap, offlinecandidateonly",
+  "reviewer": "CHECKrequiredexisting/root/s134_quality_review newS135role; D135/review<=65536B only/readsource-images; noengines/Git/Pages/network/children/oldS134receiptwrites. Independentpredesign/finaloriginalreview.",
+  "player_goal": "Distinctandrecognizablebandcohortforfuturesource-verifiedfirstpress, withoutclaimingintegration.",
+  "start_end_commitment": "Offlineart/provenanceonly;0Game/day/cash/save/Finance/audiochanges. FutureintegrationandfinalAPKseparatelyscoped.",
+  "state_matrix": [
+    "Threeactualapprovedportraitidentities, fullhair/fullsoles, distincthands/expressions/posedheights, no extra/missingbody/fingers.",
+    "Onecoherentstill/commonlighting, no bakedUI/name/branding/instrumentperformance/transparentmasterclaim; A04notretried.",
+    "Root+independentactualrawopens, fiveexplicitSIMULATEDlenses, sourcefalseowner; nativeintegrationnotfunded/HOLD, no fakefourviewproof.",
+    "All517currentGamesource rows/82OGG9JSON/54Scripts3UID/artfontshardware exact; allclosedproducersuntouched.",
+    "Primary24MiB/TMP1MiB/finalAPK592MiB/handoff1MiB prospectivelyfunded; everyGitmutation disablesautomaticmaintenance."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S135.json",
+    "Independentpredesign actual3references/currentpartialnative/BRIEF/funding beforeimagegen.",
+    "Root+independentactualgeneratedoriginalreview/hash/dims/sourceprovenance; all517currentGameGit/runtimeexact. No engine/activitysuite rerun; offlinecandidate notinAPK.",
+    "Fixed600MiB floors/fullretainedfailedproof/closeout budget; no APKunderS135/no broadsharing."
+  ],
+  "root_lease": {
+    "writer": "root_S135_offline_formation_art",
+    "expires_at": "2026-11-06T01:30:00Z",
+    "scope": "Oneofflineartcandidate only, no Game/native/cache/export; closeearlier. Outer08:00/no breadth06:30/releases07:55."
+  },
+  "source_write_allowed": false,
+  "audio_write_allowed": false,
+  "art_write_allowed": true,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": false,
+  "stop_condition": "Twoineffectiveattempts change method/HOLD. No genericownerapprovalwait. No underfunded source/nativeintegration. Hardstop08:00/releases07:55.",
+  "source_input": {
+    "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+    "SHA256": "83d386d75e9962e6b77f87a5b73808f48f7e7b282006c122e6ccb874b20448aa",
+    "curated": 517,
+    "all_S134_S133_producers_closed": true
+  },
+  "storage_plan": {
+    "at": "2026-11-06T00:52:12.070396+00:00",
+    "actual_free": {
+      "/workspace": 895004672,
+      "/tmp": 1253400576
+    },
+    "fixed_floor": 629145600,
+    "S135_primary_cap": 25165824,
+    "S135_TMP_cap": 1048576,
+    "final_APK_TMP_reserved": 620756992,
+    "final_APK_categories_MiB": {
+      "source": 128,
+      "privatecache": 100,
+      "unsigned_export": 120,
+      "final_signed": 120,
+      "one_failed_full_APK": 120,
+      "work": 4
+    },
+    "handoff_TMP_reserved": 1048576,
+    "after_all_future_TMP_reservations": 630546432,
+    "existing_S134_all_closed_immutable": true,
+    "new_native_art_integration_not_funded": true,
+    "no_pending_owner_storage_decision": true
+  },
+  "contract": {
+    "path": "/workspace/work/s135-formation-trio-art-20261106/BRIEF.md",
+    "SHA256": "b2b2751c836d685d3bcd42d8cf0abd3d6fd2b16bd5dcb7681c5f9ce96c754751"
+  }
+}
