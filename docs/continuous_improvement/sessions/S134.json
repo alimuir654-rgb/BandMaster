@@ -12,8 +12,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1741501,
-    "sha256": "588956eede18d7c497a64059692249103258730e848f924d1e5443e003b7b8d2"
+    "bytes": 1754762,
+    "sha256": "1931447d1ffc9ac5488565770fe31bd81c9b154f5d3b8a2e4a05de508d8df258"
   },
   "lesson_ids": [
     "BM-01",
@@ -135,13 +135,29 @@
     "S134_TMP_categories": {
       "two_source_versions": 268435456,
       "two_private_import_caches": 201326592,
-      "PNG_accepted_failed": 134217728,
-      "models_saves_logs_failedproof_closeout_tail": 67108864
+      "PNG_accepted_failed": 167772160,
+      "models_saves_logs_failedproof_closeout_tail": 33554432
     },
     "after_all_future_TMP_reservations": 693420032,
     "complete_funding": "One baseline plus one production runtime/cache or two production versions using retained exactbaseline pixels; source corrections needing more require prospective rebalance from actualfree or switch to artwork. No underfunded fullproof.",
     "art_TMP": "Freshactualfunding/rebalance needed ifchosen; not automaticextra640MiB.",
-    "Git": "Allcriticalobjectsprimary; everymutation -c gc.auto=0 -c maintenance.auto=false"
+    "Git": "Allcriticalobjectsprimary; everymutation -c gc.auto=0 -c maintenance.auto=false",
+    "prospective_category_rebalance": {
+      "at": "2026-11-06T00:31:17.251046+00:00",
+      "old": {
+        "two_source_versions": 268435456,
+        "two_private_import_caches": 201326592,
+        "PNG_accepted_failed": 134217728,
+        "models_saves_logs_failedproof_closeout_tail": 67108864
+      },
+      "new": {
+        "two_source_versions": 268435456,
+        "two_private_import_caches": 201326592,
+        "PNG_accepted_failed": 167772160,
+        "models_saves_logs_failedproof_closeout_tail": 33554432
+      },
+      "reason": "Retain both failedstandard PNGs and final4sweeps plus focusedimages; unused work tail32MiB moves to physicalPNG reserve BEFORE128MiB category reached. Aggregate640MiB unchanged; finalAPK512MiB reserve andfloor remain funded. No deletion/new runtime/source."
+    }
   },
   "contract": {
     "path": "/workspace/work/s134-starting-commitments-20261105/CONTRACT.md",

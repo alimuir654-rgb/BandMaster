@@ -19,3 +19,5 @@ Source-audit amendment before edits: song_workbench_desk.gd is also scoped becau
 Date provenance amendment before source: career_dates.gd is scoped to accept an additional exact authored-start source for fresh seeded dates while keeping its existing player_agreed_start default and all old saved dates. Never label the automatically recorded new-band date as a separate player agreement; future/unknown date-source variants still HOLD.
 
 Candidate implementation is in progress. Only exact later native/model receipts can establish verification.
+
+Prospective proof-category rebalance: total S134640MiB unchanged; source256/cache192/PNG160/work32MiB. Retain both failed standard attempts and the final four sweeps. Final APK512MiB reservation and fixed600MiB floor remain funded; no deletion or extra runtime authority.
