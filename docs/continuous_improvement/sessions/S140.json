@@ -437,7 +437,7 @@
       "recover_v15-v1.py": "7c29798a60ddf60ecec5267f5c74c29758b4d77b224b04041365c599ae90e0a6",
       "audit_v15-recovery-v1.py": "fe4c1a77d150dd062f591ed8c1ed298b86ea1a6e11515e631422417f990ab381"
     },
-    "RAM_packaging_cap": 939524096,
+    "RAM_packaging_cap": 1140850688,
     "RAM_global_cap": 3758096384,
     "cgroup_headroom_guard": 2147483648,
     "floor": 629145600,
@@ -454,7 +454,14 @@
     "Java_heap_bytes": 268435456,
     "Java_direct_bytes": 67108864,
     "accepted_source_f9_unchanged": true,
-    "stop": "If input incomplete/mismatched or standalone resourceguard/SDK/audit fails, HOLD; no repeated in-engine route or payload removal."
+    "stop": "If input incomplete/mismatched or standalone resourceguard/SDK/audit fails, HOLD; no repeated in-engine route or payload removal.",
+    "retained_native_TMP_rehome": "/workspace/work/s140-mixing-desk-20261106/exact-native-TMP-rehome-complete.json",
+    "driver": "/workspace/work/s140-mixing-desk-20261106/recover_v15-v2.py",
+    "driver_SHA256": "a9f235a27def9fe7a634a5af03799f9094290acf22361ca764639248e36b87ae",
+    "audit": "/workspace/work/s140-mixing-desk-20261106/audit_v15-recovery-v2.py",
+    "audit_SHA256": "ad2a8bbd5a4d45af603c9afb7cbedc9aa917bc4b70c031b4dd802adf5e1b02f9",
+    "SDK_calls_in_pre_floor_guard_refusal": 0,
+    "Java_tmpdir": "Explicit fundedR/tmp; no more in-engine export calls."
   },
   "recovery_phase": "READY_complete_component_validation",
   "complete_component_validation": {
