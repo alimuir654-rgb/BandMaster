@@ -1,13 +1,13 @@
 {
-  "writer": null,
+  "writer": "root_S137_readonly_art_contract",
   "base_head": "cba498276127c48bde673d47c205928c3686a2f5",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
-  "expires_at": null,
-  "scope": "FinalV14 exactGame898 packaging/update/privacy/localhandoff complete; privateDrive transferHELD100MiB. NoGame/source/artintegrationchange.",
+  "expires_at": "2026-11-06T03:00:00Z",
+  "scope": "Boundedread-onlyS135futurewholecohortintegrationcontract; currentGame/V14/artunchanged.",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "S136_closed_local_APK_ready_Drive_transfer_HELD",
+  "status": "S137_readonly_art_contract_active",
   "released_at": "2026-11-06T01:51:59.661873+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -263,7 +263,7 @@
     "automation_ended": true
   },
   "manual_self_bounded": true,
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
     "source_sha": "b310067ce8d29c1e081a32292174a644d6c81a43",
@@ -311,7 +311,7 @@
     ],
     "expires_at": "2026-11-02T11:22:00Z"
   },
-  "page_write_allowed": false,
+  "page_write_allowed": true,
   "scratch_art_concept_allowed": false,
   "previous_s63_release": {
     "writer": "S63-visual-career-owner-revision-20261101T1730",
@@ -324,7 +324,7 @@
   },
   "pending_implementation": [],
   "pending_helpers": [],
-  "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension.",
+  "next_action": "BindactualexistingposterAPIs/exactcohorts/fallback/nativeQAcontract; noengine/source/art/APKchange.",
   "metadata_pointer_audit_at": "2026-11-01T18:47:15.871994+00:00",
   "artifact_scope": "ClosedV14packaging/localartifactready; noV14Drivefile/grant; producer688cachefilesimmutable. No furtherbuild/activityupload.",
   "previous_s64_release": {
@@ -364,7 +364,7 @@
     "s66_closeout": "/workspace/work/promotion-20261101/s66/closeout.json"
   },
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "session": "S136",
+  "session": "S137",
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
     "plan_page": "https://chatgpt.com/space/page_75c8ccd784e08191825d48c2f382454d",
@@ -581,7 +581,7 @@
   "new_breadth_freeze": "2026-11-06T06:30:00Z",
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": null,
-  "current_session": "S136",
+  "current_session": "S137",
   "closed_at": "2026-11-06T01:51:59.661873+00:00",
   "last_updated_utc": "2026-11-06T01:51:59.661873+00:00",
   "last_validation": "/workspace/work/s124-producer-apk-v12-20261104/closeout.json",
@@ -1079,7 +1079,11 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S137_readonly_art_contract",
+    "expires_at": "2026-11-06T03:00:00Z",
+    "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
+  },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -2969,7 +2973,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S137_readonly_art_contract",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -3207,12 +3211,12 @@
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "S137",
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": null,
-  "artifact_writer": null,
+  "artifact_writer": "root_S137_readonly_art_contract",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "session": "S128",
@@ -3683,5 +3687,15 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
   },
-  "s136_closeout": "/workspace/work/s136-final-apk-v14-20261106/closeout.json"
+  "s136_closeout": "/workspace/work/s136-final-apk-v14-20261106/closeout.json",
+  "historical_active_aliases_before_S137": {
+    "status": "S136_closed_local_APK_ready_Drive_transfer_HELD",
+    "session": "S136",
+    "current_session": "S136",
+    "active_session": null,
+    "root_writer": null,
+    "root_lease": null,
+    "scope": "FinalV14 exactGame898 packaging/update/privacy/localhandoff complete; privateDrive transferHELD100MiB. NoGame/source/artintegrationchange.",
+    "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension."
+  }
 }

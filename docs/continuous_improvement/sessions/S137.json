@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "id": "S137",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "409aaec3bf7ebc826457b55cae7c6a06f2f1b2e0",
+  "game_baseline_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "owner_request": "Continueauthorisedworkto08:00; usefulfundedread-onlyartintegrationreview afterV14completion, noactivitybuilds/newtriorerender.",
+  "reviewed_documents": {
+    "AGENTS.md": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1770250,
+    "sha256": "359583a8203c569fe5647331017830e1ca5e5d1a5039cff18bc1bdd6717231db"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-06",
+    "BM-08",
+    "BM-10",
+    "BM-12",
+    "BM-21",
+    "BM-22",
+    "BM-33",
+    "BM-38",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-42",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-39",
+  "target": {
+    "locator": "/workspace/generated_images/exec-01fe8144-836c-4abe-aaae-31255eca8dab.png",
+    "original_sha256": "8d00054b78dc97b97fa1df3edf943732ed702f6f30511ce8fda287a08e146660",
+    "pixels_inspected": true,
+    "scope": "Read-onlysourceintegrationcontract;2currentnativepartials opened andexplicitlynotsettledposteracceptance."
+  },
+  "hypothesis": "S135opaque group shouldremainonecoherentimage for exactJack/Zoe/Casey; currentresolverhardcodesdifferentArjun/Zoe/Ellis cohort andperpersonAtlasgeometry. A source-backedcontract avoidsglobalZoeoverwrite, croppedhands, lostseatedpose andfabricatedperpersonQA.",
+  "controlled_comparison": "NoGame/art/audio/APKchanges; compareactualcurrentAPI/sourceclosure and3existingoriginals only. Preserveoldacceptedcohortandallfallbacks; futureexactnativeproofnotclaimed.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S137.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "external_artifact_roots": [
+    "/workspace/work/s137-formation-art-contract-20261106",
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md",
+    "/workspace/work/s137-preflight-setup.py"
+  ],
+  "queue_task": "S135offlinetrio futureintegrationcontract, existingartworkworklist only",
+  "reviewer": "Rootread-onlysource/contractanalysis only; no independent/humanreviewclaimed. Freshproductionrequiresindependentpredesign/early/finalnative review.",
+  "player_goal": "Futureexactselectedfoundingtrio appearswithdistinctposes whileactualname/lead/actions/navigationstayreadable.",
+  "start_end_commitment": "0Game/source/art/assets/PNG/audio/saves/Finance/APKwrites; onlyboundedmetadataandreviewproposal. No newcontroller/register.",
+  "state_matrix": [
+    "Exactcohortmembership andall6rosterorders; sourceposition/selectedcreditorderdistinct.",
+    "5existingpresentationvariants andcurrentperportraitsourceinspectionAPI; no hiddenfake nodes orweakenedassertions.",
+    "OldArjun/Zoe/Ellis andallnonmatching/unknown/futurelineupsfall backunchanged;missing/malformedregistry/assetswholefallback.",
+    "Phone390/shortwide1280 earlysettlednativebaseline REQUIREDfuture; existingpartialframesinsufficient.",
+    "Freepreview/formationMomentfocus/mute/resize/teardown/0savechange remainfuturepreservationgate."
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S137.json",
+    "ReadexactcuratedAPIs/sourceclosure and3actualexistingimages; noengine/PNG generation.",
+    "Hashall517base rows plusoriginalS135artbefore/after; protectall54Scripts3UID/82OGG9JSON/sources/caches/APK unchanged.",
+    "Contractsourcecitations/negativecasematrix andcompletefuturefunding/HOLD; finalDICT/sourceprotection/append-onlyissues/onequeuehardstop."
+  ],
+  "root_lease": {
+    "writer": "root_S137_readonly_art_contract",
+    "expires_at": "2026-11-06T03:00:00Z",
+    "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
+  },
+  "storage_plan": {
+    "at": "2026-11-06T02:17:15.979674+00:00",
+    "free_at_preflight": {
+      "/workspace": 762658816,
+      "/tmp": 773140480
+    },
+    "primary_scope_new_total_cap_B": 2097152,
+    "includes": "completecontract/bindings/researchdelta/canonical/session/failedretrieval/closeout/primaryGit/index/trees; noGame/runtime/audio/artgeneration/nativecache/PNG/APK allocation",
+    "TMP_scope_new_cap_B": 0,
+    "handoff_primary_reserved_B": 2097152,
+    "handoff_TMP_reserved_B": 1048576,
+    "contingency_primary_reserved_B": 4194304,
+    "fixed_floor_B": 629145600,
+    "worst_primary_after_all_reservations_B": 754270208,
+    "no_closed_cap_reuse": true,
+    "old_artifacts_and_all_closed_caches_untouched": true,
+    "bootstrap_preflight_script": {
+      "path": "/workspace/work/s137-preflight-setup.py",
+      "bytes": 8714,
+      "included_in_primary_cap": true
+    },
+    "global_primary_free_before_bootstrap_B": 762671104
+  },
+  "source_write_allowed": false,
+  "art_write_allowed": false,
+  "audio_write_allowed": false,
+  "engine_execution_allowed": false,
+  "APK_artifact_allowed": false,
+  "page_write_allowed": true,
+  "stop_condition": "No implementationorassetgenerationunderthisscope. No restartclosedproducer/extraAPK/ownerwait. Unfundednativeintegration remainsHOLD;closeby03:00/release07:55/hard08:00."
+}

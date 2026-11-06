@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S136",
-  "scope": "FinalV14 exactGame898 packaging/update/privacy/localhandoff complete; privateDrive transferHELD100MiB. NoGame/source/artintegrationchange.",
+  "session": "S137",
+  "scope": "Boundedread-onlyS135futurewholecohortintegrationcontract; currentGame/V14/artunchanged.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S136_closed_local_APK_ready_Drive_transfer_HELD",
-  "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension.",
+  "status": "S137_readonly_art_contract_active",
+  "next_action": "BindactualexistingposterAPIs/exactcohorts/fallback/nativeQAcontract; noengine/source/art/APKchange.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3214,7 +3214,7 @@
     }
   ],
   "last_completed_session": "S136",
-  "writer": null,
+  "writer": "root_S137_readonly_art_contract",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3423,7 +3423,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "S136",
+  "current_session": "S137",
   "next_single_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension.",
   "last_updated_utc": "2026-11-06T01:51:59.661873+00:00",
   "prepared_android_v7": {
@@ -3601,7 +3601,7 @@
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified_S134_898",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
-  "expires_at": null,
+  "expires_at": "2026-11-06T03:00:00Z",
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
@@ -3732,7 +3732,7 @@
     "new_owner_decision_requested": false,
     "owner_approved": false
   },
-  "artifact_write_allowed": false,
+  "artifact_write_allowed": true,
   "s74_closeout": "/workspace/work/screenshot-delivery-20261102/closeout.json",
   "latest_screenshot_pack": {
     "session": "S86",
@@ -3919,7 +3919,7 @@
     "private_delivery": "/workspace/work/overnight-20261101/s55/android/phone-v6-delivery.json"
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
-  "page_write_allowed": false,
+  "page_write_allowed": true,
   "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
   "latest_local_native_checkpoint": {
     "session": "S134",
@@ -4429,7 +4429,11 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "writer": "root_S137_readonly_art_contract",
+    "expires_at": "2026-11-06T03:00:00Z",
+    "scope": "Read-onlyGame/currentart; <=2MiBnewprimary metadata/researchcontract inclGit,0TMPnew. Closeearlier."
+  },
   "source_implementation_status": "S134 scopedverified/closed; finalAPKnotyetprepared",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -6329,7 +6333,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S137_readonly_art_contract",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6566,12 +6570,12 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": null,
+  "active_session": "S137",
   "game_source_sha": "36c0bea5ed8c2d498fa5668743880b22759596da",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": null,
-  "artifact_writer": null,
+  "artifact_writer": "root_S137_readonly_art_contract",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "session": "S128",
@@ -7036,5 +7040,15 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
   },
-  "s136_closeout": "/workspace/work/s136-final-apk-v14-20261106/closeout.json"
+  "s136_closeout": "/workspace/work/s136-final-apk-v14-20261106/closeout.json",
+  "historical_active_aliases_before_S137": {
+    "status": "S136_closed_local_APK_ready_Drive_transfer_HELD",
+    "session": "S136",
+    "current_session": "S136",
+    "active_session": null,
+    "root_writer": null,
+    "root_lease": null,
+    "scope": "FinalV14 exactGame898 packaging/update/privacy/localhandoff complete; privateDrive transferHELD100MiB. NoGame/source/artintegrationchange.",
+    "next_action": "PhysicalUPDATE/playtest verifiedlocalV14 andreportactualfeedback; remainingexistingopportunities boundedfundedREADONLY source-backed/artintegrationreview, no repeatedbuild/upload/unchangedsuites. Allwritersreleased; hardstop08:00London6Nov/noextension."
+  }
 }
