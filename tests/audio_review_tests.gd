@@ -37,6 +37,7 @@ func _run() -> void:
 		menu._go_to("res://Scenes/AudioReview.tscn")
 		await scene_changed
 		var desk = current_scene
+		_check(not quit_on_go_back, "Android Back is handled inside the review desk")
 		_check(desk.available, "real review assets loaded")
 		_check(not desk.mix_player.playing and not desk.reference_player.playing, "opening never autoplays")
 		_check(desk.synchronized.stream_count == 4, "four parts use one synchronized stream")
@@ -109,6 +110,7 @@ func _run() -> void:
 		desk.back_to_menu()
 		await scene_changed
 		_check(current_scene.scene_file_path == "res://main_menu.tscn", "back returns to game menu")
+		_check(quit_on_go_back, "menu recovers normal Android Back behavior")
 	for path in sentinels:
 		_check(FileAccess.get_file_as_string(path) == sentinels[path], "review preserved save bytes: " + path)
 		if originals[path] == null:

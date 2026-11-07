@@ -20,6 +20,7 @@ var reference_mode := false
 var available := false
 var playback_position := 0.0
 var transport_state := "stopped"
+var previous_quit_on_back := true
 var play_button: Button
 var compare_button: Button
 var status_label: Label
@@ -39,6 +40,8 @@ static func assets_available() -> bool:
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	previous_quit_on_back = get_tree().quit_on_go_back
+	get_tree().quit_on_go_back = false
 	available = assets_available()
 	_create_players()
 	_build_desk()
@@ -317,6 +320,7 @@ func back_to_menu() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
 
 func _exit_tree() -> void:
+	get_tree().quit_on_go_back = previous_quit_on_back
 	if is_instance_valid(mix_player):
 		mix_player.stop()
 	if is_instance_valid(reference_player):
