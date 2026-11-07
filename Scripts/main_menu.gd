@@ -10,6 +10,7 @@ const MUTED := Color("#9BA5B2")
 const SAVE_PATH := "user://tour_save.json"
 const BAND_PATH := "user://band_profile.json"
 const PROFILE_PATH := "user://player_profile.json"
+const AudioReview = preload("res://Scripts/audio_review.gd")
 
 var message_label: Label
 var profile_name := "Roadie"
@@ -112,6 +113,8 @@ func _build_screen(community: bool) -> void:
 		if has_save:
 			_button(column, "START A NEW BAND", _new_game, false)
 		_button(column, "COMMUNITY & PROFILE", func() -> void: _build_screen(true), false)
+		if (OS.has_feature("editor") or OS.has_feature("last_bus_review")) and AudioReview.assets_available():
+			_button(column, "LAST BUS GONE · REVIEW DESK", func() -> void: _go_to("res://Scenes/AudioReview.tscn"), false)
 		_button(column, "QUIT", _quit_game, false)
 
 	message_label = _label(column, VERSION_LABEL + "  //  UK GRASSROOTS", 13, MUTED)
