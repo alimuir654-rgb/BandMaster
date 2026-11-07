@@ -18,10 +18,10 @@ static func button(text: String,primary: bool=false,color: Color=PAPER) -> Butto
  var result:=Button.new();result.text=text;result.custom_minimum_size.y=52
  result.size_flags_horizontal=Control.SIZE_EXPAND_FILL;result.mouse_filter=Control.MOUSE_FILTER_PASS
  result.add_theme_font_override("font",FONT);result.add_theme_font_size_override("font_size",20)
- for state in ["normal","hover","pressed","disabled","focus"]:
+ for state in ["normal","hover","pressed","hover_pressed","disabled","focus"]:
   var style: StyleBoxFlat=stock(GOLD if primary else color,12)
   if state=="hover":style.bg_color=style.bg_color.lightened(0.1)
-  if state=="pressed":style.bg_color=style.bg_color.darkened(0.15)
+  if state in ["pressed","hover_pressed"]:style.bg_color=style.bg_color.darkened(0.15)
   if state=="disabled":style.bg_color=Color("9a998e")
   if state=="focus":
    style.bg_color=Color.TRANSPARENT;style.border_color=Color("fff7d8");style.set_border_width_all(3)
