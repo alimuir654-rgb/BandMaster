@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1919008,
-    "sha256": "d81ff5a9d2a226ad745d6329144f9a5ea5654092bab5240bed55172938f98534"
+    "bytes": 1928495,
+    "sha256": "e73638ae4aac33cec2e088d6cd073f1ae2d6dd138f4a77a90ba8fadbf85ab7dc"
   },
   "lesson_ids": [
     "BM-25",
@@ -1085,7 +1085,7 @@
     "TMP_cap": 1048576,
     "TMP_floor": 629145600,
     "RAM_root": "/dev/shm/bandmaster-s144-poster-20261107",
-    "RAM_source_native_cap": 402653184,
+    "RAM_source_native_cap": 469762048,
     "full_engine_writer_Xorg_RSS_cap": 629145600,
     "untouched_cgroup_headroom": 805306368,
     "scope": "Source/nativeproof only. BeforeAPKscope freshcompletefunding andcommittedpackagingpreflight; nooldproducerresume. Same-source importedartifacts only hash-bound regular privatecopies; no coldimportclaim.",
@@ -1099,8 +1099,8 @@
       "curatedsource": 152,
       "importtargets": 129,
       "QA_UID_editor_cache": 24,
-      "nativePNG": 24,
-      "failedproof_XDG": 55
+      "nativePNG": 32,
+      "failedproof_XDG": 111
     },
     "readonly_pagecache_advice": "D144/readonly-memory-advice.json all867FDstatsexact; nofilebyteschanged",
     "before_allocation_remeasure_required": true
@@ -1123,5 +1123,18 @@
     "guards": "Root erase/resize, save/Continue, busy/dirty, paid and priority routes unchanged; no owner/model/save fields changed. Native fresh/Continue/resize/suggestedaction whole-task added.",
     "funding": "Existing20MiB primary/384MiB RAM/600MiB fullRSS/768MiB untouched reserve; one small script and QA within remaining complete caps.",
     "independent_review": "Existing CHECK reviewer must review exact source routing/predisposition before final early/native whole proof"
+  },
+  "remaining_proof_funding": {
+    "prospective_at": "2026-11-07T10:35:27.431325+00:00",
+    "prior384MiB_overrun_HELD": true,
+    "observed_owned": 402829312,
+    "observed_headroom": 1487953920,
+    "workspacefree": 653561856,
+    "TMPfree": 637751296,
+    "remaining_owned_to_cap": 66932736,
+    "RSS_cap_unchanged": 629145600,
+    "untouched_reserve_unchanged": 805306368,
+    "scope": "Only final distinct activity-route/landing importantstates, four-view whole-task, original73/88, configuredentry and protection/closeout; nativePNG32MiB bound, retained failures, no APK/audio/art/newruntime allocation. Primary20MiB/TMP1MiB cap and629145600 floors unchanged.",
+    "before_engine_fresh_complete_guard": true
   }
 }
