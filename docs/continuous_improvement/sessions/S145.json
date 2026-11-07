@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "S145",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Latest direct Continue after owner accepts posterdirectionsofar and root proposes3distinct demo songs/recordedparts. ProgressONE bounded offlineprerecordedpilot; no genericownercreativewait. No APK/Game scope or automaticqueue/extension.",
+  "baseline_sha": "d47e4dee1114b3e38040a02e91f4057b1144dcb5",
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 1950851,
+    "sha256": "0a0c858715c812bb8a6af27e27ed25e6592ebd0ee74f0cb6b8cc3ec29e2a9447"
+  },
+  "lesson_ids": [
+    "BM-14",
+    "BM-33",
+    "BM-40",
+    "BM-45",
+    "BM-46"
+  ],
+  "dominant_issue": "BM-14",
+  "hypothesis": "Coherent rights-cleared recordedphrase/stem source with real sectioncontrast/hook/ending will demonstrate the next musicmethod more usefully than additional variants of the same currentloop. Firstsource/pilot only, no claim3kitsimplemented orrealguitaroriginwithoutsourceevidence.",
+  "target": {
+    "locator": "/workspace/work/s144-poster-foundation-20261107/delivery/S144-writing-room-73f9f23-phone.png",
+    "original_sha256": "a582c7b231eca70106d28be32c9e3175ac9221b83a449920add36b795a9091d0",
+    "pixels_inspected": true,
+    "meaning": "ActualcurrentWritingroom contextonly, NOT musicalqualitytarget. Musicaltarget is owner direction:coherent songs/variedtimbre/raw-dark identity andclearsections."
+  },
+  "controlled_comparison": "Same originalcomposition/stems/key/tempo for two <=70second preview arrangements, with written section/cue map and explicit controlmapping. Do notreplacelegacySongIDs/mix savedcareers. Record licensedcreatorandmasterorigin; no inventedhuman/listening/deviceacceptance.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/S145.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "Source867rowhash/protected54Scripts3UID418OGG11JSON pre/post, zeroGamechanges",
+    "Boundedoriginaldownload max8audiofiles/max64MiBaggregate; denyauthbypass/newaccount/payment",
+    "Existingffprobe/ffmpeg rawexit/logs/fullduration/channels/levels/tail/provenance+license inspect",
+    "Compareactualtwoarrangements samegain/key/tempo; internalmetrics nothumanlistening; independent source/predesign/finalreview",
+    "Selectedstereopreviewonly existingprivateDropbox withexactlocalhash/MIME/bytes readback; no public/grants/rawbanks/sourcehistory",
+    "Closedassetmanifest/finalissuegate/primaryGitcheck/actualresourcefloors/writerrelease"
+  ],
+  "stop_condition": "55minute boundedlease ends 2026-11-07T16:50:59.202372+00:00; noautomaticextension. Beforeacquisition require actualprimarysource/licenceandindependentreview. Twoineffectivemethods change/HOLD. No Game/APIintegration or paidservice/dependency/bank/unverifiedguitarsampling. Ifunavailableassets, deliverboundedsource-backeddecision/sectioncontract ratherthanmislabelnewmusic.",
+  "root_lease": {
+    "owner": "root_S145_recorded_music",
+    "expires_at": "2026-11-07T16:50:59.202372+00:00"
+  },
+  "resource_plan": {
+    "primary_cap": 1048576,
+    "primary_start_free": 630697984,
+    "TMP_cap": 6291456,
+    "TMP_start_free": 637755392,
+    "fixed_floor": 629145600,
+    "new_RAM_root": "/dev/shm/bandmaster-s145-recorded-song-pilot-20261107",
+    "RAM_cap": 134217728,
+    "all_audio_writer_RSS_cap": 201326592,
+    "untouched_cgroup_reserve": 805306368,
+    "RAM_categories_MiB": {
+      "all_original_downloads_including_failed": 64,
+      "decoded_or_mix_intermediates": 16,
+      "selected_MP3_OGG_outputs": 8,
+      "one_failed_proof_tail": 32,
+      "QA_provenance_scratch": 8
+    },
+    "original_file_max_bytes": 8388608,
+    "original_file_count_max": 8,
+    "source_asset_gates": "CC0/CCBY4clearinteractiveappmix/distribution rights+master/composition/sourceprovenance beforemedia. Publicpreview ifused mustlabelproviderlossy, nevermaster. No login-wall/robots/proxybypass.",
+    "TMP_only": "Fallbackprivateexact2reviewcopies<=3MiBeach, notcriticalGit",
+    "primary_only": "Compactsession/source/license/QA/review/research/closeout/primaryGitmetadata; no largeaudio",
+    "futureAPK_or_Game_requires_newfunding": true,
+    "primary_amendment": "Freshactualfunding1MiB complete compactreview/research/log/sourceprotection/Git/closeout tail beforefirstcommit/media; sourceprimaryfloorpreserved."
+  },
+  "protection": "All867curated/54originalScriptsincl3UID/418OGGs11JSON/oldartfonts/hardware/owners/Finance/schema exact; no source/native/engine/model/APKchanges or closedproducer resumes. Newmusicassets offlineONLY.",
+  "research_only_existing": [
+    "/workspace/work/review-roadmap-20261101/research.json",
+    "/workspace/work/review-roadmap-20261101/research-log.md"
+  ],
+  "source_leads_readonly": [
+    "Orion144bpmD#minorCC0sourcepack butlofi/synthoriginandlogin originalHOLD",
+    "BellOceanjaspertineCCBY4sourcehasstemsmentioned; actualmedia/sourceorigin/size notyetverified",
+    "AlbumDBTomMcKenzie/Aalto10songindierockfolkCCBY4; actualfileaccess/size notyetverified",
+    "OpenLoopsCC0fourbars; instrumentoriginunverified, notsongformproof"
+  ],
+  "reviewer_role": "Existing game_design_research perCHECK; read-only predsource/finalDreview <=49152B; noengine/Git/source/Pages/mediaacquisition byhelper"
+}

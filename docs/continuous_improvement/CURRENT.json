@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "S144",
+  "session": "S145",
   "scope": "Ownerapproved poster-adventure/source-performance and closer mockup texture/type. No new music/APK scope.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,7 +10,7 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S144_closed_source73f_verified_poster_previews_delivered_no_new_APK",
+  "status": "S145_offline_recorded_song_pilot_preflight",
   "next_action": "Fresh fully funded bounded READ-ONLY audit of sealed V16/source76, then independent artifact review and same private Dropbox delivery ONLY if accepted. Use a NEW private log/TMP/XDG audit workspace; old S143 producer/cache stays immutable. No engine/import/export/rebuild or old-producer resume.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
@@ -4425,7 +4425,10 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": null,
+  "root_lease": {
+    "owner": "root_S145_recorded_music",
+    "expires_at": "2026-11-07T16:50:59.202372+00:00"
+  },
   "source_implementation_status": "NONE; implemented sourcef9 is verified and delivered as V15.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -6325,7 +6328,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root_S145_recorded_music",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6564,7 +6567,7 @@
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
   "source_writer": null,
-  "artifact_writer": null,
+  "artifact_writer": "root_S145_recorded_music",
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
     "status": "private_Dropbox_delivered_verified_metadata",
