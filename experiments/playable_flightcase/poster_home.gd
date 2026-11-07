@@ -35,12 +35,20 @@ static func render(host,parent: Node,compact: bool) -> void:
  for requirement in view.get("requirements",[]):
   progress.append("%s %s/%s" % [str(requirement.label),str(requirement.current),str(requirement.target)] if requirement.get("recorded",true) else str(requirement.label)+" / NOT RECORDED")
  milestone.add_child(P.label(" · ".join(progress) if not progress.is_empty() else str(view.get("description","")),18))
+ var week: Dictionary=host.BandWeek.offer(state)
+ var needs_week: bool=week.get("ok",false) and week.get("changed",false)
+ if needs_week:
+  var editable: bool=false
+  for person in host.Situation.members(state):
+   if person.editable:editable=true;break
+  needs_week=editable and host.Booking.guard_commitment(state,"recorded_context",0).get("ok",false)
  var next: VBoxContainer=P.block(parent,P.BLUE)
  next.add_child(P.label("WHAT'S THE NEXT MOVE?",26,P.PAPER))
  var route: String=str(view.get("route",""))
  var reasons: Dictionary={"create":"A set starts with songs. Bring another original into the room.","tighten":"Give the set some time together. Check who's around before you book the room.","gigs":"Get out of the practice room. See what's on the live circuit.","calendar":"Check the diary and plan the next band day."}
- next.add_child(P.label(str(reasons.get(route,view.get("description","Choose where the band goes next."))) if view.get("ok",false) else str(view.get("message","Review the current band goal.")),20,P.PAPER))
- if view.get("ok",false) and not route.is_empty():next.add_child(host._button(str(view.get("route_label","LET'S GO"))+"  →","PosterNextAction",host._goal_preparation.bind(route),true))
+ next.add_child(P.label("Find an evening that fits. Put work and family commitments in the diary together." if needs_week else (str(reasons.get(route,view.get("description","Choose where the band goes next."))) if view.get("ok",false) else str(view.get("message","Review the current band goal."))),20,P.PAPER))
+ if needs_week:next.add_child(host._button("PLAN OUR WEEK  →","PosterNextAction",host._open_situation,true))
+ elif view.get("ok",false) and not route.is_empty():next.add_child(host._button(str(view.get("route_label","LET'S GO"))+"  →","PosterNextAction",host._goal_preparation.bind(route),true))
  parent.add_child(host._button("CHOOSE SOMETHING ELSE  →","PosterActivitiesAction",host._toggle_poster_activities))
  var details:=VBoxContainer.new();details.visible=host.poster_details_open;details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  parent.add_child(host._button("BAND PULSE & GOALS  −" if host.poster_details_open else "BAND PULSE & GOALS  +","PosterPulseAction",host._toggle_poster_details));parent.add_child(details)

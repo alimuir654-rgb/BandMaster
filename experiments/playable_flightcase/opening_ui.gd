@@ -47,6 +47,7 @@ var _new_band_dialog: Control
 var _settings_sheet: Control
 var _practice_view: Control
 var _recruit_view: Control
+var _career_landing := true
 var _career_view: Control
 var _fresh_name_reactions := false
 var _safe_content_rect := Rect2()
@@ -123,7 +124,7 @@ func _on_viewport_resized() -> void:
 func _on_content_boundary_changed() -> void:
  # The practice view owns its responsive reflow. Keep its pending form values
  # and presentation-only overlay alive instead of replacing the whole host.
- if not showing_menu and ((setup.screen=="play" and is_instance_valid(_practice_view)) or (setup.screen=="recruit" and is_instance_valid(_recruit_view))):
+ if not showing_menu and ((setup.screen=="play" and (is_instance_valid(_practice_view) or is_instance_valid(_career_view))) or (setup.screen=="recruit" and is_instance_valid(_recruit_view))):
   return
  var focused: Control = get_viewport().gui_get_focus_owner()
  var semantic_name := ""
@@ -549,6 +550,7 @@ func _begin_new() -> void:
 
 func _continue() -> void:
  if setup.load_draft():
+  _career_landing=true
   identity_draft = {}
   response = ""
   showing_menu = false
@@ -1120,11 +1122,17 @@ func _summary() -> void:
 
 func _start_playing() -> void:
  if is_instance_valid(_formation_moment):_formation_moment.cancel()
- var week: Dictionary=BandWeek.offer(setup.game.career)
  if setup.start_playing():
+  _career_landing=true
   _render()
-  if week.ok and week.changed:_open_band_planning()
 func _practice() -> void:
+ if _career_landing:
+  _career_landing=false
+  # Held source keeps its original explicit review route. Ordinary entry starts
+  # at the band summary without constructing the tactile writing room.
+  if _workbench_priority()!="review":
+   call_deferred("_open_career_desk")
+   return
  var panel = Recruit.new()
  panel.game = setup.game
  panel.opening_owner = setup
@@ -1155,9 +1163,9 @@ func _focus_band_planning(id: int) -> void:
  _career_view.call("_restore_focus",target)
 
 func _open_career_desk() -> void:
- if setup.screen!="play" or not is_instance_valid(_practice_view) or bool(_practice_view.get("session_busy")):
+ if not is_inside_tree() or showing_menu or setup.screen!="play" or setup.game.phase!="play" or (is_instance_valid(_practice_view) and bool(_practice_view.get("session_busy"))):
   return
- _practice_view.hide()
+ if is_instance_valid(_practice_view):_practice_view.hide()
  var first_open: bool=not is_instance_valid(_career_view)
  if not is_instance_valid(_career_view):
   var desk = CareerDesk.new()
@@ -1191,13 +1199,14 @@ func _return_from_career(activity: String = "") -> void:
  if RadioVisit.locked(setup.game.career):
   if is_instance_valid(_career_view):_career_view.call("_navigate","recording")
   return
- if _workbench_priority()=="show":
+ if LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":
   if is_instance_valid(_career_view):_career_view.call("_navigate","gigs")
   return
  if is_instance_valid(_career_view) and bool(_career_view.get("busy")):
   return
  if is_instance_valid(_career_view):
   _career_view.hide()
+ if not is_instance_valid(_practice_view):_practice()
  if is_instance_valid(_practice_view):
   # Keep the actual pane and its pending title/setup values. Only refresh the
   # view of the shared, already-saved career after a shop action.
