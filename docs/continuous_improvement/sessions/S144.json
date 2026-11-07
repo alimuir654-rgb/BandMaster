@@ -1186,8 +1186,8 @@
     "visual_primary_categories_MiB": {
       "generated_original_max": 3,
       "primary_Git_blob_max": 3,
-      "selected_native_copies": 8,
-      "source_QA_closeout_Git_metadata": 6
+      "selected_native_copies": 10,
+      "source_QA_closeout_Git_metadata": 4
     },
     "post_consolidation_RAM_cap": 490733568,
     "post_consolidation_all_engine_Xorg_writer_RSS_cap": 620756992,

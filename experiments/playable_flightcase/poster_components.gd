@@ -64,12 +64,12 @@ static func button(text: String,primary: bool=false,color: Color=PAPER) -> Butto
   result.add_theme_stylebox_override(state,style)
   result.add_theme_color_override("font_"+state+"_color",foreground)
  var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=GOLD;focus.set_border_width_all(2)
- result.add_theme_stylebox_override("focus",focus);result.add_theme_color_override("font_color",foreground)
+ result.add_theme_stylebox_override("focus",focus);result.add_theme_color_override("font_color",foreground);result.add_theme_color_override("font_focus_color",foreground)
  return result
 static func quiet(text: String) -> Button:
  var result: Button=button(text)
  for state in ["normal","hover","pressed","hover_pressed","disabled"]:result.add_theme_stylebox_override(state,StyleBoxEmpty.new());result.add_theme_color_override("font_"+state+"_color",PAPER)
- result.add_theme_color_override("font_color",PAPER);result.add_theme_font_override("font",FONT)
+ result.add_theme_color_override("font_color",PAPER);result.add_theme_color_override("font_focus_color",PAPER);result.add_theme_font_override("font",FONT)
  return result
 static func block(parent: Node,color: Color=PAPER,margin: int=20) -> VBoxContainer:
  var panel:=PanelContainer.new();panel.add_theme_stylebox_override("panel",stock(color,margin));panel.mouse_filter=Control.MOUSE_FILTER_PASS;panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;parent.add_child(panel)
