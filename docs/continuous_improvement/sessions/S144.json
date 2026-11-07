@@ -10,22 +10,22 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1910774,
-    "sha256": "13c27bad3732b5efb2c83803835b6692ea02cb5daacb81ad07bd6314fdbd6c67"
+    "bytes": 1911991,
+    "sha256": "37cb27594b028cfb579b14d507d830fc9a860346b4daef89e440162c310f794d"
   },
   "lesson_ids": [
     "BM-25",
     "BM-33",
     "BM-30"
   ],
-  "dominant_issue": "BM-33",
+  "dominant_issue": "BM-25",
   "target": {
     "locator": "/workspace/generated_images/exec-f5a960a1-55bc-4733-b0fe-8f583e7e3b70.png",
     "original_sha256": "65114e71eedb76fa1732f499c47a710ba17415081f02b76982c454fbf98c70a8",
     "pixels_inspected": true
   },
-  "hypothesis": "Metadata-onlysharing of11identicalclosedcachegroups restoresfloor andfundsnewposterwork withoutlosing originalbytes/paths/history.",
-  "controlled_comparison": "All55actualpathhashes/fullstat beforevsafter; onlyapprovedinode/ctime/mtime/nlink exceptions. No Game/native/music change inthisstoragephase.",
+  "hypothesis": "Poster-led factbasedhome/activity/demo UI increases clarity; remove idle deepworkbench/audio validation fromscroll path while retaining full request/play/integrity/owner guards. Recorded music options researched separately, no new bank.",
+  "controlled_comparison": "Current76 vs candidate same actualband/save/viewport, early390/1280 beforefullfourview. Recordload/idleprocess/scrolldelta/audio-contextcounts; desktopnative is not physicalPixel9. Savedrecording cover stablefromactualband/demo identifiers, immutabletrack snapshots, no schema/economy change.",
   "allowed_paths": [
     "docs/continuous_improvement/sessions/S144.json",
     "docs/continuous_improvement/CURRENT.json",
@@ -34,7 +34,15 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
     "docs/asset_base/REVIEW_INDEX.md",
-    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/recording_desk.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/poster_components.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/demo_cover.gd"
   ],
   "external_exact_paths": [
     {
@@ -1054,12 +1062,46 @@
   "fixed_floor": 629145600,
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S144.json",
-    "Exact55hash/statprecheck; atomiclink+replace33paths;55posthash/modeuidgid/statchecks; actualreclaim; sourceandcacheimmutability retained"
+    "Rootonly exactGodot4.7.2/Dummy/privateXDG/oneGLflock; newprivate source rows863, hashboundregularimporttargetcopies; NEVERengineoldS143 producer.",
+    "Baseline/candidateprofiling load/idle/audio calls/scroll at390/1280, no claimedphysicalphoneFPS.",
+    "Fourviewhome/action/demo/writing whole-task nativepointer/key/touch/scroll/dirtyexit; realFSfailure/retry/typedreload/73/88/sourceprotection. Risk-scoped standards; no repeatedunchangedsuitesforactivity.",
+    "Independentpredesign/earlyimportantstates/finalexactsource review. ResearchONLYoldresearch.json/research-log.md; preserveallpriordata."
   ],
-  "stop_condition": "Any stalehash/stat/group/ownership mismatchHOLD; no engine/import/sourcebytewrites/cleanup/gc/repack/reset; sourceimplementationrequiresnewcompletebudget/preflight.",
+  "stop_condition": "Beforeedit committedphasepreflight+normalgate; beforeengine completeRAM/floor/reservefundcheck orHOLD. One shippingwriter/GL. No newbanks/paiddeps/engineupgrade/main/PR199/prod/reset/gc/cleanup oroldcachemutable reuse. Honestheldresults; aftertwoineffectiveattemptschangemethod. No physical/listening/owneracceptanceclaims.",
   "root_lease": {
-    "owner": "root_S144_storage",
-    "expires_at": "2026-11-07T11:36:47.875436+00:00"
+    "owner": "root_S144_poster",
+    "expires_at": "2026-11-07T12:46:33.695324+00:00"
   },
-  "proposal_sha256": "ddb0c1aab888430c067f0165ef9df796dfbfc2a333b07cb043f8ddf713aac7d2"
+  "proposal_sha256": "ddb0c1aab888430c067f0165ef9df796dfbfc2a333b07cb043f8ddf713aac7d2",
+  "storage_phase": "completed55postchecksPASS;mutationwrapperHELD_lastfreeequality;see storage-postverification.json",
+  "source_baseline_manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+  "source_baseline_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+  "source_phase": "prospective_beforecode",
+  "protected": "54originalScripts3UID/418OGG11JSON/rawartfonts/6inertmeters/Finance/saveunknownschema/originaltypedonceownership; no musicbank/sourceasset acquisition",
+  "storage_plan": {
+    "primary_cap": 20971520,
+    "workspace_floor": 629145600,
+    "TMP_cap": 1048576,
+    "TMP_floor": 629145600,
+    "RAM_root": "/dev/shm/bandmaster-s144-poster-20261107",
+    "RAM_source_native_cap": 402653184,
+    "full_engine_writer_Xorg_RSS_cap": 629145600,
+    "untouched_cgroup_headroom": 805306368,
+    "scope": "Source/nativeproof only. BeforeAPKscope freshcompletefunding andcommittedpackagingpreflight; nooldproducerresume. Same-source importedartifacts only hash-bound regular privatecopies; no coldimportclaim.",
+    "primary_categories_MiB": {
+      "source_Git": 6,
+      "QA_receipts_review_research": 5,
+      "failedproof_closeout": 4,
+      "futuretail": 5
+    },
+    "RAM_categories_MiB": {
+      "curatedsource": 152,
+      "importtargets": 129,
+      "QA_UID_editor_cache": 24,
+      "nativePNG": 24,
+      "failedproof_XDG": 55
+    },
+    "readonly_pagecache_advice": "D144/readonly-memory-advice.json all867FDstatsexact; nofilebyteschanged",
+    "before_allocation_remeasure_required": true
+  }
 }
