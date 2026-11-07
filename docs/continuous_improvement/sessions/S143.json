@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1894560,
-    "sha256": "d7a75cee7967a557ca2c018cb565e8e49cb42e4814c5d8b7bc316f3c2b9fbc8f"
+    "bytes": 1895827,
+    "sha256": "858fedfe5f0c7295ac43bf6646de168e4efca4fa2792d70f2674f4a6234ca1ca"
   },
   "lesson_ids": [
     "BM-15",
@@ -395,5 +395,34 @@
     "existing_packtmp_SHA256": "75e406d8a361609259babc454166078f698ab3c3d096ef70d87e21161c968395",
     "must_not_change_existingpacktmp": true,
     "no_more_exports_under_old_contract": true
+  },
+  "bwrap_zero_write_probe_v2": {
+    "status": "prospective",
+    "purpose": "Existingtool perprocessprivateTMP capability only; noengine/export/filewrite test",
+    "prior_probe": "bwrap-capability-v1.json raw1 oracleheld, namespacecreated; no kernel/securitydenial",
+    "same_command_privileges": true,
+    "persistent_RW_only": [
+      "currentRT",
+      "currentA",
+      "child/tmp mappedhostA/tmp"
+    ],
+    "private_pseudo_RW_only": {
+      "/dev/null": "CHR1:3",
+      "/dev/zero": "CHR1:5",
+      "/dev/full": "CHR1:7",
+      "/dev/random": "CHR1:8",
+      "/dev/urandom": "CHR1:9",
+      "/dev/tty": "CHR5:0",
+      "/dev/pts": "private devpts withdevdifferentfromhost"
+    },
+    "all_other_RW_mounts": "HOLD",
+    "host_old_packtmp_and_source_stats_unchanged": true,
+    "close_all_nonstdio_FDs": true,
+    "cgroup_limit_same": true,
+    "output_RAM_bound": 1048576,
+    "no_new_export_or_RAMcap_authority": true,
+    "independent_predesign": "game_design_research conditionalCLEAR currentthread",
+    "raw_v1_retained": true,
+    "kernel_or_security_denial": "HOLD no workaround"
   }
 }
