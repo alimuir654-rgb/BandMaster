@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1899187,
-    "sha256": "d9588a9add8ec10622747f3c6289e47c8f6ad37059909836395f695327342cf0"
+    "bytes": 1900565,
+    "sha256": "5ae9502d300b6839a561e0d9aee3d229596eef195922a77d3aa1fdca755a570f"
   },
   "lesson_ids": [
     "BM-15",
@@ -526,5 +526,33 @@
     },
     "failure": "Any input/source/privacy/unexplainedasset mismatch HOLD; no stripping/fifth export/sourcechange/automaticbudgetincrease",
     "lease_unchanged": true
+  },
+  "SDK_partitioned_measurement_v6": {
+    "at": "2026-11-07T03:00:40.614941+00:00",
+    "status": "prospective_beforecode",
+    "prior_assembly": {
+      "status": "HELD",
+      "raw_exit": 1,
+      "ERROR_lines": [],
+      "assertion": "Bounded streaming assembly at300s",
+      "no_SDK_steps_executed": true,
+      "partial": {
+        "path": "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16/assembled.apk",
+        "bytes": 32949747,
+        "allocated": 32952320,
+        "SHA256": "0c8ebe3b287fd7db9e9825a95bf78d296c9d5ae94445b9f4b9243ca4bc2e6620"
+      },
+      "validated_payload_unchanged": true,
+      "recorded_at": "2026-11-07T03:00:40.614941+00:00"
+    },
+    "method": "Before/periodic/final full-R guard; exact immutable outside-A physical plus complete current-A physical at eachchunk. Install existingLinuxinotify onall2416outsideA directories+Rroot beforefreeze; anyMODIFY/ATTRIB/CREATE/DELETE/MOVE/self/overflow HOLD. No access/readatime events. Fullstatpaths/blocks inventory includingmissing/new/replaced verifiedperiodically andfinally. Rootonlywriter/zeroengines; expectedallSDKwritesA/privateTMP/XDG. No newdependency/kernel/securitysettings.",
+    "funding": "32952320oldpartial +199704576two actualpayloads +3x146800640newnormal/signfailAPKs=673058816<=708837376existingallpackfiles; plus481345536baseline+25165824allwork=1179570176<=1215348736SDKphase;1.25GiBglobalunchanged. KernelwatchmemoryunderliveRSS/headroom. No newexport.",
+    "new_assembly": "android-v16/assembled-v6.apk",
+    "all_caps_floors_and_lease_unchanged": true,
+    "Git_peak_sequence": "Twoindex temporaries373470+newobjects/logs65536=439006peak; <=actualremaining. These index temporaries are internalGit and notretainedartifact. AfterGit removes ownlocktemps, persistentnewGit<=65536 plus toolhistory32768+allremainingcompactmetadata114688 fits. Do not sum mutually exclusive sequential peaks or forcefullcanonicalGit.",
+    "max_Git_peak": 439006,
+    "new_persistent_Git_and_history_and_final_tail": 212992,
+    "final_Git_metadata_hold_preserved": true,
+    "independent_review": "game_design_research conditionalmessageonly; exactinotifynote forthcoming"
   }
 }
