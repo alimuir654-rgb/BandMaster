@@ -195,7 +195,7 @@ static func _archive(host, parent: Node, compact: bool) -> void:
  var state: Dictionary=host.game.career
  var sessions: Array=Rules.sessions(state)
  var heading: VBoxContainer=host._paper(parent,compact)
- _copy(host,heading,"YOUR DEMOS","RecordingArchiveHeading",28)
+ _copy(host,heading,"YOUR RECORDS. YOUR NOISE.","RecordingArchiveHeading",26)
  if not str(host.notice).is_empty(): _copy(host,heading,str(host.notice),"RecordingNotice")
 
  if sessions.is_empty():
@@ -221,7 +221,7 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
  var hero:=HBoxContainer.new();hero.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_theme_constant_override("separation",18);parent.add_child(hero)
  var sleeve:=VBoxContainer.new();sleeve.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_child(sleeve)
  var band: Label=Poster.label(str(host.game.career.get("band_name","YOUR BAND")).to_upper(),34);band.name="DemoSleeveBand_"+str(index);sleeve.add_child(band)
- var art:=Cover.new();art.name="DemoSleeveArt_"+str(index);art.custom_minimum_size.y=148 if compact else 210;art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""));art.set_meta("recording_id",str(session.get("id","")));sleeve.add_child(art)
+ var art:=Cover.new();art.name="DemoSleeveArt_"+str(index);art.custom_minimum_size=Vector2(280,280) if compact else Vector2(320,320);art.caption="DEBUT DEMO" if index==0 else "DEMO %d"%(index+1);art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""));art.set_meta("recording_id",str(session.get("id","")));sleeve.add_child(art)
  var heading: String="DEBUT DEMO" if index==0 else "DEMO %d" % (index+1)
  _copy(host,sleeve,heading,"RecordingSessionHeading_"+str(index),30)
  _copy(host,sleeve,"DAY %d · %d TRACKS" % [int(session["day"]),list.size()] if session.has("day") else "DATE NOT RECORDED · %d TRACKS" % list.size(),"DemoSleeveDate_"+str(index),18)

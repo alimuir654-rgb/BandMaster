@@ -1,5 +1,6 @@
 extends VBoxContainer
 ## The writing room: live native controls, a local take and one original paid owner.
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Recipe = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
 const Dial = preload("res://experiments/playable_flightcase/mixing_control.gd")
 const Audio = preload("res://experiments/playable_flightcase/mixing_audio.gd")
@@ -71,41 +72,26 @@ func configure(state_owner,reduced: bool=false) -> void:
  set_meta("mixing_desk",true)
 
 static func _surface_style() -> StyleBoxTexture:
- if _surface==null:
-  var image: Image=FACE.get_image()
-  image.resize(600,400,Image.INTERPOLATE_LANCZOS)
-  _surface=ImageTexture.create_from_image(image)
- var style:=StyleBoxTexture.new()
- style.texture=_surface;style.set_texture_margin_all(25);style.set_content_margin_all(16)
- return style
+ return Poster.stock(Poster.INK,16)
 
 static func _plate_style(focus: bool=false) -> StyleBoxTexture:
- if _plate==null:
-  # The independent raised cap supplies an action surface; the screw-ended
-  # nameplate remains reserved for control captions.
-  var image: Image=Dial.SOURCE.get_image().get_region(Rect2i(1050,193,423,199))
-  image.resize(304,143,Image.INTERPOLATE_LANCZOS)
-  _plate=ImageTexture.create_from_image(image)
- var style:=StyleBoxTexture.new()
- style.texture=_plate;style.set_texture_margin_all(18)
- style.content_margin_left=12;style.content_margin_right=12
- style.content_margin_top=8;style.content_margin_bottom=8
- style.modulate_color=Color(1.2,1.09,0.87) if focus else Color.WHITE
+ var style: StyleBoxTexture=Poster.stock(Poster.GOLD,12)
+ if focus:style.modulate_color=Color(1.04,1.04,1.04)
  return style
 
 func _label(words: String,points: int=16,paper: bool=false) -> Label:
- var label: Label=C.label(words,points,"notepaper" if paper else "flightcase")
- label.add_theme_font_override("font",FONT)
+ var label: Label=Poster.label(words,points,Poster.INK if paper else Poster.PAPER)
+ label.add_theme_font_override("font",Poster.display_font() if points>=22 else FONT)
  return label
 
 func _button(words: String,id: String,callback: Callable,brass: bool=false) -> Button:
- var button: Button=C.button(words)
+ var button: Button=Poster.button(words,brass)
  button.name=id;button.custom_minimum_size.y=48
  button.add_theme_font_override("font",FONT)
  button.add_theme_font_size_override("font_size",17)
  button.mouse_filter=Control.MOUSE_FILTER_PASS
  if brass:
-  for state in ["normal","hover","pressed","disabled"]:button.add_theme_stylebox_override(state,_plate_style(state in ["hover","pressed"]))
+  for state in ["normal","hover","pressed","hover_pressed","disabled"]:button.add_theme_stylebox_override(state,_plate_style(state in ["hover","pressed"]))
   button.add_theme_stylebox_override("focus",_plate_style(true))
   for state in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_hover_pressed_color"]:button.add_theme_color_override(state,Color("21170f"))
  button.pressed.connect(callback);_buttons.append(button)
@@ -128,10 +114,10 @@ func _ready() -> void:
 func _build() -> void:
  var header:=HBoxContainer.new();header.add_theme_constant_override("separation",4);add_child(header)
  var back: Button=_button("‹","MixingBack",request_exit.bind("career"));back.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;back.custom_minimum_size.x=48;header.add_child(back)
- var heading: Label=_label("THE WRITING ROOM",22);heading.name="MixingHeading";heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(heading)
+ var heading: Label=_label("THE WRITING ROOM",24);heading.name="MixingHeading";heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(heading)
  _sound=_button("♫ ON","MixingSound",func():_stop_audio();sound_requested.emit();_refresh_audio());_sound.size_flags_horizontal=Control.SIZE_SHRINK_END;_sound.custom_minimum_size.x=58;header.add_child(_sound)
  var menu: Button=_button("PAUSE","MixingPauseButton",_show_pause);menu.size_flags_horizontal=Control.SIZE_SHRINK_END;menu.custom_minimum_size.x=54;header.add_child(menu)
- var identity:=PanelContainer.new();identity.name="MixingProjectStrip";identity.add_theme_stylebox_override("panel",Paper.scorecard());identity.mouse_filter=Control.MOUSE_FILTER_PASS;add_child(identity)
+ var identity:=PanelContainer.new();identity.name="MixingProjectStrip";identity.add_theme_stylebox_override("panel",Poster.stock(Poster.PAPER,14));identity.mouse_filter=Control.MOUSE_FILTER_PASS;add_child(identity)
  var identity_rows:=VBoxContainer.new();identity_rows.add_theme_constant_override("separation",1);identity.add_child(identity_rows)
  _band=_label("",20,true);_band.name="MixingBand";identity_rows.add_child(_band)
  _title=LineEdit.new();_title.name="MixingTitle";_title.placeholder_text="Name your original";_title.max_length=48;_title.custom_minimum_size.y=44
@@ -162,7 +148,7 @@ func _build() -> void:
  var lyrical:=HBoxContainer.new();lyrical.name="MixingLyricalDirection";lyrical.add_theme_constant_override("separation",4);surface.add_child(lyrical)
  for i in range(3):
   var button: Button=_button(Recipe.LABELS[6][i],"MixingTheme_%d" % i,_choose.bind("theme",i));lyrical.add_child(button);_themes.append(button)
- _note_panel=PanelContainer.new();_note_panel.name="MixingMemberCard";_note_panel.mouse_filter=Control.MOUSE_FILTER_PASS;_note_panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_note_panel.add_theme_stylebox_override("panel",Paper.scorecard());_spread.add_child(_note_panel)
+ _note_panel=PanelContainer.new();_note_panel.name="MixingMemberCard";_note_panel.mouse_filter=Control.MOUSE_FILTER_PASS;_note_panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_note_panel.add_theme_stylebox_override("panel",Poster.stock(Poster.PAPER,14));_spread.add_child(_note_panel)
  var note_body:=VBoxContainer.new();note_body.add_theme_constant_override("separation",6);_note_panel.add_child(note_body)
  var person:=HBoxContainer.new();person.add_theme_constant_override("separation",8);note_body.add_child(person)
  _portrait=TextureRect.new();_portrait.name="MixingMemberPortrait";_portrait.custom_minimum_size=Vector2(48,48);_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE;person.add_child(_portrait)

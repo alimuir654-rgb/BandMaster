@@ -177,7 +177,7 @@ func _paper(parent: Node, compact: bool) -> VBoxContainer:
  return body
 
 func _copy(parent: Node, value: String, points: int = 16, muted: bool = false) -> Label:
- var result: Label = C.paper_label(value,points,muted)
+ var result: Label = Poster.label(value,maxi(16,points),Poster.INK) if page in ["home","recording"] else C.paper_label(value,points,muted)
  result.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  parent.add_child(result)
  return result
@@ -208,7 +208,7 @@ func _render() -> void:
    continue
   remove_child(child)
   child.queue_free()
- add_child(C.background())
+ add_child(Poster.background() if page in ["home","recording"] else C.background())
  var margin := MarginContainer.new()
  margin.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  var compact: bool = size.x<840 or size.x<size.y
@@ -225,7 +225,7 @@ func _render() -> void:
  var nav := HBoxContainer.new()
  nav.name = "CareerNavigation"
  nav.add_theme_constant_override("separation",5)
- nav.visible = page!="home" and page!="band_moment" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
+ nav.visible = page not in ["home","recording"] and page!="band_moment" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
@@ -303,6 +303,10 @@ func _render() -> void:
   else:call_deferred("_restore_focus",_pending_focus)
 
 func _header(parent: Node) -> void:
+ if page in ["home","recording"] and not receipt_open:
+  var top:=HBoxContainer.new();top.add_theme_constant_override("separation",12);top.custom_minimum_size.y=48;parent.add_child(top)
+  var date: Label=Poster.label("DAY %d  ·  £%d"%[int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER);date.name="CareerDate";top.add_child(date);_poster_pause(top)
+  return
  var row := HBoxContainer.new()
  row.custom_minimum_size.y=70.0 if size.y<800 and size.x>size.y else 80.0
  row.add_theme_constant_override("separation",12)
@@ -327,8 +331,25 @@ func _header(parent: Node) -> void:
  words.add_child(funds)
  if page=="recording" and not receipt_open:_poster_pause(row)
 
+func _poster_destination(destination: String) -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ if destination in ["home","make"]:
+  poster_activities_open=destination=="make"
+  _navigate("home")
+ else:_navigate(destination)
+
+func _poster_navigation(parent: Node) -> void:
+ var line:=HSeparator.new();parent.add_child(line)
+ var row:=HBoxContainer.new();row.add_theme_constant_override("separation",5);parent.add_child(row)
+ for entry in [["HOME","home"],["MAKE","make"],["GIGS","gigs"],["BAND","band"]]:
+  var button: Button=Poster.quiet(entry[0]);button.name="PosterNav_"+entry[1];button.custom_minimum_size.y=52;button.disabled=busy
+  var selected: bool=(page=="home" and entry[1]==("make" if poster_activities_open else "home")) or (page=="recording" and entry[1]=="make")
+  if selected:
+   for key in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color"]:button.add_theme_color_override(key,Poster.GOLD)
+  button.pressed.connect(_poster_destination.bind(entry[1]));row.add_child(button)
+
 func _poster_pause(parent: Node) -> void:
- var pause: Button=Poster.button("•••")
+ var pause: Button=Poster.quiet("•••")
  pause.name="CareerMenuAction";pause.tooltip_text="Pause and menu";pause.custom_minimum_size=Vector2(52,48);pause.size_flags_horizontal=Control.SIZE_SHRINK_END;pause.disabled=busy
  pause.pressed.connect(_menu);parent.add_child(pause)
 
@@ -756,7 +777,9 @@ func _songs_page(parent: Node, compact: bool) -> void:
  body.add_child(_button("BACK TO WRITING  ›","CareerSongPracticeAction",_practice.bind("create"),true))
 
 func _decision_dock(parent: Node, compact: bool) -> void:
- if page=="home" and not receipt_open:return
+ if page=="home" and not receipt_open:
+  _poster_navigation(parent)
+  return
  var dock := _box(5)
  dock.name = "CareerDecisionDock"
  dock.custom_minimum_size.x = minf(900.0,maxf(280.0,size.x-(24 if compact else 40)))
@@ -819,7 +842,9 @@ func _decision_dock(parent: Node, compact: bool) -> void:
     dock.add_child(C.label("Need £%d more." % (fee-int(game.career.get("cash",0))),14))
    elif owned and int(Gear.record(game.career,selected_item).get("condition",-1))>=100:
     dock.add_child(C.label("Already in excellent condition.",14))
- if page=="recording" and not receipt_open:return
+ if page=="recording" and not receipt_open:
+  if not RadioVisit.locked(game.career):_poster_navigation(parent)
+  return
  var navigation := HBoxContainer.new()
  navigation.visible=not (page=="recording" and RadioVisit.locked(game.career))
  navigation.add_theme_constant_override("separation",8)

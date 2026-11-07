@@ -1,19 +1,25 @@
 extends Control
-## Deterministic original screen-print art keyed to saved recording identity.
-## Native labels stay outside this drawing; never a screenshot-as-interface.
+## Original text-free sleeve illustration plus separate live native lettering.
+const P=preload("res://experiments/playable_flightcase/poster_components.gd")
 var identity: String=""
+var caption: String="DEBUT DEMO"
+var _words: Label
 func _ready() -> void:
- custom_minimum_size.x=160
- if custom_minimum_size.y<1:custom_minimum_size.y=210
- size_flags_horizontal=Control.SIZE_EXPAND_FILL;mouse_filter=Control.MOUSE_FILTER_IGNORE
+ if custom_minimum_size.x<1:custom_minimum_size.x=120
+ if custom_minimum_size.y<1:custom_minimum_size.y=120
+ mouse_filter=Control.MOUSE_FILTER_IGNORE
+ _words=P.label(caption,28,P.PAPER);_words.name="NativeSleeveLettering";_words.add_theme_font_override("font",P.MARKER);_words.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT;add_child(_words)
+ resized.connect(_layout);_layout()
+func _layout() -> void:
+ var edge: float=minf(size.x,size.y)
+ if _words!=null:
+  _words.visible=edge>=180
+  _words.position=Vector2((size.x-edge)*0.5+edge*0.28,(size.y-edge)*0.5+edge*0.67)
+  _words.size=Vector2(edge*0.66,edge*0.28)
+  _words.add_theme_font_size_override("font_size",clampi(int(edge*0.105),20,42))
+ queue_redraw()
 func _draw() -> void:
- var seed_value: int=absi(identity.hash());var gold:=Color("e7b83d");var ink:=Color("191b1a")
- draw_rect(Rect2(Vector2.ZERO,size),ink)
- var center:=size*Vector2(0.5,0.48);var radius: float=minf(size.x*0.36,size.y*0.39)
- draw_circle(center,radius,gold)
- var slope: float=float(seed_value%9-4)*0.04
- for i in range(6):
-  var y: float=size.y*(0.18+0.105*i)
-  draw_line(Vector2(0,y),Vector2(size.x,y+size.x*slope),ink,8+i*2,true)
- draw_circle(center,radius*0.16,Color("eee8d8"))
- draw_line(Vector2(size.x*0.08,size.y*0.9),Vector2(size.x*0.92,size.y*0.9),gold,4,true)
+ var edge: float=minf(size.x,size.y)
+ var rect:=Rect2((size-Vector2(edge,edge))*0.5,Vector2(edge,edge))
+ draw_texture_rect(P.cell(5),rect,false)
+ set_meta("art_rect",rect);set_meta("art_source_region",Rect2(1024,512,512,512));set_meta("no_aspect_stretch",true)

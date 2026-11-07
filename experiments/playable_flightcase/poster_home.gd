@@ -1,60 +1,68 @@
 extends RefCounted
-## Saved facts and existing guarded routes; no new director or career writes.
+## Saved facts, original guarded routes, native poster composition.
 const P=preload("res://experiments/playable_flightcase/poster_components.gd")
 const DirectionCard=preload("res://experiments/playable_flightcase/direction_card.gd")
 const Launcher=preload("res://experiments/playable_flightcase/career_launcher.gd")
 const Recordings=preload("res://experiments/playable_flightcase/recording_rules.gd")
+const Cover=preload("res://experiments/playable_flightcase/demo_cover.gd")
 static func render(host,parent: Node,compact: bool) -> void:
  var state: Dictionary=host.game.career
- var mast: Label=P.label(str(state.get("band_name","YOUR BAND")).to_upper(),54 if compact else 74,P.PAPER);mast.name="PosterBandMasthead";parent.add_child(mast)
+ var width: float=maxf(280,host.size.x-60)
  if host.poster_activities_open:
-  parent.add_child(P.label("MAKE TODAY COUNT",26,P.GOLD))
+  var heading: VBoxContainer=P.block(parent)
+  heading.add_child(P.label("WHAT'S THE PLAN?",42))
   Launcher.render(host,parent,compact)
-  parent.add_child(host._button("BACK TO YOUR BAND  ↑","PosterActivitiesAction",host._toggle_poster_activities))
+  var back: Button=P.quiet("BACK TO YOUR BAND  ↑");back.name="PosterActivitiesAction";back.pressed.connect(host._toggle_poster_activities);parent.add_child(back)
   return
- parent.add_child(P.label(str(host.game.genre).to_upper()+" · "+str(state.get("vibe","Unpolished")).to_upper(),18,P.GOLD))
- var columns:=GridContainer.new();columns.columns=1 if compact else 2;columns.size_flags_horizontal=Control.SIZE_EXPAND_FILL;columns.add_theme_constant_override("h_separation",14);columns.add_theme_constant_override("v_separation",12);parent.add_child(columns)
- var facts: VBoxContainer=P.block(columns,P.GOLD)
- var fanrow:=HBoxContainer.new();fanrow.add_theme_constant_override("separation",14);facts.add_child(fanrow)
- var fans: Label=P.label("%d FANS" % int(state.get("fans",0)),32);fans.name="PosterFans";fanrow.add_child(fans)
- var buzz: Label=P.label("BUZZ %s  /  PRESS %s" % [str(state.get("buzz","NOT RECORDED")),str(state.get("press","NOT RECORDED"))],18);buzz.name="PosterPublicReach";fanrow.add_child(buzz)
- var demos: Array=Recordings.sessions(state)
- var demo_line: String="DEMO / STILL TO COME"
- if not demos.is_empty():
-  var latest: Dictionary=demos.back()
-  demo_line="DEMO / "+("OUT LOCALLY" if latest.get("released",false) else "READY TO RELEASE")+" · %d TRACKS" % (latest.get("tracks",[]) as Array).size()
- var demo: Label=P.label(demo_line,20);demo.name="PosterDemoStatus";facts.add_child(demo)
+ var mast: Label=P.masthead(str(state.get("band_name","YOUR BAND")).to_upper(),width,76 if compact else 96);mast.name="PosterBandMasthead";parent.add_child(mast)
+ var view: Dictionary=host._goal_direction()
+ var hero: VBoxContainer=P.block(parent,P.GOLD)
+ var title: Label=P.label(str(view.get("title","MAKE A START")).to_upper(),38 if compact else 44);title.name="PosterMilestone";hero.add_child(title)
+ var progress: PackedStringArray=[]
+ for requirement in view.get("requirements",[]):progress.append("%s %s/%s" % [str(requirement.label),str(requirement.current),str(requirement.target)] if requirement.get("recorded",true) else str(requirement.label)+" / NOT RECORDED")
+ hero.add_child(P.label(" · ".join(progress) if not progress.is_empty() else str(view.get("description","")),18))
+ var records: Array=Recordings.sessions(state)
+ var latest: Dictionary=records.back() if not records.is_empty() else {}
+ var demo_box: VBoxContainer=P.block(parent)
+ var row:=HBoxContainer.new();row.add_theme_constant_override("separation",14);demo_box.add_child(row)
+ if not latest.is_empty():
+  var art:=Cover.new();art.custom_minimum_size=Vector2(92,92);art.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;art.identity=str(latest.get("id","legacy"));row.add_child(art)
+ var detail:=VBoxContainer.new();detail.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(detail)
+ detail.add_child(P.label("DEBUT DEMO" if records.size()<=1 else "DEMO %d"%records.size(),26))
+ var demo_text: String="DEMO / STILL TO COME" if latest.is_empty() else "DEMO / "+("OUT LOCALLY" if latest.get("released",false) else "READY TO RELEASE")+" · %d TRACKS"%(latest.get("tracks",[]) as Array).size()
+ var demo: Label=P.label(demo_text,18);demo.name="PosterDemoStatus";detail.add_child(demo)
+ if latest.is_empty():detail.add_child(P.label("2–3 originals. Something to say.",18))
+ var stats:=GridContainer.new();stats.columns=3;stats.size_flags_horizontal=Control.SIZE_EXPAND_FILL;stats.add_theme_constant_override("h_separation",5);parent.add_child(stats)
+ for entry in [["FANS",str(state.get("fans",0)),P.GOLD],["LOCAL BUZZ",str(state.get("buzz","?")),P.PAPER],["PRESS",str(state.get("press","?")),P.RUST]]:
+  var block: VBoxContainer=P.block(stats,entry[2]);var color: Color=P.PAPER if entry[2]==P.RUST else P.INK
+  var value: Label=P.label(str(entry[1]),34,color);value.name="PosterFans" if entry[0]=="FANS" else ("PosterPublicReach" if entry[0]=="LOCAL BUZZ" else "PosterPress");block.add_child(value)
+  if entry[0]=="FANS":value.set_meta("public_fans",state.get("fans",0))
+  block.add_child(P.label(entry[0],17,color))
  var booking: Variant=state.get("booked_show",{})
  if booking is Dictionary and not booking.is_empty():
-  var show: Label=P.label("NEXT / %s · DAY %s" % [str(booking.get("venue_snapshot",{}).get("venue",booking.get("venue","SAVED SHOW"))),str(booking.get("day","NOT RECORDED"))],20);show.name="CareerSavedShowAgreement";facts.add_child(show)
- else:facts.add_child(P.label("NEXT SHOW / THE DIARY'S OPEN",20))
- var milestone: VBoxContainer=P.block(columns)
- var view: Dictionary=host._goal_direction()
- var title: Label=P.label("NEXT MILESTONE / "+str(view.get("title","YOUR BAND")),24);title.name="PosterMilestone";milestone.add_child(title)
- var progress: PackedStringArray=[]
- for requirement in view.get("requirements",[]):
-  progress.append("%s %s/%s" % [str(requirement.label),str(requirement.current),str(requirement.target)] if requirement.get("recorded",true) else str(requirement.label)+" / NOT RECORDED")
- milestone.add_child(P.label(" · ".join(progress) if not progress.is_empty() else str(view.get("description","")),18))
- var week: Dictionary=host.BandWeek.offer(state)
- var needs_week: bool=week.get("ok",false) and week.get("changed",false)
+  var ticket: VBoxContainer=P.block(parent,P.BLUE)
+  var date: String="DAY "+str(booking.get("day","NOT RECORDED"));var info: Dictionary=host.CareerDates.info(state,int(booking.get("day",1)))
+  if not info.is_empty():date="%s %d %s"%[str(info.weekday_name).to_upper(),int(info.date),str(info.month_name).to_upper()]
+  var place: Variant=booking.get("venue_snapshot",{});var venue: String=str(place.get("venue",booking.get("venue","SAVED SHOW"))) if place is Dictionary else str(booking.get("venue","SAVED SHOW"))
+  var show: Label=P.label(date+" / "+venue.to_upper(),24,P.PAPER);show.name="CareerSavedShowAgreement";ticket.add_child(show)
+ var week: Dictionary=host.BandWeek.offer(state);var needs_week: bool=week.get("ok",false) and week.get("changed",false)
  if needs_week:
-  var editable: bool=false
+  var editable:=false
   for person in host.Situation.members(state):
    if person.editable:editable=true;break
   needs_week=editable and host.Booking.guard_commitment(state,"recorded_context",0).get("ok",false)
- var next: VBoxContainer=P.block(parent,P.BLUE)
- next.add_child(P.label("WHAT'S THE NEXT MOVE?",26,P.PAPER))
  var route: String=str(view.get("route",""))
- var reasons: Dictionary={"create":"A set starts with songs. Bring another original into the room.","tighten":"Give the set some time together. Check who's around before you book the room.","gigs":"Get out of the practice room. See what's on the live circuit.","calendar":"Check the diary and plan the next band day."}
- next.add_child(P.label("Find an evening that fits. Put work and family commitments in the diary together." if needs_week else (str(reasons.get(route,view.get("description","Choose where the band goes next."))) if view.get("ok",false) else str(view.get("message","Review the current band goal."))),20,P.PAPER))
+ var reasons: Dictionary={"create":"Find the next song. Bring an idea into the room.","tighten":"Who's around? Make time for a run-through.","gigs":"Book a room. Play loud. See who's listening.","calendar":"Get the diary out. Find your next band day."}
+ var next: VBoxContainer=P.block(parent,P.RUST)
+ next.add_child(P.label("YOUR NEXT MOVE",24,P.PAPER))
+ next.add_child(P.label("Find an evening that fits work, family and the band." if needs_week else str(reasons.get(route,view.get("description","Choose where the band goes next."))),18,P.PAPER))
  if needs_week:next.add_child(host._button("PLAN OUR WEEK  →","PosterNextAction",host._open_situation,true))
  elif view.get("ok",false) and not route.is_empty():next.add_child(host._button(str(view.get("route_label","LET'S GO"))+"  →","PosterNextAction",host._goal_preparation.bind(route),true))
- parent.add_child(host._button("CHOOSE SOMETHING ELSE  →","PosterActivitiesAction",host._toggle_poster_activities))
- var details:=VBoxContainer.new();details.visible=host.poster_details_open;details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- parent.add_child(host._button("BAND PULSE & GOALS  −" if host.poster_details_open else "BAND PULSE & GOALS  +","PosterPulseAction",host._toggle_poster_details));parent.add_child(details)
- var paper: VBoxContainer=host._paper(details,compact)
- DirectionCard.goal(host,paper,compact)
+ var choices: Button=P.quiet("Choose something else  →");choices.name="PosterActivitiesAction";choices.pressed.connect(host._toggle_poster_activities);parent.add_child(choices)
+ var pulse: Button=P.quiet("Band pulse & goals  −" if host.poster_details_open else "Band pulse & goals  +");pulse.name="PosterPulseAction";pulse.pressed.connect(host._toggle_poster_details);parent.add_child(pulse)
+ var details:=VBoxContainer.new();details.visible=host.poster_details_open;details.size_flags_horizontal=Control.SIZE_EXPAND_FILL;parent.add_child(details)
+ var paper: VBoxContainer=host._paper(details,compact);DirectionCard.goal(host,paper,compact)
  for entry in [["READINESS","readiness"],["BAND MORALE","morale"],["TENSION","tension"]]:
-  host._copy(paper,str(entry[0]),18)
-  paper.add_child(host.C.meter(int(state.get(str(entry[1]),0)),"notepaper"))
- host._copy(paper,"%d FINISHED ORIGINALS" % int(state.get("songs",0)),18)
+  host._copy(paper,str(entry[0]),18);paper.add_child(host.C.meter(int(state.get(str(entry[1]),0)),"notepaper"))
+  if entry[1]=="tension":host._copy(paper,"Lower means calmer.",16).name="CareerTensionMeaning"
+ host._copy(paper,"%d FINISHED ORIGINALS"%int(state.get("songs",0)),18)
