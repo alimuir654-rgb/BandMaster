@@ -184,6 +184,9 @@ static func dock(host, parent: Node, _compact: bool) -> void:
  if not bool(preview.get("ok",false)):
   var reason: Label=_copy(host,parent,str(preview.get("message","Choose two or three tracks.")),"RecordingEligibility")
   reason.add_theme_color_override("font_color",Color("f0c78b"))
+ if not str(host.notice).is_empty():
+  var failure: Label=_copy(host,parent,str(host.notice),"RecordingDockNotice")
+  failure.add_theme_color_override("font_color",Poster.PAPER)
  _button(host,parent,"RECORD SELECTED  •  £60","RecordingMainAction",commit.bind(host,"record"),true,bool(preview.get("ok",false)))
  var free:=HBoxContainer.new()
  free.add_theme_constant_override("separation",8)
