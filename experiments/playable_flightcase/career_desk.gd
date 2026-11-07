@@ -307,6 +307,10 @@ func _header(parent: Node) -> void:
  row.add_theme_constant_override("separation",12)
  parent.add_child(row)
  row.add_child(C.brand(38.0 if size.y<800 and size.x>size.y else 44.0))
+ if page=="home" and not receipt_open:
+  var date: Label=Poster.label("DAY %d  ·  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER)
+  date.name="CareerDate";date.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT;row.add_child(date)
+  return
  var words := _box(2)
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  row.add_child(words)
