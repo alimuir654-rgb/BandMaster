@@ -7,6 +7,8 @@ const Formation = preload("res://Scripts/formation_catalogue.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_formed_poster.gd")
 const IdentityPress = preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const Feedback = preload("res://experiments/playable_flightcase/ui_audio.gd")
+var audio_feedback: Node
 var setup = Model.new()
 var showing_menu := true
 var settings_open := false
@@ -18,6 +20,8 @@ var chosen_intent: String = "Raw"
 var response: String = ""
 
 func _ready() -> void:
+ audio_feedback = Feedback.shared(get_tree())
+ muted = audio_feedback.muted
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  get_viewport().size_changed.connect(_render)
  _render()
@@ -33,10 +37,11 @@ func _label(s: String,size: int = 16) -> Label:
  l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  return l
 
-func _button(s: String,fn: Callable,family: String = "action",name: String = "") -> Button:
+func _button(s: String,fn: Callable,family: String = "action",name: String = "",cue: String = "click") -> Button:
  var b: Button = Kit.button(s,look,family)
  if not name.is_empty():
   b.name = name
+ audio_feedback.bind_button(b,cue)
  b.pressed.connect(fn)
  return b
 
@@ -184,8 +189,10 @@ func _toggle_settings() -> void:
  settings_open = not settings_open
  _render()
 func _toggle_sound() -> void:
- muted = not muted
- AudioServer.set_bus_mute(0,muted)
+ var error: Error = audio_feedback.set_muted(not audio_feedback.muted)
+ muted = audio_feedback.muted
+ if error != OK:
+  notice = "Sound changed for this session, but the setting couldn't be saved."
  _render()
 func _home() -> void:
  showing_menu = true
@@ -223,7 +230,7 @@ func _genre() -> void:
  var footer := HBoxContainer.new()
  footer.add_theme_constant_override("separation",12)
  root.add_child(footer)
- footer.add_child(_button("‹ MENU",_home,"tab","GenreBackAction"))
+ footer.add_child(_button("‹ MENU",_home,"tab","GenreBackAction","back"))
  footer.add_child(_button("FIND YOUR PEOPLE ›",_to_recruit,"action","GenreNextAction"))
 
 func _choose_genre(value: String) -> void:
@@ -266,7 +273,7 @@ func _formed() -> void:
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  column.add_child(budget)
  column.add_child(_button("NAME THE BAND ›",_start_naming,"action","MilestoneNextAction"))
- column.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
+ column.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction","back"))
  var footroom := Control.new()
  footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(footroom)
@@ -330,8 +337,8 @@ func _name() -> void:
   var rethink: Button = _button("ONE MORE IDEA (FREE)",_rethink,"tab","NameRethinkAction")
   rethink.disabled = setup.name_revisions>=1
   body.add_child(rethink)
-  body.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction"))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
+  body.add_child(_button("LOCK THE NAME ›",_lock,"action","NameLockAction","confirm"))
+ body.add_child(_button("BACK TO MENU",_home,"tab","","back"))
 
 func _set_intent(v: String) -> void:
  chosen_intent = v
@@ -379,7 +386,7 @@ func _milestone_two() -> void:
  settlement.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  body.add_child(settlement)
  body.add_child(_button("LOGO & VIBE ›",_start_identity,"action","NameMilestoneNextAction"))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
+ body.add_child(_button("BACK TO MENU",_home,"tab","","back"))
  var footroom := Control.new()
  footroom.size_flags_vertical = Control.SIZE_EXPAND_FILL
  root.add_child(footroom)
@@ -417,11 +424,11 @@ func _identity() -> void:
  # Keep the decision control in the shell, not in the scrolling choice list.
  if not response.is_empty():
   body.add_child(_label(response,14))
- body.add_child(_button("BACK TO MENU",_home,"tab"))
+ body.add_child(_button("BACK TO MENU",_home,"tab","","back"))
  var action_holder := CenterContainer.new()
  action_holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  root.add_child(action_holder)
- var finish: Button = _button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction")
+ var finish: Button = _button("FINISH THE BAND ›",_finish,"action","IdentityFinishAction","confirm")
  finish.tooltip_text = "Save this band identity and continue to the completed lineup."
  finish.custom_minimum_size.x = maxf(280.0,minf(760.0,size.x - (40.0 if size.x<720 else 80.0)))
  finish.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -470,7 +477,7 @@ func _summary() -> void:
  action_column.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  action_holder.add_child(action_column)
  action_column.add_child(_button("FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
- action_column.add_child(_button("BACK TO MENU",_home,"tab"))
+ action_column.add_child(_button("BACK TO MENU",_home,"tab","","back"))
 func _start_playing() -> void:
  if setup.start_playing():
   _render()

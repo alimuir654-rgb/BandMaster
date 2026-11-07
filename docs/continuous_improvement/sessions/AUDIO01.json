@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 142372,
-    "sha256": "d5a6a474316e8a9aceee31cea1e0306b2ddb9a0466471f2e7553dbdcf408e9a1"
+    "bytes": 147262,
+    "sha256": "12729748f8eaeb2e559c0731a3516029fc3641af40a79ab3e4b65ddf9ea03222"
   },
   "target": {
     "locator": "components/control_atlas/art/control_action_flightcase_active.png; existing tactile button inspected, retain unchanged. Audio target is short understated mechanical feedback, silence on hover/focus. No audio mockup supplied.",
@@ -53,5 +53,24 @@
   ],
   "started_at": "2026-11-07T14:56:05.566825+00:00",
   "scope_end": "2026-11-07T16:56:05.566825+00:00",
-  "source_gap": "GitHub branch b2647df is S40 Oct30; Dropbox has Nov7 v16 APK and S144 PNGs (73f9f23 commit not found on GitHub). User asked asynchronously for latest source location; integration limited to isolated portable module."
+  "source_gap": "GitHub branch b2647df is S40 Oct30; Dropbox has Nov7 v16 APK and S144 PNGs (73f9f23 commit not found on GitHub). User asked asynchronously for latest source location; integration limited to isolated portable module.",
+  "progress": {
+    "checks": {
+      "audio": 42,
+      "native_audio_input": 14,
+      "gameplay": 73,
+      "opening": 88,
+      "native_journeys": 4
+    },
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "native_renderer": "Mesa25.0.7 llvmpipe GL4.5",
+    "evidence_dir": "/tmp/bandmaster-audio-evidence",
+    "source_tree_sha": "recorded after implementation commit",
+    "manual_listening": "Pending; Dummy output used for native tests; original PCM exported.",
+    "limitations": [
+      "v16/S144 source missing; only isolated S40 branch integration",
+      "pre-existing capture shutdown leaks reproduced on baseline, #170",
+      "remote CI and Android listening not claimed"
+    ]
+  }
 }

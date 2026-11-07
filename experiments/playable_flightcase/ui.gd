@@ -8,6 +8,8 @@ const Base = preload("res://experiments/character_cast/vendor/recruitment_catalo
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
 const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
+const Feedback = preload("res://experiments/playable_flightcase/ui_audio.gd")
+var audio_feedback: Node
 var game = Game.new()
 var onboarding_state = null
 var opening_owner = null
@@ -23,6 +25,7 @@ var recap_details_expanded := false
 var look := "flightcase"
 
 func _ready() -> void:
+ audio_feedback = Feedback.shared(get_tree())
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  get_viewport().size_changed.connect(_rebuild)
  _rebuild()
@@ -50,8 +53,9 @@ func _panel(body: Control, kind := "panel") -> PanelContainer:
  panel.add_child(body)
  return panel
 
-func _button(title: String, action: Callable, family: String = "action") -> Button:
+func _button(title: String, action: Callable, family: String = "action", cue: String = "click") -> Button:
  var button: Button = Kit.button(title,look,family)
+ audio_feedback.bind_button(button,cue)
  button.pressed.connect(action)
  return button
 
@@ -100,7 +104,7 @@ func _rebuild() -> void:
  status.add_theme_color_override("font_color",Color("f0c78b"))
  root_box.add_child(status)
  if onboarding_state != null and game.phase == "recruit":
-  var back := _button("‹  CHANGE GENRE",func(): back_requested.emit(),"tab")
+  var back := _button("‹  CHANGE GENRE",func(): back_requested.emit(),"tab","back")
   back.name = "RecruitBackAction"
   root_box.add_child(back)
  if game.phase == "recruit":
@@ -208,7 +212,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   aside.add_child(_label("TALENT USED %d/200  •  %s" % [200-int(onboarding_state.remaining()),"READY" if bool(onboarding_state.ready()) else str(onboarding_state.missing())],14))
  else:
   aside.add_child(_label("TALENT USED %d/200  •  %s" % [game.spent(),"READY" if game.can_start() else Base.missing(game.roster)],14))
- var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch)
+ var start: Button = _button("COMPLETE THE LINEUP" if onboarding_state != null else "START YOUR FIRST PRACTICE",_launch,"action","confirm")
  start.name = "StartAction"
  start.disabled = not (bool(onboarding_state.ready()) if onboarding_state != null else game.can_start())
  # Real source-backed actions live outside the scroll on every viewport.
@@ -253,7 +257,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  actions.custom_minimum_size.x = 0 if mobile else 470
  content.add_child(_panel(actions))
  if opening_owner != null:
-  actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab"))
+  actions.add_child(_button("‹ MENU",func(): back_requested.emit(),"tab","back"))
  actions.add_child(_label("FIRST PRACTICE",22))
  actions.add_child(_label("SONGS %d  •  READINESS %d/100  •  MORALE %d  •  TENSION %d" % [int(game.career.get("songs",0)),int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))],14))
  actions.add_child(_label("WRITE AN ORIGINAL  •  SESSION %d OF 3" % [int(game.career.get("song_draft_progress",0))+1],18))
