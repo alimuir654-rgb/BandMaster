@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1942080,
-    "sha256": "755b3ed233789f8e6148b3b6a178abb87893d0706d693ddf2296e7f0b2b1e8a8"
+    "bytes": 1944736,
+    "sha256": "8f3af35c216861e430955c13cfcd2be4f1ff0e030eb57e74d27fd212e980185f"
   },
   "lesson_ids": [
     "BM-25",
@@ -1227,5 +1227,21 @@
     "owned_RAM_total_cap_unchanged": 490733568,
     "RAM_rebalance": "10MiB of unspent28MiB material/import category reserved for PNG instead; same total cap, full RSS592MiB+untouched768MiB remain. No editor retry, sourceatlas3MiB actual.",
     "primary_final_selected_copy_reservation": "Max2MiB additional copies only after latestsource final visualpass; current printcopies9.82MiB. Same visual20MiB total categories3original/3Git/12selected/2metadata. Fullstatvfs floor mandatory."
+  },
+  "one_final_feedback_repair": {
+    "path": "experiments/playable_flightcase/recording_desk.gd",
+    "observed": "Exactexistingnoticeabove currentscroll invisibleatfailure",
+    "change": "Mirrorexacthost.noticeinstickyselectdock, explicitlypapercolor, no newstate/save/controller",
+    "independent_predesign": "existingCHECKrevieweractualfinalphonefailure androot sourceinspection; CLEAR, no genericownerwait",
+    "current733_retained": "phone/tall252executionstrict andwidecapacityHOLD do notprove changedsource. All4wholejourneys rerun newsource.",
+    "funding_receipt": "/workspace/work/s144-poster-foundation-20261107/final-complete-funding-v2.json",
+    "owned_RAM_cap": 566231040,
+    "process_RSS_cap": 587202560,
+    "native_PNG_pool_cap": 109051904,
+    "untouched_reserve": 805306368,
+    "new_tail_MiB": 71,
+    "full_funding_PASS_before_source_edit": true,
+    "old_wide_attempt": "HELD permanently, no promotion",
+    "deadline_unchanged": "2026-11-07T12:46:33.695324+00:00"
   }
 }
