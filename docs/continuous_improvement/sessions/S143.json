@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1900565,
-    "sha256": "5ae9502d300b6839a561e0d9aee3d229596eef195922a77d3aa1fdca755a570f"
+    "bytes": 1904029,
+    "sha256": "db93fa8174ef97555ded6a876f27d2e033ca0c7375026bde058aba528225e081"
   },
   "lesson_ids": [
     "BM-15",
@@ -156,7 +156,7 @@
     "RAM_existing_preserved_physical_baseline": 455544832,
     "colour_additional_RAM_cap": 37748736,
     "native_PNG_cap": 83886080,
-    "packaging_files_cap": 708837376,
+    "packaging_files_cap": 799387648,
     "APK_each_cap": 146800640,
     "packaging_work_cap": 25165824,
     "SDK_Java_heap_MiB": 128,
@@ -195,7 +195,7 @@
       "funding": "1000B prospective transfer from unspent final metadata reserve; absoluteprimary/RAM/TMP/floor caps unchanged",
       "method": "Keep sealed unexecuted v1 unchanged; tiny v2 subclass adds explicit caption IGNORE/NONE runtime guard; concise new provenance only. All prior assertions inherited."
     },
-    "SDK_phase_persistent_cap": 1215348736,
+    "SDK_phase_persistent_cap": 1305899008,
     "packaging_exact_phase_budget": {
       "actual_prepack_owned_RAM": 481345536,
       "export_complete_ZIP_and_work": 620806144,
@@ -554,5 +554,47 @@
     "new_persistent_Git_and_history_and_final_tail": 212992,
     "final_Git_metadata_hold_preserved": true,
     "independent_review": "game_design_research conditionalmessageonly; exactinotifynote forthcoming"
+  },
+  "SDK_owned_tree_v7": {
+    "at": "2026-11-07T03:08:16.187337+00:00",
+    "status": "HELD_predesign_only_not_implemented_children_race",
+    "prior_held_assembly": {
+      "status": "HELD",
+      "raw_exit": 1,
+      "ERROR_lines": [],
+      "assertion": "Bounded streaming assembly300s",
+      "no_SDK_steps_executed": true,
+      "partial": {
+        "path": "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16/assembled-v6.apk",
+        "bytes": 90550078,
+        "allocated": 90550272,
+        "SHA256": "07d041bd7a7e824b3d872f0f02707754605b32c5ba8100d9c4c1d686d4913787"
+      },
+      "outside_A_complete_inventory_after": true,
+      "source_payload_unchanged": true,
+      "recorded_at": "2026-11-07T03:08:16.187337+00:00"
+    },
+    "method": "Exact recursive /proc/<ownedPID>/task/*/children all thread children; RSS each process once with PIDidentity/PPid guards, no unrelatedglobalprocess scan. Real child+grandchild+thread-createdchild fixture must match old global PIDsets. LiveoutsideA2417watchers/frozenstats/all existingresourceassertions retained. No frequency/limit reduction.",
+    "funding": "Exact sealed additionalpartial90,550,272B funded prospectively from126,828,544B unspent space between existingSDKphase andglobalRAM cap. Sameglobal1,342,177,280B. NewSDKphase1,305,899,008B includes both sealedpartials,2payloads,3new140MiBAPK maxima and24MiBtotalwork. No closedcap reuse/cleanup.",
+    "actual_headroom_before": 2182012928,
+    "actual_R_physical": 813338624,
+    "complete_remaining_RAM_plus_RSS_plus_reserve": 1836834816,
+    "new_assembly": "android-v16/assembled-v7.apk",
+    "primary_Git_changedmethod": "Primary-only hash-object/mktree/commit-tree/update-ref with exactoldSHA, only Sessionleaf; thenone update-index cacheinfo preservingallotherindexentries. No reset/TMPGit/newbranch/repack. Maxoneindex187KiB+64KiBobjects/logs=262144B peak; future32KiBhistory+114688metadata afterlockrelease. FinalallcanonicalGit remainsHELD.",
+    "primary_peak_cap": 262144,
+    "all_floors_globalRAM_RSS_time_lease_unchanged": true,
+    "failure": "Any fixture/source/resource/assembly/SDK/audit failureHOLD. No automatic furtherattempt/capraise/export."
+  },
+  "SDK_child_free_assembly_v7": {
+    "at": "2026-11-07T03:09:23.731175+00:00",
+    "status": "prospective_beforecode",
+    "method": "Optimise ONLY inspected purePython streaming assembly. Before/periodic/end global scanner must report selfonly. Whileassembly active Pythonaudit hook denies subprocess/Popen/fork/posix_spawn/system/exec; one livePythonthread, /proc/self/task children capability+emptychecked and samePIDstartidentityeachchunk; actual selfVmRSS is complete producer in thisexplicit nochildphase. AllSDKsubprocesses andfinalauditKEEP originalglobal1635process scanner. Allperchunklimits/livewatch/floors/headroom/time unchanged.",
+    "recorded_predesign": "game_design_research conditionalsmaller-methodCLEAR currentthread",
+    "sequential_primary_peak": 262144,
+    "later_primary_persistent_plus_history_tail": 212992,
+    "old_general_traversal_not_adopted": true,
+    "same_funding_as_SDK_owned_tree_v7": true,
+    "new_assembly": "android-v16/assembled-v7.apk",
+    "single_attempt_then_HOLD": true
   }
 }
