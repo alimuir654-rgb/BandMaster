@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1905205,
-    "sha256": "346ea3a1fba4408f038a628d28f4478cb4530c3134a38d5254b0eb9e13b841f2"
+    "bytes": 1906883,
+    "sha256": "426b2cf658d4f0f11a7694f2dbabbfd513e2058f01601c4bbab019cd48c7c724"
   },
   "lesson_ids": [
     "BM-15",
@@ -94,7 +94,7 @@
     "floor": 629145600,
     "primary_start_free": 657104896,
     "TMP_start_free": 773120000,
-    "primary_new_cap": 27918336,
+    "primary_new_cap": 27942912,
     "TMP_new_cap": 136314880,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1342177280,
@@ -618,5 +618,30 @@
     "independent_predesign": "game_design_research conditionaltimeboundCLEAR; exact1200completeaggregatecutoff submitted currentthread",
     "one_attempt_then_HOLD": true,
     "no_Game_source_timingtest_or_assertion_change": true
+  },
+  "final_audit_wall_budget_v9": {
+    "at": "2026-11-07T03:31:45.133352+00:00",
+    "status": "prospective_beforeaudit",
+    "producerSDK": "All7actualcommands raw0/ERRORempty completed by03:30:57; no remainingproducerSDK estimate used",
+    "CPU_wall_seconds": 900,
+    "first_audit_start_cutoff": "2026-11-07T03:32:30+00:00",
+    "CPU_start_cutoff": "2026-11-07T03:35:00+00:00",
+    "CPU_finish_cutoff": "2026-11-07T03:50:00+00:00",
+    "full_remaining_max_seconds": 1590,
+    "resource_and_source_assertions_unchanged": true,
+    "reason": "~1663payload\u00d73globalchecks+1663index+shell/runtime checks at observed.073s =>300s was predictablyshort. No audit has run; this is prospectivepackaging wall allowance, notGame/testweakening.",
+    "Git": "CommitSessiononly primarymktree/commit-tree/CAS; exactindex bytes+allstagedentriesunchanged, GIT_OPTIONAL_LOCKS0. SessionindexrefreshHELD/finalcanonicalGitHELD.",
+    "funded_primary_remaining_minima": {
+      "newGit_objects_refs_locks_max": 65536,
+      "retained_audit_v8": 16384,
+      "new_checkpoint_tool": 4096,
+      "newSession_and_event_growth": 0,
+      "allfinalcompactmetadata": 114688
+    },
+    "prospective_primary_additional": 24576,
+    "fully_reserved_primary_end": 629161984,
+    "no_floor_waiver_cleanup_or_retroapproval": true,
+    "lease_unchanged": true,
+    "independent_predesign": "game_design_research conditional900s/currentactualcomplete-tail timing and noindexGitCLEAR; actual7SDKalreadydone receipt resolves earlierfuturetail restriction"
   }
 }
