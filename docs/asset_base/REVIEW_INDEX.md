@@ -98,3 +98,5 @@ Latest scoped result: [C25 approved cast imported and scored](../continuous_impr
 Next: already-authorised overnight connected flight-case gameplay, not another frame or photo session. Read [current night direction](../continuous_improvement/OWNER_DIRECTION_2026-10-29_NIGHT.md) and the mandatory improvement checks. C25 writer release is recorded by its closeout receipt.
 
 Retained history: [C24 reused-source dossier proof](../continuous_improvement/C24_REVIEW.md), [C22 frame recovery](../continuous_improvement/C22_REVIEW.md). C24 native tests passed but its final default publication was held after its expired lease; notebook work is now parked. No claim of owner approval for those frame candidates.
+
+- 7 Nov AUDIO01: [draft PR202](https://github.com/alimuir654-rgb/BandMaster/pull/202), tested source65baedc, [manual audio review](../../experiments/playable_flightcase/AUDIO_REVIEW.md). Isolated source candidate only; latestv16/S144 source gap, listening/Android pending. Native42+14+73+88 and four journeys; existing baseline capture exit leaks retained. No owner approval.

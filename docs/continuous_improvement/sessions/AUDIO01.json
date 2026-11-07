@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "AUDIO01",
+  "status": "closed",
+  "owner_approved": false,
+  "owner_request": "7 Nov: Carry on with next Bandmaster tasks, refining audio; use Git/Dropbox as needed. Separate feature worktree because Dropbox v16/S144 source is unavailable on GitHub. No merge or production edits.",
+  "baseline_sha": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
+  "dominant_issue": "BM-15",
+  "lesson_ids": [
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 148641,
+    "sha256": "214b781601a9702bcf1b51e52d4be49f3bde469c41e5ee871b9d123efbe1776d"
+  },
+  "target": {
+    "locator": "components/control_atlas/art/control_action_flightcase_active.png; existing tactile button inspected, retain unchanged. Audio target is short understated mechanical feedback, silence on hover/focus. No audio mockup supplied.",
+    "original_sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Quiet deterministic original mechanical taps and restrained two-note confirm/back cues make existing candidate controls responsive; bounded voices/cooldown and persistent isolated mute prevent noisy navigation. No continuous music or generated songs.",
+  "controlled_comparison": "Same opening/recruit/practice source/inputs/art/state. Verify actual audio PCM edges, headroom, finite duration; native click, disabled and focus inputs; rebuild survival; muting and restart. Existing 73 gameplay and88 opening tests unchanged.",
+  "stop_condition": "Work only on isolated feature/audio-refinement-20261107. Do not overwrite active development candidate or claim latest v16 integration. At two ineffective attempts change method. No production save/schema/art edits.",
+  "protected": [
+    "all production scenes and Scripts, controls/art/meters, candidate simulation, gameplay saves",
+    "GitHub dual-frame branch and main; old S40 records retain history"
+  ],
+  "allowed_paths": [
+    "experiments/playable_flightcase/**",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/AUDIO01.json",
+    "Godot4.7.2 isolated audio_test.gd, native_test.gd, opening_test.gd",
+    "Native GL real pointer and keyboard audio input checks; four unchanged-view layouts"
+  ],
+  "started_at": "2026-11-07T14:56:05.566825+00:00",
+  "scope_end": "2026-11-07T16:56:05.566825+00:00",
+  "source_gap": "GitHub branch b2647df is S40 Oct30; Dropbox has Nov7 v16 APK and S144 PNGs (73f9f23 commit not found on GitHub). User asked asynchronously for latest source location; integration limited to isolated portable module.",
+  "progress": {
+    "checks": {
+      "audio": 42,
+      "native_audio_input": 14,
+      "gameplay": 73,
+      "opening": 88,
+      "native_journeys": 4
+    },
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "native_renderer": "Mesa25.0.7 llvmpipe GL4.5",
+    "evidence_dir": "/tmp/bandmaster-audio-evidence",
+    "source_tree_sha": "6e8d3adc53196b3b1eb7488f6f76254288a79389",
+    "manual_listening": "Pending; Dummy output used for native tests; original PCM exported.",
+    "limitations": [
+      "v16/S144 source missing; only isolated S40 branch integration",
+      "pre-existing capture shutdown leaks reproduced on baseline, #170",
+      "remote CI and Android listening not claimed"
+    ]
+  },
+  "closed_at": "2026-11-07T15:07:06.753566+00:00",
+  "writer": {
+    "branch": "feature/audio-refinement-20261107",
+    "status": "released",
+    "released_at": "2026-11-07T15:07:06.753566+00:00",
+    "note": "Isolated worktree only; shared candidate lock was not claimed or overwritten."
+  },
+  "closeout": {
+    "tested_sha": "65baedc7f04fa20dec193840854d9fa4eac48b59",
+    "evidence": {
+      "audio_checks": 42,
+      "native_audio_input_checks": 14,
+      "gameplay_checks": 73,
+      "opening_checks": 88,
+      "native_journeys": 4,
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "logs": "/tmp/bandmaster-audio-evidence",
+      "images_opened": [
+        "c27-title-390x844.png",
+        "c27-title-720x1280.png",
+        "c27-title-1280x720.png",
+        "c27-title-1600x900.png",
+        "c27-rehearsal_outcome-390x844.png",
+        "c27-rehearsal_outcome-720x1280.png",
+        "c27-rehearsal_outcome-1280x720.png",
+        "c27-rehearsal_outcome-1600x900.png"
+      ],
+      "project_zip_sha256": "41c3bd463e06ccefd96ee512ed214155e324fe784bd244f901f8825cbd93bd0c",
+      "sample_zip_sha256": "1beb308afa7d1dab757658fc474ca7db45dd0820b349e45c0a93ef1ce21bb8d7",
+      "pr": "https://github.com/alimuir654-rgb/BandMaster/pull/202"
+    },
+    "visual_verdict": "partial",
+    "next_action": "Locate source for Dropbox v16/S144, integrate this portable audio module/bindings there, then listen on actual Android hardware before release.",
+    "new_issue_review": "104 immutable issue events reviewed; audio test startup-timing/userdir failure resolved; capture shutdown leaks reproduced on unchanged baseline and kept open (#170).",
+    "simulated_lenses": {
+      "player": "SIMULATED: cues now acknowledge common inputs; headphone/phone listening still needed.",
+      "audio_design": "SIMULATED: short restrained original taps, safe PCM, no hover/focus spam; subjective approval pending.",
+      "accessibility": "SIMULATED: native pointer/Space verified; muted state persists; no gameplay information depends on sound.",
+      "godot_engineering": "SIMULATED: shared bounded service, no production state/art edits, real parse+behavior checks; old capture cleanup remains.",
+      "release_qa": "SIMULATED: exact tested source65baedc, draftPR202, project/sample ZIP hashes; latest Android source missing, no Android build or remote CI success claimed."
+    },
+    "publication_review": "Initial push auto-review blocked unverified destination. Read-only GitHub checks established connected user alimuir654-rgb owns exact existing origin with admin/push and public visibility. Reviewed scoped diff contained only generated audio/test/docs and no production changes. Same git push then approved and succeeded; no workaround used.",
+    "remote_gate_followup": "First PR gate exposed stale CURRENT S40 pointer; issue logged before correcting only this isolated branch to AUDIO01. Original source code and packaged tested bytes unchanged."
+  }
+}
