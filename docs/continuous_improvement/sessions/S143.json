@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1893263,
-    "sha256": "cbba25d49e79b7bf24525abd86c4dabba770e9cb0195692259bf110058410316"
+    "bytes": 1894560,
+    "sha256": "d7a75cee7967a557ca2c018cb565e8e49cb42e4814c5d8b7bc316f3c2b9fbc8f"
   },
   "lesson_ids": [
     "BM-15",
@@ -95,7 +95,7 @@
     "primary_start_free": 657104896,
     "TMP_start_free": 773120000,
     "primary_new_cap": 27918336,
-    "TMP_new_cap": 135266304,
+    "TMP_new_cap": 136314880,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1073741824,
     "native_phase_persistent_cap": 503316480,
@@ -347,7 +347,7 @@
   },
   "android_packaging_contract_v3": {
     "at": "2026-11-07T01:49:15.871089+00:00",
-    "status": "prospective_beforeedits",
+    "status": "closed_HELD_TMPcap",
     "method_change": "Aftertwoheld producer attempts, derive exactsingleAndroidpreset publiccontract/name from actualpinnedfile; ConfigParser strict/interpolationNone, no guessedfallback; preexecuteSHAs/options thenoneexport. Source76/UI/audio unchanged.",
     "actual_preset": {
       "section": "preset.0",
@@ -381,5 +381,19 @@
       "expires_at": "2026-11-07T03:59:11.316028+00:00",
       "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
     }
+  },
+  "editor_cache_api_diagnostic": {
+    "status": "prospective_beforeedit",
+    "scope": "ONEreadonlyOS/EngineEditorPaths cache/temp API inventory, notexport/import/Game proof",
+    "script": "D143/qa/editor_cache_api_v1.gd",
+    "RAM_additional_cap": 1048576,
+    "full_RSS_cap": 1073741824,
+    "untouched_reserve": 1073741824,
+    "TMP_additional_expected": 0,
+    "forward_existing_TMP_retention_cap": 136314880,
+    "fully_reserved_TMP_end_free": 636805120,
+    "existing_packtmp_SHA256": "75e406d8a361609259babc454166078f698ab3c3d096ef70d87e21161c968395",
+    "must_not_change_existingpacktmp": true,
+    "no_more_exports_under_old_contract": true
   }
 }
