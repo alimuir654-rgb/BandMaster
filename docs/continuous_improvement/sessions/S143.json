@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1878959,
-    "sha256": "49930a6eb2f1d3dc643ddcab108404b144b2f25ad3de6d269419a0d1f64f4ca9"
+    "bytes": 1890799,
+    "sha256": "2907df1f425bd406ab46f086c7da5e17746371d4722a1e8e965292c1a994f54b"
   },
   "lesson_ids": [
     "BM-15",
@@ -84,7 +84,7 @@
     "expires_at": "2026-11-07T03:59:11.316028+00:00",
     "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
   },
-  "source_write_allowed": true,
+  "source_write_allowed": false,
   "engine_execution_allowed": true,
   "APK_artifact_allowed": true,
   "page_write_allowed": true,
@@ -123,8 +123,8 @@
       "existing_work_and_handoff": 1
     },
     "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106",
-    "export_phase_persistent_cap": 738197504,
-    "export_process_tree_RSS_cap": 671088640,
+    "export_phase_persistent_cap": 620806144,
+    "export_process_tree_RSS_cap": 1073741824,
     "primary_budget_incident": {
       "original_cap": 25165824,
       "actual_delta_at_changedmethod": 26214400,
@@ -168,9 +168,9 @@
       "single_final_canonical_Git": 1015808,
       "colour_preflight_and_source_Git": 36864,
       "compact_final_source": 180224,
-      "new_QA_and_provenance": 20000,
+      "new_QA_and_provenance": 21000,
       "new_compact_execution_receipts": 60000,
-      "final_metadata_tail": 60000
+      "final_metadata_tail": 59000
     },
     "primary_tail_amendment_20261107": {
       "at": "2026-11-07T01:05:46.338893+00:00",
@@ -188,6 +188,20 @@
         "this_session_commit": 12288
       },
       "rule": "Prospective remainingtail only; all older bytes/failed histories kept; no floor waiver or retroactive approval. Full final Git precheck must fit measured remaining before mutation. Stop/HOLD if not."
+    },
+    "colour_QA_guard_amendment": {
+      "event": "S143-37e86f8247004fbc8887bfdca1b6af36",
+      "new_total_bundle_cap": 21000,
+      "funding": "1000B prospective transfer from unspent final metadata reserve; absoluteprimary/RAM/TMP/floor caps unchanged",
+      "method": "Keep sealed unexecuted v1 unchanged; tiny v2 subclass adds explicit caption IGNORE/NONE runtime guard; concise new provenance only. All prior assertions inherited."
+    },
+    "SDK_phase_persistent_cap": 1061208064,
+    "packaging_exact_phase_budget": {
+      "actual_prepack_owned_RAM": 481345536,
+      "export_complete_ZIP_and_work": 620806144,
+      "SDK_complete_all_normal_failed_signing_files_and_work": 1061208064,
+      "RSS_and_headroom_unchanged": true,
+      "no_prior_cap_reuse_or_cleanup": true
     }
   },
   "scope_contract": {
@@ -257,7 +271,8 @@
     "producer_guard_amendment": "BeforeanyAPKallocation: SDK/RSS includes Pythonproducerparent+allchildren; assemblycompletephasefunding andperchunkgrowth/buffer/headroom/RSS checks with ZIPclose/index/CDtail reserved. No oldfilesmutated, streamcopies; allraw failuresretained.",
     "asset_container": "NewAPK assets use ordinary losslessZIPDEFLATE regardless compiledZIPcontainer compression; every uncompressedpayloadbyte exact, no music reencode/trim. Officialnonasset shell retains originalcompressionmethods. Complete560MiB artifact/failuretail reserve and144MiB actualAPK guards remain.",
     "build_code_SHA256": "715edcb7c0c563d54b05a8b2c7a04d7cf66ee46c7da693b930255b8511f4ba64",
-    "audit_code_SHA256": "c391291082918b393ca660934c7379e280327b7e61b175c814a14f808ede9f37"
+    "audit_code_SHA256": "c391291082918b393ca660934c7379e280327b7e61b175c814a14f808ede9f37",
+    "status": "ready_current_source76_verified"
   },
   "compact_receipt_amendment": {
     "status": "prospective_changedmethod_after_retainedincident",
@@ -269,7 +284,7 @@
   },
   "desktop_QA_setup_amendment": "Preserveoriginal>20touchscrolloracle; initialactual16/35 gave19available. Genuinewheeltoedge onlywhenneeded, zeroowner/files/recipeeffects, no directscrollassignment. FocusedearlybeforewholeDesktop; allotherasserts/sourceunchanged.",
   "paper_ink_final_repair": {
-    "status": "prospective_beforeedit",
+    "status": "current_source_verification_complete",
     "source_before": "2a4304575a3745094d629be1bc7e39535d7c83a3",
     "one_exact_replacement": "body.add_child(_label(caption,18))\u2192body.add_child(_ink(caption,18)), onlytheexactlongintro sentence",
     "all_other_source_assets_protected": true,
@@ -281,5 +296,44 @@
     "failed_proofs": "Includedin36MiBcompleteadditionalRAM; quota/errorsHOLD, noautomaticincrease/cleanup/guardweakening.",
     "witness_map_sha256": "45e477048259f56aec2c76f9a0b6172fb5c8378b467d585cef32b14567eda14c",
     "current_source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8"
+  },
+  "final_metadata_Git_hold": {
+    "event": "S143-bc3af1c3f4354a1fb91995aaec890c3a",
+    "status": "HELD_prospective_funding",
+    "minimum_before_tree_commit_locks": 1273831,
+    "floor_headroom": 1085440,
+    "shipping_source_and_preflight_committed": true,
+    "all_durable_metadata_preserved_uncommitted": true,
+    "cleanup_or_TMPcriticalGit": false
+  },
+  "android_packaging_retry_v2": {
+    "at": "2026-11-07T01:43:22.378510+00:00",
+    "status": "prospective_before_tool_edits_and_retry",
+    "authority": "Sameowner-authorized oneV16 package; originalnative/source76 unchanged, onefreshfullyfunded retry afteractualguardHOLD",
+    "prior_attempt": "D143/build-v16.json raw-15/ERRORempty/RSS680849408>640MiB; zeroZIP/APK; frozenreceipt/scripts/logskept",
+    "resource_method": "Independentreviewed RDONLY exact-source/TMPproof/engine then exact5Gitpack/template pagecacheadvice; bytes/fullFDstats/freeunchanged. No sysctl/delete/gc/repack/privatecachewrites. Actualheadroom measured, no guaranteedreclaim.",
+    "actual_post_advice_headroom": 2521317376,
+    "complete_required_headroom": 2285273088,
+    "new_export_full_Python_and_Godot_tree_RSS_cap": 1073741824,
+    "untouched_headroom_reserve": 1073741824,
+    "export_phase_persistent_cap": 620806144,
+    "global_RAM_and_all_artifact_failedtail_caps_unchanged": true,
+    "repeat_limit": 1,
+    "fresh_remeasure_after_this_Git_and_gate_before_launch": true,
+    "primary_remaining_actual": 999424,
+    "primary_prospective_minima": {
+      "tiny_session_Git_including_two_index_lock_temporaries_objects_logs": 524288,
+      "retained_tool_history_and_receipts": 32768,
+      "remaining_final_metadata": 131072
+    },
+    "funding": "Reallocate unspent sameactive-task finalcanonicalGit reservation while thatlargecheckpointremainsHELD; no closedcapreuse or floorwaiver",
+    "new_records": [
+      "build-v16-v2.json",
+      "heldtools/build_v16_v1.py",
+      "heldtools/audit_v16_v1.py"
+    ],
+    "preserve_original_build_v16_json": true,
+    "Game_or_audio_source_edits": false,
+    "failure_policy": "Any newRSS/resource/error/outputfailureHOLD, no thirdunchangedexport/capraise."
   }
 }
