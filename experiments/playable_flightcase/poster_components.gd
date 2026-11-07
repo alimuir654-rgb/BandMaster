@@ -37,7 +37,7 @@ static func stock_index(color: Color) -> int:
  if color.r>0.7 and color.g>0.45 and color.b<0.5:return 1
  return 0
 static func stock(color: Color=PAPER,margin: int=20) -> StyleBoxTexture:
- var style:=StyleBoxTexture.new();style.texture=atlas();var index: int=stock_index(color);style.region_rect=Rect2((index%3)*512+12,int(index/3)*512+12,488,488);style.set_texture_margin_all(24);style.set_content_margin_all(margin)
+ var style:=StyleBoxTexture.new();style.texture=atlas();var index: int=stock_index(color);style.region_rect=Rect2((index%3)*512+12,int(index/3)*512+12,488,488);style.set_texture_margin_all(24);style.set_content_margin_all(margin);style.content_margin_left=maxi(24,margin);style.content_margin_right=maxi(24,margin)
  return style
 static func label(text: String,points: int=20,color: Color=INK) -> Label:
  var result:=Label.new();result.text=text;result.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART

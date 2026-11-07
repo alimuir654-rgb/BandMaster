@@ -86,6 +86,8 @@ func _label(words: String,points: int=16,paper: bool=false) -> Label:
 
 func _button(words: String,id: String,callback: Callable,brass: bool=false) -> Button:
  var button: Button=Poster.button(words,brass)
+ if id in ["MixingBack","MixingSound","MixingPauseButton"]:
+  button.free();button=Poster.quiet(words)
  button.name=id;button.custom_minimum_size.y=48
  button.add_theme_font_override("font",FONT)
  button.add_theme_font_size_override("font_size",17)
@@ -117,17 +119,17 @@ func _build() -> void:
  var heading: Label=_label("THE WRITING ROOM",24);heading.name="MixingHeading";heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(heading)
  _sound=_button("♫ ON","MixingSound",func():_stop_audio();sound_requested.emit();_refresh_audio());_sound.size_flags_horizontal=Control.SIZE_SHRINK_END;_sound.custom_minimum_size.x=58;header.add_child(_sound)
  var menu: Button=_button("PAUSE","MixingPauseButton",_show_pause);menu.size_flags_horizontal=Control.SIZE_SHRINK_END;menu.custom_minimum_size.x=54;header.add_child(menu)
- var identity:=PanelContainer.new();identity.name="MixingProjectStrip";identity.add_theme_stylebox_override("panel",Poster.stock(Poster.PAPER,14));identity.mouse_filter=Control.MOUSE_FILTER_PASS;add_child(identity)
+ var identity:=PanelContainer.new();identity.name="MixingProjectStrip";identity.add_theme_stylebox_override("panel",StyleBoxEmpty.new());identity.mouse_filter=Control.MOUSE_FILTER_PASS;add_child(identity)
  var identity_rows:=VBoxContainer.new();identity_rows.add_theme_constant_override("separation",1);identity.add_child(identity_rows)
- _band=_label("",20,true);_band.name="MixingBand";identity_rows.add_child(_band)
+ _band=_label("",18,false);_band.name="MixingBand";identity_rows.add_child(_band)
  _title=LineEdit.new();_title.name="MixingTitle";_title.placeholder_text="Name your original";_title.max_length=48;_title.custom_minimum_size.y=44
- _title.add_theme_font_override("font",FONT);_title.add_theme_font_size_override("font_size",23);_title.add_theme_color_override("font_color",Color("292015"));_title.add_theme_color_override("caret_color",Color("292015"));_title.add_theme_color_override("font_placeholder_color",Color("71614c"))
+ _title.add_theme_font_override("font",Poster.DISPLAY);_title.add_theme_font_size_override("font_size",38);_title.add_theme_color_override("font_color",Poster.PAPER);_title.add_theme_color_override("caret_color",Poster.PAPER);_title.add_theme_color_override("font_placeholder_color",Color("71614c"))
  _title.add_theme_stylebox_override("normal",StyleBoxEmpty.new());_title.add_theme_stylebox_override("focus",StyleBoxEmpty.new())
  _title.text_changed.connect(func(_words: String):
   if not _hydrating:_invalidate_response();_refresh())
  identity_rows.add_child(_title)
- _brief=_label("",16,true);_brief.name="MixingBrief";identity_rows.add_child(_brief)
- _demo_path=_label("",16,true);_demo_path.name="MixingDemoPath";identity_rows.add_child(_demo_path)
+ _brief=_label("",16,false);_brief.name="MixingBrief";identity_rows.add_child(_brief)
+ _demo_path=_label("",16,false);_demo_path.name="MixingDemoPath";identity_rows.add_child(_demo_path)
  var stages:=HBoxContainer.new();stages.name="MixingStages";stages.add_theme_constant_override("separation",6);add_child(stages)
  for i in range(3):
   var label: Label=_label("%d  %s" % [i+1,["FEEL","BUILD","TAKE"][i]],17);label.name="MixingStage_%d" % i;label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.custom_minimum_size.y=24;label.size_flags_horizontal=Control.SIZE_EXPAND_FILL;stages.add_child(label);_stages.append(label)

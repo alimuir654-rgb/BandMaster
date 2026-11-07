@@ -345,7 +345,7 @@ func _poster_navigation(parent: Node) -> void:
   var button: Button=Poster.quiet(entry[0]);button.name="PosterNav_"+entry[1];button.custom_minimum_size.y=52;button.disabled=busy
   var selected: bool=(page=="home" and entry[1]==("make" if poster_activities_open else "home")) or (page=="recording" and entry[1]=="make")
   if selected:
-   for key in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color"]:button.add_theme_color_override(key,Poster.GOLD)
+   for key in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:button.add_theme_color_override(key,Poster.GOLD)
   button.pressed.connect(_poster_destination.bind(entry[1]));row.add_child(button)
 
 func _poster_pause(parent: Node) -> void:
