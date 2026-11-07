@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S145",
-  "scope": "Ownerapproved poster-adventure/source-performance and closer mockup texture/type. No new music/APK scope.",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO01.json",
+  "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S145_offline_recorded_song_pilot_preflight",
-  "next_action": "Fresh fully funded bounded READ-ONLY audit of sealed V16/source76, then independent artifact review and same private Dropbox delivery ONLY if accepted. Use a NEW private log/TMP/XDG audit workspace; old S143 producer/cache stays immutable. No engine/import/export/rebuild or old-producer resume.",
+  "status": "active",
+  "next_action": "Implement/verify existing-workbench integration; preserve original app identity and signing requirement.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {

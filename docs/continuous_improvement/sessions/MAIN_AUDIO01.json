@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO01",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner published19df671 includingS144 and explicitly directs integration through existing opening.tscn/workbench, app com.bandmaster.ownerplaytest.s40, original saves/key, version>16; main/local work untouched. Latest authority supersedes historical S145 no-integration restriction for this scoped feature.",
+  "baseline_sha": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+  "dominant_issue": "BM-15",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1951997,
+    "sha256": "e162b6379feba46cf560bf0f419a0f80ea23fac317f4d22adb967aa04b57cc97"
+  },
+  "target": {
+    "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
+    "original_sha256": "a582c7b231eca70106d28be32c9e3175ac9221b83a449920add36b795a9091d0",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Two additional immutable recorded hooks in the existing recipe/workbench and synchronized fixed100BPM playback reuse poster controls without replacing legacy recipes, art, meters, narrative or transactional settlement. Unsupported playing changes are visibly locked; first successful paid commit consumes the source per participant.",
+  "controlled_comparison": "Same roster, owner fixture, display/frame/viewport and original poster assets, baseline andcandidate at390x844/720x1280/1280x720/1600x900. Recorded-hook additions are the only visual delta. Main/S144art/oldplayback and originalsavepaths protected.",
+  "stop_condition": "No merge/main edits or replacement signing key. Signing blocked until originalkey available. No inventedlistening/key/chord claims, no copied mockup as UI, no extra generators. Log failures before corrections; change method aftertwoineffective attempts.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/mixing_recipe.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/recorded_steady.gd.uid",
+    "experiments/playable_flightcase/audio/recorded_steady_v1/**",
+    "tests/recorded_steady*",
+    "tools/prepare_recorded_steady.py",
+    "tools/build_recorded_owner.py",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "STATE_SCHEMA.md",
+    ".gitignore"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/MAIN_AUDIO01.json",
+    "Godot4.7.2 recorded source lifecycle/model/savefail tests and relevant existing mixing/workbench regressions",
+    "Four actual GL captures and same-state pixel comparisons, original poster art bytes unchanged",
+    "Original app ID/save path/entry/version>16/unsigned APK asset checks; same originalcertificate required for finalsigning"
+  ],
+  "independent_review": {
+    "agent": "review_current_workbench",
+    "role": "read-only workbench design/engineering",
+    "notes": "Preserve existing version4 hooks and materialoutputs; second same-style sourcebuttonrow, fixedtempo annotation, no groove/complexity falseoffers; atomic prepare_paid/seal_paid slot.",
+    "acceptance": [
+      "hear/commit fixedfooter visible",
+      "sourceidentity+100BPM clear",
+      "unsupported controls locked withhonest labels",
+      "no initialsound beforeplay and no hidden saveonpreview"
+    ]
+  },
+  "resource_plan": {
+    "workspace_free_bytes": 27560448000,
+    "memory_cap_bytes": 17179869184,
+    "new_media_max_bytes": 33554432,
+    "runtime_cache_max_bytes": 2147483648,
+    "no_dependency_install_required": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "note": "Isolated worktree; shared dual-frame checkout and other local work untouched."
+  },
+  "started_at": "2026-11-07T23:57:59.564098+00:00"
+}
