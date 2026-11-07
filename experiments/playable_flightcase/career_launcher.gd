@@ -23,7 +23,7 @@ static func render(host,parent: Node,compact: bool) -> void:
  grid.add_theme_constant_override("h_separation",10);grid.add_theme_constant_override("v_separation",10);parent.add_child(grid)
  for entry in ROUTES:
   var destination: String=entry.destination
-  var route: Callable=host._practice.bind("") if destination=="practice" else (host._practice.bind("create") if destination=="create" else (host._open_poster_demo if destination in ["recording","promotion"] else host._navigate.bind(destination)))
+  var route: Callable=host._practice.bind("tighten") if destination=="practice" else (host._practice.bind("create") if destination=="create" else (host._open_poster_demo if destination in ["recording","promotion"] else host._navigate.bind(destination)))
   var tile: Button=P.button("",false,Color(entry.color));tile.name=entry.node;tile.disabled=host.busy;tile.pressed.connect(route)
   tile.custom_minimum_size.y=110 if destination in ["create","practice","gigs","recording","promotion","offstage"] else 72
   tile.set_meta("career_destination",destination);tile.tooltip_text=entry.label;grid.add_child(tile)
