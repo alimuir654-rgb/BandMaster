@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1896856,
-    "sha256": "f3b3ec6a60be49684ef3ebfd9076e8896ec46a79348924f8a337f46dbca6a21c"
+    "bytes": 1899187,
+    "sha256": "d9588a9add8ec10622747f3c6289e47c8f6ad37059909836395f695327342cf0"
   },
   "lesson_ids": [
     "BM-15",
@@ -427,7 +427,7 @@
   },
   "contained_packaging_v4": {
     "at": "2026-11-07T02:37:10.511461+00:00",
-    "status": "prospective_beforetool_edits_allocation",
+    "status": "closed_HELD_classification_bug_complete_component_not_yet_adopted",
     "method": "ONEnewcontainedexport: existingbwrapprivateuser/pid/net/mountview; child/tmp bindsownedRAM A/tmp; hostroot/workspace/procRO; onlycurrentRT/A/tmp writableplus6typedprivatechar/devpts. No hostTMP/link/rehome/securityconfigchanges/newdependencies. Sameexactengine/source76/privatecurrentproducer.",
     "verified_probe": {
       "path": "/workspace/work/s143-three-song-demo-20261106/bwrap-capability-v2.json",
@@ -507,5 +507,24 @@
     "independent_predesign": "game_design_research conditionalCLEAR actualprobe+completearithmetic currentthread",
     "Game_native_proof_unchanged": true,
     "failure_policy": "HOLD unexpectedmount/namespace/resource/output/error; no fallback/automaticfurtherexport; no APKsuccesswithoutcompleteaudit/privatehandoff"
+  },
+  "component_recovery_v5": {
+    "at": "2026-11-07T02:52:25.988820+00:00",
+    "status": "prospective_before_edit",
+    "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "method": "Fully verify stable CRC source/remap/import/174GDSC/418OGG11JSON/UID/privacy closure then rename exact complete scratchZIP sameinode no-clobber; preserve exactpartial immutable. No exportrerun. Only missing containedcompiledsettingsprobe/assembly/sign7SDK/5separateaudits. All4rawexportsHELD.",
+    "scratch": "android-v16/tmp/packtmp",
+    "destination": "android-v16/compiled-payload.zip",
+    "partial_second_payload_slot": "android-v16/compiled-payload.zip-om10KC",
+    "all_existing_caps_floors_reserves_unchanged": true,
+    "independent_predesign": "game_design_research currentthread conditionalCLEAR; finalartifact6KiBreserved",
+    "primary_remaining_before": 610304,
+    "remaining_minima": {
+      "tinySessionGit_twoIndexTemps_objects_logs": 458752,
+      "heldtoolhistory_and_recoveryrecords": 32768,
+      "finalcompactmetadata": 114688
+    },
+    "failure": "Any input/source/privacy/unexplainedasset mismatch HOLD; no stripping/fifth export/sourcechange/automaticbudgetincrease",
+    "lease_unchanged": true
   }
 }
