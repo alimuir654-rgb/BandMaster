@@ -771,7 +771,7 @@ func _cover_milestone(kind: String) -> void:
   signoff.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
  elif complete:
   var week: Dictionary=BandWeek.offer(setup.game.career)
-  signoff.add_child(_button("PLAN OUR FIRST WEEK ›" if week.ok and week.changed else "FIRST PRACTICE ›",_start_playing,"action","StartPlayAction"))
+  signoff.add_child(_button("MEET YOUR BAND  ›",_start_playing,"action","StartPlayAction"))
   signoff.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
  else:
   signoff.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
