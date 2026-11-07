@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1944736,
-    "sha256": "8f3af35c216861e430955c13cfcd2be4f1ff0e030eb57e74d27fd212e980185f"
+    "bytes": 1946207,
+    "sha256": "2abac88cd345318168dce520a64a1adbadfb04a827d63d415a8693fafe88231a"
   },
   "lesson_ids": [
     "BM-25",
@@ -1243,5 +1243,17 @@
     "full_funding_PASS_before_source_edit": true,
     "old_wide_attempt": "HELD permanently, no promotion",
     "deadline_unchanged": "2026-11-07T12:46:33.695324+00:00"
+  },
+  "desktop_changed_proof_method": {
+    "source_unchanged": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+    "method": "7physicalPNGframes savedwithout extra liveRGBAbytecopy; post-exit exactlosslessdecode. 4hashonlyremainnativeHashingContext. All255functional/input/typed/FS assertions retained.",
+    "funding": "D144/desktop-changed-method-funding-v2.json PASS, freshguardimmediatelybeforeengine",
+    "owned_cap": 557842432,
+    "RSS_cap": 603979776,
+    "PNG_pool_cap": 109051904,
+    "reserve": 805306368,
+    "oneattempt_only_then_hold": true,
+    "old_desktop560RSS_case": "HELD; neverretroaccepted",
+    "no_new_source_or_APK": true
   }
 }
