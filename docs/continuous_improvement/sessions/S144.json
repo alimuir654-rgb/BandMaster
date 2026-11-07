@@ -1184,10 +1184,10 @@
     "visual_primary_remaining_cap": 20971520,
     "visual_primary_start_free": 653471744,
     "visual_primary_categories_MiB": {
-      "generated_original_max": 7,
-      "primary_Git_blob_max": 7,
-      "selected_native_copies": 4,
-      "source_QA_closeout_Git_metadata": 2
+      "generated_original_max": 3,
+      "primary_Git_blob_max": 3,
+      "selected_native_copies": 8,
+      "source_QA_closeout_Git_metadata": 6
     },
     "post_consolidation_RAM_cap": 490733568,
     "post_consolidation_all_engine_Xorg_writer_RSS_cap": 620756992,
@@ -1207,6 +1207,7 @@
     "fully_funded_before_art": "/workspace/work/s144-poster-foundation-20261107/visual-complete-funding-pass.json",
     "future_engine_XDG": "Allnew paths; no engine ever opens linked completed-run indices",
     "independent_reviewer": "game_design_research read-only before first asset job and early importantstates",
-    "material_import_method": "Mini editor producer permanentlyCLOSED after resourceHOLD; no artifacts copied. Native uses built-in Image.load_from_file raw hash-bound atlas when no import/remap; future packaged loader uses normal imported resource. No thirdeditorattempt/no dependency/cold claim."
+    "material_import_method": "Mini editor producer permanentlyCLOSED after resourceHOLD; no artifacts copied. Native uses built-in Image.load_from_file raw hash-bound atlas when no import/remap; future packaged loader uses normal imported resource. No thirdeditorattempt/no dependency/cold claim.",
+    "budget_rebalance_actual": "Actual atlas2.93MiB and Git blob <3MiB frees category room within SAME20MiB cap; no new total allocation."
   }
 }
