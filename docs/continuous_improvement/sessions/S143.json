@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1871383,
-    "sha256": "113b458ffbadfa5e81201ebb93d135b072ec96be1506d6fe67b5f58e0c4cf27c"
+    "bytes": 1877946,
+    "sha256": "579bca49e138d31ff594c0413960567bdfc37c54501e384f444c4bc7330a6ca4"
   },
   "lesson_ids": [
     "BM-15",
@@ -98,15 +98,9 @@
     "TMP_new_cap": 135266304,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1073741824,
-    "RAM_categories_MiB": {
-      "one_active_regular_private_source_and_cache": 300,
-      "PNG_and_failed_proof": 64,
-      "pack_two_APKs_full_signing_or_failure_tail": 576,
-      "offline_audio_work_XDG_receipts": 84
-    },
     "native_phase_persistent_cap": 503316480,
     "native_process_tree_RSS_cap": 671088640,
-    "SDK_phase_process_tree_RSS_cap": 335544320,
+    "SDK_phase_process_tree_RSS_cap": 268435456,
     "cgroup_continuous_headroom_min": 1073741824,
     "primary_categories_MiB": {
       "shipping_audio": 6,
@@ -152,6 +146,31 @@
         "new_compact_execution_receipts": 40960,
         "small_preflight_Git_and_method": 32768
       }
+    },
+    "pre_colour_RAM_categories_history": {
+      "one_active_regular_private_source_and_cache": 300,
+      "PNG_and_failed_proof": 64,
+      "pack_two_APKs_full_signing_or_failure_tail": 576,
+      "offline_audio_work_XDG_receipts": 84
+    },
+    "RAM_existing_preserved_physical_baseline": 455544832,
+    "colour_additional_RAM_cap": 37748736,
+    "native_PNG_cap": 83886080,
+    "packaging_files_cap": 574619648,
+    "APK_each_cap": 146800640,
+    "packaging_work_cap": 5242880,
+    "SDK_Java_heap_MiB": 128,
+    "SDK_Java_direct_MiB": 32,
+    "current_colour_shared_cache_cap": 3145728,
+    "colour_standard_new_PNG_cap": 8388608,
+    "colour_shared_cache_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106/colour-current-cache",
+    "primary_remaining_plan_for_colour": {
+      "single_final_canonical_Git": 1015808,
+      "colour_preflight_and_source_Git": 36864,
+      "compact_final_source": 180224,
+      "new_QA_and_provenance": 20000,
+      "new_compact_execution_receipts": 60000,
+      "final_metadata_tail": 60000
     }
   },
   "scope_contract": {
@@ -217,7 +236,11 @@
       "sparse-index-codec-readonly-proof.json": "66989fd41fc62a9083ffc877d13449bd49826c8061f44f212c64d13e8ed9a21c"
     },
     "review": "/workspace/work/s143-three-song-demo-20261106/review/packaging-method-predesign-v1.json",
-    "TMP_previews": "Selected original native review copies may use spare bytes inside same128MiB standard pool, exact hashes/durable metadata; no new PNG generation or raised globalcap."
+    "TMP_previews": "Selected original native review copies may use spare bytes inside same128MiB standard pool, exact hashes/durable metadata; no new PNG generation or raised globalcap.",
+    "producer_guard_amendment": "BeforeanyAPKallocation: SDK/RSS includes Pythonproducerparent+allchildren; assemblycompletephasefunding andperchunkgrowth/buffer/headroom/RSS checks with ZIPclose/index/CDtail reserved. No oldfilesmutated, streamcopies; allraw failuresretained.",
+    "asset_container": "NewAPK assets use ordinary losslessZIPDEFLATE regardless compiledZIPcontainer compression; every uncompressedpayloadbyte exact, no music reencode/trim. Officialnonasset shell retains originalcompressionmethods. Complete560MiB artifact/failuretail reserve and144MiB actualAPK guards remain.",
+    "build_code_SHA256": "715edcb7c0c563d54b05a8b2c7a04d7cf66ee46c7da693b930255b8511f4ba64",
+    "audit_code_SHA256": "c391291082918b393ca660934c7379e280327b7e61b175c814a14f808ede9f37"
   },
   "compact_receipt_amendment": {
     "status": "prospective_changedmethod_after_retainedincident",
@@ -226,5 +249,18 @@
     "future_D_receipts": "max32768B status/scalars/captures/sourcepins; full rawRexecution/result/log boundbySHA; no testassertions/ERRORholds removed",
     "no_new_primary_PNGs": true,
     "Git": "onlysmallpreflightsessionnow; finalallcanonical/ISSUESonecommit, gc.auto0maintenancefalse"
+  },
+  "desktop_QA_setup_amendment": "Preserveoriginal>20touchscrolloracle; initialactual16/35 gave19available. Genuinewheeltoedge onlywhenneeded, zeroowner/files/recipeeffects, no directscrollassignment. FocusedearlybeforewholeDesktop; allotherasserts/sourceunchanged.",
+  "paper_ink_final_repair": {
+    "status": "prospective_beforeedit",
+    "source_before": "2a4304575a3745094d629be1bc7e39535d7c83a3",
+    "one_exact_replacement": "body.add_child(_label(caption,18))→body.add_child(_ink(caption,18)), onlytheexactlongintro sentence",
+    "all_other_source_assets_protected": true,
+    "verification": "Early390/1280 entry/Open; 4completeONEwritingproject/3paidstages/FSretry/typedreload/Continue/savedtake; all4freshstandard/73/88/ordinaryentry. Source2a4fullthree-songloop13921 isearliersourceproof with exactunaffectedfunction/dependencybinding, notnewcurrent9dayloops.",
+    "capture_storage": "Standards render+encodeactualGPUimage; currentencodedPNGsha==immediatelyrehashedpinnedprior2afileSHA enablesreferenceonlyphysical_newfalse. ElseNEWuniquePNGorHOLD. Everyquiescence/glyph/dimension/ownerassert stays. Newcurrentrender provenance distinctfrompriorphysicalwitness; twoexactallowlistedroots. No links/overwrites/deletes.",
+    "native_capture_scope": "4physicalimportantstatesperfullproject; otherinheritedcapturecalls actualpostdraw/dimension/owner guardedbuffer_only. Newtesttruthfullyscopedfirstproject, no oldharnessweakening.",
+    "shared_cache": "NewemptyCURRENT-source-onlyprivate XDG_CACHE, max3MiB, reusedonlyserializedcurrentSHA; uniqueDATA/configeverycase. Nooldcachewrites or cold/independenceclaim.",
+    "source_preservation": "OldUi2a primaryGitblob verified andkept; newrefresh recordsGitreference insteadofredundant100KBprimaryfile. Neverrewriteexistingheldsourcecopies.",
+    "failed_proofs": "Includedin36MiBcompleteadditionalRAM; quota/errorsHOLD, noautomaticincrease/cleanup/guardweakening."
   }
 }
