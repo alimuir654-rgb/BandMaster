@@ -2,16 +2,21 @@ extends RefCounted
 # Practice-room choices are authoritative simulation rules, independent of AI.
 const Actions = preload("res://Scripts/career_actions.gd")
 const Workshop = preload("res://Scripts/song_workshop.gd")
+const PhraseBank = preload("res://Scripts/song_phrase_bank.gd")
 const FOCUSES = {
     "tighten": {"label":"DRILL THE LIVE SET","action":"rehearse","description":"Tighten the performance. Disciplined musicians thrive, restless ones tire."},
     "create": {"label":"WRITE TOGETHER","action":"songwrite","description":"Work on an original. Creative bandmates thrive on new ideas."},
     "connect": {"label":"CLEAR THE AIR","action":"rest","description":"Resolve differences and strengthen trust before the next show."}
 }
 
-static func compose(state: Dictionary, idea: String, form: String, title: String, leader_index: int) -> Dictionary:
+static func compose(state: Dictionary, idea: String, form: String, title: String, leader_index: int, audio_mix: Dictionary = {}) -> Dictionary:
     var prepared: Dictionary = Workshop.develop(state,idea,form,title,leader_index)
     if not bool(prepared.get("ok",false)):
         return prepared
+    var audio: Dictionary = PhraseBank.attach(prepared["state"], audio_mix)
+    if not bool(audio.get("ok", false)):
+        return audio
+    prepared["state"] = audio["state"]
     var result: Dictionary = resolve(prepared["state"],"create")
     if not bool(result.get("ok",false)):
         return result

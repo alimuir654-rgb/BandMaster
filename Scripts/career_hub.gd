@@ -26,6 +26,8 @@ const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const Songbook = preload("res://Scripts/songbook_presentation.gd")
 const SongSleeve = preload("res://Scripts/song_sleeve.gd")
 const SongLab = preload("res://Scripts/songwriting_lab.gd")
+const SongAudio = preload("res://Scripts/song_audio_workbench.gd")
+const PhraseBank = preload("res://Scripts/song_phrase_bank.gd")
 const RosterView = preload("res://Scripts/band_roster_view.gd")
 const Social = preload("res://Scripts/band_social.gd")
 const Experience = preload("res://Scripts/band_life_experience.gd")
@@ -2469,12 +2471,22 @@ func _actions() -> void:
   titles.item_selected.connect(func(index: int) -> void:
    title_entry.text = titles.get_item_text(index)
   )
+  var audio_desk
+  if PhraseBank.available():
+   _label(workshop,"BUILD YOUR BAND'S SOUND",16,UI.AMBER)
+   audio_desk = SongAudio.new()
+   audio_desk.state = _state()
+   audio_desk.initial_mix = draft.get("audio_mix",{}).duplicate(true)
+   workshop.add_child(audio_desk)
+   workshop.move_child(audio_desk,2)
   var jam := UI.themed_button("COMMIT TO THIS SONG  /  1 DAY",_genre_id(),true)
+  jam.name = "CommitSongSession"
   jam.custom_minimum_size.y = 54
   jam.disabled = indices.is_empty() or not SongLab.can_commit(ideas,forms,titles,leads)
   workshop.add_child(jam)
   jam.pressed.connect(func() -> void:
-   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),title_entry.text,indices[leads.selected]))
+   var mix: Dictionary = audio_desk.selection() if is_instance_valid(audio_desk) else {}
+   _finish(Practice.compose(_state(),ideas.get_item_text(ideas.selected),forms.get_item_text(forms.selected),title_entry.text,indices[leads.selected],mix))
   )
   if not draft.is_empty():
    var past: Array = studio.get("history",[])
@@ -2510,6 +2522,12 @@ func _open_song_sleeve(song: Dictionary, number: int) -> void:
  # A read-only liner-notes view: no day, cash, credit or save mutation.
  var sheet: Dictionary = SceneSheet.build(self,"THE SONG SLEEVE","Read the recorded writing history. No day or cash is spent.","",_genre_id())
  SongSleeve.build(sheet["body"],song,number,_genre_id())
+ if song.has("audio_mix") and PhraseBank.available():
+  var playback := SongAudio.new()
+  playback.state = _state()
+  playback.initial_mix = song["audio_mix"].duplicate(true)
+  playback.read_only = true
+  sheet["body"].add_child(playback)
  var back := SceneSheet.add_choice(sheet,"←  BACK TO SONGBOOK",func() -> void: SceneSheet.dismiss(sheet),false,_genre_id())
  back.name = "SongSleeveBack"
  if back.is_inside_tree():

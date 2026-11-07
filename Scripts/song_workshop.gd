@@ -59,6 +59,8 @@ static func finish(state: Dictionary) -> Dictionary:
  last["origin"] = str(draft.get("idea",""))
  last["arrangement"] = str(draft.get("form",""))
  last["writing_sessions"] = draft.get("sessions",[]).duplicate(true)
+ if draft.has("audio_mix"):
+  last["audio_mix"] = draft["audio_mix"].duplicate(true)
  var bonus := 3 if str(draft.get("form","")) == "Verse / Chorus" else (2 if str(draft.get("form","")) == "Slow Build" else 1)
  var chemistry: Dictionary = Chemistry.calculate(next)
  last["chemistry_bonus"] = int(chemistry["bonus"])
