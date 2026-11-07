@@ -35,6 +35,10 @@ const CalendarDesk = preload("res://experiments/playable_flightcase/calendar_des
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const BandPoster = preload("res://experiments/playable_flightcase/band_poster_view.gd")
+const Poster = preload("res://experiments/playable_flightcase/poster_components.gd")
+const PosterHome = preload("res://experiments/playable_flightcase/poster_home.gd")
+var poster_activities_open := false
+var poster_details_open := false
 const Launcher = preload("res://experiments/playable_flightcase/career_launcher.gd")
 const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
@@ -152,7 +156,7 @@ func _box(gap: int = 8) -> VBoxContainer:
  return result
 
 func _button(text: String, name: String, action: Callable, primary: bool = false) -> Button:
- var result: Button = C.button(text,"flightcase","action" if primary else "tab")
+ var result: Button = Poster.button(text,primary) if page in ["home","recording"] else C.button(text,"flightcase","action" if primary else "tab")
  result.name = name
  # Preserve native taps while allowing a parent ScrollContainer to cancel
  # a button press when the same finger becomes a vertical drag.
@@ -166,7 +170,7 @@ func _paper(parent: Node, compact: bool) -> VBoxContainer:
  # The paper is decorative; stopping here hides touch drags from the scroll.
  panel.mouse_filter = Control.MOUSE_FILTER_PASS
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
- panel.add_theme_stylebox_override("panel",C.sheet(compact))
+ panel.add_theme_stylebox_override("panel",Poster.stock() if page in ["home","recording"] else C.sheet(compact))
  parent.add_child(panel)
  var body := _box(8)
  panel.add_child(body)
@@ -385,38 +389,25 @@ func _apply_restored_focus(control_name: String, generation: int, respect_existi
    _scroll.ensure_control_visible(target)
  _pending_focus = ""
 
+func _open_poster_demo() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ recording_mode="archive" if not RecordingDesk.Rules.sessions(game.career).is_empty() else "select"
+ _navigate("recording")
+
+func _toggle_poster_activities() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ poster_activities_open=not poster_activities_open
+ _pending_focus="PosterActivitiesAction"
+ _render()
+
+func _toggle_poster_details() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ poster_details_open=not poster_details_open
+ _pending_focus="PosterPulseAction"
+ _render()
+
 func _home_page(parent: Node, compact: bool) -> void:
- var body := _paper(parent,compact)
- _copy(body,"YOUR CAREER DESK",26)
- _copy(body,str(game.genre).to_upper()+"  /  "+str(game.career.get("vibe","Unpolished")),14,true)
- DirectionCard.goal(self,body,compact)
- if Booking.modern(game.career) and bool(Booking.validate(game.career).get("ok",false)):
-  var agreement: Dictionary=Booking.terms(game.career)
-  var line: Label=_copy(body,"%s · DAY %d · %d career day(s) reserved · next available DAY %d" % [agreement["venue_snapshot"]["venue"],int(agreement["day"]),int(agreement["tariff"]["duration"]),int(agreement["next_available_day"])],16)
-  line.name="CareerSavedShowAgreement"
- Launcher.render(self,body,compact)
- var grid := GridContainer.new()
- grid.columns = 1 if compact else 2
- grid.add_theme_constant_override("h_separation",20)
- grid.add_theme_constant_override("v_separation",8)
- body.add_child(grid)
- for entry in [["READINESS","readiness"],["BAND MORALE","morale"],["TENSION","tension"]]:
-  var block := _box(2)
-  grid.add_child(block)
-  _copy(block,str(entry[0]),13,true)
-  var value: int = int(game.career.get(str(entry[1]),0))
-  var reading: HBoxContainer = C.meter(value,"notepaper")
-  block.add_child(reading)
-  if str(entry[1])=="tension":
-   # Tension is the one status where less is better. Keep the original meter
-   # art/value inert and truthful; encode the meaning in native ink and copy.
-   var number: Label = reading.get_node("CareerMeterValue") as Label
-   number.add_theme_color_override("font_color",Color("326346") if value<35 else (Color("805817") if value<65 else Color("943e31")))
-   var meaning: String = "CALM" if value<35 else ("ON EDGE" if value<65 else "HIGH TENSION")
-   var caption: Label = C.paper_label(meaning+" • lower means calmer",16)
-   caption.name = "CareerTensionMeaning"
-   block.add_child(caption)
- _copy(body,"%d FINISHED ORIGINALS  •  %d FANS" % [int(game.career.get("songs",0)),int(game.career.get("fans",0))],16)
+ PosterHome.render(self,parent,compact)
 
 func _gear_page(parent: Node, compact: bool) -> void:
  if Gear.item_for(selected_item).is_empty():

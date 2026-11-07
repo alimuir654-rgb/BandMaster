@@ -1,6 +1,8 @@
 extends RefCounted
 ## S54 SCRATCH UI helper. Root is sole source writer/engine runner.
 ## All browsing/ordering/modes are FREE DRAFT ONLY. Pure previews never apply state.
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+const Cover=preload("res://experiments/playable_flightcase/demo_cover.gd")
 const Rules = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Promotion = preload("res://experiments/playable_flightcase/promotion_rules.gd")
@@ -195,7 +197,7 @@ static func _archive(host, parent: Node, compact: bool) -> void:
  _copy(host,heading,"YOUR RECORDINGS","RecordingArchiveHeading",26)
  if not str(host.notice).is_empty(): _copy(host,heading,str(host.notice),"RecordingNotice")
  _copy(host,heading,"Saved tracks and local releases.","RecordingArchiveIntroduction",16,true)
- _copy(host,heading,"Audio playback is not available.","RecordingArchiveAudio",16,true)
+ _copy(host,heading,"Your record, in your order. Saved sketches can be heard in the Songbook.","RecordingArchiveAudio",16,true)
  if sessions.is_empty():
   var raw: Variant=state.get("recordings",[])
   var valid: Dictionary=Rules.validate(state)
@@ -215,25 +217,38 @@ static func _archive(host, parent: Node, compact: bool) -> void:
 
 static func _session(host, parent: Node, session: Dictionary, compact: bool, index: int, release_action: bool) -> void:
  var linked: bool=session.get("song_links_v1",null) is Dictionary
- var heading: String="DEMO • DAY %d" % int(session["day"]) if session.has("day") else "DEMO • DATE NOT RECORDED"
- _copy(host,parent,heading,"RecordingSessionHeading_"+str(index),22)
- _copy(host,parent,"SAVED SONG LINKS" if linked else "LEGACY RECORDING • SONG LINKS NOT RECORDED","RecordingLinkStatus_"+str(index),16,true)
- if compact:_session_facts(host,parent,session,index,release_action)
- var columns: Array=_columns(host,parent,compact)
- var tracks: Node=columns[0]
- var facts: Node=columns[1]
  var list: Array=session.get("tracks",[])
- var snapshots: Array=(session["song_links_v1"] as Dictionary).get("snapshots",[]) if linked else []
- if list.is_empty(): _copy(host,tracks,"TRACK DETAILS NOT RECORDED","RecordingMissingTracks_"+str(index),16,true)
+ var hero:=HBoxContainer.new();hero.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_theme_constant_override("separation",18);parent.add_child(hero)
+ var sleeve:=VBoxContainer.new();sleeve.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_child(sleeve)
+ var band: Label=Poster.label(str(host.game.career.get("band_name","YOUR BAND")).to_upper(),34);band.name="DemoSleeveBand_"+str(index);sleeve.add_child(band)
+ var art:=Cover.new();art.name="DemoSleeveArt_"+str(index);art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""));art.set_meta("recording_id",str(session.get("id","")));sleeve.add_child(art)
+ var heading: String="DEBUT DEMO" if index==0 else "DEMO %d" % (index+1)
+ _copy(host,sleeve,heading,"RecordingSessionHeading_"+str(index),30)
+ _copy(host,sleeve,"DAY %d · %d TRACKS" % [int(session["day"]),list.size()] if session.has("day") else "DATE NOT RECORDED · %d TRACKS" % list.size(),"DemoSleeveDate_"+str(index),18)
+ var tracks: Node=parent
+ if not compact:
+  var track_box: VBoxContainer=host._box(10);hero.add_child(track_box);tracks=track_box
+ if list.is_empty():_copy(host,tracks,"TRACK DETAILS NOT RECORDED","RecordingMissingTracks_"+str(index),18,true)
  for track_index in range(list.size()):
   var track: Dictionary=list[track_index]
-  _copy(host,tracks,"%d. %s" % [track_index+1,str(track.get("title","UNTITLED"))],"RecordingSavedTitle_%d_%d" % [index,track_index],20)
-  _copy(host,tracks,"QUALITY %d / 100" % int(track["quality"]) if track.has("quality") else "TRACK QUALITY NOT RECORDED","RecordingSavedQuality_%d_%d" % [index,track_index],16,true)
-  if linked and track_index<snapshots.size():
-   _song_facts(host,tracks,snapshots[track_index],"saved_%d_%d" % [index,track_index])
-  else:
-   _copy(host,tracks,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],16,true)
- if not compact:_session_facts(host,facts,session,index,release_action)
+  _copy(host,tracks,"%02d  %s" % [track_index+1,str(track.get("title","UNTITLED"))],"RecordingSavedTitle_%d_%d" % [index,track_index],24)
+ _session_facts(host,parent,session,index,release_action)
+ var details:=VBoxContainer.new();details.name="DemoTrackDetails_"+str(index);details.visible=false;details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ var toggle: Button=_button(host,parent,"TRACK NOTES  +","DemoTrackNotes_"+str(index),func():
+  if not _editable(host) or not is_instance_valid(details):return
+  details.visible=not details.visible)
+ toggle.toggle_mode=true
+ toggle.toggled.connect(func(open: bool):
+  if is_instance_valid(toggle):toggle.text="TRACK NOTES  −" if open else "TRACK NOTES  +")
+ parent.add_child(details)
+ _copy(host,details,"SAVED SONG LINKS" if linked else "LEGACY RECORDING · SONG LINKS NOT RECORDED","RecordingLinkStatus_"+str(index),18,true)
+ var snapshots: Array=(session["song_links_v1"] as Dictionary).get("snapshots",[]) if linked else []
+ for track_index in range(list.size()):
+  var track: Dictionary=list[track_index]
+  _copy(host,details,str(track.get("title","UNTITLED")),"RecordingDetailTitle_%d_%d" % [index,track_index],22)
+  _copy(host,details,"QUALITY %d / 100" % int(track["quality"]) if track.has("quality") else "TRACK QUALITY NOT RECORDED","RecordingSavedQuality_%d_%d" % [index,track_index],18,true)
+  if linked and track_index<snapshots.size():_song_facts(host,details,snapshots[track_index],"saved_%d_%d" % [index,track_index])
+  else:_copy(host,details,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],18,true)
 
 static func _session_facts(host, facts: Node, session: Dictionary, index: int, release_action: bool) -> void:
  _copy(host,facts,"SESSION QUALITY %d / 100" % int(session["quality"]) if session.has("quality") else "SESSION QUALITY NOT RECORDED","RecordingSavedSessionQuality_"+str(index))
@@ -410,7 +425,7 @@ static func _radio_receipt(host, parent: Node, compact: bool) -> void:
  for change in saved.get("changes",[]):
   _copy(host,details,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],"RecordingReceiptChange_"+str(change["label"]))
  if not session.is_empty():_session(host,details,session,compact,-1,false)
- _copy(host,details,"Audio playback is not available.","RecordingReceiptAudio",16,true)
+ _copy(host,details,"Your record, in your order. Saved sketches can be heard in the Songbook.","RecordingReceiptAudio",16,true)
 
 static func receipt(host, parent: Node, compact: bool) -> void:
  if str(host.receipt.get("verb",""))=="radio":
@@ -426,7 +441,7 @@ static func receipt(host, parent: Node, compact: bool) -> void:
   _copy(host,body,"%s  %d → %d" % [str(change["label"]),int(change["before"]),int(change["after"])],"RecordingReceiptChange_"+str(change["label"]))
  var session: Dictionary=saved.get("session",{})
  if not session.is_empty(): _session(host,body,session,compact,-1,false)
- _copy(host,body,"Audio playback is not available.","RecordingReceiptAudio",16,true)
+ _copy(host,body,"Your record, in your order. Saved sketches can be heard in the Songbook.","RecordingReceiptAudio",16,true)
 
 static func _rerender(host, focus: String, reset_scroll: bool=false) -> void:
  host._pending_focus=focus

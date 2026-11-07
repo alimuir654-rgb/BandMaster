@@ -198,7 +198,9 @@ func _process(delta: float) -> void:
  _poll+=delta
  if _poll<0.15:return
  _poll=0
- var value: Dictionary=current_recipe()
+ # Idle scrolling must not build full owner snapshots or hash four audio files.
+ # Request/play and active playback retain their original live integrity guards.
+ var value: Dictionary=current_recipe() if playing else {}
  if playing:
   if muted() or _entry(value).is_empty():stop()
   elif live_audition:
@@ -208,7 +210,7 @@ func _process(delta: float) -> void:
     _bar=int(beat/4.0)
     if value!=_active:request_play(float(_bar*4))
   elif value!=_active:stop()
- var status: String=str(playing)+":"+str(muted())+":"+str(not _entry(value).is_empty())
+ var status: String=str(playing)+":"+str(muted())
  if status!=_last_status:_last_status=status;status_changed.emit()
 
 func _notification(what: int) -> void:
