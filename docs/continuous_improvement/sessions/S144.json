@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1946207,
-    "sha256": "2abac88cd345318168dce520a64a1adbadfb04a827d63d415a8693fafe88231a"
+    "bytes": 1947516,
+    "sha256": "43c63a0db5d7f97af407d0830d984c2917c871a0049f4348258cc3e1e7a9a1da"
   },
   "lesson_ids": [
     "BM-25",
@@ -1081,7 +1081,7 @@
   "source_phase": "prospective_beforecode",
   "protected": "54originalScripts3UID/418OGG11JSON/rawartfonts/6inertmeters/Finance/saveunknownschema/originaltypedonceownership; no musicbank/sourceasset acquisition",
   "storage_plan": {
-    "primary_cap": 29360128,
+    "primary_cap": 31457280,
     "workspace_floor": 629145600,
     "TMP_cap": 1048576,
     "TMP_floor": 629145600,
@@ -1181,13 +1181,13 @@
     "curated_asset": "experiments/playable_flightcase/art/poster/print_materials_v1.png",
     "art_source_primary_max": 7340032,
     "source_art_copy_method": "Same-filesystem hardlink only NEW immutable generated source into curated repo path; original retained in place, same bytes/inode; no old-cache/source aliasing. Git blob retained primary.",
-    "visual_primary_remaining_cap": 20971520,
+    "visual_primary_remaining_cap": 23068672,
     "visual_primary_start_free": 653471744,
     "visual_primary_categories_MiB": {
       "generated_original_max": 3,
       "primary_Git_blob_max": 3,
       "selected_native_copies": 12,
-      "source_QA_closeout_Git_metadata": 2
+      "source_QA_closeout_Git_metadata": 4
     },
     "post_consolidation_RAM_cap": 490733568,
     "post_consolidation_all_engine_Xorg_writer_RSS_cap": 620756992,
@@ -1255,5 +1255,16 @@
     "oneattempt_only_then_hold": true,
     "old_desktop560RSS_case": "HELD; neverretroaccepted",
     "no_new_source_or_APK": true
+  },
+  "final_handoff_funding": {
+    "time": "2026-11-07T12:04:05.071279+00:00",
+    "before_free": 632754176,
+    "new_primary_handoff_reservation": 2097152,
+    "after_full_reservation": 630657024,
+    "fixed_floor": 629145600,
+    "pass": true,
+    "only": "Finalcompactreview/closeout/canonicalmetadata/primaryGitobjects/Pagesdeliveryreceipts. No source/art/audio/runtime/cache/PNG/APK allocations. No cleanup/deletion/resume.",
+    "prior_visual20MiB_nearly_consumed": true,
+    "new_total_primary_cap": 31457280
   }
 }
