@@ -71,8 +71,8 @@ static func quiet(text: String) -> Button:
  for state in ["normal","hover","pressed","hover_pressed","disabled"]:result.add_theme_stylebox_override(state,StyleBoxEmpty.new());result.add_theme_color_override("font_"+state+"_color",PAPER)
  result.add_theme_color_override("font_color",PAPER);result.add_theme_font_override("font",FONT)
  return result
-static func block(parent: Node,color: Color=PAPER) -> VBoxContainer:
- var panel:=PanelContainer.new();panel.add_theme_stylebox_override("panel",stock(color));panel.mouse_filter=Control.MOUSE_FILTER_PASS;panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;parent.add_child(panel)
+static func block(parent: Node,color: Color=PAPER,margin: int=20) -> VBoxContainer:
+ var panel:=PanelContainer.new();panel.add_theme_stylebox_override("panel",stock(color,margin));panel.mouse_filter=Control.MOUSE_FILTER_PASS;panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;parent.add_child(panel)
  var box:=VBoxContainer.new();box.add_theme_constant_override("separation",7);box.mouse_filter=Control.MOUSE_FILTER_PASS;box.size_flags_horizontal=Control.SIZE_EXPAND_FILL;panel.add_child(box)
  return box
 static func background() -> Control:

@@ -432,6 +432,7 @@ func _toggle_poster_activities() -> void:
  poster_activities_open=not poster_activities_open
  _pending_focus="PosterWriteAction" if poster_activities_open else "PosterActivitiesAction"
  _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
 
 func _toggle_poster_details() -> void:
