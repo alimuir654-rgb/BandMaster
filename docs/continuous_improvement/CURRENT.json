@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/S40.json",
-  "scope": "S40 visually redesigned rehearsal recap in isolated GitHub source; candidate 9163db9 unverified in native engine, owner_approved=false. Exclusive writer released for evidence-gated continuation.",
+  "session": "docs/continuous_improvement/sessions/AUDIO01.json",
+  "scope": "Isolated feature/audio-refinement-20261107 only: original UI cues and persistent mute, exact source65baedc verified locally, draft PR202. Shared candidate branch remains unchanged.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "Native exact-SHA verification/inspection of S40 9163db9; correct if needed, package S40 only on PASS, preserve C34/S39 checkpoint.",
+  "status": "closed",
+  "next_action": "Locate source for Dropbox v16/S144, integrate this portable audio module/bindings there, then listen on actual Android hardware before release.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "Authorised only after native end-to-end completion/save/Continue/handoff verified; preserve checkpoint; before08:00.",
   "completion_gate": {
@@ -47,5 +47,6 @@
     "playable_artifact_id": 12982335406,
     "visual_verdict": "partial",
     "owner_approved": false
-  }
+  },
+  "previous_session": "docs/continuous_improvement/sessions/S40.json"
 }

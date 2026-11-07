@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
   },
   "issue_log_review": {
-    "bytes": 147262,
-    "sha256": "12729748f8eaeb2e559c0731a3516029fc3641af40a79ab3e4b65ddf9ea03222"
+    "bytes": 148641,
+    "sha256": "214b781601a9702bcf1b51e52d4be49f3bde469c41e5ee871b9d123efbe1776d"
   },
   "target": {
     "locator": "components/control_atlas/art/control_action_flightcase_active.png; existing tactile button inspected, retain unchanged. Audio target is short understated mechanical feedback, silence on hover/focus. No audio mockup supplied.",
@@ -114,6 +114,7 @@
       "godot_engineering": "SIMULATED: shared bounded service, no production state/art edits, real parse+behavior checks; old capture cleanup remains.",
       "release_qa": "SIMULATED: exact tested source65baedc, draftPR202, project/sample ZIP hashes; latest Android source missing, no Android build or remote CI success claimed."
     },
-    "publication_review": "Initial push auto-review blocked unverified destination. Read-only GitHub checks established connected user alimuir654-rgb owns exact existing origin with admin/push and public visibility. Reviewed scoped diff contained only generated audio/test/docs and no production changes. Same git push then approved and succeeded; no workaround used."
+    "publication_review": "Initial push auto-review blocked unverified destination. Read-only GitHub checks established connected user alimuir654-rgb owns exact existing origin with admin/push and public visibility. Reviewed scoped diff contained only generated audio/test/docs and no production changes. Same git push then approved and succeeded; no workaround used.",
+    "remote_gate_followup": "First PR gate exposed stale CURRENT S40 pointer; issue logged before correcting only this isolated branch to AUDIO01. Original source code and packaged tested bytes unchanged."
   }
 }
