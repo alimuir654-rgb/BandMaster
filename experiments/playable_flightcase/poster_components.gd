@@ -24,7 +24,7 @@ static func display_font() -> Font:
  var current: Font=_display_ref.get_ref() as Font if _display_ref!=null else null
  if current==null:
   var face:=FontVariation.new();face.base_font=DISPLAY
-  face.variation_transform=Transform2D(1.0,0.0,0.10,1.0,0.0,0.0)
+  face.variation_transform=Transform2D(Vector2(1,0),Vector2(0.10,1),Vector2.ZERO)
   current=face;_display_ref=weakref(current)
  return current
 static func cell(index: int) -> AtlasTexture:
