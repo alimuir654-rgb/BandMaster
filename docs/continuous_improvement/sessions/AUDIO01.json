@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "AUDIO01",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "7 Nov: Carry on with next Bandmaster tasks, refining audio; use Git/Dropbox as needed. Separate feature worktree because Dropbox v16/S144 source is unavailable on GitHub. No merge or production edits.",
+  "baseline_sha": "b2647df2741a195a3ab8c77ed8cbddd277761fa0",
+  "dominant_issue": "BM-15",
+  "lesson_ids": [
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "1e577bc78530f406918c053aa2d0bf4108f3a8913a8f748053656559d026bcbd",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "b5db2b55b8fd13f7e946c57cf230f8ee873baa968a0f5fb2c52e8dcec02f2a46"
+  },
+  "issue_log_review": {
+    "bytes": 142372,
+    "sha256": "d5a6a474316e8a9aceee31cea1e0306b2ddb9a0466471f2e7553dbdcf408e9a1"
+  },
+  "target": {
+    "locator": "components/control_atlas/art/control_action_flightcase_active.png; existing tactile button inspected, retain unchanged. Audio target is short understated mechanical feedback, silence on hover/focus. No audio mockup supplied.",
+    "original_sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+    "pixels_inspected": true
+  },
+  "hypothesis": "Quiet deterministic original mechanical taps and restrained two-note confirm/back cues make existing candidate controls responsive; bounded voices/cooldown and persistent isolated mute prevent noisy navigation. No continuous music or generated songs.",
+  "controlled_comparison": "Same opening/recruit/practice source/inputs/art/state. Verify actual audio PCM edges, headroom, finite duration; native click, disabled and focus inputs; rebuild survival; muting and restart. Existing 73 gameplay and88 opening tests unchanged.",
+  "stop_condition": "Work only on isolated feature/audio-refinement-20261107. Do not overwrite active development candidate or claim latest v16 integration. At two ineffective attempts change method. No production save/schema/art edits.",
+  "protected": [
+    "all production scenes and Scripts, controls/art/meters, candidate simulation, gameplay saves",
+    "GitHub dual-frame branch and main; old S40 records retain history"
+  ],
+  "allowed_paths": [
+    "experiments/playable_flightcase/**",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    "docs/asset_base/REVIEW_INDEX.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/AUDIO01.json",
+    "Godot4.7.2 isolated audio_test.gd, native_test.gd, opening_test.gd",
+    "Native GL real pointer and keyboard audio input checks; four unchanged-view layouts"
+  ],
+  "started_at": "2026-11-07T14:56:05.566825+00:00",
+  "scope_end": "2026-11-07T16:56:05.566825+00:00",
+  "source_gap": "GitHub branch b2647df is S40 Oct30; Dropbox has Nov7 v16 APK and S144 PNGs (73f9f23 commit not found on GitHub). User asked asynchronously for latest source location; integration limited to isolated portable module."
+}
