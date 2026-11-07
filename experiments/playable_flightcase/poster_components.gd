@@ -37,7 +37,7 @@ static func stock_index(color: Color) -> int:
  if color.r>0.7 and color.g>0.45 and color.b<0.5:return 1
  return 0
 static func stock(color: Color=PAPER,margin: int=20) -> StyleBoxTexture:
- var style:=StyleBoxTexture.new();style.texture=cell(stock_index(color));style.set_texture_margin_all(26);style.set_content_margin_all(margin)
+ var style:=StyleBoxTexture.new();style.texture=atlas();var index: int=stock_index(color);style.region_rect=Rect2((index%3)*512+12,int(index/3)*512+12,488,488);style.set_texture_margin_all(24);style.set_content_margin_all(margin)
  return style
 static func label(text: String,points: int=20,color: Color=INK) -> Label:
  var result:=Label.new();result.text=text;result.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
@@ -47,10 +47,8 @@ static func label(text: String,points: int=20,color: Color=INK) -> Label:
 static func masthead(text: String,width: float,preferred: int=78) -> Label:
  var points: int=preferred
  var face: Font=display_font()
- var longest: String=""
- for word in text.split(" "):
-  if face.get_string_size(word,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x>face.get_string_size(longest,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x:longest=word
- while points>28 and face.get_string_size(longest,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x>width-18:points-=1
+ var longest: String=text
+  while points>28 and face.get_string_size(longest,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x>width-18:points-=1
  return label(text,points,PAPER)
 static func button(text: String,primary: bool=false,color: Color=PAPER) -> Button:
  var result:=Button.new();result.text=text;result.custom_minimum_size.y=52

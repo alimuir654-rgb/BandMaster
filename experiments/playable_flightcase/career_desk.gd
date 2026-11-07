@@ -430,7 +430,8 @@ func _open_poster_demo() -> void:
 func _toggle_poster_activities() -> void:
  if busy or is_instance_valid(_live_dialog):return
  poster_activities_open=not poster_activities_open
- _pending_focus="PosterActivitiesAction"
+ _pending_focus="PosterWriteAction" if poster_activities_open else "PosterActivitiesAction"
+ _scroll_position=0
  _render()
 
 func _toggle_poster_details() -> void:

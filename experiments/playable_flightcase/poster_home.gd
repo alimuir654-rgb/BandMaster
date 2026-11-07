@@ -14,10 +14,10 @@ static func render(host,parent: Node,compact: bool) -> void:
   Launcher.render(host,parent,compact)
   var back: Button=P.quiet("BACK TO YOUR BAND  ↑");back.name="PosterActivitiesAction";back.pressed.connect(host._toggle_poster_activities);parent.add_child(back)
   return
- var mast: Label=P.masthead(str(state.get("band_name","YOUR BAND")).to_upper(),width,76 if compact else 96);mast.name="PosterBandMasthead";parent.add_child(mast)
+ var mast: Label=P.masthead(str(state.get("band_name","YOUR BAND")).to_upper(),width,68 if compact else 80);mast.name="PosterBandMasthead";parent.add_child(mast)
  var view: Dictionary=host._goal_direction()
  var hero: VBoxContainer=P.block(parent,P.GOLD)
- var title: Label=P.label(str(view.get("title","MAKE A START")).to_upper(),38 if compact else 44);title.name="PosterMilestone";hero.add_child(title)
+ var title: Label=P.label(str(view.get("title","MAKE A START")).to_upper(),30 if compact else 38);title.name="PosterMilestone";hero.add_child(title)
  var progress: PackedStringArray=[]
  for requirement in view.get("requirements",[]):progress.append("%s %s/%s" % [str(requirement.label),str(requirement.current),str(requirement.target)] if requirement.get("recorded",true) else str(requirement.label)+" / NOT RECORDED")
  hero.add_child(P.label(" · ".join(progress) if not progress.is_empty() else str(view.get("description","")),18))
