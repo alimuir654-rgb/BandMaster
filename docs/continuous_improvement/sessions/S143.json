@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1890799,
-    "sha256": "2907df1f425bd406ab46f086c7da5e17746371d4722a1e8e965292c1a994f54b"
+    "bytes": 1892114,
+    "sha256": "0d8a6655e3b49bdefe6091be83f045a4c08ce3a629db8d18460c0fc55365dcd9"
   },
   "lesson_ids": [
     "BM-15",
@@ -308,7 +308,7 @@
   },
   "android_packaging_retry_v2": {
     "at": "2026-11-07T01:43:22.378510+00:00",
-    "status": "prospective_before_tool_edits_and_retry",
+    "status": "closed_HELD_InvalidPreset_noZIP_APK",
     "authority": "Sameowner-authorized oneV16 package; originalnative/source76 unchanged, onefreshfullyfunded retry afteractualguardHOLD",
     "prior_attempt": "D143/build-v16.json raw-15/ERRORempty/RSS680849408>640MiB; zeroZIP/APK; frozenreceipt/scripts/logskept",
     "resource_method": "Independentreviewed RDONLY exact-source/TMPproof/engine then exact5Gitpack/template pagecacheadvice; bytes/fullFDstats/freeunchanged. No sysctl/delete/gc/repack/privatecachewrites. Actualheadroom measured, no guaranteedreclaim.",
@@ -335,5 +335,42 @@
     "preserve_original_build_v16_json": true,
     "Game_or_audio_source_edits": false,
     "failure_policy": "Any newRSS/resource/error/outputfailureHOLD, no thirdunchangedexport/capraise."
+  },
+  "android_packaging_contract_v3": {
+    "at": "2026-11-07T01:49:15.871089+00:00",
+    "status": "prospective_beforeedits",
+    "method_change": "Aftertwoheld producer attempts, derive exactsingleAndroidpreset publiccontract/name from actualpinnedfile; ConfigParser strict/interpolationNone, no guessedfallback; preexecuteSHAs/options thenoneexport. Source76/UI/audio unchanged.",
+    "actual_preset": {
+      "section": "preset.0",
+      "name": "Owner Android",
+      "platform": "Android",
+      "export_filter": "all_resources",
+      "exclude_filter": "SOURCE_MANIFEST.json,REVIEW_README.txt,Art/References/ApprovedCast20261029/approved_cast_reference.png,qa/*,s143_*.gd",
+      "version_code": 16,
+      "version_name": "0.143.0-playtest",
+      "appID": "com.bandmaster.ownerplaytest.s40",
+      "architectures": {
+        "architectures/armeabi-v7a": "false",
+        "architectures/arm64-v8a": "true",
+        "architectures/x86": "false",
+        "architectures/x86_64": "false"
+      }
+    },
+    "preset_SHA256": "4d6af3b4268bc752dc96abe03fc8c97143d91797063e5a6f4a9b8eb757c2460c",
+    "prior_V1_V2_preserved": true,
+    "new_record": "build-v16-v3.json",
+    "independent_predesign": "game_design_research conditionalCLEAR currentthread; finalartifactreviewstill6KiBreserved",
+    "attempt_limit": 1,
+    "all_resource_caps_floors_reserves_unchanged": true,
+    "streaming_audit": "Exact1MiBdecompressedcomparisons/declaredsizes/actualcounts/EOFCRC/fullproducerRSS/headroom/time throughoutCPUphase; alloldasset/source/UID/native/permissions/updatechecks retained. NoobservedauditOOMclaim.",
+    "primary_remaining": 921600,
+    "funded_primary_preflight_history_tail": 688128,
+    "failure_policy": "Anyfurtherexport/resource/APIerrorHOLD; noautomaticretry/newcap/sourcechange",
+    "global_lease_unchanged": {
+      "owner": "root_S143_three_song_demo",
+      "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+      "expires_at": "2026-11-07T03:59:11.316028+00:00",
+      "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
+    }
   }
 }
