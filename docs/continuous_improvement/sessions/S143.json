@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1904029,
-    "sha256": "db93fa8174ef97555ded6a876f27d2e033ca0c7375026bde058aba528225e081"
+    "bytes": 1905205,
+    "sha256": "346ea3a1fba4408f038a628d28f4478cb4530c3134a38d5254b0eb9e13b841f2"
   },
   "lesson_ids": [
     "BM-15",
@@ -587,7 +587,7 @@
   },
   "SDK_child_free_assembly_v7": {
     "at": "2026-11-07T03:09:23.731175+00:00",
-    "status": "prospective_beforecode",
+    "status": "closed_HELD_missing_actual_children_API_beforeallocation",
     "method": "Optimise ONLY inspected purePython streaming assembly. Before/periodic/end global scanner must report selfonly. Whileassembly active Pythonaudit hook denies subprocess/Popen/fork/posix_spawn/system/exec; one livePythonthread, /proc/self/task children capability+emptychecked and samePIDstartidentityeachchunk; actual selfVmRSS is complete producer in thisexplicit nochildphase. AllSDKsubprocesses andfinalauditKEEP originalglobal1635process scanner. Allperchunklimits/livewatch/floors/headroom/time unchanged.",
     "recorded_predesign": "game_design_research conditionalsmaller-methodCLEAR currentthread",
     "sequential_primary_peak": 262144,
@@ -596,5 +596,27 @@
     "same_funding_as_SDK_owned_tree_v7": true,
     "new_assembly": "android-v16/assembled-v7.apk",
     "single_attempt_then_HOLD": true
+  },
+  "SDK_wall_bound_v8": {
+    "at": "2026-11-07T03:15:03.361090+00:00",
+    "status": "prospective_beforecode",
+    "method": "Use provenV6 SDKpartition/liveinotify +originalglobalfullproducerRSS EACHcheckpoint; nochildrenAPI/selfRSSshortcut. Samecompiledsource/data; noexport. Preserveall4heldexports+3assemblyholds.",
+    "wall_seconds": 1200,
+    "fixed_assembly_abort": "2026-11-07T03:36:00+00:00",
+    "remaining_phase_worst_seconds": {
+      "seven_SDK_at30each": 210,
+      "five_separate_auditSDK_at30each_and_CPU300": 450,
+      "independentreview": 180,
+      "Dropbox": 180,
+      "Pages_closeout_release": 180
+    },
+    "whole_remaining_max": 2400,
+    "lease_unchanged": "2026-11-07T03:59:11.316028+00:00",
+    "phase_rule": "Recheck actual wallremaining beforeeach phase, noextension; HOLD/release if audit+handoff no longerfit. Assemblyabort earlierof1200s/03:36. SDKsubprocess30swall each. AuditCPU300unchanged.",
+    "new_assembly": "android-v16/assembled-v8.apk",
+    "resource_funding": "SameforwardV7 1,305,899,008SDK/799,387,648packfiles, global1,342,177,280/work24MiB/3new140MiBAPKs. No furtherdata partialallocatedV7. Freshguardbeforeallocation mustfundremaininggrowth+268MiBRSS+1GiB2MiBreserve.",
+    "independent_predesign": "game_design_research conditionaltimeboundCLEAR; exact1200completeaggregatecutoff submitted currentthread",
+    "one_attempt_then_HOLD": true,
+    "no_Game_source_timingtest_or_assertion_change": true
   }
 }
