@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1895827,
-    "sha256": "858fedfe5f0c7295ac43bf6646de168e4efca4fa2792d70f2674f4a6234ca1ca"
+    "bytes": 1896856,
+    "sha256": "f3b3ec6a60be49684ef3ebfd9076e8896ec46a79348924f8a337f46dbca6a21c"
   },
   "lesson_ids": [
     "BM-15",
@@ -97,11 +97,11 @@
     "primary_new_cap": 27918336,
     "TMP_new_cap": 136314880,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
-    "RAM_persistent_cap": 1073741824,
+    "RAM_persistent_cap": 1342177280,
     "native_phase_persistent_cap": 503316480,
     "native_process_tree_RSS_cap": 671088640,
     "SDK_phase_process_tree_RSS_cap": 268435456,
-    "cgroup_continuous_headroom_min": 1073741824,
+    "cgroup_continuous_headroom_min": 1075838976,
     "primary_categories_MiB": {
       "shipping_audio": 6,
       "new_Git_objects": 7,
@@ -123,7 +123,7 @@
       "existing_work_and_handoff": 1
     },
     "standard_PNG_root": "/tmp/bandmaster-s143-standard-proof-20261106",
-    "export_phase_persistent_cap": 626049024,
+    "export_phase_persistent_cap": 774946816,
     "export_process_tree_RSS_cap": 1073741824,
     "primary_budget_incident": {
       "original_cap": 25165824,
@@ -156,9 +156,9 @@
     "RAM_existing_preserved_physical_baseline": 455544832,
     "colour_additional_RAM_cap": 37748736,
     "native_PNG_cap": 83886080,
-    "packaging_files_cap": 574619648,
+    "packaging_files_cap": 708837376,
     "APK_each_cap": 146800640,
-    "packaging_work_cap": 10485760,
+    "packaging_work_cap": 25165824,
     "SDK_Java_heap_MiB": 128,
     "SDK_Java_direct_MiB": 32,
     "current_colour_shared_cache_cap": 3145728,
@@ -195,7 +195,7 @@
       "funding": "1000B prospective transfer from unspent final metadata reserve; absoluteprimary/RAM/TMP/floor caps unchanged",
       "method": "Keep sealed unexecuted v1 unchanged; tiny v2 subclass adds explicit caption IGNORE/NONE runtime guard; concise new provenance only. All prior assertions inherited."
     },
-    "SDK_phase_persistent_cap": 1066450944,
+    "SDK_phase_persistent_cap": 1215348736,
     "packaging_exact_phase_budget": {
       "actual_prepack_owned_RAM": 481345536,
       "export_complete_ZIP_and_work": 620806144,
@@ -424,5 +424,88 @@
     "independent_predesign": "game_design_research conditionalCLEAR currentthread",
     "raw_v1_retained": true,
     "kernel_or_security_denial": "HOLD no workaround"
+  },
+  "contained_packaging_v4": {
+    "at": "2026-11-07T02:37:10.511461+00:00",
+    "status": "prospective_beforetool_edits_allocation",
+    "method": "ONEnewcontainedexport: existingbwrapprivateuser/pid/net/mountview; child/tmp bindsownedRAM A/tmp; hostroot/workspace/procRO; onlycurrentRT/A/tmp writableplus6typedprivatechar/devpts. No hostTMP/link/rehome/securityconfigchanges/newdependencies. Sameexactengine/source76/privatecurrentproducer.",
+    "verified_probe": {
+      "path": "/workspace/work/s143-three-song-demo-20261106/bwrap-capability-v2.json",
+      "SHA256": "441de6902a20a7c07e20c909785e4eee46317d8cebd4181cf3030e79b339b421",
+      "rawSHA": "93030377e9b6cdbb2394c6528b7ef60934eb6d102d3b68437dc18ec2e4059518"
+    },
+    "validated_prefix": [
+      "/usr/bin/bwrap",
+      "--unshare-user",
+      "--unshare-pid",
+      "--unshare-net",
+      "--die-with-parent",
+      "--new-session",
+      "--ro-bind",
+      "/",
+      "/",
+      "--ro-bind",
+      "/workspace",
+      "/workspace",
+      "--dev",
+      "/dev",
+      "--ro-bind",
+      "/dev/shm",
+      "/dev/shm",
+      "--proc",
+      "/proc",
+      "--remount-ro",
+      "/proc",
+      "--bind",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/runtime",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/runtime",
+      "--bind",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16",
+      "--bind",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16/tmp",
+      "/tmp",
+      "--remount-ro",
+      "/dev",
+      "--cap-drop",
+      "ALL",
+      "--chdir",
+      "/dev/shm/bandmaster-s143-three-song-demo-20261106/runtime"
+    ],
+    "validated_prefix_SHA256": "94c9686ffe973cefdd2f5d1cde802c1b34587f6620cde71e034d115802c5a4ed",
+    "host_old_packtmp_SHA256": "75e406d8a361609259babc454166078f698ab3c3d096ef70d87e21161c968395",
+    "launcher": "D143/qa/contained_exec_v1.py closesnonstdioFDs/revalidatesexactmount+tmp+engine+cgroup+capdrop beforeexec",
+    "full_budget": {
+      "frozen_baseline": 481345536,
+      "compiled_ZIP_cap": 134217728,
+      "private_RAM_packtmp_cap": 134217728,
+      "three_APK_caps": 440401920,
+      "all_work_total": 25165824,
+      "complete_data_max": 1215348736,
+      "global_R_max": 1342177280,
+      "max_slack": 126828544,
+      "export_phase_max": 774946816,
+      "export_full_tree_RSS": 1073741824,
+      "SDK_full_tree_RSS": 268435456,
+      "untouched_headroom": 1073741824,
+      "namespace_overhead_extra_reserve": 2097152,
+      "host_TMP_cap": 136314880,
+      "fixed_floors": 629145600
+    },
+    "prior_Global1GiB_was_selfset_scope_budget_not_exceeded": true,
+    "new_scope_funding_notautomatic_capraise": true,
+    "allV1_V2_V3_and_API_diagnostic_held_preserved": true,
+    "new_record": "build-v16-v4.json",
+    "contained_attempt_limit": 1,
+    "all_future_growth_and_full_signing_failure_tail_included": true,
+    "primary_remaining_actual": 696320,
+    "primary_remaining_minima": {
+      "necessary_preflightGit_two_index_temporaries_objects_logs": 524288,
+      "held_tool_history": 32768,
+      "final_compact_metadata": 131072
+    },
+    "independent_predesign": "game_design_research conditionalCLEAR actualprobe+completearithmetic currentthread",
+    "Game_native_proof_unchanged": true,
+    "failure_policy": "HOLD unexpectedmount/namespace/resource/output/error; no fallback/automaticfurtherexport; no APKsuccesswithoutcompleteaudit/privatehandoff"
   }
 }
