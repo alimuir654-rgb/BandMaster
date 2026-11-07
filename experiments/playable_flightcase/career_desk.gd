@@ -229,9 +229,8 @@ func _render() -> void:
  shell.add_child(nav)
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
-  var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
-  if page=="recording":
-   option=Poster.button(str(entry[1]));option.toggle_mode=true
+  var option: Button = Poster.button(str(entry[1])) if page=="recording" else C.button(str(entry[1]),"flightcase","tab",true)
+  if page=="recording":option.toggle_mode=true
   option.name = "CareerNav_"+destination
   option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs") or (page=="calendar" and destination=="home")) and not receipt_open)
   option.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
