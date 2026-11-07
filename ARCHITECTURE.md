@@ -9,6 +9,14 @@
 
 All paths are case-sensitive on Linux CI. The scripts currently own substantial UI and gameplay responsibilities; do not assume the target architecture is implemented.
 
+## Optional audio review
+`Scenes/AudioReview.tscn` and `Scripts/audio_review.gd` provide an isolated,
+save-free review desk. Four parts share an `AudioStreamSynchronized`; a separate
+reference player is mutually exclusive. Local private review assets are prepared
+by `tools/prepare_audio_review.py`, ignored by Git and excluded from the normal
+Android export. The dedicated Android Audio Review preset opts into those assets
+and a separate app ID. See `docs/LAST_BUS_GONE_REVIEW.md` for build/review steps.
+
 ## Direction (not yet implemented)
 - **GameState**: authoritative cash, band roster, relationships, equipment, career and time.
 - **Simulation systems**: rehearsal, skills, finances, travel, gigs and fatigue as separate testable units.
