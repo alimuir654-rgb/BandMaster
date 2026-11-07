@@ -1125,7 +1125,7 @@ func _start_playing() -> void:
  if setup.start_playing():
   _career_landing=true
   _render()
-func _practice() -> void:
+func _practice(activity: String="", from_career: bool=false) -> void:
  if _career_landing:
   _career_landing=false
   # Held source keeps its original explicit review route. Ordinary entry starts
@@ -1141,6 +1141,10 @@ func _practice() -> void:
  if sketch.get("active",false) or (sketch.get("exists",false) and sketch.get("held",false)):
   panel.practice_activity="create"
   panel.recap_expanded=false
+ if from_career:
+  panel.recap_expanded=false
+  panel.last_message="Back in the practice room. Choose a session."
+  if activity in ["create","tighten","connect"]:panel.practice_activity=activity
  panel.back_requested.connect(_home)
  panel.career_requested.connect(_open_career_desk)
  panel.planning_requested.connect(_open_band_planning)
@@ -1148,6 +1152,7 @@ func _practice() -> void:
  add_child(panel)
  _practice_view = panel
  panel.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ if from_career:panel.call_deferred("_restore_practice_focus","CareerDeskAction")
  if Finance.is_over(setup.game.career) or RadioVisit.locked(setup.game.career) or LiveRules.show_day(setup.game.career) or _workbench_priority()=="show":
   call_deferred("_open_career_desk")
 
@@ -1206,7 +1211,9 @@ func _return_from_career(activity: String = "") -> void:
   return
  if is_instance_valid(_career_view):
   _career_view.hide()
- if not is_instance_valid(_practice_view):_practice()
+ if not is_instance_valid(_practice_view):
+  _practice(activity,true)
+  return
  if is_instance_valid(_practice_view):
   # Keep the actual pane and its pending title/setup values. Only refresh the
   # view of the shared, already-saved career after a shop action.
