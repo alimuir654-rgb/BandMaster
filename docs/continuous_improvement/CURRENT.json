@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "S143",
-  "scope": "Persist distinct musical foundation identity independently of title/arrangement; three foundations and original 9writingdays feed unchanged ordered demo/release/radio. Reduce repeated screens/buttons without changing real costs or decisions. Preserve blocked-day agency with explicit free informal practice.",
+  "session": "S144",
+  "scope": "Ownerapproved poster-adventure/source-performance and closer mockup texture/type. No new music/APK scope.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,17 +10,18 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "S143_preflight_three_song_demo",
-  "next_action": "Independent audio source plan; commitpreflight/gate then bounded production.",
+  "status": "S144_closed_source73f_verified_poster_previews_delivered_no_new_APK",
+  "next_action": "Fresh fully funded bounded READ-ONLY audit of sealed V16/source76, then independent artifact review and same private Dropbox delivery ONLY if accepted. Use a NEW private log/TMP/XDG audit workspace; old S143 producer/cache stays immutable. No engine/import/export/rebuild or old-producer resume.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
-    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
-    "scoped_technical_pass": true,
+    "tested_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+    "source_technical_pass": true,
+    "scoped_visual": "CLEAR_FOR_REVIEWED_NATIVE_STATES",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
-    "physical_device_pending": true
+    "APK_scope": "None underS144; previousV16fullauditstillheld",
+    "evidence": "/workspace/work/s144-poster-foundation-20261107/closeout.json"
   },
   "last_polish": {
     "session": "C34",
@@ -59,14 +60,16 @@
     "status": "historical_completed_at09:00; sameautomation reused for ownerapproveddayplan"
   },
   "latest_local_checkpoint": {
-    "session": "S140",
-    "source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
-    "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
-    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
-    "manifest": "/workspace/work/s140-mixing-desk-20261106/source-final.json",
-    "visual_verdict": "partial",
+    "session": "S143",
+    "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "source_manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+    "evidence": "/workspace/work/s143-three-song-demo-20261106/closeout.json",
+    "source_technical_pass": true,
+    "native_current_strict": 13,
+    "scoped_visual": "CLEAR",
+    "overall_visual": "PARTIAL",
     "owner_approved": false,
-    "packaged_in_V15": true
+    "in_delivered_APK": false
   },
   "publication": "V15 compiledAPK in connected Ali private Dropbox/BandMaster, metadata/readback verified; no new links/grants. V14 retained; older Drive remainsV13.",
   "historical_opening_completion_gate": {
@@ -324,7 +327,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -442,7 +445,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -593,7 +596,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -791,7 +794,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2557,7 +2560,7 @@
       "simulated_lenses": {
         "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
         "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
-        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/£0 does not age or rescue zero-cash count.",
+        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
         "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
         "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
       },
@@ -2635,14 +2638,14 @@
       "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
       "visual_verdict": "partial",
       "owner_approved": false,
-      "android": "V5/a9 unchanged; S47–S51 source LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
       "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
       "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
       "remaining": [
         "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
         "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
         "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
-        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47–S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
         "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
       ],
       "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
@@ -2696,7 +2699,7 @@
       "visual_verdict": "partial",
       "owner_approved": false,
       "source_runtime": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime",
-      "android": "V5/a9 unchanged; S47–S53 LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47\u2013S53 LOCAL, no newAPK",
       "packaging": "Imported337-file isolated runtime and actual configuredentryPASS. No S53ZIP/APK built; finalstablemilestonepackaging later. LOCAL, notpublicdownloads.",
       "remaining": [
         "Physical Android camera/navigation/touch/performance verification pending; no device or emulator run.",
@@ -2704,7 +2707,7 @@
         "Phone soundcheck deliberately scrolls below fixed hardware; no claim that all three selected songs fit one phone fold. Reach preview is a plan modifier, not final net fans.",
         "Native full paid-show integration uses three selected originals; zero-original gross cap and hired/low-cash variants are independently model tested. Zero-selected warning has actual render/wheel proof, not a claimed zero-song paid native journey.",
         "Hardware lifecycle bench measures real mouse hide/resize/free and indexed-touch cancel/device isolation; do not extrapolate every modality/lifecycle permutation. Read-only27context utility did NOT measure orphan counters.",
-        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47–S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
+        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47\u2013S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
         "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
         "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
       ]
@@ -2763,7 +2766,7 @@
     "five_lenses": "SIMULATED",
     "physical_device": false
   },
-  "latest_focused_native_qa": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+  "latest_focused_native_qa": "/workspace/work/s143-three-song-demo-20261106/current-proof-summary.json",
   "previous_focused_native_qa": {
     "tested_source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
     "verified_at": "2026-10-31T04:09:52.459751+00:00",
@@ -2819,8 +2822,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2838,7 +2841,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -3201,7 +3204,7 @@
       "successor_repair_verified": "47692162d7d68e0eca354760734f21d216e3a392"
     }
   ],
-  "last_completed_session": "S139",
+  "last_completed_session": "S143",
   "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
@@ -3211,7 +3214,7 @@
     "finite_existing_thread": true
   },
   "previous_closed_at": "2026-10-31T19:58:39.208791+00:00",
-  "closed_at": "2026-11-06T04:42:17.170959+00:00",
+  "closed_at": "2026-11-07T03:45:58.069170+00:00",
   "previous_android_owner_package_before_v5": {
     "game_source_sha": "c9c67ad3fed4c3723f379b4daf44c5a021a34f4d",
     "export_recipe_sha": "e8a8547db1d89b276f2be9e3b88408520300ec60",
@@ -3327,7 +3330,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-06T04:42:17.170959+00:00",
+  "updated_at": "2026-11-07T03:48:32.522100+00:00",
   "page_delivery": {
     "plan_sequence": 66,
     "board_sequence": 179,
@@ -3365,17 +3368,22 @@
     "additional_apk_by_default": false
   },
   "last_source_slice": {
-    "session": "S86",
-    "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
-    "curated_count": 408,
-    "owned_game_paths": 2,
-    "new_modules": 0,
-    "protected_prior_paths": 406,
-    "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
+    "session": "S143",
+    "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "tested_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+    "evidence": "/workspace/work/s143-three-song-demo-20261106/closeout.json",
+    "source_technical_pass": true,
+    "current_native_strict": 13,
+    "scoped_visual": "CLEAR",
+    "overall_visual": "PARTIAL",
+    "owner_approved": false,
+    "in_delivered_APK": false,
+    "signed_local_V16_audit": "HELD_NOT_EXECUTED"
   },
   "candidate_source_sha": null,
   "candidate_native_verified": true,
-  "candidate_status": "closed_verified_no_pending_candidate",
+  "candidate_status": "closed_verified_source76_artifact_HOLD",
   "touch_rescope": {
     "at": "2026-11-01T05:06:01.065383+00:00",
     "source_base": "5168da6b888e438bfbe374015eee608fa46b9f83",
@@ -3412,7 +3420,7 @@
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
   "current_session": "S143",
-  "next_single_action": "S139authoredpilotreadyasPROPOSALONLY; futureproductionrequiresnewcompletefunding/Core-ownedamendment/whole-openingwrapper/actualsource-native-saveproof. Do notredoS137/S138/S139orbuildanotherAPKforactivity. CurrentGame898/V14unchanged; remainingopportunitiesactualfeedback/readinesswithhard08:00/no breadth06:30/releases07:55.",
+  "next_single_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
@@ -3447,12 +3455,12 @@
     "APK_sha256": "23795adce446e9b8c1234f04cf7c5af74faa840079b552d069fd9b9edf22d7e7"
   },
   "artifact_completion_gate": {
-    "technical_pass": true,
-    "local_APK_ready": true,
-    "private_Dropbox_delivery_completed": true,
-    "private_Drive_delivery_completed": false,
-    "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
-    "owner_approved": false
+    "source_native_pass": true,
+    "local_V16_signed": true,
+    "full_separate_APK_audit_pass": false,
+    "V16_private_delivery_completed": false,
+    "current_download": "V15",
+    "hold": "/workspace/work/s143-three-song-demo-20261106/audit-preexecution-HOLD.json"
   },
   "owner_review_board": {
     "url": "https://chatgpt.com/space/page_b3929162c7b88191acd29e55dc06e779",
@@ -3581,13 +3589,13 @@
     "F02": "PARTIAL image-led actual saved results/two supported plan inputs/free route; broader analysis not implemented."
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
-  "released_at": "2026-11-06T19:45:36.186266+00:00",
+  "released_at": "2026-11-07T12:19:39.578514+00:00",
   "last_writer": "root_S140_mixing_desk",
   "source_write_allowed": false,
-  "pending_implementation": false,
+  "pending_implementation": null,
   "pending_helpers": [],
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
-  "source_phase": "closed_verified_S140_f9",
+  "source_phase": "closed_verified",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
   "expires_at": null,
   "authority": "Latest direct Go ahead to S121 recommendations after18:00manualreview; build audible producer desk after navigation repair. Routine decisions delegated, no owner wait, old queue remains ended.",
@@ -3668,8 +3676,8 @@
   "s69_closeout": "/workspace/work/overnight-20261102/s69/closeout.json",
   "latest_radio_contract": "/workspace/BandMaster/docs/continuous_improvement/S71_STUDENT_RADIO_PRODUCTION.md",
   "latest_owner_radio_steering": "Owner-approved A05v3 exact budget student studio integrated; S71 two-question journey is complete. No APK/ZIP; fixed08:00Nov2 end.",
-  "current_plan_sequence": 77,
-  "current_review_board_sequence": 187,
+  "current_plan_sequence": 78,
+  "current_review_board_sequence": 188,
   "radio_studio_art_proposal": {
     "review_id": "A05v3",
     "status": "owner_approved_exact_source",
@@ -3683,9 +3691,9 @@
   },
   "s70_closeout": "/workspace/work/overnight-20261102/s70/closeout.json",
   "latest_radio_art_brief": "/workspace/BandMaster/docs/continuous_improvement/S70_STUDENT_RADIO_ART_REVISION.md",
-  "candidate_run": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
-  "candidate_model": "/workspace/work/s140-mixing-desk-20261106/model-reuse-current-final.json",
-  "candidate_focus_run": "/workspace/work/s140-mixing-desk-20261106/executions/whole-phone-f9.json",
+  "candidate_run": null,
+  "candidate_model": null,
+  "candidate_focus_run": null,
   "last_sprint": "S100",
   "s71_closeout": "/workspace/work/overnight-20261102/s71/closeout.json",
   "last_completed_deliverable": "S139authoredrehearsal-concernpilot/sourcecontract PROPOSALONLY",
@@ -3908,26 +3916,34 @@
   },
   "previous_artifact_closeout_before_S78": "/workspace/work/identity-20261101/s62/closeout.json",
   "page_write_allowed": false,
-  "source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+  "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
   "latest_local_native_checkpoint": {
-    "session": "S134",
-    "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-    "evidence": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
-    "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
-    "visual_verdict": "partial",
+    "session": "S143",
+    "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "tested_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+    "evidence": "/workspace/work/s143-three-song-demo-20261106/closeout.json",
+    "source_technical_pass": true,
+    "current_native_strict": 13,
+    "scoped_visual": "CLEAR",
+    "overall_visual": "PARTIAL",
     "owner_approved": false,
-    "packaged_in_V13": false
+    "in_delivered_APK": false,
+    "signed_local_V16_audit": "HELD_NOT_EXECUTED"
   },
   "latest_verified_phase2": {
-    "session": "S125",
-    "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
-    "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
-    "evidence": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
-    "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
-    "visual_verdict": "partial",
+    "session": "S143",
+    "source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "tested_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+    "evidence": "/workspace/work/s143-three-song-demo-20261106/closeout.json",
+    "source_technical_pass": true,
+    "current_native_strict": 13,
+    "scoped_visual": "CLEAR",
+    "overall_visual": "PARTIAL",
     "owner_approved": false,
-    "source_only_notV12": true
+    "in_delivered_APK": false,
+    "signed_local_V16_audit": "HELD_NOT_EXECUTED"
   },
   "playable_opening_checkpoint": {
     "source_sha": "2d7656ae11a179e820bfbe6dbd785a3ab4678ea2",
@@ -4112,15 +4128,11 @@
     "archived_on_board": 117
   },
   "last_verified_game_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
-  "current_candidate": {
-    "source": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
-    "status": "closed_verified_in_V15",
-    "next_base_only": "/workspace/work/s140-mixing-desk-20261106/source-final.json"
-  },
-  "last_verified_code_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "current_candidate": null,
+  "last_verified_code_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
   "last_verified_component_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-  "last_verified_native_run_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
-  "last_verified_local_native_source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+  "last_verified_native_run_source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+  "last_verified_local_native_source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
   "source_writer_released_at": "2026-11-06T18:30:18.350451+00:00",
   "s81_closeout": "/tmp/bandmaster-s81-20261102/closeout.json",
   "scope_end": "2026-11-06T08:00:00Z",
@@ -4355,17 +4367,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -4413,12 +4425,7 @@
     "at": "2026-11-03T07:29:42.645331+00:00"
   },
   "latest_metadata_deliverable": "S120 existing phone guide16 points to V11 and concrete device checks; earlier links/images/feedback retained.",
-  "root_lease": {
-    "owner": "root_S143_three_song_demo",
-    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
-    "expires_at": "2026-11-07T03:59:11.316028+00:00",
-    "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
-  },
+  "root_lease": null,
   "source_implementation_status": "NONE; implemented sourcef9 is verified and delivered as V15.",
   "storage_operation_782": {
     "status": "preserve_all_verified_archive_aware_guard_funded",
@@ -4590,7 +4597,7 @@
     "last_sprint": "S79",
     "last_completed_deliverable": "S82 joined booking/calendar/travel/gig + private V9; technical PASS/visual PARTIAL/physical Pixel9 pending."
   },
-  "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
+  "last_verified_native_run": "/workspace/work/s143-three-song-demo-20261106/current-proof-summary.json",
   "last_verified_opening_run": "/workspace/work/s123-audible-producer-20261104/accepted-log-audit.json",
   "s86_closeout": {
     "tested_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
@@ -4869,17 +4876,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -6318,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root_S143_three_song_demo",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6552,7 +6559,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "S143",
+  "active_session": "S144",
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7011,7 +7018,7 @@
     "physical_upgrade_save_retention_tested": false,
     "install_instruction": "UPDATE existing app; never uninstall, clear app data or wipe saves."
   },
-  "artifact_phase": "closed_verified_V15_private_Dropbox_delivered",
+  "artifact_phase": "closed_signed_V16_finalaudit_HELD",
   "latest_verified_local_android": {
     "status": "private_Dropbox_delivered_verified_metadata",
     "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
@@ -7293,5 +7300,133 @@
     "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK."
   },
   "s142_closeout": "/workspace/work/s142-three-song-demo-review-20261106/closeout.json",
-  "shipping_writer": "root_S143_three_song_demo"
+  "shipping_writer": null,
+  "candidate_source": null,
+  "S143_earlier_candidate_before_final_verification": {
+    "sha": "c7b8f7f27f46c46e313d8b97fbf57255fb47dd7c",
+    "manifest": "/workspace/work/s143-three-song-demo-20261106/source-candidate.json",
+    "model_checks": 3270,
+    "native_whole_task_pass": false,
+    "in_delivered_APK": false
+  },
+  "released_S143_root_lease": {
+    "owner": "root_S143_three_song_demo",
+    "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
+    "expires_at": "2026-11-07T03:59:11.316028+00:00",
+    "scope": "Fresh manual authorisation: 3 distinct compositions through existing demo/release/radio; lean booking/Pause and availability-aware informal practice, no new schedule. Close earlier; no automatic extension."
+  },
+  "artifact_lease": null,
+  "delegated_audio_writer": null,
+  "s143_closeout": "/workspace/work/s143-three-song-demo-20261106/closeout.json",
+  "source_next_base": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
+  "pending_signed_android_V16": {
+    "status": "signed_local_V16_HELD_final_separate_audit_NOT_EXECUTED",
+    "game_source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "version_code": 16,
+    "version_name": "0.143.0-playtest",
+    "apk_path": "/dev/shm/bandmaster-s143-three-song-demo-20261106/android-v16/BandMaster-Playtest-v16-arm64.apk",
+    "bytes": 140863516,
+    "local_sha256": "a6be215d95b9d47c5a8b661ea5b503a623a0ceccd584c29d6ffe002c9d0f9f90",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "save_folder": "BandMasterOwnerPlaytestS40",
+    "producer_SDK_steps_strict": 7,
+    "separate_audit_checks_executed": 0,
+    "full_APK_audit_pass": false,
+    "private_delivery_completed": false,
+    "V16_Dropbox_file_created": false,
+    "physical_install_save_retention_audio_IME_tested": false,
+    "build": "/workspace/work/s143-three-song-demo-20261106/build-v16-v8.json",
+    "audit_hold": "/workspace/work/s143-three-song-demo-20261106/audit-preexecution-HOLD.json",
+    "cache_closure": "/workspace/work/s143-three-song-demo-20261106/artifact-cache-closure.json"
+  },
+  "S143_final_metadata_Git": "Durableuncommittedrelease preserved; finalcanonicalGit andSessionindexrefreshHELD funding. Primarysource76/preflights committed; no reset/cleanup.",
+  "S143_preserved_pre_closeout_aliases": {
+    "completion_gate": {
+      "tested_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+      "scoped_technical_pass": true,
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "evidence": "/workspace/work/s140-mixing-desk-20261106/closeout.json",
+      "physical_device_pending": true
+    },
+    "candidate_run": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+    "candidate_model": "/workspace/work/s140-mixing-desk-20261106/model-reuse-current-final.json",
+    "candidate_focus_run": "/workspace/work/s140-mixing-desk-20261106/executions/whole-phone-f9.json",
+    "current_candidate": {
+      "source": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
+      "status": "closed_verified_in_V15",
+      "next_base_only": "/workspace/work/s140-mixing-desk-20261106/source-final.json"
+    },
+    "last_verified_native_run": "/workspace/work/s123-audible-producer-20261104/focused-native-validation.json",
+    "latest_focused_native_qa": "/workspace/work/s140-mixing-desk-20261106/final-source-verification.json",
+    "latest_local_native_checkpoint": {
+      "session": "S134",
+      "source_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "tested_sha": "898d88cc85d53ab6b0b6dc9b7f549d5b2ad157e1",
+      "evidence": "/workspace/work/s134-starting-commitments-20261105/closeout.json",
+      "manifest": "/workspace/work/s134-starting-commitments-20261105/source-final.json",
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "packaged_in_V13": false
+    },
+    "latest_verified_phase2": {
+      "session": "S125",
+      "source_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+      "tested_sha": "74f2b91aba50a8a4ffeb82b376059f6d5b440092",
+      "evidence": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
+      "manifest": "/workspace/work/s125-week-and-calendar-20261105/source-final.json",
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "source_only_notV12": true
+    },
+    "last_source_slice": {
+      "session": "S86",
+      "source_sha": "3d2b5ed2c93280b9717ab56496ae5ec2134cfb12",
+      "curated_count": 408,
+      "owned_game_paths": 2,
+      "new_modules": 0,
+      "protected_prior_paths": 406,
+      "complete_validation": "/tmp/bandmaster-s86-20261103/proof-final-3d2b5ed/complete-validation.json"
+    },
+    "last_delivery": "/workspace/work/s140-mixing-desk-20261106/private-delivery.json"
+  },
+  "current_phone_guide_sequence": 21,
+  "historical_current_before_S144_close": {
+    "status": "S144_poster_performance_source_preflight",
+    "scope": "Persist distinct musical foundation identity independently of title/arrangement; three foundations and original 9writingdays feed unchanged ordered demo/release/radio. Reduce repeated screens/buttons without changing real costs or decisions. Preserve blocked-day agency with explicit free informal practice.",
+    "last_verified_code_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+    "completion_gate": {
+      "tested_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
+      "source_technical_pass": true,
+      "scoped_visual": "CLEAR",
+      "visual_verdict": "partial",
+      "owner_approved": false,
+      "APK_finalaudit_pass": false,
+      "evidence": "/workspace/work/s143-three-song-demo-20261106/closeout.json"
+    },
+    "root_writer": "root_S144_poster",
+    "root_lease": {
+      "owner": "root_S144_poster",
+      "expires_at": "2026-11-07T12:46:33.695324+00:00"
+    },
+    "next_single_action": "Fresh fully funded bounded READ-ONLY audit of sealed V16/source76, then independent artifact review and same private Dropbox delivery ONLY if accepted. Use a NEW private log/TMP/XDG audit workspace; old S143 producer/cache stays immutable. No engine/import/export/rebuild or old-producer resume."
+  },
+  "current_tested_source": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+  "latest_s144": {
+    "session": "S144",
+    "source_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+    "closeout": "/workspace/work/s144-poster-foundation-20261107/closeout.json",
+    "source_manifest": "/workspace/work/s144-poster-foundation-20261107/source-final.json",
+    "technical_pass": true,
+    "scoped_visual": "CLEAR_FOR_REVIEWED_NATIVE_STATES",
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "assertions": 1020,
+    "processes": "50=40strict+10held",
+    "APK": "NoS144APK; owner-requested V16/source76 upload exists, full audit HELD",
+    "native_previews": "Three existing-folder Dropbox nativePNG uploads/readbacks, no sharing changes",
+    "next_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
+    "released_at": "2026-11-07T12:19:39.578514+00:00"
+  }
 }

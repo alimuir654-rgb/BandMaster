@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "S144",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "de1a77c00bb64b00fa87cd45407dbc42efecb3db",
   "owner_request": "Directlatestowner authorises exactstorageproposal/rescuepreflight andposteradventureimplementation; explore recordedparts andgame musicmethods. No paidacquisition/publication/keysharing assumed.",
@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1947516,
-    "sha256": "43c63a0db5d7f97af407d0830d984c2917c871a0049f4348258cc3e1e7a9a1da"
+    "bytes": 1949789,
+    "sha256": "efee78c0d1227ab08963a5c93d6ed783adf6d226590ad2f50153a3d5a339f0de"
   },
   "lesson_ids": [
     "BM-25",
@@ -1078,7 +1078,7 @@
   "storage_phase": "completed55postchecksPASS;mutationwrapperHELD_lastfreeequality;see storage-postverification.json",
   "source_baseline_manifest": "/workspace/work/s143-three-song-demo-20261106/source-final.json",
   "source_baseline_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8",
-  "source_phase": "prospective_beforecode",
+  "source_phase": "closed_scoped_verified",
   "protected": "54originalScripts3UID/418OGG11JSON/rawartfonts/6inertmeters/Finance/saveunknownschema/originaltypedonceownership; no musicbank/sourceasset acquisition",
   "storage_plan": {
     "primary_cap": 31457280,
@@ -1266,5 +1266,44 @@
     "only": "Finalcompactreview/closeout/canonicalmetadata/primaryGitobjects/Pagesdeliveryreceipts. No source/art/audio/runtime/cache/PNG/APK allocations. No cleanup/deletion/resume.",
     "prior_visual20MiB_nearly_consumed": true,
     "new_total_primary_cap": 31457280
+  },
+  "closed_at": "2026-11-07T12:19:39.578514+00:00",
+  "closeout": {
+    "tested_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+    "evidence": {
+      "directory": "/workspace/work/s144-poster-foundation-20261107",
+      "source_manifest": "/workspace/work/s144-poster-foundation-20261107/source-final.json",
+      "source_manifest_SHA256": "dd5363cbb8b48fb51cfde7dea58083a5ec5ea5a50cb53305148ad99ffda06369",
+      "whole_cases": [
+        "notice-early-phone-v1",
+        "notice-early-wide-v1",
+        "notice-final-tall-v1",
+        "notice-final-desktop-lowcopy-v1"
+      ],
+      "whole_assertions": 1020,
+      "regressions": [
+        "regression-gameplay-final-v1.json",
+        "regression-opening-final-v1.json",
+        "ordinary-entry-final-v1.json"
+      ],
+      "independent_final": "review/final-source-native-review-v1.json",
+      "independent_SHA256": "ef428c272d6ac14f91819d2431e095fcefbe5e560d556bdc32f88136848286e3",
+      "pixels": "final-frame-pixel-audit.json",
+      "protection": "source-artifact-protection-final.json",
+      "postrelease_cache": "artifact-cache-closure-final.json",
+      "primary_Git_verified_anchor": "primary-Git-before-close.json",
+      "final_metadata_Git_audit": "primary-Git-final.json",
+      "Pages": "page-status-audit.json",
+      "private_delivery": "private-native-preview-delivery.json"
+    },
+    "visual_verdict": "partial",
+    "next_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
+    "new_issue_review": {
+      "bytes": 1949789,
+      "SHA256": "efee78c0d1227ab08963a5c93d6ed783adf6d226590ad2f50153a3d5a339f0de",
+      "events": 1278,
+      "last_opaque_event": "S144-7f9cc763bfcb49da8bd1e60ed9c5fe04",
+      "all_new_events_reviewed": true
+    }
   }
 }
