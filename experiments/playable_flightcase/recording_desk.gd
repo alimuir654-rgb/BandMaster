@@ -76,7 +76,7 @@ static func render(host, parent: Node, compact: bool) -> void:
  var songs: Array=Rules.songs(state)
  var body: VBoxContainer=host._paper(parent,compact)
  _copy(host,body,"CUT A DEMO","RecordingHeading",26)
- _copy(host,body,"THREE ORIGINALS → RECORD → RELEASE → LOCAL RADIO","DemoRadioPath",16)
+ _copy(host,body,"YOUR ORIGINALS → DEMO → LOCAL RADIO","DemoRadioPath",16)
  _copy(host,body,"Choose two or three finished originals. Recording uses £60 and 2 days; release uses £25 and 1 day. A released demo opens the local-radio pitch.","DemoRadioCosts",16)
  _copy(host,body,"%d OF 3 TRACKS SELECTED" % host.recording_ids.size(),"RecordingCount",16)
  if not str(host.notice).is_empty(): _copy(host,body,str(host.notice),"RecordingNotice")
@@ -169,8 +169,9 @@ static func dock(host, parent: Node, _compact: bool) -> void:
   _radio_dock(host,parent)
   return
  if str(host.recording_mode)=="archive":
-  _button(host,parent,"CHOOSE TRACKS","RecordingSelectAction",mode.bind(host,"select"),true)
-  _button(host,parent,"BACK TO SONGBOOK","RecordingBackSongsAction",host._navigate.bind("songs"))
+  var row:=HBoxContainer.new();row.add_theme_constant_override("separation",8);parent.add_child(row)
+  _button(host,row,"CHOOSE TRACKS","RecordingSelectAction",mode.bind(host,"select"))
+  _button(host,row,"SONGBOOK","RecordingBackSongsAction",host._navigate.bind("songs"))
   return
  var state: Dictionary=host.game.career
  var preview: Dictionary=Rules.preview(state,host.recording_ids.duplicate())
@@ -194,10 +195,9 @@ static func _archive(host, parent: Node, compact: bool) -> void:
  var state: Dictionary=host.game.career
  var sessions: Array=Rules.sessions(state)
  var heading: VBoxContainer=host._paper(parent,compact)
- _copy(host,heading,"YOUR RECORDINGS","RecordingArchiveHeading",26)
+ _copy(host,heading,"YOUR DEMOS","RecordingArchiveHeading",28)
  if not str(host.notice).is_empty(): _copy(host,heading,str(host.notice),"RecordingNotice")
- _copy(host,heading,"Saved tracks and local releases.","RecordingArchiveIntroduction",16,true)
- _copy(host,heading,"Your record, in your order. Saved sketches can be heard in the Songbook.","RecordingArchiveAudio",16,true)
+
  if sessions.is_empty():
   var raw: Variant=state.get("recordings",[])
   var valid: Dictionary=Rules.validate(state)
@@ -221,7 +221,7 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
  var hero:=HBoxContainer.new();hero.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_theme_constant_override("separation",18);parent.add_child(hero)
  var sleeve:=VBoxContainer.new();sleeve.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_child(sleeve)
  var band: Label=Poster.label(str(host.game.career.get("band_name","YOUR BAND")).to_upper(),34);band.name="DemoSleeveBand_"+str(index);sleeve.add_child(band)
- var art:=Cover.new();art.name="DemoSleeveArt_"+str(index);art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""));art.set_meta("recording_id",str(session.get("id","")));sleeve.add_child(art)
+ var art:=Cover.new();art.name="DemoSleeveArt_"+str(index);art.custom_minimum_size.y=148 if compact else 210;art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""));art.set_meta("recording_id",str(session.get("id","")));sleeve.add_child(art)
  var heading: String="DEBUT DEMO" if index==0 else "DEMO %d" % (index+1)
  _copy(host,sleeve,heading,"RecordingSessionHeading_"+str(index),30)
  _copy(host,sleeve,"DAY %d · %d TRACKS" % [int(session["day"]),list.size()] if session.has("day") else "DATE NOT RECORDED · %d TRACKS" % list.size(),"DemoSleeveDate_"+str(index),18)

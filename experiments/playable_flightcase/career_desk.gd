@@ -230,6 +230,8 @@ func _render() -> void:
  for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
   var option: Button = C.button(str(entry[1]),"flightcase","tab",true)
+  if page=="recording":
+   option=Poster.button(str(entry[1]));option.toggle_mode=true
   option.name = "CareerNav_"+destination
   option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs") or (page=="calendar" and destination=="home")) and not receipt_open)
   option.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
@@ -310,6 +312,7 @@ func _header(parent: Node) -> void:
  if page=="home" and not receipt_open:
   var date: Label=Poster.label("DAY %d  ·  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER)
   date.name="CareerDate";date.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT;row.add_child(date)
+  _poster_pause(row)
   return
  var words := _box(2)
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -323,6 +326,12 @@ func _header(parent: Node) -> void:
  var funds: Label = C.label("DAY %d  •  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  funds.name = "CareerDayCash"
  words.add_child(funds)
+ if page=="recording" and not receipt_open:_poster_pause(row)
+
+func _poster_pause(parent: Node) -> void:
+ var pause: Button=Poster.button("•••")
+ pause.name="CareerMenuAction";pause.tooltip_text="Pause and menu";pause.custom_minimum_size=Vector2(52,48);pause.size_flags_horizontal=Control.SIZE_SHRINK_END;pause.disabled=busy
+ pause.pressed.connect(_menu);parent.add_child(pause)
 
 func _navigate(destination: String) -> void:
  if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment","situation"]:
@@ -349,7 +358,7 @@ func _navigate(destination: String) -> void:
  if destination=="gigs" and JourneyDesk.active(self):
   _pending_focus="JourneyHeldNote"
  if destination=="home":
-  _pending_focus = "CareerHomePracticeAction"
+  _pending_focus = "PosterActivitiesAction" if poster_activities_open else "PosterNextAction"
  if destination=="calendar":
   _pending_focus = "CareerCalendarBackAction"
  _render()
@@ -748,6 +757,7 @@ func _songs_page(parent: Node, compact: bool) -> void:
  body.add_child(_button("BACK TO WRITING  ›","CareerSongPracticeAction",_practice.bind("create"),true))
 
 func _decision_dock(parent: Node, compact: bool) -> void:
+ if page=="home" and not receipt_open:return
  var dock := _box(5)
  dock.name = "CareerDecisionDock"
  dock.custom_minimum_size.x = minf(900.0,maxf(280.0,size.x-(24 if compact else 40)))
@@ -810,6 +820,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
     dock.add_child(C.label("Need £%d more." % (fee-int(game.career.get("cash",0))),14))
    elif owned and int(Gear.record(game.career,selected_item).get("condition",-1))>=100:
     dock.add_child(C.label("Already in excellent condition.",14))
+ if page=="recording" and not receipt_open:return
  var navigation := HBoxContainer.new()
  navigation.visible=not (page=="recording" and RadioVisit.locked(game.career))
  navigation.add_theme_constant_override("separation",8)

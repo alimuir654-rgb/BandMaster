@@ -3,7 +3,8 @@ extends Control
 ## Native labels stay outside this drawing; never a screenshot-as-interface.
 var identity: String=""
 func _ready() -> void:
- custom_minimum_size=Vector2(160,210);size_flags_horizontal=Control.SIZE_EXPAND_FILL;mouse_filter=Control.MOUSE_FILTER_IGNORE
+ custom_minimum_size.x=160;if custom_minimum_size.y<1:custom_minimum_size.y=210
+size_flags_horizontal=Control.SIZE_EXPAND_FILL;mouse_filter=Control.MOUSE_FILTER_IGNORE
 func _draw() -> void:
  var seed_value: int=absi(identity.hash());var gold:=Color("e7b83d");var ink:=Color("191b1a")
  draw_rect(Rect2(Vector2.ZERO,size),ink)
