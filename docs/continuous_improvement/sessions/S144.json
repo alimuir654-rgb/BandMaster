@@ -43,7 +43,8 @@
     "experiments/playable_flightcase/poster_components.gd",
     "experiments/playable_flightcase/poster_home.gd",
     "experiments/playable_flightcase/demo_cover.gd",
-    "experiments/playable_flightcase/opening_ui.gd"
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/art/poster/print_materials_v1.png"
   ],
   "external_exact_paths": [
     {
@@ -1136,5 +1137,71 @@
     "untouched_reserve_unchanged": 805306368,
     "scope": "Only final distinct activity-route/landing importantstates, four-view whole-task, original73/88, configuredentry and protection/closeout; nativePNG32MiB bound, retained failures, no APK/audio/art/newruntime allocation. Primary20MiB/TMP1MiB cap and629145600 floors unchanged.",
     "before_engine_fresh_complete_guard": true
+  },
+  "visual_rework": {
+    "owner_request": "Implementation is a long way from mockup; surrounding textures and typography need correction. Direct latest user feedback supersedes layout-only acceptance.",
+    "target_exact_mockup": "/workspace/generated_images/exec-f5a960a1-55bc-4733-b0fe-8f583e7e3b70.png",
+    "mockup_sha256": "65114e71eedb76fa1732f499c47a710ba17415081f02b76982c454fbf98c70a8",
+    "root_reopened_actual": true,
+    "dominant_gap": "Native flat squares/thin uniform type/case surrounds lack torn print stock, grit, bold condensed/slanted hierarchy, record sleeve art and coherent poster composition.",
+    "before_any_new_source_or_asset": true,
+    "source_candidate_retained": "74b33bdb88efd2c51fb15a5e7b95a8f367d8eab3; structural candidate, not final visual acceptance",
+    "resource_method": "Only exact22 current-session completed-run XDG shader INDEX files may consolidate into2 identical anchors, all paths/hash/mode/uidgid preserved. These current-run cache trees then permanently closed; no future engine uses any of them. No historical source/cache/art/save/proof removal.",
+    "cache_inventory": "/workspace/work/s144-poster-foundation-20261107/current-XDG-duplicate-inventory.json",
+    "cache_inventory_SHA256": "3b8d6f1ed83094ef40482be8b1d6b9ed9c4f689740088155d7d012ea91f90727",
+    "cache_index_paths": [
+      "runs/final-early-phone/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/entry-final-phone-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/whole-wide-v3/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/whole-tall-v3/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/whole-phone-v3/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/touch-method-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/whole-phone-v2/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/landing-early-wide-v2/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/landing-early-phone-v2/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/whole-phone-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-wide-v5/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-phone-v5/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-wide-v4/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-phone-v4/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-phone-v3/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-wide-v2/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-phone-v2/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/landing-route-wide-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/landing-route-phone-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/entry-final-wide-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-wide-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index",
+      "runs/early-phone-v1/XDG_CACHE_HOME/mesa_shader_cache_db/index"
+    ],
+    "cache_reclaim_expected": 26296320,
+    "cache_operation_preflight_primary_cap": 65536,
+    "following_art_and_proof_only_after_fresh_complete_funding": true,
+    "asset_job": "One production atlas3x2: cream/mustard/rust/blue torn print stock, charcoal/rust grain background, text-free dark mountain/red-river cover illustration. Reference for material/style only; no baked text/UI/phone frames/actors/logos/instruments. One generation, no correction unless separately funded from fresh actuals.",
+    "original_output_root": "/workspace/generated_images",
+    "curated_asset": "experiments/playable_flightcase/art/poster/print_materials_v1.png",
+    "art_source_primary_max": 7340032,
+    "source_art_copy_method": "Same-filesystem hardlink only NEW immutable generated source into curated repo path; original retained in place, same bytes/inode; no old-cache/source aliasing. Git blob retained primary.",
+    "visual_primary_remaining_cap": 20971520,
+    "visual_primary_start_free": 653471744,
+    "visual_primary_categories_MiB": {
+      "generated_original_max": 7,
+      "primary_Git_blob_max": 7,
+      "selected_native_copies": 4,
+      "source_QA_closeout_Git_metadata": 2
+    },
+    "post_consolidation_RAM_cap": 490733568,
+    "post_consolidation_all_engine_Xorg_writer_RSS_cap": 620756992,
+    "untouched_reserve_unchanged": 805306368,
+    "remaining_RAM_categories_MiB": {
+      "material_source_import_runtime_copies": 28,
+      "new_native_PNG": 32,
+      "new_private_XDG_and_owned_test_saves": 24,
+      "compact_QA": 1,
+      "one_failed_proof_tail": 8
+    },
+    "native_PNG_pool_cap": 67108864,
+    "no_art_or_engine_until_actual_funding_passes": true,
+    "bounded_visual_acceptance": "Independent actual mockup/current predesign BEFORE atlas, root+independent raw atlas inspection, first actual390home/1280whole importantstates against mockup BEFORE fullproof; same4view whole task/source/input/FSretry/typedreload. Target quality gate separate from technical pass.",
+    "deadline": "Existing root lease12:46Nov7; no automation/window extension or generic owner wait."
   }
 }
