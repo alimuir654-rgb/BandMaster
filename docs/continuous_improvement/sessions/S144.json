@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1930596,
-    "sha256": "2ef7dd92358f1c2528597c76b6a2a8d773b015095186669549991c9d1ba82358"
+    "bytes": 1932137,
+    "sha256": "cabd1af8c8532d9a6f4f342042833e6dceec232c79806ab6ff1708344af0a505"
   },
   "lesson_ids": [
     "BM-25",
@@ -1206,6 +1206,7 @@
     "cache_stage_complete": "/workspace/work/s144-poster-foundation-20261107/current-index-consolidation.json",
     "fully_funded_before_art": "/workspace/work/s144-poster-foundation-20261107/visual-complete-funding-pass.json",
     "future_engine_XDG": "Allnew paths; no engine ever opens linked completed-run indices",
-    "independent_reviewer": "game_design_research read-only before first asset job and early importantstates"
+    "independent_reviewer": "game_design_research read-only before first asset job and early importantstates",
+    "material_import_method": "Mini editor producer permanentlyCLOSED after resourceHOLD; no artifacts copied. Native uses built-in Image.load_from_file raw hash-bound atlas when no import/remap; future packaged loader uses normal imported resource. No thirdeditorattempt/no dependency/cold claim."
   }
 }
