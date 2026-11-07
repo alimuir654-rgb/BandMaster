@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1911991,
-    "sha256": "37cb27594b028cfb579b14d507d830fc9a860346b4daef89e440162c310f794d"
+    "bytes": 1913051,
+    "sha256": "82b4ab4b706a112f96d25e77e2d3ff538459d3d74b589b485ae8b9fcae516c07"
   },
   "lesson_ids": [
     "BM-25",
@@ -1103,5 +1103,16 @@
     },
     "readonly_pagecache_advice": "D144/readonly-memory-advice.json all867FDstatsexact; nofilebyteschanged",
     "before_allocation_remeasure_required": true
+  },
+  "import_method_amendment": {
+    "reason": "First warm editor import exceeded600MiB RSS cap and is HELD; change method rather than increase resource cap or use incomplete result. All curated assets and global classes unchanged.",
+    "method": "Hash-bound new regular copies of exact baseline uid_cache.bin and empty global_script_class_cache.cfg alongside already-pinned imported artifacts. New GDScript uses explicit res paths. No editor/empty/cold import success claim; direct configured runtime validation must pass.",
+    "copies": {
+      "runtime/.godot/uid_cache.bin": "66a71e8a53685d38a4f4a540bef0aabc2c687a954d8b66ce4504dfa6b461ac76",
+      "runtime/.godot/global_script_class_cache.cfg": "f61aa7ad3097022d6a9d110ca3f73fa7bb348ec2cf9a6e7c9523574dc75f5a16"
+    },
+    "closed_source": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
+    "preserve_held_run": true,
+    "RAM_delta_under_128KiB": true
   }
 }
