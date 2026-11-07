@@ -48,7 +48,7 @@ static func masthead(text: String,width: float,preferred: int=78) -> Label:
  var points: int=preferred
  var face: Font=display_font()
  var longest: String=text
-  while points>28 and face.get_string_size(longest,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x>width-18:points-=1
+ while points>28 and face.get_string_size(longest,HORIZONTAL_ALIGNMENT_LEFT,-1,points).x>width-18:points-=1
  return label(text,points,PAPER)
 static func button(text: String,primary: bool=false,color: Color=PAPER) -> Button:
  var result:=Button.new();result.text=text;result.custom_minimum_size.y=52
