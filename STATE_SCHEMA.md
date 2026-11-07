@@ -17,3 +17,34 @@ The `user://` scheme resolves to Godot's per-user data area, not the repository.
 
 ## Next audit
 Document exact keys, data types, ranges and authoring locations from all three live scripts before the first save-format change.
+
+## Songwriting audio (optional, v1)
+- `band.members[].audio_bank_id`: stable string allocated on the first successful
+  audio commit. It travels with the character when the roster changes order.
+- `career_extra.next_audio_bank_id`: next integer suffix, default 1.
+- `career_extra.used_song_phrases`: array of `character-id|instrument:phrase`
+  strings, default empty. Preview never writes these. A committed phrase remains
+  unavailable for new songs, but the current draft can keep/refine its own part.
+- `career_extra.current_song_draft.audio_mix`: optional dictionary with
+  `source: rehearsam-v1` and `parts` keyed by guitar/bass/drums. Each part stores
+  integer `phrase` (0–2), `level_db` (-48..0), `breakdown`, `solo`, contributor name
+  and stable `contributor_id`. Finished `song_catalogue[]` entries retain a copy.
+
+Old saves need no eager migration. Missing fields mean no audio, no consumption
+and no assigned banks. IDs/consumption and session progress are saved together
+only after a valid, successful session. Character audition audio is independent
+of these consumable songwriting keys. The prototype shares three source passages
+across characters; it does not claim distinct character performances or 50 clips.
+
+## Versioned songwriting families
+`audio_mix.source` additionally accepts `steady-early-v1` and `steady-later-v1`.
+Each identifies one matched 9.6-second passage across the three instruments;
+the drum asset includes its matching percussion. Rehearsam paths, lengths and
+phrase indices remain unchanged. Its original `owner|instrument:phrase` usage
+keys are still read/written exactly as before. New families use
+`owner|source|instrument:phrase`, so equal indices in different families cannot
+consume each other. No destructive migration or save reset occurs.
+
+JSON-loaded integral numeric phrase values are accepted and stored as integers.
+Unknown source IDs fail validation rather than substituting a different recording.
+Read-only playback uses the saved source, even after its phrases are consumed.
