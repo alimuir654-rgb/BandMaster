@@ -10,8 +10,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1938213,
-    "sha256": "acf54fd6429a7a1279919dd43d67377eb886fa431a2bc3421bac8403258b5548"
+    "bytes": 1940973,
+    "sha256": "46998c07a6cb3df9392fb584d2e445d947ecf21ab95fc5d7bf221ae9014c01aa"
   },
   "lesson_ids": [
     "BM-25",
@@ -1186,8 +1186,8 @@
     "visual_primary_categories_MiB": {
       "generated_original_max": 3,
       "primary_Git_blob_max": 3,
-      "selected_native_copies": 10,
-      "source_QA_closeout_Git_metadata": 4
+      "selected_native_copies": 12,
+      "source_QA_closeout_Git_metadata": 2
     },
     "post_consolidation_RAM_cap": 490733568,
     "post_consolidation_all_engine_Xorg_writer_RSS_cap": 620756992,
@@ -1199,7 +1199,7 @@
       "compact_QA": 1,
       "one_failed_proof_tail": 8
     },
-    "native_PNG_pool_cap": 67108864,
+    "native_PNG_pool_cap": 75497472,
     "no_art_or_engine_until_actual_funding_passes": true,
     "bounded_visual_acceptance": "Independent actual mockup/current predesign BEFORE atlas, root+independent raw atlas inspection, first actual390home/1280whole importantstates against mockup BEFORE fullproof; same4view whole task/source/input/FSretry/typedreload. Target quality gate separate from technical pass.",
     "deadline": "Existing root lease12:46Nov7; no automation/window extension or generic owner wait.",
@@ -1209,5 +1209,23 @@
     "independent_reviewer": "game_design_research read-only before first asset job and early importantstates",
     "material_import_method": "Mini editor producer permanentlyCLOSED after resourceHOLD; no artifacts copied. Native uses built-in Image.load_from_file raw hash-bound atlas when no import/remap; future packaged loader uses normal imported resource. No thirdeditorattempt/no dependency/cold claim.",
     "budget_rebalance_actual": "Actual atlas2.93MiB and Git blob <3MiB frees category room within SAME20MiB cap; no new total allocation."
+  },
+  "final_capture_contract": {
+    "selected_physical_png_per_view": 7,
+    "selected": [
+      "01-home-fresh",
+      "02-activity-notices",
+      "05-demo-sleeve-tracks",
+      "08-real-filesystem-failure",
+      "09-newly-saved-demo-released",
+      "10-writing-native-local-edit",
+      "11-home-after-writing-draft"
+    ],
+    "other_rendered_frames": 4,
+    "other_proof": "Actual dimensions+RGBA SHA256 receipt, explicitly no physical PNG; no inherited functional/input/clip/FSfailure/reload assertions removed. Independent approved bounded capture method.",
+    "native_PNG_pool_cap": 75497472,
+    "owned_RAM_total_cap_unchanged": 490733568,
+    "RAM_rebalance": "10MiB of unspent28MiB material/import category reserved for PNG instead; same total cap, full RSS592MiB+untouched768MiB remain. No editor retry, sourceatlas3MiB actual.",
+    "primary_final_selected_copy_reservation": "Max2MiB additional copies only after latestsource final visualpass; current printcopies9.82MiB. Same visual20MiB total categories3original/3Git/12selected/2metadata. Fullstatvfs floor mandatory."
   }
 }

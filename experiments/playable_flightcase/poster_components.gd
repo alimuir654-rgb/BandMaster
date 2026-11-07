@@ -41,7 +41,7 @@ static func stock(color: Color=PAPER,margin: int=20) -> StyleBoxTexture:
  return style
 static func label(text: String,points: int=20,color: Color=INK) -> Label:
  var result:=Label.new();result.text=text;result.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
- result.add_theme_font_override("font",display_font() if points>=24 else FONT);result.add_theme_font_size_override("font_size",points);result.add_theme_color_override("font_color",color)
+ result.add_theme_font_override("font",DISPLAY if points>=24 else FONT);result.add_theme_font_size_override("font_size",points);result.add_theme_color_override("font_color",color)
  result.mouse_filter=Control.MOUSE_FILTER_IGNORE;result.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  return result
 static func masthead(text: String,width: float,preferred: int=78) -> Label:
