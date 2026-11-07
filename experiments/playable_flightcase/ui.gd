@@ -986,7 +986,7 @@ func _writing_workspace(body: VBoxContainer) -> void:
  var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady():
   body.add_child(_ink("THE WRITING ROOM",24))
-  body.add_child(_label("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
+  body.add_child(_ink("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
   var fields:=GridContainer.new();fields.columns=1;body.add_child(fields)
   _writing_title(fields)
   return
