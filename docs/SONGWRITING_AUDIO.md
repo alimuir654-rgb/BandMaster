@@ -1,10 +1,40 @@
 # Songwriting phrase prototype
 
 In Career → Writing Room → Jam/Songwriting, the new **Build Your Band's Sound**
-panel offers three passage choices for guitar, bass and drums when private audio
-is installed. Each instrument draws from the first active matching band member.
+panel offers matched passage families for guitar, bass and drums when private
+audio is installed, plus the archived original three-phrase bank. Each instrument draws from the first active matching band member.
 An active guitarist, bassist and drummer are needed to use all three parts.
 Writing without audio remains available.
+
+The passage-family selector now adds **Steady Hundred / Early** and **Steady
+Hundred / Later**, using the source ranges 4.8–14.4 s and 19.2–28.8 s respectively.
+Each has one matched guitar, bass and drum-kit part. Choose the family as a unit;
+these two sources cannot be accidentally mixed together within one composition.
+Their musical style labels and boundaries remain provisional: the owner heard
+two styles, but the assistant has no listening tool to confirm these exact cuts.
+Both run 9.6 s. Breakdown follows the current family's midpoint, not the older
+9.48-second timing. Drums include matching Percussion at a common gain; all five
+full-quality source originals remain separate and unchanged.
+
+Saved Rehearsam compositions still load their original recordings. The older
+three-phrase bank is retained under **Rehearsam Loop / Original Bank**. Consumption
+is isolated by source family for the new recordings, with original usage keys
+preserved for old saves. Switching to another family during a committed draft
+uses fresh phrases; earlier committed phrases remain used.
+
+`tools/prepare_steady_phrases.py --assessment-dir /path/to/steady-assessment`
+reproduces the six private working assets from hash-verified originals (requires
+NumPy). Source/output hashes and drum-kit summation are recorded in the local
+derivation manifest. `Audio/Songwriting/SteadyHundred/` is ignored by Git, and
+normal Android exports exclude all private songwriting audio. Owner review build
+version code 3 includes both new families plus the archived Rehearsam recordings.
+
+New validation: `tests/steady_phrase_tests.gd -- --require-assets` exercises
+source isolation, archived asset/key compatibility, JSON-loaded compositions,
+family switching, 460,800-frame imported PCM and source-specific breakdown
+timing. Existing phrase-bank/CareerHub, save/UI, practice and career regression
+tests were also run. A real career screen was rendered at phone size. Android
+runtime and exact musical phrase boundaries remain for owner review.
 
 Enable **Use These Parts in My Song**, choose phrases and levels, and preview.
 Solo isolates selected instruments. Breakdown removes that part in the second
@@ -20,7 +50,7 @@ Completed songs retain their composition. Songbook → View Sleeve provides
 read-only playback, including when those phrases are no longer selectable or
 their contributor has departed. Career saves persist audio settings and usage.
 
-This is a source-limited owner prototype: nine aligned 48 kHz stereo PCM clips,
+The archived Rehearsam bank contains nine aligned 48 kHz stereo PCM clips,
 three passages per instrument, from AI-generated Suno Rehearsam Loop. Each is
 455,040 frames / 9.48 seconds, with common in/out positions and short endpoint
 fades. These are provisional four-bar candidates, not listening-verified bars

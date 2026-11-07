@@ -2475,6 +2475,7 @@ func _actions() -> void:
   if PhraseBank.available():
    _label(workshop,"BUILD YOUR BAND'S SOUND",16,UI.AMBER)
    audio_desk = SongAudio.new()
+   audio_desk.genre_id = _genre_id()
    audio_desk.state = _state()
    audio_desk.initial_mix = draft.get("audio_mix",{}).duplicate(true)
    workshop.add_child(audio_desk)
@@ -2524,6 +2525,7 @@ func _open_song_sleeve(song: Dictionary, number: int) -> void:
  SongSleeve.build(sheet["body"],song,number,_genre_id())
  if song.has("audio_mix") and PhraseBank.available():
   var playback := SongAudio.new()
+  playback.genre_id = _genre_id()
   playback.state = _state()
   playback.initial_mix = song["audio_mix"].duplicate(true)
   playback.read_only = true

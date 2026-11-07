@@ -17,6 +17,13 @@ by `tools/prepare_audio_review.py`, ignored by Git and excluded from the normal
 Android export. The dedicated Android Audio Review preset opts into those assets
 and a separate app ID. See `docs/LAST_BUS_GONE_REVIEW.md` for build/review steps.
 
+Career songwriting embeds `song_audio_workbench.gd` in the existing poster-themed
+Writing Room. It uses the same genre palette/button helpers as the career UI.
+`song_phrase_bank.gd` resolves immutable source-family IDs, archive playback and
+per-character consumption. Steady Hundred families use matched parts; Rehearsam
+save paths and usage keys remain unchanged. Private audio is bundled only in
+owner review exports. See `docs/SONGWRITING_AUDIO.md` and `STATE_SCHEMA.md`.
+
 ## Direction (not yet implemented)
 - **GameState**: authoritative cash, band roster, relationships, equipment, career and time.
 - **Simulation systems**: rehearsal, skills, finances, travel, gigs and fatigue as separate testable units.

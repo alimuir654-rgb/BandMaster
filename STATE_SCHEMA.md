@@ -35,3 +35,16 @@ and no assigned banks. IDs/consumption and session progress are saved together
 only after a valid, successful session. Character audition audio is independent
 of these consumable songwriting keys. The prototype shares three source passages
 across characters; it does not claim distinct character performances or 50 clips.
+
+## Versioned songwriting families
+`audio_mix.source` additionally accepts `steady-early-v1` and `steady-later-v1`.
+Each identifies one matched 9.6-second passage across the three instruments;
+the drum asset includes its matching percussion. Rehearsam paths, lengths and
+phrase indices remain unchanged. Its original `owner|instrument:phrase` usage
+keys are still read/written exactly as before. New families use
+`owner|source|instrument:phrase`, so equal indices in different families cannot
+consume each other. No destructive migration or save reset occurs.
+
+JSON-loaded integral numeric phrase values are accepted and stored as integers.
+Unknown source IDs fail validation rather than substituting a different recording.
+Read-only playback uses the saved source, even after its phrases are consumed.
