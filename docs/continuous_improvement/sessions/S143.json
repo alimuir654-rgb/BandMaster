@@ -11,8 +11,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 1877946,
-    "sha256": "579bca49e138d31ff594c0413960567bdfc37c54501e384f444c4bc7330a6ca4"
+    "bytes": 1878959,
+    "sha256": "49930a6eb2f1d3dc643ddcab108404b144b2f25ad3de6d269419a0d1f64f4ca9"
   },
   "lesson_ids": [
     "BM-15",
@@ -94,7 +94,7 @@
     "floor": 629145600,
     "primary_start_free": 657104896,
     "TMP_start_free": 773120000,
-    "primary_new_cap": 27787264,
+    "primary_new_cap": 27918336,
     "TMP_new_cap": 135266304,
     "host_RAM_root": "/dev/shm/bandmaster-s143-three-song-demo-20261106",
     "RAM_persistent_cap": 1073741824,
@@ -117,7 +117,7 @@
     "packaging_method_amendment": "Exact Godot --export-pack extension chooses ZIP. Compiled payloadZIP <=128MiB + two normalAPK <=144MiB each + full signing temporary or failedAPK <=144MiB =560MiB <= reserved576MiB. This cap is prospective failclosed, never trimming accepted sources. Source/cache300MiB+nativePNG64+pack576+work84=1024MiB. New four-standard PNGs funded separately TMP128MiB, originalRAM PNGs retained. Godot stopped during SDK320MiB; continuous1GiB reserve unchanged. PriorPCK extraction idea superseded before any packaging allocation.",
     "import_phase_persistent_cap": 335544320,
     "import_process_tree_RSS_cap": 1073741824,
-    "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB−actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup.",
+    "import_budget_rule": "Beforechangedimport: actualheadroom >= max(0,320MiB\u2212actualS143ownedtmpfsphysicalbytes)+1024MiBprocess+1024MiBreserve. Creditonlyexistingtasktmpfsbytesalreadycounted, noassumedfreereclaim. Knownsource159MB+oldobservedcache127MB+new4MB/audio6MB+work<320MiB, actualcapguard. Native640MiB/480MiB andSDK320MiB/1024MiB unchanged. Nooldcapfunding/cleanup.",
     "TMP_categories_MiB": {
       "four_standard_originals_and_selected_review_copies": 128,
       "existing_work_and_handoff": 1
@@ -171,12 +171,29 @@
       "new_QA_and_provenance": 20000,
       "new_compact_execution_receipts": 60000,
       "final_metadata_tail": 60000
+    },
+    "primary_tail_amendment_20261107": {
+      "at": "2026-11-07T01:05:46.338893+00:00",
+      "actual_free": 630587392,
+      "prior_cap": 27787264,
+      "additional_future_cap": 131072,
+      "remaining_after_amendment": 1400832,
+      "fully_reserved_end_free": 629186560,
+      "minima": {
+        "one_final_canonical_Git": 1015808,
+        "source_final": 180224,
+        "QA": 20000,
+        "new_compact_receipts": 60000,
+        "final_metadata": 60000,
+        "this_session_commit": 12288
+      },
+      "rule": "Prospective remainingtail only; all older bytes/failed histories kept; no floor waiver or retroactive approval. Full final Git precheck must fit measured remaining before mutation. Stop/HOLD if not."
     }
   },
   "scope_contract": {
     "composition": "v4 exact13keys (existing12+voice off only until cleared voice assets);3literalhook identities; default rotate by completed originals, first successful paid day pins hook/voice for that song; oldv2/v3 unchanged. New2authored existing-instrument compositions six tempo/groove cells x4 stems=48 OGG <=6MiB. Runtime energy/complexity/shape/tone controls real; no50unique-song claim. New-hook Simple omits final answering part, Layered includes it; Energy is dynamic balance, not an unrendered velocity/articulation claim. Stage-specific written direction/labels must say so.",
     "acoustic_and_vocals": "No genuine acoustic or vocal source currentlycleared. Hold production inclusion; cleaner existing hollowbody sketch is labelled picked electric, never acoustic or singing. No new bank/deps/acquisition.",
-    "informal_practice": "£0 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
+    "informal_practice": "\u00a30 one career day, actual availability/stale token. >=2 modest attendee-only skill/pair connection;1 solo;0 rest/advance route. No paid rehearsal-readiness package, automatic formal-promise fulfilment, absent intrinsic skill loss or duplicate exclusion penalty. Original Finance once through existing owner.",
     "show_navigation": "One editable date/trip/terms agreement after room selection with one explicit booking confirmation; batch only non-choice trip transitions tosoundcheck, preserving original checkpoint/cost/save owners. Pause keeps dirty exits/Continue guards.",
     "audio_preview": "Only if funded within same source scope: explicit-start sustained phrase, local updates without silent start, bounded supported pattern switch and stop on mute/focus/nav; no extra saves.",
     "protected": "All54originalScripts3UID/all370oldOGG10JSON/art/fonts/hardware/sixinertmeters/Game/Finance/schema/once-onlyowners exact; any additional path requires prospective amendment."
@@ -185,7 +202,7 @@
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/S143.json",
     "Fresh empty private import once, actual changed models/73gameplay/88opening/ordinary entry; root alone exact Godot/Dummy/flock/privateXDG, editor/import/export/X11 additional network permission.",
     "Independent predesign; early390/1280 important states before full proof; final390/720/1280/1600 three-song tasks with native pointer/key/emulatedtouch/scroll, typedreload and real filesystem failure/retry.",
-    "Actual ordered3songdemo→release→radio (record£60/2days,release£25/1day,radio£20/1day) using existing originals; whole show/booking changed task and freejam guards.",
+    "Actual ordered3songdemo\u2192release\u2192radio (record\u00a360/2days,release\u00a325/1day,radio\u00a320/1day) using existing originals; whole show/booking changed task and freejam guards.",
     "ONE final code16 ARM64 exact latest scoped-tested source via fresh lower-peak pack/template SDK route, full update/privacy/resources audit then sameprivateDropbox/BandMaster; V15 retained untilverified."
   ],
   "stop_condition": "Before source/assets require committed preflight+gate. Per-phase full memory/disk guards; preserve every failed input/output; two ineffective attempts change method/HOLD. No cleanup/oldcache mutation, no paid/newbanks/runtimeAI; genuine acoustic/singing remain source-gated, no false acceptance. No automatic schedule/window extension.",
@@ -209,7 +226,7 @@
   "audio_metadata_mapping_amendment": {
     "path": "experiments/playable_flightcase/audio/demo_foundations_v1.json",
     "actual_typed_consumer": "audition_audio.gd:53 unchanged",
-    "change": "Mapproposalownerapprovedfalse→owner_listening_acceptedfalse andproposalreviewauthority→integration_authority exactString; internalreviewtrue. Noaudiofilename/hash/rights/gain changes.",
+    "change": "Mapproposalownerapprovedfalse\u2192owner_listening_acceptedfalse andproposalreviewauthority\u2192integration_authority exactString; internalreviewtrue. Noaudiofilename/hash/rights/gain changes.",
     "proof": "Narrowconsumerpositive+wrongtype/authoritynegativechecks beforeearlynative retry. JSONtextonlyrefreshinS143activecache; no reimport/OGGcachechange/coldimportclaim.",
     "prior_registry_held": "00e3155 source/initialadoptionreceipt retained; closedhelperproposal/deliveryimmutable"
   },
@@ -254,13 +271,15 @@
   "paper_ink_final_repair": {
     "status": "prospective_beforeedit",
     "source_before": "2a4304575a3745094d629be1bc7e39535d7c83a3",
-    "one_exact_replacement": "body.add_child(_label(caption,18))→body.add_child(_ink(caption,18)), onlytheexactlongintro sentence",
+    "one_exact_replacement": "body.add_child(_label(caption,18))\u2192body.add_child(_ink(caption,18)), onlytheexactlongintro sentence",
     "all_other_source_assets_protected": true,
     "verification": "Early390/1280 entry/Open; 4completeONEwritingproject/3paidstages/FSretry/typedreload/Continue/savedtake; all4freshstandard/73/88/ordinaryentry. Source2a4fullthree-songloop13921 isearliersourceproof with exactunaffectedfunction/dependencybinding, notnewcurrent9dayloops.",
     "capture_storage": "Standards render+encodeactualGPUimage; currentencodedPNGsha==immediatelyrehashedpinnedprior2afileSHA enablesreferenceonlyphysical_newfalse. ElseNEWuniquePNGorHOLD. Everyquiescence/glyph/dimension/ownerassert stays. Newcurrentrender provenance distinctfrompriorphysicalwitness; twoexactallowlistedroots. No links/overwrites/deletes.",
     "native_capture_scope": "4physicalimportantstatesperfullproject; otherinheritedcapturecalls actualpostdraw/dimension/owner guardedbuffer_only. Newtesttruthfullyscopedfirstproject, no oldharnessweakening.",
     "shared_cache": "NewemptyCURRENT-source-onlyprivate XDG_CACHE, max3MiB, reusedonlyserializedcurrentSHA; uniqueDATA/configeverycase. Nooldcachewrites or cold/independenceclaim.",
     "source_preservation": "OldUi2a primaryGitblob verified andkept; newrefresh recordsGitreference insteadofredundant100KBprimaryfile. Neverrewriteexistingheldsourcecopies.",
-    "failed_proofs": "Includedin36MiBcompleteadditionalRAM; quota/errorsHOLD, noautomaticincrease/cleanup/guardweakening."
+    "failed_proofs": "Includedin36MiBcompleteadditionalRAM; quota/errorsHOLD, noautomaticincrease/cleanup/guardweakening.",
+    "witness_map_sha256": "45e477048259f56aec2c76f9a0b6172fb5c8378b467d585cef32b14567eda14c",
+    "current_source_sha": "76aac3842225a1dd88b295f1b4ea81afa9f005a8"
   }
 }
