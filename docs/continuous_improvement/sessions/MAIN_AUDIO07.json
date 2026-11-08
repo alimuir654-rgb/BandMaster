@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO07",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "NewSunofilesuploadedaftercharacter-contrastprompt. Continueexpandedbankswithinlargersourcechunk; nofrequentreleases.",
   "baseline_sha": "f63d0a4251182392a093db8f5bb8fdf0b6845195",
@@ -21,8 +21,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1992355,
-    "sha256": "b715c4b0f48d17fd67ad764a69d97dad64fde061f31519b7e939351deab90471"
+    "bytes": 1993773,
+    "sha256": "66bf2e1e153400a893d72f4f8d5071e8434f7e39f0e535f381c7556a7e1846da"
   },
   "target": {
     "locator": "/workspace/audio-creation-chunk/final-390x844-bank-open.png",
@@ -57,7 +57,7 @@
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active",
+    "status": "released",
     "owner": "root"
   },
   "started_at": "2026-11-08T13:15:02.899001+00:00",
@@ -80,5 +80,20 @@
     "cut_duration_s": 9.6,
     "audition_candidates": "Sixprivate4.8sisolatedpreviews(twoeachguitar/bass/drums) keptoutsidegamependinglisteningandcharacter/contentmatching",
     "independent_review": "review_current_workbench agrees6numericallypopulatedranges andexplicitbankconfig; noheardstyleassignment."
+  },
+  "closeout": {
+    "tested_sha": "4159bf5a02503b95a54962fc74178df014a6fb37",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO07_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Batchcandidate-listening/character-fitreviewwithnextcohesivegameupdate; sourceandprivateassetsretained, noimmediaterelease.",
+    "new_issue_review": "Initialscratchrequestsimportfailedbeforetransfer; usedstdliburllibandfreshsingle-useURLs, all4hashes/revisionsverified. Measuredmissingbass/openingandterminalresurgence; allnewcutsavoidregions. Explicit3-bankconfig/dynamiccounts prevent102/100alias; noaudiblecharacterclaims. Allmodel/nativechecks pass, cleanGLshutdown.",
+    "independent_review": "review_current_workbench:source+6actualfourviewcapturesclear; noedits/runtimelisteningperformedbyreviewer",
+    "simulated_review_lenses": {
+      "provenance": "SIMULATED:4originalDropboxIDs/revs/hashessaved; originalsunchanged;AIgeneratedSunolabel.",
+      "audio": "SIMULATED:consistentnominal100clock/cuts/fades/headroom; noheardqualityorcharacter-fitclaim.",
+      "persistence": "SIMULATED:oldIDs preserved, paidnewfamily/savefailure/finishedsong/reloadchecks pass.",
+      "visual": "SIMULATED:14choicesreachable, selectednewlabel/fixedfooterreadable inactual4views; ownerapprovalpending.",
+      "delivery": "SIMULATED:privateWAVsignored, metadata-onlyhandover, source-onlypush, noAPK/key/signing."
+    }
   }
 }

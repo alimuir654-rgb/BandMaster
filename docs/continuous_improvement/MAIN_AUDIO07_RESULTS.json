@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "session": "MAIN_AUDIO07",
+  "tested_sha": "4159bf5a02503b95a54962fc74178df014a6fb37",
+  "branch": "feature/recorded-song-main-app",
+  "status": "source_verified_private_audio_intake_complete_release_held",
+  "owner_approved": false,
+  "source": {
+    "name": "D\u2013G\u2013A\u2013D",
+    "original_files": 4,
+    "bytes": 91836436,
+    "codec": "PCM16stereo48000Hz",
+    "frames": 5738880,
+    "duration_s": 119.56,
+    "dropbox_identity_and_hash_verified": true,
+    "remote_revision_recheck_unchanged": true,
+    "provenance": "Owner-supplied AI-generated Suno audio"
+  },
+  "changes": [
+    "Recordedbank8->14:6matchedDGADpassagecandidates,30privateWAVassets",
+    "ExplicitSteady/Rehearsal/DGADconfig preserves100/102clock/old8IDs; genericexpandedbankcount andselectedcollapsedidentity",
+    "6isolated4.8spreviewcandidates outsidegame, instrument-onlypossibleprofilepools; nocharacterassignments"
+  ],
+  "validation": {
+    "focused_bank_clock": 55,
+    "existing_bank_owner_checks": 262,
+    "new_dgad_paid_owner_checks": 262,
+    "creation_regression": 64,
+    "native_views": [
+      {
+        "viewport": "390x844",
+        "exit_code": 0,
+        "checks": 18,
+        "log": "phone.log"
+      },
+      {
+        "viewport": "1280x720",
+        "exit_code": 0,
+        "summary": [
+          "DGAD_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":18,\"failures\":[],\"physical_device\":false,\"viewport\":\"(1280, 720)\"}"
+        ],
+        "clean": true,
+        "log": "native-1280x720.log"
+      },
+      {
+        "viewport": "720x1280",
+        "exit_code": 0,
+        "summary": [
+          "DGAD_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":18,\"failures\":[],\"physical_device\":false,\"viewport\":\"(720, 1280)\"}"
+        ],
+        "clean": true,
+        "log": "native-720x1280.log"
+      },
+      {
+        "viewport": "1600x900",
+        "exit_code": 0,
+        "summary": [
+          "DGAD_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":18,\"failures\":[],\"physical_device\":false,\"viewport\":\"(1600, 900)\"}"
+        ],
+        "clean": true,
+        "log": "native-1600x900.log"
+      }
+    ],
+    "new_derived_assets": 30,
+    "isolated_preview_candidates": 6,
+    "protected_old_wav_hashes": 50,
+    "tested_source_files": [
+      {
+        "path": "experiments/playable_flightcase/recorded_steady.gd",
+        "sha256": "4e8bc9fb78334629e229a9c913910f56a65ed0ff4aaf61747893218b5c95d896"
+      },
+      {
+        "path": "experiments/playable_flightcase/mixing_desk.gd",
+        "sha256": "275568b2af8818ac5b9b8d331bb246320f9b6a79ab2dd31e6e9892a867aa6841"
+      },
+      {
+        "path": "tests/audio_creation_test.gd",
+        "sha256": "ff05f746bb82233511969332b873cec2a74b5a64ed98c948dac1bab06e4cc32b"
+      },
+      {
+        "path": "tests/audio_creation_dgad_test.gd",
+        "sha256": "2b0b1006d22717f6017aaaaa72e3e7c57147d35d0a4f1197fbc3bd091b9ff538"
+      },
+      {
+        "path": "tests/audio_creation_dgad_visual.gd",
+        "sha256": "46b390c9615f9d283bf6193b15747503a7874345e50fca8156d049caea616953"
+      }
+    ]
+  },
+  "numeric_findings": {
+    "sampled_stem_lag_samples": 0,
+    "residual_relative_to_reference_db": -10.436,
+    "new_game_mix_highest_sample_peak_dbfs": -10.733,
+    "avoid": "0\u201316s,48\u201356s,96s+; terminalresurgence119.46s+"
+  },
+  "material_limits": [
+    "No supportedlisteningtoolavailable; numericalanalysisnotlistening. Barstarts/key/progression/isolation/playingquality/characterfitsnotverified.",
+    "Sixnewpassagesarenotsixalternateperformances; EQversionssameplaying. Previewcandidatesnotinexistingcharacterbanks.",
+    "Commercialinteractive-gamelicensingseparate; nonewAPK/signature/release."
+  ],
+  "handover": {
+    "path": "/workspace/dgad-assessment-20261108/DGAD-handover.zip",
+    "bytes": 16015,
+    "sha256": "57b8405498b041c46e002427679125be6e9a5c6d8f4056808e4c578a4e4894ea",
+    "raw_audio_included": false
+  },
+  "evidence_root": "/workspace/dgad-assessment-20261108",
+  "independent_review": "review_current_workbench:source+6actualfourviewcapturesclear; noedits/runtimelisteningperformedbyreviewer",
+  "visual_verdict": "partial",
+  "next_action": "Batchcandidate-listening/character-fitreviewwithnextcohesivegameupdate; sourceandprivateassetsretained, noimmediaterelease.",
+  "simulated_review_lenses": {
+    "provenance": "SIMULATED:4originalDropboxIDs/revs/hashessaved; originalsunchanged;AIgeneratedSunolabel.",
+    "audio": "SIMULATED:consistentnominal100clock/cuts/fades/headroom; noheardqualityorcharacter-fitclaim.",
+    "persistence": "SIMULATED:oldIDs preserved, paidnewfamily/savefailure/finishedsong/reloadchecks pass.",
+    "visual": "SIMULATED:14choicesreachable, selectednewlabel/fixedfooterreadable inactual4views; ownerapprovalpending.",
+    "delivery": "SIMULATED:privateWAVsignored, metadata-onlyhandover, source-onlypush, noAPK/key/signing."
+  },
+  "images_opened": [
+    {
+      "path": "/workspace/dgad-assessment-20261108/phone-collapsed.png",
+      "sha256": "1201d14e6567950671878bae7a5c5f5a5ec08ab7d5739d8fb6ec06a0dd20f9d8"
+    },
+    {
+      "path": "/workspace/dgad-assessment-20261108/phone-library-bottom.png",
+      "sha256": "f4642983cf77bd1c0031bbbbf3877f8655d797a7d9d71fdf4af5eb5cfc1f1be7"
+    },
+    {
+      "path": "/workspace/dgad-assessment-20261108/native-1280x720-collapsed.png",
+      "sha256": "f2a8b3b50d560eb066bf5843075c7d678dbfa554553c68597ae61166898f4c77"
+    },
+    {
+      "path": "/workspace/dgad-assessment-20261108/native-1280x720-library-bottom.png",
+      "sha256": "2842b5e090cdb5fcaf4ee11d43c4b0a5fe417fa89d81fce8837430da9e126f16"
+    },
+    {
+      "path": "/workspace/dgad-assessment-20261108/native-720x1280-library-bottom.png",
+      "sha256": "b5d8e5f90cc026878c3c0ea488d227cbafefd0bef7a7b7a275a1595821da9636"
+    },
+    {
+      "path": "/workspace/dgad-assessment-20261108/native-1600x900-selected-last.png",
+      "sha256": "34374a8516a9fcfb95e588b26345bb29ce4b82d5f35605564e1b9cf5d68a6951"
+    }
+  ]
+}
