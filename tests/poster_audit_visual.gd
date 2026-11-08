@@ -48,6 +48,8 @@ func run() -> void:
  if not check(not output.is_empty() and fixture(),"actual formation fixture"):finish_audit();return
  if not check(await catalogue_fixture(),"canonical current paid catalogue"):finish_audit();return
  base=owner.snapshot().duplicate(true)
+ if "--focus-only" in OS.get_cmdline_user_args():
+  await focus_cases();finish_audit();return
  if "--radio-only" in OS.get_cmdline_user_args():
   await radio_cases();finish_audit();return
  await mounted()
@@ -208,6 +210,16 @@ func gig_cases() -> void:
    var action: String="JourneyFinishSongAction" if phase=="performing" else ("JourneyChoiceMomentAction" if phase=="choice" else "JourneyMainAction")
    if not await activate(action):return
  check(false,"journey bounded coverage terminates")
+
+func focus_cases() -> void:
+ await mounted();await page_case("goal-direction","goal_focus")
+ var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
+ var choices: Array=scene.find_children("GoalFocusChoice_*","Button",true,false)
+ if not check(choices.size()==3,"three actual band-focus choices"):return
+ await activate(str(choices[0].name))
+ check(not scene._career_view._focus_draft.is_empty(),"native focus choice changes local draft")
+ check(owner.snapshot()==saved and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"focus preview does not save or spend")
+ await snapshot_case("goal-direction-selected")
 
 func failed_action(node_name: String,label: String) -> void:
  var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)

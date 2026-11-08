@@ -89,6 +89,7 @@ static func chooser(host, parent: Node, compact: bool) -> void:
   var box: VBoxContainer=host._box(5)
   body.add_child(box)
   var button: Button=host._button("","GoalFocusChoice_"+id,host._goal_focus_select.bind(id,int(host._focus_picker_epoch),int(host._render_generation)))
+  Poster.choice_style(button)
   button.tooltip_text=str(option["title"])+" · "+str(option["description"])
   button.toggle_mode=true
   button.set_pressed_no_signal(host._focus_draft==id)
@@ -106,6 +107,7 @@ static func chooser(host, parent: Node, compact: bool) -> void:
   margin.add_child(identity)
   var icon:=TextureRect.new()
   icon.name="GoalFocusIcon_"+id
+  icon.modulate=Poster.INK
   icon.custom_minimum_size=Vector2(32,32)
   icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -125,6 +127,7 @@ static func chooser(host, parent: Node, compact: bool) -> void:
   identity.add_child(icon)
   var title: Label=C.label(str(option["title"]),16)
   title.name="GoalFocusTitle_"+id
+  title.add_theme_color_override("font_color",Poster.INK)
   title.mouse_filter=Control.MOUSE_FILTER_IGNORE
   title.focus_mode=Control.FOCUS_NONE
   title.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
