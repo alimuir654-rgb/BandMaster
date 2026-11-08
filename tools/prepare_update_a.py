@@ -13,6 +13,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import zipfile
 
 
 def digest(path):
@@ -23,6 +24,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--media-source', type=Path, required=True)
+    parser.add_argument('--reference-apk', type=Path, required=True)
     parser.add_argument('--existing-debug-path', type=Path, required=True)
     parser.add_argument('--version-code', type=int, default=21)
     args = parser.parse_args()
@@ -33,17 +35,21 @@ def main():
     assert shutil.disk_usage(out.parent).free > 2 * 1024**3
     bank_root = Path('experiments/playable_flightcase/audio')
     media = {}
-    for manifest in sorted((repo / bank_root).glob('*/manifest.json')):
-        source_manifest = args.media_source / manifest.relative_to(repo)
-        assert digest(manifest) == digest(source_manifest), 'private media manifest differs from source'
-        data = json.loads(manifest.read_text())
-        for entry in data['entries'].values():
-            for part in entry['parts'].values():
-                relative = part['path'].removeprefix('res://')
-                assert relative.endswith('.wav') and Path(relative).is_relative_to(bank_root)
-                source = args.media_source / relative
-                assert digest(source) == part['sha256'], relative
-                media[relative] = part['sha256']
+    assert digest(args.reference_apk) == '2955f6106e907ec1736a4ed4a3a599ff10dd6b15e3ccc98b1426d82d16cddfb4', 'exact verified V20 required'
+    private_manifests = sorted((args.media_source / bank_root).glob('*/manifest.json'))
+    assert len(private_manifests) == 4
+    with zipfile.ZipFile(args.reference_apk) as reference:
+        for source_manifest in private_manifests:
+            relative_manifest = source_manifest.relative_to(args.media_source)
+            assert reference.read('assets/' + relative_manifest.as_posix()) == source_manifest.read_bytes(), 'private bank differs from verified installed V20'
+            data = json.loads(source_manifest.read_text())
+            for entry in data['entries'].values():
+                for part in entry['parts'].values():
+                    relative = part['path'].removeprefix('res://')
+                    assert relative.endswith('.wav') and Path(relative).is_relative_to(bank_root)
+                    source = args.media_source / relative
+                    assert digest(source) == part['sha256'], relative
+                    media[relative] = part['sha256']
     assert len(media) == 80, 'STOP: original80 verified assets required'
     subprocess.run([sys.executable, str(repo / 'tools/build_recorded_owner.py'), '--output', str(out),
                     '--version-code', str(args.version_code), '--version-name', '0.151.0-playtest-bandlife'], check=True)
@@ -51,6 +57,12 @@ def main():
     manifest_path = out / 'SOURCE_MANIFEST.json'
     manifest = json.loads(manifest_path.read_text())
     assert manifest['version_code'] == args.version_code
+    for source_manifest in private_manifests:
+        relative = source_manifest.relative_to(args.media_source)
+        target = project / relative;target.parent.mkdir(parents=True, exist_ok=True)
+        assert not target.exists()
+        shutil.copy2(source_manifest, target)
+        manifest['files'].append(dict(path=relative.as_posix(), sha256=digest(target)))
     for relative, sha in media.items():
         target = project / relative
         assert not target.exists()
