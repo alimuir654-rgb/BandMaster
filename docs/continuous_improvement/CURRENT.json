@@ -7440,10 +7440,14 @@
     "next_action": "Original builder signs v17 using retained key, then in-place Android save/audio review."
   },
   "MAIN_AUDIO02_source_only": {
-    "status": "active",
+    "status": "closed_source_return_ready",
     "owner_base": "19df671f2946a9a3c675bc879aa4c8a854544e57",
     "source_head": "5b8e1362b9e8e2b9ce46a44c1773e6dcd34c617b",
     "no_key_generation": true,
-    "no_app_id_change": true
+    "no_app_id_change": true,
+    "source_snapshot": "b68121fd46ed458fa931e7eb627d133408e224a3",
+    "source_archive": "/workspace/main-audio-source-return/BandMaster-recorded-audio-source.zip",
+    "source_sha256": "33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d",
+    "record": "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json"
   }
 }

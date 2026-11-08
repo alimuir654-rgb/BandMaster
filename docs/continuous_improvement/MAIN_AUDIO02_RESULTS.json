@@ -1,0 +1,18 @@
+{
+  "source_zip": "/workspace/main-audio-source-return/BandMaster-recorded-audio-source.zip",
+  "bytes": 20785360,
+  "sha256": "33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d",
+  "source_patch": "/workspace/main-audio-source-return/BandMaster-recorded-audio.patch",
+  "source_files": 13,
+  "media_files": 21,
+  "tests": {
+    "fresh_native_checks": 91,
+    "failures": 0,
+    "legacy_cases_reused": 5184,
+    "prior_viewport_captures_reused": 4
+  },
+  "key_inventory_unchanged": true,
+  "no_apk_export_or_signing": true,
+  "owner_base": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+  "source_snapshot": "b68121fd46ed458fa931e7eb627d133408e224a3"
+}

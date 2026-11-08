@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO02",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Develop/test against latest BandMaster owner branch and return source here for final original-key APK signing. No key generation or application ID change. Source-only delivery supersedes previous signing/key retrieval work.",
   "baseline_sha": "19df671f2946a9a3c675bc879aa4c8a854544e57",
@@ -59,10 +59,28 @@
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active",
+    "status": "released",
     "source_head": "5b8e1362b9e8e2b9ce46a44c1773e6dcd34c617b"
   },
   "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
   "started_at": "2026-11-08",
-  "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits."
+  "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits.",
+  "closeout": {
+    "tested_sha": "b68121fd46ed458fa931e7eb627d133408e224a3",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Original development environment applies returned source/private media and builds/signs with its existing Playtest key. No key transfer or replacement requested.",
+    "new_issue_review": "One prior documentation EOF blank line fixed and final patch warning-free. Latest remote owner head unchanged; fresh91checks pass. Keystore inventory unchanged; no export/signing or application ID change.",
+    "source_patch_applies_cleanly": true,
+    "fresh_native_checks": 91,
+    "independent_review": "Read-only reviewer verified all46 manifest entries, no APK/key artifacts, complete13source+private media/import handoff; no concrete hold.",
+    "reused_evidence": "5184 unchanged legacy cases and four prior PNG captures; source/UI/art byte match verified. No new visual/artistic approval claimed.",
+    "simulated_review_lenses": {
+      "engineering": "SIMULATED:867runtime dependency hashes match; fresh91checks and clean-base source application pass.",
+      "audio": "SIMULATED: all private PCM/manifest/import assets included, no new generations/listening claim.",
+      "controls": "SIMULATED: existing poster/locked-control/commit behavior unchanged; prior four captures reused.",
+      "save_compatibility": "SIMULATED: fresh real failure/rollback/consumption/reload checks pass in isolated userdata.",
+      "release": "SIMULATED: source-only packet excludes APK/keys; original app/save/entry retained for existing-key final build."
+    }
+  }
 }
