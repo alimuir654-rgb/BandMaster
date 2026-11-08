@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1962707,
-    "sha256": "b58db5c8169e783e4afa85e58d40ebe3c9d0077232cedab676211db43ff2405c"
+    "bytes": 1964052,
+    "sha256": "d7388e81cf3f35b50a403cafdfdcd31b9fa41e14bdb8e31732200390d5f64ce5"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -92,7 +92,7 @@
     "tested_sha": "a0f5bc331ff2e0884bf69c2417c5555eadec26fc",
     "evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json; /workspace/main-audio-proof/verification.json; /workspace/main-audio-proof/apk-audit.json",
     "visual_verdict": "partial",
-    "next_action": "Original build environment signs prepared unsigned v17 using retained certificate, then physical update/save/audio check; no replacement key.",
+    "next_action": "Original development thread signs sealed unsigned v17 using retained certificate, then in-place physical update/save/audio check. Current chat has no executor connection to that environment.",
     "new_issue_review": "All failures retained. Review categories normalized only for four new unpublished invalid categories with original category/raw failed log retained. Cohort/tooltip/contrast corrections verified; native fixture/API/coordinate/unused-resource failures corrected. GitHub API PR create Forbidden; source branch pushed. Final signing unavailable.",
     "native_model_checks": 91,
     "compiled_apk_model_checks": 91,
@@ -124,5 +124,8 @@
       "audio_design": "SIMULATED: two matched9.6s families, one synchronized clock, honest fixed axes, numeric headroom; listening unavailable.",
       "release": "SIMULATED: correct app/save/version17, unsigned only, original certificate needed; physical update/retention/audio pending."
     }
-  }
+  },
+  "signing_owner_choice": "original build environment",
+  "original_build_environment_accessible_from_this_chat": false,
+  "unused_engine_default_debug_key_excluded_from_artifacts": true
 }

@@ -25,5 +25,14 @@
   "shared_branch_ref": "19df671f2946a9a3c675bc879aa4c8a854544e57",
   "source_branch": "feature/recorded-song-main-app",
   "source_delivery_head": "0fb01c1d",
-  "signed_APK": false
+  "signed_APK": false,
+  "signing_owner_choice": "original build environment",
+  "original_environment_executor_available_here": false,
+  "signing_note": {
+    "dropbox_path": "/BandMaster/BandMaster-v17-original-signing-next-step.txt",
+    "bytes": 2109,
+    "sha256": "32eeac4d2b5c6ccb6a5f8a748a90ba6be0610ec5b8831fb4ed17b62eaad04044"
+  },
+  "unused_godot_default_debug_key_was_used": false,
+  "keys_in_handoff": false
 }
