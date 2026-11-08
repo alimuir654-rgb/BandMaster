@@ -93,8 +93,8 @@ func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
  var compact: bool = viewport_size.x < 720.0
  var wide: bool = viewport_size.x >= 900.0 and viewport_size.x > viewport_size.y
  var stock: StyleBoxTexture = Paper.sheet(compact)
- stock.content_margin_top = 16
- stock.content_margin_bottom = 18
+ stock.content_margin_top = 32
+ stock.content_margin_bottom = 32
  stock.content_margin_left = 32
  stock.content_margin_right = 32
  add_theme_stylebox_override("panel",stock)
@@ -106,6 +106,7 @@ func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
  var edition: Array = EDITIONS.get(genre,["355448","strings"])
  var color := Color(str(edition[0]))
  var mast: Label = _ink("LIVIN' THE DREAM  /  STARTING SOUND",11 if compact else 12,"GenrePressMasthead")
+ mast.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  content.add_child(mast)
  var rule := ColorRect.new()
  rule.name = "GenrePrintRule"
