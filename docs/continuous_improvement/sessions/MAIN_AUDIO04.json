@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1966229,
-    "sha256": "ed7e48e72b5df2743e660938034c05a2a87d4ff12698ffb642d8c2f7b3ded244"
+    "bytes": 1970956,
+    "sha256": "19cb1ac0d99de4936e8b35e11521d93349f7a974a80d24a5e6af66365ea0bebf"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -50,7 +50,9 @@
     "experiments/playable_flightcase/audio/recorded_steady_v2/**",
     "docs/continuous_improvement/**",
     "docs/asset_base/LEDGER.md",
-    ".gitignore"
+    ".gitignore",
+    "tools/detached_apk_v2.py",
+    "tools/build_recorded_owner.py"
   ],
   "validation_commands": [
     "native timing baseline vs candidate; zero owner snapshot/develop calls per localdetent",
@@ -58,11 +60,11 @@
     "four actual GL captures and poster transition review; originals/privateaudio stayoutGit"
   ],
   "resource_plan": {
-    "workspace_available_bytes": 25737199616,
-    "new_files_max_bytes": 104857600,
-    "new_memory_budget_bytes": 1073741824,
-    "reuse_existing_imported_cache": true,
-    "no_export_or_signing": true
+    "workspace_free_bytes": 25114337280,
+    "new_persistent_budget_bytes": 1073741824,
+    "peak_memory_budget_bytes": 2147483648,
+    "reuse_existing_export_settings_and_existing_unused_default_key_without_modification": true,
+    "no_new_key_or_private_key_operations": true
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
@@ -71,5 +73,6 @@
   "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
   "started_at": "2026-11-08",
   "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits.",
-  "independent_review": "review_current_workbench sourceaudit:6snapshots/detent, Workshop.develop intarget, bar-delayedtone and finalbarneverapplies; shared Cfactories seam; preserve strictplay/commit guards."
+  "independent_review": "review_current_workbench sourceaudit:6snapshots/detent, Workshop.develop intarget, bar-delayedtone and finalbarneverapplies; shared Cfactories seam; preserve strictplay/commit guards.",
+  "release_amendment": "Prepare new unsignedV18/private detached-request for review only after native/source tests, preserving signedV17; no key generation or APK signing here. Generic public signingpolicy selects pinnednewAPKhash/version/source while originalcert/appID/minSDK remainfixed."
 }
