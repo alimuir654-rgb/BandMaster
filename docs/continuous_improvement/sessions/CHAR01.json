@@ -45,7 +45,7 @@
   "owner_request": "Proceed with cohesive gameplay chunk: slicker musician-and-instrument auditions, a few questions/two samples, meaningful character/scenario consequences and a couple of practice levers. Preserve poster direction; batch source for one later combined review build.",
   "controlled_comparison": "Actual opening.tscn at390x844/720x1280/1280x720/1600x900. Same canonical four profiles/band/practice state. Baseline/candidate audition original/adjusted/questions/response, practice local focus/effort and saved aftermath. Explicit genre/Arjun audio limits.",
   "hypothesis": "Optional separately versioned conversation inside audition wrapper; own answer revision added only when questions answered. Stable candidate expectations projected during atomic formation without changing authored base stats, influencing actual attended practice via optional focus/effort plan. Person-first contained approved preview with compact audio comparison and optional written parts.",
-  "stop_condition": "No new audio generation/assets, original audio/art/cast/passive meter changes, new key/appID/save directory, main/shared branch changes or APK/signing in this source chunk. Preserve legacy absent-data exact behavior; unknown future optional data HOLD, no forced migration. No pretend listening or guarantees for all18characters.",
+  "stop_condition": "No new audio generation/assets, original audio/art/cast/passive meter changes, new key/appID/save directory, main/shared branch changes or signing with any key here. One combined UNSIGNED review candidate/detached public-certificate request is authorized by accepted next-steps plan; stop before assembly until original holder returns signature. Preserve legacy absent-data exact behavior; unknown future optional data HOLD, no forced migration. No pretend listening or guarantees for all18characters.",
   "allowed_paths": [
     "experiments/playable_flightcase/character_connections.gd",
     "experiments/playable_flightcase/rehearsal_intent.gd",
@@ -80,5 +80,15 @@
     "player_goal": "Meet musician, discuss band expectations, compare actual takes, invite, observe those expectations in the first relevant paid practice.",
     "commitment": "Talent only on invite;\u00a315/1day only when rehearsal resolves. Reading/listening/local practice previews remain free.",
     "acceptance": "Person/instrument hero, few purposeful choices and available recordings clear; saved context-dependent consequences explained after commitment; old/future/save/once guards retained."
+  },
+  "packaging_scope": {
+    "authority": "Owner accepted the proposed next cohesive gameplay chunk followed by one combined Playtest build, then steered auditions/practice. This supersedes earlier small-release hold for this combined review candidate only. Original-key signing remains in original environment; no private key transfer or replacement.",
+    "candidate_version_code": 20,
+    "candidate_version_name": "0.150.0-playtest-band-session",
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "actions": "Prepare isolated source closure, export UNSIGNED APK, audit package and compiled current models, prepare exact APKv2 detached request using original public certificate. Save only small plain-text signing request in existing Dropbox/BandMaster; retain unsigned APK locally until valid original-holder signature.",
+    "signature_stage": "No signature requested via chat question; return concrete request path for established original-holder workflow. No assembly without returned exact valid signature and official apksigner checks.",
+    "resources": "20GiB free / ~17GiB available memory last inspected; source/import/APK/unpack+QA provision within revised2GiB aggregate new budget; no downloads/dependencies expected."
   }
 }
