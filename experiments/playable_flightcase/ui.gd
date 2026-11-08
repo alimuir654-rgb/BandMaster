@@ -69,6 +69,7 @@ var _workbench_desk
 var _workbench_finished := false
 var _workbench_finished_ref: Dictionary={}
 var _workbench_failure_message := ""
+var _writing_view: Dictionary={}
 
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
@@ -156,6 +157,8 @@ func _rebuild() -> void:
   if previous_focus is LineEdit:
    caret = (previous_focus as LineEdit).caret_column
  _clear()
+ # One authoritative view per synchronous rebuild, shared by chrome and desk.
+ _writing_view=opening_owner.workbench_view() if opening_owner!=null and game.phase=="play" and practice_activity=="create" else {}
  var size_now: Vector2 = size
  var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
  add_child(Shared.background())
@@ -229,7 +232,7 @@ func _rebuild() -> void:
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
- var workbench_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and bool(opening_owner.workbench_view().get("active",false))
+ var workbench_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and bool(_writing_view.get("active",false))
  if encounter_chrome or workbench_chrome:status.free()
  else:root_box.add_child(status)
  if game.phase == "recruit":
@@ -251,7 +254,7 @@ func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
    (control as LineEdit).caret_column = mini(caret,(control as LineEdit).text.length())
 
 func _mixing_active() -> bool:
- return game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and MixingRecipe.valid(opening_owner.workbench_view().get("project",{}).get("fragment",{}).get("producer_recipe"))
+ return game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and MixingRecipe.valid(_writing_view.get("project",{}).get("fragment",{}).get("producer_recipe"))
 
 func _mixing_entry() -> bool:
  return opening_owner!=null and practice_activity=="create" and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady()
@@ -791,7 +794,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   _finished_workbench_page(root_box)
   return
  if opening_owner!=null and practice_activity=="create":
-  var notebook: Dictionary=opening_owner.workbench_view()
+  var notebook: Dictionary=_writing_view
   if notebook.get("active",false) or (notebook.get("exists",false) and notebook.get("held",false)):
    var mixing: bool=MixingRecipe.valid(notebook.get("project",{}).get("fragment",{}).get("producer_recipe"))
    if is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false))!=mixing:
