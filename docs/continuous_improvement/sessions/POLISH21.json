@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "POLISH21",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "156349e7349de9e7f18e5cd8405b232092e2f7a5",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2043051,
-    "sha256": "ae1dd5dc3fd903cdb33db396a08b4d07bb5dcae858197d9a60cc3b46b311a041"
+    "bytes": 2044403,
+    "sha256": "c7a9b147f366020d8baf4b626fa9fc46805d2c0b4e5d0b479377ae7dbc98ce58"
   },
   "dominant_issue": "BM-01",
   "lesson_ids": [
@@ -65,14 +65,58 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
-  "independent_review": "review_current_workbench source/asset review complete; source-grounded priorities received; no claim of inherited current owner pixels.",
+  "independent_review": "Existing review_current_workbench cleared original phone/short person/Make/unavailable states, actual six-member Monogram top/bottom and final genre phone/short/wide originals. No remaining material scoped source/visible hold; artwork owner approval still pending.",
   "review_task": {
     "player_goal": "Choose sound, meet and invite actual musicians, review coherent band identity, enter Make without clipped heading and use a meaningful available day when whole band cannot write.",
     "reviewer": "review_current_workbench",
     "commitment": "Original invitation talent and explicit paid/day session only. All preview, audio comparison, navigation and dirty-exit cancel remain free."
   },
-  "started_at": "2026-11-08T20:36:08.893380+00:00"
+  "started_at": "2026-11-08T20:36:08.893380+00:00",
+  "closed_at": "2026-11-08T21:17:04.665668+00:00",
+  "closeout": {
+    "tested_sha": "d440164228668ad307ee390eba40128e67adb75e",
+    "evidence": [
+      "docs/continuous_improvement/POLISH21_RESULTS.json",
+      "/workspace/playtest-polish-v20/final-native-results.json",
+      "/workspace/playtest-polish-v20/final-genre-results.json",
+      "/workspace/playtest-polish-v20/final-regression-results.json",
+      "/workspace/playtest-polish-v20/final-guard-results.json"
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow.",
+    "new_issue_review": "All POLISH21 events reviewed; touch fixture, audio lifecycle, preview capacity/Monogram and print edge addressed. Rejected uncommitted event schema and failed attempts retained locally. No physical/listening/owner-approval claim.",
+    "simulated_review_lenses": [
+      {
+        "lens": "New player (SIMULATED)",
+        "finding": "Person/role and audition decisions remain visible; work context optional."
+      },
+      {
+        "lens": "Touch user (SIMULATED)",
+        "finding": "Native injected drag proves old-stop0px versus new-pass213/396px and button-drag cancellation; physical Android untested."
+      },
+      {
+        "lens": "Band identity (SIMULATED)",
+        "finding": "Exact selected portraits/roles/name; six-member and accented/CJK Monogram reachable."
+      },
+      {
+        "lens": "Save/economy reviewer (SIMULATED)",
+        "finding": "Failed draft save retains memory/disk/local edits; explicit jam once/day and absent members guarded."
+      },
+      {
+        "lens": "Audio reviewer (SIMULATED, no listening)",
+        "finding": "Actual registered players/path/hash/context tested; cannot judge musical quality or representative style by numerical/runtime checks."
+      }
+    ],
+    "limitations": [
+      "No new APK or physical device validation in this pass.",
+      "11of14genres still lack audio; no invented/relabelled substitute.",
+      "Existing source visual artwork reused, no new generation; current owner approval pending.",
+      "No audio listening performed; example musical suitability remains owner review.",
+      "Unavailable writing full UI proof uses authored three-member work conflict with one attendee; multi-attendee and no-attendee routes source-reviewed, not new dedicated end-to-end fixtures.",
+      "Commercial interactive-game Suno rights remain separate."
+    ]
+  }
 }

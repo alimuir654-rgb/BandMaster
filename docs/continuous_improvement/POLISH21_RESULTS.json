@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "session": "POLISH21",
+  "source_sha": "d440164228668ad307ee390eba40128e67adb75e",
+  "baseline_sha": "156349e7349de9e7f18e5cd8405b232092e2f7a5",
+  "branch": "feature/playtest-polish-v20",
+  "owner_approved": false,
+  "source_only": true,
+  "apk_generated_or_signed": false,
+  "main_or_shared_branch_changed": false,
+  "source_publication": "Local clean worktree and small source handover; no push from held private-transfer history.",
+  "changes": [
+    "Genre screen uses existing poster illustrations, clear listening cues and manual previews; Indie uses2existing recorded passages, Punk/Post-punk existing examples;11other styles explicitly have no audio.",
+    "Audition person leads, compact fixed band/voice strip, practical details optional; decorative paper passes native swipes and button drags cancel taps.",
+    "Make enters at heading; action labels use Barlow with intentional line breaks;5original SVGs rendered at48px, no raster upscale.",
+    "Band design preview uses selected approved close portraits, actual names/roles and one band mark. Monogram keeps full name. Six-member wide preview scroll bounded above fixed dock; final formation variants unchanged.",
+    "Unavailable writing offers solo practice/attended jam/planning, via existing dirty guard. Saving/navigation free; explicit practice spends1day/£0 and does not advance blocked song."
+  ],
+  "verification": {
+    "comprehensive_ui_sha": "3b890e9c88c4b6bfa3c327651419321d10d4b059",
+    "final_genre_sha": "d440164228668ad307ee390eba40128e67adb75e",
+    "reuse_basis": "Only game-code change after comprehensive source freeze is genre_press padding/centred caption; final all14genre four-view native test covers that change. Other source/component hashes unchanged. Existing 63state audit covers shared typography and real menus/gig/radio, normal-motion audition guards.",
+    "native_workflow_and_capacity": [
+      {
+        "run": "final-phone",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 101,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-phone-capacity",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 25,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-tall",
+        "resolution": "720x1280",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 101,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-tall-capacity",
+        "resolution": "720x1280",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 25,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-short",
+        "resolution": "1280x720",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 97,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-short-capacity",
+        "resolution": "1280x720",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 25,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-wide",
+        "resolution": "1600x900",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 97,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-wide-capacity",
+        "resolution": "1600x900",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 25,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "error_markers": false
+      }
+    ],
+    "existing_model_and_native_guards": [
+      {
+        "test": "audio_creation_test",
+        "code": 0,
+        "summaries": [
+          {
+            "checks": 64,
+            "device_tested": false,
+            "failures": [],
+            "listening": false
+          }
+        ],
+        "error_markers": false
+      },
+      {
+        "test": "character_consequence_test",
+        "code": 0,
+        "summaries": [
+          {
+            "checks": 72,
+            "failures": [],
+            "listening": false,
+            "physical_device": false
+          }
+        ],
+        "error_markers": false
+      },
+      {
+        "test": "audio_creation_dgad_test",
+        "code": 0,
+        "summaries": [
+          {
+            "checks": 55,
+            "device_tested": false,
+            "failures": [],
+            "listening": false
+          }
+        ],
+        "error_markers": false
+      },
+      {
+        "test": "audio_creation_guards",
+        "code": 0,
+        "summaries": [
+          {
+            "checks": 25,
+            "failures": [],
+            "physical_device": false
+          }
+        ],
+        "error_markers": false
+      }
+    ],
+    "shared_ui_regression": [
+      {
+        "run": "audit-phone",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "checks": 319,
+          "failures": [],
+          "screens": 63,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "audit-short",
+        "resolution": "1280x720",
+        "code": 0,
+        "summary": {
+          "checks": 319,
+          "failures": [],
+          "screens": 63,
+          "viewport": "(1280, 720)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "audition-normal",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 138,
+          "failures": [],
+          "listening": false,
+          "normal_motion": true,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      }
+    ],
+    "all_genres": [
+      {
+        "run": "genre-phone",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 131,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "genre-tall",
+        "resolution": "720x1280",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 131,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "genre-short",
+        "resolution": "1280x720",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 131,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "genre-wide",
+        "resolution": "1600x900",
+        "code": 0,
+        "summary": {
+          "baseline": false,
+          "checks": 131,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "error_markers": false
+      }
+    ],
+    "checks_total": 2012,
+    "zero_error_or_leak_markers": true,
+    "all80_private_wav_hashes_match_existing_manifests": true,
+    "desktop_injected_touch_not_physical_Android": true,
+    "listening": false
+  },
+  "source_files": {
+    "experiments/playable_flightcase/art/icons/native48/PROVENANCE.json": "647d8e0bbb2e94402bb4a3126bfc0b8b732dbc8bbe0059f6b7c4a17c85a93555",
+    "experiments/playable_flightcase/art/icons/native48/heart-handshake.png": "c4214f5551c1a97a72b947f1e3804fd45e38afdbaae8f7cd5a942bfd5590aab2",
+    "experiments/playable_flightcase/art/icons/native48/notebook-pen.png": "e0afd318a35dab20d4fcfef5eaa0a935e1f5314cc2da8651b611890790cacbe9",
+    "experiments/playable_flightcase/art/icons/native48/sliders-horizontal.png": "e48e0ae0f14805f23b1d63390e088beb3f2a34f0c54055292225131348a2f741",
+    "experiments/playable_flightcase/art/icons/native48/ticket.png": "5aec28e6278fe512bfcae9ee441ee2b8db2bf7fa0a1b4971105f279fd855a9b3",
+    "experiments/playable_flightcase/art/icons/native48/users.png": "55b6b4ca98ba40e55321e3363f9bc73ea567cfb125b1552a0a867480d2c51cf1",
+    "experiments/playable_flightcase/audition_desk.gd": "82a32b98133fdd2c715b527b0ea07b51cd43eb959a887b2d7e9d31dcc897f65e",
+    "experiments/playable_flightcase/band_identity_press.gd": "cb69f0945e0006305f4e89a0e16e696b01f69732f0685eba928d445c6d347906",
+    "experiments/playable_flightcase/career_desk.gd": "5ea6eff65eac6dbfd0926fd71d6a3c5e7ac8c1f72e2d5f495bb92bb497d6f343",
+    "experiments/playable_flightcase/career_launcher.gd": "e11b44e02216a26ae122ebf524854f9063bfa83a3db8e0c145aebfe862a7f8c6",
+    "experiments/playable_flightcase/genre_press.gd": "e78c28817f9f66ab046edf2d9e6ffcd8a7ddeb1b98b8963899bc2b53819be013",
+    "experiments/playable_flightcase/mixing_desk.gd": "3779886df27586c3a776959ca5251ba25db23079aa470e9b453314795bdd3fa8",
+    "experiments/playable_flightcase/opening_ui.gd": "950575edfca643f7773d5fdbdd9390cf3cafde393d3ba4d44c6a76de2ae015db",
+    "experiments/playable_flightcase/poster_components.gd": "91854614213d61dec215b8858feda941b0d344b7133b8e81fb00d6012590f3ea",
+    "experiments/playable_flightcase/ui.gd": "a1b9213fdeda3e45c117851c78a5f20579d17ebf41efbd4a915c385b32b61eb2",
+    "tests/polish_feedback_genres.gd": "4ea24f4e22485c4a69c05e1ee0c32388cd79ea68ab58bb80cea441324cdc5a14",
+    "tests/polish_feedback_identity.gd": "66203ff5b37084b939dcc3dc617d2d4c07829cbd4d05a78096a9a2bfe031ee1f",
+    "tests/polish_feedback_visual.gd": "0946cd4df7e0b2945af4c2cfb8d95106db896ccdb0aee7abf4c8add4490bb1e1"
+  },
+  "opened_originals": [
+    {
+      "path": "/workspace/playtest-polish-v20/baseline2-phone-make.png",
+      "sha256": "08ecf8214f41d3c9097b5eaa2e59f909daf666ab9a63904657274d2a9dcace6e"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/baseline2-phone-identity-preview.png",
+      "sha256": "9eff8923047bf3687209295c7d7066e56da2c1f3bc1498d9c708eddcb2c6f687"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/third-phone-audition-browse.png",
+      "sha256": "fac791a9b437188b54ebe149bc557baa5f9b5e84ae7446d0368b91778649e5ac"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/early-short-genre.png",
+      "sha256": "128a9a9602cd3cbace18c3f03abf340282f1863d68a074421a8ce468d7e8c2b4"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/early-short-identity-preview.png",
+      "sha256": "48f8bf10b8b04db038322036ab166d95922f7bd46fe0e471d6a1c8320d000767"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/early-short-audition-browse.png",
+      "sha256": "9f852871c603bd1315d76b049d9a72abb88377d5d04b6afe497305193047601c"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/third-phone-unavailable-writing.png",
+      "sha256": "882a9e394045f5a22793209e538c0b3da72bac08447fee7486c4c95f2c3c8df1"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/third-phone-make.png",
+      "sha256": "6e145ae1689d2217f83a82a2d45e2f9e5980b5224e4df3f6d78f09ac43028498"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/third-phone-available-practice.png",
+      "sha256": "bc184c8dcde4ef826d7fe3122209f06dbd1c9508407a3e71df182ce561374072"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/stress-short-six-monogram-top.png",
+      "sha256": "3fe9e7119ec4523bcc11a3c03fdd5a3a65c0d9c0ec6a72d9c95a088648fb201f"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/stress-short-six-monogram-bottom.png",
+      "sha256": "c98303dd7d0b6e9f75081b6673ee8ebb8a906713b0afd222010110870f1f1882"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-phone-identity-preview.png",
+      "sha256": "eae4768f6fcece7f51920b9de6d8be8fa0a69d83c9bd3cbfdb376bf2a0b6d787"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-short-identity-preview.png",
+      "sha256": "48f8bf10b8b04db038322036ab166d95922f7bd46fe0e471d6a1c8320d000767"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-tall-make.png",
+      "sha256": "0ba8e209b01d6de8b6f635954f45e75805f7ddbf70de13ba147ff09cffd65a7f"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-wide-audition-browse.png",
+      "sha256": "1809ad70cbe388b23bd6dd312ec9a9aa3823035aa7ddd3e14b74f7eea9fcffb8"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-wide-genre.png",
+      "sha256": "4b837809e52277df1e40075217562477a43a9527c693a6396715e2bfd6688259"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-phone-genre.png",
+      "sha256": "630ada3367c93e73fdd48d813a5a8fea46372a5b5094c5871bcf340f63a883e0"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-tall-capacity-six-monogram-bottom.png",
+      "sha256": "9dc79bfd9470c0acf7dac3ef552aed1031f8bccc0cf26f722140b7bb42174ec2"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/audit-phone-title.png",
+      "sha256": "d89c26bb9629c87b18ffea316ca0939d36efa43db9320a760380085ead7511a0"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/audit-phone-radio-question1.png",
+      "sha256": "0b310bc7c98d341a9bd22df010b315830ca5e40d21c52a73cf0905f81652f3fc"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/audit-phone-gig-soundcheck-controls.png",
+      "sha256": "d9adcf8ceddc75f8bdb5126ff145dc70c5e540b7f45ca2c9a5b3b9a77285f1c7"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/audit-short-radio-question1.png",
+      "sha256": "7ed49f3029a4fb6dac119b7415e7a81dc04b550a244708f4d4151ba0e33999f4"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/audition-normal-audition-guitar-first.png",
+      "sha256": "62f32afd59bcea29b4fd10df96010bdef873a76e26bc7cace81b9bc2deaf1dd8"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/genre-phone-genre-Indie-rock.png",
+      "sha256": "97eac3f92b3cb26b2f798a282754d93fa704b6a74203b4b17e6460d55d01e557"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/genre-short-genre-Indie-rock.png",
+      "sha256": "61c46dc2353f88dcb18ab034f66d918f183145929b23236170990c68f3f32176"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/genre-tall-genre-Punk.png",
+      "sha256": "cc598b65310623ff39ea19e5b27c78b310362376f65bde0dc9f8e9080fc6b10a"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/genre-wide-genre-Shoegaze.png",
+      "sha256": "ad66868e6c0ae1ba47a752a0b753846e944904d49cf59cf003b8c0f06bf9aed5"
+    }
+  ],
+  "independent_review": "Existing review_current_workbench cleared original phone/short person/Make/unavailable states, actual six-member Monogram top/bottom and final genre phone/short/wide originals. No remaining material scoped source/visible hold; artwork owner approval still pending.",
+  "simulated_review_lenses": [
+    {
+      "lens": "New player (SIMULATED)",
+      "finding": "Person/role and audition decisions remain visible; work context optional."
+    },
+    {
+      "lens": "Touch user (SIMULATED)",
+      "finding": "Native injected drag proves old-stop0px versus new-pass213/396px and button-drag cancellation; physical Android untested."
+    },
+    {
+      "lens": "Band identity (SIMULATED)",
+      "finding": "Exact selected portraits/roles/name; six-member and accented/CJK Monogram reachable."
+    },
+    {
+      "lens": "Save/economy reviewer (SIMULATED)",
+      "finding": "Failed draft save retains memory/disk/local edits; explicit jam once/day and absent members guarded."
+    },
+    {
+      "lens": "Audio reviewer (SIMULATED, no listening)",
+      "finding": "Actual registered players/path/hash/context tested; cannot judge musical quality or representative style by numerical/runtime checks."
+    }
+  ],
+  "limitations": [
+    "No new APK or physical device validation in this pass.",
+    "11of14genres still lack audio; no invented/relabelled substitute.",
+    "Existing source visual artwork reused, no new generation; current owner approval pending.",
+    "No audio listening performed; example musical suitability remains owner review.",
+    "Unavailable writing full UI proof uses authored three-member work conflict with one attendee; multi-attendee and no-attendee routes source-reviewed, not new dedicated end-to-end fixtures.",
+    "Commercial interactive-game Suno rights remain separate."
+  ],
+  "next_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow."
+}
