@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1951997,
-    "sha256": "e162b6379feba46cf560bf0f419a0f80ea23fac317f4d22adb967aa04b57cc97"
+    "bytes": 1957368,
+    "sha256": "19ebfd609848ce908321a98b601a92846250739e217da669e1b53f2a36ff3211"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -54,7 +54,8 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "STATE_SCHEMA.md",
-    ".gitignore"
+    ".gitignore",
+    "experiments/playable_flightcase/mixing_control.gd"
   ],
   "validation_commands": [
     "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/MAIN_AUDIO01.json",
@@ -85,5 +86,6 @@
     "status": "active",
     "note": "Isolated worktree; shared dual-frame checkout and other local work untouched."
   },
-  "started_at": "2026-11-07T23:57:59.564098+00:00"
+  "started_at": "2026-11-07T23:57:59.564098+00:00",
+  "scope_amendment": "Opened native phone shows repeated fixed alternative labels overflow. Add optional fixed_hint to existing control, default empty preserves old render."
 }
