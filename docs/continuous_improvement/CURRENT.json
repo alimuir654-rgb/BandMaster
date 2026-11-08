@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "source_verified_v20_unsigned_awaiting_original_signature",
-  "next_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload.",
+  "status": "signed_verified_local_binary_Dropbox_delivery_blocked",
+  "next_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3204,7 +3204,7 @@
       "successor_repair_verified": "47692162d7d68e0eca354760734f21d216e3a392"
     }
   ],
-  "last_completed_session": "CHAR01",
+  "last_completed_session": "SIGN20",
   "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
@@ -3330,7 +3330,7 @@
       "original_source_files_unchanged": true
     }
   },
-  "updated_at": "2026-11-08T18:48:54.303295+00:00",
+  "updated_at": "2026-11-08T19:12:17.201282+00:00",
   "page_delivery": {
     "plan_sequence": 66,
     "board_sequence": 179,
@@ -3419,8 +3419,8 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "CHAR01",
-  "next_single_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload.",
+  "current_session": "SIGN20",
+  "next_single_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
@@ -4101,7 +4101,7 @@
     "historical_approvals_preserved": true,
     "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
-  "session_path": "docs/continuous_improvement/sessions/CHAR01.json",
+  "session_path": "docs/continuous_improvement/sessions/SIGN20.json",
   "finite_end": "2026-11-06T08:00:00Z",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "art_pending_A06": false,
@@ -7549,7 +7549,8 @@
       "readback_all_json_fields_identical": true,
       "readback_exact_text_bytes_claimed": false
     },
-    "next_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload."
+    "next_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload.",
+    "followup_signature_resolution": "SIGN20: exact original-holder response verified; V20 assembled and official final checks passed. Local APK ready; Dropbox binary upload failed before target. See SIGN20_RESULTS."
   },
   "historical_aliases_before_CHAR01_closeout": {
     "session_path": "docs/continuous_improvement/sessions/S140.json",
@@ -7568,9 +7569,15 @@
     "scope": "Approved paper controls and whole-Playtest poster-art consistency audit; one combined source update, release held."
   },
   "SIGN20": {
-    "status": "preflight",
-    "writer": "root",
-    "source_sha": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
-    "next_action": "Unchanged fail-closed detached_apk_v2.py verifies returned RSA over exact884 bytes before file creation, official apksigner validates original cert and v2, and payload manifest/metadata/zipalign checks gate atomic promotion."
+    "status": "signed_verified_local_binary_Dropbox_delivery_blocked",
+    "writer": null,
+    "result": "docs/continuous_improvement/SIGN20_RESULTS.json",
+    "signed_apk_sha256": "2955f6106e907ec1736a4ed4a3a599ff10dd6b15e3ccc98b1426d82d16cddfb4",
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 20,
+    "apk_local": "/workspace/v20-final-signing/BandMaster-Playtest-v20-arm64.apk",
+    "audit_dropbox": "/BandMaster/BandMaster-Playtest-v20-arm64.audit.json",
+    "binary_Dropbox_uploaded": false,
+    "next_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed."
   }
 }

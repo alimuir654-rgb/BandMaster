@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "session": "SIGN20",
+  "status": "signed_verified_local_binary_Dropbox_delivery_blocked",
+  "owner_approved": false,
+  "verified_at": "2026-11-08T19:12:17.201282+00:00",
+  "source_branch": "feature/recorded-song-main-app",
+  "source_commit": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
+  "verification_tool_commit": "d1fe03e02a80974dffeb6ab8c6eaf2a4891ababd",
+  "verification_tool_sha256": "34bea3f8d703995d2960ee2ca666e3c32d22e7bc7871107c0e77646ce73d581c",
+  "request_file_sha256": "14b67670ae969f9a3f31032b4f52584bc7637267ac5bb1a85f7df7704af1d0aa",
+  "response_file_sha256": "7a1b675ef3637bd7910585fed55510924be8dc434b5a1a9e620d9e8fb7ec125e",
+  "package_audit": {
+    "request_id": "6b4c52e59e21b6eff071852c08e31ba4668a7b42e9718c91015d96fd049b6c30",
+    "signed_apk_sha256": "2955f6106e907ec1736a4ed4a3a599ff10dd6b15e3ccc98b1426d82d16cddfb4",
+    "signed_apk_size": 302122008,
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 20,
+    "minimum_sdk": 24,
+    "official_apksigner_verified": true,
+    "alignment_16kb": true,
+    "payload_unchanged": true,
+    "unsigned_original_unchanged": true,
+    "private_key_used_here": false,
+    "physical_device_tested": false,
+    "official_verifier_output": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=BandMaster Owner Playtest, O=BandMaster, C=GB\nSigner #1 certificate SHA-256 digest: 83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2\nSigner #1 certificate SHA-1 digest: 7c4b5c94522ebeba8360dba8053c84fd2d775130\nSigner #1 certificate MD5 digest: e85fd2e8d4c9cb5deccb8956eb1e29b1\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d\nSigner #1 public key SHA-1 digest: 0cc463deab85bd1fa1e083d1576267d12ed27fc7\nSigner #1 public key MD5 digest: ffcb0b436b1d0992bbec1f87e176ade2\n"
+  },
+  "manifest": {
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 20,
+    "version_name": "0.150.0-playtest-band-session",
+    "minimum_sdk": 24,
+    "target_sdk": 36
+  },
+  "private_key_used_here": false,
+  "new_key_generated_this_step": false,
+  "existing_key_files_unchanged_metadata_check": true,
+  "unsigned_apk_retained_unchanged": true,
+  "local_apk": "/workspace/v20-final-signing/BandMaster-Playtest-v20-arm64.apk",
+  "prior_source_native_compiled_proof_reused": "docs/continuous_improvement/CHAR01_RESULTS.json",
+  "no_new_UI_or_game_code": true,
+  "four_size_proof_reused": true,
+  "physical_Android_tested": false,
+  "listening_performed": false,
+  "delivery": {
+    "APK_Dropbox_upload_completed": false,
+    "APK_upload_failure": "OpenAI file blob staging to sdmntprnortheu.oaiusercontent.com timed out after300001ms before Dropbox operation ID; azure_client_request_id be2a16e8-c1fc-4698-bebd-035e0bb76a02",
+    "compressed_archive_bytes": 301284185,
+    "compression_route_rejected_reason": "Only0.28percent smaller, so no equivalent second large upload attempted. Exact contained APK hash verified.",
+    "alternate_connected_upload_route": false,
+    "browser_fallback": {
+      "environment_id": "ccarenv_b64_Y2NhcmVudl8yMWZlNDQ1MmU0YjQ4MTkxYWYxNDZlYTYzYWUyZjkwMg",
+      "desktop_enabled": true,
+      "desktop_state": "unknown",
+      "missing_tools": [
+        "cua_repl.js",
+        "computer/browser control"
+      ],
+      "not_claimed_attempted_browser_upload": true
+    },
+    "audit_dropbox_path": "/BandMaster/BandMaster-Playtest-v20-arm64.audit.json",
+    "audit_uploaded_bytes": 1633,
+    "audit_file_id": "id:6rRaLzqs6O4AAAAAAAAANA",
+    "audit_readback_request_APK_identity_verified": true,
+    "sharing_permissions_changed": false
+  },
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED installer",
+      "finding": "Original appID and original certificate match; version20 exceeds existing V18. Install as update and retain saves."
+    },
+    {
+      "lens": "SIMULATED signing custodian",
+      "finding": "Exact request and884 signed-data bytes bound to returned RSA signature; public certificate from authentic V16 verified."
+    },
+    {
+      "lens": "SIMULATED payload maintainer",
+      "finding": "Every ZIP entry/metadata and all bytes outside signing block/EOCD offset match; original unsigned APK retained."
+    },
+    {
+      "lens": "SIMULATED device reviewer",
+      "finding": "Desktop/compiled prior gameplay proof reused; no physical Android installation or listening claimed."
+    },
+    {
+      "lens": "SIMULATED delivery reviewer",
+      "finding": "Local verified APK is available; Dropbox has the small audit only. Binary staging failure remains explicit."
+    }
+  ],
+  "next_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed."
+}

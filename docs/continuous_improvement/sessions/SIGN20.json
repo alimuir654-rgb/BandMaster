@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "SIGN20",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "7f1fc263d5af8a8b1fa7c734bc87808c0716781a",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2027800,
-    "sha256": "6ced1a5ebe06efbd8c452478ea73d0628489cd69a2ac9315869e2b3d67d67e40"
+    "bytes": 2029138,
+    "sha256": "62c651be9b88f8361ba41d6828ae4f8bee68c6446833445633e09f2f024a8ef5"
   },
   "dominant_issue": "BM-36",
   "lesson_ids": [
@@ -48,8 +48,19 @@
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "owner": "root",
-    "status": "active"
+    "owner": null,
+    "status": "released"
   },
-  "started_at": "2026-11-08T19:03:08.675052+00:00"
+  "started_at": "2026-11-08T19:03:08.675052+00:00",
+  "closed_at": "2026-11-08T19:12:17.201282+00:00",
+  "closeout": {
+    "tested_sha": "d1fe03e02a80974dffeb6ab8c6eaf2a4891ababd",
+    "evidence": [
+      "docs/continuous_improvement/SIGN20_RESULTS.json",
+      "/workspace/v20-final-signing/BandMaster-Playtest-v20-arm64.audit.json"
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed.",
+    "new_issue_review": "Original signature, official SDK certificate/app/version/alignment and byte-exact payload checks pass. No new UI; CHAR01 pixels/tests reused. Blob upload failed before Dropbox, retained as SIGN20-APK-upload-blob-timeout; only small audit delivered, binary delivery remains blocked. No key generation or private-key access in SIGN20."
+  }
 }
