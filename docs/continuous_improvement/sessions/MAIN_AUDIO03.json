@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO03",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Prepare detached APK-v2 RSA/SHA256 signed-data JSON in /BandMaster Dropbox using unsignedV17 and authentic public certificate extracted from V16. No private key request/transfer/generation. After returned signature, assemble and officially verify same APK/cert/app/version/payload; stop unexpected check failures.",
+  "baseline_sha": "65fd1b7db90ce255bea04084d030e5b0055b92b2",
+  "dominant_issue": "BM-30",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1964872,
+    "sha256": "de80953d332d5b5d95e13f8571b8e6d1132d9972e60a0d8b19b6f29fc662d907"
+  },
+  "target": {
+    "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
+    "original_sha256": "a582c7b231eca70106d28be32c9e3175ac9221b83a449920add36b795a9091d0",
+    "pixels_inspected": true
+  },
+  "hypothesis": "An exact v2 signed-data envelope over the existing APK chunked SHA256 digest can be signed remotely with the retained original key. Public-certificate extraction and referenceV16 known-answer verification prove encoding without creating any key or modifying V17.",
+  "controlled_comparison": "Pinned V16=a6be215d... size140863516 and unchanged V17=dc4eb92c... size188672220. Compare reconstructed reference signed-data, content digest and RSA signature with original V16 and official apksigner. No game/UI/payload edits or APK rebuild. Assembly runs only after received original signature.",
+  "stop_condition": "Stop on any unexpected package/certificate/digest/signature/official-verifier/payload check failure. No alternate cert, private key operations, APK rebuild or unaudited final artifact. Do not assemble V17 without returned signature.",
+  "allowed_paths": [
+    "tools/detached_apk_v2.py",
+    "tests/detached_apk_v2_test.py",
+    "docs/continuous_improvement/sessions/MAIN_AUDIO03.json",
+    "docs/continuous_improvement/MAIN_AUDIO03_RESULTS.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "official Android apksigner verify V16 original public certificate and signature",
+    "V16 v2 known-answer content digest, signed-data exact encoding, original RSA signature verification and signing-block roundtrip",
+    "V17 CRC/strict ZIP/manifest appID17/min24/16KB alignment/existing compiled-payload audit binding",
+    "negative response/request tests and no-key operations; request JSON includes exact base64 signed-data and SHA256 digests",
+    "Dropbox upload small JSON and verify remote content hash; future assembly must run official apksigner and compare every unchanged payload entry"
+  ],
+  "resource_plan": {
+    "workspace_free_bytes": 25407447040,
+    "new_persistent_bytes_max": 16777216,
+    "peak_memory_bytes_max": 1073741824,
+    "no_new_dependencies": true,
+    "no_apk_writes_until_signature": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active"
+  },
+  "started_at": "2026-11-08T01:20:33.913754+00:00"
+}
