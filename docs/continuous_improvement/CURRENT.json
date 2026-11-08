@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/POLISH21.json",
+  "session": "docs/continuous_improvement/sessions/STORY22.json",
   "scope": "V20 owner feedback: both genre visuals and sound examples, audition scrolling, readable poster action tiles, selected-member band preview and useful unavailable-writing alternative.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7591,5 +7591,11 @@
     "checks": 2012,
     "release": "Source only; no new APK or signing.",
     "next_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow."
+  },
+  "STORY22": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/playtest-polish-v20",
+    "next_action": "Implement bounded complete chat→plan follow-up and promoter→bill→peer encounter→saved wrap journeys with atomic rollback tests."
   }
 }

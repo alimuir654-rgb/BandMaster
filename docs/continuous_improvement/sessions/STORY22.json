@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "STORY22",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "c7f29cf6afda125c06a335f55aa09b6e5fd21e03",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2045818,
+    "sha256": "5fc1d5a8eb78e3c36f99b902cef99eeae45b70ef7f7f38cb68d279a0b7465289"
+  },
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Owner requests musician chat shaping plans/scenarios, promoter negotiations grounded in band standing, bottom-of-bill starting support slots, helping other bands and fallible higher-bill advice. Current saved audition memories and owned gig agreements exist, but generic reply helper is not integrated in actual career.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_originals_opened": [
+      "/workspace/playtest-polish-v20/audit-phone-gig-soundcheck-controls.png",
+      "/workspace/playtest-polish-v20/audit-phone-radio-question1.png",
+      "/workspace/playtest-polish-v20/final-phone-identity-preview.png"
+    ]
+  },
+  "controlled_comparison": "Actual opening.tscn 390x844/720x1280/1280x720/1600x900; same canonical band/day/booking. Preserve poster materials/portraits. Real player route Band\u2192Talk\u2192agreed next step\u2192actual session\u2192remembered outcome and Gigs\u2192venue/promoter offer\u2192opening bill\u2192higher-band advice/support\u2192saved night.",
+  "hypothesis": "New authored choice-based musician conversations remember contextual plans and fulfilled/missed promises; free chats do not grant repetitive stats. Saved promises reconcile only during explicit original owner save from real session/show facts. New pure scene-circuit leaf freezes a status-derived bill/counteroffer beside existing booking terms, no pricing policy change. Optional peer encounter in existing backstage/after_set phases saves choices via journey revision; bounded actual social/advice consequences settle once in original wrap/Finance/save.",
+  "stop_condition": "Source-only larger chunk. No APK/import/editor/signing/key/appID/save-path/main/shared change. No new audio/AI service/art generation/dependency, no cast impersonating promoter. Preserve old absent-key behavior, future data hold, unknown compatible fields, original fees/cancellation/trip/Finance, once-only states and80privateWAVs.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/musician_chat.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/scene_circuit.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/gig_booking_rules.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/gig_journey.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/live_bridge.gd",
+    "tests/band_stories*",
+    "tools/build_recorded_owner.py",
+    "STATE_SCHEMA.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/STORY22.json",
+    "Bounded actual Godot pure/owner tests for legacy/future/corrupt/stale/repeat/real FS rollback/reload, promise fulfilment/deadline/source binding, status counteroffers and immutable actual tariff, scene advice helpful/harmful cases, support contact/count once-only and original settlement.",
+    "Actual native4view complete chat/plans/followups/promoter/bill/advice/support/wrap, long text, focus/scroll/menu/resume/failure/retry. Exact SHA/hash source; original pixels opened, early phone/short and final independent review. Reuse unchanged POLISH21 proof explicitly."
+  ],
+  "resource_plan": {
+    "free_storage_bytes": 18600000000,
+    "available_memory_bytes": 17000000000,
+    "new_persistent_budget_bytes": 1073741824,
+    "peak_memory_budget_bytes": 1610612736,
+    "reuse_project": "/workspace/main-audio-proof/candidate/project",
+    "no_editor_import_export": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "independent_review": "review_current_workbench completed original-pixel/source pre-review; warned strict tariff identity, leaf dependency, stable member/band IDs, optional existing-phase encounter and contextual consequences.",
+  "review_task": {
+    "queue": "S80 complete player-task controls/layout review",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Talk with actual bandmates and follow a plan; negotiate a credible slot and experience a shared bill whose encounters matter later.",
+    "commitment": "Chat/reading/local negotiation/navigation free. Booking uses original fixed commitments; existing explicit session/gig/day settles as before; only final wrap applies peer consequences."
+  },
+  "started_at": "2026-11-08T21:41:12.337595+00:00"
+}
