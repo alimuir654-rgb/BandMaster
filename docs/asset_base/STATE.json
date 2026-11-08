@@ -6004,5 +6004,18 @@
     "native_previews": "Three existing-folder Dropbox nativePNG uploads/readbacks, no sharing changes",
     "next_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
     "released_at": "2026-11-07T12:19:39.578514+00:00"
+  },
+  "recorded_song_integration": {
+    "session": "MAIN_AUDIO01",
+    "branch": "feature/recorded-song-main-app",
+    "tested_game_source": "a0f5bc331ff2e0884bf69c2417c5555eadec26fc",
+    "status": "tested_source_and_unsigned_v17_ready_original_signing_pending",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "entry": "experiments/playable_flightcase/opening.tscn",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "version_code": 17,
+    "original_signing_key_present": false,
+    "owner_approved": false,
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json"
   }
 }

@@ -17,3 +17,20 @@ The `user://` scheme resolves to Godot's per-user data area, not the repository.
 
 ## Next audit
 Document exact keys, data types, ranges and authoring locations from all three live scripts before the first save-format change.
+
+## Recorded song phrase use (optional career extension)
+
+`recorded_phrase_uses_v1` is `{version: 1, records: [...]}`. Each record has
+`candidate_id`, immutable `hook` (`steady_early_v1` or `steady_later_v1`), and
+`project_id`. A candidate/hook pair is unique. Absence means no recorded phrases
+have been used; malformed data is held for review and is never reset.
+
+Only sealing the first paid writing session adds records for the current active
+guitarists, bassists and drummers. The existing owner saves this extension in the
+same transaction as the original session, finances and workbench receipt; failed
+persistence restores the entire prior state. Preview, local edits, free saves and
+auditions never consume. Later sessions use the first session's project binding
+without consuming a changed lineup. Archiving or completing a project does not
+refund use. Saved songs play their frozen recipe independently of availability.
+Existing save paths, recipe versions and audition data are unchanged.
+

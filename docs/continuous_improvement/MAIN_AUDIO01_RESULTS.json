@@ -1,0 +1,29 @@
+{
+  "tested_sha": "a0f5bc331ff2e0884bf69c2417c5555eadec26fc",
+  "baseline": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+  "model": {
+    "checks": 91,
+    "failures": [],
+    "log": "candidate/model-test-a0f5bc33.log"
+  },
+  "compiled_apk_model": {
+    "checks": 91,
+    "failures": [],
+    "log": "apk-compiled-model.log"
+  },
+  "legacy": {
+    "cases": 5184,
+    "baseline_sha256": "ea624666f50caae8390f7fafc39a394008a3d593660c1b4279b604b57a5daf80",
+    "candidate_sha256": "ea624666f50caae8390f7fafc39a394008a3d593660c1b4279b604b57a5daf80"
+  },
+  "viewports": [
+    "390x844",
+    "720x1280",
+    "1280x720",
+    "1600x900"
+  ],
+  "source_identity_preserved": true,
+  "listen_assessed": false,
+  "owner_visual_approval": false,
+  "physical_device_tested": false
+}

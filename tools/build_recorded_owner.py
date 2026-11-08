@@ -56,7 +56,7 @@ def main():
     # Dynamic asset paths (cast portraits, atlases and manifests) remain unchanged.
     for folder in ['experiments/playable_flightcase', 'experiments/character_cast', 'components', 'Data', 'Art']:
         for path in (repo / folder).rglob('*'):
-            if path.is_file() and path.suffix not in ['.gd', '.tscn', '.uid', '.import', '.md'] and '.godot' not in path.parts:
+            if path.is_file() and path.suffix not in ['.gd', '.tscn', '.tres', '.uid', '.import', '.md'] and '.godot' not in path.parts:
                 queue.append(path.relative_to(repo).as_posix())
     if not args.baseline:
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('recorded_steady*.gd')]
