@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/CHAR01.json",
+  "session": "docs/continuous_improvement/sessions/SIGN20.json",
   "scope": "Musician-and-instrument-led poster auditions with two optional questions, available original/adjusted samples, saved working expectations and context-dependent practice focus/effort. Combined V20 also carries the prior bank expansion and whole-game poster work.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7566,5 +7566,11 @@
     "current_verified_game_source": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
     "next_single_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
     "scope": "Approved paper controls and whole-Playtest poster-art consistency audit; one combined source update, release held."
+  },
+  "SIGN20": {
+    "status": "preflight",
+    "writer": "root",
+    "source_sha": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
+    "next_action": "Unchanged fail-closed detached_apk_v2.py verifies returned RSA over exact884 bytes before file creation, official apksigner validates original cert and v2, and payload manifest/metadata/zipalign checks gate atomic promotion."
   }
 }

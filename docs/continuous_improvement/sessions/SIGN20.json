@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "SIGN20",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "7f1fc263d5af8a8b1fa7c734bc87808c0716781a",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2027800,
+    "sha256": "6ced1a5ebe06efbd8c452478ea73d0628489cd69a2ac9315869e2b3d67d67e40"
+  },
+  "dominant_issue": "BM-36",
+  "lesson_ids": [
+    "BM-14",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36"
+  ],
+  "owner_request": "Owner returned exact V20 detached RSA signature. Validate against original public certificate and fixed request/APK; assemble unchanged payload, officially verify, deliver the single existing Playtest update through established private Dropbox workflow. No key generation/transfer or app/save identity changes.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "inspection_reused_from": "CHAR01 unchanged UI; no rendering/game/source modification in SIGN20"
+  },
+  "controlled_comparison": "Retained unsigned V20 SHA049223ad4600422821ff76e3870aba3b4decf075957fb5085f652e0bcee1ea98 vs assembled final: exact bytes unchanged except v2 signing block and EOCD central-directory offset. Source0c8ee2e, original V16 certificate83c797fe, same appID/version20/minSDK24. Reuse existing4-view and compiled gameplay proof.",
+  "hypothesis": "Unchanged fail-closed detached_apk_v2.py verifies returned RSA over exact884 bytes before file creation, official apksigner validates original cert and v2, and payload manifest/metadata/zipalign checks gate atomic promotion.",
+  "stop_condition": "Stop on any signature/request/source/certificate/hash/size/payload/official-verifier failure. Do not generate/read/transfer private keys, invoke Godot, rebuild, alter sources/audio/saves, change appID or overwrite existing output/Dropbox files.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SIGN20.json",
+    "Unchanged tools/detached_apk_v2.py assemble --policy /workspace/character-consequences/v20-signing-policy.json with exact retained request/APK/V16/returned response; official apksigner + zipalign + payload identity gate",
+    "Read-only final SDK apksigner/aapt and ZIP CRC verification, original key metadata unchanged, final SHA256, private Dropbox upload/readback metadata; no physical-device claim"
+  ],
+  "resource_plan": {
+    "available_storage_bytes": 20013527040,
+    "new_persistent_budget_bytes": 805306368,
+    "peak_memory_budget_bytes": 1610612736,
+    "no_dependencies_or_engine": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-08T19:03:08.675052+00:00"
+}
