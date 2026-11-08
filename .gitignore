@@ -4,3 +4,6 @@ builds/
 *.apk.idsig
 *.aab
 *.import
+# Owner-supplied private Suno audio is delivered separately for private review.
+experiments/playable_flightcase/audio/recorded_steady_v1/
+__pycache__/

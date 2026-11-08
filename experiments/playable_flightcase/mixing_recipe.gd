@@ -1,6 +1,7 @@
 extends RefCounted
 ## Versioned creative intent. Playback, local input and paid settlement stay separate.
 const Sound = preload("res://experiments/playable_flightcase/band_sound.gd")
+const Recorded = preload("res://experiments/playable_flightcase/recorded_steady.gd")
 const VERSION := "mixing_desk_v1"
 const MANIFEST := "res://experiments/playable_flightcase/audio/mixing_desk_v1.json"
 const FIELDS := ["tone","pace","energy","originality","groove","shape","theme"]
@@ -23,10 +24,10 @@ static func valid(value: Variant) -> bool:
  for key in value:
   if not key is String:return false
  if not value.get("palette") is String or value.palette!="mixing_desk_v1" or not value.get("hook") is String or not Sound.valid(value.get("brief")):return false
- if value.hook not in HOOKS or (value.version==3 and value.hook!="low_riff_v1"):return false
+ if value.hook not in HOOKS+Recorded.HOOKS or (value.version==3 and value.hook!="low_riff_v1"):return false
  for i in range(FIELDS.size()):
   if not value.get(FIELDS[i]) is String or value[FIELDS[i]] not in VALUES[i]:return false
- return true
+ return not Recorded.has_hook(value) or (value.pace=="driving" and value.groove=="straight" and value.originality=="familiar")
 
 static func recipe(brief: Dictionary,stage: int=0,composition_index: int=0) -> Dictionary:
  if not Sound.valid(brief) or stage not in [0,1,2]:return {}
@@ -36,9 +37,22 @@ static func same_composition(first: Dictionary,second: Dictionary) -> bool:
  return valid(first) and valid(second) and first.version==second.version and first.hook==second.hook and first.get("voice","off")==second.get("voice","off")
 
 static func foundation(value: Dictionary) -> String:
+ if valid(value) and Recorded.has_hook(value):return Recorded.LABELS[Recorded.HOOKS.find(value.hook)]
  return HOOK_LABELS[HOOKS.find(value.hook)] if valid(value) else "REVIEW FOUNDATION"
 
+static func foundation_note(value: Dictionary) -> String:
+ if not valid(value):return "Review the saved foundation."
+ if Recorded.has_hook(value):return "SUNO SKETCH · 100 BPM · 4-BAR CANDIDATE · FIXED PLAYING"
+ return HOOK_NOTES[HOOKS.find(value.hook)]
+
+static func adjustable(value: Dictionary,field: String) -> bool:
+ return field in FIELDS and (not Recorded.has_hook(value) or field not in ["pace","groove","originality"])
+
 static func label(value: Dictionary,field: String) -> String:
+ if valid(value) and Recorded.has_hook(value):
+  if field=="pace":return "100 BPM"
+  if field=="groove":return "RECORDED"
+  if field=="originality":return "SOURCE PARTS"
  var index: int=FIELDS.find(field)
  return str(LABELS[index][VALUES[index].find(value[field])]) if valid(value) and index>=0 else "REVIEW"
 
@@ -61,6 +75,8 @@ static func summary(value: Dictionary) -> String:
 
 static func written(value: Dictionary) -> String:
  if not valid(value):return "This saved direction needs review."
+ if Recorded.has_hook(value):
+  return foundation(value)+". AI-generated Suno sketch, 9.6 seconds at 100 BPM. "+("Guitar alone" if int(value.stage)==0 else "Matched guitar, bass and drums")+"; "+label(value,"tone").to_lower()+" guitar tone, "+("quieter balance" if value.energy=="open" else "fuller balance")+"; "+("parts enter progressively" if value.shape=="build" else "parts enter together")+". Tempo and playing stay fixed. Lyrical direction: "+label(value,"theme").to_lower()+" (written intent)."
  var theme: String={"personal":"Something personal, held close.","streetlife":"Life outside the practice room.","escape":"Getting out without a clean answer."}[value.theme]
  var parts: String=["The guitar finds the feel","Bass and drums join the idea","An answering guitar shapes the take"][int(value.stage)]
  if value.hook=="bass_current_v1":parts=["The bass finds the feel","Guitar and drums join the bass","An answering guitar shapes the take"][int(value.stage)]
@@ -94,6 +110,7 @@ static func material_matches(value: Dictionary) -> bool:
 static func offer(value: Dictionary,respondent: Dictionary) -> Dictionary:
  if not valid(value) or respondent.is_empty():return {}
  var field: String=["energy","groove","originality"][int(value.stage)]
+ if Recorded.has_hook(value):field=["energy","shape","energy"][int(value.stage)]
  var choices: Array=VALUES[FIELDS.find(field)]
  var next: String=choices[1-choices.find(value[field])]
  var pin: Array=[VERSION,value.brief.genre,value.brief.name_intent,value.brief.vibe,int(value.stage)]
@@ -109,7 +126,7 @@ static func request_ok(request: Dictionary) -> bool:
  if not request.get("kind") is String:return false
  if not request.get("field") is String or not request.get("value") is String or not request.get("offer_id") is String or request.offer_id.length()!=64 or not request.offer_id.is_valid_hex_number(false):return false
  var field: String=request.field
- return field in FIELDS and request.value in VALUES[FIELDS.find(field)] and request.value!=request.recipe[field]
+ return adjustable(request.recipe,field) and request.value in VALUES[FIELDS.find(field)] and request.value!=request.recipe[field]
 
 static func note(respondent: Dictionary,value: Dictionary,context: Dictionary) -> Dictionary:
  if not valid(value):return {"ok":false,"message":"This direction needs review."}
@@ -117,6 +134,9 @@ static func note(respondent: Dictionary,value: Dictionary,context: Dictionary) -
  var text: String="Keep this direction beside the next take."
  if not request.is_empty():
   var words: Dictionary={"energy":{"open":"Back off the attack. Let the spaces carry some weight.","full":"Give the riff a firmer attack. Keep the parts together."},"groove":{"straight":"Try it right on the beat. Keep that pulse steady.","loose":"Let those offbeats hang back a little. Keep the pace."},"originality":{"familiar":"Keep the phrase simple. Give the chorus a clear way in.","angular":"Let an answering figure through. Give the chorus another edge."}}
+  if Recorded.has_hook(value):
+   words.energy={"open":"Pull the balance back. Leave some room around the recorded parts.","full":"Bring the recorded parts forward in the balance."}
+   words.shape={"build":"Let the parts enter gradually across the sketch.","burst":"Bring the current parts in together from the start."}
   text=words[request.field][request.value]
  return {"ok":true,"message":"","note":{"text":text,"request":request,"source_kind":"authored","content_version":VERSION,"respondent_ref":respondent.duplicate(true),"day":int(context.day),"delivery":"written_note"}}
 

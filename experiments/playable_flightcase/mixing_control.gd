@@ -9,6 +9,7 @@ var caption := ""
 var kind := "rotary"
 var labels: Array=[]
 var locked := false
+var fixed_hint := ""
 var _mode := ""
 var _device := 0
 var _finger := -1
@@ -152,10 +153,11 @@ func _text(words: String,y: float,points: int=16,color: Color=Color("eee4ce")) -
 func _draw() -> void:
  if size.x<1 or labels.is_empty():return
  var opacity: float=0.45 if locked else 1.0
- var ink:=Color("eee4ce");ink.a=opacity
+ var text_opacity: float=1.0 if not fixed_hint.is_empty() else opacity
+ var ink:=Color("eee4ce");ink.a=text_opacity
  var plate: Texture2D=_piece("plate",Rect2(1030,690,480,165))
- draw_texture_rect(plate,Rect2(6,0,size.x-12,29),false,Color(1,1,1,opacity))
- _text(caption,21,16,Color(0.13,0.09,0.05,opacity))
+ draw_texture_rect(plate,Rect2(6,0,size.x-12,29),false,Color(1,1,1,text_opacity))
+ _text(caption,21,16,Color(0.13,0.09,0.05,text_opacity))
  var normal: float=value/maxf(1,max_value)
  if kind=="rotary":
   var centre:=Vector2(size.x*0.5,74)
@@ -186,7 +188,8 @@ func _draw() -> void:
   draw_circle(Vector2(size.x*0.5+(-48 if value==0 else 48),53),4,Color("f2b745"))
   _text(str(labels[int(value)]),88,16,ink)
  var alternatives: String=" · ".join(labels) if labels.size()>2 else " / ".join(labels)
- _text(alternatives,108 if kind=="switch" else (165 if kind=="fader" else 156),16,Color(0.78,0.71,0.58,opacity))
+ if not fixed_hint.is_empty():alternatives=fixed_hint
+ _text(alternatives,108 if kind=="switch" else (165 if kind=="fader" else 156),16,Color(0.78,0.71,0.58,text_opacity))
  if has_focus():draw_rect(input_rect().grow(2),Color("efc079"),false,2)
 
 func _slot_style() -> StyleBoxFlat:

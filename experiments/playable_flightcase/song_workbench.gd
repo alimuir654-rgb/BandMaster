@@ -538,6 +538,10 @@ static func prepare_paid(opening: Dictionary,token: Dictionary) -> Dictionary:
  if not checked.ok or not checked.active or not _token(opening,token) or _priority(opening)!="workbench":return failure
  var project: Dictionary=_wrapper(opening).project
  if not _ready(opening,project):return failure
+ var recorded=preload("res://experiments/playable_flightcase/recorded_steady.gd")
+ if not recorded.available(_career(opening),project.fragment.get("producer_recipe",{}),str(project.id)):
+  failure.message="This recorded phrase is already used, or its inventory needs review. Choose another foundation."
+  return failure
  var prepared: Dictionary={"version":1,"project_id":project.id,"wrapper_revision":int(_wrapper(opening).revision),"fragment_id":project.fragment.fragment_id,"fragment_revision":int(project.fragment.revision),"stage":int(_career(opening).song_draft_progress),"source_hash":_source_hash(opening),"wrapper_hash":_hash(_career(opening)[KEY]),"game_hash":_game_hash(opening.game),"trial_hash":_hash(project.last_trial),"args":{"idea":"Lyric","form":"Verse / Chorus","title":project.target.title,"leader_index":int(project.target.leader_ref.slot)},"material":_material(project.fragment)}
  return {"ok":true,"message":"","prepared":prepared}
 
@@ -676,6 +680,10 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
   wrapper.project={}
  else:wrapper.project=project
  next.game.career[KEY]=Canon._freeze_candidate(wrapper)
+ var recorded=preload("res://experiments/playable_flightcase/recorded_steady.gd")
+ var consumed: Dictionary=recorded.consume(next.game.career,project.fragment.get("producer_recipe",{}),str(project.id)) if int(completion.stage)==0 else {"ok":recorded.available(next.game.career,project.fragment.get("producer_recipe",{}),str(project.id)),"state":next.game.career}
+ if not consumed.ok:return fail
+ next.game.career=consumed.state
  return _mutation(next,true,"The original session and this exact take are saved. "+social_message,true)
 
 static func finished(opening: Dictionary) -> Dictionary:

@@ -141,6 +141,10 @@ func _build() -> void:
  for i in range(Recipe.HOOKS.size()):
   var choice: Button=_button(["RIFF","BASS","PICKED"][i],"MixingFoundation_%d" % i,_choose_foundation.bind(i))
   choice.toggle_mode=true;choice.button_group=_foundation_group;_foundation_group.allow_unpress=false;foundations.add_child(choice);_foundations.append(choice)
+ var recorded:=HBoxContainer.new();recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("separation",4);surface.add_child(recorded)
+ for i in range(Recipe.Recorded.HOOKS.size()):
+  var choice: Button=_button(["STEADY · EARLY","STEADY · LATER"][i],"MixingRecorded_%d" % i,_choose_foundation.bind(Recipe.HOOKS.size()+i))
+  choice.toggle_mode=true;choice.button_group=_foundation_group;recorded.add_child(choice);_foundations.append(choice)
  _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
  _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
  for i in range(4):_add_control(_grid,i,"rotary" if i<2 else "fader")
@@ -223,12 +227,15 @@ func _invalidate_response() -> void:
  _decision={};_compare=false
 
 func _choose_foundation(index: int) -> void:
- if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or _recipe.version!=4 or int(_recipe.stage)!=0 or index<0 or index>=Recipe.HOOKS.size():return
- if _recipe.hook==Recipe.HOOKS[index]:return
- _stop_audio();_invalidate_response();_recipe["hook"]=Recipe.HOOKS[index];_refresh()
+ var hooks: Array=Recipe.HOOKS+Recipe.Recorded.HOOKS
+ if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or _recipe.version!=4 or int(_recipe.stage)!=0 or index<0 or index>=hooks.size():return
+ if _recipe.hook==hooks[index]:return
+ _stop_audio();_invalidate_response();_recipe["hook"]=hooks[index]
+ if Recipe.Recorded.has_hook(_recipe):_recipe.pace="driving";_recipe.groove="straight";_recipe.originality="familiar"
+ _refresh()
 
 func _choose(field: String,index: int) -> void:
- if _hydrating or _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe):return
+ if _hydrating or _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or not Recipe.adjustable(_recipe,field):return
  var axis: int=Recipe.FIELDS.find(field)
  if axis<0 or index<0 or index>=Recipe.VALUES[axis].size() or _recipe[field]==Recipe.VALUES[axis][index]:return
  _invalidate_response();_recipe[field]=Recipe.VALUES[axis][index];_refresh()
@@ -301,15 +308,21 @@ func _refresh() -> void:
  _brief.text=Sound.summary(Sound.read(owner_state.game.career))+"  ·  DAY %d / £%d" % [int(owner_state.game.career.get("tour_day",1)),int(owner_state.game.career.get("cash",0))]
  var originals: int=preload("res://experiments/playable_flightcase/recording_rules.gd").songs(owner_state.game.career).size()
  _demo_path.text="DEMO PATH · %d / 3 ORIGINALS · RECORD → RELEASE → RADIO" % mini(originals,3)
- _foundation_note.text=Recipe.HOOK_NOTES[Recipe.HOOKS.find(_recipe.hook)]+(" · FOUNDATION RECORDED" if stage>0 else " · CHOOSE THIS SONG'S FOUNDATION") if valid else "Review the saved foundation."
+ _foundation_note.text=Recipe.foundation_note(_recipe)+(" · FOUNDATION SAVED" if stage>0 else " · CHOOSE THIS SONG'S FOUNDATION") if valid else "Review the saved foundation."
  _title.editable=not _busy and not modal and valid
  _title.focus_mode=Control.FOCUS_NONE if modal else Control.FOCUS_ALL
  for i in range(_stages.size()):_stages[i].add_theme_color_override("font_color",Color("f1c374") if i==stage else Color("aa9c83"))
  for key in _controls:
   var control=_controls[key]
+  var fixed: bool=valid and not Recipe.adjustable(_recipe,key)
+  control.fixed_hint="FIXED RECORDING" if fixed else ""
+  control.labels=Recipe.LABELS[Recipe.FIELDS.find(key)].duplicate()
+  if fixed:control.labels.fill(Recipe.label(_recipe,key))
   if valid:control.set_value_no_signal(Recipe.VALUES[Recipe.FIELDS.find(key)].find(_recipe[key]))
-  control.set_locked(_busy or modal or not valid);control.queue_redraw()
+  control._update_caption()
+  control.set_locked(_busy or modal or not valid or fixed);control.queue_redraw()
   if key=="originality":control.tooltip_text="SIMPLE keeps the main phrase; LAYERED brings in the answering part when you make the finished take." if valid and _recipe.hook!="low_riff_v1" else ""
+  if fixed:control.tooltip_text="Fixed in this recording. Different playing needs another recorded phrase."
  for i in range(_themes.size()):
   var selected: bool=valid and _recipe.theme==Recipe.VALUES[6][i]
   _themes[i].modulate=Color(1.0,0.77,0.4) if selected else Color.WHITE
@@ -346,11 +359,18 @@ func _refresh() -> void:
  elif work.get("plan_status")=="due":_cost.text="1 day · No hire · Misses today's agreed rehearsal"
  for button in _buttons:button.disabled=_busy or modal or not valid
  for i in range(_foundations.size()):
+  var hook: String=(Recipe.HOOKS+Recipe.Recorded.HOOKS)[i]
+  var selection: Dictionary=_recipe.duplicate(true);selection.hook=hook
+  var source_available: bool=Recipe.Recorded.available(owner_state.game.career,selection,str(_project().get("id","")))
   _foundations[i].disabled=_busy or modal or not valid or stage>0 or _recipe.get("version")!=4
-  _foundations[i].set_pressed_no_signal(valid and _recipe.hook==Recipe.HOOKS[i])
-  _foundations[i].modulate=Color(1.0,0.77,0.4) if valid and _recipe.hook==Recipe.HOOKS[i] else Color.WHITE
+  _foundations[i].tooltip_text=""
+  if not source_available:_foundations[i].disabled=true;_foundations[i].tooltip_text="Already used by a member of this band. Its saved song can still play."
+  _foundations[i].set_pressed_no_signal(valid and _recipe.hook==hook)
+  _foundations[i].modulate=Color(1.0,0.77,0.4) if valid and _recipe.hook==hook else Color.WHITE
  _commit.text="COMMIT SESSION" if available else "BAND UNAVAILABLE"
  _commit.disabled=_busy or modal or not valid or not available
+ if valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):
+  _commit.disabled=true;_cost.text="PHRASE UNAVAILABLE · Choose another foundation"
  _refresh_audio()
 
 func _resized() -> void:
