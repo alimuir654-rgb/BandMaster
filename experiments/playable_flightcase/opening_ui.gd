@@ -721,6 +721,7 @@ func _cover_milestone(kind: String) -> void:
   centre.size_flags_vertical=Control.SIZE_EXPAND_FILL
   workspace.add_child(centre)
   frame=Kit.frame(look,"panel")
+  frame.add_theme_stylebox_override("panel",Poster.stock(Poster.INK,16))
   frame.name="FirstPressCoverFrame"
   frame.custom_minimum_size.x=clampf(size.y*0.66,380.0,560.0)
   frame.size_flags_horizontal=Control.SIZE_SHRINK_CENTER

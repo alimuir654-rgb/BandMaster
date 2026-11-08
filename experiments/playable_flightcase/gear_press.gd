@@ -146,7 +146,7 @@ static func catalogue(host, parent: Node, compact: bool) -> void:
   var is_owned: bool = owned.has(item_id)
   var name: String = str(item.get("name",item_id))
   var status: String = "OWNED" if is_owned else "£%d / %s" % [int(item.get("price",0)),str(item.get("stock","SECOND-HAND"))]
-  var tile: Button = Kit.button("","notepaper","tab",true)
+  var tile: Button = C.button("","flightcase","tab",true)
   tile.name = "GearChoice_"+item_id
   # Reserve art plus two wrapped native16 copy rows. Button children do not
   # automatically contribute their minimum size to the parent Button.

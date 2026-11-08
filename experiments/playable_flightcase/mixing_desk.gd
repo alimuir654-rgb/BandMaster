@@ -2,7 +2,7 @@ extends VBoxContainer
 ## The writing room: live native controls, a local take and one original paid owner.
 const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Recipe = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
-const Dial = preload("res://experiments/playable_flightcase/mixing_control.gd")
+const Dial = preload("res://experiments/playable_flightcase/poster_choice.gd")
 const Audio = preload("res://experiments/playable_flightcase/mixing_audio.gd")
 const Rules = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
@@ -38,6 +38,7 @@ var _stages: Array[Label]=[]
 var _hear: Button
 var _commit: Button
 var _sound: Button
+var _voice_preview: Label
 var _cost: Label
 var _notice: Label
 var _note_panel: PanelContainer
@@ -51,6 +52,7 @@ var _themes: Array[Button]=[]
 var _foundations: Array[Button]=[]
 var _foundation_group:=ButtonGroup.new()
 var _foundation_note: Label
+var _bank_library: VBoxContainer
 var _bank_more: Button
 var _bank_open := false
 var _demo_path: Label
@@ -143,26 +145,25 @@ func _build() -> void:
  _spread=GridContainer.new();_spread.name="MixingSpread";_spread.columns=1;_spread.add_theme_constant_override("h_separation",14);_spread.add_theme_constant_override("v_separation",10);_spread.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_scroll.add_child(_spread)
  var console:=PanelContainer.new();console.name="MixingConsole";console.size_flags_horizontal=Control.SIZE_EXPAND_FILL;console.mouse_filter=Control.MOUSE_FILTER_PASS;console.add_theme_stylebox_override("panel",_surface_style());_spread.add_child(console)
  var surface:=VBoxContainer.new();surface.add_theme_constant_override("separation",8);console.add_child(surface)
- var foundations:=HBoxContainer.new();foundations.name="MixingFoundations";foundations.add_theme_constant_override("separation",4);surface.add_child(foundations)
+ _bank_more=Poster.button("");_bank_more.name="MixingBankMore"
+ _bank_more.pressed.connect(_toggle_bank);_buttons.append(_bank_more);surface.add_child(_bank_more)
+ _bank_library=VBoxContainer.new();_bank_library.add_theme_constant_override("separation",4);surface.add_child(_bank_library)
+ var foundations:=HBoxContainer.new();foundations.name="MixingFoundations";foundations.add_theme_constant_override("separation",4);_bank_library.add_child(foundations)
  for i in range(Recipe.HOOKS.size()):
   var choice: Button=_button(["RIFF","BASS","PICKED"][i],"MixingFoundation_%d" % i,_choose_foundation.bind(i))
-  choice.toggle_mode=true;choice.button_group=_foundation_group;_foundation_group.allow_unpress=false;foundations.add_child(choice);_foundations.append(choice)
- var recorded:=GridContainer.new();recorded.columns=2;recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("h_separation",4);recorded.add_theme_constant_override("v_separation",4);surface.add_child(recorded)
+  Poster.choice_style(choice);choice.toggle_mode=true;choice.button_group=_foundation_group;_foundation_group.allow_unpress=false;foundations.add_child(choice);_foundations.append(choice)
+ var recorded:=GridContainer.new();recorded.columns=2;recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("h_separation",4);recorded.add_theme_constant_override("v_separation",4);_bank_library.add_child(recorded)
  for i in range(Recipe.Recorded.HOOKS.size()):
   var choice: Button=_button(Recipe.Recorded.LABELS[i],"MixingRecorded_%d" % i,_choose_foundation.bind(Recipe.HOOKS.size()+i))
   choice.visible=i<Recipe.Recorded.STEADY_HOOKS.size() or _bank_open
-  choice.toggle_mode=true;choice.button_group=_foundation_group;recorded.add_child(choice);_foundations.append(choice)
- _bank_more=Poster.quiet("");_bank_more.name="MixingBankMore"
- _bank_more.pressed.connect(_toggle_bank);_buttons.append(_bank_more);surface.add_child(_bank_more)
+  Poster.choice_style(choice);choice.toggle_mode=true;choice.button_group=_foundation_group;recorded.add_child(choice);_foundations.append(choice)
  _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
- _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
- for i in range(4):_add_control(_grid,i,"rotary" if i<2 else "fader")
- var switches:=HBoxContainer.new();switches.add_theme_constant_override("separation",6);surface.add_child(switches)
- _add_control(switches,4,"switch");_add_control(switches,5,"switch")
+ _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=1;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
+ for i in range(6):_add_control(_grid,i,"choice")
  var lyric_title: Label=_label("LYRICAL DIRECTION",17);lyric_title.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;surface.add_child(lyric_title)
  var lyrical:=HBoxContainer.new();lyrical.name="MixingLyricalDirection";lyrical.add_theme_constant_override("separation",4);surface.add_child(lyrical)
  for i in range(3):
-  var button: Button=_button(Recipe.LABELS[6][i],"MixingTheme_%d" % i,_choose.bind("theme",i));lyrical.add_child(button);_themes.append(button)
+  var button: Button=_button(Recipe.LABELS[6][i],"MixingTheme_%d" % i,_choose.bind("theme",i));Poster.choice_style(button);button.toggle_mode=true;lyrical.add_child(button);_themes.append(button)
  _note_panel=PanelContainer.new();_note_panel.name="MixingMemberCard";_note_panel.mouse_filter=Control.MOUSE_FILTER_PASS;_note_panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_note_panel.add_theme_stylebox_override("panel",Poster.stock(Poster.PAPER,14));_spread.add_child(_note_panel)
  var note_body:=VBoxContainer.new();note_body.add_theme_constant_override("separation",6);_note_panel.add_child(note_body)
  var person:=HBoxContainer.new();person.add_theme_constant_override("separation",8);note_body.add_child(person)
@@ -188,6 +189,7 @@ func _build() -> void:
  var history: Button=_button("FINISHED ORIGINALS","MixingHistory",request_exit.bind("finished"));note_body.add_child(history)
  _notice=_label("",16);_notice.name="MixingNotice";_notice.visible=false;add_child(_notice)
  var dock:=VBoxContainer.new();dock.name="MixingCommitDock";dock.add_theme_constant_override("separation",4);add_child(dock)
+ _voice_preview=_label("",16);_voice_preview.name="MixingVoicePreview";dock.add_child(_voice_preview)
  _cost=_label("",16);_cost.name="MixingPublicCost";_cost.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;dock.add_child(_cost)
  var actions:=HBoxContainer.new();actions.add_theme_constant_override("separation",8);dock.add_child(actions)
  _hear=_button("▶ HEAR THE IDEA","MixingHear",_hear_take);actions.add_child(_hear)
@@ -246,10 +248,10 @@ func _toggle_bank() -> void:
  _refresh_bank()
 
 func _refresh_bank() -> void:
- for i in range(Recipe.HOOKS.size()+Recipe.Recorded.STEADY_HOOKS.size(),_foundations.size()):_foundations[i].visible=_bank_open
- var additional: int=Recipe.Recorded.HOOKS.size()-Recipe.Recorded.STEADY_HOOKS.size()
- _bank_more.text="FEWER IDEAS" if _bank_open else (Recipe.foundation(_recipe)+" · MORE IDEAS" if Recipe.Recorded.expanded(_recipe) else "MORE RECORDED IDEAS · %d" % additional)
- _bank_more.tooltip_text="%d additional passage candidates from source recordings. EQ versions use the same playing; bar starts and loops require listening review." % additional
+ _bank_library.visible=_bank_open
+ for choice in _foundations:choice.visible=true
+ _bank_more.text=Recipe.foundation(_recipe)+(" · CLOSE" if _bank_open else " · CHANGE")
+ _bank_more.tooltip_text="Choose a different song foundation. Recorded phrases retain their original playing."
 
 func _choose_foundation(index: int) -> void:
  var hooks: Array=Recipe.HOOKS+Recipe.Recorded.HOOKS
@@ -262,7 +264,8 @@ func _choose_foundation(index: int) -> void:
 func _choose(field: String,index: int) -> void:
  if _hydrating or _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or not Recipe.adjustable(_recipe,field):return
  var axis: int=Recipe.FIELDS.find(field)
- if axis<0 or index<0 or index>=Recipe.VALUES[axis].size() or _recipe[field]==Recipe.VALUES[axis][index]:return
+ if axis<0 or index<0 or index>=Recipe.VALUES[axis].size():return
+ if _recipe[field]==Recipe.VALUES[axis][index]:_refresh();return
  _invalidate_response();_recipe[field]=Recipe.VALUES[axis][index];_refresh()
  _audio.notify_controls_changed()
 
@@ -332,11 +335,13 @@ func _refresh() -> void:
  var valid: bool=Recipe.valid(_recipe) and _view.get("ok",false) and not _view.get("held",true)
  var modal: bool=is_instance_valid(_dialog)
  var stage: int=int(owner_state.game.career.get("song_draft_progress",0))
- _band.text=str(owner_state.game.career.get("band_name","YOUR BAND")).to_upper()
+ _band.text=str(owner_state.game.career.get("band_name","YOUR BAND")).to_upper()+" · DAY %d / £%d" % [int(owner_state.game.career.get("tour_day",1)),int(owner_state.game.career.get("cash",0))]
+ _brief.visible=false
+ _demo_path.visible=false
  _brief.text=Sound.summary(Sound.read(owner_state.game.career))+"  ·  DAY %d / £%d" % [int(owner_state.game.career.get("tour_day",1)),int(owner_state.game.career.get("cash",0))]
  var originals: int=preload("res://experiments/playable_flightcase/recording_rules.gd").songs(owner_state.game.career).size()
  _demo_path.text="DEMO PATH · %d / 3 ORIGINALS · RECORD → RELEASE → RADIO" % mini(originals,3)
- _foundation_note.text=Recipe.foundation_note(_recipe)+(" · FOUNDATION SAVED" if stage>0 else " · CHOOSE THIS SONG'S FOUNDATION") if valid else "Review the saved foundation."
+ _foundation_note.text=("RECORDED IDEA · "+Recipe.Recorded.tempo_caption(_recipe)+" · FIXED PLAYING" if Recipe.Recorded.has_hook(_recipe) else "COMPOSED IDEA · CHOOSE YOUR DIRECTION") if valid else "Review the saved foundation."
  _title.editable=not _busy and not modal and valid
  _title.focus_mode=Control.FOCUS_NONE if modal else Control.FOCUS_ALL
  for i in range(_stages.size()):_stages[i].add_theme_color_override("font_color",Color("f1c374") if i==stage else Color("aa9c83"))
@@ -353,12 +358,14 @@ func _refresh() -> void:
   if fixed:control.tooltip_text="Fixed in this recording. Different playing needs another recorded phrase."
  for i in range(_themes.size()):
   var selected: bool=valid and _recipe.theme==Recipe.VALUES[6][i]
-  _themes[i].modulate=Color(1.0,0.77,0.4) if selected else Color.WHITE
+  _themes[i].text=("✓ " if selected else "")+Recipe.LABELS[6][i]
+  _themes[i].set_pressed_no_signal(selected)
  var target: Dictionary=_target() if valid else {}
  var respondent: Dictionary=target.get("respondent_ref",{})
  var note: Dictionary=Recipe.note(respondent,_offer_base(),{"day":int(owner_state.game.career.get("tour_day",1))}) if valid else {}
  _member_name.text=str(respondent.get("name","YOUR DIRECTION")).to_upper()
  _member_note.text=str(note.get("note",{}).get("text","Review the saved band and direction."))
+ _voice_preview.text=_member_name.text+": "+_member_note.text
  var portrait_path: String=""
  for source in Cast.combined_people():
   if source.get("id")==respondent.get("candidate_id"):portrait_path=str(source.get("portrait_preview",""));break
@@ -394,7 +401,7 @@ func _refresh() -> void:
   _foundations[i].tooltip_text=""
   if not source_available:_foundations[i].disabled=true;_foundations[i].tooltip_text="Already used by a member of this band. Its saved song can still play."
   _foundations[i].set_pressed_no_signal(valid and _recipe.hook==hook)
-  _foundations[i].modulate=Color(1.0,0.77,0.4) if valid and _recipe.hook==hook else Color.WHITE
+  _foundations[i].modulate=Color.WHITE
  _refresh_bank()
  _commit.text="COMMIT SESSION" if available else "BAND UNAVAILABLE"
  _commit.disabled=_busy or modal or not valid or not available
@@ -412,7 +419,7 @@ func _resized() -> void:
  _layout=size
  var wide: bool=size.x>=840
  _spread.columns=2 if wide else 1
- _grid.columns=4 if wide and size.x>=1120 else 2
+ _grid.columns=1
  _note_panel.custom_minimum_size.x=300 if wide else 0
 
 func _show_notice(words: String) -> void:

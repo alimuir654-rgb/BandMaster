@@ -3,6 +3,7 @@ extends VBoxContainer
 ## C25 individual previews are ~222–240px CONTACT-SHEET CROPS, not portrait masters.
 ## No writes to recruitment, budget, lead vocal assignment or saves.
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 
 var selected_ids: Array[String] = []
@@ -97,28 +98,28 @@ func configure(roster: Array, lead_id: String, viewport_width: float, available_
     cell.add_child(photo)
   else:
    # Legacy unpictured player: do not attribute another approved face to them.
-   var placeholder: Label = Kit.label("IMAGE\nPENDING","flightcase",12)
+   var placeholder: Label = Poster.label("IMAGE\nPENDING",12,Poster.PAPER)
    placeholder.name = "LineupUnpictured_"+pid
    placeholder.custom_minimum_size = Vector2(width,portrait_height)
    placeholder.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
    placeholder.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
    placeholder.mouse_filter = Control.MOUSE_FILTER_IGNORE
    cell.add_child(placeholder)
-  var caption: Label = Kit.label(name,"flightcase",13 if viewport_width >= 720 else 12)
+  var caption: Label = Poster.label(name,13 if viewport_width >= 720 else 12,Poster.PAPER)
   caption.name = "LineupName_"+pid
   caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
   caption.custom_minimum_size.x = width
   caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
   cell.add_child(caption)
-  var badge: Label = Kit.label(role.to_upper(),"flightcase",10)
+  var badge: Label = Poster.label(role.to_upper(),10,Poster.PAPER)
   badge.name = "LineupRole_"+pid
   badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   badge.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
   badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
   cell.add_child(badge)
   if pid == lead_id:
-   var vocal: Label = Kit.label("LEAD VOCALS","flightcase",10)
+   var vocal: Label = Poster.label("LEAD VOCALS",10,Poster.PAPER)
    vocal.name = "LineupLeadVocal"
    vocal.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
    vocal.mouse_filter = Control.MOUSE_FILTER_IGNORE

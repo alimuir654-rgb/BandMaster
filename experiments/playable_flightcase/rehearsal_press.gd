@@ -262,7 +262,7 @@ func configure(report: Dictionary, members: Array, mobile: bool, expanded_detail
   content.add_child(room)
   content.move_child(room,people_at+1 if short_landscape else people_at+2)
  if not external_details:
-  var breakdown := Kit.button("HIDE NOTES" if expanded_details else "FULL NOTES  ›","flightcase","tab")
+  var breakdown := Shared.button("HIDE NOTES" if expanded_details else "FULL NOTES  ›")
   breakdown.name = "RecapDetailsToggleAction"
   breakdown.icon = JournalIcon
   breakdown.pressed.connect(func(): details_toggled.emit())

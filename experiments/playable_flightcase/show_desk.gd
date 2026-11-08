@@ -4,6 +4,7 @@ extends RefCounted
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const BookingDesk = preload("res://experiments/playable_flightcase/gig_booking_desk.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Hardware = preload("res://experiments/playable_flightcase/show_hardware.gd")
@@ -189,15 +190,15 @@ static func _setlist(host, body: Node, state: Dictionary) -> void:
 
 static func controls(host, parent: Node, _compact: bool) -> void:
  host._sync_show_draft()
- var housing: PanelContainer = Kit.frame("flightcase","inset")
+ var housing:=PanelContainer.new();housing.add_theme_stylebox_override("panel",Poster.control_stock(Poster.INK,12))
  housing.name = "ShowPerformanceDesk"
- housing.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ housing.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  parent.add_child(housing)
  var column := VBoxContainer.new()
  column.add_theme_constant_override("separation",4)
  housing.add_child(column)
- var row := HBoxContainer.new()
- row.add_theme_constant_override("separation",10)
+ var row := VBoxContainer.new()
+ row.add_theme_constant_override("separation",8)
  column.add_child(row)
  for role in ["approach","intensity"]:
   var field := VBoxContainer.new()

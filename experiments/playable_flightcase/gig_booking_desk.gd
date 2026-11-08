@@ -1,6 +1,7 @@
 extends RefCounted
 ## Free native booking drafts. Owner alone confirms, accounts and saves.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
@@ -63,7 +64,7 @@ static func render(host,parent: Node,compact: bool) -> void:
   grid.add_theme_constant_override("v_separation",12)
   parent.add_child(grid)
   for room in options["rooms"]:
-   var frame: PanelContainer=Kit.frame("flightcase","inset")
+   var frame:=PanelContainer.new();frame.add_theme_stylebox_override("panel",Poster.control_stock(Poster.INK,12))
    frame.size_flags_horizontal=Control.SIZE_EXPAND_FILL
    grid.add_child(frame)
    var card: VBoxContainer=VBoxContainer.new()

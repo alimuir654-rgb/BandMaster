@@ -1,6 +1,7 @@
 extends PanelContainer
 ## Original native screenprint compositions on the unchanged paper source.
 ## These abstract genre marks are presentation, never scores or new mechanics.
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
 const Formation = preload("res://Scripts/formation_catalogue.gd")
@@ -46,7 +47,7 @@ const EDITIONS := {
 }
 
 func _ink(text: String, points: int, node_name: String) -> Label:
- var label: Label = Kit.label(text,"notepaper",points)
+ var label: Label = Poster.label(text,points,Poster.INK)
  label.name = node_name
  label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  label.size_flags_horizontal = Control.SIZE_EXPAND_FILL

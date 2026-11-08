@@ -339,21 +339,13 @@ static func _radio_pills(host, parent: Node, before: Dictionary, after: Dictiona
   panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   panel.mouse_filter=Control.MOUSE_FILTER_IGNORE
   panel.focus_mode=Control.FOCUS_NONE
-  var stock:=StyleBoxFlat.new()
-  stock.bg_color=Color("e0e9d9") if delta>0 else (Color("efddd7") if delta<0 else Color("e9e2d5"))
-  stock.border_color=Color("819777") if delta>0 else (Color("b98171") if delta<0 else Color("aaa08f"))
-  stock.set_border_width_all(1)
-  stock.set_corner_radius_all(8)
-  stock.content_margin_left=6.0
-  stock.content_margin_right=6.0
-  stock.content_margin_top=7.0
-  stock.content_margin_bottom=7.0
+  var stock: StyleBoxTexture=Poster.control_stock(Poster.PAPER,6)
   panel.add_theme_stylebox_override("panel",stock)
   grid.add_child(panel)
   var label: Label=_copy(host,panel,"%s %s%d" % [field.to_upper(),"+" if delta>=0 else "",delta],"PromotionDelta_"+field,16)
   label.autowrap_mode=TextServer.AUTOWRAP_OFF
   label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-  label.add_theme_color_override("font_color",Color("254d2f") if delta>0 else (Color("843c2c") if delta<0 else Color("625b50")))
+  label.add_theme_color_override("font_color",Poster.INK)
   label.mouse_filter=Control.MOUSE_FILTER_IGNORE
   label.focus_mode=Control.FOCUS_NONE
   label.set_meta("field",field)

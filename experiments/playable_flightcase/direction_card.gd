@@ -1,4 +1,5 @@
 extends RefCounted
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 ## Native, passive goal/count/pill presentation on existing paper. No saving.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
@@ -28,21 +29,13 @@ static func _pill(parent: Node, text: String, name: String, mood: int) -> Label:
  panel.name=name+"Housing"
  panel.mouse_filter=Control.MOUSE_FILTER_IGNORE
  panel.focus_mode=Control.FOCUS_NONE
- var stock:=StyleBoxFlat.new()
- stock.bg_color=Color("e0e9d9") if mood>0 else (Color("efddd7") if mood<0 else Color("e9e2d5"))
- stock.border_color=Color("819777") if mood>0 else (Color("b98171") if mood<0 else Color("aaa08f"))
- stock.set_border_width_all(1)
- stock.set_corner_radius_all(8)
- stock.content_margin_left=7.0
- stock.content_margin_right=7.0
- stock.content_margin_top=4.0
- stock.content_margin_bottom=4.0
+ var stock: StyleBoxTexture=Poster.control_stock(Poster.PAPER,6)
  panel.add_theme_stylebox_override("panel",stock)
  parent.add_child(panel)
  var label: Label=_copy(panel,text,name)
  label.autowrap_mode=TextServer.AUTOWRAP_OFF
  label.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
- label.add_theme_color_override("font_color",Color("254d2f") if mood>0 else (Color("843c2c") if mood<0 else Color("625b50")))
+ label.add_theme_color_override("font_color",Poster.INK)
  return label
 
 static func goal(host, parent: Node, _compact: bool) -> VBoxContainer:

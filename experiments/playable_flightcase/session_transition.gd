@@ -76,13 +76,13 @@ func _ready() -> void:
  else:
   center.add_child(_card)
  var heading_text: String = "DAY %d" % next_day if focus_kind=="day" else str({"tighten":"IN THE REHEARSAL ROOM","create":"WRITING TOGETHER","connect":"CLEARING THE AIR","jam":"TIME WITH THE MUSIC","report":"THE SESSION FILES"}.get(focus_kind,"WITH THE BAND"))
- var heading := Kit.label(heading_text,"notepaper" if focus_kind=="day" else style,36 if focus_kind=="day" else 26)
+ var heading: Label=Shared.paper_label(heading_text,36) if focus_kind=="day" else Shared.label(heading_text,26)
  heading.name = "SessionBeatTitle"
  heading.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  heading.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  _card.add_child(heading)
  var day_text: String = "£%d AVAILABLE  •  CHOOSE YOUR NEXT SESSION" % available_cash if focus_kind=="day" else ("SAVED NOTES  •  NO TIME SPENT" if focus_kind=="report" else "DAY %d  •  SESSION COMPLETE" % completed_day)
- var day := Kit.label(day_text,style,16)
+ var day: Label=Shared.paper_label(day_text,16) if focus_kind=="day" else Shared.label(day_text,16)
  day.name = "SessionBeatDay"
  day.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
  day.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -93,7 +93,7 @@ func _ready() -> void:
   prompt.name = "DayReadingPrompt"
   prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
   _card.add_child(prompt)
- _skip = Kit.button("PLAN THE DAY  ›" if focus_kind=="day" else ("SHOW SAVED NOTES  ›" if focus_kind=="report" else "SHOW THE RESULTS  ›"),style,"tab")
+ _skip = Shared.button("PLAN THE DAY  ›" if focus_kind=="day" else ("SHOW SAVED NOTES  ›" if focus_kind=="report" else "SHOW THE RESULTS  ›"))
  _skip.name = "SkipSessionBeatAction"
  _skip.pressed.connect(finish_now)
  _card.add_child(_skip)

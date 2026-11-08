@@ -1,6 +1,7 @@
 extends VBoxContainer
 ## Native selected-roster cover. Raw C25 previews remain unchanged.
 ## New full-length sources are shared-origin generated layers, not photographs.
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const PAPER = preload("res://components/control_atlas/art/paper_surface.png")
@@ -57,7 +58,7 @@ static func printed_height(label: Label, width: float) -> float:
  return ceilf(measure.y)+float(maxi(0,lines-1)*label.get_theme_constant("line_spacing"))
 
 func _ink(value: String, points: int, muted: bool = false, dark: bool = false) -> Label:
- var result: Label = Kit.label(value,"notepaper",points)
+ var result: Label = Poster.label(value,points,Poster.INK)
  result.add_theme_color_override("font_color",Color("c4bdaa") if dark and muted else (Color("f1e9d8") if dark else (Color("655b4e") if muted else Color("28231e"))))
  result.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
  result.mouse_filter=Control.MOUSE_FILTER_IGNORE

@@ -1,6 +1,7 @@
 extends VBoxContainer
 ## One visual place and a player-held band voice. Motion is presentation only.
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 var note: Label
@@ -42,7 +43,7 @@ func configure(data: Dictionary, reduced: bool, available: float, short: bool = 
  context_column.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  context_column.add_theme_constant_override("separation",8)
  composition.add_child(context_column)
- var frame: PanelContainer=Kit.frame("flightcase","inset")
+ var frame:=PanelContainer.new();frame.add_theme_stylebox_override("panel",Poster.control_stock(Poster.INK,12))
  frame.name="JourneyImageFrame"
  frame.mouse_filter=Control.MOUSE_FILTER_IGNORE
  art_column.add_child(frame)

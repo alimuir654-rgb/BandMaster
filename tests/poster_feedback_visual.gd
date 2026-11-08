@@ -76,8 +76,8 @@ func run() -> void:
  var desk: Control=scene.find_child("MixingDesk",true,false)
  check(desk!=null,"existing workbench mounted")
  for field in ["tone","pace","energy","originality"]:
-  var label_style: StyleBoxTexture=desk._controls[field]._caption_stock
-  check(label_style.region_rect.size==Vector2(384,384),"printed caption "+field)
+  var choice: Button=desk._controls[field]._choices[0]
+  check(printed(choice),"paper choice "+field)
  desk.find_child("MixingRecorded_0",true,false).pressed.emit()
  await capture("writing-labels")
  desk._hear.pressed.emit()

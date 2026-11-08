@@ -1,6 +1,7 @@
 extends VBoxContainer
 ## Pre-name first press. Actual people and lead, no invented saved band name.
 ## Reuses the same source-honest full-length compositor as the named cover.
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Kit=preload("res://components/control_atlas/kit.gd")
 const Press=preload("res://experiments/playable_flightcase/band_identity_press.gd")
 const Style=preload("res://experiments/playable_flightcase/identity_style.gd")
@@ -23,7 +24,7 @@ func configure(roster: Array, lead_id: String, viewport_width: float, layout_hin
  for index in range(mini(6,roster.size())):
   var person: Dictionary=roster[index]
   var pid: String=str(person.get("id",""))
-  var role: Label=Kit.label(str(person.get("name","Musician"))+" / "+str(person.get("primary_role","Musician")),"flightcase",12)
+  var role: Label=Poster.label(str(person.get("name","Musician"))+" / "+str(person.get("primary_role","Musician")),12,Poster.PAPER)
   role.name="LineupRole_"+pid
   role.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
   role.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART

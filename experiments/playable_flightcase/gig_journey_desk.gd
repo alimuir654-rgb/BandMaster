@@ -134,6 +134,7 @@ static func render(host, parent: Node, compact: bool) -> void:
    row.fit_content=true
    row.scroll_active=false
    row.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   row.add_theme_font_override("normal_font",C.Poster.FONT)
    row.add_theme_font_size_override("normal_font_size",16)
    var title: String=str(songs[index].get("title","Original")).replace("[","［").replace("]","］")
    row.text=("[s]"+str(index+1)+". "+title+"[/s]  ✓") if index<int(visit.get("cursor",0)) else ("▶ " if index==int(visit.get("cursor",0)) and phase=="performing" else "")+str(index+1)+". "+title
