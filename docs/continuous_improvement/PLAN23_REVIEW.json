@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "id": "PLAN23",
+  "status": "proposed_plan_only",
+  "reviewed_at": "2026-11-08T22:47:27.686913+00:00",
+  "gameplay_source_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
+  "source_closeout_sha": "c4c3af8c8d9057095ec87dbc7df5f0140c1f18aa",
+  "installed_build": "Owner-confirmed V20; POLISH21/STORY22 not yet installed or newly packaged.",
+  "review_method": "Primary AI review across8simulated lenses plus an existing independent AI helper for critic/musician critique and scope sanity check. Current source and retained native originals only; no fresh runtime, human review, audio listening or physical Android test.",
+  "personas": [
+    {
+      "role": "Game critic",
+      "kind": "SIMULATED",
+      "strength": "A coherent grassroots-band setting, persistent people and an appealing poster identity.",
+      "finding": "The first week risks feeling like navigating activity screens; repeat prompts and generic aftermath weaken anticipation and payoff.",
+      "recommendation": "Make one complete band week carry specific choices into the next conversation, show and invitation.",
+      "evidence": [
+        "experiments/playable_flightcase/musician_chat.gd:114",
+        "experiments/playable_flightcase/show_desk.gd:300"
+      ],
+      "confidence": "Source/pixels support repetition and disclosure findings; enjoyment/replay claims require human play."
+    },
+    {
+      "role": "Musician / producer",
+      "kind": "SIMULATED, NO LISTENING",
+      "strength": "Four-bar scope is manageable, saved arrangement identity exists and originals remain protected.",
+      "finding": "Fourteen phrase families are not fifty personal snippets per musician or alternate performances. Tone/balance/entrances differ from changing the playing. Stage advice currently changes modeled reception, not recordings.",
+      "recommendation": "Listen to the existing pool first, then make a small compatible kit whose phrases can be compared and retained in a saved song. Add short clearly identified stage excerpts.",
+      "evidence": [
+        "experiments/playable_flightcase/recorded_steady.gd:3",
+        "experiments/playable_flightcase/song_audio.gd:18",
+        "docs/continuous_improvement/MAIN_AUDIO07_RESULTS.json"
+      ],
+      "confidence": "Asset design and playback placement reviewed; musical quality/isolation/key/bar-grid/loop suitability not assessed by ear."
+    },
+    {
+      "role": "UI/UX specialist",
+      "kind": "SIMULATED",
+      "strength": "Printed choices, restrained small edges, real musician portraits and fixed decision docks support the accepted direction.",
+      "finding": "Chat repeats the same agreement in notice, summary and transcript; multiple navigation layers add scrolling. Wide chat leaves substantial empty space. Named post-show consequences are in detailed narrative below generic summary metrics.",
+      "recommendation": "One main thread and primary next step, expandable history, prominent named aftermath, and selective wide-layout adjustment. Preserve poster artwork and inspect new defects before changing it.",
+      "evidence": [
+        "experiments/playable_flightcase/musician_chat_desk.gd:34",
+        "experiments/playable_flightcase/show_desk.gd:308",
+        "/workspace/band-stories-22/final-phone-chat-agreed.png",
+        "/workspace/band-stories-22/final-wide-chat-agreed.png"
+      ],
+      "confidence": "Direct source and retained pixel review; no new usability observation."
+    },
+    {
+      "role": "Narrative / character designer",
+      "kind": "SIMULATED",
+      "strength": "Plans can be remembered as kept, missed or strained, with current commitments available.",
+      "finding": "Three topics and shared four-day replies provide scaffolding but limited individual voice. Pending plans block every new topic instead of offering a useful check-in or renegotiation. The same two peer bands recur.",
+      "recommendation": "Author three contrasting musician situation chains, check-ins around a pending plan, and one reciprocal scene callback using existing people/history.",
+      "evidence": [
+        "experiments/playable_flightcase/musician_chat.gd:98",
+        "experiments/playable_flightcase/musician_chat.gd:114",
+        "experiments/playable_flightcase/scene_circuit.gd:9"
+      ],
+      "confidence": "Confirmed source limitations; proposed content, not a claim of implementation."
+    },
+    {
+      "role": "Strategy / balance designer",
+      "kind": "SIMULATED",
+      "strength": "Original economic commitments and once-only settlement are preserved.",
+      "finding": "Pitch changes dialogue but _offer does not use it to change terms/obligations. Watching/helping grant the same support/contact/fan benefit, while helping alone adds fatigue. A tired push promise is classified from initial intent/fatigue even if actual rehearsal is gentle.",
+      "recommendation": "Fix intent-versus-action fairness first; make pitches and scene choices have distinct, contextual purposes with verifiable later consequences.",
+      "evidence": [
+        "experiments/playable_flightcase/scene_circuit.gd:53",
+        "experiments/playable_flightcase/scene_circuit.gd:144",
+        "experiments/playable_flightcase/musician_chat.gd:153"
+      ],
+      "confidence": "Code-path findings confirmed by source inspection; no new runtime reproductions in this planning task."
+    },
+    {
+      "role": "First-time mobile player",
+      "kind": "SIMULATED",
+      "strength": "Genre examples can be heard early; next-step buttons now lead into real activities.",
+      "finding": "A new player needs to understand who is free, what was promised and why the next action matters without repeatedly visiting several screens.",
+      "recommendation": "Surface one current commitment/opportunity on Home and return to the correct person or activity; keep prices/time explicit and future nonfinancial outcomes uncertain.",
+      "evidence": [
+        "experiments/playable_flightcase/poster_home.gd:69",
+        "experiments/playable_flightcase/musician_chat_desk.gd:69"
+      ],
+      "confidence": "A usability hypothesis requiring first-time-player observation, not an assertion that players are confused."
+    },
+    {
+      "role": "Accessibility / touch reviewer",
+      "kind": "SIMULATED",
+      "strength": "Written equivalents, reduced-motion paths and native touch cancellation have existing proof.",
+      "finding": "Desktop emulation does not prove Android comfort, actual text scaling, interruption behavior or long-scroll handling. Dialogue-heavy screens increase reading load.",
+      "recommendation": "Check phone touch/large-text/contrast/focus and audio interruptions; keep readable written context and reduced-motion equivalence.",
+      "evidence": [
+        "docs/continuous_improvement/POLISH21_RESULTS.json",
+        "docs/continuous_improvement/STORY22_RESULTS.json"
+      ],
+      "confidence": "Known verification gap, not a measured new device failure."
+    },
+    {
+      "role": "QA / release producer",
+      "kind": "SIMULATED",
+      "strength": "Latest source has four-view and atomic-save evidence with separate installed-app identity.",
+      "finding": "The owner still has V20; POLISH21/STORY22 are source-only. New native coverage focuses on an opening-slot band; higher-status cases are model oracles. Strong check counts do not establish fun, listening quality or Android performance.",
+      "recommendation": "Integrate the completed source into the same-app baseline; test multi-day and returning-band cases, then one combined review release per coherent update using the original signing workflow.",
+      "evidence": [
+        "docs/continuous_improvement/CURRENT.json",
+        "docs/continuous_improvement/STORY22_RESULTS.json"
+      ],
+      "confidence": "Current documented delivery/proof state, not a fresh APK audit."
+    }
+  ],
+  "recommendation": "Two substantial updates: A closes the living band/local-scene loop and delivers the accumulated source; B deepens audible short-song authorship after the existing material is reviewed.",
+  "work_packages": [
+    {
+      "id": "P23-A1",
+      "update": "A",
+      "priority": "P1 before next build",
+      "title": "Fair and distinct consequences",
+      "work": [
+        "Resolve push/strain from actual session direction, attendance and observed condition rather than only the earlier promise. Keep old saved outcomes unchanged.",
+        "Give watching, helping and looking after your own band different contextual uses. Derive later favor/advice/availability from the recorded action; do not make every line a stat reward.",
+        "Make promoter pitches affect a supported commitment, eligible terms, bill position or follow-up. Keep existing fee/travel/cancellation policies unless separately versioned."
+      ],
+      "acceptance": [
+        "Exhausted→gentle and exhausted→hard sessions have factually correct remembered outcomes; legacy reports without direction evidence are handled explicitly.",
+        "Same standing/venue with two supported pitches can produce a distinct obligation/offer/follow-up, verified from actual records. No audience attendance is invented from fan counts.",
+        "Watching, helping and protecting your own band each have a credible use in at least one situation. No universal best choice or pre-choice stat answer key.",
+        "Old saves, future-data holds, stale input, repeat actions and complete save-failure rollback remain intact."
+      ]
+    },
+    {
+      "id": "P23-A2",
+      "update": "A",
+      "priority": "P1",
+      "title": "People and a local scene that remember",
+      "work": [
+        "Use three contrasting existing musicians for focused authored situations: creative contribution, making time around work, and fatigue/trust. Use the owner-selected band when choosing the pilot roster.",
+        "Allow useful check-ins and explicit plan revision while an agreement is pending; preserve its history and prevent repeat reward farming.",
+        "Add one later encounter where a peer band/promoter explicitly remembers a specific earlier action. Reuse the two established acts before expanding the cast.",
+        "Bring the relevant promise/opportunity into Home and lead aftermath with named reactions before optional metrics."
+      ],
+      "acceptance": [
+        "Two musicians respond differently to the same actual session for supported reasons.",
+        "A kept, missed or renegotiated plan affects a later scene and provides a usable player route.",
+        "One later opportunity or practical favor names the earlier person/action/receipt; it resolves once and survives reload.",
+        "A player can find the current plan and explain one visible cause-and-effect chain without opening the full ledger. Human comprehension needs actual playtest evidence."
+      ]
+    },
+    {
+      "id": "P23-A3",
+      "update": "A",
+      "priority": "P1 usability / release",
+      "title": "One clear poster journey in the same app",
+      "work": [
+        "Condense repeated chat copy and navigation. Keep the musician, current situation, one primary next step and accessible return/history.",
+        "Preserve approved poster materials/large-frame texture, printed controls and source artwork; fix only evidenced small-control/readability/wide-layout issues.",
+        "Include already completed POLISH21 and STORY22. Check the actual app entry, install-over-existing compatibility, visible version identity and original save directory.",
+        "Run four native sizes plus physical Android touch, Continue, background/foreground, call/headphone/audio-focus and memory/load responsiveness checks when the review candidate exists. Make one combined release at the end of Update A."
+      ],
+      "acceptance": [
+        "No essential choice is hidden behind an unrelated disclosure; long content remains reachable and readable.",
+        "Reduced motion and written/audio alternatives retain equivalent information; selected/disabled/focused states and large text remain legible.",
+        "Install the same com.bandmaster.ownerplaytest.s40 app with version code above20 using the original certificate; retain existing saves and verify payload/certificate through the established signing workflow.",
+        "Report device measurements/observations rather than infer phone latency or comfort from desktop tests."
+      ]
+    },
+    {
+      "id": "P23-B1",
+      "update": "B",
+      "priority": "Next substantial update after A feedback",
+      "title": "Hear ownership of a short song",
+      "work": [
+        "Audit and listen to the existing14 families before requesting more Suno material. Label phrase identity, source, tempo/key/bar-grid confidence, isolation and endings honestly.",
+        "Build one small compatible four-bar kit with distinct playable ideas per instrument where available. Use real alternate playing only when the asset contains it. Preserve the high-quality originals.",
+        "Keep permanent character audition samples separate from consumed song phrases. Use free A/B comparison, then existing paid first-commit consumption; retain saved phrase bindings through roster changes.",
+        "Make a short saved-song stage excerpt follow the saved arrangement. Playback/mute/interruption must not drive or duplicate performance settlement.",
+        "Only after the existing pool is reviewed, make a narrow missing-part brief for one shortlisted Suno generation/unlock at a time within the owner-stated60-song monthly budget. Preview before unlocking/stemming/downloading."
+      ],
+      "acceptance": [
+        "A player can hear a distinct phrase choice and recognize it after save/reload and on stage. Listening evidence is required; numerical/runtime analysis is insufficient.",
+        "Compatible parts have verified bar boundaries/tempo/key as applicable and clean transitions; uncertainty is retained where not verified.",
+        "Audition replay remains permanent/free; consumption occurs only at the existing paid songwriting commitment. Old songs keep exact phrases after roster changes.",
+        "Stage excerpts identify the saved song, stop cleanly and leave scoring/Finance/save settlement independent.",
+        "No blanket50-snippets-per-character rollout, full-song editor, cosmetic EQ labelled as alternate playing, or unbounded generation batch."
+      ]
+    }
+  ],
+  "release_sequence": [
+    "Planning now; no code/build/release in this turn.",
+    "Update A: establish current source integration baseline; fix fairness and scene-choice differentiation; add a small set of distinctive character/follow-up scenes; focused poster UX and actual-device review; one combined release.",
+    "Review real owner/player feedback, then Update B: compatible four-bar musical kit and saved-song stage excerpts; one combined release after listening/asset acceptance."
+  ],
+  "example_player_journey": "A musician asks for a manageable evening → player chooses a song idea and an actual available rehearsal → people react to what happened → promoter discusses a credible support slot → player judges advice and chooses how to support another act → named aftermath acknowledges those choices → a later conversation or invitation remembers one specific earlier action.",
+  "deferred": [
+    "Fifty snippets per character or exhaustive eighteen-character dialogue expansion.",
+    "All fourteen genres receiving recordings in one batch.",
+    "More generic venue/band lists before existing contacts have distinct roles and payoffs.",
+    "Whole-song editor, hardware mixing-desk UI, runtime/free-text AI chat, extra economy/management subsystems or broad poster redesign.",
+    "New raw audio publication, replacement app/signing key or changes to original files."
+  ],
+  "guardrails": [
+    "Uncertainty before decisions: show situation and explicit prices/time, keep future nonfinancial bonuses/odds hidden; explain actual saved outcomes afterward.",
+    "Browsing/listening/local comparisons remain free; preserve canonical booking, Finance, save and phrase-consumption boundaries.",
+    "Do not retrospectively manufacture biographies, attendance, prior chats, bands or successes. Preserve legacy/future/unknown data deliberately.",
+    "Keep private audio out of public Git and preserve original sources. Commercial interactive-game licensing remains a separate existing clarification before shipping.",
+    "No arbitrary review scores, claimed human persona panel or musical-quality verdict without listening."
+  ],
+  "evaluation": [
+    "Distinct supported choices and understandable consequences, not feature/test counts.",
+    "Actual first-time-player ability to find the next meaningful action and recall why a later scene occurred.",
+    "Listening/recognition of a saved musical choice when Update B is evaluated.",
+    "Physical phone responsiveness and lifecycle continuity in the combined app, with measured observations."
+  ],
+  "independent_review": "Existing AI helper agrees with the two-chunk ranking; requests explicit gentle/hard/legacy push tests, verifiable pitch commitments without invented attendance, contextual scene-option value, permanent audition vs paid phrase-use distinction, stage playback independent from settlement and separate technical/listening/owner/shipping gates.",
+  "images_opened": [
+    {
+      "path": "/workspace/band-stories-22/final-phone-chat-agreed.png",
+      "sha256": "dce4c5aaafdda453a2be11ead45096e560afdc022328f4c33eb4a7ec149b6c6c"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-phone-higher-band-advice.png",
+      "sha256": "f4b0c8197ef260fe48bb4216178ac663d3ad005aaa067bd000970e8ef7245b99"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-phone-saved-night.png",
+      "sha256": "f76722d57c2ba9eb1f2ab91767352558efcbef3fe93ffd6a4989266119e3a03a"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/final-phone-make.png",
+      "sha256": "6e145ae1689d2217f83a82a2d45e2f9e5980b5224e4df3f6d78f09ac43028498"
+    },
+    {
+      "path": "/workspace/playtest-polish-v20/genre-phone-genre-Indie-rock.png",
+      "sha256": "97eac3f92b3cb26b2f798a282754d93fa704b6a74203b4b17e6460d55d01e557"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-wide-chat-agreed.png",
+      "sha256": "970c4565077ea7a8f623c1095ff25ce3c284c26310a12cc0a1045a34536f9766"
+    }
+  ],
+  "next_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
+  "planning_validation": {
+    "runtime_code_changed": false,
+    "new_engine_tests": false,
+    "new_audio_listening": false,
+    "new_APK": false,
+    "issue_disposition": "Review complete; push fairness and consequential-choice findings remain OPEN for Update A.",
+    "criteria": "Two bounded updates with acceptance conditions, source/installed distinction and explicit simulated evidence."
+  }
+}

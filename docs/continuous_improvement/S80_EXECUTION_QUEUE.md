@@ -372,3 +372,26 @@ Latest direct owner Go authorises implementation of S142. One writer; three dist
 
 ### S144 completed — poster source73f and private native previews
 2026-11-07T12:19:39.578514+00:00: Shipping73f9f236da2ee4a12be42c480d9c3257b578b9be;867curated/866Git+185Bentry/161251530B, digestac683d36a8a745666f1706c96c81eccff726882f0f7e93760d504c274157f208. Actual saved-band Home/defaultContinue, poster activity grid/demo sleeve/notes and lighter Writing surround; one visible record-failure/retry repair. Fourwhole255each=1020 plusfresh73/88/ordinary600max60verbose ERRORempty/noJSON.28currentphysicalPNG+16nativehashonly; desktop postexitRGBA independentlyverified, old resourceHOLD retained. All50Godot=40executionstrict+10held,228newnativePNG; NOT50PASS.857priorrows/54Scriptsincl3UID/418OGG11JSON/art/fonts/hardware/models/owners/schema/Finance exact. Rootresumed28uniqueactualnative(11current17retained)+2source, earlierglobalcountnotreconstructed; independent15currentopens+9exactbytewitnessreuses,5SIMULATED/not humans. ScopedCLEAR_FOR_REVIEWED_NATIVE_STATES/overallPARTIAL/ownerfalse.7788ownedfiles CLOSED, Xorg103871STOPPEDZ/socketgone/3pins exact/GLfree; prestopmanifestretained and correctedpostreleasepin.12500ownedprimaryGitobjectsSHAvalidated; existing160000externalgitlink separatelyrecorded, oldmissingTMPwarning/unreachablepreservationUNPROVED. ThreeactualPNGpreviews saved/readback inexistingDropboxBandMaster (S144-poster-home-73f9f23-phone / S144-poster-activities-73f9f23-phone / S144-writing-room-73f9f23-phone). NoS144APK/musicbank. V16/source76 WASuploadedatownerrequest08:18, separatefullpackageauditHELD; earlierunuploadedstatusishistory, V15/V14retained. Plan79/Board189 allIDs/order/unrelatedhashes/72choices23checked50images exact; noownercheckboxwrites/browserrenderclaim. Prerecordedmusicresearchonlyexistingtwo logs recommends3coherentclearedsongkits withrealform/stems beforebreadth; noneacquired. Offlineart/pilots/A04HOLD unchanged. Finalreview /workspace/work/s144-poster-foundation-20261107/review/final-source-native-review-v1.json SHAef428c272d6ac14f91819d2431e095fcefbe5e560d556bdc32f88136848286e3. Closeout /workspace/work/s144-poster-foundation-20261107/closeout.json. Next: Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired. Same thread/solequeue, no newcontroller/schedule/endtask/extension. Allwriters/helpersreleased.
+
+
+## PLAN23 — proposed next updates after V20 feedback, 8 November 2026
+
+Current owner request is planning and multi-persona review only. This table is
+the current proposed continuation of this existing worklist; it does not create
+a worker, schedule, release, or claim implementation. Latest gameplay source
+fa339a34 has POLISH21/STORY22 desktop proof; installed owner app remains V20.
+Full source/evidence review: `PLAN23_REVIEW.json`. All eight persona lenses and
+the independent helper critique are AI-simulated; no new runtime/listening or
+human panel is claimed. Preserve the accepted poster direction.
+
+| Item | Proposed player outcome | Scope / acceptance | Status |
+|---|---|---|---|
+| P23-A1 | Consequences reflect what the band actually did. | Fix exhausted-promise vs actual gentle/hard/legacy report fairness; pitches have supported strategic follow-up; watch/help/own-band choices have distinct contextual purposes. Existing economic/once-only/save guards retained. | PROPOSED; fairness finding OPEN before next build. |
+| P23-A2 | Musicians and scene contacts feel like recurring people. | Three contrasting musician situation chains, useful pending-plan check-ins/revision, one named reciprocal encounter, prominent causal aftermath and relevant Home route. | PROPOSED, reuse current people/history. |
+| P23-A3 | One clear poster journey reaches the owner's existing app. | Reduce duplicate chat/navigation, maintain long-content/reduced-motion access; combine existing work, validate actual Android touch/audio lifecycle/Continue and original signing/app identity. One review release after Update A. | PROPOSED; no APK/export/signing in PLAN23. |
+| P23-B1 | The player hears and retains ownership of a short song. | Listen/audit existing14families, small compatible4-bar kit and distinct playing where sources support it; permanent audition identity separated from paid song consumption, short identified saved-song stage excerpt independent of settlement. | FOLLOWING CHUNK after A feedback/listening; no generation now. |
+
+Defer all18/50-snippet banks, all14genre recordings, broad new management
+systems, a whole-song editor, runtime AI chat and another poster redesign.
+Owner-stated60-song monthly Suno allowance is a constraint: review existing
+assets and preview candidates before any narrowly targeted new unlock.

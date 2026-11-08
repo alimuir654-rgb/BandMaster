@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "PLAN23",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "c4c3af8c8d9057095ec87dbc7df5f0140c1f18aa",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2058813,
-    "sha256": "2c72f84b2dc66957236fa988dcceff04ca080572d048e5dfcfb91c1a2b4a32ff"
+    "bytes": 2061934,
+    "sha256": "18f403fa5b9162b5fe8838249034125def6d16366dd2f1f788c86031b62ab16e"
   },
   "dominant_issue": "BM-39",
   "lesson_ids": [
@@ -55,7 +55,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "review_task": {
@@ -64,5 +64,29 @@
     "player_goal": "Understand what makes the first band week compelling, musical and usable, and choose the next coherent update.",
     "commitment": "None: planning/critique only."
   },
-  "started_at": "2026-11-08T22:40:24.373349+00:00"
+  "started_at": "2026-11-08T22:40:24.373349+00:00",
+  "reviewer_result": "Existing AI helper agrees with the two-chunk ranking; requests explicit gentle/hard/legacy push tests, verifiable pitch commitments without invented attendance, contextual scene-option value, permanent audition vs paid phrase-use distinction, stage playback independent from settlement and separate technical/listening/owner/shipping gates.",
+  "closed_at": "2026-11-08T22:49:13.213580+00:00",
+  "closeout": {
+    "tested_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
+    "evidence": [
+      "docs/continuous_improvement/PLAN23_REVIEW.json",
+      "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+      "/workspace/bandmaster-plan23/BandMaster-next-update-plan.txt"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
+    "new_issue_review": "All PLAN23 events reviewed. New source fairness/choice-differentiation findings remain OPEN for Update A; this closes planning only. No new runtime/human/listening claim.",
+    "simulated_review_lenses": [
+      "Game critic",
+      "Musician / producer",
+      "UI/UX specialist",
+      "Narrative / character designer",
+      "Strategy / balance designer",
+      "First-time mobile player",
+      "Accessibility / touch reviewer",
+      "QA / release producer"
+    ],
+    "read_only_basis": "Existing exact gameplay source and retained native captures. No runtime code changed and no engine run."
+  }
 }
