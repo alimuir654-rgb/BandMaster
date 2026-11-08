@@ -33,4 +33,3 @@ auditions never consume. Later sessions use the first session's project binding
 without consuming a changed lineup. Archiving or completing a project does not
 refund use. Saved songs play their frozen recipe independently of availability.
 Existing save paths, recipe versions and audition data are unchanged.
-
