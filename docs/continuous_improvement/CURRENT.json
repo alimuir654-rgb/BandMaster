@@ -7451,7 +7451,7 @@
     "record": "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json"
   },
   "MAIN_AUDIO03_detached_signing": {
-    "status": "signed_v17_verified_upload_pending",
+    "status": "signed_v17_uploaded_hash_verified",
     "unsigned_v17_sha256": "dc4eb92cc022eb2e93c867264fd9ae2f00db20ebb5f0690472fb6f67270003aa",
     "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
     "no_private_key_operations": true,
