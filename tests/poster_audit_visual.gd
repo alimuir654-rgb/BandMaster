@@ -48,6 +48,8 @@ func run() -> void:
  if not check(not output.is_empty() and fixture(),"actual formation fixture"):finish_audit();return
  if not check(await catalogue_fixture(),"canonical current paid catalogue"):finish_audit();return
  base=owner.snapshot().duplicate(true)
+ if "--radio-only" in OS.get_cmdline_user_args():
+  await radio_cases();finish_audit();return
  await mounted()
  scene._home();await settle();await snapshot_case("title")
  scene._toggle_settings();await settle();await snapshot_case("settings")
@@ -161,8 +163,16 @@ func radio_cases() -> void:
   if is_instance_valid(scene._career_view._overlay):scene._career_view._overlay.finish_now();await settle()
   if visit.phase=="wrap_ready":await snapshot_case("radio-saved-receipt")
 
- await page_case("radio-saved","recording",{"recording_mode":"radio","promotion_selection":selection})
+ await page_case("radio-stale-selection-held","recording",{"recording_mode":"radio","promotion_selection":selection})
+ await page_case("archive-radio-complete","recording",{"recording_mode":"archive"})
+ if not await activate("RecordingRadio_0"):return
+ var fresh: Dictionary=scene._career_view.promotion_selection
+ check(Promotion.selection(owner.game.career,fresh.id,fresh.fingerprint,fresh.index).get("completed",false),"actual refreshed archive opens completed radio campaign")
+ await snapshot_case("radio-saved")
  await activate("PromotionDetailsAction")
+ for question in ["focus","invitation"]:
+  var answer: Label=scene.find_child("StudioSavedAnswer_"+question,true,false) as Label
+  check(answer!=null and answer.is_visible_in_tree() and not answer.text.is_empty(),"actual saved transcript answer "+question)
  scene._career_view._scroll.scroll_vertical=100000;await settle();await snapshot_case("radio-saved-transcript")
 
 func gig_cases() -> void:
