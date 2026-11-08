@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1964052,
-    "sha256": "d7388e81cf3f35b50a403cafdfdcd31b9fa41e14bdb8e31732200390d5f64ce5"
+    "bytes": 1964872,
+    "sha256": "de80953d332d5b5d95e13f8571b8e6d1132d9972e60a0d8b19b6f29fc662d907"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -41,7 +41,8 @@
     "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json",
     "docs/continuous_improvement/CURRENT.json",
     "docs/continuous_improvement/ISSUES.jsonl",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "STATE_SCHEMA.md"
   ],
   "validation_commands": [
     "Verify git remote owner ancestry and tracked current runtime dependency hashes",
@@ -62,5 +63,6 @@
     "source_head": "5b8e1362b9e8e2b9ce46a44c1773e6dcd34c617b"
   },
   "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
-  "started_at": "2026-11-08"
+  "started_at": "2026-11-08",
+  "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits."
 }
