@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "UPDATE24",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "835c1826569a31c4b79257668fa0f74c9d6ab8ed",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2068380,
-    "sha256": "960ca7fec91d321605e3d0eaf18ec9589e9b4e153a5fef960ce2b7b6b74ad7c7"
+    "bytes": 2071641,
+    "sha256": "dc4b0aab6aaf2055561545331503d041252a29f221c4567aa064a11ac413a9df"
   },
   "dominant_issue": "BM-36",
   "lesson_ids": [
@@ -84,7 +84,7 @@
   "packaging_authority": "Latest Go authorizes planned Update A including one combined existing-app review build. Prepare unsigned V21/certificate-bound request; original holder signs tomorrow. Historical APK holds are superseded only within this combined scope; no key/appID change. If safe export cannot meet no-generation guard, retain full source and precise blocker rather than generate a key.",
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "independent_review": "Existing review_current_workbench pre-reviewed A risks and metadata-only safe export candidate; sole root writer.",
@@ -94,5 +94,15 @@
     "player_goal": "Understand current musician agreements, make distinct credible show choices, see specific later consequences and play the combined existing app.",
     "commitment": "Reading/checkins/local previews remain free. Explicit revisions saved once; existing session/gig costs settle once. Favors consumed only in their original owning wrap."
   },
-  "started_at": "2026-11-08T23:11:09.488661+00:00"
+  "started_at": "2026-11-08T23:11:09.488661+00:00",
+  "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
+  "result": "docs/continuous_improvement/UPDATE24_RESULTS.json",
+  "closed_at": "2026-11-08T23:36:11.542660+00:00",
+  "closeout": {
+    "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "evidence": "docs/continuous_improvement/UPDATE24_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Original holder signs /BandMaster/BandMaster-V21-APK-v2-signing-request.json, then exact response assembly and official final verification here.",
+    "new_issue_review": "Every UPDATE24 issue read; parse/reciprocal-history/revision-caption/stale-native-test/staging/gate corrections verified; optional sandboxADB discovery disclosed. No scoped source/native hold. Signature/physicalAndroid/listening/ownerapproval remain pending."
+  }
 }

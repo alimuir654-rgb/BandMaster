@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/UPDATE24.json",
-  "scope": "Planning-only8simulated-persona review. Update A: fair/distinct living-band consequences, individual voices and scene callbacks, focused poster UX and combined same-app candidate. Update B: verified four-bar authorship/stage excerpts after listening and A feedback.",
+  "scope": "Executed PLAN23 Update A; combined source and unsignedV21 verified. UpdateB listening preparation only.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,18 +10,18 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "PLAN23_review_complete_next_updates_proposed",
-  "next_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
+  "status": "source_and_unsigned_v21_verified_original_signature_pending",
+  "next_action": "Original build thread validates and signs /BandMaster/BandMaster-V21-APK-v2-signing-request.json with retained original key and returns only its bound detached signature.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
-    "tested_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
+    "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
     "source_technical_pass": true,
     "scoped_visual": "CLEAR_FOR_REVIEWED_NATIVE_STATES",
-    "visual_verdict": "partial",
+    "visual_verdict": "partial; owner device/acceptance pending",
     "owner_approved": false,
-    "APK_scope": "None underS144; previousV16fullauditstillheld",
-    "evidence": "/workspace/work/s144-poster-foundation-20261107/closeout.json"
+    "APK_scope": "One unsignedV21 audited; original-holder signature pending",
+    "evidence": "docs/continuous_improvement/UPDATE24_RESULTS.json"
   },
   "last_polish": {
     "session": "C34",
@@ -327,7 +327,7 @@
         "keyboard_user": "SIMULATED: The route reveals and focuses the existing assignment control; the existing native button performs the sole assignment. No screen-reader certification is inferred.",
         "management_player": "SIMULATED: Instrument coverage and assigned lead vocals are distinct, visible states. The original5-point doubling cost and existing talent totals remain truthful.",
         "art_director": "SIMULATED: Pale green labels read clearly on existing dark flightcase controls without widening labels or altering original skins, portraits or six-stat layout. Overall mockup fidelity remains partial.",
-        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator’s separate packaging step."
+        "release_qa": "SIMULATED: Exact95b2574 passes73+88/import/four genuine journeys; all8 requested originals were opened and100 protected screenshots match exactly. Android update signing/install proof remains the coordinator\u2019s separate packaging step."
       },
       "source_protection_audit": "/workspace/work/s40/runs/phone-95b2574/source-protection-audit.json",
       "source_protection_evidence": {
@@ -445,7 +445,7 @@
       },
       "simulated_lenses": {
         "phone_player": "SIMULATED: owner reported the first APK installed but could not discover lead-vocal assignment. Existing assignment now has a first-fold route; a separate Singer purchase is not required. Updated APK phone use remains unverified until owner feedback.",
-        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS › reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
+        "ui_accessibility": "SIMULATED: covered role tabs derive from actual roster/assigned vocals independently of browsing; fixed48px LEAD VOCALS \u203a reveals and focuses the original native choice. Four native viewports retain all six first-fold stats and genuine pointer/keyboard/save checks.",
         "godot_engineering": "SIMULATED: exact95b2574 source passes73gameplay+88opening+cleanimport+four native journeys,120PNGs, zeroERROR/orphan growth. Models, costs, schemas and auto-assignment semantics remain unchanged. Desktop proof does not establish Android runtime behavior.",
         "technical_art": "SIMULATED: existing portraits, meter/hardware textures and poster/art bytes are retained; visualPARTIAL and owner_approved=false. Genre styling/poster/title changes are proposed only, not claimed delivered.",
         "release_review": "SIMULATED: game source95b2574 and export recipee8a8547 are pinned separately. Androidv2 packaging/private delivery is recorded only when a matching receipt is supplied. Owner installation report applies to v1; no agent device/emulator proof or remote checksum claim."
@@ -596,7 +596,7 @@
       "simulated_lenses": {
         "phone_player": "SIMULATED: Free Write/Rehearse/Clear Air previews lead to one visible committing action with actual time/cost and a fixed return route. Actual saved writing notes are scrollable without sacrificing first-fold choices.",
         "keyboard_accessibility": "SIMULATED: Genuine Tab/Home/End, arrangement arrows and title editing preserve pending edits and saved bytes. Dark placeholder ink is readable on actual paper; fixed Details/Continue retains focus and bounds.",
-        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing£15/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
+        "management_player": "SIMULATED: Writing takes three actual committed days to finish one credited original. Rehearsal charges existing\u00a315/one day once; saved receipts distinguish completed day from current day. No new economy/scoring rules.",
         "technical_art": "SIMULATED:324 protected source files unchanged,108 foundation originals exact,32 intentional practice/result reflows. Source paper/cast/meters/hardware preserved; original reactions remain. Overall design fidelity partial; poster opening still pending.",
         "release_qa": "SIMULATED: Exact75 passes73+88/import/four genuine native journeys with172 originals and0ERROR/orphans;748 additional exact75 writing/history assertions and exact75 phone/wide transitionstress. FailedContinueprobe classified bysilentactualgeometry; positiveprobe uses renderedtargets andoneactualpressed. No S41 Androiddevice proof or newAPK claimed."
       },
@@ -794,7 +794,7 @@
         },
         {
           "label": "SIMULATED phone/touch player",
-          "observation": "Closed and expanded Settings fit the phone’s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
+          "observation": "Closed and expanded Settings fit the phone\u2019s first fold. The local caption backing resolves the busy-floor readability problem without changing poster height or button allocation. This reviewer performed no new phone-device test."
         },
         {
           "label": "SIMULATED accessibility/keyboard reviewer",
@@ -2560,7 +2560,7 @@
       "simulated_lenses": {
         "SIMULATED phone player": "Three original paid outings, full selected description and fixed real cost/day/after-cash commit visible; phone effects and scout consequence continuation require scrolling, no firstfold-all-copy claim.",
         "SIMULATED returning player": "Pure queries and actual C27 save/Continue retain pending/accepted/declined IDs; legacy social counters and already-resolved first_feature cannot reroll or repeat a reward.",
-        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/£0 does not age or rescue zero-cash count.",
+        "SIMULATED finance reviewer": "Original BEFORE-active roster charges15/18/24 for trio, dedicated Social outgoing once, original Finance.apply body unchanged; accepting booking0day/\u00a30 does not age or rescue zero-cash count.",
         "SIMULATED career reviewer": "Actual promoter acceptance calls original standard normal-lineup booking, day2 to show5, no payout/history invention; scout requires accepted promoter and original25fans/10reputation milestone, then reuses original first_feature interview once.",
         "SIMULATED keyboard and lifecycle reviewer": "Four genuine pointer/key/save journeys plus actual responsive resize/motion/pen notes; phone empty-save-path failures for outing and booking roll back complete snapshot and originalbytes, then each retry settles once;0ERROR/orphan growth. No device/emulator claim."
       },
@@ -2638,14 +2638,14 @@
       "visual_review": "/workspace/work/s40/runs/s51-mobile-c58f580-final/visual-review.json",
       "visual_verdict": "partial",
       "owner_approved": false,
-      "android": "V5/a9 unchanged; S47–S51 source LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47\u2013S51 source LOCAL, no newAPK",
       "packaging": "No S51ZIP; imported isolated320-file runtime validated; finalmilestonepackaginglater",
       "source_runtime": "/workspace/work/s40/runs/s51-mobile-c58f580-final/runtime",
       "remaining": [
         "ActualAndroidcamera/navigationbar behaviour pendingownerphone/update; nativeinsets and touch-emulation are notphysical-deviceproof.",
         "Daycardsstillauto-dismiss underoriginaltiming; handwritingandclear-fontmode notintegrated. CaveatlicensedcandidateexistsSCRATCHONLY;14pxprimaryreactions remain.",
         "No gigcontrol desk/setlist/crowdmodel/transport/gear/audio/cast/gameplay changes byS51; approvednextscope remains.",
-        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47–S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
+        "No newAPK/sourceZIP/hostedScreens. CurrentV5 sourcea9 excludesS47\u2013S51. Current320-file importedruntimeisLOCALverifiedcheckpoint, notdownloadablepackage.",
         "Longdesktopreceiptlines/originalscrollingcontentremain; overallvisualPARTIAL/ownerfalse. Publicsource/historyuploadblockunchanged."
       ],
       "next_action": "Scope S52 deliberate saved-note/day-close presentation: player-held meaningful day cards, legible licensed handwriting trial with clear-font mode and fallback, plus truthful low-good/high-bad tension labels while preserving original meter bytes; then first-gig desk. Freshpreflight/nativeA/B required.",
@@ -2699,7 +2699,7 @@
       "visual_verdict": "partial",
       "owner_approved": false,
       "source_runtime": "/workspace/work/s40/runs/s53-first-gig-dd59bb8-final/runtime",
-      "android": "V5/a9 unchanged; S47–S53 LOCAL, no newAPK",
+      "android": "V5/a9 unchanged; S47\u2013S53 LOCAL, no newAPK",
       "packaging": "Imported337-file isolated runtime and actual configuredentryPASS. No S53ZIP/APK built; finalstablemilestonepackaging later. LOCAL, notpublicdownloads.",
       "remaining": [
         "Physical Android camera/navigation/touch/performance verification pending; no device or emulator run.",
@@ -2707,7 +2707,7 @@
         "Phone soundcheck deliberately scrolls below fixed hardware; no claim that all three selected songs fit one phone fold. Reach preview is a plan modifier, not final net fans.",
         "Native full paid-show integration uses three selected originals; zero-original gross cap and hired/low-cash variants are independently model tested. Zero-selected warning has actual render/wheel proof, not a claimed zero-song paid native journey.",
         "Hardware lifecycle bench measures real mouse hide/resize/free and indexed-touch cancel/device isolation; do not extrapolate every modality/lifecycle permutation. Read-only27context utility did NOT measure orphan counters.",
-        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47–S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
+        "No S53 ZIP/APK/Page pixels/public source. Current V5/a9 still excludes S47\u2013S53. Configured337-file imported LOCAL runtime entry passed; final stable milestone packaging remains later.",
         "Optional starter gear/song/recording cohesion, audio/Punk casting and vehicle acquisition/loans remain unimplemented. No new encounter was added; original optional backstage incident retained.",
         "Public full source/learning-history upload remains blocked by prior automatic approval review; no retry or bypass."
       ]
@@ -2822,8 +2822,8 @@
     ],
     "simulated_lenses": {
       "first_time_player": "SIMULATED: The warning states the permanent consequence and presents KEEP BAND as the initial focused choice. Both labels are complete on phone and desktop.",
-      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal’s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
-      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and £235. Save-byte and snapshot checks substantiate the visible return.",
+      "keyboard_user": "SIMULATED: Native Tab/Shift-Tab ownership and four cancellation methods pass in the probe. The reviewed images show the modal\u2019s safe-action focus and the returned New Band focus, without implying screen-reader certification.",
+      "returning_player": "SIMULATED: Cancelling keeps the existing draft, and Continue returns the saved rehearsal with DAY2 and \u00a3235. Save-byte and snapshot checks substantiate the visible return.",
       "art_director": "SIMULATED: Flightcase frame, surface and hardware remain consistent with the existing menu. No new material or visual redesign was attempted. This does not resolve the remaining mockup-fidelity gap.",
       "godot_release_qa": "SIMULATED: Exact source pin, 724 focused checks, 32 cancellations, four real-rendered viewports,20 opened originals and pixel comparisons support a no-change conclusion. No errors, orphan growth or production-file writes are reported."
     },
@@ -2841,7 +2841,7 @@
     "project_packages_reused": "/workspace/work/s40/runs/settings-2e087/packages/packaging.json; unchanged exact2e source and existing verified importable project/review ZIPs remain local",
     "visual_verdict": "partial",
     "owner_approved": false,
-    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390↔1280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
+    "next_action": "Next bounded worker: targeted native QA of the EXISTING overwrite-draft dialog during live window resize (390\u21941280), because RootUI size_changed calls _render/_erase while the component gallery resize test does not rebuild its host. This is an uncovered integration risk, not a confirmed defect. Use valid fresh scratch career, real window resize, unchanged draft/career bytes, usable modal/actions and focus after cancellation. Reproduce and log any actual failure BEFORE correction; scoped preflight/lease and full73+88/import/4native are required for a source fix. No new features/art/persistence or repeated unchanged full suite. At08:50 onward final read-only review;09:00 hard cutoff."
   },
   "historical_local_checkpoint_before_android": {
     "source_sha": "2e087124c7323a1b3b480229425fdef1164b732e",
@@ -3419,7 +3419,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "PLAN23",
+  "current_session": "UPDATE24",
   "next_single_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
@@ -4367,17 +4367,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -4876,17 +4876,17 @@
       {
         "id": "b35255ae-b0af-4d48-a975-e178b31abeed",
         "checked": true,
-        "markdown": "- [x] **Approve AU01v1** — bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
+        "markdown": "- [x] **Approve AU01v1** \u2014 bounded source study and selected private listening excerpts within these limits; integration waits for listening acceptance."
       },
       {
         "id": "01569100-f400-4d8d-9389-1b57e64de78c",
         "checked": false,
-        "markdown": "- [ ] **Revise AU01v1** — change the proposed scope before any audio source work."
+        "markdown": "- [ ] **Revise AU01v1** \u2014 change the proposed scope before any audio source work."
       },
       {
         "id": "43d7af9f-bd62-42a7-9d00-ddf9689529ab",
         "checked": false,
-        "markdown": "- [ ] **Defer AU01v1** — continue the approved controls/layout and written-experience queue."
+        "markdown": "- [ ] **Defer AU01v1** \u2014 continue the approved controls/layout and written-experience queue."
       }
     ],
     "caps": {
@@ -7612,9 +7612,15 @@
     "next_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate."
   },
   "UPDATE24": {
-    "status": "preflight",
-    "writer": "root",
-    "branch": "feature/playtest-polish-v20",
-    "next_action": "Implement and verify Update A end-to-end; prepare unsigned candidate/signing request only with existing-key/no-generation guards, then bundle owner actions for tomorrow."
+    "status": "source_and_unsigned_v21_verified_original_signature_pending",
+    "writer": null,
+    "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "result": "docs/continuous_improvement/UPDATE24_RESULTS.json",
+    "checks": 2494,
+    "signing_request": "/BandMaster/BandMaster-V21-APK-v2-signing-request.json",
+    "request_id": "2be80a4eee3a5fb50a160c5a3d80596699ff7d7abd0463139cb0937f21772cb7",
+    "owner_approved": false,
+    "installed_owner_version": 20,
+    "next_action": "Original build thread validates and signs /BandMaster/BandMaster-V21-APK-v2-signing-request.json with retained original key and returns only its bound detached signature."
   }
 }

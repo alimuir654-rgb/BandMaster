@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "session": "UPDATE24",
+  "status": "source_and_unsigned_v21_verified_original_signature_pending",
+  "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
+  "branch": "feature/playtest-polish-v20",
+  "owner_approved": false,
+  "source_technical_pass": true,
+  "visual_verdict": "scoped native clearance; owner artwork/device review pending",
+  "implemented": [
+    "Promise fairness uses actual attending-player condition and session effort; unknown legacy pace disclosed; terminal history retained.",
+    "Explicit once-per-promise revision with durable source/history; free read-only check-ins; authored Arjun/Hannah/Ellis voices.",
+    "Version2 promoter pitches create short opener, existing guest-list counteroffer or earned local main-support bill; version1 constructor/records unchanged.",
+    "Watching/helping/own-band care remain contextual; helping earns one source-bound practical favour, consumed only at a later successful wrap.",
+    "Poster conversation disclosure, current agreement on Home, appropriate next action and named gig aftermath before detailed metrics.",
+    "Prior POLISH21 genre sound/visual, audition scrolling and band-poster polish plus STORY22 included in the one combined candidate."
+  ],
+  "validation": {
+    "counts": {
+      "source_models": 578,
+      "source_native": 892,
+      "compiled_models": 578,
+      "compiled_native": 446,
+      "total": 2494
+    },
+    "count_note": "Repeated assertions across source/compiled/viewport runs, not distinct human tests.",
+    "source_models": [
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_test",
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "0819f42d483b051c343ee9182c13030c99dce407d036894e373fdcdd7c058d6e"
+      },
+      {
+        "run": "character_consequence_test",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "e2f59c14514d759c67a145c90b7e1ad9019d7fb6df04119b2174df9cb1e5372e"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      },
+      {
+        "run": "recorded_steady_test",
+        "summary": {
+          "checks": 262,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "11331847ba278dbb7f0bc45b7bb8cd29e28793acf7d97d36476b34f7debf006b"
+      }
+    ],
+    "source_native": [
+      {
+        "run": "phone",
+        "viewport": "390x844",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "0b1117ec87aec5c2ff68d309c60d7032f0def2149ded38e56fd16d6dea83270d"
+      },
+      {
+        "run": "short",
+        "viewport": "1280x720",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "9d982d5ad49af5a17afe18ed1d9a1ec6eddf978bc84ae3fbceca9df357e8b70a"
+      },
+      {
+        "run": "tall",
+        "viewport": "720x1280",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "c0174d04900e8d050c3139eb4a82154c541049a62d0e4784d059768dc7189bc1"
+      },
+      {
+        "run": "wide",
+        "viewport": "1600x900",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "2993066881c201d1b42a413f7f169b704d8e751f1c0a75bebab7f1a7bec57863"
+      }
+    ],
+    "compiled_models": [
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_test",
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "0819f42d483b051c343ee9182c13030c99dce407d036894e373fdcdd7c058d6e"
+      },
+      {
+        "run": "character_consequence_test",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "e2f59c14514d759c67a145c90b7e1ad9019d7fb6df04119b2174df9cb1e5372e"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      },
+      {
+        "run": "recorded_steady_test",
+        "summary": {
+          "checks": 262,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "11331847ba278dbb7f0bc45b7bb8cd29e28793acf7d97d36476b34f7debf006b"
+      }
+    ],
+    "compiled_native": [
+      {
+        "run": "phone",
+        "viewport": "390x844",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "0b1117ec87aec5c2ff68d309c60d7032f0def2149ded38e56fd16d6dea83270d"
+      },
+      {
+        "run": "short",
+        "viewport": "1280x720",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "9d982d5ad49af5a17afe18ed1d9a1ec6eddf978bc84ae3fbceca9df357e8b70a"
+      }
+    ],
+    "physical_android_tested": false,
+    "listening": false,
+    "engine": "Godot4.7.2 ed1daf0bf",
+    "source_qa_export_GDScript_match": 147,
+    "private_WAV_hashes_unchanged": 80,
+    "private_manifests_match_verified_V20": 4,
+    "source_bundle_baseline_apply_check": true
+  },
+  "package": {
+    "sha256": "f90404419b16dcaabe3088e511d7d1d881e16268bdec250eb5ef871d87bc2964",
+    "bytes": 302185005,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 21,
+    "version_name": "0.151.0-playtest-bandlife",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "signed": false,
+    "installable_update": false,
+    "alignment_16kb": true,
+    "zip_crc": true,
+    "arm64_only": true,
+    "tests_excluded": true,
+    "new_scripts_compiled": true,
+    "source_manifest_byte_exact": true,
+    "private_media_hashes_verified": 80,
+    "new_dangerous_permissions": false,
+    "original_key_metadata_unchanged": true,
+    "new_key_files": 0,
+    "replacement_key_used": false,
+    "private_key_accessed": false,
+    "physical_device_tested": false,
+    "listening": false,
+    "source_commit": "59a3bbc654706eeaac81cdca141a6d127e587495"
+  },
+  "request": {
+    "request_id": "2be80a4eee3a5fb50a160c5a3d80596699ff7d7abd0463139cb0937f21772cb7",
+    "bytes": 8744,
+    "sha256": "1b04fc1e0b7e6bfda08df216aa1145829413d24ac21ce11874b4d9f1b2608382",
+    "signed_data_sha256": "5b0f9864b7b09936c96d52c4fc0642bb07637cbf7f02670821126ed3411e324a",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "source": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "all_fields_revalidated_after_disclosure": true,
+    "unsigned_apk_untouched": true,
+    "source_bundle_bound": true
+  },
+  "dropbox": {
+    "path": "/BandMaster/BandMaster-V21-APK-v2-signing-request.json",
+    "uploaded_bytes": 8744,
+    "readback_all_JSON_fields_equal": true,
+    "raw_download_byte_identity_claimed": false
+  },
+  "source_bundle": {
+    "filename": "BandMaster-band-life-source.zip",
+    "bytes": 270416,
+    "sha256": "d7bc631dc3692ebd1d51f3b4606414cad9f1985dc5ac754a489a5b6d414b4c91",
+    "source": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "baseline": "156349e7349de9e7f18e5cd8405b232092e2f7a5",
+    "changed_source_files": 39,
+    "raw_audio_included": false
+  },
+  "images_opened": [
+    "/workspace/band-life-update24/early-phone-chat-agreed.png",
+    "/workspace/band-life-update24/early-short-chat-agreed.png",
+    "/workspace/band-life-update24/early-extra2-favor-returned.png",
+    "/workspace/band-life-update24/final-short-revise-offer.png",
+    "/workspace/band-life-update24/final-tall-home-promise.png",
+    "/workspace/band-life-update24/verified-phone-promise-history.png",
+    "/workspace/band-life-update24/verified-short-return-promoter.png",
+    "/workspace/band-life-update24/verified-tall-home-promise.png",
+    "/workspace/band-life-update24/verified-wide-call-in-favor.png",
+    "/workspace/band-life-update24/compiled-phone-favor-returned.png",
+    "/workspace/band-life-update24/compiled-short-promise-history.png"
+  ],
+  "independent_AI_review": "Existing read-only helper inspected source and original phone/short screenshots, identified and re-reviewed parse guard, favour chronology/receiptbinding, history wording and Home-next-step defects. Final no remaining scoped P1/P2 hold. AI review is not owner acceptance.",
+  "simulated_lenses": {
+    "game_critic": "Specific prior actions now produce recognisable later callbacks; still authored branching policy, not open-ended character simulation.",
+    "musician": "Actual session condition/effort replaces stale promise intent; no new playing/performances claimed from EQ or modelled advice. Listening pending.",
+    "ui_ux": "Readable poster choices, less duplicate conversation copy and explicit recovery next step. Four sizes and actual target/reload/retry tested; physical touch/comprehension pending.",
+    "narrative_character": "Three approved-cast voices are distinct; revised agreements retain exact history and factual captions. Broader cast dialogue remains generic fallback.",
+    "qa_release": "Original app/save/certificate retained; no new keys or signing. Old bills validated unchanged; failed saves roll back. Compiled APK replay passes; final signed APK verification still required."
+  },
+  "limitations": [
+    "Unsigned V21 cannot be installed; await original-holder signature before assembly and mandatory official final certificate/app/version/payload verification.",
+    "Desktop native tests use Dummy audio. Physical Android touch/audio lifecycle/Continue and listening remain owner checks.",
+    "Existing AI-generated Suno review audio retained. Four-bar candidates are not newly certified musical loops, and commercial interactive-game licensing remains unresolved.",
+    "No additional audio acquired/generated; Update B needs listening/character-fit decisions. No50-snippet banks or truly different performance variants created.",
+    "One practical favour per peer band; two authored peer bands; three specifically authored pilot voices.",
+    "Optional ADB editor discovery failed in sandbox; APK export, official unsigned audit and compiled replay completed."
+  ],
+  "next_single_action": "Original build thread validates and signs /BandMaster/BandMaster-V21-APK-v2-signing-request.json with retained original key and returns only its bound detached signature.",
+  "completed_at": "2026-11-08T23:36:11.542660+00:00"
+}
