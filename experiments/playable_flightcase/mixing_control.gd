@@ -2,6 +2,7 @@ extends Range
 ## An actual discrete input over separate material layers, never a passive meter.
 const SOURCE = preload("res://experiments/playable_flightcase/art/mixing_desk/controls_atlas.png")
 const FONT = preload("res://experiments/playable_flightcase/fonts/identity/BarlowCondensed-SemiBold.ttf")
+const Poster = preload("res://experiments/playable_flightcase/poster_components.gd")
 signal gesture_started
 signal gesture_finished
 var field := ""
@@ -17,6 +18,7 @@ var _start := Vector2.ZERO
 var _start_value := 0.0
 var _moved := false
 var _pieces: Dictionary={}
+var _caption_stock: StyleBoxTexture
 
 func configure(key: String,title: String,style: String,words: Array) -> void:
  field=key;caption=title;kind=style;labels=words.duplicate()
@@ -29,6 +31,7 @@ func configure(key: String,title: String,style: String,words: Array) -> void:
  set_meta("source","res://experiments/playable_flightcase/art/mixing_desk/controls_atlas.png")
 
 func _ready() -> void:
+ _caption_stock=Poster.control_stock(Poster.PAPER,4)
  mouse_filter=Control.MOUSE_FILTER_PASS
  focus_mode=Control.FOCUS_ALL
  mouse_default_cursor_shape=Control.CURSOR_POINTING_HAND
@@ -155,9 +158,10 @@ func _draw() -> void:
  var opacity: float=0.45 if locked else 1.0
  var text_opacity: float=1.0 if not fixed_hint.is_empty() else opacity
  var ink:=Color("eee4ce");ink.a=text_opacity
- var plate: Texture2D=_piece("plate",Rect2(1030,690,480,165))
- draw_texture_rect(plate,Rect2(6,0,size.x-12,29),false,Color(1,1,1,text_opacity))
- _text(caption,21,16,Color(0.13,0.09,0.05,text_opacity))
+ if _caption_stock!=null:
+  _caption_stock.modulate_color=Color(1,1,1,text_opacity)
+  draw_style_box(_caption_stock,Rect2(6,0,size.x-12,29))
+ _text(caption,21,16,Color(Poster.INK,text_opacity))
  var normal: float=value/maxf(1,max_value)
  if kind=="rotary":
   var centre:=Vector2(size.x*0.5,74)

@@ -518,7 +518,7 @@ func _new_band() -> void:
  if is_instance_valid(_new_band_dialog):
   return
  if setup.has_valid_draft():
-  var dialog: Control = Kit.dialog("Start a new band?","This replaces your saved opening draft. This cannot be undone.",look)
+  var dialog: Control = Shared.dialog("Start a new band?","This replaces your saved opening draft. This cannot be undone.",look)
   _new_band_dialog = dialog
   dialog.confirm_text = "REPLACE DRAFT"
   dialog.cancel_text = "KEEP BAND"

@@ -6,7 +6,7 @@ signal motion_requested
 signal notes_style_requested
 signal closed
 
-const Kit = preload("res://components/control_atlas/kit.gd")
+const Poster = preload("res://experiments/playable_flightcase/poster_components.gd")
 var look := "flightcase"
 var is_open := false
 var panel: PanelContainer
@@ -32,13 +32,14 @@ func _ready() -> void:
  mouse_filter = Control.MOUSE_FILTER_STOP
  focus_mode = Control.FOCUS_NONE
  z_index = 100
- panel = Kit.frame(look,"modal")
+ panel = PanelContainer.new()
+ panel.add_theme_stylebox_override("panel",Poster.stock(Poster.INK,24))
  panel.name = "MenuSettingsPanel"
  add_child(panel)
  _column = VBoxContainer.new()
  _column.add_theme_constant_override("separation",12)
  panel.add_child(_column)
- _title = Kit.label("SETTINGS",look,22)
+ _title = Poster.label("SETTINGS",24,Poster.PAPER)
  _title.name = "SettingsSheetTitle"
  _title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  _column.add_child(_title)
@@ -55,30 +56,35 @@ func _ready() -> void:
  _options.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _options.add_theme_constant_override("separation",8)
  _options_scroll.add_child(_options)
- sound_button = Kit.button("",look,"tab")
+ sound_button = Poster.button("")
  sound_button.name = "SoundAction"
  sound_button.pressed.connect(func():sound_requested.emit())
  _options.add_child(sound_button)
- _audio_status = Kit.label(_audio_status_text,look,14)
+ _audio_status = Poster.label(_audio_status_text,14,Poster.PAPER)
  _audio_status.name = "SettingsAudioStatus"
  _audio_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  _audio_status.custom_minimum_size.y = 44
  _audio_status.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _options.add_child(_audio_status)
- motion_button = Kit.button("",look,"tab")
+ motion_button = Poster.button("")
  motion_button.name = "MotionAction"
  motion_button.pressed.connect(func():motion_requested.emit())
  _options.add_child(motion_button)
- notes_button = Kit.button("",look,"tab")
+ notes_button = Poster.button("")
  notes_button.name = "NotesStyleAction"
  notes_button.pressed.connect(func():notes_style_requested.emit())
  _options.add_child(notes_button)
- var scope: Label = Kit.label("Audio is remembered on this device. Transitions and note style apply to this play session.",look,14)
+ var scope: Label = Poster.label("Audio is remembered on this device. Transitions and note style apply to this play session.",14,Poster.PAPER)
  scope.name = "SettingsSessionScope"
  scope.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  scope.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  _options.add_child(scope)
- back_button = Kit.button("BACK",look,"action")
+ var build: int=int(ProjectSettings.get_setting("application/config/build_number",0))
+ var version: String=str(ProjectSettings.get_setting("application/config/version","Source review"))
+ var identity: Label=Poster.label("PLAYTEST V%d · %s" % [build,version] if build>0 else version,14,Poster.GOLD)
+ identity.name="SettingsBuildIdentity"
+ _options.add_child(identity)
+ back_button = Poster.button("BACK",true)
  back_button.name = "SettingsBackAction"
  back_button.pressed.connect(close_sheet)
  _column.add_child(back_button)

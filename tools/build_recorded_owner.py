@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Prepare the existing Playtest entry and dependency closure in an isolated directory.
 
-Never generates a signing key. The prepared project exports an UNSIGNED v17 APK.
+Never generates a signing key. The prepared project exports an UNSIGNED APK.
 Sign only with the retained original owner key in the original build environment.
 """
 import argparse
@@ -44,6 +44,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--version-code', type=int, default=17)
+    parser.add_argument('--version-name', default='0.147.0-playtest-audio')
     parser.add_argument('--baseline', help='Optional Git source for controlled legacy comparison')
     args = parser.parse_args()
     assert args.version_code > 16
@@ -60,6 +61,7 @@ def main():
                 queue.append(path.relative_to(repo).as_posix())
     if not args.baseline:
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('recorded_steady*.gd')]
+        queue.append('tests/poster_feedback_visual.gd')
     while queue:
         relative = queue.pop()
         if relative in files:
@@ -83,7 +85,10 @@ def main():
         if path.suffix == '.wav':
             # Keep every source frame; import must not trim, normalize, loop or compress.
             (target.parent / (target.name + '.import')).write_text('[remap]\nimporter="wav"\ntype="AudioStreamWAV"\n[params]\nedit/trim=false\nedit/normalize=false\nedit/loop_mode=0\ncompress/mode=0\n')
-    (project / 'project.godot').write_text(PROJECT)
+    project_text = PROJECT.replace('config/name="BandMaster Playtest"',
+                                   'config/name="BandMaster Playtest"\nconfig/version=' + json.dumps(args.version_name) +
+                                   '\nconfig/build_number=' + str(args.version_code))
+    (project / 'project.godot').write_text(project_text)
     (project / 'export_presets.cfg').write_text('''[preset.0]
 name="Owner Android Unsigned"
 platform="Android"
@@ -99,7 +104,7 @@ architectures/arm64-v8a=true
 architectures/x86=false
 architectures/x86_64=false
 version/code=VERSION
-version/name="0.147.0-playtest-audio"
+version/name=VERSION_NAME
 package/unique_name="com.bandmaster.ownerplaytest.s40"
 package/name="BandMaster Playtest"
 package/signed=false
@@ -112,9 +117,9 @@ permissions/read_external_storage=false
 permissions/write_external_storage=false
 permissions/record_audio=false
 permissions/camera=false
-'''.replace('VERSION', str(args.version_code)))
+'''.replace('VERSION_NAME', json.dumps(args.version_name)).replace('VERSION', str(args.version_code)))
     manifest = dict(source_sha=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo, text=True).strip(),
-                    baseline=args.baseline, application_id=APP, version_code=args.version_code,
+                    baseline=args.baseline, application_id=APP, version_code=args.version_code, version_name=args.version_name,
                     save_directory='BandMasterOwnerPlaytestS40', entry=ENTRY, original_certificate_sha256=CERT,
                     signing='UNSIGNED; original key required; never use a replacement key',
                     files=[dict(path=p, sha256=h) for p, h in sorted(files.items())])

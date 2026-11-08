@@ -48,6 +48,31 @@ static func sheet(compact: bool) -> StyleBoxTexture:
  return Paper.sheet(compact)
 
 
+static func dialog(title: String, body: String, look: String = "flightcase") -> Control:
+ # Keep the original modal's focus, scrolling, Escape and once-only result.
+ # Presentation is opt-in here, inside the Playtest; other Kit users retain it.
+ var result: Control=Kit.dialog(title,body,look)
+ result.ready.connect(_poster_dialog_ready.bind(result))
+ return result
+
+
+static func _poster_dialog_ready(dialog_view: Control) -> void:
+ var panel: PanelContainer=dialog_view.get("panel")
+ panel.add_theme_stylebox_override("panel",Poster.stock(Poster.INK,24))
+ var heading: Label=dialog_view.get("heading")
+ heading.add_theme_font_override("font",Poster.DISPLAY)
+ heading.add_theme_font_size_override("font_size",24)
+ heading.add_theme_color_override("font_color",Poster.PAPER)
+ var message: Label=dialog_view.get("message_label")
+ message.add_theme_font_override("font",Poster.FONT)
+ message.add_theme_color_override("font_color",Poster.PAPER)
+ for key in ["cancel_button","confirm_button"]:
+  var action: Button=dialog_view.get(key)
+  Poster.choice_style(action)
+  action.custom_minimum_size.y=52
+ dialog_view.call_deferred("_fit")
+
+
 static func meter(value: int, look: String = "flightcase") -> HBoxContainer:
  # The model supplies a 0..100 value. Only the visual lookup is bounded;
  # the number stays exact instead of displaying a rounded ten-segment value.

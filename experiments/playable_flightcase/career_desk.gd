@@ -1180,7 +1180,7 @@ func _toggle_show_details() -> void:
 
 func _menu() -> void:
  if busy or is_instance_valid(_live_dialog):return
- var dialog: Control=Kit.dialog("PAUSED","Resume this career here, or return to the title screen. Your last saved career is retained.","flightcase")
+ var dialog: Control=C.dialog("PAUSED","Resume this career here, or return to the title screen. Your last saved career is retained.","flightcase")
  dialog.name="CareerPauseDialog";dialog.set("confirm_text","RETURN TO TITLE");dialog.set("cancel_text","RESUME")
  _live_dialog=dialog
  dialog.completed.connect(func(accepted: bool):
@@ -1211,7 +1211,7 @@ func _ask_live_confirmation(verb: String) -> void:
  if busy or receipt_open or is_instance_valid(_live_dialog):return
  var booking: Dictionary = Calendar.pending(game.career)
  if booking.is_empty() or verb not in ["perform","cancel"]:return
- var dialog: Control = Kit.dialog("TAKE THE STAGE?" if verb=="perform" else "CANCEL THIS BOOKING?","","flightcase")
+ var dialog: Control = C.dialog("TAKE THE STAGE?" if verb=="perform" else "CANCEL THIS BOOKING?","","flightcase")
  dialog.name = "LiveConfirmDialog"
  if verb=="perform":
   var venue: Dictionary = Gigs.get_venue(str(booking.get("venue_id","local")))
@@ -1574,7 +1574,7 @@ func _ask_journey_options(expected: Dictionary, generation: int) -> void:
  if _journey_finish_words():return
  var checked: Dictionary=Journey._owned(game.career,expected)
  if not bool(checked.get("ok",false)):return
- var dialog: Control=Kit.dialog("SHOW OPTIONS","Your place in tonight's show is saved. Return to the show to carry on. Cancelling the booking ends this night and has consequences for the band.","flightcase")
+ var dialog: Control=C.dialog("SHOW OPTIONS","Your place in tonight's show is saved. Return to the show to carry on. Cancelling the booking ends this night and has consequences for the band.","flightcase")
  dialog.name="JourneyShowOptionsDialog"
  dialog.set("confirm_text","CANCEL BOOKING")
  dialog.set("cancel_text","BACK TO SHOW")
@@ -1599,7 +1599,7 @@ func _ask_journey_cancel(expected: Dictionary, generation: int) -> void:
  var checked: Dictionary=Journey._owned(game.career,expected)
  if not bool(checked.get("ok",false)):return
  var fee: int=mini(Calendar.CANCELLATION_FEE,int(game.career.get("cash",0)))
- var dialog: Control=Kit.dialog("CANCEL TONIGHT'S BOOKING?","This ends tonight's saved show. You will not play or receive the show fee. Cancelling costs £%d and damages the promoter's confidence in the band. The booking and your progress through this night will be closed. No career day is used." % fee,"flightcase")
+ var dialog: Control=C.dialog("CANCEL TONIGHT'S BOOKING?","This ends tonight's saved show. You will not play or receive the show fee. Cancelling costs £%d and damages the promoter's confidence in the band. The booking and your progress through this night will be closed. No career day is used." % fee,"flightcase")
  dialog.name="JourneyConfirmDialog"
  dialog.set("confirm_text","CANCEL SHOW")
  dialog.set("cancel_text","KEEP BOOKING")
@@ -1813,7 +1813,7 @@ func _ask_booking_commit(generation: int) -> void:
   _render()
   return
  var q: Dictionary=prepared["quote"]
- var dialog: Control=Kit.dialog("CONFIRM THIS SHOW?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
+ var dialog: Control=C.dialog("CONFIRM THIS SHOW?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
  dialog.name="BookingConfirmDialog"
  dialog.set("confirm_text","BOOK THE SHOW")
  dialog.set("cancel_text","KEEP EDITING")
@@ -1886,7 +1886,7 @@ func _ask_booking_options(expected: Dictionary,generation: int,journey_expected:
   notice=str(quote.get("message","Review the current show agreement."))
   _render()
   return
- var dialog: Control=Kit.dialog("SHOW OPTIONS","Your place in the show is saved. Cancelling ends this booking and has consequences for the band.","flightcase")
+ var dialog: Control=C.dialog("SHOW OPTIONS","Your place in the show is saved. Cancelling ends this booking and has consequences for the band.","flightcase")
  dialog.name="JourneyShowOptionsDialog"
  dialog.set("confirm_text","CANCEL THIS SHOW")
  dialog.set("cancel_text","BACK TO SHOW")
@@ -1911,7 +1911,7 @@ func _ask_booking_cancel(expected: Dictionary,journey_expected: Dictionary,gener
   _render()
   return
  var t: Dictionary=Booking.terms(game.career)
- var dialog: Control=Kit.dialog("CANCEL THIS SHOW?","%s · DAY %d. Cancelling now pays £%d from your current cash and uses %d career day(s). You will not play or receive the show fee. The promoter and band will remember this commitment. Unpaid quoted costs are waived; no debt is created." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
+ var dialog: Control=C.dialog("CANCEL THIS SHOW?","%s · DAY %d. Cancelling now pays £%d from your current cash and uses %d career day(s). You will not play or receive the show fee. The promoter and band will remember this commitment. Unpaid quoted costs are waived; no debt is created." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
  dialog.name="JourneyConfirmDialog"
  dialog.set("confirm_text","CANCEL SHOW")
  dialog.set("cancel_text","KEEP BOOKING")
@@ -1972,7 +1972,7 @@ func _ask_booking_missed(expected: Dictionary,generation: int) -> void:
   _render()
   return
  var t: Dictionary=Booking.terms(game.career)
- var dialog: Control=Kit.dialog("CLOSE THE MISSED BOOKING?","%s on DAY %d was missed. Closing this commitment now pays £%d from current cash and uses %d career day(s). No show fee is received. The promoter and band will remember this commitment." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
+ var dialog: Control=C.dialog("CLOSE THE MISSED BOOKING?","%s on DAY %d was missed. Closing this commitment now pays £%d from current cash and uses %d career day(s). No show fee is received. The promoter and band will remember this commitment." % [t["venue_snapshot"]["venue"],int(t["day"]),int(quote["total_paid"]),int(quote["days"])],"flightcase")
  dialog.name="BookingMissedConfirmDialog"
  dialog.set("confirm_text","CLOSE BOOKING")
  dialog.set("cancel_text","REVIEW AGAIN")

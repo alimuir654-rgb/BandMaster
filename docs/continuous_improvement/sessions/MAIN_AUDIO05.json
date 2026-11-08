@@ -15,15 +15,16 @@
     "BM-30",
     "BM-33",
     "BM-34",
-    "BM-35"
+    "BM-35",
+    "BM-22"
   ],
   "reviewed_documents": {
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1974265,
-    "sha256": "99ee1570d1d7e9075ea5cffbeb3f8f8f42189b54537cde4bee56ea2b599a3f7a"
+    "bytes": 1976346,
+    "sha256": "3e24148442ab0dd8068130123f4c2a8c0179094e3a2c8d80dea76f1389f94a58"
   },
   "target": {
     "locator": "/workspace/main-audio-source-return/v18-390x844-pause.png",
