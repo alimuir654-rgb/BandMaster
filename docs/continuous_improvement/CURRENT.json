@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/PLAN23.json",
+  "session": "docs/continuous_improvement/sessions/UPDATE24.json",
   "scope": "Planning-only8simulated-persona review. Update A: fair/distinct living-band consequences, individual voices and scene callbacks, focused poster UX and combined same-app candidate. Update B: verified four-bar authorship/stage excerpts after listening and A feedback.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7610,5 +7610,11 @@
     "runtime_changes": false,
     "known_fairness_finding": "OPEN for Update A; prior source test coverage does not include gentle-after-tired-promise counterexample.",
     "next_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate."
+  },
+  "UPDATE24": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/playtest-polish-v20",
+    "next_action": "Implement and verify Update A end-to-end; prepare unsigned candidate/signing request only with existing-key/no-generation guards, then bundle owner actions for tomorrow."
   }
 }

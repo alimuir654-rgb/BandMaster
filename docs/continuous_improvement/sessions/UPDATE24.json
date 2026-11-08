@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "UPDATE24",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "835c1826569a31c4b79257668fa0f74c9d6ab8ed",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2063441,
+    "sha256": "834b24a3dfe876ee07a70f15e7365d65587fd415f1a56dd6b4277fc79cd36be9"
+  },
+  "dominant_issue": "BM-36",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Go ahead with next steps; proceed as far as possible without owner input, owner actions tomorrow. Execute PLAN23 Update A and independent preparation for B; do not claim listening acceptance/physical testing or original signature before supplied.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/band-stories-22/final-phone-chat-agreed.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Actual opening.tscn 390x844/720x1280/1280x720/1600x900; original same band/day/portrait/booking. Whole native chat\u2192plan/checkin/revision\u2192session\u2192named aftermath and versioned promoter\u2192bill/set limit\u2192help/favor\u2192next encounter\u2192saved receipt. Old source proof preserved; v1 bills/old resolved plans remain unchanged.",
+  "hypothesis": "Actual report condition/effort fixes unfair memory; distinct authored voices and explicit non-farmable plan revision make people respond to play. V2 bills give short opener/crowd guestlist/local scene distinct supported outcomes while v1 reconstruction stays exact. Practical help earns one source-bound later loadout favor; own-band care supports tired players. Home/aftermath foreground causal facts and one next action; chat removes repeated copy.",
+  "stop_condition": "No main/shared branch merge, original source/media modification, new cast/art/audio generation/paid dependencies, raw audio Git publication or private key generation/transfer. Original finances/cancellation/day/consumption unchanged. No actual signing here. No progress blocked by optional listening: prepare its small checklist, with content acceptance pending.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/musician_chat.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/musician_situations.gd",
+    "experiments/playable_flightcase/scene_circuit.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/show_flow.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/rehearsal_intent.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/gig_booking_rules.gd",
+    "experiments/playable_flightcase/gig_journey.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/live_bridge.gd",
+    "tests/update_a*",
+    "tests/band_stories_test.gd",
+    "tests/band_stories_visual.gd",
+    "tools/build_recorded_owner.py",
+    "tools/prepare_update_a.py",
+    "STATE_SCHEMA.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/UPDATE24.json",
+    "Bounded actual Godot pure/owner regression: tired\u2192gentle/hard/recovered and absent/legacy, preserve resolved history; explicit revision/checkin deadline/reward/stale/save rollback; v1 bill/receipt exact, v2 pitch/dynamic set cap, source-bound favors/cancel/retry/once/history; individual source-grounded voices and visible named saved facts.",
+    "Four-view native whole journeys plus early phone/short independent pixel review; actual touch/focus/menu/reload/failure/retry and correct source SHA; unchanged80privateWAV hashes.",
+    "Conditional fresh UNSIGNED version21+ export only with explicit existing debug-keystore path, pre/post key inventory, no-generation process guard and signed=false; audit payload/app/version/permissions/source and original public certificate detached request. Never run obsolete signing exporter. No final assembly without matching original-holder signature."
+  ],
+  "resource_plan": {
+    "free_storage_bytes": 18000000000,
+    "available_memory_bytes": 17000000000,
+    "new_persistent_budget_bytes": 2147483648,
+    "peak_memory_budget_bytes": 1610612736,
+    "reuse_imported_QA": "/workspace/main-audio-proof/candidate/project",
+    "fresh_export_root": "/workspace/band-life-update24/export",
+    "no_unbounded_new_generation": true
+  },
+  "packaging_authority": "Latest Go authorizes planned Update A including one combined existing-app review build. Prepare unsigned V21/certificate-bound request; original holder signs tomorrow. Historical APK holds are superseded only within this combined scope; no key/appID change. If safe export cannot meet no-generation guard, retain full source and precise blocker rather than generate a key.",
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "independent_review": "Existing review_current_workbench pre-reviewed A risks and metadata-only safe export candidate; sole root writer.",
+  "review_task": {
+    "queue": "S80 P23-A1/A2/A3",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Understand current musician agreements, make distinct credible show choices, see specific later consequences and play the combined existing app.",
+    "commitment": "Reading/checkins/local previews remain free. Explicit revisions saved once; existing session/gig costs settle once. Favors consumed only in their original owning wrap."
+  },
+  "started_at": "2026-11-08T23:11:09.488661+00:00"
+}
