@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO04",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner V17 test: slowWritingRoom and controls, subtle guitar settings; preserve approvedposterlook, soften small edges and unify game theme through shared factories.",
+  "baseline_sha": "94e05535f11f721f770d5b8c75b98f6f272cec64",
+  "dominant_issue": "BM-30",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1966229,
+    "sha256": "ed7e48e72b5df2743e660938034c05a2a87d4ff12698ffb642d8c2f7b3ded244"
+  },
+  "target": {
+    "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
+    "original_sha256": "a582c7b231eca70106d28be32c9e3175ac9221b83a449920add36b795a9091d0",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Same genuine owner fixture, cold/warm timing and detent benchmarks before/after; four actual native viewports plus game page transitions. Original artwork/notes/save/economy unchanged.",
+  "hypothesis": "Separate local presentation from authoritative owner reads, memoize owner-derived target, lazily load assets, apply live tone promptly. Use existing poster factories/cropped source stock across shared gamechrome, preserve passive meters and originals.",
+  "stop_condition": "No unsigned/signedAPK overwrite, no keys, no originals changed, no appID/savepaths changes. Log unexpected failures before corrections.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/poster_components.gd",
+    "experiments/playable_flightcase/career_components.gd",
+    "experiments/playable_flightcase/session_paper.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "tests/recorded_steady*",
+    "tools/prepare_recorded_steady.py",
+    "experiments/playable_flightcase/audio/recorded_steady_v2/**",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    ".gitignore"
+  ],
+  "validation_commands": [
+    "native timing baseline vs candidate; zero owner snapshot/develop calls per localdetent",
+    "recorded native save/rollback/lifecycle tests and final-bar live-tone checks",
+    "four actual GL captures and poster transition review; originals/privateaudio stayoutGit"
+  ],
+  "resource_plan": {
+    "workspace_available_bytes": 25737199616,
+    "new_files_max_bytes": 104857600,
+    "new_memory_budget_bytes": 1073741824,
+    "reuse_existing_imported_cache": true,
+    "no_export_or_signing": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active"
+  },
+  "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
+  "started_at": "2026-11-08",
+  "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits.",
+  "independent_review": "review_current_workbench sourceaudit:6snapshots/detent, Workshop.develop intarget, bar-delayedtone and finalbarneverapplies; shared Cfactories seam; preserve strictplay/commit guards."
+}
