@@ -26,8 +26,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2003754,
-    "sha256": "2e9ab373c62ce2c44ff2ca73a00fe0f889e7ad53dbc3e6eb7f657629ed69e95a"
+    "bytes": 2004959,
+    "sha256": "06ca6682eb6bfe6550de5efd90e6338ab453ff24f16bd83a39416af00553e311"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
@@ -65,9 +65,10 @@
   ],
   "resource_plan": {
     "available_storage_bytes": 22857150464,
-    "new_persistent_budget_bytes": 1073741824,
+    "new_persistent_budget_bytes": 2147483648,
     "peak_memory_budget_bytes": 1073741824,
-    "reuse_existing_imported_isolated_project": true
+    "reuse_existing_imported_isolated_project": true,
+    "revision_note": "Actual private baseline clone and retained failed/final PNG evidence total1.3GiB;21GiB remains free. Revised2GiB ceiling for closeout; no additional dependencies or APKs."
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",

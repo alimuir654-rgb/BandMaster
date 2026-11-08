@@ -215,11 +215,14 @@ func focus_cases() -> void:
  await mounted();await page_case("goal-direction","goal_focus")
  var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
  var choices: Array=scene.find_children("GoalFocusChoice_*","Button",true,false)
- if not check(choices.size()==3,"three actual band-focus choices"):return
+ var options: Array=preload("res://experiments/playable_flightcase/goal_focus_rules.gd").options(owner.game.career).options
+ if not check(not choices.is_empty() and choices.size()==options.size(),"all canonical band-focus choices"):return
+ for option in options:check(scene.find_child("GoalFocusChoice_"+str(option.id),true,false)!=null,"canonical focus ID "+str(option.id))
  await activate(str(choices[0].name))
  check(not scene._career_view._focus_draft.is_empty(),"native focus choice changes local draft")
  check(owner.snapshot()==saved and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"focus preview does not save or spend")
  await snapshot_case("goal-direction-selected")
+ scene._career_view._scroll.scroll_vertical=100000;await settle();await snapshot_case("goal-direction-bottom")
 
 func failed_action(node_name: String,label: String) -> void:
  var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
