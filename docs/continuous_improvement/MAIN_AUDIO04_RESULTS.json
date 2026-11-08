@@ -92,10 +92,29 @@
   "request_bytes": 7398,
   "request_sha256": "9785934c8f962917f1cf8daa8b4c67d8904937683894d74ae19394c2d1c2f10f",
   "request_remote_hash_and_text_fetch_verified": true,
-  "status": "awaiting_original_v18_detached_signature",
+  "status": "signed_v18_officially_verified_and_delivered",
   "private_key_operations": false,
   "previews": [
     "/BandMaster/V18-writing-room-phone.png",
     "/BandMaster/V18-rehearsal-phone.png"
-  ]
+  ],
+  "signed_v18": {
+    "request_id": "7414aee25867ff3ad32bd963429c06a9c66fe09de2fd9824e76576e04ba20f3c",
+    "signed_apk_sha256": "4781876bc3541a942ed89ec51184ea73ffeb9ab9c17eacd692509e5e0e19fcbd",
+    "signed_apk_size": 205119893,
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 18,
+    "minimum_sdk": 24,
+    "official_apksigner_verified": true,
+    "alignment_16kb": true,
+    "payload_unchanged": true,
+    "unsigned_original_unchanged": true,
+    "private_key_used_here": false,
+    "physical_device_tested": false,
+    "official_verifier_output": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=BandMaster Owner Playtest, O=BandMaster, C=GB\nSigner #1 certificate SHA-256 digest: 83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2\nSigner #1 certificate SHA-1 digest: 7c4b5c94522ebeba8360dba8053c84fd2d775130\nSigner #1 certificate MD5 digest: e85fd2e8d4c9cb5deccb8956eb1e29b1\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d\nSigner #1 public key SHA-1 digest: 0cc463deab85bd1fa1e083d1576267d12ed27fc7\nSigner #1 public key MD5 digest: ffcb0b436b1d0992bbec1f87e176ade2\n",
+    "dropbox_path": "/BandMaster/BandMaster-Playtest-v18-arm64.apk",
+    "dropbox_content_hash": "8bb7f10d0d2a063753218801653f36a49f58e7f1ad4ce5a22d97e029131e3e4f",
+    "dropbox_upload_hash_verified": true
+  }
 }
