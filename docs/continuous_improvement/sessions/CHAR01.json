@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true
+  },
+  "resource_plan": {
+    "available_storage_bytes": 22857150464,
+    "new_persistent_budget_bytes": 2147483648,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_existing_imported_isolated_project": true,
+    "revision_note": "Actual private baseline clone and retained failed/final PNG evidence total1.3GiB;21GiB remains free. Revised2GiB ceiling for closeout; no additional dependencies or APKs."
+  },
+  "id": "CHAR01",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "b0a7474a9df9e18a841aada28d030fccc5ae148c",
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-14",
+    "BM-20",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "issue_log_review": {
+    "bytes": 2011089,
+    "sha256": "b7841d8ba32f56d115f40ccb3b9a4c01b43cd618ff6d6e27e6b7a07117032fdd"
+  },
+  "owner_request": "Proceed with cohesive gameplay chunk: slicker musician-and-instrument auditions, a few questions/two samples, meaningful character/scenario consequences and a couple of practice levers. Preserve poster direction; batch source for one later combined review build.",
+  "controlled_comparison": "Actual opening.tscn at390x844/720x1280/1280x720/1600x900. Same canonical four profiles/band/practice state. Baseline/candidate audition original/adjusted/questions/response, practice local focus/effort and saved aftermath. Explicit genre/Arjun audio limits.",
+  "hypothesis": "Optional separately versioned conversation inside audition wrapper; own answer revision added only when questions answered. Stable candidate expectations projected during atomic formation without changing authored base stats, influencing actual attended practice via optional focus/effort plan. Person-first contained approved preview with compact audio comparison and optional written parts.",
+  "stop_condition": "No new audio generation/assets, original audio/art/cast/passive meter changes, new key/appID/save directory, main/shared branch changes or APK/signing in this source chunk. Preserve legacy absent-data exact behavior; unknown future optional data HOLD, no forced migration. No pretend listening or guarantees for all18characters.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/character_connections.gd",
+    "experiments/playable_flightcase/rehearsal_intent.gd",
+    "experiments/playable_flightcase/audition_encounter.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/session.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/rehearsal_recap.gd",
+    "tests/character_consequence*",
+    "tools/build_recorded_owner.py",
+    "STATE_SCHEMA.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CHAR01.json",
+    "Bounded pure/owner tests: questions/old tokens/future/legacy/reload; invitation/formation/save failures; no farm and stable IDs; context-dependent same practice choices; actual attendees, original fees/day/Finance once.",
+    "Actual new opening\u2192audition2questions\u2192sample comparison\u2192invite\u2192formation\u2192practicefocus/effort\u2192saved outcome/reload,4nativeviewports +normal/reducedmotion +pointer/keyboard/scroll/error; root +independent original pixels before/final gates.",
+    "Reuse existing recorded bank/creation/menu guards as relevant; all80WAV/original assets unchanged; source-only non-force feature publication."
+  ],
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-08T17:50:12.965209+00:00",
+  "independent_review": "review_current_workbench: pre-design source/portraits/audio manifests reviewed; exact old token/phase/content pins and player-vs-pair relationship distinction pinned.",
+  "review_task": {
+    "queue": "S80 existing complete player-task review",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Meet musician, discuss band expectations, compare actual takes, invite, observe those expectations in the first relevant paid practice.",
+    "commitment": "Talent only on invite;\u00a315/1day only when rehearsal resolves. Reading/listening/local practice previews remain free.",
+    "acceptance": "Person/instrument hero, few purposeful choices and available recordings clear; saved context-dependent consequences explained after commitment; old/future/save/once guards retained."
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/POSTER01.json",
+  "session": "docs/continuous_improvement/sessions/CHAR01.json",
   "scope": "Approved paper controls and whole-Playtest poster-art consistency audit; one combined source update, release held.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7527,5 +7527,12 @@
     "native_states_per_size": 61,
     "release": "held; no APK/signature/new key/app-ID change",
     "next_action": "Carry this verified source into the next combined owner Playtest update; retain the existing app identity and original-key signing workflow when packaging is requested."
+  },
+  "CHAR01": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/recorded-song-main-app",
+    "release": "held",
+    "next_action": "Optional separately versioned conversation inside audition wrapper; own answer revision added only when questions answered. Stable candidate expectations projected during atomic formation without changing authored base stats, influencing actual attended practice via optional focus/effort plan. Person-first contained approved preview with compact audio comparison and optional written parts."
   }
 }
