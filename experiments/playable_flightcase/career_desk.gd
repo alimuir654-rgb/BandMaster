@@ -378,7 +378,7 @@ func _navigate(destination: String) -> void:
  if destination=="gigs" and JourneyDesk.active(self):
   _pending_focus="JourneyHeldNote"
  if destination=="home":
-  _pending_focus = "PosterActivitiesAction" if poster_activities_open else "PosterNextAction"
+  _pending_focus = "PosterWriteAction" if poster_activities_open else "PosterNextAction"
  if destination=="calendar":
   _pending_focus = "CareerCalendarBackAction"
  _render()

@@ -15,6 +15,52 @@ var member_ids: Array[String] = []
 var _full_length := false
 var _regions: Dictionary = {}
 
+func _portrait_preview(roster: Array,lead_id: String,band_name: String,logo: String,palette: String,viewport_width: float,style: Dictionary) -> void:
+ _full_length=false
+ var selected: Dictionary=Style.effective(style,palette)
+ var dark: bool=Style.dark_paper(selected)
+ var paper:=PanelContainer.new();paper.name="IdentityPressPaper"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
+ paper.add_theme_stylebox_override("panel",Poster.stock(Poster.INK if dark else Poster.PAPER,14))
+ add_child(paper)
+ var content:=VBoxContainer.new();content.add_theme_constant_override("separation",10)
+ content.mouse_filter=Control.MOUSE_FILTER_PASS;paper.add_child(content)
+ var caption: Label=_ink("YOUR FIRST POSTER",14,true,dark);caption.name="IdentityPressMasthead";content.add_child(caption)
+ var mark:=Mark.new();mark.name="IdentityLiveMark"
+ mark.configure(band_name,logo,selected,46 if viewport_width<480 else 62,false,true)
+ content.add_child(mark)
+ if logo=="Monogram":
+  var full: Label=_ink(band_name,16,false,dark)
+  full.name="IdentityFullName"
+  full.add_theme_font_override("font",Style.face({"version":1,"font":"mono","ink":selected["ink"]}))
+  content.add_child(full)
+ var grid:=GridContainer.new();grid.name="IdentitySelectedPortraitRow"
+ grid.columns=mini(3,maxi(1,roster.size()));grid.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ grid.mouse_filter=Control.MOUSE_FILTER_PASS
+ grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",12)
+ content.add_child(grid)
+ for raw in roster.slice(0,6):
+  var person: Dictionary=raw
+  var id: String=str(person.get("id",""))
+  if id.is_empty() or member_ids.has(id):continue
+  member_ids.append(id)
+  var card:=VBoxContainer.new();card.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  card.add_theme_constant_override("separation",3);card.mouse_filter=Control.MOUSE_FILTER_PASS;grid.add_child(card)
+  var original: Dictionary=Cast.by_id(id)
+  var path: String=str(original.get("portrait_preview",person.get("portrait_preview","")))
+  var photo:=TextureRect.new();photo.name="IdentityPortrait_"+id
+  photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  photo.custom_minimum_size.y=110 if viewport_width<480 else 150
+  photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  photo.set_meta("cast_id",id);photo.set_meta("full_length",false);photo.set_meta("source",path)
+  photo.set_meta("full_source_contained",true)
+  if not path.is_empty() and ResourceLoader.exists(path):photo.texture=load(path) as Texture2D
+  card.add_child(photo)
+  var name_label: Label=_ink(str(person.get("name","Musician")),17,false,dark);card.add_child(name_label)
+  var role: String=str(person.get("primary_role","Musician"))
+  card.add_child(_ink(role+(" · VOICE" if id==lead_id else ""),14,true,dark))
+ content.add_child(_ink("THE PEOPLE BEHIND THE NAME",14,true,dark))
+
 static func _whole(value: Variant) -> bool:
  return typeof(value) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(value)) and float(value)==floorf(float(value))
 
@@ -76,6 +122,9 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  focus_mode=Control.FOCUS_NONE
  size_flags_horizontal=Control.SIZE_EXPAND_FILL
  add_theme_constant_override("separation",0)
+ if variant=="preview":
+  _portrait_preview(roster,lead_id,band_name,logo,palette,viewport_width,style)
+  return
  var compact: bool=variant=="preview"
  var tiny: bool=viewport_width<480.0
  var short: bool=is_inside_tree() and get_viewport_rect().size.y<800.0

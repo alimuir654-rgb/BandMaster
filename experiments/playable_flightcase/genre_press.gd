@@ -8,10 +8,31 @@ const Formation = preload("res://Scripts/formation_catalogue.gd")
 const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
 const AudioPreview = preload("res://experiments/playable_flightcase/audition_audio.gd")
 const EXAMPLES_PATH := "res://experiments/playable_flightcase/audio/genre_examples.json"
+const RecordedAudio=preload("res://experiments/playable_flightcase/mixing_audio.gd")
+const Recipe=preload("res://experiments/playable_flightcase/mixing_recipe.gd")
+const Sound=preload("res://experiments/playable_flightcase/band_sound.gd")
 var _preview_owner
 var _preview_genre := ""
 var _preview_material := ""
 var _audio
+var _recorded_recipe: Dictionary={}
+var _sample_status: Label
+const LISTEN_FOR := {
+ "Indie rock":"A guitar idea, a bass line and a beat with room for each other.",
+ "Punk":"Short phrases, urgent downstrokes and a direct backbeat.",
+ "Post-punk":"A forward bass line, spare guitar and insistent rhythm.",
+ "Britpop":"Melodic guitar, singable hooks and a strong chorus.",
+ "Shoegaze":"Layers of guitar texture with a steady pulse beneath.",
+ "Synth-pop":"Repeating synth shapes, a clear bass pulse and drum-machine rhythm.",
+ "Garage rock":"Rough-edged riffs and a loose, physical groove.",
+ "Goth":"Dark guitar space, low melodic movement and a measured beat.",
+ "Prog rock":"Longer musical ideas and changes of pace or shape.",
+ "Experimental":"Unfamiliar sounds and a willingness to leave the usual structure.",
+ "Country / Americana":"Story-led songs, clear chords and space around the voice.",
+ "Soul / Funk":"Rhythmic conversation between the bass, drums and clipped chords.",
+ "Metal":"Heavy riff shapes, tight stops and a forceful rhythm section.",
+ "Jazz / Fusion":"Extended harmony, rhythmic interplay and room to improvise."
+}
 
 const IMAGE_SOURCES := {
  "Indie rock":"genre_indie",
@@ -74,6 +95,8 @@ func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
  var stock: StyleBoxTexture = Paper.sheet(compact)
  stock.content_margin_top = 16
  stock.content_margin_bottom = 18
+ stock.content_margin_left = 32
+ stock.content_margin_right = 32
  add_theme_stylebox_override("panel",stock)
  var content := VBoxContainer.new()
  content.name = "GenrePressContent"
@@ -119,8 +142,8 @@ func configure(genre: String, viewport_size: Vector2, owner = null) -> void:
  content.add_child(artwork)
  var descriptor: Dictionary = Formation.GENRES.get(genre,{})
  content.add_child(_ink(str(descriptor.get("description","Build a sound of your own.")),16,"GenrePressDescription"))
- var strength: Label = _ink("Strength: "+str(descriptor.get("strength","Your first gigs")),14,"GenrePressStrength")
- content.add_child(strength)
+ content.add_child(_ink("LISTEN FOR",14,"GenreListeningHeading"))
+ content.add_child(_ink(str(LISTEN_FOR.get(genre,"An idea your band can make its own.")),16,"GenreListeningCue"))
  _add_audio_preview(content)
  set_meta("genre",genre)
  set_meta("source","Independent image-generated instrument screenprint where supplied; original native motif fallback; unchanged session_paper.png")
@@ -134,6 +157,9 @@ func _audio_context() -> Dictionary:
   "material_id": _preview_material, "content_version": "genre_examples_v1"}
 
 func _add_audio_preview(content: VBoxContainer) -> void:
+ if _preview_genre=="Indie rock":
+  _add_recorded_examples(content)
+  return
  var catalogue: Dictionary = {}
  if FileAccess.file_exists(EXAMPLES_PATH):
   var parser := JSON.new()
@@ -151,17 +177,43 @@ func _add_audio_preview(content: VBoxContainer) -> void:
      _preview_material = id
      entry = candidate
  if entry.is_empty():
-  content.add_child(_ink("No audio example available yet.",16,"GenreAudioUnavailable"))
+  content.add_child(_ink("SOUND BRIEF ONLY · Audio example still to come.",16,"GenreAudioUnavailable"))
   return
  content.add_child(_ink(str(entry["label"]),16,"GenreAudioCaption"))
  _audio = AudioPreview.new()
  _audio.manifest_path = EXAMPLES_PATH
  _audio.play_caption = "PLAY EXAMPLE"
- _audio.available_hint = "The selected genre example plays automatically. Replay or stop it here."
+ _audio.available_hint = "Play the example when you want to listen. Browsing remains silent."
  _audio.unavailable_hint = "Audio example unavailable; all genre information and choices remain available."
  _audio.configure(_audio_context)
  _audio.set_clip(_preview_material)
  content.add_child(_audio)
+
+func _recorded_context() -> Dictionary:
+ return {"allowed":_preview_owner!=null and _preview_owner.screen=="genre" and _preview_owner.game.genre==_preview_genre,"recipe":_recorded_recipe}
+
+func _add_recorded_examples(content: VBoxContainer) -> void:
+ content.add_child(_ink("TWO IDEAS FROM THE REHEARSAL ROOM",16,"GenreAudioCaption"))
+ _recorded_recipe=Recipe.recipe(Sound.make("Indie rock","Raw","Unpolished"),2)
+ _recorded_recipe.hook="rehearsal_01_v1";_recorded_recipe.tone="warm"
+ _audio=RecordedAudio.new();_audio.name="GenreRecordedAudio";_audio.configure(_recorded_context);content.add_child(_audio)
+ var row:=HBoxContainer.new();row.add_theme_constant_override("separation",6);content.add_child(row)
+ for index in range(2):
+  var sample: Button=Poster.button("HEAR "+str(["A","B"][index]))
+  sample.name="GenreHear"+str(["A","B"][index]);sample.pressed.connect(_play_recorded.bind(str(["rehearsal_01_v1","rehearsal_04_v1"][index])))
+  row.add_child(sample)
+ var stop: Button=Poster.button("STOP");stop.name="GenreStopRecorded";stop.pressed.connect(_audio.stop);row.add_child(stop)
+ _sample_status=_ink("A starting point. Your band can take another direction.",14,"GenreRecordedStatus");content.add_child(_sample_status)
+ _audio.status_changed.connect(_recorded_status_changed)
+
+func _recorded_status_changed() -> void:
+ if not is_instance_valid(_sample_status) or not is_instance_valid(_audio):return
+ _sample_status.text=("PLAYING · "+("IDEA A" if _recorded_recipe.hook=="rehearsal_01_v1" else "IDEA B")) if _audio.playing else "A starting point. Your band can take another direction."
+
+func _play_recorded(hook: String) -> void:
+ _recorded_recipe.hook=hook
+ var played: bool=_audio.request_play()
+ _sample_status.text="PLAYING · "+("IDEA A" if hook=="rehearsal_01_v1" else "IDEA B") if played else ("SOUND MUTED" if _audio.muted() else "Audio unavailable. You can still choose this style.")
 
 class PrintArt extends Control:
  var ink := Color("355448")

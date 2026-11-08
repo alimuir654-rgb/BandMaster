@@ -330,17 +330,17 @@ func _audition_progress(root_box: VBoxContainer) -> void:
 func _inline_lineup(body: VBoxContainer) -> void:
  if onboarding_state==null:return
  var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
- var panel:=PanelContainer.new();panel.name="RecruitLineupSummary"
- panel.add_theme_stylebox_override("panel",poster.control_stock(poster.INK,12));body.add_child(panel)
- var summary:=VBoxContainer.new();summary.add_theme_constant_override("separation",6);panel.add_child(summary)
- var names: Array[String]=[]
- for member in game.roster:names.append(str(member.name))
- summary.add_child(poster.label("YOUR BAND · %d / 6" % game.roster.size(),16,poster.GOLD))
- summary.add_child(poster.label(" · ".join(names) if not names.is_empty() else "Choose who you want in the room.",16,poster.PAPER))
- if game.roster.is_empty():return
- summary.add_child(poster.label("LEAD VOICE",14,poster.PAPER))
+ var summary:=HBoxContainer.new();summary.name="RecruitLineupSummary"
+ summary.mouse_filter=Control.MOUSE_FILTER_PASS
+ summary.add_theme_constant_override("separation",8);body.add_child(summary)
+ var count: Label=poster.label("BAND · %d / 6" % game.roster.size(),16,poster.GOLD)
+ count.autowrap_mode=TextServer.AUTOWRAP_OFF
+ count.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;summary.add_child(count)
+ if game.roster.is_empty():
+  summary.add_child(poster.label("Find your first musician.",16,poster.PAPER));return
  var voices:=OptionButton.new();voices.name="RecruitLeadVoice";voices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
- poster.choice_style(voices);voices.add_item("Choose a bandmate to sing");voices.set_item_disabled(0,true)
+ voices.fit_to_longest_item=false;voices.clip_text=true
+ poster.choice_style(voices);voices.add_item("CHOOSE LEAD VOICE");voices.set_item_disabled(0,true)
  var popup: PopupMenu=voices.get_popup()
  popup.add_theme_stylebox_override("panel",poster.control_stock(poster.INK,12))
  popup.add_theme_font_override("font",poster.FONT);popup.add_theme_font_size_override("font_size",18)
@@ -349,7 +349,7 @@ func _inline_lineup(body: VBoxContainer) -> void:
   if onboarding_state.vocal_scores(member).size()!=6:continue
   var extra: int=0 if (member.roles as Array).has("Singer") else 5
   var position: int=voices.item_count
-  voices.add_item(str(member.name)+(" · +5 TALENT" if extra else " · VOCALS INCLUDED"))
+  voices.add_item("LEAD · "+str(member.name)+(" · +5" if extra else ""))
   voices.set_item_metadata(position,str(member.id))
   voices.set_item_disabled(position,game.remaining()<extra)
   if onboarding_state.lead_vocal_id==str(member.id):voices.select(position)
@@ -362,26 +362,31 @@ func _inline_lineup(body: VBoxContainer) -> void:
 func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  var scroll := ScrollContainer.new()
  scroll.name = "RecruitProfileScroll"
+ scroll.scroll_deadzone=12
  scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
  scroll.follow_focus = true
  scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  root_box.add_child(scroll)
  var margin := MarginContainer.new()
+ margin.mouse_filter=Control.MOUSE_FILTER_PASS
  margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  for side in ["left","right","top","bottom"]:
   margin.add_theme_constant_override("margin_"+side,16)
  scroll.add_child(margin)
  var center := CenterContainer.new()
+ center.mouse_filter=Control.MOUSE_FILTER_PASS
  center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  center.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
  margin.add_child(center)
  var paper := PanelContainer.new()
  paper.name = "AuditionPaper"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
  paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,size.x-(72.0 if mobile else 120.0)))
  paper.add_theme_stylebox_override("panel",Paper.sheet(size.x<600))
  center.add_child(paper)
  var body := _box()
+ body.mouse_filter=Control.MOUSE_FILTER_PASS
  body.add_theme_constant_override("separation",10)
  paper.add_child(body)
  return body
@@ -396,7 +401,7 @@ func _audition_navigation(root_box: VBoxContainer) -> void:
  navigation.add_child(previous)
  var following: Button=_button("REVIEW BAND ›",_review_lineup)
  following.name="ReviewLineupAction"
- following.disabled=not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
+ following.disabled=game.roster.is_empty()
  navigation.add_child(following)
 
 func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
@@ -436,8 +441,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  var heard: bool = bool(auditioned.get(id,false)) or recruited
  if Profiles.supports(id) and onboarding_state!=null:
   heard=bool(onboarding_state.audition_view(id).get("heard",false)) or recruited
+ _inline_lineup(root_box)
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
- _inline_lineup(body)
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
  body.add_child(browse)
@@ -455,7 +460,8 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  following.custom_minimum_size.x = 48
  following.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
  browse.add_child(following)
- var introduction := HBoxContainer.new()
+ var introduction: BoxContainer = VBoxContainer.new() if mobile else HBoxContainer.new()
+ introduction.mouse_filter=Control.MOUSE_FILTER_PASS
  introduction.add_theme_constant_override("separation",12)
  body.add_child(introduction)
  var image_path := str(person.get("portrait_preview",""))
@@ -465,7 +471,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   image.texture = load(image_path)
   image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
   image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-  image.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
+  image.custom_minimum_size = Vector2(176,176) if mobile else Vector2(190,194)
   image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
   image.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
   image.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -477,6 +483,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   archive.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
   introduction.add_child(archive)
  var bio := _box()
+ bio.mouse_filter=Control.MOUSE_FILTER_PASS
  if not mobile:
   bio.add_theme_constant_override("separation",6)
  introduction.add_child(bio)
@@ -485,12 +492,16 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  bio.add_child(_ink(str(person.get("story","An aspiring musician looking for a band.")),14))
  var background: Dictionary=PersonalContext.for_candidate(id)
  var practical:=_box()
+ practical.mouse_filter=Control.MOUSE_FILTER_PASS
  practical.name="RecruitPracticalContext"
  practical.add_child(_ink("WORK · "+background["work"],16))
  practical.add_child(_ink("OUTSIDE THE BAND · "+background["outside_commitment"],16))
  practical.add_child(_ink(background["availability"],16))
  practical.add_child(_ink(background["starting_availability"],16))
- body.add_child(practical)
+ practical.visible=false
+ var details: Button=_button("WORK & AVAILABILITY",func():practical.visible=not practical.visible,"tab")
+ details.name="RecruitPracticalToggle"
+ body.add_child(details);body.add_child(practical)
  if Profiles.supports(id) and onboarding_state!=null and bool(onboarding_state.audition_view(id).get("heard",false)):
   var content: Script=Profiles.content(id)
   var replay:=AudioPart.new()

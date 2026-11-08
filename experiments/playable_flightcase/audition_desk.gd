@@ -125,6 +125,7 @@ func _build() -> void:
  var arrival: bool=phase=="arrival"
  var scroll:=ScrollContainer.new()
  scroll.name="AuditionBodyScroll"
+ scroll.scroll_deadzone=12
  scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
  scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
  scroll.follow_focus=true

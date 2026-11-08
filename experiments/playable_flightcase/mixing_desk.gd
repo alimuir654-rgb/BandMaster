@@ -403,9 +403,12 @@ func _refresh() -> void:
   _foundations[i].set_pressed_no_signal(valid and _recipe.hook==hook)
   _foundations[i].modulate=Color.WHITE
  _refresh_bank()
- _commit.text="COMMIT SESSION" if available else "BAND UNAVAILABLE"
- _commit.disabled=_busy or modal or not valid or not available
- if valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):
+ var free_people: Array=work.get("attendee_indices",[])
+ _commit.text="COMMIT SESSION" if available else ("SOLO PRACTICE ›" if free_people.size()==1 else ("JAM WITH WHO'S HERE ›" if free_people.size()>1 else "PLAN ANOTHER EVENING ›"))
+ _commit.disabled=_busy or modal or not valid or not work.get("ok",false)
+ if not available and work.get("ok",false):
+  _cost.text+="\n"+("A £0 practice day is still possible." if not free_people.is_empty() else "Find an evening the band can share.")
+ if available and valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):
   _commit.disabled=true;_cost.text="PHRASE UNAVAILABLE · Choose another foundation"
  _refresh_audio()
 
@@ -430,6 +433,11 @@ func show_commit_error(words: String) -> void:
 
 func _request_commit() -> void:
  if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe):return
+ var availability: Dictionary=Situation.inspect_writing(owner_state.game.career)
+ if not availability.get("ok",false):_show_notice(str(availability.get("message","Review availability.")));return
+ if not availability.get("can_write",false):
+  request_exit("practice:jam" if not availability.get("attendee_indices",[]).is_empty() else "planning")
+  return
  var respondent: Dictionary=_target().get("respondent_ref",{})
  if _decision.is_empty():
   if respondent.is_empty():_decision={"choice":"none","base_recipe":_recipe.duplicate(true),"offer_id":""}

@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2032311,
-    "sha256": "6eb51e275970f17acb5cbccea6e8ebde83c863b8e5d0a1185d4d39fc2daa172b"
+    "bytes": 2042056,
+    "sha256": "13b0acfa3c8931d7525460d8bef3baa235a9cf2c8c9f9b3fe2798b5ea5dfec48"
   },
   "dominant_issue": "BM-01",
   "lesson_ids": [
@@ -24,7 +24,7 @@
     "BM-39",
     "BM-40"
   ],
-  "owner_request": "One coherent V20 feedback repair: rework main genre examples, audition scrolling, button-tile typography, poor band design preview, useful available alternative when whole band cannot write. Read typo Dont on tiles as Font; optional genre sound-vs-visual clarification pending, work continues independently.",
+  "owner_request": "One coherent V20 feedback repair: rework main genre examples, audition scrolling, button-tile typography, poor band design preview, useful available alternative when whole band cannot write. Read typo Dont on tiles as Font; Owner confirmed both genre sound and visuals.",
   "target": {
     "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
     "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",

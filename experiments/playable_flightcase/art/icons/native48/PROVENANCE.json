@@ -1,0 +1,57 @@
+{
+  "source": "Original Lucide vector icons, same paths/strokes/colors",
+  "license": "../LICENSE.txt (ISC)",
+  "method": "Godot4.7.2 Image.load_svg_from_string at2x; no raster upscale",
+  "files": [
+    {
+      "source": "heart-handshake.svg",
+      "source_sha256": "b24372b86f2f81f1c22a37fd161474529547f54900aa19aef38b12162ba3784c",
+      "render": "heart-handshake.png",
+      "sha256": "c4214f5551c1a97a72b947f1e3804fd45e38afdbaae8f7cd5a942bfd5590aab2",
+      "render_size": [
+        48,
+        48
+      ]
+    },
+    {
+      "source": "notebook-pen.svg",
+      "source_sha256": "8bb825a5849360a80dd2a9ba19d7556a524765d63a50430c5658c94c7981b3a5",
+      "render": "notebook-pen.png",
+      "sha256": "e0afd318a35dab20d4fcfef5eaa0a935e1f5314cc2da8651b611890790cacbe9",
+      "render_size": [
+        48,
+        48
+      ]
+    },
+    {
+      "source": "sliders-horizontal.svg",
+      "source_sha256": "6b2d6edc4f458533c15ed9ae6eed9a97fd6bdaf9f6f66e4207d1d32b353e630b",
+      "render": "sliders-horizontal.png",
+      "sha256": "e48e0ae0f14805f23b1d63390e088beb3f2a34f0c54055292225131348a2f741",
+      "render_size": [
+        48,
+        48
+      ]
+    },
+    {
+      "source": "ticket.svg",
+      "source_sha256": "9dcabe6f378a765fbb57e2df9530189ff73199b7f2f30cc70b801d131c5adc3a",
+      "render": "ticket.png",
+      "sha256": "5aec28e6278fe512bfcae9ee441ee2b8db2bf7fa0a1b4971105f279fd855a9b3",
+      "render_size": [
+        48,
+        48
+      ]
+    },
+    {
+      "source": "users.svg",
+      "source_sha256": "124ca8cd21fe00a54759ea100327d99874b34a6a1904dfb0bf92e3ed5a2c5d6f",
+      "render": "users.png",
+      "sha256": "55b6b4ca98ba40e55321e3363f9bc73ea567cfb125b1552a0a867480d2c51cf1",
+      "render_size": [
+        48,
+        48
+      ]
+    }
+  ]
+}

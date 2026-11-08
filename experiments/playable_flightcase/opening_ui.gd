@@ -649,7 +649,6 @@ func _choose_genre(value: String) -> void:
   _render()
   return
  press.configure(setup.game.genre,size,setup)
- press.preview_selected()
  for item in Base.genres():
   var name: String = str(item)
   var button: Button = find_child("Genre_"+name.replace(" ","_").replace("/","_"),true,false) as Button
@@ -951,11 +950,6 @@ func _identity() -> void:
  var wide: bool=size.x>=1100.0 and size.x>size.y
  if wide:
   root.add_child(_label("Type and ink shape the poster. Your confirmed attitude also sets the band’s sound brief. Previews are free.",16))
- else:
-  var live:=BandMark.new()
-  live.name="IdentityLivePreviewMark"
-  live.configure(setup.name_locked,str(identity_draft.logo),identity_draft.style,26,true,true,true)
-  root.add_child(live)
  var workspace: HBoxContainer
  if wide:
   workspace=HBoxContainer.new()
@@ -993,7 +987,15 @@ func _identity() -> void:
   choices_scroll.size_flags_horizontal=Control.SIZE_FILL
   workspace.add_child(choices_scroll)
   choices_scroll.add_child(controls)
-  workspace.add_child(proof_holder)
+  var preview_scroll:=ScrollContainer.new()
+  preview_scroll.name="IdentityPreviewScroll"
+  preview_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+  preview_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  preview_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+  preview_scroll.follow_focus=true
+  preview_scroll.scroll_deadzone=12
+  workspace.add_child(preview_scroll)
+  preview_scroll.add_child(proof_holder)
  else:
   root.add_child(choices_scroll)
   choices_scroll.add_child(controls)

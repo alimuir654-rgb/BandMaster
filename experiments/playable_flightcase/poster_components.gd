@@ -53,7 +53,7 @@ static func masthead(text: String,width: float,preferred: int=78) -> Label:
 static func button(text: String,primary: bool=false,color: Color=PAPER) -> Button:
  var result:=Button.new();result.text=text;result.custom_minimum_size.y=52
  result.size_flags_horizontal=Control.SIZE_EXPAND_FILL;result.mouse_filter=Control.MOUSE_FILTER_PASS
- result.add_theme_font_override("font",DISPLAY);result.add_theme_font_size_override("font_size",19)
+ result.add_theme_font_override("font",FONT);result.add_theme_font_size_override("font_size",20)
  var material: Color=GOLD if primary else color
  var foreground: Color=PAPER if stock_index(material) in [2,3,4] else INK
  for state in ["normal","hover","pressed","hover_pressed","disabled"]:
