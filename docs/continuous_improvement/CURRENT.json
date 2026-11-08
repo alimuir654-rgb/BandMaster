@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/MAIN_AUDIO06.json",
-  "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
+  "scope": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "parked notebook, flightcase reversible",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "active",
-  "next_action": "Implement/verify existing-workbench integration; preserve original app identity and signing requirement.",
+  "status": "source_chunk_verified_release_held",
+  "next_action": "Continuecontentexpansionfromrealreviewedmaterial andbatchnextcohesivereviewbuild; no immediateAPK/signatureaction.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7488,11 +7488,14 @@
     "next_action": "Larger source-only audio-bank andcreation-flow implementation; no release/signing untilcohesivechunkready"
   },
   "MAIN_AUDIO06": {
-    "status": "preflight",
-    "owner_direction": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
-    "writer": "root",
+    "status": "source_chunk_verified_release_held",
+    "writer": null,
     "branch": "feature/recorded-song-main-app",
-    "next_action": "Add6privateRehearsam passagefamilies alongside2Steadysets; noEQcountednewperformances, nofake50banks/noSuno generation. Source102BPMestimated andboundaries provisional; clipsoneshot. Make role/roster/leadvoiceselectiondirect, combineauditionarrivalandprofileaction, exposeinvitebesideresponse, skipformation/namebridgepages viaatomicownertransactions. Preserveactualtryout/requestedchange/reactions/finalposter.",
-    "release": "HELD; V18 remainsinstalledreviewbuild; V19requestunused"
+    "tested_sha": "cf596d3423cd57c0d66514ee0c8c2a20a099da53",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO06_RESULTS.json",
+    "source_patch": "/workspace/audio-creation-chunk/BandMaster-audio-creation-source.patch",
+    "private_assets": "/workspace/BandMaster-live/experiments/playable_flightcase/audio/recorded_rehearsal_v1",
+    "release": "HELD; V18 remainsownerinstalledreviewbuild. V19requestisunusedandbindsoldercodeonly.",
+    "next_action": "Continuecontentexpansionfromrealreviewedmaterial andbatchnextcohesivereviewbuild; no immediateAPK/signatureaction."
   }
 }

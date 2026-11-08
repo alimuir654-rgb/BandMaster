@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO06",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
   "baseline_sha": "04b98bf24fb30da3dfc348cd4057e7b899d49198",
@@ -26,8 +26,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1987344,
-    "sha256": "4ad9bbb79b29399c55022095fae78b4af98fe632c73e081c2bb4cdd75e0a551e"
+    "bytes": 1988864,
+    "sha256": "261158d65c962b9f17b9236c76c728247cfc4aa07794fe3c525928635c95f742"
   },
   "target": {
     "locator": "/workspace/poster-feedback-v19/compiled-390x844-title.png",
@@ -67,7 +67,7 @@
   ],
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active",
+    "status": "released",
     "owner": "root"
   },
   "independent_review": "review_current_workbench preflights: persistentposterrecruitworkspace, retainmeaningfultryout/response, skipbridgephases onlyviaexplicitAPI, fixobservedconfirm_lineuppersistfailure.",
@@ -78,5 +78,20 @@
     "analysis_peak_memory_budget_mib": 512,
     "no_new_suno_generations": true
   },
-  "started_at": "2026-11-08T10:15:44.942601+00:00"
+  "started_at": "2026-11-08T10:15:44.942601+00:00",
+  "closeout": {
+    "tested_sha": "cf596d3423cd57c0d66514ee0c8c2a20a099da53",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO06_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Continuecontentexpansionfromrealreviewedmaterial andbatchnextcohesivereviewbuild; no immediateAPK/signatureaction.",
+    "new_issue_review": "Variabletempo3conversionassumptionsfixed; collapsedselectedbanklabelrestored; missingWAVimportsresolved; SceneTimertestusedmonotonicactualtime; quietink/namefield/smallreactionmaterials correctedafterrealpixelreview; AudioServerqueuedstopshutdownflushedinQAwithoutgamechange. Final4x62noerrors/leaks. SpeculativeGamebindingissuewithdrawnafteractual25guardchecks. No newkeys/APK/publicaudio.",
+    "simulated_review_lenses": {
+      "visual": "SIMULATED: posterstock/fixedfooter/readablequietink; actualPNGinspectionseparatefromowneracceptance.",
+      "gameplay": "SIMULATED: substantiveaudition+realrequestedchange retained; redundantbridgesremoved.",
+      "persistence": "SIMULATED: actualFSfailures/legacyresume/once-onlyconsumption/finishedsongreloadaudited.",
+      "audio": "SIMULATED:30PCMhashes/fades/headroom; original2familiesuntouched; no listeningclaim orfakefiftybankcount.",
+      "release": "SIMULATED: sourceonly, originalV18reviewbuildretained, futureAPKneedsfreshsourcepolicy/request."
+    },
+    "independent_review": "review_current_workbench: final6currentPNGs plusprior14phone/shortPNGs andsource; scopedclearancecf596d34, noP1/no sourcepushhold. No reviewerengineexecution/listening/humantestclaim."
+  }
 }

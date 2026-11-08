@@ -1607,3 +1607,6 @@ MAIN_AUDIO04 — V17ownerfeedback repaired in existingapp: localcontrol presenta
 
 ### MAIN_AUDIO05 — 8 November2026
 Source2dc51c0c:printedcontrolcaptions/Settings/careermodals/buildidentity.94compiledchecks+4x35nativeUIchecks+14signingtests pass. OwnerconfirmedV18audio/posterimprovement. V19unsignedretained; unusedsigningrequestalreadyuploaded. Ownerheldsmallreleases infavourof largerbank+creationflowchunk. NoAPKsigned/delivered; originalaudio/key/appID/savesunchanged. Result:docs/continuous_improvement/MAIN_AUDIO05_RESULTS.json.
+
+### MAIN_AUDIO06 — 8 November2026, larger source chunk
+Sourcecf596d3423cd57c0d66514ee0c8c2a20a099da53: songbank2->8with6privateRehearsam passagecandidates/30derivedPCMassets; oldhooks/art/characterpreviewbanks preserved. Role/inlinevoice,auditionstart/responseinvitation,naming/designbridges streamlined; atomic failures/legacyresumes preserved.64focused+25nativeguards+178oldbank+178newbankpaidflow+4x62nativejourneychecksPASS; finalGLlogsnoerrors/leaks; independentpixelreviewclear, owner_approved=false. No APK/signature/release; no privateaudioGit. Source/privateaudiohandoverroot:/workspace/audio-creation-chunk. Result:docs/continuous_improvement/MAIN_AUDIO06_RESULTS.json.

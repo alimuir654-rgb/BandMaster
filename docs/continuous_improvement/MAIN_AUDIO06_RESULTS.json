@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "session": "MAIN_AUDIO06",
+  "tested_sha": "cf596d3423cd57c0d66514ee0c8c2a20a099da53",
+  "branch": "feature/recorded-song-main-app",
+  "status": "source_chunk_verified_release_held",
+  "owner_approved": false,
+  "baseline": "04b98bf2",
+  "scope": "First larger owner-directed audio-bank andpostercreation chunk; existing mainapp entry/appID/savedirectory retained.",
+  "changes": [
+    "Song phrase families2 to8: sixnewprivateRehearsam passagecandidates alongsideunchangedSteadyEarly/Later;30derivedPCMfiles,3tonepresentationsperguitarpassage, matchedbass/drums. EQvariantsnotcountedasnewplaying.",
+    "Bankbrowsercollapsedbydefault; selectedfamilyremainsnamedafterreload. Committedphrasesconsumedperactualinstrumentalist, retainedforsavedsong.",
+    "Directrolejumpbuttons; lineupandexplicit leadvoice selector incharacterworkspace. Optionalvoices/keyboardandlineupreviewremainavailable.",
+    "Oneprofileaction entersrealtryout; invite/pass sitsbesiderealadjustedresponse andoriginalcomparison. Legacyarrival/decisionphases remainresumable.",
+    "Freshlineupconfirmgoesdirectlytonaming; lockednamegoesdirectlytoposterdesign; onefinalformedposter. Namefeedback/rethink/once-onlylaunch/economy retained.",
+    "Atomicrollbackaddedtoremove/leadvoice/lineupconfirmation; aggregateauditionactions saveonce. Oldformed/name_milestonesavescontinueintorelevantworkspace withfailureexplanation.",
+    "Quietposteractionink/read-onlynameink/reactioncards andsetupheadingsunified; originalcast/art/hardware/meters retained."
+  ],
+  "tests": {
+    "source_files_match": [
+      {
+        "path": "experiments/playable_flightcase/audition_desk.gd",
+        "sha256": "e5b0199de67f407e0ae78222e5776e9514fd1c57b7a85bae7860b180872889db"
+      },
+      {
+        "path": "experiments/playable_flightcase/mixing_audio.gd",
+        "sha256": "4edd8997fa31dac4ef2b9b2c67dbfb24b998499d582c565043c07a2db188a22e"
+      },
+      {
+        "path": "experiments/playable_flightcase/mixing_desk.gd",
+        "sha256": "5066be58f9ee3240582930ab53e8f818bde2613c64c3778fa921ae109d3c6cca"
+      },
+      {
+        "path": "experiments/playable_flightcase/mixing_recipe.gd",
+        "sha256": "6361e4e17bdf69e5f1f6fc3643046fb1dbcb84d6e3eeb1f95ed4956100a25345"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_state.gd",
+        "sha256": "025be93a29b5dc84a313af8187fda032c0a5464b5a10e9acbd6791abb21c8f17"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_ui.gd",
+        "sha256": "205ffe04c4119263d6582acfc2022dad77d881cd07839b0d693b1b320813e4d6"
+      },
+      {
+        "path": "experiments/playable_flightcase/recorded_steady.gd",
+        "sha256": "681ac6e1e78cf927e2dfc132b01aea1d88aad1ddf6fb24f5f30c918b65141f7b"
+      },
+      {
+        "path": "experiments/playable_flightcase/ui.gd",
+        "sha256": "0fca2478ba532035c8518b42bc7c6af9d7f44ebe0f01d21d792e0b76512792b4"
+      },
+      {
+        "path": "tests/recorded_steady_test.gd",
+        "sha256": "144cc216f905b2d6da7d7d28947c10ae6ffc419267161271697a79e2c95e5d71"
+      },
+      {
+        "path": "tests/audio_creation_test.gd",
+        "sha256": "996f8f1a1855c4ffb1f106ac9154aa3c1d8a2ba67c5859cf8830965be3c48305"
+      },
+      {
+        "path": "tests/audio_creation_visual.gd",
+        "sha256": "8f3562e8aa610cade48be539d5e65077ef7e3a62d53689609935df99d7a92dcf"
+      },
+      {
+        "path": "tests/audio_creation_guards.gd",
+        "sha256": "480b2899f0e46898abd3ce994ac4b00bc5ff0187d4a2f8db1397594c5f519505"
+      }
+    ],
+    "old_bank_full_owner": 178,
+    "new_bank_full_owner": 178,
+    "focused_transactions_and_102bpm": 64,
+    "native_legacy_reload_failure_motion_guards": 25,
+    "four_view_journey": [
+      {
+        "viewport": "390x844",
+        "exit_code": 0,
+        "summary": [
+          "AUDIO_CREATION_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":62,\"failures\":[],\"physical_device\":false,\"viewport\":\"(390, 844)\"}"
+        ],
+        "error_or_leak": false
+      },
+      {
+        "viewport": "720x1280",
+        "exit_code": 0,
+        "summary": [
+          "AUDIO_CREATION_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":62,\"failures\":[],\"physical_device\":false,\"viewport\":\"(720, 1280)\"}"
+        ],
+        "error_or_leak": false
+      },
+      {
+        "viewport": "1280x720",
+        "exit_code": 0,
+        "summary": [
+          "AUDIO_CREATION_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":62,\"failures\":[],\"physical_device\":false,\"viewport\":\"(1280, 720)\"}"
+        ],
+        "error_or_leak": false
+      },
+      {
+        "viewport": "1600x900",
+        "exit_code": 0,
+        "summary": [
+          "AUDIO_CREATION_VISUAL {\"actual_entry\":\"opening.tscn\",\"checks\":62,\"failures\":[],\"physical_device\":false,\"viewport\":\"(1600, 900)\"}"
+        ],
+        "error_or_leak": false
+      }
+    ],
+    "new_pcm_assets": 30
+  },
+  "evidence_root": "/workspace/audio-creation-chunk",
+  "images_opened": [
+    {
+      "path": "/workspace/audio-creation-chunk/final-390x844-name-reactions.png",
+      "sha256": "9d618096c3c6084efcba36c42fd4389d0289dda4b9e00b89879031f3f3b1b1c0"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/final-720x1280-recruit.png",
+      "sha256": "32addfa56fe2b10daa4216a270984e6184b1c41c9346c682401a093dd1061117"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/final-1280x720-bank-open.png",
+      "sha256": "6a5710afe3bf4d9367dc9c0e8fcbc683492984508ef4a24f941a24af7070da7f"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/final-1600x900-audition-response.png",
+      "sha256": "9c25c78e345156f13a6b22d73713cddb05a30b11bcc413f189c7381118a1dd20"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-recruit.png",
+      "sha256": "57e32f8f6309bad5fcdf7ffc0226559b29c7f0f1b28f7ed542d096555ebab07e"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-audition-response.png",
+      "sha256": "e2935afa84163fed0e75c8560c6eb52600538db5d01c79eebdde1e1d949986c5"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-lineup.png",
+      "sha256": "550ff7bbc45ca96de875149c41d64b76c20228f2a9d81a355e04e372e1cc89f1"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-name-reactions.png",
+      "sha256": "887da41003f15d3d76ec7bcd05a8704af415952871bdfb24ed9615e797b9225a"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-design.png",
+      "sha256": "35498b0af1b7f0942428678b106bcd831a1ee9b083628b75ce9a59746afe9cea"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-final-band.png",
+      "sha256": "6b10da280acd739cae8246cb72afc7883a1f24b73004c23e4d3a1d6e144d51f6"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-bank-collapsed.png",
+      "sha256": "32762a9f8c21ec025acb0c736b8f1a8439e7c8152bc85a5652e229775951d029"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone-bank-open.png",
+      "sha256": "2644b5abda3508ff5216c12165aba4a005eb8a8a1278529b088f1388f2982b57"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone2-audition-response.png",
+      "sha256": "b66eb42edcc0240de541ab1e1eb0d74c6d81835a392c4f4264f53ecb3a25e0fe"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/phone2-name-reactions.png",
+      "sha256": "d1e60a7e2ede3f8f742b5aff849bc006e2f2baba52d63645e7fd064d43cd5498"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/short-recruit.png",
+      "sha256": "583968883cd788916e2d9a5ad978481482c9e7d732163477a90d2f754425c198"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/short-audition-response.png",
+      "sha256": "10afaf1214b9fb783df13b27416697a84556a11ac0569cd9eca4d5901ba265b2"
+    },
+    {
+      "path": "/workspace/audio-creation-chunk/short-lineup.png",
+      "sha256": "15e3a4930cb6ffd3536140c3ac6b8bb16983aac83c1777d63c7051bdd5a38b28"
+    }
+  ],
+  "independent_review": "review_current_workbench: final6currentPNGs plusprior14phone/shortPNGs andsource; scopedclearancecf596d34, noP1/no sourcepushhold. No reviewerengineexecution/listening/humantestclaim.",
+  "visual_verdict": "partial",
+  "limitations": [
+    "Sixpassagesarecandidatesfromoneexistingrecording, not sixalternateperformances, verifiedbarstarts or guaranteedmusicallydistincthooks. Tempo~102BPMestimated; each451765frames/9.411770833s, one-shot. No supportedlisteningtoolsavailable.",
+    "OwnerconfirmedV18sound/theme; no physicaldevicetestforthislargerchunk. Nativeeventtests invokesamewiredcontrolsignals; not claimsofphonefingerinput.",
+    "Existingcharacter-linkedpreviewbanksremainseparateandunchanged: Jack3,Arjun1,Zoe3,Marcus3. Arjunadjustedpartsremainwrittenfallback; new2adjustedrecordingsrequiregenuine/pinnedsource authoring. Not a claimof50snippetspercharacter.",
+    "No newSunogenerations, paidtools/dependencies, publicaudioGit, originalmodifications or newapp/key. CommercialSuno shippingrightsstillseparate.",
+    "NoAPKpreparedforthisnewchunk. UnusedV19requestbindsold2dc51sourceonlyandmustnotbesignedforcf596newcode."
+  ],
+  "next_action": "Continuecontentexpansionfromrealreviewedmaterial andbatchnextcohesivereviewbuild; no immediateAPK/signatureaction.",
+  "simulated_review_lenses": {
+    "visual": "SIMULATED: posterstock/fixedfooter/readablequietink; actualPNGinspectionseparatefromowneracceptance.",
+    "gameplay": "SIMULATED: substantiveaudition+realrequestedchange retained; redundantbridgesremoved.",
+    "persistence": "SIMULATED: actualFSfailures/legacyresume/once-onlyconsumption/finishedsongreloadaudited.",
+    "audio": "SIMULATED:30PCMhashes/fades/headroom; original2familiesuntouched; no listeningclaim orfakefiftybankcount.",
+    "release": "SIMULATED: sourceonly, originalV18reviewbuildretained, futureAPKneedsfreshsourcepolicy/request."
+  }
+}
