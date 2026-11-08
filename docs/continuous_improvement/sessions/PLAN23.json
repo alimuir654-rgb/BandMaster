@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "PLAN23",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "c4c3af8c8d9057095ec87dbc7df5f0140c1f18aa",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2058813,
+    "sha256": "2c72f84b2dc66957236fa988dcceff04ca080572d048e5dfcfb91c1a2b4a32ff"
+  },
+  "dominant_issue": "BM-39",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-21",
+    "BM-22",
+    "BM-25",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Plan next set of updates; review current state through a range of personas including game critic, musician, UI/UX specialist.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "inspection_basis": "Approved target opened in both prior implementation sessions; current originals will be reopened for this planning review."
+  },
+  "controlled_comparison": "Read-only review of exact fa339a34 gameplay and current original phone/short/wide evidence; installed V20 kept distinct. No new engine run/test/audio-listening claim; planning files only.",
+  "hypothesis": "A coherent first-band-week experience with perceptible musical/relationship/scene payoff has more value than adding a larger menu of systems; simulated roles can expose distinct risks and make the next combined update reviewable.",
+  "stop_condition": "Plan only: no runtime code, original/private media, app identity/save/schema, imports/exports/APK/signing, public publication, scheduling or external messaging. No synthetic reviewer portrayed as human. Do not infer musical quality from numerical tests.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/PLAN23.json",
+    "Source and retained-original evidence audit; proposed items distinguish current fact, interpretation and future work; persona priorities deduplicated; explicit acceptance criteria/resource gates/release boundary.",
+    "Final git diff confirms planning/docs only; no unchanged runtime suites rerun."
+  ],
+  "resource_plan": {
+    "new_persistent_budget_bytes": 10485760,
+    "no_engine_or_new_assets": true,
+    "reuse_evidence_roots": [
+      "/workspace/band-stories-22",
+      "/workspace/playtest-polish-v20"
+    ]
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "review_task": {
+    "queue": "S80 current complete player-task review, prioritisation only",
+    "reviewer": "existing review_current_workbench",
+    "player_goal": "Understand what makes the first band week compelling, musical and usable, and choose the next coherent update.",
+    "commitment": "None: planning/critique only."
+  },
+  "started_at": "2026-11-08T22:40:24.373349+00:00"
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/STORY22.json",
+  "session": "docs/continuous_improvement/sessions/PLAN23.json",
   "scope": "First connected choice-based musician conversations and promoter/shared-bill scenarios in existing main Playtest entry. Source only.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7601,5 +7601,10 @@
     "owner_approved": false,
     "checks": 1025,
     "next_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow."
+  },
+  "PLAN23": {
+    "status": "preflight",
+    "writer": "root",
+    "next_action": "Review current source and retained originals through multiple simulated lenses, reconcile findings into existing S80 queue and a bounded next-update plan."
   }
 }
