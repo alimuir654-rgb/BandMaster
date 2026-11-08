@@ -92,8 +92,7 @@ func _quiet_button(words: String,node_name: String,callback: Callable,paper: boo
  button.add_theme_stylebox_override("hover",hover)
  button.add_theme_stylebox_override("pressed",pressed)
  button.add_theme_stylebox_override("focus",focus)
- if paper:
-  for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color"]:button.add_theme_color_override(state,Color("29241f"))
+ for state in ["font_color","font_hover_color","font_pressed_color","font_hover_pressed_color","font_focus_color","font_disabled_color"]:button.add_theme_color_override(state,Color("29241f") if paper else Color("eee8d8"))
  return button
 
 func _identity() -> VBoxContainer:
@@ -269,8 +268,8 @@ func _build() -> void:
  actions.add_theme_constant_override("separation",6)
  add_child(actions)
  if not _view.get("held",false):
-  var steps: Dictionary={"arrival":"1 / 4 · MEET "+str(_view["person"]["name"]).to_upper(),"tryout":"2 / 4 · HEAR THE FIRST PART","response":"3 / 4 · COMPARE THE ADJUSTMENT","decision":"4 / 4 · INVITE OR PASS"}
-  var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask "+str(_view["person"]["name"])+" to try one change.","response":"Compare the original if useful, then review the invitation.","decision":"Read about "+str(_view["person"]["name"])+" before choosing. Inviting costs the talent shown."}
+  var steps: Dictionary={"arrival":"MEET "+str(_view["person"]["name"]).to_upper(),"tryout":"HEAR THE FIRST PART","response":"COMPARE · INVITE OR PASS","decision":"INVITE OR PASS"}
+  var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask "+str(_view["person"]["name"])+" to try one change.","response":"Compare the original if useful. Their story and commitments are here before you choose.","decision":"Read about "+str(_view["person"]["name"])+" before choosing. Inviting costs the talent shown."}
   var progress:=_label(str(steps.get(phase,"AUDITION")),14)
   progress.name="AuditionProgress"
   actions.add_child(progress)
@@ -287,15 +286,14 @@ func _build() -> void:
    requests.add_child(_button("Give the vocal more room","AuditionRequestSpace",_act.bind("request","space_for_voice")))
    requests.add_child(_button("Show me an idea of your own","AuditionRequestOwn",_act.bind("request","own_part")))
    actions.add_child(requests)
-  elif phase=="response":actions.add_child(_button("NEXT: INVITE OR PASS","AuditionReview",_act.bind("review","")))
-  elif phase=="decision":
+  elif phase in ["response","decision"]:
    var price: int=Base.incremental_cost(owner_state.game.roster,owner_state.game.person_by_id(str(_view["person"]["id"])))
    actions.add_child(_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]))
    var invite:=_button("INVITE %s · %d TALENT" % [str(_view["person"]["name"]).to_upper(),price],"AuditionInvite",_invite)
    invite.disabled=not owner_state.can_recruit(str(_view["person"]["id"]))
    invite.set_meta("permitted",not invite.disabled)
    actions.add_child(invite)
-   actions.add_child(_button("PASS FOR NOW","AuditionPass",_act.bind("pass","")))
+   actions.add_child(_button("PASS FOR NOW","AuditionPass",_pass))
  var exits:=HBoxContainer.new()
  exits.add_theme_constant_override("separation",8)
  if _view.get("ok",false) and _view.get("active",false):exits.add_child(_button("END AUDITION","AuditionAbort",_act.bind("abort","")))
@@ -389,7 +387,13 @@ func _act(action: String,request: String) -> void:
 func _invite() -> void:
  if _busy or _finish_voice():return
  _set_busy(true)
- var result: Dictionary=owner_state.invite_audition(_expected.duplicate(true))
+ var result: Dictionary=owner_state.resolve_audition_response("invite",_expected.duplicate(true)) if _view.get("phase")=="response" else owner_state.invite_audition(_expected.duplicate(true))
+ _returned(result)
+
+func _pass() -> void:
+ if _busy or _finish_voice():return
+ _set_busy(true)
+ var result: Dictionary=owner_state.resolve_audition_response("pass",_expected.duplicate(true)) if _view.get("phase")=="response" else owner_state.audition_action("pass",_expected.duplicate(true))
  _returned(result)
 
 func _returned(result: Dictionary) -> void:

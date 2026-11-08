@@ -51,6 +51,8 @@ var _themes: Array[Button]=[]
 var _foundations: Array[Button]=[]
 var _foundation_group:=ButtonGroup.new()
 var _foundation_note: Label
+var _bank_more: Button
+var _bank_open := false
 var _demo_path: Label
 var _pause_open := false
 var _leader: Label
@@ -145,10 +147,13 @@ func _build() -> void:
  for i in range(Recipe.HOOKS.size()):
   var choice: Button=_button(["RIFF","BASS","PICKED"][i],"MixingFoundation_%d" % i,_choose_foundation.bind(i))
   choice.toggle_mode=true;choice.button_group=_foundation_group;_foundation_group.allow_unpress=false;foundations.add_child(choice);_foundations.append(choice)
- var recorded:=HBoxContainer.new();recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("separation",4);surface.add_child(recorded)
+ var recorded:=GridContainer.new();recorded.columns=2;recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("h_separation",4);recorded.add_theme_constant_override("v_separation",4);surface.add_child(recorded)
  for i in range(Recipe.Recorded.HOOKS.size()):
-  var choice: Button=_button(["STEADY · EARLY","STEADY · LATER"][i],"MixingRecorded_%d" % i,_choose_foundation.bind(Recipe.HOOKS.size()+i))
+  var choice: Button=_button(Recipe.Recorded.LABELS[i],"MixingRecorded_%d" % i,_choose_foundation.bind(Recipe.HOOKS.size()+i))
+  choice.visible=i<2 or _bank_open
   choice.toggle_mode=true;choice.button_group=_foundation_group;recorded.add_child(choice);_foundations.append(choice)
+ _bank_more=Poster.quiet("MORE RECORDED IDEAS · 6");_bank_more.name="MixingBankMore"
+ _bank_more.pressed.connect(_toggle_bank);_buttons.append(_bank_more);surface.add_child(_bank_more)
  _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
  _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
  for i in range(4):_add_control(_grid,i,"rotary" if i<2 else "fader")
@@ -234,6 +239,16 @@ func has_local_edits() -> bool:
 
 func _invalidate_response() -> void:
  _decision={};_compare=false
+
+func _toggle_bank() -> void:
+ if _busy or is_instance_valid(_dialog):return
+ _bank_open=not _bank_open
+ _refresh_bank()
+
+func _refresh_bank() -> void:
+ for i in range(Recipe.HOOKS.size()+2,_foundations.size()):_foundations[i].visible=_bank_open
+ _bank_more.text="FEWER IDEAS" if _bank_open else (Recipe.foundation(_recipe)+" · MORE IDEAS" if Recipe.Recorded.rehearsal(_recipe) else "MORE RECORDED IDEAS · 6")
+ _bank_more.tooltip_text="Six additional passages from the rehearsal recording. They are phrase candidates, not six alternate performances or verified loops."
 
 func _choose_foundation(index: int) -> void:
  var hooks: Array=Recipe.HOOKS+Recipe.Recorded.HOOKS
@@ -379,6 +394,7 @@ func _refresh() -> void:
   if not source_available:_foundations[i].disabled=true;_foundations[i].tooltip_text="Already used by a member of this band. Its saved song can still play."
   _foundations[i].set_pressed_no_signal(valid and _recipe.hook==hook)
   _foundations[i].modulate=Color(1.0,0.77,0.4) if valid and _recipe.hook==hook else Color.WHITE
+ _refresh_bank()
  _commit.text="COMMIT SESSION" if available else "BAND UNAVAILABLE"
  _commit.disabled=_busy or modal or not valid or not available
  if valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):

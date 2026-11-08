@@ -86,10 +86,10 @@ func run() -> void:
   for axis in ["pace","groove","originality"]:
    var invalid: Dictionary=value.duplicate(true);invalid[axis]=Recipe.VALUES[Recipe.FIELDS.find(axis)][0 if axis=="pace" else 1]
    check(not Recipe.valid(invalid),"reject invented playing: "+axis)
-  check(Recipe.written(value).contains("100 BPM") and not Recipe.written(value).contains("answering guitar"),"honest fixed source description")
+  check(Recipe.written(value).contains(Bank.tempo_caption(value)) and not Recipe.written(value).contains("answering guitar"),"honest fixed source description")
   var entry: Dictionary=Bank.entry(value)
   if check(not entry.is_empty(),"source manifest available"):
-   for part in entry.parts:check(Bank.stream(entry.parts[part])!=null,"exact imported PCM hash: "+hook+"/"+part)
+   for part in entry.parts:check(Bank.stream(entry.parts[part],Bank.frames(value))!=null,"exact imported PCM hash: "+hook+"/"+part)
   for stage in range(3):
    value.stage=stage
    var offer: Dictionary=Recipe.offer(value,{"candidate_id":"qa"})

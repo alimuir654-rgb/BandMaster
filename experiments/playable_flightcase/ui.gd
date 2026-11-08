@@ -318,13 +318,45 @@ func _audition_progress(root_box: VBoxContainer) -> void:
  var covered: Array = Base.coverage(game.roster)
  for index in range(4):
   var done: bool = covered.has(AUDITION_ROLES[index]) if index<3 else (onboarding_state!=null and not str(onboarding_state.lead_vocal_id).is_empty())
-  var caption := _label(("✓ " if done else str(index+1)+" ")+str(["GUITAR","BASS","DRUMS","VOICE"][index]),12)
+  var caption: Button=_button(("✓ " if done else "")+str(["GUITAR","BASS","DRUMS","VOICE"][index]),_change_role.bind(str(AUDITION_ROLES[index])),"tab")
   caption.name = "AuditionProgress_"+str(AUDITION_ROLES[index])
-  caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-  caption.focus_mode = Control.FOCUS_NONE
-  caption.add_theme_color_override("font_color",Color("a8ddb5") if done else (Color("f0c78b") if role==str(AUDITION_ROLES[index]) else Color("b6b8b3")))
+  caption.toggle_mode=true
+  preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(caption)
+  caption.set_pressed_no_signal(role==str(AUDITION_ROLES[index]) and not lineup_review)
   progress.add_child(caption)
  root_box.add_child(progress)
+
+func _inline_lineup(body: VBoxContainer) -> void:
+ if onboarding_state==null:return
+ var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+ var panel:=PanelContainer.new();panel.name="RecruitLineupSummary"
+ panel.add_theme_stylebox_override("panel",poster.control_stock(poster.INK,12));body.add_child(panel)
+ var summary:=VBoxContainer.new();summary.add_theme_constant_override("separation",6);panel.add_child(summary)
+ var names: Array[String]=[]
+ for member in game.roster:names.append(str(member.name))
+ summary.add_child(poster.label("YOUR BAND · %d / 6" % game.roster.size(),16,poster.GOLD))
+ summary.add_child(poster.label(" · ".join(names) if not names.is_empty() else "Choose who you want in the room.",16,poster.PAPER))
+ if game.roster.is_empty():return
+ summary.add_child(poster.label("LEAD VOICE",14,poster.PAPER))
+ var voices:=OptionButton.new();voices.name="RecruitLeadVoice";voices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ poster.choice_style(voices);voices.add_item("Choose a bandmate to sing");voices.set_item_disabled(0,true)
+ var popup: PopupMenu=voices.get_popup()
+ popup.add_theme_stylebox_override("panel",poster.control_stock(poster.INK,12))
+ popup.add_theme_font_override("font",poster.FONT);popup.add_theme_font_size_override("font_size",18)
+ popup.add_theme_color_override("font_color",poster.PAPER);popup.add_theme_color_override("font_hover_color",poster.GOLD)
+ for member in game.roster:
+  if onboarding_state.vocal_scores(member).size()!=6:continue
+  var extra: int=0 if (member.roles as Array).has("Singer") else 5
+  var position: int=voices.item_count
+  voices.add_item(str(member.name)+(" · +5 TALENT" if extra else " · VOCALS INCLUDED"))
+  voices.set_item_metadata(position,str(member.id))
+  voices.set_item_disabled(position,game.remaining()<extra)
+  if onboarding_state.lead_vocal_id==str(member.id):voices.select(position)
+ voices.disabled=voices.item_count==1
+ voices.item_selected.connect(func(index: int):
+  var id: Variant=voices.get_item_metadata(index)
+  if id is String:_choose_vocal(id))
+ summary.add_child(voices)
 
 func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
  var scroll := ScrollContainer.new()
@@ -358,24 +390,12 @@ func _audition_navigation(root_box: VBoxContainer) -> void:
  navigation.name = "AuditionNavigation"
  navigation.add_theme_constant_override("separation",8)
  root_box.add_child(navigation)
- var index: int = AUDITION_ROLES.find(role)
- var previous_title: String = "‹  CHANGE GENRE" if index==0 else "‹  "+str(AUDITION_TITLES[maxi(0,index-1)])
- if role=="Keyboardist":
-  previous_title = "‹  LINEUP REVIEW"
- elif role=="Singer" and not vocals_panel:
-  previous_title = "‹  VOICES"
- var previous: Button = _button(previous_title,_previous_audition,"tab")
+ var previous: Button = _button("‹ CHANGE GENRE",func():back_requested.emit(),"tab")
  previous.name = "AuditionPreviousStepAction"
  navigation.add_child(previous)
- var following: Button
- if role=="Singer" or role=="Keyboardist":
-  following = _button("REVIEW LINEUP  ›",_review_lineup)
-  following.name = "ReviewLineupAction"
-  following.disabled = not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
- else:
-  following = _button(str(AUDITION_TITLES[index+1])+"  ›",_next_audition)
-  following.name = "AuditionNextStepAction"
-  following.disabled = not Base.coverage(game.roster).has(role)
+ var following: Button=_button("REVIEW BAND ›",_review_lineup)
+ following.name="ReviewLineupAction"
+ following.disabled=not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
  navigation.add_child(following)
 
 func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
@@ -400,7 +420,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   _vocal_audition_page(root_box,mobile)
   return
  var index: int = AUDITION_ROLES.find(role)
- var chapter := _label(("0%d / 04  •  " % (index+1) if index>=0 else "OPTIONAL  •  ")+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"),20)
+ var chapter := _label("FIND YOUR PEOPLE · "+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"),20)
  chapter.name = "AuditionStepTitle"
  root_box.add_child(chapter)
  var choices: Array = game.choices(role)
@@ -416,6 +436,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  if Profiles.supports(id) and onboarding_state!=null:
   heard=bool(onboarding_state.audition_view(id).get("heard",false)) or recruited
  var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ _inline_lineup(body)
  var browse := HBoxContainer.new()
  browse.add_theme_constant_override("separation",6)
  body.add_child(browse)
@@ -551,7 +572,7 @@ func _audition_candidate() -> void:
   return
  var id: String = str(items[selected_index].id)
  if Profiles.supports(id) and onboarding_state!=null and not bool(onboarding_state.audition_view(id).get("heard",false)):
-  var result: Dictionary=onboarding_state.begin_audition(id,role)
+  var result: Dictionary=onboarding_state.begin_audition(id,role,true)
   last_message=str(result.get("message",""))
   _audition_fresh=bool(result.get("ok",false))
   _rebuild()
@@ -727,7 +748,7 @@ func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
  var back: Button = _button("‹  VOCALS",_show_vocal_choices,"tab")
  back.name = "AuditionPreviousStepAction"
  dock.add_child(back)
- var confirm: Button = _button("CONFIRM THIS LINEUP  ›",_launch)
+ var confirm: Button = _button("CONFIRM · NAME THE BAND ›",_launch)
  confirm.name = "StartAction"
  confirm.disabled = not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
  dock.add_child(confirm)
@@ -1292,7 +1313,7 @@ func _choose_vocal(id: String) -> void:
  _rebuild()
 func _launch() -> void:
  if onboarding_state != null:
-  var result: Dictionary = onboarding_state.confirm_lineup()
+  var result: Dictionary = onboarding_state.confirm_lineup(true)
   last_message = str(result.get("message",""))
   if bool(result.get("ok",false)):
    lineup_confirmed.emit()

@@ -42,7 +42,7 @@ static func foundation(value: Dictionary) -> String:
 
 static func foundation_note(value: Dictionary) -> String:
  if not valid(value):return "Review the saved foundation."
- if Recorded.has_hook(value):return "SUNO SKETCH · 100 BPM · 4-BAR CANDIDATE · FIXED PLAYING"
+ if Recorded.has_hook(value):return "SUNO SKETCH · "+Recorded.tempo_caption(value)+" · 4-BAR CANDIDATE · FIXED PLAYING"
  return HOOK_NOTES[HOOKS.find(value.hook)]
 
 static func adjustable(value: Dictionary,field: String) -> bool:
@@ -50,7 +50,7 @@ static func adjustable(value: Dictionary,field: String) -> bool:
 
 static func label(value: Dictionary,field: String) -> String:
  if valid(value) and Recorded.has_hook(value):
-  if field=="pace":return "100 BPM"
+  if field=="pace":return Recorded.tempo_caption(value)
   if field=="groove":return "RECORDED"
   if field=="originality":return "SOURCE PARTS"
  var index: int=FIELDS.find(field)
@@ -76,7 +76,7 @@ static func summary(value: Dictionary) -> String:
 static func written(value: Dictionary) -> String:
  if not valid(value):return "This saved direction needs review."
  if Recorded.has_hook(value):
-  return foundation(value)+". AI-generated Suno sketch, 9.6 seconds at 100 BPM. "+("Guitar alone" if int(value.stage)==0 else "Matched guitar, bass and drums")+"; "+label(value,"tone").to_lower()+" guitar tone, "+("quieter balance" if value.energy=="open" else "fuller balance")+"; "+("parts enter progressively" if value.shape=="build" else "parts enter together")+". Tempo and playing stay fixed. Lyrical direction: "+label(value,"theme").to_lower()+" (written intent)."
+  return foundation(value)+". AI-generated Suno sketch, %.2f seconds at " % (float(Recorded.frames(value))/48000.0)+Recorded.tempo_caption(value)+". "+("Guitar alone" if int(value.stage)==0 else "Matched guitar, bass and drums")+"; "+label(value,"tone").to_lower()+" guitar tone, "+("quieter balance" if value.energy=="open" else "fuller balance")+"; "+("parts enter progressively" if value.shape=="build" else "parts enter together")+". Tempo and playing stay fixed. Lyrical direction: "+label(value,"theme").to_lower()+" (written intent)."
  var theme: String={"personal":"Something personal, held close.","streetlife":"Life outside the practice room.","escape":"Getting out without a clean answer."}[value.theme]
  var parts: String=["The guitar finds the feel","Bass and drums join the idea","An answering guitar shapes the take"][int(value.stage)]
  if value.hook=="bass_current_v1":parts=["The bass finds the feel","Guitar and drums join the bass","An answering guitar shapes the take"][int(value.stage)]

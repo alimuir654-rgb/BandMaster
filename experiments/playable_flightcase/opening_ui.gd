@@ -16,6 +16,7 @@ const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
 const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
 const GenrePress = preload("res://experiments/playable_flightcase/genre_press.gd")
 const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
+const Poster = preload("res://experiments/playable_flightcase/poster_components.gd")
 const SettingsSheet = preload("res://experiments/playable_flightcase/settings_sheet.gd")
 const SplashAudio = preload("res://experiments/playable_flightcase/splash_audio.gd")
 const AudioPreferences = preload("res://experiments/playable_flightcase/audio_preferences.gd")
@@ -551,6 +552,12 @@ func _begin_new() -> void:
 
 func _continue() -> void:
  if setup.load_draft():
+  # A deliberate Continue resumes old bridge checkpoints at their workspace.
+  # Rendering never migrates or writes a save.
+  if setup.screen=="formed" and not setup.start_naming():
+   notice="The naming room could not be opened. Your band is retained.";_render();return
+  if setup.screen=="name_milestone" and not setup.start_identity():
+   notice="The design room could not be opened. Your name is retained.";_render();return
   _career_landing=true
   identity_draft = {}
   response = ""
@@ -584,7 +591,7 @@ func _home() -> void:
 
 func _genre() -> void:
  var root := _make_shell()
- var heading := _label("01 / CHOOSE YOUR SOUND",24)
+ var heading := _label("CHOOSE YOUR SOUND",24)
  root.add_child(heading)
  root.add_child(_label("Your genre sets the starting direction. It does not restrict who you may audition.",14))
  var wide: bool = size.x >= 900.0 and size.x > size.y
@@ -820,7 +827,7 @@ func _start_naming() -> void:
 
 func _name() -> void:
  var root: VBoxContainer=_make_shell()
- root.add_child(_label("02 / NAME THE BAND",24))
+ root.add_child(_label("NAME THE BAND",24))
  root.add_child(_label("A name your band can stand behind. Their reactions reflect taste, not a score.",16))
  var body: VBoxContainer=_scroll_body(root)
  body.add_child(_label("BAND NAME",16))
@@ -834,6 +841,7 @@ func _name() -> void:
  field.add_theme_font_override("font",IdentityStyle.face(IdentityStyle.defaults()))
  field.add_theme_font_size_override("font_size",26)
  field.add_theme_color_override("font_color",Color("24211d"))
+ field.add_theme_color_override("font_uneditable_color",Color("24211d"))
  field.add_theme_color_override("caret_color",Color("884714"))
  var stock:=StyleBoxTexture.new()
  stock.texture=IdentityPress.PAPER
@@ -876,7 +884,8 @@ func _name() -> void:
   body.add_child(_label("WHAT THE BAND THINKS",18))
   for raw in setup.name_reactions():
    var feeling: Dictionary=raw
-   var card: PanelContainer=Kit.frame(look,"ticket")
+   var card:=PanelContainer.new()
+   card.add_theme_stylebox_override("panel",Poster.control_stock(Poster.INK,18))
    body.add_child(card)
    var reaction: Label=InkNote.new()
    reaction.text=str(feeling["name"])+" — "+str(feeling["reaction"]).to_upper()+"\n"+str(feeling["reason"])
@@ -912,8 +921,9 @@ func _rethink() -> void:
  if bool(result.get("ok",false)): free_name = ""
  _render()
 func _lock() -> void:
- var result: Dictionary = setup.lock_name()
+ var result: Dictionary = setup.lock_name(true)
  response = str(result.get("message",""))
+ if result.get("ok",false):_load_identity_draft()
  _render()
 
 func _milestone_two() -> void:
@@ -931,7 +941,7 @@ func _start_identity() -> void:
 func _identity() -> void:
  if identity_draft.is_empty(): _load_identity_draft()
  var root: VBoxContainer=_make_shell()
- root.add_child(_label("03 / NAME & LOOK",24))
+ root.add_child(_label("DESIGN YOUR POSTER",24))
  if setup.identity_style.has(IdentityStyle.FINISH_KEY) and not IdentityStyle.valid(setup.identity_style):
   root.add_child(_label("SAVED PRINT TREATMENT HELD",22))
   root.add_child(_label("This saved print treatment needs a compatible version. Its original data is retained.",16))

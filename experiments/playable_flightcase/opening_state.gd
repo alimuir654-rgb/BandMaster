@@ -145,12 +145,13 @@ func remove_member(id: String) -> Dictionary:
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if screen != "recruit":
   return {"ok":false,"message":"Return to the lineup first."}
+ var before: Dictionary=snapshot()
  var result: Dictionary = game.remove_member(id)
  if result.get("ok",false):
   if lead_vocal_id == id:
    lead_vocal_id = ""
   change_counter += 1
-  save_draft()
+  if not _save_identity_or_restore(before):return {"ok":false,"message":"The lineup change could not be saved. Nothing changed; try again."}
  return result
 
 func choose_vocal(id: String) -> Dictionary:
@@ -168,9 +169,10 @@ func choose_vocal(id: String) -> Dictionary:
  var fee: int = 0 if (person["roles"] as Array).has("Singer") else DOUBLE_VOCAL_COST
  if game.remaining() < fee:
   return {"ok":false,"message":"You need %d talent for these additional vocal duties." % fee}
+ var before: Dictionary=snapshot()
  lead_vocal_id = id
  change_counter += 1
- save_draft()
+ if not _save_identity_or_restore(before):return {"ok":false,"message":"The lead voice could not be saved. Nothing changed; try again."}
  return {"ok":true,"message":"%s takes lead vocals%s." % [str(person["name"]),(" (+5 talent)" if fee else "")]}
 
 func missing() -> String:
@@ -190,14 +192,15 @@ func missing() -> String:
 func ready() -> bool:
  return screen == "recruit" and missing().is_empty() and game.roster.size() <= 6
 
-func confirm_lineup() -> Dictionary:
+func confirm_lineup(go_to_naming: bool=false) -> Dictionary:
  if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
   return {"ok":false,"message":"Finish or close the saved audition first."}
  if not ready():
   return {"ok":false,"message":"Still need "+missing()+"."}
- screen = "formed"
+ var before: Dictionary=snapshot()
+ screen = "name" if go_to_naming else "formed"
  formed_once = true
- save_draft()
+ if not _save_identity_or_restore(before):return {"ok":false,"message":"The lineup could not be saved. Nothing changed; try again."}
  return {"ok":true,"message":"You've got a band. The lineup is locked for the first milestone."}
 
 
@@ -252,7 +255,7 @@ func rethink_name() -> Dictionary:
   return {"ok":false,"message":"The rethink could not be saved. Nothing has changed; try again."}
  return {"ok":true,"message":"One more chance to find a name everyone can live with."}
 
-func lock_name() -> Dictionary:
+func lock_name(go_to_design: bool=false) -> Dictionary:
  if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"Close the saved audition before changing the opening."}
  if screen != "name" or name_offer.is_empty() or name_settled:
   return {"ok":false,"message":"Propose a valid name first."}
@@ -273,7 +276,7 @@ func lock_name() -> Dictionary:
  name_locked = name_offer
  name_delta = consequence
  name_settled = true
- screen = "name_milestone"
+ screen = "identity" if go_to_design else "name_milestone"
  change_counter += 1
  if not _save_identity_or_restore(before):
   return {"ok":false,"message":"The name could not be locked on disk. Nothing has been counted; try again."}
@@ -515,11 +518,43 @@ func _finish_audition(before: Dictionary,result: Dictionary) -> Dictionary:
  var candidate_id: String=str(_audition_raw["active"].get("candidate_id",_audition_raw["last_result"].get("candidate_id","cast_jack")))
  return {"ok":true,"message":str(result.get("message","")),"changed":true,"candidate_id":candidate_id,"view":audition_view(candidate_id),"expected":audition_expected()}
 
-func begin_audition(candidate_id: String,role: String) -> Dictionary:
+func begin_audition(candidate_id: String,role: String,start_now: bool=false) -> Dictionary:
  if _audition_busy or Workbench.preplay_held(snapshot()):return {"ok":false,"message":"An audition choice is already being saved.","changed":false}
  _audition_busy=true
  var before:=snapshot()
- var result:=_finish_audition(before,Audition.begin(before,candidate_id,role))
+ var prepared: Dictionary=Audition.begin(before,candidate_id,role)
+ if start_now and prepared.get("ok",false):
+  var started: Dictionary=before.duplicate(true)
+  started[Audition.KEY]=prepared.wrapper
+  prepared=Audition.checkpoint(started,"start_tryout",Audition.expected(started))
+ var result:=_finish_audition(before,prepared)
+ _audition_busy=false
+ return result
+
+func resolve_audition_response(action: String,expected: Dictionary) -> Dictionary:
+ # The comparison and invitation share a page, but the original review and
+ # cost checks still run. Persist only the final result, with one rollback.
+ if _audition_busy or Workbench.preplay_held(snapshot()) or action not in ["invite","pass"]:return {"ok":false,"message":"This audition choice is unavailable.","changed":false}
+ _audition_busy=true
+ var before: Dictionary=snapshot()
+ var reviewed: Dictionary=Audition.checkpoint(before,"review",expected)
+ var result: Dictionary
+ if not reviewed.get("ok",false):result=_finish_audition(before,reviewed)
+ else:
+  var decision: Dictionary=before.duplicate(true)
+  decision[Audition.KEY]=reviewed.wrapper.duplicate(true)
+  var token: Dictionary=Audition.expected(decision)
+  if action=="pass":result=_finish_audition(before,Audition.checkpoint(decision,"pass",token))
+  else:
+   var prepared: Dictionary=Audition.prepare_invite(decision,token)
+   if not prepared.get("ok",false):result=_finish_audition(before,prepared)
+   else:
+    _audition_present=true
+    _audition_raw=reviewed.wrapper.duplicate(true)
+    var available_before: int=remaining()
+    var original: Dictionary=game.recruit(str(prepared.candidate_id))
+    if original.get("ok",false):change_counter+=1
+    result=_finish_audition(before,Audition.complete_invite(decision,snapshot(),token,original,available_before,remaining()))
  _audition_busy=false
  return result
 

@@ -61,6 +61,7 @@ def main():
                 queue.append(path.relative_to(repo).as_posix())
     if not args.baseline:
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('recorded_steady*.gd')]
+        queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('audio_creation*.gd')]
         queue.append('tests/poster_feedback_visual.gd')
     while queue:
         relative = queue.pop()

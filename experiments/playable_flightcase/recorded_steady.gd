@@ -1,10 +1,24 @@
 extends RefCounted
 ## Private recorded phrases. No audition state, paid resolver or filesystem writes.
-const HOOKS := ["steady_early_v1","steady_later_v1"]
-const LABELS := ["STEADY EARLY","STEADY LATER"]
+const HOOKS := ["steady_early_v1","steady_later_v1","rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"]
+const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06"]
 const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json"
 const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v2/"
 const USES := "recorded_phrase_uses_v1"
+const REHEARSAL_MANIFEST := "res://experiments/playable_flightcase/audio/recorded_rehearsal_v1/manifest.json"
+const REHEARSAL_PREFIX := "res://experiments/playable_flightcase/audio/recorded_rehearsal_v1/"
+
+static func rehearsal(value: Dictionary) -> bool:
+ return value.get("hook") in HOOKS.slice(2)
+
+static func tempo(value: Dictionary) -> int:
+ return 102 if rehearsal(value) else 100
+
+static func frames(value: Dictionary) -> int:
+ return 451765 if rehearsal(value) else 460800
+
+static func tempo_caption(value: Dictionary) -> String:
+ return "~102 BPM" if rehearsal(value) else "100 BPM"
 
 static func has_hook(value: Variant) -> bool:
  return value is Dictionary and value.get("hook") in HOOKS
@@ -61,19 +75,23 @@ static func consume(career: Dictionary,value: Dictionary,project_id: String) -> 
  return {"ok":true,"state":next}
 
 static func entry(value: Dictionary) -> Dictionary:
- if not has_hook(value) or not FileAccess.file_exists(MANIFEST):return {}
- var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
- if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!="recorded_steady_v2" or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
+ var manifest: String=REHEARSAL_MANIFEST if rehearsal(value) else MANIFEST
+ var prefix: String=REHEARSAL_PREFIX if rehearsal(value) else PREFIX
+ var version: String="recorded_rehearsal_v1" if rehearsal(value) else "recorded_steady_v2"
+ if not has_hook(value) or not FileAccess.file_exists(manifest):return {}
+ var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(manifest))
+ if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!=version or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
  var item: Variant=data.entries.get(value.hook)
- if not item is Dictionary or item.get("tempo")!=100 or item.get("frames")!=460800 or item.get("sample_rate")!=48000 or item.get("channels")!=2 or not item.get("parts") is Dictionary or item.parts.size()!=5:return {}
+ if not item is Dictionary or item.get("tempo")!=tempo(value) or item.get("frames")!=frames(value) or item.get("sample_rate")!=48000 or item.get("channels")!=2 or not item.get("parts") is Dictionary or item.parts.size()!=5:return {}
  for part in ["guitar_warm","guitar_gritty","guitar_biting","bass","kit"]:
   var asset: Variant=item.parts.get(part)
-  if not asset is Dictionary or not asset.get("path") is String or not asset.path.begins_with(PREFIX) or not ResourceLoader.exists(asset.path) or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64:return {}
+  if not asset is Dictionary or not asset.get("path") is String or not asset.path.begins_with(prefix) or not ResourceLoader.exists(asset.path) or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64:return {}
  return item
 
-static func stream(asset: Dictionary) -> AudioStreamWAV:
+static func stream(asset: Dictionary,expected_frames: int=460800) -> AudioStreamWAV:
+ if expected_frames not in [460800,451765]:return null
  var wav: AudioStreamWAV=load(str(asset.path)) as AudioStreamWAV
- if wav==null or wav.format!=AudioStreamWAV.FORMAT_16_BITS or wav.mix_rate!=48000 or not wav.stereo or wav.loop_mode!=AudioStreamWAV.LOOP_DISABLED or wav.data.size()!=460800*4:return null
+ if wav==null or wav.format!=AudioStreamWAV.FORMAT_16_BITS or wav.mix_rate!=48000 or not wav.stereo or wav.loop_mode!=AudioStreamWAV.LOOP_DISABLED or wav.data.size()!=expected_frames*4:return null
  var hash:=HashingContext.new()
  hash.start(HashingContext.HASH_SHA256);hash.update(wav.data)
  return wav if hash.finish().hex_encode()==asset.pcm_sha256 else null
