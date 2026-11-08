@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO05",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner sees oldlabels/title/pause and nosounddifference; ownerconfirmedinstalledV17. ProvidecorrectV18updateinstructions and finishboundedposterlabels/settings/careermodals; retainV18tone/performance.",
   "baseline_sha": "523d014d5f4bd4fb2382c2652d9fa139a24a8309",
@@ -23,8 +23,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1976346,
-    "sha256": "3e24148442ab0dd8068130123f4c2a8c0179094e3a2c8d80dea76f1389f94a58"
+    "bytes": 1978908,
+    "sha256": "841b7c67acf60932c09eb50acaa926986e6b9930e9881b791e5570e08afb067b"
   },
   "target": {
     "locator": "/workspace/main-audio-source-return/v18-390x844-pause.png",
@@ -52,7 +52,7 @@
   ],
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active",
+    "status": "released",
     "owner": "root"
   },
   "independent_review": "review_current_workbench: openedactualV18menu/writingpause; remainingSettings/Kit.dialog/NewBand/smallbrassplates; preservemodalguards, validatecompiledV19screens.",
@@ -62,5 +62,12 @@
     "new_persistent_budget_gib": 1.5,
     "no_new_keys": true
   },
-  "started_at": "2026-11-08T09:59:11.511528+00:00"
+  "started_at": "2026-11-08T09:59:11.511528+00:00",
+  "closeout": {
+    "tested_sha": "2dc51c0c275fb0613cdb0375221f53b84a17095a",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO05_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Larger source-only audio-bank andcreation-flow implementation; no release/signing untilcohesivechunkready",
+    "new_issue_review": "V17installationconfirmed; newV18phonefeedbackpositive. LogicalvsphysicaltestcoordinateissuecorrectedafterPNGinspection. Editorimportexit134retained; export0+compiledchecksPassed. Explicitnewreleasepolicyrequiredfor14negativetests. No appguardweakened."
+  }
 }

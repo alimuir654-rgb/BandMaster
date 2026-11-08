@@ -1604,3 +1604,6 @@ MAIN_AUDIO03 — detached APKv2 request uploaded as /BandMaster/BandMaster-V17-A
 
 
 MAIN_AUDIO04 — V17ownerfeedback repaired in existingapp: localcontrol presentation separated from fullowner reads, targetcached, onevalidatedview perparentrebuild, lazybanks/verifiedstreamcache, promptposition-preservingtonefade and stronger matched-loudnessEQ/drive using privatev2derivatives. Sharedpostercontrols/type/paper unify mainmenu/career/rehearsal; smallprintededgescalmer,largeart/passivemeters retained.94native+94compiledchecks and4viewports pass; desktop fullopening682.5→252.9ms,detent47.84→3.03ms,livetone33.6ms. Notphonemeasurement/listening/ownerartapproval. UnsignedV18 SHAa9a85329... preservedlocal; smallrequest /BandMaster/BandMaster-V18-APK-v2-signing-request.json and2previews delivered/verified. OriginalV17/keyfiles unchanged; awaitingoriginaldetachedsignature.
+
+### MAIN_AUDIO05 — 8 November2026
+Source2dc51c0c:printedcontrolcaptions/Settings/careermodals/buildidentity.94compiledchecks+4x35nativeUIchecks+14signingtests pass. OwnerconfirmedV18audio/posterimprovement. V19unsignedretained; unusedsigningrequestalreadyuploaded. Ownerheldsmallreleases infavourof largerbank+creationflowchunk. NoAPKsigned/delivered; originalaudio/key/appID/savesunchanged. Result:docs/continuous_improvement/MAIN_AUDIO05_RESULTS.json.

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "session": "MAIN_AUDIO05",
+  "tested_sha": "2dc51c0c275fb0613cdb0375221f53b84a17095a",
+  "status": "source_complete_release_held_by_owner_larger_chunk_direction",
+  "owner_approved": false,
+  "owner_v18_feedback": "Owner installedV18 and confirms meaningfulsoundchanges andcleanerpostertheme.",
+  "changes": [
+    "Printed small dial captions; original hardware/art retained",
+    "PosterSettings andexistingmodalwrapper for8career/NewBandcontexts",
+    "ActualbuildidentityshowninSettings"
+  ],
+  "tests": {
+    "model_source": 94,
+    "model_compiled": 94,
+    "ui_checks_per_viewport": 35,
+    "viewports": [
+      "390x844",
+      "720x1280",
+      "1280x720",
+      "1600x900"
+    ],
+    "detached_signature_tests": 14,
+    "audio_byte_identical_to_v18_entries": 20
+  },
+  "artifact": {
+    "sha256": "2c2cdd08afc22a5478aa50a23913619b8e24c29e7bf3dd8928c3b016ea817fcd",
+    "bytes": 205120215,
+    "signed": false,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 19,
+    "version_name": "0.149.0-playtest-poster",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "zip_crc_all_entries": true,
+    "zip32_single_disk": true,
+    "no_preexisting_signing_block": true,
+    "alignment_16kb": true,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "forbidden_permissions_absent": true,
+    "test_harness_excluded": true,
+    "payload_entries": 1815,
+    "payload_manifest_sha256": "828db48bc4f9c7da54117148597fea0c358bdd5c2ce6164c48e515043efd35e1",
+    "content_digest_chunks": 198,
+    "physical_device_tested": false,
+    "audio_media_byte_identical_to_v18": true,
+    "audio_media_entries": 20
+  },
+  "proof_root": "/workspace/poster-feedback-v19",
+  "independent_review": "review_current_workbench:sourceandcompiledscreens clear; actualSettingsbuild19/versionmatchesAPKmetadata",
+  "visual_verdict": "partial",
+  "remaining": [
+    "No V19physicaldevice/listeningtest",
+    "UnusedV19request alreadyuploadedbeforeownerheldsmallreleases; do notrequestsignature orpublishAPK",
+    "Streamlinebroadercreationflow andexpandbankinMAIN_AUDIO06"
+  ],
+  "next_action": "Larger source-only audio-bank andcreation-flow implementation; no release/signing untilcohesivechunkready",
+  "images_opened": [
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-390x844-settings.png",
+      "sha256": "e78c49a5f5f26f3f0f860b6f4e051804e6a3a0876bf513d088f2701a9b8f77f8"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-390x844-writing-labels.png",
+      "sha256": "416132abc6240e27f977d5a99247e8ce6fa0e16075b71222b97e8f226eccb972"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-390x844-title.png",
+      "sha256": "ebfb5826231476d4f1331edaeb5b2dcb21bd572510117cad8c99d5e628831332"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-390x844-new-band-confirm.png",
+      "sha256": "82ae043a360ea0a854aa20355f7b0ff451912753875509429fb990a6ef599e55"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-1280x720-settings.png",
+      "sha256": "c168f57acff8340e37694f61c7913989bac41d73dc3f292a38d38832fd5fc89f"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-1280x720-career-pause.png",
+      "sha256": "e1d2ff5b31b67ae7822968a8d1e93f478f6ca20d11644a0dd9320147fda217bf"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-1280x720-writing-labels.png",
+      "sha256": "0528abeb9a022c64b6c31e3974afce9db9fe13d4b30243154257f4cfe27a6d73"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-720x1280-settings.png",
+      "sha256": "1bb5cf1cf0b66d311e3992eb85f7dd156561b7523058040f57ca740d6b34ae39"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-720x1280-writing-labels.png",
+      "sha256": "addea72d6ad46d68eebec1f36e85dab28b139f7adb453e1581bf909f106eaa2a"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-1600x900-settings.png",
+      "sha256": "43509765bff20121ce48e3ffc98a3ce9e11174adb096258b71430cca5587da19"
+    },
+    {
+      "path": "/workspace/poster-feedback-v19/compiled-1600x900-writing-labels.png",
+      "sha256": "0c9286a912f3f79399632ce937655055869ef20c6f81effdecf3881fe63a6d3d"
+    }
+  ],
+  "simulated_review_lenses": {
+    "visual": "SIMULATED: Printedsmalllabels/modalsthroughsamepalette; V18posterfeedbackpositive, noV19ownerartapproval.",
+    "interaction": "SIMULATED: 35perviewportnativejourneychecks, focus/Escape/onceonlymaintained.",
+    "audio": "SIMULATED: 20encodedfilesunchanged; ownerphoneV18feedbackseparatefromnumericproof.",
+    "persistence": "SIMULATED: 94nativeandcompiledsave/rollback/consumptionchecks; isolateduserdirs.",
+    "delivery": "SIMULATED: UnsignedV19retained, requestunusedafternewownerreleasehold; nokeys/signing."
+  }
+}
