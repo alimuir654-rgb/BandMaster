@@ -150,9 +150,9 @@ func _build() -> void:
  var recorded:=GridContainer.new();recorded.columns=2;recorded.name="MixingRecordedFoundations";recorded.add_theme_constant_override("h_separation",4);recorded.add_theme_constant_override("v_separation",4);surface.add_child(recorded)
  for i in range(Recipe.Recorded.HOOKS.size()):
   var choice: Button=_button(Recipe.Recorded.LABELS[i],"MixingRecorded_%d" % i,_choose_foundation.bind(Recipe.HOOKS.size()+i))
-  choice.visible=i<2 or _bank_open
+  choice.visible=i<Recipe.Recorded.STEADY_HOOKS.size() or _bank_open
   choice.toggle_mode=true;choice.button_group=_foundation_group;recorded.add_child(choice);_foundations.append(choice)
- _bank_more=Poster.quiet("MORE RECORDED IDEAS · 6");_bank_more.name="MixingBankMore"
+ _bank_more=Poster.quiet("");_bank_more.name="MixingBankMore"
  _bank_more.pressed.connect(_toggle_bank);_buttons.append(_bank_more);surface.add_child(_bank_more)
  _foundation_note=_label("",16);_foundation_note.name="MixingFoundationNote";surface.add_child(_foundation_note)
  _grid=GridContainer.new();_grid.name="MixingSoundControls";_grid.columns=2;_grid.add_theme_constant_override("h_separation",6);_grid.add_theme_constant_override("v_separation",8);surface.add_child(_grid)
@@ -246,9 +246,10 @@ func _toggle_bank() -> void:
  _refresh_bank()
 
 func _refresh_bank() -> void:
- for i in range(Recipe.HOOKS.size()+2,_foundations.size()):_foundations[i].visible=_bank_open
- _bank_more.text="FEWER IDEAS" if _bank_open else (Recipe.foundation(_recipe)+" · MORE IDEAS" if Recipe.Recorded.rehearsal(_recipe) else "MORE RECORDED IDEAS · 6")
- _bank_more.tooltip_text="Six additional passages from the rehearsal recording. They are phrase candidates, not six alternate performances or verified loops."
+ for i in range(Recipe.HOOKS.size()+Recipe.Recorded.STEADY_HOOKS.size(),_foundations.size()):_foundations[i].visible=_bank_open
+ var additional: int=Recipe.Recorded.HOOKS.size()-Recipe.Recorded.STEADY_HOOKS.size()
+ _bank_more.text="FEWER IDEAS" if _bank_open else (Recipe.foundation(_recipe)+" · MORE IDEAS" if Recipe.Recorded.expanded(_recipe) else "MORE RECORDED IDEAS · %d" % additional)
+ _bank_more.tooltip_text="%d additional passage candidates from source recordings. EQ versions use the same playing; bar starts and loops require listening review." % additional
 
 func _choose_foundation(index: int) -> void:
  var hooks: Array=Recipe.HOOKS+Recipe.Recorded.HOOKS

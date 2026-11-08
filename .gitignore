@@ -8,4 +8,5 @@ builds/
 experiments/playable_flightcase/audio/recorded_steady_v1/
 experiments/playable_flightcase/audio/recorded_steady_v2/
 experiments/playable_flightcase/audio/recorded_rehearsal_v1/
+experiments/playable_flightcase/audio/recorded_dgad_v1/
 __pycache__/

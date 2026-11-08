@@ -21,8 +21,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1990297,
-    "sha256": "0fa007d24383f894ebf8413b05a84599cbf3320d918e591b59f9be8ff0e6b582"
+    "bytes": 1992355,
+    "sha256": "b715c4b0f48d17fd67ad764a69d97dad64fde061f31519b7e939351deab90471"
   },
   "target": {
     "locator": "/workspace/audio-creation-chunk/final-390x844-bank-open.png",
@@ -61,5 +61,24 @@
     "owner": "root"
   },
   "started_at": "2026-11-08T13:15:02.899001+00:00",
-  "independent_review": "Existinghelpertoauditadditivebank source/selectedlabels andnativeproof afterintake; no delegatedwriter."
+  "independent_review": "Existinghelpertoauditadditivebank source/selectedlabels andnativeproof afterintake; no delegatedwriter.",
+  "intake_findings": {
+    "actual_encoding": "48000HzstereoPCM16",
+    "frames_per_file": 5738880,
+    "seconds": 119.56,
+    "stem_sum_sampled_lag_samples": 0,
+    "residual_relative_to_mix_db": -10.436,
+    "avoid_source_regions": "opening0\u201316s, bassdrop48\u201356s andbassless96s+",
+    "selected_starts_s": [
+      19.2,
+      28.8,
+      38.4,
+      57.6,
+      67.2,
+      76.8
+    ],
+    "cut_duration_s": 9.6,
+    "audition_candidates": "Sixprivate4.8sisolatedpreviews(twoeachguitar/bass/drums) keptoutsidegamependinglisteningandcharacter/contentmatching",
+    "independent_review": "review_current_workbench agrees6numericallypopulatedranges andexplicitbankconfig; noheardstyleassignment."
+  }
 }

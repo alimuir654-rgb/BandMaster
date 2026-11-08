@@ -60,7 +60,7 @@ func run() -> void:
  check(not owner.lock_name(true).ok and owner.snapshot()==identity,"name consequence locked once")
  check(owner.set_identity("Wordmark","Amber / Charcoal","Unpolished") and owner.finish_identity().ok and owner.start_playing(),"original one-time band launch")
  var reload=Owner.new();check(reload.load_draft() and reload.snapshot()==owner.snapshot(),"new route reloads existing schema")
- check(Bank.HOOKS.size()==8 and Bank.HOOKS.slice(0,2)==["steady_early_v1","steady_later_v1"],"eight families keep original stable IDs")
+ check(Bank.HOOKS.slice(0,8)==["steady_early_v1","steady_later_v1","rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"],"original eight family IDs and order remain stable")
  selected=Recipe.recipe(Sound.read(owner.game.career),1);selected.hook="rehearsal_03_v1";selected.shape="build"
  check(Recipe.valid(selected) and Recipe.label(selected,"pace")=="~102 BPM","new bank honestly marks estimated tempo")
  var entry: Dictionary=Bank.entry(selected)

@@ -1,24 +1,42 @@
 extends RefCounted
 ## Private recorded phrases. No audition state, paid resolver or filesystem writes.
-const HOOKS := ["steady_early_v1","steady_later_v1","rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"]
-const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06"]
+const STEADY_HOOKS := ["steady_early_v1","steady_later_v1"]
+const REHEARSAL_HOOKS := ["rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"]
+const DGAD_HOOKS := ["dgad_01_v1","dgad_02_v1","dgad_03_v1","dgad_04_v1","dgad_05_v1","dgad_06_v1"]
+const HOOKS := STEADY_HOOKS+REHEARSAL_HOOKS+DGAD_HOOKS
+const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06","D–G–A–D 01","D–G–A–D 02","D–G–A–D 03","D–G–A–D 04","D–G–A–D 05","D–G–A–D 06"]
 const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json"
 const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v2/"
 const USES := "recorded_phrase_uses_v1"
 const REHEARSAL_MANIFEST := "res://experiments/playable_flightcase/audio/recorded_rehearsal_v1/manifest.json"
 const REHEARSAL_PREFIX := "res://experiments/playable_flightcase/audio/recorded_rehearsal_v1/"
+const DGAD_MANIFEST := "res://experiments/playable_flightcase/audio/recorded_dgad_v1/manifest.json"
+const DGAD_PREFIX := "res://experiments/playable_flightcase/audio/recorded_dgad_v1/"
+const BANKS := [
+ {"hooks":STEADY_HOOKS,"manifest":MANIFEST,"prefix":PREFIX,"version":"recorded_steady_v2","tempo":100,"frames":460800,"tempo_caption":"100 BPM"},
+ {"hooks":REHEARSAL_HOOKS,"manifest":REHEARSAL_MANIFEST,"prefix":REHEARSAL_PREFIX,"version":"recorded_rehearsal_v1","tempo":102,"frames":451765,"tempo_caption":"~102 BPM"},
+ {"hooks":DGAD_HOOKS,"manifest":DGAD_MANIFEST,"prefix":DGAD_PREFIX,"version":"recorded_dgad_v1","tempo":100,"frames":460800,"tempo_caption":"~100 BPM"}
+]
+
+static func bank_for(value: Dictionary) -> Dictionary:
+ for bank in BANKS:
+  if value.get("hook") in bank.hooks:return bank
+ return {}
+
+static func expanded(value: Dictionary) -> bool:
+ return has_hook(value) and value.hook not in STEADY_HOOKS
 
 static func rehearsal(value: Dictionary) -> bool:
- return value.get("hook") in HOOKS.slice(2)
+ return value.get("hook") in REHEARSAL_HOOKS
 
 static func tempo(value: Dictionary) -> int:
- return 102 if rehearsal(value) else 100
+ return int(bank_for(value).get("tempo",0))
 
 static func frames(value: Dictionary) -> int:
- return 451765 if rehearsal(value) else 460800
+ return int(bank_for(value).get("frames",0))
 
 static func tempo_caption(value: Dictionary) -> String:
- return "~102 BPM" if rehearsal(value) else "100 BPM"
+ return str(bank_for(value).get("tempo_caption","REVIEW"))
 
 static func has_hook(value: Variant) -> bool:
  return value is Dictionary and value.get("hook") in HOOKS
@@ -75,17 +93,15 @@ static func consume(career: Dictionary,value: Dictionary,project_id: String) -> 
  return {"ok":true,"state":next}
 
 static func entry(value: Dictionary) -> Dictionary:
- var manifest: String=REHEARSAL_MANIFEST if rehearsal(value) else MANIFEST
- var prefix: String=REHEARSAL_PREFIX if rehearsal(value) else PREFIX
- var version: String="recorded_rehearsal_v1" if rehearsal(value) else "recorded_steady_v2"
- if not has_hook(value) or not FileAccess.file_exists(manifest):return {}
- var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(manifest))
- if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!=version or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
+ var bank: Dictionary=bank_for(value)
+ if bank.is_empty() or not FileAccess.file_exists(bank.manifest):return {}
+ var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(bank.manifest))
+ if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!=bank.version or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
  var item: Variant=data.entries.get(value.hook)
  if not item is Dictionary or item.get("tempo")!=tempo(value) or item.get("frames")!=frames(value) or item.get("sample_rate")!=48000 or item.get("channels")!=2 or not item.get("parts") is Dictionary or item.parts.size()!=5:return {}
  for part in ["guitar_warm","guitar_gritty","guitar_biting","bass","kit"]:
   var asset: Variant=item.parts.get(part)
-  if not asset is Dictionary or not asset.get("path") is String or not asset.path.begins_with(prefix) or not ResourceLoader.exists(asset.path) or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64:return {}
+  if not asset is Dictionary or not asset.get("path") is String or not asset.path.begins_with(bank.prefix) or not ResourceLoader.exists(asset.path) or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64:return {}
  return item
 
 static func stream(asset: Dictionary,expected_frames: int=460800) -> AudioStreamWAV:
