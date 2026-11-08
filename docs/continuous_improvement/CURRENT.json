@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO07.json",
+  "session": "docs/continuous_improvement/sessions/POSTER01.json",
   "scope": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7515,5 +7515,13 @@
     },
     "release": "held; V18stillinstalledreviewbuild, noAPK/signingrequest.",
     "next_action": "Batchcandidate-listening/character-fitreviewwithnextcohesivegameupdate; sourceandprivateassetsretained, noimmediaterelease."
+  },
+  "POSTER01": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/recorded-song-main-app",
+    "owner_mockup_approved": true,
+    "next_action": "ReplaceinteractivehardwarewithnativeposterchoiceRangeadapter andsinglecurrent-source+expandablelibrary; immutableplayingfactsbecomeplainlabel. ReusePoster/C factories at remainingmetalframes andsharedactivityscene/art toleadcontext. Preserveownercallbacks/values/disabled/once-only/reload behavior.",
+    "release": "held"
   }
 }

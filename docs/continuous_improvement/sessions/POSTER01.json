@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "id": "POSTER01",
+  "status": "active",
+  "owner_approved": false,
+  "owner_mockup_approved": true,
+  "owner_request": "Approvepapercontrolmockup; validateallmainapp screensincludinggig-night/radio/menus; posterartworkleadingthroughout. Ditchrotaries/faders/switches (newdirectionoverrideshistoricalinteractivehardwareprotection). Batchlargerupdate,noAPK/signingnow.",
+  "baseline_sha": "c2769e62e898b793859b3af7d98ba6ef5c9c441f",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-14",
+    "BM-20",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1995409,
+    "sha256": "45f36370dc24ce1ade6b0089771360d7d5d76159e80e71fe5a7896754d0cb224"
+  },
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Samegenuineformedownerandexplicitcanonicalcareerfixtures,baseline/candidateviewports390x844/720x1280/1280x720/1600x900. Renderactualopeningentry, routeinventory title/settings/recruit/name/look/home/writing/rehearsal/band/gear/songbook/calendar/finance/offstage/recording/archive/radio/journey/soundcheck/showreceipt. No screenshot-as-interface.",
+  "hypothesis": "ReplaceinteractivehardwarewithnativeposterchoiceRangeadapter andsinglecurrent-source+expandablelibrary; immutableplayingfactsbecomeplainlabel. ReusePoster/C factories at remainingmetalframes andsharedactivityscene/art toleadcontext. Preserveownercallbacks/values/disabled/once-only/reload behavior.",
+  "stop_condition": "No newAPKs, keys, signing, main/sharedbranchchanges, models/economy/savechanges, originalaudio/cast/art/meterschanges, paidtoolsornewdependencies. Source/UIonly; logfailuresbeforecorrection; reportuncoveredstateshonestly.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/poster_choice.gd",
+    "experiments/playable_flightcase/*_components.gd",
+    "experiments/playable_flightcase/*_desk.gd",
+    "experiments/playable_flightcase/*_scene.gd",
+    "experiments/playable_flightcase/*_press.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/session_transition.gd",
+    "experiments/playable_flightcase/band_lineup.gd",
+    "experiments/playable_flightcase/band_formed_poster.gd",
+    "experiments/playable_flightcase/settings_sheet.gd",
+    "experiments/playable_flightcase/show_hardware.gd",
+    "tests/poster_audit*",
+    "tests/poster_feedback_visual.gd",
+    "tools/build_recorded_owner.py",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/POSTER01.json",
+    "Nativewholeflowbaseline/currentcaptures andexplicitcoverage matrix includinggigphases/radioquestions/savedreceipt, 4viewports, nativeimagesopened+independentreview",
+    "Realmouse/keychoice/focus/lockedstates/scroll/modal/dirtyexit; relevantsave/consumption/lifecycle regressions; originalart/audio/passivemeterhashes unchanged",
+    "Source-onlyhandover andnon-forcefeaturepushaftergates; noAPK"
+  ],
+  "resource_plan": {
+    "available_storage_bytes": 22857150464,
+    "new_persistent_budget_bytes": 1073741824,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_existing_imported_isolated_project": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "owner": "root"
+  },
+  "started_at": "2026-11-08T16:28:27.996748+00:00",
+  "independent_review": "review_current_workbench: approvedmockup+originalradio/stageartopened; actualactivejourney/booking/legacyshow/radioroutes identified; sourceframes/hardwaregaps, noengineexecutionclaim.",
+  "policy_override": "Latestdirectownerrequestsupersedesoldprotectionofinteractivehardwareappearance; preservepassivemeterbytes/inertsemantics andallmodelvalues."
+}
