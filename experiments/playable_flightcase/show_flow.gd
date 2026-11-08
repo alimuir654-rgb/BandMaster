@@ -224,6 +224,10 @@ static func phase(state: Dictionary) -> String:
  if managed(state) and original=="arrival" and not bool(state["booked_show"][FLOW_KEY]["travel_acknowledged"]):return "travel"
  return original
 
+static func set_limit(state: Dictionary) -> int:
+ var bill: Dictionary=Booking.terms(state).get("scene_bill_v1",{})
+ return int(bill.get("set_limit",3)) if int(bill.get("version",1))==2 else 3
+
 static func default_plan(state: Dictionary) -> Dictionary:
  var ids: Array = []
  var seen: Dictionary = {}
@@ -233,7 +237,7 @@ static func default_plan(state: Dictionary) -> Dictionary:
    if song is Dictionary and song.get("id") is String and not str(song["id"]).is_empty() and not seen.has(song["id"]) and song.get("title") is String and _number(song.get("quality",-1),0,100):
     ids.append(str(song["id"]))
     seen[song["id"]]=true
-    if ids.size()==3:break
+    if ids.size()==set_limit(state):break
  return {"approach":"tight","intensity":50,"song_ids":ids,"shoutout":"none","shoutout_venue_id":""}
 
 static func new_booking(state: Dictionary) -> Dictionary:
@@ -262,7 +266,7 @@ static func _normal_plan(state: Dictionary, draft: Dictionary) -> Dictionary:
  if booking.is_empty():return _bad("Book a show before planning its soundcheck.")
  if not draft.get("approach") is String or not Gigs.APPROACHES.has(draft["approach"]) or not _number(draft.get("intensity",-1),0,100):return _bad("Choose a valid approach and intensity from 0 to 100.")
  var raw_ids: Variant = draft.get("song_ids")
- if not raw_ids is Array or raw_ids.size()>3:return _bad("Choose up to three unique completed originals.")
+ if not raw_ids is Array or raw_ids.size()>set_limit(state):return _bad("Choose up to %d unique completed original(s), as agreed with the promoter." % set_limit(state))
  if not draft.get("shoutout") is String or draft["shoutout"] not in ["none","thankvenue"] or not draft.get("shoutout_venue_id") is String:return _bad("Choose a valid venue acknowledgment.")
  if draft["shoutout"]=="thankvenue" and ((not booking.has(Booking.TERMS) and str(booking.get("venue_id",""))!="local") or draft["shoutout_venue_id"]!=str(booking.get("venue_id",""))):return _bad("The acknowledgment must name this actual booked venue.")
  var catalogue: Variant = state.get("song_catalogue",[])

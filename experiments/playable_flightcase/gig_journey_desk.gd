@@ -175,8 +175,10 @@ static func _peers(host,parent: Node,state: Dictionary,visit: Dictionary,bill: D
     var band: Dictionary=Circuit.BANDS[id]
     if id in Circuit.above(bill):_button(host,parent,"STAY FOR "+str(band.name),"SceneWatch_"+str(id),"scene_support",token,{"band_id":id,"choice":"watch"})
     _button(host,parent,"HELP "+str(band.name)+" WITH GEAR","SceneHelp_"+str(id),"scene_support",token,{"band_id":id,"choice":"help"})
+   for id in bill.context.get("favors",{}):
+    if id in bill.lineup:_button(host,parent,"ASK "+str(Circuit.BANDS[id].name)+" TO RETURN THE HAND","SceneFavor_"+str(id),"scene_support",token,{"band_id":id,"choice":"call_favor","favor_id":bill.context.favors[id]})
    _button(host,parent,"LOOK AFTER OUR OWN GEAR","SceneOwnGear","scene_support",token,{"band_id":"","choice":"own_gear"})
-  else:parent.add_child(C.label("SAVED · "+("Look after our own gear." if encounter.support.choice=="own_gear" else ("Help " if encounter.support.choice=="help" else "Stay for ")+str(Circuit.BANDS[encounter.support.band_id].name)+"."),18))
+  else:parent.add_child(C.label("SAVED · "+("Look after our own gear." if encounter.support.choice=="own_gear" else ("Help " if encounter.support.choice=="help" else ("Call in a hand from " if encounter.support.choice=="call_favor" else "Stay for "))+str(Circuit.BANDS[encounter.support.band_id].name)+"."),18))
 
 static func _button(host,parent: Node,text: String,name: String,action: String,expected: Dictionary,payload: Dictionary = {}) -> Button:
  var button: Button=host._button(text,name,host._commit_journey.bind(action,expected.duplicate(true),payload.duplicate(true),int(host._render_generation)),true)

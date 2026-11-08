@@ -1,6 +1,7 @@
 extends RefCounted
 ## Authored, contextual conversation memory. No IO, clocks, payments or AI service.
 const KEY := "musician_chat_v1"
+const Situations=preload("res://experiments/playable_flightcase/musician_situations.gd")
 const TOPICS := ["direction","time","pressure"]
 const CHOICES := {
  "direction":["write_together","prepare_set","listen"],
@@ -50,10 +51,24 @@ static func validate(state: Dictionary) -> Dictionary:
   for turn in row.turns:
    if not turn is Dictionary or not whole(turn.get("day"),1) or turn.get("topic") not in TOPICS or turn.get("choice") not in CHOICES[turn.topic] or not turn.get("opening") is String or not turn.get("reply") is String:return bad("A saved conversation turn needs validation.")
   if int(row.turns.back().day)!=int(row.last_day):return bad("A saved conversation date has changed.")
+  if row.has("plan_sequence") and not whole(row.plan_sequence,1):return bad("The saved promise sequence needs validation.")
+  if row.has("plan_history_v1"):
+   var history: Variant=row.plan_history_v1
+   if not history is Dictionary or not whole(history.get("version"),1,1) or not history.get("records") is Array or history.records.size()>24:return bad("The saved promise history needs a compatible version.")
+   var seen: Dictionary={}
+   for entry in history.records:
+    if not entry is Dictionary or not entry.get("identity") is String or entry.identity.is_empty() or seen.has(entry.identity) or entry.get("closed_as") not in ["revised","completed"] or not whole(entry.get("day"),1) or not entry.get("plan") is Dictionary:return bad("A previous promise cannot be read safely.")
+    seen[entry.identity]=true
+    var prior: Dictionary=entry.plan.duplicate(true)
+    if prior.get("identity",entry.identity)!=entry.identity:return bad("A previous promise identity has changed.")
+    prior.erase("identity");prior.erase("revision_count")
+    var trial: Dictionary={KEY:{"version":1,"records":{id:{"candidate_id":id,"last_day":row.last_day,"rapport":row.rapport,"turns":row.turns,"plan":prior}}}}
+    if not validate(trial).ok:return bad("A previous promise needs validation.")
   var p: Dictionary=row.plan
   if not p.is_empty():
    if p.get("kind") not in ["write","rehearse","rest"] or p.get("status") not in ["pending","kept","missed","strained"] or not whole(p.get("day"),1) or not whole(p.get("due_day"),1) or int(p.due_day)!=int(p.day)+4 or not whole(p.get("fatigue"),0,100) or not p.get("source_report") is String or not p.get("note") is String:return bad("The saved bandmate agreement needs validation.")
    if p.source_report.length()!=64 or not p.source_report.is_valid_hex_number(false) or (p.has("push") and typeof(p.push)!=TYPE_BOOL):return bad("The saved agreement's source or intent needs validation.")
+   if p.has("identity") and (not p.identity is String or p.identity!="musician-plan:%s:%d" % [id,int(row.get("plan_sequence",0))] or not whole(p.get("revision_count"),0,1)):return bad("The saved promise identity needs validation.")
    if p.get("status")!="pending" and (not whole(p.get("resolved_day"),1) or not p.get("evidence") is String):return bad("The saved agreement result has no recorded source.")
  return {"ok":true}
 
@@ -78,6 +93,8 @@ static func opening(state: Dictionary,id: String,topic: String) -> String:
  if plan.get("status")=="missed":return "We said we'd make time, but that evening never happened. What are we actually doing next?"
  if plan.get("status")=="strained":return "We got through it, but pushing on wasn't the same as listening. Can we talk about the next one?"
  if plan.get("status")=="kept" and topic=="time":return "We did what we said we'd do. Let's agree the next evening before we fill it with something else."
+ if plan.get("status")=="pending":return Situations.checkin(id,topic,str(plan.kind),int(plan.due_day),int(p.get("fatigue",0))>=55)
+ if Situations.OPENINGS.has(id):return Situations.opening(id,topic,"")
  if topic=="time":return "I've got life outside this band as well. Tell me the evening before you promise us to anyone."
  if topic=="pressure":
   if int(p.get("fatigue",0))>=50:return "I'm running low. I want this to work, but another hard push isn't always the answer."
@@ -101,7 +118,34 @@ static func options(state: Dictionary,id: String,topic: String) -> Dictionary:
  if int(row.get("rapport",0))<=-4:
   words+=" I need to see one plan through before we talk about another big push."
   choices.erase("push_on")
- return {"ok":true,"available":reason.is_empty(),"message":reason,"opening":words,"choices":choices}
+ return {"ok":true,"available":reason.is_empty(),"message":reason,"opening":words,"choices":choices,"can_revise":row.get("plan",{}).get("status")=="pending" and int(row.plan.get("revision_count",0))<1 and int(state.tour_day)<=int(row.plan.get("due_day",0))}
+
+static func _archive(row: Dictionary,today: int,why: String) -> void:
+ if row.get("plan",{}).is_empty():return
+ var history: Dictionary=row.get("plan_history_v1",{"version":1,"records":[]}).duplicate(true)
+ var old: Dictionary=row.plan.duplicate(true)
+ var identity: String=str(old.get("identity","legacy-plan:"+fingerprint(old)))
+ history.records.append({"identity":identity,"plan":old,"closed_as":why,"day":today})
+ while history.records.size()>24:history.records.pop_front()
+ row["plan_history_v1"]=history
+
+static func _plan(row: Dictionary,state: Dictionary,p: Dictionary,kind: String,note: String,push: bool,revisions: int=0) -> Dictionary:
+ row["plan_sequence"]=int(row.get("plan_sequence",0))+1
+ return {"identity":"musician-plan:%s:%d" % [str(p.candidate_id),int(row.plan_sequence)],"revision_count":revisions,"kind":kind,"status":"pending","day":int(state.tour_day),"due_day":int(state.tour_day)+4,"fatigue":int(p.get("fatigue",0)),"source_report":fingerprint(state.get("last_rehearsal_outcome",{})),"note":note,"push":push}
+
+static func revise(state: Dictionary,id: String,kind: String,expected: String) -> Dictionary:
+ if expected!=fingerprint(state):return bad("The band changed. Read the current agreement before revising it.")
+ var view: Dictionary=options(state,id,"time")
+ if not view.get("ok",false) or not view.get("can_revise",false) or kind not in ["write","rehearse","rest"]:return bad("That agreement cannot be revised again. Its history is retained.")
+ var after: Dictionary=state.duplicate(true);var data: Dictionary=after[KEY].duplicate(true);var row: Dictionary=data.records[id]
+ var p: Dictionary=member(state,id)
+ _archive(row,int(state.tour_day),"revised")
+ var note: String="We changed the plan together. Let's %s within the next four days." % {"write":"work on the song","rehearse":"rehearse","rest":"leave room to recover"}[kind]
+ row.plan=_plan(row,state,p,kind,note,false,1)
+ row.turns.append({"day":int(state.tour_day),"topic":"time","choice":"agree_evening","opening":str(view.opening),"reply":note,"revised":true})
+ while row.turns.size()>12:row.turns.pop_front()
+ row.last_day=int(state.tour_day);data.records[id]=row;after[KEY]=data
+ return {"ok":true,"state":after,"message":str(p.get("name","Bandmate"))+": "+note}
 
 static func answer(state: Dictionary,id: String,topic: String,choice: String,expected: String) -> Dictionary:
  if expected!=fingerprint(state):return bad("The band changed. Read the current conversation before answering.")
@@ -122,7 +166,9 @@ static func answer(state: Dictionary,id: String,topic: String,choice: String,exp
  row.turns.append({"day":int(state.tour_day),"topic":topic,"choice":choice,"opening":str(view.opening),"reply":reply})
  while row.turns.size()>12:row.turns.pop_front()
  row.last_day=int(state.tour_day)
- if not kind.is_empty():row.plan={"kind":kind,"status":"pending","day":int(state.tour_day),"due_day":int(state.tour_day)+4,"fatigue":int(p.get("fatigue",0)),"source_report":fingerprint(state.get("last_rehearsal_outcome",{})),"note":reply,"push":choice=="push_on"}
+ if not kind.is_empty():
+  _archive(row,int(state.tour_day),"completed")
+  row.plan=_plan(row,state,p,kind,reply,choice=="push_on")
  data.records[id]=row;after[KEY]=data
  return {"ok":true,"state":after,"message":str(p.get("name","Bandmate"))+": "+reply}
 
@@ -150,14 +196,35 @@ static func reconcile(state: Dictionary) -> Dictionary:
   var actual: bool=not report.is_empty() and fingerprint(report)!=plan.source_report and int(report.get("day",0))>int(plan.day) and int(report.get("day",0))<=int(plan.due_day)+1 and attended
   var kept: bool=(actual and ((plan.kind=="write" and report.get("focus")=="create") or (plan.kind=="rehearse" and report.get("focus")=="tighten"))) or (plan.kind=="rest" and not p.is_empty() and int(state.tour_day)>int(plan.day) and int(state.tour_day)<=int(plan.due_day)+1 and int(p.get("fatigue",0))<int(plan.fatigue))
   if kept:
-   var strained: bool=bool(plan.get("push",false)) and int(plan.fatigue)>=50
+   var effort: Dictionary=session_effort(report,id) if actual and plan.kind=="rehearse" else {"kind":"unknown","worn":false}
+   var strained: bool=effort.kind=="push" and bool(effort.worn)
    plan.status="strained" if strained else "kept";plan.evidence=fingerprint(report) if actual else "observed-recovery"
-   plan.note="You followed the plan, but they remember being pushed while exhausted." if strained else "You made time and followed the agreement."
+   plan["effort_evidence"]=str(effort.kind)
+   var direction: Variant=report.get("direction",{})
+   plan.note=Situations.result(id,str(plan.kind),str(plan.status),str(direction.get("focus","")) if direction is Dictionary else "")
+   if actual and plan.kind=="rehearse" and effort.kind=="unknown":plan.note+=" The pace of that session wasn't recorded."
    row.rapport=clampi(int(row.rapport)+(-2 if strained else 2),-20,20)
   elif int(state.tour_day)>int(plan.due_day):
-   plan.status="missed";plan.evidence="deadline-passed";plan.note="The agreed window passed without that evening together.";row.rapport=maxi(-20,int(row.rapport)-2)
+   plan.status="missed";plan.evidence="deadline-passed";plan.note=Situations.result(id,str(plan.kind),"missed","");row.rapport=maxi(-20,int(row.rapport)-2)
   else:continue
   plan.resolved_day=int(state.tour_day)
   row.plan=plan;data.records[id]=row
  after[KEY]=data
  return {"ok":true,"state":after}
+
+static func session_effort(report: Dictionary,id: String) -> Dictionary:
+ var direction: Variant=report.get("direction",{})
+ if not direction is Dictionary or direction.get("effort") not in ["steady","push"]:return {"kind":"unknown","worn":false}
+ var notes: Variant=report.get("direction_notes",[])
+ if not notes is Array:return {"kind":"unknown","worn":false}
+ for note in notes:
+  if note is Dictionary and note.get("candidate_id")==id and typeof(note.get("worn"))==TYPE_BOOL:return {"kind":str(direction.effort),"worn":note.worn}
+ for change in report.get("member_changes",[]):
+  if change is Dictionary and change.get("candidate_id")==id:
+   var changes: Variant=change.get("changes",{})
+   if not changes is Dictionary:return {"kind":"unknown","worn":false}
+   var fatigue: Variant=changes.get("fatigue",{})
+   if not fatigue is Dictionary:return {"kind":"unknown","worn":false}
+   var before: Variant=fatigue.get("before")
+   if whole(before,0,100):return {"kind":str(direction.effort),"worn":int(before)>=55}
+ return {"kind":"unknown","worn":false}

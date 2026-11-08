@@ -107,3 +107,39 @@ support earns remembered contacts used in subsequent promoter dialogue/terms.
 All effects share the original Finance/save transaction and roll back together.
 Legacy bills/contacts remain unknown; no past supports or band friendships are
 manufactured.
+
+
+## Update A: compatible band-life policy (UPDATE24)
+
+`musician_chat_v1` remains version 1. New promises carry `identity` from a per-person
+`plan_sequence`, plus `revision_count` (0 or 1). An explicit free revision archives
+the exact previous promise in optional `plan_history_v1` `{version:1,records:[]}`
+(maximum24); it creates a new four-day agreement once. History entries contain
+`identity`, `plan`, `closed_as` (revised/completed) and `day`; visible history uses
+the original terminal status, including missed or strained. Old promises remain
+readable without these fields. Reading/checking-in never extends a deadline or
+changes rapport. New reconciliation stores `effort_evidence` and uses actual
+attending-member `direction_notes[].worn` and report direction, falling back only
+to recorded pre-session fatigue. Unknown legacy effort is disclosed; resolved
+history is not recalculated. New direction notes add `effort`, `fatigue_before`
+and `worn` to the original report.
+
+`scene_bill_v1` now dispatches its internal `version` 1/2; version1's constructor
+and reconstruction are unchanged. Version2 context adds `local_played` and frozen
+available `favors` (band ID to exact favor ID); `set_limit` is1 for a voluntary short
+opener and3 otherwise. Crowd pitches without established following receive the
+original guest-list tariff; local scene pitches can earn main support from real
+played/support history. Prices/travel/settlement remain the original policies.
+Only new proposals use version2; existing bills and saved receipts remain valid.
+
+`scene_contacts_v1` remains version1. Its optional `favors` dictionary has at most
+one record per authored peer band: `{id,source_commitment_id,used_by}`. IDs bind
+to a recorded help wrap. Empty `used_by` means unspent; nonempty means a different,
+chronologically later settled commitment. Retained source and consumption receipts
+must agree. Helping again while owed never stacks favors. A frozen bill offers
+`support.choice=call_favor` with exact `band_id`/`favor_id`. It is consumed only in
+successful original wrap, never previews/checkpoints/cancellation or failed save.
+Version2 receipt facts add actual `member_fatigue` before/after rows; the nominal
+fatigue field allows -2 for reciprocal help. Own-band care eases only actually worn
+players. Old bill-v1 receipt bounds remain unchanged; all updates use existing
+owner save rollback and once-only journey identity.

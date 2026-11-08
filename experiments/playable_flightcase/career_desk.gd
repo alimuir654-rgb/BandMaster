@@ -55,6 +55,8 @@ const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
 var chat_member_id := ""
 var chat_topic := "direction"
 var chat_expected: Dictionary={}
+var chat_revising := false
+var chat_history_open := false
 var booking_pitch := ""
 var calendar_cursor: int=0
 var calendar_mode: String="week"
@@ -637,12 +639,26 @@ func _band_page(parent: Node, compact: bool) -> void:
 func _open_musician_chat(id: String) -> void:
  if busy or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
  if MusicianChat.member(game.career,id).is_empty():return
+ chat_revising=false;chat_history_open=false
  chat_member_id=id;chat_topic="direction";chat_expected=opening_owner.snapshot().duplicate(true)
  _navigate("musician_chat")
 
 func _chat_topic(topic: String) -> void:
  if busy or page!="musician_chat" or topic not in MusicianChat.TOPICS:return
  chat_topic=topic;_pending_focus="ChatTopic_"+topic;_render()
+
+func _chat_disclose(history: bool) -> void:
+ if busy or page!="musician_chat":return
+ if history:chat_history_open=not chat_history_open
+ else:chat_revising=not chat_revising
+ _render()
+
+func _chat_revise(kind: String,expected: Dictionary,generation: int) -> void:
+ if busy or page!="musician_chat" or generation!=_render_generation or is_instance_valid(_live_dialog) or not is_inside_tree() or not is_visible_in_tree():return
+ busy=true
+ var result: Dictionary=opening_owner.revise_musician(expected,chat_member_id,kind)
+ busy=false;notice=str(result.get("message","Read the current agreement."));chat_revising=false
+ chat_expected=opening_owner.snapshot().duplicate(true);_pending_focus="ChatNextStep";_render()
 
 func _chat_answer(choice: String,expected: Dictionary,generation: int) -> void:
  if busy or page!="musician_chat" or generation!=_render_generation or is_instance_valid(_live_dialog) or not is_inside_tree() or not is_visible_in_tree():return
@@ -1522,7 +1538,7 @@ func _show_song_toggle(id: String) -> void:
  _sync_show_draft()
  var ids: Array=show_draft.get("song_ids",[]).duplicate()
  if ids.has(id):ids.erase(id)
- elif ids.size()<3:ids.append(id)
+ elif ids.size()<ShowFlow.set_limit(game.career):ids.append(id)
  show_draft["song_ids"]=ids
  _pending_focus="ShowSong_"+id.replace(":","_")
  _render()

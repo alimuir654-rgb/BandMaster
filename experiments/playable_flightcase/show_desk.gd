@@ -147,7 +147,7 @@ static func _material_warning(parent: Node, count: int) -> void:
 
 static func _setlist(host, body: Node, state: Dictionary) -> void:
  var selected: Array = host.show_draft.get("song_ids",[])
- _copy(body,"THE SETLIST / %d OF 3" % selected.size(),20)
+ _copy(body,"THE SETLIST / %d OF %d" % [selected.size(),Flow.set_limit(state)],20)
  var catalogue: Variant=state.get("song_catalogue",[])
  if not catalogue is Array:
   _copy(body,"The completed-song catalogue needs attention before choosing a set.")
@@ -174,7 +174,7 @@ static func _setlist(host, body: Node, state: Dictionary) -> void:
   row.add_theme_constant_override("separation",6)
   body.add_child(row)
   var choice: Button = host._button("REMOVE" if index>=0 else "ADD TO SET","ShowSong_"+id.replace(":","_"),host._show_song_toggle.bind(id))
-  choice.disabled = index<0 and selected.size()>=3
+  choice.disabled = index<0 and selected.size()>=Flow.set_limit(state)
   row.add_child(choice)
   if index>=0:
    var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
@@ -293,6 +293,11 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  note.add_theme_color_override("font_color",Color("29241f"))
  if bool(host._fresh_receipt):note.visible_characters=0
  words.add_child(note)
+ var scene_history: Dictionary=host.game.career.get("scene_contacts_v1",{})
+ for saved in scene_history.get("receipts",[]):
+  if saved.get("commitment_id")==data.get("commitment_id") and not str(saved.get("facts",{}).get("note","")).is_empty():
+   var aftermath: Label=_copy(words,str(saved.facts.note),19)
+   aftermath.name="ShowNamedAftermath"
  var cash_delta: int=int(data.get("cash_after",0))-int(data.get("cash_before",0))
  _copy(words,"GROSS FEE £%d · CASH %s£%d" % [int(data.get("settled_fee",0)),"+" if cash_delta>=0 else "-",absi(cash_delta)],16,true)
  DirectionCard.pills(words,data.get("effects"))

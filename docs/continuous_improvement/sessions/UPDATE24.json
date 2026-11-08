@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2063441,
-    "sha256": "834b24a3dfe876ee07a70f15e7365d65587fd415f1a56dd6b4277fc79cd36be9"
+    "bytes": 2066820,
+    "sha256": "e5f6cf3715d004d6cf7b73cd8b42508c5a6339e55e4048a816cbadc9908790ca"
   },
   "dominant_issue": "BM-36",
   "lesson_ids": [

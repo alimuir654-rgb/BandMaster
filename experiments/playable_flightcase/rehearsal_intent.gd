@@ -76,7 +76,7 @@ static func apply(before: Dictionary,after: Dictionary,indices: Array,plan: Dict
   elif answers.get("working_style")=="shared" and plan.focus=="listening":
    quote={"cast_jack":"That left room for everyone, like we agreed.","cast_zoe":"You left space to listen. That mattered.","cast_marcus":"My idea had room to land. Keep that going.","cast_arjun":"You made room for my part. Let's build on it."}.get(id,"That felt like building it together.")
   elif answers.get("working_style")=="direct" and plan.focus=="precision":quote="Clear direction. We got those starts together."
-  notes.append({"candidate_id":id,"name":str(member.get("name","Bandmate")),"text":line,"quote":quote})
+  notes.append({"candidate_id":id,"name":str(member.get("name","Bandmate")),"text":line,"quote":quote,"effort":str(plan.effort),"fatigue_before":fatigue,"worn":worn})
  if not records.is_empty():
   var wrapper_copy: Dictionary=next.get(Connections.KEY,{"version":1,"records":{}}).duplicate(true)
   wrapper_copy["records"]=records;next[Connections.KEY]=wrapper_copy

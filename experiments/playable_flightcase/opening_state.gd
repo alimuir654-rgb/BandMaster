@@ -627,6 +627,9 @@ func _save_draft_owned() -> bool:
  else:game.career=remembered.state.duplicate(true)
  return replaced==OK
 
+func revise_musician(expected: Dictionary,id: String,kind: String) -> Dictionary:
+ return answer_musician(expected,id,"revise",kind)
+
 func answer_musician(expected: Dictionary,id: String,topic: String,choice: String) -> Dictionary:
  if _audition_busy:return {"ok":false,"message":"A band action is already being saved."}
  var before: Dictionary=snapshot()
@@ -636,7 +639,7 @@ func answer_musician(expected: Dictionary,id: String,topic: String,choice: Strin
  if BandWeek.Finance.is_over(game.career) or BandWeek.Radio.locked(game.career):return {"ok":false,"message":"Finish the current visit or resolve the band's accounts before this conversation."}
  if game.career.has(Workbench.KEY) and not Workbench.validate(before).get("ok",false):return {"ok":false,"message":"The saved song direction needs a compatible version first."}
  _audition_busy=true
- var result: Dictionary=MusicianChat.answer(game.career,id,topic,choice,MusicianChat.fingerprint(game.career))
+ var result: Dictionary=MusicianChat.revise(game.career,id,choice,MusicianChat.fingerprint(game.career)) if topic=="revise" else MusicianChat.answer(game.career,id,topic,choice,MusicianChat.fingerprint(game.career))
  if result.get("ok",false):
   game.career=result.state.duplicate(true)
   if not _save_draft_owned():

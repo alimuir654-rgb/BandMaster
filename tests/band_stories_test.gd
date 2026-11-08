@@ -87,20 +87,20 @@ func run() -> void:
  var strained: Dictionary=pushed.state.duplicate(true);strained.tour_day=int(strained.tour_day)+1
  strained.last_rehearsal_outcome={"focus":"tighten","day":strained.tour_day,"member_changes":[{"candidate_id":"cast_jack"}]}
  var strained_result: Dictionary=Chat.reconcile(strained)
- check(strained_result.ok and Chat.record(strained_result.state,"cast_jack").plan.status=="strained","isolated tired-push outcome oracle differs from ordinary kept plan")
+ check(strained_result.ok and Chat.record(strained_result.state,"cast_jack").plan.status=="kept" and Chat.record(strained_result.state,"cast_jack").plan.effort_evidence=="unknown","legacy pace is unknown rather than inferred from earlier promise")
  var absent: Dictionary=now.game.career.duplicate(true);absent.tour_day=int(absent.tour_day)+1;absent.last_rehearsal_outcome={"focus":"tighten","day":absent.tour_day,"member_changes":[{"candidate_id":"cast_zoe"}]}
  check(Chat.record(Chat.reconcile(absent).state,"cast_jack").plan.status=="pending","another musician's rehearsal cannot fulfil Jack's promise")
  var compatible: Dictionary=now.game.career.duplicate(true);compatible[Chat.KEY].extra={"future_hint":"retained"}
  check(Chat.reconcile(compatible).state[Chat.KEY].extra==compatible[Chat.KEY].extra,"unknown compatible chat fields retained")
  var counter: Dictionary=Circuit.proposal(initial.game.career,"local","crowd","guarantee")
- check(counter.ok and counter.counteroffer and counter.bill.slot=="opening" and counter.bill.offer_id=="standard","new band receives genuine opening-slot counteroffer")
+ check(counter.ok and counter.counteroffer and counter.bill.slot=="opening" and counter.bill.offer_id=="guestlist","new band receives genuine opening-slot counteroffer")
  var established: Dictionary=initial.game.career.duplicate(true);established.reputation=45;established.fans=90;established.gig_history=[{"success":true},{"success":true},{"success":true},{"success":true},{"success":true}]
  var better: Dictionary=Circuit.proposal(established,"local","crowd","guarantee")
  check(better.ok and not better.counteroffer and better.bill.slot=="headline" and better.bill.offer_id=="guarantee","isolated status oracle changes terms and bill position")
  check(Circuit.above(counter.bill).size()==2 and Circuit.above(better.bill).is_empty(),"advice only comes from acts higher on actual bill")
  var changed_bill: Dictionary=counter.bill.duplicate(true);changed_bill.slot="headline"
  check(not Circuit.bill_valid(changed_bill),"forged bill position refused")
- changed_bill=counter.bill.duplicate(true);changed_bill.version=2
+ changed_bill=counter.bill.duplicate(true);changed_bill.version=3
  check(not Circuit.bill_valid(changed_bill),"future bill held")
  if not check(fresh(),"fresh canonical negotiation and gig"):done();return
  var state: Dictionary=owner.game.career.duplicate(true)

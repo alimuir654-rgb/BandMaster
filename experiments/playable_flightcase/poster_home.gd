@@ -4,6 +4,7 @@ const P=preload("res://experiments/playable_flightcase/poster_components.gd")
 const DirectionCard=preload("res://experiments/playable_flightcase/direction_card.gd")
 const Launcher=preload("res://experiments/playable_flightcase/career_launcher.gd")
 const Recordings=preload("res://experiments/playable_flightcase/recording_rules.gd")
+const Chat=preload("res://experiments/playable_flightcase/musician_chat.gd")
 const Cover=preload("res://experiments/playable_flightcase/demo_cover.gd")
 static func render(host,parent: Node,compact: bool) -> void:
  var state: Dictionary=host.game.career
@@ -51,6 +52,18 @@ static func render(host,parent: Node,compact: bool) -> void:
   if not info.is_empty():date="%s %d %s"%[str(info.weekday_name).to_upper(),int(info.date),str(info.month_name).to_upper()]
   var place: Variant=booking.get("venue_snapshot",{});var venue: String=str(place.get("venue",booking.get("venue","SAVED SHOW"))) if place is Dictionary else str(booking.get("venue","SAVED SHOW"))
   var show: Label=P.label(date+" / "+venue.to_upper(),24,P.PAPER);show.name="CareerSavedShowAgreement";ticket.add_child(show)
+ # Rendering only reads durable promises; it never resolves or extends them.
+ var promise_id: String="";var promise: Dictionary={}
+ if Chat.validate(state).ok:
+  for id in state.get(Chat.KEY,{}).get("records",{}):
+   var candidate: Dictionary=Chat.record(state,id).get("plan",{})
+   if candidate.get("status")=="pending" and (promise.is_empty() or int(candidate.due_day)<int(promise.due_day)) and not Chat.member(state,id).is_empty():promise_id=id;promise=candidate
+ if not promise.is_empty():
+  var reminder: VBoxContainer=P.block(actions,P.PAPER,12)
+  var name: String=str(Chat.member(state,promise_id).get("name","Bandmate"))
+  reminder.add_child(P.label(name.to_upper()+" · THROUGH DAY %d"%int(promise.due_day),22))
+  reminder.add_child(P.label({"write":"You agreed to make time for a song.","rehearse":"You agreed an evening to rehearse.","rest":"You agreed to leave room to recover."}[promise.kind],18))
+  reminder.add_child(host._button("TALK TO "+name.to_upper()+" ›","PosterPromiseAction",host._open_musician_chat.bind(promise_id)))
  var week: Dictionary=host.BandWeek.offer(state);var needs_week: bool=week.get("ok",false) and week.get("changed",false)
  if needs_week:
   var editable:=false

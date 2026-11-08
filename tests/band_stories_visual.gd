@@ -86,7 +86,7 @@ func run() -> void:
  print("ASK_TRACE "+JSON.stringify({"pitch":scene._career_view.booking_pitch,"draft":scene._career_view.booking_draft,"notice":scene._career_view.notice,"generation":scene._career_view._render_generation}))
  check(owner.snapshot()==before,"negotiation preview is free")
  var career=scene._career_view
- if not check(career.booking_draft.offer_id=="standard" and career.booking_draft.get(Circuit.BILL,{}).get("slot")=="opening","new band gets opening-slot counteroffer"):await capture("promoter-missing");finish();return
+ if not check(career.booking_draft.offer_id=="guestlist" and career.booking_draft.get(Circuit.BILL,{}).get("slot")=="opening","new band gets opening-slot counteroffer"):await capture("promoter-missing");finish();return
  await reveal(scene.find_child("BookingPromoterReply",true,false));await capture("promoter-counteroffer")
  await tap("BookingCommitAction");await tap("BookingKeepEditingAction")
  check(owner.snapshot()==before,"declining confirmation is free")
