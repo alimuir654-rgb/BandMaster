@@ -81,6 +81,7 @@ func run() -> void:
  var legacy: Dictionary=base.duplicate(true);legacy.erase(Connections.KEY)
  owner.game.career=legacy.duplicate(true)
  check(owner.game.rehearse_attending(attendance.attendee_indices).ok and not owner.game.career.has(Connections.KEY),"legacy absent has no invented audition relationship")
+ await planned_evening_cases(base)
  # New no-question requests still have an impact; old receipts are not invented.
  owner=Owner.new()
  check(owner.begin_new() and owner.set_genre("Indie rock") and owner.to_recruit(),"fresh minimal musical audition")
@@ -94,6 +95,49 @@ func run() -> void:
  minimal[Encounter.KEY].last_result.erase(Connections.TALK);minimal[Encounter.KEY].heard_by_candidate.cast_jack.erase(Connections.TALK)
  check(Connections.project(minimal,numeric_career).state==numeric_career,"legacy absent conversation has no invented interaction memory")
  finish_character()
+
+func advance_day() -> bool:
+ var prior: Dictionary=owner.game.career.duplicate(true)
+ var view: Dictionary=Situation.inspect_rehearsal(prior)
+ var jam: Dictionary=owner.game.informal_practice(view.attendee_indices)
+ if not check(jam.ok,"canonical day before planned rehearsal"):return false
+ var tracked: Dictionary=Situation.after_action(prior,owner.game.career)
+ if not check(tracked.ok,"canonical plan-day situation chain"):return false
+ var accounted: Dictionary=Finance.apply(prior,Live.after_practice(prior,tracked.state),"practice:jam")
+ if not check(accounted.ok,"canonical plan-day finance chain"):return false
+ owner.game.career=accounted.state
+ return true
+
+func planned_evening_cases(base: Dictionary) -> void:
+ owner.game.career=base.duplicate(true)
+ for _day in range(7):
+  if Situation.inspect_rehearsal(owner.game.career).get("conflict",false):break
+  if not advance_day():return
+ var offered: Dictionary=Situation.reschedule(owner.game.career,owner.game.career.duplicate(true))
+ if not check(offered.ok,"actual work clash creates real agreed evening"):return
+ owner.game.career=offered.state
+ for _day in range(15):
+  if int(owner.game.career.tour_day)==int(offered.plan.day):break
+  if not advance_day():return
+ var due: Dictionary=owner.game.career.duplicate(true)
+ var view: Dictionary=Situation.inspect_rehearsal(due)
+ if not check(view.plan_status=="due" and not view.conflict,"actual due all-available evening"):return
+ var result: Dictionary=owner.game.rehearse_attending(view.attendee_indices,{"focus":"listening","effort":"steady"})
+ if not check(result.ok,"original practice fulfils actual plan"):return
+ check(Intent.kept_evening(owner.game.career,result.outcome,"cast_jack"),"actual attendance and original participant receives kept-evening evidence")
+ check(owner.game.career[Connections.KEY].records.cast_jack.rapport==mini(20,int(due[Connections.KEY].records.cast_jack.rapport)+2),"shared direction plus real kept evening applied once")
+ check(result.outcome.reason.contains("agreed this evening and kept it"),"saved note states only real fulfilled promise")
+ var nonparticipant: Dictionary=owner.game.career.duplicate(true)
+ for plan in nonparticipant[Situation.KEY].plans:
+  if plan.id==result.outcome.attendance.plan_id:plan.participant_ids.erase("cast_jack")
+ check(not Intent.kept_evening(nonparticipant,result.outcome,"cast_jack"),"attending guest outside actual plan cannot earn kept-evening credit")
+ owner.game.career=due.duplicate(true);owner.game.career.members[0].life_status="inactive"
+ view=Situation.inspect_rehearsal(owner.game.career)
+ result=owner.game.rehearse_attending(view.attendee_indices,{"focus":"listening","effort":"steady"})
+ if not check(result.ok,"remaining actual musicians can practise after roster change"):return
+ check(str(result.outcome.attendance.plan_id).is_empty(),"due but incomplete original participants is not fulfilled")
+ check(not Intent.kept_evening(owner.game.career,result.outcome,"cast_zoe"),"no false date-only credit for an actual attendee")
+ check(owner.game.career[Connections.KEY].records.cast_jack==due[Connections.KEY].records.cast_jack,"absent musician gets no invented practice, rapport or penalty")
 
 func finish_character() -> void:
  print("CHARACTER_CONSEQUENCE_TEST "+JSON.stringify({"checks":checks,"failures":failures,"physical_device":false,"listening":false}))

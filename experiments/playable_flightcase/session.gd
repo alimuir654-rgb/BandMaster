@@ -254,10 +254,9 @@ func rehearse_attending(indices: Array,direction: Dictionary={}) -> Dictionary:
  var intent=preload("res://experiments/playable_flightcase/rehearsal_intent.gd")
  if not intent.valid(direction) or not intent.Connections.valid(career):return {"ok":false,"message":"Review the rehearsal direction and saved musician connections."}
  var before: Dictionary=career.duplicate(true)
- var view: Dictionary=Situation.inspect_rehearsal(before)
  var original: Dictionary=_rehearse_attending_original(indices)
  if not original.get("ok",false):return original
- var directed: Dictionary=intent.apply(before,career,indices,direction,view.get("plan_status")=="due")
+ var directed: Dictionary=intent.apply(before,career,indices,direction)
  if not directed.ok:career=before;return directed
  career=directed.state.duplicate(true)
  original["state"]=career.duplicate(true);original["outcome"]=directed.outcome;original["message"]=str(original.get("message",""))+" "+str(directed.message)

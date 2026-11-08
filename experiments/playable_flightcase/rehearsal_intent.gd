@@ -5,7 +5,16 @@ const FOCUSES=["precision","listening"]
 const EFFORTS=["steady","push"]
 static func valid(plan: Dictionary) -> bool:
  return plan.size()==2 and plan.get("focus") in FOCUSES and plan.get("effort") in EFFORTS
-static func apply(before: Dictionary,after: Dictionary,indices: Array,plan: Dictionary,scheduled: bool=false) -> Dictionary:
+static func kept_evening(state: Dictionary,report: Dictionary,id: String) -> bool:
+ var attendance: Dictionary=report.get("attendance",{})
+ if attendance.get("id")!=report.get("action_id") or attendance.get("day")!=int(state.get("tour_day",1))-1:return false
+ var plan_id: String=str(attendance.get("plan_id",""))
+ if plan_id.is_empty() or id.is_empty() or not attendance.get("attendee_ids",[]).has(id):return false
+ for plan in state.get("situation_core_v1",{}).get("plans",[]):
+  if plan.get("id")==plan_id and plan.get("status")=="fulfilled" and plan.get("day")==attendance.day and plan.get("participant_ids",[]).has(id):return true
+ return false
+
+static func apply(before: Dictionary,after: Dictionary,indices: Array,plan: Dictionary) -> Dictionary:
  if not valid(plan) or not Connections.valid(before):return {"ok":false,"message":"Review the saved rehearsal direction and musician connections."}
  if int(after.get("action_count",0))!=int(before.get("action_count",0))+1:return {"ok":false,"message":"The rehearsal direction must resolve with one original session."}
  var next: Dictionary=after.duplicate(true)
@@ -52,7 +61,7 @@ static func apply(before: Dictionary,after: Dictionary,indices: Array,plan: Dict
     line+=" You said we'd build it together; I needed you to hear that I was struggling."
    if record.request=="own_part" and plan.focus=="listening":mood+=1
    if record.request=="space_for_voice" and plan.focus=="precision" and not worn:readiness+=1
-   if answers.get("commitment")=="dates" and scheduled:
+   if answers.get("commitment")=="dates" and kept_evening(next,report,id):
     rapport+=1;loyalty+=1;line+=" We agreed this evening and kept it."
    if answers.get("commitment")=="regular" and int(record.practices)>0:
     rapport+=1;loyalty+=1;line+=" We're making the rehearsal habit real."
