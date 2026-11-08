@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "session": "CHAR01",
+  "status": "source_verified_v20_unsigned_awaiting_original_signature",
+  "branch": "feature/recorded-song-main-app",
+  "tested_sha": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
+  "game_implementation_commit": "aff97f78",
+  "owner_approved": false,
+  "summary": "Musician-and-instrument-led poster auditions with two optional questions, available original/adjusted samples, saved working expectations and context-dependent practice focus/effort. Combined V20 also carries the prior bank expansion and whole-game poster work.",
+  "changes": [
+    "Approved portrait leads each supported audition. Actual available audio precedes progressive questions; questions and local practice choices refresh in place without scroll resets. Written fallback and unsupported genre limits are explicit.",
+    "Working-style and commitment answers, plus the actual musical request, persist through the original recruitment/formation save. Rapport is player-to-musician, separate from the existing musician-pair relationship model.",
+    "Two practice choices: Starts & Stops / Listen & Respond, and Steady Pace / One More Take. Actual fatigue, room tension, rapport, traits and actual attendance change the outcome; the same effort can help a fresh group or strain a worn one.",
+    "Only genuinely fulfilled plans and actual participating musicians receive agreed-evening credit. Saved member reactions explain what happened, with full detailed notes.",
+    "Reading, playback, local selection and navigation remain free. Original invitation cost, rehearsal fee/day, atomic save/rollback, once-only finance and legacy behavior remain protected."
+  ],
+  "validation": {
+    "source_checks": 1217,
+    "compiled_apk_model_checks": 466,
+    "compiled_apk_native_checks": 258,
+    "all_passed": true,
+    "count_note": "Repeated fixtures/assertions across runs are included; not independent human tests.",
+    "runs": [
+      {
+        "run": "plan-model",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "e2f59c14514d759c67a145c90b7e1ad9019d7fb6df04119b2174df9cb1e5372e"
+      },
+      {
+        "run": "legacy-sealed",
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "0819f42d483b051c343ee9182c13030c99dce407d036894e373fdcdd7c058d6e"
+      },
+      {
+        "run": "bank-sealed",
+        "summary": {
+          "checks": 262,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "11331847ba278dbb7f0bc45b7bb8cd29e28793acf7d97d36476b34f7debf006b"
+      },
+      {
+        "run": "song-gig",
+        "summary": {
+          "checks": 68,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "8891120aba71cbf8525fe5f46378014330ca4ee1b2a96a62a90d75da176ac247"
+      },
+      {
+        "run": "verified-phone",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "7e96f659e3c310c543f57af2bdb0c00252cd808055918a9b2af4cb71176b3ae8"
+      },
+      {
+        "run": "verified-tall",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "7281586717a8b786e8cc9ed8e87edce92d83ccc4eccdf54dd896ef5d02f5f58a"
+      },
+      {
+        "run": "verified-short",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "a82bce038c4f9b407402ca7c68aa1edccc4fac43df5804e257b69b043e8fa887"
+      },
+      {
+        "run": "verified-wide",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "4aba3f6c1dbde581891d5f5c9d6651ae97631230a5d56583660f448a79407a04"
+      },
+      {
+        "run": "normal",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 138,
+          "failures": [],
+          "listening": false,
+          "normal_motion": true,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "f85e545ba770a32d9a7baea13707afcef635189bf9da138a773c78f11a1ad43c"
+      },
+      {
+        "run": "edges",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 24,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "aad070615fc7d1e69f28677da3c9dfd55dcb093af9f8d844b337a59eab4884b7"
+      },
+      {
+        "run": "guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "4982325b6a2771400860a4f7ed1b9c15fe0de889f38b3d971bc4facd76245bb6"
+      },
+      {
+        "run": "notes-phone",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 12,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "69cf6d637e0e9b2e4636c75a126efd9951fa0741772538399f31f6ac4dc4641d"
+      },
+      {
+        "run": "notes-tall",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 12,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "feb0d4f6192e9bc2510f73b73d372d9261ffed2dd0dfe4198086044e40e0d926"
+      },
+      {
+        "run": "notes-short",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 12,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "04ad2354f94d1800fe80ebe431b240b2672928dca56270b088af0cf096d240f7"
+      },
+      {
+        "run": "notes-wide",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 12,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "fdceaddcc13db85862921e01205ff0af44936f21f3e8c4e1d71519b7c1678881"
+      },
+      {
+        "run": "compiled-new",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "e2f59c14514d759c67a145c90b7e1ad9019d7fb6df04119b2174df9cb1e5372e"
+      },
+      {
+        "run": "compiled-legacy",
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "0819f42d483b051c343ee9182c13030c99dce407d036894e373fdcdd7c058d6e"
+      },
+      {
+        "run": "compiled-bank",
+        "summary": {
+          "checks": 262,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "11331847ba278dbb7f0bc45b7bb8cd29e28793acf7d97d36476b34f7debf006b"
+      },
+      {
+        "run": "compiled-song",
+        "summary": {
+          "checks": 68,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "8891120aba71cbf8525fe5f46378014330ca4ee1b2a96a62a90d75da176ac247"
+      },
+      {
+        "run": "compiled-native-phone",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "7e96f659e3c310c543f57af2bdb0c00252cd808055918a9b2af4cb71176b3ae8"
+      },
+      {
+        "run": "compiled-native-short",
+        "summary": {
+          "actual_entry": "opening.tscn",
+          "checks": 129,
+          "failures": [],
+          "listening": false,
+          "normal_motion": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "a82bce038c4f9b407402ca7c68aa1edccc4fac43df5804e257b69b043e8fa887"
+      }
+    ],
+    "prior_unchanged_whole_game_proof": "docs/continuous_improvement/POSTER01_RESULTS.json"
+  },
+  "source_manifest": {
+    "packaged_source_commit": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
+    "baseline_commit": "b0a7474a9df9e18a841aada28d030fccc5ae148c",
+    "changed_source_files": [
+      {
+        "path": "STATE_SCHEMA.md",
+        "sha256": "287e66abe86882943e296f7f8b28614ff44576a1fb7545f849ec2b89e659c7c7"
+      },
+      {
+        "path": "experiments/playable_flightcase/audition_desk.gd",
+        "sha256": "9783b4b16ef1ba74c233490946d7392223ddd6bc8a01aa793359bf15e99d1ade"
+      },
+      {
+        "path": "experiments/playable_flightcase/audition_encounter.gd",
+        "sha256": "17e315b2cfa85f713c44bdc9535f1d8eaa4b2fabe04d7dfbb6d8d2b13442eee8"
+      },
+      {
+        "path": "experiments/playable_flightcase/character_connections.gd",
+        "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_state.gd",
+        "sha256": "98b4ea8649685fcce08bb6a63162f6511cd0eb66a25fd9d165c059af0f7f6b71"
+      },
+      {
+        "path": "experiments/playable_flightcase/rehearsal_intent.gd",
+        "sha256": "e34947e1015990b8da418cff5efe4209a4f4808615dde2464015cf2660ebe2b2"
+      },
+      {
+        "path": "experiments/playable_flightcase/rehearsal_recap.gd",
+        "sha256": "3d8e2ce4cb237dbf0c5d3744f42158e74a1e8f5e0fe6071e62d0db7462825bac"
+      },
+      {
+        "path": "experiments/playable_flightcase/session.gd",
+        "sha256": "5487903c54d1c61a2d9d4e77ff91fef4257ef9ffb5953365d4ccc701eb2239d1"
+      },
+      {
+        "path": "experiments/playable_flightcase/ui.gd",
+        "sha256": "2a7f9c81e750f9063ae28b8134b11e912e0b3f1f99509529c9b8dba0a1eef3b1"
+      },
+      {
+        "path": "tests/character_consequence_notes.gd",
+        "sha256": "c35edee6b6dd9590047a738e82e8dce9544d833989f9a6a1e6efbb9d0aebf243"
+      },
+      {
+        "path": "tests/character_consequence_song.gd",
+        "sha256": "3083c60db75d6b2edd0069b5ff4785aaef1681df2e98dd79c2dc04249aefdf3a"
+      },
+      {
+        "path": "tests/character_consequence_test.gd",
+        "sha256": "dd148dd8c5bdfb1e48045fcb7f5d2ec35cf6e1cdcad400e65688a86ac3e372c5"
+      },
+      {
+        "path": "tests/character_consequence_visual.gd",
+        "sha256": "b4ccb29cccc454b39c16c90c2df49e0565fed5b713d0a2d9e3e173508b85611e"
+      },
+      {
+        "path": "tools/build_recorded_owner.py",
+        "sha256": "89e5e1ce5c1a92fd55cad6c00bf6067e44aacc7d23964af320e293957a2974c4"
+      }
+    ],
+    "packaged_closure_files": 954,
+    "source_manifest_sha256": "bbb56c496d0b38025aff61f0339a357333c5888cb8997e65e962e932c22f0c6e",
+    "protected_recorded_WAV_hashes_unchanged": 80,
+    "original_art_audio_cast_passive_meters_not_edited": true
+  },
+  "package_audit": {
+    "sha256": "049223ad4600422821ff76e3870aba3b4decf075957fb5085f652e0bcee1ea98",
+    "bytes": 302120498,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 20,
+    "version_name": "0.150.0-playtest-band-session",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "signed": false,
+    "installable_update": false,
+    "alignment_16kb": true,
+    "zip_crc": true,
+    "arm64_only": true,
+    "tests_excluded": true,
+    "new_scripts_compiled": true,
+    "source_manifest_byte_exact": true,
+    "new_dangerous_permissions": false,
+    "original_key_files_unchanged": true,
+    "automatic_unused_debug_key_created_then_removed": true,
+    "replacement_key_used": false,
+    "physical_device_tested": false,
+    "source_commit": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549"
+  },
+  "signing_request": {
+    "request_id": "6b4c52e59e21b6eff071852c08e31ba4668a7b42e9718c91015d96fd049b6c30",
+    "bytes": 8117,
+    "sha256": "14b67670ae969f9a3f31032b4f52584bc7637267ac5bb1a85f7df7704af1d0aa",
+    "signed_data_sha256": "e4c81b7d4400e951a27b202e228db07e749cac9b20c552bf930f8230068496e1",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "unsigned_apk_sha256": "049223ad4600422821ff76e3870aba3b4decf075957fb5085f652e0bcee1ea98",
+    "signing_data_unchanged_when_audit_disclosure_added": true,
+    "strict_original_certificate_payload_request_validation": true,
+    "awaiting_original_holder_signature": true,
+    "dropbox_path": "/BandMaster/BandMaster-V20-APK-v2-signing-request.json",
+    "dropbox_file_id": "id:6rRaLzqs6O4AAAAAAAAAMw",
+    "uploaded_size": 8117,
+    "readback_all_json_fields_identical": true,
+    "readback_exact_text_bytes_claimed": false
+  },
+  "images_opened_by_root": [
+    "verified-phone-audition-guitar-first.png",
+    "verified-phone-audition-guitar-response.png",
+    "verified-phone-practice-selected.png",
+    "verified-short-practice-saved.png",
+    "notes-phone-saved-promise-details.png",
+    "notes-phone-saved-promise-details-scrolled.png",
+    "compiled-native-phone-audition-guitar-first.png",
+    "compiled-native-phone-audition-guitar-response.png",
+    "compiled-native-phone-practice-selected.png",
+    "compiled-native-phone-practice-full-notes.png",
+    "compiled-native-short-practice-saved.png"
+  ],
+  "independent_review": "Existing read-only review_current_workbench inspected original portraits/audio manifest hashes and matching actual phone/short/tall/wide important states. Identified false due-date promise credit; fixed to actual fulfilled plan/attendee evidence, re-reviewed and tested. Final read-only compiled-artifact review cleared: package/source/request/certificate bindings match; four compiled original PNGs preserve the reviewed layout; 466 compiled model and 258 compiled native checks have no error/leak markers. No binding or visible hold; no physical Android/listening claim.",
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED new player",
+      "finding": "Meet the actual musician/instrument first; audio and short questions are explicit. No best-choice reward key before commitment."
+    },
+    {
+      "lens": "SIMULATED returning player",
+      "finding": "Original recruitment and absent legacy metadata preserved; current context survives save/reload and does not farm on reopening."
+    },
+    {
+      "lens": "SIMULATED phone/accessibility",
+      "finding": "Four native sizes, normal/reduced motion, physical pointer targets, keyboard, scroll, failed save and retry checked; full saved notes reachable."
+    },
+    {
+      "lens": "SIMULATED band storyteller",
+      "finding": "Actual audition expectations reappear before rehearsal and in saved member aftermath; effort depends on people and condition rather than one fixed best reward."
+    },
+    {
+      "lens": "SIMULATED maintainer",
+      "finding": "Versioned optional extensions, unchanged authored pins and original finance/settlement chain; package/source/request/certificate identities explicitly bound."
+    }
+  ],
+  "material_limits": [
+    "Desktop Godot 4.7.2 native tests and extracted compiled-APK code replay; no physical Android test or listening test. Dummy audio does not establish sound quality.",
+    "Authored audition profiles cover Jack, Arjun, Zoe and Marcus (4 of 18 cast); recorded auditions are Indie rock only. Arjun has one playable take and a written alternate. Other unsupported samples are explicitly written-only.",
+    "Existing approved character previews are small, contained images. No new full-resolution portraits, instrument performances or recordings were generated.",
+    "Short recap quote columns still ellipsize; the actual complete saved character response and consequences are readable in scrolling Full Notes.",
+    "This consequence extension covers the supported audition and paid-rehearsal flow. It does not assert that every scenario in the game has newly authored consequences.",
+    "Legacy absent audition context remains absent; unsupported future/corrupt versioned context holds. Existing saves are not destructively migrated.",
+    "V20 is unsigned and is not an installable update yet. Original-key signature and official final checks remain required. Original application ID and save directory retained.",
+    "Godot automatically created an unused debug keystore in the isolated export profile. It was detected and removed, never used to sign this APK, and the two pre-existing key files were unchanged. This incident is disclosed rather than described as no key generation.",
+    "Existing audio retains its recorded AI-generated Suno provenance. Human performances and commercial interactive-game shipping clearance are not claimed.",
+    "Prior POSTER01 whole-game/menu/radio/gig visual coverage is reused for unchanged screens; this turn reruns the affected audition/practice flows and a real song-to-gig integration, not every generated scenario."
+  ],
+  "remaining_visual_notes": [
+    "Existing protected summary columns ellipsize quotes; Full Notes preserves the complete saved response."
+  ],
+  "visual_verdict": "internal_pass",
+  "next_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload."
+}

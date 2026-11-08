@@ -17,7 +17,7 @@
     "revision_note": "Actual private baseline clone and retained failed/final PNG evidence total1.3GiB;21GiB remains free. Revised2GiB ceiling for closeout; no additional dependencies or APKs."
   },
   "id": "CHAR01",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "b0a7474a9df9e18a841aada28d030fccc5ae148c",
   "dominant_issue": "BM-25",
@@ -39,8 +39,8 @@
     "BM-40"
   ],
   "issue_log_review": {
-    "bytes": 2024102,
-    "sha256": "6145bfd9728f468de825bea8c3f0587bdd8ca7b4fc449a3c5145891687e19454"
+    "bytes": 2027800,
+    "sha256": "6ced1a5ebe06efbd8c452478ea73d0628489cd69a2ac9315869e2b3d67d67e40"
   },
   "owner_request": "Proceed with cohesive gameplay chunk: slicker musician-and-instrument auditions, a few questions/two samples, meaningful character/scenario consequences and a couple of practice levers. Preserve poster direction; batch source for one later combined review build.",
   "controlled_comparison": "Actual opening.tscn at390x844/720x1280/1280x720/1600x900. Same canonical four profiles/band/practice state. Baseline/candidate audition original/adjusted/questions/response, practice local focus/effort and saved aftermath. Explicit genre/Arjun audio limits.",
@@ -69,11 +69,11 @@
   ],
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "owner": "root",
-    "status": "active"
+    "owner": null,
+    "status": "released"
   },
   "started_at": "2026-11-08T17:50:12.965209+00:00",
-  "independent_review": "review_current_workbench: pre-design source/portraits/audio manifests reviewed; exact old token/phase/content pins and player-vs-pair relationship distinction pinned.",
+  "independent_review": "Existing read-only review_current_workbench inspected original portraits/audio manifest hashes and matching actual phone/short/tall/wide important states. Identified false due-date promise credit; fixed to actual fulfilled plan/attendee evidence, re-reviewed and tested. Final read-only compiled-artifact review cleared: package/source/request/certificate bindings match; four compiled original PNGs preserve the reviewed layout; 466 compiled model and 258 compiled native checks have no error/leak markers. No binding or visible hold; no physical Android/listening claim.",
   "review_task": {
     "queue": "S80 existing complete player-task review",
     "reviewer": "review_current_workbench",
@@ -89,6 +89,19 @@
     "save_directory": "BandMasterOwnerPlaytestS40",
     "actions": "Prepare isolated source closure, export UNSIGNED APK, audit package and compiled current models, prepare exact APKv2 detached request using original public certificate. Save only small plain-text signing request in existing Dropbox/BandMaster; retain unsigned APK locally until valid original-holder signature.",
     "signature_stage": "No signature requested via chat question; return concrete request path for established original-holder workflow. No assembly without returned exact valid signature and official apksigner checks.",
-    "resources": "20GiB free / ~17GiB available memory last inspected; source/import/APK/unpack+QA provision within revised2GiB aggregate new budget; no downloads/dependencies expected."
+    "resources": "20GiB free / ~17GiB available memory last inspected; source/import/APK/unpack+QA provision within revised2GiB aggregate new budget; no downloads/dependencies expected.",
+    "debug_generation_finding": "/workspace/character-consequences/debug-key-generation-finding.json; generated unused file removed, original2 key files unchanged; APK never signed; no further editor/import/export."
+  },
+  "closed_at": "2026-11-08T18:48:54.303295+00:00",
+  "closeout": {
+    "tested_sha": "0c8ee2e84a8ab9bd9ffbae395dc2f54def717549",
+    "evidence": [
+      "docs/continuous_improvement/CHAR01_RESULTS.json",
+      "/workspace/character-consequences/verified-runs.json",
+      "/workspace/character-consequences/v20-request-validation.json"
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "The original build environment validates and signs /BandMaster/BandMaster-V20-APK-v2-signing-request.json and returns its detached signature. Assemble only after exact request/certificate/signature validation, then verify official apksigner, app ID, version and unchanged payload.",
+    "new_issue_review": "All failed attempts retained in append-only history. Question/practice refresh, optional wrapper preservation and false due-date promise credit fixed. Export socket limitation and auto-created unused debug key disclosed; generated file removed, original keys unchanged. No remaining reviewed source/UI hold; original signature and final official package checks still pending."
   }
 }
