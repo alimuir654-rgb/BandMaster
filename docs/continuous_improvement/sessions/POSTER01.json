@@ -26,8 +26,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1995409,
-    "sha256": "45f36370dc24ce1ade6b0089771360d7d5d76159e80e71fe5a7896754d0cb224"
+    "bytes": 2001204,
+    "sha256": "40e0416b0c1c6cc2b8b71ead1f84602df92c799d47096097c27c6eae3a4fcb87"
   },
   "target": {
     "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
@@ -54,7 +54,8 @@
     "tests/poster_feedback_visual.gd",
     "tools/build_recorded_owner.py",
     "docs/continuous_improvement/**",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/direction_card.gd"
   ],
   "validation_commands": [
     "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/POSTER01.json",
@@ -75,5 +76,6 @@
   },
   "started_at": "2026-11-08T16:28:27.996748+00:00",
   "independent_review": "review_current_workbench: approvedmockup+originalradio/stageartopened; actualactivejourney/booking/legacyshow/radioroutes identified; sourceframes/hardwaregaps, noengineexecutionclaim.",
-  "policy_override": "Latestdirectownerrequestsupersedesoldprotectionofinteractivehardwareappearance; preservepassivemeterbytes/inertsemantics andallmodelvalues."
+  "policy_override": "Latestdirectownerrequestsupersedesoldprotectionofinteractivehardwareappearance; preservepassivemeterbytes/inertsemantics andallmodelvalues.",
+  "scope_amendment": "Native saved gig/radio receipts expose legacy rounded green pills. Restyle only their small native panel/font to calm cream paper; values, goals, source art and passive meters unchanged."
 }
