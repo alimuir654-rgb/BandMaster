@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO05",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Owner sees oldlabels/title/pause and nosounddifference; ownerconfirmedinstalledV17. ProvidecorrectV18updateinstructions and finishboundedposterlabels/settings/careermodals; retainV18tone/performance.",
+  "baseline_sha": "523d014d5f4bd4fb2382c2652d9fa139a24a8309",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1974265,
+    "sha256": "99ee1570d1d7e9075ea5cffbeb3f8f8f42189b54537cde4bee56ea2b599a3f7a"
+  },
+  "target": {
+    "locator": "/workspace/main-audio-source-return/v18-390x844-pause.png",
+    "original_sha256": "ae765e24125ed7e30773e5f5fd7c684c29f22bc191de5b4c1ee0189868d5cff2",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Samegenuineisolatedformation ownerfixture at390x844/720x1280/1280x720/1600x900; comparetitle/settings/career andwritingpause, smallpaperlabels. Do notredesignV18titlehero, largeframes, hardware ormeters.",
+  "hypothesis": "Useposter presentation inplaytest-localmodalwrapper andSettings; replaceonlysmallbrasscaptiondraw withprintedstock; showactualbuildinSettings forreliablephonefeedback. Noaudioimplementationchange warrantedfromV17feedback.",
+  "stop_condition": "No original/privateaudio changes, keys, signedAPKreplacement, appID/save/schemachanges, main/sharedbranchchanges. Failuresloggedbeforecorrection. Noaudiblelisteningclaim.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/career_components.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/settings_sheet.gd",
+    "experiments/playable_flightcase/mixing_control.gd",
+    "tests/poster_feedback_visual.gd",
+    "tools/build_recorded_owner.py",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/MAIN_AUDIO05.json",
+    "Nativeexact4.7.2 model94checks plus targetedSettings/Resume/Escape/focus/once-onlycallbacks/buildidentity; fourGLviewportsoriginalPNGinspection",
+    "ExportunsignedV19withexistingentry/save/appID; inspectactualcompiledAPKresources; officialaudit before freshdetachedsignature request. Do notgeneratekey/signAPK."
+  ],
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "owner": "root"
+  },
+  "independent_review": "review_current_workbench: openedactualV18menu/writingpause; remainingSettings/Kit.dialog/NewBand/smallbrassplates; preservemodalguards, validatecompiledV19screens.",
+  "resource_plan": {
+    "free_workspace_gib": 23,
+    "available_memory_gib": 16,
+    "new_persistent_budget_gib": 1.5,
+    "no_new_keys": true
+  },
+  "started_at": "2026-11-08T09:59:11.511528+00:00"
+}

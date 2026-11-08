@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO04.json",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO05.json",
   "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7478,5 +7478,13 @@
     "signed_apk_path": "/BandMaster/BandMaster-Playtest-v18-arm64.apk",
     "signed_apk_sha256": "4781876bc3541a942ed89ec51184ea73ffeb9ab9c17eacd692509e5e0e19fcbd",
     "next_action": "Install over V17 and review phone responsiveness, guitar contrast and poster consistency."
+  },
+  "MAIN_AUDIO05": {
+    "status": "preflight",
+    "baseline": "523d014d5f4bd4fb2382c2652d9fa139a24a8309",
+    "installed_owner_version": "0.147.0",
+    "source_writer": "root",
+    "branch": "feature/recorded-song-main-app",
+    "next_action": "Useposter presentation inplaytest-localmodalwrapper andSettings; replaceonlysmallbrasscaptiondraw withprintedstock; showactualbuildinSettings forreliablephonefeedback. Noaudioimplementationchange warrantedfromV17feedback."
   }
 }
