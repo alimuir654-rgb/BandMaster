@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "STORY22",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "c7f29cf6afda125c06a335f55aa09b6e5fd21e03",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2055659,
-    "sha256": "e1c603c1d1f21e724b5f0ca179711509223f58545cb5408920e546a993fdf9a3"
+    "bytes": 2057257,
+    "sha256": "79f7cbf9d2a9b98cb9d534cbfdf9d7298abce978e67c0b65c64bcef41269c418"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -41,7 +41,7 @@
       "/workspace/playtest-polish-v20/final-phone-identity-preview.png"
     ]
   },
-  "controlled_comparison": "Actual opening.tscn 390x844/720x1280/1280x720/1600x900; same canonical band/day/booking. Preserve poster materials/portraits. Real player route Band\u2192Talk\u2192agreed next step\u2192actual session\u2192remembered outcome and Gigs\u2192venue/promoter offer\u2192opening bill\u2192higher-band advice/support\u2192saved night.",
+  "controlled_comparison": "Actual opening.tscn 390x844/720x1280/1280x720/1600x900; same canonical band/day/booking. Preserve poster materials/portraits. Real player route Band→Talk→agreed next step→actual session→remembered outcome and Gigs→venue/promoter offer→opening bill→higher-band advice/support→saved night.",
   "hypothesis": "New authored choice-based musician conversations remember contextual plans and fulfilled/missed promises; free chats do not grant repetitive stats. Saved promises reconcile only during explicit original owner save from real session/show facts. New pure scene-circuit leaf freezes a status-derived bill/counteroffer beside existing booking terms, no pricing policy change. Optional peer encounter in existing backstage/after_set phases saves choices via journey revision; bounded actual social/advice consequences settle once in original wrap/Finance/save.",
   "stop_condition": "Source-only larger chunk. No APK/import/editor/signing/key/appID/save-path/main/shared change. No new audio/AI service/art generation/dependency, no cast impersonating promoter. Preserve old absent-key behavior, future data hold, unknown compatible fields, original fees/cancellation/trip/Finance, once-only states and80privateWAVs.",
   "allowed_paths": [
@@ -76,15 +76,60 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
-  "independent_review": "review_current_workbench completed original-pixel/source pre-review; warned strict tariff identity, leaf dependency, stable member/band IDs, optional existing-phase encounter and contextual consequences.",
+  "independent_review": "Existing review_current_workbench opened12 current phone/short originals and source. All flagged current-commitment/push/source/receipt identity/facts/next-step findings resolved; no remaining material scoped hold. Root opened additional exact-source phone/tall/short/wide originals. Reviewer is an AI helper, not a human/owner acceptance.",
   "review_task": {
     "queue": "S80 complete player-task controls/layout review",
     "reviewer": "review_current_workbench",
     "player_goal": "Talk with actual bandmates and follow a plan; negotiate a credible slot and experience a shared bill whose encounters matter later.",
     "commitment": "Chat/reading/local negotiation/navigation free. Booking uses original fixed commitments; existing explicit session/gig/day settles as before; only final wrap applies peer consequences."
   },
-  "started_at": "2026-11-08T21:41:12.337595+00:00"
+  "started_at": "2026-11-08T21:41:12.337595+00:00",
+  "closed_at": "2026-11-08T22:14:24.267642+00:00",
+  "closeout": {
+    "tested_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
+    "evidence": [
+      "docs/continuous_improvement/STORY22_RESULTS.json",
+      "/workspace/band-stories-22/final-staged-source.json",
+      "/workspace/band-stories-22/final-native-results.json",
+      "/workspace/band-stories-22/final-model-results.json"
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow.",
+    "new_issue_review": "All STORY22 events reviewed. Fixture API, canonical omitted reputation, poster selected contrast, real rehearsal credit, current commitments, schema/receipt binding, peer busy release and real day-card input findings corrected. Failed attempts retained. No physical/listening/owner approval claim.",
+    "five_simulated_lenses": [
+      {
+        "lens": "New player (SIMULATED)",
+        "finding": "Talk uses actual musician and leads to real rehearsal, not a context-editor dead end."
+      },
+      {
+        "lens": "Bandmate continuity (SIMULATED)",
+        "finding": "Known current commitments and real promised participation govern remembered outcomes; no invented prior chats."
+      },
+      {
+        "lens": "Promoter (SIMULATED)",
+        "finding": "Counteroffer and bill role derive from standing and contacts; price and poor-show safeguards retain original policy."
+      },
+      {
+        "lens": "Small-screen player (SIMULATED)",
+        "finding": "Poster choices and fixed main dock remain readable/reachable in four actual sizes; optional long chat/peer material uses existing scroll."
+      },
+      {
+        "lens": "Save/economy reviewer (SIMULATED)",
+        "finding": "Free conversation/local negotiation remains free, practice pays existing room/day, social consequences settle exactly once with original show and rollback."
+      }
+    ],
+    "limitations": [
+      "Authored choice-based dialogue, not unrestricted text/AI chat or recorded speech.",
+      "First scene pilot has two stable fictional peer bands and three musician topics; it is not a complete authored cast of promoters or a generated music scene.",
+      "Chat memories change later dialogue/options; no daily stat reward. Peer advice affects modeled live reception/fatigue, not recorded instrument playing or audio arrangement.",
+      "Physical Android and listening not performed; exact-source desktop Godot proof only.",
+      "Native new-player opening slot is fully proved; higher-status bill/offer cases use isolated model oracles, not new native screenshots.",
+      "Long-term scene content and wider character-specific writing remain future work; unknown compatible data retained, future recognized versions held.",
+      "Owner visual acceptance remains pending.",
+      "No new APK/signature/public source publication. Local clean history and small source handover exclude held private-transfer branch history."
+    ]
+  }
 }

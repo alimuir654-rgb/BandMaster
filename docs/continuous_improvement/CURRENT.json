@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/STORY22.json",
-  "scope": "V20 owner feedback: both genre visuals and sound examples, audition scrolling, readable poster action tiles, selected-member band preview and useful unavailable-writing alternative.",
+  "scope": "First connected choice-based musician conversations and promoter/shared-bill scenarios in existing main Playtest entry. Source only.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "POLISH21_source_verified_next_combined_build",
-  "next_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow.",
+  "status": "STORY22_source_verified_next_combined_build",
+  "next_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3419,8 +3419,8 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "POLISH21",
-  "next_single_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow.",
+  "current_session": "STORY22",
+  "next_single_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
     "status": "private_delivered_physical_phone_pending",
@@ -4150,7 +4150,7 @@
     "hard_stop": "2026-11-04T18:00:00Z"
   },
   "last_source_writer_release": "2026-11-06T18:30:18.350451+00:00",
-  "tested_sha": "d440164228668ad307ee390eba40128e67adb75e",
+  "tested_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
   "s83_closeout": "/tmp/bandmaster-s83-20261103/closeout.json",
   "delegated_contract_reviewer": null,
   "contract_review_pending": false,
@@ -7412,7 +7412,7 @@
     },
     "next_single_action": "Fresh fully funded bounded READ-ONLY audit of sealed V16/source76, then independent artifact review and same private Dropbox delivery ONLY if accepted. Use a NEW private log/TMP/XDG audit workspace; old S143 producer/cache stays immutable. No engine/import/export/rebuild or old-producer resume."
   },
-  "current_tested_source": "d440164228668ad307ee390eba40128e67adb75e",
+  "current_tested_source": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
   "latest_s144": {
     "session": "S144",
     "source_sha": "73f9f236da2ee4a12be42c480d9c3257b578b9be",
@@ -7593,9 +7593,13 @@
     "next_action": "Carry this whole verified source polish chunk into the next combined owner Playtest build, preserving app ID/save directory/original certificate and detached signing workflow."
   },
   "STORY22": {
-    "status": "preflight",
-    "writer": "root",
+    "status": "source_verified",
+    "writer": null,
     "branch": "feature/playtest-polish-v20",
-    "next_action": "Implement bounded complete chat→plan follow-up and promoter→bill→peer encounter→saved wrap journeys with atomic rollback tests."
+    "tested_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
+    "result": "docs/continuous_improvement/STORY22_RESULTS.json",
+    "owner_approved": false,
+    "checks": 1025,
+    "next_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow."
   }
 }

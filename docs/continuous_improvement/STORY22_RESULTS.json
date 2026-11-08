@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "session": "STORY22",
+  "tested_sha": "fa339a34ef4ddd7c1bb84435e65b1aefd87d6c31",
+  "preflight_sha": "28f98a7d9fc1f2851f7dabe5bf458358decb7137",
+  "base_sha": "c7f29cf6afda125c06a335f55aa09b6e5fd21e03",
+  "branch": "feature/playtest-polish-v20",
+  "owner_approved": false,
+  "scope": "First connected choice-based musician conversations and promoter/shared-bill scenarios in existing main Playtest entry. Source only.",
+  "changes": {
+    "musicians": "Talk from actual current band dossiers; three topics, authored contextual replies. Saved plans for writing/rehearsal/recovery; actual attendance/report/deadline evidence creates kept/missed/strained follow-up. Repeated reading grants no bonus. Current life commitments shown. Rapport affects later willingness to push.",
+    "promoters": "Venue discussion pitches and original-offer asks, with counteroffer based on actual public following/reputation/show record/venue support contacts and original poor-show review policy. Original price/travel/cancellation/drummer/Finance unchanged.",
+    "bill": "Optional frozen bill in original agreement: new bands open, established status may support main-support/headline roles. Named peer bands are authored text-only fictional acts, not re-used portraits or generated audio.",
+    "peers": "One backstage higher-bill advice choice, one after-set watch/help/own-gear choice. Chronological watch restriction, real journey revision/expected/source hash, original wrap transaction. Actual contextual audience/fatigue effects and durable contacts affect subsequent promoter dialogue/terms."
+  },
+  "proof": {
+    "native": [
+      {
+        "run": "final-phone",
+        "resolution": "390x844",
+        "code": 0,
+        "summary": {
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-tall",
+        "resolution": "720x1280",
+        "code": 0,
+        "summary": {
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-short",
+        "resolution": "1280x720",
+        "code": 0,
+        "summary": {
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "error_markers": false
+      },
+      {
+        "run": "final-wide",
+        "resolution": "1600x900",
+        "code": 0,
+        "summary": {
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "error_markers": false
+      }
+    ],
+    "models": [
+      {
+        "test": "band_stories_test",
+        "code": 0,
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "error_markers": false
+      },
+      {
+        "test": "audio_creation_test",
+        "code": 0,
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "error_markers": false
+      },
+      {
+        "test": "character_consequence_test",
+        "code": 0,
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "error_markers": false
+      },
+      {
+        "test": "audio_creation_guards",
+        "code": 0,
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "error_markers": false
+      },
+      {
+        "test": "recorded_steady_test",
+        "code": 0,
+        "summary": {
+          "checks": 262,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "error_markers": false
+      }
+    ],
+    "checks_total": 1025,
+    "final_runs": 9,
+    "staged_files": {
+      "experiments/playable_flightcase/career_desk.gd": "f3ab5bd229465db343670f6d71911d7b24abdb7a8a78d8c2a04f87164531d8ce",
+      "experiments/playable_flightcase/gig_booking_desk.gd": "168081d63d6ce7516b8bc480b6a723f379050d29784956e360b380001754ccee",
+      "experiments/playable_flightcase/gig_booking_rules.gd": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf",
+      "experiments/playable_flightcase/gig_journey.gd": "c2a9624301e359ff105d0dfcdba9ac9884e6e60767a6518eb721f578ca64ab8c",
+      "experiments/playable_flightcase/gig_journey_desk.gd": "f3c97975d5d9e882f10f1fa5a38c1c5c9293910da0ae6663f8e24e4083e7c633",
+      "experiments/playable_flightcase/live_bridge.gd": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e",
+      "experiments/playable_flightcase/musician_chat.gd": "07e694bb41059e2fdfb7e4798125e1e0d2cdc01328c07bea9376622d01d18af5",
+      "experiments/playable_flightcase/musician_chat_desk.gd": "5f64f3125024229e011c1016d443a1a9aa5023ec511aeb84dfdddffc3c12952d",
+      "experiments/playable_flightcase/opening_state.gd": "e770fcf1b8f695c1308a0802f8f32e371680e3ad3c8f9b8d46f1dea9b14fca74",
+      "experiments/playable_flightcase/scene_circuit.gd": "7ff0392446b005245d54968f6571e0f052f3c642c4a3b6a4aaf60d33732cfae6",
+      "tests/band_stories_test.gd": "b50f48fb1da68e47c0ab2dafa4861e6a343b54139d660698de0bb4b8a696a582",
+      "tests/band_stories_visual.gd": "a17c27d33fb2a4ba29b877feb37e42254388d99c0778926243c84d080c89e0d2"
+    },
+    "native_complete_player_route": "Band→Talk→failed reply save/retry→agreed evening→actual rehearsal workspace→noone free→real quiet evening→original PLAN THE DAY acknowledgement→actual paid rehearsal→kept memory/reload→venue/promoter counteroffer→free cancel→booking save failure/retry→frozen opening bill→actual trip/soundcheck→higher-band advice save failure/retry→Menu/resume→finished actual original→help other band save failure/retry→wrap save failure/retry→saved receipt/contact/reload.",
+    "negative_cases": "Future/malformed chat/bill/scene, stale and repeated input, pending-promise farming, bad source hash/push type, wrong attendee, actual Clear Air counterexample, deadline/strain oracles, receipt identity/venue/facts/duplicates, original Review restriction, beneficial/harmful advice oracles and watch chronology.",
+    "all80_private_wav_hashes_still_match": true,
+    "new_audio_or_art_generated": false,
+    "no_APK_import_export_signing": true,
+    "physical_Android": false,
+    "audio_listening": false
+  },
+  "independent_review": "Existing review_current_workbench opened12 current phone/short originals and source. All flagged current-commitment/push/source/receipt identity/facts/next-step findings resolved; no remaining material scoped hold. Root opened additional exact-source phone/tall/short/wide originals. Reviewer is an AI helper, not a human/owner acceptance.",
+  "opened_originals": [
+    {
+      "path": "/workspace/band-stories-22/early-phone-chat-kept.png",
+      "sha256": "045d130391d57c4a3a62ad8d607e15a2b728f9da0811db373ee5abefd1c530b5"
+    },
+    {
+      "path": "/workspace/band-stories-22/trace-phone-promoter-missing.png",
+      "sha256": "fa185a28ae4fcda6925d88c75f2e55aa5cfab486895fa0a16496deae288bb31d"
+    },
+    {
+      "path": "/workspace/band-stories-22/third-phone-chat-next-rehearsal.png",
+      "sha256": "1b7456b664cce75b986a7c5304989198bf412d898463ed806d1c8fa0da60fcb3"
+    },
+    {
+      "path": "/workspace/band-stories-22/fourth-phone-higher-band-advice.png",
+      "sha256": "564e4f748b2fbc263871d9af26f4e3ec3fe422c4819191deb6628af5a2a98843"
+    },
+    {
+      "path": "/workspace/band-stories-22/fourth-phone-saved-night.png",
+      "sha256": "eb6b57d7f99158e2abba6a81914277b6217e2194617dc4fd950f8dd7a8d99780"
+    },
+    {
+      "path": "/workspace/band-stories-22/chat-probe-practice-mode-transition.png",
+      "sha256": "45faaf0617301eb7ba89c8d2e3599be77575f731dc05772a90954d2fea129a0a"
+    },
+    {
+      "path": "/workspace/band-stories-22/chat-real-day-chat-paid-result.png",
+      "sha256": "6d17de989a43182559c0eb99a924d8d4d37e84250abf91b86cbd290e2fb5d939"
+    },
+    {
+      "path": "/workspace/band-stories-22/review-short-higher-band-advice.png",
+      "sha256": "0c65cfee5be9313bae7c5f1cfcdd178d2d2c139f6923970ac1428225d222af95"
+    },
+    {
+      "path": "/workspace/band-stories-22/review-phone-chat-kept.png",
+      "sha256": "045d130391d57c4a3a62ad8d607e15a2b728f9da0811db373ee5abefd1c530b5"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-phone-promoter-counteroffer.png",
+      "sha256": "71b2312177ef20749fff856564a73723151adff1e52a6fa7ae07d314f105cb27"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-wide-chat-agreed.png",
+      "sha256": "970c4565077ea7a8f623c1095ff25ce3c284c26310a12cc0a1045a34536f9766"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-tall-support-another-band.png",
+      "sha256": "40148f4504751e217f9ea0cdfda04cc2627383371416d68ed0316dfc01a774bd"
+    },
+    {
+      "path": "/workspace/band-stories-22/final-short-chat-opening.png",
+      "sha256": "51a8ed9ad58c819cf4d19d3bfd6deb04b9004d3d99d391cece1dbe7bcf7522e3"
+    }
+  ],
+  "five_simulated_lenses": [
+    {
+      "lens": "New player (SIMULATED)",
+      "finding": "Talk uses actual musician and leads to real rehearsal, not a context-editor dead end."
+    },
+    {
+      "lens": "Bandmate continuity (SIMULATED)",
+      "finding": "Known current commitments and real promised participation govern remembered outcomes; no invented prior chats."
+    },
+    {
+      "lens": "Promoter (SIMULATED)",
+      "finding": "Counteroffer and bill role derive from standing and contacts; price and poor-show safeguards retain original policy."
+    },
+    {
+      "lens": "Small-screen player (SIMULATED)",
+      "finding": "Poster choices and fixed main dock remain readable/reachable in four actual sizes; optional long chat/peer material uses existing scroll."
+    },
+    {
+      "lens": "Save/economy reviewer (SIMULATED)",
+      "finding": "Free conversation/local negotiation remains free, practice pays existing room/day, social consequences settle exactly once with original show and rollback."
+    }
+  ],
+  "limitations": [
+    "Authored choice-based dialogue, not unrestricted text/AI chat or recorded speech.",
+    "First scene pilot has two stable fictional peer bands and three musician topics; it is not a complete authored cast of promoters or a generated music scene.",
+    "Chat memories change later dialogue/options; no daily stat reward. Peer advice affects modeled live reception/fatigue, not recorded instrument playing or audio arrangement.",
+    "Physical Android and listening not performed; exact-source desktop Godot proof only.",
+    "Native new-player opening slot is fully proved; higher-status bill/offer cases use isolated model oracles, not new native screenshots.",
+    "Long-term scene content and wider character-specific writing remain future work; unknown compatible data retained, future recognized versions held.",
+    "Owner visual acceptance remains pending.",
+    "No new APK/signature/public source publication. Local clean history and small source handover exclude held private-transfer branch history."
+  ],
+  "next_action": "Combine POLISH21 and STORY22 in the next owner Playtest build, retaining com.bandmaster.ownerplaytest.s40, its save directory and original-certificate detached signing workflow."
+}
