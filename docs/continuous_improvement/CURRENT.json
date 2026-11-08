@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO06.json",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO07.json",
   "scope": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7497,5 +7497,12 @@
     "private_assets": "/workspace/BandMaster-live/experiments/playable_flightcase/audio/recorded_rehearsal_v1",
     "release": "HELD; V18 remainsownerinstalledreviewbuild. V19requestisunusedandbindsoldercodeonly.",
     "next_action": "Continuecontentexpansionfromrealreviewedmaterial andbatchnextcohesivereviewbuild; no immediateAPK/signatureaction."
+  },
+  "MAIN_AUDIO07": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/recorded-song-main-app",
+    "next_action": "New119s-ishsource canprovide6usefulmatchedpassagecandidates iftiming/activitysupports; separatebankconfig mustpreserveRehearsal102vsnewnominal100andoldSteady100. Genericbankcounts/selectedcollapsedlabelsfornewsource; characterfitsremainconditional untilactualhearing.",
+    "release": "held; V18installedreviewbuild"
   }
 }

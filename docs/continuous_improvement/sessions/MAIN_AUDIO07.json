@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO07",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "NewSunofilesuploadedaftercharacter-contrastprompt. Continueexpandedbankswithinlargersourcechunk; nofrequentreleases.",
+  "baseline_sha": "f63d0a4251182392a093db8f5bb8fdf0b6845195",
+  "dominant_issue": "BM-14",
+  "lesson_ids": [
+    "BM-14",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1990297,
+    "sha256": "0fa007d24383f894ebf8413b05a84599cbf3320d918e591b59f9be8ff0e6b582"
+  },
+  "target": {
+    "locator": "/workspace/audio-creation-chunk/final-390x844-bank-open.png",
+    "original_sha256": "2644b5abda3508ff5216c12165aba4a005eb8a8a1278529b088f1388f2982b57",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Read-onlyoriginalmetadata/hashes andsame-stemtimewindows; additivebank, old8familyIDs+media hashespreserved. Sameexistingentry/ownerfixture/fixedfooter at4viewports ifUIchanges. No othercreationredesign.",
+  "hypothesis": "New119s-ishsource canprovide6usefulmatchedpassagecandidates iftiming/activitysupports; separatebankconfig mustpreserveRehearsal102vsnewnominal100andoldSteady100. Genericbankcounts/selectedcollapsedlabelsfornewsource; characterfitsremainconditional untilactualhearing.",
+  "stop_condition": "No originalchanges/deletion, new paid generation, inventedlistening/keys/performance/fiftybanks, rawaudioGit or uploads, appID/savepath/schema change, APK/signing/release. If sourcegrid/parts unsuitable, reportinstead ofinventingusablecontent.",
+  "allowed_paths": [
+    ".gitignore",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/audio/recorded_dgad_v1/**",
+    "tools/prepare_recorded_dgad.py",
+    "tests/audio_creation_test.gd",
+    "tests/audio_creation_dgad*",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Metadata/hash/sizeverifybeforedecode; ffprobe+boundedfloatanalysis forencoding/alignment/peaks/clipping/silence/loudness/stemresidual/tempo/activity; no listeningclaim",
+    "ExactderivedPCM/fades/headroom/provenance+oldhashes; nativeallfamily/reload/once-only/sourceclocktests andnewfamilypaidpipeline",
+    "IfadditiveUI4actualGLviewports+independentreview; source/privatehandoveronly, noAPK"
+  ],
+  "resource_plan": {
+    "download_originals_bytes": 91836436,
+    "available_storage_bytes": 23150309376,
+    "new_persistent_budget_bytes": 1073741824,
+    "peak_analysis_memory_budget_bytes": 536870912,
+    "streaming_or_mmap_originals": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "owner": "root"
+  },
+  "started_at": "2026-11-08T13:15:02.899001+00:00",
+  "independent_review": "Existinghelpertoauditadditivebank source/selectedlabels andnativeproof afterintake; no delegatedwriter."
+}
