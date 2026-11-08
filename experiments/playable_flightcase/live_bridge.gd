@@ -17,6 +17,7 @@ const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
 const LivePolicy = preload("res://experiments/playable_flightcase/gig_performance_policy.gd")
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
+const Circuit = preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const LOCAL_VENUE := "local"
 
 static func show_day(state: Dictionary) -> bool:
@@ -253,6 +254,10 @@ static func _perform(before: Dictionary, journey: Dictionary = {}) -> Dictionary
    finished["message"] += " No originals were selected: the final gross fee was limited to £5."
   if not str(reviewed.get("message","")).is_empty():
    finished["message"] += "\n\n"+str(reviewed["message"])
+  var shared: Dictionary=Circuit.settle(before,finished["state"],journey)
+  if not shared.get("ok",false):return shared
+  finished["state"]=shared.state
+  if not str(shared.get("message","")).is_empty():finished["message"]+="\n\n"+str(shared.message)
   var recorded: Dictionary = Flow.record(before,finished["state"],str(finished.get("message","")))
   if not bool(recorded.get("ok",false)):
    return recorded

@@ -9,6 +9,7 @@ const Night = preload("res://Scripts/gig_night_flow.gd")
 const Radio = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
+const Circuit = preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const KEY := "gig_journey_v1"
 const VERSION := 1
 const PHASES := ["set_out","travel","arrival","load_in","soundcheck","backstage","stage_entrance","performing","choice","reaction","after_set","pack_up","wrap_ready"]
@@ -62,6 +63,12 @@ static func validate(state: Dictionary) -> Dictionary:
  if not raw is Dictionary or raw.get("version") not in [1,2] or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary:return _bad("This saved gig journey needs a compatible version. Its data has been retained.")
  var visit: Dictionary=raw["active"]
  if visit.is_empty():return {"ok":true,"exists":true,"active":{}}
+ var bill: Dictionary=Booking.terms(state).get(Circuit.BILL,{})
+ if visit.has(Circuit.ENCOUNTER) and (bill.is_empty() or not Circuit.encounter_valid(visit[Circuit.ENCOUNTER],bill)):return _bad("The saved shared-bill encounter needs a compatible version.")
+ if visit.has(Circuit.ENCOUNTER):
+  var encounter: Dictionary=visit[Circuit.ENCOUNTER]
+  if not encounter.advice.is_empty() and visit.get("phase") not in LOCKED_PHASES:return _bad("That saved advice happened before backstage.")
+  if not encounter.support.is_empty() and visit.get("phase") not in ["after_set","pack_up","wrap_ready"]:return _bad("That shared-bill response happened before the end of the set.")
  var guarded: Dictionary=_source_guard(state)
  if not bool(guarded.get("ok",false)):return guarded
  if not Policy.whole(raw["sequence"],1) or not Policy.whole(visit.get("revision"),0) or visit.get("version")!=raw["version"] or visit.get("policy_version")!=1 or visit.get("content_version")!=1:return _bad("The saved gig checkpoint is incomplete.")
@@ -194,7 +201,13 @@ static func checkpoint(state: Dictionary, action: String, token: Dictionary, pay
  var after: Dictionary=state.duplicate(true)
  var phase: String=visit["phase"]
  var next: String=""
- if action=="advance":
+ if action in ["scene_advice","scene_support"]:
+  var bill: Dictionary=Booking.terms(after).get(Circuit.BILL,{})
+  var selected: Dictionary=Circuit.choose(visit,bill,action.trim_prefix("scene_"),payload)
+  if not selected.get("ok",false):return selected
+  visit=selected.visit
+  next=phase
+ elif action=="advance":
   var edges: Dictionary={"travel":"arrival","arrival":"load_in","backstage":"stage_entrance","stage_entrance":"performing","after_set":"pack_up","pack_up":"wrap_ready"}
   if phase=="set_out":
    var departed: Dictionary=Flow.depart(after)
@@ -278,6 +291,7 @@ static func complete(after: Dictionary, visit: Dictionary, actual_effects: Dicti
  var receipt: Dictionary=Flow.last_receipt(state)
  if receipt.is_empty() or receipt.get("booking_id")!=visit["booking_id"]:return _bad("The original show receipt is missing after settlement.")
  var extension: Dictionary={"version":int(visit["version"]),"journey_id":visit["id"],"content_version":1,"policy_version":1,"completed_ids":visit["completed_ids"].duplicate(),"plan":visit["plan"].duplicate(true),"feedback":visit["feedback"].duplicate(true),"vibe":int(visit["vibe"]),"intent":str(visit["intent"]),"context":visit["context"].duplicate(true),"actual_policy_effects":actual_effects.duplicate(true),"kind":"modelled_live_journey"}
+ if visit.has(Circuit.ENCOUNTER):extension[Circuit.ENCOUNTER]=visit[Circuit.ENCOUNTER].duplicate(true)
  var records: Dictionary=state[Flow.RECORDS_KEY].duplicate(true)
  var rows: Array=records["records"].duplicate(true)
  rows[-1]["journey_v1"]=extension

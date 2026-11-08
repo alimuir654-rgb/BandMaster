@@ -66,6 +66,7 @@ def main():
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('poster_audit*.gd')]
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('character_consequence*.gd')]
         queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('polish_feedback*.gd')]
+        queue += [p.relative_to(repo).as_posix() for p in (repo / 'tests').glob('band_stories*.gd')]
     while queue:
         relative = queue.pop()
         if relative in files:

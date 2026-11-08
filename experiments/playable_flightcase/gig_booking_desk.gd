@@ -7,6 +7,7 @@ const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
 const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const STAGE := "res://experiments/playable_flightcase/art/opening_stage.png"
 const OFFER_COPY := {"standard":"Accept the venue's ordinary arrangement.","guarantee":"Ask the promoter to add £15 to the settled fee.","guestlist":"Accept £10 less from the settled fee to make room for a guest list."}
 const OFFER_LABELS := {"standard":"STANDARD TERMS","guarantee":"ASK FOR A GUARANTEE","guestlist":"OFFER A GUEST LIST"}
@@ -25,7 +26,9 @@ static func _button(host,parent: Node,text: String,name: String,callback: Callab
  button.custom_minimum_size.y=48
  if name.begins_with("BookingDay_") or name.begins_with("BookingOffer_") or name.begins_with("BookingTrip_") or name=="BookingBackAction":
   preload("res://experiments/playable_flightcase/control_roles.gd").quiet(button)
- if selected:button.add_theme_color_override("font_color",Color("f1be62"))
+ if name.begins_with("BookingPitch_") or name.begins_with("BookingOffer_"):
+  Poster.choice_style(button);button.toggle_mode=true;button.set_pressed_no_signal(selected)
+ elif selected:button.add_theme_color_override("font_color",Color("f1be62"))
  parent.add_child(button)
  return button
 
@@ -78,7 +81,22 @@ static func render(host,parent: Node,compact: bool) -> void:
    action.disabled=bool(host.busy) or not bool(room["available"])
  else:
   _copy(parent,_room_name(options,draft),"BookingReviewVenue",22)
-  _copy(parent,"Choose the date, trip and terms here. Nothing is booked until you confirm.","BookingDraftExplanation")
+  _copy(parent,"THE PROMOTER", "BookingPromoterHeading",22)
+  _copy(parent,"Tell me what your band can bring to this night. We need a bill that works in this room.","BookingPromoterOpening",20)
+  _copy(parent,"Your current standing: %d fans · reputation %d · %d shows played." % [int(host.game.career.get("fans",0)),int(host.game.career.get("reputation",0)),host.game.career.get("gig_history",[]).size()],"BookingBandStanding")
+  for pitch in Circuit.PITCHES:
+   _button(host,parent,("✓ " if host.booking_pitch==pitch else "")+str(Circuit.PITCHES[pitch]),"BookingPitch_"+str(pitch),host._booking_pitch_select.bind(str(pitch),expected.duplicate(true),generation),host.booking_pitch==pitch)
+  _copy(parent,"YOUR ASK", "",18)
+  for offer in ["standard","guarantee","guestlist"]:
+   var ask: Button=_button(host,parent,str(OFFER_LABELS[offer]),"BookingOffer_"+offer,host._booking_select.bind("offer_id",offer,expected.duplicate(true),generation),draft.get(Circuit.BILL,{}).get("asked")==offer)
+   ask.disabled=host.booking_pitch.is_empty() or bool(host.busy) or (bool(draft.get("session_drummer",false)) and offer!="standard")
+  if draft.has(Circuit.BILL):
+   var proposal: Dictionary=Circuit.proposal(host.game.career,str(draft.venue_id),host.booking_pitch,str(draft[Circuit.BILL].asked))
+   if proposal.get("ok",false):
+    _copy(parent,"PROMOTER: "+str(proposal.reply),"BookingPromoterReply",20)
+    bill_copy(parent,proposal.bill)
+  else:_copy(parent,"Answer the promoter, then discuss the terms. You can leave without booking.","BookingNegotiationPending")
+  _copy(parent,"THE AGREEMENT · Nothing is booked until you confirm.","BookingDraftExplanation")
   _copy(parent,"SHOW DAY","",18)
   var days:=HFlowContainer.new();days.add_theme_constant_override("h_separation",4);days.add_theme_constant_override("v_separation",4);parent.add_child(days)
   if int(options["first_day"])>0:
@@ -94,9 +112,6 @@ static func render(host,parent: Node,compact: bool) -> void:
      var action: Button=_button(host,parent,str(trip["label"]),"BookingTrip_"+str(trip["id"]),host._booking_select.bind("travel_plan",str(trip["id"]),expected.duplicate(true),generation),draft.get("travel_plan")==trip["id"])
      action.disabled=bool(host.busy) or not bool(trip["available"])
     _copy(parent,"Transport £%d · room £%d · %d career day(s)" % [int(trip["transport"]),int(trip["accommodation"]),int(trip["duration"])])
-  _copy(parent,"PROMOTER TERMS","",18)
-  for offer in ["standard","guarantee","guestlist"]:
-   _button(host,parent,("● " if draft.get("offer_id")==offer else "○ ")+str(OFFER_LABELS[offer]),"BookingOffer_"+offer,host._booking_select.bind("offer_id",offer,expected.duplicate(true),generation),draft.get("offer_id")==offer)
   _copy(parent,str(OFFER_COPY.get(draft.get("offer_id"),"")),"BookingSelectedTerms")
   if host._booking_session_needed():_copy(parent,"SESSION DRUMMER · £25 AT THE SHOW","BookingSessionCover")
   var prepared: Dictionary=Booking.prepare(host.game.career,draft,expected)
@@ -118,11 +133,20 @@ static func quote_copy(parent: Node,quote: Dictionary) -> void:
  _copy(parent,"£0 now. Agreed trip costs £%d at final wrap. The listed show fee is £%d; the actual settlement depends on the show and promoter terms." % [int(quote["total_cost"]),int(quote["listed_fee"])],"BookingReviewCommitment")
  _copy(parent,str(OFFER_LABELS.get(quote["offer_id"],"")))
 
+static func bill_copy(parent: Node,bill: Dictionary) -> void:
+ _copy(parent,"TONIGHT'S BILL", "BookingBillHeading",20)
+ var lineup: Array=bill.lineup.duplicate();lineup.reverse()
+ for index in range(lineup.size()):
+  var id: String=str(lineup[index])
+  var label: String="YOUR BAND" if id=="player" else str(Circuit.BANDS[id].name)
+  _copy(parent,("HEADLINER · " if index==0 else ("OPENING · " if index==lineup.size()-1 else "SUPPORT · "))+label,"BookingBill_"+id,20 if index==0 else 18)
+ _copy(parent,"This is a shared night. Your place on the bill and the other bands are saved with the agreement.","",16)
+
 static func dock(host,parent: Node) -> void:
  if str(host.booking_step)!="rooms":
   var prepared: Dictionary=Booking.prepare(host.game.career,host.booking_draft,host.booking_expected)
   var action: Button=_button(host,parent,"CONFIRM THIS BOOKING  ›","BookingCommitAction",host._ask_booking_commit.bind(int(host._render_generation)))
-  action.disabled=bool(host.busy) or not prepared.get("ok",false)
+  action.disabled=bool(host.busy) or not prepared.get("ok",false) or not host.booking_draft.has(Circuit.BILL)
  _button(host,parent,"‹ CHOOSE ANOTHER ROOM" if str(host.booking_step)!="rooms" else "‹ BACK","BookingBackAction",host._booking_back.bind(int(host._render_generation)))
 
 static func render_agreement(host,parent: Node,compact: bool,state: Dictionary) -> void:
@@ -143,6 +167,7 @@ static func render_agreement(host,parent: Node,compact: bool,state: Dictionary) 
  _copy(box,("Head home after the show" if t["travel_plan"]=="drive_home" else "Stay overnight")+(" · transport up to £%d" if t["venue_snapshot"]["id"]=="local" else " · transport £%d") % int(t["tariff"]["travel"])+" · room £%d" % int(t["tariff"]["accommodation"]),"BookingAgreementTrip")
  if bool(t["session_drummer"]):_copy(box,"Session drummer · £25 at settlement")
  _copy(box,str(OFFER_LABELS[t["offer_id"]]))
+ if t.has(Circuit.BILL):bill_copy(box,t[Circuit.BILL])
  _copy(box,"The trip and show are one saved agreement. Costs and career days settle once at the final wrap.")
  if int(state.get("tour_day",1))>int(t["day"]):_copy(box,"MISSED COMMITMENT · The saved date has passed. Acknowledge it explicitly; viewing does not settle it.","BookingMissedState",20)
  if not str(host.notice).is_empty():_copy(box,str(host.notice))

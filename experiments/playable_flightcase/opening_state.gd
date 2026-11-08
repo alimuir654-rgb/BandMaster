@@ -15,6 +15,7 @@ const DOUBLE_VOCAL_COST := 5
 const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const CareerDates = preload("res://experiments/playable_flightcase/career_dates.gd")
 const WorkAvailability = preload("res://experiments/playable_flightcase/situation_core.gd")
+const MusicianChat = preload("res://experiments/playable_flightcase/musician_chat.gd")
 # Explicit fictional audition notes, not appearance-inferred abilities.
 # Only listed instrumentalists may double as front-person; singer roles retain source vocal arrays.
 const VOCAL_TRIALS := {
@@ -603,11 +604,17 @@ func save_draft() -> bool:
 
 func _save_draft_owned() -> bool:
  # The old valid draft remains intact until a complete replacement is ready.
+ # Resolve remembered promises from actual saved session facts, inside this same
+ # atomic write. A failed write changes neither the live career nor the old file.
+ var remembered: Dictionary=MusicianChat.reconcile(game.career)
+ if not remembered.get("ok",false):return false
+ var saved_snapshot: Dictionary=snapshot()
+ saved_snapshot.game.career=remembered.state.duplicate(true)
  var temporary: String = SAVE_PATH+".identity-tmp"
  var file := FileAccess.open(temporary,FileAccess.WRITE)
  if file == null:
   return false
- file.store_string(JSON.stringify(snapshot(),"  ",true,_audition_present or game.career.has(Workbench.KEY) or game.career.has(CareerDates.KEY) or game.career.has(WorkAvailability.KEY)))
+ file.store_string(JSON.stringify(saved_snapshot,"  ",true,_audition_present or game.career.has(Workbench.KEY) or game.career.has(CareerDates.KEY) or game.career.has(WorkAvailability.KEY) or game.career.has(MusicianChat.KEY)))
  file.flush()
  var written: bool = file.get_error()==OK
  file.close()
@@ -617,7 +624,26 @@ func _save_draft_owned() -> bool:
  var replaced: Error = DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary),ProjectSettings.globalize_path(SAVE_PATH))
  if replaced!=OK:
   DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+ else:game.career=remembered.state.duplicate(true)
  return replaced==OK
+
+func answer_musician(expected: Dictionary,id: String,topic: String,choice: String) -> Dictionary:
+ if _audition_busy:return {"ok":false,"message":"A band action is already being saved."}
+ var before: Dictionary=snapshot()
+ if screen!="play" or game.phase!="play" or MusicianChat.fingerprint(before)!=MusicianChat.fingerprint(expected) or Audition.locked(before) or Workbench.preplay_held(before):return {"ok":false,"message":"The band changed. Open this conversation again."}
+ var guard: Dictionary=WorkAvailability.Booking.guard_metadata(game.career)
+ if not guard.get("ok",false):return guard
+ if BandWeek.Finance.is_over(game.career) or BandWeek.Radio.locked(game.career):return {"ok":false,"message":"Finish the current visit or resolve the band's accounts before this conversation."}
+ if game.career.has(Workbench.KEY) and not Workbench.validate(before).get("ok",false):return {"ok":false,"message":"The saved song direction needs a compatible version first."}
+ _audition_busy=true
+ var result: Dictionary=MusicianChat.answer(game.career,id,topic,choice,MusicianChat.fingerprint(game.career))
+ if result.get("ok",false):
+  game.career=result.state.duplicate(true)
+  if not _save_draft_owned():
+   _rollback_identity(before)
+   result={"ok":false,"message":"The conversation could not be saved. Your band and the unanswered reply are retained; try again."}
+ _audition_busy=false
+ return result
 
 func load_draft() -> bool:
  if _audition_busy:return false

@@ -9,6 +9,7 @@ const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
+const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
 const ROAD := "res://experiments/playable_flightcase/art/a07_road_travel_v1.png"
 const ROAD_SHA := "1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec"
@@ -145,9 +146,41 @@ static func render(host, parent: Node, compact: bool) -> void:
   meter.set_meta("kind","modelled_live_room")
   context.add_child(C.label("ROOM VIBE",16))
   context.add_child(meter)
+ var bill: Dictionary=Booking.terms(state).get(Circuit.BILL,{})
+ if not bill.is_empty():
+  var position: Label=C.label(str({"opening":"OPENING SUPPORT","main_support":"MAIN SUPPORT","headline":"HEADLINER"}.get(bill.slot,"SHARED BILL")),18)
+  position.name="JourneyBillPosition";context.add_child(position)
+  _peers(host,context,state,visit,bill,phase)
+
+static func _peers(host,parent: Node,state: Dictionary,visit: Dictionary,bill: Dictionary,phase: String) -> void:
+ var encounter: Dictionary=visit.get(Circuit.ENCOUNTER,Circuit.encounter_empty())
+ var token: Dictionary=Journey.expected(state)
+ if phase=="backstage":
+  if Circuit.above(bill).is_empty():
+   parent.add_child(C.label("You're closing tonight. The support bands are getting ready for their own sets.",18));return
+  parent.add_child(C.label("OTHER VOICES ON THE BILL",22))
+  parent.add_child(C.label("The acts above you have been doing this longer. Their way of playing may or may not fit your band. Hearing them out uses no extra career day.",18))
+  for id in Circuit.above(bill):
+   var band: Dictionary=Circuit.BANDS[id]
+   parent.add_child(C.label(str(band.name)+": "+str(band.advice),19))
+   if encounter.advice.is_empty():_button(host,parent,"TRY "+str(band.name)+"'S IDEA","SceneAdvice_"+str(id),"scene_advice",token,{"band_id":id,"choice":"try"})
+  if encounter.advice.is_empty():_button(host,parent,"TRUST THE SET WE REHEARSED","SceneAdviceOwn","scene_advice",token,{"band_id":"","choice":"own_set"})
+  else:parent.add_child(C.label("YOUR ANSWER IS SAVED · "+("Trust our set." if encounter.advice.choice=="own_set" else "Try "+str(Circuit.BANDS[encounter.advice.band_id].name)+"'s suggestion."),18))
+ elif phase=="after_set":
+  parent.add_child(C.label("THE NIGHT ISN'T JUST YOUR SET",22))
+  parent.add_child(C.label("Stay for another act or lend a hand with their gear. This happens within tonight's agreed trip: £0 and no extra career day. You can also focus on getting your own band home.",18))
+  if encounter.support.is_empty():
+   for id in bill.lineup:
+    if id=="player":continue
+    var band: Dictionary=Circuit.BANDS[id]
+    if id in Circuit.above(bill):_button(host,parent,"STAY FOR "+str(band.name),"SceneWatch_"+str(id),"scene_support",token,{"band_id":id,"choice":"watch"})
+    _button(host,parent,"HELP "+str(band.name)+" WITH GEAR","SceneHelp_"+str(id),"scene_support",token,{"band_id":id,"choice":"help"})
+   _button(host,parent,"LOOK AFTER OUR OWN GEAR","SceneOwnGear","scene_support",token,{"band_id":"","choice":"own_gear"})
+  else:parent.add_child(C.label("SAVED · "+("Look after our own gear." if encounter.support.choice=="own_gear" else ("Help " if encounter.support.choice=="help" else "Stay for ")+str(Circuit.BANDS[encounter.support.band_id].name)+"."),18))
 
 static func _button(host,parent: Node,text: String,name: String,action: String,expected: Dictionary,payload: Dictionary = {}) -> Button:
  var button: Button=host._button(text,name,host._commit_journey.bind(action,expected.duplicate(true),payload.duplicate(true),int(host._render_generation)),true)
+ if name.begins_with("Scene"):button.set_meta("scene_peer_choice",true)
  parent.add_child(button)
  return button
 

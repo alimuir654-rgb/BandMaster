@@ -63,3 +63,47 @@ actual final deltas. Failed persistence restores the whole previous career,
 including rapport/counts, and retains the local draft. No-plan model calls retain
 the original legacy behavior; previews, audio replay and biography reading do
 not charge, consume phrases or increase relationships.
+
+## Career musician conversations and shared bills (STORY22)
+
+`musician_chat_v1` is optional `{version:1, records:{candidate_id:record}}`.
+Each record retains its stable musician ID, last conversation day, bounded
+player rapport, up to twelve authored dialogue turns and an optional plan.
+Plans bind their issue day, four-day window, source report hash, starting
+fatigue and boolean push intent. Reading/topic selection is free; the owner
+accepts one contextual reply per musician/day and refuses replacing a pending
+promise. Unknown compatible fields survive; malformed/future recognized data
+is held. No audition history or original musician-pair relationship is invented.
+
+The original atomic owner writer reconciles pending promises from genuine new
+session reports and matching participant IDs, or observed recovery/deadline.
+Clear Air and informal jams cannot satisfy a promised rehearsal. A tired push
+can be remembered as strained. Memory/rapport changes alter later conversation
+and which further push the musician will entertain; they grant no daily stat
+reward. An active gig checkpoint freezes this reconciliation until wrap/cancel
+so its career hash remains valid. File replacement succeeds before reconciled
+memory becomes live; a failed save preserves both old memory and disk.
+
+`scene_bill_v1`, inside optional `booking_terms_v1`, freezes the promoter pitch,
+asked/accepted existing offer ID, original public standing/review restriction,
+bill order and stable peer-band IDs. New bands open; established bands may
+receive main-support/headline positions. The existing venue, fee, cancellation,
+trip, drummer and Finance policies are unchanged. A changed band must discuss
+a fresh offer; legacy requests without this extension retain their old behavior.
+
+`scene_encounter_v1` optionally belongs to an existing gig journey checkpoint.
+One higher-bill advice choice is possible backstage and one support/help choice
+after the player's set. Watching is possible only for acts still above the
+player in running order. The original journey revision/source hash protects
+input; no new phase, day, payment or settlement occurs at these checkpoints.
+
+The original final wrap applies bounded context-dependent audience/fatigue
+effects and records optional `scene_contacts_v1` `{version:1, venues, bands,
+processed, receipts}`. Contacts retain played/supported counts; processed
+commitment IDs are durable, while the last eighty typed receipts retain the
+frozen bill, encounter and actual facts. IDs parse to the original venue/date
+and bind to original seen booking slots. Advice can help, do little or hurt;
+support earns remembered contacts used in subsequent promoter dialogue/terms.
+All effects share the original Finance/save transaction and roll back together.
+Legacy bills/contacts remain unknown; no past supports or band friendships are
+manufactured.

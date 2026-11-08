@@ -6,6 +6,7 @@ const Gigs = preload("res://Scripts/uk_gig_circuit.gd")
 const Tour = preload("res://Scripts/tour_itinerary.gd")
 const Promoter = preload("res://Scripts/promoter_meetings.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
+const Circuit = preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const KEY := "gig_commitments_v1"
 const TERMS := "booking_terms_v1"
 const MAX_DAY := 2147483647
@@ -83,6 +84,7 @@ static func terms_valid(raw: Variant) -> bool:
  if identity.is_empty() or not whole(raw.get("day"),1) or identity["day"]!=raw["day"] or not whole(raw.get("created_day"),1) or not raw.get("session_drummer") is bool:return false
  if not raw.get("offer_id") is String or not Promoter.OFFERS.has(raw["offer_id"]) or not raw.get("travel_plan") is String:return false
  var venue: Dictionary=Gigs.get_venue(str(identity["venue_id"]))
+ if raw.has(Circuit.BILL) and (not Circuit.bill_valid(raw[Circuit.BILL]) or raw[Circuit.BILL].venue_id!=identity.venue_id or raw[Circuit.BILL].offer_id!=raw.offer_id):return false
  if not raw.get("venue_snapshot") is Dictionary or not raw.get("tariff") is Dictionary:return false
  for key in venue:
   if raw["venue_snapshot"].get(key)!=venue[key]:return false
@@ -96,6 +98,8 @@ static func terms_valid(raw: Variant) -> bool:
  return whole(raw.get("next_available_day"),1) and int(raw["next_available_day"])==int(raw["day"])+int(cost["duration"])
 
 static func validate(state: Dictionary) -> Dictionary:
+ var scene_guard: Dictionary=Circuit.validate(state)
+ if not scene_guard.get("ok",false):return scene_guard
  # Structural dispatch only: no Flow import/backedge. A missing terms wrapper
  # cannot make a regional/future owned booking become a cheap legacy action.
  var show_marker: Variant=state.get("booked_show",{})
@@ -214,6 +218,11 @@ static func prepare(state: Dictionary, request: Dictionary, token: Dictionary) -
  for key in ["venue_id","offer_id","travel_plan"]:
   if not request.get(key) is String:return _bad("Choose a real room, promoter agreement and trip.")
  if not VENUES.has(request["venue_id"]) or not Promoter.OFFERS.has(request["offer_id"]) or not request.get("session_drummer") is bool or not whole(request.get("day"),1):return _bad("That room, date or trip is unsupported.")
+ if request.has(Circuit.BILL):
+  var proposed: Variant=request[Circuit.BILL]
+  if not Circuit.bill_valid(proposed):return _bad("The promoter's proposal needs validation.")
+  var live_offer: Dictionary=Circuit.proposal(state,request.venue_id,proposed.pitch,proposed.asked)
+  if not live_offer.get("ok",false) or fingerprint(live_offer.bill)!=fingerprint(proposed) or request.offer_id!=proposed.offer_id:return _bad("The band's standing or this promoter offer changed. Talk through the room again.")
  if state.has("radio_visit_v1"):
   var radio: Variant=state["radio_visit_v1"]
   if not radio is Dictionary or radio.get("version")!=1 or not radio.get("active") is Dictionary or not radio["active"].is_empty():return _bad("Finish or cancel the radio visit before another booking.")
@@ -257,6 +266,7 @@ static func book(state: Dictionary, request: Dictionary, token: Dictionary) -> D
  var quote: Dictionary=prepared["quote"]
  var t: Dictionary={"version":1,"commitment_id":id,"policy_version":1,"cancellation_version":1,"venue_snapshot":venue.duplicate(true),"day":int(request["day"]),"offer_id":str(request["offer_id"]),"travel_plan":str(request["travel_plan"]),"session_drummer":bool(request["session_drummer"]),"tariff":{"fee":int(venue["fee"]),"travel":int(venue["travel"]),"accommodation":int(quote["accommodation"]),"duration":int(quote["duration"]),"wear":0 if request["venue_id"]=="local" else int(venue["wear"])},"next_available_day":int(quote["next_available_day"]),"created_day":int(state["tour_day"])}
  after["booked_show"]["day"]=int(request["day"])
+ if request.has(Circuit.BILL):t[Circuit.BILL]=request[Circuit.BILL].duplicate(true)
  after["booked_show"][TERMS]=t
  data["sequence"]=sequence
  data["seen_slots"]["%s:%d" % [request["venue_id"],int(request["day"])]]=id

@@ -49,6 +49,13 @@ const Situation = preload("res://experiments/playable_flightcase/situation_core.
 const SituationDesk = preload("res://experiments/playable_flightcase/situation_desk.gd")
 const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const CareerDates = preload("res://experiments/playable_flightcase/career_dates.gd")
+const MusicianChat=preload("res://experiments/playable_flightcase/musician_chat.gd")
+const ChatDesk=preload("res://experiments/playable_flightcase/musician_chat_desk.gd")
+const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
+var chat_member_id := ""
+var chat_topic := "direction"
+var chat_expected: Dictionary={}
+var booking_pitch := ""
 var calendar_cursor: int=0
 var calendar_mode: String="week"
 var game
@@ -266,6 +273,8 @@ func _render() -> void:
   _gear_page(body,compact)
  elif page=="band":
   _band_page(body,compact)
+ elif page=="musician_chat":
+  ChatDesk.render(self,body,compact)
  elif page=="band_moment":
   BandMoment.render(self,body,compact)
  elif page=="situation":
@@ -354,7 +363,7 @@ func _poster_pause(parent: Node) -> void:
  pause.pressed.connect(_menu);parent.add_child(pause)
 
 func _navigate(destination: String) -> void:
- if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment","situation"]:
+ if busy or is_instance_valid(_live_dialog) or destination not in ["home","gear","band","songs","gigs","finance","offstage","recording","calendar","goal_focus","band_moment","situation","musician_chat"]:
   return
  if Finance.is_over(game.career):
   destination = "finance"
@@ -610,6 +619,9 @@ func _band_page(parent: Node, compact: bool) -> void:
   if str(game.career.get("lead_vocal_candidate_id",""))==str(person.get("candidate_id","")):
    _copy(details,"LEAD VOCALS",14,true)
   _copy(details,str(person.get("life_status","active")).capitalize(),14,true)
+  var chat: Button=_button("TALK TO "+str(person.get("name","BANDMATE")).to_upper(),"CareerTalk_"+str(person.get("candidate_id","")),_open_musician_chat.bind(str(person.get("candidate_id",""))))
+  chat.disabled=busy or str(person.get("candidate_id","")).is_empty() or person.get("life_status","active")!="active"
+  dossier.add_child(chat)
   for stat in [["SKILL","skill"],["MORALE","morale"],["FATIGUE","fatigue"],["LOYALTY","loyalty"]]:
    var values := HBoxContainer.new()
    values.add_theme_constant_override("separation",8)
@@ -621,6 +633,25 @@ func _band_page(parent: Node, compact: bool) -> void:
    meter.name = "CareerMemberStat_"+str(index)+"_"+str(stat[1])
    values.add_child(meter)
  _road_cases(parent,compact)
+
+func _open_musician_chat(id: String) -> void:
+ if busy or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
+ if MusicianChat.member(game.career,id).is_empty():return
+ chat_member_id=id;chat_topic="direction";chat_expected=opening_owner.snapshot().duplicate(true)
+ _navigate("musician_chat")
+
+func _chat_topic(topic: String) -> void:
+ if busy or page!="musician_chat" or topic not in MusicianChat.TOPICS:return
+ chat_topic=topic;_pending_focus="ChatTopic_"+topic;_render()
+
+func _chat_answer(choice: String,expected: Dictionary,generation: int) -> void:
+ if busy or page!="musician_chat" or generation!=_render_generation or is_instance_valid(_live_dialog) or not is_inside_tree() or not is_visible_in_tree():return
+ busy=true
+ var result: Dictionary=opening_owner.answer_musician(expected,chat_member_id,chat_topic,choice)
+ busy=false;notice=str(result.get("message","Read the current conversation."))
+ chat_expected=opening_owner.snapshot().duplicate(true)
+ _pending_focus="ChatNextStep" if result.get("ok",false) else "ChatReply_"+choice
+ _render()
 
 func _open_situation() -> void:
  if busy or is_instance_valid(_live_dialog) or game==null:return
@@ -812,6 +843,8 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   BandMoment.dock(self,dock)
  elif page=="situation":
   SituationDesk.dock(self,dock)
+ elif page=="musician_chat":
+  ChatDesk.dock(self,dock)
  elif page=="finance" and RadioVisit.locked(game.career):
   RadioDesk.recovery_dock(self,dock)
  elif page=="calendar":
@@ -1719,6 +1752,8 @@ func _release_journey_input(generation: int) -> void:
   if control!=null:control.disabled=false
  for node in find_children("JourneyIncident_*","Button",true,false):
   (node as Button).disabled=false
+ for node in find_children("Scene*","Button",true,false):
+  if node.get_meta("scene_peer_choice",false)==true:(node as Button).disabled=false
  if str(Journey.active(game.career).get("phase",""))=="soundcheck":
   var action: Button=find_child("JourneyMainAction",true,false) as Button
   if action!=null:action.disabled=not bool(ShowFlow.check_plan(game.career,show_draft).get("ok",false))
@@ -1736,6 +1771,7 @@ func _booking_session_needed() -> bool:
 
 func _sync_booking_draft() -> void:
  if not booking_draft.is_empty():return
+ booking_pitch=""
  booking_expected=Booking.expected(game.career)
  var options: Dictionary=Booking.options(game.career)
  booking_draft={"venue_id":"local","day":int(options.get("first_day",0)),"offer_id":"standard","travel_plan":"drive_home","session_drummer":_booking_session_needed()}
@@ -1769,9 +1805,17 @@ func _booking_select(field: String,value: Variant,expected: Dictionary,generatio
  if field=="offer_id" and value not in ["standard","guarantee","guestlist"]:return
  if field=="travel_plan" and value not in ["drive_home","overnight"]:return
  if field=="session_drummer" and not value is bool:return
+ if field=="offer_id":
+  if booking_pitch.is_empty():return
+  var proposal: Dictionary=Circuit.proposal(game.career,str(booking_draft.venue_id),booking_pitch,str(value))
+  if not proposal.get("ok",false):notice=str(proposal.message);_render();return
+  booking_draft[Circuit.BILL]=proposal.bill.duplicate(true)
+  value=proposal.bill.offer_id
  booking_draft[field]=value
  if field=="venue_id":
   booking_draft["travel_plan"]="drive_home"
+  booking_draft["offer_id"]="standard"
+  booking_draft.erase(Circuit.BILL);booking_pitch=""
   booking_step="date"
  if booking_draft["venue_id"]!="local" or booking_draft["offer_id"]!="standard":booking_origin={}
  notice=""
@@ -1779,6 +1823,12 @@ func _booking_select(field: String,value: Variant,expected: Dictionary,generatio
   _scroll_position=0
   if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _pending_focus="BookingDay_%d" % int(booking_draft["day"]) if field in ["venue_id","day"] else ("BookingOffer_"+str(value) if field=="offer_id" else "BookingTrip_"+str(value))
+ _render()
+
+func _booking_pitch_select(pitch: String,expected: Dictionary,generation: int) -> void:
+ if not _booking_input_ready(generation) or expected!=booking_expected or expected!=Booking.expected(game.career) or pitch not in Circuit.PITCHES:return
+ booking_pitch=pitch;booking_draft.erase(Circuit.BILL);notice=""
+ _pending_focus="BookingOffer_standard"
  _render()
 
 func _booking_go(step: String,generation: int) -> void:
@@ -1807,6 +1857,7 @@ func _booking_back(generation: int) -> void:
 
 func _ask_booking_commit(generation: int) -> void:
  if not _booking_input_ready(generation):return
+ if not booking_draft.has(Circuit.BILL):notice="Discuss the promoter's proposal before confirming this room.";_render();return
  var prepared: Dictionary=LiveRules.prepare_booking(game.career,booking_draft,booking_expected)
  if not bool(prepared.get("ok",false)):
   notice=str(prepared.get("message","Review the agreement."))
