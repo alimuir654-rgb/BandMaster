@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "session": "POSTER01",
+  "status": "source_verified_poster_audit_release_held",
+  "branch": "feature/recorded-song-main-app",
+  "tested_sha": "1fdf986dccf27bd3f29589971ec5e09874ba35bd",
+  "game_ui_commit": "c1837413aabd55b07b45d4f9241a23ef6d9edac1",
+  "main_matrix_commit": "2968e27114145ad3a8cbb81b5511181b7006425e",
+  "radio_fixture_commit": "e0055debd894ee8d3847718e4aead7b7113a43cc",
+  "focus_fixture_commit": "1fdf986dccf27bd3f29589971ec5e09874ba35bd",
+  "owner_approved": false,
+  "owner_mockup_approved": true,
+  "summary": "Existing Playtest screens now share poster typography, calm paper/gold choices and original activity artwork. Removed interactive hardware from writing and soundcheck. Fixed pale-on-paper focus labels discovered in whole-flow review.",
+  "changes": [
+    "Native finite paper choices preserve Range/free recipe callbacks; selected gold/checkmark, silent hydration and locked states. Fixed recorded axes become plain facts. Compact current source expands full14-family library.",
+    "Compact actual bandmate quote stays visible before public commitment; full response/compare/lead controls remain in scrolling notes.",
+    "Booking and gig art frames, soundcheck, transitions, genre/lineup labels, gear catalogue and saved outcome labels use existing poster materials/fonts. Original studio/stage/cast art remains central.",
+    "Soundcheck approach preserves tight/crowd/wild; paper intensity stepper preserves exact integer0\u2013100 values, including legacy27\u219228.",
+    "Band-focus picker now uses dark native titles/icons on paper, selected gold; all5 canonical choices and guarded home entry verified."
+  ],
+  "validation": {
+    "clean_final_runs": 22,
+    "reported_assertions_including_repeated_fixtures": 2975,
+    "viewport_sizes": [
+      "390x844",
+      "720x1280",
+      "1280x720",
+      "1600x900"
+    ],
+    "main_flow": {
+      "states_each": 61,
+      "checks_each": 311
+    },
+    "creation_checks_each": 62,
+    "menu_modal_checks_each": 34,
+    "radio_focused": {
+      "states_each": 17,
+      "checks_each": 152,
+      "actual_saved_answers_asserted": 2
+    },
+    "focus_focused": {
+      "states_each": 3,
+      "checks_each": 113,
+      "actual_home_entry": true,
+      "canonical_choices": 5
+    },
+    "creation_legacy_failure_normal_motion_checks": 25,
+    "recorded_audio_owner_regression_checks": 262,
+    "native_input": "Physical pointer coordinates mapped through actual viewport final transform; repeated selection, keyboard, disabled/read-only and exact legacy values verified.",
+    "save_guards": "Injected radio/gig save failure preserves whole owner/disk; retry and once-only retained final callbacks pass.",
+    "equivalence": "Main matrix at2968e271 retained unchanged. Only later game-source delta is local band-focus chooser ink/style, independently retested at4sizes. Later commits otherwise add corrected targeted fixtures/docs; no gameplay/model changes."
+  },
+  "coverage_cases": [
+    "title",
+    "settings",
+    "home",
+    "activities",
+    "gear",
+    "gear-catalogue",
+    "band",
+    "songbook",
+    "calendar",
+    "finance",
+    "goal-direction",
+    "situation",
+    "band-moment",
+    "offstage",
+    "recording",
+    "archive-empty",
+    "radio-entry",
+    "gig-booking",
+    "gig-booking-agreement-draft",
+    "rehearsal",
+    "writing-recorded",
+    "writing-composed",
+    "writing-bank-open",
+    "archive-recorded",
+    "archive-released",
+    "radio-ready",
+    "radio-arrival",
+    "radio-save-error",
+    "radio-introduction",
+    "radio-question1",
+    "radio-cancel-confirm",
+    "radio-reaction1",
+    "radio-question2",
+    "radio-reaction2",
+    "radio-wrap_ready",
+    "radio-saved-receipt",
+    "radio-saved",
+    "radio-saved-transcript",
+    "gig-agreement",
+    "gig-set_out",
+    "gig-travel",
+    "gig-arrival",
+    "gig-load_in",
+    "gig-soundcheck",
+    "gig-soundcheck-controls",
+    "gig-save-error",
+    "gig-backstage",
+    "gig-options",
+    "gig-stage_entrance",
+    "gig-performing-0",
+    "gig-choice",
+    "gig-reaction",
+    "gig-performing-1",
+    "gig-performing-2",
+    "gig-after_set",
+    "gig-pack_up",
+    "gig-wrap_ready",
+    "gig-saved-receipt",
+    "legacy-gig-preparation",
+    "legacy-gig-soundcheck",
+    "legacy-gig-controls"
+  ],
+  "evidence_root": "/workspace/poster-whole-game-audit",
+  "runs": [
+    {
+      "run": "verified-phone",
+      "summary": {
+        "checks": 311,
+        "failures": [],
+        "screens": 61,
+        "viewport": "(390, 844)"
+      },
+      "log_sha256": "1de39de7a5b2e9e3522a3cd1e4b26cd238a253dd9cace4bf2b9385a1491d7885"
+    },
+    {
+      "run": "verified-tall",
+      "summary": {
+        "checks": 311,
+        "failures": [],
+        "screens": 61,
+        "viewport": "(720, 1280)"
+      },
+      "log_sha256": "a84b00e67af7e49aa8ff95bda2e6915940cadb5d983ce1bbee7f81e227156358"
+    },
+    {
+      "run": "verified-short",
+      "summary": {
+        "checks": 311,
+        "failures": [],
+        "screens": 61,
+        "viewport": "(1280, 720)"
+      },
+      "log_sha256": "d7921fec1c5a025e49b6e9a3f51fb538508c5a4f63f3c8a163a78792bea58f22"
+    },
+    {
+      "run": "verified-wide",
+      "summary": {
+        "checks": 311,
+        "failures": [],
+        "screens": 61,
+        "viewport": "(1600, 900)"
+      },
+      "log_sha256": "1caa6886bfaaa8a07cce4b04bd165a69811220e58d4e543d758e74d58bb9a42f"
+    },
+    {
+      "run": "creation-phone-final",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "checks": 62,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(390, 844)"
+      },
+      "log_sha256": "f8e74e86a7c0c262d088640c310c675969f9e3cdd0981932d2cab615aa036a71"
+    },
+    {
+      "run": "creation-tall",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "checks": 62,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(720, 1280)"
+      },
+      "log_sha256": "ca89b87c0c04da3b5c100cc54a93bc1eb320319c7a838660fea32327d13409f7"
+    },
+    {
+      "run": "creation-short",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "checks": 62,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(1280, 720)"
+      },
+      "log_sha256": "0f281e3918c62f4f11490ce77e5546707f5cde7208108a3cb804c43f978858d4"
+    },
+    {
+      "run": "creation-wide",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "checks": 62,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(1600, 900)"
+      },
+      "log_sha256": "ca0e2de83b8ec07c49aaf02c53162ba72be253d68049eb1dcde81b1f9c46a55d"
+    },
+    {
+      "run": "feedback-phone",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "build": 0,
+        "checks": 34,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(390, 844)"
+      },
+      "log_sha256": "c210797314a62e57f03205a3667c5948bc07eb810acc8d913b9994d8bad1434f"
+    },
+    {
+      "run": "feedback-tall",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "build": 0,
+        "checks": 34,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(720, 1280)"
+      },
+      "log_sha256": "72ee4e2a6b09f5a625db9db1a1668d8c375358414f119a5d8cf518a743c0444f"
+    },
+    {
+      "run": "feedback-short",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "build": 0,
+        "checks": 34,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(1280, 720)"
+      },
+      "log_sha256": "91f7793fa14771763273f593b8c41d8cad41f81b7a310608d570a2a4ef708bcc"
+    },
+    {
+      "run": "feedback-wide",
+      "summary": {
+        "actual_entry": "opening.tscn",
+        "build": 0,
+        "checks": 34,
+        "failures": [],
+        "physical_device": false,
+        "viewport": "(1600, 900)"
+      },
+      "log_sha256": "05cc8ea525a337340083a5712d91ff0e396e8b07461606afbabf55453486dae4"
+    },
+    {
+      "run": "regression",
+      "summary": {
+        "checks": 262,
+        "device_tested": false,
+        "failures": [],
+        "listening": false
+      },
+      "log_sha256": "11331847ba278dbb7f0bc45b7bb8cd29e28793acf7d97d36476b34f7debf006b"
+    },
+    {
+      "run": "guards",
+      "summary": {
+        "checks": 25,
+        "failures": [],
+        "physical_device": false
+      },
+      "log_sha256": "4982325b6a2771400860a4f7ed1b9c15fe0de889f38b3d971bc4facd76245bb6"
+    },
+    {
+      "run": "radio-final-phone",
+      "summary": {
+        "checks": 152,
+        "failures": [],
+        "screens": 17,
+        "viewport": "(390, 844)"
+      },
+      "log_sha256": "7013b7f5fa1141eb371fc6886f681a2d2bbdb523e69b17095b2bf5d4ac6eed88"
+    },
+    {
+      "run": "radio-final-tall",
+      "summary": {
+        "checks": 152,
+        "failures": [],
+        "screens": 17,
+        "viewport": "(720, 1280)"
+      },
+      "log_sha256": "90f0755a6639e44309ce904a4a8686c6935731e15cab5bcde679436c235851cd"
+    },
+    {
+      "run": "radio-final-short",
+      "summary": {
+        "checks": 152,
+        "failures": [],
+        "screens": 17,
+        "viewport": "(1280, 720)"
+      },
+      "log_sha256": "4fe4b92f1e6bb74cda986130e57b3270f335981a160d10c7adb8b29d744ea841"
+    },
+    {
+      "run": "radio-final-wide",
+      "summary": {
+        "checks": 152,
+        "failures": [],
+        "screens": 17,
+        "viewport": "(1600, 900)"
+      },
+      "log_sha256": "3bca71c9c3febd43c5aa3bdfeb81685e3b953caffd52713c85f5be58305aeb3f"
+    },
+    {
+      "run": "focus-owned-phone",
+      "summary": {
+        "checks": 113,
+        "failures": [],
+        "screens": 3,
+        "viewport": "(390, 844)"
+      },
+      "log_sha256": "a9da904fcc37511168900caa13ca7edbaf9273dab3147033b3b7bd44d445337d"
+    },
+    {
+      "run": "focus-owned-tall",
+      "summary": {
+        "checks": 113,
+        "failures": [],
+        "screens": 3,
+        "viewport": "(720, 1280)"
+      },
+      "log_sha256": "ac405a250f7a2416348f600d8d1744f0337318ea2b14f04e47151c48bbfba78c"
+    },
+    {
+      "run": "focus-owned-short",
+      "summary": {
+        "checks": 113,
+        "failures": [],
+        "screens": 3,
+        "viewport": "(1280, 720)"
+      },
+      "log_sha256": "02349e2b753af48bf233f3102d6ec52cb65e42471781c428c13fda2ce95bf415"
+    },
+    {
+      "run": "focus-owned-wide",
+      "summary": {
+        "checks": 113,
+        "failures": [],
+        "screens": 3,
+        "viewport": "(1600, 900)"
+      },
+      "log_sha256": "55c016a416e0160d46da96116ac698235a19be45780af90cb8f35eb96e9c7b93"
+    }
+  ],
+  "source_manifest": {
+    "source_commit": "1fdf986dccf27bd3f29589971ec5e09874ba35bd",
+    "protected": {
+      "old_audio_hashes_unchanged": 50,
+      "dgad_audio_hashes_unchanged": 30,
+      "tracked_art_cast_meters_models_changed": false,
+      "changed_paths": [
+        "docs/continuous_improvement/CURRENT.json",
+        "docs/continuous_improvement/ISSUES.jsonl",
+        "docs/continuous_improvement/sessions/POSTER01.json",
+        "experiments/playable_flightcase/activity_scene.gd",
+        "experiments/playable_flightcase/band_formed_poster.gd",
+        "experiments/playable_flightcase/band_identity_press.gd",
+        "experiments/playable_flightcase/band_lineup.gd",
+        "experiments/playable_flightcase/direction_card.gd",
+        "experiments/playable_flightcase/gear_press.gd",
+        "experiments/playable_flightcase/genre_press.gd",
+        "experiments/playable_flightcase/gig_booking_desk.gd",
+        "experiments/playable_flightcase/gig_journey_desk.gd",
+        "experiments/playable_flightcase/gig_journey_scene.gd",
+        "experiments/playable_flightcase/mixing_desk.gd",
+        "experiments/playable_flightcase/opening_ui.gd",
+        "experiments/playable_flightcase/poster_choice.gd",
+        "experiments/playable_flightcase/recording_desk.gd",
+        "experiments/playable_flightcase/rehearsal_press.gd",
+        "experiments/playable_flightcase/session_transition.gd",
+        "experiments/playable_flightcase/show_desk.gd",
+        "experiments/playable_flightcase/show_hardware.gd",
+        "tests/poster_audit_visual.gd",
+        "tests/poster_feedback_visual.gd",
+        "tools/build_recorded_owner.py"
+      ]
+    },
+    "files": [
+      {
+        "path": "experiments/playable_flightcase/activity_scene.gd",
+        "sha256": "46d04240b8d45bed8514b59c0b409c2653c711281c30e3da75e96d96dcd95139"
+      },
+      {
+        "path": "experiments/playable_flightcase/band_formed_poster.gd",
+        "sha256": "f66d68996c0fcbf42639ec0519786c138524bc547695badca1c93f6d50104365"
+      },
+      {
+        "path": "experiments/playable_flightcase/band_identity_press.gd",
+        "sha256": "67f777ed19c51e4c6329fb89f3f8137a5075a13dbfad12a10777af296117e834"
+      },
+      {
+        "path": "experiments/playable_flightcase/band_lineup.gd",
+        "sha256": "b019992d4b291216c029002a6a1799e8435e2b8801a5dafcd7443735d951a1fd"
+      },
+      {
+        "path": "experiments/playable_flightcase/direction_card.gd",
+        "sha256": "6c7e57c45bad7b16ebbeafed8025266b23ac6135b88ff61ff28770a6b42ad260"
+      },
+      {
+        "path": "experiments/playable_flightcase/gear_press.gd",
+        "sha256": "ad3fa1a67137369061bfade6c3dc8f0313ec270b195b80a8c3e548eaac62c26a"
+      },
+      {
+        "path": "experiments/playable_flightcase/genre_press.gd",
+        "sha256": "02ba7433e5251c0def3c6dbad450727fa39635bf60799bdb8c0a1de2b480aea4"
+      },
+      {
+        "path": "experiments/playable_flightcase/gig_booking_desk.gd",
+        "sha256": "8d18174d414f2dccd94636ae9488933433fc9f325c70e573d3c949c7857347c4"
+      },
+      {
+        "path": "experiments/playable_flightcase/gig_journey_desk.gd",
+        "sha256": "3d83fd1cb5fe349ee4ef24143b2c0fa8f079948d4be85ba2681fe62853a314a5"
+      },
+      {
+        "path": "experiments/playable_flightcase/gig_journey_scene.gd",
+        "sha256": "6dc267e727e5e37b9bd682c96bd8657f44220630a3e3fa15a28c68d9a2fcec5e"
+      },
+      {
+        "path": "experiments/playable_flightcase/mixing_desk.gd",
+        "sha256": "5e546ae539bfca32bc5c3ae09fc280208c8e19058e807834fca0902aa38b0f6a"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_ui.gd",
+        "sha256": "65283931c4333ce309d2eab19d5a07dcc58c0df6605c888b91db0efee45d8892"
+      },
+      {
+        "path": "experiments/playable_flightcase/poster_choice.gd",
+        "sha256": "836e179ace0ee25b36432015f57b5593a04772cb71096527b850415dc716b454"
+      },
+      {
+        "path": "experiments/playable_flightcase/recording_desk.gd",
+        "sha256": "ce031a3eff461e32ec27a90b03bf5d2ec196b7a0999908d9358638653170ee5c"
+      },
+      {
+        "path": "experiments/playable_flightcase/rehearsal_press.gd",
+        "sha256": "6f4c9a31a8a5aaafbb94df7f5c4f8b433550194ecfe056b70003ff0f2934f449"
+      },
+      {
+        "path": "experiments/playable_flightcase/session_transition.gd",
+        "sha256": "c3b8592f97ceba691bbf0233489c4810410efe6a5a91ed7fca1a55ccfe1bb10f"
+      },
+      {
+        "path": "experiments/playable_flightcase/show_desk.gd",
+        "sha256": "57e368417f056499ee2be5722d57caf694f677b6f8a5b2a497f0ebecc6503cb0"
+      },
+      {
+        "path": "experiments/playable_flightcase/show_hardware.gd",
+        "sha256": "810a42b047beb8f39a59e72d3cdf3c6540dc31ca6871e816ca75c82ca0a2fa03"
+      },
+      {
+        "path": "tests/poster_audit_visual.gd",
+        "sha256": "47df5d5160814817aebd6009e2ee1d163c31aeb67b57ad0316f7381eb67c8811"
+      },
+      {
+        "path": "tests/poster_feedback_visual.gd",
+        "sha256": "b80de1d6ab43c28865862cee09fd42ba3bba1a3844932f998299c0cb0f033227"
+      },
+      {
+        "path": "tools/build_recorded_owner.py",
+        "sha256": "85534a18d76699cfc290ea5f92432e1ab7a0fc6e5a8b8e6badaab6a9cfead1c5"
+      }
+    ]
+  },
+  "images_opened_by_root": [
+    "verified-phone-home.png",
+    "verified-phone-activities.png",
+    "verified-phone-band.png",
+    "verified-phone-gear-catalogue.png",
+    "verified-phone-calendar.png",
+    "verified-phone-finance.png",
+    "verified-phone-writing-recorded.png",
+    "verified-phone-gig-saved-receipt.png",
+    "verified-phone-radio-saved-receipt.png",
+    "verified-tall-writing-recorded.png",
+    "verified-tall-gig-saved-receipt.png",
+    "verified-wide-gig-soundcheck.png",
+    "verified-wide-radio-question1.png",
+    "radio-final-phone-radio-saved-transcript.png",
+    "radio-final-short-radio-saved-transcript.png",
+    "focus-owned-phone-goal-direction-selected.png",
+    "focus-owned-short-goal-direction-selected.png",
+    "creation-tall-final-band.png",
+    "creation-wide-lineup.png",
+    "feedback-phone-career-pause.png",
+    "feedback-short-writing-pause.png"
+  ],
+  "contact_sheets_opened": [
+    "gallery-phone-1.jpg",
+    "gallery-phone-2.jpg",
+    "gallery-phone-3.jpg",
+    "gallery-short-1.jpg",
+    "gallery-short-2.jpg",
+    "gallery-short-3.jpg",
+    "gallery-tall-1.jpg",
+    "gallery-wide-1.jpg",
+    "gallery-wide-3.jpg"
+  ],
+  "independent_review": "Existing read-only reviewer opened actual phone/short writing, gig, radio, creation, saved-transcript and final focus selected/bottom originals. Final scoped closure: no remaining P1/P2 hold. No independent engine/listening claim.",
+  "remaining_defects_in_reviewed_states": [],
+  "material_limits": [
+    "Desktop Godot4.7.2 GL compatibility with Dummy audio; no physical Android testing or human listening.",
+    "61 main-flow states plus creation/menu/targeted cases cover principal screens, not every generated situation, venue, cast combination or endgame.",
+    "Main sweeps use reduced motion. Normal-motion audition/reveal and legacy/failure checks pass; full animated gig/radio paths were not exhaustively rerun.",
+    "Some composed-writing controls and full set/notes require ordinary scrolling on phones; key commit/hear/back actions remain fixed.",
+    "Owner approved the concept mockup; final implemented artwork acceptance remains separate.",
+    "No APK export/signing/replacement key/app-ID change or raw-media publication. Private bank remains local; all80 existing WAV hashes unchanged."
+  ],
+  "simulated_review_lenses": {
+    "art_direction": "SIMULATED: consistent poster materials/type; original band, stage and studio images lead.",
+    "accessibility": "SIMULATED: focus contrast corrected, native focus/modal behavior and logical48px choice targets verified; no physical-device claim.",
+    "new_player": "SIMULATED: gold communicates selected choice, recorded playing is visibly fixed, cost and actual bandmate voice remain nearby.",
+    "returning_player": "SIMULATED: legacy show/audio IDs and exact intensity retained; failure/retry and once-only outcomes protected.",
+    "musician": "SIMULATED: controls retain supported mixing/recipe meanings; no new performances or audible quality claim."
+  },
+  "next_action": "Carry this verified source into the next combined owner Playtest update; retain the existing app identity and original-key signing workflow when packaging is requested.",
+  "completed_at": "2026-11-08T17:08:49.717370+00:00"
+}

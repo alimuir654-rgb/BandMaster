@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/POSTER01.json",
-  "scope": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
+  "scope": "Approved paper controls and whole-Playtest poster-art consistency audit; one combined source update, release held.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
   "target": "mockups and approved natural British starting-out cast",
   "backgrounds": "Existing-first-gig sources and genuinelymissingindependentlayers authorised by newovernightplan; no broaddecorativeexpansion.",
-  "frames": "parked notebook, flightcase reversible",
+  "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "source_verified_private_audio_intake_complete_release_held",
-  "next_action": "Batchcandidate-listening/character-fitreviewwithnextcohesivegameupdate; sourceandprivateassetsretained, noimmediaterelease.",
+  "status": "source_verified_poster_audit_release_held",
+  "next_action": "Carry this verified source into the next combined owner Playtest update; retain the existing app identity and original-key signing workflow when packaging is requested.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7517,11 +7517,15 @@
     "next_action": "Batchcandidate-listening/character-fitreviewwithnextcohesivegameupdate; sourceandprivateassetsretained, noimmediaterelease."
   },
   "POSTER01": {
-    "status": "preflight",
-    "writer": "root",
+    "status": "source_verified_poster_audit_release_held",
+    "writer": null,
     "branch": "feature/recorded-song-main-app",
+    "tested_sha": "1fdf986dccf27bd3f29589971ec5e09874ba35bd",
+    "result": "docs/continuous_improvement/POSTER01_RESULTS.json",
     "owner_mockup_approved": true,
-    "next_action": "ReplaceinteractivehardwarewithnativeposterchoiceRangeadapter andsinglecurrent-source+expandablelibrary; immutableplayingfactsbecomeplainlabel. ReusePoster/C factories at remainingmetalframes andsharedactivityscene/art toleadcontext. Preserveownercallbacks/values/disabled/once-only/reload behavior.",
-    "release": "held"
+    "owner_approved": false,
+    "native_states_per_size": 61,
+    "release": "held; no APK/signature/new key/app-ID change",
+    "next_action": "Carry this verified source into the next combined owner Playtest update; retain the existing app identity and original-key signing workflow when packaging is requested."
   }
 }
