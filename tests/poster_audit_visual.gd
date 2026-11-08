@@ -212,17 +212,27 @@ func gig_cases() -> void:
  check(false,"journey bounded coverage terminates")
 
 func focus_cases() -> void:
- await mounted();await page_case("goal-direction","goal_focus")
+ await mounted()
+ if not await activate("PosterPulseAction"):return
+ if not await activate("GoalFocusOpenAction"):return
+ await snapshot_case("goal-direction")
  var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
  var choices: Array=scene.find_children("GoalFocusChoice_*","Button",true,false)
  var options: Array=preload("res://experiments/playable_flightcase/goal_focus_rules.gd").options(owner.game.career).options
  if not check(not choices.is_empty() and choices.size()==options.size(),"all canonical band-focus choices"):return
  for option in options:check(scene.find_child("GoalFocusChoice_"+str(option.id),true,false)!=null,"canonical focus ID "+str(option.id))
- await activate(str(choices[0].name))
- check(not scene._career_view._focus_draft.is_empty(),"native focus choice changes local draft")
+ var target_name: String=""
+ for choice in choices:
+  if not choice.disabled and str(choice.name)!= "GoalFocusChoice_"+scene._career_view._focus_draft:target_name=str(choice.name);break
+ if not check(not target_name.is_empty(),"different valid canonical focus choice"):return
+ await activate(target_name)
+ check(scene._career_view._focus_draft==target_name.trim_prefix("GoalFocusChoice_"),"native focus choice changes local draft")
+ check(scene.find_child(target_name,true,false).button_pressed,"actual focus choice stays selected")
  check(owner.snapshot()==saved and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"focus preview does not save or spend")
  await snapshot_case("goal-direction-selected")
  scene._career_view._scroll.scroll_vertical=100000;await settle();await snapshot_case("goal-direction-bottom")
+ await activate("GoalFocusBackAction")
+ check(scene._career_view.page=="home" and owner.snapshot()==saved,"back returns home without committing focus")
 
 func failed_action(node_name: String,label: String) -> void:
  var saved: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
