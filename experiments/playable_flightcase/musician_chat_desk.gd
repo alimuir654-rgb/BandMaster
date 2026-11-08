@@ -64,7 +64,7 @@ static func render(host,parent: Node,compact: bool) -> void:
   parent.add_child(host._button("HIDE OUR CONVERSATION" if host.chat_history_open else "OUR CONVERSATION +","ChatHistoryAction",host._chat_disclose.bind(true)))
   if host.chat_history_open:
    var last: Dictionary=row.turns.back()
-   words(parent,"YOU: "+str(Chat.LABELS[last.choice]),18)
+   words(parent,"YOU: "+Chat.turn_label(last),18).name="ChatLastReply"
    words(parent,str(person.get("name","Bandmate"))+": "+str(last.reply),18)
    for entry in row.get("plan_history_v1",{}).get("records",[]):
     words(parent,"DAY %d · %s · %s" % [int(entry.plan.day),(str(entry.plan.status) if entry.closed_as=="completed" else str(entry.closed_as)).to_upper(),str(entry.plan.note)],16)

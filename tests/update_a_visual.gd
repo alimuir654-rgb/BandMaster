@@ -15,6 +15,7 @@ func run() -> void:
  var row: Dictionary=Chat.record(owner.game.career,"cast_jack")
  check(row.plan.kind=="rest" and row.plan_history_v1.records.back().plan==first,"actual revision preserves exact original promise")
  await tap("ChatHistoryAction");await reveal(scene.find_child("ChatHistoryAction",true,false));await capture("promise-history")
+ check((scene.find_child("ChatLastReply",true,false) as Label).text.contains("RECOVER"),"visible revision history matches chosen recovery")
  var before: Dictionary=owner.snapshot()
  await tap("ChatTopic_pressure")
  check(owner.snapshot()==before,"pending topic check-in is free and read-only")

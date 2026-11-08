@@ -72,10 +72,12 @@ static func render(host,parent: Node,compact: bool) -> void:
   needs_week=editable and host.Booking.guard_commitment(state,"recorded_context",0).get("ok",false)
  var route: String=str(view.get("route",""))
  var reasons: Dictionary={"create":"Find the next song. Bring an idea into the room.","tighten":"Who's around? Make time for a run-through.","gigs":"Book a room. Play loud. See who's listening.","calendar":"Get the diary out. Find your next band day."}
+ var follow_promise: bool=not promise.is_empty() and booking is Dictionary and booking.is_empty() and not needs_week
  var next: VBoxContainer=P.block(actions,P.RUST,12)
  next.add_child(P.label("YOUR NEXT MOVE",24,P.PAPER))
- next.add_child(P.label("Find an evening that fits work, family and the band." if needs_week else str(reasons.get(route,view.get("description","Choose where the band goes next."))),18,P.PAPER))
+ next.add_child(P.label("Find an evening that fits work, family and the band." if needs_week else ({"write":"Bring the idea you agreed into the room.","rehearse":"Make time for the run-through you agreed.","rest":"Leave the next hard push for another evening."}[promise.kind] if follow_promise else str(reasons.get(route,view.get("description","Choose where the band goes next.")))),18,P.PAPER))
  if needs_week:next.add_child(host._button("PLAN OUR WEEK  →","PosterNextAction",host._open_situation,true))
+ elif follow_promise:next.add_child(host._button({"write":"TAKE IT TO THE WRITING ROOM ›","rehearse":"TAKE IT TO REHEARSAL ›","rest":"MAKE ROOM TO RECOVER ›"}[promise.kind],"PosterNextAction",host._practice.bind({"write":"create","rehearse":"tighten","rest":"connect"}[promise.kind]),true))
  elif view.get("ok",false) and not route.is_empty():next.add_child(host._button(str(view.get("route_label","LET'S GO"))+"  →","PosterNextAction",host._goal_preparation.bind(route),true))
  var choices: Button=P.quiet("Choose something else  →");choices.name="PosterActivitiesAction";choices.pressed.connect(host._toggle_poster_activities);actions.add_child(choices)
  var pulse: Button=P.quiet("Band pulse & goals  −" if host.poster_details_open else "Band pulse & goals  +");pulse.name="PosterPulseAction";pulse.pressed.connect(host._toggle_poster_details);actions.add_child(pulse)

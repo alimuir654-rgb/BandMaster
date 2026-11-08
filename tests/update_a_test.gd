@@ -59,6 +59,7 @@ func run() -> void:
  fail_saved(func():return owner.revise_musician(owner.snapshot(),"cast_jack","rest"),"explicit plan revision")
  check(owner.revise_musician(before,"cast_jack","rest").ok,"explicit revision saved")
  var revised: Dictionary=owner.snapshot();var row: Dictionary=Chat.record(owner.game.career,"cast_jack")
+ check(Chat.turn_label(row.turns.back()).contains("RECOVER"),"revised history names actual recovery choice")
  check(row.plan.kind=="rest" and row.plan.revision_count==1 and row.plan_history_v1.records.size()==1,"original promise retained in bounded durable history")
  check(row.plan_history_v1.records[0].plan==pending[Chat.KEY].records.cast_jack.plan,"revision never rewrites previous promise")
  check(row.plan.identity!=row.plan_history_v1.records[0].identity,"revision has distinct durable identity")

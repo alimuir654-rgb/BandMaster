@@ -50,6 +50,7 @@ static func validate(state: Dictionary) -> Dictionary:
   if not id is String or id.is_empty() or not row is Dictionary or row.get("candidate_id")!=id or not whole(row.get("last_day"),1) or not whole(row.get("rapport"),-20,20) or not row.get("turns") is Array or row.turns.is_empty() or row.turns.size()>12 or not row.get("plan") is Dictionary:return bad("A saved musician conversation cannot be read safely.")
   for turn in row.turns:
    if not turn is Dictionary or not whole(turn.get("day"),1) or turn.get("topic") not in TOPICS or turn.get("choice") not in CHOICES[turn.topic] or not turn.get("opening") is String or not turn.get("reply") is String:return bad("A saved conversation turn needs validation.")
+   if turn.has("revision_kind") and (turn.get("revised")!=true or turn.revision_kind not in ["write","rehearse","rest"]):return bad("The saved revised conversation needs validation.")
   if int(row.turns.back().day)!=int(row.last_day):return bad("A saved conversation date has changed.")
   if row.has("plan_sequence") and not whole(row.plan_sequence,1):return bad("The saved promise sequence needs validation.")
   if row.has("plan_history_v1"):
@@ -120,6 +121,10 @@ static func options(state: Dictionary,id: String,topic: String) -> Dictionary:
   choices.erase("push_on")
  return {"ok":true,"available":reason.is_empty(),"message":reason,"opening":words,"choices":choices,"can_revise":row.get("plan",{}).get("status")=="pending" and int(row.plan.get("revision_count",0))<1 and int(state.tour_day)<=int(row.plan.get("due_day",0))}
 
+static func turn_label(turn: Dictionary) -> String:
+ if turn.get("revised",false)==true:return {"write":"LET'S MAKE TIME FOR A SONG","rehearse":"LET'S AGREE A REHEARSAL","rest":"LET'S LEAVE ROOM TO RECOVER"}.get(turn.get("revision_kind",""),"LET'S CHANGE OUR PLAN")
+ return str(LABELS.get(turn.get("choice",""),"OUR CONVERSATION"))
+
 static func _archive(row: Dictionary,today: int,why: String) -> void:
  if row.get("plan",{}).is_empty():return
  var history: Dictionary=row.get("plan_history_v1",{"version":1,"records":[]}).duplicate(true)
@@ -142,7 +147,7 @@ static func revise(state: Dictionary,id: String,kind: String,expected: String) -
  _archive(row,int(state.tour_day),"revised")
  var note: String="We changed the plan together. Let's %s within the next four days." % {"write":"work on the song","rehearse":"rehearse","rest":"leave room to recover"}[kind]
  row.plan=_plan(row,state,p,kind,note,false,1)
- row.turns.append({"day":int(state.tour_day),"topic":"time","choice":"agree_evening","opening":str(view.opening),"reply":note,"revised":true})
+ row.turns.append({"day":int(state.tour_day),"topic":"time","choice":"agree_evening","opening":str(view.opening),"reply":note,"revised":true,"revision_kind":kind})
  while row.turns.size()>12:row.turns.pop_front()
  row.last_day=int(state.tour_day);data.records[id]=row;after[KEY]=data
  return {"ok":true,"state":after,"message":str(p.get("name","Bandmate"))+": "+note}
