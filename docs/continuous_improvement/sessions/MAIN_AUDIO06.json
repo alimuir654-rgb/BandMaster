@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO06",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
+  "baseline_sha": "04b98bf24fb30da3dfc348cd4057e7b899d49198",
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1980527,
+    "sha256": "a4b4c2205d3684fc7979b35cce1b4c5a02df96eeb7fe2e2ba388f9ed5c09912d"
+  },
+  "target": {
+    "locator": "/workspace/poster-feedback-v19/compiled-390x844-title.png",
+    "original_sha256": "ebfb5826231476d4f1331edaeb5b2dcb21bd572510117cad8c99d5e628831332",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Actualexistingentry samegenuineformationfixture andcast/roster; 4nativeviewports baseline/candidate throughgenre/recruit/audition/name/look/finalposter. Reuseexistingclipidentity, stableconsumedhooks andfullsourcehashes.",
+  "hypothesis": "Add6privateRehearsam passagefamilies alongside2Steadysets; noEQcountednewperformances, nofake50banks/noSuno generation. Source102BPMestimated andboundaries provisional; clipsoneshot. Make role/roster/leadvoiceselectiondirect, combineauditionarrivalandprofileaction, exposeinvitebesideresponse, skipformation/namebridgepages viaatomicownertransactions. Preserveactualtryout/requestedchange/reactions/finalposter.",
+  "stop_condition": "No APKexport/signature/release inthischunk withoutnewcohesivereadinessreview. No keys, appID/savepath/schemachange, originalfilechanges, fabricatedperformances/listening, publicaudioGit, commercialshipping. Preserveoldhooks/saves, meaningfulaudition, nameconsequence/onceonly/economy/protectedart/meters.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/audition_encounter.gd",
+    "experiments/playable_flightcase/audition_profiles.gd",
+    "experiments/playable_flightcase/mixing_recipe.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/career_components.gd",
+    "experiments/playable_flightcase/poster_components.gd",
+    "experiments/playable_flightcase/audio/recorded_rehearsal_v1/**",
+    "tools/prepare_recorded_rehearsal.py",
+    "tools/build_recorded_owner.py",
+    "tests/audio_creation*",
+    "tests/recorded_steady*",
+    ".gitignore",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/MAIN_AUDIO06.json",
+    "VerifyDropbox identities/hashes andlocaloriginals; exactnewcuts/PCM/samplecounts,quietends,headroom,sourceprovenance; no unsupportedlisteningclaim",
+    "Existingnativeaudition/identity/save/modelchecks + atomicfailure/legacyresume/newbankconsumption tests; completeactualGLcreationjourney fourviewports andindependentreview",
+    "Sourceonlyhandover, privateaudioignored, releaseheld"
+  ],
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "owner": "root"
+  },
+  "independent_review": "review_current_workbench preflights: persistentposterrecruitworkspace, retainmeaningfultryout/response, skipbridgephases onlyviaexplicitAPI, fixobservedconfirm_lineuppersistfailure.",
+  "resource_plan": {
+    "available_workspace_gib": 22,
+    "available_memory_gib": 16,
+    "derived_audio_budget_mib": 64,
+    "analysis_peak_memory_budget_mib": 512,
+    "no_new_suno_generations": true
+  },
+  "started_at": "2026-11-08T10:15:44.942601+00:00"
+}

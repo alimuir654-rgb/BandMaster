@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO05.json",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO06.json",
   "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7486,5 +7486,13 @@
     "result": "docs/continuous_improvement/MAIN_AUDIO05_RESULTS.json",
     "unused_request": "/BandMaster/BandMaster-V19-APK-v2-signing-request.json",
     "next_action": "Larger source-only audio-bank andcreation-flow implementation; no release/signing untilcohesivechunkready"
+  },
+  "MAIN_AUDIO06": {
+    "status": "preflight",
+    "owner_direction": "Work inbiggerchunks: expandaudio banks, streamlinecharacter/audition/bandcreation withposter theme. No smallreleases; retainconfirmedV18direction.",
+    "writer": "root",
+    "branch": "feature/recorded-song-main-app",
+    "next_action": "Add6privateRehearsam passagefamilies alongside2Steadysets; noEQcountednewperformances, nofake50banks/noSuno generation. Source102BPMestimated andboundaries provisional; clipsoneshot. Make role/roster/leadvoiceselectiondirect, combineauditionarrivalandprofileaction, exposeinvitebesideresponse, skipformation/namebridgepages viaatomicownertransactions. Preserveactualtryout/requestedchange/reactions/finalposter.",
+    "release": "HELD; V18 remainsinstalledreviewbuild; V19requestunused"
   }
 }
