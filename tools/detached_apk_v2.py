@@ -297,6 +297,7 @@ def prepare(args):
     require(prior['sha256'] == V17_SHA and prior['bytes'] == V17_SIZE and prior['application_id'] == APP and
             prior['version_code'] == EXPECTED_VERSION and prior['signed'] is False, 'retained package audit binding')
     verification = json.loads(args.verification.read_text())
+    require(verification['tested_sha'] == EXPECTED_GAME_SOURCE, 'compiled verification source does not match pinned policy')
     require(verification['compiled_apk_model']['checks'] >= 91 and not verification['compiled_apk_model']['failures'],
             'retained compiled-payload test audit')
     audit['previous_compiled_payload_tests'] = dict(checks=verification['compiled_apk_model']['checks'], failures=0, reused_for_exact_unsigned_apk_sha256=V17_SHA,

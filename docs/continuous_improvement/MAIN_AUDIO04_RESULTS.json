@@ -1,0 +1,101 @@
+{
+  "game_source_sha": "ff8c0c32766a078ca39e248cc07c94388bf7391e",
+  "native_model_checks": 94,
+  "compiled_apk_model_checks": 94,
+  "detached_v18_tests": 14,
+  "detached_v17_regression_tests": 14,
+  "physical_device_tested": false,
+  "listening": false,
+  "performance_fixture": "original formation plus explicit synthetic legacy catalogue from original pure resolver; desktop headless",
+  "before": {
+    "opening_ms": 682.527,
+    "detent_median_ms": 47.84,
+    "detent_p95_ms": 50.77
+  },
+  "after": {
+    "opening_ms": 252.938,
+    "detent_median_ms": 3.029,
+    "detent_p95_ms": 3.426
+  },
+  "live_tone_ms": 33.605,
+  "four_native_viewports": [
+    {
+      "viewport": "390x844",
+      "pass": true
+    },
+    {
+      "viewport": "720x1280",
+      "pass": true
+    },
+    {
+      "viewport": "1280x720",
+      "pass": true
+    },
+    {
+      "viewport": "1600x900",
+      "pass": true
+    }
+  ],
+  "tone_measurements": {
+    "early": {
+      "warm": {
+        "rms_dbfs": -23.53,
+        "peak": 0.3106,
+        "energy_above_2khz_pct": 0.28
+      },
+      "gritty": {
+        "rms_dbfs": -23.53,
+        "peak": 0.2052,
+        "energy_above_2khz_pct": 1.77
+      },
+      "biting": {
+        "rms_dbfs": -23.53,
+        "peak": 0.0985,
+        "energy_above_2khz_pct": 3.25
+      }
+    },
+    "later": {
+      "warm": {
+        "rms_dbfs": -21.82,
+        "peak": 0.3809,
+        "energy_above_2khz_pct": 1.12
+      },
+      "gritty": {
+        "rms_dbfs": -21.82,
+        "peak": 0.2332,
+        "energy_above_2khz_pct": 6.93
+      },
+      "biting": {
+        "rms_dbfs": -21.82,
+        "peak": 0.1145,
+        "energy_above_2khz_pct": 13.0
+      }
+    }
+  },
+  "original_audio_and_v1_unchanged": true,
+  "new_private_profile": "recorded_steady_v2",
+  "original_signed_v17_unchanged": true,
+  "application_id": "com.bandmaster.ownerplaytest.s40",
+  "unsigned_v18": {
+    "sha256": "a9a8532930c259e3c718d3f023ebbd9081b55f13649adf4349a0d1d03c5cc355",
+    "bytes": 205118383,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 18,
+    "signed": false,
+    "alignment_16kb": true,
+    "zip_crc": true,
+    "new_audio_manifest_byte_exact": true,
+    "physical_device_tested": false
+  },
+  "signing_request_path": "/BandMaster/BandMaster-V18-APK-v2-signing-request.json",
+  "request_id": "7414aee25867ff3ad32bd963429c06a9c66fe09de2fd9824e76576e04ba20f3c",
+  "request_bytes": 7398,
+  "request_sha256": "9785934c8f962917f1cf8daa8b4c67d8904937683894d74ae19394c2d1c2f10f",
+  "request_remote_hash_and_text_fetch_verified": true,
+  "status": "awaiting_original_v18_detached_signature",
+  "private_key_operations": false,
+  "previews": [
+    "/BandMaster/V18-writing-room-phone.png",
+    "/BandMaster/V18-rehearsal-phone.png"
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO03.json",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO04.json",
   "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7464,5 +7464,16 @@
     "final_signature_verification_pending": false,
     "signed_apk_sha256": "807c8587281c25b67468797e597dbc4ad69bb7c25d9027c03e3ad29463355873",
     "next_action": "Install verified V17 over V16 without uninstalling; confirm saved band and device audio."
+  },
+  "MAIN_AUDIO04_v18": {
+    "status": "awaiting_original_v18_detached_signature",
+    "game_source_sha": "ff8c0c32766a078ca39e248cc07c94388bf7391e",
+    "request_path": "/BandMaster/BandMaster-V18-APK-v2-signing-request.json",
+    "request_local": "/workspace/main-audio-source-return/BandMaster-V18-APK-v2-signing-request.json",
+    "policy_local": "/workspace/main-audio-source-return/v18-signing-policy.json",
+    "unsigned_apk_local": "/workspace/main-audio-source-return/BandMaster-Playtest-v18-UNSIGNED.apk",
+    "assembly_instructions": "/workspace/main-audio-source-return/V18_ASSEMBLY_AFTER_SIGNATURE.txt",
+    "request_id": "7414aee25867ff3ad32bd963429c06a9c66fe09de2fd9824e76576e04ba20f3c",
+    "result": "docs/continuous_improvement/MAIN_AUDIO04_RESULTS.json"
   }
 }

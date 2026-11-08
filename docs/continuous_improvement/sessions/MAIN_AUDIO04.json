@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO04",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Owner V17 test: slowWritingRoom and controls, subtle guitar settings; preserve approvedposterlook, soften small edges and unify game theme through shared factories.",
   "baseline_sha": "94e05535f11f721f770d5b8c75b98f6f272cec64",
@@ -69,11 +69,26 @@
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active"
+    "status": "released"
   },
   "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
   "started_at": "2026-11-08",
   "scope_amendment": "Source-patch check found one extra documentation EOF newline; normalize without gameplay/UI edits.",
   "independent_review": "review_current_workbench sourceaudit:6snapshots/detent, Workshop.develop intarget, bar-delayedtone and finalbarneverapplies; shared Cfactories seam; preserve strictplay/commit guards.",
-  "release_amendment": "Prepare new unsignedV18/private detached-request for review only after native/source tests, preserving signedV17; no key generation or APK signing here. Generic public signingpolicy selects pinnednewAPKhash/version/source while originalcert/appID/minSDK remainfixed."
+  "release_amendment": "Prepare new unsignedV18/private detached-request for review only after native/source tests, preserving signedV17; no key generation or APK signing here. Generic public signingpolicy selects pinnednewAPKhash/version/source while originalcert/appID/minSDK remainfixed.",
+  "closeout": {
+    "tested_sha": "ff8c0c32766a078ca39e248cc07c94388bf7391e",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO04_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Original keyholder signs /BandMaster/BandMaster-V18-APK-v2-signing-request.json; returned signature assembles V18 with originalcert and officialSDK checks. Then physicalphone responsiveness/listening review.",
+    "new_issue_review": "Fixture priority corrected without gamerulechanges; stale displayisolated on92; backgroundalpha corrected; legacytabs unified; independent label/toggle/cache guards fixed. V18negativefixture hardcoded18 corrected toincrementversion. Failedlogs retained; final94model,94compiled,14V18+14V17 signing tests pass.",
+    "independent_review": "review_current_workbench source and actual4views/3transitions; noP1; identifiedboundedfixes completed.",
+    "simulated_review_lenses": {
+      "performance": "SIMULATED: fullscene desktop682.5\u2192252.9ms; detents47.84\u21923.03ms; notphoneclaims.",
+      "audio": "SIMULATED: currentposition tonefade,finalbar/cacheguards; v2matchedRMSstrongEQ/drive; ownerlisteningpending.",
+      "visual": "SIMULATED: quietsmallpostercontrols, retainedlargeframeart, coherentmenu/career/rehearsal typography; ownerartapprovalpending.",
+      "persistence": "SIMULATED:94native+compiled failuresave/reload/consumption/lifecycle checks.",
+      "release": "SIMULATED:unsignedV18 retained,originalV17 untouched, originalkeyneededonlyremotesignature; no newkeys."
+    }
+  }
 }

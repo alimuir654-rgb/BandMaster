@@ -83,7 +83,7 @@ class DetachedTests(unittest.TestCase):
             V2.validate_response({'request_id': 'original-v16-known-answer'}, value, self.certificate, self.reference['data'])
 
     def test_reject_request_metadata_change_before_io(self):
-        value = copy.deepcopy(self.request);value['unsigned_apk']['version_code'] = 18
+        value = copy.deepcopy(self.request);value['unsigned_apk']['version_code'] += 1
         with self.assertRaisesRegex(ValueError, 'request ID'):
             V2.validate_request(value, Path('/not-accessed.apk'), Path('/not-accessed-v16.apk'), ARGS.sdk)
 
