@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/SIGN20.json",
+  "session": "docs/continuous_improvement/sessions/POLISH21.json",
   "scope": "Musician-and-instrument-led poster auditions with two optional questions, available original/adjusted samples, saved working expectations and context-dependent practice focus/effort. Combined V20 also carries the prior bank expansion and whole-game poster work.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7579,5 +7579,12 @@
     "audit_dropbox": "/BandMaster/BandMaster-Playtest-v20-arm64.audit.json",
     "binary_Dropbox_uploaded": false,
     "next_action": "Download the verified local V20 APK and install over the existing Playtest app. If the large chat download also fails, binary transfer remains blocked and needs a working large-file transport; no rebuild/re-signing is needed."
+  },
+  "POLISH21": {
+    "status": "preflight",
+    "writer": "root",
+    "branch": "feature/playtest-polish-v20",
+    "private_history_excluded": true,
+    "next_action": "Move compact lineup/lead voice above one profile scroll; make decorative paper/portrait containers pass touch, retain consequential tryout. Preserve poster mastheads but use readable action font/intentional two-line labels and vector-derived48px icons. Fix Make entry focus. Preview uses real approved portrait grid, one live name and no proof jargon; final formed variants preserved. Genre Indie previews reuse existing real recorded passages via existing audio engine without new render/generation or consumption; other styles remain honest. Footer unavailable writing routes to existing attended jam/planning via dirty save guard."
   }
 }

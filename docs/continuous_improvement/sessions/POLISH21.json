@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "POLISH21",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "156349e7349de9e7f18e5cd8405b232092e2f7a5",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2032311,
+    "sha256": "6eb51e275970f17acb5cbccea6e8ebde83c863b8e5d0a1185d4d39fc2daa172b"
+  },
+  "dominant_issue": "BM-01",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "One coherent V20 feedback repair: rework main genre examples, audition scrolling, button-tile typography, poor band design preview, useful available alternative when whole band cannot write. Read typo Dont on tiles as Font; optional genre sound-vs-visual clarification pending, work continues independently.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "current_failure_reference": "Four owner screenshots in conversation, directly inspected by root; no local binary/source hash available."
+  },
+  "controlled_comparison": "Actual opening.tscn at390x844/720x1280/1280x720/1600x900; same saved Arjun/Hannah/Ellis lineup, same selected genre, actual Make nav, actual unavailable writing and dirty draft. Before/after selected/focused/scroll/active/disabled/reload/save failure and normal/reduced motion.",
+  "hypothesis": "Move compact lineup/lead voice above one profile scroll; make decorative paper/portrait containers pass touch, retain consequential tryout. Preserve poster mastheads but use readable action font/intentional two-line labels and vector-derived48px icons. Fix Make entry focus. Preview uses real approved portrait grid, one live name and no proof jargon; final formed variants preserved. Genre Indie previews reuse existing real recorded passages via existing audio engine without new render/generation or consumption; other styles remain honest. Footer unavailable writing routes to existing attended jam/planning via dirty save guard.",
+  "stop_condition": "No production save, original image/audio, passive meter, signing key/appID/main/shared branch change. No new paid generation/dependencies, APK/export/signing in this source pass. No public transfer metadata or held history publication. Free navigation remains free, actual1day jam only on explicit existing commit; no invented absentee benefits.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/poster_components.gd",
+    "experiments/playable_flightcase/genre_press.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/art/icons/native48/**",
+    "tests/polish_feedback*",
+    "tools/build_recorded_owner.py",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python tools/improvement_gate.py check --session docs/continuous_improvement/sessions/POLISH21.json",
+    "Bounded Godot models/native4-view exact entry; pointer/touch scrolling and tap cancellation on candidate/art/text; actual Make bottom nav; genre sample actual player/free state; exact selected previewIDs and typography; unavailable writing alternate/dirtysave/cancel/savefailure/original paid jam aftermath/reload.",
+    "Reuse relevant original character/audio creation/bank model guards; preserve80WAV and original artwork hashes. Isolated XDG dirs, no editor/import/export or private keys. Open original candidate PNGs and independent phone/short review before closure."
+  ],
+  "resource_plan": {
+    "free_bytes": 18524758016,
+    "new_persistent_budget_bytes": 1073741824,
+    "peak_memory_budget_bytes": 1610612736,
+    "reuse_imported_project": "/workspace/main-audio-proof/candidate/project",
+    "no_new_audio_or_art_generation": true,
+    "icons": "Small48px lossless derivatives of original approvedSVG only."
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "independent_review": "review_current_workbench source/asset review complete; source-grounded priorities received; no claim of inherited current owner pixels.",
+  "review_task": {
+    "player_goal": "Choose sound, meet and invite actual musicians, review coherent band identity, enter Make without clipped heading and use a meaningful available day when whole band cannot write.",
+    "reviewer": "review_current_workbench",
+    "commitment": "Original invitation talent and explicit paid/day session only. All preview, audio comparison, navigation and dirty-exit cancel remain free."
+  },
+  "started_at": "2026-11-08T20:36:08.893380+00:00"
+}
