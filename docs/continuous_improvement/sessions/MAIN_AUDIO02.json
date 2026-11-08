@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "MAIN_AUDIO02",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Develop/test against latest BandMaster owner branch and return source here for final original-key APK signing. No key generation or application ID change. Source-only delivery supersedes previous signing/key retrieval work.",
+  "baseline_sha": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+  "dominant_issue": "BM-15",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-20",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40",
+    "BM-45",
+    "BM-46"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 1964052,
+    "sha256": "d7388e81cf3f35b50a403cafdfdcd31b9fa41e14bdb8e31732200390d5f64ce5"
+  },
+  "target": {
+    "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
+    "original_sha256": "a582c7b231eca70106d28be32c9e3175ac9221b83a449920add36b795a9091d0",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "No gameplay/UI/source-art edits. Verify current source dependency hashes against already tested native runtime; reuse four opened prior viewport proofs only when source/art bytes match. Run one fresh native audio/save harness against the exact current source.",
+  "hypothesis": "Existing recorded phrase integration already descends from current owner head19df671. A scoped source patch plus private media/import settings and exact manifests can be handed back here for existing-key final signing without APK export or key creation.",
+  "stop_condition": "No APK import/export/rebuild/signing, keystore writes or app ID changes. No main/shared branch updates or save migration. On newer owner source, reconcile rather than replace.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/MAIN_AUDIO02.json",
+    "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Verify git remote owner ancestry and tracked current runtime dependency hashes",
+    "One bounded Godot4.7.2 recorded_steady_test.gd run in isolated XDG userdata",
+    "git apply --check and apply scoped patch in new isolated owner-head worktree; verify exact source/media/import seed hashes",
+    "Assert source bundle has no APK or signing keys; keystore inventory unchanged; app ID com.bandmaster.ownerplaytest.s40 remains"
+  ],
+  "resource_plan": {
+    "workspace_available_bytes": 25737199616,
+    "new_files_max_bytes": 104857600,
+    "new_memory_budget_bytes": 1073741824,
+    "reuse_existing_imported_cache": true,
+    "no_export_or_signing": true
+  },
+  "writer": {
+    "branch": "feature/recorded-song-main-app",
+    "status": "active",
+    "source_head": "5b8e1362b9e8e2b9ce46a44c1773e6dcd34c617b"
+  },
+  "prior_technical_evidence": "docs/continuous_improvement/MAIN_AUDIO01_RESULTS.json",
+  "started_at": "2026-11-08"
+}

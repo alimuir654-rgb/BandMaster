@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO01.json",
+  "session": "docs/continuous_improvement/sessions/MAIN_AUDIO02.json",
   "scope": "Existing S144 workbench recorded source integration per latest direct owner request; isolated feature branch",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -7438,5 +7438,12 @@
     "source_head": "0fb01c1d",
     "record": "docs/continuous_improvement/MAIN_AUDIO01_DELIVERY.json",
     "next_action": "Original builder signs v17 using retained key, then in-place Android save/audio review."
+  },
+  "MAIN_AUDIO02_source_only": {
+    "status": "active",
+    "owner_base": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+    "source_head": "5b8e1362b9e8e2b9ce46a44c1773e6dcd34c617b",
+    "no_key_generation": true,
+    "no_app_id_change": true
   }
 }
