@@ -39,8 +39,8 @@
     "BM-40"
   ],
   "issue_log_review": {
-    "bytes": 2011089,
-    "sha256": "b7841d8ba32f56d115f40ccb3b9a4c01b43cd618ff6d6e27e6b7a07117032fdd"
+    "bytes": 2022155,
+    "sha256": "62e630a594190efbfe606f47f819621c2f6613e92ffa674bbace17a8e116016c"
   },
   "owner_request": "Proceed with cohesive gameplay chunk: slicker musician-and-instrument auditions, a few questions/two samples, meaningful character/scenario consequences and a couple of practice levers. Preserve poster direction; batch source for one later combined review build.",
   "controlled_comparison": "Actual opening.tscn at390x844/720x1280/1280x720/1600x900. Same canonical four profiles/band/practice state. Baseline/candidate audition original/adjusted/questions/response, practice local focus/effort and saved aftermath. Explicit genre/Arjun audio limits.",

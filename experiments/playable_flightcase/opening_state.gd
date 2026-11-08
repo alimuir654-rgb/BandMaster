@@ -332,6 +332,11 @@ func finish_identity(style: Dictionary = {}, look: Dictionary = {}) -> Dictionar
   _rollback_identity(before)
   return {"ok":false,"message":str(starting.get("message","The known commitments could not be recorded."))}
  game.career=starting.state.duplicate(true)
+ var connected: Dictionary=preload("res://experiments/playable_flightcase/character_connections.gd").project(snapshot(),game.career)
+ if not connected.ok:
+  _rollback_identity(before)
+  return {"ok":false,"message":connected.message}
+ game.career=connected.state
  if not game.career.has(CareerDates.KEY):game.career[CareerDates.KEY]=CareerDates.initial(WorkAvailability.Starting.SOURCE)
  identity_style = proposed_style
  if not identity_style.is_empty():

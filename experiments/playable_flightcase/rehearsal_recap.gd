@@ -56,6 +56,8 @@ static func _reaction(report: Dictionary, change: Dictionary, _members: Array, u
   if not used_quotes.has(candidate):
    quote=candidate
    break
+ for note in report.get("direction_notes",[]):
+  if str(note.get("candidate_id",""))==id and not id.is_empty():quote=str(note.get("quote",note.text));break
  used_quotes[quote]=true
  var changes := PackedStringArray()
  if focus=="jam":

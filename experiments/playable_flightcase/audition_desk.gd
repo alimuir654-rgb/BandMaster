@@ -1,5 +1,7 @@
 extends VBoxContainer
 ## One silent room/person/working sketch. Inspection never dispatches an action.
+const Connections=preload("res://experiments/playable_flightcase/character_connections.gd")
+const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
@@ -30,6 +32,7 @@ var _inspector: Label
 var _board: GridContainer
 var _prior_toggle: Button
 var _notice: Label
+var _question_box: VBoxContainer
 var _bio: VBoxContainer
 var _show_prior := false
 var _busy := false
@@ -108,6 +111,10 @@ func _add_voice(host: Control) -> void:
  _voice=Ink.new()
  _voice.name="AuditionHeldVoice"
  _voice.text=str(_view.get("message","")) if _view.get("held",false) else str(_view.get("voice",""))
+ if _view.get("phase")=="tryout" and not _view.get("held",false):
+  var full: String=_voice.text
+  var sentence: int=full.find(".")
+  if sentence>=0:_voice.text=full.substr(0,sentence+1)
  _voice.add_theme_color_override("font_color",Color("eee7d7"))
  host.add_child(_voice)
  if fresh and not _view.get("held",false):_voice.call_deferred("begin",reduced_motion)
@@ -139,42 +146,15 @@ func _build() -> void:
  work.add_theme_constant_override("separation",8)
  if wide:work.size_flags_vertical=Control.SIZE_SHRINK_CENTER
  spread.add_child(work)
- if arrival:
-  var room_width: float=520 if wide else maxf(240,available_width-24)
-  place.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(room_width,room_width*900.0/1599.0)))
-  var introduction:=HBoxContainer.new()
-  introduction.add_theme_constant_override("separation",16)
-  introduction.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",Vector2(160,151) if wide else Vector2(112,106)))
-  introduction.add_child(_identity())
-  if wide:
-   work.add_child(introduction)
-   _add_voice(work)
-  else:
-   place.add_child(introduction)
-   _add_voice(place)
-  var name: String=str(_view["person"]["name"])
-  if _view["person"]["role"]=="Drummer":
-   work.add_child(_label(name+" has brought a short drum idea. Look it over together, then ask "+name+" to try another approach."))
-  else:
-   work.add_child(_label(name+" has brought a short bass idea. Look it over together, then ask "+name+" to try another approach." if _view["person"]["role"]=="Bassist" else name+" has brought a short guitar idea. Look it over together, then ask him to try another approach."))
- else:
-  if wide:
-   place.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(380,214)))
-   var person_row:=HBoxContainer.new()
-   person_row.add_theme_constant_override("separation",14)
-   person_row.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",Vector2(112,106)))
-   person_row.add_child(_identity())
-   place.add_child(person_row)
-  else:
-   var pictures:=HBoxContainer.new()
-   pictures.alignment=BoxContainer.ALIGNMENT_CENTER
-   pictures.add_theme_constant_override("separation",12)
-   pictures.add_child(_picture(str(_view["room"]),"AuditionRoom",Vector2(200,112)))
-   pictures.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",Vector2(112,106)))
-   place.add_child(pictures)
-   var person: Dictionary=_view["person"]
-   place.add_child(_label(("%s · %s · %d · %s" % [person["name"],person["role"],int(person["age"]),person["town"]]).to_upper(),18))
-  _add_voice(place)
+ # Keep the approved person/instrument preview as the main image. No new crop
+ # or invented full-resolution portrait; room art no longer competes with it.
+ place.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ if wide:place.custom_minimum_size.x=280
+ var portrait_row:=HBoxContainer.new();portrait_row.alignment=BoxContainer.ALIGNMENT_CENTER;place.add_child(portrait_row)
+ var preview: Vector2=Vector2(240,226) if wide else Vector2(210,198)
+ portrait_row.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",preview))
+ place.add_child(_identity())
+ _add_voice(place)
  var tools:=HBoxContainer.new()
  tools.name="AuditionInspectionTools"
  tools.add_theme_constant_override("separation",12)
@@ -197,7 +177,7 @@ func _build() -> void:
   var notes:=VBoxContainer.new()
   notes.add_theme_constant_override("separation",6)
   paper.add_child(notes)
-  notes.add_child(C.paper_label("A FOUR-BAR REHEARSAL SKETCH",18))
+  notes.add_child(C.paper_label("HEAR "+str(_view["person"]["name"]).to_upper()+" PLAY",18))
   var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
   version_label.name="AuditionCurrentVersion"
   notes.add_child(version_label)
@@ -222,21 +202,37 @@ func _build() -> void:
   else:
    notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
    _audio=AudioPart.new()
+   _audio.controls_visible=false
    _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
    _audio.configure(_audio_context)
    notes.add_child(_audio)
    _audio.set_clip(_content.material_id(str(_view.get("request",""))))
+  var takes:=HBoxContainer.new();takes.add_theme_constant_override("separation",5);notes.add_child(takes)
+  var audio_supported: bool=owner_state.game.genre=="Indie rock"
+  var first_take: Button=_button("▶ FIRST TAKE" if audio_supported else "WRITTEN EXAMPLE","AuditionPlayFirst",_hear_version.bind(true))
+  first_take.disabled=not audio_supported;first_take.set_meta("permitted",audio_supported);takes.add_child(first_take)
+  if not audio_supported:notes.add_child(C.paper_label("Audio samples are not available for this style. Read the written part below.",16))
+  if phase in ["response","decision"]:
+   var has_audio: bool=str(_view.get("candidate_id"))!="cast_arjun" and owner_state.game.genre=="Indie rock"
+   var adjusted: Button=_button("▶ NEW TAKE" if has_audio else "WRITTEN ONLY","AuditionPlayAdjusted",_hear_version.bind(false))
+   adjusted.disabled=not has_audio;adjusted.set_meta("permitted",has_audio);takes.add_child(adjusted)
+  var stop: Button=_quiet_button("STOP","AuditionStopTakes",_stop_takes,true)
+  notes.add_child(stop)
+  var written:=VBoxContainer.new();written.name="AuditionWrittenParts";written.visible=false
+  notes.add_child(_quiet_button("READ THE FOUR BARS","AuditionReadPart",func():written.visible=not written.visible,true))
+  notes.add_child(written)
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
   _board.columns=4 if wide else 2
   _board.size_flags_horizontal=Control.SIZE_EXPAND_FILL
   _board.add_theme_constant_override("h_separation",8)
   _board.add_theme_constant_override("v_separation",4)
-  notes.add_child(_board)
+  written.add_child(_board)
   _fill_board()
   _inspector=C.paper_label("Tap a bar to inspect its written part.")
   _inspector.name="AuditionInspector"
-  notes.add_child(_inspector)
+  written.add_child(_inspector)
+  written.add_child(C.paper_label(str(_view.get("voice","")),16))
   if _has_backing_choice():
    var voice_hint: Label=C.paper_label("Voice: a line in bars 1 and 3. Guitar: Jack’s part.")
    voice_hint.name="AuditionVoicePlacement"
@@ -244,6 +240,8 @@ func _build() -> void:
    var context_hint: Label=C.paper_label("Backing is an arranged bass-and-drum example, not your recruited band’s performance.")
    context_hint.name="AuditionBackingDisclosure"
    notes.add_child(context_hint)
+ if not _view.get("held",false) and not arrival:
+  _question_box=VBoxContainer.new();_question_box.name="AuditionConversation";_question_box.add_theme_constant_override("separation",5);work.add_child(_question_box);_questions(_question_box)
  var practical:=VBoxContainer.new()
  practical.name="AuditionPracticalContext"
  practical.add_theme_constant_override("separation",4)
@@ -275,6 +273,7 @@ func _build() -> void:
   actions.add_child(progress)
   var guidance:=_label(str(hints.get(phase,"")),14)
   guidance.name="AuditionNextStep"
+  guidance.visible=false
   actions.add_child(guidance)
   if phase=="arrival":actions.add_child(_button("START AUDITION","AuditionStartTryout",_act.bind("start_tryout","")))
   elif phase=="tryout":
@@ -299,6 +298,34 @@ func _build() -> void:
  if _view.get("ok",false) and _view.get("active",false):exits.add_child(_button("END AUDITION","AuditionAbort",_act.bind("abort","")))
  exits.add_child(_button("PAUSE / MENU","AuditionMenu",_menu))
  actions.add_child(exits)
+
+func _questions(parent: Node) -> void:
+ var answers: Dictionary=_view.get("conversation",{}).get("answers",{})
+ for key in ["working_style","commitment"]:
+  if answers.has(key):parent.add_child(_label("✓ "+str(Connections.LABELS[answers[key]]),16))
+ for key in ["commitment","working_style"]:
+  if answers.has(key):
+   parent.add_child(_label(str(_view.person.name)+" · "+Connections.reply(str(_view.candidate_id),key,str(answers[key])),16));break
+ for key in ["working_style","commitment"]:
+  if answers.has(key):continue
+  parent.add_child(_label(Connections.TITLES[key],17))
+  for choice in Connections.QUESTIONS[key]:
+   var button: Button=_button(Connections.LABELS[choice],"AuditionTalk_"+key+"_"+str(choice),_act.bind("talk",key+":"+str(choice)))
+   Poster.choice_style(button);parent.add_child(button)
+  break
+
+func _stop_takes() -> void:
+ if is_instance_valid(_audio):_audio.stop()
+
+func _hear_version(first: bool) -> void:
+ if _busy or _finish_voice():return
+ var wanted: bool=first and _view.get("phase") in ["response","decision"]
+ if _show_prior!=wanted:_toggle_prior()
+ if is_instance_valid(_audio):
+  _audio.request_play()
+  if not _audio.playing:
+   _notice.text="SOUND OFF · Use Pause / Menu to enable audio." if _audio._muted() else "This sample is unavailable. The written part is still here."
+   _notice.visible=true
 
 func _fit_bar(button: Button,inset: MarginContainer) -> void:
  if not is_instance_valid(button) or not is_instance_valid(inset):return
@@ -382,6 +409,12 @@ func _act(action: String,request: String) -> void:
  if _busy or _finish_voice():return
  _set_busy(true)
  var result: Dictionary=owner_state.audition_action(action,_expected.duplicate(true),request)
+ if action=="talk" and result.get("ok",false) and is_instance_valid(_question_box):
+  _view=result.view;_expected=result.expected
+  for child in _question_box.get_children():
+   _question_box.remove_child(child);child.queue_free()
+  _set_busy(false);_questions(_question_box)
+  return
  _returned(result)
 
 func _invite() -> void:
@@ -473,6 +506,7 @@ func _refresh_listening_audio() -> void:
  backing.tooltip_text="Hear the same revealed guitar with an arranged bass-and-drum backing." if available else "Backing example unavailable. The solo part and complete written sketch remain available."
  _audio=AudioPart.new()
  _audio.manifest_path=backing_manifest_path if _use_backing else Profiles.audio_manifest("cast_jack")
+ _audio.controls_visible=false
  _audio.play_caption="PLAY WITH BACKING" if _use_backing else "PLAY SOLO PART"
  _audio.available_hint="Same revealed guitar part; arranged accompaniment is an illustration." if _use_backing else "Hear the unchanged solo guitar part."
  _audio.configure(_audio_context)

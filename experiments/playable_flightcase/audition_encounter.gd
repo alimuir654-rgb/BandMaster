@@ -1,5 +1,6 @@
 extends RefCounted
 ## Optional opening metadata. No owner/UI/save/Finance dependency.
+const Connections=preload("res://experiments/playable_flightcase/character_connections.gd")
 const Content = preload("res://experiments/playable_flightcase/audition_content.gd")
 const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
@@ -97,6 +98,7 @@ static func _available(snapshot: Dictionary) -> int:
 
 static func _receipt_valid(receipt: Dictionary,sequence: int) -> bool:
  if receipt.is_empty():return true
+ if receipt.has(Connections.TALK) and not Connections.conversation_valid(receipt[Connections.TALK]):return false
  var content: Script=Profiles.content(str(receipt.get("candidate_id","")))
  if content==null:return false
  if receipt.get("candidate_id")!=content.PERSON_ID or receipt.get("role")!=content.ROLE:return false
@@ -143,6 +145,7 @@ static func validate(snapshot: Dictionary) -> Dictionary:
  if not _receipt_valid(raw["last_result"],int(raw["sequence"])) or not _history_valid(raw) or _canon(raw)==null:return _held("The saved audition history needs review.")
  if not raw["last_result"].is_empty() and raw["last_result"].get("result") in ["invited","passed"] and not _completed_current(raw["last_result"]):return _held("The saved audition history needs compatible content.")
  var active: Dictionary=raw["active"]
+ if active.has(Connections.TALK) and not Connections.conversation_valid(active[Connections.TALK]):return _held("The saved audition conversation needs a compatible version.")
  if active.is_empty():return {"ok":true,"exists":true,"active":false,"held":false,"message":""}
  var content: Script=Profiles.content(str(active.get("candidate_id","")))
  if content==null:return _held("The saved audition identity needs review.")
@@ -169,11 +172,13 @@ static func expected(snapshot: Dictionary) -> Dictionary:
  var status:=validate(snapshot)
  if not status["ok"] or not status["active"]:return {}
  var active: Dictionary=snapshot[KEY]["active"]
- return {"id":active["id"],"phase":active["phase"],"revision":active["revision"],"source_fingerprint":active["source_fingerprint"]}
+ var token: Dictionary={"id":active["id"],"phase":active["phase"],"revision":active["revision"],"source_fingerprint":active["source_fingerprint"]}
+ if active.has(Connections.TALK):token["conversation_revision"]=int(active[Connections.TALK].revision)
+ return token
 
 static func _token(snapshot: Dictionary,token: Dictionary,allow_stale: bool=false) -> bool:
  var status:=validate(snapshot)
- return status["ok"] and status["active"] and (allow_stale or not status["held"]) and token.size()==4 and _same(expected(snapshot),token)
+ return status["ok"] and status["active"] and (allow_stale or not status["held"]) and token.size()==expected(snapshot).size() and _same(expected(snapshot),token)
 
 static func _wrapper(snapshot: Dictionary) -> Dictionary:
  var wrapper: Dictionary=snapshot[KEY].duplicate(true) if snapshot.has(KEY) else {"version":1,"sequence":0,"active":{},"last_result":{}}
@@ -261,9 +266,17 @@ static func checkpoint(snapshot: Dictionary,action: String,token: Dictionary,req
   wrapper["last_result"]["reason"]="source_changed" if validate(snapshot)["held"] else "closed_by_player"
   wrapper["active"]={}
   return {"ok":true,"wrapper":wrapper,"message":"Audition closed. Your lineup is unchanged.","changed":true}
+ if action=="talk" and active["phase"] in ["tryout","response","decision"]:
+  var parts: PackedStringArray=request.split(":")
+  if parts.size()!=2 or not Connections.QUESTIONS.has(parts[0]) or parts[1] not in Connections.QUESTIONS[parts[0]]:return _fail("Choose one of the conversation replies.")
+  var talk: Dictionary=active.get(Connections.TALK,{"version":1,"revision":0,"answers":{}}).duplicate(true)
+  if talk.answers.has(parts[0]):return _fail("That answer is already part of this audition.")
+  talk.answers[str(parts[0])]=str(parts[1]);talk["revision"]=int(talk.revision)+1;active[Connections.TALK]=talk
+  return {"ok":true,"wrapper":wrapper,"message":Connections.reply(str(active.candidate_id),parts[0],parts[1]),"changed":true}
  if action=="start_tryout" and active["phase"]=="arrival":active["phase"]="tryout"
  elif action=="request" and active["phase"]=="tryout" and request in content.REQUESTS:
   active["phase"]="response"
+  if not active.has(Connections.TALK):active[Connections.TALK]={"version":1,"revision":0,"answers":{}}
   active["request"]=request
   active["adjusted_material_id"]=content.material_id(request)
   active["response_id"]=content.response_id(request)
@@ -335,4 +348,5 @@ static func view(snapshot: Dictionary,candidate_id: String="cast_jack") -> Dicti
   result["voice"]=content.voice(active["phase"],active["request"])
   result["bars"]=content.bars(active["request"])
   result["before_bars"]=content.bars()
+  result["conversation"]=active.get(Connections.TALK,{}).duplicate(true)
  return result

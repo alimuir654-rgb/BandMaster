@@ -65,6 +65,7 @@ var _work_dialog: Control
 var _work_expected: Dictionary = {}
 var _work_epoch := 0
 var practice_activity := "create"
+var rehearsal_direction: Dictionary={"focus":"precision","effort":"steady"}
 var _workbench_desk
 var _workbench_finished := false
 var _workbench_finished_ref: Dictionary={}
@@ -1089,6 +1090,19 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
  body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
  body.add_child(_ink("Work through the set together: starts, stops and the places that need another pass." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
  body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
+ if kind=="tighten":
+  var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+  for axis in ["focus","effort"]:
+   body.add_child(_ink("WORK ON" if axis=="focus" else "HOW WE PLAY IT",17))
+   var choices:=HBoxContainer.new();choices.add_theme_constant_override("separation",5);body.add_child(choices)
+   var values: Array=["precision","listening"] if axis=="focus" else ["steady","push"]
+   var labels: Array=["STARTS & STOPS","LISTEN & RESPOND"] if axis=="focus" else ["STEADY PACE","ONE MORE TAKE"]
+   for index in range(2):
+    var button: Button=poster.button(labels[index]);poster.choice_style(button);button.toggle_mode=true
+    button.name="RehearsalIntent_"+axis+"_"+str(values[index]);button.set_pressed_no_signal(rehearsal_direction[axis]==values[index]);button.disabled=session_busy
+    button.pressed.connect(_choose_rehearsal_intent.bind(axis,str(values[index])));choices.add_child(button)
+  var memories: Array=preload("res://experiments/playable_flightcase/character_connections.gd").memories(game.career)
+  for memory in memories:body.add_child(_ink(str(memory.name)+": "+str(memory.text),16,true))
  var situation: Dictionary=Situation.inspect_rehearsal(game.career)
  if situation.ok and not situation.plan.is_empty():
   var planned: Label=_ink("AGREED REHEARSAL • DAY %d EVENING • %s" % [int(situation.plan.day),str(situation.plan_status).to_upper()],16)
@@ -1121,6 +1135,12 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
      return false)
     break
 
+
+func _choose_rehearsal_intent(axis: String,value: String) -> void:
+ if session_busy or practice_activity!="tighten" or axis not in ["focus","effort"]:return
+ if (axis=="focus" and value not in ["precision","listening"]) or (axis=="effort" and value not in ["steady","push"]):return
+ rehearsal_direction[axis]=value
+ for button in find_children("RehearsalIntent_"+axis+"_*","Button",true,false):button.set_pressed_no_signal(str(button.name)=="RehearsalIntent_"+axis+"_"+value)
 
 func _refresh_practice_commitment() -> void:
  if game.phase!="play":
@@ -1517,7 +1537,7 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
  elif kind=="create":
   result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
  elif kind=="tighten":
-  result = game.rehearse_attending(situation.attendee_indices)
+  result = game.rehearse_attending(situation.attendee_indices,rehearsal_direction.duplicate(true))
  elif kind=="jam":
   result = game.informal_practice(situation.attendee_indices)
  else:

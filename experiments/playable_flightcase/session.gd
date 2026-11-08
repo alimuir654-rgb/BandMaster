@@ -249,7 +249,21 @@ func rehearse() -> Dictionary:
  var result: Dictionary = _apply_risk(Practice.resolve(career,"tighten"),"tighten")
  return _record_practice(result,"tighten")
 
-func rehearse_attending(indices: Array) -> Dictionary:
+func rehearse_attending(indices: Array,direction: Dictionary={}) -> Dictionary:
+ if direction.is_empty():return _rehearse_attending_original(indices)
+ var intent=preload("res://experiments/playable_flightcase/rehearsal_intent.gd")
+ if not intent.valid(direction) or not intent.Connections.valid(career):return {"ok":false,"message":"Review the rehearsal direction and saved musician connections."}
+ var before: Dictionary=career.duplicate(true)
+ var view: Dictionary=Situation.inspect_rehearsal(before)
+ var original: Dictionary=_rehearse_attending_original(indices)
+ if not original.get("ok",false):return original
+ var directed: Dictionary=intent.apply(before,career,indices,direction,view.get("plan_status")=="due")
+ if not directed.ok:career=before;return directed
+ career=directed.state.duplicate(true)
+ original["state"]=career.duplicate(true);original["outcome"]=directed.outcome;original["message"]=str(original.get("message",""))+" "+str(directed.message)
+ return original
+
+func _rehearse_attending_original(indices: Array) -> Dictionary:
  var commitment: Dictionary=Booking.guard_commitment(career,"practice",1)
  if not bool(commitment.get("ok",false)):return commitment
  if phase!="play":return {"ok":false,"message":"Recruit a viable band first."}
