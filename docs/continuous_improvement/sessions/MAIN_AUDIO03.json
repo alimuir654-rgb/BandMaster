@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1964872,
-    "sha256": "de80953d332d5b5d95e13f8571b8e6d1132d9972e60a0d8b19b6f29fc662d907"
+    "bytes": 1966229,
+    "sha256": "ed7e48e72b5df2743e660938034c05a2a87d4ff12698ffb642d8c2f7b3ded244"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -63,5 +63,6 @@
     "branch": "feature/recorded-song-main-app",
     "status": "active"
   },
-  "started_at": "2026-11-08T01:20:33.913754+00:00"
+  "started_at": "2026-11-08T01:20:33.913754+00:00",
+  "decoder_correction": "Official SDK emits4LP signed-data fields; fourth is empty. Root and independent reviewer inspected actualSDKbytecode. Strict parser will authenticate/reencode all4fields."
 }

@@ -1,0 +1,28 @@
+{
+  "request_path": "/BandMaster/BandMaster-V17-APK-v2-signing-request.json",
+  "local_request": "/workspace/detached-v17-signing/BandMaster-V17-APK-v2-signing-request.json",
+  "request_bytes": 7457,
+  "request_sha256": "20d3ccf645e711fc17bc73f1a429b648f8e35773bfd0481214339c7c9e6e911f",
+  "request_id": "fce06b67630d07747df8201568e72bf9a83619ef4eef87048f72f392df23e989",
+  "signed_data_bytes": 884,
+  "signed_data_sha256": "06cdbb19420bbe59200b507729c538780707337ad548131e2b4deddc13dd579b",
+  "content_digest": "ea07ceeec0d777d2ee19c807d3d6d33f934cb4955b1c9b373e57d76c634a5857",
+  "original_public_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "unsigned_apk": {
+    "filename": "BandMaster-Playtest-v17-UNSIGNED.apk",
+    "sha256": "dc4eb92cc022eb2e93c867264fd9ae2f00db20ebb5f0690472fb6f67270003aa",
+    "size": 188672220,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 17,
+    "version_name": "0.147.0-playtest-audio",
+    "minimum_sdk": 24,
+    "target_sdk": 36
+  },
+  "known_answer_and_negative_tests": 14,
+  "tests_passed": true,
+  "independent_review": "Read-only originalSDKbytecode and finalrequest review; no concretehold",
+  "no_private_key_operations": true,
+  "no_v17_assembly_performed": true,
+  "final_official_apksigner_verification": "pending original detached signature",
+  "workflow_sha256": "fc42807bacec0e07c72a8466c130dcf39c7b6f6277584cbd8a336f574beaa0bd"
+}
