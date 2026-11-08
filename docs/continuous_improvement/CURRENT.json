@@ -7431,5 +7431,12 @@
     "native_previews": "Three existing-folder Dropbox nativePNG uploads/readbacks, no sharing changes",
     "next_action": "Prospectively fund fresh latest-source ARM64 packaging and audit before any allocation; all S144 producers stay closed. Delivered V16 remains older source76 with its separate full package audit held. A recorded-song-kit pilot requires genuine cleared performances and song structure; no bank acquired.",
     "released_at": "2026-11-07T12:19:39.578514+00:00"
+  },
+  "MAIN_AUDIO01_delivery": {
+    "status": "private_handoff_uploaded_verified_original_signing_pending",
+    "source_branch": "feature/recorded-song-main-app",
+    "source_head": "0fb01c1d",
+    "record": "docs/continuous_improvement/MAIN_AUDIO01_DELIVERY.json",
+    "next_action": "Original builder signs v17 using retained key, then in-place Android save/audio review."
   }
 }

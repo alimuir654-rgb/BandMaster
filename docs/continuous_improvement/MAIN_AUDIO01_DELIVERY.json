@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-11-08T00:26:33.370186+00:00",
+  "status": "private_handoff_uploaded_verified_original_signing_pending",
+  "files": [
+    {
+      "name": "BandMaster-v17-audio-handover.txt",
+      "bytes": 4891,
+      "sha256": "c5505b0d1ba04d411f51b458f729f94d362107ee5fe8ad2f923382645f2b9f95",
+      "dropbox_content_hash": "d0bb641f8d3bb9209d70f70993b3305ad55e3f2b4d7bcf0c2fe3e902ed3c3049",
+      "dropbox_path": "/BandMaster/BandMaster-v17-audio-handover.txt",
+      "remote_content_hash_matches": true
+    },
+    {
+      "name": "BandMaster-v17-audio-signing-handoff.zip",
+      "bytes": 208694223,
+      "sha256": "f55d058413f61aae7b80085e43c1bb63ee50781d91ddc681ba6cbb4f22c44a0c",
+      "dropbox_content_hash": "339ed24825240615eb04d938e6aa265f3e8589516e4e51e37cf5f067a430e891",
+      "dropbox_path": "/BandMaster/BandMaster-v17-audio-signing-handoff.zip",
+      "remote_content_hash_matches": true
+    }
+  ],
+  "sharing_permissions_changed": false,
+  "raw_originals_uploaded_elsewhere": false,
+  "main_ref": "614449ca8ea469a668a7ce85c0ba51a938477411",
+  "shared_branch_ref": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+  "source_branch": "feature/recorded-song-main-app",
+  "source_delivery_head": "0fb01c1d",
+  "signed_APK": false
+}
