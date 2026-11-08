@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "MAIN_AUDIO03",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Prepare detached APK-v2 RSA/SHA256 signed-data JSON in /BandMaster Dropbox using unsignedV17 and authentic public certificate extracted from V16. No private key request/transfer/generation. After returned signature, assemble and officially verify same APK/cert/app/version/payload; stop unexpected check failures.",
   "baseline_sha": "65fd1b7db90ce255bea04084d030e5b0055b92b2",
@@ -61,8 +61,26 @@
   },
   "writer": {
     "branch": "feature/recorded-song-main-app",
-    "status": "active"
+    "status": "released"
   },
   "started_at": "2026-11-08T01:20:33.913754+00:00",
-  "decoder_correction": "Official SDK emits4LP signed-data fields; fourth is empty. Root and independent reviewer inspected actualSDKbytecode. Strict parser will authenticate/reencode all4fields."
+  "decoder_correction": "Official SDK emits4LP signed-data fields; fourth is empty. Root and independent reviewer inspected actualSDKbytecode. Strict parser will authenticate/reencode all4fields.",
+  "closeout": {
+    "tested_sha": "63dc497ae5ba11df2d00cea94c745e3692faaefa",
+    "evidence": "docs/continuous_improvement/MAIN_AUDIO03_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Receive original detached signature JSON, then invoke retained assembler; original RSA, official Android apksigner, app/version/minSDK, alignment and unchanged payload gates must all pass before promotion.",
+    "new_issue_review": "Preparation halted on SDK fourth-empty-field decoder mismatch, resolved only after root/independent bytecode proof; all original896byte RSA/digest/SD/block known answers and14tests subsequently passed. Initial halted logs retained. No V17assembly/signature created; no private key operations.",
+    "request_path": "/BandMaster/BandMaster-V17-APK-v2-signing-request.json",
+    "request_bytes": 7457,
+    "signed_data_sha256": "06cdbb19420bbe59200b507729c538780707337ad548131e2b4deddc13dd579b",
+    "remote_hash_and_plain_text_fetch_verified": true,
+    "simulated_review_lenses": {
+      "format": "SIMULATED: authenticated SDK four-field LPformat, SHA256chunks and exact existingV16signature/block roundtrips.",
+      "security": "SIMULATED: originalcertificatepinned, no private-key interface, response bound andverified before candidate write.",
+      "package": "SIMULATED: exact V17sha/size,CRC,metadata,ARM64/alignment/permissions/payload checks pass.",
+      "delivery": "SIMULATED:7457byte plainJSON uploaded; exact Dropboxcontenthash and textfetch/JSONparse verified.",
+      "release": "SIMULATED: awaiting returned signature; no signedV17 yet; official final verification and physical-device review remain pending."
+    }
+  }
 }

@@ -1598,3 +1598,6 @@ MAIN_AUDIO01 — owner-requested recorded-song integration on isolated feature/r
 
 
 MAIN_AUDIO02 — latest owner head19df671 re-fetched; source-only handoff returned for original-key final signing. Fresh91native checks pass;867runtime dependencies byte-match; patch applied warning-free against separate clean owner-base proof;13source+21private audio/import files exact. Prior5184legacy/fourviewport evidence reused with no UI/art/game-source changes. No APK export/signing, key generation/modification or application ID change in this pass. Source archive and patch at /workspace/main-audio-source-return; review approved scoped completeness, not owner art/device acceptance.
+
+
+MAIN_AUDIO03 — detached APKv2 request uploaded as /BandMaster/BandMaster-V17-APK-v2-signing-request.json (7457bytes), exact884byte RSA/SHA256signed-data, authentic originalpubliccert83c797fe..., V17digest/sha/size and packageaudit. Decoder3field assumption halted beforepublication; officialSDKbytecode and independent review establish fourth-emptyfield; corrected strictencoding passes14known-answer/rejection tests and authentic V16RSA/SD/blockroundtrip. Dropboxhash andplain-textfetch verified. V17retained unchanged; no keyoperations or V17assembly/signature. Await originalholder response; finalSDK/certificate/app/version/payload gates remain mandatory.

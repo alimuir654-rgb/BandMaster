@@ -7451,9 +7451,16 @@
     "record": "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json"
   },
   "MAIN_AUDIO03_detached_signing": {
-    "status": "prepare_public_request",
+    "status": "awaiting_original_detached_signature",
     "unsigned_v17_sha256": "dc4eb92cc022eb2e93c867264fd9ae2f00db20ebb5f0690472fb6f67270003aa",
     "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
-    "no_private_key_operations": true
+    "no_private_key_operations": true,
+    "request_path": "/BandMaster/BandMaster-V17-APK-v2-signing-request.json",
+    "request_id": "fce06b67630d07747df8201568e72bf9a83619ef4eef87048f72f392df23e989",
+    "request_sha256": "20d3ccf645e711fc17bc73f1a429b648f8e35773bfd0481214339c7c9e6e911f",
+    "request_local_path": "/workspace/detached-v17-signing/BandMaster-V17-APK-v2-signing-request.json",
+    "assembly_instructions": "/workspace/detached-v17-signing/ASSEMBLY_AFTER_RETURNED_SIGNATURE.txt",
+    "workflow": "tools/detached_apk_v2.py assemble",
+    "final_signature_verification_pending": true
   }
 }

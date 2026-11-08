@@ -24,5 +24,10 @@
   "no_private_key_operations": true,
   "no_v17_assembly_performed": true,
   "final_official_apksigner_verification": "pending original detached signature",
-  "workflow_sha256": "fc42807bacec0e07c72a8466c130dcf39c7b6f6277584cbd8a336f574beaa0bd"
+  "workflow_sha256": "fc42807bacec0e07c72a8466c130dcf39c7b6f6277584cbd8a336f574beaa0bd",
+  "dropbox_content_hash": "b821d4a56dae322d7bd112ca3e592d719977fd1bd624f2259e0ce7804567d492",
+  "upload_completed": true,
+  "remote_size_and_content_hash_verified": true,
+  "plain_text_dropbox_fetch_and_json_parse_verified": true,
+  "state": "awaiting_original_detached_signature"
 }
