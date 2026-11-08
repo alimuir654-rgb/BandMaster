@@ -179,6 +179,7 @@ func _wide_stage(root: VBoxContainer, max_width: float = 720.0) -> PanelContaine
  centre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  root.add_child(centre)
  var stage: PanelContainer = Kit.frame(look,"panel")
+ stage.add_theme_stylebox_override("panel",preload("res://experiments/playable_flightcase/poster_components.gd").stock(preload("res://experiments/playable_flightcase/poster_components.gd").INK,16))
  var safe_width: float = maxf(280.0,minf(max_width,size.x - (40.0 if size.x<720 else 80.0)))
  stage.custom_minimum_size.x = safe_width
  stage.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -187,10 +188,10 @@ func _wide_stage(root: VBoxContainer, max_width: float = 720.0) -> PanelContaine
 
 func _make_shell() -> VBoxContainer:
  var bg := TextureRect.new()
- bg.texture = load("res://components/control_atlas/art/case_surface.png")
+ bg.texture = preload("res://experiments/playable_flightcase/poster_components.gd").backdrop_texture()
  bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  bg.stretch_mode = TextureRect.STRETCH_SCALE
- bg.modulate = Color(0.52,0.57,0.61)
+ bg.modulate = Color(0.18,0.19,0.18)
  bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
  bg.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  add_child(bg)

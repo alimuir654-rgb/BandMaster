@@ -83,7 +83,7 @@ class PracticePhoneChoices extends VBoxContainer:
   size_flags_horizontal = Control.SIZE_EXPAND_FILL
   group.allow_unpress = false
   for index in range(labels.size()):
-   var option: Button = Kit.button(labels[index],style,"tab",true)
+   var option: Button = preload("res://experiments/playable_flightcase/career_components.gd").button(labels[index],style,"tab",true)
    option.button_group = group
    buttons.append(option)
    add_child(option)
@@ -135,6 +135,7 @@ func _box() -> VBoxContainer:
 
 func _panel(body: Control, kind := "panel") -> PanelContainer:
  var panel: PanelContainer = Kit.frame(look,kind)
+ panel.add_theme_stylebox_override("panel",preload("res://experiments/playable_flightcase/poster_components.gd").stock(preload("res://experiments/playable_flightcase/poster_components.gd").INK,16))
  panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  panel.add_child(body)
  return panel
@@ -778,6 +779,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   return
  var mode_index: int = ["create","tighten","connect","jam"].find(practice_activity)
  var modes := Kit.ChoiceStrip.new(look,PackedStringArray(["WRITE","REHEARSE","CLEAR AIR","JAM"]),maxi(0,mode_index))
+ for button in modes.buttons:preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(button)
  modes.name = "PracticeActivityChoices"
  for index in range(4):
   modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect","jam"][index])
@@ -796,7 +798,8 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
     _workbench_desk.free();_workbench_desk=null
    if not is_instance_valid(_workbench_desk):
     _workbench_desk=MixingDesk.new() if mixing else WorkbenchDesk.new()
-    _workbench_desk.configure(opening_owner,reduced_motion)
+    if mixing:_workbench_desk.configure(opening_owner,reduced_motion,notebook)
+    else:_workbench_desk.configure(opening_owner,reduced_motion)
     if mixing:
      _workbench_desk.write_requested.connect(_write_mixing)
      _workbench_desk.sound_requested.connect(func():sound_requested.emit())
@@ -992,12 +995,12 @@ func _writing_workspace(body: VBoxContainer) -> void:
   return
  if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
   if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
-   var producer: Button=Kit.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
+   var producer: Button=Shared.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
    producer.name="WritingOpenProducer"
    producer.custom_minimum_size.y=48
    producer.pressed.connect(_open_producer)
    body.add_child(producer)
-  var sketch: Button=Kit.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
+  var sketch: Button=Shared.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
   sketch.name="WritingOpenLyricSketch"
   sketch.custom_minimum_size.y=48
   sketch.pressed.connect(_open_lyric_sketch)
@@ -1031,6 +1034,7 @@ func _writing_workspace(body: VBoxContainer) -> void:
  leader_field.add_child(lead)
  var idea_field: VBoxContainer = _writing_field(fields,"IDEA")
  var ideas := Kit.ChoiceStrip.new("notepaper",PackedStringArray(Workshop.IDEAS),idea_index)
+ for button in ideas.buttons:preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(button)
  ideas.name = "PracticeIdeaChoices"
  ideas.selection_changed.connect(func(index: int):
   idea_index = index

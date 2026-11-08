@@ -4,6 +4,7 @@ extends RefCounted
 ## Original controls/materials remain the source; branding is RGBA art, not a font.
 const Kit = preload("res://components/control_atlas/kit.gd")
 const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
+const Poster = preload("res://experiments/playable_flightcase/poster_components.gd")
 const WORDMARK_PATH := "res://experiments/playable_flightcase/art/opening_wordmark.png"
 const WORDMARK_CROP := Rect2i(264,95,1248,718)
 const WORDMARK_TEXT := "LIVIN' THE\nDREAM"
@@ -11,7 +12,7 @@ static var _brand_texture_cache: ImageTexture
 
 
 static func label(value: String, points: int = 16, look: String = "flightcase") -> Label:
- var result: Label = Kit.label(value,look,points)
+ var result: Label = Poster.label(value,points,Poster.INK if look=="notepaper" else Poster.PAPER)
  result.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  result.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  result.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -22,7 +23,8 @@ static func label(value: String, points: int = 16, look: String = "flightcase") 
 static func paper_label(value: String, points: int = 16, muted: bool = false) -> Label:
  # Preserve RehearsalPress.ink's default SIZE_FILL, unlike ordinary labels.
  # A caller requiring expansion (such as ui._ink) sets it explicitly.
- var result: Label = Kit.label(value,"notepaper",points)
+ var result: Label = Poster.label(value,points,Poster.INK)
+ result.size_flags_horizontal=Control.SIZE_FILL
  result.add_theme_color_override("font_color",Color("695c4b") if muted else Color("29241f"))
  result.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
  result.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -34,7 +36,10 @@ static func button(value: String, look: String = "flightcase", family: String = 
  # Preserve the verified state textures, 48px minimum, 16px native text,
  # disabled/focus behaviour and source provenance from the original factory.
  # The owning view sets its node name and connects its one action callback.
- return Kit.button(value,look,family,toggle)
+ var result: Button=Poster.button(value,family=="primary")
+ result.toggle_mode=toggle
+ if toggle:Poster.choice_style(result)
+ return result
 
 
 static func sheet(compact: bool) -> StyleBoxTexture:
@@ -132,10 +137,10 @@ static func brand(height: float = 80.0) -> Control:
 
 static func background() -> TextureRect:
  var result := TextureRect.new()
- result.texture = load("res://components/control_atlas/art/case_surface.png")
+ result.texture = Poster.backdrop_texture()
  result.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
  result.stretch_mode = TextureRect.STRETCH_SCALE
- result.modulate = Color(0.52,0.57,0.61)
+ result.modulate = Color(0.18,0.19,0.18)
  result.mouse_filter = Control.MOUSE_FILTER_IGNORE
  result.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  return result

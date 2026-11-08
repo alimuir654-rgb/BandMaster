@@ -56,6 +56,13 @@ func run() -> void:
   await capture("recorded")
   desk._hear.pressed.emit()
   check(desk._audio.playing,"native Hear invokes synchronized player")
+  var tone_started: int=Time.get_ticks_usec()
+  desk._choose("tone",2)
+  while desk._audio.playing and desk._audio._active.get("tone")!="biting" and Time.get_ticks_usec()-tone_started<500000:
+   await process_frame
+  var tone_ms: float=(Time.get_ticks_usec()-tone_started)/1000.0
+  check(desk._audio.playing and desk._audio._active.tone=="biting" and tone_ms<150.0,"live guitar tone applied within150ms desktop")
+  print("LIVE_TONE_MS "+str(tone_ms))
   desk.find_child("MixingPauseButton",true,false).pressed.emit()
   await process_frame
   check(not desk._audio.playing and is_instance_valid(desk._dialog) and desk._commit.disabled,"pause interrupts and disables commit")
@@ -74,6 +81,13 @@ func run() -> void:
   await process_frame
   desk._close_dialog()
   await process_frame
+  if root.size.x in [390,1280]:
+   scene._home();await create_timer(0.2).timeout
+   await capture("menu")
+   scene._continue();await create_timer(0.3).timeout
+   await capture("career")
+   scene._return_from_career("tighten");await create_timer(0.3).timeout
+   await capture("rehearsal")
  print("RECORDED_VISUAL "+JSON.stringify({"viewport":str(root.size),"baseline":baseline,"checks":checks,"failures":failures,"actual_entry":"opening.tscn","physical_device":false}))
  scene.queue_free();await process_frame
  quit(0 if failures.is_empty() else 1)

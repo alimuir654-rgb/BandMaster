@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--assessment-dir', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--tone-profile', choices=['v1','v2'], default='v1')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     metadata = json.loads((args.assessment_dir / 'measurements.json').read_text())
@@ -30,7 +31,8 @@ def main():
             audio[row['role']] = np.frombuffer(wav.readframes(wav.getnframes()), '<i2').reshape(-1, 2) / 32768.0
     kit = audio['Drums'] + audio['Percussion']
     kit_gain = min(1.0, .95 / max(float(np.abs(kit).max()), 1e-12))
-    manifest = dict(schema_version=1, content_version='recorded_steady_v1',
+    content_version = 'recorded_steady_' + args.tone_profile
+    manifest = dict(schema_version=1, content_version=content_version,
                     provenance='AI-generated Suno audio; owner reports paid-plan generation of this version',
                     review_only=True, commercial_game_licensing='unresolved', listening_verified=False,
                     loop_verified=False, sources=sources, drum_kit_gain=kit_gain,
@@ -42,13 +44,21 @@ def main():
             raw = (kit * kit_gain if part == 'kit' else audio['Guitar' if part.startswith('guitar') else 'Bass'])
             x = raw[start:start + 460800].copy()
             # Deterministic one-pole EQ; no time stretch, new notes or alternate performances.
-            if part in ['guitar_warm', 'guitar_biting']:
-                if part.endswith('biting'):
+            if args.tone_profile == 'v2' and part.startswith('guitar'):
+                original_rms = float(np.sqrt(np.mean(x*x)))
+                drive = {'guitar_warm':1.0, 'guitar_gritty':5.0, 'guitar_biting':18.0}[part]
+                x = np.tanh(x * drive) / drive
+            if part in ['guitar_warm', 'guitar_biting'] or (args.tone_profile == 'v2' and part=='guitar_gritty'):
+                if part.endswith('biting') and args.tone_profile=='v1':
                     x = np.tanh(x * 1.5) / 1.5
-                cutoff = 1800 if part.endswith('warm') else 5200
+                cutoff = ({'guitar_warm':650,'guitar_gritty':2800,'guitar_biting':6500}[part]
+                          if args.tone_profile=='v2' else (1800 if part.endswith('warm') else 5200))
                 alpha = 1 - np.exp(-2 * np.pi * cutoff / 48000)
                 for frame in range(1, len(x)):
                     x[frame] = alpha * x[frame] + (1 - alpha) * x[frame - 1]
+            if args.tone_profile=='v2' and part.startswith('guitar'):
+                # Match loudness so comparisons reflect colour/drive, not a volume boost.
+                x *= min(original_rms / max(float(np.sqrt(np.mean(x*x))), 1e-12), .9/max(float(np.abs(x).max()),1e-12))
             x[:480] *= np.linspace(0, 1, 480)[:, None]
             x[-960:] *= np.linspace(1, 0, 960)[:, None]
             assert np.max(np.abs(x)) < 1
@@ -58,7 +68,7 @@ def main():
                 wav.setparams((2, 2, 48000, 0, 'NONE', 'not compressed'))
                 wav.writeframes(pcm)
             (args.output / (name + '.import')).write_text('[remap]\nimporter="wav"\ntype="AudioStreamWAV"\n[params]\nedit/trim=false\nedit/normalize=false\nedit/loop_mode=0\ncompress/mode=0\n')
-            entry['parts'][part] = dict(path='res://experiments/playable_flightcase/audio/recorded_steady_v1/' + name,
+            entry['parts'][part] = dict(path='res://experiments/playable_flightcase/audio/' + content_version + '/' + name,
                                        sha256=digest((args.output / name).read_bytes()), pcm_sha256=digest(pcm))
         manifest['entries']['steady_' + family + '_v1'] = entry
     (args.output / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

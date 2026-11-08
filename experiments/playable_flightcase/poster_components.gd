@@ -57,7 +57,7 @@ static func button(text: String,primary: bool=false,color: Color=PAPER) -> Butto
  var material: Color=GOLD if primary else color
  var foreground: Color=PAPER if stock_index(material) in [2,3,4] else INK
  for state in ["normal","hover","pressed","hover_pressed","disabled"]:
-  var style: StyleBoxTexture=stock(material,14)
+  var style: StyleBoxTexture=control_stock(material,14)
   if state in ["pressed","hover_pressed"]:style.modulate_color=Color(0.90,0.90,0.90)
   if state=="hover":style.modulate_color=Color(1.05,1.05,1.05)
   if state=="disabled":style.modulate_color=Color(0.7,0.7,0.7)
@@ -66,6 +66,26 @@ static func button(text: String,primary: bool=false,color: Color=PAPER) -> Butto
  var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=GOLD;focus.set_border_width_all(2)
  result.add_theme_stylebox_override("focus",focus);result.add_theme_color_override("font_color",foreground);result.add_theme_color_override("font_focus_color",foreground)
  return result
+static func control_stock(material: Color=PAPER,margin: int=14) -> StyleBoxTexture:
+ var style: StyleBoxTexture=stock(material,margin)
+ var index: int=stock_index(material)
+ style.region_rect=Rect2((index%3)*512+64,int(index/3)*512+64,384,384)
+ style.set_texture_margin_all(8);style.set_content_margin_all(margin)
+ return style
+static func backdrop_texture() -> AtlasTexture:
+ var texture: AtlasTexture=cell(4);texture.region=Rect2(576,576,384,384)
+ return texture
+static func choice_style(button: Button) -> void:
+ button.add_theme_font_override("font",FONT);button.add_theme_font_size_override("font_size",17)
+ button.custom_minimum_size=Vector2(0,48)
+ for state in ["normal","hover","pressed","hover_pressed","disabled"]:
+  var face: StyleBoxTexture=control_stock(GOLD if state in ["pressed","hover_pressed"] else PAPER,6)
+  if state=="disabled":face.modulate_color=Color(0.7,0.7,0.7)
+  button.add_theme_stylebox_override(state,face)
+  button.add_theme_color_override("font_"+state+"_color",INK)
+ button.add_theme_color_override("font_color",INK);button.add_theme_color_override("font_focus_color",INK)
+ var focus:=StyleBoxFlat.new();focus.bg_color=Color.TRANSPARENT;focus.border_color=GOLD;focus.set_border_width_all(2)
+ button.add_theme_stylebox_override("focus",focus)
 static func quiet(text: String) -> Button:
  var result: Button=button(text)
  for state in ["normal","hover","pressed","hover_pressed","disabled"]:result.add_theme_stylebox_override(state,StyleBoxEmpty.new());result.add_theme_color_override("font_"+state+"_color",PAPER)

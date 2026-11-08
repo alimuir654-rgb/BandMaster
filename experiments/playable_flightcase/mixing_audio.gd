@@ -18,26 +18,32 @@ var _poll := 0.0
 var _last_status := ""
 var _bar := 0
 var _recorded_player: AudioStreamPlayer
+var _entries: Dictionary={}
+var _streams: Dictionary={}
+var _generation := 0
+var _tone_transition := false
+var _fade: Tween
 
 func configure(context: Callable) -> void:
  _context=context
 
 func _ready() -> void:
  add_to_group("SavedArrangementAudio")
- if FileAccess.file_exists(manifest_path):
+ _recorded_player=AudioStreamPlayer.new();_recorded_player.name="RecordedPhrase"
+ add_child(_recorded_player);_recorded_player.finished.connect(stop)
+ for part in PARTS:
+  var player:=AudioStreamPlayer.new();player.name="MixStem_"+part
+  add_child(player);_players.append(player)
+ _players[0].finished.connect(stop)
+
+func _load_legacy_manifests() -> void:
+ if _manifest.is_empty() and FileAccess.file_exists(manifest_path):
   var parser:=JSON.new()
   if parser.parse(FileAccess.get_file_as_string(manifest_path))==OK and parser.data is Dictionary:_manifest=parser.data
  var foundations_path: String="res://experiments/playable_flightcase/audio/demo_foundations_v1.json"
- if FileAccess.file_exists(foundations_path):
+ if _foundations.is_empty() and FileAccess.file_exists(foundations_path):
   var parser:=JSON.new()
   if parser.parse(FileAccess.get_file_as_string(foundations_path))==OK and parser.data is Dictionary:_foundations=parser.data
- for part in PARTS:
-  var player:=AudioStreamPlayer.new()
-  player.name="MixStem_"+part
-  add_child(player);_players.append(player)
- _players[0].finished.connect(stop)
- _recorded_player=AudioStreamPlayer.new();_recorded_player.name="RecordedPhrase"
- add_child(_recorded_player);_recorded_player.finished.connect(stop)
 
 func muted() -> bool:
  var master: int=AudioServer.get_bus_index("Master")
@@ -52,9 +58,18 @@ func current_recipe() -> Dictionary:
  var context: Dictionary=_context.call()
  return context.recipe.duplicate(true) if context.get("allowed",false) and Recipe.valid(context.get("recipe")) else {}
 
-func _entry(value: Dictionary) -> Dictionary:
+func _entry(value: Dictionary,verify: bool=false) -> Dictionary:
+ if not Recipe.audio_supported(value):return {}
+ var key: String=str(value.hook)+":"+Recipe.scenario_key(value)
+ if not verify and _entries.has(key):return _entries[key]
+ var result: Dictionary=_read_entry(value)
+ if not result.is_empty():_entries[key]=result
+ return result
+
+func _read_entry(value: Dictionary) -> Dictionary:
  if Recipe.valid(value) and Recipe.Recorded.has_hook(value):
   return Recipe.Recorded.entry(value) if Recipe.audio_supported(value) else {}
+ _load_legacy_manifests()
  if not Recipe.audio_supported(value) or _manifest.get("schema_version")!=1 or _manifest.get("content_version")!=Recipe.VERSION or not _manifest.get("scenarios") is Dictionary:return {}
  var extended: bool=value.hook!="low_riff_v1"
  if extended and (_foundations.get("schema_version")!=1 or _foundations.get("content_version")!="demo_foundations_v1" or not _foundations.get("scenarios") is Dictionary):return {}
@@ -86,10 +101,15 @@ func _part_gain(value: Dictionary,part: String) -> float:
  return float(_entry_active.runtime_gain.common_gain_db) if value.hook!="low_riff_v1" else float(_manifest.get("part_gain_db",{}).get(part,0.0))
 
 func available() -> bool:
- return not _entry(current_recipe()).is_empty()
+ return available_for(current_recipe())
+
+func available_for(value: Dictionary) -> bool:
+ return not _entry(value).is_empty()
 
 func hint() -> String:
- var value: Dictionary=current_recipe()
+ return hint_for(current_recipe())
+
+func hint_for(value: Dictionary) -> String:
  if muted():return "Sound is off. The written idea and session remain available."
  if not Recipe.valid(value):return "Review the current song direction."
  if not Recipe.audio_supported(value):return "This style has written ideas; there isn't a matching demo yet."
@@ -135,7 +155,7 @@ func _create_buses(value: Dictionary) -> void:
 func request_play(start_beat: float=0.0) -> bool:
  stop()
  var value: Dictionary=current_recipe()
- var entry: Dictionary=_entry(value)
+ var entry: Dictionary=_entry(value,true)
  if muted() or entry.is_empty():status_changed.emit();return false
  if Recipe.Recorded.has_hook(value):return _request_recorded(value,entry,start_beat)
  var streams: Array[AudioStream]=[]
@@ -170,7 +190,11 @@ func _request_recorded(value: Dictionary,entry: Dictionary,start_beat: float) ->
  var together:=AudioStreamSynchronized.new();together.stream_count=3
  var parts: Array=["guitar_"+str(value.tone),"bass","kit"]
  for i in range(3):
-  var stream: AudioStreamWAV=Recipe.Recorded.stream(entry.parts[parts[i]])
+  var path: String=entry.parts[parts[i]].path
+  var stream: AudioStreamWAV=_streams.get(path) as AudioStreamWAV
+  if stream==null:
+   stream=Recipe.Recorded.stream(entry.parts[parts[i]])
+   if stream!=null:_streams[path]=stream
   if stream==null:status_changed.emit();return false
   together.set_sync_stream(i,stream)
  _active=value.duplicate(true);_entry_active=entry.duplicate(true);_bar=int(start_beat/4.0)
@@ -225,6 +249,9 @@ func _shape() -> void:
   _players[i].volume_db=base+(linear_to_db(gain) if gain>0.0001 else -80.0)
 
 func stop() -> void:
+ _generation+=1;_tone_transition=false
+ if _fade!=null and _fade.is_valid():_fade.kill()
+ _fade=null
  if is_instance_valid(_recorded_player):_recorded_player.stop();_recorded_player.stream=null
  for player in _players:
   if is_instance_valid(player):player.stop();player.stream=null;player.bus="Master"
@@ -234,6 +261,29 @@ func stop() -> void:
   if index>0:AudioServer.remove_bus(index)
  _buses.clear()
  status_changed.emit()
+
+func notify_controls_changed() -> void:
+ if playing and live_audition and Recipe.Recorded.has_hook(_active):
+  var value: Dictionary=current_recipe()
+  if value.is_empty():stop()
+  elif value!=_active:_apply_recorded_live(value)
+
+func _apply_recorded_live(value: Dictionary) -> void:
+ if _tone_transition:return
+ if value.hook==_active.hook and value.tone==_active.tone:
+  _active=value.duplicate(true);_shape();return
+ _tone_transition=true
+ var generation: int=_generation
+ if _fade!=null and _fade.is_valid():_fade.kill()
+ _fade=create_tween();_fade.tween_property(_recorded_player,"volume_db",-65.0,0.012)
+ _fade.tween_callback(func():
+  if not playing or generation!=_generation:return
+  var latest: Dictionary=current_recipe()
+  var beat: float=_recorded_player.get_playback_position()/0.6
+  if latest.is_empty() or beat>=16.0:stop();return
+  if request_play(beat):
+   _recorded_player.volume_db=-65.0
+   _fade=create_tween();_fade.tween_property(_recorded_player,"volume_db",-9.0,0.016))
 
 func _process(delta: float) -> void:
  if playing:_shape()
@@ -248,7 +298,9 @@ func _process(delta: float) -> void:
   elif live_audition:
    var recorded: bool=Recipe.Recorded.has_hook(_active)
    var beat: float=(_recorded_player.get_playback_position() if recorded else _players[0].get_playback_position())*float(_entry_active.tempo)/60.0
-   if recorded and beat>=16.0:stop()
+   if recorded and value!=_active and beat<16.0:
+    _apply_recorded_live(value)
+   elif recorded and beat>=16.0:stop()
    elif not recorded and beat>=32.0:request_play()
    elif int(beat/4.0)>_bar:
     _bar=int(beat/4.0)

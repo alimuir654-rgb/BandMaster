@@ -5,6 +5,12 @@ const Paper = preload("res://experiments/playable_flightcase/art/session_paper.p
 static var paper_texture: ImageTexture
 
 static func sheet(compact: bool) -> StyleBoxTexture:
+ var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+ var sheet: StyleBoxTexture=poster.stock(poster.PAPER,18 if compact else 26)
+ sheet.content_margin_top=28;sheet.content_margin_bottom=32
+ return sheet
+
+static func legacy_sheet(compact: bool) -> StyleBoxTexture:
  if paper_texture == null:
   var image := Paper.get_image()
   image.resize(384,288,Image.INTERPOLATE_LANCZOS)
@@ -24,7 +30,7 @@ static func sheet(compact: bool) -> StyleBoxTexture:
 
 static func scorecard() -> StyleBoxTexture:
  if paper_texture == null:
-  sheet(false)
+  legacy_sheet(false)
  var stock := StyleBoxTexture.new()
  stock.texture = paper_texture
  # Printed score fields use the quiet interior of the same independent paper

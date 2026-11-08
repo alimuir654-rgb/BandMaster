@@ -2,8 +2,8 @@ extends RefCounted
 ## Private recorded phrases. No audition state, paid resolver or filesystem writes.
 const HOOKS := ["steady_early_v1","steady_later_v1"]
 const LABELS := ["STEADY EARLY","STEADY LATER"]
-const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v1/manifest.json"
-const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v1/"
+const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json"
+const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v2/"
 const USES := "recorded_phrase_uses_v1"
 
 static func has_hook(value: Variant) -> bool:
@@ -63,7 +63,7 @@ static func consume(career: Dictionary,value: Dictionary,project_id: String) -> 
 static func entry(value: Dictionary) -> Dictionary:
  if not has_hook(value) or not FileAccess.file_exists(MANIFEST):return {}
  var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
- if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!="recorded_steady_v1" or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
+ if not data is Dictionary or data.get("schema_version")!=1 or data.get("content_version")!="recorded_steady_v2" or data.get("review_only")!=true or not data.get("entries") is Dictionary:return {}
  var item: Variant=data.entries.get(value.hook)
  if not item is Dictionary or item.get("tempo")!=100 or item.get("frames")!=460800 or item.get("sample_rate")!=48000 or item.get("channels")!=2 or not item.get("parts") is Dictionary or item.parts.size()!=5:return {}
  for part in ["guitar_warm","guitar_gritty","guitar_biting","bass","kit"]:

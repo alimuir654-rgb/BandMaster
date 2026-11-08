@@ -63,19 +63,23 @@ var _exit_destination := ""
 var _exit_expected: Dictionary={}
 var _exit_epoch := 0
 var _layout := Vector2.ZERO
+var _target_cache: Dictionary={}
+var _target_key := ""
+var _initial_view := false
 static var _surface: Texture2D
 static var _plate: Texture2D
 
-func configure(state_owner,reduced: bool=false) -> void:
+func configure(state_owner,reduced: bool=false,initial_view: Dictionary={}) -> void:
  owner_state=state_owner;reduced_motion=reduced
- _view=owner_state.workbench_view();_expected=owner_state.workbench_expected()
+ _view=owner_state.workbench_view() if initial_view.is_empty() else initial_view
+ _expected=_view.expected.duplicate(true);_initial_view=true
  set_meta("mixing_desk",true)
 
 static func _surface_style() -> StyleBoxTexture:
  return Poster.stock(Poster.INK,16)
 
 static func _plate_style(focus: bool=false) -> StyleBoxTexture:
- var style: StyleBoxTexture=Poster.stock(Poster.GOLD,12)
+ var style: StyleBoxTexture=Poster.control_stock(Poster.GOLD,12)
  if focus:style.modulate_color=Color(1.04,1.04,1.04)
  return style
 
@@ -193,8 +197,11 @@ func _project() -> Dictionary:
  return _view.get("project",{})
 
 func _target() -> Dictionary:
+ var key: String=_title.text+":"+str(_leader_index)
+ if key==_target_key:return _target_cache
  var result: Dictionary=Rules._target(owner_state.game.career,_title.text,_leader_index)
- return result.get("target",{}) if result.get("ok",false) else {}
+ _target_key=key;_target_cache=result.get("target",{}) if result.get("ok",false) else {}
+ return _target_cache
 
 func _saved_recipe() -> Dictionary:
  var value: Dictionary=_project().get("fragment",{}).get("producer_recipe",{}).duplicate(true)
@@ -207,7 +214,9 @@ func _saved_decision() -> Dictionary:
  return {}
 
 func refresh_saved(preserve_local: bool=false) -> void:
- _stop_audio();_view=owner_state.workbench_view();_expected=owner_state.workbench_expected()
+ _stop_audio()
+ if not _initial_view:_view=owner_state.workbench_view()
+ _initial_view=false;_expected=_view.expected.duplicate(true);_target_key="";_target_cache={}
  if not is_instance_valid(_title):return
  if not preserve_local:
   _hydrating=true;_recipe=_saved_recipe();_decision={};_compare=false
@@ -239,6 +248,7 @@ func _choose(field: String,index: int) -> void:
  var axis: int=Recipe.FIELDS.find(field)
  if axis<0 or index<0 or index>=Recipe.VALUES[axis].size() or _recipe[field]==Recipe.VALUES[axis][index]:return
  _invalidate_response();_recipe[field]=Recipe.VALUES[axis][index];_refresh()
+ _audio.notify_controls_changed()
 
 func _change_leader(direction: int) -> void:
  if _busy or is_instance_valid(_dialog):return
@@ -271,7 +281,8 @@ func _compare_take() -> void:
  _compare=not _compare;_refresh()
 
 func _audio_context() -> Dictionary:
- var live: Dictionary=owner_state.workbench_view()
+ # An equal authoritative token proves the validated saved owner is unchanged.
+ var live: Dictionary=_view
  var selected: Dictionary=_previous() if _compare else _recipe
  var allowed: bool=is_visible_in_tree() and not _busy and not is_instance_valid(_dialog) and live.get("ok",false) and live.get("active",false) and not live.get("held",true) and Rules._same(_expected,owner_state.workbench_expected()) and Recipe.valid(selected)
  if allowed:allowed=Rules._same(selected.brief,Sound.read(owner_state.game.career)) and int(selected.stage)<=int(owner_state.game.career.get("song_draft_progress",0))
@@ -296,8 +307,9 @@ func _refresh_audio() -> void:
  var off: bool=master<0 or AudioServer.is_bus_mute(master)
  _sound.text="♫ OFF" if off else "♫ ON"
  _hear.text="■ STOP" if _audio.playing else ("SOUND OFF" if off else ("▶ HEAR EARLIER" if _compare else "▶ HEAR THE IDEA"))
- _hear.disabled=_busy or is_instance_valid(_dialog) or off or not _audio.available()
- _hear.tooltip_text=_audio.hint()
+ var selected: Dictionary=_previous() if _compare else _recipe
+ _hear.disabled=_busy or is_instance_valid(_dialog) or off or not _view.get("ok",false) or _view.get("held",true) or not _audio.available_for(selected)
+ _hear.tooltip_text=_audio.hint_for(selected)
 
 func _refresh() -> void:
  if not is_instance_valid(_title):return
@@ -348,7 +360,7 @@ func _refresh() -> void:
   if chosen:button.text="SELECTED · "+button.text
  _response.text="Choose how to answer before committing." if not respondent.is_empty() and _decision.is_empty() else ("Their idea is selected. Compare both takes freely." if _decision.get("choice")=="try" else ("You considered the idea and kept your direction." if _decision.get("choice")=="keep" else ("You chose to leave the idea unanswered." if _decision.get("choice")=="dismiss" else "Your direction is ready.")))
  _compare_button.visible=not _previous().is_empty();_compare_button.text="BACK TO CURRENT TAKE" if _compare else "COMPARE THE TAKES"
- _written.text=("EARLIER TAKE\n" if _compare else "CURRENT DIRECTION\n")+Recipe.written(_previous() if _compare else _recipe)+"\n"+_audio.hint()
+ _written.text=("EARLIER TAKE\n" if _compare else "CURRENT DIRECTION\n")+Recipe.written(_previous() if _compare else _recipe)+"\n"+_audio.hint_for(_previous() if _compare else _recipe)
  var members: Array=owner_state.game.career.get("members",[])
  _leader.text=(str(members[_leader_index].get("name",""))+" · SESSION LEAD") if _leader_index>=0 and _leader_index<members.size() else "REVIEW SESSION LEAD"
  var work: Dictionary=Situation.inspect_writing(owner_state.game.career)
@@ -375,6 +387,8 @@ func _refresh() -> void:
 
 func _resized() -> void:
  if not is_inside_tree():return
+ var heading: Label=find_child("MixingHeading",true,false) as Label
+ if heading!=null:heading.add_theme_font_size_override("font_size",20 if size.x<430 else 24)
  if _layout!=size:
   _stop_audio();_cancel_controls()
   if is_instance_valid(_dialog):_close_dialog();_show_notice("Layout changed. Your local direction is retained.")
@@ -401,7 +415,7 @@ func _request_commit() -> void:
  _stop_audio();_cancel_controls();_busy=true;_refresh()
  write_requested.emit({"expected":_expected.duplicate(true),"mixing_payload":_payload()})
  _busy=false
- _view=owner_state.workbench_view();_expected=owner_state.workbench_expected()
+ _view=owner_state.workbench_view();_expected=_view.expected.duplicate(true);_target_key="";_target_cache={}
  _refresh()
 
 func request_exit(destination: String) -> void:

@@ -102,6 +102,8 @@ func run() -> void:
  host.add_child(audio)
  AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"),false)
  check(audio.request_play(),"real synchronized recorded playback starts")
+ var unsupported: Dictionary=selected.duplicate(true);unsupported.brief.genre="Jazz"
+ check(not audio.available_for(unsupported),"cached audio never authorises unsupported genre")
  var player: AudioStreamPlayer=audio.get_node("RecordedPhrase")
  check(player.stream is AudioStreamSynchronized and player.stream.stream_count==3,"one clock drives three matched stems")
  check(is_equal_approx(player.stream.get_sync_stream_volume(1),0.0),"stage1 bass joins burst")
@@ -116,6 +118,10 @@ func run() -> void:
  check(player.stream.get_sync_stream_volume(1)<-70 and player.stream.get_sync_stream_volume(2)<-70,"stage0 only guitar")
  audio.stop();selected.stage=2;audio.request_play(15.0);await create_timer(1.0).timeout
  check(not audio.playing,"recorded phrase ends once without unverified looping")
+ audio.request_play(12.5)
+ selected.tone="warm";await create_timer(0.25).timeout
+ check(audio.playing and audio._active.tone=="warm","tone changes during final recorded bar")
+ check(player.get_playback_position()>7.5,"tone change retains phrase position")
  audio.request_play();audio._notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
  check(not audio.playing,"focus loss stops")
  check(owner.snapshot()==untouched and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"playback does not consume or save")

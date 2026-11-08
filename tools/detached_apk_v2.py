@@ -25,6 +25,9 @@ CERT_SHA = '83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2'
 V16_SHA = 'a6be215d95b9d47c5a8b661ea5b503a623a0ceccd584c29d6ffe002c9d0f9f90'
 V17_SHA = 'dc4eb92cc022eb2e93c867264fd9ae2f00db20ebb5f0690472fb6f67270003aa'
 V17_SIZE = 188672220
+EXPECTED_VERSION = 17
+EXPECTED_INTEGRATED_SOURCE = '65fd1b7db90ce255bea04084d030e5b0055b92b2'
+EXPECTED_GAME_SOURCE = 'a0f5bc331ff2e0884bf69c2417c5555eadec26fc'
 V2_ID = 0x7109871A
 RSA_SHA256 = 0x0103
 MAGIC = b'APK Sig Block 42'
@@ -260,7 +263,7 @@ def unsigned_audit(apk, sdk):
     sections = zip_sections(data)
     require(signing_block(data, sections) is None, 'V17 must have no pre-existing signing block')
     fields = metadata(apk, sdk)
-    require(fields['application_id'] == APP and fields['version_code'] == 17 and fields['minimum_sdk'] == 24,
+    require(fields['application_id'] == APP and fields['version_code'] == EXPECTED_VERSION and fields['minimum_sdk'] == 24,
             'V17 application ID/version/minimum SDK')
     run([sdk / 'zipalign', '-c', '-P', '16', '4', apk])
     records = payload_manifest(apk)
@@ -292,19 +295,19 @@ def prepare(args):
     require(signed_data(digest, certificate) == message, 'signed-data determinism')
     prior = json.loads(args.package_audit.read_text())
     require(prior['sha256'] == V17_SHA and prior['bytes'] == V17_SIZE and prior['application_id'] == APP and
-            prior['version_code'] == 17 and prior['signed'] is False, 'retained package audit binding')
+            prior['version_code'] == EXPECTED_VERSION and prior['signed'] is False, 'retained package audit binding')
     verification = json.loads(args.verification.read_text())
-    require(verification['compiled_apk_model']['checks'] == 91 and not verification['compiled_apk_model']['failures'],
+    require(verification['compiled_apk_model']['checks'] >= 91 and not verification['compiled_apk_model']['failures'],
             'retained compiled-payload test audit')
-    audit['previous_compiled_payload_tests'] = dict(checks=91, failures=0, reused_for_exact_unsigned_apk_sha256=V17_SHA,
+    audit['previous_compiled_payload_tests'] = dict(checks=verification['compiled_apk_model']['checks'], failures=0, reused_for_exact_unsigned_apk_sha256=V17_SHA,
         verification_record_sha256=sha(args.verification.read_bytes()), package_audit_record_sha256=sha(args.package_audit.read_bytes()))
     value = dict(schema_version=1, request_type='android-apk-v2-detached-rsa-sha256',
         unsigned_apk=dict(filename=args.apk.name, sha256=sha(data), size=len(data), **fields),
         source_identity=dict(repository='alimuir654-rgb/BandMaster', branch='feature/recorded-song-main-app',
-            integrated_source_commit='65fd1b7db90ce255bea04084d030e5b0055b92b2',
+            integrated_source_commit=EXPECTED_INTEGRATED_SOURCE,
             owner_base_commit='19df671f2946a9a3c675bc879aa4c8a854544e57',
             packaged_game_source_commit=verification['tested_sha'], entry_scene='experiments/playable_flightcase/opening.tscn',
-            save_directory='BandMasterOwnerPlaytestS40', source_archive_sha256='33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d'),
+            save_directory='BandMasterOwnerPlaytestS40', source_archive_sha256='33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d' if EXPECTED_VERSION==17 else None),
         signing=dict(scheme='APK Signature Scheme v2', signature_algorithm_id='0x0103',
             java_signature_algorithm='SHA256withRSA', padding='RSASSA-PKCS1-v1_5', hash_algorithm='SHA-256',
             signed_data_base64=b64(message), signed_data_sha256=sha(message), signed_data_size=len(message),
@@ -339,9 +342,9 @@ def prepare(args):
 def validate_request(value, apk, v16, sdk):
     require(value.get('schema_version') == 1 and value.get('request_type') == 'android-apk-v2-detached-rsa-sha256', 'request schema')
     require(value.get('request_id') == request_id(value), 'request ID/canonical JSON changed')
-    require(value['source_identity']['integrated_source_commit'] == '65fd1b7db90ce255bea04084d030e5b0055b92b2' and
+    require(value['source_identity']['integrated_source_commit'] == EXPECTED_INTEGRATED_SOURCE and
             value['source_identity']['repository'] == 'alimuir654-rgb/BandMaster' and
-            value['source_identity']['packaged_game_source_commit'] == 'a0f5bc331ff2e0884bf69c2417c5555eadec26fc',
+            value['source_identity']['packaged_game_source_commit'] == EXPECTED_GAME_SOURCE,
             'request source identity changed')
     certificate, _audit = reference_certificate(v16, sdk)
     data, sections, fields, digest, audit = unsigned_audit(apk, sdk)
@@ -404,7 +407,7 @@ def assemble(args):
     run([args.sdk / 'zipalign', '-c', '-P', '16', '4', candidate])
     require(sha(args.apk.read_bytes()) == V17_SHA, 'retained unsigned APK changed')
     audit = dict(request_id=request['request_id'], signed_apk_sha256=sha(final), signed_apk_size=len(final),
-        original_certificate_sha256=CERT_SHA, application_id=APP, version_code=17, minimum_sdk=24,
+        original_certificate_sha256=CERT_SHA, application_id=APP, version_code=EXPECTED_VERSION, minimum_sdk=24,
         official_apksigner_verified=True, alignment_16kb=True, payload_unchanged=True,
         unsigned_original_unchanged=True, private_key_used_here=False, physical_device_tested=False,
         official_verifier_output=official)
@@ -424,6 +427,7 @@ def main():
         child.add_argument('--v16', type=Path, required=True)
         child.add_argument('--sdk', type=Path, required=True, help='Existing Android build-tools directory')
         child.add_argument('--output', type=Path, required=True)
+        child.add_argument('--policy', type=Path, help='Locally audited public APK hash/version/source pin for a later build; certificate/app/minSDK cannot change')
         if name == 'prepare':
             child.add_argument('--package-audit', type=Path, required=True)
             child.add_argument('--verification', type=Path, required=True)
@@ -432,9 +436,23 @@ def main():
             child.add_argument('--response', type=Path, required=True)
     args = parser.parse_args()
     try:
+        if args.policy:
+            load_policy(args.policy)
         (prepare if args.action == 'prepare' else assemble)(args)
     except Exception as error:
         raise SystemExit('STOP: detached workflow failed; do not retry or publish without resolving: ' + str(error)) from error
+
+
+def load_policy(path):
+    global V17_SHA, V17_SIZE, EXPECTED_VERSION, EXPECTED_INTEGRATED_SOURCE, EXPECTED_GAME_SOURCE
+    policy = json.loads(path.read_text())
+    require(set(policy) == {'apk_sha256','apk_size','version_code','integrated_source_commit','game_source_commit'}, 'public APK policy fields')
+    for name in ['apk_sha256','integrated_source_commit','game_source_commit']:
+        require(isinstance(policy[name], str) and re.fullmatch('[0-9a-f]{' + ('64' if name == 'apk_sha256' else '40') + '}', policy[name]) is not None, 'policy digest/commit format')
+    require(type(policy['version_code']) is int and policy['version_code'] >= 18 and
+            type(policy['apk_size']) is int and 0 < policy['apk_size'] < 1024*1024*1024, 'policy version/size')
+    V17_SHA=policy['apk_sha256'];V17_SIZE=policy['apk_size'];EXPECTED_VERSION=policy['version_code']
+    EXPECTED_INTEGRATED_SOURCE=policy['integrated_source_commit'];EXPECTED_GAME_SOURCE=policy['game_source_commit']
 
 
 if __name__ == '__main__':
