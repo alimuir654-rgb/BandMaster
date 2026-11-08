@@ -7451,7 +7451,7 @@
     "record": "docs/continuous_improvement/MAIN_AUDIO02_RESULTS.json"
   },
   "MAIN_AUDIO03_detached_signing": {
-    "status": "awaiting_original_detached_signature",
+    "status": "signed_v17_verified_upload_pending",
     "unsigned_v17_sha256": "dc4eb92cc022eb2e93c867264fd9ae2f00db20ebb5f0690472fb6f67270003aa",
     "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
     "no_private_key_operations": true,
@@ -7461,6 +7461,8 @@
     "request_local_path": "/workspace/detached-v17-signing/BandMaster-V17-APK-v2-signing-request.json",
     "assembly_instructions": "/workspace/detached-v17-signing/ASSEMBLY_AFTER_RETURNED_SIGNATURE.txt",
     "workflow": "tools/detached_apk_v2.py assemble",
-    "final_signature_verification_pending": true
+    "final_signature_verification_pending": false,
+    "signed_apk_sha256": "807c8587281c25b67468797e597dbc4ad69bb7c25d9027c03e3ad29463355873",
+    "next_action": "Install verified V17 over V16 without uninstalling; confirm saved band and device audio."
   }
 }
