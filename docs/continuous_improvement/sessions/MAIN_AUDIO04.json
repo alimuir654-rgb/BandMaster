@@ -25,8 +25,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 1970956,
-    "sha256": "19cb1ac0d99de4936e8b35e11521d93349f7a974a80d24a5e6af66365ea0bebf"
+    "bytes": 1972715,
+    "sha256": "d6cc358d56b6d1604d75fd04640fe6c514180e592ba4cd089adb2788d0979117"
   },
   "target": {
     "locator": "/workspace/main-app-check/S144-writing-room-73f9f23-phone.png",
@@ -52,7 +52,8 @@
     "docs/asset_base/LEDGER.md",
     ".gitignore",
     "tools/detached_apk_v2.py",
-    "tools/build_recorded_owner.py"
+    "tools/build_recorded_owner.py",
+    "tests/detached_apk_v2_test.py"
   ],
   "validation_commands": [
     "native timing baseline vs candidate; zero owner snapshot/develop calls per localdetent",
