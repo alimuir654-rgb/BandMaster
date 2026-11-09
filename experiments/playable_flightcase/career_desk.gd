@@ -1838,8 +1838,16 @@ func _booking_select(field: String,value: Variant,expected: Dictionary,generatio
  if field=="venue_id":
   _scroll_position=0
   if is_instance_valid(_scroll):_scroll.scroll_vertical=0
- _pending_focus="BookingDay_%d" % int(booking_draft["day"]) if field in ["venue_id","day"] else ("BookingOffer_"+str(value) if field=="offer_id" else "BookingTrip_"+str(value))
+ _pending_focus="BookingPitch_fit" if field=="venue_id" else ("BookingDay_%d" % int(booking_draft["day"]) if field=="day" else ("BookingOffer_"+str(value) if field=="offer_id" else "BookingTrip_"+str(value)))
  _render()
+
+func _booking_guidance(generation: int) -> void:
+ if not _booking_input_ready(generation):return
+ if booking_expected!=Booking.expected(game.career):
+  notice="The band changed. Review current rooms and dates.";_render();return
+ # Focus only: never select a pitch, accept terms, save, or advance the day.
+ var target: String="BookingPitch_fit" if booking_pitch.is_empty() else "BookingOffer_standard"
+ _apply_restored_focus(target,_render_generation,false)
 
 func _booking_pitch_select(pitch: String,expected: Dictionary,generation: int) -> void:
  if not _booking_input_ready(generation) or expected!=booking_expected or expected!=Booking.expected(game.career) or pitch not in Circuit.PITCHES:return

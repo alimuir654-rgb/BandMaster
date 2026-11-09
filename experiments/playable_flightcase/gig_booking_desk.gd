@@ -84,9 +84,10 @@ static func render(host,parent: Node,compact: bool) -> void:
   _copy(parent,"THE PROMOTER", "BookingPromoterHeading",22)
   _copy(parent,"Tell me what your band can bring to this night. We need a bill that works in this room.","BookingPromoterOpening",20)
   _copy(parent,"Your current standing: %d fans · reputation %d · %d shows played." % [int(host.game.career.get("fans",0)),int(host.game.career.get("reputation",0)),host.game.career.get("gig_history",[]).size()],"BookingBandStanding")
+  _copy(parent,"1 · YOUR PITCH","BookingPitchHeading",18)
   for pitch in Circuit.PITCHES:
    _button(host,parent,("✓ " if host.booking_pitch==pitch else "")+str(Circuit.PITCHES[pitch]),"BookingPitch_"+str(pitch),host._booking_pitch_select.bind(str(pitch),expected.duplicate(true),generation),host.booking_pitch==pitch)
-  _copy(parent,"YOUR ASK", "",18)
+  _copy(parent,"2 · YOUR TERMS", "BookingTermsHeading",18)
   for offer in ["standard","guarantee","guestlist"]:
    var ask: Button=_button(host,parent,str(OFFER_LABELS[offer]),"BookingOffer_"+offer,host._booking_select.bind("offer_id",offer,expected.duplicate(true),generation),draft.get(Circuit.BILL,{}).get("asked")==offer)
    ask.disabled=host.booking_pitch.is_empty() or bool(host.busy) or (bool(draft.get("session_drummer",false)) and offer!="standard")
@@ -95,7 +96,7 @@ static func render(host,parent: Node,compact: bool) -> void:
    if proposal.get("ok",false):
     _copy(parent,"PROMOTER: "+str(proposal.reply),"BookingPromoterReply",20)
     bill_copy(parent,proposal.bill)
-  else:_copy(parent,"Answer the promoter, then discuss the terms. You can leave without booking.","BookingNegotiationPending")
+  else:_copy(parent,"Choose one pitch above, then tap the terms you want to discuss. Nothing is booked yet.","BookingNegotiationPending")
   _copy(parent,"THE AGREEMENT · Nothing is booked until you confirm.","BookingDraftExplanation")
   _copy(parent,"SHOW DAY","",18)
   var days:=HFlowContainer.new();days.add_theme_constant_override("h_separation",4);days.add_theme_constant_override("v_separation",4);parent.add_child(days)
@@ -144,9 +145,23 @@ static func bill_copy(parent: Node,bill: Dictionary) -> void:
 
 static func dock(host,parent: Node) -> void:
  if str(host.booking_step)!="rooms":
-  var prepared: Dictionary=Booking.prepare(host.game.career,host.booking_draft,host.booking_expected)
-  var action: Button=_button(host,parent,"CONFIRM THIS BOOKING  ›","BookingCommitAction",host._ask_booking_commit.bind(int(host._render_generation)))
-  action.disabled=bool(host.busy) or not prepared.get("ok",false) or not host.booking_draft.has(Circuit.BILL)
+  var options: Dictionary=Booking.options(host.game.career)
+  var fresh: bool=host.booking_expected==Booking.expected(host.game.career)
+  if not options.get("ok",false):
+   _copy(parent,str(options.get("message","The saved booking needs review.")),"BookingDockNotice")
+  elif not fresh:
+   _copy(parent,"The band changed. Review current rooms before discussing the offer.","BookingDockNotice")
+   _button(host,parent,"REVIEW CURRENT ROOMS ›","BookingCommitAction",host._open_booking.bind({}))
+  elif host.booking_pitch.is_empty() or not host.booking_draft.has(Circuit.BILL):
+   var words: String="CHOOSE YOUR PITCH ›" if host.booking_pitch.is_empty() else "DISCUSS TERMS ›"
+   _copy(parent,"Choose what you bring to this night." if host.booking_pitch.is_empty() else "Tap Standard terms, Guarantee or Guest list to hear the promoter's offer.","BookingDockNotice")
+   var guide: Button=_button(host,parent,words,"BookingCommitAction",host._booking_guidance.bind(int(host._render_generation)))
+   guide.disabled=bool(host.busy)
+  else:
+   var prepared: Dictionary=Booking.prepare(host.game.career,host.booking_draft,host.booking_expected)
+   if not prepared.get("ok",false):_copy(parent,str(prepared.get("message","Review this agreement.")),"BookingDockNotice")
+   var action: Button=_button(host,parent,"CONFIRM THIS BOOKING  ›","BookingCommitAction",host._ask_booking_commit.bind(int(host._render_generation)))
+   action.disabled=bool(host.busy) or not prepared.get("ok",false)
  _button(host,parent,"‹ CHOOSE ANOTHER ROOM" if str(host.booking_step)!="rooms" else "‹ BACK","BookingBackAction",host._booking_back.bind(int(host._render_generation)))
 
 static func render_agreement(host,parent: Node,compact: bool,state: Dictionary) -> void:

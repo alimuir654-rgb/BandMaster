@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2084006,
-    "sha256": "6ec149659ae7857c261deecd430ba6bb4e3e884a715d808f1c9af2d59fd18e78"
+    "bytes": 2085490,
+    "sha256": "fa372db57a54ae6ec232f5f088db67a0cf033e3106e7f621535e363ef73110f7"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -34,7 +34,7 @@
     "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
     "pixels_inspected": true,
     "baseline_original": "/workspace/band-life-update24/compiled-phone-promoter-pitch.png",
-    "baseline_inspected_this_session": false
+    "baseline_inspected_this_session": true
   },
   "controlled_comparison": "Genuine canonical1finishedsong+2actualpaidrehearsals, samefirstshow/noautomaticgoalclaim; baselinecurrentNAV26 vsnewHome/booking at390x844/720x1280/1280x720/1600x900, free and nobodyfree days. Source/currentposter controls unchangedmaterial.",
   "hypothesis": "Prominent firstgig route on completedfirstgoal and fixedpitch\u2192terms\u2192confirm guidance remove two navigation gaps while keeping booking intent/accounting/eligibility original. Initialfocus staysatpromoter instead of jumpingbelowit.",
