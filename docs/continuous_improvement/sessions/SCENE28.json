@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "SCENE28",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "d7f0a0e679d3bc261f1934632a7f63e88070e351",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2095518,
-    "sha256": "67c4f7db4d4e99ddaa321a888941ac6701463c8f8cea5028e733f6fe6a5f7012"
+    "bytes": 2101315,
+    "sha256": "34448a163a2301cfa51934169cad7e878f47b8cda194dd8682415d5ae4226a7f"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -37,7 +37,7 @@
     "baseline_inspected_this_session": true
   },
   "controlled_comparison": "Samegenuine1song/2paidrehearsals andfresh/returnedpromotercontext at390x844/720x1280/1280x720/1600x900. Longformbaseline vs3meaningfulchoiceledbeats; venue/promotercontext, allpitch/termchoicesinfirstfold, actualoffer/counteroffer/date/trip/finalmodal,Back/currentdraftsavefailure/stale/reload.",
-  "hypothesis": "Showoneconversationquestionatatime, authenticstatus-shapedreactionandverbatimactualoffer, consistentroomrole anchoring, noextraNext-onlypage. Compactdategrid/optionalfullbill preservecompletecommitmentwithoutburyingchoices. After observed intermittent nested presence painting, use two flat existing native labels in same58px budget; existing roomart remains arrival/saved agreement. No redraw/wait workaround.",
+  "hypothesis": "Showoneconversationquestionatatime, authenticstatus-shapedreactionandverbatimactualoffer, consistentroomrole anchoring, noextraNext-onlypage. Compactdategrid/optionalfullbill preservecompletecommitmentwithoutburyingchoices. After observed intermittent nested presence painting, use two flat existing native labels in same58px budget; existing roomart remains arrival/saved agreement. No redraw/wait workaround. Exact-original ROI/OCR later contradicts apparent blank-row interpretations; no proven sourcepaintbug or fix claim. Retain flatter native labels as simpler layout.",
   "stop_condition": "No NPCportrait/newcast/art/audio/paidruntime/newdialogueengine/savedwrapper/policy/economy/reward changes. No autoask/accept, no savedclaimbeforeoriginalcommit; V21APK/request unchanged. NoAPK/newsignature orremotepush thissourcechunk.",
   "allowed_paths": [
     "experiments/playable_flightcase/gig_booking_desk.gd",
@@ -65,7 +65,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "review_task": {
@@ -76,5 +76,15 @@
     "visible_acceptance": "Venue+promoter-role+currentdialogueand3actualchoices fitphonefirstfold; originalreply/counteroffer andactualslot/currentcost/reservedtime explicit; reducedscroll andnaturalBack, noforcedwaiting/newportraitclaim."
   },
   "independent_review": "Existing helper completedsource/previousoriginalpixelpre-review; root solewriter.",
-  "started_at": "2026-11-09T17:50:30.585692+00:00"
+  "started_at": "2026-11-09T17:50:30.585692+00:00",
+  "tested_sha": "c60edcaf7305b4858f9a5f33b2fae1c1dceb30f5",
+  "closed_at": "2026-11-09T18:09:36.281247+00:00",
+  "result": "docs/continuous_improvement/SCENE28_RESULTS.json",
+  "closeout": {
+    "tested_sha": "c60edcaf7305b4858f9a5f33b2fae1c1dceb30f5",
+    "evidence": "docs/continuous_improvement/SCENE28_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Include NAV26, GIG27 and SCENE28 together in the next existing Playtest review build; no separate interim release.",
+    "new_issue_review": "All events retained and reviewed. Fee context corrected, blank-row interpretation disproven by exactPNG/OCR and retracted, rawpixel mapping and receipt-prefix helpers corrected. Source/native clear; physicaldevice/listening/owner acceptance pending."
+  }
 }

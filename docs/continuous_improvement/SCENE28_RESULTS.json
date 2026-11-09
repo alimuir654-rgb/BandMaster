@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "session": "SCENE28",
+  "status": "source_verified_queued_for_next_combined_update",
+  "tested_sha": "c60edcaf7305b4858f9a5f33b2fae1c1dceb30f5",
+  "baseline_sha": "d7f0a0e679d3bc261f1934632a7f63e88070e351",
+  "owner_approved": false,
+  "owner_confirmed_prior_scroll_cause": true,
+  "owner_goal": "Less scrolling; character-led promoter encounter with responses shaped by band status, rather than a long booking form or extra Next-only pages.",
+  "changes": [
+    "Venue selection opens at a promoter pitch question; all three actual replies fit the first phone fold.",
+    "A pitch immediately leads to an authored status-grounded promoter reaction and three real terms replies. No bill or acceptance is installed by the pitch alone.",
+    "Choosing terms opens the unchanged authoritative offer, including original counteroffer text, asked versus actual terms, actual bill slot and listed fee/settlement caveat.",
+    "Original12legal dates use a compact grid; travel remains actual available plans. Full shared lineup is an optional disclosure.",
+    "Back revisits terms/pitch/rooms while retaining the local draft; changed pitch/venue invalidates the old bill.",
+    "Original atomic final agreement now speaks in-world and explicitly states date, travel, reserved time, upfront/later costs, optional session cover, listed fee and agreed adjustment.",
+    "Venue/promoter role use existing flat native text; original venue artwork remains in room selection and saved agreement. No new NPC portrait, audio, cast or dialogue engine."
+  ],
+  "validation": {
+    "final_native_runs": [
+      {
+        "run": "phone",
+        "viewport": "390x844",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "a0c3a4c6c7c673d9c711d79af7013cb60d5f2b123468f6189647fe66aee76d21"
+      },
+      {
+        "run": "short",
+        "viewport": "1280x720",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 144,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "e18867db12d998a13f279c65c9ffb277b51aeaa4eebb4945f091e0143e2973ef"
+      },
+      {
+        "run": "tall",
+        "viewport": "720x1280",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "97be73ceebfdcb9ca6b0e8dd683fdaec365c22dac13082988152f5baa9b46df0"
+      },
+      {
+        "run": "wide",
+        "viewport": "1600x900",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 144,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "a4604311116d2e301762ccc20d49349af3dbd6cd73dfa9aadd528e3b04ec0e1d"
+      },
+      {
+        "run": "edges-phone",
+        "viewport": "390x844",
+        "script": "gig_navigation_edges",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "7c5c262cc9204b8bf24ee2800c52a20213b9a2bf0afff4d6e82886dc1d6f5ad6"
+      },
+      {
+        "run": "nav-phone",
+        "viewport": "390x844",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "fe2e5e8414220d13e701fd41cab8be0c32319b66f07446fdd717c56d7ff931fc"
+      },
+      {
+        "run": "stories-phone",
+        "viewport": "390x844",
+        "script": "update_a_visual",
+        "summary": {
+          "checks": 226,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "b2e9cf9836ce3361ddb9a1f5192f5aebdb66851027dd963b4afbbba22fcab1a8"
+      },
+      {
+        "run": "navigation-edges-phone",
+        "viewport": "390x844",
+        "script": "navigation_edges_visual",
+        "summary": {
+          "checks": 65,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "2e8c8e236389e7574ec1f16195523ce9eb044651abc5d154c10b6efa62e8a286",
+        "receipt_note": "Actual completed engine summary recovered from original log; live driver omitted this valid prefix. No engine rerun or source/test assertion change."
+      }
+    ],
+    "final_native_assertions": 999,
+    "four_viewports": [
+      "390x844",
+      "720x1280",
+      "1280x720",
+      "1600x900"
+    ],
+    "earlier_session_models": [
+      {
+        "run": "navigation_unavailable_test",
+        "summary": {
+          "checks": 98,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "cd7f7c9850648416b535e2fde175f224e0e6bb22735e37395517cb1080f394fb"
+      },
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      }
+    ],
+    "model_assertions": 278,
+    "model_timing": "Run before final presentation-only fee/presence/modal copy correction. Model and gameplay policy sources stayed unchanged; no model rerun claimed.",
+    "count_note": "Repeated program assertions across viewports/regressions, not distinct human tests.",
+    "cases": [
+      "genuine one original/two attended paid rehearsals",
+      "first fold actual pitch/term controls and initial top scroll",
+      "original counteroffer/asked versus actualoffer",
+      "all12date targets>=48logicalunits, first/last actualpointer selection",
+      "optional actual fullbill",
+      "Back and returning to retained offer",
+      "changedpitch/venueinvalidatesoldbill",
+      "modal cancel, real savefailure/retry and exacttypedreload",
+      "stale-generation/busy/modalguards",
+      "nobodyfree Home route/stale recovery/invaliddate actualreason/unknowncompatiblefields",
+      "prior unavailable writing/rehearsal/dirtyexits",
+      "actual two settled shows/practicalfavor and earned promoter greeting/reaction",
+      "future commitment/due gig/radio/finance navigation guards"
+    ],
+    "engine": "Godot4.7.2 ed1daf0bf; native OpenGL compatibility; Dummy audio",
+    "engine_errors_or_leaks": 0,
+    "physical_Android": false,
+    "listening": false,
+    "normal_motion_retested": false,
+    "receipt_incident": "Eighth clean engine run emitted valid NAVIGATION_EDGES_VISUAL; reused driver regex omitted prefix. Recovered actual65assertion summary and hash from immutable log; no engine rerun or weakened assertion."
+  },
+  "preservation": {
+    "tested_source": "c60edcaf7305b4858f9a5f33b2fae1c1dceb30f5",
+    "source_QA_files_equal": 16,
+    "private_WAV_hashes_equal": 80,
+    "V21_APK_and_request_unchanged": {
+      "/workspace/band-life-update24/BandMaster-Playtest-v21-arm64.apk": "c38846c3ce405f6d04610732b3d571d5be6ff8d606e75baa55e6cd388489d3b8",
+      "/workspace/band-life-update24/BandMaster-V21-APK-v2-signing-request.json": "1b04fc1e0b7e6bfda08df216aa1145829413d24ac21ce11874b4d9f1b2608382"
+    },
+    "media_art_rules_save_format_unchanged": true,
+    "baseline": "59a3bbc654706eeaac81cdca141a6d127e587495"
+  },
+  "combined_source_artifact": {
+    "name": "BandMaster-navigation-promoter-source.zip",
+    "path": "/workspace/bandmaster-scene28/BandMaster-navigation-promoter-source.zip",
+    "bytes": 117279,
+    "sha256": "4ad3d90109b8bca5285e1805ddad028fc9b78c69ce99c9bb9ab947eea0c827b1",
+    "source": "c60edcaf7305b4858f9a5f33b2fae1c1dceb30f5",
+    "baseline": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "source_files": 16,
+    "patch_apply_and_byte_check": true,
+    "zip_CRC": true,
+    "media_or_APK_or_keys": false
+  },
+  "originals_opened_by_root": [
+    "/workspace/bandmaster-scene28/early-phone-booking-before-pitch.png",
+    "/workspace/bandmaster-scene28/early-phone-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/early-phone-counteroffer.png",
+    "/workspace/bandmaster-scene28/early-short-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/early-short-counteroffer.png",
+    "/workspace/bandmaster-scene28/trace-phone-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/corrected-phone-counteroffer.png",
+    "/workspace/bandmaster-scene28/corrected-phone-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/flat-phone-counteroffer.png",
+    "/workspace/bandmaster-scene28/flat-phone-final-agreement.png",
+    "/workspace/bandmaster-scene28/flat-phone-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/early-phone-booking-needs-terms-presence-crop.png",
+    "/workspace/bandmaster-scene28/flat-phone-booking-needs-terms-presence-crop.png",
+    "/workspace/bandmaster-scene28/final-phone-final-agreement.png",
+    "/workspace/bandmaster-scene28/final-phone-travel.png",
+    "/workspace/bandmaster-scene28/final-tall-booking-needs-terms.png",
+    "/workspace/bandmaster-scene28/final-wide-counteroffer.png",
+    "/workspace/bandmaster-scene28/final-short-booking-before-pitch.png",
+    "/workspace/bandmaster-scene28/final-stories-phone-return-promoter-terms.png",
+    "/workspace/bandmaster-gig27/final-phone-booking-needs-terms.png"
+  ],
+  "independent_AI_review": "Existing read-only reviewer cleared actual early phone/short and final source/captures, all8 summaries and clean logs. No scopedP1/P2hold. Earlier apparent blank presence interpretation retracted after exactPNG crop/byte verification; no proven game painting defect or fix claimed.",
+  "inspection_incident": "Fullframe image interpretations suggested missing role/venue. Exact originalROI brightpixels and independent Tesseract OCR confirmed both labels in original early/corrected/flat files. Preserve historical interpretations; flatter native labels retained as simpler composition, not an enginefix. Pixel probe reads persisted PNG through actual final_transform. Earlier rawlogical probe failed outside1280image and was corrected, not accepted.",
+  "simulated_review_lenses": {
+    "game_critic": "A meaningful pitch and reaction replace a form. Reused bill policy gives credible stakes without inventing a fresh reward or extra Continue screen.",
+    "musician": "New bands still open with the actual supported set; crowd claims, returning to the room and helping other bands affect the existing real offer/history.",
+    "ui_ux": "Current pitch/terms choices fit firstfold, explicit Back and costs remain visible; date/travel review still has bounded scrolling.",
+    "narrative": "Authored promoter role reacts to real recorded venue/support context; no invented person/portrait/voice or false accepted promise.",
+    "qa_release": "Stale/modal/savefailure/atomic booking and durable reload retain original owner authority. Source is exact c60edcaf; no new APK or physicaldevice acceptance."
+  },
+  "limitations": [
+    "This is source queued for the next combined update, not a change installed into delivered V21.",
+    "Agreement date/travel/fullbill can still require scrolling; pitch/terms fit firstfold. No forcedbottomfocus on entering a beat.",
+    "Promoter is an authored role using existing room art/text, without a new portrait or voice.",
+    "Unagreed conversation is a local free draft, not new durable NPC memory; original booked agreement and settled history remain durable.",
+    "Native desktop/reducedmotion/Dummyaudio proof; physicalAndroid, listening and owner visual acceptance remain pending.",
+    "No new APK, signing key, signing request, media upload, Git push, eligibility/economy or saveformat change."
+  ],
+  "next_single_action": "Include NAV26, GIG27 and SCENE28 together in the next existing Playtest review build; no separate interim release.",
+  "completed_at": "2026-11-09T18:09:36.281247+00:00"
+}
