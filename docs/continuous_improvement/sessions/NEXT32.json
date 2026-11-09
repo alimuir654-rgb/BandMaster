@@ -55,7 +55,8 @@
     "tests/next32*",
     ".gitignore",
     "docs/continuous_improvement/**",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/audition_desk.gd"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/NEXT32.json",
@@ -82,8 +83,8 @@
   },
   "started_at": "2026-11-09T22:30:41.038990+00:00",
   "issue_log_review": {
-    "bytes": 2113536,
-    "sha256": "7508c9a259ec4b67cb9fa6139d9da641570bea99ca6fac2177fce191321fee26"
+    "bytes": 2125905,
+    "sha256": "d9ccaea3ba7f74af040879e073a56fd6b8be747f61d111bbd37efa8dd6b023fa"
   },
   "approved_design": "LOOK31 direction explicitly accepted; studyJack/Zoe/Casey accepted as direction, not blanket final18/nativeacceptance."
 }

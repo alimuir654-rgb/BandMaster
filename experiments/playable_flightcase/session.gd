@@ -1,4 +1,5 @@
 extends RefCounted
+const Pricing=preload("res://experiments/playable_flightcase/recruitment_pricing.gd")
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
 ## C26 isolated gameplay: reuse genuine recruitment, songwriting, rehearsal rules.
@@ -9,6 +10,7 @@ const Practice = preload("res://Scripts/practice_room.gd")
 const SituationPractice = preload("res://experiments/playable_flightcase/situation_practice.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const SAVE_PATH := "user://c26_playable_sandbox.json"
+var talent_policy: String=""
 var genre: String = ""
 var roster: Array = []
 var phase: String = "recruit"
@@ -33,11 +35,17 @@ func person_by_id(id: String) -> Dictionary:
  return {}
 
 func spent() -> int:
- return Base.spent(roster)
+ return Pricing.spent(roster,talent_policy)
 func remaining() -> int:
  return Base.MAX_TALENT-spent()
 func can_start() -> bool:
- return Base.viable(roster)
+ return Pricing.viable(roster,talent_policy)
+
+func incremental_cost(person: Dictionary) -> int:
+ return Pricing.incremental(roster,person,talent_policy)
+
+func can_add(person: Dictionary) -> bool:
+ return Pricing.can_add(roster,person,talent_policy)
 
 func recruit(id: String) -> Dictionary:
  if phase != "recruit":
@@ -49,8 +57,8 @@ func recruit(id: String) -> Dictionary:
   return {"ok":false,"message":"Already in the band."}
  if roster.size() >= 6:
   return {"ok":false,"message":"Six members is the limit."}
- var price: int = Base.incremental_cost(roster,person)
- if not Base.can_add(roster,person):
+ var price: int = incremental_cost(person)
+ if not can_add(person):
   return {"ok":false,"message":"Need %d talent; only %d left." % [price,remaining()]}
  var updated: Array = roster.duplicate(true)
  updated.append(person)
@@ -107,12 +115,15 @@ func launch_with_vocals(lead_id: String,vocal_scores: Array) -> Dictionary:
  if phase != "recruit":
   return {"ok":false,"message":"The band has already started."}
  var roles: Array = Base.coverage(roster)
- if roster.size()<3 or roster.size()>6 or Base.spent(roster)>Base.MAX_TALENT:
+ if roster.size()<3 or roster.size()>6 or spent()>Base.MAX_TALENT:
   return {"ok":false,"message":"A valid band needs 3-6 musicians within budget."}
  if not roles.has("Guitarist") or not roles.has("Bassist") or not roles.has("Drummer"):
   return {"ok":false,"message":"Guitar, bass and drums are all required."}
  if not Base.contains(roster,lead_id) or vocal_scores.size()!=6:
   return {"ok":false,"message":"Choose one selected musician for lead vocals."}
+ if talent_policy!="":
+  for person in roster:
+   if str(person.get("id",""))==lead_id and not person["roles"].has("Singer") and spent()+5>Base.MAX_TALENT:return {"ok":false,"message":"Lead vocals need five more talent."}
  return _commit_formation(lead_id,vocal_scores)
 
 func _commit_formation(lead_id: String,vocal_scores: Array) -> Dictionary:
@@ -336,12 +347,15 @@ func informal_practice(indices: Array) -> Dictionary:
  return result
 
 func snapshot() -> Dictionary:
- return {"schema_version":1,"genre":genre,"roster":roster.duplicate(true),
-  "phase":phase,"career":career.duplicate(true)}
+ var result: Dictionary={"schema_version":1,"genre":genre,"roster":roster.duplicate(true),"phase":phase,"career":career.duplicate(true)}
+ if not talent_policy.is_empty():result[Pricing.KEY]=talent_policy
+ return result
 
 func restore(data: Dictionary) -> bool:
  if int(data.get("schema_version",0)) != 1:
   return false
+ var incoming_policy: Variant=data.get(Pricing.KEY,"")
+ if not Pricing.valid(incoming_policy):return false
  var saved_roster: Variant = data.get("roster",[])
  if not saved_roster is Array or saved_roster.size() > 6:
   return false
@@ -350,7 +364,7 @@ func restore(data: Dictionary) -> bool:
   if not saved is Dictionary:
    return false
   var canonical: Dictionary = person_by_id(str(saved.get("id","")))
-  if canonical.is_empty() or not Base.can_add(trial,canonical):
+  if canonical.is_empty() or not Pricing.can_add(trial,canonical,incoming_policy):
    return false
   trial.append(canonical)
  var requested_phase := str(data.get("phase",""))
@@ -358,7 +372,7 @@ func restore(data: Dictionary) -> bool:
  if requested_phase not in ["recruit","play"] or not saved_state is Dictionary:
   return false
  if requested_phase == "play":
-  if not Base.viable(trial):
+  if not Pricing.viable(trial,incoming_policy):
    var roles: Array = Base.coverage(trial)
    var lead_id: String = str(saved_state.get("lead_vocal_candidate_id",""))
    var vocal_values: Variant = saved_state.get("lead_vocal_stats",[])
@@ -377,6 +391,7 @@ func restore(data: Dictionary) -> bool:
  var incoming_genre := str(data.get("genre",""))
  if not Base.genres().has(incoming_genre):
   return false
+ talent_policy=str(incoming_policy)
  genre = incoming_genre
  roster = trial
  phase = requested_phase

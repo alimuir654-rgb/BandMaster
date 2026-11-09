@@ -4,6 +4,7 @@ const Connections=preload("res://experiments/playable_flightcase/character_conne
 const Content = preload("res://experiments/playable_flightcase/audition_content.gd")
 const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
 const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const Pricing=preload("res://experiments/playable_flightcase/recruitment_pricing.gd")
 const KEY := "audition_encounter_v1"
 const PHASES := ["arrival","tryout","response","decision"]
 const LIMIT := 1000000000
@@ -74,6 +75,7 @@ static func fingerprint(snapshot: Dictionary) -> String:
 static func _budget_ok(snapshot: Dictionary) -> bool:
  if not snapshot.get("game") is Dictionary:return false
  var game: Dictionary=snapshot["game"]
+ if not Pricing.valid(game.get(Pricing.KEY,"")):return false
  if not game.get("roster") is Array or game["roster"].size()>6:return false
  for person in game["roster"]:
   if not person is Dictionary or not person.get("id") is String or not person.get("roles") is Array:return false
@@ -94,7 +96,7 @@ static func _available(snapshot: Dictionary) -> int:
  var extra:=0
  for person in roster:
   if str(person.get("id",""))==str(snapshot.get("lead_vocal_id","")) and not person["roles"].has("Singer"):extra=5
- return Base.MAX_TALENT-Base.spent(roster)-extra
+ return Base.MAX_TALENT-Pricing.spent(roster,str(snapshot["game"].get(Pricing.KEY,"")))-extra
 
 static func _receipt_valid(receipt: Dictionary,sequence: int) -> bool:
  if receipt.is_empty():return true
@@ -295,14 +297,14 @@ static func prepare_invite(snapshot: Dictionary,token: Dictionary) -> Dictionary
  var content: Script=Profiles.content(str(snapshot[KEY]["active"]["candidate_id"]))
  var person: Dictionary=content.candidate()
  var roster: Array=snapshot["game"]["roster"]
- if not Base.can_add(roster,person) or _available(snapshot)<Base.incremental_cost(roster,person):return _fail("There is not enough talent available for this lineup.")
+ if not Pricing.can_add(roster,person,str(snapshot["game"].get(Pricing.KEY,""))) or _available(snapshot)<Pricing.incremental(roster,person,str(snapshot["game"].get(Pricing.KEY,""))):return _fail("There is not enough talent available for this lineup.")
  return {"ok":true,"active":snapshot[KEY]["active"].duplicate(true),"candidate_id":content.PERSON_ID,"message":""}
 
 static func complete_invite(before: Dictionary,after: Dictionary,token: Dictionary,original_result: Dictionary,available_before: int,available_after: int) -> Dictionary:
  var ready:=prepare_invite(before,token)
  if not ready["ok"] or not original_result.get("ok",false):return _fail("The original invitation was not committed.")
  var content: Script=Profiles.content(str(ready["candidate_id"]))
- var price:=Base.incremental_cost(before["game"]["roster"],content.candidate())
+ var price:=Pricing.incremental(before["game"]["roster"],content.candidate(),str(before["game"].get(Pricing.KEY,"")))
  if original_result.get("charged")!=price or available_before!=_available(before) or available_after!=available_before-price:return _fail("The invitation result does not match the original talent cost.")
  var planned:=before.duplicate(true)
  planned["game"]["roster"].append(content.candidate())

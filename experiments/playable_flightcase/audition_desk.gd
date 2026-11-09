@@ -289,7 +289,7 @@ func _build() -> void:
    requests.add_child(_button("Show me an idea of your own","AuditionRequestOwn",_act.bind("request","own_part")))
    actions.add_child(requests)
   elif phase in ["response","decision"]:
-   var price: int=Base.incremental_cost(owner_state.game.roster,owner_state.game.person_by_id(str(_view["person"]["id"])))
+   var price: int=owner_state.game.incremental_cost(owner_state.game.person_by_id(str(_view["person"]["id"])))
    actions.add_child(_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]))
    var invite:=_button("INVITE %s · %d TALENT" % [str(_view["person"]["name"]).to_upper(),price],"AuditionInvite",_invite)
    invite.disabled=not owner_state.can_recruit(str(_view["person"]["id"]))

@@ -744,7 +744,7 @@ func _cover_milestone(kind: String) -> void:
   signoff.add_child(heading)
  else:
   if not formation:
-   var heading: Label=_label("YOU'VE STARTED SOMETHING" if complete else "THE NAME'S OFFICIAL.",22)
+   var heading: Label=_label("A BAND STARTS HERE." if complete else "THE NAME'S OFFICIAL.",22)
    heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
    root.add_child(heading)
   holder=_scroll_body(root)
@@ -772,7 +772,7 @@ func _cover_milestone(kind: String) -> void:
  if formation:
   fact="TALENT %d / 200  •  %d REMAINING"%[200-setup.remaining(),setup.remaining()]
  elif complete:
-  fact=setup.game.genre+" / "+setup.vibe+"\nTALENT "+str(setup.remaining())+"  •  MORALE "+str(setup.game.career.get("morale",55))
+  fact="THE LINEUP. THE NAME. YOUR NEXT MOVE."
  else:
   var delta: int=int(setup.name_delta)
   fact="Everyone's behind it. The band is ready to make it theirs." if delta==3 else ("Not everyone is convinced. You can feel some hesitation." if delta<0 else "Mixed opinions. The name gives the band something to discuss.")
@@ -786,7 +786,7 @@ func _cover_milestone(kind: String) -> void:
   signoff.add_child(_button("BACK TO MENU",_home,"tab","MilestoneMenuAction"))
  elif complete:
   var week: Dictionary=BandWeek.offer(setup.game.career)
-  signoff.add_child(_button("MEET YOUR BAND  ›",_start_playing,"action","StartPlayAction"))
+  signoff.add_child(_button("START THE BAND'S STORY  ›",_start_playing,"action","StartPlayAction"))
   signoff.add_child(_button("BACK TO MENU",_home,"tab","CompletedMenuAction"))
  else:
   signoff.add_child(_button("MAKE IT YOURS  /  NAME & LOOK ›",_start_identity,"action","NameMilestoneNextAction"))
@@ -816,7 +816,7 @@ func _cover_milestone(kind: String) -> void:
   var expected: Dictionary=setup.snapshot().duplicate(true)
   _formation_moment=FormationMoment.new()
   add_child(_formation_moment)
-  _formation_moment.begin(poster,setup.game.genre,reduced_motion,func():return not showing_menu and setup.screen=="complete" and BandWeek.exact(expected,setup.snapshot()))
+  _formation_moment.begin(poster,setup.game.genre,reduced_motion,func():return not showing_menu and setup.screen=="complete" and BandWeek.exact(expected,setup.snapshot()),setup.game.roster,setup.name_intent,setup.vibe)
 
 func _scroll_body(root: VBoxContainer) -> VBoxContainer:
  var scroll := ScrollContainer.new()

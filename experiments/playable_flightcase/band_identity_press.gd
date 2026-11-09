@@ -7,6 +7,7 @@ const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const PAPER = preload("res://components/control_atlas/art/paper_surface.png")
 const Style = preload("res://experiments/playable_flightcase/identity_style.gd")
 const Mark = preload("res://experiments/playable_flightcase/band_mark.gd")
+const Portraits=preload("res://experiments/playable_flightcase/formation_portraits.gd")
 const CAST_PATH := "res://experiments/playable_flightcase/art/identity/CAST.json"
 const APPROVED_REVISIONS := "res://experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
 const POSE_COHORT := "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.json"
@@ -148,7 +149,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  content.add_theme_constant_override("separation",5 if tiny else 7)
  content.mouse_filter=Control.MOUSE_FILTER_IGNORE
  paper.add_child(content)
- var mast: Label=_ink("FIRST PRESS / THE FOUNDING LINEUP" if variant=="formation" else ("YOUR FIRST PRESS" if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF")),12,true,dark)
+ var mast: Label=_ink("FIRST PRESS / THE FOUNDING LINEUP" if variant=="formation" else ("TURN IT UP. THIS IS YOUR BAND." if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF")),12,true,dark)
  if variant=="career":mast.text="YOUR BAND / CURRENT LINEUP"
  mast.name="IdentityPressMasthead"
  content.add_child(mast)
@@ -167,7 +168,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var rule:=ColorRect.new()
  rule.name="IdentityPressRule"
  rule.color=Style.ink(selected_style)
- rule.custom_minimum_size.y=1.0
+ rule.custom_minimum_size.y=4.0 if variant=="complete" else 1.0
+ if variant=="complete":rule.color=Color("c64c30")
  rule.mouse_filter=Control.MOUSE_FILTER_IGNORE
  content.add_child(rule)
  var entries: Array=[]
@@ -195,6 +197,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
     manifest.merge(replacements,true)
  var poses: Dictionary=cohort_entries(cohort_registry_path,member_ids,variant)
  if not poses.is_empty():manifest.merge(poses,true)
+ # The approved new direction supersedes every old special-cohort bypass.
+ manifest.merge(Portraits.entries(),true)
  _full_length=not entries.is_empty()
  for person in entries:
   var entry: Dictionary=manifest.get(str(person["id"]),{})
@@ -206,10 +210,12 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stage.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var body_height: float=(145.0 if tiny else 215.0) if compact else ((145.0 if short else 190.0) if variant=="milestone" else (190.0 if short else 270.0))
  if variant=="formation": body_height=210.0 if short else 240.0
+ if variant=="complete":body_height=300.0 if short else 380.0
  if hero: body_height=clampf(viewport_height-400.0,180.0,410.0)
  if layout_hint=="tall" and surface_budget.y>0.0:
   body_height=clampf(surface_budget.y*0.70,300.0,600.0)
  stage.custom_minimum_size.y=body_height if _full_length else (75.0 if compact else 120.0)
+ stage.set_meta("height_cap",body_height)
  content.add_child(stage)
  var views: Array[TextureRect]=[]
  for person in entries:
@@ -271,7 +277,10 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   for i in range(count):
    extent+=ratios[i]
    if i>0:extent-=overlap*minf(ratios[i-1],ratios[i])
-  var figure_height: float=maxf(0.0,minf(stage.size.y/max_full_ratio,stage.size.x/maxf(0.01,extent)))
+  # Reserve the height this exact-width lineup needs, not empty paper above it.
+  var preferred: float=ceilf(minf(float(stage.get_meta("height_cap",body_height)),stage.size.x/maxf(0.01,extent)*max_full_ratio))+8.0
+  if absf(stage.custom_minimum_size.y-preferred)>1.0:stage.custom_minimum_size.y=preferred
+  var figure_height: float=maxf(0.0,minf((stage.size.y-8.0)/max_full_ratio,stage.size.x/maxf(0.01,extent)))
   var max_bleed: float=0.0
   for i in range(count):max_bleed=maxf(max_bleed,4.0*figure_height*pose_ratios[i]/maxf(1.0,heights[i]-8.0))
   var ground: float=stage.size.y-max_bleed
@@ -295,7 +304,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   if variant=="career" and vocalist_name.is_empty():lead.text="LEAD VOCAL CREDIT UNAVAILABLE"
   lead.name="IdentityLeadVocal"
   content.add_child(lead)
- var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("THE BAND IS FORMED." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
+ var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("FIRST REHEARSAL. FIRST SONG. FIRST GIG." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
  if variant=="career":footer.text="THE LINEUP, AS IT STANDS."
  footer.name="IdentityPressFooter"
  content.add_child(footer)
@@ -303,7 +312,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   # Native text/copy keeps its size. The image row uses the exact remainder
   # after paper margins, real font wrapping and visible-child separation.
   var inner_width: float=maxf(20.0,surface_budget.x-stock.get_content_margin(SIDE_LEFT)-stock.get_content_margin(SIDE_RIGHT))
-  var fixed_height: float=stock.get_content_margin(SIDE_TOP)+stock.get_content_margin(SIDE_BOTTOM)+printed_height(mast,inner_width)+ceilf(mark.custom_minimum_size.y)+1.0+printed_height(credit,inner_width)+printed_height(footer,inner_width)
+  var fixed_height: float=stock.get_content_margin(SIDE_TOP)+stock.get_content_margin(SIDE_BOTTOM)+printed_height(mast,inner_width)+ceilf(mark.custom_minimum_size.y)+rule.custom_minimum_size.y+printed_height(credit,inner_width)+printed_height(footer,inner_width)
   var visible_count: int=6
   if logo=="Monogram":
    fixed_height+=printed_height(full,inner_width)
@@ -315,6 +324,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   var desired: float=body_height
   if compact and viewport_width>=1100.0: desired=350.0
   stage.custom_minimum_size.y=maxf(64.0,minf(desired,floorf(surface_budget.y-fixed_height)))
+  stage.set_meta("height_cap",stage.custom_minimum_size.y-8.0)
 
 func visible_ids() -> Array[String]:
  return member_ids.duplicate()

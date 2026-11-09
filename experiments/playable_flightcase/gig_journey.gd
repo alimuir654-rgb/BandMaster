@@ -10,6 +10,7 @@ const Radio = preload("res://experiments/playable_flightcase/radio_visit_rules.g
 const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 const Circuit = preload("res://experiments/playable_flightcase/scene_circuit.gd")
+const Incident=preload("res://experiments/playable_flightcase/gig_incident.gd")
 const KEY := "gig_journey_v1"
 const VERSION := 1
 const PHASES := ["set_out","travel","arrival","load_in","soundcheck","backstage","stage_entrance","performing","choice","reaction","after_set","pack_up","wrap_ready"]
@@ -63,6 +64,8 @@ static func validate(state: Dictionary) -> Dictionary:
  if not raw is Dictionary or raw.get("version") not in [1,2] or not Policy.whole(raw.get("sequence"),0) or not raw.get("active") is Dictionary:return _bad("This saved gig journey needs a compatible version. Its data has been retained.")
  var visit: Dictionary=raw["active"]
  if visit.is_empty():return {"ok":true,"exists":true,"active":{}}
+ if visit.has(Incident.KEY) and not Incident.valid_for(visit[Incident.KEY],state):return _bad("This saved soundcheck situation needs a compatible version.")
+ if visit.has(Incident.KEY) and str(visit.get("phase","")) in LOCKED_PHASES and Incident.pending(visit):return _bad("Answer the saved soundcheck situation before taking the stage.")
  var bill: Dictionary=Booking.terms(state).get(Circuit.BILL,{})
  if visit.has(Circuit.ENCOUNTER) and (bill.is_empty() or not Circuit.encounter_valid(visit[Circuit.ENCOUNTER],bill)):return _bad("The saved shared-bill encounter needs a compatible version.")
  if visit.has(Circuit.ENCOUNTER):
@@ -134,7 +137,7 @@ static func _freeze(state: Dictionary, visit: Dictionary) -> Dictionary:
  visit["context"]=captured["context"]
  return {"ok":true,"visit":visit}
 
-static func begin(state: Dictionary, expected_booking_id: String = "") -> Dictionary:
+static func begin(state: Dictionary, expected_booking_id: String = "", enriched: bool=false) -> Dictionary:
  var valid: Dictionary=validate(state)
  if not bool(valid.get("ok",false)):return valid
  if locked(state):return _result(state,"Resume the saved night.")
@@ -150,6 +153,7 @@ static func begin(state: Dictionary, expected_booking_id: String = "") -> Dictio
  if int(wrapper["sequence"])>=2147483646:return _bad("The saved night sequence has reached its supported limit.")
  wrapper["sequence"]=int(wrapper["sequence"])+1
  var visit: Dictionary={"version":Flow.version_of(state),"id":"gig-journey:%d:%s" % [int(wrapper["sequence"]),id],"booking_id":id,"phase":str(mapped[stage]),"revision":0,"policy_version":1,"content_version":1,"art_version":"existing_s53_plates","source_hash":"","started_day":int(state.get("tour_day",1)),"started_cash":int(state.get("cash",0)),"participants":state.get("members",[]).duplicate(true),"plan":{},"context":{},"cursor":0,"completed_ids":[],"feedback":[],"vibe":40,"intent":"","last_input":""}
+ if enriched and stage!="stage":visit[Incident.KEY]=Incident.make(state)
  if Flow.version_of(state)==2:
   wrapper["version"]=2
   var t: Dictionary=Booking.terms(state)
@@ -178,6 +182,25 @@ static func _owned(state: Dictionary, token: Dictionary) -> Dictionary:
  return {"ok":true,"active":visit}
 
 static func checkpoint(state: Dictionary, action: String, token: Dictionary, payload: Dictionary = {}) -> Dictionary:
+ if action in ["take_stage","pack_and_leave","live_intent"]:
+  var owned: Dictionary=_owned(state,token)
+  if not owned.get("ok",false):return owned
+  var phase: String=str(owned.active.phase)
+  if (action=="take_stage" and phase not in ["backstage","stage_entrance"]) or (action=="pack_and_leave" and phase not in ["after_set","pack_up"]) or (action=="live_intent" and phase!="choice"):return _bad("That act of the show has already changed.")
+  var current: Dictionary=state.duplicate(true)
+  if action=="live_intent":
+   var chosen: Dictionary=checkpoint(current,"choice",expected(current),payload)
+   if not chosen.get("ok",false):return chosen
+   current=chosen.state
+  elif not payload.is_empty():return _bad("The saved transition does not take extra instructions.")
+  var target: String="wrap_ready" if action=="pack_and_leave" else "performing"
+  for _step in range(2):
+   if active(current).get("phase")==target:break
+   var advanced: Dictionary=checkpoint(current,"advance",expected(current))
+   if not advanced.get("ok",false):return advanced
+   current=advanced.state
+  if active(current).get("phase")!=target:return _bad("The show could not reach its next act.")
+  return _result(current,"The next act is saved.",true)
  if action=="arrive_soundcheck":
   var owned: Dictionary=_owned(state,token)
   if not owned.get("ok",false):return owned
@@ -201,7 +224,12 @@ static func checkpoint(state: Dictionary, action: String, token: Dictionary, pay
  var after: Dictionary=state.duplicate(true)
  var phase: String=visit["phase"]
  var next: String=""
- if action in ["scene_advice","scene_support"]:
+ if action=="soundcheck_answer":
+  if phase!="soundcheck":return _bad("Answer this situation during soundcheck.")
+  var answered: Dictionary=Incident.resolve(after,visit,str(payload.get("choice","")))
+  if not answered.get("ok",false):return answered
+  after=answered.state;visit=answered.visit;next=phase
+ elif action in ["scene_advice","scene_support"]:
   var bill: Dictionary=Booking.terms(after).get(Circuit.BILL,{})
   var selected: Dictionary=Circuit.choose(visit,bill,action.trim_prefix("scene_"),payload)
   if not selected.get("ok",false):return selected
@@ -229,6 +257,7 @@ static func checkpoint(state: Dictionary, action: String, token: Dictionary, pay
   else:return _bad("This scene needs its own explicit action.")
  elif action=="soundcheck":
   if phase!="soundcheck":return _bad("The soundcheck is not open.")
+  if Incident.pending(visit):return _bad("Answer the band or promoter before saving tonight's plan.")
   var committed: Dictionary=Flow.soundcheck(after,payload)
   if not bool(committed.get("ok",false)):return committed
   after=committed["state"]
@@ -270,6 +299,10 @@ static func rebase_owned_action(before: Dictionary, after: Dictionary, token: Di
  if not bool(checked.get("ok",false)):return checked
  var visit: Dictionary=checked["active"]
  if visit["phase"]!="soundcheck" or int(before.get("cash",0))!=int(after.get("cash",0)) or int(before.get("tour_day",0))!=int(after.get("tour_day",0)) or Flow.booking_id(Calendar.pending(before))!=Flow.booking_id(Calendar.pending(after)):return _bad("The original soundcheck response no longer belongs to this night.")
+ if Incident.pending(visit):
+  # An original illness response can legitimately change preparation before
+  # our answer. Rebase its facts at this sole owner seam; never reroll kind.
+  visit=Incident.rebase_pending(visit,after)
  visit["revision"]=int(visit["revision"])+1
  visit["last_input"]=""
  var rebased: Dictionary=_refresh(after,visit)
@@ -291,6 +324,7 @@ static func complete(after: Dictionary, visit: Dictionary, actual_effects: Dicti
  var receipt: Dictionary=Flow.last_receipt(state)
  if receipt.is_empty() or receipt.get("booking_id")!=visit["booking_id"]:return _bad("The original show receipt is missing after settlement.")
  var extension: Dictionary={"version":int(visit["version"]),"journey_id":visit["id"],"content_version":1,"policy_version":1,"completed_ids":visit["completed_ids"].duplicate(),"plan":visit["plan"].duplicate(true),"feedback":visit["feedback"].duplicate(true),"vibe":int(visit["vibe"]),"intent":str(visit["intent"]),"context":visit["context"].duplicate(true),"actual_policy_effects":actual_effects.duplicate(true),"kind":"modelled_live_journey"}
+ if visit.has(Incident.KEY):extension[Incident.KEY]=visit[Incident.KEY].duplicate(true)
  if visit.has(Circuit.ENCOUNTER):extension[Circuit.ENCOUNTER]=visit[Circuit.ENCOUNTER].duplicate(true)
  var records: Dictionary=state[Flow.RECORDS_KEY].duplicate(true)
  var rows: Array=records["records"].duplicate(true)

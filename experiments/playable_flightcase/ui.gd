@@ -538,7 +538,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   context.custom_minimum_size.x = 760
  root_box.add_child(context)
  var available: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
- var cost: int = Base.incremental_cost(game.roster,person)
+ var cost: int = game.incremental_cost(person)
  var budget_text: String
  if recruited:
   budget_text = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
@@ -561,7 +561,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
  dock.add_child(audition)
  var action: Button = _button("REMOVE" if recruited else "INVITE TO BAND",_remove.bind(id) if recruited else _recruit.bind(id))
  action.name = "RemoveAction" if recruited else "RecruitAction"
- var allowed: bool = bool(onboarding_state.can_recruit(id)) if onboarding_state!=null else Base.can_add(game.roster,person)
+ var allowed: bool = bool(onboarding_state.can_recruit(id)) if onboarding_state!=null else game.can_add(person)
  action.disabled = false if recruited else (not heard or not allowed)
  if not recruited and game.roster.size()>=6:
   action.text = "BAND FULL"

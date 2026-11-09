@@ -10,6 +10,7 @@ const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
+const Incident=preload("res://experiments/playable_flightcase/gig_incident.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
 const ROAD := "res://experiments/playable_flightcase/art/a07_road_travel_v1.png"
 const ROAD_SHA := "1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec"
@@ -78,7 +79,12 @@ static func render(host, parent: Node, compact: bool) -> void:
   return
  var phase: String=str(view["phase"])
  var visit: Dictionary=view["active"]
+ var act: String="1 / ARRIVAL & SOUNDCHECK" if phase in ["begin","set_out","travel","arrival","load_in","soundcheck"] else ("3 / AFTER THE SET" if phase in ["after_set","pack_up","wrap_ready"] else "2 / ON STAGE")
+ var act_heading: Label=C.label(act,18);act_heading.name="JourneyAct";parent.add_child(act_heading)
  var actor: Dictionary=_voice(state,view)
+ var plan_focus: bool=phase=="soundcheck" and visit.has(Incident.KEY) and not Incident.pending(visit)
+ var pending_situation: bool=phase=="soundcheck" and Incident.pending(visit)
+ var situation_copy: Dictionary=Incident.copy(visit) if pending_situation else {}
  var source: Dictionary=Cast.by_id(str(actor.get("candidate_id","")))
  var image_path: String=ROAD if phase=="travel" else (ARRIVAL if phase in ["begin","set_out","arrival","pack_up","wrap_ready"] else (CROWD if phase in ["stage_entrance","performing","choice","reaction"] else ROOM))
  var caption: String=str(Calendar.pending(state).get("venue","THE LANTERN ROOM"))+" · "+str(Calendar.pending(state).get("city","HOMETOWN"))
@@ -86,12 +92,20 @@ static func render(host, parent: Node, compact: bool) -> void:
  var paired: bool=host.size.x>host.size.y and host.size.x>=1180
  var soundcheck_workspace: bool=phase=="soundcheck" and host.size.x<=host.size.y
  var scene=Scene.new()
- scene.configure({"title":("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(actor.get("name","THE BAND")),"portrait":str(source.get("portrait_preview","")),"text":_text(phase,state,visit,actor),"fresh":bool(host._journey_fresh),"side_by_side":paired,"soundcheck_workspace":soundcheck_workspace},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
+ scene.configure({"title":str(situation_copy.title) if pending_situation else ("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(situation_copy.speaker) if pending_situation else str(actor.get("name","THE BAND")),"portrait":"" if pending_situation else str(source.get("portrait_preview","")),"text":"" if plan_focus else (str(situation_copy.text) if pending_situation else _text(phase,state,visit,actor)),"fresh":bool(host._journey_fresh),"side_by_side":paired,"soundcheck_workspace":soundcheck_workspace},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
  parent.add_child(scene)
  host._journey_fresh=false
+ if plan_focus:scene.note.hide()
+ if not str(host.notice).is_empty():
+  var notice: Label=C.label(str(host.notice),16);notice.name="JourneySaveNotice";parent.add_child(notice)
+ if pending_situation:
+  parent.add_child(C.label("£0 EXTRA · NO EXTRA CAREER DAY",16))
+  return # The choices stay in the dock; plan follows the answer.
  var context: Node=scene.context_column if short or paired else parent
- if not str(host.notice).is_empty():parent.add_child(C.label(str(host.notice),16))
  if phase=="soundcheck":
+  var situation: Dictionary=Incident.copy(visit)
+  if not situation.is_empty():
+   var feedback: Label=C.label(str(situation.text),16);feedback.name="SoundcheckSavedAnswer";feedback.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;context.add_child(feedback)
   host._sync_show_draft()
   var hardware_parent: Node=context
   var set_parent: Node=context
@@ -183,6 +197,7 @@ static func _peers(host,parent: Node,state: Dictionary,visit: Dictionary,bill: D
 static func _button(host,parent: Node,text: String,name: String,action: String,expected: Dictionary,payload: Dictionary = {}) -> Button:
  var button: Button=host._button(text,name,host._commit_journey.bind(action,expected.duplicate(true),payload.duplicate(true),int(host._render_generation)),true)
  if name.begins_with("Scene"):button.set_meta("scene_peer_choice",true)
+ if name.begins_with("GigAnswer_"):button.set_meta("journey_event_choice",true)
  parent.add_child(button)
  return button
 
@@ -206,19 +221,25 @@ static func dock(host, parent: Node, _compact: bool) -> void:
   summary.name="JourneySetPosition"
   parent.add_child(summary)
  if phase=="begin":
-  _button(host,parent,"MEET THE BAND  ›","JourneyMainAction","begin",{}, {"booking_id":Flow.booking_id(Calendar.pending(state))})
+  _button(host,parent,"HEAD TO THE VENUE  ›","JourneyMainAction","begin_arrive",{}, {"booking_id":Flow.booking_id(Calendar.pending(state))})
   parent.add_child(host._button("OPEN THE CALENDAR","JourneyCalendarAction",host._navigate.bind("calendar")))
  elif phase=="choice":
-  _button(host,parent,"GIVE THE ROOM A MOMENT","JourneyChoiceMomentAction","choice",token,{"intent":"moment"})
-  _button(host,parent,"KEEP THE SET MOVING","JourneyChoiceMovingAction","choice",token,{"intent":"moving"})
+  _button(host,parent,"GIVE THE ROOM A MOMENT","JourneyChoiceMomentAction","live_intent",token,{"intent":"moment"})
+  _button(host,parent,"KEEP THE SET MOVING","JourneyChoiceMovingAction","live_intent",token,{"intent":"moving"})
  elif phase=="performing":
   var ids: Array=visit.get("plan",{}).get("song_ids",[])
   if ids.is_empty():_button(host,parent,"END THE SHORT SET  ›","JourneyMainAction","end_short_set",token)
   else:_button(host,parent,"FINISH SONG  ›","JourneyFinishSongAction","finish_song",token,{"song_id":ids[int(visit["cursor"])],"cursor":int(visit["cursor"])})
+ elif phase=="soundcheck" and Incident.pending(visit):
+  for answer in Incident.copy(visit).choices:_button(host,parent,str(answer[1]),"GigAnswer_"+str(answer[0]),"soundcheck_answer",token,{"choice":answer[0]})
  elif phase=="soundcheck":
   var checked: Dictionary=Flow.check_plan(state,host.show_draft)
   var action: Button=_button(host,parent,"SAVE TONIGHT'S SHOW PLAN  ›","JourneyMainAction","soundcheck",token)
-  action.disabled=bool(host.busy) or not bool(checked.get("ok",false))
+  action.disabled=bool(host.busy) or Incident.pending(visit) or not bool(checked.get("ok",false))
+ elif phase in ["backstage","stage_entrance"]:
+  _button(host,parent,"TAKE THE STAGE  ›","JourneyMainAction","take_stage",token)
+ elif phase in ["after_set","pack_up"]:
+  _button(host,parent,"GEAR AWAY & HEAD HOME  ›","JourneyMainAction","pack_and_leave",token)
  elif phase=="wrap_ready":
   var days: int=int(Booking.terms(state).get("tariff",{}).get("duration",1))
   if Booking.modern(state):

@@ -55,6 +55,7 @@ func begin_new() -> bool:
  if _audition_busy:return false
  var before:=snapshot()
  game = Game.new()
+ game.talent_policy=Game.Pricing.CURRENT
  screen = "genre"
  lead_vocal_id = ""
  formed_once = false
@@ -121,7 +122,7 @@ func remaining() -> int:
 
 func can_recruit(id: String) -> bool:
  var person: Dictionary = game.person_by_id(id)
- return not person.is_empty() and Base.can_add(game.roster,person) and game.remaining()-Base.incremental_cost(game.roster,person)-vocal_extra_cost()>=0
+ return not person.is_empty() and game.can_add(person) and game.remaining()-game.incremental_cost(person)-vocal_extra_cost()>=0
 
 func recruit(id: String) -> Dictionary:
  if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()):
@@ -489,7 +490,7 @@ func _retain_extensions(value: Dictionary) -> void:
  for key in ["schema_version","screen","game","lead_vocal_id","formed_once","change_counter","name_offer","name_intent","name_revisions","name_locked","name_delta","name_settled","logo","palette","vibe","identity_complete",IdentityStyle.KEY,Audition.KEY]:
   _opening_extensions.erase(key)
  _game_extensions=(value.get("game",{}) as Dictionary).duplicate(true)
- for key in ["schema_version","genre","roster","phase","career"]:_game_extensions.erase(key)
+ for key in ["schema_version","genre","roster","phase","career",Game.Pricing.KEY]:_game_extensions.erase(key)
  _audition_present=value.has(Audition.KEY)
  _audition_raw=_copy_extension(value.get(Audition.KEY))
 
@@ -497,6 +498,7 @@ func _rollback_identity(before: Dictionary) -> void:
  # This is our own validated in-memory snapshot, not untrusted save input.
  # Restore exact roster numeric types too; Game.restore canonicalises them.
  var original: Dictionary = before["game"]
+ game.talent_policy=str(original.get(Game.Pricing.KEY,""))
  game.genre=str(original["genre"])
  game.roster=(original["roster"] as Array).duplicate(true)
  game.phase=str(original["phase"])

@@ -1,7 +1,6 @@
 extends Control
 ## One earned presentation after a successful identity save. No owner writes.
-const AudioPart=preload("res://experiments/playable_flightcase/audition_audio.gd")
-const EXAMPLES="res://experiments/playable_flightcase/audio/genre_examples.json"
+const AudioPart=preload("res://experiments/playable_flightcase/formation_sound.gd")
 var _poster: Control
 var _context: Callable
 var _audio
@@ -10,7 +9,7 @@ var _active := false
 var _poll := 0.0
 var _material := ""
 
-func begin(poster: Control, genre: String, reduced: bool, context: Callable) -> void:
+func begin(poster: Control, genre: String, reduced: bool, context: Callable, roster: Array=[], intent: String="Raw", vibe: String="Unpolished") -> void:
  name="FormationMoment"
  mouse_filter=Control.MOUSE_FILTER_IGNORE
  focus_mode=Control.FOCUS_NONE
@@ -20,34 +19,21 @@ func begin(poster: Control, genre: String, reduced: bool, context: Callable) -> 
  if not reduced:
   _poster.modulate.a=0.0
   _tween=create_tween()
-  _tween.tween_property(_poster,"modulate:a",1.0,1.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
- var catalogue: Variant=JSON.parse_string(FileAccess.get_file_as_string(EXAMPLES)) if FileAccess.file_exists(EXAMPLES) else null
- if catalogue is Dictionary and catalogue.get("schema_version")==1 and catalogue.get("content_version")=="genre_examples_v1" and catalogue.get("genres") is Dictionary:
-  var id: Variant=catalogue.genres.get(genre,"")
-  if id is String:_material=id
- if not _material.is_empty():
-  _audio=AudioPart.new()
-  _audio.controls_visible=false
-  _audio.manifest_path=EXAMPLES
-  _audio.configure(_audio_context)
-  _audio.set_clip(_material)
-  add_child(_audio)
-  call_deferred("_start_audio")
+  _tween.tween_property(_poster,"modulate:a",1.0,0.38).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+ if genre!="Indie rock":return # Legacy other-genres never receive an indie cue.
+ _audio=AudioPart.new()
+ _audio.configure(roster,intent,vibe,_allowed)
+ add_child(_audio)
+ _material=_audio.family
 
 func _allowed() -> bool:
  return _active and is_visible_in_tree() and _context.is_valid() and bool(_context.call())
-
-func _audio_context() -> Dictionary:
- return {"allowed":_allowed(),"material_id":_material,"content_version":"genre_examples_v1"}
-
-func _start_audio() -> void:
- if _allowed() and is_instance_valid(_audio):_audio.request_play()
 
 func cancel() -> void:
  _active=false
  if _tween!=null and _tween.is_valid():_tween.kill()
  if is_instance_valid(_poster):_poster.modulate.a=1.0
- if is_instance_valid(_audio):_audio.release_stream()
+ if is_instance_valid(_audio):_audio.stop()
 
 func _process(delta: float) -> void:
  if not _active:return

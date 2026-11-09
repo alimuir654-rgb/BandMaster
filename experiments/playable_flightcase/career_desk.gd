@@ -1680,7 +1680,10 @@ func _commit_journey(action: String, expected: Dictionary, payload: Dictionary =
  var result: Dictionary
  var finance_action: String=""
  match action:
-  "begin":result=Journey.begin(before,str(payload.get("booking_id","")))
+  "begin":result=Journey.begin(before,str(payload.get("booking_id","")),true)
+  "begin_arrive":
+   result=Journey.begin(before,str(payload.get("booking_id","")),true)
+   if result.get("ok",false):result=Journey.checkpoint(result.state,"arrive_soundcheck",Journey.expected(result.state))
   "wrap":
    result=LiveRules.wrap_journey(before,expected)
    finance_action="live:perform"
@@ -1769,8 +1772,8 @@ func _release_journey_input(generation: int) -> void:
   if control!=null:control.disabled=false
  for node in find_children("JourneyIncident_*","Button",true,false):
   (node as Button).disabled=false
- for node in find_children("Scene*","Button",true,false):
-  if node.get_meta("scene_peer_choice",false)==true:(node as Button).disabled=false
+ for node in find_children("*","Button",true,false):
+  if node.get_meta("scene_peer_choice",false)==true or node.get_meta("journey_event_choice",false)==true:(node as Button).disabled=false
  if str(Journey.active(game.career).get("phase",""))=="soundcheck":
   var action: Button=find_child("JourneyMainAction",true,false) as Button
   if action!=null:action.disabled=not bool(ShowFlow.check_plan(game.career,show_draft).get("ok",false))

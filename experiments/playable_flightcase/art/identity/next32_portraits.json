@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "content_version": "next32_camera_poses",
+  "owner_art_acceptance": false,
+  "integration_review_accepted": true,
+  "authority": "owner_approved_LOOK31_direction",
+  "provenance": "AI-generated reference-based shared-origin triptych atlases; not human photos or independent portrait masters. Canonical audition identity data untouched.",
+  "people": {
+    "cast_jack": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_01.png",
+      "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+      "region": [
+        172,
+        11,
+        298,
+        1008
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_jack.png",
+      "reference_sha256": "d6557ca2cab01e3ffd682a97f3b9b7392a5037fdba28979dd40f3c236dd1cc94",
+      "generated_original": "/workspace/generated_images/exec-10f1ec61-5ad6-402a-b8b8-967c4cecf3bf.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_zoe": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_01.png",
+      "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+      "region": [
+        593,
+        35,
+        336,
+        980
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "reference_sha256": "0645525447b8160f08d8b33b333f95797a8ce0e77d446702699fb422a0853cdc",
+      "generated_original": "/workspace/generated_images/exec-10f1ec61-5ad6-402a-b8b8-967c4cecf3bf.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_casey": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_01.png",
+      "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+      "region": [
+        1030,
+        35,
+        382,
+        986
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_casey.png",
+      "reference_sha256": "dcc2cbb3dcf11e3626f192f9f2af0533a6f5a70b6b4d31d886f855b2d4851e07",
+      "generated_original": "/workspace/generated_images/exec-10f1ec61-5ad6-402a-b8b8-967c4cecf3bf.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_ryan": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_02.png",
+      "sha256": "085facef831e4a2126e0b3a997d3cefff4ea0272e15f5d7277fca9818740c8d3",
+      "region": [
+        129,
+        8,
+        339,
+        1012
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_ryan.png",
+      "reference_sha256": "0a2b6e7f6c1674f5280de46e1ca786f50c348ad4faa228edfd468eb7b0d87940",
+      "generated_original": "/workspace/generated_images/exec-d99b537e-686e-4064-8f1c-0e162d2c8b7c.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_arjun": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_02.png",
+      "sha256": "085facef831e4a2126e0b3a997d3cefff4ea0272e15f5d7277fca9818740c8d3",
+      "region": [
+        609,
+        18,
+        306,
+        1001
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "reference_sha256": "7b3b7ae2b40248eaa24963e631f756932fdefaf997085e11fe0f2c273f846939",
+      "generated_original": "/workspace/generated_images/exec-d99b537e-686e-4064-8f1c-0e162d2c8b7c.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_tom": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_02.png",
+      "sha256": "085facef831e4a2126e0b3a997d3cefff4ea0272e15f5d7277fca9818740c8d3",
+      "region": [
+        1060,
+        13,
+        346,
+        1006
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_tom.png",
+      "reference_sha256": "4bffc183ae5ed296f1ea76ffb467cda9b5e301162b4937f8f16bed698d1afe2b",
+      "generated_original": "/workspace/generated_images/exec-d99b537e-686e-4064-8f1c-0e162d2c8b7c.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_bex": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_03.png",
+      "sha256": "51b8ad0ee126db5744afc69c522d1dbe2f5293206b6db9084d1788386a55a8bb",
+      "region": [
+        188,
+        29,
+        328,
+        995
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_bex.png",
+      "reference_sha256": "5c1922ef4157061e79809909aeccbd1692005cad0a188cff3cda82447a350464",
+      "generated_original": "/workspace/generated_images/exec-d78f03d1-9ebe-484c-a12b-0cd57e8bc769.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_ben": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_03.png",
+      "sha256": "51b8ad0ee126db5744afc69c522d1dbe2f5293206b6db9084d1788386a55a8bb",
+      "region": [
+        615,
+        18,
+        314,
+        1006
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_ben.png",
+      "reference_sha256": "7f879211cf6dcad23edfb005f7393ad75c57ab7889ba6f6cc79c82fc5c06b089",
+      "generated_original": "/workspace/generated_images/exec-d78f03d1-9ebe-484c-a12b-0cd57e8bc769.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_hannah": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_03.png",
+      "sha256": "51b8ad0ee126db5744afc69c522d1dbe2f5293206b6db9084d1788386a55a8bb",
+      "region": [
+        1091,
+        42,
+        275,
+        976
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_hannah.png",
+      "reference_sha256": "908f8ab88d6071baf7822865c267e7de9530fe4136b706a327c9a2640847b795",
+      "generated_original": "/workspace/generated_images/exec-d78f03d1-9ebe-484c-a12b-0cd57e8bc769.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_ellis": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_04.png",
+      "sha256": "b83cd4f8dfa30e21ae85e0d04053028f65deea5443fbd18b7021d6c0e8e76679",
+      "region": [
+        143,
+        12,
+        310,
+        1010
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_ellis.png",
+      "reference_sha256": "00de6890ff0588682fe264f3158c1a0333dca037da67ccb9f12e7be4e7b74a2c",
+      "generated_original": "/workspace/generated_images/exec-49d6e5d9-9e9f-4992-bb17-2e088f2dbd62.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_marcus": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_04.png",
+      "sha256": "b83cd4f8dfa30e21ae85e0d04053028f65deea5443fbd18b7021d6c0e8e76679",
+      "region": [
+        578,
+        9,
+        372,
+        1013
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "reference_sha256": "fd8837224b05e22a888e1795b2d2b7f294b02bbc6143115ac950fcfa6a230798",
+      "generated_original": "/workspace/generated_images/exec-49d6e5d9-9e9f-4992-bb17-2e088f2dbd62.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_maya": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_04.png",
+      "sha256": "b83cd4f8dfa30e21ae85e0d04053028f65deea5443fbd18b7021d6c0e8e76679",
+      "region": [
+        1076,
+        19,
+        308,
+        1003
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_maya.png",
+      "reference_sha256": "099a85ed6594cce2a4af797e51ae5b4afb23eca063b28daca82450d53da7c626",
+      "generated_original": "/workspace/generated_images/exec-49d6e5d9-9e9f-4992-bb17-2e088f2dbd62.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_lily": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_05.png",
+      "sha256": "e685ec5d927385d5c099a7e7237d9d2154fd9c9ec6fd37cc2fe334bde5f2a03d",
+      "region": [
+        165,
+        27,
+        299,
+        990
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_lily.png",
+      "reference_sha256": "a04c4f8d2fc8977c985939a035a8190b432045351f90c2a632df30eb579a9457",
+      "generated_original": "/workspace/generated_images/exec-aad4d52f-8b85-4d98-941b-17a6fd4015f2.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_nina": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_05.png",
+      "sha256": "e685ec5d927385d5c099a7e7237d9d2154fd9c9ec6fd37cc2fe334bde5f2a03d",
+      "region": [
+        620,
+        35,
+        274,
+        985
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_nina.png",
+      "reference_sha256": "8f58b43a77ceb6d533ef10bce2ef33f79934a94d96a0b1af76926867bf69340e",
+      "generated_original": "/workspace/generated_images/exec-aad4d52f-8b85-4d98-941b-17a6fd4015f2.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_sam": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_05.png",
+      "sha256": "e685ec5d927385d5c099a7e7237d9d2154fd9c9ec6fd37cc2fe334bde5f2a03d",
+      "region": [
+        1013,
+        6,
+        381,
+        1015
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_sam.png",
+      "reference_sha256": "c8f629d4786eed5e33fd5f6a680e15025df5768753304e56bca17585544ebdcf",
+      "generated_original": "/workspace/generated_images/exec-aad4d52f-8b85-4d98-941b-17a6fd4015f2.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_dan": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_06.png",
+      "sha256": "61bb2250d0f25086295ee5b1130df2bd71f9191a64e30122cca15504051c5e92",
+      "region": [
+        169,
+        12,
+        333,
+        1010
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_dan.png",
+      "reference_sha256": "c2bbc1f460786b43e2cf83500cd28a47e152e95b32a80dba3af355166cfee8d7",
+      "generated_original": "/workspace/generated_images/exec-c69999bc-b781-4af5-967d-feae380cdd9a.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_freya": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_06.png",
+      "sha256": "61bb2250d0f25086295ee5b1130df2bd71f9191a64e30122cca15504051c5e92",
+      "region": [
+        592,
+        26,
+        325,
+        998
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_freya.png",
+      "reference_sha256": "84b1d946f1796138f015519e0cd3f4befa05326a22100e683d48d039e5f82c14",
+      "generated_original": "/workspace/generated_images/exec-c69999bc-b781-4af5-967d-feae380cdd9a.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    },
+    "cast_oscar": {
+      "texture": "res://experiments/playable_flightcase/art/identity/next32_cast_06.png",
+      "sha256": "61bb2250d0f25086295ee5b1130df2bd71f9191a64e30122cca15504051c5e92",
+      "region": [
+        1076,
+        18,
+        282,
+        1006
+      ],
+      "pose_height_ratio": 1.0,
+      "reference": "res://Art/References/ApprovedCast20261029/previews/cast_oscar.png",
+      "reference_sha256": "cb27c4a0478618b281eacbc186409129bd6cc1f6fd6720d169e147f57ba25c12",
+      "generated_original": "/workspace/generated_images/exec-c69999bc-b781-4af5-967d-feae380cdd9a.png",
+      "gaze_review": "direct_camera",
+      "expression_review": "closed_mouth_no_smile",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region_method": "opaque connected silhouette alpha>=128 plus4px original-source bleed; low-alpha speckle ignored; pixels unchanged"
+    }
+  }
+}

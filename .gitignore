@@ -15,3 +15,6 @@ __pycache__/
 experiments/playable_flightcase/audio/recorded_indie29/
 experiments/playable_flightcase/audio/character_indie29/
 experiments/playable_flightcase/audio/title_indie29.ogg
+
+# NEXT32 owner-supplied private formation derivatives
+experiments/playable_flightcase/audio/formation_next32/
