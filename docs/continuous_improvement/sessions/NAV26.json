@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "NAV26",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "d1f2d022c4a2fc3ed963fdfc68ea98ce67f02c13",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2076426,
+    "sha256": "8b7518b4ca38270822ce600240afd2c6b8c5a3adaebc9c634f46d5f4de9fb4d2"
+  },
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Find and fix getting stuck when all musicians unavailable; improve and simplify navigation options in current main Playtest app. Proceed without routine prompts.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/band-life-update24/compiled-phone-chat-next-rehearsal.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Exact V21 canonical band DAY6 all unavailable, same retained source/assets at390x844/720x1280/1280x720/1600x900. Real Home\u2192Writing/Rehearsal/Planning\u2192quiet preview\u2192dirtyexit/retry\u2192saved1day\u2192Home\u2192Menu/Continue;0/1/many/future/gig/radio/Finance edge states. Preserve original day/economy and no statechange on navigation.",
+  "hypothesis": "A shared availability-aware preview option makes quiet/solo/jam discoverable on blockedscreens; explicit jam routing fixes silentmodefallthrough; oneHome action returnsHome rather than planner. Existing original informal action resolves day with normal atomic save and Finance.",
+  "stop_condition": "No new audio/art/cast/schedules, source saveformat change, original V21/request mutation, automatic day skip/rehearsal credit, protectedmeter redesign, main/PRmerge or replacementkey. Sourcefix first; no immediateAPK/signingrequest generation, respecting larger-chunk release preference.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/day_navigation.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/situation_desk.gd",
+    "tests/navigation_*",
+    "tests/polish_feedback_visual.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/NAV26.json",
+    "Bounded Godot4.7.2 current native test: blocked writing/rehearsal/planner and oneHome route; explicitjam first/reusedpane, quiet0attendees, solo1/multi actualcredit; originalFinance/savefail/stale/double/dirtyexit/future/gig/radio held guards.",
+    "Four native viewports; early phone/short independent originalpixel review; exact testedSHA and sourcecopy hash; meaningful core regressions, no listening/physicalAndroid claim."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 16310812672,
+    "new_persistent_budget_bytes": 536870912,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_imported_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-navigation26",
+    "no_new_import_export": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "review_task": {
+    "queue": "S80 NAV26 blocked-day navigation",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Choose a useful legal day action when nobody can attend, without losing a sketch, then returnHome and continue.",
+    "commitment": "Open/return/freeplanning uses0days; actual quiet/solo/jam consumes exactly1day only through original transaction.",
+    "visible_acceptance": "Fixed blockedsession dock offers meaningful nextaction and actual1day/fee; one distinctHome; no extra launchers/stat answerkey; pending sketch exits remain guarded."
+  },
+  "independent_review": "Existing helper read current source and opened V21 originals; confirms zero-route planner trap, ignoredjam, duplicateDesk, futureplan and actual-credit risks. Root solewriter.",
+  "started_at": "2026-11-09T15:43:56.373364+00:00"
+}
