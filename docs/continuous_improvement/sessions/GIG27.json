@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "GIG27",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "e5111aeaf1d4d79ec9d01d05fe6829ece5d721ae",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2084006,
+    "sha256": "6ec149659ae7857c261deecd430ba6bb4e3e884a715d808f1c9af2d59fd18e78"
+  },
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Owner used quiet route, now reports1song/2rehearsals but cannotbook. Diagnose/help and simplify nextcombined mainPlaytest source, without routineprompts/newrelease.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/band-life-update24/compiled-phone-promoter-pitch.png",
+    "baseline_inspected_this_session": false
+  },
+  "controlled_comparison": "Genuine canonical1finishedsong+2actualpaidrehearsals, samefirstshow/noautomaticgoalclaim; baselinecurrentNAV26 vsnewHome/booking at390x844/720x1280/1280x720/1600x900, free and nobodyfree days. Source/currentposter controls unchangedmaterial.",
+  "hypothesis": "Prominent firstgig route on completedfirstgoal and fixedpitch\u2192terms\u2192confirm guidance remove two navigation gaps while keeping booking intent/accounting/eligibility original. Initialfocus staysatpromoter instead of jumpingbelowit.",
+  "stop_condition": "No new song/hardunlock/rehearsal requirements, autochoices/claim/reward, fee/rule/save changes, audio/art/import/APK/key/newrequest or remoteGitpush. OriginalV21 and NAV26 retained. Source-only queuedcombinedbuild.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "tests/gig_navigation*",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/GIG27.json",
+    "Nativebaseline with actualoneoriginal/twoattendedpaidrehearsals; finalsamefixtureHome\u2192room\u2192pitch\u2192terms\u2192review\u2192cancel/failsave/retry\u2192actualsavedbooking, staleandcounteroffer/future/unavailable/heldcases, exacttypedreload.",
+    "Fourviewnativeactualpointers; earlyphone/short independentoriginalpixelreview; originalcoremodels and previousNAV26/source regression asappropriate. No device/listening claim."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 16215937024,
+    "new_persistent_budget_bytes": 268435456,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-gig27",
+    "new_import_export": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "review_task": {
+    "queue": "S80 GIG27 first-gig discovery",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Fromcompletedfirstgoalfindhometownroom, understandwhichchoiceremainsandagreefuturebookingonlyexplicitly.",
+    "commitment": "Freebrowse/focus/Back/cancel uses0days/cash; finalbooking usesoriginalatomicownercommit.",
+    "visible_acceptance": "Firstgigroutevisibleevenifnobodyfree; requiredpitchandtermsnotpastfold; primaryguidesthenactualconfirm; no chapterrewardclaim or neweligibility; pendingheldcommitmentsstillwin."
+  },
+  "independent_review": "Existing helper source/pixel pre-review completed; recommendationapprovedscope, actual devicecauseunconfirmed.",
+  "started_at": "2026-11-09T17:27:24.762126+00:00"
+}
