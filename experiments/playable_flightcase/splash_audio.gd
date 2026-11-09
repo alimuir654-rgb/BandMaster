@@ -27,7 +27,9 @@ func _start_if_current() -> void:
  var parser:=JSON.new()
  if parser.parse(FileAccess.get_file_as_string(MANIFEST))!=OK or not parser.data is Dictionary:return
  var entry: Dictionary=parser.data
- if entry.get("schema_version")!=1 or entry.get("owner_listening_accepted")!=true:return
+ if entry.get("schema_version")!=1:return
+ var approved: bool=entry.get("owner_listening_accepted")==true or (entry.get("owner_listening_accepted")==false and entry.get("integration_review_accepted")==true and entry.get("integration_authority")=="owner_request_20261109")
+ if not approved:return
  var path: String=str(entry.get("path",""))
  if not path.begins_with("res://") or not ResourceLoader.exists(path):return
  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256",""):return

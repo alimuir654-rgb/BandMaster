@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2101315,
-    "sha256": "34448a163a2301cfa51934169cad7e878f47b8cda194dd8682415d5ae4226a7f"
+    "bytes": 2105554,
+    "sha256": "055bd2a6582e02d513b9ef36a241c70b4963d35b3824d6f0e4bfb6262564c725"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -37,7 +37,7 @@
     "baseline_inspected_this_session": true
   },
   "controlled_comparison": "Sameexistingposter/native entry4sizes; original14familiesvsnew3banks, distinctcharacterclipsoutsidewrittenexercise; mute/lifecycle/nosave/consumption/failedsave/reload guards.",
-  "hypothesis": "Add6matchedpassagespernewsource andshortrole-specificcharacterideas withsourcehonesty; titleconditionalexcerpt, no new portraits or mechanics.",
+  "hypothesis": "Add6matchedpassagespernewsource andshortrole-specificcharacterideas withsourcehonesty; titleconditionalexcerpt, no new portraits or mechanics. Separate recordedidea preview module neverrelabelsoldwrittenresponses; ownerrequestnewtitlecueauthoritytruthful. Othergenrespreview-onlynewgameUI, retainlegacydata.",
   "stop_condition": "No falseheard/bar/keyverification. Preserveoriginals80WAV/V21request/certificate/app/save, production/main/PR199; no newkey orprivateaudiopublicGit. Originalcertificate detachedV22requestonly, finalsignaturelater.",
   "allowed_paths": [
     "experiments/playable_flightcase/recorded_steady.gd",
@@ -52,7 +52,9 @@
     "tools/prepare_indie29.py",
     "tests/indie29*",
     "docs/continuous_improvement/**",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/audition_audio.gd"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SCENE28.json",

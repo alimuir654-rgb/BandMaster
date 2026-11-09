@@ -243,6 +243,8 @@ func _build() -> void:
    notes.add_child(context_hint)
  if not _view.get("held",false) and not arrival:
   _question_box=VBoxContainer.new();_question_box.name="AuditionConversation";_question_box.add_theme_constant_override("separation",5);work.add_child(_question_box);_questions(_question_box)
+ if not _view.get("held",false):
+  preload("res://experiments/playable_flightcase/character_audio.gd").attach(work,str(_view["person"]["id"]),str(_view["person"]["role"]),func():return is_visible_in_tree() and not _busy and not _view.get("held",false))
  var practical:=VBoxContainer.new()
  practical.name="AuditionPracticalContext"
  practical.add_theme_constant_override("separation",4)

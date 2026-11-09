@@ -637,7 +637,9 @@ func _genre() -> void:
  footer.add_theme_constant_override("separation",12)
  root.add_child(footer)
  footer.add_child(_button("‹ MENU",_home,"tab","GenreBackAction"))
- footer.add_child(_button("FIND YOUR PEOPLE ›",_to_recruit,"action","GenreNextAction"))
+ var next: Button=_button("FIND YOUR PEOPLE ›" if setup.game.genre=="Indie rock" else "PREVIEW ONLY · INDIE AVAILABLE",_to_recruit,"action","GenreNextAction")
+ next.disabled=setup.game.genre!="Indie rock"
+ footer.add_child(next)
 
 func _choose_genre(value: String) -> void:
  if not setup.set_genre(value):
@@ -655,6 +657,10 @@ func _choose_genre(value: String) -> void:
   if button!=null:
    button.text = ("✓  " if setup.game.genre == name else "")+name.to_upper()
    button.set_pressed_no_signal(setup.game.genre == name)
+ var next: Button=find_child("GenreNextAction",true,false) as Button
+ if next!=null:
+  next.disabled=setup.game.genre!="Indie rock"
+  next.text="FIND YOUR PEOPLE ›" if not next.disabled else "PREVIEW ONLY · INDIE AVAILABLE"
  _reveal_focused_genre()
 
 func _reveal_focused_genre() -> void:
@@ -669,6 +675,7 @@ func _reveal_focused_genre() -> void:
  if scroll!=null and focused!=null and scroll.is_ancestor_of(focused):
   scroll.ensure_control_visible(focused)
 func _to_recruit() -> void:
+ if setup.game.genre!="Indie rock":return
  if setup.to_recruit():
   _render()
 

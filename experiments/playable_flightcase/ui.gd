@@ -512,6 +512,7 @@ func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
   replay.configure(_completed_audio_context.bind(id))
   body.add_child(replay)
   replay.set_clip(content.FIRST_ID)
+ preload("res://experiments/playable_flightcase/character_audio.gd").attach(body,id,role,func():return is_visible_in_tree() and game.genre=="Indie rock" and not session_busy and game.phase=="recruit" and str(game.choices(role)[selected_index].id)==id,true)
  var strength: Label = _candidate_note("STRENGTH  •  "+str(person.get("strength","Still developing")),"RecruitStrength",heard and audition_note_id==id)
  var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
  strength.visible = heard

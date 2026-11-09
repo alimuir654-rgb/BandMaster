@@ -1,12 +1,13 @@
 {
-  "name": "splash-cadence",
-  "path": "res://experiments/playable_flightcase/audio/splash_cadence_v1.ogg",
-  "sha256": "e6dfc6097ec9821d1215eacf2caf99e9aac5b1a8e64bc4d1a74921acf7cd9186",
-  "source_PCM_sha256": "8bfa2c328d542bdb20a34ec468d875c2ab330725437018dbc2035797edc5509c",
-  "style": "Indie rock",
-  "owner_listening_accepted": true,
-  "rights": "Karoryfer CC0 sampled instruments + original authored arrangement; S99 pinned rights/render/owner acceptance local",
   "schema_version": 1,
-  "instrument": "electric_guitar_bass_drums",
+  "path": "res://experiments/playable_flightcase/audio/title_indie29.ogg",
+  "sha256": "aff31fa7ec1354756c3064edc8a0df2c43b0d351ce13c48d0e02b1a9260b1b27",
+  "owner_listening_accepted": false,
+  "integration_review_accepted": true,
+  "integration_authority": "owner_request_20261109",
+  "provenance": "Owner-supplied AI-generated Suno audio",
+  "listening_verified": false,
+  "source_start_frame": 877920,
+  "seconds": 6,
   "once_per_process": true
 }

@@ -83,6 +83,7 @@ func _refresh() -> void:
  stop_button.disabled=not playing
 
 func _play() -> void:
+ get_tree().call_group("recorded_character_ideas","stop")
  stop()
  var entry:=_entry()
  if entry.is_empty() or _muted():

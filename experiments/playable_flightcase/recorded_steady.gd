@@ -3,8 +3,9 @@ extends RefCounted
 const STEADY_HOOKS := ["steady_early_v1","steady_later_v1"]
 const REHEARSAL_HOOKS := ["rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"]
 const DGAD_HOOKS := ["dgad_01_v1","dgad_02_v1","dgad_03_v1","dgad_04_v1","dgad_05_v1","dgad_06_v1"]
-const HOOKS := STEADY_HOOKS+REHEARSAL_HOOKS+DGAD_HOOKS
-const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06","D–G–A–D 01","D–G–A–D 02","D–G–A–D 03","D–G–A–D 04","D–G–A–D 05","D–G–A–D 06"]
+const INDIE29_HOOKS := ["indie29_guitar90_01", "indie29_guitar90_02", "indie29_guitar90_03", "indie29_guitar90_04", "indie29_guitar90_05", "indie29_guitar90_06", "indie29_space_01", "indie29_space_02", "indie29_space_03", "indie29_space_04", "indie29_space_05", "indie29_space_06", "indie29_dark_01", "indie29_dark_02", "indie29_dark_03", "indie29_dark_04", "indie29_dark_05", "indie29_dark_06"]
+const HOOKS := STEADY_HOOKS+REHEARSAL_HOOKS+DGAD_HOOKS+INDIE29_HOOKS
+const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06","D–G–A–D 01","D–G–A–D 02","D–G–A–D 03","D–G–A–D 04","D–G–A–D 05","D–G–A–D 06"]+ ["GUITAR ROOM 01", "GUITAR ROOM 02", "GUITAR ROOM 03", "GUITAR ROOM 04", "GUITAR ROOM 05", "GUITAR ROOM 06", "NIGHT COLOURS 01", "NIGHT COLOURS 02", "NIGHT COLOURS 03", "NIGHT COLOURS 04", "NIGHT COLOURS 05", "NIGHT COLOURS 06", "DARK CURRENT 01", "DARK CURRENT 02", "DARK CURRENT 03", "DARK CURRENT 04", "DARK CURRENT 05", "DARK CURRENT 06"]
 const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json"
 const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v2/"
 const USES := "recorded_phrase_uses_v1"
@@ -15,7 +16,10 @@ const DGAD_PREFIX := "res://experiments/playable_flightcase/audio/recorded_dgad_
 const BANKS := [
  {"hooks":STEADY_HOOKS,"manifest":MANIFEST,"prefix":PREFIX,"version":"recorded_steady_v2","tempo":100,"frames":460800,"tempo_caption":"100 BPM"},
  {"hooks":REHEARSAL_HOOKS,"manifest":REHEARSAL_MANIFEST,"prefix":REHEARSAL_PREFIX,"version":"recorded_rehearsal_v1","tempo":102,"frames":451765,"tempo_caption":"~102 BPM"},
- {"hooks":DGAD_HOOKS,"manifest":DGAD_MANIFEST,"prefix":DGAD_PREFIX,"version":"recorded_dgad_v1","tempo":100,"frames":460800,"tempo_caption":"~100 BPM"}
+ {"hooks":DGAD_HOOKS,"manifest":DGAD_MANIFEST,"prefix":DGAD_PREFIX,"version":"recorded_dgad_v1","tempo":100,"frames":460800,"tempo_caption":"~100 BPM"},
+ {"hooks":["indie29_guitar90_01", "indie29_guitar90_02", "indie29_guitar90_03", "indie29_guitar90_04", "indie29_guitar90_05", "indie29_guitar90_06"],"manifest":"res://experiments/playable_flightcase/audio/recorded_indie29/manifest.json","prefix":"res://experiments/playable_flightcase/audio/recorded_indie29/","version":"recorded_indie29","tempo":109,"frames":422752,"tempo_caption":"~109 BPM"},
+ {"hooks":["indie29_space_01", "indie29_space_02", "indie29_space_03", "indie29_space_04", "indie29_space_05", "indie29_space_06"],"manifest":"res://experiments/playable_flightcase/audio/recorded_indie29/manifest.json","prefix":"res://experiments/playable_flightcase/audio/recorded_indie29/","version":"recorded_indie29","tempo":114,"frames":404211,"tempo_caption":"~114 BPM"},
+ {"hooks":["indie29_dark_01", "indie29_dark_02", "indie29_dark_03", "indie29_dark_04", "indie29_dark_05", "indie29_dark_06"],"manifest":"res://experiments/playable_flightcase/audio/recorded_indie29/manifest.json","prefix":"res://experiments/playable_flightcase/audio/recorded_indie29/","version":"recorded_indie29","tempo":136,"frames":338824,"tempo_caption":"~136 BPM"}
 ]
 
 static func bank_for(value: Dictionary) -> Dictionary:
@@ -105,7 +109,7 @@ static func entry(value: Dictionary) -> Dictionary:
  return item
 
 static func stream(asset: Dictionary,expected_frames: int=460800) -> AudioStreamWAV:
- if expected_frames not in [460800,451765]:return null
+ if expected_frames not in [460800,451765,422752,404211,338824]:return null
  var wav: AudioStreamWAV=load(str(asset.path)) as AudioStreamWAV
  if wav==null or wav.format!=AudioStreamWAV.FORMAT_16_BITS or wav.mix_rate!=48000 or not wav.stereo or wav.loop_mode!=AudioStreamWAV.LOOP_DISABLED or wav.data.size()!=expected_frames*4:return null
  var hash:=HashingContext.new()
