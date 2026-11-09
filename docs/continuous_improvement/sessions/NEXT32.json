@@ -68,7 +68,16 @@
     "new_persistent_budget_bytes": 1800000000,
     "peak_memory_budget_bytes": 1073741824,
     "reuse_project": "/workspace/main-audio-proof/candidate/project",
-    "evidence_root": "/workspace/bandmaster-next32"
+    "evidence_root": "/workspace/bandmaster-next32",
+    "export_amendment": {
+      "at": "2026-11-09T23:12:30.380147+00:00",
+      "free_bytes": 12678619136,
+      "reason": "Measured prior stage880MiB incl440MiB import cache; new isolated stage+APK+compiled payload+QA must fit before allocating. No existing originals/cache modified or deleted.",
+      "persistent_budget_bytes": 4294967296,
+      "peak_memory_budget_bytes": 1610612736,
+      "free_space_floor_bytes": 6442450944,
+      "new_stage": "/workspace/bandmaster-next32/export"
+    }
   },
   "writer": {
     "owner": "root",
