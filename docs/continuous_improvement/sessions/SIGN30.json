@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "SIGN30",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "96c81bed30f9870302b347e5ad7d8cbdce092fdf",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2109746,
+    "sha256": "a3cc659cba5b5628e4d2d6c0621ec14e8b6fb18b10ec66b5cffad0a17cf17581"
+  },
+  "dominant_issue": "BM-36",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-30",
+    "BM-32",
+    "BM-36",
+    "BM-40"
+  ],
+  "owner_request": "Owner supplied original-key V22 response; verify exact request/bindings/RSA, assemble unchanged payload, official Androidverification and established privateDropboxdelivery. No request/source rewrite, rebuild or newkey.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/band-stories-22/final-phone-chat-agreed.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Exact retained V22unsigned vs signed; onlyv2block/EOCDoffset change. Reuse unchanged AUDIO29 compiled2206assertions/4viewpixels; no newvisual/listening claim.",
+  "hypothesis": "Originalholder bound RSA signature completes same-app22 update with originalcertificate, verifiedofficially and payloadidentical.",
+  "stop_condition": "Stoponanysignature/request/unsigned/payload/cert/app/versioncheck failure. No rebuild, keygeneration/privatekeyaccess, requestrewrite, sourcepush or signingdifferentpayload.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SIGN30.json",
+    "tools/detached_apk_v2.py assemble with retainedV22policy/request/unsigned/publicV16reference and actualownerresponse; requireofficialapksigner/16KBalignment/app22/minSDK24/payloadidentity",
+    "Verify deliveredDropboxmetadata/contenthash; no sharingchanges."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 13298065408,
+    "new_persistent_budget_bytes": 600000000,
+    "peak_memory_budget_bytes": 1800000000,
+    "apk_rebuild": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "scope": "release records and original detached assembly only"
+  },
+  "started_at": "2026-11-09T21:19:37.800955+00:00"
+}
