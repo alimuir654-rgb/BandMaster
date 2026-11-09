@@ -411,3 +411,7 @@ Next: original holder signs /BandMaster/BandMaster-V21-APK-v2-signing-request.js
 
 ### NAV26 — blocked-day navigation source verified
 Source6407a530: quiet/solo/jam previews at blocked writing/rehearsal/planning/Home; original1day settlement; first/reusedJam route; one guardedHome and matchingEscape. Blocked brief removes paidlevers.967model/native assertions,4sizes and explicit future/gig/radio/finance/dirtysave edges pass. Independent AI originalpixel review clear; owner_approved=false. No newAPK/signingrequest/push. Next include in next combined existing-app build. CurrentV21 workaround: JAM→TAKE A QUIET EVENING, or writingroom FREE JAM/SOLO PRACTICE thenquiet. Evidence NAV26_RESULTS.json.
+
+
+### GIG27 — first-gig discovery and explicit booking guidance source verified
+Sourcee68e75ef: actual1song/2paidrehearsalfirstgoal gets a futuregigroute, including nobodyfree tonight. Venuefocus startsatpitch; fixeddockChoosePitch→DiscussTerms→Confirm withactualvalidation/stale recovery, noautoselection/eligibility/reward/economy change.923assertions4native sizes+edges/priorNAV26/bandlife pass. ExistingAIoriginalpixelreviewclear; exactownerdevicecauseunconfirmed. CombinedNAV26+GIG27source106153bytes, no newAPK/request/push. Nextonecombinedreviewbuild. EvidenceGIG27_RESULTS.json.

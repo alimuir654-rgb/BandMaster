@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "session": "GIG27",
+  "status": "source_verified_queued_with_NAV26_for_next_combined_build",
+  "tested_sha": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+  "owner_approved": false,
+  "owner_device_cause_confirmed": false,
+  "owner_clarification": "Optional missing/disabled/message question asked; no answer received. Existing V21 explicitpitch/terms route explained; work progressed on reproducible source gaps.",
+  "baseline_runtime": "Current NAV26 source before GIG27, with unchanged V21 completed-goal/booking behavior; actual source-based native fixture.",
+  "baseline_proof": {
+    "log": "/workspace/bandmaster-gig27/baseline-phone.log",
+    "checks": 18,
+    "failures": [],
+    "state": "Actual1finishedoriginal+2attendedpaidrehearsals, no earliergig/chapterclaim; no metric injection.",
+    "findings": [
+      "Completed firstgoal clears suggestedroute; Homeprimary disappears and repeats completed goal text.",
+      "Venueentry focusesdate below promoter choices; defaultStandardquote looks complete despite no explicitpitch/terms/bill, Confirm disabled."
+    ]
+  },
+  "changes": [
+    "Completed firstgoal/noexistingbooking exposes free guarded FIND YOUR FIRST GIG route, includingnobodyfree tonight; date remainsfuture throughoriginalrules.",
+    "Other validempty-route Home states retain a MAKE A PLAN action.",
+    "Venueentry focusesactualpitch rather than past it; numberedpitch/terms sections.",
+    "Fixed dock guidesChoosePitch\u2192DiscussTerms\u2192Confirm, focusingactualcontrols withoutchoosing or saving.",
+    "Staledrafts havecurrentrooms recovery; actual validationfailure displayed atfixeddock; realconfirm/modal/save unchanged."
+  ],
+  "unchanged": [
+    "No new song/rehearsal/fan/reputation eligibility gate; hometownroom remains originalpolicy.",
+    "No automaticpitch/terms/rewards/claim/fees/dayadvance. Originalfinance/date/lineup/review/counteroffer/once-only settlement retained.",
+    "V21signedAPK andsigningrequest unchanged;80privateWAV hashes unchanged; nonewAPK/key/audio/art/remotepush."
+  ],
+  "validation": {
+    "counts": {
+      "models": 278,
+      "native": 645,
+      "total": 923
+    },
+    "count_note": "Repeated model/native assertions across viewports/regression, not distinct human tests.",
+    "models": [
+      {
+        "run": "navigation_unavailable_test",
+        "summary": {
+          "checks": 98,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "cd7f7c9850648416b535e2fde175f224e0e6bb22735e37395517cb1080f394fb"
+      },
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      }
+    ],
+    "native": [
+      {
+        "run": "phone",
+        "viewport": "390x844",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 74,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "a9a146e55c6672051fcd263bc1c4c48cc89a4875e56e5f0ed8716d671750fe63"
+      },
+      {
+        "run": "short",
+        "viewport": "1280x720",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 74,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "1cb61b853c3d8c68a681e54d128fa885aa826d3b14f667a6aa0d305b0d260bcb"
+      },
+      {
+        "run": "tall",
+        "viewport": "720x1280",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 74,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "68c9a671a13f42229ff04b8040fb5614d7258addc25cf62dd755886fa6505fbe"
+      },
+      {
+        "run": "wide",
+        "viewport": "1600x900",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 74,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "6e1a4a79cfe7c289026d1bb23b29a1e4a9c9c5477cbaaccd5c4db682f747b496"
+      },
+      {
+        "run": "edges-phone",
+        "viewport": "390x844",
+        "script": "gig_navigation_edges",
+        "summary": {
+          "checks": 42,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "06940111bfdb508996f55265470dcabe67ff1e296b81c6bf5c607b8e3bd9cada"
+      },
+      {
+        "run": "nav-phone",
+        "viewport": "390x844",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "fe2e5e8414220d13e701fd41cab8be0c32319b66f07446fdd717c56d7ff931fc"
+      },
+      {
+        "run": "stories-phone",
+        "viewport": "390x844",
+        "script": "update_a_visual",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "a1bf919eb1eefe00a5569df167ae6d33ae7819d0e34c5c234a313e6217c96947"
+      }
+    ],
+    "four_viewports": [
+      "390x844",
+      "720x1280",
+      "1280x720",
+      "1600x900"
+    ],
+    "cases": [
+      "genuine reported progress state",
+      "Home bookingroute on actualnobodyfree evening",
+      "actualpointer fieldguidance with focusname assertions",
+      "pitchalone never selectsdefaultterms",
+      "changedpitch clearsbill andrestoresguidance",
+      "original guestlistcounteroffer",
+      "Back/confirmationcancel no day/cost/state",
+      "savefailure/proposalretention/retry/typedreload",
+      "actualfuturehometownbooking: no upfrontday/fee/chapterreward",
+      "UI-only invaliddate/staledraft recovery counterexamples",
+      "unknowncompatiblefields retained",
+      "priorNAV26 and223check livingband journey"
+    ],
+    "engine": "Godot4.7.2 ed1daf0bf",
+    "physical_Android_tested": false,
+    "listening": false,
+    "normal_motion_retested": false
+  },
+  "preservation": {
+    "tested_source": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+    "V21_signing_request_unchanged": true,
+    "V21_signed_APK_unchanged": true,
+    "private_WAV_hashes_unchanged": 80,
+    "booking_economy_eligibility_rules_unchanged": true,
+    "source_QA_match": true
+  },
+  "combined_source_artifact": {
+    "name": "BandMaster-navigation-and-gigs-source.zip",
+    "bytes": 106153,
+    "sha256": "232094865b1f18dac92368cb45181007ceff9f48feb3f6d1622f7fa12607a9fe",
+    "source": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+    "baseline": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "source_files": 13,
+    "source_QA_byte_equal": true,
+    "patch_apply_check_passed": true,
+    "audio_art_APK_or_keys": false
+  },
+  "source_bundle_scope": "NAV26+GIG27, exactV21baseline59a3;13GDScript files; applycheck passes; no audio/art/APK/key.",
+  "originals_opened_by_root": [
+    "/workspace/band-life-update24/compiled-phone-promoter-pitch.png",
+    "/workspace/bandmaster-gig27/baseline-phone-first-goal-home.png",
+    "/workspace/bandmaster-gig27/baseline-phone-booking-before-pitch.png",
+    "/workspace/bandmaster-gig27/early-phone-first-goal-home.png",
+    "/workspace/bandmaster-gig27/early-phone-booking-needs-terms.png",
+    "/workspace/bandmaster-gig27/early-short-booking-before-pitch.png",
+    "/workspace/bandmaster-gig27/final-phone-first-gig-saved.png",
+    "/workspace/bandmaster-gig27/final-tall-booking-needs-terms.png",
+    "/workspace/bandmaster-gig27/final-wide-booking-before-pitch.png"
+  ],
+  "independent_AI_review": "Existing helper reviewed source, baseline/early/final originalphone+short screenshots andexact finalreports/logs. Final scopednoP1/P2hold. Retained evidence review, no new engine/device/humanacceptance claim.",
+  "simulated_lenses": {
+    "game_critic": "A completed publicgoal gives a meaningfulnextstep while leaving earlierGigsrouteavailable; no inventedunlock or automaticchapterreward.",
+    "musician": "One finishedoriginal can supportthe existing shortopening arrangement; no extra track or playing requirement invented.",
+    "ui_ux": "Home cannotloseitsvalidprimary; realpromoterchoicesatentry; fixedstaged guidance versus unexplaineddisabledConfirm, with readableactualerror.",
+    "narrative": "Player stillpitches andexplicitlydiscussesterms; originalstatus-shapedpromoteroffers/counteroffers remain authoritative.",
+    "qa_release": "Actualreportedprogress andnobodyfreefixture succeed; day/cash/reward unchanged onbrowse/booking; failedsaveandreload preserved. No newrelease/physicalphoneclaim."
+  },
+  "current_V21_directions": [
+    "GIGS \u2192 The Lantern Room \u2192 TALK ABOUT THIS ROOM.",
+    "Choose WE CAN PLAY A SHORT OPENING SET.",
+    "Tap STANDARD TERMS explicitly, evenif its focusborder is already highlighted.",
+    "CONFIRM THIS BOOKING \u2192 BOOK THE SHOW. Dates start at least3careerdaysahead.",
+    "If anotherguardmessage appears, its exacttext or unavailablelineup may explain a differentdevice-specific blockage."
+  ],
+  "limitations": [
+    "Exact ownerdeviceblockage unconfirmed; sourcegapsandreportedprogress reproduced independently.",
+    "Newguidanceis integratedsource fornextcombinedupdate, notsilentlyinstalledintoV21.",
+    "No newAPK/request/signing/branchpush; unchangedV21 remainsavailable.",
+    "Desktopnative/reducedmotion/Dummyaudio only; nodevice/listeningtest.",
+    "Broaderchapterrewardclaim/progression policy remainsoriginal and outside thisnavigationfix."
+  ],
+  "next_single_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now.",
+  "completed_at": "2026-11-09T17:38:32.839616+00:00"
+}

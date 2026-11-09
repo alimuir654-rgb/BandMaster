@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "GIG27",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "e5111aeaf1d4d79ec9d01d05fe6829ece5d721ae",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2085490,
-    "sha256": "fa372db57a54ae6ec232f5f088db67a0cf033e3106e7f621535e363ef73110f7"
+    "bytes": 2086708,
+    "sha256": "7883473f7a91bebb7853533c1d8fc1d42d09eaf9191184f6b45725de31353b92"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -62,7 +62,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "review_task": {
@@ -73,5 +73,15 @@
     "visible_acceptance": "Firstgigroutevisibleevenifnobodyfree; requiredpitchandtermsnotpastfold; primaryguidesthenactualconfirm; no chapterrewardclaim or neweligibility; pendingheldcommitmentsstillwin."
   },
   "independent_review": "Existing helper source/pixel pre-review completed; recommendationapprovedscope, actual devicecauseunconfirmed.",
-  "started_at": "2026-11-09T17:27:24.762126+00:00"
+  "started_at": "2026-11-09T17:27:24.762126+00:00",
+  "tested_sha": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+  "closed_at": "2026-11-09T17:38:32.839616+00:00",
+  "result": "docs/continuous_improvement/GIG27_RESULTS.json",
+  "closeout": {
+    "tested_sha": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+    "evidence": "docs/continuous_improvement/GIG27_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now.",
+    "new_issue_review": "AllGIG27eventsreviewed; explicit-focus regression fixed and genuinefourview/edge/source proof clear. Exactownercause/device/owneracceptance remain unconfirmed, no newAPK."
+  }
 }

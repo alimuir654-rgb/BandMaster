@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/GIG27.json",
-  "scope": "Blocked-day and explicitHome navigation source fix, integrated into existing Playtest; source-only for next combined build.",
+  "scope": "CombinedNAV26 unavailableday/Home and GIG27firstgig/explicitbooking guidance source verified for next combined review update.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "GIG27_preflight_first_gig_navigation",
-  "next_action": "Reproduce completedfirstgoal and stagedbooking, then fix source-only discovery/guidance preserving actualrules.",
+  "status": "source_verified_queued_with_NAV26_for_next_combined_build",
+  "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root_GIG27",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3419,7 +3419,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "NAV26",
+  "current_session": "GIG27",
   "next_single_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
@@ -7643,6 +7643,20 @@
     "latest_delivered_APK": 21,
     "new_APK": false,
     "owner_approved": false,
-    "next_action": "Carry verified NAV26 into the next combined existing-app review build; currentV21 quiet-evening route is available as interim workaround."
+    "next_action": "Carry verified NAV26 into the next combined existing-app review build; currentV21 quiet-evening route is available as interim workaround.",
+    "queued_with": "GIG27 combined source e68e75ef,13GDScripts; no new APK yet."
+  },
+  "GIG27": {
+    "status": "source_verified_queued_with_NAV26_for_next_combined_build",
+    "writer": null,
+    "tested_sha": "e68e75ef205e70f5bf8da4d4e9ea55f92543597e",
+    "result": "docs/continuous_improvement/GIG27_RESULTS.json",
+    "checks": 923,
+    "combined_source_bundle": "BandMaster-navigation-and-gigs-source.zip",
+    "latest_delivered_APK": 21,
+    "new_APK": false,
+    "owner_device_cause_confirmed": false,
+    "owner_approved": false,
+    "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now."
   }
 }
