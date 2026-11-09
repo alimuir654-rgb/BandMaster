@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2090141,
-    "sha256": "9977e91d3abba7076cb6a10b865f1b73c060678226301d2c0d4dcad35eb7e3a6"
+    "bytes": 2095518,
+    "sha256": "67c4f7db4d4e99ddaa321a888941ac6701463c8f8cea5028e733f6fe6a5f7012"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -37,7 +37,7 @@
     "baseline_inspected_this_session": true
   },
   "controlled_comparison": "Samegenuine1song/2paidrehearsals andfresh/returnedpromotercontext at390x844/720x1280/1280x720/1600x900. Longformbaseline vs3meaningfulchoiceledbeats; venue/promotercontext, allpitch/termchoicesinfirstfold, actualoffer/counteroffer/date/trip/finalmodal,Back/currentdraftsavefailure/stale/reload.",
-  "hypothesis": "Showoneconversationquestionatatime, authenticstatus-shapedreactionandverbatimactualoffer, consistentroomrole anchoring, noextraNext-onlypage. Compactdategrid/optionalfullbill preservecompletecommitmentwithoutburyingchoices.",
+  "hypothesis": "Showoneconversationquestionatatime, authenticstatus-shapedreactionandverbatimactualoffer, consistentroomrole anchoring, noextraNext-onlypage. Compactdategrid/optionalfullbill preservecompletecommitmentwithoutburyingchoices. After observed intermittent nested presence painting, use two flat existing native labels in same58px budget; existing roomart remains arrival/saved agreement. No redraw/wait workaround.",
   "stop_condition": "No NPCportrait/newcast/art/audio/paidruntime/newdialogueengine/savedwrapper/policy/economy/reward changes. No autoask/accept, no savedclaimbeforeoriginalcommit; V21APK/request unchanged. NoAPK/newsignature orremotepush thissourcechunk.",
   "allowed_paths": [
     "experiments/playable_flightcase/gig_booking_desk.gd",

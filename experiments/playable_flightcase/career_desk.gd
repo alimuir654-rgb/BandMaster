@@ -1896,7 +1896,9 @@ func _ask_booking_commit(generation: int) -> void:
   _render()
   return
  var q: Dictionary=prepared["quote"]
- var dialog: Control=C.dialog("SHAKE ON IT?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
+ var travel: String="Head home after the show" if q["travel_plan"]=="drive_home" else "Stay overnight"
+ if int(q["session"])>0:travel+="; session drummer £%d included" % int(q["session"])
+ var dialog: Control=C.dialog("SHAKE ON IT?","%s in %s, DAY %d. %s. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. Listed fee £%d; %s. Actual settlement depends on the show." % [q["venue"],q["city"],int(q["day"]),travel,int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"]),int(q["listed_fee"]),str({"standard":"ordinary venue terms","guarantee":"agreed £15 addition","guestlist":"agreed £10 reduction"}.get(q["offer_id"],"review agreed terms"))],"flightcase")
  dialog.name="BookingConfirmDialog"
  dialog.set("confirm_text","AGREE THE NIGHT")
  dialog.set("cancel_text","KEEP TALKING")

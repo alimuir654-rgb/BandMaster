@@ -100,6 +100,8 @@ static func render(host,parent: Node,compact: bool) -> void:
     _copy(parent,str(proposal.get("message","Review the offer.")),"BookingNotice")
     return
    _dialogue(parent,str(proposal.reply))
+   for room in options["rooms"]:
+    if room["id"]==draft.get("venue_id"):_copy(parent,"Listed fee £%d. Actual settlement depends on the show and agreed terms." % int(room["listed_fee"]),"BookingListedFee")
    var bill: Dictionary=draft[Circuit.BILL]
    _copy(parent,("COUNTEROFFER · " if proposal.get("counteroffer",false) else "OFFER · ")+str(OFFER_LABELS[bill.offer_id])+" · "+str(bill.slot).replace("_"," ").to_upper(),"BookingActualOffer",18)
    _button(host,parent,"HIDE THE FULL BILL" if host.booking_bill_open else "WHO ELSE IS PLAYING?","BookingBillToggle",host._booking_toggle_bill.bind(generation))
@@ -124,13 +126,9 @@ static func render(host,parent: Node,compact: bool) -> void:
    if host._booking_session_needed():_copy(parent,"SESSION DRUMMER · £25 AT THE SHOW","BookingSessionCover")
 
 static func _presence(parent: Node,room: String) -> void:
- var row:=HBoxContainer.new();row.add_theme_constant_override("separation",12);parent.add_child(row)
- var art:=TextureRect.new();art.name="BookingRoomIllustration";art.texture=load(STAGE)
- art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
- art.custom_minimum_size=Vector2(72,58);art.mouse_filter=Control.MOUSE_FILTER_IGNORE;row.add_child(art)
- var words:=VBoxContainer.new();words.size_flags_horizontal=Control.SIZE_EXPAND_FILL;row.add_child(words)
- _copy(words,"THE PROMOTER","BookingPromoterHeading",18)
- _copy(words,room,"BookingReviewVenue",20)
+ # Flat native ink keeps the speaker and location in the ordinary reading flow.
+ _copy(parent,"THE PROMOTER","BookingPromoterHeading",18)
+ _copy(parent,room,"BookingReviewVenue",20)
 
 static func _dialogue(parent: Node,text: String) -> void:
  var label: Label=_copy(parent,text,"BookingPromoterReply",20)

@@ -85,7 +85,8 @@ func run() -> void:
  await tap("BookingVenue_local")
  check(career.booking_pitch.is_empty() and not career.booking_draft.has(Circuit.BILL),"room selection invalidates previous proposal")
  await tap("BookingPitch_fit");await tap("BookingOffer_standard")
- await tap("BookingCommitAction");await tap("BookingKeepEditingAction");unchanged(before,"decline final confirmation")
+ await reveal(scene.find_child("BookingOnlyTrip",true,false));await capture("travel")
+ await tap("BookingCommitAction");await capture("final-agreement");await tap("BookingKeepEditingAction");unchanged(before,"decline final confirmation")
  await tap("BookingCommitAction");await failure_action("BookingConfirmAction","first-gig-booking")
  check(scene._career_view.booking_draft.has(Circuit.BILL),"failed save retains actual proposal")
  await tap("BookingCommitAction");await tap("BookingConfirmAction")
@@ -96,6 +97,23 @@ func run() -> void:
  await capture("first-gig-saved")
  var reload=Owner.new();check(reload.load_draft() and reload.snapshot()==owner.snapshot(),"booking exact typed reload")
  finish()
+
+func capture(label: String) -> void:
+ await super.capture(label)
+ if is_instance_valid(scene._career_view._live_dialog):return
+ var image: Image=Image.load_from_file(output+"-"+label+".png")
+ for key in ["BookingPromoterHeading","BookingReviewVenue"]:
+  var node: Control=scene.find_child(key,true,false)
+  if node==null or not scene._career_view._scroll.get_global_rect().encloses(node.get_global_rect()):continue
+  var physical: Rect2=root.get_final_transform()*node.get_global_rect()
+  var rect: Rect2i=Rect2i(physical).intersection(Rect2i(Vector2i.ZERO,image.get_size()))
+  check(rect.size.x>0 and rect.size.y>0,"presence physical image bounds "+label+" "+key)
+  var ink: int=0
+  for y in range(rect.position.y,rect.end.y):
+   for x in range(rect.position.x,rect.end.x):
+    var pixel: Color=image.get_pixel(x,y)
+    if pixel.r>0.55 and pixel.g>0.5 and pixel.b>0.4:ink+=1
+  check(ink>80,"actual visible presence ink "+label+" "+key)
 
 func choice_fold(names: Array,label: String) -> void:
  var clip: Rect2=scene._career_view._scroll.get_global_rect()
