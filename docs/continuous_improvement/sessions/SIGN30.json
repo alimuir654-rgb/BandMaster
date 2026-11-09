@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "SIGN30",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "96c81bed30f9870302b347e5ad7d8cbdce092fdf",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2109746,
-    "sha256": "a3cc659cba5b5628e4d2d6c0621ec14e8b6fb18b10ec66b5cffad0a17cf17581"
+    "bytes": 2112017,
+    "sha256": "0fa61d32ba06f5e1b87f944b5720734ab4a80c575fbc16b929eeebf7a603749a"
   },
   "dominant_issue": "BM-36",
   "lesson_ids": [
@@ -49,8 +49,17 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "scope": "release records and original detached assembly only"
   },
-  "started_at": "2026-11-09T21:19:37.800955+00:00"
+  "started_at": "2026-11-09T21:19:37.800955+00:00",
+  "closed_at": "2026-11-09T21:30:59.938695+00:00",
+  "result": "docs/continuous_improvement/SIGN30_RESULTS.json",
+  "closeout": {
+    "tested_sha": "16c477c588758eaf07418361fcae79b43f147b05",
+    "evidence": "docs/continuous_improvement/SIGN30_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Install verified V22 over the existing Playtest app without uninstalling, verify0.152.0-playtest-indiebanks, Continue the saved band and review new audio/characters/title and combined navigation/promoter flow.",
+    "new_issue_review": "Uploadwrapperunknownoutcome reconciled with absentdestination andsinglecleanretry; completedremoteproviderhash exact. Allreleasechecks passed; unchangedsource/request/payload. PhysicalAndroid/listening/ownerapprovalpending."
+  }
 }

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "session": "SIGN30",
+  "status": "signed_V22_verified_and_Dropbox_delivered",
+  "tested_game_source": "16c477c588758eaf07418361fcae79b43f147b05",
+  "source_branch": "feature/playtest-polish-v20",
+  "source_or_request_rewritten": false,
+  "APK_rebuilt": false,
+  "owner_approved": false,
+  "audit": {
+    "request_id": "ac4bcac442b592af4cb42811443554c3e9c7b4f7c2d81758eac00fb1c71af6a8",
+    "signed_apk_sha256": "cffda0f2e1548d8267e485332c98f52554aa2255851c20007a6738413d81329a",
+    "signed_apk_size": 429790976,
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 22,
+    "minimum_sdk": 24,
+    "official_apksigner_verified": true,
+    "alignment_16kb": true,
+    "payload_unchanged": true,
+    "unsigned_original_unchanged": true,
+    "private_key_used_here": false,
+    "physical_device_tested": false,
+    "official_verifier_output": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=BandMaster Owner Playtest, O=BandMaster, C=GB\nSigner #1 certificate SHA-256 digest: 83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2\nSigner #1 certificate SHA-1 digest: 7c4b5c94522ebeba8360dba8053c84fd2d775130\nSigner #1 certificate MD5 digest: e85fd2e8d4c9cb5deccb8956eb1e29b1\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d\nSigner #1 public key SHA-1 digest: 0cc463deab85bd1fa1e083d1576267d12ed27fc7\nSigner #1 public key MD5 digest: ffcb0b436b1d0992bbec1f87e176ade2\n"
+  },
+  "request_sha256_unchanged": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+  "response_sha256": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+  "local_APK": "/workspace/bandmaster-audio29/BandMaster-Playtest-v22-arm64.apk",
+  "dropbox": {
+    "status": "completed",
+    "path": "/BandMaster/BandMaster-Playtest-v22-arm64.apk",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAAeA",
+    "revision": "0165fdea9a97a76000000033d7c54b1",
+    "size": 429790976,
+    "downloadable": true,
+    "content_hash": "96b4ec9d424909967535c217c3b6564d2051287c4985cdec2079de83935e980f",
+    "local_content_hash_equal": true,
+    "open_in_dropbox_url": "https://www.dropbox.com/preview/BandMaster/BandMaster-Playtest-v22-arm64.apk",
+    "sharing_permissions_modified": false
+  },
+  "reused_evidence": {
+    "record": "docs/continuous_improvement/AUDIO29_RESULTS.json",
+    "compiled_native_assertions": 1158,
+    "compiled_model_assertions": 1037,
+    "core_compiled_assertions": 2195,
+    "separate_compiled_genre_probe_assertions": 11,
+    "total_including_probe": 2206,
+    "four_viewports": true,
+    "new_engine_runs": 0,
+    "payload_unchanged": true
+  },
+  "independent_AI_review": "Existingread-onlyreviewer independently verified returnedRSA against originalpubliccertificate, actualembeddedv2signeddata/certificate/signature byteidentity, streamedbothAPKhashes/sizes andall2190ZIPpayloadentryidentities. NoP1/P2deliveryhold. PreviousAUDIO29actualpixels/compiledproof reused, no newhuman/listeningtest.",
+  "simulated_review_lenses": "Reused unchanged AUDIO29 simulatedgamecritic/musician/UIUX/narrative/QA findings; signing-onlystep makesnonew artisticclaim.",
+  "visual_verdict": "Unchanged reviewedAUDIO29pixels; scopedtechnicalreleaseclearance, physicalAndroid/listening/ownerapprovalpending.",
+  "delivery_incident": "Firstlargeuploadreturnedwithoutusable structuredoutput; wrapperstore(undefined) maskedresult. Remoteexactdestinationconfirmedabsent beforeonecleanretry. Retrycompleted429790976bytes; providercontenthash equalslocal4MiBhash. No signingpayloadchange/rebuild/source/requestedit or sharingchange.",
+  "limitations": [
+    "PhysicalAndroidinstall/update/save-retention/touch/audio-lifecycle not tested here.",
+    "Musicalgrid/characterfit/newcueexcerpt remainprovisional for ownerlistening; AIgeneratedSunoprovenance/commercial-gameclarification unchanged."
+  ],
+  "next_action": "Install verified V22 over the existing Playtest app without uninstalling, verify0.152.0-playtest-indiebanks, Continue the saved band and review new audio/characters/title and combined navigation/promoter flow.",
+  "completed_at": "2026-11-09T21:30:59.938695+00:00"
+}
