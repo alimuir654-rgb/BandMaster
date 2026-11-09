@@ -21,7 +21,7 @@
   ],
   "owner_approved": false,
   "id": "NEXT32",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "da90f105908770af7f76fdf6c96c1b296e3935e5",
   "dominant_issue": "BM-01",
   "owner_request": "OwnerapprovedLOOK31design and firstportraitdirection: implementwholecohesivebatchversionedtalent/portraitrollout/formationmusic+reveal/shortscenario-richgigs; preserveV22savesandsignedartifacts.",
@@ -81,7 +81,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "review_task": {
     "queue": "S80 NEXT32 approvedformation-to-firstgig batch",
@@ -92,8 +92,16 @@
   },
   "started_at": "2026-11-09T22:30:41.038990+00:00",
   "issue_log_review": {
-    "bytes": 2125905,
-    "sha256": "d9ccaea3ba7f74af040879e073a56fd6b8be747f61d111bbd37efa8dd6b023fa"
+    "bytes": 2128865,
+    "sha256": "7adff092cc5b1a022a00fb18f16227b966e60f4effa5014b99814bd182bb3130"
   },
-  "approved_design": "LOOK31 direction explicitly accepted; studyJack/Zoe/Casey accepted as direction, not blanket final18/nativeacceptance."
+  "approved_design": "LOOK31 direction explicitly accepted; studyJack/Zoe/Casey accepted as direction, not blanket final18/nativeacceptance.",
+  "closed_at": "2026-11-09T23:25:07.576302+00:00",
+  "closeout": {
+    "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
+    "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Original signing thread signs exact /BandMaster/BandMaster-V23-APK-v2-signing-request.json with existing key; return bound signature JSON here. Validate and assemble retained APK then official apksigner/certificate/app/version/payload verification before installable delivery.",
+    "new_issue_review": "Every scoped native/model/import/export failure retained; final independent holds fixed and verified. Remaining physical/listening/owner acceptance explicit."
+  }
 }

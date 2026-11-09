@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "session": "NEXT32",
+  "status": "approved_batch_implemented_verified_unsigned_V23_prepared_original_signature_pending",
+  "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
+  "branch": "feature/playtest-polish-v20",
+  "remote_branch_changed_by_this_task": false,
+  "owner_approved": false,
+  "approved_direction": "Owner explicitly approved LOOK31 and first3 portrait study; final18/native art and music acceptance still pending.",
+  "changes": [
+    "18 camera-facing closed-mouth natural full-length portrait replacements in external presentation registry; canonical cast and originals unchanged.",
+    "Strong earned named-band poster; width-fitted portrait row; one bounded new-indie family cue selected by intent/lineup.",
+    "New-band look31_v1 talent policy with standout100/middle65/entry30 plus5 instrumental voice; missing policy retains legacy serialization and prices.",
+    "Three-act gig presentation over old checkpoints;7 measured main actions vs9 retained baseline, optional band advice/support kept.",
+    "Three context-selected saved soundcheck situations with once-only pre-freeze real consequences, actual actor/bill/history binding, visible retry and whole rollback."
+  ],
+  "validation": {
+    "source_models": {
+      "checks": 616,
+      "strict": true,
+      "record": "/workspace/bandmaster-next32/final-model-runs.json"
+    },
+    "source_native": {
+      "checks": 937,
+      "runs": 9,
+      "four_viewports": [
+        "390x844",
+        "720x1280",
+        "1280x720",
+        "1600x900"
+      ],
+      "strict": true,
+      "record": "/workspace/bandmaster-next32/final-native-runs.json"
+    },
+    "exact_unsigned_compiled_models": {
+      "checks": 616,
+      "strict": true,
+      "record": "/workspace/bandmaster-next32/compiled-model-runs.json"
+    },
+    "exact_unsigned_compiled_native": {
+      "checks": 231,
+      "runs": 2,
+      "strict": true,
+      "record": "/workspace/bandmaster-next32/compiled-native-runs.json"
+    },
+    "counts_note": "Repeated assertions across source/compiled and viewport runs; not distinct human tests.",
+    "old_V22_QA_saves": 4,
+    "physical_device_tested": false,
+    "listening_verified": false
+  },
+  "review": {
+    "reviewer": "existing read-only review_current_workbench; root sole writer",
+    "disposition": "No remaining evidenced P1/P2 in scoped source and reviewed native states. Source/native clearance is not owner artistic or listening acceptance.",
+    "source_review": "18 canonical references +6 original atlases,36 hashes and18 opaque crop-edge checks; all101 final captures and9 native logs hash-verified.",
+    "root_opened_final_originals": [
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-band-6.png",
+        "sha256": "3c469454ad7c4571cac80146f2b97350d05b1726521c72405e85863e785f5f2c"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-short-band-6.png",
+        "sha256": "d2d6b22358be60bf03520ad4cbb963a94abe13f9daa6176695999d6b0a9ee56c"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-tall-band-3.png",
+        "sha256": "a9ce9248644b6a907f0a64dece4980154bb027592bfa5d0116e4db82d44218cf"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-wide-band-6.png",
+        "sha256": "abf8487dad8ad0347c76d58ce898ddccad1e96d3868b20a2003104ab1ea7cb83"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_gig_visual-phone-saved promoter answer-save-error.png",
+        "sha256": "e23db4a59e05aec1eaed2e94710628f8424dd36acd2f83984780d629652290d2"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_gig_visual-phone-soundcheck-plan.png",
+        "sha256": "c8ad742cbb0cab30a3340d77901f9663fd3f168e895516f6b4d824b53a41cbad"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_gig_visual-short-soundcheck-situation.png",
+        "sha256": "58bda1f9c27c291c8456876197733eb9fc05b2f7f4438ce2585ac9bcc284f2bc"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_gig_visual-tall-night-result.png",
+        "sha256": "46e6121b5367739da1146309a5fb0b430da8296bf23a843554eb2a8d97d1b137"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-portraits-ryan.png",
+        "sha256": "c48f8b03ad00e30390a700217757b8a1fa8bee5aed81845f695ed755134e2121"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-portraits-bex.png",
+        "sha256": "b7a614f693b685b9c8dcf92431e5c7f51844e18ca06bcd7221721dfdb8248b08"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-portraits-ellis.png",
+        "sha256": "c488f68893225cd866a1e2ac3becb762814aa06950175825ed84ccda641cea84"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-portraits-lily.png",
+        "sha256": "d5a5209fb1f85153d6ad120759d733ec59ef9c46ba8d799e4a7039e8a756fd21"
+      },
+      {
+        "path": "/workspace/bandmaster-next32/final-next32_visual-phone-portraits-dan.png",
+        "sha256": "01923a24fd49de24c14317418018ce3448ceb64b73fe8417b3804166ee24b55c"
+      }
+    ],
+    "simulated_lenses": [
+      {
+        "lens": "game critic",
+        "simulated": true,
+        "finding": "Seven main gig actions replace nine connective actions while adding a persistent context-derived decision; three-situation library remains modest."
+      },
+      {
+        "lens": "musician",
+        "simulated": true,
+        "finding": "Same-family cue and preparation/fatigue consequences are coherent by source; listening suitability remains owner review."
+      },
+      {
+        "lens": "ui/ux",
+        "simulated": true,
+        "finding": "Visible current choices and save-retry feedback; actual set leads answered soundcheck. Detailed controls still scroll."
+      },
+      {
+        "lens": "art director",
+        "simulated": true,
+        "finding": "Recognizable camera-facing unsmiling identities, larger clear figures and stronger band mark; six-person phone faces remain small."
+      },
+      {
+        "lens": "engineering/economy",
+        "simulated": true,
+        "finding": "Versioned prices preserve legacy saves;198 six-person edge, invitation receipts, stale tokens, rollback, context binding, original illness rebase and once-only wrap verified."
+      }
+    ]
+  },
+  "package_audit": {
+    "sha256": "d7e882153afbf47632d230aa3c6a750905b6866d0c9581d1aeeae5d5f6d08aca",
+    "bytes": 438298804,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 23,
+    "version_name": "0.153.0-playtest-bandnight",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "signed": false,
+    "installable_update": false,
+    "alignment_16kb": true,
+    "zip_crc": true,
+    "arm64_only": true,
+    "tests_excluded": true,
+    "new_scripts_compiled": true,
+    "source_manifest_byte_exact": true,
+    "private_media_hashes_verified": 170,
+    "old_private_WAVs_preserved": 170,
+    "new_formation_cues": 3,
+    "new_portrait_atlases": 6,
+    "new_dangerous_permissions": false,
+    "original_key_metadata_unchanged": true,
+    "new_key_files": 0,
+    "replacement_key_used": false,
+    "private_key_accessed": false,
+    "physical_device_tested": false,
+    "listening": false,
+    "source_commit": "dba007e3022d9d1a39365aab78b127d6a1d79f84"
+  },
+  "unsigned_apk_retained_local": "/workspace/bandmaster-next32/BandMaster-Playtest-v23-UNSIGNED.apk",
+  "signing": {
+    "request": {
+      "request_id": "93f51ed3b0d1cd0df531c10b2ffc00bb556a75147f452f9a54b87abafebf3c8b",
+      "sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+      "bytes": 9080,
+      "signed_data_sha256": "f866f500cc0f38abda3454b34f6fe73f19309e0eca4a04dabcf430342f0ead49"
+    },
+    "dropbox_path": "/BandMaster/BandMaster-V23-APK-v2-signing-request.json",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAAeQ",
+    "rev": "0165fe037b2e269000000033d7c54b1",
+    "remote_size": 9080,
+    "remote_readback": "All JSON values identical to local request; extraction adds whitespace. Exact local request validated against retained APK +official V16 original public certificate.",
+    "new_key_generated": false,
+    "APK_signed": false,
+    "existing_V22_artifacts_unchanged": true
+  },
+  "handover": {
+    "local": "/workspace/bandmaster-next32/BandMaster-V23-review-handover.txt",
+    "sha256": "0dc64d9bee32b4ec76f20210ba97f633e3864db7a87bc9a6fd94a48b3b605c87",
+    "dropbox_path": "/BandMaster/BandMaster-V23-review-handover.txt",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAAeg",
+    "rev": "0165fe037e6cedc000000033d7c54b1",
+    "remote_size": 5403,
+    "readback": "Text equivalent after extraction whitespace normalization."
+  },
+  "limitations": [
+    "Physical Android, actual listening and owner final artwork acceptance outstanding.",
+    "Three-situation pilot; detailed soundcheck controls scroll and six-person phone faces remain small.",
+    "Suno owner paid-plan AI-generated provenance retained; commercial game licensing separate, no shipping authorization.",
+    "Source committed locally, not pushed by this task."
+  ],
+  "visual_verdict": "partial",
+  "next_action": "Original signing thread signs exact /BandMaster/BandMaster-V23-APK-v2-signing-request.json with existing key; return bound signature JSON here. Validate and assemble retained APK then official apksigner/certificate/app/version/payload verification before installable delivery.",
+  "closed_at": "2026-11-09T23:25:07.576302+00:00"
+}
