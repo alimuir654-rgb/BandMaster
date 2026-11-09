@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "LOOK31_design_review",
-  "next_action": "Install verified V22 over the existing Playtest app without uninstalling, verify0.152.0-playtest-indiebanks, Continue the saved band and review new audio/characters/title and combined navigation/promoter flow.",
+  "status": "review_and_first_portrait_study_complete_implementation_pending",
+  "next_action": "Implement and test the first cohesive recruitment/portrait/formation-audio tranche, then the compressed first-gig encounter; one combined review build after full journey proof.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -6325,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6559,7 +6559,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "LOOK31",
+  "active_session": null,
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7711,5 +7711,35 @@
     "dropbox_path": "/BandMaster/BandMaster-Playtest-v22-arm64.apk",
     "result": "docs/continuous_improvement/SIGN30_RESULTS.json",
     "next_action": "Install verified V22 over the existing Playtest app without uninstalling, verify0.152.0-playtest-indiebanks, Continue the saved band and review new audio/characters/title and combined navigation/promoter flow."
+  },
+  "LOOK31": {
+    "status": "review_and_first_portrait_study_complete_implementation_pending",
+    "result": "docs/continuous_improvement/LOOK31_RESULTS.json",
+    "owner_full_length_portraits_rejected": true,
+    "game_modified": false,
+    "new_APK": false,
+    "study": {
+      "path": "/workspace/generated_images/exec-10f1ec61-5ad6-402a-b8b8-967c4cecf3bf.png",
+      "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "characters": [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      "source_type": "Generated same-reference three-person direction study; not independent masters",
+      "owner_approved": false,
+      "in_game": false
+    },
+    "owner_approved": false,
+    "writer": null
   }
 }

@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "session": "LOOK31",
+  "status": "review_and_first_portrait_study_complete_implementation_pending",
+  "reviewed_source": "962b83ee94d2267fa2113f0e4268ad61e769d17d",
+  "owner_approved": false,
+  "owner_full_length_rejected": true,
+  "game_modified": false,
+  "new_APK": false,
+  "findings": {
+    "top_trio_cost_before_voice": 145,
+    "with_instrumental_lead": 150,
+    "formation_audio": "Old genre-only example; ignores roster and confirmed direction",
+    "formation_presentation": "Current1.05secondfade/repeatedposter stage insufficient; proposedoneearnedreveal",
+    "gig_flow": "13storedphases, existingbundledarrival; about9primaryactionsone-song path; roomreadingchoicecurrentlyrequires2+songs"
+  },
+  "pricing_proposal": {
+    "proposal_only": true,
+    "current_rules_modified": false,
+    "quotes": {
+      "cast_tom": 30,
+      "cast_jack": 50,
+      "cast_ryan": 65,
+      "cast_arjun": 80,
+      "cast_bex": 100,
+      "cast_ben": 30,
+      "cast_zoe": 65,
+      "cast_hannah": 100,
+      "cast_ellis": 30,
+      "cast_casey": 65,
+      "cast_marcus": 100,
+      "cast_nina": 20,
+      "cast_maya": 35,
+      "cast_lily": 65,
+      "cast_sam": 100,
+      "cast_dan": 20,
+      "cast_freya": 50,
+      "cast_oscar": 80
+    },
+    "examples": [
+      {
+        "case": "standout_guitar_balanced_trio",
+        "people": [
+          "cast_bex",
+          "cast_casey",
+          "cast_ben"
+        ],
+        "player_costs": [
+          100,
+          65,
+          30
+        ],
+        "voice": 5,
+        "total": 200,
+        "fits": true
+      },
+      {
+        "case": "standout_bass_balanced_trio",
+        "people": [
+          "cast_ryan",
+          "cast_hannah",
+          "cast_ellis"
+        ],
+        "player_costs": [
+          65,
+          100,
+          30
+        ],
+        "voice": 5,
+        "total": 200,
+        "fits": true
+      },
+      {
+        "case": "standout_drums_balanced_trio",
+        "people": [
+          "cast_ryan",
+          "cast_ben",
+          "cast_marcus"
+        ],
+        "player_costs": [
+          65,
+          30,
+          100
+        ],
+        "voice": 5,
+        "total": 200,
+        "fits": true
+      },
+      {
+        "case": "all_three_standouts",
+        "people": [
+          "cast_bex",
+          "cast_hannah",
+          "cast_marcus"
+        ],
+        "player_costs": [
+          100,
+          100,
+          100
+        ],
+        "voice": 5,
+        "total": 305,
+        "fits": false
+      },
+      {
+        "case": "four_piece",
+        "people": [
+          "cast_jack",
+          "cast_zoe",
+          "cast_ellis",
+          "cast_maya"
+        ],
+        "player_costs": [
+          50,
+          65,
+          30,
+          35
+        ],
+        "voice": 0,
+        "total": 180,
+        "fits": true
+      },
+      {
+        "case": "six_piece",
+        "people": [
+          "cast_tom",
+          "cast_jack",
+          "cast_ben",
+          "cast_ellis",
+          "cast_nina",
+          "cast_dan"
+        ],
+        "player_costs": [
+          30,
+          50,
+          30,
+          30,
+          20,
+          20
+        ],
+        "voice": 0,
+        "total": 198,
+        "fits": true
+      }
+    ]
+  },
+  "portrait_study": {
+    "path": "/workspace/generated_images/exec-10f1ec61-5ad6-402a-b8b8-967c4cecf3bf.png",
+    "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "characters": [
+      "cast_jack",
+      "cast_zoe",
+      "cast_casey"
+    ],
+    "source_type": "Generated same-reference three-person direction study; not independent masters",
+    "owner_approved": false,
+    "in_game": false
+  },
+  "brief": "/workspace/bandmaster-look31/BandMaster-next-experience-brief.txt",
+  "independent_review": "Existing read-only reviewer audited actual sources/canonicalcosts and gaps; inspected sourcecohort andgenerated3personstudy againstactual3previews, verifiedalpha/feet anddistinctposes. Noartdirectionholdforthisstudy, pendingnativecomposition/likenessacceptance. Independentlyenumeratedpricingandfoundactuallegacyviabilitycounterexample198proposed/204legacy requiringoriginalmodeldispatch. Noengine/human/listeningclaims.",
+  "simulated_lenses": {
+    "game_critic": "Combine an earned band identity with meaningful first-night decisions rather than lengthening menus.",
+    "musician": "Use coherent matched families and authentic band-level direction, not mixed incompatible stems or invented parts.",
+    "ui_ux": "One reveal and3gigacts; keep original checkpoints internally and reduce mandatory Next actions.",
+    "narrative": "Directgaze/differentstances preserve individual character; state-earned promoter/band encounters need durable consequences.",
+    "systems_qa": "New-band-only versioned prices; old receipts/quotes/restore and once-only settlement preserved before any shipping change."
+  },
+  "limits": [
+    "Design/proposal calculations only; no new gameplay/balance/native engine proof or APK.",
+    "Portraitstudy shared origin, exact likeness/cutout readiness unapproved; notproductionregistry.",
+    "No supported audio listening, owner describes oldsting mismatch."
+  ],
+  "next_action": "Implement and test the first cohesive recruitment/portrait/formation-audio tranche, then the compressed first-gig encounter; one combined review build after full journey proof.",
+  "completed_at": "2026-11-09T22:24:02.654688+00:00",
+  "reviewed_game_source": "16c477c588758eaf07418361fcae79b43f147b05",
+  "pricing_restore_counterexample": {
+    "people": [
+      "Ellis",
+      "Dan",
+      "Ben",
+      "Freya",
+      "Nina",
+      "Tom"
+    ],
+    "proposed": 198,
+    "legacy": 204,
+    "conclusion": "Full versioned Game viability/restore/receipt dispatch needed; UI-only cost change unsafe."
+  }
+}

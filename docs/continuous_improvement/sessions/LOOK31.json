@@ -21,7 +21,7 @@
   ],
   "owner_approved": false,
   "id": "LOOK31",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "85a7a354992187dc2ec68a10ec07cceb66ce937a",
   "dominant_issue": "BM-01",
   "owner_request": "Owner asks review strongerformation/full-lengthcamera-facingmoodydistinctposes/lineup-appropriateaudio/200talenttradeoffs/shortersurprisinggignight. Boundedsourceaudit+concretebatchdesign+firstreferencebasedportraitstudy; no claimgamechangesimplemented.",
@@ -49,7 +49,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "review_task": {
     "queue": "S80 LOOK31 formation-to-firstgig redesign review",
@@ -60,7 +60,16 @@
   },
   "started_at": "2026-11-09T22:17:29.474206+00:00",
   "issue_log_review": {
-    "bytes": 2112017,
-    "sha256": "0fa61d32ba06f5e1b87f944b5720734ab4a80c575fbc16b929eeebf7a603749a"
+    "bytes": 2113536,
+    "sha256": "7508c9a259ec4b67cb9fa6139d9da641570bea99ca6fac2177fce191321fee26"
+  },
+  "closed_at": "2026-11-09T22:24:44.999712+00:00",
+  "result": "docs/continuous_improvement/LOOK31_RESULTS.json",
+  "closeout": {
+    "tested_sha": "16c477c588758eaf07418361fcae79b43f147b05",
+    "evidence": "docs/continuous_improvement/LOOK31_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Implement and test the first cohesive recruitment/portrait/formation-audio tranche, then the compressed first-gig encounter; one combined review build after full journey proof.",
+    "new_issue_review": "Ownerrejectionrecorded; identifiedbudget/audio/gigrootcauses. Studyinternallyclear, no productionacceptance. ProposalrequiresfullnewpolicyGame/restore/receiptintegration beforecodechange; no partialUIreprice shipped."
   }
 }
