@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "AUDIO29",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "ee6cd29d24e7d33f11e3041275cf0a9d5aa16554",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2101315,
+    "sha256": "34448a163a2301cfa51934169cad7e878f47b8cda194dd8682415d5ae4226a7f"
+  },
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Integrate3owner-suppliedindietracks, assigncharacters, optionaltitleexcerpt; combinednewtestwithNAV26/GIG27/SCENE28. Explicitaudiointegrationauthoritysucceedsoldhold; no privatekey/replacementapp.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/bandmaster-gig27/final-phone-booking-needs-terms.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Sameexistingposter/native entry4sizes; original14familiesvsnew3banks, distinctcharacterclipsoutsidewrittenexercise; mute/lifecycle/nosave/consumption/failedsave/reload guards.",
+  "hypothesis": "Add6matchedpassagespernewsource andshortrole-specificcharacterideas withsourcehonesty; titleconditionalexcerpt, no new portraits or mechanics.",
+  "stop_condition": "No falseheard/bar/keyverification. Preserveoriginals80WAV/V21request/certificate/app/save, production/main/PR199; no newkey orprivateaudiopublicGit. Originalcertificate detachedV22requestonly, finalsignaturelater.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/character_audio.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/splash_audio.gd",
+    "experiments/playable_flightcase/audio/*.json",
+    "experiments/playable_flightcase/audio/recorded_indie29/**",
+    "experiments/playable_flightcase/audio/character_indie29/**",
+    "experiments/playable_flightcase/audio/title_indie29.ogg",
+    "tools/prepare_indie29.py",
+    "tests/indie29*",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SCENE28.json",
+    "Nativeactual1song/2paidfixture: room\u2192pitch\u2192immediatereaction/terms\u2192actualcounteroffer/date/trip\u2192originalfinalmodal\u2192failedsave/retry\u2192saveddurableagreement; Backretainsdate/trip andchangingpitch/venueclearsbill. First/last12legaldaytargets, originalslot/cost/time/askedactualterms alwaysaccessible.",
+    "Fourviewrealpointer/keyboard/scrollproof; earlyphone/short andfinaloriginalpixelreview; stale/futureheld/busy/Finance/radio/gigguards andpriorbandlife/navigationregressions; no newlistening/physicalAndroidclaim."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 15000000000,
+    "new_persistent_budget_bytes": 2500000000,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-audio29"
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "review_task": {
+    "queue": "S80 AUDIO29 combinedaudioreviewbuild",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Hearmusician-specificideas thencreatewithmatchingnewindiebanks; listenoncetitlecue withoutstaleoverlap",
+    "commitment": "Originalpaidfirstwriteconsumesperperson/sourceonce. Freeclipsneverchangegameprogress.",
+    "visible_acceptance": "Postercontrolsreadable4sizes; separatewrittenstudiesvsrecordedideas; nofakeperformanceorsavedclaims."
+  },
+  "independent_review": "Existinghelperassignedread-only pre/early/final review.",
+  "started_at": "2026-11-09T20:46:04.015204+00:00"
+}
