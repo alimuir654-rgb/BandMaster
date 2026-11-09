@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_approved": false,
+  "id": "NEXT32",
+  "status": "active",
+  "baseline_sha": "da90f105908770af7f76fdf6c96c1b296e3935e5",
+  "dominant_issue": "BM-01",
+  "owner_request": "OwnerapprovedLOOK31design and firstportraitdirection: implementwholecohesivebatchversionedtalent/portraitrollout/formationmusic+reveal/shortscenario-richgigs; preserveV22savesandsignedartifacts.",
+  "target": {
+    "locator": "/workspace/character-consequences/final-phone-band-formed.png",
+    "original_sha256": "625ac2faff6531e7fab1568e0b316617ef7a9e7d7e07c4d33c1cbc05777a9cc4",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "V22same3and6personlineups4sizes, legacy/newquote/recruit/voice/remove/audition/savefail/reload; one-songgigtapcount/choices/aftermath/resume/finalwrap. Before/afteroriginalpixels andapprovedfirststudy.",
+  "hypothesis": "ImplementapprovedLOOK31: exactversionedscheduleabsencelegacy;18referencebasedposesexternalregistry;one earnedbandreveal/lineup+intentcoherentcue;3actpresenter overlegacycheckpoints plusdurablecontextincident.",
+  "stop_condition": "No oldsave repricing/cast-datafingerprintchanges/newcast/privateaudioGit/main/PR199/push/replacementkey. PreserveV22APK/request. No inventedperformance/listeningclaims. Newbuildonlyafterwholejourneyproof; stopontransaction oridentitymismatch.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/recruitment_pricing.gd",
+    "experiments/playable_flightcase/session.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/audition_encounter.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/band_formed_poster.gd",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/formation_moment.gd",
+    "experiments/playable_flightcase/formation_sound.gd",
+    "experiments/playable_flightcase/formation_portraits.gd",
+    "experiments/playable_flightcase/art/identity/next32*",
+    "experiments/playable_flightcase/gig_journey.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/gig_incident.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/audio/formation_next32/**",
+    "tools/prepare_next32*",
+    "tests/next32*",
+    ".gitignore",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/NEXT32.json",
+    "Focusednew/legacyprice andactualauditionreceiptmodeltests; oldsave snapshots/no unknownnormalization",
+    "4viewnativefirst3/6formation, newsound/portraitidentity/camera source checks, normal/reducedmotion/skip, gigcontextpersist/reload/failsave/onceonly, wholefirstgigtapcomparison. No listening/physicalAndroidclaim."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 12863713280,
+    "new_persistent_budget_bytes": 1800000000,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-next32"
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "review_task": {
+    "queue": "S80 NEXT32 approvedformation-to-firstgig batch",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Formabandwithdistinctidentityandrealbudgettradeoffs;reachlivechoice-richnightwithlessclickthrough.",
+    "commitment": "Existingowneratomictransactions remainauthoritative; animation/readingspendnothing; legacyabsencekeepsoldcosts.",
+    "visible_acceptance": "Moodycamera-facingdistinctportraits, punchieroneproperreveal, same-familylineupintentcue, exact200tradeoffswithoutoldsaverepricing, fewerNexts/one-songmeaningfulsituationswithsavedaftermath."
+  },
+  "started_at": "2026-11-09T22:30:41.038990+00:00",
+  "issue_log_review": {
+    "bytes": 2113536,
+    "sha256": "7508c9a259ec4b67cb9fa6139d9da641570bea99ca6fac2177fce191321fee26"
+  },
+  "approved_design": "LOOK31 direction explicitly accepted; studyJack/Zoe/Casey accepted as direction, not blanket final18/nativeacceptance."
+}
