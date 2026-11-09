@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "session": "CROWD33",
+  "status": "source_grounded_treatment_ready_asset_download_access_pending_not_implemented",
+  "owner_direction": "More audio before further testing; cheer fade at taking/leavingstage, boos on badsets, crowd visuals, recommend other treatments.",
+  "source_baseline": "144be8ced57f2ef9845b76761363ab75f724677c",
+  "game_baseline": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
+  "scope": "Next combined audio immersion pass; keep frozenV23 APK and signing request unchanged and defer further owner test/sign handoff.",
+  "inventory": {
+    "crowd_art": "Existing s53_stage.png shows a static modest pub audience; original source viewed and preserved.",
+    "existing_crowd_effects": false,
+    "saved_song_recipe_support": "song_audio.gd validates actual finished saved recipe/receipt; gigs currently have no dedicated song/crowd audio presenter.",
+    "authoritative_outcome": "after_set precedes original wrap; success is authoritative in newly saved ShowFlow receipt only after owner save."
+  },
+  "recommended_treatment": [
+    {
+      "moment": "enter performing",
+      "audio": "Fade modest small-room applause/cheer in after successful saved transition; crowd tail ducks below current supported song excerpt. Entry welcome may reflect recorded standing and venue context, never future show outcome.",
+      "visual": "Warm existing venue perspective, crowd turns towards stage; modest crowd at starting venues."
+    },
+    {
+      "moment": "performing",
+      "audio": "Use actual supported saved arrangement excerpts, not invented performance/alternate playing; low room bed and short between-song responses. Unsupported legacy written songs retain honest fallback.",
+      "visual": "Quiet/nodding/clapping or distracted body language follows saved room feedback; static equal-information state in reduced motion."
+    },
+    {
+      "moment": "last song to departure",
+      "audio": "Brief courtesy room tail at completed-song prefix. Strong cheers on good receipt, boos on poor receipt, only once the original wrap transaction is successfully saved; integrate send-off into existing result presentation without a newContinue or early settlement.",
+      "visual": "Matching reaction variant appears with committed result. Do not use universal vibe<50 rule; initial modelled vibe is40 and ordinary one-song responses34..46."
+    }
+  ],
+  "other_opportunities_in_order": [
+    {
+      "area": "rehearsal",
+      "treatment": "Count-in/stick clicks, room bed and amp release tail around real current parts; an ending that reflects the actual saved session."
+    },
+    {
+      "area": "auditions",
+      "treatment": "Brief cable/instrument handling and room tone around manually selected genuine samples; keep playing clear and avoid invented adjusted takes."
+    },
+    {
+      "area": "radio/demo",
+      "treatment": "Short studio/on-air/tuning cues and supported saved song excerpt; illustrative in-game broadcast only."
+    },
+    {
+      "area": "promoter/backstage",
+      "treatment": "Muffled room ambience changing across the venue door and the promoter conversation; reuse same licensed room bed."
+    },
+    {
+      "area": "travel",
+      "treatment": "Short van/road/door ambience over existing bundled trip, with no extra waiting page."
+    }
+  ],
+  "implementation_guards": [
+    "Trigger only from successful committed transitions; one cue per event/song/receipt identity, not redraw/resume or failed save.",
+    "Cue completion/tweens never resolve/save/charge. Respect mute/focus/Pause/Menu/navigation and competing audio; no unskippable wait.",
+    "Do not invent exact attendance or treat current fans as people physically in the room.",
+    "Keep poster interface and source-honest warm venue artwork; new crowd art must be actual independent reviewed assets.",
+    "Small reusable effects pack preserves Suno monthly song allowance. Crowd/foley provenance is separate from owner AI-generated Suno music."
+  ],
+  "asset_candidates": [
+    {
+      "purpose": "small-room applause/cheer",
+      "title": "Small Crowd Applause",
+      "author": "miuziqa",
+      "id": "858309",
+      "source_page": "https://freesound.org/people/miuziqa/sounds/858309/",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "description": "Creator describes an original stereo recording of a small crowd applauding and cheering.",
+      "duration_seconds": 5.714,
+      "reported_format": "WAV24bit48kHzstereo,1.6MB",
+      "preview_url": "https://cdn.freesound.org/previews/858/858309_770193-lq.mp3",
+      "source_verified": "Exact page and explicit licence text retrieved; no binary acquired/listened to."
+    },
+    {
+      "purpose": "bad-set audience response",
+      "title": "Booing Crowd",
+      "author": "NeoSpica",
+      "id": "504621",
+      "source_page": "https://beta.freesound.org/people/NeoSpica/sounds/504621/",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "description": "Creator describes audience booing mixed from CC0 sounds.",
+      "duration_seconds": 48.408,
+      "reported_format": "MP3,48kHzstereo,726.1KB",
+      "preview_url": "https://cdn.freesound.org/previews/504/504621_7704891-lq.mp3",
+      "source_verified": "Exact page and explicit licence text retrieved; binary access attempt failedHTTP403; no listening."
+    }
+  ],
+  "asset_gate": {
+    "downloaded": false,
+    "listening_available": false,
+    "listening_verified": false,
+    "runtime_integrated": false,
+    "blocker": "Official CDN preview attempt in default sandbox could not reach managed proxy; approved outside-sandbox retry returnedHTTP403. cdn.freesound.org is absent from the enforced current cloud allowlist. No runtime environment-change tool is available.",
+    "next_setup": "Allow cdn.freesound.org in BandMaster cloud network settings, keeping existing hosts, then retry fresh. Or owner-provided cleared binaries through existing Dropbox path can supply same assets.",
+    "not_selected": "SFXMint exact-sound URL redirected to category and lacked exact creator/file provenance; not treated as approved audio."
+  },
+  "independent_review": {
+    "reviewer": "review_current_workbench",
+    "read_only": true,
+    "confirmed": "Use committed entry; official result after original savedwrap. Initial vibe40 means blanket below50 boos is wrong. Saved recipe excerpts improve substance; no exact attendance invented.",
+    "acceptance_claim": false
+  },
+  "simulation_reviews": [
+    {
+      "lens": "critic",
+      "simulated": true,
+      "finding": "Room reactions and actual song excerpts make the night feel lived; integrate into existing transitions rather than another decision-page sequence."
+    },
+    {
+      "lens": "musician",
+      "simulated": true,
+      "finding": "Low bed and bounded applause should leave playing audible; poor reception should be grounded in actual saved result."
+    },
+    {
+      "lens": "ui/ux",
+      "simulated": true,
+      "finding": "Controls remain immediate; mute/static states and no replay on resume protect usability."
+    },
+    {
+      "lens": "art",
+      "simulated": true,
+      "finding": "Warm small-club viewpoint and restrained reaction variants preserve poster-led frame and scene style; no new art has been made."
+    },
+    {
+      "lens": "engineering",
+      "simulated": true,
+      "finding": "Keep resolver/finance/receipt source unchanged; presentation event identities, stop/duck behavior and failure cases need proof after implementation."
+    }
+  ],
+  "tests": "Read-only code/licence/source-art assessment. No new code, native captures, audio listening or APK built in this session.",
+  "owner_approved": false,
+  "visual_verdict": "partial",
+  "next_action": "Obtain cleared crowd-effect binaries via allowed host or existing Dropbox, inspect actual format/hash/levels and listening/fit, then implement gig sound/crowd pass before next combined owner test.",
+  "assessed_at": "2026-11-09T23:49:43.987570+00:00"
+}

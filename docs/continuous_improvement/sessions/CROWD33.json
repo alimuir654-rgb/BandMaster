@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CROWD33",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "144be8ced57f2ef9845b76761363ab75f724677c",
   "dominant_issue": "BM-01",
   "lesson_ids": [
@@ -22,8 +22,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2128865,
-    "sha256": "7adff092cc5b1a022a00fb18f16227b966e60f4effa5014b99814bd182bb3130"
+    "bytes": 2130395,
+    "sha256": "46b3b42b306ba61c49a3c45106eb954ae51661d9e3d07006f274b8b7bf189055"
   },
   "target": {
     "locator": "/workspace/BandMaster-polish/experiments/playable_flightcase/art/s53_stage.png",
@@ -53,12 +53,20 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "review_task": {
     "reviewer": "review_current_workbench",
     "scope": "Read-only source/design; no implementation or artistic acceptance claim",
     "player_goal": "Hear the band and a believable small-room audience during one coherent gig, with earned reactions and no extra pages."
   },
-  "started_at": "2026-11-09T23:47:51.193599+00:00"
+  "started_at": "2026-11-09T23:47:51.193599+00:00",
+  "closed_at": "2026-11-09T23:49:43.987570+00:00",
+  "closeout": {
+    "tested_sha": "144be8ced57f2ef9845b76761363ab75f724677c",
+    "evidence": "docs/continuous_improvement/CROWD33_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Obtain cleared crowd-effect binaries via allowed host or existing Dropbox, inspect actual format/hash/levels and listening/fit, then implement gig sound/crowd pass before next combined owner test.",
+    "new_issue_review": "Binary asset access gap recorded; read-only assessment, no implementation/native/listening claims. V23request/APK hashes unchanged."
+  }
 }
