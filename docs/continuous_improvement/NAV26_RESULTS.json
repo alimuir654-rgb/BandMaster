@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "session": "NAV26",
+  "status": "integrated_source_verified_queued_for_next_combined_build",
+  "tested_sha": "6407a530a31558d79a6b663e5359870420998d40",
+  "V21_baseline": "59a3bbc654706eeaac81cdca141a6d127e587495",
+  "branch": "feature/playtest-polish-v20",
+  "owner_approved": false,
+  "installed_app_changed": false,
+  "new_APK_or_signing_request": false,
+  "remote_branch_changed": false,
+  "root_cause": [
+    "Zero-free writing routed to free planning, which cannot advance time.",
+    "Unavailable rehearsal still offered a paid full session that the original model rejects.",
+    "Both career-to-practice paths ignored jam and retained the old mode.",
+    "Duplicate Desk buttons/keyboard exit reopened the retained planner rather than explicitHome."
+  ],
+  "changes": [
+    "Shared read-only availability options: quiet evening, named solo practice or informal jam.",
+    "Blocked writing primary routes through guarded draft exit to actual informal preview, including zero attendees.",
+    "Blocked/future/unaffordable rehearsal and unavailable meeting show an explicit brief, no paid levers and useful preview; normal full rehearsal unchanged.",
+    "Home offers a useful low-attendance action; planner explains no day is used and offers a real evening preview. Mandatory due-show priority remains.",
+    "Career entry honours jam for first and reused panes, clearing only stale finished-list presentation.",
+    "One unambiguousHome return replaces duplicate practiceDesk buttons; writing arrow/Escape share guardedHome; calendar/shop/accounts Home wording aligned."
+  ],
+  "validation": {
+    "counts": {
+      "models": 278,
+      "native": 689,
+      "total": 967
+    },
+    "counts_note": "Repeated assertions across viewport/regression runs, not distinct human tests.",
+    "models": [
+      {
+        "run": "navigation_unavailable_test",
+        "summary": {
+          "checks": 98,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "cd7f7c9850648416b535e2fde175f224e0e6bb22735e37395517cb1080f394fb"
+      },
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      }
+    ],
+    "native": [
+      {
+        "run": "phone",
+        "viewport": "390x844",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "fe2e5e8414220d13e701fd41cab8be0c32319b66f07446fdd717c56d7ff931fc"
+      },
+      {
+        "run": "short",
+        "viewport": "1280x720",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "5a9d675fc5a99075c991a86dcde7935befd1d1edb0c7727ee634e53c4ab3379e"
+      },
+      {
+        "run": "tall",
+        "viewport": "720x1280",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "92c6920cd1d8e1090af86fa734278d3f188c4d6f7952874bbdb0e376c7321303"
+      },
+      {
+        "run": "wide",
+        "viewport": "1600x900",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "f5b01bd621815342d45c345b16b258b301598cb736f137eb5300952553354926"
+      },
+      {
+        "run": "edges-phone",
+        "viewport": "390x844",
+        "script": "navigation_edges_visual",
+        "summary": {
+          "checks": 65,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "2e8c8e236389e7574ec1f16195523ce9eb044651abc5d154c10b6efa62e8a286"
+      },
+      {
+        "run": "edges-short",
+        "viewport": "1280x720",
+        "script": "navigation_edges_visual",
+        "summary": {
+          "checks": 65,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "3600771745ead7c447e2ba8c97d5cc1d504ef1b30564dd4ab979dcf2449ed069"
+      },
+      {
+        "run": "stories-phone",
+        "viewport": "390x844",
+        "script": "update_a_visual",
+        "summary": {
+          "checks": 223,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "a1bf919eb1eefe00a5569df167ae6d33ae7819d0e34c5c234a313e6217c96947"
+      }
+    ],
+    "source_qa_bytes_match": true,
+    "patch_exact_V21_apply_check": true,
+    "four_native_viewports": [
+      "390x844",
+      "720x1280",
+      "1280x720",
+      "1600x900"
+    ],
+    "genuine_cases": [
+      "authored zero/solo/group availability",
+      "future rehearsal saved date and no informal fulfilment",
+      "dirty sketch Keep/Discard/freeSave and savefailure/retry",
+      "one-day quiet save, absent-player/relationship/readiness/phrase preservation",
+      "first/reused pane jam routing",
+      "actual pointer stale doubletap",
+      "actual planner-origin dirty/clean keyboardEscape",
+      "actual dated booking/demo-record/release/radio checkpoints and mandatory destination guards",
+      "existing typed final-account fixture",
+      "Menu/Continue and exact typed reload",
+      "prior223check musician/promise/promoter/two-show reciprocal-favour journey"
+    ],
+    "engine": "Godot4.7.2 ed1daf0bf",
+    "physical_Android_tested": false,
+    "listening": false,
+    "normal_motion_retested": false
+  },
+  "preservation": {
+    "tested_source": "6407a530a31558d79a6b663e5359870420998d40",
+    "source_QA_match": true,
+    "patch_applies_exact_V21": true,
+    "V21_request_unchanged": true,
+    "signed_V21_APK_unchanged": true,
+    "private_WAV_hashes_unchanged": 80,
+    "no_new_audio_art_or_save_schema": true
+  },
+  "artifact": {
+    "name": "BandMaster-navigation-fix-source.zip",
+    "bytes": 93751,
+    "sha256": "bba074dd571188e0caecf6828f2fa5af96ac05ee49011cd6234eca758c406bbe",
+    "raw_audio_included": false
+  },
+  "originals_opened_by_root": [
+    "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "/workspace/band-life-update24/compiled-phone-chat-next-rehearsal.png",
+    "/workspace/bandmaster-navigation26/early-phone-blocked-rehearsal.png",
+    "/workspace/bandmaster-navigation26/early-phone-home-nobody.png",
+    "/workspace/bandmaster-navigation26/early-short-blocked-rehearsal.png",
+    "/workspace/bandmaster-navigation26/final-phone-blocked-rehearsal.png",
+    "/workspace/bandmaster-navigation26/final-short-planning-escape.png",
+    "/workspace/bandmaster-navigation26/final-tall-tomorrow-home.png",
+    "/workspace/bandmaster-navigation26/final-wide-quiet-preview.png"
+  ],
+  "independent_AI_review": "Existing read-only helper inspected source and actual early/final phone/short originals. Identified keyboard retained-page route, misleading paid brief and commitment edge-proof gap; all corrected/verified. Final scoped noP1/P2hold. Retained proof read, not a claimed additional engine run or human acceptance.",
+  "simulated_lenses": {
+    "game_critic": "Availability remains meaningful without blocking ordinary career progress; one explicit evening rather than automatic skip of promises.",
+    "musician": "Only attending players practise; empty evening gives no invented skill/readiness/relationship reward or phrase consumption. Real rehearsal still requires original conditions/cost.",
+    "ui_ux": "Primary action matches tonight; oneHome; planning clearly separate from time; fewer unavailable levers. Four native sizes and actual dirty/key/pointer paths pass. Physical phone comprehension remains unmeasured.",
+    "narrative": "Work/family absences remain named from recorded source. Future dates and missed commitments are retained; no invented availability or biography changes.",
+    "qa_release": "Original Finance/save atomicity, gig/radio/final accounts, request/APK/audio hashes protected. Failed runs retained; final single-window failfast exactsource proof passes. No new release/art acceptance implied."
+  },
+  "current_V21_workaround": [
+    "From rehearsal, select JAM, then TAKE A QUIET EVENING.",
+    "From the writing room, scroll to FREE JAM / SOLO PRACTICE \u00b71DAY. Save/discard local edits if prompted, then TAKE A QUIET EVENING.",
+    "A quiet evening uses one career day; planning alone uses none. Normal calendar accounts and due commitments still apply."
+  ],
+  "limitations": [
+    "This source fix is not installed automatically into the delivered V21 APK.",
+    "No new APK/signing request generated; preserve owner preference for larger combined updates.",
+    "Desktop native tests with reduced motion and Dummy audio; no new physicalAndroid/listening or normal-motion test. Existing unchanged motion/economy evidence retained.",
+    "Main/production save formats and original quiet-day resolver unchanged; no availability override or automatic jump to the next free day."
+  ],
+  "next_single_action": "Carry verified NAV26 into the next combined existing-app review build; currentV21 quiet-evening route is available as interim workaround.",
+  "completed_at": "2026-11-09T16:03:09.630383+00:00"
+}

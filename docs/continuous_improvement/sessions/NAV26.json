@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "NAV26",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "d1f2d022c4a2fc3ed963fdfc68ea98ce67f02c13",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2081152,
-    "sha256": "62687163199610a339fb4110a4cbe64bb76fd988fa875d16e4407a1c9a23d73e"
+    "bytes": 2082374,
+    "sha256": "4a8db6695d30bdc460b725026e50088713e49adcf673dbf08a7948a3d275637c"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -68,7 +68,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "review_task": {
@@ -79,5 +79,15 @@
     "visible_acceptance": "Fixed blockedsession dock offers meaningful nextaction and actual1day/fee; one distinctHome; no extra launchers/stat answerkey; pending sketch exits remain guarded."
   },
   "independent_review": "Existing helper read current source and opened V21 originals; confirms zero-route planner trap, ignoredjam, duplicateDesk, futureplan and actual-credit risks. Root solewriter.",
-  "started_at": "2026-11-09T15:43:56.373364+00:00"
+  "started_at": "2026-11-09T15:43:56.373364+00:00",
+  "tested_sha": "6407a530a31558d79a6b663e5359870420998d40",
+  "closed_at": "2026-11-09T16:03:09.630383+00:00",
+  "result": "docs/continuous_improvement/NAV26_RESULTS.json",
+  "closeout": {
+    "tested_sha": "6407a530a31558d79a6b663e5359870420998d40",
+    "evidence": "docs/continuous_improvement/NAV26_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Carry verified NAV26 into the next combined existing-app review build; currentV21 quiet-evening route is available as interim workaround.",
+    "new_issue_review": "All NAV26 issues reviewed, failed tests/sourceparse/overlap retained and corrected; final frozen-source single-window failfast proof and independent pixel review clear. No owner artwork/device claim."
+  }
 }
