@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2076426,
-    "sha256": "8b7518b4ca38270822ce600240afd2c6b8c5a3adaebc9c634f46d5f4de9fb4d2"
+    "bytes": 2081152,
+    "sha256": "62687163199610a339fb4110a4cbe64bb76fd988fa875d16e4407a1c9a23d73e"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [

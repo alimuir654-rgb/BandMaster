@@ -13,11 +13,13 @@ const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbe
 const MixingDesk = preload("res://experiments/playable_flightcase/mixing_desk.gd")
 const MixingRecipe = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const DayNavigation=preload("res://experiments/playable_flightcase/day_navigation.gd")
 const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
 signal back_requested
 signal career_requested
+signal home_requested
 signal planning_requested
 signal menu_requested
 signal sound_requested
@@ -802,8 +804,8 @@ func _select_practice_activity(kind: String) -> void:
 
 func _practice_back() -> void:
  if session_busy:return
- if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("career")
- else:career_requested.emit()
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("home")
+ else:home_requested.emit()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = size.x
@@ -933,7 +935,12 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  cost.add_theme_color_override("font_color",Color("f0c78b"))
  dock.add_child(cost)
  var action: Button
- if practice_activity=="create":
+ var evening: Dictionary=DayNavigation.inspect(game.career)
+ var alternate: bool=evening.get("ok",false) and ((practice_activity=="tighten" and (not evening.rehearsal_available or int(game.career.get("cash",0))<15)) or (practice_activity=="connect" and int(evening.count)<2))
+ if alternate:
+  action=_button(str(evening.preview_label),_select_practice_activity.bind("jam"))
+  action.name="PracticeAlternativeAction"
+ elif practice_activity=="create":
   action = _button("OPEN THE WRITING ROOM · FREE",_open_producer) if _mixing_entry() else _button("WRITE SESSION",_write)
   action.name = "WritingOpenProducer" if _mixing_entry() else "WriteAction"
  elif practice_activity=="tighten":
@@ -949,21 +956,16 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   action.name = "ClearAirAction"
  dock.add_child(action)
  if opening_owner!=null:
-  var week: Dictionary=BandWeek.offer(game.career)
-  var planning_available: bool=practice_activity=="create" and week.get("ok",false) and week.get("changed",false)
   var navigation := HBoxContainer.new()
   navigation.add_theme_constant_override("separation",8)
   dock.add_child(navigation)
-  var back: Button = _button("‹ BACK TO DESK",_practice_back,"tab")
-  back.name = "PracticeBackAction"
-  navigation.add_child(back)
-  if planning_available:
-   var planning: Button=_button("PLAN WEEK",func():planning_requested.emit(),"tab")
+  var home: Button=_button("HOME",_practice_back,"tab")
+  home.name="CareerDeskAction"
+  navigation.add_child(home)
+  if alternate:
+   var planning: Button=_button("PLAN OUR WEEK",func():planning_requested.emit(),"tab")
    planning.name="PracticePlanningAction"
    navigation.add_child(planning)
-  var career: Button = _button("DESK ›" if planning_available else "CAREER DESK  ›",_open_career,"tab")
-  career.name = "CareerDeskAction"
-  navigation.add_child(career)
  _refresh_practice_commitment()
 
 func _open_career() -> void:
@@ -1098,6 +1100,17 @@ func _writing_field(fields: GridContainer, title: String) -> VBoxContainer:
  return field
 
 func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
+ var evening: Dictionary=DayNavigation.inspect(game.career)
+ var blocked: bool=evening.get("ok",false) and ((kind=="tighten" and (not evening.rehearsal_available or int(game.career.get("cash",0))<15)) or (kind=="connect" and int(evening.count)<2))
+ if blocked:
+  body.add_child(_ink("REHEARSAL CAN'T START TONIGHT" if kind=="tighten" else "THE BAND CAN'T MEET TONIGHT",22))
+  body.add_child(_ink(str(evening.rehearsal_reason) if kind=="tighten" else str(evening.summary),18))
+  if evening.attendance.plan_status=="future":
+   var agreed_date: Label=_ink("AGREED REHEARSAL · DAY %d" % int(evening.attendance.plan.day),18)
+   agreed_date.name="SituationPracticePlan";body.add_child(agreed_date)
+  for person in evening.attendance.absent:body.add_child(_ink(str(person.name)+" · "+str(person.reason),16))
+  body.add_child(_ink("Review a quiet evening, solo practice or a free jam with whoever is here. Planning your week stays free and uses no day.",16))
+  return
  body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
  body.add_child(_ink("Work through the set together: starts, stops and the places that need another pass." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
  body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
@@ -1222,6 +1235,13 @@ func _refresh_practice_commitment() -> void:
  else:
   summary.text = "A band meeting to work on trust and tension."
   cost.text = "Uses 1 day  •  No room fee"
+ var alternative: Button=find_child("PracticeAlternativeAction",true,false) as Button
+ if alternative!=null:
+  var evening: Dictionary=DayNavigation.inspect(game.career)
+  summary.text=str(evening.rehearsal_reason) if practice_activity=="tighten" else str(evening.summary)
+  if practice_activity=="tighten" and int(game.career.get("cash",0))<15:summary.text="The room costs £15. "+str(evening.summary)
+  cost.text="Free to review · 1 day when you start · No room hire"
+
 
 func _jam_workspace(body: VBoxContainer) -> void:
  body.add_child(_ink("AN EVENING WITH THE MUSIC",22))
@@ -1395,6 +1415,7 @@ func _workbench_exit(destination: String) -> void:
  if session_busy:return
  if destination=="menu":back_requested.emit()
  elif destination=="career":career_requested.emit()
+ elif destination=="home":home_requested.emit()
  elif destination=="planning":planning_requested.emit()
  elif destination=="load":_load_original()
  elif destination=="finished":_workbench_finished=true;_workbench_finished_ref={};_rebuild()

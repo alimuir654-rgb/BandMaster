@@ -236,7 +236,7 @@ func _render() -> void:
  nav.add_theme_constant_override("separation",5)
  nav.visible = page not in ["home","recording"] and page!="band_moment" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
  shell.add_child(nav)
- for entry in [["home","DESK"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
+ for entry in [["home","HOME"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
   var destination: String = str(entry[0])
   var option: Button = Poster.button(str(entry[1])) if page=="recording" else C.button(str(entry[1]),"flightcase","tab",true)
   if page=="recording":option.toggle_mode=true
@@ -848,7 +848,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   elif BookingDesk.active(self):BookingDesk.dock(self,dock)
   else:LiveDesk.dock(self,dock,compact)
  elif page=="finance" and not Finance.is_over(game.career):
-  dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerFinanceBackAction",_navigate.bind("home"),true))
+  dock.add_child(_button("HOME","CareerFinanceBackAction",_navigate.bind("home"),true))
  elif page=="offstage":
   OffstageDesk.dock(self,dock,compact)
  elif page=="recording":
@@ -869,12 +869,12 @@ func _decision_dock(parent: Node, compact: bool) -> void:
   var calendar_booking: Dictionary = calendar_view["booking"]
   calendar_live.disabled = busy or not bool(calendar_view["today_valid"]) or (bool(calendar_booking["present"]) and not bool(calendar_booking["valid"]))
   dock.add_child(calendar_live)
-  dock.add_child(_button("BACK TO THE CAREER DESK  ›","CareerCalendarBackAction",_navigate.bind("home"),true))
+  dock.add_child(_button("HOME","CareerCalendarBackAction",_navigate.bind("home"),true))
  elif page=="songs":
   dock.add_child(_button("CUT A DEMO  ›","CareerRecordingAction",_navigate.bind("recording"),true))
  elif page=="gear":
   if compact and catalogue_open:
-   dock.add_child(_button("BACK TO THE CAREER DESK","GearCloseCatalogueAction",_navigate.bind("home")))
+   dock.add_child(_button("HOME","GearCloseCatalogueAction",_navigate.bind("home")))
   else:
    var item: Dictionary = Gear.item_for(selected_item)
    var owned: bool = (game.career.get("owned_equipment",[]) as Array).has(selected_item)

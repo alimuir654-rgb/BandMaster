@@ -4,12 +4,18 @@ const Core = preload("res://experiments/playable_flightcase/situation_core.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Week = preload("res://experiments/playable_flightcase/band_week.gd")
 const Dates = preload("res://experiments/playable_flightcase/career_dates.gd")
+const DayNavigation=preload("res://experiments/playable_flightcase/day_navigation.gd")
 
 static func _week(host, parent: Node, compact: bool) -> void:
  var body: VBoxContainer=host._paper(parent,compact)
  body.name="WeekAgreementPaper"
  var offer: Dictionary=Week.offer(host.game.career)
  host._copy(body,"OUR WORKING WEEK",24).name="WeekAgreementTitle"
+ host._copy(body,"Planning is free and uses no day. Start an activity to move time on.",16).name="WeekTimeExplanation"
+ var evening: Dictionary=DayNavigation.inspect(host.game.career)
+ if evening.get("ok",false):
+  host._copy(body,str(evening.summary),18).name="WeekTonightAvailability"
+  body.add_child(host._button(str(evening.preview_label),"WeekEveningAction",host._practice.bind("jam")))
  if not offer.ok:
   host._copy(body,str(offer.message),16).name="WeekAgreementNotice"
   return

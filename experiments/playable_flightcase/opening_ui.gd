@@ -1158,9 +1158,10 @@ func _practice(activity: String="", from_career: bool=false) -> void:
  if from_career:
   panel.recap_expanded=false
   panel.last_message="Back in the practice room. Choose a session."
-  if activity in ["create","tighten","connect"]:panel.practice_activity=activity
+  if activity in ["create","tighten","connect","jam"]:panel.practice_activity=activity
  panel.back_requested.connect(_home)
  panel.career_requested.connect(_open_career_desk)
+ panel.home_requested.connect(_open_career_home)
  panel.planning_requested.connect(_open_band_planning)
  panel.sound_requested.connect(_toggle_sound)
  add_child(panel)
@@ -1181,7 +1182,10 @@ func _focus_band_planning(id: int) -> void:
  var target: String="WeekAgreementAction" if _career_view.find_child("WeekAgreementAction",true,false)!=null else "WeekCalendarAction"
  _career_view.call("_restore_focus",target)
 
-func _open_career_desk() -> void:
+func _open_career_home() -> void:
+ _open_career_desk("home")
+
+func _open_career_desk(destination: String="") -> void:
  if not is_inside_tree() or showing_menu or setup.screen!="play" or setup.game.phase!="play" or (is_instance_valid(_practice_view) and bool(_practice_view.get("session_busy"))):
   return
  if is_instance_valid(_practice_view):_practice_view.hide()
@@ -1209,7 +1213,8 @@ func _open_career_desk() -> void:
   _career_view.call("_navigate","gigs")
   _career_view.call_deferred("_restore_focus","LiveMainAction")
  else:
-  _career_view.call_deferred("_restore_focus","CareerNav_home")
+  if destination=="home":_career_view.call("_poster_destination","home")
+  _career_view.call_deferred("_restore_focus","PosterNextAction" if str(_career_view.page)=="home" else "CareerNav_home")
 
 func _return_from_career(activity: String = "") -> void:
  if Finance.is_over(setup.game.career):
@@ -1233,8 +1238,10 @@ func _return_from_career(activity: String = "") -> void:
   # view of the shared, already-saved career after a shop action.
   _practice_view.set("recap_expanded",false)
   _practice_view.set("last_message","Back in the practice room. Choose a session.")
-  if activity in ["create","tighten","connect"]:
+  if activity in ["create","tighten","connect","jam"]:
    _practice_view.set("practice_activity",activity)
+   _practice_view.set("_workbench_finished",false)
+   _practice_view.set("_workbench_finished_ref",{})
   _practice_view.show()
   _practice_view.call("_rebuild")
   _practice_view.call_deferred("_restore_practice_focus","CareerDeskAction")

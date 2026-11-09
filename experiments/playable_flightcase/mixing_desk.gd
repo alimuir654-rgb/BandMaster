@@ -6,6 +6,7 @@ const Dial = preload("res://experiments/playable_flightcase/poster_choice.gd")
 const Audio = preload("res://experiments/playable_flightcase/mixing_audio.gd")
 const Rules = preload("res://experiments/playable_flightcase/song_workbench.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const DayNavigation=preload("res://experiments/playable_flightcase/day_navigation.gd")
 const Sound = preload("res://experiments/playable_flightcase/band_sound.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const C = preload("res://experiments/playable_flightcase/career_components.gd")
@@ -123,7 +124,7 @@ func _ready() -> void:
 
 func _build() -> void:
  var header:=HBoxContainer.new();header.add_theme_constant_override("separation",4);add_child(header)
- var back: Button=_button("‹","MixingBack",request_exit.bind("career"));back.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;back.custom_minimum_size.x=48;header.add_child(back)
+ var back: Button=_button("‹","MixingBack",request_exit.bind("home"));back.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;back.custom_minimum_size.x=48;header.add_child(back)
  var heading: Label=_label("THE WRITING ROOM",24);heading.name="MixingHeading";heading.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;heading.size_flags_horizontal=Control.SIZE_EXPAND_FILL;header.add_child(heading)
  _sound=_button("♫ ON","MixingSound",func():_stop_audio();sound_requested.emit();_refresh_audio());_sound.size_flags_horizontal=Control.SIZE_SHRINK_END;_sound.custom_minimum_size.x=58;header.add_child(_sound)
  var menu: Button=_button("PAUSE","MixingPauseButton",_show_pause);menu.size_flags_horizontal=Control.SIZE_SHRINK_END;menu.custom_minimum_size.x=54;header.add_child(menu)
@@ -404,10 +405,10 @@ func _refresh() -> void:
   _foundations[i].modulate=Color.WHITE
  _refresh_bank()
  var free_people: Array=work.get("attendee_indices",[])
- _commit.text="COMMIT SESSION" if available else ("SOLO PRACTICE ›" if free_people.size()==1 else ("JAM WITH WHO'S HERE ›" if free_people.size()>1 else "PLAN ANOTHER EVENING ›"))
+ _commit.text="COMMIT SESSION" if available else DayNavigation.preview_label(free_people.size())
  _commit.disabled=_busy or modal or not valid or not work.get("ok",false)
  if not available and work.get("ok",false):
-  _cost.text+="\n"+("A £0 practice day is still possible." if not free_people.is_empty() else "Find an evening the band can share.")
+  _cost.text+="\n"+("A £0 practice day is still possible." if not free_people.is_empty() else "A quiet evening can move you to tomorrow. No room hire.")
  if available and valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):
   _commit.disabled=true;_cost.text="PHRASE UNAVAILABLE · Choose another foundation"
  _refresh_audio()
@@ -436,7 +437,7 @@ func _request_commit() -> void:
  var availability: Dictionary=Situation.inspect_writing(owner_state.game.career)
  if not availability.get("ok",false):_show_notice(str(availability.get("message","Review availability.")));return
  if not availability.get("can_write",false):
-  request_exit("practice:jam" if not availability.get("attendee_indices",[]).is_empty() else "planning")
+  request_exit("practice:jam")
   return
  var respondent: Dictionary=_target().get("respondent_ref",{})
  if _decision.is_empty():
@@ -527,4 +528,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
  if not is_visible_in_tree() or is_instance_valid(_dialog) or _busy:return
  if event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_ESCAPE:
-  request_exit("career");get_viewport().set_input_as_handled()
+  request_exit("home");get_viewport().set_input_as_handled()
