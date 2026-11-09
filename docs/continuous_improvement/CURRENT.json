@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/AUDIO29.json",
-  "scope": "Integrate3owner-suppliedindietracks, assigncharacters, optionaltitleexcerpt; combinednewtestwithNAV26/GIG27/SCENE28. Explicitaudiointegrationauthoritysucceedsoldhold; no privatekey/replacementapp.",
+  "scope": "Owner-authorizedindie audio/character/title expansion plusNAV26/GIG27/SCENE28 in compiledV22; awaiting originalkeysignature.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "AUDIO29_preflight",
-  "next_action": "Include NAV26, GIG27 and SCENE28 together in the next existing Playtest review build; no separate interim release.",
+  "status": "compiled_V22_verified_awaiting_original_key_signature",
+  "next_action": "Receive the exact original-key detached V22 signature; verify binding/RSA, assemble once, then require official apksigner/original certificate/app/version and unchanged payload verification before private delivery.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -6325,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6559,7 +6559,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "AUDIO29",
+  "active_session": null,
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7683,5 +7683,23 @@
     "new_APK": false,
     "owner_approved": false,
     "next_action": "Include NAV26, GIG27 and SCENE28 together in the next existing Playtest review build; no separate interim release."
+  },
+  "AUDIO29": {
+    "status": "compiled_V22_verified_awaiting_original_key_signature",
+    "tested_sha": "16c477c588758eaf07418361fcae79b43f147b05",
+    "result": "docs/continuous_improvement/AUDIO29_RESULTS.json",
+    "compiled_assertions": 2206,
+    "unsigned_apk_sha256": "e5b6b5748bc4a49325e02c47f38bfe31f66b96fc154333e49d7b660803b6f260",
+    "version": 22,
+    "signing_request_dropbox": {
+      "path": "/BandMaster/BandMaster-V22-APK-v2-signing-request.json",
+      "file_id": "id:6rRaLzqs6O4AAAAAAAAAdw",
+      "bytes": 7461,
+      "upload_status": "completed",
+      "all_JSON_fields_read_back_equal": true
+    },
+    "request_id": "ac4bcac442b592af4cb42811443554c3e9c7b4f7c2d81758eac00fb1c71af6a8",
+    "writer": null,
+    "owner_approved": false
   }
 }

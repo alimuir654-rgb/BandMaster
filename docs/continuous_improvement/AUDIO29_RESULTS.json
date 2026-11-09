@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "session": "AUDIO29",
+  "status": "compiled_V22_verified_awaiting_original_key_signature",
+  "tested_source_commit": "16c477c588758eaf07418361fcae79b43f147b05",
+  "owner_approved": false,
+  "owner_authority": "Latest explicit instruction to integrate3newindietracks, assigncharacters, optionallyusesparetitleaudio andpreparecombinednewtest. This supersedeshistoricalno-new-audio/APKholds withinthisscope.",
+  "changes": [
+    "18 matched new source passage candidates,6 pertrack;32 recorded song sources total in existing writing workbench.",
+    "20 independent recorded ideas assigned to10 canonical guitar/bass/drum characters. They do not replace or claim to perform the existing fingerprinted written audition exercises/responses.",
+    "Free character listening is separate from original paid phrase consumption; once-only firstpaidcohort and current-song source binding retained.",
+    "Six-second new title trio cue withtruthful owner-listened=false and explicitcurrentownerintegrationauthority; oldacceptedcuefile retained. Existing once-process/mute/focus/resize/menu stop owner reused.",
+    "Othergenres remain selectable/listenablepreviews innewgameUI; Indiealone opensrecruitment. Existingothergenre saves/models retained.",
+    "CombinedNAV26 blocked-day/Home, GIG27firstgig andSCENE28promoterencounter included. No posterart/portrait/hardware/meter replacement."
+  ],
+  "new_banks": [
+    {
+      "key": "guitar90",
+      "label": "GUITAR ROOM",
+      "tempo": 109,
+      "frames": 422752,
+      "hooks": [
+        "indie29_guitar90_01",
+        "indie29_guitar90_02",
+        "indie29_guitar90_03",
+        "indie29_guitar90_04",
+        "indie29_guitar90_05",
+        "indie29_guitar90_06"
+      ],
+      "method": "drum onset autocorrelation near requestedtempo; downbeats/musicalmeter unverified"
+    },
+    {
+      "key": "space",
+      "label": "NIGHT COLOURS",
+      "tempo": 114,
+      "frames": 404211,
+      "hooks": [
+        "indie29_space_01",
+        "indie29_space_02",
+        "indie29_space_03",
+        "indie29_space_04",
+        "indie29_space_05",
+        "indie29_space_06"
+      ],
+      "method": "drum onset autocorrelation near requestedtempo; downbeats/musicalmeter unverified"
+    },
+    {
+      "key": "dark",
+      "label": "DARK CURRENT",
+      "tempo": 136,
+      "frames": 338824,
+      "hooks": [
+        "indie29_dark_01",
+        "indie29_dark_02",
+        "indie29_dark_03",
+        "indie29_dark_04",
+        "indie29_dark_05",
+        "indie29_dark_06"
+      ],
+      "method": "drum onset autocorrelation near requestedtempo; downbeats/musicalmeter unverified"
+    }
+  ],
+  "character_assignments": {
+    "cast_jack": {
+      "role": "Guitarist",
+      "materials": [
+        "cast_jack_indie29_1",
+        "cast_jack_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_ryan": {
+      "role": "Guitarist",
+      "materials": [
+        "cast_ryan_indie29_1",
+        "cast_ryan_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_arjun": {
+      "role": "Guitarist",
+      "materials": [
+        "cast_arjun_indie29_1",
+        "cast_arjun_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_bex": {
+      "role": "Guitarist",
+      "materials": [
+        "cast_bex_indie29_1",
+        "cast_bex_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_hannah": {
+      "role": "Bassist",
+      "materials": [
+        "cast_hannah_indie29_1",
+        "cast_hannah_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_zoe": {
+      "role": "Bassist",
+      "materials": [
+        "cast_zoe_indie29_1",
+        "cast_zoe_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_ben": {
+      "role": "Bassist",
+      "materials": [
+        "cast_ben_indie29_1",
+        "cast_ben_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_ellis": {
+      "role": "Drummer",
+      "materials": [
+        "cast_ellis_indie29_1",
+        "cast_ellis_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_marcus": {
+      "role": "Drummer",
+      "materials": [
+        "cast_marcus_indie29_1",
+        "cast_marcus_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    },
+    "cast_casey": {
+      "role": "Drummer",
+      "materials": [
+        "cast_casey_indie29_1",
+        "cast_casey_indie29_2"
+      ],
+      "fit": "editorial assignment by canonical biography/instrument; not listening verified"
+    }
+  },
+  "assignment_summary": {
+    "GUITAR ROOM": [
+      "Jack guitar",
+      "Ryan guitar",
+      "Hannah bass",
+      "Ben bass",
+      "Ellis drums"
+    ],
+    "NIGHT COLOURS": [
+      "Arjun guitar",
+      "Zoe bass",
+      "Marcus drums"
+    ],
+    "DARK CURRENT": [
+      "Bex guitar",
+      "Casey drums"
+    ]
+  },
+  "assignment_limit": "Editorial matches to canonical instrument/biography, not heard assessment or skill/virtuosity claims. Two distinct source excerpts each, not responsive alternate performances. No invented vocal/keyboard stems.",
+  "asset_checks": {
+    "old_WAV_hashes_unchanged": 80,
+    "original_files_unchanged": 12,
+    "new_banks": 18,
+    "new_WAVs": 90,
+    "new_character_ideas": 20,
+    "highest_unshaped_sum_peak_with_existing_minus9dB_bus": 0.33665475722232346,
+    "highest_dBFS": -9.456304883935166,
+    "listening": false
+  },
+  "validation": {
+    "compiled_model_assertions": 1037,
+    "compiled_native_assertions": 1158,
+    "additional_compiled_genre_probe_assertions": 11,
+    "total_final_compiled_assertions": 2206,
+    "counts_note": "Program assertions, repeated across viewports and regressions; not distinct human tests.",
+    "models": [
+      {
+        "run": "indie29_test",
+        "summary": {
+          "checks": 207,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "4de28af1eae6818b6bdb40006594e817bf6b25703528055186558e2c6e598a9a",
+        "receipt_note": "Recovered actual first completed clean model log after digit-only prefix parser correction; no engine rerun."
+      },
+      {
+        "run": "update_a_test",
+        "summary": {
+          "checks": 81,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "5d88f3a76b38a4bfdb9ffe0e2f4a8411c6f6388e716c68af08acd947293d111f"
+      },
+      {
+        "run": "band_stories_test",
+        "summary": {
+          "checks": 74,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      {
+        "run": "audio_creation_test",
+        "summary": {
+          "checks": 64,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "0819f42d483b051c343ee9182c13030c99dce407d036894e373fdcdd7c058d6e"
+      },
+      {
+        "run": "character_consequence_test",
+        "summary": {
+          "checks": 72,
+          "failures": [],
+          "listening": false,
+          "physical_device": false
+        },
+        "log_sha256": "e2f59c14514d759c67a145c90b7e1ad9019d7fb6df04119b2174df9cb1e5372e"
+      },
+      {
+        "run": "audio_creation_guards",
+        "summary": {
+          "checks": 25,
+          "failures": [],
+          "physical_device": false
+        },
+        "log_sha256": "868d46b8942f00ae4ab5370b96b02f3b6b990860f4638ee4bc152c62b727a414"
+      },
+      {
+        "run": "recorded_steady_test",
+        "summary": {
+          "checks": 514,
+          "device_tested": false,
+          "failures": [],
+          "listening": false
+        },
+        "log_sha256": "c6ac4dd39b18d15536a984733dd52e3cb089df29561acbf4a679a045fac91af4"
+      }
+    ],
+    "native": [
+      {
+        "run": "compiled-phone",
+        "viewport": "390x844",
+        "script": "indie29_visual",
+        "summary": {
+          "checks": 179,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "6cbb0fda9bf615a597910a734e8ebcc66cd202021742a0b250d4c5851ffa6b43"
+      },
+      {
+        "run": "compiled-short",
+        "viewport": "1280x720",
+        "script": "indie29_visual",
+        "summary": {
+          "checks": 179,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1280, 720)"
+        },
+        "log_sha256": "0e73cb14ac85e9cae57d1fa88d823793eac7f65be3c072789d06e19dce2ed63a"
+      },
+      {
+        "run": "compiled-tall",
+        "viewport": "720x1280",
+        "script": "indie29_visual",
+        "summary": {
+          "checks": 179,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(720, 1280)"
+        },
+        "log_sha256": "b1bf5ce5859e9f5302cd3f76817b0379327feb14505db5abfddcf92c68fe618d"
+      },
+      {
+        "run": "compiled-wide",
+        "viewport": "1600x900",
+        "script": "indie29_visual",
+        "summary": {
+          "checks": 179,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(1600, 900)"
+        },
+        "log_sha256": "ebfd2d5485a3992cef8ceca6547ac48ae8d6d46012c3895752ee12947c8b7c9e"
+      },
+      {
+        "run": "compiled-gigs",
+        "viewport": "390x844",
+        "script": "gig_navigation_visual",
+        "summary": {
+          "baseline": false,
+          "checks": 132,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "a0c3a4c6c7c673d9c711d79af7013cb60d5f2b123468f6189647fe66aee76d21"
+      },
+      {
+        "run": "compiled-nav",
+        "viewport": "390x844",
+        "script": "navigation_unavailable_visual",
+        "summary": {
+          "checks": 84,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "fe2e5e8414220d13e701fd41cab8be0c32319b66f07446fdd717c56d7ff931fc"
+      },
+      {
+        "run": "compiled-stories",
+        "viewport": "390x844",
+        "script": "update_a_visual",
+        "summary": {
+          "checks": 226,
+          "failures": [],
+          "listening": false,
+          "physical_device": false,
+          "viewport": "(390, 844)"
+        },
+        "log_sha256": "b2e9cf9836ce3361ddb9a1f5192f5aebdb66851027dd963b4afbbba22fcab1a8"
+      }
+    ],
+    "genre_probe_log": "/workspace/bandmaster-audio29/genre-probe.log",
+    "source_QA_intermediate": {
+      "source_commit": "445df488",
+      "checks": 1090,
+      "note": "Earlier fourview/mainjourney proof, retained separately from final16ccompiled checks after dedicatedauditionguard correction."
+    },
+    "engine": "Godot4.7.2 ed1daf0bf/OpenGLcompatibility/desktop/Dummyaudio",
+    "physical_Android_tested": false,
+    "listening": false,
+    "compiled_cases": [
+      "all18bank PCM identities/clocks and32source inspection",
+      "three actual new-source paid songwriting transactions/failsave/rollback/retry/typedreload",
+      "all10characters/two different passages,actualPlay/Stop/mute/freeowner",
+      "dedicatedJack mutual written/recorded stop/staleexpected/othergenre denial",
+      "actualtitleallowed=true/playing=true atall4sizes andhiddenstop",
+      "all4viewportexpandedbanklastchoice/collapse/playback/synchronizedclock",
+      "genuine1song/2paidrehearsals\u2192promoterchoices\u2192counteroffer\u2192savefailure/retry/futurebooking",
+      "quiet/solo/unavailable/Home/dirtyexit navigation",
+      "actualtwo-showhistory/practicalfavours andpromoterreturn",
+      "realPunkpreviewdisabled/IndieNextopensrecruitment"
+    ],
+    "errors_or_leaks_in_final_logs": 0
+  },
+  "package_audit": {
+    "sha256": "e5b6b5748bc4a49325e02c47f38bfe31f66b96fc154333e49d7b660803b6f260",
+    "bytes": 429789466,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 22,
+    "version_name": "0.152.0-playtest-indiebanks",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "signed": false,
+    "installable_update": false,
+    "alignment_16kb": true,
+    "zip_crc": true,
+    "arm64_only": true,
+    "tests_excluded": true,
+    "new_scripts_compiled": true,
+    "source_manifest_byte_exact": true,
+    "private_media_hashes_verified": 170,
+    "old_private_WAVs_preserved": 80,
+    "new_dangerous_permissions": false,
+    "original_key_metadata_unchanged": true,
+    "new_key_files": 0,
+    "replacement_key_used": false,
+    "private_key_accessed": false,
+    "physical_device_tested": false,
+    "listening": false,
+    "source_commit": "16c477c588758eaf07418361fcae79b43f147b05"
+  },
+  "signing_request": {
+    "request_id": "ac4bcac442b592af4cb42811443554c3e9c7b4f7c2d81758eac00fb1c71af6a8",
+    "request_bytes": 7461,
+    "sha256": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+    "signed_data_sha256": "586714aabdb9feb31605f39c87f46a7cc351dfe8ad45c3e8d17058836f91e39a",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "source": "16c477c588758eaf07418361fcae79b43f147b05",
+    "unsigned_apk_unchanged": true,
+    "source_archive": {
+      "path": "/workspace/bandmaster-audio29/BandMaster-V22-code-handover.zip",
+      "bytes": 159673,
+      "sha256": "f42d0be07162e09cb1ad4d0dc0dd45ad0fd9d3175da1a15b8a31ee983fae1e7a",
+      "files": 25,
+      "raw_media": false
+    },
+    "validated": true
+  },
+  "dropbox_request": {
+    "path": "/BandMaster/BandMaster-V22-APK-v2-signing-request.json",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAAAdw",
+    "bytes": 7461,
+    "upload_status": "completed",
+    "all_JSON_fields_read_back_equal": true
+  },
+  "preservation": {
+    "original12uploads_unchanged": true,
+    "old80WAV_hashes_unchanged": true,
+    "V21_signing_request_sha256_unchanged": "1b04fc1e0b7e6bfda08df216aa1145829413d24ac21ce11874b4d9f1b2608382",
+    "new_key_files": 0,
+    "private_key_accessed": false,
+    "new_app": false,
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "remote_Git_push": false,
+    "raw_audio_uploaded_elsewhere": false
+  },
+  "originals_opened_by_root": [
+    "/workspace/bandmaster-audio29/early-phone-idea-cast_jack.png",
+    "/workspace/bandmaster-audio29/early-phone-selected-new-bank.png",
+    "/workspace/bandmaster-audio29/early-phone-title.png",
+    "/workspace/bandmaster-audio29/final-compiled-phone-dedicated-audition-ideas.png",
+    "/workspace/bandmaster-audio29/final-compiled-short-selected-new-bank.png",
+    "/workspace/bandmaster-audio29/final-compiled-tall-idea-cast_hannah.png",
+    "/workspace/bandmaster-audio29/final-compiled-wide-idea-cast_casey.png",
+    "/workspace/bandmaster-audio29/genre-probe-genre-preview-only.png",
+    "/workspace/character-consequences/early-phone-audition-guitar-first.png"
+  ],
+  "independent_AI_review": "Existing read-only reviewer pre/early/final checked actualsource/originalpixels, final7+7summaries, cleanlogs/titleplaying and independentAPKhash. No scopedP1/P2hold. RemappedOGGanddedicatedgenre/token defects fixed and compiled-tested. This is AI review, not human/art/listening approval.",
+  "simulated_review_lenses": {
+    "game_critic": "More useful indie choice while batching the earlier navigation/adventure improvements into one review build.",
+    "musician": "Matched stems stay together, effects remain same performance; musical phrase/grid and character fits require owner listening.",
+    "ui_ux": "Existingposterbuttons andrealcast retained; accessiblepairedidea controls and32-choice library disclosure tested fourways, moderateauditionscroll remains.",
+    "narrative": "Canonicalbiographies guide10editorialassignments; oldauthoredresponsessaves remainunchanged. No newcast or invented recordedvocals.",
+    "qa_release": "Actualcompiledaudio remaps, stale/mute/once/save guards andold80hashesverified. Originalkeydetachedsignature isonlyremainingexternal dependency; no installablereleaseclaim."
+  },
+  "limitations": [
+    "Unsigned V22 is retained locally; it is not an installable signed update until originalenvironment signs and finalofficialverification passes.",
+    "No supportedlisteningtool: approximate109/114/136BPM grids, excerpt boundaries, isolation, character fits andtitlecue musicalquality remainprovisional. Sourcefilenames/prompt targets are not verifiedharmony.",
+    "Recordedphrases playonce; no verifiedseamlessloop or genuinealternateperformance claim.",
+    "Quiet additionalpercussion stems preserved inoriginalintake but not boosted into newkit; mainmatchedDrums used.",
+    "No physicalAndroid/install/save-retention/listening orownerartapproval claim.",
+    "Rawmedia stays private; code-onlysourcehandover is not a standalone asset-complete project."
+  ],
+  "failure_history": "Retained mixedQAinventory/importattempt, editor sandbox socket errors, missingbeginworkbench fixture, boundedAudioServerdrain atQAquit, remappedOGG/legacygenre guard findings, digitprefixreceipt correction andvalidatorargumenterror. No failedrun accepted; no repeatedunchangedengine afterreceipt-only prefix recovery.",
+  "resources": {
+    "evidence_disk_bytes_approx": 2000000000,
+    "export_child_max_RSS_KiB": 949132,
+    "new_dependency_installs": 0
+  },
+  "next_single_action": "Receive the exact original-key detached V22 signature; verify binding/RSA, assemble once, then require official apksigner/original certificate/app/version and unchanged payload verification before private delivery.",
+  "completed_at": "2026-11-09T21:11:16.597194+00:00"
+}

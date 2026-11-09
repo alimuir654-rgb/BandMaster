@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "AUDIO29",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "ee6cd29d24e7d33f11e3041275cf0a9d5aa16554",
   "reviewed_documents": {
@@ -9,8 +9,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2106505,
-    "sha256": "df67e6dc9529f29538af915cab7d02ffb22792218f56d79a4c6f5729341e10ae"
+    "bytes": 2109746,
+    "sha256": "a3cc659cba5b5628e4d2d6c0621ec14e8b6fb18b10ec66b5cffad0a17cf17581"
   },
   "dominant_issue": "BM-25",
   "lesson_ids": [
@@ -54,7 +54,8 @@
     "docs/continuous_improvement/**",
     "docs/asset_base/LEDGER.md",
     "experiments/playable_flightcase/opening_ui.gd",
-    "experiments/playable_flightcase/audition_audio.gd"
+    "experiments/playable_flightcase/audition_audio.gd",
+    ".gitignore"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SCENE28.json",
@@ -70,7 +71,7 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active",
+    "status": "released",
     "branch": "feature/playtest-polish-v20"
   },
   "review_task": {
@@ -81,5 +82,15 @@
     "visible_acceptance": "Postercontrolsreadable4sizes; separatewrittenstudiesvsrecordedideas; nofakeperformanceorsavedclaims."
   },
   "independent_review": "Existinghelperassignedread-only pre/early/final review.",
-  "started_at": "2026-11-09T20:46:04.015204+00:00"
+  "started_at": "2026-11-09T20:46:04.015204+00:00",
+  "tested_sha": "16c477c588758eaf07418361fcae79b43f147b05",
+  "closed_at": "2026-11-09T21:11:16.597194+00:00",
+  "result": "docs/continuous_improvement/AUDIO29_RESULTS.json",
+  "closeout": {
+    "tested_sha": "16c477c588758eaf07418361fcae79b43f147b05",
+    "evidence": "docs/continuous_improvement/AUDIO29_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Receive the exact original-key detached V22 signature; verify binding/RSA, assemble once, then require official apksigner/original certificate/app/version and unchanged payload verification before private delivery.",
+    "new_issue_review": "All retained failures corrected or explained; finalcompiled clean. Actualmusicalfit/listening/physicalAndroid/owneracceptance andoriginalkeysignature remainexternalreview. No installablereleaseclaim."
+  }
 }
