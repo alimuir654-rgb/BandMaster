@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "SIGN25",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "1ca25a8275f0828ebc42964e2b1488fd0541e8e6",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2072654,
+    "sha256": "e9095744cf57917d2f09d3939b2252ac0f53df510ff79c57c3a051a7e267fdf7"
+  },
+  "dominant_issue": "BM-36",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-30",
+    "BM-32",
+    "BM-36",
+    "BM-40"
+  ],
+  "owner_request": "Owner supplied exact V21 original-holder detached signature; complete established validate/assemble/official verification and review delivery. Keep existing request and source59a3 unchanged.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/band-stories-22/final-phone-chat-agreed.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Exact retained unsignedV21 vs assembled signed APK: every ZIP entry and uncompressed payload byte, app/version/SDK/permissions/source identical; only v2 signing block and EOCD central-directory offset change. UPDATE24 native/source/listening limitations carried unchanged; no new visual claim.",
+  "hypothesis": "Valid bound RSA signature can be assembled with the original public certificate into this exact audited V21; official apksigner and payload equality prove update identity without any private key operation here.",
+  "stop_condition": "Stop on any mismatch, invalid signature, official verification failure or changed request/unsigned/source. No rebuild/new key/private key access/request edit/main or branch push.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SIGN25.json",
+    "tools/detached_apk_v2.py assemble using exactV21 retained policy/request/reference and owner response; official apksigner verify; zipalign; unchanged ZIP/payload/app/version/SDK and originals",
+    "Read back any successfully delivered Dropbox file metadata; retain signed audit and small handover. Prior exact compiled/native game evidence reused; no extra engine or listening claims."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 16614916096,
+    "new_persistent_budget_bytes": 536870912,
+    "peak_memory_budget_bytes": 1610612736,
+    "apk_rebuild": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "scope": "release records and original detached assembly only"
+  },
+  "started_at": "2026-11-09T06:58:11.001236+00:00"
+}
