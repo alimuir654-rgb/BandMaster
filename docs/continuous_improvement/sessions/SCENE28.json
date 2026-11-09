@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "SCENE28",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "d7f0a0e679d3bc261f1934632a7f63e88070e351",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2089348,
+    "sha256": "7f5c852173cb6d0444206355d37be916b90f763ea8473bc5c67a59957ffa9099"
+  },
+  "dominant_issue": "BM-25",
+  "lesson_ids": [
+    "BM-01",
+    "BM-06",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40"
+  ],
+  "owner_request": "Ownerconfirmscrolledbottommissedchoices; requestslessscrolling and alivepromoter/scenario/adventureexperience. Use currentexistingPlaytest andbatchsource changes withNAV26/GIG27; proceed without routineprompts.",
+  "target": {
+    "locator": "/workspace/generated_images/exec-8ccb3257-2830-4131-940e-fb7e13bffe7e.png",
+    "original_sha256": "05f51e868882c61cea1231443deb63bff2e25d63d743e64e91045aac2061fc10",
+    "pixels_inspected": true,
+    "baseline_original": "/workspace/bandmaster-gig27/final-phone-booking-needs-terms.png",
+    "baseline_inspected_this_session": true
+  },
+  "controlled_comparison": "Samegenuine1song/2paidrehearsals andfresh/returnedpromotercontext at390x844/720x1280/1280x720/1600x900. Longformbaseline vs3meaningfulchoiceledbeats; venue/promotercontext, allpitch/termchoicesinfirstfold, actualoffer/counteroffer/date/trip/finalmodal,Back/currentdraftsavefailure/stale/reload.",
+  "hypothesis": "Showoneconversationquestionatatime, authenticstatus-shapedreactionandverbatimactualoffer, consistentroomrole anchoring, noextraNext-onlypage. Compactdategrid/optionalfullbill preservecompletecommitmentwithoutburyingchoices.",
+  "stop_condition": "No NPCportrait/newcast/art/audio/paidruntime/newdialogueengine/savedwrapper/policy/economy/reward changes. No autoask/accept, no savedclaimbeforeoriginalcommit; V21APK/request unchanged. NoAPK/newsignature orremotepush thissourcechunk.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/promoter_encounter.gd",
+    "tests/gig_navigation*",
+    "tests/promoter_encounter*",
+    "tests/band_stories_visual.gd",
+    "tests/update_a_visual.gd",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SCENE28.json",
+    "Nativeactual1song/2paidfixture: room\u2192pitch\u2192immediatereaction/terms\u2192actualcounteroffer/date/trip\u2192originalfinalmodal\u2192failedsave/retry\u2192saveddurableagreement; Backretainsdate/trip andchangingpitch/venueclearsbill. First/last12legaldaytargets, originalslot/cost/time/askedactualterms alwaysaccessible.",
+    "Fourviewrealpointer/keyboard/scrollproof; earlyphone/short andfinaloriginalpixelreview; stale/futureheld/busy/Finance/radio/gigguards andpriorbandlife/navigationregressions; no newlistening/physicalAndroidclaim."
+  ],
+  "resource_plan": {
+    "disk_free_bytes": 16150904832,
+    "new_persistent_budget_bytes": 536870912,
+    "peak_memory_budget_bytes": 1073741824,
+    "reuse_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-scene28",
+    "new_import_export": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active",
+    "branch": "feature/playtest-polish-v20"
+  },
+  "review_task": {
+    "queue": "S80 SCENE28 promoterencounterpilot",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Meetthevenuepromoter, givepitch, respondtodeal, agreefuturedate andleavewithasavedplaceonthebill.",
+    "commitment": "ExplicitfinalBOOKTHENIGHT only; earlierconversation/Back/date/trip/offerreview remainfree/noday. No prototypepagealonecountsasaliveexperience.",
+    "visible_acceptance": "Venue+promoter-role+currentdialogueand3actualchoices fitphonefirstfold; originalreply/counteroffer andactualslot/currentcost/reservedtime explicit; reducedscroll andnaturalBack, noforcedwaiting/newportraitclaim."
+  },
+  "independent_review": "Existing helper completedsource/previousoriginalpixelpre-review; root solewriter.",
+  "started_at": "2026-11-09T17:50:30.585692+00:00"
+}

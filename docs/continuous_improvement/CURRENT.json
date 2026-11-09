@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/GIG27.json",
+  "session": "docs/continuous_improvement/sessions/SCENE28.json",
   "scope": "CombinedNAV26 unavailableday/Home and GIG27firstgig/explicitbooking guidance source verified for next combined review update.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "source_verified_queued_with_NAV26_for_next_combined_build",
-  "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now.",
+  "status": "SCENE28_preflight_promoter_encounter",
+  "next_action": "Implement compactchoice-led promoterencounter withoriginalbookingauthority; nativephone/short proof beforefinalfourview.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": null,
+  "writer": "root_SCENE28",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -7655,8 +7655,9 @@
     "combined_source_bundle": "BandMaster-navigation-and-gigs-source.zip",
     "latest_delivered_APK": 21,
     "new_APK": false,
-    "owner_device_cause_confirmed": false,
+    "owner_device_cause_confirmed": true,
     "owner_approved": false,
-    "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now."
+    "next_action": "Include verified NAV26+GIG27 in next combined existing Playtest update; currentV21 explicitpitch/terms path remains usable now.",
+    "owner_confirmation": "Owner confirmed venueopenedatbottom, missedrequiredchoicesabove; SCENE28 extendsfix intoencounter."
   }
 }
