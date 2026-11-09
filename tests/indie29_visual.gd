@@ -31,6 +31,21 @@ func run() -> void:
   AudioServer.set_bus_mute(0,true);await settle();check(not desk.playing,"mute stops newidea");AudioServer.set_bus_mute(0,false)
   await tap("CharacterIdea_0");await tap("CharacterIdeaStop")
   check(not desk.playing and owner.snapshot()==before,"free character listening never spends/consumes "+person_data[0])
+ await person("cast_jack","Guitarist")
+ await tap("AuditionAction")
+ var audition=scene.find_child("AuditionEncounter",true,false)
+ var idea=audition.find_child("CharacterRecordedIdeas",true,false)
+ var prior: Dictionary=owner.snapshot()
+ await tap("CharacterIdea_0");check(idea.playing,"dedicated audition recorded idea actually plays")
+ await tap("AuditionPlayFirst");check(not idea.playing and audition._audio.playing,"written take stops separate idea without overlap")
+ await tap("CharacterIdea_1");check(idea.playing and not audition._audio.playing,"separate idea stops written take without overlap")
+ check(owner.snapshot()==prior,"independent ideas never answer audition or spend")
+ audition._expected={};await settle();check(not idea.playing,"stale audition context stops added idea")
+ audition._expected=owner.audition_expected()
+ var genre: String=owner.game.genre;owner.game.genre="Punk"
+ await tap("CharacterIdea_0");check(not idea.playing,"synthetic othergenre counterexample denied")
+ owner.game.genre=genre
+ await capture("dedicated-audition-ideas")
  scene.free();scene=null
  check(fresh(),"canonical playing band")
  var take: Dictionary=Recipe.recipe(Sound.read(owner.game.career));take.hook="indie29_dark_06"
