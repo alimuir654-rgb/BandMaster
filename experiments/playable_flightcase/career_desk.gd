@@ -106,6 +106,7 @@ var booking_draft: Dictionary={}
 var booking_expected: Dictionary={}
 var booking_origin: Dictionary={}
 var booking_step := "rooms"
+var booking_bill_open := false
 var offstage_activity := "watch_gig"
 var offstage_mode := "outing"
 var offstage_choice := "careful"
@@ -1788,6 +1789,7 @@ func _booking_session_needed() -> bool:
 func _sync_booking_draft() -> void:
  if not booking_draft.is_empty():return
  booking_pitch=""
+ booking_bill_open=false
  booking_expected=Booking.expected(game.career)
  var options: Dictionary=Booking.options(game.career)
  booking_draft={"venue_id":"local","day":int(options.get("first_day",0)),"offer_id":"standard","travel_plan":"drive_home","session_drummer":_booking_session_needed()}
@@ -1827,36 +1829,41 @@ func _booking_select(field: String,value: Variant,expected: Dictionary,generatio
   if not proposal.get("ok",false):notice=str(proposal.message);_render();return
   booking_draft[Circuit.BILL]=proposal.bill.duplicate(true)
   value=proposal.bill.offer_id
+  booking_step="agreement"
+  booking_bill_open=false
  booking_draft[field]=value
  if field=="venue_id":
   booking_draft["travel_plan"]="drive_home"
   booking_draft["offer_id"]="standard"
   booking_draft.erase(Circuit.BILL);booking_pitch=""
-  booking_step="date"
+  booking_step="pitch"
+  booking_bill_open=false
  if booking_draft["venue_id"]!="local" or booking_draft["offer_id"]!="standard":booking_origin={}
  notice=""
- if field=="venue_id":
+ if field in ["venue_id","offer_id"]:
   _scroll_position=0
   if is_instance_valid(_scroll):_scroll.scroll_vertical=0
- _pending_focus="BookingPitch_fit" if field=="venue_id" else ("BookingDay_%d" % int(booking_draft["day"]) if field=="day" else ("BookingOffer_"+str(value) if field=="offer_id" else "BookingTrip_"+str(value)))
+ _pending_focus="BookingPromoterReply" if field in ["venue_id","offer_id"] else ("BookingDay_%d" % int(booking_draft["day"]) if field=="day" else "BookingTrip_"+str(value))
  _render()
-
-func _booking_guidance(generation: int) -> void:
- if not _booking_input_ready(generation):return
- if booking_expected!=Booking.expected(game.career):
-  notice="The band changed. Review current rooms and dates.";_render();return
- # Focus only: never select a pitch, accept terms, save, or advance the day.
- var target: String="BookingPitch_fit" if booking_pitch.is_empty() else "BookingOffer_standard"
- _apply_restored_focus(target,_render_generation,false)
 
 func _booking_pitch_select(pitch: String,expected: Dictionary,generation: int) -> void:
  if not _booking_input_ready(generation) or expected!=booking_expected or expected!=Booking.expected(game.career) or pitch not in Circuit.PITCHES:return
  booking_pitch=pitch;booking_draft.erase(Circuit.BILL);notice=""
- _pending_focus="BookingOffer_standard"
+ booking_step="terms"
+ booking_bill_open=false
+ _scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="BookingPromoterReply"
+ _render()
+
+func _booking_toggle_bill(generation: int) -> void:
+ if not _booking_input_ready(generation) or booking_expected!=Booking.expected(game.career) or booking_step!="agreement":return
+ booking_bill_open=not booking_bill_open
+ _pending_focus="BookingBillToggle"
  _render()
 
 func _booking_go(step: String,generation: int) -> void:
- if not _booking_input_ready(generation) or step not in ["trip","review"]:return
+ if not _booking_input_ready(generation) or step!="agreement":return
  var prepared: Dictionary=LiveRules.prepare_booking(game.career,booking_draft,booking_expected)
  if not bool(prepared.get("ok",false)):
   notice=str(prepared.get("message","Review the agreement."))
@@ -1866,7 +1873,7 @@ func _booking_go(step: String,generation: int) -> void:
  notice=""
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
- _pending_focus="BookingTrip_"+str(booking_draft["travel_plan"]) if step=="trip" else "BookingCommitAction"
+ _pending_focus="BookingPromoterReply"
  _render()
 
 func _booking_back(generation: int) -> void:
@@ -1874,13 +1881,14 @@ func _booking_back(generation: int) -> void:
  if booking_step=="rooms":
   _navigate("offstage" if not booking_origin.is_empty() else "home")
   return
- booking_step="rooms"
+ booking_step=str({"agreement":"terms","terms":"pitch","pitch":"rooms"}.get(booking_step,"rooms"))
+ _pending_focus="BookingVenue_"+str(booking_draft.get("venue_id","local")) if booking_step=="rooms" else "BookingPromoterReply"
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
 
 func _ask_booking_commit(generation: int) -> void:
- if not _booking_input_ready(generation):return
+ if not _booking_input_ready(generation) or booking_step!="agreement":return
  if not booking_draft.has(Circuit.BILL):notice="Discuss the promoter's proposal before confirming this room.";_render();return
  var prepared: Dictionary=LiveRules.prepare_booking(game.career,booking_draft,booking_expected)
  if not bool(prepared.get("ok",false)):
@@ -1888,10 +1896,10 @@ func _ask_booking_commit(generation: int) -> void:
   _render()
   return
  var q: Dictionary=prepared["quote"]
- var dialog: Control=C.dialog("CONFIRM THIS SHOW?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
+ var dialog: Control=C.dialog("SHAKE ON IT?","%s in %s, DAY %d. The trip reserves %d career day(s); next available DAY %d. £0 now. Trip/session costs £%d at final wrap. The fee is settled after the show." % [q["venue"],q["city"],int(q["day"]),int(q["duration"]),int(q["next_available_day"]),int(q["total_cost"])],"flightcase")
  dialog.name="BookingConfirmDialog"
- dialog.set("confirm_text","BOOK THE SHOW")
- dialog.set("cancel_text","KEEP EDITING")
+ dialog.set("confirm_text","AGREE THE NIGHT")
+ dialog.set("cancel_text","KEEP TALKING")
  var request: Dictionary=booking_draft.duplicate(true)
  var expected: Dictionary=booking_expected.duplicate(true)
  var origin: Dictionary=booking_origin.duplicate(true)

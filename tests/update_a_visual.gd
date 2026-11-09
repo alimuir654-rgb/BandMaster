@@ -27,7 +27,11 @@ func run() -> void:
  scene._career_view._navigate("gigs");await settle()
  if scene.find_child("BookingRestartAction",true,false)!=null:await tap("BookingRestartAction")
  if not await tap("BookingVenue_local"):finishing=true;await finish();return
- await tap("BookingPitch_scene");await tap("BookingOffer_standard")
+ check((scene.find_child("BookingPromoterReply",true,false) as Label).text.contains("played here before"),"actual settled venue history changes promoter greeting")
+ await tap("BookingPitch_scene")
+ check((scene.find_child("BookingPromoterReply",true,false) as Label).text.contains("other bands have mentioned"),"actual saved support changes promoter reaction")
+ await capture("return-promoter-terms")
+ await tap("BookingOffer_standard")
  var bill: Dictionary=scene._career_view.booking_draft.get(Circuit.BILL,{})
  check(bill.get("slot")=="main_support" and bill.get("context",{}).get("favors",{}).has("northbound_static"),"actual earned support shapes return bill")
  await reveal(scene.find_child("BookingPromoterReply",true,false));await capture("return-promoter")

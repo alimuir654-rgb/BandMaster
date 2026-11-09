@@ -30,15 +30,32 @@ func run() -> void:
  unchanged(before,"invalid UI-only request")
  career.booking_draft.day=valid_day;career._render();await settle()
  check(not (scene.find_child("BookingCommitAction",true,false) as Button).disabled,"corrected original date restores confirmation")
- await tap("BookingBackAction");await tap("BookingBackAction")
+ await tap("BookingBackAction");await tap("BookingBackAction");await tap("BookingBackAction");await tap("BookingBackAction")
  check(career.page=="home","actual Back returnsHome without booking")
  unchanged(before,"all blocked-day booking previews and Back")
+ # A generation-bound response from an old frame cannot answer the next question.
+ career._open_booking({});await settle();await tap("BookingVenue_local")
+ var old_generation: int=int(career._render_generation)
+ var token: Dictionary=career.booking_expected.duplicate(true)
+ await tap("BookingPitch_fit")
+ var draft: Dictionary=career.booking_draft.duplicate(true)
+ career._booking_select("offer_id","guarantee",token,old_generation);await settle()
+ check(career.booking_step=="terms" and career.booking_draft==draft,"stale answer cannot accept terms in new conversation")
+ career.busy=true;career._booking_back(career._render_generation);career.busy=false
+ check(career.booking_step=="terms" and career.booking_draft==draft,"busy owner blocks conversation navigation")
+ await tap("BookingOffer_standard");await tap("BookingCommitAction")
+ var generation: int=int(career._render_generation)
+ career._booking_back(generation);career._booking_toggle_bill(generation)
+ check(career.booking_step=="agreement" and not career.booking_bill_open,"modal owns navigation and bill disclosure")
+ await tap("BookingKeepEditingAction")
+ unchanged(before,"stale busy and modal guards")
+ await tap("BookingBackAction");await tap("BookingBackAction");await tap("BookingBackAction");await tap("BookingBackAction")
  # Unknown compatible career data cannot silently disappear during free browsing.
  var extra: Dictionary={"keep":[1,{"fraction":1.25}]}
  owner.game.career["gig27_compatible_probe"]=extra.duplicate(true)
  check(owner.save_draft(),"isolated compatible metadata save")
- career._open_booking({});await settle();await tap("BookingVenue_local");await tap("BookingCommitAction")
- check(owner.game.career.gig27_compatible_probe==extra,"guided focus preserves unknown compatible fields")
+ career._open_booking({});await settle();await tap("BookingVenue_local");await tap("BookingPitch_fit")
+ check(owner.game.career.gig27_compatible_probe==extra,"conversation preserves unknown compatible fields")
  finish()
 
 func finish() -> void:
