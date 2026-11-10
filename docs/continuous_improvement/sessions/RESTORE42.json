@@ -39,7 +39,8 @@
     "tools/build_recorded_owner.py",
     "docs/continuous_improvement/**",
     "docs/handover/START_HERE.md",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/audio/splash_cue.json"
   ],
   "validation_commands": [
     "Fresh known-folder listing and selected metadata;25currentoriginals, bytes/SHA/Dropbox4MiBcontenthash/PCMclock, knownSteadyhash equality",
@@ -51,11 +52,13 @@
     "evidence_root": "/workspace/bandmaster-restore42",
     "persistent_budget_bytes": 4294967296,
     "qa_project": "/workspace/bandmaster-crowd36/project",
-    "no_APK_this_session": true
+    "no_APK_this_session": true,
+    "restore_v1_as_well_as_current_v2": true
   },
   "writer": {
     "owner": "root",
     "status": "active"
   },
-  "started_at": "2026-11-10T18:23:44.290649+00:00"
+  "started_at": "2026-11-10T18:23:44.290649+00:00",
+  "protected_title_manifest_before": "aff31fa7ec1354756c3064edc8a0df2c43b0d351ce13c48d0e02b1a9260b1b27"
 }
