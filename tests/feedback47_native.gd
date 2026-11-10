@@ -1,4 +1,7 @@
 extends SceneTree
+const Style=preload("res://experiments/playable_flightcase/identity_style.gd")
+const Chat=preload("res://experiments/playable_flightcase/musician_chat.gd")
+const Promoters=preload("res://experiments/playable_flightcase/promoter_profiles.gd")
 const Owner=preload("res://experiments/playable_flightcase/opening_state.gd")
 var owner
 var scene
@@ -113,10 +116,91 @@ func run() -> void:
   var portrait: TextureRect=scene.find_child("BookingPromoterPortrait",true,false)
   check(portrait!=null and portrait.texture!=null and portrait.get_meta("promoter_id","")=="mo_farrow","actual named local promoter portrait")
   check(scene.find_child("BookingPromoterHeading",true,false).text=="MO FARROW","promoter identity visible")
+ if not baseline:
+  await extended_journey()
+  await logo_journey()
  await finish()
 
 func finish() -> void:
  if is_instance_valid(scene):scene.free()
+ scene=null;owner=null;Style._font_cache.clear()
+ await create_timer(0.25).timeout
  await settle()
  print("FEEDBACK47_NATIVE "+JSON.stringify({"checks":checks,"failures":failures,"baseline":baseline,"viewport":str(root.size),"observations":observations,"physical_Android":false}))
  quit(0 if failures.is_empty() else 1)
+
+func extended_journey() -> void:
+ # Explicit eligible test fixture; not an earned day-one career claim.
+ owner.game.career.reputation=100;owner.game.career.fans=10000
+ check(owner.save_draft(),"save explicitly eligible promoter fixture")
+ scene._career_view._open_booking();await settle()
+ if not await tap("BookingVenue_local"):return
+ observations["later_promoters_fixture"]="manual eligible reputation/fans; original day-one locked gates retained"
+ var unchanged: Dictionary=owner.snapshot()
+ for room in ["bristol","cardiff","birmingham","manchester","london"]:
+  if not await tap("BookingBackAction"):return
+  if not await tap("BookingVenue_"+room):return
+  var portrait: TextureRect=scene.find_child("BookingPromoterPortrait",true,false)
+  check(portrait!=null and portrait.get_meta("promoter_id")==Promoters.ROOMS[room],"actual venue contact "+room)
+  check(owner.snapshot()==unchanged,"meeting a promoter is free "+room)
+  if room in ["cardiff","manchester"]:await capture("promoter-"+room)
+ var view=scene._career_view
+ view._navigate("band");await settle()
+ if not await tap("CareerTalk_cast_bex"):return
+ await capture("chat-before")
+ var before: Dictionary=owner.snapshot()
+ var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
+ var blocker: String=ProjectSettings.globalize_path(Owner.SAVE_PATH+".identity-tmp")
+ check(DirAccess.make_dir_recursive_absolute(blocker)==OK,"block actual chat save")
+ await tap("ChatReply_write_together")
+ check(owner.snapshot()==before and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"failed actual chat save rolls back memory and disk")
+ check(scene.find_child("MusicianChatSavedReply",true,false)==null,"failed reply never shown as saved")
+ check(DirAccess.remove_absolute(blocker)==OK,"remove isolated chat blocker")
+ await tap("ChatReply_write_together")
+ var reply: Label=scene.find_child("MusicianChatSavedReply",true,false)
+ var saved: Dictionary=Chat.record(owner.game.career,"cast_bex")
+ check(reply!=null and reply.is_visible_in_tree() and reply.text==saved.turns.back().reply,"actual saved reply visible without history disclosure")
+ check(not view.chat_history_open,"saved reply not hidden behind history")
+ await reveal(reply);await capture("chat-saved-reply")
+ var after: Dictionary=owner.snapshot()
+ check(not owner.answer_musician(before,"cast_bex","direction","write_together").get("ok",false) and owner.snapshot()==after,"replayed reply cannot settle twice")
+ var restored=Owner.new()
+ check(restored.load_draft() and restored.snapshot()==after,"strict chat and promoter-state reload")
+ await tap("ChatBack");await tap("CareerTalk_cast_ben")
+ var voices: Array=[]
+ for label in scene.find_children("*","Label",true,false):voices.append(label.text)
+ check("Ben:" in voices and not Chat.VOICES.cast_bex in voices,"different musician opens their own conversation")
+ await capture("chat-ben")
+
+func logo_journey() -> void:
+ scene.free();await settle()
+ owner=Owner.new()
+ check(owner.begin_new() and owner.set_genre("Indie rock") and owner.to_recruit(),"six-person identity fixture")
+ for id in ["cast_tom","cast_ben","cast_dan","cast_ellis","cast_nina","cast_jack"]:
+  if not check(owner.recruit(id).get("ok",false),"six actual recruits "+id):return
+ check(owner.choose_vocal("cast_nina").get("ok",false) and owner.confirm_lineup().get("ok",false),"real six-person lead and lineup")
+ var full_name: String="THE MIDNIGHT ÉCHO 東京 COLLECTIVE"
+ if not check(owner.start_naming() and owner.submit_name(full_name,"Raw").get("ok",false) and owner.lock_name().get("ok",false) and owner.start_identity(),"real long Unicode naming route"):return
+ scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate();scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=true;root.add_child(scene);await settle()
+ var saved: Dictionary=owner.snapshot()
+ for kind in Style.LAYOUTS:
+  if not await tap("IdentityLayout_"+kind):return
+  var mark: Label=scene.find_child("IdentityLiveMark",true,false)
+  check(mark!=null and mark.full_name==full_name and Style.layout_kind(mark.identity_style)==kind,"live Unicode mark "+kind)
+  check(owner.snapshot()==saved,"preview is free "+kind)
+  if kind in ["stacked","cutout","xerox"]:
+   await reveal(mark);await capture("logo-"+kind)
+ await tap("IdentityLayout_stencil")
+ var draft: Dictionary=scene.identity_draft.duplicate(true)
+ var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
+ var blocker: String=ProjectSettings.globalize_path(Owner.SAVE_PATH+".identity-tmp")
+ check(DirAccess.make_dir_recursive_absolute(blocker)==OK,"block actual identity save")
+ await tap("IdentityFinishAction")
+ check(owner.snapshot()==saved and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk and scene.identity_draft==draft,"failed identity save retains complete old owner and local mark")
+ check(DirAccess.remove_absolute(blocker)==OK,"remove isolated identity blocker")
+ await tap("IdentityFinishAction")
+ check(owner.identity_complete and owner.game.roster.size()==6 and Style.layout_kind(owner.identity_style)=="stencil","real logo commit retains six people and direction")
+ var restored=Owner.new()
+ check(restored.load_draft() and restored.snapshot()==owner.snapshot(),"strict new logo and six-person reload")
+ await capture("six-formed")
+ check(owner.start_playing(),"real six-person start")
