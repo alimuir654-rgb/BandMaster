@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "AUDIO41",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "fbd1568747af59b5f2630f343e7ab90c2c3a4d74",
+  "owner_request": "Owner cleared older Dropbox files and may need to reupload. Audit current local/Dropbox sources and retained archive first, then identify exact necessary replacements without asking for files already retained.",
+  "dominant_issue": "BM-13",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2160769,
+    "sha256": "4f65b4ca2ac6eb7f2c874d04394f99997bf9ba9cb7e78dff28bcb45fe768340d"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Unchanged source/art reference previously opened in this thread; this is a read-only missing-source inventory, with no UI/engine work."
+  },
+  "controlled_comparison": "Read-only live Dropbox folder listings/search and metadata versus retained local originals/known source SHA/old archive SHA/ZIP inventory. No engine/export or production saves.",
+  "hypothesis": "A retained recorded-audio ZIP can recover part of the old private bank. Current source scripts and registry plus live listings identify a smaller exact missing source set.",
+  "stop_condition": "No Dropbox mutation/restore/sharing, no stale archive code applied, no private mediaGit/key/app/V23 edits, no new APK. Never call absent original bytes recoverable just from source code.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Check current retained local original and derivative bank inventories",
+    "Exhaust current /audio files and /BandMaster listings, targeted source searches; read archive metadata",
+    "Download selected private archive once, verify known SHA and Dropbox block content hash/ZIP CRC; inventory only, never apply old code",
+    "Report exact missing legacy source names/required stems versus retained new songs/crowds; scoped record gate"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-audio41",
+    "persistent_budget_bytes": 134217728,
+    "engine_runs": false,
+    "no_APK": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T18:12:23.494638+00:00"
+}
