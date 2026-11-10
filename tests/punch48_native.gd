@@ -58,6 +58,7 @@ func run() -> void:
  restored=null
  await capture("formed-cutout")
  scene.free();scene=null;await settle()
+ await six_person_proof()
  await glyph_proofs()
  await finish()
 
@@ -78,3 +79,21 @@ func glyph_proofs() -> void:
    check(composition!=null,"Unicode cutout keeps shaped non-ASCII words")
   mark.free()
  Mark=null
+
+func six_person_proof() -> void:
+ owner=Owner.new()
+ check(owner.begin_new() and owner.set_genre("Indie rock") and owner.to_recruit(),"six-person current poster fixture")
+ for id in ["cast_tom","cast_ben","cast_dan","cast_ellis","cast_nina","cast_jack"]:
+  check(owner.recruit(id).get("ok",false),"six-person real recruit "+id)
+ check(owner.choose_vocal("cast_nina").get("ok",false) and owner.confirm_lineup().get("ok",false),"six-person actual lead")
+ var full_name: String="THE MIDNIGHT ÉCHO 東京 COLLECTIVE"
+ check(owner.start_naming() and owner.submit_name(full_name,"Raw").get("ok",false) and owner.lock_name().get("ok",false) and owner.start_identity(),"six-person Unicode naming")
+ check(owner.finish_identity(Style.with_layout(Style.defaults(),"stencil")).get("ok",false),"six-person actual stencil save")
+ scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate()
+ scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=true;root.add_child(scene);await settle()
+ var press=scene.find_child("CompletedBandPrint",true,false)
+ check(press!=null and press.member_ids.size()==6,"all six selected full figures retained")
+ var mark: Label=scene.find_child("IdentityLiveMark",true,false)
+ check(mark!=null and mark.full_name==full_name,"six-person full Unicode identity retained")
+ await capture("six-formed")
+ scene.free();scene=null;await settle()
