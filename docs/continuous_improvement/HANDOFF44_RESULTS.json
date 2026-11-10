@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "session": "HANDOFF44",
+  "completed_at": "2026-11-10T20:11:08.368826+00:00",
+  "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+  "status": "exact_public_request_uploaded_and_source_confirmed_on_GitHub",
+  "owner_approved": false,
+  "request_sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+  "request_bytes": 7781,
+  "dropbox": {
+    "content_hash": "301a5e7f8ace7fdcaba99a9cf9769787cb7bb97e8b53575a94fc25ab6ec87151",
+    "path": "ns:13916460209//BandMaster/BandMaster-V24-APK-v2-signing-request.json",
+    "path_display": "/BandMaster/BandMaster-V24-APK-v2-signing-request.json",
+    "id": "id:6rRaLzqs6O4AAAAAAAAAsw",
+    "size": 7781,
+    "rev": "0165ff1a738a287000000033d7c54b1",
+    "sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "bytes": 7781,
+    "dropbox_content_hash_verified": true
+  },
+  "github_request": {
+    "encoding": "utf-8",
+    "blob_sha": "240b5d616b9887f5ed7289fa37a4a74a8091a4a8",
+    "display_url": "https://github.com/alimuir654-rgb/BandMaster/blob/1d7c661c25810c20434d6ae38d41c442a157ed67/docs/signing/BandMaster-V24-APK-v2-signing-request.json",
+    "bytes": 7781,
+    "sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b"
+  },
+  "source_commit": {
+    "sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "html_url": "https://github.com/alimuir654-rgb/BandMaster/commit/462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "connector_fetch_commit_success": true,
+    "remote_feature_branch_contains_source": true,
+    "remote_compare_status": "ahead",
+    "remote_compare_ahead_by_at_check": 1,
+    "remote_compare_behind_by": 0,
+    "merge_base_commit": "462b68ad7211a639bea204a6ab0d94f4fd942875"
+  },
+  "checks": {
+    "local_public_request_valid": true,
+    "Dropbox_uploaded_completed": true,
+    "Dropbox_raw_download_SHA_and_block_hash_match": true,
+    "GitHub_request_exact_bytes_match": true,
+    "GitHub_exact_source_retrieved": true,
+    "GitHub_feature_ancestry_verified": true,
+    "frozen_V23_request_policy_unchanged": true
+  },
+  "changes": "Existing audited public request uploaded to exact owner-confirmed Dropbox destination; source was already pushed and verified independently. Documentation receipt only; no request/source/policy/APK rebuild, signing, key access, media upload, sharing change or main/PR mutation.",
+  "images_opened": [],
+  "visual_verdict": "partial; unchanged BUILD43 native evidence reused, no rendering/UI changes or fresh captures",
+  "simulated_review_lenses": {
+    "release": "SIMULATED: actual exact source commit and reachable feature branch confirmed through GitHub connector; distinguish APK source from later receipt docs.",
+    "provenance": "SIMULATED: exact7781bytes and auditedSHA agree locally, rawDropboxdownload andGitHubfile.",
+    "privacy": "SIMULATED: uploadedpublicJSONonly; no music/APK/privatekey orsharinggrant changes.",
+    "signing": "SIMULATED: originalcertificate/request/source unchanged; no signature here; same originalenvironment must sign.",
+    "continuity": "SIMULATED: exactDropboxpath/fileID/revision andpubliccommits retained; no repeatedaudio request or unsignedinstall claim."
+  },
+  "private_evidence_root": "/workspace/bandmaster-handoff44",
+  "next_action": "Original signing environment retrieves the now-uploaded exact V24 request, verifies SHA8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b and source462b68ad7211a639bea204a6ab0d94f4fd942875, then signs with its existing original key and returns only V24 signature JSON."
+}

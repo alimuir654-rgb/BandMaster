@@ -35,6 +35,12 @@ Read `../continuous_improvement/BUILD43_RESULTS.json` for the audit and retained
 | Version | `24` / `0.154.0-playtest-crowd-vocals` |
 | App / save | `com.bandmaster.ownerplaytest.s40` / `BandMasterOwnerPlaytestS40` |
 
+The exact 7,781-byte request is now uploaded to Dropbox
+`/BandMaster/BandMaster-V24-APK-v2-signing-request.json`. Raw download SHA-256
+and Dropbox content hash match the audited local request. The exact packaged
+source commit above and the request are verified available on GitHub on
+`feature/playtest-polish-v20`. See `../continuous_improvement/HANDOFF44_RESULTS.json`.
+
 **Only needed from the original signing environment:** update its source checkout to
 this feature branch, check the exact request hash below, sign with its existing
 original key, and return the small `BandMaster-V24-signature-response.json`.

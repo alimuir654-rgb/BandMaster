@@ -7,7 +7,18 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — BUILD43 / V24 signing handoff
+## Latest handoff — HANDOFF44 remote delivery verified
+
+The exact V24 public request is uploaded to Dropbox
+`/BandMaster/BandMaster-V24-APK-v2-signing-request.json` (7,781bytes). Rawdownload
+SHA`8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b` matches local/GitHubbytes.
+Exactpackagedsource `462b68ad7211a639bea204a6ab0d94f4fd942875` is already onGitHub
+and verified reachable from `feature/playtest-polish-v20`.
+Read `docs/continuous_improvement/HANDOFF44_RESULTS.json`. No rebuilding,
+newrequest, keytransfer, privateaudio upload orsharingchange. Originalsigningtask
+can retrieve/check this request and return the matching signature. Writerreleased.
+
+## Previous continuation — BUILD43 / V24 signing handoff
 
 All audio is restored and the new combined **unsigned V24 APK is built and audited**.
 No more audio uploads are needed. Packaged source `462b68ad7211a639bea204a6ab0d94f4fd942875`;

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/BUILD43.json",
+  "session": "docs/continuous_improvement/sessions/HANDOFF44.json",
   "scope": "Complete restored audio and exact compiled unsigned V24 verified; new bound detached request ready for original key environment.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "unsigned_V24_verified_new_request_ready_original_signature_pending",
-  "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK.",
+  "status": "V24_request_uploaded_Dropbox_and_exact_source_verified_GitHub_signature_pending",
+  "next_action": "Original signing environment retrieves the now-uploaded exact V24 request, verifies SHA8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b and source462b68ad7211a639bea204a6ab0d94f4fd942875, then signs with its existing original key and returns only V24 signature JSON.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7869,5 +7869,13 @@
     "media_publication": false,
     "original_key_signature_pending": true,
     "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK."
+  },
+  "handoff44": {
+    "report": "docs/continuous_improvement/HANDOFF44_RESULTS.json",
+    "source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "Dropbox_path": "/BandMaster/BandMaster-V24-APK-v2-signing-request.json",
+    "request_sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "bytes": 7781,
+    "exact_remote_readbacks_pass": true
   }
 }
