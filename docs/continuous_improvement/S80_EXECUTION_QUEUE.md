@@ -6,6 +6,21 @@ Retained S123/S116 delivery history (superseded by current S126 source below): `
 
 Retained S115 partial baseline: actual menus to DAY5, no completed show; it proved missing public due-day calendar access. That gap is now repaired and the full loop verified by S116. Original held runs and closeout remain /workspace/work/s115-first-career-loop-20261104/closeout.json; no failed proof was promoted.
 
+## Current owner feedback — FEEDBACK47 (10 November 2026)
+
+Root is the sole implementation/review writer; no helper delegation this pass.
+Source-only work, no APK. Owner still testing; these rows extend the existing worklist.
+
+| ID | Player task | Current disposition |
+|---|---|---|
+| UX10 | Form a distinctive band, choose its mark and enter the main activities | Implemented: varied stature/existing room; six live type/layout directions; British copy/semantic icons. Four native sizes and long Unicode/six-member save/retry proof. Owner visual review pending. |
+| UX11 | Scroll all venues, meet their promoter, then return | Fixed card-to-scroll touch propagation/deadzone; deepest touch/wheel/selection verified. Mo Farrow/Jules Okafor/Ray Malik have portraits and authored introductions. Original eligibility/terms/economy retained. |
+| UX12 | Talk with musicians and see their actual reply | 18 character openings/reply leads; saved exchange visible immediately. Failed write rollback, retry, once-only, strict reload and existing promises model pass. Owner engagement review pending. |
+| AU02 | Hear every Indie candidate and matched audition response | PARTIAL: 17/18 independent ideas, including two new Tom cuts. Nina Last Bus Gone candidates prepared; audible fit unverified/not integrated. Arjun adjusted responses still written-only; original SFZ recovery CONNECT403. Other genres need matching sources. `docs/audio/AUDITION47_STATUS.json`. |
+
+Evidence: `docs/continuous_improvement/FEEDBACK47_RESULTS.json`; current UI/Tom
+scope closed, audio holds explicit, root released. Next review Nina's prepared cuts.
+
 ## Ownership and work in progress
 
 | Role | Existing helper or owner | Owns | Limit |

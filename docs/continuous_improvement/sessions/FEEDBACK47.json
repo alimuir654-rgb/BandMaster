@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "FEEDBACK47",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "b942f31da45d228b3253aad7302c6c6a60d422e6",
   "owner_request": "Implement first V24 ownerfeedbackbatch: completeauditionaudio coverage, strongerformedbandcomposition/variedheights/background/edge, betterlogogenerator, BritishEnglish/mainicons, fixvenuescroll, multiplecharacterfulpromoters andengagingmusicianinteractions. Ownerstilltesting; keepnewissuesopen andno speculativeAPKbuild.",
@@ -29,8 +29,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2193970,
-    "sha256": "ef74a2bfe06e086c199985eae666571b8dbe7fdd683d8008d33c1428b98ca669"
+    "bytes": 2195447,
+    "sha256": "69e2814ff6c5376787a75428a98d2e134562ff1e10b8ff67321410e07474649e"
   },
   "target": {
     "locator": "OwnerinlineV24MUNCHformedband +Day1home captures; unchanged existingart/identity/next32_cast_03.png andArt/Backgrounds/indie/formation.webp inspected",
@@ -96,7 +96,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T21:17:51.735379+00:00"
+  "started_at": "2026-11-10T21:17:51.735379+00:00",
+  "closed_at": "2026-11-10T22:06:14.726111+00:00",
+  "closeout": {
+    "tested_sha": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
+    "evidence": "docs/continuous_improvement/FEEDBACK47_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Review the prepared Last Bus Gone quiet lead and harmony candidates for Nina before assigning her source; retain the separately documented Arjun source-access hold.",
+    "new_issue_review": "All appended FEEDBACK47 findings reviewed; failed native/audit/import history retained, source/Nina/non-Indie audio holds remain explicit."
+  }
 }

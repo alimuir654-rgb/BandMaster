@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "scope": "Indie rock audition ideas; other genres remain unsupported, never relabel Indie as another style",
+  "canonical_candidates": [
+    {
+      "id": "cast_jack",
+      "name": "Jack",
+      "role": "Guitarist",
+      "materials": [
+        "cast_jack_indie29_1",
+        "cast_jack_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_maya",
+      "name": "Maya",
+      "role": "Singer",
+      "materials": [
+        "cast_maya_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_ellis",
+      "name": "Ellis",
+      "role": "Drummer",
+      "materials": [
+        "cast_ellis_indie29_1",
+        "cast_ellis_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_zoe",
+      "name": "Zoe",
+      "role": "Bassist",
+      "materials": [
+        "cast_zoe_indie29_1",
+        "cast_zoe_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_dan",
+      "name": "Dan",
+      "role": "Keyboardist",
+      "materials": [
+        "cast_dan_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_ryan",
+      "name": "Ryan",
+      "role": "Guitarist",
+      "materials": [
+        "cast_ryan_indie29_1",
+        "cast_ryan_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_lily",
+      "name": "Lily",
+      "role": "Singer",
+      "materials": [
+        "cast_lily_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_marcus",
+      "name": "Marcus",
+      "role": "Drummer",
+      "materials": [
+        "cast_marcus_indie29_1",
+        "cast_marcus_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_ben",
+      "name": "Ben",
+      "role": "Bassist",
+      "materials": [
+        "cast_ben_indie29_1",
+        "cast_ben_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_freya",
+      "name": "Freya",
+      "role": "Keyboardist",
+      "materials": [
+        "cast_freya_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_arjun",
+      "name": "Arjun",
+      "role": "Guitarist",
+      "materials": [
+        "cast_arjun_indie29_1",
+        "cast_arjun_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_nina",
+      "name": "Nina",
+      "role": "Singer",
+      "materials": [],
+      "status": "Last Bus Gone candidate only; listening fit held"
+    },
+    {
+      "id": "cast_tom",
+      "name": "Tom",
+      "role": "Guitarist",
+      "materials": [
+        "cast_tom_audition47_1",
+        "cast_tom_audition47_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_casey",
+      "name": "Casey",
+      "role": "Drummer",
+      "materials": [
+        "cast_casey_indie29_1",
+        "cast_casey_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_hannah",
+      "name": "Hannah",
+      "role": "Bassist",
+      "materials": [
+        "cast_hannah_indie29_1",
+        "cast_hannah_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_oscar",
+      "name": "Oscar",
+      "role": "Keyboardist",
+      "materials": [
+        "cast_oscar_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_bex",
+      "name": "Bex",
+      "role": "Guitarist",
+      "materials": [
+        "cast_bex_indie29_1",
+        "cast_bex_indie29_2"
+      ],
+      "status": "independent_recorded_ideas"
+    },
+    {
+      "id": "cast_sam",
+      "name": "Sam",
+      "role": "Singer",
+      "materials": [
+        "cast_sam_indie39_01"
+      ],
+      "status": "independent_recorded_ideas"
+    }
+  ],
+  "available_candidates": 17,
+  "total_candidates": 18,
+  "decoded_materials": 28,
+  "private_audio": true,
+  "listening_verified": false,
+  "Nina_assessment": {
+    "canonical_profile": "Nina,22,Newcastle. Dependable first-band/open-mic singer: warmth, patience and harmony; quiet stage presence, lyrics still developing.",
+    "editorial_recommendation": "Nina is the first candidate to test for this song. Prefer a quiet lead phrase and a separate harmony example if the actual performance fits. Assignment is provisional; no audible timbre, lyric or style verdict is claimed.",
+    "source": "Owner-restored Last Bus Gone lead and backing-vocal stems;177.16s,48kHz,stereo PCM16",
+    "source_sha256": [
+      "1892ece982dcc23b33abccfaf5acf9b734d041ff851a6883675734d845931ea6",
+      "a9f4fc53ca671dbcc117c99a4085cb9e9c76347f7faff5a9d96a81fba4a45193"
+    ],
+    "review_excerpts": [
+      {
+        "filename": "Last-Bus-Gone-quiet-verse.mp3",
+        "source_start_frame": 432000,
+        "frames": 388800,
+        "sha256": "0f3e81ec4b452a9da47372f8345f54e471785f803415e958da4c1964fc2a78bc"
+      },
+      {
+        "filename": "Last-Bus-Gone-later-verse.mp3",
+        "source_start_frame": 2932800,
+        "frames": 288000,
+        "sha256": "df83426391eb3bba6ed1f1e9e110e919763d912f5271b87bc0f34b5eb0c99ee4"
+      },
+      {
+        "filename": "Last-Bus-Gone-chorus-comparison.mp3",
+        "source_start_frame": 1454400,
+        "frames": 417600,
+        "sha256": "b0b9f5f396def1021cba5f9fdbd427e126ce2f6e00379163496b85844cf67d2c"
+      },
+      {
+        "filename": "Last-Bus-Gone-harmony.mp3",
+        "source_start_frame": 2990400,
+        "frames": 345600,
+        "sha256": "56f8d4b41e661e42b1b25f036f9ebc22aa7d89cfcb27ee804b32c5ac480aef18"
+      }
+    ],
+    "game_integration": false,
+    "why_held": "Current tools can inspect/prepare/decode stems but cannot provide a truthful listening judgement of Nina fit. Owner source assignment was uncertain; no existing Maya/Lily/Sam bank or approval is reused for Nina.",
+    "future_reuse": "Keep exact original vocal take across harmonically verified arrangements; use short verse/harmony passages without pitch/voice identity substitution. No claim that arbitrary backing is compatible."
+  },
+  "Tom": {
+    "status": "Two distinct unused G\u2013D\u2013Em\u2013C guitar phrases prepared and available through unchanged private character manifest",
+    "source_hooks": [
+      "indie29_guitar90_05",
+      "indie29_guitar90_06"
+    ],
+    "source_start_frames": [
+      4838640,
+      5842320
+    ],
+    "frames_each": 422752,
+    "owner_listening_accepted": false,
+    "original20_character_clips_unchanged": true
+  },
+  "Arjun": {
+    "original_and_independent_ideas": "available",
+    "adjusted_responses": "written-only",
+    "remaining": "Render real matching D/G/A/D response scores for space-for-voice and own-idea; do not substitute a Suno phrase or gated original",
+    "source_recovery": "Original pinned CC0 SFZ multisample source absent locally. api.github.com source-tree request returned CONNECT403; no source/dependency acquired or network bypass."
+  },
+  "remaining_audio_work": [
+    "Listen to the prepared Last Bus Gone candidates and establish Nina suitability before assignment",
+    "Recover the original CC0 instrument and render/listen to the two score-matching Arjun responses",
+    "Other-genre audition banks require matching approved sources; Indie clips remain gated to Indie rock"
+  ],
+  "new_APK": false,
+  "source_audio_publication": false
+}

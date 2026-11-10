@@ -7,7 +7,42 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — DELIVER46 / Android parts delivered
+## Latest continuation — FEEDBACK47 / V24 feedback source ready; audio partial
+
+The owner has begun testing V24 and reported audition gaps, flat/equal-height
+formation, weak logos/main icons, broken venue scrolling, generic promoters and
+unengaging musician interactions. The UI/Tom source pass is implemented on this
+branch; **no new APK**. Read `docs/continuous_improvement/FEEDBACK47_RESULTS.json`
+and `docs/audio/AUDITION47_STATUS.json`. Actual runtime source
+`6c92d33390f0b6348e4571b3ae0d9bcb8459a148`; later commits add focused harness/docs only.
+
+Four real native whole journeys pass468checks, persistent home controls80,
+recorded-idea lifecycle160 and existing band-stories model74. Clean imports and
+all1147materialized file hashes verified.56final journey PNGs plus8focused home
+PNGs retained;21original files opened. Technical/native proof is not listening,
+physical Android or owner artwork acceptance. Failed/held history is retained.
+
+Formation uses the existing rehearsal-room backdrop and varied authored visual
+stature without changing canonical cast or source imagery. Six live logo
+presets, semantic icons/British copy, touch-over-card venue scrolling, three
+named pictured promoters and immediate saved musician replies are implemented.
+No owner/economy/save/meter changes. Audio/APK/archives remain private.
+
+**Audio remains incomplete:** Tom now has two unused restored guitar phrases;
+17/18 Indie candidates have independent recorded ideas. Four `Last Bus Gone`
+review MP3s are at `/workspace/bandmaster-feedback47/review-audio/`; Nina is the
+provisional editorial candidate, with actual listening fit unverified and no
+integration/borrowed approval. Arjun has original/independent ideas but adjusted
+responses stay written-only: the original CC0 SFZ source is absent and its
+pinned GitHub API retrieval returned CONNECT403. No bypass/new dependency used.
+Other genres still lack matching banks; do not relabel Indie audio.
+
+Owner is still testing; keep future findings open. Next review Nina's prepared
+quiet lead/harmony candidates. V23 and delivered V24 APK/request remain unchanged.
+A future build needs **version>24 and a fresh request**, same app/save/certificate,
+original key in its original environment only. Writer released; owner_approved=false.
+
+## Previous continuation — DELIVER46 / Android parts delivered
 
 Owner could not use the local APK link and explicitly requested split/alternate
 delivery; confirmed Android phone. All ten standard 7z transport volumes

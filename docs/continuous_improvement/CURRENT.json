@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/DELIVER46.json",
-  "scope": "Exact signed V24 delivered as ten standard Android-readable archive parts in existing private Dropbox; complete part hashes/native extraction verified.",
+  "session": "docs/continuous_improvement/sessions/FEEDBACK47.json",
+  "scope": "First V24 feedback UI and Tom source implemented and natively verified. Audition audio remains partial: Nina listening, Arjun scored responses and non-Indie styles.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,18 +10,18 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "all_ten_Android_archive_parts_privately_delivered_hash_verified",
-  "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage.",
+  "status": "FEEDBACK47_UI_ready_audio_partial_no_new_APK",
+  "next_action": "Review the prepared Last Bus Gone quiet lead and harmony candidates for Nina before assigning her source; retain the separately documented Arjun source-access hold.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
-    "tested_sha": "59a3bbc654706eeaac81cdca141a6d127e587495",
+    "tested_sha": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
     "source_technical_pass": true,
-    "scoped_visual": "CLEAR_FOR_REVIEWED_NATIVE_STATES",
-    "visual_verdict": "partial; owner device/acceptance pending",
+    "scoped_visual": "reviewed_native_states_ready_for_owner",
+    "visual_verdict": "partial; audio gates/owner device acceptance remain",
     "owner_approved": false,
-    "APK_scope": "V22originalcertificateAPKofficiallyverifiedandprivateDropboxdelivered; physicalAndroid/listeningreviewpending.",
-    "evidence": "docs/continuous_improvement/UPDATE24_RESULTS.json"
+    "APK_scope": "No new APK; V24 retained unchanged",
+    "evidence": "docs/continuous_improvement/FEEDBACK47_RESULTS.json"
   },
   "last_polish": {
     "session": "C34",
@@ -7750,7 +7750,7 @@
     "owner_approved": false,
     "writer": null
   },
-  "root_writer_released_at": "2026-11-10T18:34:29.101287+00:00",
+  "root_writer_released_at": "2026-11-10T22:06:14.726111+00:00",
   "next32_closeout": {
     "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
     "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
@@ -7937,5 +7937,19 @@
     "native_exact_APK_extraction_pass": true,
     "owner_approved": false,
     "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage."
+  },
+  "feedback47": {
+    "report": "docs/continuous_improvement/FEEDBACK47_RESULTS.json",
+    "tested_runtime_source_sha": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
+    "whole_journey_native_checks": 468,
+    "focused_home_checks": 80,
+    "audio_checks": 160,
+    "model_checks": 74,
+    "audio_candidates": 17,
+    "total_candidates": 18,
+    "Nina_integrated": false,
+    "Arjun_adjusted": "written-only",
+    "new_APK": false,
+    "owner_approved": false
   }
 }

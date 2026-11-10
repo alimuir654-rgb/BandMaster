@@ -1736,3 +1736,29 @@ Prior500model/416native/10Settings/69metadata/17publicsignerchecks reused withac
 Sole root writer; preflight422e3fc88daa2f54a24a86321e2913f095dca280; testedpackager033d7eb07f0d05bc80eb52812981a47a46c0d62f; APKsource462b68ad7211a639bea204a6ab0d94f4fd942875. Actualstartsession to20:39UTC. OwnerlocalAPKlinkinaccessible; explicit splitroute/Androidauthority. OfficialDebian7zipSHAchecked privatelyextracted tool; firstpathprobeheld/correctedfromactualinventory. Ten standard7zvolumes (9x48MiB +8,798,719bytes) contain oneoriginalsignedV24APK. Nativeallvolumetest/cleanextract SHAa46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66 andsize461783381 exact; originalunchanged. Smallfirst/lastcanaryhashverified; bound2workerupload all10+guide completed, remotecontenthash/size match andcompletefolderreadbackpasses. PrivateDropbox /BandMaster, no sharingchange/publicaudio/APK/archivepublication.
 
 No rebuild/signing/key/request/app/save/cert/frozenV23changes. PriorSIGN45/BUILD43proof reused, no newruntime/listening/physicalAndroid/PNG/artacceptance. FiveexplicitSIMULATEDlenses andallpartidentities in `docs/continuous_improvement/DELIVER46_RESULTS.json`; globalowner_approved=false. One nextaction: On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage. Writerreleased.
+
+
+## FEEDBACK47 — 10 November 2026 — first V24 feedback source pass
+
+Sole root writer. Baseline b942f31da45d228b3253aad7302c6c6a60d422e6;
+committed preflight4626b51c03835699e87443f4045d4cd3af33cd86; actual runtime
+6c92d33390f0b6348e4571b3ae0d9bcb8459a148. Existing room/cast with authored visual
+stature, six saved live logo directions, British home labels/distinct music icons,
+actual venue-card touch scrolling, three original pictured promoters and visible
+saved musician replies. Original owner/economy/save/cast/meter bytes/semantics retained.
+Four native full journeys468checks, focused home80, recorded-idea lifecycle160,
+existing band-stories74;1147materialized hashes/159current runtime leaves verified.
+56final journey PNGs+8focused;21actual original paths opened, five SIMULATED lenses.
+Failed import/gate/harness/audit/source-access history retained, not all attempts PASS.
+Tall-home preview suspicion resolved with byte-identical full PNGs/native bounds;
+no cosmetic product change to hide a tool-display issue.
+
+Audio remains PARTIAL: Tom two distinct unused source phrases now available;
+17/18 Indie people have recorded ideas. Last Bus Gone four short private review cuts
+prepared; Nina tentative/no listening verdict or integration. Arjun matching response
+source absent/API CONNECT403; written-only retained. Non-Indie banks absent.
+No new APK, key/signing/app/save/request change; frozenV23/deliveredV24 hashes exact.
+Owner media stays outside public Git. Global owner_approved=false; source/native
+review only, no physical Android/listening claim. Full record
+`docs/continuous_improvement/FEEDBACK47_RESULTS.json`. Next: review prepared Nina
+quiet lead/harmony cuts before assignment; writer released.

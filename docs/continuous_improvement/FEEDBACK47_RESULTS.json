@@ -1,0 +1,378 @@
+{
+  "schema_version": 1,
+  "session": "FEEDBACK47",
+  "status": "UI_AND_TOM_SOURCE_READY_AUDIO_PARTIAL_NO_NEW_APK",
+  "owner_approved": false,
+  "closed_at": "2026-11-10T22:06:14.726111+00:00",
+  "baseline_sha": "b942f31da45d228b3253aad7302c6c6a60d422e6",
+  "preflight_sha": "4626b51c03835699e87443f4045d4cd3af33cd86",
+  "tested_runtime_source_sha": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
+  "harness_bindings": {
+    "materialized_runtime_source_sha": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
+    "runtime_files_verified_current": 159,
+    "native_harness_commit": "ce22032612905a8a76d7756b86ea275833360d83",
+    "audio_harness_commit": "65e666692d872caa1c7f02952d11c2cc05bdd684",
+    "all_materialized_hashes_match": true,
+    "materialized_files": 1147,
+    "native_harness_sha256": "3f84e87ad50dcb2d6820f32d6e4d5fb633f4353936928d2f0453ffb562ed2c04",
+    "audio_harness_sha256": "bc8bbdf9c8af6608d5e2d387a0781dc5b059262fb1d7e0d13e5fb7b05dfe8a9b",
+    "APK_built": false,
+    "focused_home_harness_commit": "65bf44110e7b872ba3cd232cd9f092c2695d0c6d",
+    "focused_home_harness_sha256": "b73b1ce1847f90e8e7f0dbd60248236378cd790179b74810889d95f7e8e38429"
+  },
+  "improvements": [
+    "Formation uses existing rehearsal-room source and distinct visual stature for all18 canonical cast; common floor and source aspect ratios preserved",
+    "Six live logo directions: straight,stacked,cut-and-paste,stencil,xerox,after-hours; original editable name/Unicode,ink/finish/treatment/save remain",
+    "Compact main activity grid with live band mark, British copy and distinct semantic icons",
+    "Venue cards/grid pass touch to scroll;12px drag threshold; repeated touch reaches bottom and wheel/selection still work",
+    "Three fictional recurring venue contacts with original generated portraits, names and authored introductions; original eligibility/terms/economy unchanged",
+    "18 authored musician openings/reply leads; actual saved reply visible immediately instead of hidden in collapsed history",
+    "Tom receives two unused distinct guitar phrases from restored owner source; original20 character clips and all previous vocal/keys recordings retained"
+  ],
+  "evidence_root": "/workspace/bandmaster-feedback47",
+  "source_manifest": "/workspace/bandmaster-feedback47/final/SOURCE_MANIFEST.json",
+  "assertions": {
+    "matching_baseline_native": 84,
+    "candidate_whole_journey_native": 468,
+    "focused_persistent_home_controls_native": 80,
+    "recorded_idea_audio_lifecycle": 160,
+    "existing_band_stories_model": 74,
+    "new_listening_tests": 0,
+    "physical_Android_tests": 0
+  },
+  "native_runs": [
+    {
+      "baseline": false,
+      "checks": 117,
+      "failures": [],
+      "observations": {
+        "formation_heights": {
+          "cast_ben": 322.113084816718,
+          "cast_bex": 297.094592792119,
+          "cast_casey": 281.458035276744
+        },
+        "later_promoters_fixture": "manual eligible reputation/fans; original day-one locked gates retained",
+        "venue_card_drag": {
+          "events": [
+            "InputEventMouseButton",
+            "InputEventScreenTouch",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseButton",
+            "InputEventScreenTouch"
+          ],
+          "final": 837,
+          "initial": 0,
+          "range": 837.0,
+          "target_filter": 1
+        }
+      },
+      "physical_Android": false,
+      "viewport": "(390, 844)"
+    },
+    {
+      "baseline": false,
+      "checks": 117,
+      "failures": [],
+      "observations": {
+        "formation_heights": {
+          "cast_ben": 360.113320079523,
+          "cast_bex": 332.143353471405,
+          "cast_casey": 314.662124341331
+        },
+        "later_promoters_fixture": "manual eligible reputation/fans; original day-one locked gates retained",
+        "venue_card_drag": {
+          "events": [
+            "InputEventMouseButton",
+            "InputEventScreenTouch",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseButton",
+            "InputEventScreenTouch"
+          ],
+          "final": 244,
+          "initial": 0,
+          "range": 837.0,
+          "target_filter": 1
+        }
+      },
+      "physical_Android": false,
+      "viewport": "(720, 1280)"
+    },
+    {
+      "baseline": false,
+      "checks": 117,
+      "failures": [],
+      "observations": {
+        "formation_heights": {
+          "cast_ben": 398.803180914513,
+          "cast_bex": 367.828176571638,
+          "cast_casey": 348.468798857341
+        },
+        "later_promoters_fixture": "manual eligible reputation/fans; original day-one locked gates retained",
+        "venue_card_drag": {
+          "events": [
+            "InputEventMouseButton",
+            "InputEventScreenTouch",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseButton",
+            "InputEventScreenTouch"
+          ],
+          "final": 304,
+          "initial": 0,
+          "range": 304.0,
+          "target_filter": 1
+        }
+      },
+      "physical_Android": false,
+      "viewport": "(1280, 720)"
+    },
+    {
+      "baseline": false,
+      "checks": 117,
+      "failures": [],
+      "observations": {
+        "formation_heights": {
+          "cast_ben": 398.803180914513,
+          "cast_bex": 367.828176571638,
+          "cast_casey": 348.468798857341
+        },
+        "later_promoters_fixture": "manual eligible reputation/fans; original day-one locked gates retained",
+        "venue_card_drag": {
+          "events": [
+            "InputEventMouseButton",
+            "InputEventScreenTouch",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseMotion",
+            "InputEventScreenDrag",
+            "InputEventMouseButton",
+            "InputEventScreenTouch"
+          ],
+          "final": 270,
+          "initial": 0,
+          "range": 304.0,
+          "target_filter": 1
+        }
+      },
+      "physical_Android": false,
+      "viewport": "(1600, 900)"
+    }
+  ],
+  "final_journey_PNGs": 56,
+  "focused_home_PNGs": 8,
+  "opened_original_PNGs": [
+    {
+      "path": "/workspace/bandmaster-feedback47/baseline-phone-formation.png",
+      "sha256": "6c4492f521da8cf8b795bc2a6783373e7a6332c239ad0e2a4fd0905fd507f30e"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/baseline-phone-home.png",
+      "sha256": "e93690c92b42ad07fdc25c3039830670ab2720fde9ec52545445937f9890b58d"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/candidate-phone-formation.png",
+      "sha256": "c1ba4995490fdea92e147717eb4c68f5de3f317c448ecbf376b696e9fd2269e0"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/candidate-phone-home.png",
+      "sha256": "4807f059ca5cbe35514e2772719b4cc0cc8e2059d57ecee7b2641dd9e557c6bb"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/candidate-phone-promoter-local.png",
+      "sha256": "083deee0d66c44c0eff6f5c68766dfbbff8a82588def9147684919b8acb7e4b9"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/early-land-logo-cutout.png",
+      "sha256": "63ef28ac6f6072e6e191aaa6fe955466d4b992e7b7ece54e435347c0f0147a17"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/early-phone2-chat-saved-reply.png",
+      "sha256": "e9763cbfe8738a8cfb2d97a2cdc5cb0a8597f089ed5a48889b26226ecc649754"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/early-phone2-logo-stacked.png",
+      "sha256": "22baf3352c44c43a4aab28995ddc3f0d13c74aaeb372e1a7b92a378ed4a8789a"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-phone-promoter-cardiff.png",
+      "sha256": "d24f2f0b5da58274df81afcc5bb33ea4fe12e9c0b71168dbda2a1c3db3722ba2"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-land-home.png",
+      "sha256": "6d2382555fb609e8081c438859ba3e27aa21cce1b9d0e66859286bba6b9d6f57"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-wide-formation.png",
+      "sha256": "ee25ad64020ff38675cb4623331afb1b26dad2da10ec2a07cdb007c5f079d40d"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-tall-six-formed.png",
+      "sha256": "ca83bf64806846716cdfb580849cf7a883067be88c7c33a450b50f4fda80942a"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-land-promoter-manchester.png",
+      "sha256": "738288e9f518c296e2cbec4b416d9053d03fb3529686eba4e7fc100b723db913"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/baseline-wide-formation.png",
+      "sha256": "5779697c663b270a145b8d426bbeed618d78c05ddd679fa660689312f2a1fdea"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-wide-logo-xerox.png",
+      "sha256": "e0e419cd066d06694a71874e2d034eecf3acb2c0e97e5915a08f40de7663bec1"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/baseline-tall-home.png",
+      "sha256": "626668a7aa14946e79240e1ada5b96cd63df6ce41dc422421eda9827780ab396"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-tall-home.png",
+      "sha256": "56c4f6d0888f3eb3435b493c123b551f6ea2a24d1412d41eda710e36b703d9d5"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final2-tall-promoter-local.png",
+      "sha256": "ca949315f615de0d59df4da3cd9df9f8a70e4a3220154aff256f5f0f1b1fab3a"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/home-probe-home.png",
+      "sha256": "56c4f6d0888f3eb3435b493c123b551f6ea2a24d1412d41eda710e36b703d9d5"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/home-final-tall-home.png",
+      "sha256": "56c4f6d0888f3eb3435b493c123b551f6ea2a24d1412d41eda710e36b703d9d5"
+    },
+    {
+      "path": "/workspace/bandmaster-feedback47/final-phone-promoter-local.png",
+      "sha256": "de206f9b5e375f0513be65eacfc56d65248ffe11e49ed1e7f2637448da9607eb"
+    }
+  ],
+  "visual_verdict": "partial",
+  "visual_assessment": "Actual selected trio has clear stature variation and a source-backed room; six-person Unicode/stencil formation retains all identities. Distinct icons/copy and live mark improve navigation. New promoter faces and immediate saved replies are readable in reviewed states. Internal source/native review only; owner has not accepted the new artwork. Tall-home clipping suspicion was a preview misread: original/probe/focused PNGs are byte-identical and control bounds pass.",
+  "remaining": [
+    "Nina Last Bus Gone voice/lyric/style suitability requires actual listening; four private review cuts prepared, not integrated",
+    "Arjun two written response takes need faithful performances. Original SFZ instrument absent; exact pinned API retrieval CONNECT403. Original and independent ideas remain available; adjusted response stays written-only",
+    "Non-Indie audition banks remain absent; no Indie audio relabelled as another genre. Optional owner scope question unanswered; retained prior Indie scope for this pass",
+    "Owner is still testing V24; later findings and physical Android comfort/audio remain open"
+  ],
+  "audio_status": "docs/audio/AUDITION47_STATUS.json",
+  "private_audio_review": "/workspace/bandmaster-feedback47/review-audio",
+  "failed_attempt_history": [
+    "Initial sandbox import socket errors retained; clean outer imports subsequently pass",
+    "Incorrect transcribed gate SHA held; corrected git-resolved gate passes",
+    "Early landscape harness tried locked day-one Bristol; corrected explicitly eligible fixture retains original gating",
+    "Early extended harness references at exit; explicit teardown resolves cleanly",
+    "Original Arjun source-tree retrieval CONNECT403; no dependency/source acquisition or bypass",
+    "Deep-scroll followup harness tap before kinetic settle failed and null-dereferenced; held process stopped exactly; stable scroll plus real HOME return then actual room tap passes four viewports",
+    "First focused audio exit0 still reported references; verbose and final explicit decoder-settle run160checks clean",
+    "Ad-hoc audit assumed wrong manifest schema and stopped; complete observed-schema audit now verifies1147files/159current runtime leaves",
+    "Tall-home preview suspected clipping; full original hashes/pixels identical, actual bounded controls verified; no product layout change"
+  ],
+  "protected_and_privacy": {
+    "docs/signing/BandMaster-V23-APK-v2-signing-request.json": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "docs/signing/v23-policy.json": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "docs/signing/BandMaster-V24-APK-v2-signing-request.json": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "signed_V24_APK": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "new_audio_or_APK_in_public_diff": false,
+    "owner_transactions_and_economy_unchanged": true,
+    "app_and_save_identity_unchanged": true,
+    "actual_new_APK": false
+  },
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED owner/art director",
+      "finding": "More place, stronger type and varied stature in selected real cast. Artistic acceptance remains owner-only."
+    },
+    {
+      "lens": "SIMULATED new player",
+      "finding": "Named actions/icons and promoter introductions explain current activity; no pre-choice hidden-stat answer key introduced."
+    },
+    {
+      "lens": "SIMULATED touch/accessibility reviewer",
+      "finding": "Actual ScreenTouch/Drag, deepest room, wheel and subsequent selection verified; home header/pause/nav bounded at four sizes. No claim physical Android."
+    },
+    {
+      "lens": "SIMULATED save/continuity engineer",
+      "finding": "Real chat/identity failed writes roll back memory/disk; retry/strict reload/once-only retained. Original economy/owner model unchanged."
+    },
+    {
+      "lens": "SIMULATED audio/provenance reviewer",
+      "finding": "17distinct candidates/28decoded private clips verified; Nina fit/Arjun adjusted/non-Indie honestly held; owner media never enters public Git."
+    }
+  ],
+  "next_action": "Review the prepared Last Bus Gone quiet lead and harmony candidates for Nina before assigning her source; retain the separately documented Arjun source-access hold.",
+  "writer_released": true,
+  "APK_built": false,
+  "future_build_rule": "Preserve frozen V23 and delivered V24; any later APK needs version code>24,new audited request,unchanged app/save/certificate and original key only in original environment."
+}
