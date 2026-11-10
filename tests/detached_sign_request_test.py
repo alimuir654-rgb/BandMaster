@@ -40,6 +40,43 @@ class SignRequestTests(unittest.TestCase):
     def test_actual_original_v22_signature_known_answer(self):
         self.assertEqual(signer.make_response(self.v22, self.signature), self.response)
 
+    def test_pinned_public_reference_verifies_actual_signature(self):
+        cert, audit = v2.public_reference_certificate()
+        self.assertEqual(cert, signer.validate_public(self.v22)[0])
+        self.assertEqual(audit['reference_mode'], v2.PUBLIC_REFERENCE_MODE)
+        self.assertIs(audit['official_apksigner'], False)
+        self.assertIs(audit['historical_official_apksigner_verified'], True)
+        self.assertIs(audit['original_rsa_signature_verified'], True)
+
+    def test_public_reference_request_tamper_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'changed.json'
+            path.write_bytes((ROOT / 'docs/signing/fixtures/v22-request.json').read_bytes() + b'\n')
+            with self.assertRaisesRegex(ValueError, 'reference files changed'):
+                v2.public_reference_certificate(request_path=path)
+
+    def test_public_reference_signature_tamper_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'changed.json'
+            path.write_text(json.dumps(dict(self.response, signature_base64=v2.b64(bytes(256)))))
+            with self.assertRaisesRegex(ValueError, 'reference files changed'):
+                v2.public_reference_certificate(response_path=path)
+
+    def test_new_reference_mode_preserves_exact_public_proof(self):
+        _cert, audit = v2.public_reference_certificate()
+        value = self.mutated(lambda d: d.update(original_certificate_audit=audit))
+        self.assertEqual(signer.validate_public(value)[0], _cert)
+        value['original_certificate_audit']['historical_official_apksigner_verified'] = False
+        value['request_id'] = v2.request_id(value)
+        with self.assertRaisesRegex(ValueError, 'reference proof changed'):
+            signer.validate_public(value)
+
+    def test_original_signature_still_cannot_sign_new_reference_request(self):
+        _cert, audit = v2.public_reference_certificate()
+        value = self.mutated(lambda d: d.update(original_certificate_audit=audit))
+        with self.assertRaises(InvalidSignature):
+            signer.make_response(value, self.signature)
+
     def test_old_signature_cannot_sign_v23(self):
         with self.assertRaises(InvalidSignature):
             signer.make_response(self.v23, self.signature)

@@ -76,6 +76,24 @@ signed-data bytes with `SHA256withRSA`. Both Java and Python verify the signatur
 There is no key generation/export, no APK access and no network call in this helper.
 Return only the small response JSON. Outputs are exclusive-create, never overwritten.
 
+## Public reference when the old APK is absent
+
+New `prepare` / `assemble` invocations can use `--public-reference` instead of
+`--v16`. This verifies the bundled, separately hash-pinned V22 request and its
+real returned original-key signature. The original certificate/SPKI pin cannot
+change. Every public check recomputes that proof; tampered fixtures or audit
+fields are refused. An old signature cannot authorize the new APK.
+
+This mode records `official_apksigner=false` for the current reference operation
+and explicitly identifies the historical official certificate audit reused from
+the pinned request. It does not claim to have rerun official verification on an
+absent V16 APK. New package/source/compiled-payload/alignment/permission audits
+are still required, and the final assembled APK still needs fresh official
+`apksigner verify`. The original `--v16` path remains supported unchanged.
+
+Later policies may include `branch` to bind the actual feature branch. The frozen
+V23 policy/request remain byte-for-byte unchanged.
+
 Do not sign the JSON, digest text, content digest, or a length-prefixed message.
 Do not pre-hash and then call `SHA256withRSA` (double hashing). The helper does the
 correct single hash internally. Response fields are request ID, signed-data hash,

@@ -46,7 +46,7 @@
   ],
   "validation_commands": [
     "Official same-version Godot export template and Google SDK tool archives with provider digest/size checks, private isolated toolchain/config; no key path fallback",
-    "Existing26publicsigner tests plus strict known-reference tamper/old-signature/new-build separation checks",
+    "Existing allpublicsigner tests plus strict known-reference tamper/old-signature/new-build separation checks",
     "Source closure/hash/clean import and unsignedversion24export; ZIP CRC/alignment/permissions/app/source/media/compiledscript exclusions audit",
     "Actual compiled APK model tests >=91 and actual native mainapp cues/old/new audio on4viewports, originalPNG review; source/native proof honest about testfixture contexts",
     "New exactAPKpolicy and request with public originalcertificate verified knownsignature chain, officialtools finalchecks after response later; frozenV23/privacy/diff/gate"

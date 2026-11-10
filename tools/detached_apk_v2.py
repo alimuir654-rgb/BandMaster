@@ -28,6 +28,10 @@ V17_SIZE = 188672220
 EXPECTED_VERSION = 17
 EXPECTED_INTEGRATED_SOURCE = '65fd1b7db90ce255bea04084d030e5b0055b92b2'
 EXPECTED_GAME_SOURCE = 'a0f5bc331ff2e0884bf69c2417c5555eadec26fc'
+EXPECTED_BRANCH = 'feature/recorded-song-main-app'
+PUBLIC_REFERENCE_MODE = 'pinned_v22_request_and_original_signature'
+PUBLIC_REFERENCE_REQUEST_SHA = 'eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d'
+PUBLIC_REFERENCE_RESPONSE_SHA = '0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27'
 V2_ID = 0x7109871A
 RSA_SHA256 = 0x0103
 MAGIC = b'APK Sig Block 42'
@@ -201,7 +205,36 @@ def run(command):
     return result.stdout + result.stderr
 
 
+def public_reference_certificate(request_path=None, response_path=None):
+    """Verify retained public original-key proof without claiming a fresh APK audit."""
+    root = Path(__file__).resolve().parents[1] / 'docs/signing/fixtures'
+    request_path = request_path or root / 'v22-request.json'
+    response_path = response_path or root / 'v22-response.json'
+    require(sha(request_path.read_bytes()) == PUBLIC_REFERENCE_REQUEST_SHA and
+            sha(response_path.read_bytes()) == PUBLIC_REFERENCE_RESPONSE_SHA,
+            'pinned public reference files changed')
+    from detached_sign_request import read_request
+    value = read_request(request_path, PUBLIC_REFERENCE_REQUEST_SHA)
+    require(value['unsigned_apk']['version_code'] == 22, 'original public V22 reference')
+    certificate = unb64(value['signing']['public_certificate_der_base64'])
+    message = unb64(value['signing']['signed_data_base64'])
+    response = json.loads(response_path.read_text())
+    validate_response(value, response, certificate, message)
+    prior = value['original_certificate_audit']
+    require(prior['official_apksigner'] is True and prior['original_rsa_signature_verified'] is True,
+            'retained original official certificate audit')
+    return certificate, dict(reference_mode=PUBLIC_REFERENCE_MODE,
+        original_certificate_sha256=CERT_SHA, original_rsa_signature_verified=True,
+        official_apksigner=False, historical_official_apksigner_verified=True,
+        historical_certificate_audit_sha256=sha(canonical(prior)),
+        reference_request_sha256=PUBLIC_REFERENCE_REQUEST_SHA,
+        reference_response_sha256=PUBLIC_REFERENCE_RESPONSE_SHA,
+        reference_request_id=value['request_id'], reference_signed_data_sha256=sha(message))
+
+
 def reference_certificate(v16, sdk):
+    if v16 is None:
+        return public_reference_certificate()
     verified = run([sdk / 'apksigner', 'verify', '--verbose', '--print-certs', v16])
     require('Verified using v2 scheme (APK Signature Scheme v2): true' in verified and
             'Number of signers: 1' in verified and 'Signer #1 certificate SHA-256 digest: ' + CERT_SHA in verified,
@@ -304,7 +337,7 @@ def prepare(args):
         verification_record_sha256=sha(args.verification.read_bytes()), package_audit_record_sha256=sha(args.package_audit.read_bytes()))
     value = dict(schema_version=1, request_type='android-apk-v2-detached-rsa-sha256',
         unsigned_apk=dict(filename=args.apk.name, sha256=sha(data), size=len(data), **fields),
-        source_identity=dict(repository='alimuir654-rgb/BandMaster', branch='feature/recorded-song-main-app',
+        source_identity=dict(repository='alimuir654-rgb/BandMaster', branch=EXPECTED_BRANCH,
             integrated_source_commit=EXPECTED_INTEGRATED_SOURCE,
             owner_base_commit='19df671f2946a9a3c675bc879aa4c8a854544e57',
             packaged_game_source_commit=verification['tested_sha'], entry_scene='experiments/playable_flightcase/opening.tscn',
@@ -425,7 +458,10 @@ def main():
     for name in ['prepare', 'assemble']:
         child = sub.add_parser(name)
         child.add_argument('--apk', type=Path, required=True)
-        child.add_argument('--v16', type=Path, required=True)
+        reference = child.add_mutually_exclusive_group(required=True)
+        reference.add_argument('--v16', type=Path, help='Exact original V16 APK for a fresh official reference audit')
+        reference.add_argument('--public-reference', action='store_true',
+                               help='Verify bundled pinned V22 public request/original-key signature; no old APK needed')
         child.add_argument('--sdk', type=Path, required=True, help='Existing Android build-tools directory')
         child.add_argument('--output', type=Path, required=True)
         child.add_argument('--policy', type=Path, help='Locally audited public APK hash/version/source pin for a later build; certificate/app/minSDK cannot change')
@@ -445,15 +481,20 @@ def main():
 
 
 def load_policy(path):
-    global V17_SHA, V17_SIZE, EXPECTED_VERSION, EXPECTED_INTEGRATED_SOURCE, EXPECTED_GAME_SOURCE
+    global V17_SHA, V17_SIZE, EXPECTED_VERSION, EXPECTED_INTEGRATED_SOURCE, EXPECTED_GAME_SOURCE, EXPECTED_BRANCH
     policy = json.loads(path.read_text())
-    require(set(policy) == {'apk_sha256','apk_size','version_code','integrated_source_commit','game_source_commit'}, 'public APK policy fields')
+    fields = {'apk_sha256','apk_size','version_code','integrated_source_commit','game_source_commit'}
+    require(set(policy) in (fields, fields | {'branch'}), 'public APK policy fields')
+    branch = policy.get('branch', 'feature/recorded-song-main-app')
+    require(isinstance(branch, str) and re.fullmatch(r'[A-Za-z0-9_./-]{1,160}', branch) is not None,
+            'public APK policy branch')
     for name in ['apk_sha256','integrated_source_commit','game_source_commit']:
         require(isinstance(policy[name], str) and re.fullmatch('[0-9a-f]{' + ('64' if name == 'apk_sha256' else '40') + '}', policy[name]) is not None, 'policy digest/commit format')
     require(type(policy['version_code']) is int and policy['version_code'] >= 18 and
             type(policy['apk_size']) is int and 0 < policy['apk_size'] < 1024*1024*1024, 'policy version/size')
     V17_SHA=policy['apk_sha256'];V17_SIZE=policy['apk_size'];EXPECTED_VERSION=policy['version_code']
     EXPECTED_INTEGRATED_SOURCE=policy['integrated_source_commit'];EXPECTED_GAME_SOURCE=policy['game_source_commit']
+    EXPECTED_BRANCH=branch
 
 
 if __name__ == '__main__':

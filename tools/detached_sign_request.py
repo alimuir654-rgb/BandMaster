@@ -79,6 +79,11 @@ def validate_public(value):
                'test_harness_excluded']) and audit['abis'] == ['arm64-v8a']
                and audit['permissions'] == [], 'retained package audit is held')
     original = value['original_certificate_audit']
+    if original.get('reference_mode') == v2.PUBLIC_REFERENCE_MODE:
+        reference_cert, reference_audit = v2.public_reference_certificate()
+        v2.require(original == reference_audit and cert == reference_cert,
+                   'pinned original public-reference proof changed')
+        return cert, message
     v2.require(original['original_certificate_sha256'] == v2.CERT_SHA
                and original.get('official_apksigner') is True
                and original.get('original_rsa_signature_verified') is True,
