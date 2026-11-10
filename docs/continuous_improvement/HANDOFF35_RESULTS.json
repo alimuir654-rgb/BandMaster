@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "session": "HANDOFF35",
+  "closed_at": "2026-11-10T00:50:55.943964+00:00",
+  "tested_source_sha": "7adec5d281f0927b030272893ddf4175beb6e095",
+  "preflight_sha": "75ed28c062e32ee3ad66c68b03fc8ee2456e0124",
+  "status": "durable_handoff_and_original_environment_signer_verified_publication_authorized",
+  "owner_approved": false,
+  "visual_verdict": "partial",
+  "files_sha256": {
+    "docs/handover/START_HERE.md": "b9e062d5ed13f2b927e04b0c9d4371eff9e60dee4391bec7fc3d9bae0756e3f8",
+    "docs/signing/BandMaster-V23-APK-v2-signing-request.json": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "docs/signing/README.md": "664624947e703307fc9567a06e67f75b41d15bd84bdfb35d2fbc5f5a5cece086",
+    "docs/signing/fixtures/v22-request.json": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+    "docs/signing/fixtures/v22-response.json": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+    "docs/signing/v23-policy.json": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "tests/detached_apk_v2_test.py": "9b6b61ccbb33ac6e7511504be24fad7d359679e305918968433cf43a935119cf",
+    "tests/detached_sign_request_test.py": "77f3e9002094319c7db10d0529f390392a523e6971647b1c44a5abae1d3b5b79",
+    "tools/BandMasterDetachedSigner.java": "1c81f1cdb01392e406471014b6e0ef0729bd25412518dcd713648af36997f7e7",
+    "tools/detached_sign_request.py": "fd2cc427e99fa678880b2a12e34f215da4c165a768a0b2bc1ba98b2e94d1f614"
+  },
+  "entry_document": "docs/handover/START_HERE.md",
+  "signing_document": "docs/signing/README.md",
+  "signing_state": {
+    "original_private_key_available_here": false,
+    "original_environment_required": true,
+    "new_key_generated": false,
+    "private_key_exported_or_transferred": false,
+    "actual_original_key_operation_here": false,
+    "new_apk_built_or_signed": false,
+    "new_signature_returned": false,
+    "v23_public_request_bytes": 9080,
+    "v23_public_request_sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "v23_unsigned_apk_sha256": "d7e882153afbf47632d230aa3c6a750905b6866d0c9581d1aeeae5d5f6d08aca",
+    "v23_originals_unchanged": true,
+    "v23_includes_crowd34": false,
+    "newer_build_requires_version_above": 23
+  },
+  "tests": {
+    "public_and_java_refusal_tests": 12,
+    "actual_v23_v16_official_tool_known_answer_and_assembly_refusal_tests": 14,
+    "failures": 0,
+    "logs": [
+      "/workspace/bandmaster-handoff35/signer-tests.log",
+      "/workspace/bandmaster-handoff35/assembler-tests.log"
+    ],
+    "new_keys_or_APKs_from_tests": 0,
+    "gates": "One wronglytranscribed preflight ref refused; recordedBM34 and corrected usingactualgitrevparse, then scoped gatepassed.",
+    "game_ui_changed": false,
+    "new_native_or_listening_claim": false
+  },
+  "independent_review": {
+    "agent": "review_current_workbench",
+    "type": "existing read-only AI reviewer, not human",
+    "scope": "Source/helper/notes/frozenpublicrequest hashes and existing logs",
+    "result": "No concrete blocker; actual original-key signing remains unperformed."
+  },
+  "simulated_reviews": [
+    {
+      "lens": "next-chat developer",
+      "type": "SIMULATED",
+      "finding": "Single entry document identifies current source, private asset gaps, blockers and next action."
+    },
+    {
+      "lens": "build engineer",
+      "type": "SIMULATED",
+      "finding": "Exact frozen V23 request/policy are portable; newer source cannot reuse old request; post-V17 testpolicy supported."
+    },
+    {
+      "lens": "signing-key custodian",
+      "type": "SIMULATED",
+      "finding": "Existing key stays local to original environment; certificate checked before key retrieval; no replacement/export."
+    },
+    {
+      "lens": "documentation UX",
+      "type": "SIMULATED",
+      "finding": "Publiccheck/sign/assemble commands and explicit placeholder paths distinguish operator actions from ready assets."
+    },
+    {
+      "lens": "game critic",
+      "type": "SIMULATED",
+      "finding": "Larger coherent batch remains priority; no release or completed-crowd-audio claim from source-only work."
+    }
+  ],
+  "publication": {
+    "authorized_repository": "alimuir654-rgb/BandMaster",
+    "authorized_branch": "feature/playtest-polish-v20",
+    "expected_remote_head": "16c477c588758eaf07418361fcae79b43f147b05",
+    "main_before": "614449ca8ea469a668a7ce85c0ba51a938477411",
+    "mode": "ordinary fastforward push, noforce; expectedheadchecked immediatelybeforepush",
+    "verified_remote_receipt_path": "/workspace/bandmaster-handoff35/publication.json",
+    "no_new_audio_apk_key_binaries_in_publication": true,
+    "note": "Publisher verifies live remote head and connected GitHub file readback after committing this closeout; do not infer a push from a local commit."
+  },
+  "remaining_gaps": [
+    "Actual private-key operation needs original signing environment; no original key configured in this cloud.",
+    "Crowd CDN allowance still absent from actual selected revision1 environment; no actual applause/boo files or listening verification.",
+    "Private music/APKs are workspace/Dropbox assets, not Git attachments; new executor must verify availability."
+  ],
+  "next_action": "New chat reads docs/handover/START_HERE.md, rechecks applied crowd-host access, and finishes genuine crowd audio before a cohesive version>23 build with a new audited detached request; original key stays in original environment."
+}

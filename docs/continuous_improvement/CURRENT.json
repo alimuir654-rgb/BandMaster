@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "HANDOFF35_portable_notes_and_original_key_detached_signing_handoff",
-  "next_action": "Apply the published cdn.freesound.org allowance to the actual running environment, obtain and inspect the two source-cleared crowd recordings, then finish the genuine cheer/boo mix in this combined pass before a new review APK.",
+  "status": "HANDOFF35_portable_notes_signing_helpers_verified_crowd_audio_pending",
+  "next_action": "New chat reads docs/handover/START_HERE.md, rechecks applied crowd-host access, and finishes genuine crowd audio before a cohesive version>23 build with a new audited detached request; original key stays in original environment.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3590,7 +3590,7 @@
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-07T12:19:39.578514+00:00",
-  "last_writer": "root_CROWD34",
+  "last_writer": "root_HANDOFF35",
   "source_write_allowed": false,
   "pending_implementation": null,
   "pending_helpers": [],
@@ -6325,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -7742,7 +7742,7 @@
     "owner_approved": false,
     "writer": null
   },
-  "root_writer_released_at": "2026-11-10T00:37:09.857981+00:00",
+  "root_writer_released_at": "2026-11-10T00:50:55.943964+00:00",
   "next32_closeout": {
     "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
     "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
@@ -7773,5 +7773,15 @@
     "frozen_V23_unchanged": true,
     "reviewer": "review_current_workbench",
     "reviewer_status": "closed_no_scoped_source_or_layout_hold_crowd_audio_incomplete"
+  },
+  "handoff35": {
+    "entry": "docs/handover/START_HERE.md",
+    "signing": "docs/signing/README.md",
+    "record": "docs/continuous_improvement/HANDOFF35_RESULTS.json",
+    "tested_source_sha": "7adec5d281f0927b030272893ddf4175beb6e095",
+    "signing_tests": 26,
+    "original_key_stays_in_original_environment": true,
+    "actual_original_key_signing_here": false,
+    "crowd_audio_complete": false
   }
 }
