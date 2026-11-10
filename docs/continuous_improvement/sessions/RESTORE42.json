@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "RESTORE42",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "9e0baeffec4e72917b8f49541d13e1673c01d7d4",
+  "owner_request": "Owner restored the requested Dropbox audio. Verify and privately recover the existing legacy banks using original preparation scripts, preserving the approved new vocals/crowd, saves/app/key/frozenV23; continue toward the next combined version>23 build.",
+  "dominant_issue": "BM-13",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2162377,
+    "sha256": "7e10a26cb9f17452a951123c9808fa50d1d6a3f5f54b331389e6b7d2f198e36e"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Previously opened unchanged crowd atlas and native journey. Audio-only restoration; no UI/source-art modifications."
+  },
+  "controlled_comparison": "Restored source bytes vs Dropbox content hashes and known archivedSteady hashes; regenerated legacy PCM/frame/tempo vs existing code registry and historical proof. Existing approved INDIE39/crowd37 banks are hash-frozen. Isolated complete-project Godot import/source checks; no production saves.",
+  "hypothesis": "Current restored25files cover19required stems plus references/extras. Exact Dropbox/SHA verification and original preparers reproduce the32legacy foundations, current character/title/formation audio without reassigning/re-generating music.",
+  "stop_condition": "No unrelated restored song integration, no original modification or old v1 relabeling, no private mediaGit, gameplay/economy/app/key/save-schema/frozenV23 edits. Full APK/signing needs a subsequent scoped build preflight and fresh audited request.",
+  "allowed_paths": [
+    "tools/restore_legacy42.py",
+    "tests/restore42*",
+    "tests/recorded_steady_test.gd",
+    "tests/audio_creation*",
+    "tools/build_recorded_owner.py",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Fresh known-folder listing and selected metadata;25currentoriginals, bytes/SHA/Dropbox4MiBcontenthash/PCMclock, knownSteadyhash equality",
+    "Use existing steadyv2/rehearsal/DGAD/indie29/formation preparers; verify32families160WAV plus character/title/formation clips, source and PCM hashes, canonical timings and preserve newbanks",
+    "Godot complete private QA import/legacy-source playback/owner save+rollback+reload and unchanged5184legacyrecipehash;104INDIE39 and60crowdcomponent where changed coverage warrants",
+    "Complete current source materialization version24 without APK; missing referenced assets held, no public audio; improvementgate and frozenV23 checks"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-restore42",
+    "persistent_budget_bytes": 4294967296,
+    "qa_project": "/workspace/bandmaster-crowd36/project",
+    "no_APK_this_session": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T18:23:44.290649+00:00"
+}
