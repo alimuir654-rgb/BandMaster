@@ -1762,3 +1762,29 @@ Owner media stays outside public Git. Global owner_approved=false; source/native
 review only, no physical Android/listening claim. Full record
 `docs/continuous_improvement/FEEDBACK47_RESULTS.json`. Next: review prepared Nina
 quiet lead/harmony cuts before assignment; writer released.
+
+
+## PUNCH48 — stronger formation/logo and centred Make; lossless transfer proof
+
+Owner-directed revision, sole root. Preflight5573e95 (full Git SHA in results),
+baselinefb092e97b910a5bffbd33b5ae2f2d68944cfa94b, exact tested source
+6a58bd3fac5945779776b2a8b0888ed53a3ffd30. Existing scanned ink/rust stock,
+larger brighter native name, retained real selected varied-height figures/room,
+new native cut-paper glyph composition and reproducible saved face/material
+variation. Make prompt/six labels centred. First narrow inset/widowed footer,
+undersized cutout slot and angle-only variation held/corrected before final proof.
+Four exact Godot native layouts284checks,3/6people/Unicode/free draft/real failed
+write rollback/retry/exact reload;24final PNGs,14original paths opened.16unchanged
+native states byte-identical to earlier proof;1141other materialized files and
+original owner/economy/save/cast/meter/signing policies unchanged. Five explicitly
+SIMULATED lenses/overallPARTIAL/ownerfalse; not human/listening/physical Android.
+
+Measured private WAV34,014,892B→FLAC12,915,409B (62.03%smaller), exact complete
+PCM/rate/channels; source retained, no trim/normalise/resample. Existing-FFmpeg
+bounded helper/guide public; actual media private, no upload/share change. Initial
+research tool-schema refusals recorded; official Suno guides read, no direct FLAC
+or tested-phone converter claim. Existing Nina/Arjun/non-Indie audio holds remain.
+No new APK; frozenV23/signedV24/app/save/certificate exact. Original key stays
+original environment; future V25+ needs new audited request. Full record
+`docs/continuous_improvement/PUNCH48_RESULTS.json`. Next owner reviews revised
+native previews. Writer released.

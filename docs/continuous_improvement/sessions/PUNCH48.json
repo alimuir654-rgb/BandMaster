@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "PUNCH48",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "fb092e97b910a5bffbd33b5ae2f2d68944cfa94b",
   "owner_request": "Owner says formation poster improved but still lacks punch; logo work still inadequate; requests centred Make text. Offers another Suno export and asks about compressing large files. FEEDBACK47 technical success remains distinct from owner art acceptance.",
@@ -68,10 +68,18 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "started_at": "2026-11-10T23:11:55.486277+00:00",
   "queue_task": "Existing UX10 formation/branding, owner-requested Make alignment and source transfer advice",
   "reviewer": "root, five explicitly simulated lenses; no delegation/human claim",
-  "Make_alignment": "Centre both the six main activity labels and the What's next prompt; quick buttons/band name already centre. Status day/cash stays in its existing header."
+  "Make_alignment": "Centre both the six main activity labels and the What's next prompt; quick buttons/band name already centre. Status day/cash stays in its existing header.",
+  "closed_at": "2026-11-10T23:28:25.340567+00:00",
+  "closeout": {
+    "tested_sha": "6a58bd3fac5945779776b2a8b0888ed53a3ffd30",
+    "evidence": "docs/continuous_improvement/PUNCH48_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Owner reviews the revised native poster/logo/Make previews; retain existing audition-source/listening holds before any new combined APK.",
+    "new_issue_review": "All appended source/composition/variation and tool-schema findings reviewed; initial art limits corrected, truthful failed history retained. No fake listening, media publication or build."
+  }
 }

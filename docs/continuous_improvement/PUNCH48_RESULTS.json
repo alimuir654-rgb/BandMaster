@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "session": "PUNCH48",
+  "status": "SOURCE_UI_AND_LOSSLESS_TRANSFER_REVIEW_READY_NO_APK",
+  "owner_approved": false,
+  "baseline_sha": "fb092e97b910a5bffbd33b5ae2f2d68944cfa94b",
+  "preflight_sha": "5573e9518ec2865000e8051df31539c287e978d5",
+  "tested_source_sha": "6a58bd3fac5945779776b2a8b0888ed53a3ffd30",
+  "source_binding": {
+    "baseline_source": "fb092e97b910a5bffbd33b5ae2f2d68944cfa94b",
+    "reused_baseline_runtime": "6c92d33390f0b6348e4571b3ae0d9bcb8459a148",
+    "tested_source": "6a58bd3fac5945779776b2a8b0888ed53a3ffd30",
+    "base_files_verified": 1147,
+    "unchanged_files": 1141,
+    "changed_runtime": [
+      {
+        "path": "experiments/playable_flightcase/band_identity_press.gd",
+        "baseline_sha256": "9a8b0cdc28da5be109b3d5e2a3c5a0a5669cd68bf8a783d7f1566773c53f6269",
+        "current_sha256": "62b270df41c19af188555657ac1a2064131faf074325d22516872203318f3717"
+      },
+      {
+        "path": "experiments/playable_flightcase/band_mark.gd",
+        "baseline_sha256": "5fc4042a8300c31339bbd8e6620fd3fc8a199805ffae297877d2ac6a3cf3ba96",
+        "current_sha256": "3a5d267d4c813e2fbffd59331185025c93711d66515f851c552f6691dfe465d6"
+      },
+      {
+        "path": "experiments/playable_flightcase/career_launcher.gd",
+        "baseline_sha256": "ab5484dad4ca4cb20db23dd97c71a7e905068885383f05a329dc8bf7c98e9fb2",
+        "current_sha256": "b1302041bb82a8c3dee78475fe4e7269b87d70dbc49e8b50970a3cfbd93be553"
+      },
+      {
+        "path": "experiments/playable_flightcase/identity_style.gd",
+        "baseline_sha256": "ec32d5205475352da1a7fef127cdde3f1432085fadc293204a1818ae072804a9",
+        "current_sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+      },
+      {
+        "path": "experiments/playable_flightcase/opening_ui.gd",
+        "baseline_sha256": "05a362eb51beba89afc0fb1143b46322e96dd3621cf5d2c80b9094002abe54b8",
+        "current_sha256": "f0a623f6cf8ded1c0b5c22c27564efa0acaef9b08fa3131448e3fc0b4d1cc7e9"
+      },
+      {
+        "path": "experiments/playable_flightcase/poster_home.gd",
+        "baseline_sha256": "ecca3a058266188602558fc21a745f570ff89725a5054eb74c33bc355c030d84",
+        "current_sha256": "02af98398ca67c4d90962d9f2ad93c886eea6d9615dba40e57628aecfb99773f"
+      }
+    ],
+    "additional_tests": {
+      "feedback47_native.gd": "b73b1ce1847f90e8e7f0dbd60248236378cd790179b74810889d95f7e8e38429",
+      "punch48_native.gd": "9636b37fbf96a53f8459b7672492d7d0ae05d0066fc9399e04ad8a4592a6f6eb"
+    }
+  },
+  "evidence_root": "/workspace/bandmaster-punch48",
+  "requested_changes": {
+    "formation": "Existing ink/rust source stock, larger brighter saved live mark, stronger headline/rule, wider retained full-figure room field and short intentional signoff. All cast/visual heights/ground line/aspect preserved.",
+    "logos": "Live individual letter/word pieces on original scanned material; non-ASCII words retain native shaping. Another Cut changes deterministic saved typeface, paper pattern and placement. Actual Type choice reflects generated face. Saved exact variant retained on retry/reload; other styles/name/ink/finish still available. Compact single-line headers preserve their bounded native name rendering.",
+    "Make": "Six primary activity labels and What's next prompt centred. Native buttons, quick actions, icons/type sizes and existing status/navigation preserved.",
+    "audio_transfer": "Original owner WAV retained. Actual lossless FLAC conversion and full decoded PCM/rate/channels verification. Public bounded helper and Suno export guide; no upload or audio-bank change."
+  },
+  "native_import_clean": true,
+  "native_project": "/workspace/bandmaster-punch48/project",
+  "native_final_runs_record": "/workspace/bandmaster-punch48/release-results.json",
+  "baseline_logo_record": "/workspace/bandmaster-punch48/baseline-logo-results.json",
+  "baseline_formation_Make": "Unchanged FEEDBACK47 four-view source/native evidence reused; original matching-source proof separately retained. Four fresh old-source logo captures use same MUNCH/BexBenCasey and viewport/content.",
+  "opened_originals": [
+    {
+      "path": "/workspace/bandmaster-feedback47/candidate-phone-formation.png",
+      "sha256": "c1ba4995490fdea92e147717eb4c68f5de3f317c448ecbf376b696e9fd2269e0"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/early-phone-formation.png",
+      "sha256": "484c22346082b38e2f2697490fc31be632f46d98c40d9bfa934912115cbedb6e"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/early-phone-cutout-first.png",
+      "sha256": "25cc6c26a98300d60da3edb35ed03324d7320d3b3e274ff3e7476702ec64c2a0"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/final-phone-formation.png",
+      "sha256": "955773c7946fe5221529f038ae1dc47b53c5dba11e11cd8cb09fff0b6d3b4dbb"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/final-phone-cutout-first.png",
+      "sha256": "9087f34551a9ef01870cc4669e64ed1a3e73f1978e4872ba086558ebfba8126b"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/verified-phone-make.png",
+      "sha256": "15229210f45eccecf82262d44ecf2fc146d20b3ec530bbe1503cc3df975b8a6e"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/accepted-land-six-formed.png",
+      "sha256": "ef69c1878ff12ba97b07d2e230b35fc382049e19919b64d8afba64006ddeccbe"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/accepted-wide-cutout-second.png",
+      "sha256": "7058cd2b741c0a664dbe985c3c91e9f2313749cbf814222b209033b9b43d5b15"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/accepted-phone-formed-cutout.png",
+      "sha256": "41e0c1431bba3148f88626c72cd9f7b9120aed5520a6ddca9c174a7d80e17d4d"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/accepted-tall-make.png",
+      "sha256": "889a06db791dc87146f7cf67b61af9e35c7eceba2eb685054719f1159cbec6f5"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/baseline-phone-logo.png",
+      "sha256": "e5390549313be09cd0386aca22bb0999cc7fac79f26dc113f6684f384e6c4b56"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/accepted-phone-cutout-first.png",
+      "sha256": "9087f34551a9ef01870cc4669e64ed1a3e73f1978e4872ba086558ebfba8126b"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/release-phone-cutout-second.png",
+      "sha256": "66555847ad039eba94d1d59c7a25429a870cb6b14c0af74431eb1f528aaf41b9"
+    },
+    {
+      "path": "/workspace/bandmaster-punch48/release-land-formed-cutout.png",
+      "sha256": "32f103fef545949287634369fe2c2a9ad7dbf9f6ffab7950648750aad1a521a0"
+    }
+  ],
+  "visual_verdict": "partial",
+  "visual_assessment": "Internal reviewed phone/landscape composition is stronger in contrast and hierarchy. Actual centred Make layout and genuinely different native cutout shapes inspected; source-only review is not owner acceptance. First source-stock inset and undersized cutout slot held and corrected before final proof; first generator angle-only variation replaced structurally.",
+  "compression": {
+    "source_name": "Last Bus Gone (Vocals).wav",
+    "source_sha256": "1892ece982dcc23b33abccfaf5acf9b734d041ff851a6883675734d845931ea6",
+    "output_name": "Last Bus Gone (Vocals).flac",
+    "output_sha256": "045d08349db6ceaef523920b15f4fcb2f676c3ed9beff50f1d983b51a2247861",
+    "source_bytes": 34014892,
+    "FLAC_bytes": 12915409,
+    "saved_percent": 62.03,
+    "decoded_PCM_sha256": "SHA256=a4cbc5075b29402cf3eb1c1a3d809a289a584549baf500ade3ad943e079de376",
+    "decoded_samples_identical": true,
+    "source_retained": true,
+    "rate": "48000",
+    "channels": 2,
+    "processing": "Lossless encoding only; no resampling, trimming, normalising or pitch change"
+  },
+  "compression_guide": "docs/audio/PUNCH48_TRANSFER_GUIDE.md",
+  "research_sources": [
+    "https://help.suno.com/en/articles/8128193",
+    "https://help.suno.com/en/articles/13926081"
+  ],
+  "research_limits": "Studio export article is archived v1; exact newer controls may differ. No direct FLAC export documented. Android converter listing inspected but actual FLAC UI/owner-phone compatibility unverified, not claimed tested.",
+  "technical_holds_retained": [
+    "Firecrawl initial missing objective schema refusals; explicit objective retrieval succeeds. First feedback non-retryable missing valuableSources; not retried. Later search feedback with source/reason succeeds.",
+    "First56-check phone/landscape technical passes did not clear art: source-stock24px inset narrowed figures and widowed footer; fixed explicit8/12px inset and intentional short footer.",
+    "Cutout compact slot shrank actual native letter size; increased only artwork proof slot, native control type retained.",
+    "First saved variation only angle/offset jitter was too slight; final version changes actual saved typeface and material sequence. Interim runs retained separately, not counted as final new passes."
+  ],
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED art director",
+      "finding": "Source-stock contrast, headline scale, wide figure field and live cut-paper composition improve punch. Artistic acceptance remains owner-only."
+    },
+    {
+      "lens": "SIMULATED new player",
+      "finding": "Centred Make labels remain explicit; generator offers visible new designs without inventing band stats or pre-choice outcomes."
+    },
+    {
+      "lens": "SIMULATED layout/touch reviewer",
+      "finding": "Same full-size buttons, icons and fixed navigation; primary text centred. Native3/6-person/Unicode screens reviewed across four sizes, not physical Android."
+    },
+    {
+      "lens": "SIMULATED continuity engineer",
+      "finding": "Real generated version remains free until Apply; filesystem failure retains whole old save/local version; retry/exact typed reload preserves seed/face/name. Unknown malformed variants held."
+    },
+    {
+      "lens": "SIMULATED audio/provenance reviewer",
+      "finding": "One source WAV34,014,892B to FLAC12,915,409B with identical complete PCM; no rate/bit-depth/trim/normalisation changes, no owner media published."
+    }
+  ],
+  "protected": {
+    "owner_models_cast_economy_and_signing_policies_unchanged": true,
+    "all1141_other_materialized_runtime_files_unchanged": true,
+    "V24_signed_APK_unchanged": true,
+    "new_APK": false,
+    "private_media_in_public_diff": false,
+    "new_runtime_dependencies": false,
+    "frozen_V23_requests_unchanged": true
+  },
+  "remaining": [
+    "Owner visual review of this new poster/logo/Make presentation; physical Android not tested here",
+    "Existing Nina listening suitability, Arjun matching response-source recovery and non-Indie audition banks remain open; this task does not clear them",
+    "No new APK. Future V25+ requires a fresh audited request and original signing key only in its original environment; app/save/certificate retained"
+  ],
+  "next_action": "Owner reviews the revised native poster/logo/Make previews; retain existing audition-source/listening holds before any new combined APK.",
+  "writer_released": true,
+  "new_APK": false,
+  "closed_at": "2026-11-10T23:28:25.340567+00:00",
+  "native_final_assertions": 284,
+  "native_final_runs": [
+    {
+      "label": "phone",
+      "exit_code": 0,
+      "errors": [],
+      "markers": [
+        "FEEDBACK47_NATIVE {\"baseline\":false,\"checks\":71,\"failures\":[],\"observations\":{},\"physical_Android\":false,\"viewport\":\"(390, 844)\"}"
+      ]
+    },
+    {
+      "label": "land",
+      "exit_code": 0,
+      "errors": [],
+      "markers": [
+        "FEEDBACK47_NATIVE {\"baseline\":false,\"checks\":71,\"failures\":[],\"observations\":{},\"physical_Android\":false,\"viewport\":\"(1280, 720)\"}"
+      ]
+    },
+    {
+      "label": "tall",
+      "exit_code": 0,
+      "errors": [],
+      "markers": [
+        "FEEDBACK47_NATIVE {\"baseline\":false,\"checks\":71,\"failures\":[],\"observations\":{},\"physical_Android\":false,\"viewport\":\"(720, 1280)\"}"
+      ]
+    },
+    {
+      "label": "wide",
+      "exit_code": 0,
+      "errors": [],
+      "markers": [
+        "FEEDBACK47_NATIVE {\"baseline\":false,\"checks\":71,\"failures\":[],\"observations\":{},\"physical_Android\":false,\"viewport\":\"(1600, 900)\"}"
+      ]
+    }
+  ],
+  "final_original_PNGs": 24,
+  "exact_unchanged_native_states": 16,
+  "unchanged_pixel_receipt": "/workspace/bandmaster-punch48/unchanged-visual-states.json"
+}

@@ -6,7 +6,21 @@ Retained S123/S116 delivery history (superseded by current S126 source below): `
 
 Retained S115 partial baseline: actual menus to DAY5, no completed show; it proved missing public due-day calendar access. That gap is now repaired and the full loop verified by S116. Original held runs and closeout remain /workspace/work/s115-first-career-loop-20261104/closeout.json; no failed proof was promoted.
 
-## Current owner feedback — FEEDBACK47 (10 November 2026)
+## Latest owner revision — PUNCH48 (10 November 2026)
+
+Continues UX10: stronger ink/rust formation composition and real cut-paper live
+logo generation; another version changes saved face/paper/placement. Make prompt
+and all six primary activity labels centred. Four exact native sizes284checks,
+3/6people/Unicode and generated-save failure/retry/reload pass. Initial art holds
+corrected and retained; owner visual review pending, not global approval. No APK.
+
+Source-transfer advice supports AU02: one actual WAV→FLAC is62.03%smaller with
+identical complete decoded PCM. Private source/output retained; helper and guide
+public, no audio-bank integration. Existing Nina/Arjun/non-Indie gaps stay open.
+Read `docs/continuous_improvement/PUNCH48_RESULTS.json` and
+`docs/audio/PUNCH48_TRANSFER_GUIDE.md`. Root released. Next owner reviews previews.
+
+## Previous owner feedback — FEEDBACK47 (10 November 2026)
 
 Root is the sole implementation/review writer; no helper delegation this pass.
 Source-only work, no APK. Owner still testing; these rows extend the existing worklist.

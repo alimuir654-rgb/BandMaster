@@ -7,7 +7,41 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — FEEDBACK47 / V24 feedback source ready; audio partial
+## Latest continuation — PUNCH48 / stronger poster, generated cuts, centred Make
+
+Owner says the formation is better but needs more punch and logo work still
+needs improvement; asks to centre Make text and about smaller Suno exports.
+Source `6a58bd3fac5945779776b2a8b0888ed53a3ffd30` implements stronger existing
+ink/rust stock and larger brighter live name; retained full figures/room; real
+cut-paper native glyph compositions with saved variations changing actual face,
+paper pattern and placement. Type selection reflects the generated face. Make
+prompt and all six primary labels now centre. Original economy/owner/save/cast/
+meters remain unchanged. Source only; **no new APK** or artistic approval.
+
+Read `docs/continuous_improvement/PUNCH48_RESULTS.json`. Four exact native
+viewports pass284checks, including3/6people/long Unicode, free draft generation,
+real write-failure rollback/retry and strict typed generated-version reload.
+24final native PNGs,14original files actually opened across all retained states;
+16unchanged visual states exactly match the pre-variation proof. All1141other
+materialized files unchanged; six runtime leaves plus scoped tests changed.
+Initial stock inset/undersized mark/angle-only variation issues were recorded
+and corrected; technical PASS is not owner acceptance. Sole root writer released.
+
+**Lossless transfer:** actual retained vocal WAV34,014,892bytes→FLAC12,915,409bytes,
+62.03%smaller; complete decoded PCM/rate/channels identical. Original retained.
+`tools/punch48_compress_stems.py` refuses overwrites/unsupported float sources,
+preserves timing and writes verification receipts. See
+`docs/audio/PUNCH48_TRANSFER_GUIDE.md` for MP3-review-first, WAV→FLAC master transfer,
+original offsets and source-provenance rules. No owner audio uploaded publicly.
+Suno's official guides document WAV/MP3 options; no direct FLAC export claimed.
+
+Existing audio holds remain: Nina Last Bus Gone actual listening suitability,
+Arjun matching written-response source recovery, and non-Indie banks. Next owner
+reviews these revised native UI previews; future combined build must be V25+
+with a fresh audited request, same app/save/certificate and original key in its
+original environment. V23 and signed delivered V24 unchanged; owner_approved=false.
+
+## Previous continuation — FEEDBACK47 / V24 feedback source ready; audio partial
 
 The owner has begun testing V24 and reported audition gaps, flat/equal-height
 formation, weak logos/main icons, broken venue scrolling, generic promoters and
