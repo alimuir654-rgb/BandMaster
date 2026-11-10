@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "session": "CROWD34",
+  "status": "source_music_and_visuals_verified_real_crowd_recordings_blocked",
+  "closed_at": "2026-11-10T00:36:33.570218+00:00",
+  "tested_source_sha": "c6f320bba6b6f6399f679daab07c9572fdbd0d55",
+  "baseline_sha": "30f810f7ddd48501fad798330040de896946d727",
+  "preflight_sha": "d484bb06fd024d41fc1bcd747fe86a4bfdd98c20",
+  "owner_approved": false,
+  "visual_verdict": "partial",
+  "source_files_sha256": {
+    "experiments/playable_flightcase/art/crowd34.json": "a4dd27d0f1e39bc0b5a16d4923699a15205f18cc52758aee8d23f9abba0609fd",
+    "experiments/playable_flightcase/art/crowd34.png": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "experiments/playable_flightcase/career_desk.gd": "a122abf5d18a5c39f7e3e70404d850f737863f888b77bc9a333b781eca645d85",
+    "experiments/playable_flightcase/crowd_reaction.gd": "f8e76ec43be80fdd92c69e4cfa3c1f5dd66f4fbb3e62b5b5bde41d96ba918931",
+    "experiments/playable_flightcase/gig_journey_desk.gd": "e8149461a4fa5daee725193f6b72b477c4e2950b5dd00f8ab38d93293e1e31c8",
+    "experiments/playable_flightcase/gig_soundscape.gd": "45c1af761ae13269f483f99d29d25fa1c1d6cc19c911663703a42e1330eb804f",
+    "experiments/playable_flightcase/show_desk.gd": "1f67fef65ede3ef9bdb90523350dbabc751f690e8281eec1d040a8fb8a1a3702",
+    "tests/crowd34_audio_fixture.gd": "71bf7af22c6a4103d4d4f5bafaddaf7bcefdee2818b1993bce4c4a9289654b78",
+    "tests/crowd34_test.gd": "b0cbdf9ef3737510512d00ef43c6257faf3fd0b1037a23c714e3b1cfd079b592",
+    "tests/crowd34_visual.gd": "403aaedc86a20e93bb84c2c9bf62987511ef3bd7691ea6bd445841b049e23f1f"
+  },
+  "implemented": [
+    "Persistent gig presentation owner plays actual pinned version3/4 recorded arrangement after saved transition, including same-phase next-song cursor events.",
+    "Four coherent source-registered warm-pub crowd variants follow current committed room feedback and actual saved final receipt. Illustrative generated atlas; no attendance claim.",
+    "Crowd effect manifest gate and short fade envelope prepared, but no actual crowd recordings integrated. Missing source yields silence.",
+    "Redraw retains active source; mute/focus/window resize/Menu/modal/hidden/held-source interruptions stop without delayed replay. Failed saves do not emit presentation."
+  ],
+  "not_completed": [
+    "Actual cleared applause/boo binaries remain absent. Published network update is not reflected in this running environment.",
+    "No listening test, musical-fit verification, physical Android test or owner artwork acceptance.",
+    "No new APK, signing request, signing key, app ID, push, merge or main edit. Existing V23 request/APK remain exact."
+  ],
+  "provenance": {
+    "music": "Owner-generated paid-plan Suno audio, existing private source/derived banks retained; not human performances. This does not authorize commercial shipping.",
+    "crowd_art": "AI-generated edit referencing exact existing stage image;1536x1024 four-cell atlas with768x512 cells, not independent master images. Owner art acceptance false.",
+    "crowd_recordings": "Exact two CC0-1.0 candidates documented in CROWD33_RESULTS.json; only pages/license verified, binary and listening unavailable."
+  },
+  "network": {
+    "observed_spec_revision": "1",
+    "spec_revision": "1",
+    "observations_current": true,
+    "state": "enforced",
+    "custom_allowed_hosts": [
+      "*.dl.dropboxusercontent.com"
+    ],
+    "cdn_freesound_allowed": false,
+    "fresh_download_result": "outer proxy CONNECT HTTP403; no binary acquired",
+    "live_proxy_policy_revision": "06e84920-f139-4712-8d93-ec906ab14e36",
+    "environment_change_tool_exposed": false
+  },
+  "verification": {
+    "manifest": "/workspace/bandmaster-crowd34/verification.json",
+    "models": 331,
+    "native": 808,
+    "native_runs": 4,
+    "native_final_original_pngs": 76,
+    "early_native_checks_separate": 404,
+    "early_and_final_original_pngs": 114,
+    "source_and_qa_byte_equal": true,
+    "final_errors_or_leaks": false,
+    "driver": "Dummy",
+    "listening": false,
+    "physical_device": false,
+    "early_failed_attempt_retained": "/workspace/bandmaster-crowd34/model.log",
+    "tests": [
+      "crowd34_test.gd30",
+      "next32_gig.gd94",
+      "indie29_test.gd207",
+      "crowd34_visual.gd202 per viewport390x844,720x1280,1280x720,1600x900"
+    ],
+    "actual_native_scope": "Real pointer recruitment/name/look/promoter flow, genuine paid recorded songwriting, original gig/save receipt dispatch;7 primary gig actions. Single-song gig verified natively; same-phase additional-song cursor tested by explicit pure presentation fixture."
+  },
+  "root_opened_originals": [
+    "/workspace/bandmaster-crowd34/early-phone-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/early-phone-night-result.png",
+    "/workspace/bandmaster-crowd34/early-short-after-set.png",
+    "/workspace/bandmaster-crowd34/early-short-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/final-phone-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/final-phone-after-set.png",
+    "/workspace/bandmaster-crowd34/final-tall-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/final-tall-night-result.png",
+    "/workspace/bandmaster-crowd34/final-short-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/final-short-night-result.png",
+    "/workspace/bandmaster-crowd34/final-wide-saved-music-playing.png",
+    "/workspace/bandmaster-crowd34/final-wide-night-result.png"
+  ],
+  "root_source_opened": [
+    "experiments/playable_flightcase/art/crowd34.png",
+    "experiments/playable_flightcase/art/s53_stage.png"
+  ],
+  "independent_review": {
+    "agent": "review_current_workbench",
+    "mode": "read-only existing helper",
+    "early": "Six early phone/short original PNGs and current source; current-vibe/held-source issues closed.",
+    "final": "Exact10 source/QA hashes;4 native logs/331 models; wide3 originals plus phone music/tall result. No scoped P1/P2 source/layout HOLD. Crowd audio requirement remains unfulfilled.",
+    "not_human_review": true
+  },
+  "simulation_reviews": [
+    {
+      "lens": "game critic",
+      "type": "SIMULATED",
+      "finding": "Gig now connects the actual saved song with a consistent audience and earned reactions without new mandatory pages. Genuine crowd sound is still missing."
+    },
+    {
+      "lens": "musician",
+      "type": "SIMULATED",
+      "finding": "Actual supported pinned recorded parts play together. This illustrates the saved arrangement, not newly performed playing or simulated skill accuracy. Listening and crowd/musical fit remain unverified."
+    },
+    {
+      "lens": "UI/UX specialist",
+      "type": "SIMULATED",
+      "finding": "Warm source-consistent pub framing and contained imagery work in the four inspected viewport sizes; existing actions remain reachable. Ordinary scrolling is retained."
+    },
+    {
+      "lens": "accessibility specialist",
+      "type": "SIMULATED",
+      "finding": "Static crowd states and text captions carry the response without requiring sound or animation. Mute/focus/Menu stop audio and do not auto replay; physical assistive technology was not tested."
+    },
+    {
+      "lens": "technical/save reviewer",
+      "type": "SIMULATED",
+      "finding": "Presentation starts only after successful original save. Existing failed-save/held/noop/resume and single financial wrap protections pass; no save model or resolver changes."
+    }
+  ],
+  "frozen_artifacts": [
+    {
+      "path": "/workspace/bandmaster-next32/BandMaster-Playtest-v23-UNSIGNED.apk",
+      "bytes": 438298804,
+      "sha256": "d7e882153afbf47632d230aa3c6a750905b6866d0c9581d1aeeae5d5f6d08aca",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/bandmaster-next32/BandMaster-V23-APK-v2-signing-request.json",
+      "bytes": 9080,
+      "sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+      "unchanged": true
+    }
+  ],
+  "resources": {
+    "declared_persistent_budget_bytes": 268435456,
+    "current_evidence_bytes": 104396009,
+    "one_observed_native_process_rss_kib": 456700,
+    "rss_is_not_peak_measurement": true,
+    "owned_xorg_pid": 17649,
+    "owned_display": ":97",
+    "owned_xorg_stopped": true,
+    "shared_qa_project_reused": true
+  },
+  "next_action": "Apply the published cdn.freesound.org allowance to the actual running environment, obtain and inspect the two source-cleared crowd recordings, then finish the genuine cheer/boo mix in this combined pass before a new review APK."
+}

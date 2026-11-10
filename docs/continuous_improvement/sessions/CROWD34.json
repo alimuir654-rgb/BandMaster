@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CROWD34",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "30f810f7ddd48501fad798330040de896946d727",
   "dominant_issue": "BM-01",
   "lesson_ids": [
@@ -22,8 +22,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2133650,
-    "sha256": "be765228bfb092e313a28a522e072a5b2649c6cf74f6400d4ecb2c12c322d6af"
+    "bytes": 2135382,
+    "sha256": "75fc31f6a857ab6b4dcd2be0cc9765a51f03153133eb036130087739d8a8f536"
   },
   "target": {
     "locator": "/workspace/BandMaster-polish/experiments/playable_flightcase/art/s53_stage.png",
@@ -62,13 +62,22 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "review_task": {
     "queue": "S80CROWD34",
     "reviewer": "review_current_workbench",
     "player_goal": "Hear actual saved arrangement with a coherent small-pub crowd responding to saved play, without extra pages/waits.",
-    "visible_acceptance": "Actualwarmstageframing preserved, restrained coherent reactionvariants, readablecontrols/noextraNext; nofictitiousattendance orroom-scoreboos."
+    "visible_acceptance": "Actualwarmstageframing preserved, restrained coherent reactionvariants, readablecontrols/noextraNext; nofictitiousattendance orroom-scoreboos.",
+    "status": "source_and_native_review_closed_actualFX_asset_gap_open"
   },
-  "started_at": "2026-11-10T00:15:59.717967+00:00"
+  "started_at": "2026-11-10T00:15:59.717967+00:00",
+  "closed_at": "2026-11-10T00:37:09.857981+00:00",
+  "closeout": {
+    "tested_sha": "c6f320bba6b6f6399f679daab07c9572fdbd0d55",
+    "evidence": "docs/continuous_improvement/CROWD34_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Apply the published cdn.freesound.org allowance to the actual running environment, obtain and inspect the two source-cleared crowd recordings, then finish the genuine cheer/boo mix in this combined pass before a new review APK.",
+    "new_issue_review": "Actual asset import and saved intent/source guard corrections verified; real crowd audio access remains held. Retained all initial evidence; no listening/device/owner/art/newAPK claims."
+  }
 }

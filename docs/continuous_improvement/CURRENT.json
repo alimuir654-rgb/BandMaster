@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "session": "docs/continuous_improvement/sessions/CROWD34.json",
-  "scope": "Approved NEXT32 band formation/recruitment/portrait/cue/gig batch verified; one unsignedV23 prepared, original-key signature pending.",
+  "scope": "Owner-authorized gig crowd/music pass implemented and source/native verified; actual applause/boo recording acquisition remains blocked. Frozen V23 handoff deferred, no new APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "CROWD34_gig_music_visual_integration_in_progress_realFX_access_pending",
-  "next_action": "Implement/testactualsaved-songplayback andwarmcrowdreactions; acquireCC0FXonlyifnewhostpolicyreachesactualruntime. No newownerbuild orfrozenV23changes.",
+  "status": "CROWD34_source_music_visuals_verified_real_crowd_FX_access_pending",
+  "next_action": "Apply the published cdn.freesound.org allowance to the actual running environment, obtain and inspect the two source-cleared crowd recordings, then finish the genuine cheer/boo mix in this combined pass before a new review APK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -3590,7 +3590,7 @@
   },
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-07T12:19:39.578514+00:00",
-  "last_writer": "root_CROWD33",
+  "last_writer": "root_CROWD34",
   "source_write_allowed": false,
   "pending_implementation": null,
   "pending_helpers": [],
@@ -6325,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -7742,7 +7742,7 @@
     "owner_approved": false,
     "writer": null
   },
-  "root_writer_released_at": "2026-11-09T23:25:07.576302+00:00",
+  "root_writer_released_at": "2026-11-10T00:37:09.857981+00:00",
   "next32_closeout": {
     "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
     "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
@@ -7760,5 +7760,18 @@
     "runtime_changed": false,
     "asset_access_pending": "cdn.freesound.org",
     "V23_signing_handoff": "deferred by newer owner request for more audio before further testing; exact existing request andAPK retained"
+  },
+  "crowd34": {
+    "record": "docs/continuous_improvement/CROWD34_RESULTS.json",
+    "tested_sha": "c6f320bba6b6f6399f679daab07c9572fdbd0d55",
+    "final_assertions": 1139,
+    "final_native_originals": 76,
+    "visual_verdict": "partial",
+    "owner_approved": false,
+    "actual_crowd_audio_acquired": false,
+    "asset_host_pending": "cdn.freesound.org",
+    "frozen_V23_unchanged": true,
+    "reviewer": "review_current_workbench",
+    "reviewer_status": "closed_no_scoped_source_or_layout_hold_crowd_audio_incomplete"
   }
 }
