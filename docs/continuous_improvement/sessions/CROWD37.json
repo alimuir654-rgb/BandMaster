@@ -29,7 +29,7 @@
     "pixels_inspected": true,
     "note": "Original atlas opened in this thread; this batch changes audio only, no UI/art edits."
   },
-  "controlled_comparison": "Same saved-event presentation owner with new versioned approved recordings; old rejected cue manifest never used. Decode real acquired recording, test at4viewport dimensions, conservative level/length/fade and mute/focus/queued/source interruption/no replay. Existing game/economy/save source unchanged. Minimal attribution in existing scrollable Settings (CC BY4): native four-view captures and focus/toggle/back checks; no new page.",
+  "controlled_comparison": "Same saved-event presentation owner with new versioned approved recordings; old rejected cue manifest never used. Decode real acquired recording, test at4viewport dimensions, conservative level/length/fade and mute/focus/queued/source interruption/no replay. Existing game/economy/save source unchanged. Minimal attribution in existing scrollable Settings (CC BY4): native four-view captures and focus/toggle/back checks; no new page. Materialization must refuse missing/incomplete new crowd bank or version<=23 BEFORE creating any new project. Historical baseline materialization keeps historical rules.",
   "hypothesis": "Four source-distinct approved crowd responses with bound provenance and proper CC BY attribution replace repeated rejected clips. Character-specific singer masters plus coherent keys/stem briefs enable short same-take rearrangements without regenerated voice drift.",
   "stop_condition": "No host denial bypass, fake missing recordings, unapproved boo substitution, new song generation/paid call, invented voice gender/canon, production save/UI/art/key/app/frozenV23 changes or new APK/signing request. Missing host blocks full bank, not independent code/brief/real-file tests.",
   "allowed_paths": [
@@ -42,7 +42,8 @@
     "docs/continuous_improvement/**",
     "docs/asset_base/LEDGER.md",
     "experiments/playable_flightcase/settings_sheet.gd",
-    "experiments/playable_flightcase/audio/crowd37_credits.txt"
+    "experiments/playable_flightcase/audio/crowd37_credits.txt",
+    "tools/build_recorded_owner.py"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CROWD37.json",
