@@ -109,9 +109,9 @@ def prepare(sources, output, allow_partial=False):
     for identity, (path, start, duration, gain, stream) in verified.items():
         row = rows[identity]; cue = row['cue']; target = output / (cue + '.ogg')
         rate = int(stream['sample_rate'])
-        subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-n', '-i', str(path), '-ss', str(start), '-t', str(duration),
+        subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-n', '-i', str(path), '-t', str(duration),
             '-vn', '-ar', str(rate), '-ac', '2', '-af',
-            f'volume={gain:.6f}dB,afade=t=in:d=0.04,afade=t=out:st={duration-0.15}:d=0.15',
+            f'atrim=start={start}:duration={duration},asetpts=PTS-STARTPTS,volume={gain:.6f}dB,afade=t=in:d=0.04,afade=t=out:st={duration-0.15}:d=0.15',
             '-c:a', 'libvorbis', '-q:a', '5', '-map_metadata', '-1', str(target)], check=True)
         manifest['effects'][cue] = {
             'path': PREFIX + target.name, 'sha256': sha(target),

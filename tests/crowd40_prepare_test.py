@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Verify the complete real uploaded bank and the existing release guard."""
 import argparse
+from array import array
 import importlib.util
 import json
+import math
 from pathlib import Path
 import shutil
+import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +18,13 @@ def module(name, relative):
     result = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(result)
     return result
+
+
+def decoded(path):
+    samples = array('f')
+    samples.frombytes(subprocess.check_output(['ffmpeg', '-v', 'error', '-nostdin',
+        '-i', str(path), '-ac', '1', '-ar', '24000', '-f', 'f32le', '-']))
+    return samples
 
 
 if __name__ == '__main__':
@@ -47,6 +57,18 @@ if __name__ == '__main__':
             check(row['sha256'] == crowd.sha(prepared / (cue + '.ogg')))
             rms, peak = crowd.levels(prepared / (cue + '.ogg'), row['duration_seconds'])
             check(rms > -80 and peak <= -2.5)
+            # Independently slice the complete original PCM. This catches a
+            # valid-length file whose fades ran on the wrong source timeline.
+            original_pcm = decoded(args.sources / (identity + '.mp3'))
+            output_pcm = decoded(prepared / (cue + '.ogg'))
+            start = round(row['source_start_seconds'] * 24000)
+            low, high = 4800, round((row['duration_seconds'] - 0.3) * 24000)
+            expected_pcm = original_pcm[start + low:start + high]
+            actual_pcm = output_pcm[low:high]
+            check(len(expected_pcm) == len(actual_pcm) and len(actual_pcm) > 0)
+            norm = math.sqrt(sum(x*x for x in expected_pcm) * sum(x*x for x in actual_pcm))
+            correlation = sum(x*y for x, y in zip(expected_pcm, actual_pcm)) / norm if norm else 0
+            check(correlation > 0.9)
             check(row['license'] == ('CC-BY-4.0' if cue == 'cheer' else 'CC0-1.0'))
         check(len({r['source_sha256'] for r in manifest['effects'].values()}) == 4)
         check({p.name: crowd.sha(p) for p in args.sources.glob('*.mp3')} == original)
