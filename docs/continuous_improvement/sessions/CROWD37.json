@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CROWD37",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "00f073825e67097adf19018d5dc6e349ce42d034",
   "owner_request": "Go ahead with all four approved table crowd recordings; consider actual keys/vocal characters, identical vocals reused across arrangements, mainly short in-game snippets. Preserve app/key/frozenV23/private media.",
@@ -20,8 +20,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2142977,
-    "sha256": "3d0ac21ee71ada242825685c9d305e48dd9f3849f46c8fdf8baac78d8fc3199d"
+    "bytes": 2144633,
+    "sha256": "d7fc045e2b2c57e205c75556634bcd4bb564e839b7db7de77508cf16a9115b60"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -48,7 +48,7 @@
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CROWD37.json",
     "Python source binding/approval/licence/overwrite/strict complete-bank tests; ffprobe/decoded level/encoding audits",
-    "Godot isolated headless import; actual approved source stream lifecycle and negative manifest checks at390x844,720x1280,1280x720,1600x900; no changed UI/pixel claim",
+    "Godot isolated import and actual approved pub stream lifecycle/negative manifest checks; Settings native captures/control proof at390x844,720x1280,1280x720,1600x900.",
     "Public V23 request checker; exact frozen public policy/request; Git privacy/diff/gate checks"
   ],
   "resource_plan": {
@@ -59,7 +59,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T11:57:33.930499+00:00"
+  "started_at": "2026-11-10T11:57:33.930499+00:00",
+  "closed_at": "2026-11-10T12:11:40.752908+00:00",
+  "closeout": {
+    "tested_sha": "503a7cd84cad1c65c37ffa7b197f282e852c6588",
+    "evidence": "docs/continuous_improvement/CROWD37_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "Owner rejects earlier candidates;4new exactsources accepted. Three remain networkblocked. Isolated display refusal resolved;27real/44native/7prepare/4build checks clear, nofalse fullbank/listening/device claim.",
+    "next_action": "Apply bigsoundbank.com allowance to the selected running environment, fetch the three approved sources and finish strict full-bank preparation/tests before any version>23 combined build."
+  }
 }

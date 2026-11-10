@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "CROWD37_approved_crowd_preflight",
-  "next_action": "Four source-distinct approved crowd responses with bound provenance and proper CC BY attribution replace repeated rejected clips. Character-specific singer masters plus coherent keys/stem briefs enable short same-take rearrangements without regenerated voice drift.",
+  "status": "partial_approved_pub_cheer_integrated_three_approved_files_network_blocked",
+  "next_action": "Apply bigsoundbank.com allowance to the selected running environment, fetch the three approved sources and finish strict full-bank preparation/tests before any version>23 combined build.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": "root",
+  "writer": null,
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -7790,5 +7790,14 @@
     "real_candidates": true,
     "listening_verified": false,
     "new_build": false
+  },
+  "crowd37": {
+    "source": "503a7cd84cad1c65c37ffa7b197f282e852c6588",
+    "results": "docs/continuous_improvement/CROWD37_RESULTS.json",
+    "approved_source_count": 4,
+    "acquired_source_count": 1,
+    "complete": false,
+    "new_build": false,
+    "character_brief": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json"
   }
 }

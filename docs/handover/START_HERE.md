@@ -7,12 +7,44 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
+## Latest continuation — CROWD37
+
+The owner rejected the old crowd shortlist, then explicitly approved four new
+table sources: BigSoundBank **2479 / 2486 / 3521** and Freesound **35748**.
+Only the approved pub source35748 is acquired here. Its real cheer and required
+CC BY credit in Settings are integrated and tested. The three BigSoundBank files
+remain blocked by the selected running proxy (CONNECT403); an async request to
+add `bigsoundbank.com` is pending. Do not use mirrors to bypass a denial or
+substitute earlier rejected clips. No new boo was approved; that cue stays silent.
+
+Read `docs/continuous_improvement/CROWD37_RESULTS.json` and
+`docs/audio/CROWD37_SOURCES.json`. New private bank path is
+`experiments/playable_flightcase/audio/crowd37/`; current preparation is explicitly
+partial. `tools/prepare_crowd37.py fetch/prepare` restores the approved sources
+with hash receipts; strict preparation refuses missing files. The owner project
+materializer also refuses an incomplete bank or a new crowd version<=23 before
+creating output. No APK or new signing request was made.
+
+Character-grounded production prompts and identical-vocal-take reuse contract:
+`docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json`. Four singers and three
+keyboardists; first suggested pilot Maya/Freya. Short complete2/4bar phrases,
+one private vocal master across compatible sparse/groove/full backings. Private
+Style Persona only guides identity across different songs; no exact-output
+guarantee, voice generation, credit spend or vocal/keys runtime/schema change.
+
+Current source: `/workspace/BandMaster-v20`; original source35748, logs and8
+native Settings captures: `/workspace/bandmaster-crowd37/`. Isolated QA project:
+`/workspace/bandmaster-crowd36/project`. Rejected CROWD36 worktree candidates are
+preserved outside the shipping tree at
+`/workspace/bandmaster-crowd36/rejected-worktree-candidate`. Workspace paths are
+not Git attachments. All original app/key/privacy/frozenV23 rules below remain.
+
 ## Current work and evidence
 
 - V22 source: `16c477c588758eaf07418361fcae79b43f147b05`.
 - Formation/budget/portraits/three-act gig batch: `dba007e3022d9d1a39365aab78b127d6a1d79f84`.
   See `docs/continuous_improvement/NEXT32_RESULTS.json`.
-- Latest **game** change: `c6f320bba6b6f6399f679daab07c9572fdbd0d55`.
+- Pre-CROWD37 **game** baseline: `c6f320bba6b6f6399f679daab07c9572fdbd0d55`.
   Saved arrangements play during gigs. Four registered generated pub-crowd illustrations
   respond to saved room feedback and the actual final receipt. Audio starts only after
   successful original save; interruption/held-source/no-replay guards are tested.
@@ -25,7 +57,7 @@ Historical overnight deadlines and older branch/build instructions do not supers
 
 ## Next work
 
-**CROWD36 update (10 November):** the selected environment now allows the official
+**Historical CROWD36 update (candidates subsequently rejected):** the selected environment now allows the official
 CDN and both exact CC0 previews have been downloaded. Five short real Vorbis cue
 candidates are prepared privately, with 48 passing real Godot decoder/lifecycle
 checks. They remain **unaccepted pending listening and in-game mix review**;

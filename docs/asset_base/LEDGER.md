@@ -1690,3 +1690,6 @@ CROWD33 2026-11-09T23:49:43.987570+00:00 — Owner requests crowd/audio before f
 
 
 CROWD36 — 2026-11-10T01:00:08.206546+00:00 — Real CC0 preview acquisition and private cue preparation verified at 4aef89b0bdaa42825d1f3e0c81f061706a352c84; 48 real Godot stream/lifecycle checks pass. Listening/mix HELD, no new APK/request. V23, original app/key and owner audio privacy preserved. Sole writer released. See docs/continuous_improvement/CROWD36_RESULTS.json.
+
+
+CROWD37 — 2026-11-10T12:11:40.752908+00:00 — Owner accepts four new table sources; prior shortlist rejected. Actual pub cheer +CC BY Settings credit integrated at 503a7cd84cad1c65c37ffa7b197f282e852c6588;27stream+44native+7prepare+4build guard checks pass,8nativeoriginals opened. Three BigSoundBank files blocked by running host policy; strict full-bank preparation/newbuild held, version>23 enforced. Seven character briefs and same-take vocal reuse contract ready; no generation/credits spent. NoAPK/request/key/privateaudioGit/V23 changes. Root writer released. Evidence docs/continuous_improvement/CROWD37_RESULTS.json. Next: Apply bigsoundbank.com allowance to the selected running environment, fetch the three approved sources and finish strict full-bank preparation/tests before any version>23 combined build.

@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "session": "CROWD37",
+  "status": "partial_approved_pub_cheer_integrated_three_approved_files_network_blocked",
+  "source_sha": "503a7cd84cad1c65c37ffa7b197f282e852c6588",
+  "runtime_native_tested_at": "c55b4f563360929d78b7dd8165053f4ac7ed7a42",
+  "runtime_reuse_binding": "All tested runtime scripts/credit/QA scripts match current Git 503a7cd84cad1c65c37ffa7b197f282e852c6588 byte-for-byte. Subsequent code changes affect materializer only; separately tested at current SHA.",
+  "owner_approved": false,
+  "owner_listening_acceptance": {
+    "approved": [
+      "BigSoundBank2479",
+      "BigSoundBank2486",
+      "BigSoundBank3521",
+      "Freesound35748"
+    ],
+    "scope": "Direct owner approval of exact four table sources and integration. Global artwork/device/derivative mix acceptance not inferred.",
+    "rejected": [
+      "CROWD36 repeated miuziqa applause derivatives",
+      "CROWD36 NeoSpica boo candidate",
+      "HowardV264377",
+      "misjoc400590",
+      "Mixkit437/354/459"
+    ],
+    "approved_boo": false
+  },
+  "changes": [
+    "New crowd37-only player refuses rejected legacy manifest/cues and binds each purpose to an approved source ID, licence, source/artifact hashes and explicit listening approval.",
+    "Four-source offline preparation defaults to strict completeness; explicit partial QA manifest truthfully lists three missing source files.",
+    "Actual CC BY pub cheer acquired, prepared with bounded six-second excerpt and conservatively measured gain. Fuller end-of-show fade replaces old short hold; mute/focus/source/hidden/no-replay controls retained.",
+    "Full attribution with title/author/source/licence/modifications bundled as public text and readable in existing Settings scroll. No new page or required wait.",
+    "Materializer refuses missing/incomplete crowd bank and new crowd source version<=23 before creating output. Frozen public V23 bytes untouched.",
+    "Four singer and three keyboardist production prompts grounded in canonical biographies; identical vocal take/phrase reused under multiple compatible backings, private Style Persona guidance only across different songs. No generation, credits spent or vocal/keys runtime/schema change."
+  ],
+  "source_catalog": "docs/audio/CROWD37_SOURCES.json",
+  "prepared_manifest": {
+    "schema_version": 1,
+    "content_version": "crowd37",
+    "authority": "owner_approved_table_20261110",
+    "complete": false,
+    "missing_sources": [
+      "2479",
+      "2486",
+      "3521"
+    ],
+    "owner_source_listening_accepted": true,
+    "derivative_mix_listening_verified": false,
+    "boo_approved": false,
+    "effects": {
+      "cheer": {
+        "path": "res://experiments/playable_flightcase/audio/crowd37/cheer.ogg",
+        "sha256": "1b80cb5aa987b05501e828ca07dfe28fb1f21a773f896cad94b9e6507c6ce576",
+        "source_id": "35748",
+        "source_sha256": "e204241a600caebf06ee504a642e7d324fa7d60c638f6e58d8929d12d4f24d2c",
+        "source_page": "https://freesound.org/people/sandyrb/sounds/35748/",
+        "source_url": "https://cdn.freesound.org/previews/35/35748_14771-lq.mp3",
+        "creator": "sandyrb",
+        "title": "CROWD NOISE IN SMALL VENUE 001.wav",
+        "license": "CC-BY-4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "owner_source_listening_accepted": true,
+        "integration_review_accepted": true,
+        "authority": "owner_approved_table_20261110",
+        "source_type": "approved source MP3, not original WAV master",
+        "source_start_seconds": 0,
+        "duration_seconds": 6.0,
+        "sample_rate": 24000,
+        "gain_db": -4.265129,
+        "modifications": "Excerpt, level adjustment, fades and Vorbis encoding",
+        "attribution_path": "res://experiments/playable_flightcase/audio/crowd37_credits.txt",
+        "attribution_sha256": "e5c0df80bb6186b81826295b44d2adbd8640ccf1f8d9f9688674ec9b564a8b9a"
+      }
+    }
+  },
+  "actual_encoding": {
+    "source_codec": "MP3 official preview",
+    "source_sample_rate": 24000,
+    "source_channels": 2,
+    "source_duration_seconds": 18.528,
+    "original_WAV_master_acquired": false,
+    "source_sha256": "e204241a600caebf06ee504a642e7d324fa7d60c638f6e58d8929d12d4f24d2c"
+  },
+  "validation": {
+    "model": {
+      "available_sources": 1,
+      "bank_complete": false,
+      "checks": 27,
+      "failures": [],
+      "mix_listening_here": false,
+      "owner_source_acceptance": true,
+      "physical_device": false
+    },
+    "native": [
+      {
+        "profile": "phone",
+        "summary": {
+          "checks": 11,
+          "failures": [],
+          "native_pixels": true,
+          "physical_device": false,
+          "viewport": [
+            390,
+            844
+          ]
+        },
+        "log": "/workspace/bandmaster-crowd37/phone.log",
+        "log_sha256": "54869b89df56d4892f5a36d77384bf66f41efbcd2670440985f6975027066e22",
+        "images_opened": [
+          {
+            "path": "/workspace/bandmaster-crowd37/phone-top.png",
+            "sha256": "4faced054b34f65a8087594925384ad22c84421a6718de956d7c06479cec1112"
+          },
+          {
+            "path": "/workspace/bandmaster-crowd37/phone-credits.png",
+            "sha256": "299890e655e335cb7e5881db079915dd3519526adfb6819a57297717a3b24d3e"
+          }
+        ]
+      },
+      {
+        "profile": "short",
+        "summary": {
+          "checks": 11,
+          "failures": [],
+          "native_pixels": true,
+          "physical_device": false,
+          "viewport": [
+            1280,
+            720
+          ]
+        },
+        "log": "/workspace/bandmaster-crowd37/short.log",
+        "log_sha256": "5d1010cdff7af36a85435eb3749d037a10652b51fe8c7eef091e5bfdf5bacdf1",
+        "images_opened": [
+          {
+            "path": "/workspace/bandmaster-crowd37/short-top.png",
+            "sha256": "4acc8fbac79258bc4ea013708dadd4c425664126f66e9cc8fb8d17611b459bb9"
+          },
+          {
+            "path": "/workspace/bandmaster-crowd37/short-credits.png",
+            "sha256": "d52e43e3b4c843dbc00e5672775ad8dcc606c9d98f08b3190164a67cb3015cb0"
+          }
+        ]
+      },
+      {
+        "profile": "tall",
+        "summary": {
+          "checks": 11,
+          "failures": [],
+          "native_pixels": true,
+          "physical_device": false,
+          "viewport": [
+            720,
+            1280
+          ]
+        },
+        "log": "/workspace/bandmaster-crowd37/tall.log",
+        "log_sha256": "b95f03c4e96a41be18fb863917949ec5ed211119b174e33e204c6e368901cabe",
+        "images_opened": [
+          {
+            "path": "/workspace/bandmaster-crowd37/tall-top.png",
+            "sha256": "c6de43df4c63d7ade533c89428b2a492bd1efdefaf12c464b5ebafc644fc0966"
+          },
+          {
+            "path": "/workspace/bandmaster-crowd37/tall-credits.png",
+            "sha256": "e0b0f2abceb1c67e35e7ae8230aa2ea0ca6c21c08aec4f45a76065271d49b2f9"
+          }
+        ]
+      },
+      {
+        "profile": "wide",
+        "summary": {
+          "checks": 11,
+          "failures": [],
+          "native_pixels": true,
+          "physical_device": false,
+          "viewport": [
+            1600,
+            900
+          ]
+        },
+        "log": "/workspace/bandmaster-crowd37/wide.log",
+        "log_sha256": "44f76d3efb1995ec0428aa080e52ca860558ce8a127d33a82ee5ca2640493d29",
+        "images_opened": [
+          {
+            "path": "/workspace/bandmaster-crowd37/wide-top.png",
+            "sha256": "3329d3eec12d289afa1185a310a03b72fd914caeed5a29d9661f1f0b0830ae9e"
+          },
+          {
+            "path": "/workspace/bandmaster-crowd37/wide-credits.png",
+            "sha256": "8edce171223cf2685b8de814d36ad41f9d34cee70600a9ecae7d42630ea9f5ea"
+          }
+        ]
+      }
+    ],
+    "native_checks": 44,
+    "prepare": {
+      "checks": 7,
+      "failures": [],
+      "real_source": true,
+      "listening": false
+    },
+    "materializer": {
+      "checks": 4,
+      "tested_sha": "503a7cd84cad1c65c37ffa7b197f282e852c6588",
+      "results": [
+        {
+          "version": 23,
+          "refusal": "New crowd source requires version code >23; frozen V23 stays unchanged"
+        },
+        {
+          "version": 24,
+          "refusal": "Approved crowd bank is incomplete; source QA is not release clearance"
+        },
+        {
+          "historical_baseline": "CROWD34 original remains inspectable"
+        },
+        {
+          "actual_CLI": "incomplete refusal before output creation",
+          "exit": 1
+        }
+      ]
+    },
+    "current_runtime_files": [
+      {
+        "path": "experiments/playable_flightcase/gig_soundscape.gd",
+        "sha256": "32086b49a48da12b7f62518481563d273356e4123449d14becf29f2cbff84adc"
+      },
+      {
+        "path": "experiments/playable_flightcase/settings_sheet.gd",
+        "sha256": "abad6fc42f35d67fc7bebf5b2555923dd8e46cd620f5a5eed2d10f8991cb867a"
+      },
+      {
+        "path": "experiments/playable_flightcase/audio/crowd37_credits.txt",
+        "sha256": "e5c0df80bb6186b81826295b44d2adbd8640ccf1f8d9f9688674ec9b564a8b9a"
+      },
+      {
+        "path": "tools/prepare_crowd37.py",
+        "sha256": "38baf4c7393f027e4e8daff26efc243411f78db6c7c7a512e241e40d344fb1c8"
+      },
+      {
+        "path": "tools/build_recorded_owner.py",
+        "sha256": "944074000dc20d96c3d149bd2a228558a9260865f586988e2750ba734aefb600"
+      },
+      {
+        "path": "tests/crowd37_test.gd",
+        "sha256": "d3b99157c3a2d849c18f9050e65fed0fc5f14a3773b1a659fda7d309b11046bb"
+      },
+      {
+        "path": "tests/crowd37_settings.gd",
+        "sha256": "359f6a63ce94e05d96269882071b54fa1fc67c30e1d5e4570e8d09dc7e35300b"
+      },
+      {
+        "path": "tests/crowd37_prepare_test.py",
+        "sha256": "7d0ab1b20ca703a3677da1502497ae400895b89d01e071535c0c607be1c38f82"
+      },
+      {
+        "path": "docs/audio/CROWD37_SOURCES.json",
+        "sha256": "6c4e7f7b477ed39717d0f539c27da80bc47425132075c5d028d3d3fff73ef09c"
+      },
+      {
+        "path": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json",
+        "sha256": "47f23644445fe80bae8a53d58526695b5f327153c3e0e2576cec1820fd6d06c7"
+      }
+    ],
+    "final_error_logs": 0,
+    "physical_Android": false,
+    "mix_listening_here": false,
+    "isolated_component_not_whole_game": true,
+    "prior_unchanged_saved_transaction_proof": "CROWD34 source/evidence retained; no owner audio fixture or whole-game journey rerun claimed. Production save/finance/decision source unchanged."
+  },
+  "failure_history": [
+    {
+      "kind": "network",
+      "evidence": "/workspace/bandmaster-crowd37/blocked-bigsoundbank-headers.txt",
+      "observed": "Fresh official source request through approved outer proxy: CONNECT403. Selected running policy lacks bigsoundbank.com. Async owner host request pending; no route bypass."
+    },
+    {
+      "kind": "isolated native display",
+      "evidence": "/workspace/bandmaster-crowd37/Xorg.stdout",
+      "observed": "Command sandbox could not bind display sockets; fixed using approved separate display:93. No existing desktop altered."
+    }
+  ],
+  "private_artifacts": {
+    "originals": "/workspace/bandmaster-crowd37/originals",
+    "prepared": "/workspace/BandMaster-v20/experiments/playable_flightcase/audio/crowd37",
+    "QA_project": "/workspace/bandmaster-crowd36/project",
+    "rejected_worktree_assets_preserved": "/workspace/bandmaster-crowd36/rejected-worktree-candidate",
+    "Git_added_audio_binaries": false
+  },
+  "song_brief": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json",
+  "song_brief_summary": {
+    "singers": [
+      "Nina",
+      "Maya",
+      "Lily",
+      "Sam"
+    ],
+    "keys": [
+      "Dan",
+      "Freya",
+      "Oscar"
+    ],
+    "first_pilot": [
+      "Maya",
+      "Freya"
+    ],
+    "targets": "Proposed100BPM4/4/G-D-Em-C; complete2/4bar4.8/9.6second phrases when actual tempo verified. Targets, not claims about future generated output.",
+    "same_song": "Freeze one approved vocal PCM master and phrase offsets across sparse/groove/full backings.",
+    "different_songs": "Private synthetic-character Style Persona, then verify by listening; no promise of identical output.",
+    "no_cross_tempo_assumption": "Existing109/114/136BPM banks are not automatically compatible."
+  },
+  "protected": {
+    "app": "com.bandmaster.ownerplaytest.s40",
+    "entry": "experiments/playable_flightcase/opening.tscn",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "V23_request_sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "V23_policy_sha256": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "new_APK": false,
+    "new_signing_request": false,
+    "private_key_access": false,
+    "new_generation_or_paid_service": false
+  },
+  "known_limits": [
+    "Three approved CC0 sources remain unacquired; complete bank and corresponding full-source test path cannot pass until running host access changes.",
+    "Only one acquired source and its actual derived stream tested. Owner approved source; no new mix listening or physical Android claim.",
+    "No approved boo in new selection; negative final receipt intentionally silent. Do not reuse rejected boo or label applause as boo.",
+    "Old private song-bank QA/saves and original Android SDK/APK paths absent in this executor. No source reconstruction relabelled frozen V23.",
+    "Four-size captures cover actual isolated Settings component, not a fresh whole-game journey or artwork acceptance.",
+    "Future vocal/keys bank requires accepted original stems, explicit versioned recipe/participant integration and save regression proof; this task supplies production brief only."
+  ],
+  "manual_Godot_test": [
+    "After host allowance, run prepare_crowd37.py fetch --output NEW_PRIVATE_DIRECTORY, then strict prepare --sources THAT_DIRECTORY --output NEW_IGNORED_CROWD37_DIRECTORY. Retain acquired source receipt/hashes and current partial bank; promote complete bank only after checks.",
+    "Open existing opening.tscn, Settings/Audio. Read author/source/licence/modification credit by scrolling; sound/motion/notes/Back and Escape focus remain usable at4sizes.",
+    "Use actual current private arrangement in saved gig: entry2479, between-song2486, courtesy3521 and newly saved successful final receipt35748. No cue on failed save/redraw/resume; mute/focus/Menu/source invalidation stops. Poor final receipt remains silent pending an approved negative recording.",
+    "Only complete bank may enter version>23 candidate. New source/package audit and NEW detached request; existing original key stays in original signing environment. No frozen V23 rewrite."
+  ],
+  "simulated_reviews": [
+    {
+      "lens": "critic",
+      "simulated": true,
+      "finding": "Approved small-room sources replace generic/repeated shortlist; current bank incomplete, no release claim."
+    },
+    {
+      "lens": "musician",
+      "simulated": true,
+      "finding": "Same vocal master across compatible backings avoids regenerated singer drift; generated stem quality/identity still needs listening."
+    },
+    {
+      "lens": "ui/ux",
+      "simulated": true,
+      "finding": "Existing Settings carries readable source/licence credits with persistent Back and retained native toggle/focus."
+    },
+    {
+      "lens": "art",
+      "simulated": true,
+      "finding": "Protected materials/type/portraits/meters unchanged;8 actual Settings captures opened, no global artwork signoff."
+    },
+    {
+      "lens": "engineering",
+      "simulated": true,
+      "finding": "27 real-stream+44native+7source+4build guard checks pass; absent sources block new candidate, immutable V23/source privacy retained."
+    }
+  ],
+  "next_action": "Apply bigsoundbank.com allowance to the selected running environment, fetch the three approved sources and finish strict full-bank preparation/tests before any version>23 combined build.",
+  "recorded_at": "2026-11-10T12:11:40.752908+00:00"
+}
