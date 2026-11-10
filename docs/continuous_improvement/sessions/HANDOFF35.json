@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "HANDOFF35",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "c63899bdf87d0ae3771b81b5834c49a815730823",
+  "owner_request": "Ensure notes available in Git for newchat; fix signing handoff as far as possible without moving original privatekey; give short handover. Owner authorizes fastforward publication to existingfeaturebranch.",
+  "dominant_issue": "BM-13",
+  "lesson_ids": [
+    "BM-13",
+    "BM-15",
+    "BM-24",
+    "BM-33",
+    "BM-35",
+    "BM-36"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 2135382,
+    "sha256": "75fc31f6a857ab6b4dcd2be0cc9765a51f03153133eb036130087739d8a8f536"
+  },
+  "target": {
+    "locator": "/workspace/BandMaster-polish/experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Unchanged original source viewed in preceding crowd pass; no UI/art work in this handoff."
+  },
+  "controlled_comparison": "No game/UI/assets/APK/request bytes change. Compare exact public V23request copy and policy, validate public request and V16knownanswer; negative tamper/wrongcert/no-key paths. Verify existing remote16c477c isancestor and ordinary nonforcepublish exactnewsource, main unchanged.",
+  "hypothesis": "One durable startup document plus byte-exact public request/policy and original-JKS-only helper make newchat independent of lost attachments or privatekeytransfer.",
+  "stop_condition": "No key generation/privatekey export/transfer, original keystore access here, signing APK, newbuild/app, rewrittencommit/forcepush/main edit/rawmediaGit. If originalkey environment unavailable actual signing remains explicitlyblocked.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/**",
+    "docs/signing/**",
+    "tools/BandMasterDetachedSigner.java",
+    "tools/detached_sign_request.py",
+    "tests/detached_apk_v2_test.py",
+    "tests/detached_sign_request_test.py"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/HANDOFF35.json",
+    "Publicrequest frozenSHA/strictschema/signedbytes/certificate validation; knownactualRSAresponse reuse and refusal tests; no syntheticnewkey.",
+    "Existing detached_apk_v2_test.py --policy originalV23policy againstretainedunsignedAPK+V16publicreference+officialbuildtools.",
+    "Remoteexpectedhead16c477c ancestorcheck; ordinarynonforcegitpush featurebranch; confirmserverheadanddocreadback; mainunchanged."
+  ],
+  "resource_plan": {
+    "persistent_budget_bytes": 16777216,
+    "no_new_native_or_APK_runs": true,
+    "evidence_root": "/workspace/bandmaster-handoff35"
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T00:43:33.613787+00:00"
+}
