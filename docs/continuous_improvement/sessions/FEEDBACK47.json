@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "FEEDBACK47",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "b942f31da45d228b3253aad7302c6c6a60d422e6",
+  "owner_request": "Implement first V24 ownerfeedbackbatch: completeauditionaudio coverage, strongerformedbandcomposition/variedheights/background/edge, betterlogogenerator, BritishEnglish/mainicons, fixvenuescroll, multiplecharacterfulpromoters andengagingmusicianinteractions. Ownerstilltesting; keepnewissuesopen andno speculativeAPKbuild.",
+  "dominant_issue": "BM-01",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-08",
+    "BM-13",
+    "BM-14",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2184729,
+    "sha256": "a918a735e383368cb63d7a139f7871f93263aa6a260b1232f3679b0b62bd4060"
+  },
+  "target": {
+    "locator": "OwnerinlineV24MUNCHformedband +Day1home captures; unchanged existingart/identity/next32_cast_03.png andArt/Backgrounds/indie/formation.webp inspected",
+    "original_sha256": "51b8ad0ee126db5744afc69c522d1dbe2f5293206b6db9084d1788386a55a8bb",
+    "pixels_inspected": true,
+    "owner_screens_are_current_failure_not_approved_target": true
+  },
+  "controlled_comparison": "SameMUNCH/BexBenCasey/leadBex,day1cash250 andidentical4viewports/nativeflow beforeafter; venueactualtouchdrag/wheel/inputreachbefore/after. Music18person source/role/phrase/fingerprintaudit, no fakevoice substitution. Logo longUnicode names/modes/savereadback; promoters/stage/bandchat contextchanges preserveallcost/uncertainty/atomicrollback/once-onlyguards.",
+  "hypothesis": "Source-existing room/backing/materials andstrongertypographiclayouts can giveformationdepth andedge withoutreplacingapprovedcast; semanticboldmusicicons/Britishcopy andactualscrollinputrepair improvephonehome/booking. Authorednamedpromotersandpersistentconversationaftermath can addcharacter withoutrewritingeconomy. RetainedSuno stems coverinstrumentalremaininggap; Nina distinctvoice mayneedowner-source.",
+  "stop_condition": "No changes toglobalartapproval, sixinertmeters, characteridentities, originalmodel/economy/save/atomicguards or hiddenoutcomeforecasts. No publicowner audio, unsupportedvocalidentity/approval claims, unauthorisedpaidgeneration, signingkey/app change or frozenV23/V24APK/request rewrite. No newtestAPKuntilfeedbackbatchreviewready. Holdmissingaudiosourcehonestly whilefinishindependentwork.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/formation_portraits.gd",
+    "experiments/playable_flightcase/identity_style.gd",
+    "experiments/playable_flightcase/band_mark.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/promoter_encounter.gd",
+    "experiments/playable_flightcase/promoter_profiles.gd",
+    "experiments/playable_flightcase/musician_chat.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/character_audio.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/art/feedback47/**",
+    "experiments/playable_flightcase/art/icons/**",
+    "experiments/playable_flightcase/audio/character_indie29/manifest.json",
+    "tools/prepare_audition47.py",
+    "tools/feedback47*.py",
+    "tests/feedback47*",
+    "docs/audio/**",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "Canonical18person audio sources/role/decoder/availability audit; realGodotplayback/transitions/mute/lifecycle andsourcehash/approval checks",
+    "Nativebaseline/after390x844,720x1280,1280x720,1600x900; realmouse+ScreenTouch/Drag venueclipmovement/deepesttarget andscroll/focus/resize/return continuity",
+    "Formation3/4/6people diversefullfigures+background withliveUnicodebandmark; selectedgenuinecharacters andfourviewportpixels inspected",
+    "Logomodes/fullname/Unicode/longtext/draftcancel/applysavefailretry/reload unchangedtransactionsemantics; promoter3identities/venuecontinuity/pitch/terms/bookonce; bandchat immediatevisibleaftermath/history/commitments+rollback",
+    "Targetedexistingmodel/audio/UIchecks appropriatechangedcode; no unchangedbroadchecksforactivity; frozenbuild/publicprivacy/source-onlynonforcepush andactualimprovementgate"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-feedback47",
+    "engine": "/workspace/tools/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "new_APK": false,
+    "private_originals_retained": true,
+    "workers": 1
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T21:17:51.735379+00:00"
+}
