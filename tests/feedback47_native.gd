@@ -7,6 +7,7 @@ var owner
 var scene
 var output:=""
 var baseline:=false
+var home_only:=false
 var failures: Array=[]
 var checks:=0
 var observations: Dictionary={}
@@ -15,6 +16,7 @@ func _init() -> void:
  for arg in OS.get_cmdline_user_args():
   if arg.begins_with("--out="):output=arg.trim_prefix("--out=")
   if arg=="--baseline":baseline=true
+  if arg=="--home-only":home_only=true
  call_deferred("run")
 
 func check(ok: bool,words: String) -> bool:
@@ -96,7 +98,11 @@ func run() -> void:
  await capture("formation")
  if not await tap("StartPlayAction"):await finish();return
  if scene.find_child("PosterActivitiesAction",true,false)!=null and scene.find_child("PosterWriteAction",true,false)==null:await tap("PosterActivitiesAction")
+ for key in ["CareerDate","CareerMenuAction","PosterNav_home","PosterNav_gigs"]:
+  var persistent: Control=scene.find_child(key,true,false)
+  check(persistent!=null and persistent.is_visible_in_tree() and scene.get_global_rect().encloses(persistent.get_global_rect()),"persistent home control bounded "+key)
  await capture("home")
+ if home_only:await finish();return
  if not baseline:
   var seen_icons: Dictionary={}
   for route in ["create","practice","gigs","recording","promotion","offstage"]:
