@@ -144,7 +144,9 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stock.texture=PAPER
  stock.set_texture_margin_all(8.0)
  stock.set_content_margin_all(12.0 if tiny else 18.0)
- if punch:stock=Poster.stock(Poster.INK,12 if tiny else 18)
+ if punch:
+  stock=Poster.stock(Poster.INK,12 if tiny else 18)
+  stock.set_content_margin_all(8.0 if tiny else 12.0)
  elif dark: stock.modulate_color=Color("30352f")
  paper.add_theme_stylebox_override("panel",stock)
  add_child(paper)
@@ -324,7 +326,9 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   content.add_child(lead)
  var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("FIRST REHEARSAL. FIRST SONG. FIRST GIG." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
  if variant=="career":footer.text="THE LINEUP, AS IT STANDS."
- if punch:footer.add_theme_font_size_override("font_size",18)
+ if punch:
+  if variant=="complete":footer.text="NOW MAKE SOME NOISE."
+  footer.add_theme_font_size_override("font_size",18)
  footer.name="IdentityPressFooter"
  content.add_child(footer)
  if surface_budget.x>0.0 and surface_budget.y>0.0 and _full_length:

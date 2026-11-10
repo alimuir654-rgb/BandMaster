@@ -41,6 +41,7 @@ func configure(value: String, logo: String, style: Dictionary, points: int = 70,
  if _finish!="plain":
   add_theme_constant_override("outline_size",0)
  custom_minimum_size.y=float(points)*1.52 if compact else float(points)*2.10
+ if Style.layout_kind(style)=="cutout" and not _single_line:custom_minimum_size.y=float(points)*2.10
  if text.contains("\n"):custom_minimum_size.y=float(points)*2.55
  if not resized.is_connected(_fit): resized.connect(_fit)
  call_deferred("_fit")
