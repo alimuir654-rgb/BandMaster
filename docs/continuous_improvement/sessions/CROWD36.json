@@ -20,8 +20,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2137813,
-    "sha256": "0a4e4a9cbc3a15ce4a04a50fa0b78c21f10929d1a2fbe04b9ed4ea33f0b62317"
+    "bytes": 2139587,
+    "sha256": "10a89a3cb42188be9dc0b05b2ed5e35782c920c2e29817e89d9abc3e617a606e"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
