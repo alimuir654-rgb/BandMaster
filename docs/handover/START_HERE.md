@@ -7,7 +7,33 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — CROWD37
+## Latest continuation — INDIE38
+
+Three new owner songs are now privately downloaded and technically assessed:
+**Get the Good Plates Down** (Maya/Freya proposal), **Wear and Tear** (Lily/Dan)
+and **Underneath the Kitchen Stairs** (Sam/Oscar). Each has five WAV stems;
+the third also has an MP3 reference. Originals are at
+`/workspace/bandmaster-indie38/originals`; exact intake IDs/revisions/content
+hashes are in private `intake.json`. All16content/SHA/revision checks pass.
+
+Read `docs/continuous_improvement/INDIE38_RESULTS.json`. There are9candidate
+windows,45matched stem excerpts,27sparse/groove/full variants and3conservative
+reconstructed full references under `/workspace/bandmaster-indie38/candidates`.
+127actual source/asset/arrangement checks pass. One vocal PCM asset is shared
+unchanged across each candidate's three backing arrangements. Source clocks
+are identical within each set; rough rhythm estimates are ~102/~114/~114BPM,
+not proof of the prompt tempos, bar grid, key or phrase boundaries. Third-song
+MP3 first60s comparison shows no estimated start lag and0.956correlation;
+reconstructed mix/mastering is not byte-identical original Suno output.
+
+**No listening/character-fit acceptance or game integration yet.** Candidates
+need lyric-boundary/separation/musical review before a separately versioned
+vocal/keys runtime recipe and participant binding. Do not reassign these voices
+to Nina or mix unrelated clocks/chords. Originals and derivatives stay private,
+outside Git. No generation/credit spend, UI/save changes, APK, signing request
+or key operation. Earlier CROWD37 host blocker remains unchanged.
+
+## Previous continuation — CROWD37
 
 The owner rejected the old crowd shortlist, then explicitly approved four new
 table sources: BigSoundBank **2479 / 2486 / 3521** and Freesound **35748**.

@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "session": "INDIE38",
+  "status": "private_intake_and_numerical_assessment_complete_candidates_ready_for_listening",
+  "tested_sha": "b6647d9943720174a3a266dccf3dc855f96b8012",
+  "owner_approved": false,
+  "scope": "Private stem intake and technical assessment/excerpt candidates only. No vocal/keys game integration or release requested/claimed.",
+  "source_type": "Owner-supplied AI-generated Suno audio",
+  "commercial_interactive_game_license": "Separate clarification remains unresolved. No rights invented by this assessment.",
+  "intake": {
+    "files": 16,
+    "WAV_stems": 15,
+    "MP3_references": 1,
+    "bytes": 602529333,
+    "Dropbox_content_hash_verified": true,
+    "SHA256_verified": true,
+    "all_16_remote_revisions_unchanged_after_assessment": true,
+    "original_hashes_unchanged": true,
+    "modified_remote_files_or_sharing": false,
+    "private_evidence": "/workspace/bandmaster-indie38/intake.json",
+    "temporary_download_URLs_removed_after_use": true
+  },
+  "songs": [
+    {
+      "title": "Get the Good Plates Down",
+      "suggested_character_binding": [
+        "cast_maya",
+        "cast_freya"
+      ],
+      "character_fit_verified": false,
+      "duration_seconds": 199.4,
+      "frames_per_stem": 9571200,
+      "stems": {
+        "Vocals": {
+          "file": "Get the Good Plates Down (Vocals).wav",
+          "source_sha256": "5d74a18ad8dab1c477d9ddadbdd200fdb181aac45575c449cf2e61ecf983b641",
+          "frames": 9571200,
+          "duration_seconds": 199.4,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -6.029,
+          "rms_dbfs": -23.127,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 438837,
+          "last_nonzero_frame": 9571199
+        },
+        "Keyboard": {
+          "file": "Get the Good Plates Down (Keyboard).wav",
+          "source_sha256": "96cb7dcbb9a331e97fa5cb138f8a34b0092397c00c324ee884b0dba324036e80",
+          "frames": 9571200,
+          "duration_seconds": 199.4,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -7.001,
+          "rms_dbfs": -26.363,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9571199
+        },
+        "Guitar": {
+          "file": "Get the Good Plates Down (Guitar).wav",
+          "source_sha256": "d23e644e1ff03d6fd3cae01449e81a2f27694b5f8faaf68d244486ffc49f32fa",
+          "frames": 9571200,
+          "duration_seconds": 199.4,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -15.861,
+          "rms_dbfs": -44.29,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 348114,
+          "last_nonzero_frame": 9571199
+        },
+        "Bass": {
+          "file": "Get the Good Plates Down (Bass).wav",
+          "source_sha256": "b40bac9f9d992155a70459a625fc75dc79a0eef665d6c92fb357f16ca14d7406",
+          "frames": 9571200,
+          "duration_seconds": 199.4,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -8.816,
+          "rms_dbfs": -23.304,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 344534,
+          "last_nonzero_frame": 9571199
+        },
+        "Drums": {
+          "file": "Get the Good Plates Down (Drums).wav",
+          "source_sha256": "e168dd342d609517b05deec7dac28fa9efd2a3c2b0e4c563c3f29d641d570a4e",
+          "frames": 9571200,
+          "duration_seconds": 199.4,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -2.976,
+          "rms_dbfs": -20.711,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9571199
+        }
+      },
+      "common_clock_format": true,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bits": 16,
+      "digital_full_scale_samples": 0,
+      "rhythm_evidence": {
+        "prompt_target": 100,
+        "candidate_near_target_bpm": 101.695,
+        "other_autocorrelation_candidates_bpm": [
+          101.695,
+          67.416,
+          71.006,
+          71.856,
+          92.308
+        ],
+        "tempo_meter_downbeat_and_key_verified_by_listening": false
+      },
+      "supplied_reference_comparison": null,
+      "source_cut_candidates": [
+        {
+          "number": 1,
+          "source_start_seconds": 49.66,
+          "duration_seconds": 9.44,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/plates/candidate-1"
+        },
+        {
+          "number": 2,
+          "source_start_seconds": 91.8,
+          "duration_seconds": 9.44,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/plates/candidate-2"
+        },
+        {
+          "number": 3,
+          "source_start_seconds": 143.18,
+          "duration_seconds": 9.44,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/plates/candidate-3"
+        }
+      ],
+      "reconstructed_full_mix": "/workspace/bandmaster-indie38/candidates/plates/reconstructed-full.ogg",
+      "original_Suno_mix_recreated": false
+    },
+    {
+      "title": "Wear and Tear",
+      "suggested_character_binding": [
+        "cast_lily",
+        "cast_dan"
+      ],
+      "character_fit_verified": false,
+      "duration_seconds": 198.04,
+      "frames_per_stem": 9505920,
+      "stems": {
+        "Vocals": {
+          "file": "Wear and Tear (Vocals).wav",
+          "source_sha256": "b0a63a4cd1b7da161d68123404c3607d0417dfcec1009814fc9adebf376e97f5",
+          "frames": 9505920,
+          "duration_seconds": 198.04,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -4.72,
+          "rms_dbfs": -22.942,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9505919
+        },
+        "Keyboard": {
+          "file": "Wear and Tear (Keyboard).wav",
+          "source_sha256": "e05bede25f665a74dcb417bb81892e6a41179da415fbb448bc7f086c2d6aeed6",
+          "frames": 9505920,
+          "duration_seconds": 198.04,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -7.999,
+          "rms_dbfs": -32.257,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9505919
+        },
+        "Guitar": {
+          "file": "Wear and Tear (Guitar).wav",
+          "source_sha256": "db696f6b2a93d07935f90326e2ad78247eb0b514309d991aa5243d83315d2cba",
+          "frames": 9505920,
+          "duration_seconds": 198.04,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -8.45,
+          "rms_dbfs": -28.258,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9505919
+        },
+        "Bass": {
+          "file": "Wear and Tear (Bass).wav",
+          "source_sha256": "40eeacad12b4e197940ddb4fc51c65507ba8aeb621638d39c8a161b0d5309d7d",
+          "frames": 9505920,
+          "duration_seconds": 198.04,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -9.63,
+          "rms_dbfs": -25.442,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 1241169,
+          "last_nonzero_frame": 9505919
+        },
+        "Drums": {
+          "file": "Wear and Tear (Drums).wav",
+          "source_sha256": "9645fb8abf4114b32f394f1d051ecc2b1e7337147ff62bf08f17ffb8af0b23c7",
+          "frames": 9505920,
+          "duration_seconds": 198.04,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -3.215,
+          "rms_dbfs": -23.038,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 9505919
+        }
+      },
+      "common_clock_format": true,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bits": 16,
+      "digital_full_scale_samples": 0,
+      "rhythm_evidence": {
+        "prompt_target": 112,
+        "candidate_near_target_bpm": 114.286,
+        "other_autocorrelation_candidates_bpm": [
+          114.286,
+          75.949,
+          86.957,
+          62.176,
+          85.106
+        ],
+        "tempo_meter_downbeat_and_key_verified_by_listening": false
+      },
+      "supplied_reference_comparison": null,
+      "source_cut_candidates": [
+        {
+          "number": 1,
+          "source_start_seconds": 43.38,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/wear/candidate-1"
+        },
+        {
+          "number": 2,
+          "source_start_seconds": 93.235,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/wear/candidate-2"
+        },
+        {
+          "number": 3,
+          "source_start_seconds": 151.315,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/wear/candidate-3"
+        }
+      ],
+      "reconstructed_full_mix": "/workspace/bandmaster-indie38/candidates/wear/reconstructed-full.ogg",
+      "original_Suno_mix_recreated": false
+    },
+    {
+      "title": "Underneath the Kitchen Stairs",
+      "suggested_character_binding": [
+        "cast_sam",
+        "cast_oscar"
+      ],
+      "character_fit_verified": false,
+      "duration_seconds": 224.8,
+      "frames_per_stem": 10790400,
+      "stems": {
+        "Vocals": {
+          "file": "Underneath the Kitchen Stairs (Vocals).wav",
+          "source_sha256": "4ee59ee700f2fe7ce000a60d3391eb3db0c440c698f09d6f3eaf00e21df9b575",
+          "frames": 10790400,
+          "duration_seconds": 224.8,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -5.841,
+          "rms_dbfs": -24.818,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 683185,
+          "last_nonzero_frame": 10790399
+        },
+        "Keyboard": {
+          "file": "Underneath the Kitchen Stairs (Keyboard).wav",
+          "source_sha256": "4d39a057fe965007080bc787f226167fcfbef85c99a75b9c1070a2df738146b1",
+          "frames": 10790400,
+          "duration_seconds": 224.8,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -8.735,
+          "rms_dbfs": -30.275,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 10790399
+        },
+        "Guitar": {
+          "file": "Underneath the Kitchen Stairs (Guitar).wav",
+          "source_sha256": "a246448fc021e1e8582d66f21c97705286dd3d61e02494b9f904466d3759d183",
+          "frames": 10790400,
+          "duration_seconds": 224.8,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -5.625,
+          "rms_dbfs": -27.707,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 10790399
+        },
+        "Bass": {
+          "file": "Underneath the Kitchen Stairs (Bass).wav",
+          "source_sha256": "5141b2535ca8097529264ccd69165f08e60ce757c99ee827b75d394045d8f200",
+          "frames": 10790400,
+          "duration_seconds": 224.8,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -8.886,
+          "rms_dbfs": -24.824,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 666484,
+          "last_nonzero_frame": 10790399
+        },
+        "Drums": {
+          "file": "Underneath the Kitchen Stairs (Drums).wav",
+          "source_sha256": "c2473010dc4b21bc7860e949be306774682c66f49d74c46865a5911e1858b3ba",
+          "frames": 10790400,
+          "duration_seconds": 224.8,
+          "sample_rate": 48000,
+          "channels": 2,
+          "bits": 16,
+          "peak_dbfs": -3.083,
+          "rms_dbfs": -21.336,
+          "samples_at_full_scale": 0,
+          "first_nonzero_frame": 0,
+          "last_nonzero_frame": 10790399
+        }
+      },
+      "common_clock_format": true,
+      "sample_rate": 48000,
+      "channels": 2,
+      "bits": 16,
+      "digital_full_scale_samples": 0,
+      "rhythm_evidence": {
+        "prompt_target": 114,
+        "candidate_near_target_bpm": 114.286,
+        "other_autocorrelation_candidates_bpm": [
+          114.286,
+          76.433,
+          77.419,
+          74.074,
+          71.856
+        ],
+        "tempo_meter_downbeat_and_key_verified_by_listening": false
+      },
+      "supplied_reference_comparison": {
+        "file": "Underneath the Kitchen Stairs.mp3",
+        "analysis_seconds": 60.0,
+        "estimated_lag_seconds": 0.0,
+        "normalized_correlation": 0.9557785987854004,
+        "best_linear_gain": 0.7884588241577148,
+        "residual_relative_db": -10.631,
+        "note": "Waveform comparison only. Mastering, omitted stems or separation artifacts can differ; not a listening test."
+      },
+      "source_cut_candidates": [
+        {
+          "number": 1,
+          "source_start_seconds": 48.285,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/stairs/candidate-1"
+        },
+        {
+          "number": 2,
+          "source_start_seconds": 120.275,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/stairs/candidate-2"
+        },
+        {
+          "number": 3,
+          "source_start_seconds": 175.555,
+          "duration_seconds": 8.399979166666666,
+          "same_vocal_PCM_across_three_arrangements": true,
+          "word_bar_key_and_character_fit_listening_verified": false,
+          "private_directory": "/workspace/bandmaster-indie38/candidates/stairs/candidate-3"
+        }
+      ],
+      "reconstructed_full_mix": "/workspace/bandmaster-indie38/candidates/stairs/reconstructed-full.ogg",
+      "original_Suno_mix_recreated": false
+    }
+  ],
+  "outputs": {
+    "candidate_windows": 9,
+    "matched_stem_excerpts": 45,
+    "sparse_groove_full_variants": 27,
+    "reconstructed_full_reference_mixes": 3,
+    "source_cut_alignment": "Every stem in a candidate uses exactly the same original start frame and frame count. No per-stem shift.",
+    "vocal_reuse": "One vocal PCM asset/hash shared across sparse/groove/full at equal gain. These are three arrangements of the same passage, not new songs/performances.",
+    "mastering": "Conservative static-gain summation, not original Suno mastering. No supplied original overwritten.",
+    "cuts": "Minimal10/20ms boundary fades. Energetic windows chosen numerically. Word boundaries, phrase completeness and downbeat phase are NOT verified."
+  },
+  "validation": {
+    "checks": 127,
+    "failures": [],
+    "real_originals_unchanged": true,
+    "same_vocal_across_three_arrangements": true,
+    "listening": false
+  },
+  "private_storage_bytes_approx": 739246080,
+  "current_files": [
+    {
+      "path": "tools/assess_indie38.py",
+      "sha256": "11e8517cc1afea4c5ff191bc6e038de882d92ce6153ecc2fdc3bf2453197c4e6"
+    },
+    {
+      "path": "tests/indie38_assets_test.py",
+      "sha256": "9030ce3d6b86075a30b739e3eeccf9101b4ecaa5836b4773f2770fabc1d53cdc"
+    }
+  ],
+  "limitations": [
+    "No listening tool available; no audible separation, naturalness, pitch/key, word-cut, bar-grid or character-fit PASS. Numerical tests only.",
+    "Equal frame counts do not prove every separated stem is musically phase-aligned. Third-track waveform reference comparison supports gross timeline consistency only.",
+    "Autocorrelation tempo estimates are coarse/ambiguous and differ from generation targets. Do not force these sources onto the requested100/112/114BPM grids or unrelated existing banks.",
+    "MP3 comparison covers first60seconds; correlation~0.956 and no estimated start lag, but residual is real and can include mastering or omitted-source differences. It is not exact master reconstruction.",
+    "Current game recorded bank still supports guitar/bass/drums. New vocal/keyboard recipe/cohort/save integration is a future separate implementation after phrase review.",
+    "No Nina source supplied. Do not reuse Maya or Lily voice as Nina without an explicit new design/source decision.",
+    "Crowd host blocker and existing partial crowd bank unchanged; no combined APK/signing request, V23/source signing/app/save identity unchanged."
+  ],
+  "manual_review": [
+    "Audition each reconstructed-full.ogg as a convenient private reference; original Suno full mixes are optional.",
+    "For each song compare candidate-N/sparse.wav,groove.wav,full.wav: same words and voice at the same offset, different backing. Check lyrics start/end cleanly and singer/keys fit.",
+    "Listen to isolated vocals.wav and keyboard.wav for leaked instruments, artifacts, pitch/meter and authentic role fit. Select/revise exact source windows before game integration.",
+    "When accepted, implement additive versioned vocal/keys source and participant binding; preserve legacy source IDs, original paid consumption and saved arrangements. Only selected short assets enter a future private version>23 audited candidate."
+  ],
+  "simulated_reviews": [
+    {
+      "lens": "critic",
+      "simulated": true,
+      "finding": "Full songs yield multiple moment candidates without presenting extracted sections as new compositions."
+    },
+    {
+      "lens": "musician",
+      "simulated": true,
+      "finding": "Source clocks preserved and identical vocal asset across backings; real phrase/key/separation/character review still required."
+    },
+    {
+      "lens": "ui/ux",
+      "simulated": true,
+      "finding": "No game UI changed or new screens/waits added."
+    },
+    {
+      "lens": "art",
+      "simulated": true,
+      "finding": "No art changed; prior approved cast and materials remain untouched."
+    },
+    {
+      "lens": "engineering",
+      "simulated": true,
+      "finding": "16Dropbox-content hashes+16SHA/revision checks and127real asset/source/arrangement checks pass. No production saves, public audio, APKs or keys."
+    }
+  ],
+  "next_action": "Listen to the private short candidates and select clean character-appropriate phrases before implementing the additive vocal/keys runtime bank.",
+  "recorded_at": "2026-11-10T14:22:07.249698+00:00"
+}

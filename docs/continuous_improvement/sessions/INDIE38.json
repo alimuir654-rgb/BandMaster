@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "INDIE38",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "3677ef84a11a04cfc563bdc07d178b544787ee21",
   "owner_request": "Proceed with private intake, technical stem validation, conservative reconstruction and usable short phrase candidate preparation for the three uploaded vocal/keys song sets.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2144633,
-    "sha256": "d7fc045e2b2c57e205c75556634bcd4bb564e839b7db7de77508cf16a9115b60"
+    "bytes": 2146144,
+    "sha256": "baed21d7814ad3d7e8b0a33d70bef1a2704676da13ccde8048278aae1b25bf17"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -54,7 +54,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T14:15:12.814564+00:00"
+  "started_at": "2026-11-10T14:15:12.814564+00:00",
+  "closed_at": "2026-11-10T14:22:07.249698+00:00",
+  "closeout": {
+    "tested_sha": "b6647d9943720174a3a266dccf3dc855f96b8012",
+    "evidence": "docs/continuous_improvement/INDIE38_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "No failed iteration. Actualclock/tempo estimates differ from prompts; sourceframes unchanged, boundaries/key/fit/listening explicitly unverified. No game/UI/engine/build changes.",
+    "next_action": "Listen to the private short candidates and select clean character-appropriate phrases before implementing the additive vocal/keys runtime bank."
+  }
 }

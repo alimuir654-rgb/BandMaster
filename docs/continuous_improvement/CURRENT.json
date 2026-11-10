@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/CROWD37.json",
+  "session": "docs/continuous_improvement/sessions/INDIE38.json",
   "scope": "Owner-authorized gig crowd/music pass implemented and source/native verified; actual applause/boo recording acquisition remains blocked. Frozen V23 handoff deferred, no new APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "partial_approved_pub_cheer_integrated_three_approved_files_network_blocked",
-  "next_action": "Apply bigsoundbank.com allowance to the selected running environment, fetch the three approved sources and finish strict full-bank preparation/tests before any version>23 combined build.",
+  "status": "private_intake_and_numerical_assessment_complete_candidates_ready_for_listening",
+  "next_action": "Listen to the private short candidates and select clean character-appropriate phrases before implementing the additive vocal/keys runtime bank.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7799,5 +7799,16 @@
     "complete": false,
     "new_build": false,
     "character_brief": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json"
+  },
+  "indie38": {
+    "source": "b6647d9943720174a3a266dccf3dc855f96b8012",
+    "results": "docs/continuous_improvement/INDIE38_RESULTS.json",
+    "private_root": "/workspace/bandmaster-indie38",
+    "songs": 3,
+    "stems": 15,
+    "mix_reference": 1,
+    "asset_checks": 127,
+    "listening": false,
+    "game_integration": false
   }
 }
