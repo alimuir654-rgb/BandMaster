@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "RESTORE42",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "9e0baeffec4e72917b8f49541d13e1673c01d7d4",
   "owner_request": "Owner restored the requested Dropbox audio. Verify and privately recover the existing legacy banks using original preparation scripts, preserving the approved new vocals/crowd, saves/app/key/frozenV23; continue toward the next combined version>23 build.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2162377,
-    "sha256": "7e10a26cb9f17452a951123c9808fa50d1d6a3f5f54b331389e6b7d2f198e36e"
+    "bytes": 2163883,
+    "sha256": "8e573d3fc2445c88097dedcc1c237d655b2cbe27776db929496900b85ee86748"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -57,8 +57,16 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
   "started_at": "2026-11-10T18:23:44.290649+00:00",
-  "protected_title_manifest_before": "aff31fa7ec1354756c3064edc8a0df2c43b0d351ce13c48d0e02b1a9260b1b27"
+  "protected_title_manifest_before": "aff31fa7ec1354756c3064edc8a0df2c43b0d351ce13c48d0e02b1a9260b1b27",
+  "completed_at": "2026-11-10T18:34:29.101287+00:00",
+  "closeout": {
+    "tested_sha": "dc2eca1ad54b63310c076dee500f5e4730358a23",
+    "evidence": "docs/continuous_improvement/RESTORE42_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "No restoration failure. Existing old tests assume32totalhooks, so dedicated new proof explicitly covers32legacy+3bound-vocal hooks using existing realowner transaction helpers; no weaken/testgoldenchange. Exploratoryapi.github.comlookupblocked; no bypass or APK/key work.",
+    "next_action": "Prepare and audit a fresh unsigned combined version24 APK with unchanged app/save identity, then a NEW detached-signing request bound to its actual payload and original public certificate. Original private key stays in original environment."
+  }
 }

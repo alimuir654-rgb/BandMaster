@@ -7,7 +7,37 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — AUDIO41 source availability audit
+## Latest continuation — RESTORE42
+
+The owner restored the older sources. **All requested audio is now recovered**;
+AUDIO41's missing-file hold below is historical.25originals506,891,492bytes were
+downloaded privately and checked against Dropbox block hashes/SHA/revisions.
+Five Steady Hundred originals match their historical hashes;10Steadyv1 WAVs
+reproduce the archived bytes exactly. Actual rehearsal title is Rehearsam Loop.
+
+Source `dc2eca1ad54b63310c076dee500f5e4730358a23`; read
+`docs/continuous_improvement/RESTORE42_RESULTS.json`. Original unchanged preparers
+recover170legacyWAVs,32currentfoundations,20characterclips, title music and3formation
+cues. Existing approved INDIE39/CROWD37 banks and original sources stay unchanged.
+Title Ogg was re-encoded, with its tracked SHA receipt renewed truthfully.
+Private originals/receipts/proof: `/workspace/bandmaster-restore42/`;
+restored indie intake: `/workspace/indie-intake-20261109/`. Worktree and isolated
+QA project both contain the recovered banks. `tools/restore_legacy42.py` documents
+the bounded recovery workflow and refuses to overwrite banks/intakes.
+
+890asset +724Godot model checks pass, including all32legacy sources and six
+families through18real paid stages with failed-save rollback/retry/exact typed
+reload.5184legacy recipe outputs retain the baseline hash. A complete1130-file
+version24 project at `/workspace/bandmaster-restore42/materialized/project`
+passes clean import and every source-manifest hash. No new UI/art, listening or
+physical-device claim; earlier native evidence remains separately retained.
+
+No APK or signing request created in this restoration session. Next prepare and
+audit the full unsigned version24 package, then a new bound detached request.
+Preserve app/save identity, frozenV23/request and original key environment.
+Media remains private; no more audio uploads are needed. Writer released.
+
+## Previous continuation — AUDIO41 source availability audit
 
 The owner cleared older Dropbox content. A fresh read-only audit exhausted
 `/audio files` and `/BandMaster` listings and checked local inventories. The new

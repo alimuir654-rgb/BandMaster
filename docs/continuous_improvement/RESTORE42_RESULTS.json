@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "session": "RESTORE42",
+  "completed_at": "2026-11-10T18:34:29.101287+00:00",
+  "tested_sha": "dc2eca1ad54b63310c076dee500f5e4730358a23",
+  "status": "private_legacy_banks_restored_complete_v24_project_verified",
+  "owner_approved": false,
+  "source_recovery": {
+    "files": 25,
+    "bytes": 506891492,
+    "required_instrument_stems": 19,
+    "sha_and_dropbox_content_hash_verified": 25,
+    "remote_revisions_rechecked_unchanged": 25,
+    "known_original_Steady_SHA_matches": 5,
+    "historical_steady_v1_WAVs_byte_identical": 10,
+    "private_intake": "/workspace/bandmaster-restore42/intake.json",
+    "intake_sha256": "47f30736b846ea74f35260760f40ab0603993d80e545c2aec9fb51c7dd9160aa"
+  },
+  "restored": {
+    "legacy_WAVs": 170,
+    "current_legacy_foundations": 32,
+    "character_previews": 20,
+    "title_music": 1,
+    "formation_cues": 3,
+    "banks": [
+      "recorded_steady_v1",
+      "recorded_steady_v2",
+      "recorded_rehearsal_v1",
+      "recorded_dgad_v1",
+      "recorded_indie29",
+      "character_indie29",
+      "formation_next32"
+    ],
+    "all_originals_unchanged": true,
+    "approved_indie39_and_crowd37_unchanged": true,
+    "old_source_code_applied": false,
+    "unrelated_restored_tracks_integrated": false
+  },
+  "preparation": "Original unchanged steadyv1/v2, rehearsal, DGAD, indie29 and formation preparation scripts reused. Current restored identity/revision/hash receipts retained privately. Title Ogg is re-encoded; tracked splash receipt SHA renewed to actual bytes. No old processedv1 relabeledv2.",
+  "title_receipt": {
+    "schema_version": 1,
+    "path": "res://experiments/playable_flightcase/audio/title_indie29.ogg",
+    "sha256": "e65d316987b93f8f7a5cae50503c1afaa5224f93cc72348b94b3045ff61730e4",
+    "owner_listening_accepted": false,
+    "integration_review_accepted": true,
+    "integration_authority": "owner_request_20261109",
+    "provenance": "Owner-supplied AI-generated Suno audio",
+    "listening_verified": false,
+    "source_start_frame": 877920,
+    "seconds": 6,
+    "once_per_process": true
+  },
+  "checks": {
+    "assets": 890,
+    "actual_Godot_model": 724,
+    "failures": [],
+    "legacy_recipe_cases": 5184,
+    "legacy_recipe_sha256": "ea624666f50caae8390f7fafc39a394008a3d593660c1b4279b604b57a5daf80",
+    "legacy_identical": true,
+    "materialized_dependency_files": 1130,
+    "materialized_all_hashes_match": true,
+    "materialized_clean_import": true
+  },
+  "model_coverage": "All32currentlegacyfoundations/160currentPCMparts decoded with exact registered clocks, all3stages supported. Six source families actually play synchronized and complete18paidstages with original filesystem-failed-save rollback/retry, strict full typed reload, saved exacthook and once-only phrase consumption. A real funded five-person band is used. New3bound-vocal hooks explicitly refuse legacyversion4 shape. No production saves.",
+  "evidence": [
+    {
+      "path": "/workspace/bandmaster-restore42/intake.json",
+      "sha256": "47f30736b846ea74f35260760f40ab0603993d80e545c2aec9fb51c7dd9160aa"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/restoration.json",
+      "sha256": "af53281b5df2a9b4065680d06ea529cf6f9d3d7940f24cdc4d82231659cb4b26"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/assets.json",
+      "sha256": "d66904a506b0f784d783bfa7ec07ab1ccabd315abcbb2f7f4a7272555325bf00"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/model.log",
+      "sha256": "a7e32d8fe275c16a1a1634cc1bf578833a41dc74da5fa42d2233b58b7f7b060c"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/legacy.log",
+      "sha256": "b64bed9cd8fd9dfab8c558026e85505f638b9a1cb9c0fe37aedf6f78743a0e56"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/materialize.log",
+      "sha256": "d5534d96801c8238eebb146ab61d8517436065e74d69b08619c3c926de397464"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/import.log",
+      "sha256": "a5f384710f9187052533f8b5dcdcd13de232c000c6633973968d03f94a415b05"
+    },
+    {
+      "path": "/workspace/bandmaster-restore42/materialized-import.log",
+      "sha256": "6af11a219299b1f97fade55bb56ca3554a8adf614d547d6f4d784e81c344d30a"
+    }
+  ],
+  "complete_project": {
+    "path": "/workspace/bandmaster-restore42/materialized/project",
+    "source_sha": "dc2eca1ad54b63310c076dee500f5e4730358a23",
+    "entry": "experiments/playable_flightcase/opening.tscn",
+    "version_code": 24,
+    "version_name": "0.154.0-playtest-crowd-vocals",
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "APK_created": false
+  },
+  "source_script_hashes": {
+    "prepare_recorded_steady.py": "1cc5fad25c955a1cbdf8d790072f67d24150f9280f15ba8fd6b3b070509f0345",
+    "prepare_recorded_rehearsal.py": "1f016a855e3907356d09b61018f5465affc9576d2a61a40a4348af346ac399e1",
+    "prepare_recorded_dgad.py": "8cf3eb7eec0a8290e1804bf63d28373a91dbab2646b112812883c1746a4e7e84",
+    "prepare_indie29.py": "7d7d393462d0c32e4c0052a5407d31ac705e6f3acbb58f34a345c90fa82a64e9",
+    "prepare_next32_audio.py": "43ebbc95cf5226473ca36a3162078a0e272296029a71c8735fda4ecc993454c4"
+  },
+  "simulated_review_lenses": {
+    "provenance": "SIMULATED:25currentoriginalSHA/Dropboxhash/revisions and5knownhistoricalhashes; no falseclaimalloriginalreferencesbytecheckedagainstabsentoldbanks.",
+    "audio": "SIMULATED:170WAV/20character/title/3formationmetadata, hashes, no clipping, clocks and realGodotPCM; not listening. Newacceptedbanksbyteprotected.",
+    "gameplay": "SIMULATED:original32familysemantics and6familypaidflows; budget/economy/receiptsunchanged.",
+    "save": "SIMULATED:18actualfailedsave/rollback/retry/stagereloads andsourceconsumption, no destructive migration.",
+    "release_privacy": "SIMULATED:1130filecompleteversion24projectimports; media ignored. No APK/request/key/app/V23 change in this session."
+  },
+  "limitations": [
+    "No new listening, physical Android or artistic acceptance; existing source approvals retained.",
+    "OGG containers are re-encoded; their new receipts are truthful, not old byte-identity claims.",
+    "No APK or request yet; build toolchain and public-reference certificate audit are next. An exploratory GitHub release API lookup returned Forbidden for api.github.com; no alternate denied route used. Public original-key certificate/request/signature fixtures remain retained.",
+    "No new native screenshots because no UI/art/runtime gameplay source changed; existing native INDIE39/CROWD40 evidence retained separately, not claimed as rerun."
+  ],
+  "next_action": "Prepare and audit a fresh unsigned combined version24 APK with unchanged app/save identity, then a NEW detached-signing request bound to its actual payload and original public certificate. Original private key stays in original environment."
+}

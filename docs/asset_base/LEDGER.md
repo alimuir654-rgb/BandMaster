@@ -1708,3 +1708,7 @@ Source `4220499c1cdb6fff964e62d19a6de0b79625d21f`: owner supplied all four appro
 ## AUDIO41 — live legacy source audit after owner cleanup (10 November 2026)
 
 Read-only live Dropbox/local inventory and archived ZIP inspection completed. Both known folder listings exhausted; only new3songsets remain in /audio files.20,785,360-byte recorded-audio ZIP matches historical SHA33d96e02…332ee167d/Dropboxhash/CRC but contains only steady_v1, not currentv2/laterbanks. Six older source sets/19instrumentWAVs need original recovery or reupload; full mixes optional, new songs/crowds retained. See `docs/continuous_improvement/AUDIO41_RESULTS.json`. No source/audio substitutions, engine/build/Dropbox mutations/app/key/V23 changes. Next: restore/reupload exact missing originals or inspect retainedV22/privatebank backup. Writer released.
+
+## RESTORE42 — verified restored original audio (10 November 2026)
+
+Source `dc2eca1ad54b63310c076dee500f5e4730358a23`:25originals/19requestedstems recovered privately, allSHA/Dropboxhash/revisions verified;5SteadyhistoricalSHA and10v1WAV exact.170legacyWAVs/32currentfoundations,20characterclips/title/3formationcues prepared with unchanged originalscripts; newapprovedvocal/crowdbanksunchanged.890asset+724Godotchecks pass,5184legacyhashsame,1130filev24projectimports/allhashesmatch. Onlytrackedruntimeassetreceiptchange is titleOggnewcontainerSHA. No gameplay/UI/save/app/key/V23/APK/request change. See `docs/continuous_improvement/RESTORE42_RESULTS.json`. Writer released; next freshunsignedversion24packageaudit/request.
