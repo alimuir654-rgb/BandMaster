@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "session": "INDIE39",
+  "completed_at": "2026-11-10T15:10:44.338467+00:00",
+  "tested_runtime_source": "c376cc08e8a96a8da7146dc590c5207bdfdf90ed",
+  "preflight": "51634e8be81f21654c6dc8ef263969970f93488e",
+  "baseline": "09a96983ba8c8e08ab8515511fb467117889e0e5",
+  "branch": "feature/playtest-polish-v20",
+  "owner_approved": false,
+  "source_specific_approval": "Latest owner explicitly accepted displayed candidate1 sparse/full excerpts for all three songs and authorized integration. Candidates2/3 remain outside shipping bank.",
+  "status": "source_verified_private_media_prepared_no_build",
+  "changes": [
+    "Six canonical singer/keyboard character previews use the approved first excerpts. Nina has no supplied clip.",
+    "Three additive version5 song foundations bind Maya/Freya, Lily/Dan and Sam/Oscar; the identical vocal PCM and level are retained across arrangement stages/backing controls.",
+    "Existing song-writing, paid receipts, saved-song and gig presentation routes accept version5; first-paid phrase ledger includes the original singer and keyboardist.",
+    "Live writing requires the exact active pair. Completed historical recordings retain their original performers after lineup changes.",
+    "Whole-number lead-vocal stats now use the existing loader normalization at formation, preserving values and genuine fractions."
+  ],
+  "private_bank": {
+    "tested_sha": "c376cc08e8a96a8da7146dc590c5207bdfdf90ed",
+    "source_and_qa_gd_identical": true,
+    "candidate1_only": true,
+    "media_files": [
+      {
+        "path": "indie39_plates_01_vocals.wav",
+        "sha256": "0bf67938b13e9570738757ea1b3648a3c330ed8aa84e9f5a86441b92d67f6d7a",
+        "bytes": 1812524
+      },
+      {
+        "path": "indie39_plates_01_keys.wav",
+        "sha256": "a845f77244d05041eb6eb85f8a960bb3bfddfd59df4d8a0f2b049e74142aecb5",
+        "bytes": 1812524
+      },
+      {
+        "path": "indie39_plates_01_guitar.wav",
+        "sha256": "1e4cbfed127f79258693d6f0000660eaa1b44efd53a04166b6ff5f9e60bfd89c",
+        "bytes": 1812524
+      },
+      {
+        "path": "indie39_plates_01_bass.wav",
+        "sha256": "c8f923ec85dbb6df642482e61bf39af18698b3500bdc100ca4423257531d813d",
+        "bytes": 1812524
+      },
+      {
+        "path": "indie39_plates_01_kit.wav",
+        "sha256": "cc238ee454443844d21cb58f3bc99d8530ee92fd70f68f0e52d5ff97724c52cb",
+        "bytes": 1812524
+      },
+      {
+        "path": "indie39_wear_01_vocals.wav",
+        "sha256": "e6ca25326a40fe02ae7efe7ffb64a53033d404b50c1c3673830f9f3d02aacfd7",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_wear_01_keys.wav",
+        "sha256": "13e2d66c48764f648c1531df42a6827b31012fc53406db1838dad541f2d1c578",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_wear_01_guitar.wav",
+        "sha256": "aa7e6f9eb157efd10ae4815f708ab7a9a09ae07c3f0cfd17b386cfb248194ce9",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_wear_01_bass.wav",
+        "sha256": "7ad2f78c5553eb504412455b3bb840911c3cb00d17ac844dbd3bad6e0e3e831b",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_wear_01_kit.wav",
+        "sha256": "8107d238d333cc9e793db5bb95b269b9ea96d5741dda006987f362fb1f014410",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_stairs_01_vocals.wav",
+        "sha256": "33592a55c42e455cc3c9e3d8c023ecbd480d5533ea58430dffea888f52f7eff7",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_stairs_01_keys.wav",
+        "sha256": "9599770903575a98ebe0a3b78d9db582c3cb5bbba4c1747598c92f06f4c92258",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_stairs_01_guitar.wav",
+        "sha256": "7e902f6b4ad44654de9f97fad3b730e2b924f3ef3897a145597dabb63622e221",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_stairs_01_bass.wav",
+        "sha256": "9fa15e91b2179446d5f2388dd0b1cd39b740782727383fd74a1cbfa3f17e695f",
+        "bytes": 1612840
+      },
+      {
+        "path": "indie39_stairs_01_kit.wav",
+        "sha256": "337e3896c99c020447c6b13011241e3ee07ac793fd58d6927b1932026cb65ff1",
+        "bytes": 1612840
+      }
+    ],
+    "manifest_sha256": "ef0f84baed238d0f7425d3beaa9be057136ab7a815a894feca8e5c24bbdb4b0a",
+    "characters_sha256": "6ec072439d172e0904bf38094d484fb922512da35b2a53d3028bde98ce411c1c",
+    "private_media_git_tracked": false
+  },
+  "checks": {
+    "model": 104,
+    "native_per_viewport": 78,
+    "native_total": 312,
+    "native_sizes": [
+      "390x844",
+      "1280x720",
+      "720x1280",
+      "1600x900"
+    ],
+    "legacy_recipe_cases": 5184,
+    "legacy_before_after_sha256": "ea624666f50caae8390f7fafc39a394008a3d593660c1b4279b604b57a5daf80",
+    "legacy_identical": true,
+    "source_and_QA_runtime_identical": true,
+    "candidate1_only": true,
+    "native_original_PNGs": 32,
+    "original_PNGs_opened": 16,
+    "private_media_git_tracked": false
+  },
+  "coverage": "Model uses an affordable real Tom/Ben/Ellis/Maya/Freya formation through all three paid stages with actual save-failure rollback and exact typed reload. All three source bindings and all15 PCM assets are checked; all six character clips play through actual native controls. Native writing selection, wrong-pair disable, five-stream preview, mute, original save and reload run at all four sizes. Saved-song source is checked; full native gig journey is unchanged prior proof, not rerun for this batch.",
+  "logs": {
+    "model-committed.log": {
+      "path": "/workspace/bandmaster-indie39/model-committed.log",
+      "sha256": "0880d986b892b48f8ff0febee9c4cbcc78604d6c6260fef056ff92eb9939d4af"
+    },
+    "phone2.log": {
+      "path": "/workspace/bandmaster-indie39/phone2.log",
+      "sha256": "c8a4542bd7d69778eaa1e9f06d9e1096e3a226989811a5f3f16abe1e352073a7"
+    },
+    "short.log": {
+      "path": "/workspace/bandmaster-indie39/short.log",
+      "sha256": "08db7974cdf1c73c9f8a0ac90fa09f41534bce2772bf38e2c569a20fee45859d"
+    },
+    "tall.log": {
+      "path": "/workspace/bandmaster-indie39/tall.log",
+      "sha256": "2cfd911933e97d5970e1c9e866d52174490b740018db6bfdeb73a9bc038677e3"
+    },
+    "wide.log": {
+      "path": "/workspace/bandmaster-indie39/wide.log",
+      "sha256": "eb30f4afa04b45c5699dadcbb41b690e499d1bae652e2cf112d50252fef4130d"
+    },
+    "legacy-before.log": {
+      "path": "/workspace/bandmaster-indie39/legacy-before.log",
+      "sha256": "b64bed9cd8fd9dfab8c558026e85505f638b9a1cb9c0fe37aedf6f78743a0e56"
+    },
+    "legacy-after.log": {
+      "path": "/workspace/bandmaster-indie39/legacy-after.log",
+      "sha256": "b64bed9cd8fd9dfab8c558026e85505f638b9a1cb9c0fe37aedf6f78743a0e56"
+    }
+  },
+  "captures": [
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-bank-selected.png",
+      "sha256": "7f80683cff5e23ea54714cb2ffc823c4af4fb9af16a2221fe0f3fb58d5b30435"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_dan.png",
+      "sha256": "9a22e6056a1f30b998bde6f1c6b505e778d17de0a5b41e5c671b15974709cd1e"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_freya.png",
+      "sha256": "5076a375e0f16345cd754275356666b312af4b9465acd655037db561d8303dfe"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_lily.png",
+      "sha256": "683e2bdb8aed35db26169490be443921638f492a98c5aa7bbb4ef27113e36502"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_maya.png",
+      "sha256": "00193e8f2be386383d4eec7d49881b499eebfe92f28132fe0873b0c4077194ad"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_oscar.png",
+      "sha256": "5cdcae3297bdd0c8e223c22fa489aab045bb1c30960adfdffb8d763c9c58b3db"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-character-cast_sam.png",
+      "sha256": "2fdfac7a2d2b6d00badba5e84a6f3587923cfc267146fcf0697cea9358777d08"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/phone2-writing-approved-source.png",
+      "sha256": "6677216229311e9055bd14fc09a7066df3e36bc3ae484940827410b039a0896f"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-bank-selected.png",
+      "sha256": "dc51d33c4f0bd44eb0fec5d9c9299dba8c7bf0030055cd95b0144da9e455fc2b"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_dan.png",
+      "sha256": "7b40b961f666390a4148d72f97539cd2f6324aa5321ab43be21b6493190232c9"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_freya.png",
+      "sha256": "77d2d633e71a353d4983b9775dd44ea426dd52cdf12a6155265437090bd30c65"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_lily.png",
+      "sha256": "91ce9729d2b922880175ebdfa7a67f89624eb83283a4e01324d097d6153344a5"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_maya.png",
+      "sha256": "f57fd5116fd7a68428d4d90254433cd67f4b45dd5211657fb9266cf6388c70c9"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_oscar.png",
+      "sha256": "7b9486c7cb9a7d349677d918f0058aca76259f63eedf5c13d6163707af1aa1fb"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-character-cast_sam.png",
+      "sha256": "7d5d7b494b5ffcd9199959f6c6f1c216265a2a99e247ef0744e9850c60987f34"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/short-writing-approved-source.png",
+      "sha256": "d1e597beb22708e3931f44ab7300aacb80a6b666449d72e2e5c77ea7c6b90500"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-bank-selected.png",
+      "sha256": "15b0e51b3d50c444d7b8a43061e9bfec1ca0dd483ce648580e3d66ec165a19c7"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_dan.png",
+      "sha256": "2fb5f14f9b6319f8ed4445e84c7cad5cc10d7068ce89b09eb32351351a5768b7"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_freya.png",
+      "sha256": "ee93322e6dc24824548e9d3b1e980bc16e7effa4466cf727343344f28e4104af"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_lily.png",
+      "sha256": "34fcfe07a92e25a0606609796273262284a1cf64f65d39d8a868c7d9cb042cae"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_maya.png",
+      "sha256": "8e6c60e2d05fabf9503d603ed9b45818ffa9eb8a5edf57b91caf1c3412003fe6"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_oscar.png",
+      "sha256": "4e072c4eae7c97bae958349061d777447119a05ff860f48b73ecfe6af9cd974c"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-character-cast_sam.png",
+      "sha256": "20e7d4828464c22879b9d7cb849df65c6a67a24aab17ab2b767654b0404c7e49"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/tall-writing-approved-source.png",
+      "sha256": "beb976121285672b37315a53991a61cc057e71c3d2fa595417cbfe812840cf3c"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-bank-selected.png",
+      "sha256": "1deddf703159c735d55b96ece4ba6bb85bc81842892920e2458cdf66416b7427"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_dan.png",
+      "sha256": "f03a1eb7d145c5207b6a6163da358f6b96fe1aa8fda97dd4fdf55fca5de086ee"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_freya.png",
+      "sha256": "93c076672122d58262ac2da1d1aea300603f713e8394d539ddb9000b9c11f242"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_lily.png",
+      "sha256": "de25366566016f55c9071ca541fbf83b7f3113812ef6de695a77458a71f9582a"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_maya.png",
+      "sha256": "8dd8aeecd4c4ca50961e7203a2cf585d3ad7249c93885b8acd584722a767940b"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_oscar.png",
+      "sha256": "2443dfcebee05f3967b54ddc6ab641315bbedb794a6a1da3e13b91bb0060964e"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-character-cast_sam.png",
+      "sha256": "b9878ada6d2791e100b8acdaf8c2395845f8c27820fd0431174a043b8cbacc53"
+    },
+    {
+      "path": "/workspace/bandmaster-indie39/wide-writing-approved-source.png",
+      "sha256": "a2819dbf4ab8e08b098062a1c163f8e0f37c1cdab182a519c4b3d693e3d4c255"
+    }
+  ],
+  "originals_opened": [
+    "/workspace/bandmaster-indie39/phone2-character-cast_maya.png",
+    "/workspace/bandmaster-indie39/phone2-character-cast_freya.png",
+    "/workspace/bandmaster-indie39/phone2-character-cast_lily.png",
+    "/workspace/bandmaster-indie39/phone2-character-cast_dan.png",
+    "/workspace/bandmaster-indie39/phone2-character-cast_sam.png",
+    "/workspace/bandmaster-indie39/phone2-character-cast_oscar.png",
+    "/workspace/bandmaster-indie39/phone2-bank-selected.png",
+    "/workspace/bandmaster-indie39/phone2-writing-approved-source.png",
+    "/workspace/bandmaster-indie39/short-character-cast_maya.png",
+    "/workspace/bandmaster-indie39/short-bank-selected.png",
+    "/workspace/bandmaster-indie39/short-writing-approved-source.png",
+    "/workspace/bandmaster-indie39/tall-character-cast_maya.png",
+    "/workspace/bandmaster-indie39/tall-bank-selected.png",
+    "/workspace/bandmaster-indie39/tall-writing-approved-source.png",
+    "/workspace/bandmaster-indie39/wide-bank-selected.png",
+    "/workspace/bandmaster-indie39/wide-writing-approved-source.png"
+  ],
+  "pixel_review": "Existing artwork/layout retained. New short pair labels, selected and disabled choices, six character Hear/Stop controls and writing playback controls are readable/reachable in reviewed states. Captures include deliberate scrolled-to-audio/bank positions; some names and remaining choices are above/below the scroll viewport. No layout redesign or global artwork approval claimed.",
+  "simulated_review_lenses": {
+    "character_identity": "SIMULATED: exact source/pair IDs; no Nina substitution or voice reassignment. Owner listening approval is the source-specific acceptance, not new assistant listening.",
+    "player_controls": "SIMULATED: native listening and writing controls verified on four desktop viewport sizes; no physical phone claim.",
+    "save_compatibility": "SIMULATED: exact new-song paid/reload/rollback plus unchanged 5184-case legacy hash; no save migration.",
+    "music_reuse": "SIMULATED: identical vocal asset and level across backing changes; exact synchronized frames. Rhythm estimates are not verified bar grids or key.",
+    "release_privacy": "SIMULATED: new media excluded from Git; no APK or signature. Frozen V23 request/policy and app/key identities preserved."
+  },
+  "retained_failures": [
+    "model.log: initial test lineup exceeded original budget; fixture corrected without economy changes.",
+    "model-2.log: typed reload mismatch and shutdown warnings; model-3-diagnostic.log identified six integral vocal floats becoming ints in the original loader. Narrow formation normalization plus bounded teardown verified clean.",
+    "phone.log: test skipped existing separate-singer choice; corrected test follows actual AuditionSeparateSingerAction.",
+    "First final gate command used abbreviated --before SHA and was refused; repeated with full40-character preflight SHA passed.",
+    "Closeout gate rejected descriptive session status; inspected existing validator/prior session, corrected to closed with mandatory nested closeout fields. No source change."
+  ],
+  "limitations": [
+    "No new assistant listening or physical Android test; owner approved the supplied candidates.",
+    "Old private music banks and retained V23 APK/Android SDK absent here; no broad unchanged asset suites or compiled APK tests repeated.",
+    "Only first passages approved/promoted. Full mixes are optional references; originals and later passages retained privately.",
+    "Sam/Oscar together exceed the original initial talent budget once essential rhythm players are included; no economy changes made. Their individual previews work; pair availability follows actual later lineup.",
+    "Crowd37 remains incomplete: BigSoundBank2479/2486/3521 acquisition blocked by last observed running proxy. No rejected substitute or new boo.",
+    "Commercial interactive-game licensing remains separately unresolved as recorded in prior handover."
+  ],
+  "release": {
+    "new_APK": false,
+    "new_signing_request": false,
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "original_key_stays_in_original_environment": true,
+    "frozen_V23_request_sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "frozen_V23_policy_sha256": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "next_version_must_exceed": 23
+  },
+  "next_action": "Acquire the three approved remaining BigSoundBank crowd sources when the running environment permits, complete their private preparation and verify the combined soundscape before a fresh >23 audited build/signing request."
+}

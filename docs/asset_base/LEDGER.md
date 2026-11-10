@@ -1696,3 +1696,7 @@ CROWD37 — 2026-11-10T12:11:40.752908+00:00 — Owner accepts four new table so
 
 
 INDIE38 — 2026-11-10T14:22:07.249698+00:00 — Private three-song5stem intake complete at b6647d9943720174a3a266dccf3dc855f96b8012;16content/SHA/revision checks and127asset/source/samevocal checks pass.9windows/45stems/27variants/3reconstructedreferences retained privately. No originalSuno mix replacement, audible/key/bar/fit claim, game/save/UI/APK/signing/owner-audioGit change. Source frames unchanged; approximate actual rhythm differs from prompts. Root writer released. See docs/continuous_improvement/INDIE38_RESULTS.json. Next: Listen to the private short candidates and select clean character-appropriate phrases before implementing the additive vocal/keys runtime bank.
+
+## INDIE39 — approved first vocal/keys integration (10 November 2026)
+
+Source `c376cc08e8a96a8da7146dc590c5207bdfdf90ed`: three approved first passages,15private PCM assets, six character previews and additive version5 bound arrangements. Same vocal retained across backing changes; saved original performers preserved.104model +312native checks, four viewports/32original PNGs;5184legacy outputs unchanged. See `docs/continuous_improvement/INDIE39_RESULTS.json`. Original paid save/rollback used, no economy rebalance, no private audio in Git. No APK/key/app/V23 change. Crowd37 incomplete; next action is the three approved remaining crowd sources. Writer released; global owner_approved=false.

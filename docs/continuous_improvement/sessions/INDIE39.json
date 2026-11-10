@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "INDIE39",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "09a96983ba8c8e08ab8515511fb467117889e0e5",
   "owner_request": "Owner approves displayed candidate1 sparse/full excerpts for all3songsets and authorizes integration. Preserve private media, old saves/app/key/frozenV23; no new test build until complete crowd batch.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2150382,
-    "sha256": "d1fd992071251f6e21aa6fc9fc68b67ad550c42e63f4bc924f8b672133236cb2"
+    "bytes": 2152942,
+    "sha256": "6ebb30122fb5c5c2eee0e6d5f0e60764347d4f1770009839b6111d134263e2fd"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -67,7 +67,17 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T14:48:41.754388+00:00"
+  "started_at": "2026-11-10T14:48:41.754388+00:00",
+  "completed_at": "2026-11-10T15:10:44.338467+00:00",
+  "tested_sha": "c376cc08e8a96a8da7146dc590c5207bdfdf90ed",
+  "results": "docs/continuous_improvement/INDIE39_RESULTS.json",
+  "closeout": {
+    "tested_sha": "c376cc08e8a96a8da7146dc590c5207bdfdf90ed",
+    "evidence": "docs/continuous_improvement/INDIE39_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Acquire the three approved remaining BigSoundBank crowd sources when the running environment permits, complete their private preparation and verify the combined soundscape before a fresh >23 audited build/signing request.",
+    "new_issue_review": "Initial over-budget fixture, integral vocal stat representation, native singer route and closeout gate invocation/schema corrections retained with final passing proof. No runtime/source hold; crowd completion and physical Android remain pending."
+  }
 }

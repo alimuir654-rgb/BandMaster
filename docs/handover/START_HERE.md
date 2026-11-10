@@ -7,7 +7,38 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — INDIE38
+## Latest continuation — INDIE39
+
+The owner approved the displayed **first** sparse/full excerpts for all three
+songs. These are now integrated privately: Maya/Freya — Get the Good Plates Down,
+Lily/Dan — Wear and Tear, Sam/Oscar — Underneath the Kitchen Stairs.
+Only candidate1 is promoted; later candidate windows remain review material.
+
+Runtime source: `c376cc08e8a96a8da7146dc590c5207bdfdf90ed`.
+Read `docs/continuous_improvement/INDIE39_RESULTS.json`. Six character previews
+and three additive version5 song foundations use15exact approved PCM assets in
+ignored `experiments/playable_flightcase/audio/recorded_indie39/`.
+`tools/prepare_indie39.py` recreates that bank from retained private INDIE38
+candidate1 sources. The same vocal asset/level is retained across backing
+arrangements. Live writing requires the named active singer/keyboardist;
+completed saved songs retain their original performers. Nina has no supplied clip.
+No initial talent-budget rebalance was made for the expensive Sam/Oscar pair.
+
+104model and312native checks pass across four viewports, with32original captures
+and16opened originals. Actual three-stage paid save/rollback/reload is verified
+with the affordable Maya/Freya band; all three source bindings and15PCM files
+are checked. The5184-case legacy recipe hash is unchanged. Evidence and isolated
+saves: `/workspace/bandmaster-indie39/`; QA project remains
+`/workspace/bandmaster-crowd36/project`. This is desktop source/native proof,
+not new assistant listening, physical Android proof or global artwork approval.
+
+**No new APK or signing request.** Crowd37 still needs the three approved
+BigSoundBank recordings; complete that batch before the next combined build.
+Keep V23/request unchanged, use a new audited version>23 request, preserve app ID
+and sign only with the existing key in its original environment. All owner music
+and derivatives remain outside public GitHub. Writer released.
+
+## Previous continuation — INDIE38
 
 Three new owner songs are now privately downloaded and technically assessed:
 **Get the Good Plates Down** (Maya/Freya proposal), **Wear and Tear** (Lily/Dan)
@@ -26,7 +57,8 @@ not proof of the prompt tempos, bar grid, key or phrase boundaries. Third-song
 MP3 first60s comparison shows no estimated start lag and0.956correlation;
 reconstructed mix/mastering is not byte-identical original Suno output.
 
-**No listening/character-fit acceptance or game integration yet.** Candidates
+At the INDIE38 checkpoint there was **no listening/character-fit acceptance or
+game integration yet**; INDIE39 above supersedes this hold for candidate1. Other candidates
 need lyric-boundary/separation/musical review before a separately versioned
 vocal/keys runtime recipe and participant binding. Do not reassign these voices
 to Nina or mix unrelated clocks/chords. Originals and derivatives stay private,
