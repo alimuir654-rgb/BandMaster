@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "BUILD43",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "b33ef250d67ac9532e6315fd699b13a5b1b96577",
   "owner_request": "Continue the authorized combined test-build workflow now that the owner restored all required audio. Build version24 with a new audited detached request, unchanged app/save identity and original key in its original environment. Keep frozenV23 and private audio out of public GitHub.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2165360,
-    "sha256": "cccd27f9313e1c58ae2d339288e7231b356d729ce18fba311e87c22def0e307e"
+    "bytes": 2173016,
+    "sha256": "4eb45ab136ab9288eebf4afae6c55b931485cd08702c03520b588ec37de8826a"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -61,7 +61,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T18:36:57.125503+00:00"
+  "started_at": "2026-11-10T18:36:57.125503+00:00",
+  "completed_at": "2026-11-10T19:15:19.536011+00:00",
+  "closeout": {
+    "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "evidence": "docs/continuous_improvement/BUILD43_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK.",
+    "new_issue_review": "All five BUILD43 incident/held-audit events reviewed and resolved with retained failurehistory; no failedassertion bypass or false key/listening/device claim. Original signature/final officialAPK/device tests remain explicit."
+  }
 }

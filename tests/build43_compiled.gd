@@ -11,6 +11,7 @@ const Live=preload("res://experiments/playable_flightcase/live_bridge.gd")
 const Finance=preload("res://experiments/playable_flightcase/finance_policy.gd")
 const Audio=preload("res://experiments/playable_flightcase/mixing_audio.gd")
 const Song=preload("res://experiments/playable_flightcase/song_audio.gd")
+const CrowdFX=preload("res://experiments/playable_flightcase/gig_soundscape.gd")
 var owner
 var checks:=0
 var failures: Array=[]
@@ -83,6 +84,22 @@ func run() -> void:
  packaged=FileAccess.file_exists("res://project.binary") and not FileAccess.file_exists("res://project.godot")
  if not check(packaged,"actual exported binary project payload"):await finish();return
  if not check(fixture(),"actual compiled funded owner"):await finish();return
+ var fx=CrowdFX.new();root.add_child(fx)
+ for kind in ["entrance","song","courtesy","cheer"]:
+  var stream=fx._effect_stream(kind)
+  check(stream is AudioStreamOggVorbis,"actual compiled approved crowd decoder "+kind)
+  check(stream!=null and stream.get_length()>0 and stream.get_length()<=9,"compiled crowd bounded length "+kind)
+ check(fx._effect_stream("boo")==null,"compiled rejected boo remains silent")
+ fx.free();await process_frame
+ var extra: Array=[]
+ for manifest in ["res://experiments/playable_flightcase/audio/character_indie29/manifest.json","res://experiments/playable_flightcase/audio/formation_next32/manifest.json"]:
+  var registry: Dictionary=JSON.parse_string(FileAccess.get_file_as_string(manifest))
+  extra.append_array(registry.materials.values())
+ extra.append(JSON.parse_string(FileAccess.get_file_as_string("res://experiments/playable_flightcase/audio/splash_cue.json")))
+ for asset in extra:
+  var clip=load(str(asset.path))
+  check(clip is AudioStreamOggVorbis,"actual compiled character/title/formation decoder "+str(asset.path))
+  check(clip!=null and clip.get_length()>0 and clip.get_length()<=12,"compiled short clip duration")
  var stable: Dictionary=owner.snapshot()
  for hook in Bank.HOOKS:
   var value: Dictionary=take(hook,2)

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/RESTORE42.json",
-  "scope": "All restored original legacy audio privately recovered and complete version24 project verified, with new approved vocals/crowd unchanged.",
+  "session": "docs/continuous_improvement/sessions/BUILD43.json",
+  "scope": "Complete restored audio and exact compiled unsigned V24 verified; new bound detached request ready for original key environment.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "all_audio_restored_complete_project_ready_for_unsigned_v24_build",
-  "next_action": "Prepare and audit a fresh unsigned combined version24 APK with unchanged app/save identity, then a NEW detached-signing request bound to its actual payload and original public certificate. Original private key stays in original environment.",
+  "status": "unsigned_V24_verified_new_request_ready_original_signature_pending",
+  "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7853,5 +7853,21 @@
     "model_checks": 724,
     "new_APK": false,
     "writer": null
+  },
+  "build43": {
+    "source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "report": "docs/continuous_improvement/BUILD43_RESULTS.json",
+    "APK_sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1",
+    "version_code": 24,
+    "signed": false,
+    "request": "docs/signing/BandMaster-V24-APK-v2-signing-request.json",
+    "request_sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "checks": 1012,
+    "native_PNGs": 62,
+    "opened_PNG_files": 15,
+    "owner_approved": false,
+    "media_publication": false,
+    "original_key_signature_pending": true,
+    "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK."
   }
 }

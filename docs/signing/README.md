@@ -12,6 +12,71 @@ The helpers use Python 3 with the existing `cryptography` dependency and Java 17
 `tools/detached_apk_v2.py` already prepares/assembles APK-v2 blocks and requires
 official Android `apksigner`, `zipalign`, app/version and unchanged-payload checks.
 
+## Current handoff — V24 ready for the original environment
+
+All requested audio is restored. The combined **V24** unsigned APK includes the
+approved real crowd recordings, three bound-vocal songs and restored older banks.
+The exact compiled payload passes 500 model checks, 416 native checks across four
+viewports, 10 focused Settings checks, 69 package metadata checks and 17 public
+signer tests. These are desktop checks, not listening or physical Android tests.
+Read `../continuous_improvement/BUILD43_RESULTS.json` for the audit and retained holds.
+
+| Binding | Exact value |
+| --- | --- |
+| New request | `BandMaster-V24-APK-v2-signing-request.json` (7781 bytes) |
+| Request file SHA-256 | `8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b` |
+| Request ID | `e07c0d3f39b746b4cdcf6f9da50fb9a45b2dcb5c788f35de496fee9ed8dd63a5` |
+| Signed-data SHA-256 | `97f109b3be35b32f2b20e4e04efba4c1fe7dd49a71d908aa4f747882c66ae35e` |
+| Original certificate SHA-256 | `83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2` |
+| Unsigned APK SHA-256 | `e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1` |
+| Unsigned APK bytes | `461781871` |
+| Packaged source | `462b68ad7211a639bea204a6ab0d94f4fd942875` |
+| Branch | `feature/playtest-polish-v20` |
+| Version | `24` / `0.154.0-playtest-crowd-vocals` |
+| App / save | `com.bandmaster.ownerplaytest.s40` / `BandMasterOwnerPlaytestS40` |
+
+**Only needed from the original signing environment:** update its source checkout to
+this feature branch, check the exact request hash below, sign with its existing
+original key, and return the small `BandMaster-V24-signature-response.json`.
+The large APK and audio stay here. The keystore/alias placeholders below must be
+replaced with that environment's existing values; use its secure
+`BM_STORE_PASSWORD` and `BM_KEY_PASSWORD` settings. No key transfer or new key.
+
+```sh
+python3 tools/detached_sign_request.py check \
+  --request docs/signing/BandMaster-V24-APK-v2-signing-request.json \
+  --request-sha256 8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b
+
+python3 tools/detached_sign_request.py sign \
+  --request docs/signing/BandMaster-V24-APK-v2-signing-request.json \
+  --request-sha256 8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b \
+  --keystore /original/environment/existing-playtest.jks \
+  --alias ORIGINAL_EXISTING_ALIAS \
+  --output /tmp/BandMaster-V24-signature-response.json
+```
+
+The helper verifies the original certificate and exact message/signature locally.
+The pinned V22 public proof establishes certificate continuity; it cannot sign V24.
+V23 remains frozen and unchanged. Use this **new V24 request** for the combined build.
+
+After the matching response returns, the environment retaining the exact APK runs:
+
+```sh
+python3 tools/detached_apk_v2.py assemble \
+  --policy docs/signing/v24-policy.json \
+  --request docs/signing/BandMaster-V24-APK-v2-signing-request.json \
+  --response /path/to/BandMaster-V24-signature-response.json \
+  --apk /workspace/bandmaster-build43/BandMaster-Playtest-v24-UNSIGNED.apk \
+  --public-reference \
+  --sdk /workspace/bandmaster-build43/android-sdk/build-tools/35.0.0 \
+  --output /workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk
+```
+
+Assembly must pass fresh official `apksigner` verification with the original
+certificate, unchanged ZIP payload, application/version and 16 KiB alignment.
+Until then V24 is unsigned and not installable. Owner device update/save/audio
+review follows successful assembly; install as an update without uninstalling.
+
 ## Frozen V23 public handoff
 
 `BandMaster-V23-APK-v2-signing-request.json` is an **exact 9,080-byte copy** of the
@@ -151,6 +216,7 @@ python3 tests/detached_apk_v2_test.py \
 ```
 
 Both suites run without generating keys or producing an APK. The existing detached
-assembler has previously completed real V17–V22 original-key handoffs. This handover
-adds a reusable original-environment signer and portable, exact public V23 inputs;
-it does not claim an actual V23 signature or successful new private-key operation.
+assembler has previously completed real V17–V22 original-key handoffs. The historical V23 handover
+added the reusable signer and exact public inputs. The current V24 handoff above
+is separately audited; no actual V23/V24 signature or new private-key operation
+is claimed here.

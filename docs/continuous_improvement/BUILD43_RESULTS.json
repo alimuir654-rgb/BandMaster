@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "session": "BUILD43",
+  "completed_at": "2026-11-10T19:15:19.536011+00:00",
+  "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+  "status": "unsigned_V24_audited_fresh_request_ready_original_key_signature_pending",
+  "owner_approved": false,
+  "APK": {
+    "sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1",
+    "bytes": 461781871,
+    "signed": false,
+    "installable_update": false,
+    "source_commit": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 24,
+    "version_name": "0.154.0-playtest-crowd-vocals",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "zip_crc_all_entries": true,
+    "zip32_single_disk": true,
+    "no_preexisting_signing_block": true,
+    "alignment_16kb": true,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "forbidden_permissions_absent": true,
+    "test_harness_excluded": true,
+    "payload_entries": 2269,
+    "payload_manifest_sha256": "012fb0d146af8930e89cd7bd429715b888a02a85672d75829dd96e5af1733ddf",
+    "content_digest_chunks": 443,
+    "physical_device_tested": false
+  },
+  "request": {
+    "path": "docs/signing/BandMaster-V24-APK-v2-signing-request.json",
+    "bytes": 7781,
+    "sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "request_id": "e07c0d3f39b746b4cdcf6f9da50fb9a45b2dcb5c788f35de496fee9ed8dd63a5",
+    "signed_data_sha256": "97f109b3be35b32f2b20e4e04efba4c1fe7dd49a71d908aa4f747882c66ae35e",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "actual_APK_revalidation": {
+      "request_sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+      "request_id": "e07c0d3f39b746b4cdcf6f9da50fb9a45b2dcb5c788f35de496fee9ed8dd63a5",
+      "signed_data_sha256": "97f109b3be35b32f2b20e4e04efba4c1fe7dd49a71d908aa4f747882c66ae35e",
+      "actual_APK_recomputed": true,
+      "old_V22_signature_refused_for_V24": true,
+      "key_loaded_or_signature_generated": false
+    }
+  },
+  "source_identity": {
+    "repository": "alimuir654-rgb/BandMaster",
+    "branch": "feature/playtest-polish-v20",
+    "integrated_source_commit": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "owner_base_commit": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+    "packaged_game_source_commit": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "entry_scene": "experiments/playable_flightcase/opening.tscn",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "source_archive_sha256": null
+  },
+  "package_audit": {
+    "zip_crc_all_entries": true,
+    "zip32_single_disk": true,
+    "no_preexisting_signing_block": true,
+    "alignment_16kb": true,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "forbidden_permissions_absent": true,
+    "test_harness_excluded": true,
+    "payload_entries": 2269,
+    "payload_manifest_sha256": "012fb0d146af8930e89cd7bd429715b888a02a85672d75829dd96e5af1733ddf",
+    "content_digest_chunks": 443,
+    "physical_device_tested": false,
+    "previous_compiled_payload_tests": {
+      "checks": 500,
+      "failures": 0,
+      "reused_for_exact_unsigned_apk_sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1",
+      "verification_record_sha256": "e3c61f18f1f34f4fd322ed1d69c4971f4c925b0e9d93c6e89842e1ea724d8fb6",
+      "package_audit_record_sha256": "5ab7b13211767509fa1f52c42821afa6407ca3f9c8e566520ecfc0222cb5d24b"
+    }
+  },
+  "toolchain": {
+    "archives": [
+      {
+        "name": "Godot_v4.7.2-stable_export_templates.tpz",
+        "url": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+        "bytes": 1281349702,
+        "provider_algorithm": "sha512",
+        "provider_digest": "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079",
+        "sha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011"
+      },
+      {
+        "name": "build-tools_r35_linux.zip",
+        "url": "https://dl.google.com/android/repository/build-tools_r35_linux.zip",
+        "bytes": 61958799,
+        "provider_algorithm": "sha1",
+        "provider_digest": "2cfaa0bbb2336e9ec18ed3ecea84fa2e2af607bc",
+        "sha256": "bd3a4966912eb8b30ed0d00b0cda6b6543b949d5ffe00bea54c04c81e1561d88"
+      },
+      {
+        "name": "platform-tools_r37.0.1-linux.zip",
+        "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-linux.zip",
+        "bytes": 9054187,
+        "provider_algorithm": "sha1",
+        "provider_digest": "477254aa5f903c15cf51001717bdf347fb6b53e0",
+        "sha256": "d230f13842f60f782a8645f9c813f8f845bf36089ea7289f28c48f17979313f1"
+      }
+    ],
+    "engine": "/workspace/tools/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "java": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "android_release_template_sha256": "6d1bb2cfa126a1b1c87e064a35b3cbd181bef0ec784dec1efd1d64dffa8be6cb",
+    "sdk": "/workspace/bandmaster-build43/android-sdk"
+  },
+  "verification": {
+    "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "compiled_apk_model": {
+      "checks": 500,
+      "compiled_payload": true,
+      "failures": [],
+      "listening": false,
+      "physical_device": false
+    },
+    "native": {
+      "phone": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(390, 844)"
+      },
+      "short": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1280, 720)"
+      },
+      "tall": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(720, 1280)"
+      },
+      "wide": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1600, 900)"
+      }
+    },
+    "focused_settings": {
+      "checks": 10,
+      "failures": [],
+      "physical_device": false,
+      "viewport": "(1280, 720)"
+    },
+    "payload_inspection": {
+      "checks": 69,
+      "failures": [],
+      "retained_metadata_files_byte_identical": [
+        "Art/References/ApprovedCast20261029/MANIFEST.json",
+        "Art/UI/Icons/LUCIDE_LICENSE.txt",
+        "Data/CharacterCast/NATIVE_TEST_RESULTS.json",
+        "Data/CharacterCast/VALIDATION.json",
+        "Data/CharacterCast/approved_cast_2026-10-29.json",
+        "components/control_atlas/FRAME_STYLES_C21.json",
+        "components/control_atlas/MANIFEST.json",
+        "components/control_atlas/provenance/DIRECT_CONTROL_MANIFEST.json",
+        "components/control_atlas/provenance/FRAME_KIT_MANIFEST.json",
+        "components/control_atlas/provenance/MATERIAL_MANIFEST.json",
+        "components/control_atlas/provenance/PASSIVE_METER_MANIFEST.json",
+        "components/control_atlas/provenance/U04_CONTROL_MANIFEST.json",
+        "experiments/playable_flightcase/art/GEAR_DISPLAY_PROVENANCE.json",
+        "experiments/playable_flightcase/art/GENRE_PRESS_PROVENANCE.json",
+        "experiments/playable_flightcase/art/OPENING_WORDMARK_PROVENANCE.json",
+        "experiments/playable_flightcase/art/PROVENANCE.json",
+        "experiments/playable_flightcase/art/RADIO_STUDENT_STUDIO_V3.json",
+        "experiments/playable_flightcase/art/S43_PROVENANCE.json",
+        "experiments/playable_flightcase/art/crowd34.json",
+        "experiments/playable_flightcase/art/icons/LICENSE.txt",
+        "experiments/playable_flightcase/art/icons/SOURCES.json",
+        "experiments/playable_flightcase/art/icons/native48/PROVENANCE.json",
+        "experiments/playable_flightcase/art/identity/CAST.json",
+        "experiments/playable_flightcase/art/identity/PROVENANCE.json",
+        "experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.json",
+        "experiments/playable_flightcase/art/identity/next32_portraits.json",
+        "experiments/playable_flightcase/art/owner_approved_revisions_v2.json",
+        "experiments/playable_flightcase/art/s53_PROVENANCE.json",
+        "experiments/playable_flightcase/audio/arjun_clips.json",
+        "experiments/playable_flightcase/audio/audition_clips.json",
+        "experiments/playable_flightcase/audio/character_indie29/manifest.json",
+        "experiments/playable_flightcase/audio/crowd37/manifest.json",
+        "experiments/playable_flightcase/audio/crowd37_credits.txt",
+        "experiments/playable_flightcase/audio/demo_foundations_v1.json",
+        "experiments/playable_flightcase/audio/formation_next32/manifest.json",
+        "experiments/playable_flightcase/audio/genre_examples.json",
+        "experiments/playable_flightcase/audio/jack_backing_clips_v1.json",
+        "experiments/playable_flightcase/audio/marcus_clips.json",
+        "experiments/playable_flightcase/audio/mixing_desk_v1.json",
+        "experiments/playable_flightcase/audio/producer_examples.json",
+        "experiments/playable_flightcase/audio/producer_raw_dark.json",
+        "experiments/playable_flightcase/audio/recorded_dgad_v1/manifest.json",
+        "experiments/playable_flightcase/audio/recorded_indie29/manifest.json",
+        "experiments/playable_flightcase/audio/recorded_indie39/characters.json",
+        "experiments/playable_flightcase/audio/recorded_indie39/manifest.json",
+        "experiments/playable_flightcase/audio/recorded_rehearsal_v1/manifest.json",
+        "experiments/playable_flightcase/audio/recorded_steady_v1/manifest.json",
+        "experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json",
+        "experiments/playable_flightcase/audio/splash_cue.json",
+        "experiments/playable_flightcase/audio/zoe_clips.json",
+        "experiments/playable_flightcase/fonts/DEBIAN-DejaVu-copyright.txt",
+        "experiments/playable_flightcase/fonts/LICENSE-DejaVu.txt",
+        "experiments/playable_flightcase/fonts/OFL-Caveat.txt",
+        "experiments/playable_flightcase/fonts/SOURCES.json",
+        "experiments/playable_flightcase/fonts/identity/Anton-OFL.txt",
+        "experiments/playable_flightcase/fonts/identity/BarlowCondensed-OFL.txt",
+        "experiments/playable_flightcase/fonts/identity/IBMPlexMono-OFL.txt",
+        "experiments/playable_flightcase/fonts/identity/NotoSansSC-OFL.txt",
+        "experiments/playable_flightcase/fonts/identity/PermanentMarker-LICENSE.txt",
+        "experiments/playable_flightcase/fonts/identity/SOURCES.json"
+      ],
+      "editor_imported_csv_raw_omitted": [
+        "Art/photo_sources.csv"
+      ],
+      "source_scripts": 0,
+      "compiled_scripts": 135,
+      "v1_signature_entries": [],
+      "key_files_absent": true,
+      "official_launcher_and_engine_checked": true,
+      "source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+      "APK_sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1"
+    },
+    "public_signer_unit_tests": 17,
+    "APK": {
+      "sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1",
+      "bytes": 461781871,
+      "signed": false,
+      "installable_update": false,
+      "source_commit": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+      "application_id": "com.bandmaster.ownerplaytest.s40",
+      "version_code": 24,
+      "version_name": "0.154.0-playtest-crowd-vocals",
+      "minimum_sdk": 24,
+      "target_sdk": 36,
+      "zip_crc_all_entries": true,
+      "zip32_single_disk": true,
+      "no_preexisting_signing_block": true,
+      "alignment_16kb": true,
+      "abis": [
+        "arm64-v8a"
+      ],
+      "permissions": [],
+      "forbidden_permissions_absent": true,
+      "test_harness_excluded": true,
+      "payload_entries": 2269,
+      "payload_manifest_sha256": "012fb0d146af8930e89cd7bd429715b888a02a85672d75829dd96e5af1733ddf",
+      "content_digest_chunks": 443,
+      "physical_device_tested": false
+    },
+    "compiled_payload": {
+      "path": "/workspace/bandmaster-build43/compiled-payload.zip",
+      "sha256": "086855fa75925e0c4f6e44e9da1aa3026700034efc7870a6822878010e52546a",
+      "proof_sha256": "66fcba0d786ed20101c24d9bb925f39eba51b3e39f6279bbd2db1da7cb04be40"
+    },
+    "external_verification_harnesses": {
+      "tests/build43_compiled.gd": "debc129c8caad83d6d8fd2e615c212b7869d3e26da9829379c5533d9c76520f8",
+      "tests/build43_native.gd": "64637dc174657676e71ea31c05854da2254eafa427558616c8e5d400204a8f0c",
+      "tests/build43_settings.gd": "3506637b23dfda7b92b113526502777ba5405b6e22f0f81c9a22b21acc38bcde"
+    },
+    "physical_device_tested": false,
+    "listening": false,
+    "signing_here": false
+  },
+  "verification_record_sha256": "e3c61f18f1f34f4fd322ed1d69c4971f4c925b0e9d93c6e89842e1ea724d8fb6",
+  "checks_total": 1012,
+  "compiled_proof": {
+    "method": "All APK assets extracted with their original bytes into ZIP.135compiledGDC/0GD. External self-contained verification harnesses run using only this ZIP as main pack and an empty isolated project root. Actual opening.tscn and compiled game scripts used. No product tests included in APK.",
+    "source_manifest": "/workspace/bandmaster-build43/candidate/SOURCE_MANIFEST.json",
+    "source_manifest_sha256": "3a6cbaf04f1eb900f6f44f1d9e4007e03cf88343b009382b3d4bb0a5a56979ad",
+    "compiled_proof": "/workspace/bandmaster-build43/compiled-payload-proof.json",
+    "compiled_proof_sha256": "66fcba0d786ed20101c24d9bb925f39eba51b3e39f6279bbd2db1da7cb04be40",
+    "external_harnesses_are_later_verification_only": true
+  },
+  "private_evidence_root": "/workspace/bandmaster-build43",
+  "native_original_PNGs": 62,
+  "original_PNGs_opened": [
+    {
+      "path": "/workspace/bandmaster-build43/phone-combined-vocal-crowd-playing.png",
+      "sha256": "d970082fd7809a758a6d325bc8495e251aa10c1e374be941a5455fae6d50efdc"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/phone-v24-menu.png",
+      "sha256": "d89c26bb9629c87b18ffea316ca0939d36efa43db9320a760380085ead7511a0"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/phone-v24-crowd-credits.png",
+      "sha256": "f6bb9d89f666eb80d8d738490e6973f434a5067b36b522c8e4ca3acea752baff"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/short-combined-vocal-crowd-playing.png",
+      "sha256": "d8f3f238dbdcab567ba06f327ff857559a58413c68bddfa62dc8b8a02a7da860"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/short-v24-settings.png",
+      "sha256": "35318680d2fa2848fae14691def983940eb91a081035de2bedfb9bc96000faf8"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/short-v24-crowd-credits.png",
+      "sha256": "35318680d2fa2848fae14691def983940eb91a081035de2bedfb9bc96000faf8"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/tall-v24-crowd-credits.png",
+      "sha256": "15c61d29696d5709dbc566976cd3d235bdc877fff8bfe9df21b434b117e95e84"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/wide-v24-crowd-credits.png",
+      "sha256": "b8ad8bab0e087061e316267a68b21073be2569eb539f6ea55f93c11f6062e841"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/short-settings-stable-top.png",
+      "sha256": "9d5bb002e4108b9637bb1c441da68bab0f7a98f1bb21208b6f5e8f5c324a3ada"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/short-settings-stable-credits.png",
+      "sha256": "9d5bb002e4108b9637bb1c441da68bab0f7a98f1bb21208b6f5e8f5c324a3ada"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/tall-combined-vocal-crowd-playing.png",
+      "sha256": "4b44c2e55cd3715d41a2182f64565ebfc65d47b65c0a9c4e8b72769fae2f9e3a"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/tall-night-result.png",
+      "sha256": "c50d3cc5fb8062029e6b092e7f4183ca1a68b5f13e064f8c93bdaf04fd72cd51"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/wide-combined-vocal-crowd-playing.png",
+      "sha256": "dbff7e3e55442d662620812ee27aa88ad6162dbee36f94d7c378d5e763273903"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/wide-night-result.png",
+      "sha256": "75ebcbf4a26e244ceb769298d5d68d75af4dd65bfafa7c23617a5536dc52a0ed"
+    },
+    {
+      "path": "/workspace/bandmaster-build43/phone-final once-only show settlement-save-error.png",
+      "sha256": "f0db967fc47703813d46068195163be55092c1bd8a50cefd1b719977f056fdbe"
+    }
+  ],
+  "native_observations": "On-stage room and active song, once-only saved aftermath and failed-save retry remain visible in phone/tall/short/wide layouts. V24 identity and complete source credits are visible in Settings; 10 focused pixel/readback checks pass. No UI/art changes were made. Duplicated short Settings images are byte-identical; apparent black repeated tool view is not a PNG defect. Existing wide whitespace and owner art gate remain separate.",
+  "approval_scope": "Previously accepted CROWD37/INDIE39 audio only; no new listening, artistic or physical Android acceptance. Original approved new banks unchanged. All restored legacy banks included. Unapproved boo intentionally silent.",
+  "retained_failed_history": [
+    {
+      "issue": "Editor auto-generated an unused default debug key during first import after SDK discovery. Guard stopped before export. File removed without reading/export/signing; original private key never accessed.",
+      "evidence": "/workspace/bandmaster-build43/removed-auto-debug-key.json",
+      "resolution": "Explicit existing public JSON debug-key placeholder prevents missing-path fallback; task JDK view excludes keytool/jarsigner; signing disabled; key directory read-only; strict key-file guard. Successful build has no key files or signing blocks."
+    },
+    {
+      "issue": "First compiled harness invocation retained repository project.godot through working-directory fallback and strict provenance assertion refused it.",
+      "evidence": "/workspace/bandmaster-build43/compiled-model-source-root-attempt.log",
+      "resolution": "Explicit empty --path plus matching empty cwd; actual compiled payload proven before500modelchecks."
+    },
+    {
+      "issue": "Execution environment restarted; private X93 display left stale lock/socket.",
+      "evidence": "/workspace/bandmaster-build43/Xorg-resumed-ready.log",
+      "resolution": "Proved no live exactserver and approved outer Unix ECONNREFUSED before removing only task lock/socket and restarting. No check inferred from unprivileged EPERM."
+    },
+    {
+      "issue": "Additional audit assumed raw CSV survives export.",
+      "evidence": "/workspace/bandmaster-build43/metadata-export-diagnostic.json",
+      "resolution": "Header-only Art/photo_sources.csv uses existing csv_translation importer; .import survives and no runtime reference. Explicit exclusion; all60runtime/provenanceJSON/TXT/otherCSV byte-identical,69checks."
+    },
+    {
+      "issue": "Repeated short-credit image appeared black in tool view.",
+      "evidence": "/workspace/bandmaster-build43/additional-audit-holds/short-v24-crowd-credits-black.png",
+      "resolution": "Retained copy is actually the good original PNG. Independent SHA/pixels prove byte-identical to visible Settings PNG; focused10checks also pass. No product/UI/APK mutation to hide it."
+    }
+  ],
+  "original_certificate_reference": {
+    "reference_mode": "pinned_v22_request_and_original_signature",
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "original_rsa_signature_verified": true,
+    "official_apksigner": false,
+    "historical_official_apksigner_verified": true,
+    "historical_certificate_audit_sha256": "5e657e55fb3cdd6ab137a1a06c6cf7b99a523891fadde08cb445fd0d493ddeb6",
+    "reference_request_sha256": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+    "reference_response_sha256": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+    "reference_request_id": "ac4bcac442b592af4cb42811443554c3e9c7b4f7c2d81758eac00fb1c71af6a8",
+    "reference_signed_data_sha256": "586714aabdb9feb31605f39c87f46a7cc351dfe8ad45c3e8d17058836f91e39a"
+  },
+  "simulated_review_lenses": {
+    "audio": "SIMULATED:35sources/175PCMparts; real decoder lengths and synchronized3/5partstreams; six vocal roles/three tracks preserved. Not listening.",
+    "gameplay": "SIMULATED:real compiled paid stages and live5stream/crowd show, wrongpairrefused, samevocalgain/backingchange. No gameplay source edits.",
+    "save": "SIMULATED:real filesystem failures roll back all state, retry then exact typedreload, once-only stages and show settlement; isolated fixture saves only.",
+    "UI_accessibility": "SIMULATED:four original native viewports,15originalPNGfiles opened, readable action/error/credit states in reviewed content; no physicaltouch/accessibility acceptance.",
+    "release_provenance": "SIMULATED:version24 exactsource/app/save,16KiBalign/CRC/compiledpayload/exclusions; public original-key proof and17tests. Originalkey signature and finalofficialAPKverify pending."
+  },
+  "limitations": [
+    "Unsigned V24 cannot yet be installed. No private signing performed and no replacement key retained. Original-key environment is not attached.",
+    "Final assembled APK must pass fresh official apksigner verification after the new response arrives; current original-certificate reference reuses a pinned real V22 signature and historical official certificate audit honestly.",
+    "No Android physical/emulator, listening or upgrade-save retention test. Desktop native compiled-payload tests use Dummy audio.",
+    "Private owner audio, original sources, toolchain and APK remain outside public Git. Public request/report contains metadata and public certificate/signature material only.",
+    "Frozen V23 policy/request unchanged; not relabeled as new crowd build."
+  ],
+  "next_action": "Run the new audited V24 request in the original signing environment with its existing original key and return only BandMaster-V24-signature-response.json; then assemble and officially verify this exact APK.",
+  "publication_audit": {
+    "expected_remote_head_before_push": "9e0baeffec4e72917b8f49541d13e1673c01d7d4",
+    "nonforce_feature_branch_only": true,
+    "source_only_changed_paths": 22,
+    "new_audio_APK_keys_archives": 0,
+    "frozen_V23_policy_request_and_public_reference_fixtures_unchanged": true
+  }
+}

@@ -7,7 +7,39 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — RESTORE42
+## Latest continuation — BUILD43 / V24 signing handoff
+
+All audio is restored and the new combined **unsigned V24 APK is built and audited**.
+No more audio uploads are needed. Packaged source `462b68ad7211a639bea204a6ab0d94f4fd942875`;
+read `docs/continuous_improvement/BUILD43_RESULTS.json` and the current V24 section
+of `docs/signing/README.md`. This supersedes the older restoration/build holds below.
+
+Actual compiled APK assets pass500model +416native(fourviewports) +10focusedSettings
++69metadata +17publicsigner checks.62originalPNGs retained,15files actually opened.
+Desktop compiled-payload proof, not listening or physical Android testing. Source
+crowd/vocal approvals retained; global owner artwork approval remains false.
+
+Private APK: `/workspace/bandmaster-build43/BandMaster-Playtest-v24-UNSIGNED.apk`,
+461,781,871bytes, SHA`e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1`.
+App/entry/save identities unchanged. New public request:
+`docs/signing/BandMaster-V24-APK-v2-signing-request.json`,
+SHA`8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b`. It is bound to this exactAPK/source, not V23.
+
+Only next action: original signing environment uses its existing original key and
+returns the small V24 signature JSON. Current environment has no original key.
+Then assemble this exactAPK with `--public-reference` and require fresh official
+apksigner/unchanged-payload checks. No replacement key, app-ID change or key transfer.
+The initial editor import's unused automatic debug key was caught before export,
+removed without reading/signing, and fallback prevented for the successful build;
+see retained incident evidence. V23/policy/request and public fixtures unchanged.
+
+Private sources/media/APK stay outside public Git. Actual source root:
+`/workspace/BandMaster-v20`; current SDK and evidence:
+`/workspace/bandmaster-build43/`. Original-key reference now uses the exact pinned
+public V22 request+real signature, explicitly retaining its historical official
+audit rather than claiming an absent V16 APK was freshly verified. Writer released.
+
+## Previous continuation — RESTORE42
 
 The owner restored the older sources. **All requested audio is now recovered**;
 AUDIO41's missing-file hold below is historical.25originals506,891,492bytes were
