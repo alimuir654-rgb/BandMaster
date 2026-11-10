@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/HANDOFF35.json",
+  "session": "docs/continuous_improvement/sessions/CROWD36.json",
   "scope": "Owner-authorized gig crowd/music pass implemented and source/native verified; actual applause/boo recording acquisition remains blocked. Frozen V23 handoff deferred, no new APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "HANDOFF35_portable_notes_signing_helpers_verified_crowd_audio_pending",
-  "next_action": "New chat reads docs/handover/START_HERE.md, rechecks applied crowd-host access, and finishes genuine crowd audio before a cohesive version>23 build with a new audited detached request; original key stays in original environment.",
+  "status": "real_recording_candidates_verified_listening_and_mix_HELD",
+  "next_action": "Listen to exact private crowd candidates and check fit with restored owner arrangement; do not build or mark integrated before acceptance.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7783,5 +7783,12 @@
     "original_key_stays_in_original_environment": true,
     "actual_original_key_signing_here": false,
     "crowd_audio_complete": false
+  },
+  "crowd36": {
+    "source": "4aef89b0bdaa42825d1f3e0c81f061706a352c84",
+    "results": "docs/continuous_improvement/CROWD36_RESULTS.json",
+    "real_candidates": true,
+    "listening_verified": false,
+    "new_build": false
   }
 }

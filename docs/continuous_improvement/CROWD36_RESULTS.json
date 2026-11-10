@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "session": "CROWD36",
+  "status": "real_recording_candidates_verified_listening_and_mix_HELD",
+  "tested_sha": "4aef89b0bdaa42825d1f3e0c81f061706a352c84",
+  "owner_approved": false,
+  "implemented": "Pinned official CC0 preview preparation, five real short Vorbis cue candidates and real decoder/lifecycle tests. Production game code unchanged; default manifests explicitly unaccepted.",
+  "source_manifest": {
+    "schema_version": 1,
+    "content_version": "crowd34",
+    "batch": "CROWD36",
+    "listening_verified": false,
+    "release_status": "HELD_PENDING_LISTENING_AND_FIT",
+    "effects": {
+      "entrance": {
+        "path": "res://experiments/playable_flightcase/audio/crowd34/entrance.ogg",
+        "sha256": "0e9c0e1faaf7d2ed07bc4ade3084c402c8d929dfcea3d3a21cff028067d56ec0",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authority": "owner_crowd_request_20261110",
+        "integration_review_accepted": false,
+        "listening_verified": false,
+        "creator": "miuziqa",
+        "source_url": "https://cdn.freesound.org/previews/858/858309_770193-lq.mp3",
+        "source_page": "https://freesound.org/people/miuziqa/sounds/858309/",
+        "source_sha256": "14761403bd0e967e2c5aa33a4851b0048cfc9ca1def51098278c91246b58a134",
+        "source_type": "official lossy MP3 preview, not original master",
+        "start_seconds": 0.0,
+        "duration_seconds": 3.0,
+        "sample_rate": 24000,
+        "channels": 2,
+        "gain_db": -6
+      },
+      "song": {
+        "path": "res://experiments/playable_flightcase/audio/crowd34/song.ogg",
+        "sha256": "ac8113298ab8586d5d600c9cd74dce890d12206860e7cba9c29008afa7917b76",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authority": "owner_crowd_request_20261110",
+        "integration_review_accepted": false,
+        "listening_verified": false,
+        "creator": "miuziqa",
+        "source_url": "https://cdn.freesound.org/previews/858/858309_770193-lq.mp3",
+        "source_page": "https://freesound.org/people/miuziqa/sounds/858309/",
+        "source_sha256": "14761403bd0e967e2c5aa33a4851b0048cfc9ca1def51098278c91246b58a134",
+        "source_type": "official lossy MP3 preview, not original master",
+        "start_seconds": 0.0,
+        "duration_seconds": 2.8,
+        "sample_rate": 24000,
+        "channels": 2,
+        "gain_db": -6
+      },
+      "courtesy": {
+        "path": "res://experiments/playable_flightcase/audio/crowd34/courtesy.ogg",
+        "sha256": "2b082c3ce00471112a9502056442d1b58d2065dbd3c54a9428e9e9b4c26ff6c2",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authority": "owner_crowd_request_20261110",
+        "integration_review_accepted": false,
+        "listening_verified": false,
+        "creator": "miuziqa",
+        "source_url": "https://cdn.freesound.org/previews/858/858309_770193-lq.mp3",
+        "source_page": "https://freesound.org/people/miuziqa/sounds/858309/",
+        "source_sha256": "14761403bd0e967e2c5aa33a4851b0048cfc9ca1def51098278c91246b58a134",
+        "source_type": "official lossy MP3 preview, not original master",
+        "start_seconds": 0.0,
+        "duration_seconds": 2.8,
+        "sample_rate": 24000,
+        "channels": 2,
+        "gain_db": -6
+      },
+      "cheer": {
+        "path": "res://experiments/playable_flightcase/audio/crowd34/cheer.ogg",
+        "sha256": "0b1abb5f0e44787c3d75ef5430793d469434c79be49bdb3283af01ce8b13db21",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authority": "owner_crowd_request_20261110",
+        "integration_review_accepted": false,
+        "listening_verified": false,
+        "creator": "miuziqa",
+        "source_url": "https://cdn.freesound.org/previews/858/858309_770193-lq.mp3",
+        "source_page": "https://freesound.org/people/miuziqa/sounds/858309/",
+        "source_sha256": "14761403bd0e967e2c5aa33a4851b0048cfc9ca1def51098278c91246b58a134",
+        "source_type": "official lossy MP3 preview, not original master",
+        "start_seconds": 0.0,
+        "duration_seconds": 3.2,
+        "sample_rate": 24000,
+        "channels": 2,
+        "gain_db": -6
+      },
+      "boo": {
+        "path": "res://experiments/playable_flightcase/audio/crowd34/boo.ogg",
+        "sha256": "b371b66ac265cd00fcf5f2a06ca793f8139bcc2c3ae69e706b35c88151b4eadb",
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "authority": "owner_crowd_request_20261110",
+        "integration_review_accepted": false,
+        "listening_verified": false,
+        "creator": "NeoSpica",
+        "source_url": "https://cdn.freesound.org/previews/504/504621_7704891-lq.mp3",
+        "source_page": "https://beta.freesound.org/people/NeoSpica/sounds/504621/",
+        "source_sha256": "8e1cac3c11ea2055fe9bea7f83c91a25e3075e60f3235092a1a1ba4a6d5a1e7f",
+        "source_type": "official lossy MP3 preview, not original master",
+        "start_seconds": 0.0,
+        "duration_seconds": 3.2,
+        "sample_rate": 24000,
+        "channels": 2,
+        "gain_db": -18
+      }
+    }
+  },
+  "decoded_levels": {
+    "entrance": [
+      "mean_volume: -32.7 dB",
+      "max_volume: -7.1 dB"
+    ],
+    "song": [
+      "mean_volume: -32.6 dB",
+      "max_volume: -7.1 dB"
+    ],
+    "courtesy": [
+      "mean_volume: -32.6 dB",
+      "max_volume: -7.1 dB"
+    ],
+    "cheer": [
+      "mean_volume: -32.8 dB",
+      "max_volume: -7.1 dB"
+    ],
+    "boo": [
+      "mean_volume: -31.5 dB",
+      "max_volume: -18.4 dB"
+    ]
+  },
+  "tests": {
+    "Godot": "4.7.2 official headless Dummy",
+    "assertions": 48,
+    "failures": [],
+    "log": "/workspace/bandmaster-crowd36/model.log",
+    "final_import": "/workspace/bandmaster-crowd36/import-final.log",
+    "final_import_errors": 0,
+    "prepare_tests": {
+      "source_tamper_refused_before_output": true,
+      "existing_output_preserved": true,
+      "real_cues_prepared": 5,
+      "unheard_manifest_held": true,
+      "listening": false
+    },
+    "real_crowd_recordings_decoded": true,
+    "listening": false,
+    "physical_device": false,
+    "new_UI_captures": false,
+    "UI_reason": "No UI, artwork, save dispatch or production scripts changed. Prior CROWD34 four-size evidence is historical; it was not rerun or relabelled."
+  },
+  "retained_failures": [
+    "import.log: default XDG directories unwritable",
+    "import-2.log: sandbox prohibits local editor debug socket; resolved by approved outer import",
+    "first-level-candidate: boo mean13dB hotter, reduced additional12dB; old derivatives and inspection retained"
+  ],
+  "correction": "--import itself quits automatically; initial record noting absent --quit was incidental, not the cause. Actual errors were XDG and sandbox local socket.",
+  "private_artifacts": {
+    "originals": "/workspace/bandmaster-crowd36/originals",
+    "candidates": "/workspace/BandMaster-v20/experiments/playable_flightcase/audio/crowd34",
+    "QA_project": "/workspace/bandmaster-crowd36/project",
+    "shipping_manifest_accepted": false,
+    "QA_review_copy": "test-only acceptance used for decoder/lifecycle, removed after test; never listening acceptance"
+  },
+  "preserved": {
+    "V23_request_sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "V23_policy_sha256": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "entry": "experiments/playable_flightcase/opening.tscn",
+    "save_dir": "BandMasterOwnerPlaytestS40",
+    "owner_media_added_to_Git": false,
+    "new_APK": false,
+    "new_signing_request": false,
+    "private_key_access": false
+  },
+  "limitations": [
+    "No listening tool exposed; cannot verify applause/boo identity by ear, small-pub suitability or mix fit. No source quality claim beyond actual24kHz lossy previews.",
+    "Original private song-bank QA project, frozen V23 APK, V16 reference and Android SDK are absent in this executor. Do not reconstruct/relabel frozen V23. Restore private music from connected Dropbox only when new packaging is ready.",
+    "No original-key binding; signing must occur in original environment after a NEW source/package audit and version>23 request."
+  ],
+  "manual_review": [
+    "Listen to private originals and five Ogg candidates; confirm small-pub applause/boo fit and suitable chosen excerpt, no unwanted words/music.",
+    "Once listening review passes, record reviewer and exact derivative hashes before accepting integration. Compare cues against restored private owner arrangement in the actual opening.tscn gig flow.",
+    "Check successful saved stage entry, song/tail and successful/poor saved final receipts; failed save, mute, focus loss, Menu and resume must not replay. No extra Continue.",
+    "Only then make version>23 package audit and new bound detached request; original environment signs with existing key, then assemble and verify original certificate/app/payload."
+  ],
+  "simulation_reviews": [
+    {
+      "lens": "critic",
+      "simulated": true,
+      "finding": "Real candidates available but unheard fit remains held."
+    },
+    {
+      "lens": "musician",
+      "simulated": true,
+      "finding": "Measured relative sustained levels now within1.3dB; this does not prove a good mix."
+    },
+    {
+      "lens": "ui/ux",
+      "simulated": true,
+      "finding": "No UI changes or extra wait pages."
+    },
+    {
+      "lens": "art",
+      "simulated": true,
+      "finding": "Original crowd atlas opened; no artwork changed or acceptance inferred."
+    },
+    {
+      "lens": "engineering",
+      "simulated": true,
+      "finding": "48 real decoder/lifecycle checks and source refusal checks pass; no game/save changes."
+    }
+  ],
+  "next_action": "Listen to exact private crowd candidates and check fit with restored owner arrangement; do not build or mark integrated before acceptance.",
+  "recorded_at": "2026-11-10T01:00:08.206546+00:00"
+}

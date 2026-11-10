@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CROWD36",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "a4428c11a904a6bce5cd99e2eaa5e9d63c9aa019",
   "owner_request": "Finish genuine crowd audio before next combined build; preserve frozen V23, original app/key and private owner audio.",
@@ -20,8 +20,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2139587,
-    "sha256": "10a89a3cb42188be9dc0b05b2ed5e35782c920c2e29817e89d9abc3e617a606e"
+    "bytes": 2140759,
+    "sha256": "d6f02c77d655366f809e98b37a9c892a155060371df2248044070208a4e2a0ab"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -52,7 +52,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T00:43:33.613787+00:00"
+  "started_at": "2026-11-10T00:43:33.613787+00:00",
+  "closed_at": "2026-11-10T01:00:08.206546+00:00",
+  "closeout": {
+    "tested_sha": "4aef89b0bdaa42825d1f3e0c81f061706a352c84",
+    "evidence": "docs/continuous_improvement/CROWD36_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "Retained XDG/socket import failures and measured boo-level correction. Real streams verified; listening/mix acceptance held. No game/UI/APK changes.",
+    "next_action": "Listen to exact private crowd candidates and check fit with restored owner arrangement; do not build or mark integrated before acceptance."
+  }
 }

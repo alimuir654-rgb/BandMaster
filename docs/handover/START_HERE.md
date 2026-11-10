@@ -25,6 +25,23 @@ Historical overnight deadlines and older branch/build instructions do not supers
 
 ## Next work
 
+**CROWD36 update (10 November):** the selected environment now allows the official
+CDN and both exact CC0 previews have been downloaded. Five short real Vorbis cue
+candidates are prepared privately, with 48 passing real Godot decoder/lifecycle
+checks. They remain **unaccepted pending listening and in-game mix review**;
+production audio is still held. No listening tool was available. See
+`docs/continuous_improvement/CROWD36_RESULTS.json` for hashes, levels, commands,
+manual review steps and retained failure evidence. No new APK/request was made.
+Current source worktree: `/workspace/BandMaster-v20`; originals and isolated QA:
+`/workspace/bandmaster-crowd36`; private candidates are in the ignored
+`experiments/playable_flightcase/audio/crowd34/` directory. These are workspace
+paths, not Git attachments. `tools/prepare_crowd36.py` can restore candidates from
+the exact official preview bytes without owner music. The old private music,
+V23 APK and Android SDK paths below are absent in this executor. Do not mistake
+the temporary QA manifest acceptance for a listening review or ship it.
+
+The following access-failure account is retained history from CROWD34:
+
 Finish the crowd/audio batch before another owner test release. Owner prefers bigger coherent updates.
 First check the **selected running environment**, not just the published settings:
 the last observation still showed enforced revision 1 with only
