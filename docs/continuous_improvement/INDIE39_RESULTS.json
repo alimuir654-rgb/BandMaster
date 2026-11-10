@@ -312,7 +312,8 @@
     "model-2.log: typed reload mismatch and shutdown warnings; model-3-diagnostic.log identified six integral vocal floats becoming ints in the original loader. Narrow formation normalization plus bounded teardown verified clean.",
     "phone.log: test skipped existing separate-singer choice; corrected test follows actual AuditionSeparateSingerAction.",
     "First final gate command used abbreviated --before SHA and was refused; repeated with full40-character preflight SHA passed.",
-    "Closeout gate rejected descriptive session status; inspected existing validator/prior session, corrected to closed with mandatory nested closeout fields. No source change."
+    "Closeout gate rejected descriptive session status; inspected existing validator/prior session, corrected to closed with mandatory nested closeout fields. No source change.",
+    "Final record gate also found unsupported verification event enums in two new closeout events. Corrected only their enum to verified_resolution; exact original lines retained in new repair review and Git124c5cf. Original preflight issue prefix unchanged; validator not modified."
   ],
   "limitations": [
     "No new assistant listening or physical Android test; owner approved the supplied candidates.",
