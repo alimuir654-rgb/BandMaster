@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "id": "CROWD36",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "a4428c11a904a6bce5cd99e2eaa5e9d63c9aa019",
+  "owner_request": "Finish genuine crowd audio before next combined build; preserve frozen V23, original app/key and private owner audio.",
+  "dominant_issue": "BM-35",
+  "lesson_ids": [
+    "BM-13",
+    "BM-15",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 2137813,
+    "sha256": "0a4e4a9cbc3a15ce4a04a50fa0b78c21f10929d1a2fbe04b9ed4ea33f0b62317"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Actual original atlas opened; no pixel changes planned."
+  },
+  "controlled_comparison": "Unchanged CROWD34 presentation and save dispatch. Real short bounded crowd clips versus absent FX; exact source hashes, no mutation of model/art/UI/save. Existing four-viewport proof remains unchanged; focused real-stream lifecycle checks.",
+  "hypothesis": "Reproducibly prepare the exact cleared CC0 recordings and verify real Godot decoding/lifecycle; explicit listening acceptance holds shipping until heard.",
+  "stop_condition": "No fabricated listening acceptance, generated substitute, owner audio publication, frozen V23 mutation, replacement key or build before crowd acceptance.",
+  "allowed_paths": [
+    "tools/prepare_crowd36.py",
+    "tests/crowd36*",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CROWD36.json",
+    "Exact source SHA/ffprobe/ffmpeg level verification; reproducible private derivatives and default fail-closed listening gate.",
+    "Godot headless import and focused real recording stream/hash/manifest/fade/mute/stop/no-replay checks; no synthetic audio and no owner-save mutation.",
+    "Frozen V23 request/policy hashes and scoped Git privacy audit."
+  ],
+  "resource_plan": {
+    "persistent_budget_bytes": 67108864,
+    "evidence_root": "/workspace/bandmaster-crowd36",
+    "no_APK_until_listening_acceptance": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T00:43:33.613787+00:00"
+}
