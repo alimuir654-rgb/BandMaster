@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "INDIE38",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "3677ef84a11a04cfc563bdc07d178b544787ee21",
+  "owner_request": "Proceed with private intake, technical stem validation, conservative reconstruction and usable short phrase candidate preparation for the three uploaded vocal/keys song sets.",
+  "dominant_issue": "BM-14",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2144633,
+    "sha256": "d7fc045e2b2c57e205c75556634bcd4bb564e839b7db7de77508cf16a9115b60"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Original atlas opened in this thread; this batch changes audio only, no UI/art edits."
+  },
+  "controlled_comparison": "Three supplied five-stem sets, originals unchanged. Compare native metadata/frame counts/timeline starts/encoded hashes and one MP3 reference where supplied. Equal-offset source cuts for vocal/keys/guitar/bass/drums; conservative static-gain reference/sparse/full variants keep identical vocal PCM. No gameplay/UI/save changes.",
+  "hypothesis": "Exact private source intake and equal-offset all-five-stem excerpts allow reusable same-vocal arrangements; measurable alignment/headroom/bleed diagnostics guide candidate review without pretending numerical analysis is listening.",
+  "stop_condition": "No owner audio or sensitive download links in Git/public applications; no original file changes, sharing changes, key/app/V23/APK/request changes, music generation/credit spend, false listening/bar/key/character-fit acceptance or game integration from technical-only pass.",
+  "allowed_paths": [
+    "tools/assess_indie38.py",
+    "tests/indie38*",
+    "docs/audio/**",
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/INDIE38.json",
+    "15original WAV+optionalMP3 Dropbox metadata/revision/content-hash+SHA intake; ffprobe, full decoded RMS/peak/clip/silence/clock/offset diagnostics",
+    "Exact sameframe cuts across5stems; vocal PCM hash identical in sparse/full arrangement references; headroom/no clipping; originalhashpreservation",
+    "Public V23input hashes, Gitprivacy/diff and scoped prior-record gate"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-indie38",
+    "persistent_budget_bytes": 1610612736,
+    "peak_memory_budget_bytes": 1073741824,
+    "originals_never_modified": true,
+    "no_Godot_or_APK_runs": "No game/UI changes; offline audio intake/assessment only"
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T14:15:12.814564+00:00"
+}
