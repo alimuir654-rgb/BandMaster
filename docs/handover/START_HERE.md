@@ -7,7 +7,31 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — SIGN45 / signed V24 ready
+## Latest continuation — DELIVER46 / Android parts delivered
+
+Owner could not use the local APK link and explicitly requested split/alternate
+delivery; confirmed Android phone. All ten standard 7z transport volumes
+`BandMaster-V24.7z.001` through `.010` and `V24-ANDROID-INSTALL.txt` are now
+uploaded privately to Dropbox `/BandMaster`. Each completed upload's size and
+remote content hash matches the local part; complete fresh folder readback passes.
+Read `docs/continuous_improvement/DELIVER46_RESULTS.json` and signing README.
+
+Native 7-Zip testing and clean extraction reproduce the exact signed V24 APK:
+SHA `a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66` (461,783,381 bytes).
+The archive holds one APK. No rebuild, original-key use, new request, app/save/cert
+change, public audio/APK/archive hosting or sharing change. Frozen V23 is preserved.
+The standalone APK is still absent from Dropbox; the complete ten-part archive is
+present. Older local-download and whole-file upload holds below are historical.
+
+Phone steps: save **all ten parts to one local folder**, open `.001` in ZArchiver,
+extract, and install the resulting APK as an update; do not uninstall or clear storage.
+Physical Android extraction, installation and audio remain for owner review.
+Packager source `033d7eb07f0d05bc80eb52812981a47a46c0d62f`; actual APK source `462b68ad7211a639bea204a6ab0d94f4fd942875`.
+Private archive/evidence: `/workspace/bandmaster-deliver46/`; helper
+`tools/package_delivery46.py` refuses overwrites and substitute APKs. Writer released;
+global owner artwork approval remains false. Next: owner extracts, updates and reviews on phone.
+
+## Previous continuation — SIGN45 / signed V24 ready
 
 V24 is now signed with the returned original-environment signature and ready
 for direct private download (461,783,381 bytes).

@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "session": "DELIVER46",
+  "completed_at": "2026-11-10T20:39:07.957499+00:00",
+  "tested_sha": "033d7eb07f0d05bc80eb52812981a47a46c0d62f",
+  "APK_source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+  "status": "all_ten_Android_archive_parts_privately_delivered_hash_verified",
+  "owner_approved": false,
+  "owner_device": "Android phone",
+  "signed_APK": {
+    "name": "BandMaster-Playtest-v24-arm64.apk",
+    "bytes": 461783381,
+    "sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "original_certificate_preserved": true,
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "new_build": false
+  },
+  "packager": {
+    "source_commit": "033d7eb07f0d05bc80eb52812981a47a46c0d62f",
+    "path": "tools/package_delivery46.py",
+    "sha256": "06035d71ea6d17e818b0f6756597745ae16dcf7e8c89548471d0fcf1ae83c131",
+    "provider_toolchain": {
+      "package": "7zip",
+      "version": "25.01+dfsg-1~deb13u2",
+      "source": "https://deb.debian.org/debian/pool/main/7/7zip/7zip_25.01+dfsg-1~deb13u2_amd64.deb",
+      "bytes": 1573700,
+      "sha256": "b2cb210bee3be6a10230b38b8645d71846d19364b157f44fd08e1a54cae1652f",
+      "official_Debian_Packages_SHA256_verified": true,
+      "Packages_xz_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498",
+      "private_tool_only": true
+    }
+  },
+  "archive": {
+    "schema_version": 1,
+    "APK_name": "BandMaster-Playtest-v24-arm64.apk",
+    "APK_bytes": 461783381,
+    "APK_sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "volume_bytes_max": 50331648,
+    "volume_count": 10,
+    "standard_7z_all_volumes_test": true,
+    "native_clean_extraction_exact_APK": true,
+    "archive_files": 1,
+    "only_archived_file": "BandMaster-Playtest-v24-arm64.apk",
+    "original_APK_unchanged": true,
+    "new_APK_build": false,
+    "Android_physical_test": false,
+    "files": [
+      {
+        "name": "BandMaster-V24.7z.001",
+        "bytes": 50331648,
+        "sha256": "1fa98f044116061822812d305386112e3800ea8283f23a1f0b41f5baa8dc6173",
+        "Dropbox_content_hash": "dcec42b81d0b55cf43f478fcef4bab9fb17ed7edac917886a1d846421bd1360c"
+      },
+      {
+        "name": "BandMaster-V24.7z.002",
+        "bytes": 50331648,
+        "sha256": "0d800ffb4e227dbbb2a937f5f46bf87080a7906ab91b270a8064576d7a0a9f92",
+        "Dropbox_content_hash": "3ad1ccec27629b453ff6db2cff9b330d56da6be803524003ace1483fe6f33b3f"
+      },
+      {
+        "name": "BandMaster-V24.7z.003",
+        "bytes": 50331648,
+        "sha256": "33c6ece3df58e5b487a24163dea7f7a556b7cbf88d18360d55ac582b9a91d6e3",
+        "Dropbox_content_hash": "0e5ee28de2136fffa5cfc41c72baa48c53afd96b871293be9a126adcc1e89eaf"
+      },
+      {
+        "name": "BandMaster-V24.7z.004",
+        "bytes": 50331648,
+        "sha256": "fdbaba590efa07a691649abb0e2019bc6737a27b913fd94a27b2dbcd83345f85",
+        "Dropbox_content_hash": "4325474064c58e1c1b164a9b61d9701257f05fa575c34709009a1fb012c94011"
+      },
+      {
+        "name": "BandMaster-V24.7z.005",
+        "bytes": 50331648,
+        "sha256": "630db0ca4afa977882606b117caa773df851153e156e030721308971b2301c04",
+        "Dropbox_content_hash": "3acf4cdc4567d3c2de32c785e897de344af0c646b601fa73bb37ca93a4580066"
+      },
+      {
+        "name": "BandMaster-V24.7z.006",
+        "bytes": 50331648,
+        "sha256": "68d9dfe751dbcb014ad761fb6c5a6f82b374c902d5a9c695fe658526f3c82191",
+        "Dropbox_content_hash": "cd9b954c7c6ebdd8281dd87aa26899c10b0d40668600fb7f694b70664149bd90"
+      },
+      {
+        "name": "BandMaster-V24.7z.007",
+        "bytes": 50331648,
+        "sha256": "7e4be0dba1db0379d6a6ab5b8b69d7e392089e999525982d8c4cb6c27824d015",
+        "Dropbox_content_hash": "f7bbc26c423bf9d559e0aedec11defde64e3a788a80f4ed30437b7fc189883cc"
+      },
+      {
+        "name": "BandMaster-V24.7z.008",
+        "bytes": 50331648,
+        "sha256": "9982ebe467e76dc3e577ae7b66a15e082b383f4f620d93d9e0c335d7ff9fcaa3",
+        "Dropbox_content_hash": "62f7bc5c4b7aea26349b0c83e2c935ca018573af861ebcc4dae4445fcd218643"
+      },
+      {
+        "name": "BandMaster-V24.7z.009",
+        "bytes": 50331648,
+        "sha256": "af2e37015747ec53aebbe886a741db5297a31e14af2fbeb05ae584f09e7c5ddd",
+        "Dropbox_content_hash": "ddb767ffd275f49b83298a4f0857e12539028d787129dabdaa8d2588fc91c563"
+      },
+      {
+        "name": "BandMaster-V24.7z.010",
+        "bytes": 8798719,
+        "sha256": "9f5ce28049d1cae0f0b8391650b8e0da86709ad4a43e2588ebc28753f785e3eb",
+        "Dropbox_content_hash": "436ab69194738a4b03625bf64b5426fddbb718871e8ef0c8d642108d34408318"
+      },
+      {
+        "name": "V24-ANDROID-INSTALL.txt",
+        "bytes": 1180,
+        "sha256": "d4d3c2983c05a75e84669a50e5cbd18378b7d62c195e89bba370997fb1c9a27b",
+        "Dropbox_content_hash": "9023196be006df0f4a8dadcfd26242c3140410157c654a2fd1e431ef22591944"
+      }
+    ]
+  },
+  "archive_manifest_sha256": "1f31045cf157b98f199d910e97117581ca27f8089b49b3627e103ed895a0b448",
+  "private_delivery": {
+    "status": "completed",
+    "files": [
+      {
+        "content_hash": "dcec42b81d0b55cf43f478fcef4bab9fb17ed7edac917886a1d846421bd1360c",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAtA",
+        "name": "BandMaster-V24.7z.001",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.001",
+        "path_display": "/BandMaster/BandMaster-V24.7z.001",
+        "size": 50331648,
+        "local_sha256": "1fa98f044116061822812d305386112e3800ea8283f23a1f0b41f5baa8dc6173",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "3ad1ccec27629b453ff6db2cff9b330d56da6be803524003ace1483fe6f33b3f",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAtw",
+        "name": "BandMaster-V24.7z.002",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.002",
+        "path_display": "/BandMaster/BandMaster-V24.7z.002",
+        "size": 50331648,
+        "local_sha256": "0d800ffb4e227dbbb2a937f5f46bf87080a7906ab91b270a8064576d7a0a9f92",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "0e5ee28de2136fffa5cfc41c72baa48c53afd96b871293be9a126adcc1e89eaf",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAtg",
+        "name": "BandMaster-V24.7z.003",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.003",
+        "path_display": "/BandMaster/BandMaster-V24.7z.003",
+        "size": 50331648,
+        "local_sha256": "33c6ece3df58e5b487a24163dea7f7a556b7cbf88d18360d55ac582b9a91d6e3",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "4325474064c58e1c1b164a9b61d9701257f05fa575c34709009a1fb012c94011",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAuA",
+        "name": "BandMaster-V24.7z.004",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.004",
+        "path_display": "/BandMaster/BandMaster-V24.7z.004",
+        "size": 50331648,
+        "local_sha256": "fdbaba590efa07a691649abb0e2019bc6737a27b913fd94a27b2dbcd83345f85",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "3acf4cdc4567d3c2de32c785e897de344af0c646b601fa73bb37ca93a4580066",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAuQ",
+        "name": "BandMaster-V24.7z.005",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.005",
+        "path_display": "/BandMaster/BandMaster-V24.7z.005",
+        "size": 50331648,
+        "local_sha256": "630db0ca4afa977882606b117caa773df851153e156e030721308971b2301c04",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "cd9b954c7c6ebdd8281dd87aa26899c10b0d40668600fb7f694b70664149bd90",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAug",
+        "name": "BandMaster-V24.7z.006",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.006",
+        "path_display": "/BandMaster/BandMaster-V24.7z.006",
+        "size": 50331648,
+        "local_sha256": "68d9dfe751dbcb014ad761fb6c5a6f82b374c902d5a9c695fe658526f3c82191",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "f7bbc26c423bf9d559e0aedec11defde64e3a788a80f4ed30437b7fc189883cc",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAuw",
+        "name": "BandMaster-V24.7z.007",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.007",
+        "path_display": "/BandMaster/BandMaster-V24.7z.007",
+        "size": 50331648,
+        "local_sha256": "7e4be0dba1db0379d6a6ab5b8b69d7e392089e999525982d8c4cb6c27824d015",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "62f7bc5c4b7aea26349b0c83e2c935ca018573af861ebcc4dae4445fcd218643",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAvA",
+        "name": "BandMaster-V24.7z.008",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.008",
+        "path_display": "/BandMaster/BandMaster-V24.7z.008",
+        "size": 50331648,
+        "local_sha256": "9982ebe467e76dc3e577ae7b66a15e082b383f4f620d93d9e0c335d7ff9fcaa3",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "ddb767ffd275f49b83298a4f0857e12539028d787129dabdaa8d2588fc91c563",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAvg",
+        "name": "BandMaster-V24.7z.009",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.009",
+        "path_display": "/BandMaster/BandMaster-V24.7z.009",
+        "size": 50331648,
+        "local_sha256": "af2e37015747ec53aebbe886a741db5297a31e14af2fbeb05ae584f09e7c5ddd",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "436ab69194738a4b03625bf64b5426fddbb718871e8ef0c8d642108d34408318",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAtQ",
+        "name": "BandMaster-V24.7z.010",
+        "path": "ns:13916460209//BandMaster/BandMaster-V24.7z.010",
+        "path_display": "/BandMaster/BandMaster-V24.7z.010",
+        "size": 8798719,
+        "local_sha256": "9f5ce28049d1cae0f0b8391650b8e0da86709ad4a43e2588ebc28753f785e3eb",
+        "remote_hash_matches": true
+      },
+      {
+        "content_hash": "9023196be006df0f4a8dadcfd26242c3140410157c654a2fd1e431ef22591944",
+        "expiration_in_sec": 600,
+        "id": "id:6rRaLzqs6O4AAAAAAAAAvQ",
+        "name": "V24-ANDROID-INSTALL.txt",
+        "path": "ns:13916460209//BandMaster/V24-ANDROID-INSTALL.txt",
+        "path_display": "/BandMaster/V24-ANDROID-INSTALL.txt",
+        "size": 1180,
+        "local_sha256": "d4d3c2983c05a75e84669a50e5cbd18378b7d62c195e89bba370997fb1c9a27b",
+        "remote_hash_matches": true
+      }
+    ],
+    "all_remote_hashes_match": true,
+    "complete_folder_readback": true,
+    "all_file_IDs_sizes_match_final_listing": true,
+    "total_uploaded_files": 11,
+    "total_archive_parts": 10,
+    "Dropbox_folder": "/BandMaster",
+    "sharing_changed": false,
+    "public_shared_link_created": false,
+    "first_part_open_in_dropbox_url": "https://www.dropbox.com/preview/BandMaster/BandMaster-V24.7z.001",
+    "guide_open_in_dropbox_url": "https://www.dropbox.com/preview/BandMaster/V24-ANDROID-INSTALL.txt"
+  },
+  "native_verification": {
+    "all_standard_7z_volumes_tested": true,
+    "standard_7z_type": "Split -> 7z, Copy method, one original APK",
+    "clean_native_extraction_only_one_APK": true,
+    "extracted_APK_byte_hash_exact": true,
+    "original_APK_unchanged": true,
+    "local_test_log_sha256": "f5e8d8ae30b32fce4c2e32fbc989bd64ceab1652ef37a2f0f27c7f1f7d1c2819",
+    "local_extract_log_sha256": "640a062239982cc9d9b3d85c4d4432e0f8e4bb96089171f0773e99d7f1258018",
+    "physical_Android_ZArchiver_test": false
+  },
+  "source_publication": "Only source helper and audit/docs. APK/audio/archive volumes remain outside public Git. No key loading, request/policy/APK/source rebuild, app/save change, sharing grants or public APK links.",
+  "previous_signature_gameplay_proof": "SIGN45 official apksigner/16KiB/6727 integrity checks and BUILD43 exact compiled model/native proof retained for this identical signed APK. Not rerun for transport-only packaging.",
+  "images_opened": [],
+  "visual_verdict": "partial; no UI/art changes or new render; owner artwork approval unchanged",
+  "private_evidence_root": "/workspace/bandmaster-deliver46",
+  "retained_issue_history": [
+    {
+      "issue": "Owner could not access the local direct-download link, so it did not satisfy delivery.",
+      "resolution": "Explicitly authorized standard Android transport volumes now completed in private Dropbox, with per-part remote content hashes and phone instructions; no new key/build request."
+    },
+    {
+      "issue": "Local Debian7zip package probe assumed usr/bin/7zz and stopped before archiver execution.",
+      "resolution": "Inventoried actual provider files, selected private usr/lib/7zip/7z, verified executable/version and native all-volumes test/extraction. Official package SHA/size was checked against Debian package metadata."
+    },
+    {
+      "issue": "Prior whole461MB adapter transfer timed out before Dropbox; current route changes request size.",
+      "resolution": "First/last small-part canary completed/hash checked, then bounded two-worker transfer completed all ten parts and guide; no unchanged whole-file retry."
+    }
+  ],
+  "simulated_review_lenses": {
+    "Android_owner": "SIMULATED: ten standard parts + short instructions in existing Dropbox /BandMaster; ZArchiver extracts one signed APK with no PC commands. Physicalphone extraction remains untested here.",
+    "transport_integrity": "SIMULATED: native7zip validates allten volumes and cleanextract matches exactsignedAPK; all eleven remote sizes/contenthashes match and completefolderreadback passes.",
+    "release_signing": "SIMULATED: exactoriginalsignedV24 bytes remain unchanged; no new build, signing request or key access. FrozenV23/app/save/cert retained.",
+    "privacy": "SIMULATED: existingprivateDropboxdestination, no newgrants/sharedlinks or publichosting; Git receives only helper/public metadata/docs, not archive/audio/APK.",
+    "continuity": "SIMULATED: owner access failure recorded honestly; completed remote delivery replaces unsupportedlocal-link assumption, Androidinstructions accompany actualcompleteparts."
+  },
+  "limitations": [
+    "Physical Android archive extraction, installation/save retention and audio listening await owner review.",
+    "The full standalone APK is not in Dropbox; the complete ten-part transport archive is. All parts are required to extract the one APK.",
+    "Global artwork owner_approved remains false; no new UI/art/listening acceptance claim."
+  ],
+  "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage."
+}

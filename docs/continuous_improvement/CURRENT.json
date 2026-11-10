@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/SIGN45.json",
-  "scope": "Original-key V24 signature verified, exact APK assembled and officially audited, direct local APK ready; Dropbox adapter timed out before handoff, device review pending.",
+  "session": "docs/continuous_improvement/sessions/DELIVER46.json",
+  "scope": "Exact signed V24 delivered as ten standard Android-readable archive parts in existing private Dropbox; complete part hashes/native extraction verified.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "signed_V24_original_certificate_verified_direct_APK_ready_Dropbox_adapter_timeout",
-  "next_action": "Install signed V24 as an in-place update without uninstalling or clearing storage, then review crowd/vocal/legacy audio and saved-game Continue on the owner device.",
+  "status": "all_ten_Android_archive_parts_privately_delivered_hash_verified",
+  "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -6393,7 +6393,17 @@
     "physical_phone_tested": false,
     "physical_upgrade_save_retention_tested": false,
     "original_key_used_here": false,
-    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves."
+    "install_instruction": "Install UPDATE; never uninstall, clear storage or wipe saves.",
+    "delivery": {
+      "kind": "standard7z_transport_volumes",
+      "Dropbox_folder": "/BandMaster",
+      "first_part": "BandMaster-V24.7z.001",
+      "last_part": "BandMaster-V24.7z.010",
+      "parts": 10,
+      "all_parts_completed_hash_verified": true,
+      "direct_local_link_owner_inaccessible": true,
+      "report": "docs/continuous_improvement/DELIVER46_RESULTS.json"
+    }
   },
   "latest_direct_owner_APK_upload": {
     "direct_owner_text": "Upload and give access to alimuir654@gmail.com",
@@ -7914,5 +7924,18 @@
     "direct_local_APK_ready": true,
     "owner_approved": false,
     "next_action": "Install signed V24 as an in-place update without uninstalling or clearing storage, then review crowd/vocal/legacy audio and saved-game Continue on the owner device."
+  },
+  "deliver46": {
+    "report": "docs/continuous_improvement/DELIVER46_RESULTS.json",
+    "tested_packager_sha": "033d7eb07f0d05bc80eb52812981a47a46c0d62f",
+    "APK_source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "APK_sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "Dropbox_folder": "/BandMaster",
+    "parts": 10,
+    "guide": "V24-ANDROID-INSTALL.txt",
+    "remote_parts_hash_verified": true,
+    "native_exact_APK_extraction_pass": true,
+    "owner_approved": false,
+    "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage."
   }
 }

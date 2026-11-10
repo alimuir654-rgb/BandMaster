@@ -12,6 +12,28 @@ The helpers use Python 3 with the existing `cryptography` dependency and Java 17
 `tools/detached_apk_v2.py` already prepares/assembles APK-v2 blocks and requires
 official Android `apksigner`, `zipalign`, app/version and unchanged-payload checks.
 
+## V24 Android download — ten private Dropbox parts ready
+
+The owner could not download the workspace link. The exact signed V24 is now
+available as ten standard archive volumes in Dropbox `/BandMaster`:
+**`BandMaster-V24.7z.001` through `BandMaster-V24.7z.010`**, plus
+`V24-ANDROID-INSTALL.txt`. Nine parts are 48 MiB; the last is 8,798,719 bytes.
+All uploads completed, all remote sizes/content hashes match, and a fresh complete
+folder listing confirms all ten volumes and the guide.
+
+On Android, download **all ten parts into the same local folder**, preserving
+filenames. In **ZArchiver**, open `BandMaster-V24.7z.001` and choose **Extract here**.
+Install the resulting `BandMaster-Playtest-v24-arm64.apk` as an update. Do not
+uninstall BandMaster or clear storage. Dropbox offline copies may need exporting
+to a local phone folder before extraction. No computer or terminal commands needed.
+
+Native 7-Zip tested the complete archive and extracted only the original APK:
+SHA-256 `a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66`, 461,783,381 bytes.
+These are transport volumes containing one APK, not separate installable APKs.
+The original signed APK, certificate, app/save identity, request/policy and V23
+remain unchanged. The whole APK is not separately uploaded to Dropbox.
+See `../continuous_improvement/DELIVER46_RESULTS.json` for exact part identities.
+
 ## V24 complete — signed APK ready
 
 The original environment returned the matching V24 signature. It verifies against

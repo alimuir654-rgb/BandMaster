@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "DELIVER46",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "d11f739e4ea4ffe10f4fbfd0399692a704e6df46",
   "owner_request": "Owner cannot download local APK and explicitly asks to split load as before or use another route; confirmed Android phone. Deliver the exact signed V24 privately through usable small multipart archives and simple phone extraction, preserving APK/audio privacy and original app/signature.",
@@ -16,8 +16,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2179771,
-    "sha256": "4c209f5540eb2c63e6ed401979fbf2e35c633bf735e0f0504a1aa85807cff78a"
+    "bytes": 2182769,
+    "sha256": "92f9a71ab578020203d6daba6baf513d4e197330a06fa1a00fac51ab28f2a48a"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -51,7 +51,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T20:29:20.455612+00:00"
+  "started_at": "2026-11-10T20:29:20.455612+00:00",
+  "completed_at": "2026-11-10T20:39:07.957499+00:00",
+  "closeout": {
+    "tested_sha": "033d7eb07f0d05bc80eb52812981a47a46c0d62f",
+    "evidence": "docs/continuous_improvement/DELIVER46_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "On Android, download all ten BandMaster-V24.7z.001 through .010 parts from Dropbox /BandMaster into one local folder, open .001 in ZArchiver and extract the single APK, then install as an update without uninstalling or clearing storage.",
+    "new_issue_review": "Ownerlocaldownloadfailure andprovider7zipfilenameassumption retained/corrected; allparts nowremotehashverified andnativeexactAPKextractionpasses. No newAPK/key/visual/listening/physicalAndroidclaims."
+  }
 }
