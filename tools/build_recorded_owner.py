@@ -15,6 +15,41 @@ from pathlib import Path
 ENTRY = 'experiments/playable_flightcase/opening.tscn'
 APP = 'com.bandmaster.ownerplaytest.s40'
 CERT = '83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2'
+
+
+def crowd_preflight(repo, version_code, baseline=None):
+    """Keep partial source QA out of the next combined owner candidate."""
+    relative = 'experiments/playable_flightcase/gig_soundscape.gd'
+    if baseline:
+        source = subprocess.run(['git', 'show', baseline + ':' + relative], cwd=repo, capture_output=True)
+        data = source.stdout if source.returncode == 0 else b''
+    else:
+        data = (repo / relative).read_bytes()
+    if b'audio/crowd37/' not in data:
+        return  # Historical controlled baseline, not a new crowd build.
+    if version_code <= 23:
+        raise ValueError('New crowd source requires version code >23; frozen V23 stays unchanged')
+    folder = repo / 'experiments/playable_flightcase/audio/crowd37'
+    path = folder / 'manifest.json'
+    if not path.is_file():
+        raise ValueError('Approved crowd bank is missing; do not create a new test candidate')
+    manifest = json.loads(path.read_text())
+    expected = {'entrance': '2479', 'song': '2486', 'courtesy': '3521', 'cheer': '35748'}
+    if (manifest.get('content_version') != 'crowd37' or manifest.get('complete') is not True
+            or manifest.get('missing_sources') != [] or set(manifest.get('effects', {})) != set(expected)):
+        raise ValueError('Approved crowd bank is incomplete; source QA is not release clearance')
+    for cue, identity in expected.items():
+        entry = manifest['effects'][cue]
+        audio = folder / (cue + '.ogg')
+        if (entry.get('source_id') != identity or entry.get('owner_source_listening_accepted') is not True
+                or entry.get('integration_review_accepted') is not True or not audio.is_file()
+                or hashlib.sha256(audio.read_bytes()).hexdigest() != entry.get('sha256')):
+            raise ValueError('Approved crowd file/binding failed: ' + cue)
+    credit = repo / 'experiments/playable_flightcase/audio/crowd37_credits.txt'
+    if not credit.is_file() or hashlib.sha256(credit.read_bytes()).hexdigest() != manifest['effects']['cheer'].get('attribution_sha256'):
+        raise ValueError('Required pub recording attribution is missing or changed')
+
+
 PROJECT = '''config_version=5
 [application]
 config/name="BandMaster Playtest"
@@ -49,6 +84,7 @@ def main():
     args = parser.parse_args()
     assert args.version_code > 16
     repo = Path(__file__).resolve().parents[1]
+    crowd_preflight(repo, args.version_code, args.baseline)
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=False)
     project = out / 'project'
