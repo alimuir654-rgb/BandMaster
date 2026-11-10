@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "PUNCH48",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "fb092e97b910a5bffbd33b5ae2f2d68944cfa94b",
+  "owner_request": "Owner says formation poster improved but still lacks punch; logo work still inadequate; requests centred Make text. Offers another Suno export and asks about compressing large files. FEEDBACK47 technical success remains distinct from owner art acceptance.",
+  "dominant_issue": "BM-01",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-08",
+    "BM-13",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2198339,
+    "sha256": "be846ec7edb25e11f181fa8aebd2c9c480bceba214711a59fdb42031b412dd1c"
+  },
+  "target": {
+    "locator": "Owner current formation improvement still below desired punch; actual FEEDBACK47 native baseline /workspace/bandmaster-feedback47/candidate-phone-formation.png",
+    "original_sha256": "c1ba4995490fdea92e147717eb4c68f5de3f317c448ecbf376b696e9fd2269e0",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Same MUNCH/BexBenCasey and saved handpainted burnt-amber style, same3/6person full-length sources/room and four390x844,720x1280,1280x720,1600x900 viewports. Logo multiword/oneword/Unicode/long and compact headers; draft-free variations, fail/retry/exact reload. Make same buttons/icons/type size, only centre alignment.",
+  "hypothesis": "A high-contrast source-stock poster masthead/stronger visual rhythm and larger room-to-paper ratio will increase impact without redoing cast; cut-paper letter/word logo composition and saved variation seed add real generated variety beyond a font switch. Centre native action labels within existing tiles. FLAC can reduce source transfer while preserving exact PCM and stem offsets.",
+  "stop_condition": "No cast/biometric fact changes, no source-art duplication or fake master/photo claims, no renderer-image mockup-as-UI, no hidden-stat forecasts, save/economy/atomic guard change, private audio/APK publication, original key/app/request/frozenV23/V24 mutation. No new APK; unfinished Nina/Arjun/non-Indie holds remain explicit. Do not overwrite original media.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/band_identity_press.gd",
+    "experiments/playable_flightcase/band_mark.gd",
+    "experiments/playable_flightcase/identity_style.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "tests/punch48*",
+    "tools/punch48*",
+    "docs/audio/**",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Actual improvement_gate with committed preflight SHA derived from git",
+    "Source baseline reused exact FEEDBACK47 runtime; first native phone/landscape visible composition review then four candidate viewports; actual primary-label alignment and native glyphs",
+    "All six logo directions/variation-free draft, saved/reload/failure guards; unknown future/invalid variant held; genuine selected3/6people retained",
+    "FLAC -compression_level8 conversion of one restored WAV, exact decoded PCM/rate/channels/frame-count comparison, measured bytes. Public compression helper/docs only; source and output private",
+    "No unchanged broad audio/economy suite rerun; inspect source/private diff, frozen signing identities and nonforce expected-SHA publication"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-punch48",
+    "native_project": "Reuse private FEEDBACK47 materialized project copied independently; no APK export",
+    "audio": "One bounded private FLAC reference conversion; original WAV unchanged",
+    "workers": 1,
+    "new_runtime_dependencies": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T23:11:55.486277+00:00",
+  "queue_task": "Existing UX10 formation/branding, owner-requested Make alignment and source transfer advice",
+  "reviewer": "root, five explicitly simulated lenses; no delegation/human claim"
+}
