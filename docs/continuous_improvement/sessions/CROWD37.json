@@ -20,8 +20,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2142100,
-    "sha256": "3bd7b727ae4f8419a4f7c4a51670e737ba2c0a2d28aabf392ed02c10368d8514"
+    "bytes": 2142977,
+    "sha256": "3d0ac21ee71ada242825685c9d305e48dd9f3849f46c8fdf8baac78d8fc3199d"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",

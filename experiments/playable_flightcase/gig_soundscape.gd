@@ -2,7 +2,10 @@ extends Node
 ## Presentation owner, retained across redraws. Only saved-event dispatch starts it.
 const Crowd=preload("res://experiments/playable_flightcase/crowd_reaction.gd")
 const Music=preload("res://experiments/playable_flightcase/mixing_audio.gd")
-var manifest_path: String="res://experiments/playable_flightcase/audio/crowd34/manifest.json"
+const PREFIX="res://experiments/playable_flightcase/audio/crowd37/"
+const CREDITS="res://experiments/playable_flightcase/audio/crowd37_credits.txt"
+const SOURCES={"entrance":"2479","song":"2486","courtesy":"3521","cheer":"35748"}
+var manifest_path: String=PREFIX+"manifest.json"
 var event_id: String=""
 var event_kind: String=""
 var starts: int=0
@@ -45,11 +48,17 @@ func on_saved(before: Dictionary,after: Dictionary,action: String) -> void:
 func _effect_stream(kind: String) -> AudioStream:
  if not FileAccess.file_exists(manifest_path):return null
  var raw: Variant=JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
- if not raw is Dictionary or raw.get("content_version")!="crowd34" or not raw.get("effects") is Dictionary:return null
+ if not raw is Dictionary or raw.get("schema_version")!=1 or raw.get("content_version")!="crowd37" or raw.get("authority")!="owner_approved_table_20261110" or not raw.get("effects") is Dictionary:return null
+ # The old applause/boo shortlist was rejected. No legacy or negative-cue fallback.
+ if kind not in SOURCES:return null
  var entry: Variant=raw.effects.get(kind)
- if not entry is Dictionary or entry.get("integration_review_accepted")!=true or entry.get("license")!="CC0-1.0" or entry.get("authority")!="owner_crowd_request_20261110":return null
+ if not entry is Dictionary or entry.get("integration_review_accepted")!=true or entry.get("owner_source_listening_accepted")!=true or entry.get("authority")!="owner_approved_table_20261110" or entry.get("source_id")!=SOURCES[kind]:return null
+ if not entry.get("sha256") is String or entry.sha256.length()!=64 or not entry.get("source_sha256") is String or entry.source_sha256.length()!=64:return null
+ if entry.get("license")!=("CC-BY-4.0" if kind=="cheer" else "CC0-1.0"):return null
+ if kind=="cheer":
+  if entry.get("attribution_path")!=CREDITS or not FileAccess.file_exists(CREDITS) or FileAccess.get_sha256(CREDITS)!=entry.get("attribution_sha256"):return null
  var path: String=str(entry.get("path",""))
- if not path.begins_with("res://experiments/playable_flightcase/audio/crowd34/") or not ResourceLoader.exists(path):return null
+ if path!=PREFIX+kind+".ogg" or not ResourceLoader.exists(path):return null
  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256"):return null
  var stream=load(path)
  if not stream is AudioStream or stream.get_length()<=0 or stream.get_length()>9.0:return null
@@ -65,7 +74,9 @@ func _start_once(serial: int,key: String) -> void:
   _fade=create_tween()
   # Fade a room reaction in, then below the actual arrangement and away.
   _fade.tween_property(_crowd,"volume_db",-19.0 if _music.playing else -13.0,0.30)
-  _fade.tween_interval(minf(1.5,maxf(0.0,effect.get_length()-1.2)))
+  # Preserve a fuller approved end-of-show reaction; other cues stay brief.
+  var hold_limit: float=4.8 if event_kind=="cheer" else 2.4
+  _fade.tween_interval(minf(hold_limit,maxf(0.0,effect.get_length()-1.2)))
   _fade.tween_property(_crowd,"volume_db",-55.0,0.85)
   _fade.tween_callback(_release_effect)
 func _release_effect() -> void:

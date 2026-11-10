@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "status": "production_brief_only_no_new_generation_or_runtime_schema",
+  "owner_direction": "Consider actual characters and reuse the SAME vocals across multiple arrangements; most game uses are short snippets.",
+  "canonical_source": "Data/CharacterCast/approved_cast_2026-10-29.json",
+  "singers": [
+    {
+      "candidate_id": "cast_maya",
+      "name": "Maya",
+      "canonical_story": "Open-mic singer with a first notebook of songs.",
+      "canonical_strength": "Warm melodic instinct and encouraging rehearsals.",
+      "canonical_friction": "Lyrics and stage confidence need development.",
+      "proposed_performance_direction": "Warm melodic lead with gentle dynamic lift; thoughtful delivery, modest ornament and space to breathe.",
+      "voice_gender_and_range": "Not canonically specified; choose by listening, never inferred from name/portrait.",
+      "original_lyric_seed": "We missed the last train home / But found a place to start",
+      "prompt": "Fictional original UK indie band, 100 BPM target, 4/4, G major target, repeating G-D-Em-C with one chord per bar. Short 30-45 second source sketch with a settled two-bar instrumental lead-in, one complete four-bar vocal phrase, one contrasting four-bar phrase and a clean decay. Dry centred lead vocal, sparse guitar, melodic bass, natural drums and separated keyboard part. No crowd, spoken introduction, artist imitation, choir, vocal doubling or abrupt cutoff. Tempo/key/phrase boundaries must be verified after generation. Character performance direction: Warm melodic lead with gentle dynamic lift; thoughtful delivery, modest ornament and space to breathe.",
+      "source_target_seconds": [
+        30,
+        45
+      ],
+      "in_game_phrase_target_seconds": [
+        4.8,
+        9.6
+      ],
+      "persona": "One private synthetic-character Style Persona after owner approves this voice; reference this same character master for later songs."
+    },
+    {
+      "candidate_id": "cast_lily",
+      "name": "Lily",
+      "canonical_story": "Strong live voice from small local support slots.",
+      "canonical_strength": "Distinctive tone and convincing delivery.",
+      "canonical_friction": "Pushes for immediate takes when others need preparation.",
+      "proposed_performance_direction": "Distinctive, assured live lead with clear attack and convincing sustained phrases; controlled projection, no arena gloss.",
+      "voice_gender_and_range": "Not canonically specified; choose by listening, never inferred from name/portrait.",
+      "original_lyric_seed": "Leave the door wide open / We are not going home tonight",
+      "prompt": "Fictional original UK indie band, 100 BPM target, 4/4, G major target, repeating G-D-Em-C with one chord per bar. Short 30-45 second source sketch with a settled two-bar instrumental lead-in, one complete four-bar vocal phrase, one contrasting four-bar phrase and a clean decay. Dry centred lead vocal, sparse guitar, melodic bass, natural drums and separated keyboard part. No crowd, spoken introduction, artist imitation, choir, vocal doubling or abrupt cutoff. Tempo/key/phrase boundaries must be verified after generation. Character performance direction: Distinctive, assured live lead with clear attack and convincing sustained phrases; controlled projection, no arena gloss.",
+      "source_target_seconds": [
+        30,
+        45
+      ],
+      "in_game_phrase_target_seconds": [
+        4.8,
+        9.6
+      ],
+      "persona": "One private synthetic-character Style Persona after owner approves this voice; reference this same character master for later songs."
+    },
+    {
+      "candidate_id": "cast_nina",
+      "name": "Nina",
+      "canonical_story": "First band after singing with friends and at open mics.",
+      "canonical_strength": "Warmth, patience and a good ear for harmony.",
+      "canonical_friction": "Quiet on stage; original lyrics still developing.",
+      "proposed_performance_direction": "Intimate, warm, lightly projected lead; simple clear melody and supportive harmony. Natural breath, no forced belting.",
+      "voice_gender_and_range": "Not canonically specified; choose by listening, never inferred from name/portrait.",
+      "original_lyric_seed": "Keep a little light for me / I will find the words in time",
+      "prompt": "Fictional original UK indie band, 100 BPM target, 4/4, G major target, repeating G-D-Em-C with one chord per bar. Short 30-45 second source sketch with a settled two-bar instrumental lead-in, one complete four-bar vocal phrase, one contrasting four-bar phrase and a clean decay. Dry centred lead vocal, sparse guitar, melodic bass, natural drums and separated keyboard part. No crowd, spoken introduction, artist imitation, choir, vocal doubling or abrupt cutoff. Tempo/key/phrase boundaries must be verified after generation. Character performance direction: Intimate, warm, lightly projected lead; simple clear melody and supportive harmony. Natural breath, no forced belting.",
+      "source_target_seconds": [
+        30,
+        45
+      ],
+      "in_game_phrase_target_seconds": [
+        4.8,
+        9.6
+      ],
+      "persona": "One private synthetic-character Style Persona after owner approves this voice; reference this same character master for later songs."
+    },
+    {
+      "candidate_id": "cast_sam",
+      "name": "Sam",
+      "canonical_story": "Fictional wildcard: magnetic open-mic frontperson with songs stronger than rehearsal habits.",
+      "canonical_strength": "Unusual phrasing, striking lyrics and room-filling presence.",
+      "canonical_friction": "Late preparation and defensiveness under pressure undermine trust; needs clear boundaries.",
+      "proposed_performance_direction": "Magnetic, unusual phrasing with deliberate rhythmic space and striking melodic turns; expressive presence, no caricature or deliberately bad timing.",
+      "voice_gender_and_range": "Not canonically specified; choose by listening, never inferred from name/portrait.",
+      "original_lyric_seed": "The room keeps all our secrets / The walls will not give them back",
+      "prompt": "Fictional original UK indie band, 100 BPM target, 4/4, G major target, repeating G-D-Em-C with one chord per bar. Short 30-45 second source sketch with a settled two-bar instrumental lead-in, one complete four-bar vocal phrase, one contrasting four-bar phrase and a clean decay. Dry centred lead vocal, sparse guitar, melodic bass, natural drums and separated keyboard part. No crowd, spoken introduction, artist imitation, choir, vocal doubling or abrupt cutoff. Tempo/key/phrase boundaries must be verified after generation. Character performance direction: Magnetic, unusual phrasing with deliberate rhythmic space and striking melodic turns; expressive presence, no caricature or deliberately bad timing.",
+      "source_target_seconds": [
+        30,
+        45
+      ],
+      "in_game_phrase_target_seconds": [
+        4.8,
+        9.6
+      ],
+      "persona": "One private synthetic-character Style Persona after owner approves this voice; reference this same character master for later songs."
+    }
+  ],
+  "keyboardists": [
+    {
+      "candidate_id": "cast_dan",
+      "name": "Dan",
+      "canonical_story": "Bedroom demo-maker trying a first live band.",
+      "canonical_strength": "Useful textures and patient listening.",
+      "canonical_friction": "Live patch changes and stage presence are untested.",
+      "proposed_performance_direction": "Simple sustained electric-piano or soft-organ voicings, sparse texture, reliable chord changes. No busy solo.",
+      "prompt": "Instrumental UK indie keyboard source, 100 BPM target,4/4,G major target,G-D-Em-C one chord per bar. Simple sustained electric-piano or soft-organ voicings, sparse texture, reliable chord changes. No busy solo. Complete four-bar phrases, clear gaps and preserved decay; no vocals, crowd or extra keyboard layers. Keep arrangement compatible with the approved singer master; verify actual clock and harmony before use.",
+      "target_snippet_seconds": [
+        4.8,
+        9.6
+      ]
+    },
+    {
+      "candidate_id": "cast_freya",
+      "name": "Freya",
+      "canonical_story": "Home recordings made with a second-hand keyboard.",
+      "canonical_strength": "Inventive harmonies and atmospheric arrangements.",
+      "canonical_friction": "Needs a clear brief to avoid endless sound experiments.",
+      "proposed_performance_direction": "Atmospheric electric piano and restrained synth colours; inventive but harmonically compatible voicings, space around vocal. No continuous wash over the singer.",
+      "prompt": "Instrumental UK indie keyboard source, 100 BPM target,4/4,G major target,G-D-Em-C one chord per bar. Atmospheric electric piano and restrained synth colours; inventive but harmonically compatible voicings, space around vocal. No continuous wash over the singer. Complete four-bar phrases, clear gaps and preserved decay; no vocals, crowd or extra keyboard layers. Keep arrangement compatible with the approved singer master; verify actual clock and harmony before use.",
+      "target_snippet_seconds": [
+        4.8,
+        9.6
+      ]
+    },
+    {
+      "candidate_id": "cast_oscar",
+      "name": "Oscar",
+      "canonical_story": "Technically trained player starting to write with a band.",
+      "canonical_strength": "Harmony, versatility and fast arrangement learning.",
+      "canonical_friction": "Needs reminding when a simple part is enough.",
+      "proposed_performance_direction": "Clear voice leading, tasteful inversions and occasional answering figures; technically fluent but economical, supportive of vocal.",
+      "prompt": "Instrumental UK indie keyboard source, 100 BPM target,4/4,G major target,G-D-Em-C one chord per bar. Clear voice leading, tasteful inversions and occasional answering figures; technically fluent but economical, supportive of vocal. Complete four-bar phrases, clear gaps and preserved decay; no vocals, crowd or extra keyboard layers. Keep arrangement compatible with the approved singer master; verify actual clock and harmony before use.",
+      "target_snippet_seconds": [
+        4.8,
+        9.6
+      ]
+    }
+  ],
+  "first_pilot": {
+    "singer": "cast_maya",
+    "keys": "cast_freya",
+    "reason": "Warm melodic open-mic lead and atmospheric keyboard arranger provide a clear reusable voice plus an audibly new instrument; proposals for owner listening, not accepted character voices.",
+    "contrast_next": {
+      "singer": "cast_lily",
+      "keys": "cast_dan"
+    },
+    "reserve": "Keep credits for replacement takes and isolation failures. No account accessed, credits spent, exact cost assumed or song generated."
+  },
+  "reuse_contract": {
+    "same_song_different_arrangements": "One approved vocal PCM master per singer/song/phrase. Sparse, groove and fuller backing reference the identical vocal asset and start frame; retain exact melody/lyrics/timing and change only compatible instrumental stems/mix. Same phrase ID across arrangements, never claim EQ creates a new performance.",
+    "different_songs_same_singer": "Use a private generated-character Style Persona as guidance, then verify identity by listening. This does not guarantee identical timbre; reject drift. It is not the separately verified own-human-voice feature.",
+    "separate_characters": "Do not assign the same singer master to multiple canonical singers as if they are different people.",
+    "harmony_and_time": "Identical vocal reuse requires compatible actual tempo, meter, key, progression and phrase positions. Do not drop it over the existing109/114/136BPM banks.100BPM here is a new target, not a claim about supplied recordings.",
+    "future_transforms": "Do not silently pitch-shift/time-stretch. Any approved transform remains a derivative with original/master binding and new listening check.",
+    "phrase_boundaries": "Prefer complete2bar/4bar phrases; record actual pickup, source start/end frame, downbeat anchor and reverb tail. At verified100BPM4/4,2bars=4.8seconds and4bars=9.6seconds excluding pickup/tail.",
+    "storage": "Keep longer private original masters and selected excerpts; bundle only used short derivatives. Preserve original hashes, exact source take and all stem offsets.",
+    "delivery": "WAV stems and full reference mix from one chosen take/export range: lead vocal, keys, guitar, bass, drums; separate backing vocal if present. Same timeline origin/duration, no per-stem auto-trimming, normalization or independent silence removal. AI separation may bleed; listen to each stem and mixed result.",
+    "runtime_boundary": "Current recorded_steady.gd supports guitar/bass/drums with five tone/part assets. Vocals/keys are not currently supported. Add a separately versioned recipe/bank/participant binding only after accepted assets; preserve all old hooks/uses and saved arrangements. No present save schema change."
+  },
+  "review_acceptance": [
+    "Approve fictional voice identity per actual character; no voice gender/range invented from appearance.",
+    "Confirm true tempo/meter/key/progression, clean phrase boundaries and exact stem alignment.",
+    "Listen for bleed, unwanted music/doubling, word clipping and natural keyboard/vocal interplay.",
+    "Compare same vocal at identical timing across sparse/groove/full backings; verify vocal PCM SHA identical.",
+    "Use same character cohort/source binding in auditions, writing, rehearsal and saved gig excerpts; never add a missing singer/keyboard player to a trio.",
+    "Separate composition quality and musical complexity from actual character ability; do not turn low collaboration/reliability into deliberately poor singing."
+  ],
+  "official_workflow_sources": [
+    {
+      "url": "https://help.suno.com/en/articles/3484161",
+      "observed": "Personas capture vocals/style; public by default, set private."
+    },
+    {
+      "url": "https://help.suno.com/en/articles/11362433",
+      "observed": "Style Personas remain in Voices menu; own-voice feature is a different verified workflow."
+    },
+    {
+      "url": "https://help.suno.com/en/articles/13925249",
+      "observed": "Current Studio export help; full mix, selected time range and multitrack stems. Consult account interface; no new subscription assumed."
+    }
+  ],
+  "generation_or_public_upload_performed": false,
+  "owner_voice_or_character_asset_acceptance": false
+}

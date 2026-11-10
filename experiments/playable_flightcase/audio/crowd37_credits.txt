@@ -1,0 +1,15 @@
+Crowd audio
+
+"CROWD NOISE IN SMALL VENUE 001.wav" by sandyrb
+https://freesound.org/people/sandyrb/sounds/35748/
+Licensed under Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+Changes: excerpt, level adjustment, fades and Vorbis encoding.
+
+"Applause Concert Bar #1", "Applause Concert Bar #8" and
+"Applause from 40 People #5" by Joseph SARDIN / BigSoundBank
+https://bigsoundbank.com/applause-concert-bar-1-s2479.html
+https://bigsoundbank.com/applause-concert-bar-8-s2486.html
+https://bigsoundbank.com/applause-from-40-people-5-s3521.html
+CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Changes: excerpts, level adjustment, fades and Vorbis encoding.

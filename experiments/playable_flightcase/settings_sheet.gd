@@ -84,6 +84,17 @@ func _ready() -> void:
  var identity: Label=Poster.label("PLAYTEST V%d · %s" % [build,version] if build>0 else version,14,Poster.GOLD)
  identity.name="SettingsBuildIdentity"
  _options.add_child(identity)
+ # CC BY attribution stays readable in the existing scrollable sheet.
+ # Only show these credits when the approved pub recording is installed.
+ if ResourceLoader.exists("res://experiments/playable_flightcase/audio/crowd37/cheer.ogg"):
+  var credit_path: String="res://experiments/playable_flightcase/audio/crowd37_credits.txt"
+  if FileAccess.file_exists(credit_path):
+   var credits: Label=Poster.label(FileAccess.get_file_as_string(credit_path),14,Poster.PAPER)
+   credits.name="SettingsCrowdCredits"
+   credits.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+   credits.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+   credits.mouse_filter=Control.MOUSE_FILTER_IGNORE
+   _options.add_child(credits)
  back_button = Poster.button("BACK",true)
  back_button.name = "SettingsBackAction"
  back_button.pressed.connect(close_sheet)

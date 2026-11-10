@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "content_version": "crowd37",
+  "owner_source_listening_accepted": true,
+  "owner_authority": "owner_approved_table_20261110",
+  "approval_scope": "The four exact MP3 table sources approved. Derivative mix not yet heard. All earlier CROWD36/HowardV/Mixkit sources rejected.",
+  "boo_approved": false,
+  "sources": {
+    "2479": {
+      "title": "Applause Concert Bar #1",
+      "creator": "Joseph SARDIN",
+      "source_page": "https://bigsoundbank.com/applause-concert-bar-1-s2479.html",
+      "preview_url": "https://bigsoundbank.com/UPLOAD/mp3/2479.mp3?v=d",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_sha256": null,
+      "cue": "entrance",
+      "duration_seconds": 3.6
+    },
+    "2486": {
+      "title": "Applause Concert Bar #8",
+      "creator": "Joseph SARDIN",
+      "source_page": "https://bigsoundbank.com/applause-concert-bar-8-s2486.html",
+      "preview_url": "https://bigsoundbank.com/UPLOAD/mp3/2486.mp3?v=d",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_sha256": null,
+      "cue": "song",
+      "duration_seconds": 3.2
+    },
+    "3521": {
+      "title": "Applause from 40 People #5",
+      "creator": "Joseph SARDIN",
+      "source_page": "https://bigsoundbank.com/applause-from-40-people-5-s3521.html",
+      "preview_url": "https://bigsoundbank.com/UPLOAD/mp3/3521.mp3?v=d",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_sha256": null,
+      "cue": "courtesy",
+      "duration_seconds": 3.6
+    },
+    "35748": {
+      "title": "CROWD NOISE IN SMALL VENUE 001.wav",
+      "creator": "sandyrb",
+      "source_page": "https://freesound.org/people/sandyrb/sounds/35748/",
+      "preview_url": "https://cdn.freesound.org/previews/35/35748_14771-lq.mp3",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_sha256": "e204241a600caebf06ee504a642e7d324fa7d60c638f6e58d8929d12d4f24d2c",
+      "cue": "cheer",
+      "duration_seconds": 6.0
+    }
+  }
+}
