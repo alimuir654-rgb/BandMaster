@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "HANDOFF44",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "1d7c661c25810c20434d6ae38d41c442a157ed67",
+  "owner_request": "Upload the exact existing BandMaster-V24-APK-v2-signing-request.json to /BandMaster/BandMaster-V24-APK-v2-signing-request.json, ensure the packaged source commit is pushed to GitHub and confirm both available.",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-13",
+    "BM-34",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2173016,
+    "sha256": "4eb45ab136ab9288eebf4afae6c55b931485cd08702c03520b588ec37de8826a"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Previously opened unchanged crowd atlas and native journey. Audio-only restoration; no UI/source-art modifications."
+  },
+  "controlled_comparison": "Byte-identical original audited 7781-byte request SHA8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b across local file, Dropbox download and GitHub file. Exact packaged source462b68ad7211a639bea204a6ab0d94f4fd942875 remains reachable from feature branch.",
+  "hypothesis": "The existing unchanged public V24 request can be uploaded to the exact owner-confirmed Dropbox destination and its bytes/hash verified; the already-pushed packaged source commit and request can be independently retrieved from GitHub.",
+  "stop_condition": "No request/APK/policy/media/app/signing/key changes, no sharing changes, no forced push/main/PR changes. Exact destination explicitly authorized by owner; no duplicate/renamed upload on conflict.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/signing/README.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Exact existing request public check and frozenV23 unchanged",
+    "Dropbox upload exact authorized localfile/destination then metadata and downloaded SHA/size",
+    "GitHub exact source commit and request readback; reachable feature branch; normal source-only publish if new receipt docs"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-handoff44",
+    "new_APK": false,
+    "media_upload": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T20:09:08.791293+00:00"
+}
