@@ -60,7 +60,13 @@ func drag(scroll: ScrollContainer,target: Control,reset_top: bool=true) -> Dicti
   var move:=InputEventScreenDrag.new();move.index=0;move.position=point+Vector2(0,-12*(i+1));move.relative=Vector2(0,-12);move.velocity=Vector2(0,-360)
   Input.parse_input_event(move);await process_frame
  event=InputEventScreenTouch.new();event.index=0;event.position=point-Vector2(0,120);event.pressed=false;Input.parse_input_event(event)
- for _i in range(45):await process_frame
+ var stable:=0;var prior: int=scroll.scroll_vertical
+ for _i in range(150):
+  await process_frame
+  var now: int=scroll.scroll_vertical
+  stable=stable+1 if now==prior else 0
+  prior=now
+  if stable>=10:break
  scroll.gui_input.disconnect(observer)
  return {"initial":initial,"final":scroll.scroll_vertical,"range":scroll.get_v_scroll_bar().max_value-scroll.get_v_scroll_bar().page,"events":seen,"target_filter":target.mouse_filter}
 
@@ -116,16 +122,25 @@ func run() -> void:
   var prior: int=scroll.scroll_vertical
   var wheel:=InputEventMouseButton.new();wheel.button_index=MOUSE_BUTTON_WHEEL_UP;wheel.position=point;wheel.global_position=point;wheel.pressed=true
   Input.parse_input_event(wheel);await settle()
+  wheel=InputEventMouseButton.new();wheel.button_index=MOUSE_BUTTON_WHEEL_UP;wheel.position=point;wheel.global_position=point;wheel.pressed=false
+  Input.parse_input_event(wheel);await settle()
   if prior>8:check(scroll.scroll_vertical<prior,"wheel also scrolls venue list")
   check(owner.snapshot()==before and view.booking_step=="rooms","deep scroll and wheel never select or spend")
  await capture("venues-after-drag")
+ # Finish kinetic scrolling, then return with the actual scrollbar key.
+ scroll.get_v_scroll_bar().grab_focus()
+ for down in [true,false]:
+  var home:=InputEventKey.new();home.keycode=KEY_HOME;home.pressed=down
+  Input.parse_input_event(home);await process_frame
+ for _i in range(20):await process_frame
  await reveal(local)
  if not await tap("BookingVenue_local"):await finish();return
  await capture("promoter-local")
  if not baseline:
   var portrait: TextureRect=scene.find_child("BookingPromoterPortrait",true,false)
   check(portrait!=null and portrait.texture!=null and portrait.get_meta("promoter_id","")=="mo_farrow","actual named local promoter portrait")
-  check(scene.find_child("BookingPromoterHeading",true,false).text=="MO FARROW","promoter identity visible")
+  var heading: Label=scene.find_child("BookingPromoterHeading",true,false)
+  if not check(heading!=null and heading.text=="MO FARROW","promoter identity visible"):await finish();return
  if not baseline:
   await extended_journey()
   await logo_journey()
