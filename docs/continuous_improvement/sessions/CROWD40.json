@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "CROWD40",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "e3b5f6a1bfa2b1c41bc5d855b644b2eee75ff14e",
+  "owner_request": "Owner supplied all four approved crowd MP3 attachments after completion was held for the missing three sources. Complete private crowd intake/preparation and verify with approved version5 song before the next combined build; preserve private music/app/key/frozenV23.",
+  "dominant_issue": "BM-14",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2156643,
+    "sha256": "fb7b5aefdb87448b9c8d76812f803f85706f23f3a926b33fd9731acd030079b5"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Existing approved-source crowd atlas opened again this turn. Audio intake/integration only; unchanged UI/art."
+  },
+  "controlled_comparison": "Same existing main-app gig journey and crowd art; original actual paid version5 song fixture read-only. Four exact approved MP3s vs prepared Vorbis cues, attribution/decoder/once-only/failure/mute/source holds; four native viewport captures for combined playback.",
+  "hypothesis": "Pin the exact owner-uploaded approved source bytes, reuse strict CROWD37 preparation and existing saved-event soundscape, and prove real four-cue playback together with the approved Maya/Freya saved song without gameplay or UI changes.",
+  "stop_condition": "No rejected boo/substitute, no invented direct-download verification for uploads, no private mediaGit, original source files unchanged, no save/schema/UI/economy/key/app/frozenV23 edits. Any later APK uses fresh version>23 audited request; no signing here.",
+  "allowed_paths": [
+    "docs/audio/CROWD37_SOURCES.json",
+    "tools/prepare_crowd37.py",
+    "tests/crowd40*",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Exact attachment hashes/ffprobe, known Freesound pin equality, immutable copied originals and complete strict preparation",
+    "Existing crowd37_prepare_test and real crowd37_test with full4cue bank; new all-source/buildguard tests",
+    "Native main-app real version5 saved song+four crowd cues, failedsave/no-replay/mute/held-source;390x844,1280x720,720x1280,1600x900; open actual originals",
+    "Improvement gate fullpreflight SHA, no tracked new audio, unchanged frozenV23 hashes"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-crowd40",
+    "qa_project": "/workspace/bandmaster-crowd36/project",
+    "persistent_budget_bytes": 268435456,
+    "new_build_this_session": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T15:22:53.936769+00:00"
+}
