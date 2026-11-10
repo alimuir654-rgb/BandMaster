@@ -46,8 +46,9 @@ func tap(name: String) -> bool:
   Input.parse_input_event(event);await process_frame
  await settle();return true
 
-func drag(scroll: ScrollContainer,target: Control) -> Dictionary:
- scroll.scroll_vertical=0;await settle()
+func drag(scroll: ScrollContainer,target: Control,reset_top: bool=true) -> Dictionary:
+ if reset_top:scroll.scroll_vertical=0
+ await settle()
  var area: Rect2=target.get_global_rect().intersection(scroll.get_global_rect())
  var point: Vector2=root.get_final_transform()*(area.position+area.size/2)
  var initial: int=scroll.scroll_vertical
@@ -108,6 +109,15 @@ func run() -> void:
  observations["venue_card_drag"]=await drag(scroll,frame)
  check(owner.snapshot()==before and view.booking_step=="rooms","venue drag never commits or selects")
  if not baseline and observations.venue_card_drag.range>8:check(observations.venue_card_drag.final>8,"touch over venue card actually scrolls")
+ if not baseline:
+  for _i in range(4):await drag(scroll,scroll,false)
+  check(scroll.scroll_vertical>=scroll.get_v_scroll_bar().max_value-scroll.get_v_scroll_bar().page-2,"real repeated touch reaches deepest venue")
+  var point: Vector2=root.get_final_transform()*(scroll.get_global_rect().position+scroll.size/2)
+  var prior: int=scroll.scroll_vertical
+  var wheel:=InputEventMouseButton.new();wheel.button_index=MOUSE_BUTTON_WHEEL_UP;wheel.position=point;wheel.global_position=point;wheel.pressed=true
+  Input.parse_input_event(wheel);await settle()
+  if prior>8:check(scroll.scroll_vertical<prior,"wheel also scrolls venue list")
+  check(owner.snapshot()==before and view.booking_step=="rooms","deep scroll and wheel never select or spend")
  await capture("venues-after-drag")
  await reveal(local)
  if not await tap("BookingVenue_local"):await finish();return
